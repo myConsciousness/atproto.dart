@@ -1,0 +1,23 @@
+name: Analyzer
+
+on:
+  push:
+    # staging and trying branches are for Bors config
+    branches: [ main, staging, trying ]
+  pull_request:
+    # staging and trying branches are for Bors config
+    branches: [ main, staging, trying ]
+  schedule:
+    - cron: '0 3 * * *'
+
+jobs:
+  analyze:
+    name: analyzer
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: dart-lang/setup-dart@v1
+    - name: install dependencies
+      run: dart pub get
+    - name: analyzer
+      run: dart analyze --fatal-infos --fatal-warnings .
