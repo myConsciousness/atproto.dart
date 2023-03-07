@@ -1,0 +1,27 @@
+name: Test
+
+on:
+  push:
+    # staging and trying branches are for Bors config
+    branches: [ main, staging, trying ]
+  pull_request:
+    # staging and trying branches are for Bors config
+    branches: [ main, staging, trying ]
+  schedule:
+    - cron: '0 3 * * *'
+
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: subosito/flutter-action@v2.8.0
+    - name: install dependencies
+      run: flutter pub get
+    - name: run test with coverage
+      run: flutter test --coverage
+    - uses: codecov/codecov-action@v3
+      with:
+        token: ${{secrets.CODECOV_TOKEN}}
+        file: ./coverage/lcov.info
