@@ -1,8 +1,9 @@
 <p align="center">
   <a href="https://github.com/myConsciousness/atproto.dart">
-    <img alt="atproto" width="600px" src="https://user-images.githubusercontent.com/13072231/202892481-5b9c8a39-ef55-4dca-a912-e298beb635ca.png">
+    <img alt="atproto" width="600px" src="https://user-images.githubusercontent.com/13072231/223450859-69cb37c8-0ac6-4310-91dd-6f48361282ce.png">
   </a>
 </p>
+
 
 <p align="center">
   <b>The Easiest and Powerful Dart/Flutter Library for AT Protocol 🎯</b>
