@@ -1,0 +1,4 @@
+status = [ 'test', 'analyzer' ]
+block_labels = [ 'do not merge yet' ]
+# 1 hour timeout
+timeout-sec = 3600
