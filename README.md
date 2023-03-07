@@ -39,6 +39,7 @@
     - [1.2.2. Import](#122-import)
     - [1.2.3. Implementation](#123-implementation)
   - [1.3. Supported Lexicons 👀](#13-supported-lexicons-)
+    - [Session](#session)
   - [1.4. Tips 🏄](#14-tips-)
     - [1.4.1. Method Names](#141-method-names)
     - [1.4.2. Null Parameter at Request](#142-null-parameter-at-request)
@@ -140,6 +141,13 @@ Future<void> main() async {
 ```
 
 ## 1.3. Supported Lexicons 👀
+
+### Session
+
+| **Endpoint**                                                                                                      | **Method Name**                                                                                                        |
+| ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| [POST /xrpc/com.atproto.session.create](https://atproto.com/lexicons/com-atproto-session#comatprotosessioncreate) | [createSession](https://pub.dev/documentation/atproto/latest/atproto/createSession.html)                               |
+| [GET /xrpc/com.atproto.session.get](https://atproto.com/lexicons/com-atproto-session#comatprotosessioncreate)     | [lookupCurrentSession](https://pub.dev/documentation/atproto/latest/atproto/SessionsService/lookupCurrentSession.html) |
 
 ## 1.4. Tips 🏄
 
