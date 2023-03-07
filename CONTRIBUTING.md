@@ -113,9 +113,9 @@ Examples of PR titles:
 - test: Add test for `user_data.dart`
 - refactor: Optimize the structure of `ATProtoClient`
 
-[github issue]: https://github.com/atproto-dart/atproto/issues/new
-[github issues]: https://github.com/atproto-dart/atproto/issues/new
-[prs]: https://github.com/atproto-dart/atproto/pulls
+[github issue]: https://github.com/myConsciousness/atproto.dart/issues/new
+[github issues]: https://github.com/myConsciousness/atproto.dart/issues/new
+[prs]: https://github.com/myConsciousness/atproto.dart/pulls
 [fork guide]: https://guides.github.com/activities/forking/#fork
 [pubspec doc]: https://dart.dev/tools/pub/pubspec
 [conventional commit]: https://www.conventionalcommits.org

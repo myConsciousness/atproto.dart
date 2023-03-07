@@ -97,7 +97,7 @@ import 'package:http/http.dart' as http;
 import 'client.dart';
 ```
 
-Also you can see the latest formatting rules on the [analysis_options.yaml](https://github.com/atproto-dart/atproto/blob/main/analysis_options.yaml)!
+Also you can see the latest formatting rules on the [analysis_options.yaml](https://github.com/myConsciousness/atproto.dart/blob/main/analysis_options.yaml)!
 
 ## 1.2. Code Structure
 
@@ -172,12 +172,12 @@ The only thing to note is the **method name**. The method name should be a name 
 
 So `atproto` uses the following standard prefixes depending on endpoint characteristics.
 
-| Prefix      | Description                                                                                        |
-| ----------- | -------------------------------------------------------------------------------------------------- |
-| **lookup**  | This prefix is attached to endpoints that reference tweets, users, etc.                            |
-| **search**  | This prefix is attached to endpoints that perform extensive searches.                              |
-| **connect** | This prefix is attached to endpoints with high-performance streaming.                              |
-| **count**   | This prefix is attached to the endpoint that counts a particular item.                             |
-| **create**  | This prefix is attached to the endpoint performing the create state such as `Tweet` and `Follow`.  |
-| **destroy** | This prefix is attached to the endpoint performing the destroy state such as `Tweet` and `Follow`. |
-| **update**  | This prefix is attached to the endpoint performing the update state.                               |
+| Prefix      | Description                                                             |
+| ----------- | ----------------------------------------------------------------------- |
+| **lookup**  | This prefix is attached to endpoints that reference tweets, users, etc. |
+| **search**  | This prefix is attached to endpoints that perform extensive searches.   |
+| **connect** | This prefix is attached to endpoints with high-performance streaming.   |
+| **count**   | This prefix is attached to the endpoint that counts a particular item.  |
+| **create**  | This prefix is attached to the endpoint performing the create state.    |
+| **destroy** | This prefix is attached to the endpoint performing the destroy state.   |
+| **update**  | This prefix is attached to the endpoint performing the update state.    |

@@ -1,0 +1,12 @@
+client:
+- lib/src/core/client/*.dart
+
+test:
+- test/**/*.dart
+
+documentation:
+- README.md
+- CODE_OF_CONDUCT.md
+- CONTRIBUTING.md
+- SECURITY.md
+- STYLEGUIDE.md

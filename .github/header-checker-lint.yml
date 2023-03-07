@@ -1,0 +1,10 @@
+allowedCopyrightHolders:
+  - 'Kato Shinya'
+allowedLicenses:
+  - 'BSD-3'
+sourceFileExtensions:
+  - 'dart'
+ignoreFiles:
+  - '**/*.g.dart'
+  - '**/*.freezed.dart'
+  - '**/*.mocks.dart'

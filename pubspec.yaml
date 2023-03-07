@@ -1,8 +1,8 @@
 name: atproto
 description: A starting point for Dart libraries or applications.
 version: 0.0.1
-repository: https://github.com/myConsciousness/atproto.dart
-issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
+repository: https://github.com/myConsciousness/atproto.dart.dart
+issue_tracker: https://github.com/myConsciousness/atproto.dart.dart/issues
 
 environment:
   sdk: '>=2.19.2 <3.0.0'
