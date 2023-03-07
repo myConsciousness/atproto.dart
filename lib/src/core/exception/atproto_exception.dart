@@ -48,7 +48,7 @@ class ATProtoException implements Exception {
     buffer
       ..writeln('  Please create an Issue if you have a question '
           'or suggestion for this exception.')
-      ..writeln('  https://github.com/myConsciousness/atproto.dart.dart');
+      ..writeln('  https://github.com/myConsciousness/atproto.dart.dart.dart');
 
     return buffer.toString();
   }

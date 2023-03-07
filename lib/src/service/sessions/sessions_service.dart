@@ -11,6 +11,7 @@ import 'package:http/http.dart' as http;
 // 🌎 Project imports:
 import '../../core/client/client_context.dart';
 import '../../core/exception/atproto_exception.dart';
+import '../../core/exception/unauthorized_exception.dart';
 import '../../core/http_method.dart';
 import '../../core/http_status.dart';
 import '../base_service.dart';
@@ -39,6 +40,13 @@ Future<ATProtoResponse<Session>> createSession({
       'Content-type': 'application/json',
     },
   );
+
+  if (response.statusCode == 401) {
+    throw UnauthorizedException(
+      'Failed to authorize',
+      response,
+    );
+  }
 
   if (response.statusCode != 200) {
     throw ATProtoException(

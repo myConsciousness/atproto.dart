@@ -97,7 +97,7 @@ import 'package:http/http.dart' as http;
 import 'client.dart';
 ```
 
-Also you can see the latest formatting rules on the [analysis_options.yaml](https://github.com/myConsciousness/atproto.dart/blob/main/analysis_options.yaml)!
+Also you can see the latest formatting rules on the [analysis_options.yaml](https://github.com/myConsciousness/atproto.dart.dart/blob/main/analysis_options.yaml)!
 
 ## 1.2. Code Structure
 
