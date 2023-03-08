@@ -40,7 +40,7 @@ class UnauthorizedException extends ATProtoException {
     buffer
       ..writeln('  Please create an Issue if you have a question '
           'or suggestion for this exception.')
-      ..writeln('  https://github.com/myConsciousness/atproto.dart.dart.dart');
+      ..writeln('  https://github.com/myConsciousness/atproto.dart');
 
     return buffer.toString();
   }
