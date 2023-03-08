@@ -107,15 +107,15 @@ mark (e.g. `feat!: Remove the argument from ClassA`).
 Examples of PR titles:
 
 - feat: Added new `Data` model
-- fix: Avoid execute something in `ATProtoAPi`
+- fix: Avoid execute something in `ATProto`
 - docs: Add a example
 - docs: Improve the README
 - test: Add test for `user_data.dart`
 - refactor: Optimize the structure of `ATProtoClient`
 
-[github issue]: https://github.com/myConsciousness/atproto.dart.dart/issues/new
-[github issues]: https://github.com/myConsciousness/atproto.dart.dart/issues/new
-[prs]: https://github.com/myConsciousness/atproto.dart.dart/pulls
+[github issue]: https://github.com/myConsciousness/atproto.dart/issues/new
+[github issues]: https://github.com/myConsciousness/atproto.dart/issues/new
+[prs]: https://github.com/myConsciousness/atproto.dart/pulls
 [fork guide]: https://guides.github.com/activities/forking/#fork
 [pubspec doc]: https://dart.dev/tools/pub/pubspec
 [conventional commit]: https://www.conventionalcommits.org

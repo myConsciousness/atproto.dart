@@ -33,7 +33,7 @@ Indicate which of these issues are resolved or fixed by this PR, i.e. Fixes #xxx
 
 <!-- Links -->
 
-[issue database]: https://github.com/myConsciousness/atproto.dart.dart/issues
-[contributor guide]: https://github.com/myConsciousness/atproto.dart.dart/blob/main/CONTRIBUTING.md
-[style guide]: https://github.com/myConsciousness/atproto.dart.dart/blob/main/STYLEGUIDE.md
+[issue database]: https://github.com/myConsciousness/atproto.dart/issues
+[contributor guide]: https://github.com/myConsciousness/atproto.dart/blob/main/CONTRIBUTING.md
+[style guide]: https://github.com/myConsciousness/atproto.dart/blob/main/STYLEGUIDE.md
 [conventional commit]: https://conventionalcommits.org
