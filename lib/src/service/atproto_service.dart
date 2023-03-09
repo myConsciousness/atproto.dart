@@ -4,30 +4,49 @@
 
 // 🌎 Project imports:
 import '../core/client/client_context.dart';
+import 'repositories/repositories_service.dart';
 import 'sessions/sessions_service.dart';
 
 abstract class ATProtoService {
   /// Returns the new instance of [ATProtoService].
   factory ATProtoService({
-    required String serviceName,
+    required String did,
+    required String service,
     required ClientContext context,
   }) =>
       _ATProtoService(
-        serviceName: serviceName,
+        did: did,
+        service: service,
         context: context,
       );
 
   /// Returns the sessions service.
   SessionsService get sessions;
+
+  /// Returns the repositories service.
+  RepositoriesService get repositories;
 }
 
 class _ATProtoService implements ATProtoService {
   /// Returns the new instance of [_ATProtoService].
   _ATProtoService({
-    required String serviceName,
+    required String did,
+    required String service,
     required ClientContext context,
-  }) : sessions = SessionsService(serviceName: serviceName, context: context);
+  })  : sessions = SessionsService(
+          did: did,
+          service: service,
+          context: context,
+        ),
+        repositories = RepositoriesService(
+          did: did,
+          service: service,
+          context: context,
+        );
 
   @override
   final SessionsService sessions;
+
+  @override
+  final RepositoriesService repositories;
 }

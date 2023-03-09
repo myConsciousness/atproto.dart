@@ -21,13 +21,13 @@ import 'current_session.dart';
 import 'session.dart';
 
 Future<ATProtoResponse<Session>> createSession({
-  String serviceName = 'bsky.social',
+  String service = 'bsky.social',
   required String handle,
   required String password,
 }) async {
   final response = await http.post(
     Uri.https(
-      serviceName,
+      service,
       '/xrpc/com.atproto.session.create',
     ),
     body: jsonEncode(
@@ -71,11 +71,13 @@ Future<ATProtoResponse<Session>> createSession({
 abstract class SessionsService {
   /// Returns the new instance of [SessionsService].
   factory SessionsService({
-    required String serviceName,
+    required String did,
+    required String service,
     required ClientContext context,
   }) =>
       _SessionsService(
-        serviceName: serviceName,
+        did: did,
+        service: service,
         context: context,
       );
 
@@ -85,7 +87,8 @@ abstract class SessionsService {
 class _SessionsService extends BaseService implements SessionsService {
   /// Returns the new instance of [_SessionsService].
   _SessionsService({
-    required super.serviceName,
+    required super.did,
+    required super.service,
     required super.context,
   });
 

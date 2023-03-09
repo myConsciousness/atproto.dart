@@ -14,6 +14,8 @@ export 'package:atproto/src/core/http_method.dart';
 export 'package:atproto/src/core/http_status.dart';
 export 'package:atproto/src/service/atproto_service.dart';
 export 'package:atproto/src/service/entities/empty.dart';
+export 'package:atproto/src/service/entities/record.dart';
+export 'package:atproto/src/service/repositories/repositories_service.dart';
 export 'package:atproto/src/service/response/atproto_request.dart';
 export 'package:atproto/src/service/response/atproto_response.dart';
 export 'package:atproto/src/service/sessions/current_session.dart';

@@ -70,12 +70,15 @@ abstract class _Service {
 abstract class BaseService implements _Service {
   /// Returns the new instance of [BaseService].
   BaseService({
-    required String serviceName,
+    required this.did,
+    required String service,
     required ClientContext context,
   }) : _helper = ServiceHelper(
-          authority: serviceName,
+          authority: service,
           context: context,
         );
+
+  final String did;
 
   final ServiceHelper _helper;
 
