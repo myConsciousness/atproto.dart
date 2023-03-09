@@ -63,6 +63,8 @@ This library provides the easiest way to use [AT Protocol](https://atproto.com/d
 
 **Show some ❤️ and star the repo to support the project.**
 
+This package provides the most basic features of [AT Protocol](https://atproto.com/docs). If you want to use [Bluesky](https://blueskyweb.xyz)'s API, please use [bluesky](https://pub.dev/packages/bluesky)!
+
 ## 1.1. Features 💎
 
 ✅ The **wrapper library** for **[AT Protocol](https://atproto.com/docs)**. </br>
