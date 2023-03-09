@@ -14,14 +14,14 @@ abstract class ATProto {
   /// Returns the new instance of [ATProto].
   factory ATProto({
     required String did,
-    required String awtToken,
+    required String accessJwt,
     String service = 'bsky.social',
     Duration timeout = const Duration(seconds: 10),
     RetryConfig? retryConfig,
   }) =>
       _ATProto(
         did: did,
-        awtToken: awtToken,
+        accessJwt: accessJwt,
         service: service,
         timeout: timeout,
         retryConfig: retryConfig,
@@ -36,7 +36,7 @@ abstract class ATProto {
   }) =>
       _ATProto(
         did: session.did,
-        awtToken: session.accessJwt,
+        accessJwt: session.accessJwt,
         service: service,
         timeout: timeout,
         retryConfig: retryConfig,
@@ -53,7 +53,7 @@ class _ATProto implements ATProto {
   /// Returns the new instance of [_ATProto].
   _ATProto({
     required String did,
-    required String awtToken,
+    required String accessJwt,
     required String service,
     required Duration timeout,
     RetryConfig? retryConfig,
@@ -61,7 +61,7 @@ class _ATProto implements ATProto {
           did: did,
           service: service,
           context: ClientContext(
-            awtToken: awtToken,
+            accessJwt: accessJwt,
             timeout: timeout,
             retryConfig: retryConfig,
           ),

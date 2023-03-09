@@ -21,7 +21,7 @@ import '../client/retry_event.dart';
 ///
 /// void main() async {
 ///   final atproto = ATProto(
-///     awtToken: 'YOUR_TOKEN_HERE',
+///     accessJwt: 'YOUR_TOKEN_HERE',
 ///     retryConfig: RetryConfig.ofExponentialBackOffAndJitter(
 ///       maxAttempts: 5,
 ///     ),

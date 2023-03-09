@@ -174,10 +174,11 @@ Future<void> main() async {
 
 **atproto** uses the following standard prefixes depending on endpoint characteristics. So it's very easy to find the method corresponding to the endpoint you want to use!
 
-| Prefix     | Description                                                          |
-| ---------- | -------------------------------------------------------------------- |
-| **lookup** | This prefix is attached to endpoints that reference accounts, etc.   |
-| **create** | This prefix is attached to the endpoint performing the create state. |
+| Prefix      | Description                                                          |
+| ----------- | -------------------------------------------------------------------- |
+| **lookup**  | This prefix is attached to endpoints that reference accounts, etc.   |
+| **create**  | This prefix is attached to the endpoint performing the create state. |
+| **destroy** | This prefix is attached to the endpoint performing the delete state. |
 
 ### 1.4.2. Null Parameter at Request
 
@@ -197,7 +198,8 @@ import 'package:atproto/atproto.dart' as atp;
 
 Future<void> main() async {
   final atproto = atp.ATProto(
-    awtToken: 'YOUR_TOKEN',
+    did: 'YOUR_DID',
+    accessJwt: 'YOUR_TOKEN',
 
     //! The default timeout is 10 seconds.
     timeout: Duration(seconds: 20),
@@ -230,7 +232,8 @@ import 'package:atproto/atproto.dart' as atp;
 
 Future<void> main() async {
   final atproto = atp.ATProto(
-    awtToken: 'YOUR_TOKEN',
+    did: 'YOUR_DID',
+    accessJwt: 'YOUR_TOKEN',
 
     //! Add these lines.
     retryConfig: atp.RetryConfig(
@@ -255,7 +258,9 @@ import 'package:atproto/atproto.dart' as atp;
 
 Future<void> main() async {
   final atproto = atp.ATProto(
-    awtToken: 'YOUR_TOKEN',
+    did: 'YOUR_DID',
+    accessJwt: 'YOUR_TOKEN',
+
     retryConfig: atp.RetryConfig(
       maxAttempts: 3,
 
@@ -289,7 +294,8 @@ import 'package:atproto/atproto.dart' as atp;
 
 Future<void> main() async {
   final atproto = atp.ATProto(
-    awtToken: 'YOUR_TOKEN',
+    did: 'YOUR_DID',
+    accessJwt: 'YOUR_TOKEN',
   );
 
   try {

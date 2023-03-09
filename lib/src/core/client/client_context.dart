@@ -17,12 +17,12 @@ import 'retry_policy.dart';
 abstract class ClientContext {
   /// Returns the new instance of [ClientContext].
   factory ClientContext({
-    required String awtToken,
+    required String accessJwt,
     required Duration timeout,
     RetryConfig? retryConfig,
   }) =>
       _ClientContext(
-        awtToken: awtToken,
+        accessJwt: accessJwt,
         timeout: timeout,
         retryConfig: retryConfig,
       );
@@ -58,10 +58,10 @@ abstract class ClientContext {
 
 class _ClientContext implements ClientContext {
   _ClientContext({
-    required String awtToken,
+    required String accessJwt,
     required this.timeout,
     RetryConfig? retryConfig,
-  })  : _client = Client(awtToken),
+  })  : _client = Client(accessJwt),
         _retryPolicy = RetryPolicy(retryConfig);
 
   final Client _client;

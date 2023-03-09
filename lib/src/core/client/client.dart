@@ -11,7 +11,7 @@ import 'package:http/http.dart' as http;
 
 abstract class Client {
   /// Returns the new instance of [Client].
-  factory Client(final String awtToken) => _Client(awtToken);
+  factory Client(final String accessJwt) => _Client(accessJwt);
 
   Future<http.Response> get(
     Uri uri, {
@@ -50,10 +50,10 @@ abstract class Client {
 
 class _Client implements Client {
   /// Returns the new instance of [_Client].
-  const _Client(final String awtToken) : _awtToken = awtToken;
+  const _Client(final String accessJwt) : _accessJwt = accessJwt;
 
   /// The AWT access token
-  final String _awtToken;
+  final String _accessJwt;
 
   @override
   Future<http.Response> get(
@@ -64,7 +64,7 @@ class _Client implements Client {
       await http
           .get(
             uri,
-            headers: {'Authorization': 'Bearer $_awtToken'}..addAll(headers),
+            headers: {'Authorization': 'Bearer $_accessJwt'}..addAll(headers),
           )
           .timeout(timeout);
 
@@ -78,7 +78,7 @@ class _Client implements Client {
       await http
           .post(
             uri,
-            headers: {'Authorization': 'Bearer $_awtToken'}..addAll(headers),
+            headers: {'Authorization': 'Bearer $_accessJwt'}..addAll(headers),
             body: body,
             encoding: utf8,
           )
@@ -94,7 +94,7 @@ class _Client implements Client {
       await http
           .delete(
             uri,
-            headers: {'Authorization': 'Bearer $_awtToken'}..addAll(headers),
+            headers: {'Authorization': 'Bearer $_accessJwt'}..addAll(headers),
             body: body,
             encoding: utf8,
           )
@@ -110,7 +110,7 @@ class _Client implements Client {
       await http
           .put(
             uri,
-            headers: {'Authorization': 'Bearer $_awtToken'}..addAll(headers),
+            headers: {'Authorization': 'Bearer $_accessJwt'}..addAll(headers),
             body: body,
             encoding: utf8,
           )
@@ -126,7 +126,7 @@ class _Client implements Client {
       await http
           .patch(
             uri,
-            headers: {'Authorization': 'Bearer $_awtToken'}..addAll(headers),
+            headers: {'Authorization': 'Bearer $_accessJwt'}..addAll(headers),
             body: body,
             encoding: utf8,
           )
