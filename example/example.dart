@@ -8,15 +8,15 @@ Future<void> main() async {
   try {
     //! First you need to establish session with ATP server.
     final session = await atp.createSession(
-      serviceName: 'SERVICE_NAME', //! The default is `bsky.social`
+      service: 'SERVICE_NAME', //! The default is `bsky.social`
       handle: 'YOUR_HANDLE', //! Like `shinyakato.bsky.social`
       password: 'YOUR_PASSWORD',
     );
 
     print(session);
 
-    final atproto = atp.ATProto(
-      awtToken: session.data.accessJwt,
+    final atproto = atp.ATProto.fromSession(
+      session.data,
 
       //! Automatic retry is available when server error or network error occurs
       //! when communicating with the API.
@@ -36,9 +36,20 @@ Future<void> main() async {
       timeout: Duration(seconds: 20),
     );
 
-    final currentSession = await atproto.sessions.lookupCurrentSession();
+    //! Create a record to specific service.
+    final createdRecord = await atproto.repositories.createRecord(
+      collection: 'app.bsky.feed.post',
+      record: {
+        'text': 'Hello, Bluesky!',
+        "createdAt": DateTime.now().toUtc().toIso8601String(),
+      },
+    );
 
-    print(currentSession);
+    //! And delete it.
+    await atproto.repositories.destroyRecord(
+      collection: 'app.bsky.feed.post',
+      uri: createdRecord.data.uri,
+    );
   } on atp.UnauthorizedException catch (e) {
     print(e);
   } on atp.ATProtoException catch (e) {
