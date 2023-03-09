@@ -3,16 +3,11 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-
-// 🎯 Dart imports:
 import 'dart:async' as _i4;
 
-// 📦 Package imports:
+import 'package:atproto/src/core/client/client_context.dart' as _i3;
 import 'package:http/http.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
-
-// 🌎 Project imports:
-import 'package:atproto/src/core/client/client_context.dart' as _i3;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values

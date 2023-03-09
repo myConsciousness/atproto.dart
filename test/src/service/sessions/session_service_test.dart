@@ -16,7 +16,8 @@ void main() {
   group('.lookupCurrentSession', () {
     test('normal case', () async {
       final sessions = SessionsService(
-        serviceName: 'test',
+        did: 'test',
+        service: 'test',
         context: context.buildGetStub(
           'test',
           '/xrpc/com.atproto.session.get',
@@ -33,7 +34,8 @@ void main() {
 
     test('when unauthorized', () async {
       final sessions = SessionsService(
-        serviceName: 'test',
+        did: 'test',
+        service: 'test',
         context: context.buildGetStub(
           'test',
           '/xrpc/com.atproto.session.get',
@@ -50,7 +52,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final sessions = SessionsService(
-        serviceName: 'test',
+        did: 'test',
+        service: 'test',
         context: context.buildGetStub(
           'test',
           '/xrpc/com.atproto.session.get',
