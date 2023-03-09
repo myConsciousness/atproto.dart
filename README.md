@@ -39,7 +39,8 @@
     - [1.2.2. Import](#122-import)
     - [1.2.3. Implementation](#123-implementation)
   - [1.3. Supported Lexicons 👀](#13-supported-lexicons-)
-    - [Session](#session)
+    - [1.3.1. Session](#131-session)
+    - [1.3.2. Repository](#132-repository)
   - [1.4. Tips 🏄](#14-tips-)
     - [1.4.1. Method Names](#141-method-names)
     - [1.4.2. Null Parameter at Request](#142-null-parameter-at-request)
@@ -101,15 +102,15 @@ Future<void> main() async {
   try {
     //! First you need to establish session with ATP server.
     final session = await atp.createSession(
-      serviceName: 'SERVICE_NAME', //! The default is `bsky.social`
+      service: 'SERVICE_NAME', //! The default is `bsky.social`
       handle: 'YOUR_HANDLE', //! Like `shinyakato.bsky.social`
       password: 'YOUR_PASSWORD',
     );
 
     print(session);
 
-    final atproto = atp.ATProto(
-      awtToken: session.data.accessJwt,
+    final atproto = atp.ATProto.fromSession(
+      session.data,
 
       //! Automatic retry is available when server error or network error occurs
       //! when communicating with the API.
@@ -129,9 +130,20 @@ Future<void> main() async {
       timeout: Duration(seconds: 20),
     );
 
-    final currentSession = await atproto.sessions.lookupCurrentSession();
+    //! Create a record to specific service.
+    final createdRecord = await atproto.repositories.createRecord(
+      collection: 'app.bsky.feed.post',
+      record: {
+        'text': 'Hello, Bluesky!',
+        "createdAt": DateTime.now().toUtc().toIso8601String(),
+      },
+    );
 
-    print(currentSession);
+    //! And delete it.
+    await atproto.repositories.destroyRecord(
+      collection: 'app.bsky.feed.post',
+      uri: createdRecord.data.uri,
+    );
   } on atp.UnauthorizedException catch (e) {
     print(e);
   } on atp.ATProtoException catch (e) {
@@ -142,12 +154,19 @@ Future<void> main() async {
 
 ## 1.3. Supported Lexicons 👀
 
-### Session
+### 1.3.1. Session
 
 | **Endpoint**                                                                                                      | **Method Name**                                                                                                        |
 | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | [POST /xrpc/com.atproto.session.create](https://atproto.com/lexicons/com-atproto-session#comatprotosessioncreate) | [createSession](https://pub.dev/documentation/atproto/latest/atproto/createSession.html)                               |
 | [GET /xrpc/com.atproto.session.get](https://atproto.com/lexicons/com-atproto-session#comatprotosessioncreate)     | [lookupCurrentSession](https://pub.dev/documentation/atproto/latest/atproto/SessionsService/lookupCurrentSession.html) |
+
+### 1.3.2. Repository
+
+| **Endpoint**                                                                                                                                | **Method Name**                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| [POST /xrpc/com.atproto.repo.createRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/createRecord.json) | [createRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/createRecord.html) |
+| [POST /xrpc/com.atproto.repo.deleteRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/deleteRecord.json) | [deleteRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/deleteRecord.html) |
 
 ## 1.4. Tips 🏄
 
