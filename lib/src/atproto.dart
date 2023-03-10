@@ -3,8 +3,8 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'core/client/client_context.dart';
-import 'core/config/retry_config.dart';
+import 'package:atproto_core/atproto_core.dart' as core;
+
 import 'service/atproto_service.dart';
 import 'service/repositories/repositories_service.dart';
 import 'service/sessions/session.dart';
@@ -17,7 +17,7 @@ abstract class ATProto {
     required String accessJwt,
     String service = 'bsky.social',
     Duration timeout = const Duration(seconds: 10),
-    RetryConfig? retryConfig,
+    core.RetryConfig? retryConfig,
   }) =>
       _ATProto(
         did: did,
@@ -32,7 +32,7 @@ abstract class ATProto {
     final Session session, {
     String service = 'bsky.social',
     Duration timeout = const Duration(seconds: 10),
-    RetryConfig? retryConfig,
+    core.RetryConfig? retryConfig,
   }) =>
       _ATProto(
         did: session.did,
@@ -56,11 +56,11 @@ class _ATProto implements ATProto {
     required String accessJwt,
     required String service,
     required Duration timeout,
-    RetryConfig? retryConfig,
+    core.RetryConfig? retryConfig,
   }) : _service = ATProtoService(
           did: did,
           service: service,
-          context: ClientContext(
+          context: core.ClientContext(
             accessJwt: accessJwt,
             timeout: timeout,
             retryConfig: retryConfig,

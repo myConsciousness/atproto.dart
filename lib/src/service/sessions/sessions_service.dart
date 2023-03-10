@@ -6,14 +6,9 @@
 import 'dart:convert';
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:http/http.dart' as http;
 
-// 🌎 Project imports:
-import '../../core/client/client_context.dart';
-import '../../core/exception/atproto_exception.dart';
-import '../../core/exception/unauthorized_exception.dart';
-import '../../core/http_method.dart';
-import '../../core/http_status.dart';
 import '../base_service.dart';
 import '../response/atproto_request.dart';
 import '../response/atproto_response.dart';
@@ -42,14 +37,14 @@ Future<ATProtoResponse<Session>> createSession({
   );
 
   if (response.statusCode == 401) {
-    throw UnauthorizedException(
+    throw core.UnauthorizedException(
       'Failed to authorize',
       response,
     );
   }
 
   if (response.statusCode != 200) {
-    throw ATProtoException(
+    throw core.ATProtoException(
       'Failed to create session',
       response,
     );
@@ -57,9 +52,9 @@ Future<ATProtoResponse<Session>> createSession({
 
   return ATProtoResponse(
     headers: response.headers,
-    status: HttpStatus.ok,
+    status: core.HttpStatus.ok,
     request: ATProtoRequest(
-      method: HttpMethod.post,
+      method: core.HttpMethod.post,
       url: response.request!.url,
     ),
     data: Session.fromJson(
@@ -73,7 +68,7 @@ abstract class SessionsService {
   factory SessionsService({
     required String did,
     required String service,
-    required ClientContext context,
+    required core.ClientContext context,
   }) =>
       _SessionsService(
         did: did,

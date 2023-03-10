@@ -3,7 +3,8 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import '../core/client/client_context.dart';
+import 'package:atproto_core/atproto_core.dart' as core;
+
 import 'repositories/repositories_service.dart';
 import 'sessions/sessions_service.dart';
 
@@ -12,7 +13,7 @@ abstract class ATProtoService {
   factory ATProtoService({
     required String did,
     required String service,
-    required ClientContext context,
+    required core.ClientContext context,
   }) =>
       _ATProtoService(
         did: did,
@@ -32,7 +33,7 @@ class _ATProtoService implements ATProtoService {
   _ATProtoService({
     required String did,
     required String service,
-    required ClientContext context,
+    required core.ClientContext context,
   })  : sessions = SessionsService(
           did: did,
           service: service,
