@@ -65,6 +65,8 @@ This library provides the easiest way to use [AT Protocol](https://atproto.com/d
 
 This package provides the most basic features of [AT Protocol](https://atproto.com/docs). If you want to use [Bluesky](https://blueskyweb.xyz)'s API, please use [bluesky](https://pub.dev/packages/bluesky)!
 
+Also, the core HTTP request portion of this package is also provided in the [atproto_core](https://pub.dev/packages/atproto_core) package.
+
 ## 1.1. Features 💎
 
 ✅ The **wrapper library** for **[AT Protocol](https://atproto.com/docs)**. </br>
@@ -158,14 +160,14 @@ Future<void> main() async {
 
 ### 1.3.1. Session
 
-| **Endpoint**                                                                                                      | **Method Name**                                                                                                        |
+| **Lexicon**                                                                                                       | **Method Name**                                                                                                        |
 | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | [POST /xrpc/com.atproto.session.create](https://atproto.com/lexicons/com-atproto-session#comatprotosessioncreate) | [createSession](https://pub.dev/documentation/atproto/latest/atproto/createSession.html)                               |
 | [GET /xrpc/com.atproto.session.get](https://atproto.com/lexicons/com-atproto-session#comatprotosessioncreate)     | [lookupCurrentSession](https://pub.dev/documentation/atproto/latest/atproto/SessionsService/lookupCurrentSession.html) |
 
 ### 1.3.2. Repository
 
-| **Endpoint**                                                                                                                                | **Method Name**                                                                                            |
+| **Lexicon**                                                                                                                                 | **Method Name**                                                                                            |
 | ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | [POST /xrpc/com.atproto.repo.createRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/createRecord.json) | [createRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/createRecord.html) |
 | [POST /xrpc/com.atproto.repo.deleteRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/deleteRecord.json) | [deleteRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/deleteRecord.html) |

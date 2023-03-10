@@ -2,12 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🌎 Project imports:
-import 'package:atproto/src/core/exception/atproto_exception.dart';
-import 'package:atproto/src/core/exception/data_not_found_exception.dart';
-import 'package:atproto/src/core/exception/rate_limit_exceeded_exception.dart';
-import 'package:atproto/src/core/exception/unauthorized_exception.dart';
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 void expectATProtoException(Function fn) {

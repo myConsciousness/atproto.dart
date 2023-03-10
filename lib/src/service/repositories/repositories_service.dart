@@ -3,7 +3,8 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import '../../core/client/client_context.dart';
+import 'package:atproto_core/atproto_core.dart' as core;
+
 import '../base_service.dart';
 import '../entities/empty.dart';
 import '../entities/record.dart';
@@ -14,7 +15,7 @@ abstract class RepositoriesService {
   factory RepositoriesService({
     required String did,
     required String service,
-    required ClientContext context,
+    required core.ClientContext context,
   }) =>
       _RepositoriesService(
         did: did,

@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:atproto/src/core/client/client_context.dart';
+import 'package:atproto_core/atproto_core.dart';
 // 📦 Package imports:
 import 'package:mockito/annotations.dart';
 

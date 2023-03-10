@@ -5,7 +5,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i4;
 
-import 'package:atproto/src/core/client/client_context.dart' as _i3;
+import 'package:atproto_core/src/client/client_context.dart' as _i3;
 import 'package:http/http.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
@@ -77,80 +77,6 @@ class MockClientContext extends _i1.Mock implements _i3.ClientContext {
           this,
           Invocation.method(
             #post,
-            [uri],
-            {
-              #headers: headers,
-              #body: body,
-            },
-          ),
-        )),
-      ) as _i4.Future<_i2.Response>);
-  @override
-  _i4.Future<_i2.Response> delete(
-    Uri? uri, {
-    dynamic body,
-  }) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #delete,
-          [uri],
-          {#body: body},
-        ),
-        returnValue: _i4.Future<_i2.Response>.value(_FakeResponse_0(
-          this,
-          Invocation.method(
-            #delete,
-            [uri],
-            {#body: body},
-          ),
-        )),
-      ) as _i4.Future<_i2.Response>);
-  @override
-  _i4.Future<_i2.Response> put(
-    Uri? uri, {
-    Map<String, String>? headers = const {},
-    dynamic body,
-  }) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #put,
-          [uri],
-          {
-            #headers: headers,
-            #body: body,
-          },
-        ),
-        returnValue: _i4.Future<_i2.Response>.value(_FakeResponse_0(
-          this,
-          Invocation.method(
-            #put,
-            [uri],
-            {
-              #headers: headers,
-              #body: body,
-            },
-          ),
-        )),
-      ) as _i4.Future<_i2.Response>);
-  @override
-  _i4.Future<_i2.Response> patch(
-    Uri? uri, {
-    Map<String, String>? headers = const {},
-    dynamic body,
-  }) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #patch,
-          [uri],
-          {
-            #headers: headers,
-            #body: body,
-          },
-        ),
-        returnValue: _i4.Future<_i2.Response>.value(_FakeResponse_0(
-          this,
-          Invocation.method(
-            #patch,
             [uri],
             {
               #headers: headers,

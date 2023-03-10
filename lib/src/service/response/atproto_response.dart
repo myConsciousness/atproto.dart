@@ -2,8 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🌎 Project imports:
-import '../../core/http_status.dart';
+import 'package:atproto_core/atproto_core.dart' as core;
+
 import '../entities/empty.dart';
 import 'atproto_request.dart';
 
@@ -21,7 +21,7 @@ class ATProtoResponse<D> {
   final Map<String, String> headers;
 
   /// The HTTP status from ATP server.
-  final HttpStatus status;
+  final core.HttpStatus status;
 
   /// The request that generated this response.
   final ATProtoRequest request;
