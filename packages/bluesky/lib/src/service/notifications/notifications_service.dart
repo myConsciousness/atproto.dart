@@ -4,8 +4,8 @@
 
 // 🌎 Project imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart' as core;
 
-import '../../core/client/client_context.dart';
 import '../base_service.dart';
 import '../entities/count.dart';
 import '../entities/notifications.dart';
@@ -16,7 +16,7 @@ abstract class NotificationsService {
   factory NotificationsService({
     required ATProto atproto,
     required String service,
-    required ClientContext context,
+    required core.ClientContext context,
   }) =>
       _NotificationsService(
         atproto: atproto,

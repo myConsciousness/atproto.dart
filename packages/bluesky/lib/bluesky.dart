@@ -3,20 +3,21 @@
 // modification, are permitted provided the conditions.
 
 export 'package:atproto/atproto.dart'
+    show createSession, ATProtoResponse, ATProtoRequest, Session, Record, Empty;
+
+export 'package:atproto_core/atproto_core.dart'
     show
-        createSession,
+        RetryConfig,
+        Jitter,
+        RetryEvent,
+        HttpMethod,
+        HttpStatus,
         ATProtoException,
         UnauthorizedException,
-        ATProtoResponse,
-        ATProtoRequest,
-        Session,
-        Record,
-        Empty;
+        DataNotFoundException,
+        RateLimitExceededException;
+
 export 'package:bluesky/src/bluesky.dart';
-export 'package:bluesky/src/core/client/jitter.dart';
-export 'package:bluesky/src/core/client/retry_event.dart';
-export 'package:bluesky/src/core/config/retry_config.dart';
-export 'package:bluesky/src/core/exception/bluesky_exception.dart';
 export 'package:bluesky/src/service/actors/actors_service.dart';
 export 'package:bluesky/src/service/bluesky_service.dart';
 export 'package:bluesky/src/service/entities/actor.dart';
@@ -42,6 +43,7 @@ export 'package:bluesky/src/service/entities/post_record.dart';
 export 'package:bluesky/src/service/entities/reason.dart';
 export 'package:bluesky/src/service/entities/reply.dart';
 export 'package:bluesky/src/service/entities/reply_meta.dart';
+export 'package:bluesky/src/service/exception/bluesky_exception.dart';
 export 'package:bluesky/src/service/feeds/feed_algorithm.dart';
 export 'package:bluesky/src/service/feeds/feeds_service.dart';
 export 'package:bluesky/src/service/notifications/notifications_service.dart';

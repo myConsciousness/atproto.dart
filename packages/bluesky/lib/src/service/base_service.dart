@@ -8,13 +8,11 @@ import 'dart:convert';
 
 // 📦 Package imports:
 import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:http/http.dart';
 
 // 🌎 Project imports:
-import '../core/client/client_context.dart';
-import '../core/exception/bluesky_exception.dart';
-import '../core/service_helper.dart';
-import '../core/util/json_utils.dart';
+import 'exception/bluesky_exception.dart';
 import 'response/bluesky_request.dart';
 import 'response/bluesky_response.dart';
 
@@ -30,20 +28,6 @@ abstract class _Service {
   Future<Response> post(
     String unencodedPath, {
     Map<String, dynamic> queryParameters = const {},
-    Map<String, String> body = const {},
-  });
-
-  Future<Response> delete(
-    String unencodedPath,
-  );
-
-  Future<Response> put(
-    String unencodedPath, {
-    Map<String, String> body = const {},
-  });
-
-  Future<Response> patch(
-    String unencodedPath, {
     Map<String, String> body = const {},
   });
 
@@ -63,15 +47,15 @@ abstract class BaseService implements _Service {
   BaseService({
     required this.atproto,
     required String service,
-    required ClientContext context,
-  }) : _helper = ServiceHelper(
+    required core.ClientContext context,
+  }) : _helper = core.ServiceHelper(
           authority: service,
           context: context,
         );
 
   final atp.ATProto atproto;
 
-  final ServiceHelper _helper;
+  final core.ServiceHelper _helper;
 
   @override
   Future<Response> get(
@@ -99,39 +83,6 @@ abstract class BaseService implements _Service {
       await _helper.post(
         unencodedPath,
         queryParameters: queryParameters,
-        body: body,
-        validate: checkResponse,
-      );
-
-  @override
-  Future<Response> delete(
-    final String unencodedPath, {
-    dynamic body = const {},
-  }) async =>
-      await _helper.delete(
-        unencodedPath,
-        body: body,
-        validate: checkResponse,
-      );
-
-  @override
-  Future<Response> put(
-    final String unencodedPath, {
-    dynamic body = const {},
-  }) async =>
-      await _helper.put(
-        unencodedPath,
-        body: body,
-        validate: checkResponse,
-      );
-
-  @override
-  Future<Response> patch(
-    final String unencodedPath, {
-    dynamic body = const {},
-  }) async =>
-      await _helper.patch(
-        unencodedPath,
         body: body,
         validate: checkResponse,
       );
@@ -176,32 +127,32 @@ abstract class BaseService implements _Service {
   Response checkResponse(
     final Response response,
   ) {
-    if (atp.HttpStatus.noContent.equalsByCode(response.statusCode)) {
+    if (core.HttpStatus.noContent.equalsByCode(response.statusCode)) {
       return response;
     }
 
-    if (atp.HttpStatus.ok.equalsByCode(response.statusCode) &&
+    if (core.HttpStatus.ok.equalsByCode(response.statusCode) &&
         response.body.isEmpty) {
       //! No JSON in response but okay, it's succeeded.
       return response;
     }
 
-    if (atp.HttpStatus.unauthorized.equalsByCode(response.statusCode)) {
-      throw atp.UnauthorizedException(
+    if (core.HttpStatus.unauthorized.equalsByCode(response.statusCode)) {
+      throw core.UnauthorizedException(
         'The specified access token is invalid.',
         response,
       );
     }
 
-    if (atp.HttpStatus.notFound.equalsByCode(response.statusCode)) {
-      throw atp.DataNotFoundException(
+    if (core.HttpStatus.notFound.equalsByCode(response.statusCode)) {
+      throw core.DataNotFoundException(
         'There is no data associated with request.',
         response,
       );
     }
 
-    if (atp.HttpStatus.tooManyRequests.equalsByCode(response.statusCode)) {
-      throw atp.RateLimitExceededException(
+    if (core.HttpStatus.tooManyRequests.equalsByCode(response.statusCode)) {
+      throw core.RateLimitExceededException(
         'Rate limit exceeded.',
         response,
       );
@@ -214,7 +165,7 @@ abstract class BaseService implements _Service {
       );
     }
 
-    tryJsonDecode(response, response.body);
+    core.tryJsonDecode(response, response.body);
 
     return response;
   }
@@ -223,31 +174,31 @@ abstract class BaseService implements _Service {
     final BaseResponse response,
     final String event,
   ) {
-    if (atp.HttpStatus.unauthorized.equalsByCode(response.statusCode)) {
-      throw atp.UnauthorizedException(
+    if (core.HttpStatus.unauthorized.equalsByCode(response.statusCode)) {
+      throw core.UnauthorizedException(
         'The specified access token is invalid.',
         response,
       );
     }
 
-    if (atp.HttpStatus.forbidden.equalsByCode(response.statusCode)) {
+    if (core.HttpStatus.forbidden.equalsByCode(response.statusCode)) {
       throw BlueskyException(
         'Your request is forbidden.',
         response,
       );
     }
 
-    if (atp.HttpStatus.notFound.equalsByCode(response.statusCode)) {
-      throw atp.DataNotFoundException(
+    if (core.HttpStatus.notFound.equalsByCode(response.statusCode)) {
+      throw core.DataNotFoundException(
         'There is no data associated with request.',
         response,
       );
     }
 
-    if (atp.HttpStatus.tooManyRequests.equalsByCode(response.statusCode)) {
-      throw atp.RateLimitExceededException('Rate limit exceeded.', response);
+    if (core.HttpStatus.tooManyRequests.equalsByCode(response.statusCode)) {
+      throw core.RateLimitExceededException('Rate limit exceeded.', response);
     }
 
-    tryJsonDecode(response, event);
+    core.tryJsonDecode(response, event);
   }
 }

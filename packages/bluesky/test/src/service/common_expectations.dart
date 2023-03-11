@@ -2,10 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🌎 Project imports:
-// 📦 Package imports:
-import 'package:atproto/atproto.dart';
-import 'package:bluesky/bluesky.dart';
+import 'package:atproto_core/atproto_core.dart';
+import 'package:bluesky/src/service/exception/bluesky_exception.dart';
 import 'package:test/test.dart';
 
 void expectBlueskyException(Function fn) {

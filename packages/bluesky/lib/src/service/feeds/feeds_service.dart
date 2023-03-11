@@ -4,8 +4,8 @@
 
 // 🌎 Project imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart' as core;
 
-import '../../core/client/client_context.dart';
 import '../base_service.dart';
 import '../entities/feeds.dart';
 import '../response/bluesky_response.dart';
@@ -16,7 +16,7 @@ abstract class FeedsService {
   factory FeedsService({
     required ATProto atproto,
     required String service,
-    required ClientContext context,
+    required core.ClientContext context,
   }) =>
       _FeedsService(
         atproto: atproto,

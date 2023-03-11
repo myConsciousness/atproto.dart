@@ -4,8 +4,8 @@
 
 // 🌎 Project imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart' as core;
 
-import '../core/client/client_context.dart';
 import 'actors/actors_service.dart';
 import 'feeds/feeds_service.dart';
 import 'notifications/notifications_service.dart';
@@ -15,7 +15,7 @@ abstract class BlueskyService {
   factory BlueskyService({
     required ATProto atproto,
     required String service,
-    required ClientContext context,
+    required core.ClientContext context,
   }) =>
       _BlueskyService(
         atproto: atproto,
@@ -38,7 +38,7 @@ class _BlueskyService implements BlueskyService {
   _BlueskyService({
     required ATProto atproto,
     required String service,
-    required ClientContext context,
+    required core.ClientContext context,
   })  : actors = ActorsService(
           atproto: atproto,
           service: service,
