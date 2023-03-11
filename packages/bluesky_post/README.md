@@ -38,3 +38,12 @@ jobs:
 
 Now whenever you push something to your repository, GitHub Actions
 will post to Bluesky on your behalf.
+
+## More Information
+
+**bluesky_post** was designed and implemented by **_Kato Shinya ([@myConsciousness](https://github.com/myConsciousness))_**.
+
+- [Creator Profile](https://github.com/myConsciousness)
+- [License](https://github.com/myConsciousness/atproto.dart/blob/main/LICENSE)
+- [Release Note](https://github.com/myConsciousness/atproto.dart/releases)
+- [Bug Report](https://github.com/myConsciousness/atproto.dart/issues)
