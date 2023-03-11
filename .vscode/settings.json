@@ -8,5 +8,8 @@
     "Shinya",
     "shinyakato",
     "xrpc"
-  ]
+  ],
+  "[markdown]": {
+    "editor.wordWrap": "off",
+  },
 }
