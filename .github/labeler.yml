@@ -4,6 +4,8 @@ atproto:
 - packages/atproto/**/*
 bluesky:
 - packages/bluesky/**/*
+lexicon:
+- packages/lexicon/**/*
 
 atproto/lexicon/accounts:
 - packages/atproto/lib/src/service/accounts/*.dart
