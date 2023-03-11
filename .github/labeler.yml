@@ -39,8 +39,12 @@ test:
 - packages/bluesky/test/**/*.dart
 
 documentation:
-- **/CHANGELOG.md
-- **/README.md
+- packages/atproto_core/CHANGELOG.md
+- packages/atproto_core/README.md
+- packages/atproto/CHANGELOG.md
+- packages/atproto/README.md
+- packages/bluesky/CHANGELOG.md
+- packages/bluesky/README.md
 - CODE_OF_CONDUCT.md
 - CONTRIBUTING.md
 - SECURITY.md
