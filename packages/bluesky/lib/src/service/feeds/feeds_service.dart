@@ -96,7 +96,7 @@ class _FeedsService extends BaseService implements FeedsService {
       await atproto.repositories.createRecord(
         collection: 'app.bsky.feed.post',
         record: {
-          'text': 'test via API',
+          'text': text,
           'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
         },
       );
