@@ -45,6 +45,15 @@ abstract class NotificationsService {
     String? cursor,
   });
 
+  /// Returns unread notifications count.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.notification.getCount
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/getCount.json
   Future<BlueskyResponse<Count>> lookupUnreadCount();
 }
 
