@@ -1,4 +1,4 @@
-name: bsky_post
+name: bluesky_post
 description: A server app using the shelf package and Docker.
 version: 1.0.0
 environment:
