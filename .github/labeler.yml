@@ -1,5 +1,9 @@
-core:
-- packages/atproto_core/lib/src/**/*.dart
+atproto_core:
+- packages/atproto_core/**/*
+atproto:
+- packages/atproto/**/*
+bluesky:
+- packages/bluesky/**/*
 
 atproto/lexicon/accounts:
 - packages/atproto/lib/src/service/accounts/*.dart
