@@ -2,8 +2,9 @@
 
 ## v0.1.0
 
-- Added `NotificationsService` and `lookupNotifications` method. ([#31](https://github.com/mastodon-dart/mastodon-api/issues/31))
-- Added `lookupUnreadCount` for `NotificationsService`. ([#30](https://github.com/mastodon-dart/mastodon-api/issues/30))
+- Added `NotificationsService` and `lookupNotifications` method.
+- Added `lookupUnreadCount` for `NotificationsService`.
+- Common functions were split into `atproto_core`. ([#16](https://github.com/myConsciousness/atproto.dart/issues/16))
 
 ## v0.0.1
 

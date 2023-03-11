@@ -4,9 +4,8 @@
 
 // 🌎 Project imports:
 import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto_core/atproto_core.dart' as core;
 
-import 'core/client/client_context.dart';
-import 'core/config/retry_config.dart';
 import 'service/actors/actors_service.dart';
 import 'service/bluesky_service.dart';
 import 'service/feeds/feeds_service.dart';
@@ -19,7 +18,7 @@ abstract class Bluesky {
     required String accessJwt,
     String service = 'bsky.social',
     Duration timeout = const Duration(seconds: 10),
-    RetryConfig? retryConfig,
+    core.RetryConfig? retryConfig,
   }) =>
       _Bluesky(
         did: did,
@@ -34,7 +33,7 @@ abstract class Bluesky {
     final atp.Session session, {
     String service = 'bsky.social',
     Duration timeout = const Duration(seconds: 10),
-    RetryConfig? retryConfig,
+    core.RetryConfig? retryConfig,
   }) =>
       _Bluesky(
         did: session.did,
@@ -61,14 +60,14 @@ class _Bluesky implements Bluesky {
     required String accessJwt,
     required String service,
     required Duration timeout,
-    RetryConfig? retryConfig,
+    core.RetryConfig? retryConfig,
   }) : _service = BlueskyService(
           atproto: atp.ATProto(
             did: did,
             accessJwt: accessJwt,
           ),
           service: service,
-          context: ClientContext(
+          context: core.ClientContext(
             accessJwt: accessJwt,
             timeout: timeout,
             retryConfig: retryConfig,

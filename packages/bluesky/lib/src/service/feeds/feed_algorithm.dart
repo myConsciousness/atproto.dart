@@ -2,10 +2,9 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🌎 Project imports:
-import '../../core/serializable.dart';
+import 'package:atproto_core/atproto_core.dart' as core;
 
-enum FeedAlgorithm implements Serializable {
+enum FeedAlgorithm implements core.Serializable {
   /// `'reverse-chronological'`
   reverseChronological('reverse-chronological');
 

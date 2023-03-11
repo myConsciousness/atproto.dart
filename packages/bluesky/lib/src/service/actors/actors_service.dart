@@ -4,8 +4,8 @@
 
 // 🌎 Project imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart' as core;
 
-import '../../core/client/client_context.dart';
 import '../base_service.dart';
 import '../entities/actor_profile.dart';
 import '../entities/actor_profiles.dart';
@@ -17,7 +17,7 @@ abstract class ActorsService {
   factory ActorsService({
     required ATProto atproto,
     required String service,
-    required ClientContext context,
+    required core.ClientContext context,
   }) =>
       _ActorsService(
         atproto: atproto,
