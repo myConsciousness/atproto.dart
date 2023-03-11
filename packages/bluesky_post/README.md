@@ -8,7 +8,7 @@
 
 Use this action to send a post from GitHub actions workflow.
 
-This action is implemented in the Dart language and uses [twitter_api_v2](https://github.com/myConsciousness/atproto.dart/packages/bluesky) for posting to Bluesky Social.
+This action is implemented in the Dart language and uses [bluesky](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky) for posting to Bluesky Social.
 
 ## Workflow Usage
 
