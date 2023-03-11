@@ -1,0 +1,37 @@
+name: atproto.dart
+
+command:
+  bootstrap:
+    usePubspecOverrides: true
+
+packages:
+  - website/**
+  - packages/**
+  - examples/**
+
+scripts:
+  analyze:
+    run: |
+      melos exec -c 1 -- \
+        flutter analyze .
+    description: |
+      Run `dart analyze` in all packages.
+       - Note: you can also rely on your IDEs Dart Analysis / Issues window.
+
+  test:
+    run: melos run test:dart --no-select && melos run test:flutter --no-select
+    description: Run all Dart & Flutter tests in this project.
+
+  test:dart:
+    run: melos exec  -c 1 --fail-fast -- "\$MELOS_ROOT_PATH/scripts/coverage.sh"
+    description: Run Dart tests for a specific package in this project.
+    select-package:
+      flutter: false
+      dir-exists: test
+
+  test:flutter:
+    run: melos exec --dir-exists="test" -c 1 --fail-fast -- "flutter test --coverage"
+    description: Run Flutter tests for a specific package in this project.
+    select-package:
+      flutter: true
+      dir-exists: test
