@@ -16,8 +16,7 @@
 
 [![pub package](https://img.shields.io/pub/v/bluesky.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky)
 [![Dart SDK Version](https://badgen.net/pub/sdk-version/bluesky)](https://pub.dev/packages/bluesky/)
-[![Test](https://github.com/myConsciousness/atproto.dart/actions/workflows/test.yml/badge.svg)](https://github.com/myConsciousness/atproto.dart/actions/workflows/test.yml)
-[![Analyzer](https://github.com/myConsciousness/atproto.dart/actions/workflows/analyzer.yml/badge.svg)](https://github.com/myConsciousness/atproto.dart/actions/workflows/analyzer.yml)
+[![Test/Analyzer](https://github.com/myConsciousness/atproto.dart/actions/workflows/cicd.yml/badge.svg)](https://github.com/myConsciousness/atproto.dart/actions/workflows/cicd.yml)
 [![codecov](https://codecov.io/gh/myConsciousness/atproto.dart/branch/main/graph/badge.svg?token=J5GT1PF9Y3)](https://codecov.io/gh/myConsciousness/atproto.dart)
 [![Issues](https://img.shields.io/github/issues/myConsciousness/atproto.dart?logo=github&logoColor=white)](https://github.com/myConsciousness/atproto.dart/issues)
 [![Pull Requests](https://img.shields.io/github/issues-pr/myConsciousness/atproto.dart?logo=github&logoColor=white)](https://github.com/myConsciousness/atproto.dart/pulls)
@@ -52,10 +51,9 @@
       - [1.4.5.2. Do Something on Retry](#1452-do-something-on-retry)
     - [1.4.6. Thrown Exceptions](#146-thrown-exceptions)
   - [1.5. Contribution 🏆](#15-contribution-)
-  - [1.6. Contributors ✨](#16-contributors-)
-  - [1.7. Support ❤️](#17-support-️)
-  - [1.8. License 🔑](#18-license-)
-  - [1.9. More Information 🧐](#19-more-information-)
+  - [1.6. Support ❤️](#16-support-️)
+  - [1.7. License 🔑](#17-license-)
+  - [1.8. More Information 🧐](#18-more-information-)
 
 <!-- /TOC -->
 
@@ -96,13 +94,13 @@ If you want to use atproto-only features, please check [atproto](https://pub.dev
 ### 1.2.2. Import
 
 ```dart
-import 'package:bluesky/atproto.dart';
+import 'package:bluesky/bluesky.dart';
 ```
 
 ### 1.2.3. Implementation
 
 ```dart
-import 'package:bluesky/atproto.dart' as bsky;
+import 'package:bluesky/bluesky.dart' as bsky;
 
 Future<void> main() async {
   try {
@@ -216,7 +214,7 @@ Once this session is established, you will have an access token to use Bluesky's
 You can easily establish a session with the following process. Prepare the name of the service you wish to establish a session with and your credentials.
 
 ```dart
-import 'package:bluesky/atproto.dart' as bsky;
+import 'package:bluesky/bluesky.dart' as bsky;
 
 Future<void> main() async {
   final session = await bsky.createSession(
@@ -232,7 +230,7 @@ Future<void> main() async {
 Once you have established a session, you can now create an instance of the `Bluesky` object. You can easily create an instance of a `Bluesky` object from a previously established `Session` object.
 
 ```dart
-import 'package:bluesky/atproto.dart' as bsky;
+import 'package:bluesky/bluesky.dart' as bsky;
 
 Future<void> main() async {
   final session = await bsky.createSession(
@@ -250,7 +248,7 @@ Future<void> main() async {
 Or, you can do as follows:
 
 ```dart
-import 'package:bluesky/atproto.dart' as bsky;
+import 'package:bluesky/bluesky.dart' as bsky;
 
 Future<void> main() async {
   final session = await bsky.createSession(
@@ -276,7 +274,7 @@ It means the parameters specified with a null value are safely removed and ignor
 For example, arguments specified with null are ignored in the following request.
 
 ```dart
-import 'package:bluesky/atproto.dart' as bsky;
+import 'package:bluesky/bluesky.dart' as bsky;
 
 Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(await _session);
@@ -306,7 +304,7 @@ The library specifies a default timeout of **10 seconds** for all API communicat
 However, there may be times when you wish to specify an arbitrary timeout duration. If there is such a demand, an arbitrary timeout duration can be specified as follows.
 
 ```dart
-import 'package:bluesky/bluesky' as bsky;
+import 'package:bluesky/bluesky.dart' as bsky;
 
 Future<void> main() async {
   final bluesky = bsky.Bluesky(
@@ -340,7 +338,7 @@ This problem can be solved by adding a random number called **Jitter**, and this
 Similar to the previous example, **bluesky** can be implemented as follows.
 
 ```dart
-import 'package:bluesky/bluesky' as bsky;
+import 'package:bluesky/bluesky.dart' as bsky;
 
 Future<void> main() async {
   final bluesky = bsky.Bluesky(
@@ -366,7 +364,7 @@ It would be useful to output logging on retries and a popup notifying the user t
 It can be implemented as follows.
 
 ```dart
-import 'package:bluesky/bluesky' as bsky;
+import 'package:bluesky/bluesky.dart' as bsky;
 
 Future<void> main() async {
   final bluesky = bsky.Bluesky(
@@ -402,7 +400,7 @@ However note that, if you receive an individual type exception, be sure to defin
 Therefore, if you need to catch a specific type of exception in addition to [BlueskyException](https://pub.dev/documentation/bluesky/latest/bluesky/BlueskyException-class.html), be sure to catch [BlueskyException](https://pub.dev/documentation/bluesky/latest/bluesky/BlueskyException-class.html) in the bottom catch clause as in the following example.
 
 ```dart
-import 'package:bluesky/bluesky' as bsky;
+import 'package:bluesky/bluesky.dart' as bsky;
 
 Future<void> main() async {
   final bluesky = bsky.Bluesky(
@@ -443,22 +441,7 @@ Or you can create a [discussion](https://github.com/myConsciousness/atproto.dart
 
 **Feel free to join this development, diverse opinions make software better!**
 
-## 1.6. Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
-
-## 1.7. Support ❤️
+## 1.6. Support ❤️
 
 The simplest way to show us your support is by **giving the project a star** at [GitHub](https://github.com/myConsciousness/atproto.dart) and [Pub.dev](https://pub.dev/packages/bluesky).
 
@@ -484,7 +467,7 @@ You can also show on your repository that your app is made with **bluesky** by u
 [![Powered by bluesky](https://img.shields.io/badge/Powered%20by-bluesky-00acee.svg?style=for-the-badge)](https://github.com/myConsciousness/atproto.dart)
 ```
 
-## 1.8. License 🔑
+## 1.7. License 🔑
 
 All resources of **bluesky** is provided under the `BSD-3` license.
 
@@ -497,7 +480,7 @@ modification, are permitted provided the conditions.
 > **Note**</br>
 > License notices in the source are strictly validated based on `.github/header-checker-lint.yml`. Please check [header-checker-lint.yml](https://github.com/myConsciousness/atproto.dart/tree/main/.github/header-checker-lint.yml) for the permitted standards.
 
-## 1.9. More Information 🧐
+## 1.8. More Information 🧐
 
 **bluesky** was designed and implemented by **_Kato Shinya ([@myConsciousness](https://github.com/myConsciousness))_**.
 
