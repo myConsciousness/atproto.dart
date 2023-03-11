@@ -1,1 +1,0 @@
-../../STYLE_GUIDE.md
