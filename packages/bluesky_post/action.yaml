@@ -1,0 +1,22 @@
+name: "Send Bluesky Post"
+description: "Provide an easy way to post to Bluesky from Github Actions."
+author: 'Shinya Kato'
+inputs:
+  text:
+    description: Text to be posted to Bluesky.
+  handle:
+    description: >
+      Handle name of the user who logs into Bluesky.
+      This information is used by the ATP server to establish a session.
+      For example, "shinyakato.bsky.social".
+  password:
+    description: >
+      Password of the user who logs into Bluesky.
+      This information is used by the ATP server to establish a session.
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+branding:
+  icon: edit
+  color: blue
