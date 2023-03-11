@@ -9,13 +9,13 @@
 
 <!-- /TOC -->
 
-This document outlines security procedures and general policies for the `atproto`
+This document outlines security procedures and general policies for the `atproto.dart`
 project created by `Kato Shinya`.
 
 ## 1.1. Reporting a Bug
 
-The team and community take all security bugs in `atproto` seriously.
-Thank you for improving the security of `atproto`. We appreciate your efforts and
+The team and community take all security bugs in `atproto.dart` seriously.
+Thank you for improving the security of `atproto.dart`. We appreciate your efforts and
 responsible disclosure and will make every effort to acknowledge your
 contributions.
 
