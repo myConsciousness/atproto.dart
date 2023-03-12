@@ -1,0 +1,19 @@
+{
+  "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
+  "declaration": {
+    "actorType": "app.bsky.system.actorUser",
+    "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+  },
+  "handle": "shinyakato.dev",
+  "displayName": "Shinya Kato",
+  "description": "Dart/Flutter enthusiast. The author of many Dart/Flutter packages such as twitter_api_v2, twitter_oauth2_pkce, mastodon_api and etc.\n\nDeveloping Dart/Flutter packages for atproto & bluesky 🚀\nhttps://github.com/myConsciousness/atproto.dart",
+  "avatar": "https://cdn.bsky.social/imgproxy/JF97YphLyIEWfq4KJNO_ZCYm9v_zNcRj7sSB8UZrRBw/rs:fill:1000:1000:1:0/plain/bafkreidqn4z6ocv5snxuqguarboozqdusam2tehccnu23yab7g2sgv64dq@jpeg",
+  "banner": "https://cdn.bsky.social/imgproxy/0ijMnNxGs3aYg9Xsb5YkfehBkZo2WRJReLgMtljXPM0/rs:fill:3000:1000:1:0/plain/bafkreiaz67sqpaacxjtbj7texvnz5tlnfpthman4kvciymxg2jc2vayd4m@jpeg",
+  "followsCount": 117,
+  "followersCount": 121,
+  "postsCount": 194,
+  "creator": "did:plc:iijrtk7ocored6zuziwmqq3c",
+  "indexedAt": "2023-03-11T15:48:16.026Z",
+  "viewer": { "muted": false },
+  "myState": { "muted": false }
+}
