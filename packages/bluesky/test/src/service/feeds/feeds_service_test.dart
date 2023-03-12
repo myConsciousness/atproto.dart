@@ -91,4 +91,164 @@ void main() {
       );
     });
   });
+
+  group('.createPost', () {
+    test('normal case', () async {
+      final mockedContext = context.buildPostStub(
+        'test',
+        '/xrpc/com.atproto.repo.createRecord',
+        'test/src/service/feeds/data/create_post.json',
+      );
+
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          context: mockedContext,
+        ),
+        service: 'test',
+        context: mockedContext,
+      );
+
+      final response = await feeds.createPost(
+        text: 'test',
+      );
+
+      expect(response, isA<ATProtoResponse>());
+      expect(response.data, isA<Record>());
+    });
+
+    test('when unauthorized', () async {
+      final mockedContext = context.buildPostStub(
+        'test',
+        '/xrpc/com.atproto.repo.createRecord',
+        'test/src/service/feeds/data/create_post.json',
+        statusCode: 401,
+      );
+
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          context: mockedContext,
+        ),
+        service: 'test',
+        context: mockedContext,
+      );
+
+      expectUnauthorizedException(
+        () async => await feeds.createPost(
+          text: 'test',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final mockedContext = context.buildPostStub(
+        'test',
+        '/xrpc/com.atproto.repo.createRecord',
+        'test/src/service/feeds/data/create_post.json',
+        statusCode: 429,
+      );
+
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          context: mockedContext,
+        ),
+        service: 'test',
+        context: mockedContext,
+      );
+
+      expectRateLimitExceededException(
+        () async => await feeds.createPost(
+          text: 'test',
+        ),
+      );
+    });
+  });
+
+  group('.destroyPost', () {
+    test('normal case', () async {
+      final mockedContext = context.buildPostStub(
+        'test',
+        '/xrpc/com.atproto.repo.deleteRecord',
+        'test/src/service/feeds/data/destroy_post.json',
+      );
+
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          context: mockedContext,
+        ),
+        service: 'test',
+        context: mockedContext,
+      );
+
+      final response = await feeds.destroyPost(
+        uri: 'test',
+      );
+
+      expect(response, isA<ATProtoResponse>());
+      expect(response.data, isA<Empty>());
+    });
+
+    test('when unauthorized', () async {
+      final mockedContext = context.buildPostStub(
+        'test',
+        '/xrpc/com.atproto.repo.deleteRecord',
+        'test/src/service/feeds/data/destroy_post.json',
+        statusCode: 401,
+      );
+
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          context: mockedContext,
+        ),
+        service: 'test',
+        context: mockedContext,
+      );
+
+      expectUnauthorizedException(
+        () async => await feeds.destroyPost(
+          uri: 'test',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final mockedContext = context.buildPostStub(
+        'test',
+        '/xrpc/com.atproto.repo.deleteRecord',
+        'test/src/service/feeds/data/destroy_post.json',
+        statusCode: 429,
+      );
+
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          context: mockedContext,
+        ),
+        service: 'test',
+        context: mockedContext,
+      );
+
+      expectRateLimitExceededException(
+        () async => await feeds.destroyPost(
+          uri: 'test',
+        ),
+      );
+    });
+  });
 }
