@@ -251,4 +251,168 @@ void main() {
       );
     });
   });
+
+  group('.createRepost', () {
+    test('normal case', () async {
+      final mockedContext = context.buildPostStub(
+        'test',
+        '/xrpc/com.atproto.repo.createRecord',
+        'test/src/service/feeds/data/create_repost.json',
+      );
+
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          context: mockedContext,
+        ),
+        service: 'test',
+        context: mockedContext,
+      );
+
+      final response = await feeds.createRepost(
+        cid: '1234',
+        uri: 'at://test',
+        createdAt: DateTime.now(),
+      );
+
+      expect(response, isA<ATProtoResponse>());
+      expect(response.data, isA<Record>());
+    });
+
+    test('when unauthorized', () async {
+      final mockedContext = context.buildPostStub(
+        'test',
+        '/xrpc/com.atproto.repo.createRecord',
+        'test/src/service/feeds/data/create_repost.json',
+        statusCode: 401,
+      );
+
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          context: mockedContext,
+        ),
+        service: 'test',
+        context: mockedContext,
+      );
+
+      expectUnauthorizedException(
+        () async => await feeds.createRepost(
+          cid: '1234',
+          uri: 'at://test',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final mockedContext = context.buildPostStub(
+        'test',
+        '/xrpc/com.atproto.repo.createRecord',
+        'test/src/service/feeds/data/create_repost.json',
+        statusCode: 429,
+      );
+
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          context: mockedContext,
+        ),
+        service: 'test',
+        context: mockedContext,
+      );
+
+      expectRateLimitExceededException(
+        () async => await feeds.createRepost(
+          cid: '1234',
+          uri: 'at://test',
+        ),
+      );
+    });
+  });
+
+  group('.destroyRepost', () {
+    test('normal case', () async {
+      final mockedContext = context.buildPostStub(
+        'test',
+        '/xrpc/com.atproto.repo.deleteRecord',
+        'test/src/service/feeds/data/destroy_repost.json',
+      );
+
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          context: mockedContext,
+        ),
+        service: 'test',
+        context: mockedContext,
+      );
+
+      final response = await feeds.destroyRepost(
+        uri: 'at://test',
+      );
+
+      expect(response, isA<ATProtoResponse>());
+      expect(response.data, isA<Empty>());
+    });
+
+    test('when unauthorized', () async {
+      final mockedContext = context.buildPostStub(
+        'test',
+        '/xrpc/com.atproto.repo.deleteRecord',
+        'test/src/service/feeds/data/destroy_repost.json',
+        statusCode: 401,
+      );
+
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          context: mockedContext,
+        ),
+        service: 'test',
+        context: mockedContext,
+      );
+
+      expectUnauthorizedException(
+        () async => await feeds.destroyRepost(
+          uri: 'at://test',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final mockedContext = context.buildPostStub(
+        'test',
+        '/xrpc/com.atproto.repo.deleteRecord',
+        'test/src/service/feeds/data/destroy_repost.json',
+        statusCode: 429,
+      );
+
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          context: mockedContext,
+        ),
+        service: 'test',
+        context: mockedContext,
+      );
+
+      expectRateLimitExceededException(
+        () async => await feeds.destroyRepost(
+          uri: 'at://test',
+        ),
+      );
+    });
+  });
 }
