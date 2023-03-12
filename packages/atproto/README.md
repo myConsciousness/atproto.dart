@@ -16,8 +16,7 @@
 
 [![pub package](https://img.shields.io/pub/v/atproto.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/atproto)
 [![Dart SDK Version](https://badgen.net/pub/sdk-version/atproto)](https://pub.dev/packages/atproto/)
-[![Test](https://github.com/myConsciousness/atproto.dart/actions/workflows/test.yml/badge.svg)](https://github.com/myConsciousness/atproto.dart/actions/workflows/test.yml)
-[![Analyzer](https://github.com/myConsciousness/atproto.dart/actions/workflows/analyzer.yml/badge.svg)](https://github.com/myConsciousness/atproto.dart/actions/workflows/analyzer.yml)
+[![CICD](https://github.com/myConsciousness/atproto.dart/actions/workflows/cicd.yml/badge.svg)](https://github.com/myConsciousness/atproto.dart/actions/workflows/cicd.yml)
 [![codecov](https://codecov.io/gh/myConsciousness/atproto.dart/branch/main/graph/badge.svg?token=J5GT1PF9Y3)](https://codecov.io/gh/myConsciousness/atproto.dart)
 [![Issues](https://img.shields.io/github/issues/myConsciousness/atproto.dart?logo=github&logoColor=white)](https://github.com/myConsciousness/atproto.dart/issues)
 [![Pull Requests](https://img.shields.io/github/issues-pr/myConsciousness/atproto.dart?logo=github&logoColor=white)](https://github.com/myConsciousness/atproto.dart/pulls)
@@ -50,10 +49,9 @@
       - [1.4.4.2. Do Something on Retry](#1442-do-something-on-retry)
     - [1.4.5. Thrown Exceptions](#145-thrown-exceptions)
   - [1.5. Contribution 🏆](#15-contribution-)
-  - [1.6. Contributors ✨](#16-contributors-)
-  - [1.7. Support ❤️](#17-support-️)
-  - [1.8. License 🔑](#18-license-)
-  - [1.9. More Information 🧐](#19-more-information-)
+  - [1.6. Support ❤️](#16-support-️)
+  - [1.7. License 🔑](#17-license-)
+  - [1.8. More Information 🧐](#18-more-information-)
 
 <!-- /TOC -->
 
@@ -283,15 +281,15 @@ The [RetryEvent](https://pub.dev/documentation/atproto/latest/atproto/RetryEvent
 
 | Exception                                                                                                      | Description                                                                                                           |
 | -------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| [ATProtoException](https://pub.dev/documentation/atproto/latest/atproto/ATProtoException-class.html)           | The most basic exception object. For example, it can be used to search for posts that have already been deleted, etc. |
+| [ATProtoException](https://pub.dev/documentation/atproto/latest/atproto_core/ATProtoException-class.html)      | The most basic exception object. For example, it can be used to search for posts that have already been deleted, etc. |
 | [UnauthorizedException](https://pub.dev/documentation/atproto/latest/atproto/UnauthorizedException-class.html) | Thrown when authentication fails with the specified access token.                                                     |
 | [DataNotFoundException](https://pub.dev/documentation/atproto/latest/atproto/DataNotFoundException-class.html) | Thrown when response has no body or data field in body string, or when 404 status is returned.                        |
 
-Also, all of the above exceptions thrown from the **atproto** process extend [ATProtoException](https://pub.dev/documentation/atproto/latest/atproto/ATProtoException-class.html). This means that you can take all exceptions as [ATProtoException](https://pub.dev/documentation/atproto/latest/atproto/ATProtoException-class.html) or handle them as certain exception types, depending on the situation.
+Also, all of the above exceptions thrown from the **atproto** process extend [ATProtoException](https://pub.dev/documentation/atproto/latest/atproto_core/ATProtoException-class.html). This means that you can take all exceptions as [ATProtoException](https://pub.dev/documentation/atproto/latest/atproto_core/ATProtoException-class.html) or handle them as certain exception types, depending on the situation.
 
-However note that, if you receive an individual type exception, be sure to define the process so that the individual exception type is cached before [ATProtoException](https://pub.dev/documentation/atproto/latest/atproto/ATProtoException-class.html). Otherwise, certain type exceptions will also be caught as [ATProtoException](https://pub.dev/documentation/atproto/latest/atproto/ATProtoException-class.html).
+However note that, if you receive an individual type exception, be sure to define the process so that the individual exception type is cached before [ATProtoException](https://pub.dev/documentation/atproto/latest/atproto_core/ATProtoException-class.html). Otherwise, certain type exceptions will also be caught as [ATProtoException](https://pub.dev/documentation/atproto/latest/atproto_core/ATProtoException-class.html).
 
-Therefore, if you need to catch a specific type of exception in addition to [ATProtoException](https://pub.dev/documentation/atproto/latest/atproto/ATProtoException-class.html), be sure to catch [ATProtoException](https://pub.dev/documentation/atproto/latest/atproto/ATProtoException-class.html) in the bottom catch clause as in the following example.
+Therefore, if you need to catch a specific type of exception in addition to [ATProtoException](https://pub.dev/documentation/atproto/latest/atproto_core/ATProtoException-class.html), be sure to catch [ATProtoException](https://pub.dev/documentation/atproto/latest/atproto_core/ATProtoException-class.html) in the bottom catch clause as in the following example.
 
 ```dart
 import 'package:atproto/atproto.dart' as atp;
@@ -306,9 +304,9 @@ Future<void> main() async {
     final response = await atproto.sessions.lookupCurrentSession();
 
     print(response);
-  } on UnauthorizedException catch (e) {
+  } on atp.UnauthorizedException catch (e) {
     print(e);
-  } on ATProtoException catch (e) {
+  } on atp.ATProtoException catch (e) {
     print(e);
   }
 }
@@ -335,22 +333,7 @@ Or you can create a [discussion](https://github.com/myConsciousness/atproto.dart
 
 **Feel free to join this development, diverse opinions make software better!**
 
-## 1.6. Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
-
-## 1.7. Support ❤️
+## 1.6. Support ❤️
 
 The simplest way to show us your support is by **giving the project a star** at [GitHub](https://github.com/myConsciousness/atproto.dart) and [Pub.dev](https://pub.dev/packages/atproto).
 
@@ -376,12 +359,12 @@ You can also show on your repository that your app is made with **atproto** by u
 [![Powered by atproto](https://img.shields.io/badge/Powered%20by-atproto-00acee.svg?style=for-the-badge)](https://github.com/myConsciousness/atproto.dart)
 ```
 
-## 1.8. License 🔑
+## 1.7. License 🔑
 
 All resources of **atproto** is provided under the `BSD-3` license.
 
 ```license
-Copyright 2022 Kato Shinya. All rights reserved.
+Copyright 2023 Kato Shinya. All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided the conditions.
 ```
@@ -389,7 +372,7 @@ modification, are permitted provided the conditions.
 > **Note**</br>
 > License notices in the source are strictly validated based on `.github/header-checker-lint.yml`. Please check [header-checker-lint.yml](https://github.com/myConsciousness/atproto.dart/tree/main/.github/header-checker-lint.yml) for the permitted standards.
 
-## 1.9. More Information 🧐
+## 1.8. More Information 🧐
 
 **atproto** was designed and implemented by **_Kato Shinya ([@myConsciousness](https://github.com/myConsciousness))_**.
 

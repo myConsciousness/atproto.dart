@@ -149,7 +149,7 @@ Future<void> main() async {
     );
   } on bsky.UnauthorizedException catch (e) {
     print(e);
-  } on bsky.BlueskyException catch (e) {
+  } on bsky.ATProtoException catch (e) {
     print(e.body);
     print(e.response);
     print(e.message);
@@ -389,15 +389,15 @@ The [RetryEvent](https://pub.dev/documentation/bluesky/latest/bluesky/RetryEvent
 
 | Exception                                                                                                      | Description                                                                                                           |
 | -------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| [BlueskyException](https://pub.dev/documentation/bluesky/latest/bluesky/BlueskyException-class.html)           | The most basic exception object. For example, it can be used to search for posts that have already been deleted, etc. |
+| [ATProtoException](https://pub.dev/documentation/bluesky/latest/atproto_core/ATProtoException-class.html)      | The most basic exception object. For example, it can be used to search for posts that have already been deleted, etc. |
 | [UnauthorizedException](https://pub.dev/documentation/bluesky/latest/atproto/UnauthorizedException-class.html) | Thrown when authentication fails with the specified access token.                                                     |
 | [DataNotFoundException](https://pub.dev/documentation/bluesky/latest/atproto/DataNotFoundException-class.html) | Thrown when response has no body or data field in body string, or when 404 status is returned.                        |
 
-Also, all of the above exceptions thrown from the **bluesky** process extend [BlueskyException](https://pub.dev/documentation/bluesky/latest/bluesky/BlueskyException-class.html). This means that you can take all exceptions as [BlueskyException](https://pub.dev/documentation/bluesky/latest/bluesky/BlueskyException-class.html) or handle them as certain exception types, depending on the situation.
+Also, all of the above exceptions thrown from the **bluesky** process extend [ATProtoException](https://pub.dev/documentation/bluesky/latest/atproto_core/ATProtoException-class.html). This means that you can take all exceptions as [ATProtoException](https://pub.dev/documentation/bluesky/latest/atproto_core/ATProtoException-class.html) or handle them as certain exception types, depending on the situation.
 
-However note that, if you receive an individual type exception, be sure to define the process so that the individual exception type is cached before [BlueskyException](https://pub.dev/documentation/bluesky/latest/bluesky/BlueskyException-class.html). Otherwise, certain type exceptions will also be caught as [BlueskyException](https://pub.dev/documentation/bluesky/latest/bluesky/BlueskyException-class.html).
+However note that, if you receive an individual type exception, be sure to define the process so that the individual exception type is cached before [ATProtoException](https://pub.dev/documentation/bluesky/latest/atproto_core/ATProtoException-class.html). Otherwise, certain type exceptions will also be caught as [ATProtoException](https://pub.dev/documentation/bluesky/latest/atproto_core/ATProtoException-class.html).
 
-Therefore, if you need to catch a specific type of exception in addition to [BlueskyException](https://pub.dev/documentation/bluesky/latest/bluesky/BlueskyException-class.html), be sure to catch [BlueskyException](https://pub.dev/documentation/bluesky/latest/bluesky/BlueskyException-class.html) in the bottom catch clause as in the following example.
+Therefore, if you need to catch a specific type of exception in addition to [ATProtoException](https://pub.dev/documentation/bluesky/latest/atproto_core/ATProtoException-class.html), be sure to catch [ATProtoException](https://pub.dev/documentation/bluesky/latest/atproto_core/ATProtoException-class.html) in the bottom catch clause as in the following example.
 
 ```dart
 import 'package:bluesky/bluesky.dart' as bsky;
@@ -414,7 +414,7 @@ Future<void> main() async {
     print(response);
   } on bsky.UnauthorizedException catch (e) {
     print(e);
-  } on bsky.BlueskyException catch (e) {
+  } on bsky.ATProtoException catch (e) {
     print(e);
   }
 }
