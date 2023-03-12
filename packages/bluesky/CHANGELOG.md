@@ -1,6 +1,6 @@
 # Release Note
 
-## v0.1.1
+## v0.2.0
 
 - Changed parameter names. ([#68](https://github.com/myConsciousness/atproto.dart/issues/68))
   - From `ActorsService.lookupProfile#handle`, to `ActorsService.lookupProfile#actor`.
