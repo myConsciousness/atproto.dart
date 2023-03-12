@@ -5,6 +5,10 @@
 - Changed parameter names. ([#68](https://github.com/myConsciousness/atproto.dart/issues/68))
   - From `ActorsService.lookupProfile#handle`, to `ActorsService.lookupProfile#actor`.
   - From `ActorsService.lookupProfiles#handles`, to `ActorsService.lookupProfiles#actors`.
+- Refactored objects and structures. ([#70](https://github.com/myConsciousness/atproto.dart/issues/70))
+  - Deleted `BlueskyResponse`. Use `ATProtoResponse` instead.
+  - Deleted `BlueskyRequest`. Use `ATProtoRequest` instead.
+  - Deleted `BlueskyException`. Use `ATProtoException` instead.
 
 ## v0.1.0
 
