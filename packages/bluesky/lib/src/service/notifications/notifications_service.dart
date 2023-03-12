@@ -3,18 +3,17 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
-import '../base_service.dart';
+import '../bluesky_base_service.dart';
 import '../entities/count.dart';
 import '../entities/notifications.dart';
-import '../response/bluesky_response.dart';
 
 abstract class NotificationsService {
   /// Returns the new instance of [NotificationsService].
   factory NotificationsService({
-    required ATProto atproto,
+    required atp.ATProto atproto,
     required String service,
     required core.ClientContext context,
   }) =>
@@ -40,7 +39,7 @@ abstract class NotificationsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/list.json
-  Future<BlueskyResponse<Notifications>> lookupNotifications({
+  Future<core.ATProtoResponse<Notifications>> lookupNotifications({
     int? limit,
     String? cursor,
   });
@@ -54,10 +53,10 @@ abstract class NotificationsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/getCount.json
-  Future<BlueskyResponse<Count>> lookupUnreadCount();
+  Future<core.ATProtoResponse<Count>> lookupUnreadCount();
 }
 
-class _NotificationsService extends BaseService
+class _NotificationsService extends BlueskyBaseService
     implements NotificationsService {
   /// Returns the new instance of [_NotificationsService].
   _NotificationsService({
@@ -67,7 +66,7 @@ class _NotificationsService extends BaseService
   });
 
   @override
-  Future<BlueskyResponse<Notifications>> lookupNotifications({
+  Future<core.ATProtoResponse<Notifications>> lookupNotifications({
     int? limit,
     String? cursor,
   }) async =>
@@ -83,7 +82,7 @@ class _NotificationsService extends BaseService
       );
 
   @override
-  Future<BlueskyResponse<Count>> lookupUnreadCount() async =>
+  Future<core.ATProtoResponse<Count>> lookupUnreadCount() async =>
       super.transformSingleDataResponse(
         await super.get(
           '/xrpc/app.bsky.notification.getCount',

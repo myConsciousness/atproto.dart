@@ -35,7 +35,7 @@ void main() {
         cursor: '1234',
       );
 
-      expect(response, isA<BlueskyResponse>());
+      expect(response, isA<ATProtoResponse>());
       expect(response.data, isA<Feeds>());
     });
 

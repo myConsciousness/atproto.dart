@@ -51,7 +51,7 @@ Future<void> main() async {
     );
   } on bsky.UnauthorizedException catch (e) {
     print(e);
-  } on bsky.BlueskyException catch (e) {
+  } on bsky.ATProtoException catch (e) {
     print(e.body);
     print(e.response);
     print(e.message);

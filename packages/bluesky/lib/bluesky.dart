@@ -2,20 +2,23 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-export 'package:atproto/atproto.dart'
-    show createSession, ATProtoResponse, ATProtoRequest, Session, Record, Empty;
+export 'package:atproto/atproto.dart' show createSession, Session, Record;
 
 export 'package:atproto_core/atproto_core.dart'
     show
-        RetryConfig,
+        Empty,
+        ATProtoRequest,
+        ATProtoResponse,
         Jitter,
+        RetryConfig,
         RetryEvent,
-        HttpMethod,
-        HttpStatus,
         ATProtoException,
         UnauthorizedException,
         DataNotFoundException,
-        RateLimitExceededException;
+        RateLimitExceededException,
+        ForbiddenException,
+        HttpMethod,
+        HttpStatus;
 
 export 'package:bluesky/src/bluesky.dart';
 export 'package:bluesky/src/service/actors/actors_service.dart';
@@ -43,9 +46,6 @@ export 'package:bluesky/src/service/entities/post_record.dart';
 export 'package:bluesky/src/service/entities/reason.dart';
 export 'package:bluesky/src/service/entities/reply.dart';
 export 'package:bluesky/src/service/entities/reply_meta.dart';
-export 'package:bluesky/src/service/exception/bluesky_exception.dart';
 export 'package:bluesky/src/service/feeds/feed_algorithm.dart';
 export 'package:bluesky/src/service/feeds/feeds_service.dart';
 export 'package:bluesky/src/service/notifications/notifications_service.dart';
-export 'package:bluesky/src/service/response/bluesky_request.dart';
-export 'package:bluesky/src/service/response/bluesky_response.dart';

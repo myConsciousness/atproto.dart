@@ -5,10 +5,8 @@
 // 🌎 Project imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 
-import '../base_service.dart';
-import '../entities/empty.dart';
+import '../atproto_base_service.dart';
 import '../entities/record.dart';
-import '../response/atproto_response.dart';
 
 abstract class RepositoriesService {
   /// Returns the new instance of [RepositoriesService].
@@ -23,18 +21,19 @@ abstract class RepositoriesService {
         context: context,
       );
 
-  Future<ATProtoResponse<Record>> createRecord({
+  Future<core.ATProtoResponse<Record>> createRecord({
     required String collection,
     required Map<String, dynamic> record,
   });
 
-  Future<ATProtoResponse<Empty>> destroyRecord({
+  Future<core.ATProtoResponse<core.Empty>> destroyRecord({
     required String collection,
     required String uri,
   });
 }
 
-class _RepositoriesService extends BaseService implements RepositoriesService {
+class _RepositoriesService extends ATProtoBaseService
+    implements RepositoriesService {
   /// Returns the new instance of [_RepositoriesService].
   _RepositoriesService({
     required super.did,
@@ -43,7 +42,7 @@ class _RepositoriesService extends BaseService implements RepositoriesService {
   });
 
   @override
-  Future<ATProtoResponse<Record>> createRecord({
+  Future<core.ATProtoResponse<Record>> createRecord({
     required String collection,
     required Map<String, dynamic> record,
   }) async =>
@@ -60,7 +59,7 @@ class _RepositoriesService extends BaseService implements RepositoriesService {
       );
 
   @override
-  Future<ATProtoResponse<Empty>> destroyRecord({
+  Future<core.ATProtoResponse<core.Empty>> destroyRecord({
     required String collection,
     required String uri,
   }) async =>

@@ -3,15 +3,14 @@
 // modification, are permitted provided the conditions.
 
 import 'package:atproto_core/atproto_core.dart';
-import 'package:bluesky/src/service/exception/bluesky_exception.dart';
 import 'package:test/test.dart';
 
-void expectBlueskyException(Function fn) {
+void expectATProtoException(Function fn) {
   expect(
     () async => await fn.call(),
     throwsA(
       allOf(
-        isA<BlueskyException>(),
+        isA<ATProtoException>(),
         predicate(
           (dynamic e) =>
               e.message ==
@@ -41,9 +40,9 @@ void expectDataNotFoundExceptionDueToNoJson(Function fn) {
     () async => await fn.call(),
     throwsA(
       allOf(
-        isA<BlueskyException>(),
+        isA<ATProtoException>(),
         predicate(
-          (BlueskyException e) => e.message == 'No body exists in response.',
+          (ATProtoException e) => e.message == 'No body exists in response.',
         ),
       ),
     ),

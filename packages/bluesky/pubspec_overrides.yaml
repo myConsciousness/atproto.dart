@@ -1,0 +1,5 @@
+dependency_overrides:
+  atproto_core:
+    path: ../atproto_core
+  atproto:
+    path: ../atproto

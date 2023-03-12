@@ -9,7 +9,7 @@ import 'dart:convert';
 import 'package:http/http.dart';
 
 // 🌎 Project imports:
-import '../exception/atproto_exception.dart';
+import '../exception/data_not_found_exception.dart';
 
 dynamic tryJsonDecode(
   final BaseResponse response,
@@ -18,8 +18,8 @@ dynamic tryJsonDecode(
   try {
     return jsonDecode(body);
   } on FormatException {
-    throw ATProtoException(
-      'No body exists in response.',
+    throw DataNotFoundException(
+      'No JSON format body exists in response.',
       response,
     );
   }

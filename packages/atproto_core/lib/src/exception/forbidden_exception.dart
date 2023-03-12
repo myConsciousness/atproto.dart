@@ -3,17 +3,23 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:http/http.dart';
 
-/// This exception indicates that an unexpected error occurred when
-/// communicating with the Bluesky API.
-class BlueskyException extends ATProtoException {
-  /// Returns the new instance of [BlueskyException].
-  BlueskyException(super.message, super.response, [super.body]);
+// 🌎 Project imports:
+import 'atproto_exception.dart';
+
+/// This exception is thrown to indicate that
+/// the user lacks the needed permissions to access the method.
+class ForbiddenException extends ATProtoException {
+  /// Returns the new instance of [ForbiddenException].
+  ForbiddenException(
+    final String message, [
+    final BaseResponse? response,
+  ]) : super(message, response ?? Response('', 401));
 
   @override
   String toString() {
-    final buffer = StringBuffer()..writeln('BlueskyException: $message\n');
+    final buffer = StringBuffer()..writeln('ForbiddenException: $message\n');
 
     if (response.request != null) {
       buffer
@@ -34,7 +40,7 @@ class BlueskyException extends ATProtoException {
     buffer
       ..writeln('  Please create an Issue if you have a question '
           'or suggestion for this exception.')
-      ..writeln('  https://github.com/myConsciousness/bluesky.dart');
+      ..writeln('  https://github.com/myConsciousness/atproto.dart');
 
     return buffer.toString();
   }

@@ -2,7 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:atproto_core/atproto_core.dart' as core;
+import '../http_method.dart';
 
 class ATProtoRequest {
   /// Returns the new instance of [ATProtoRequest].
@@ -12,7 +12,7 @@ class ATProtoRequest {
   });
 
   /// The http method when request has sent.
-  final core.HttpMethod method;
+  final HttpMethod method;
 
   /// The request url.
   final Uri url;

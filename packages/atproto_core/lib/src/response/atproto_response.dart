@@ -2,12 +2,11 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:atproto_core/atproto_core.dart' as core;
-
 import '../entities/empty.dart';
+import '../http_status.dart';
 import 'atproto_request.dart';
 
-/// The class represents the response from ATP.
+/// The class represents the response from PDS server.
 class ATProtoResponse<D> {
   /// Returns the new instance of [ATProtoResponse].
   const ATProtoResponse({
@@ -20,8 +19,8 @@ class ATProtoResponse<D> {
   /// The headers of this response.
   final Map<String, String> headers;
 
-  /// The HTTP status from ATP server.
-  final core.HttpStatus status;
+  /// The HTTP status from PDS server.
+  final HttpStatus status;
 
   /// The request that generated this response.
   final ATProtoRequest request;
