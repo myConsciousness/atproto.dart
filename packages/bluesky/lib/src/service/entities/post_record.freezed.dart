@@ -21,7 +21,7 @@ PostRecord _$PostRecordFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PostRecord {
   String get text => throw _privateConstructorUsedError;
-  ReplyMeta? get reply => throw _privateConstructorUsedError;
+  PostRef? get reply => throw _privateConstructorUsedError;
   List<Entity>? get entities => throw _privateConstructorUsedError;
   EmbedContents? get embed => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -40,12 +40,12 @@ abstract class $PostRecordCopyWith<$Res> {
   @useResult
   $Res call(
       {String text,
-      ReplyMeta? reply,
+      PostRef? reply,
       List<Entity>? entities,
       EmbedContents? embed,
       DateTime createdAt});
 
-  $ReplyMetaCopyWith<$Res>? get reply;
+  $PostRefCopyWith<$Res>? get reply;
   $EmbedContentsCopyWith<$Res>? get embed;
 }
 
@@ -76,7 +76,7 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
       reply: freezed == reply
           ? _value.reply
           : reply // ignore: cast_nullable_to_non_nullable
-              as ReplyMeta?,
+              as PostRef?,
       entities: freezed == entities
           ? _value.entities
           : entities // ignore: cast_nullable_to_non_nullable
@@ -94,12 +94,12 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
 
   @override
   @pragma('vm:prefer-inline')
-  $ReplyMetaCopyWith<$Res>? get reply {
+  $PostRefCopyWith<$Res>? get reply {
     if (_value.reply == null) {
       return null;
     }
 
-    return $ReplyMetaCopyWith<$Res>(_value.reply!, (value) {
+    return $PostRefCopyWith<$Res>(_value.reply!, (value) {
       return _then(_value.copyWith(reply: value) as $Val);
     });
   }
@@ -127,13 +127,13 @@ abstract class _$$_PostRecordCopyWith<$Res>
   @useResult
   $Res call(
       {String text,
-      ReplyMeta? reply,
+      PostRef? reply,
       List<Entity>? entities,
       EmbedContents? embed,
       DateTime createdAt});
 
   @override
-  $ReplyMetaCopyWith<$Res>? get reply;
+  $PostRefCopyWith<$Res>? get reply;
   @override
   $EmbedContentsCopyWith<$Res>? get embed;
 }
@@ -163,7 +163,7 @@ class __$$_PostRecordCopyWithImpl<$Res>
       reply: freezed == reply
           ? _value.reply
           : reply // ignore: cast_nullable_to_non_nullable
-              as ReplyMeta?,
+              as PostRef?,
       entities: freezed == entities
           ? _value._entities
           : entities // ignore: cast_nullable_to_non_nullable
@@ -198,7 +198,7 @@ class _$_PostRecord implements _PostRecord {
   @override
   final String text;
   @override
-  final ReplyMeta? reply;
+  final PostRef? reply;
   final List<Entity>? _entities;
   @override
   List<Entity>? get entities {
@@ -254,7 +254,7 @@ class _$_PostRecord implements _PostRecord {
 abstract class _PostRecord implements PostRecord {
   const factory _PostRecord(
       {required final String text,
-      final ReplyMeta? reply,
+      final PostRef? reply,
       final List<Entity>? entities,
       final EmbedContents? embed,
       required final DateTime createdAt}) = _$_PostRecord;
@@ -265,7 +265,7 @@ abstract class _PostRecord implements PostRecord {
   @override
   String get text;
   @override
-  ReplyMeta? get reply;
+  PostRef? get reply;
   @override
   List<Entity>? get entities;
   @override

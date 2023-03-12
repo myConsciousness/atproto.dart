@@ -184,6 +184,8 @@ Future<bsky.Session> get _session async {
 | [POST app.bsky.feed.post](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json)              | [createPost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/createPost.html)                 |
 | [POST app.bsky.feed.post](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json)              | [destroyPost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/destroyPost.html)               |
 | [GET app.bsky.feed.getTimeline](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json) | [lookupHomeTimeline](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/lookupHomeTimeline.html) |
+| [POST app.bsky.feed.repost](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json)          | [createRepost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/createRepost.html)             |
+| [POST app.bsky.feed.repost](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json)          | [destroyRepost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/destroyRepost.html)           |
 
 ### 1.3.3. Notifications
 

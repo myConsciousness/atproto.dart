@@ -18,7 +18,7 @@ _$_PostRecord _$$_PostRecordFromJson(Map json) => $checkedCreate(
               'reply',
               (v) => v == null
                   ? null
-                  : ReplyMeta.fromJson(Map<String, Object?>.from(v as Map))),
+                  : PostRef.fromJson(Map<String, Object?>.from(v as Map))),
           entities: $checkedConvert(
               'entities',
               (v) => (v as List<dynamic>?)

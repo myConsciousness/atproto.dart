@@ -10,7 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import 'embed_contents.dart';
 import 'entity.dart';
-import 'reply_meta.dart';
+import 'post_ref.dart';
 
 part 'post_record.freezed.dart';
 part 'post_record.g.dart';
@@ -20,7 +20,7 @@ class PostRecord with _$PostRecord {
   @JsonSerializable(includeIfNull: false)
   const factory PostRecord({
     required String text,
-    ReplyMeta? reply,
+    PostRef? reply,
     List<Entity>? entities,
     EmbedContents? embed,
     required DateTime createdAt,

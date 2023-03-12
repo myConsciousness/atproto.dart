@@ -1,6 +1,6 @@
 # Release Note
 
-## v0.1.1
+## v0.2.0
 
 - Changed parameter names. ([#68](https://github.com/myConsciousness/atproto.dart/issues/68))
   - From `ActorsService.lookupProfile#handle`, to `ActorsService.lookupProfile#actor`.
@@ -10,6 +10,7 @@
   - Deleted `BlueskyRequest`. Use `ATProtoRequest` instead.
   - Deleted `BlueskyException`. Use `ATProtoException` instead.
 - Fixed `INFO: The annotation 'JsonKey' can only be used on fields or getters.`. ([#51](https://github.com/myConsciousness/atproto.dart/issues/51))
+- Added repost methods in `FeedsService`. ([#36](https://github.com/myConsciousness/atproto.dart/issues/36))
 
 ## v0.1.0
 

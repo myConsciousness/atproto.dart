@@ -63,6 +63,49 @@ abstract class FeedsService {
     required String uri,
   });
 
+  /// Creates a repost.
+  ///
+  /// ## Parameters
+  ///
+  /// - [cid]: The content id of target record.
+  ///
+  /// - [uri]: The uri of target record.
+  ///
+  /// - [createdAt]: Date and time the post was created.
+  ///                If omitted, defaults to the current time.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.createRecord
+  /// - app.bsky.feed.repost
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json
+  Future<core.ATProtoResponse<atp.Record>> createRepost({
+    required String cid,
+    required String uri,
+    DateTime? createdAt,
+  });
+
+  /// Deletes a repost.
+  ///
+  /// ## Parameters
+  ///
+  /// - [uri]: The uri of target record.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.deleteRecord
+  /// - app.bsky.feed.repost
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json
+  Future<core.ATProtoResponse<core.Empty>> destroyRepost({
+    required String uri,
+  });
+
   /// A view of the user's home timeline.
   ///
   /// ## Lexicon
@@ -125,5 +168,31 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           },
         ),
         dataBuilder: Feeds.fromJson,
+      );
+
+  @override
+  Future<atp.ATProtoResponse<atp.Record>> createRepost({
+    required String cid,
+    required String uri,
+    DateTime? createdAt,
+  }) async =>
+      await atproto.repositories.createRecord(
+        collection: 'app.bsky.feed.repost',
+        record: {
+          'subject': {
+            'cid': cid,
+            'uri': uri,
+          },
+          'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String()
+        },
+      );
+
+  @override
+  Future<atp.ATProtoResponse<core.Empty>> destroyRepost({
+    required String uri,
+  }) async =>
+      await atproto.repositories.destroyRecord(
+        collection: 'app.bsky.feed.repost',
+        uri: uri,
       );
 }
