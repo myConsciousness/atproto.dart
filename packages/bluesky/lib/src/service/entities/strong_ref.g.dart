@@ -2,17 +2,17 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'meta.dart';
+part of 'strong_ref.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Meta _$$_MetaFromJson(Map json) => $checkedCreate(
-      r'_$_Meta',
+_$_StrongRef _$$_StrongRefFromJson(Map json) => $checkedCreate(
+      r'_$_StrongRef',
       json,
       ($checkedConvert) {
-        final val = _$_Meta(
+        final val = _$_StrongRef(
           cid: $checkedConvert('cid', (v) => v as String),
           uri: $checkedConvert('uri', (v) => v as String),
         );
@@ -20,7 +20,8 @@ _$_Meta _$$_MetaFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_MetaToJson(_$_Meta instance) => <String, dynamic>{
+Map<String, dynamic> _$$_StrongRefToJson(_$_StrongRef instance) =>
+    <String, dynamic>{
       'cid': instance.cid,
       'uri': instance.uri,
     };

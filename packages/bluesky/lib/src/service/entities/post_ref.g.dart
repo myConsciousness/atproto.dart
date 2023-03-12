@@ -2,27 +2,27 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'reply_meta.dart';
+part of 'post_ref.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ReplyMeta _$$_ReplyMetaFromJson(Map json) => $checkedCreate(
-      r'_$_ReplyMeta',
+_$_PostRef _$$_PostRefFromJson(Map json) => $checkedCreate(
+      r'_$_PostRef',
       json,
       ($checkedConvert) {
-        final val = _$_ReplyMeta(
+        final val = _$_PostRef(
           root: $checkedConvert('root',
-              (v) => Meta.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => StrongRef.fromJson(Map<String, Object?>.from(v as Map))),
           parent: $checkedConvert('parent',
-              (v) => Meta.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => StrongRef.fromJson(Map<String, Object?>.from(v as Map))),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$_ReplyMetaToJson(_$_ReplyMeta instance) =>
+Map<String, dynamic> _$$_PostRefToJson(_$_PostRef instance) =>
     <String, dynamic>{
       'root': instance.root.toJson(),
       'parent': instance.parent.toJson(),

@@ -5,15 +5,16 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'meta.freezed.dart';
-part 'meta.g.dart';
+part 'strong_ref.freezed.dart';
+part 'strong_ref.g.dart';
 
 @freezed
-class Meta with _$Meta {
-  const factory Meta({
+class StrongRef with _$StrongRef {
+  const factory StrongRef({
     required String cid,
     required String uri,
-  }) = _Meta;
+  }) = _StrongRef;
 
-  factory Meta.fromJson(Map<String, Object?> json) => _$MetaFromJson(json);
+  factory StrongRef.fromJson(Map<String, Object?> json) =>
+      _$StrongRefFromJson(json);
 }

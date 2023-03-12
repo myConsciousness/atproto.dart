@@ -6,18 +6,18 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'meta.dart';
+import 'strong_ref.dart';
 
-part 'reply_meta.freezed.dart';
-part 'reply_meta.g.dart';
+part 'post_ref.freezed.dart';
+part 'post_ref.g.dart';
 
 @freezed
-class ReplyMeta with _$ReplyMeta {
-  const factory ReplyMeta({
-    required Meta root,
-    required Meta parent,
-  }) = _ReplyMeta;
+class PostRef with _$PostRef {
+  const factory PostRef({
+    required StrongRef root,
+    required StrongRef parent,
+  }) = _PostRef;
 
-  factory ReplyMeta.fromJson(Map<String, Object?> json) =>
-      _$ReplyMetaFromJson(json);
+  factory PostRef.fromJson(Map<String, Object?> json) =>
+      _$PostRefFromJson(json);
 }
