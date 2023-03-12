@@ -7,7 +7,6 @@ import 'package:atproto/atproto.dart';
 import 'package:bluesky/src/service/entities/count.dart';
 import 'package:bluesky/src/service/entities/notifications.dart';
 import 'package:bluesky/src/service/notifications/notifications_service.dart';
-import 'package:bluesky/src/service/response/bluesky_response.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
@@ -36,7 +35,7 @@ void main() {
         cursor: '1234',
       );
 
-      expect(response, isA<BlueskyResponse>());
+      expect(response, isA<ATProtoResponse>());
       expect(response.data, isA<Notifications>());
     });
 
@@ -104,7 +103,7 @@ void main() {
 
       final response = await notifications.lookupUnreadCount();
 
-      expect(response, isA<BlueskyResponse>());
+      expect(response, isA<ATProtoResponse>());
       expect(response.data, isA<Count>());
     });
 

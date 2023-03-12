@@ -4,16 +4,16 @@
 
 export 'package:atproto/src/atproto.dart';
 export 'package:atproto/src/service/atproto_service.dart';
-export 'package:atproto/src/service/entities/empty.dart';
 export 'package:atproto/src/service/entities/record.dart';
 export 'package:atproto/src/service/repositories/repositories_service.dart';
-export 'package:atproto/src/service/response/atproto_request.dart';
-export 'package:atproto/src/service/response/atproto_response.dart';
 export 'package:atproto/src/service/sessions/current_session.dart';
 export 'package:atproto/src/service/sessions/session.dart';
 export 'package:atproto/src/service/sessions/sessions_service.dart';
 export 'package:atproto_core/atproto_core.dart'
     show
+        Empty,
+        ATProtoRequest,
+        ATProtoResponse,
         Jitter,
         RetryConfig,
         RetryEvent,
@@ -21,5 +21,6 @@ export 'package:atproto_core/atproto_core.dart'
         UnauthorizedException,
         DataNotFoundException,
         RateLimitExceededException,
+        ForbiddenException,
         HttpMethod,
         HttpStatus;

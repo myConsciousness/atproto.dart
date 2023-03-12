@@ -2,12 +2,9 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:atproto/src/service/entities/empty.dart';
 import 'package:atproto/src/service/entities/record.dart';
 import 'package:atproto/src/service/repositories/repositories_service.dart';
-// 🌎 Project imports:
-import 'package:atproto/src/service/response/atproto_response.dart';
-// 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:test/test.dart';
 
 import '../../../mocks/client_context_stubs.dart' as context;
@@ -31,7 +28,7 @@ void main() {
         record: {},
       );
 
-      expect(response, isA<ATProtoResponse>());
+      expect(response, isA<core.ATProtoResponse>());
       expect(response.data, isA<Record>());
     });
 
@@ -93,8 +90,8 @@ void main() {
         uri: '',
       );
 
-      expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<Empty>());
+      expect(response, isA<core.ATProtoResponse>());
+      expect(response.data, isA<core.Empty>());
     });
 
     test('when unauthorized', () async {

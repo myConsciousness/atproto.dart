@@ -1,12 +1,10 @@
-// Copyright 2022 Kato Shinya. All rights reserved.
+// Copyright 2023 Kato Shinya. All rights reserved.
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🌎 Project imports:
-import 'package:atproto/src/service/response/atproto_response.dart';
 import 'package:atproto/src/service/sessions/current_session.dart';
 import 'package:atproto/src/service/sessions/sessions_service.dart';
-// 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:test/test.dart';
 
 import '../../../mocks/client_context_stubs.dart' as context;
@@ -28,7 +26,7 @@ void main() {
 
       final response = await sessions.lookupCurrentSession();
 
-      expect(response, isA<ATProtoResponse>());
+      expect(response, isA<core.ATProtoResponse>());
       expect(response.data, isA<CurrentSession>());
     });
 

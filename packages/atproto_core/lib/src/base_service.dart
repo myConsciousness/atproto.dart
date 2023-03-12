@@ -6,15 +6,20 @@
 import 'dart:async';
 import 'dart:convert';
 
-// 📦 Package imports:
-import 'package:atproto/atproto.dart' as atp;
-import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:http/http.dart';
 
-// 🌎 Project imports:
-import 'exception/bluesky_exception.dart';
-import 'response/bluesky_request.dart';
-import 'response/bluesky_response.dart';
+import 'client/client_context.dart';
+import 'entities/empty.dart';
+import 'exception/data_not_found_exception.dart';
+import 'exception/forbidden_exception.dart';
+import 'exception/rate_limit_exceeded_exception.dart';
+import 'exception/unauthorized_exception.dart';
+import 'http_method.dart';
+import 'http_status.dart';
+import 'response/atproto_request.dart';
+import 'response/atproto_response.dart';
+import 'service_helper.dart';
+import 'util/json_utils.dart';
 
 /// The callback function for building data object from response.
 typedef DataBuilder<D> = D Function(Map<String, Object?> json);
@@ -31,12 +36,16 @@ abstract class _Service {
     Map<String, String> body = const {},
   });
 
-  BlueskyResponse transformSingleDataResponse<D>(
+  ATProtoResponse<Empty> transformEmptyDataResponse(
+    Response response,
+  );
+
+  ATProtoResponse<D> transformSingleDataResponse<D>(
     Response response, {
     required DataBuilder<D> dataBuilder,
   });
 
-  BlueskyResponse<List> transformMultiDataResponse<D>(
+  ATProtoResponse<List> transformMultiDataResponse<D>(
     Response response, {
     required DataBuilder<D> dataBuilder,
   });
@@ -45,17 +54,14 @@ abstract class _Service {
 abstract class BaseService implements _Service {
   /// Returns the new instance of [BaseService].
   BaseService({
-    required this.atproto,
     required String service,
-    required core.ClientContext context,
-  }) : _helper = core.ServiceHelper(
+    required ClientContext context,
+  }) : _helper = ServiceHelper(
           authority: service,
           context: context,
         );
 
-  final atp.ATProto atproto;
-
-  final core.ServiceHelper _helper;
+  final ServiceHelper _helper;
 
   @override
   Future<Response> get(
@@ -88,15 +94,29 @@ abstract class BaseService implements _Service {
       );
 
   @override
-  BlueskyResponse<D> transformSingleDataResponse<D>(
+  ATProtoResponse<Empty> transformEmptyDataResponse(
+    Response response,
+  ) =>
+      ATProtoResponse(
+        headers: response.headers,
+        status: HttpStatus.valueOf(response.statusCode),
+        request: ATProtoRequest(
+          method: HttpMethod.valueOf(response.request!.method),
+          url: response.request!.url,
+        ),
+        data: const Empty(),
+      );
+
+  @override
+  ATProtoResponse<D> transformSingleDataResponse<D>(
     Response response, {
     required DataBuilder<D> dataBuilder,
   }) =>
-      BlueskyResponse(
+      ATProtoResponse(
         headers: response.headers,
-        status: atp.HttpStatus.valueOf(response.statusCode),
-        request: BlueskyRequest(
-          method: atp.HttpMethod.valueOf(response.request!.method),
+        status: HttpStatus.valueOf(response.statusCode),
+        request: ATProtoRequest(
+          method: HttpMethod.valueOf(response.request!.method),
           url: response.request!.url,
         ),
         data: dataBuilder(
@@ -105,17 +125,17 @@ abstract class BaseService implements _Service {
       );
 
   @override
-  BlueskyResponse<List<D>> transformMultiDataResponse<D>(
+  ATProtoResponse<List<D>> transformMultiDataResponse<D>(
     Response response, {
     required DataBuilder<D> dataBuilder,
   }) {
     final json = jsonDecode(response.body);
 
-    return BlueskyResponse(
+    return ATProtoResponse(
       headers: response.headers,
-      status: atp.HttpStatus.valueOf(response.statusCode),
-      request: BlueskyRequest(
-        method: atp.HttpMethod.valueOf(response.request!.method),
+      status: HttpStatus.valueOf(response.statusCode),
+      request: ATProtoRequest(
+        method: HttpMethod.valueOf(response.request!.method),
         url: response.request!.url,
       ),
       data: json.isNotEmpty
@@ -127,45 +147,38 @@ abstract class BaseService implements _Service {
   Response checkResponse(
     final Response response,
   ) {
-    if (core.HttpStatus.noContent.equalsByCode(response.statusCode)) {
+    if (HttpStatus.noContent.equalsByCode(response.statusCode)) {
       return response;
     }
 
-    if (core.HttpStatus.ok.equalsByCode(response.statusCode) &&
+    if (HttpStatus.ok.equalsByCode(response.statusCode) &&
         response.body.isEmpty) {
       //! No JSON in response but okay, it's succeeded.
       return response;
     }
 
-    if (core.HttpStatus.unauthorized.equalsByCode(response.statusCode)) {
-      throw core.UnauthorizedException(
+    if (HttpStatus.unauthorized.equalsByCode(response.statusCode)) {
+      throw UnauthorizedException(
         'The specified access token is invalid.',
         response,
       );
     }
 
-    if (core.HttpStatus.notFound.equalsByCode(response.statusCode)) {
-      throw core.DataNotFoundException(
+    if (HttpStatus.notFound.equalsByCode(response.statusCode)) {
+      throw DataNotFoundException(
         'There is no data associated with request.',
         response,
       );
     }
 
-    if (core.HttpStatus.tooManyRequests.equalsByCode(response.statusCode)) {
-      throw core.RateLimitExceededException(
+    if (HttpStatus.tooManyRequests.equalsByCode(response.statusCode)) {
+      throw RateLimitExceededException(
         'Rate limit exceeded.',
         response,
       );
     }
 
-    if (400 <= response.statusCode && response.statusCode < 500) {
-      throw BlueskyException(
-        'Required parameter is missing or improperly formatted.',
-        response,
-      );
-    }
-
-    core.tryJsonDecode(response, response.body);
+    tryJsonDecode(response, response.body);
 
     return response;
   }
@@ -174,31 +187,31 @@ abstract class BaseService implements _Service {
     final BaseResponse response,
     final String event,
   ) {
-    if (core.HttpStatus.unauthorized.equalsByCode(response.statusCode)) {
-      throw core.UnauthorizedException(
+    if (HttpStatus.unauthorized.equalsByCode(response.statusCode)) {
+      throw UnauthorizedException(
         'The specified access token is invalid.',
         response,
       );
     }
 
-    if (core.HttpStatus.forbidden.equalsByCode(response.statusCode)) {
-      throw BlueskyException(
+    if (HttpStatus.forbidden.equalsByCode(response.statusCode)) {
+      throw ForbiddenException(
         'Your request is forbidden.',
         response,
       );
     }
 
-    if (core.HttpStatus.notFound.equalsByCode(response.statusCode)) {
-      throw core.DataNotFoundException(
+    if (HttpStatus.notFound.equalsByCode(response.statusCode)) {
+      throw DataNotFoundException(
         'There is no data associated with request.',
         response,
       );
     }
 
-    if (core.HttpStatus.tooManyRequests.equalsByCode(response.statusCode)) {
-      throw core.RateLimitExceededException('Rate limit exceeded.', response);
+    if (HttpStatus.tooManyRequests.equalsByCode(response.statusCode)) {
+      throw RateLimitExceededException('Rate limit exceeded.', response);
     }
 
-    core.tryJsonDecode(response, event);
+    tryJsonDecode(response, event);
   }
 }

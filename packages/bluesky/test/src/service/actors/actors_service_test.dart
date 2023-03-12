@@ -8,7 +8,6 @@ import 'package:bluesky/src/service/actors/actors_service.dart';
 import 'package:bluesky/src/service/entities/actor_profile.dart';
 import 'package:bluesky/src/service/entities/actor_profiles.dart';
 import 'package:bluesky/src/service/entities/actors.dart';
-import 'package:bluesky/src/service/response/bluesky_response.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
@@ -39,7 +38,7 @@ void main() {
         cursor: '1234',
       );
 
-      expect(response, isA<BlueskyResponse>());
+      expect(response, isA<ATProtoResponse>());
       expect(response.data, isA<Actors>());
     });
 
@@ -115,7 +114,7 @@ void main() {
         actor: 'test.bsky.social',
       );
 
-      expect(response, isA<BlueskyResponse>());
+      expect(response, isA<ATProtoResponse>());
       expect(response.data, isA<ActorProfile>());
     });
 
@@ -189,7 +188,7 @@ void main() {
         ],
       );
 
-      expect(response, isA<BlueskyResponse>());
+      expect(response, isA<ATProtoResponse>());
       expect(response.data, isA<ActorProfiles>());
     });
 

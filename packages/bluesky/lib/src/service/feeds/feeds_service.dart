@@ -3,18 +3,17 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
-import '../base_service.dart';
+import '../bluesky_base_service.dart';
 import '../entities/feeds.dart';
-import '../response/bluesky_response.dart';
 import 'feed_algorithm.dart';
 
 abstract class FeedsService {
   /// Returns the new instance of [FeedsService].
   factory FeedsService({
-    required ATProto atproto,
+    required atp.ATProto atproto,
     required String service,
     required core.ClientContext context,
   }) =>
@@ -41,7 +40,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json
-  Future<ATProtoResponse<Record>> createPost({
+  Future<core.ATProtoResponse<atp.Record>> createPost({
     required String text,
     DateTime? createdAt,
   });
@@ -60,7 +59,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json
-  Future<ATProtoResponse<Empty>> destroyPost({
+  Future<core.ATProtoResponse<core.Empty>> destroyPost({
     required String uri,
   });
 
@@ -73,14 +72,14 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json
-  Future<BlueskyResponse<Feeds>> lookupHomeTimeline({
+  Future<core.ATProtoResponse<Feeds>> lookupHomeTimeline({
     FeedAlgorithm? algorithm,
     int? limit,
     String? cursor,
   });
 }
 
-class _FeedsService extends BaseService implements FeedsService {
+class _FeedsService extends BlueskyBaseService implements FeedsService {
   /// Returns the new instance of [_FeedsService].
   _FeedsService({
     required super.atproto,
@@ -89,7 +88,7 @@ class _FeedsService extends BaseService implements FeedsService {
   });
 
   @override
-  Future<ATProtoResponse<Record>> createPost({
+  Future<core.ATProtoResponse<atp.Record>> createPost({
     required String text,
     DateTime? createdAt,
   }) async =>
@@ -102,7 +101,7 @@ class _FeedsService extends BaseService implements FeedsService {
       );
 
   @override
-  Future<ATProtoResponse<Empty>> destroyPost({
+  Future<core.ATProtoResponse<core.Empty>> destroyPost({
     required String uri,
   }) async =>
       await atproto.repositories.destroyRecord(
@@ -111,7 +110,7 @@ class _FeedsService extends BaseService implements FeedsService {
       );
 
   @override
-  Future<BlueskyResponse<Feeds>> lookupHomeTimeline({
+  Future<core.ATProtoResponse<Feeds>> lookupHomeTimeline({
     FeedAlgorithm? algorithm,
     int? limit,
     String? cursor,

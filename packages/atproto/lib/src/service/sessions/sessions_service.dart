@@ -9,13 +9,11 @@ import 'dart:convert';
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:http/http.dart' as http;
 
-import '../base_service.dart';
-import '../response/atproto_request.dart';
-import '../response/atproto_response.dart';
+import '../atproto_base_service.dart';
 import 'current_session.dart';
 import 'session.dart';
 
-Future<ATProtoResponse<Session>> createSession({
+Future<core.ATProtoResponse<Session>> createSession({
   String service = 'bsky.social',
   required String handle,
   required String password,
@@ -50,10 +48,10 @@ Future<ATProtoResponse<Session>> createSession({
     );
   }
 
-  return ATProtoResponse(
+  return core.ATProtoResponse(
     headers: response.headers,
     status: core.HttpStatus.ok,
-    request: ATProtoRequest(
+    request: core.ATProtoRequest(
       method: core.HttpMethod.post,
       url: response.request!.url,
     ),
@@ -76,10 +74,10 @@ abstract class SessionsService {
         context: context,
       );
 
-  Future<ATProtoResponse<CurrentSession>> lookupCurrentSession();
+  Future<core.ATProtoResponse<CurrentSession>> lookupCurrentSession();
 }
 
-class _SessionsService extends BaseService implements SessionsService {
+class _SessionsService extends ATProtoBaseService implements SessionsService {
   /// Returns the new instance of [_SessionsService].
   _SessionsService({
     required super.did,
@@ -88,7 +86,7 @@ class _SessionsService extends BaseService implements SessionsService {
   });
 
   @override
-  Future<ATProtoResponse<CurrentSession>> lookupCurrentSession() async =>
+  Future<core.ATProtoResponse<CurrentSession>> lookupCurrentSession() async =>
       super.transformSingleDataResponse(
         await super.get(
           '/xrpc/com.atproto.session.get',
