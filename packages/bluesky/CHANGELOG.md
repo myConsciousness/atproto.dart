@@ -5,6 +5,7 @@
 - Changed parameter names. ([#68](https://github.com/myConsciousness/atproto.dart/issues/68))
   - From `ActorsService.lookupProfile#handle`, to `ActorsService.lookupProfile#actor`.
   - From `ActorsService.lookupProfiles#handles`, to `ActorsService.lookupProfiles#actors`.
+- Fixed `INFO: The annotation 'JsonKey' can only be used on fields or getters.`. ([#51](https://github.com/myConsciousness/atproto.dart/issues/51))
 
 ## v0.1.0
 
