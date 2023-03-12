@@ -1,5 +1,11 @@
 # Release Note
 
+## v0.1.1
+
+- Changed parameter names. ([#68](https://github.com/myConsciousness/atproto.dart/issues/68))
+  - From `ActorsService.lookupProfile#handle`, to `ActorsService.lookupProfile#actor`.
+  - From `ActorsService.lookupProfiles#handles`, to `ActorsService.lookupProfiles#actors`.
+
 ## v0.1.0
 
 - Added `NotificationsService` and `lookupNotifications` method. ([#19](https://github.com/myConsciousness/atproto.dart/issues/19))
