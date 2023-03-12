@@ -9,6 +9,7 @@
   - Deleted `BlueskyResponse`. Use `ATProtoResponse` instead.
   - Deleted `BlueskyRequest`. Use `ATProtoRequest` instead.
   - Deleted `BlueskyException`. Use `ATProtoException` instead.
+- Fixed `INFO: The annotation 'JsonKey' can only be used on fields or getters.`. ([#51](https://github.com/myConsciousness/atproto.dart/issues/51))
 
 ## v0.1.0
 
