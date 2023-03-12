@@ -65,6 +65,9 @@ class _Bluesky implements Bluesky {
           atproto: atp.ATProto(
             did: did,
             accessJwt: accessJwt,
+            service: service,
+            timeout: timeout,
+            retryConfig: retryConfig,
           ),
           service: service,
           context: core.ClientContext(

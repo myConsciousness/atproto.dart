@@ -73,7 +73,7 @@ class _ClientContext implements ClientContext {
   Future<http.Response> post(
     Uri uri, {
     Map<String, String> headers = const {},
-    body,
+    dynamic body,
   }) async =>
       await _challengeWithRetryIfNecessary(
         _client,
