@@ -49,11 +49,11 @@ abstract class ActorsService {
     String? cursor,
   });
 
-  /// Find a specific user profile based on [handle].
+  /// Find a specific user profile based on handle or DID.
   ///
   /// ## Parameters
   ///
-  /// - [handle]: The user handle you want to lookup.
+  /// - [actor]: The user handle or DID you want to lookup.
   ///
   /// ## Lexicon
   ///
@@ -63,14 +63,14 @@ abstract class ActorsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfile.json
   Future<BlueskyResponse<ActorProfile>> lookupProfile({
-    required String handle,
+    required String actor,
   });
 
-  /// Find user profiles based on [handles].
+  /// Find user profiles based on handles or DIDs.
   ///
   /// ## Parameters
   ///
-  /// - [handles]: The list contained user handles you want to lookup.
+  /// - [actors]: The list contained user handles or DID you want to lookup.
   ///
   /// ## Lexicon
   ///
@@ -80,7 +80,7 @@ abstract class ActorsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfiles.json
   Future<BlueskyResponse<ActorProfiles>> lookupProfiles({
-    required List<String> handles,
+    required List<String> actors,
   });
 }
 
@@ -112,13 +112,13 @@ class _ActorsService extends BaseService implements ActorsService {
 
   @override
   Future<BlueskyResponse<ActorProfile>> lookupProfile({
-    required String handle,
+    required String actor,
   }) async =>
       super.transformSingleDataResponse(
         await super.get(
           '/xrpc/app.bsky.actor.getProfile',
           queryParameters: {
-            'actor': handle,
+            'actor': actor,
           },
         ),
         dataBuilder: ActorProfile.fromJson,
@@ -126,13 +126,13 @@ class _ActorsService extends BaseService implements ActorsService {
 
   @override
   Future<BlueskyResponse<ActorProfiles>> lookupProfiles({
-    required List<String> handles,
+    required List<String> actors,
   }) async =>
       super.transformSingleDataResponse(
         await super.get(
           '/xrpc/app.bsky.actor.getProfiles',
           queryParameters: {
-            'actors': handles,
+            'actors': actors,
           },
         ),
         dataBuilder: ActorProfiles.fromJson,
