@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.1.1
+
+- Fixed standard prefix from `destroy` to `delete`. ([#81](https://github.com/myConsciousness/atproto.dart/issues/81))
+
 ## v0.1.0
 
 - Refactored structures. ([#70](https://github.com/myConsciousness/atproto.dart/issues/70))
