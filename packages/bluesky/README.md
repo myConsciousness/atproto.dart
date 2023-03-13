@@ -41,6 +41,7 @@
     - [1.3.1. Actors](#131-actors)
     - [1.3.2. Feeds](#132-feeds)
     - [1.3.3. Notifications](#133-notifications)
+    - [1.3.4. Graphs](#134-graphs)
   - [1.4. Tips 🏄](#14-tips-)
     - [1.4.1. Method Names](#141-method-names)
     - [1.4.2. Create Session](#142-create-session)
@@ -186,6 +187,8 @@ Future<bsky.Session> get _session async {
 | [GET app.bsky.feed.getTimeline](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json) | [getHomeTimeline](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/getHomeTimeline.html) |
 | [POST app.bsky.feed.repost](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json)          | [createRepost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/createRepost.html)       |
 | [POST app.bsky.feed.repost](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json)          | [deleteRepost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/deleteRepost.html)       |
+| [POST app.bsky.feed.vote](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/vote.json)              | [createLike](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/createLike.html)           |
+| [POST app.bsky.feed.vote](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/vote.json)              | [deleteLike](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/deleteLike.html)           |
 
 ### 1.3.3. Notifications
 
@@ -193,6 +196,13 @@ Future<bsky.Session> get _session async {
 | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | [GET app.bsky.notification.list](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/list.json)         | [getNotifications](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/getNotifications.html) |
 | [GET app.bsky.notification.getCount](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/getCount.json) | [getUnreadCount](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/getUnreadCount.html)     |
+
+### 1.3.4. Graphs
+
+| **Lexicon**                                                                                                             | **Method Name**                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| [POST app.bsky.graphs.follow](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graphs/follow.json) | [createFollow](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/createFollow.html) |
+| [POST app.bsky.graphs.follow](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graphs/follow.json) | [deleteFollow](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/deleteFollow.html) |
 
 ## 1.4. Tips 🏄
 
