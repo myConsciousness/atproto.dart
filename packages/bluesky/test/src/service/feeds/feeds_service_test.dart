@@ -415,4 +415,168 @@ void main() {
       );
     });
   });
+
+  group('.createLike', () {
+    test('normal case', () async {
+      final mockedContext = context.buildPostStub(
+        'test',
+        '/xrpc/com.atproto.repo.createRecord',
+        'test/src/service/feeds/data/create_like.json',
+      );
+
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          context: mockedContext,
+        ),
+        service: 'test',
+        context: mockedContext,
+      );
+
+      final response = await feeds.createLike(
+        cid: '1234',
+        uri: 'at://test',
+        createdAt: DateTime.now(),
+      );
+
+      expect(response, isA<ATProtoResponse>());
+      expect(response.data, isA<Record>());
+    });
+
+    test('when unauthorized', () async {
+      final mockedContext = context.buildPostStub(
+        'test',
+        '/xrpc/com.atproto.repo.createRecord',
+        'test/src/service/feeds/data/create_like.json',
+        statusCode: 401,
+      );
+
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          context: mockedContext,
+        ),
+        service: 'test',
+        context: mockedContext,
+      );
+
+      expectUnauthorizedException(
+        () async => await feeds.createLike(
+          cid: '1234',
+          uri: 'at://test',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final mockedContext = context.buildPostStub(
+        'test',
+        '/xrpc/com.atproto.repo.createRecord',
+        'test/src/service/feeds/data/create_like.json',
+        statusCode: 429,
+      );
+
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          context: mockedContext,
+        ),
+        service: 'test',
+        context: mockedContext,
+      );
+
+      expectRateLimitExceededException(
+        () async => await feeds.createLike(
+          cid: '1234',
+          uri: 'at://test',
+        ),
+      );
+    });
+  });
+
+  group('.deleteLike', () {
+    test('normal case', () async {
+      final mockedContext = context.buildPostStub(
+        'test',
+        '/xrpc/com.atproto.repo.deleteRecord',
+        'test/src/service/feeds/data/delete_like.json',
+      );
+
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          context: mockedContext,
+        ),
+        service: 'test',
+        context: mockedContext,
+      );
+
+      final response = await feeds.deleteLike(
+        uri: 'at://test',
+      );
+
+      expect(response, isA<ATProtoResponse>());
+      expect(response.data, isA<Empty>());
+    });
+
+    test('when unauthorized', () async {
+      final mockedContext = context.buildPostStub(
+        'test',
+        '/xrpc/com.atproto.repo.deleteRecord',
+        'test/src/service/feeds/data/delete_like.json',
+        statusCode: 401,
+      );
+
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          context: mockedContext,
+        ),
+        service: 'test',
+        context: mockedContext,
+      );
+
+      expectUnauthorizedException(
+        () async => await feeds.deleteLike(
+          uri: 'at://test',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final mockedContext = context.buildPostStub(
+        'test',
+        '/xrpc/com.atproto.repo.deleteRecord',
+        'test/src/service/feeds/data/delete_like.json',
+        statusCode: 429,
+      );
+
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          context: mockedContext,
+        ),
+        service: 'test',
+        context: mockedContext,
+      );
+
+      expectRateLimitExceededException(
+        () async => await feeds.deleteLike(
+          uri: 'at://test',
+        ),
+      );
+    });
+  });
 }
