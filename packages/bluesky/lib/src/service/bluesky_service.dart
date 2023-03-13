@@ -8,6 +8,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 import 'actors/actors_service.dart';
 import 'feeds/feeds_service.dart';
+import 'graphs/graphs_service.dart';
 import 'notifications/notifications_service.dart';
 
 abstract class BlueskyService {
@@ -31,6 +32,9 @@ abstract class BlueskyService {
 
   /// Returns the notifications service.
   NotificationsService get notifications;
+
+  /// Returns the graphs service.
+  GraphsService get graphs;
 }
 
 class _BlueskyService implements BlueskyService {
@@ -53,6 +57,11 @@ class _BlueskyService implements BlueskyService {
           atproto: atproto,
           service: service,
           context: context,
+        ),
+        graphs = GraphsService(
+          atproto: atproto,
+          service: service,
+          context: context,
         );
 
   @override
@@ -63,4 +72,7 @@ class _BlueskyService implements BlueskyService {
 
   @override
   final NotificationsService notifications;
+
+  @override
+  final GraphsService graphs;
 }
