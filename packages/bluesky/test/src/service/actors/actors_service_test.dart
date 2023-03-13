@@ -95,7 +95,7 @@ void main() {
     });
   });
 
-  group('.lookupProfile', () {
+  group('.getProfile', () {
     test('normal case', () async {
       final actors = ActorsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
@@ -103,14 +103,14 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/app.bsky.actor.getProfile',
-          'test/src/service/actors/data/lookup_profile.json',
+          'test/src/service/actors/data/get_profile.json',
           {
             'actor': 'test.bsky.social',
           },
         ),
       );
 
-      final response = await actors.lookupProfile(
+      final response = await actors.getProfile(
         actor: 'test.bsky.social',
       );
 
@@ -125,7 +125,7 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/app.bsky.actor.getProfile',
-          'test/src/service/actors/data/lookup_profile.json',
+          'test/src/service/actors/data/get_profile.json',
           {
             'actor': 'test.bsky.social',
           },
@@ -134,7 +134,7 @@ void main() {
       );
 
       expectUnauthorizedException(
-        () async => await actors.lookupProfile(
+        () async => await actors.getProfile(
           actor: 'test.bsky.social',
         ),
       );
@@ -147,7 +147,7 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/app.bsky.actor.getProfile',
-          'test/src/service/actors/data/lookup_profile.json',
+          'test/src/service/actors/data/get_profile.json',
           {
             'actor': 'test.bsky.social',
           },
@@ -156,14 +156,14 @@ void main() {
       );
 
       expectRateLimitExceededException(
-        () async => await actors.lookupProfile(
+        () async => await actors.getProfile(
           actor: 'test.bsky.social',
         ),
       );
     });
   });
 
-  group('.lookupProfiles', () {
+  group('.getProfiles', () {
     test('normal case', () async {
       final actors = ActorsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
@@ -171,7 +171,7 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/app.bsky.actor.getProfiles',
-          'test/src/service/actors/data/lookup_profiles.json',
+          'test/src/service/actors/data/get_profiles.json',
           {
             'actors': [
               'test.bsky.social',
@@ -181,7 +181,7 @@ void main() {
         ),
       );
 
-      final response = await actors.lookupProfiles(
+      final response = await actors.getProfiles(
         actors: [
           'test.bsky.social',
           'test2.bsky.social',
@@ -199,7 +199,7 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/app.bsky.actor.getProfiles',
-          'test/src/service/actors/data/lookup_profiles.json',
+          'test/src/service/actors/data/get_profiles.json',
           {
             'actors': [
               'test.bsky.social',
@@ -211,7 +211,7 @@ void main() {
       );
 
       expectUnauthorizedException(
-        () async => await actors.lookupProfiles(
+        () async => await actors.getProfiles(
           actors: [
             'test.bsky.social',
             'test2.bsky.social',
@@ -227,7 +227,7 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/app.bsky.actor.getProfiles',
-          'test/src/service/actors/data/lookup_profiles.json',
+          'test/src/service/actors/data/get_profiles.json',
           {
             'actors': [
               'test.bsky.social',
@@ -239,7 +239,7 @@ void main() {
       );
 
       expectRateLimitExceededException(
-        () async => await actors.lookupProfiles(
+        () async => await actors.getProfiles(
           actors: [
             'test.bsky.social',
             'test2.bsky.social',

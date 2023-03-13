@@ -52,7 +52,7 @@ abstract class ActorsService {
   ///
   /// ## Parameters
   ///
-  /// - [actor]: The user handle or DID you want to lookup.
+  /// - [actor]: The user handle or DID you want to get.
   ///
   /// ## Lexicon
   ///
@@ -61,7 +61,7 @@ abstract class ActorsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfile.json
-  Future<core.ATProtoResponse<ActorProfile>> lookupProfile({
+  Future<core.ATProtoResponse<ActorProfile>> getProfile({
     required String actor,
   });
 
@@ -69,7 +69,7 @@ abstract class ActorsService {
   ///
   /// ## Parameters
   ///
-  /// - [actors]: The list contained user handles or DID you want to lookup.
+  /// - [actors]: The list contained user handles or DID you want to get.
   ///
   /// ## Lexicon
   ///
@@ -78,7 +78,7 @@ abstract class ActorsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfiles.json
-  Future<core.ATProtoResponse<ActorProfiles>> lookupProfiles({
+  Future<core.ATProtoResponse<ActorProfiles>> getProfiles({
     required List<String> actors,
   });
 }
@@ -110,7 +110,7 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
       );
 
   @override
-  Future<core.ATProtoResponse<ActorProfile>> lookupProfile({
+  Future<core.ATProtoResponse<ActorProfile>> getProfile({
     required String actor,
   }) async =>
       super.transformSingleDataResponse(
@@ -124,7 +124,7 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
       );
 
   @override
-  Future<core.ATProtoResponse<ActorProfiles>> lookupProfiles({
+  Future<core.ATProtoResponse<ActorProfiles>> getProfiles({
     required List<String> actors,
   }) async =>
       super.transformSingleDataResponse(

@@ -11,7 +11,7 @@ import '../../../mocks/client_context_stubs.dart' as context;
 import '../common_expectations.dart';
 
 void main() {
-  group('.lookupCurrentSession', () {
+  group('.getCurrentSession', () {
     test('normal case', () async {
       final sessions = SessionsService(
         did: 'test',
@@ -19,12 +19,12 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/com.atproto.session.get',
-          'test/src/service/sessions/data/lookup_current_session.json',
+          'test/src/service/sessions/data/get_current_session.json',
           {},
         ),
       );
 
-      final response = await sessions.lookupCurrentSession();
+      final response = await sessions.getCurrentSession();
 
       expect(response, isA<core.ATProtoResponse>());
       expect(response.data, isA<CurrentSession>());
@@ -37,14 +37,14 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/com.atproto.session.get',
-          'test/src/service/sessions/data/lookup_current_session.json',
+          'test/src/service/sessions/data/get_current_session.json',
           {},
           statusCode: 401,
         ),
       );
 
       expectUnauthorizedException(
-        () async => await sessions.lookupCurrentSession(),
+        () async => await sessions.getCurrentSession(),
       );
     });
 
@@ -55,14 +55,14 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/com.atproto.session.get',
-          'test/src/service/sessions/data/lookup_current_session.json',
+          'test/src/service/sessions/data/get_current_session.json',
           {},
           statusCode: 429,
         ),
       );
 
       expectRateLimitExceededException(
-        () async => await sessions.lookupCurrentSession(),
+        () async => await sessions.getCurrentSession(),
       );
     });
   });

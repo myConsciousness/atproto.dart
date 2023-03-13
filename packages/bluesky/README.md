@@ -130,7 +130,7 @@ Future<void> main() async {
     );
 
     //! Let's get home timeline!
-    final feeds = await bluesky.feeds.lookupHomeTimeline(
+    final feeds = await bluesky.feeds.getHomeTimeline(
       limit: 10,
     );
 
@@ -171,28 +171,28 @@ Future<bsky.Session> get _session async {
 
 ### 1.3.1. Actors
 
-| **Lexicon**                                                                                                                    | **Method Name**                                                                                          |
-| ------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
-| [GET app.bsky.actor.search](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/search.json)           | [searchActors](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/searchActors.html)     |
-| [GET app.bsky.actor.getProfile](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfile.json)   | [lookupProfile](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/lookupProfile.html)   |
-| [GET app.bsky.actor.getProfiles](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfiles.json) | [lookupProfiles](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/lookupProfiles.html) |
+| **Lexicon**                                                                                                                    | **Method Name**                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| [GET app.bsky.actor.search](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/search.json)           | [searchActors](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/searchActors.html) |
+| [GET app.bsky.actor.getProfile](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfile.json)   | [getProfile](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/getProfile.html)     |
+| [GET app.bsky.actor.getProfiles](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfiles.json) | [getProfiles](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/getProfiles.html)   |
 
 ### 1.3.2. Feeds
 
-| **Lexicon**                                                                                                                  | **Method Name**                                                                                                 |
-| ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| [POST app.bsky.feed.post](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json)              | [createPost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/createPost.html)                 |
-| [POST app.bsky.feed.post](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json)              | [deletePost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/deletePost.html)                 |
-| [GET app.bsky.feed.getTimeline](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json) | [lookupHomeTimeline](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/lookupHomeTimeline.html) |
-| [POST app.bsky.feed.repost](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json)          | [createRepost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/createRepost.html)             |
-| [POST app.bsky.feed.repost](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json)          | [deleteRepost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/deleteRepost.html)             |
+| **Lexicon**                                                                                                                  | **Method Name**                                                                                           |
+| ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| [POST app.bsky.feed.post](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json)              | [createPost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/createPost.html)           |
+| [POST app.bsky.feed.post](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json)              | [deletePost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/deletePost.html)           |
+| [GET app.bsky.feed.getTimeline](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json) | [getHomeTimeline](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/getHomeTimeline.html) |
+| [POST app.bsky.feed.repost](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json)          | [createRepost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/createRepost.html)       |
+| [POST app.bsky.feed.repost](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json)          | [deleteRepost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/deleteRepost.html)       |
 
 ### 1.3.3. Notifications
 
-| **Lexicon**                                                                                                                            | **Method Name**                                                                                                           |
-| -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| [GET app.bsky.notification.list](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/list.json)         | [lookupNotifications](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/lookupNotifications.html) |
-| [GET app.bsky.notification.getCount](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/getCount.json) | [lookupUnreadCount](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/lookupUnreadCount.html)     |
+| **Lexicon**                                                                                                                            | **Method Name**                                                                                                     |
+| -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| [GET app.bsky.notification.list](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/list.json)         | [getNotifications](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/getNotifications.html) |
+| [GET app.bsky.notification.getCount](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/getCount.json) | [getUnreadCount](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/getUnreadCount.html)     |
 
 ## 1.4. Tips 🏄
 
@@ -202,7 +202,7 @@ Future<bsky.Session> get _session async {
 
 | Prefix     | Description                                                           |
 | ---------- | --------------------------------------------------------------------- |
-| **lookup** | This prefix is attached to endpoints that reference accounts, etc.    |
+| **get**    | This prefix is attached to endpoints that reference accounts, etc.    |
 | **search** | This prefix is attached to endpoints that perform extensive searches. |
 | **create** | This prefix is attached to the endpoint performing the create state.  |
 | **delete** | This prefix is attached to the endpoint performing the delete state.  |
@@ -281,7 +281,7 @@ import 'package:bluesky/bluesky.dart' as bsky;
 Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(await _session);
   //! Let's get home timeline!
-  final feeds = await bluesky.feeds.lookupHomeTimeline(
+  final feeds = await bluesky.feeds.getHomeTimeline(
     algorithm: null,
     limit: null,
   );
@@ -411,7 +411,7 @@ Future<void> main() async {
   );
 
   try {
-    final response = await bluesky.feeds.lookupHomeTimeline();
+    final response = await bluesky.feeds.getHomeTimeline();
 
     print(response);
   } on bsky.UnauthorizedException catch (e) {
