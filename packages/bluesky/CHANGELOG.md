@@ -10,6 +10,7 @@
 - Added `GraphsService` and methods to follow users. ([#29](https://github.com/myConsciousness/atproto.dart/issues/29))
   - `createFollow`
   - `deleteFollow`
+- Added `getFeeds` in `FeedsService`. ([#47](https://github.com/myConsciousness/atproto.dart/issues/47))
 
 ## v0.2.0
 
