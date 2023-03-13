@@ -144,7 +144,7 @@ Future<void> main() async {
     print(createdRecord);
 
     //! And delete it.
-    await bluesky.feeds.destroyPost(
+    await bluesky.feeds.deletePost(
       uri: createdRecord.data.uri,
     );
   } on bsky.UnauthorizedException catch (e) {
@@ -182,10 +182,10 @@ Future<bsky.Session> get _session async {
 | **Lexicon**                                                                                                                  | **Method Name**                                                                                                 |
 | ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | [POST app.bsky.feed.post](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json)              | [createPost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/createPost.html)                 |
-| [POST app.bsky.feed.post](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json)              | [destroyPost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/destroyPost.html)               |
+| [POST app.bsky.feed.post](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json)              | [deletePost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/deletePost.html)                 |
 | [GET app.bsky.feed.getTimeline](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json) | [lookupHomeTimeline](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/lookupHomeTimeline.html) |
 | [POST app.bsky.feed.repost](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json)          | [createRepost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/createRepost.html)             |
-| [POST app.bsky.feed.repost](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json)          | [destroyRepost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/destroyRepost.html)           |
+| [POST app.bsky.feed.repost](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json)          | [deleteRepost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/deleteRepost.html)             |
 
 ### 1.3.3. Notifications
 
@@ -200,12 +200,12 @@ Future<bsky.Session> get _session async {
 
 **bluesky** uses the following standard prefixes depending on endpoint characteristics. So it's very easy to find the method corresponding to the endpoint you want to use!
 
-| Prefix      | Description                                                           |
-| ----------- | --------------------------------------------------------------------- |
-| **lookup**  | This prefix is attached to endpoints that reference accounts, etc.    |
-| **search**  | This prefix is attached to endpoints that perform extensive searches. |
-| **create**  | This prefix is attached to the endpoint performing the create state.  |
-| **destroy** | This prefix is attached to the endpoint performing the delete state.  |
+| Prefix     | Description                                                           |
+| ---------- | --------------------------------------------------------------------- |
+| **lookup** | This prefix is attached to endpoints that reference accounts, etc.    |
+| **search** | This prefix is attached to endpoints that perform extensive searches. |
+| **create** | This prefix is attached to the endpoint performing the create state.  |
+| **delete** | This prefix is attached to the endpoint performing the delete state.  |
 
 ### 1.4.2. Create Session
 

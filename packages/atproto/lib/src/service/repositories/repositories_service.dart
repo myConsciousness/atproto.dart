@@ -26,7 +26,7 @@ abstract class RepositoriesService {
     required Map<String, dynamic> record,
   });
 
-  Future<core.ATProtoResponse<core.Empty>> destroyRecord({
+  Future<core.ATProtoResponse<core.Empty>> deleteRecord({
     required String collection,
     required String uri,
   });
@@ -59,7 +59,7 @@ class _RepositoriesService extends ATProtoBaseService
       );
 
   @override
-  Future<core.ATProtoResponse<core.Empty>> destroyRecord({
+  Future<core.ATProtoResponse<core.Empty>> deleteRecord({
     required String collection,
     required String uri,
   }) async =>

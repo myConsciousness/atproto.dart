@@ -59,7 +59,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json
-  Future<core.ATProtoResponse<core.Empty>> destroyPost({
+  Future<core.ATProtoResponse<core.Empty>> deletePost({
     required String uri,
   });
 
@@ -102,7 +102,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json
-  Future<core.ATProtoResponse<core.Empty>> destroyRepost({
+  Future<core.ATProtoResponse<core.Empty>> deleteRepost({
     required String uri,
   });
 
@@ -144,10 +144,10 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.ATProtoResponse<core.Empty>> destroyPost({
+  Future<core.ATProtoResponse<core.Empty>> deletePost({
     required String uri,
   }) async =>
-      await atproto.repositories.destroyRecord(
+      await atproto.repositories.deleteRecord(
         collection: 'app.bsky.feed.post',
         uri: uri,
       );
@@ -188,10 +188,10 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<atp.ATProtoResponse<core.Empty>> destroyRepost({
+  Future<atp.ATProtoResponse<core.Empty>> deleteRepost({
     required String uri,
   }) async =>
-      await atproto.repositories.destroyRecord(
+      await atproto.repositories.deleteRecord(
         collection: 'app.bsky.feed.repost',
         uri: uri,
       );

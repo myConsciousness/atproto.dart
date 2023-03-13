@@ -142,7 +142,7 @@ Future<void> main() async {
     );
 
     //! And delete it.
-    await atproto.repositories.destroyRecord(
+    await atproto.repositories.deleteRecord(
       collection: 'app.bsky.feed.post',
       uri: createdRecord.data.uri,
     );
@@ -176,11 +176,11 @@ Future<void> main() async {
 
 **atproto** uses the following standard prefixes depending on endpoint characteristics. So it's very easy to find the method corresponding to the endpoint you want to use!
 
-| Prefix      | Description                                                          |
-| ----------- | -------------------------------------------------------------------- |
-| **lookup**  | This prefix is attached to endpoints that reference accounts, etc.   |
-| **create**  | This prefix is attached to the endpoint performing the create state. |
-| **destroy** | This prefix is attached to the endpoint performing the delete state. |
+| Prefix     | Description                                                          |
+| ---------- | -------------------------------------------------------------------- |
+| **lookup** | This prefix is attached to endpoints that reference accounts, etc.   |
+| **create** | This prefix is attached to the endpoint performing the create state. |
+| **delete** | This prefix is attached to the endpoint performing the delete state. |
 
 ### 1.4.2. Null Parameter at Request
 

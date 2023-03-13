@@ -172,12 +172,12 @@ void main() {
     });
   });
 
-  group('.destroyPost', () {
+  group('.deletePost', () {
     test('normal case', () async {
       final mockedContext = context.buildPostStub(
         'test',
         '/xrpc/com.atproto.repo.deleteRecord',
-        'test/src/service/feeds/data/destroy_post.json',
+        'test/src/service/feeds/data/delete_post.json',
       );
 
       final feeds = FeedsService(
@@ -191,7 +191,7 @@ void main() {
         context: mockedContext,
       );
 
-      final response = await feeds.destroyPost(
+      final response = await feeds.deletePost(
         uri: 'test',
       );
 
@@ -203,7 +203,7 @@ void main() {
       final mockedContext = context.buildPostStub(
         'test',
         '/xrpc/com.atproto.repo.deleteRecord',
-        'test/src/service/feeds/data/destroy_post.json',
+        'test/src/service/feeds/data/delete_post.json',
         statusCode: 401,
       );
 
@@ -219,7 +219,7 @@ void main() {
       );
 
       expectUnauthorizedException(
-        () async => await feeds.destroyPost(
+        () async => await feeds.deletePost(
           uri: 'test',
         ),
       );
@@ -229,7 +229,7 @@ void main() {
       final mockedContext = context.buildPostStub(
         'test',
         '/xrpc/com.atproto.repo.deleteRecord',
-        'test/src/service/feeds/data/destroy_post.json',
+        'test/src/service/feeds/data/delete_post.json',
         statusCode: 429,
       );
 
@@ -245,7 +245,7 @@ void main() {
       );
 
       expectRateLimitExceededException(
-        () async => await feeds.destroyPost(
+        () async => await feeds.deletePost(
           uri: 'test',
         ),
       );
@@ -336,12 +336,12 @@ void main() {
     });
   });
 
-  group('.destroyRepost', () {
+  group('.deleteRepost', () {
     test('normal case', () async {
       final mockedContext = context.buildPostStub(
         'test',
         '/xrpc/com.atproto.repo.deleteRecord',
-        'test/src/service/feeds/data/destroy_repost.json',
+        'test/src/service/feeds/data/delete_repost.json',
       );
 
       final feeds = FeedsService(
@@ -355,7 +355,7 @@ void main() {
         context: mockedContext,
       );
 
-      final response = await feeds.destroyRepost(
+      final response = await feeds.deleteRepost(
         uri: 'at://test',
       );
 
@@ -367,7 +367,7 @@ void main() {
       final mockedContext = context.buildPostStub(
         'test',
         '/xrpc/com.atproto.repo.deleteRecord',
-        'test/src/service/feeds/data/destroy_repost.json',
+        'test/src/service/feeds/data/delete_repost.json',
         statusCode: 401,
       );
 
@@ -383,7 +383,7 @@ void main() {
       );
 
       expectUnauthorizedException(
-        () async => await feeds.destroyRepost(
+        () async => await feeds.deleteRepost(
           uri: 'at://test',
         ),
       );
@@ -393,7 +393,7 @@ void main() {
       final mockedContext = context.buildPostStub(
         'test',
         '/xrpc/com.atproto.repo.deleteRecord',
-        'test/src/service/feeds/data/destroy_repost.json',
+        'test/src/service/feeds/data/delete_repost.json',
         statusCode: 429,
       );
 
@@ -409,7 +409,7 @@ void main() {
       );
 
       expectRateLimitExceededException(
-        () async => await feeds.destroyRepost(
+        () async => await feeds.deleteRepost(
           uri: 'at://test',
         ),
       );

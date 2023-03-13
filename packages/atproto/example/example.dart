@@ -46,7 +46,7 @@ Future<void> main() async {
     );
 
     //! And delete it.
-    await atproto.repositories.destroyRecord(
+    await atproto.repositories.deleteRecord(
       collection: 'app.bsky.feed.post',
       uri: createdRecord.data.uri,
     );
