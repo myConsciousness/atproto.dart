@@ -71,7 +71,7 @@ abstract class FeedsService {
   ///
   /// - [uri]: The uri of target record.
   ///
-  /// - [createdAt]: Date and time the post was created.
+  /// - [createdAt]: Date and time the repost was created.
   ///                If omitted, defaults to the current time.
   ///
   /// ## Lexicon
@@ -119,6 +119,49 @@ abstract class FeedsService {
     FeedAlgorithm? algorithm,
     int? limit,
     String? cursor,
+  });
+
+  /// Creates a vote.
+  ///
+  /// ## Parameters
+  ///
+  /// - [cid]: The content id of target record.
+  ///
+  /// - [uri]: The uri of target record.
+  ///
+  /// - [createdAt]: Date and time the like was created.
+  ///                If omitted, defaults to the current time.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.createRecord
+  /// - app.bsky.feed.vote
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/vote.json
+  Future<core.ATProtoResponse<atp.Record>> createLike({
+    required String cid,
+    required String uri,
+    DateTime? createdAt,
+  });
+
+  /// Deletes a like.
+  ///
+  /// ## Parameters
+  ///
+  /// - [uri]: The uri of target record.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.deleteRecord
+  /// - app.bsky.feed.vote
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/vote.json
+  Future<core.ATProtoResponse<core.Empty>> deleteLike({
+    required String uri,
   });
 }
 
@@ -193,6 +236,33 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
   }) async =>
       await atproto.repositories.deleteRecord(
         collection: 'app.bsky.feed.repost',
+        uri: uri,
+      );
+
+  @override
+  Future<atp.ATProtoResponse<atp.Record>> createLike({
+    required String cid,
+    required String uri,
+    DateTime? createdAt,
+  }) async =>
+      atproto.repositories.createRecord(
+        collection: 'app.bsky.feed.vote',
+        record: {
+          'subject': {
+            'cid': cid,
+            'uri': uri,
+          },
+          'direction': 'up',
+          'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String()
+        },
+      );
+
+  @override
+  Future<atp.ATProtoResponse<core.Empty>> deleteLike({
+    required String uri,
+  }) async =>
+      await atproto.repositories.deleteRecord(
+        collection: 'app.bsky.feed.vote',
         uri: uri,
       );
 }
