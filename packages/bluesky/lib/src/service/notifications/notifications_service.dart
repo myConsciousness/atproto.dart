@@ -39,7 +39,7 @@ abstract class NotificationsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/list.json
-  Future<core.ATProtoResponse<Notifications>> lookupNotifications({
+  Future<core.ATProtoResponse<Notifications>> getNotifications({
     int? limit,
     String? cursor,
   });
@@ -53,7 +53,7 @@ abstract class NotificationsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/getCount.json
-  Future<core.ATProtoResponse<Count>> lookupUnreadCount();
+  Future<core.ATProtoResponse<Count>> getUnreadCount();
 }
 
 class _NotificationsService extends BlueskyBaseService
@@ -66,7 +66,7 @@ class _NotificationsService extends BlueskyBaseService
   });
 
   @override
-  Future<core.ATProtoResponse<Notifications>> lookupNotifications({
+  Future<core.ATProtoResponse<Notifications>> getNotifications({
     int? limit,
     String? cursor,
   }) async =>
@@ -82,7 +82,7 @@ class _NotificationsService extends BlueskyBaseService
       );
 
   @override
-  Future<core.ATProtoResponse<Count>> lookupUnreadCount() async =>
+  Future<core.ATProtoResponse<Count>> getUnreadCount() async =>
       super.transformSingleDataResponse(
         await super.get(
           '/xrpc/app.bsky.notification.getCount',

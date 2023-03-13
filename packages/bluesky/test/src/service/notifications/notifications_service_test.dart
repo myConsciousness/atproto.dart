@@ -14,7 +14,7 @@ import '../../../mocks/client_context_stubs.dart' as context;
 import '../common_expectations.dart';
 
 void main() {
-  group('.lookupNotifications', () {
+  group('.getNotifications', () {
     test('normal case', () async {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
@@ -22,7 +22,7 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/app.bsky.notification.list',
-          'test/src/service/notifications/data/lookup_notifications.json',
+          'test/src/service/notifications/data/get_notifications.json',
           {
             'limit': '10',
             'cursor': '1234',
@@ -30,7 +30,7 @@ void main() {
         ),
       );
 
-      final response = await notifications.lookupNotifications(
+      final response = await notifications.getNotifications(
         limit: 10,
         cursor: '1234',
       );
@@ -46,7 +46,7 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/app.bsky.notification.list',
-          'test/src/service/notifications/data/lookup_notifications.json',
+          'test/src/service/notifications/data/get_notifications.json',
           {
             'limit': '10',
             'cursor': '1234',
@@ -56,7 +56,7 @@ void main() {
       );
 
       expectUnauthorizedException(
-        () async => await notifications.lookupNotifications(
+        () async => await notifications.getNotifications(
           limit: 10,
           cursor: '1234',
         ),
@@ -70,7 +70,7 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/app.bsky.notification.list',
-          'test/src/service/notifications/data/lookup_notifications.json',
+          'test/src/service/notifications/data/get_notifications.json',
           {
             'limit': '10',
             'cursor': '1234',
@@ -80,7 +80,7 @@ void main() {
       );
 
       expectRateLimitExceededException(
-        () async => await notifications.lookupNotifications(
+        () async => await notifications.getNotifications(
           limit: 10,
           cursor: '1234',
         ),
@@ -88,7 +88,7 @@ void main() {
     });
   });
 
-  group('.lookupUnreadCount', () {
+  group('.getUnreadCount', () {
     test('normal case', () async {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
@@ -96,12 +96,12 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/app.bsky.notification.getCount',
-          'test/src/service/notifications/data/lookup_unread_count.json',
+          'test/src/service/notifications/data/get_unread_count.json',
           {},
         ),
       );
 
-      final response = await notifications.lookupUnreadCount();
+      final response = await notifications.getUnreadCount();
 
       expect(response, isA<ATProtoResponse>());
       expect(response.data, isA<Count>());
@@ -114,14 +114,14 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/app.bsky.notification.getCount',
-          'test/src/service/notifications/data/lookup_unread_count.json',
+          'test/src/service/notifications/data/get_unread_count.json',
           {},
           statusCode: 401,
         ),
       );
 
       expectUnauthorizedException(
-        () async => await notifications.lookupUnreadCount(),
+        () async => await notifications.getUnreadCount(),
       );
     });
 
@@ -132,14 +132,14 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/app.bsky.notification.getCount',
-          'test/src/service/notifications/data/lookup_unread_count.json',
+          'test/src/service/notifications/data/get_unread_count.json',
           {},
           statusCode: 429,
         ),
       );
 
       expectRateLimitExceededException(
-        () async => await notifications.lookupUnreadCount(),
+        () async => await notifications.getUnreadCount(),
       );
     });
   });

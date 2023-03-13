@@ -174,7 +174,7 @@ So `atproto` uses the following standard prefixes depending on endpoint characte
 
 | Prefix      | Description                                                             |
 | ----------- | ----------------------------------------------------------------------- |
-| **lookup**  | This prefix is attached to endpoints that reference tweets, users, etc. |
+| **get**  | This prefix is attached to endpoints that reference tweets, users, etc. |
 | **search**  | This prefix is attached to endpoints that perform extensive searches.   |
 | **connect** | This prefix is attached to endpoints with high-performance streaming.   |
 | **count**   | This prefix is attached to the endpoint that counts a particular item.  |

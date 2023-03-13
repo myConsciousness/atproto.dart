@@ -12,7 +12,7 @@ import '../../../mocks/client_context_stubs.dart' as context;
 import '../common_expectations.dart';
 
 void main() {
-  group('.lookupHomeTimeline', () {
+  group('.getHomeTimeline', () {
     test('normal case', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
@@ -20,7 +20,7 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/app.bsky.feed.getTimeline',
-          'test/src/service/feeds/data/lookup_home_timeline.json',
+          'test/src/service/feeds/data/get_home_timeline.json',
           {
             'algorithm': 'reverse-chronological',
             'limit': '10',
@@ -29,7 +29,7 @@ void main() {
         ),
       );
 
-      final response = await feeds.lookupHomeTimeline(
+      final response = await feeds.getHomeTimeline(
         algorithm: FeedAlgorithm.reverseChronological,
         limit: 10,
         cursor: '1234',
@@ -46,7 +46,7 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/app.bsky.feed.getTimeline',
-          'test/src/service/feeds/data/lookup_home_timeline.json',
+          'test/src/service/feeds/data/get_home_timeline.json',
           {
             'algorithm': 'reverse-chronological',
             'limit': '10',
@@ -57,7 +57,7 @@ void main() {
       );
 
       expectUnauthorizedException(
-        () async => await feeds.lookupHomeTimeline(
+        () async => await feeds.getHomeTimeline(
           algorithm: FeedAlgorithm.reverseChronological,
           limit: 10,
           cursor: '1234',
@@ -72,7 +72,7 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/app.bsky.feed.getTimeline',
-          'test/src/service/feeds/data/lookup_home_timeline.json',
+          'test/src/service/feeds/data/get_home_timeline.json',
           {
             'algorithm': 'reverse-chronological',
             'limit': '10',
@@ -83,7 +83,7 @@ void main() {
       );
 
       expectRateLimitExceededException(
-        () async => await feeds.lookupHomeTimeline(
+        () async => await feeds.getHomeTimeline(
           algorithm: FeedAlgorithm.reverseChronological,
           limit: 10,
           cursor: '1234',

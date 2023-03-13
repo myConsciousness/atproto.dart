@@ -115,7 +115,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json
-  Future<core.ATProtoResponse<Feeds>> lookupHomeTimeline({
+  Future<core.ATProtoResponse<Feeds>> getHomeTimeline({
     FeedAlgorithm? algorithm,
     int? limit,
     String? cursor,
@@ -196,7 +196,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.ATProtoResponse<Feeds>> lookupHomeTimeline({
+  Future<core.ATProtoResponse<Feeds>> getHomeTimeline({
     FeedAlgorithm? algorithm,
     int? limit,
     String? cursor,

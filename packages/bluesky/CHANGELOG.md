@@ -3,6 +3,7 @@
 ## v0.2.1
 
 - Fixed standard prefix from `destroy` to `delete`. ([#81](https://github.com/myConsciousness/atproto.dart/issues/81))
+- Fixed standard prefix from `lookup` to `get`. ([#84](https://github.com/myConsciousness/atproto.dart/issues/84))
 - Add methods in `FeedsService`. ([#33](https://github.com/myConsciousness/atproto.dart/issues/33))
   - `createLike`
   - `deleteLike`
