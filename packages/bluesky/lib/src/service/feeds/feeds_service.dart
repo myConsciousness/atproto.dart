@@ -163,6 +163,30 @@ abstract class FeedsService {
   Future<core.ATProtoResponse<core.Empty>> deleteLike({
     required String uri,
   });
+
+  /// Returns feeds of specific author.
+  ///
+  /// ## Parameters
+  ///
+  /// - [author]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getAuthorFeed
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getAuthorFeed.json
+  Future<core.ATProtoResponse<Feeds>> getFeeds({
+    required String author,
+    int? limit,
+    String? cursor,
+  });
 }
 
 class _FeedsService extends BlueskyBaseService implements FeedsService {
@@ -264,5 +288,23 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       await atproto.repositories.deleteRecord(
         collection: 'app.bsky.feed.vote',
         uri: uri,
+      );
+
+  @override
+  Future<atp.ATProtoResponse<Feeds>> getFeeds({
+    required String author,
+    int? limit,
+    String? cursor,
+  }) async =>
+      super.transformSingleDataResponse(
+        await super.get(
+          '/xrpc/app.bsky.feed.getAuthorFeed',
+          queryParameters: {
+            'author': author,
+            'limit': limit,
+            'before': cursor,
+          },
+        ),
+        dataBuilder: Feeds.fromJson,
       );
 }
