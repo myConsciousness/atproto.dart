@@ -245,7 +245,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     required String uri,
     DateTime? createdAt,
   }) async =>
-      atproto.repositories.createRecord(
+      await atproto.repositories.createRecord(
         collection: 'app.bsky.feed.vote',
         record: {
           'subject': {
