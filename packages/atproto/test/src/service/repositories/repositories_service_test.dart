@@ -73,7 +73,7 @@ void main() {
     });
   });
 
-  group('.destroyRecord', () {
+  group('.deleteRecord', () {
     test('normal case', () async {
       final repositories = RepositoriesService(
         did: 'test',
@@ -81,11 +81,11 @@ void main() {
         context: context.buildPostStub(
           'test',
           '/xrpc/com.atproto.repo.deleteRecord',
-          'test/src/service/repositories/data/destroy_record.json',
+          'test/src/service/repositories/data/delete_record.json',
         ),
       );
 
-      final response = await repositories.destroyRecord(
+      final response = await repositories.deleteRecord(
         collection: 'test.post',
         uri: '',
       );
@@ -101,13 +101,13 @@ void main() {
         context: context.buildPostStub(
           'test',
           '/xrpc/com.atproto.repo.deleteRecord',
-          'test/src/service/repositories/data/destroy_record.json',
+          'test/src/service/repositories/data/delete_record.json',
           statusCode: 401,
         ),
       );
 
       expectUnauthorizedException(
-        () async => await repositories.destroyRecord(
+        () async => await repositories.deleteRecord(
           collection: 'test.post',
           uri: '',
         ),
@@ -121,13 +121,13 @@ void main() {
         context: context.buildPostStub(
           'test',
           '/xrpc/com.atproto.repo.deleteRecord',
-          'test/src/service/repositories/data/destroy_record.json',
+          'test/src/service/repositories/data/delete_record.json',
           statusCode: 429,
         ),
       );
 
       expectRateLimitExceededException(
-        () async => await repositories.destroyRecord(
+        () async => await repositories.deleteRecord(
           collection: 'test.post',
           uri: '',
         ),

@@ -179,5 +179,5 @@ So `atproto` uses the following standard prefixes depending on endpoint characte
 | **connect** | This prefix is attached to endpoints with high-performance streaming.   |
 | **count**   | This prefix is attached to the endpoint that counts a particular item.  |
 | **create**  | This prefix is attached to the endpoint performing the create state.    |
-| **destroy** | This prefix is attached to the endpoint performing the destroy state.   |
+| **delete** | This prefix is attached to the endpoint performing the delete state.   |
 | **update**  | This prefix is attached to the endpoint performing the update state.    |

@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.1
+
+- Fixed standard prefix from `destroy` to `delete`. ([#81](https://github.com/myConsciousness/atproto.dart/issues/81))
+
 ## v0.2.0
 
 - Changed parameter names. ([#68](https://github.com/myConsciousness/atproto.dart/issues/68))
