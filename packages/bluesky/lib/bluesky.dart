@@ -48,6 +48,7 @@ export 'package:bluesky/src/service/entities/post_ref.dart';
 export 'package:bluesky/src/service/entities/reason.dart';
 export 'package:bluesky/src/service/entities/reply.dart';
 export 'package:bluesky/src/service/entities/strong_ref.dart';
+export 'package:bluesky/src/service/entities/users.dart';
 export 'package:bluesky/src/service/feeds/feed_algorithm.dart';
 export 'package:bluesky/src/service/feeds/feeds_service.dart';
 export 'package:bluesky/src/service/graphs/graphs_service.dart';

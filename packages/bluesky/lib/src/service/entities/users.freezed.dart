@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'actors.dart';
+part of 'users.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,32 +14,32 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Actors _$ActorsFromJson(Map<String, dynamic> json) {
-  return _Actors.fromJson(json);
+Users _$UsersFromJson(Map<String, dynamic> json) {
+  return _Users.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Actors {
-  List<Actor> get actors => throw _privateConstructorUsedError;
+mixin _$Users {
+  List<Actor> get users => throw _privateConstructorUsedError;
   String get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ActorsCopyWith<Actors> get copyWith => throw _privateConstructorUsedError;
+  $UsersCopyWith<Users> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ActorsCopyWith<$Res> {
-  factory $ActorsCopyWith(Actors value, $Res Function(Actors) then) =
-      _$ActorsCopyWithImpl<$Res, Actors>;
+abstract class $UsersCopyWith<$Res> {
+  factory $UsersCopyWith(Users value, $Res Function(Users) then) =
+      _$UsersCopyWithImpl<$Res, Users>;
   @useResult
-  $Res call({List<Actor> actors, String cursor});
+  $Res call({List<Actor> users, String cursor});
 }
 
 /// @nodoc
-class _$ActorsCopyWithImpl<$Res, $Val extends Actors>
-    implements $ActorsCopyWith<$Res> {
-  _$ActorsCopyWithImpl(this._value, this._then);
+class _$UsersCopyWithImpl<$Res, $Val extends Users>
+    implements $UsersCopyWith<$Res> {
+  _$UsersCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -49,13 +49,13 @@ class _$ActorsCopyWithImpl<$Res, $Val extends Actors>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? actors = null,
+    Object? users = null,
     Object? cursor = null,
   }) {
     return _then(_value.copyWith(
-      actors: null == actors
-          ? _value.actors
-          : actors // ignore: cast_nullable_to_non_nullable
+      users: null == users
+          ? _value.users
+          : users // ignore: cast_nullable_to_non_nullable
               as List<Actor>,
       cursor: null == cursor
           ? _value.cursor
@@ -66,31 +66,30 @@ class _$ActorsCopyWithImpl<$Res, $Val extends Actors>
 }
 
 /// @nodoc
-abstract class _$$_ActorsCopyWith<$Res> implements $ActorsCopyWith<$Res> {
-  factory _$$_ActorsCopyWith(_$_Actors value, $Res Function(_$_Actors) then) =
-      __$$_ActorsCopyWithImpl<$Res>;
+abstract class _$$_UsersCopyWith<$Res> implements $UsersCopyWith<$Res> {
+  factory _$$_UsersCopyWith(_$_Users value, $Res Function(_$_Users) then) =
+      __$$_UsersCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Actor> actors, String cursor});
+  $Res call({List<Actor> users, String cursor});
 }
 
 /// @nodoc
-class __$$_ActorsCopyWithImpl<$Res>
-    extends _$ActorsCopyWithImpl<$Res, _$_Actors>
-    implements _$$_ActorsCopyWith<$Res> {
-  __$$_ActorsCopyWithImpl(_$_Actors _value, $Res Function(_$_Actors) _then)
+class __$$_UsersCopyWithImpl<$Res> extends _$UsersCopyWithImpl<$Res, _$_Users>
+    implements _$$_UsersCopyWith<$Res> {
+  __$$_UsersCopyWithImpl(_$_Users _value, $Res Function(_$_Users) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? actors = null,
+    Object? users = null,
     Object? cursor = null,
   }) {
-    return _then(_$_Actors(
-      actors: null == actors
-          ? _value._actors
-          : actors // ignore: cast_nullable_to_non_nullable
+    return _then(_$_Users(
+      users: null == users
+          ? _value._users
+          : users // ignore: cast_nullable_to_non_nullable
               as List<Actor>,
       cursor: null == cursor
           ? _value.cursor
@@ -102,19 +101,19 @@ class __$$_ActorsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Actors implements _Actors {
-  const _$_Actors({required final List<Actor> actors, required this.cursor})
-      : _actors = actors;
+class _$_Users implements _Users {
+  const _$_Users({required final List<Actor> users, required this.cursor})
+      : _users = users;
 
-  factory _$_Actors.fromJson(Map<String, dynamic> json) =>
-      _$$_ActorsFromJson(json);
+  factory _$_Users.fromJson(Map<String, dynamic> json) =>
+      _$$_UsersFromJson(json);
 
-  final List<Actor> _actors;
+  final List<Actor> _users;
   @override
-  List<Actor> get actors {
-    if (_actors is EqualUnmodifiableListView) return _actors;
+  List<Actor> get users {
+    if (_users is EqualUnmodifiableListView) return _users;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_actors);
+    return EqualUnmodifiableListView(_users);
   }
 
   @override
@@ -122,50 +121,50 @@ class _$_Actors implements _Actors {
 
   @override
   String toString() {
-    return 'Actors(actors: $actors, cursor: $cursor)';
+    return 'Users(users: $users, cursor: $cursor)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Actors &&
-            const DeepCollectionEquality().equals(other._actors, _actors) &&
+            other is _$_Users &&
+            const DeepCollectionEquality().equals(other._users, _users) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_actors), cursor);
+      runtimeType, const DeepCollectionEquality().hash(_users), cursor);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ActorsCopyWith<_$_Actors> get copyWith =>
-      __$$_ActorsCopyWithImpl<_$_Actors>(this, _$identity);
+  _$$_UsersCopyWith<_$_Users> get copyWith =>
+      __$$_UsersCopyWithImpl<_$_Users>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ActorsToJson(
+    return _$$_UsersToJson(
       this,
     );
   }
 }
 
-abstract class _Actors implements Actors {
-  const factory _Actors(
-      {required final List<Actor> actors,
-      required final String cursor}) = _$_Actors;
+abstract class _Users implements Users {
+  const factory _Users(
+      {required final List<Actor> users,
+      required final String cursor}) = _$_Users;
 
-  factory _Actors.fromJson(Map<String, dynamic> json) = _$_Actors.fromJson;
+  factory _Users.fromJson(Map<String, dynamic> json) = _$_Users.fromJson;
 
   @override
-  List<Actor> get actors;
+  List<Actor> get users;
   @override
   String get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$_ActorsCopyWith<_$_Actors> get copyWith =>
+  _$$_UsersCopyWith<_$_Users> get copyWith =>
       throw _privateConstructorUsedError;
 }
