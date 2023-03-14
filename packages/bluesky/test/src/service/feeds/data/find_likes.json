@@ -1,0 +1,106 @@
+{
+  "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jqukaep4l52y",
+  "cursor": "1678765506706::bafyreigvqxjtfhve4ehtzv35cmyc4q6fmesoipsfpjtykkk3zv6pascbhm",
+  "votes": [
+    {
+      "direction": "up",
+      "createdAt": "2023-03-14T03:53:24.450Z",
+      "indexedAt": "2023-03-14T03:53:24.450Z",
+      "actor": {
+        "did": "did:plc:vok247eewjmbmo3kxaizct2i",
+        "declaration": {
+          "actorType": "app.bsky.system.actorUser",
+          "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+        },
+        "handle": "baiser.bsky.social",
+        "displayName": "baiser",
+        "avatar": "https://cdn.bsky.social/imgproxy/FUFsResb2OivchlouMCXu-41-kRZlN2MhMLPt1n4NI4/rs:fill:1000:1000:1:0/plain/bafkreicrwuidebqva6wpm6sfc6ie4ajywbbjxr6ti27im7wrbiybck4xtm@jpeg",
+        "viewer": {
+          "muted": false,
+          "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqk6a7hyik2s",
+          "followedBy": "at://did:plc:vok247eewjmbmo3kxaizct2i/app.bsky.graph.follow/3jqk72ccmns2y"
+        }
+      }
+    },
+    {
+      "direction": "up",
+      "createdAt": "2023-03-14T03:51:30.182Z",
+      "indexedAt": "2023-03-14T03:51:30.182Z",
+      "actor": {
+        "did": "did:plc:aajyn6qzw67cnmwf7zxzbjdy",
+        "declaration": {
+          "actorType": "app.bsky.system.actorUser",
+          "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+        },
+        "handle": "nighthaven.bsky.social",
+        "displayName": "Nighthaven",
+        "avatar": "https://cdn.bsky.social/imgproxy/LhVKXIwEgOUL6rA6EZmMD74zo_aX6dnSqMfHM_dPsnI/rs:fill:1000:1000:1:0/plain/bafkreiafmomrplgzhwy3vw2n6gzij7ehr3zzdxhstddk4ai7klh5nwdxlm@jpeg",
+        "viewer": {
+          "muted": false,
+          "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqfbgzunl22i",
+          "followedBy": "at://did:plc:aajyn6qzw67cnmwf7zxzbjdy/app.bsky.graph.follow/3jql4do2fbs2x"
+        }
+      }
+    },
+    {
+      "direction": "up",
+      "createdAt": "2023-03-14T03:47:21.669Z",
+      "indexedAt": "2023-03-14T03:47:21.669Z",
+      "actor": {
+        "did": "did:plc:vqnarz2kbgerxp62nldcf772",
+        "declaration": {
+          "actorType": "app.bsky.system.actorUser",
+          "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+        },
+        "handle": "b.akanetojo.blue",
+        "displayName": "akanetojo",
+        "avatar": "https://cdn.bsky.social/imgproxy/6cXU06IQQKoTt1UZMVwJEgQL5QKTAnDuLclXz7iXmhc/rs:fill:1000:1000:1:0/plain/bafkreig7rdinhrddkprx2wjwaj7oqgmprhxvikhagks5fzv7l7kvdecewe@jpeg",
+        "viewer": {
+          "muted": false,
+          "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqdeygswdc2w",
+          "followedBy": "at://did:plc:vqnarz2kbgerxp62nldcf772/app.bsky.graph.follow/3jqdlst3mks2e"
+        }
+      }
+    },
+    {
+      "direction": "up",
+      "createdAt": "2023-03-14T03:45:14.949Z",
+      "indexedAt": "2023-03-14T03:45:14.949Z",
+      "actor": {
+        "did": "did:plc:jbwzd523vzucdqfiv7ujfoei",
+        "declaration": {
+          "actorType": "app.bsky.system.actorUser",
+          "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+        },
+        "handle": "wal.bsky.social",
+        "displayName": "わる",
+        "avatar": "https://cdn.bsky.social/imgproxy/302TKu7QmVV-0yujGN6gi_VDeOFihSHzTlPmw_sp6xk/rs:fill:1000:1000:1:0/plain/bafkreid6kumg53hozwq6mrizwlgxoq4kik5ussztq7iafrt3vu2mtowq2q@jpeg",
+        "viewer": {
+          "muted": false,
+          "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqk67zyyv22y",
+          "followedBy": "at://did:plc:jbwzd523vzucdqfiv7ujfoei/app.bsky.graph.follow/3jqnq32wihk2a"
+        }
+      }
+    },
+    {
+      "direction": "up",
+      "createdAt": "2023-03-14T03:45:06.706Z",
+      "indexedAt": "2023-03-14T03:45:06.706Z",
+      "actor": {
+        "did": "did:plc:dg3mu56gkkoclqxiy52dpk6a",
+        "declaration": {
+          "actorType": "app.bsky.system.actorUser",
+          "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+        },
+        "handle": "ksk.bsky.social",
+        "displayName": "Keisuke Horota",
+        "avatar": "https://cdn.bsky.social/imgproxy/jlcoCePPCP1v6J-OXoHeJpHGIPxet-Sxo_r65PVWXdI/rs:fill:1000:1000:1:0/plain/bafkreihiph2vfkaodh5z4fiv3nkh5slkc4zn3rwntha5hruxdqlj5yrjvm@jpeg",
+        "viewer": {
+          "muted": false,
+          "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqccc4yxxk2w",
+          "followedBy": "at://did:plc:dg3mu56gkkoclqxiy52dpk6a/app.bsky.graph.follow/3jqdjwtv4vc2s"
+        }
+      }
+    }
+  ]
+}

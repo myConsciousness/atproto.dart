@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.3
+
+- Added `findLikes` in `FeedsService`. ([#37](https://github.com/myConsciousness/atproto.dart/issues/37))
+
 ## v0.2.2
 
 - Fixed standard prefix from `get` to `find`. ([#90](https://github.com/myConsciousness/atproto.dart/issues/90))
