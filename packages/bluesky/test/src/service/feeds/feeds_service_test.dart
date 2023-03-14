@@ -12,7 +12,7 @@ import '../../../mocks/client_context_stubs.dart' as context;
 import '../common_expectations.dart';
 
 void main() {
-  group('.getHomeTimeline', () {
+  group('.findHomeTimeline', () {
     test('normal case', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
@@ -20,7 +20,7 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/app.bsky.feed.getTimeline',
-          'test/src/service/feeds/data/get_home_timeline.json',
+          'test/src/service/feeds/data/find_home_timeline.json',
           {
             'algorithm': 'reverse-chronological',
             'limit': '10',
@@ -29,7 +29,7 @@ void main() {
         ),
       );
 
-      final response = await feeds.getHomeTimeline(
+      final response = await feeds.findHomeTimeline(
         algorithm: FeedAlgorithm.reverseChronological,
         limit: 10,
         cursor: '1234',
@@ -46,7 +46,7 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/app.bsky.feed.getTimeline',
-          'test/src/service/feeds/data/get_home_timeline.json',
+          'test/src/service/feeds/data/find_home_timeline.json',
           {
             'algorithm': 'reverse-chronological',
             'limit': '10',
@@ -57,7 +57,7 @@ void main() {
       );
 
       expectUnauthorizedException(
-        () async => await feeds.getHomeTimeline(
+        () async => await feeds.findHomeTimeline(
           algorithm: FeedAlgorithm.reverseChronological,
           limit: 10,
           cursor: '1234',
@@ -72,7 +72,7 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/app.bsky.feed.getTimeline',
-          'test/src/service/feeds/data/get_home_timeline.json',
+          'test/src/service/feeds/data/find_home_timeline.json',
           {
             'algorithm': 'reverse-chronological',
             'limit': '10',
@@ -83,7 +83,7 @@ void main() {
       );
 
       expectRateLimitExceededException(
-        () async => await feeds.getHomeTimeline(
+        () async => await feeds.findHomeTimeline(
           algorithm: FeedAlgorithm.reverseChronological,
           limit: 10,
           cursor: '1234',
@@ -580,7 +580,7 @@ void main() {
     });
   });
 
-  group('.getFeeds', () {
+  group('.findFeeds', () {
     test('normal case', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
@@ -588,7 +588,7 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/app.bsky.feed.getAuthorFeed',
-          'test/src/service/feeds/data/get_feeds.json',
+          'test/src/service/feeds/data/find_feeds.json',
           {
             'author': 'shinyakato.dev',
             'limit': '10',
@@ -597,7 +597,7 @@ void main() {
         ),
       );
 
-      final response = await feeds.getFeeds(
+      final response = await feeds.findFeeds(
         author: 'shinyakato.dev',
         limit: 10,
         cursor: '1234',
@@ -614,7 +614,7 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/app.bsky.feed.getAuthorFeed',
-          'test/src/service/feeds/data/get_feeds.json',
+          'test/src/service/feeds/data/find_feeds.json',
           {
             'author': 'shinyakato.dev',
             'limit': '10',
@@ -625,7 +625,7 @@ void main() {
       );
 
       expectUnauthorizedException(
-        () async => await feeds.getFeeds(
+        () async => await feeds.findFeeds(
           author: 'shinyakato.dev',
           limit: 10,
           cursor: '1234',
@@ -640,7 +640,7 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/app.bsky.feed.getAuthorFeed',
-          'test/src/service/feeds/data/get_feeds.json',
+          'test/src/service/feeds/data/find_feeds.json',
           {
             'author': 'shinyakato.dev',
             'limit': '10',
@@ -651,7 +651,7 @@ void main() {
       );
 
       expectRateLimitExceededException(
-        () async => await feeds.getFeeds(
+        () async => await feeds.findFeeds(
           author: 'shinyakato.dev',
           limit: 10,
           cursor: '1234',

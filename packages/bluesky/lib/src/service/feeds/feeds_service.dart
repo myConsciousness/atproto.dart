@@ -115,7 +115,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json
-  Future<core.ATProtoResponse<Feeds>> getHomeTimeline({
+  Future<core.ATProtoResponse<Feeds>> findHomeTimeline({
     FeedAlgorithm? algorithm,
     int? limit,
     String? cursor,
@@ -182,7 +182,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getAuthorFeed.json
-  Future<core.ATProtoResponse<Feeds>> getFeeds({
+  Future<core.ATProtoResponse<Feeds>> findFeeds({
     required String author,
     int? limit,
     String? cursor,
@@ -220,7 +220,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.ATProtoResponse<Feeds>> getHomeTimeline({
+  Future<core.ATProtoResponse<Feeds>> findHomeTimeline({
     FeedAlgorithm? algorithm,
     int? limit,
     String? cursor,
@@ -291,7 +291,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<atp.ATProtoResponse<Feeds>> getFeeds({
+  Future<atp.ATProtoResponse<Feeds>> findFeeds({
     required String author,
     int? limit,
     String? cursor,

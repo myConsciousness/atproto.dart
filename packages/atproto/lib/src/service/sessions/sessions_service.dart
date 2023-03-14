@@ -74,7 +74,7 @@ abstract class SessionsService {
         context: context,
       );
 
-  Future<core.ATProtoResponse<CurrentSession>> getCurrentSession();
+  Future<core.ATProtoResponse<CurrentSession>> findCurrentSession();
 }
 
 class _SessionsService extends ATProtoBaseService implements SessionsService {
@@ -86,7 +86,7 @@ class _SessionsService extends ATProtoBaseService implements SessionsService {
   });
 
   @override
-  Future<core.ATProtoResponse<CurrentSession>> getCurrentSession() async =>
+  Future<core.ATProtoResponse<CurrentSession>> findCurrentSession() async =>
       super.transformSingleDataResponse(
         await super.get(
           '/xrpc/com.atproto.session.get',
