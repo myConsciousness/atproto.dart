@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.1.2
+
+- Fixed standard prefix from `get` to `find`. ([#90](https://github.com/myConsciousness/atproto.dart/issues/90))
+
 ## v0.1.1
 
 - Fixed standard prefix from `destroy` to `delete`. ([#81](https://github.com/myConsciousness/atproto.dart/issues/81))

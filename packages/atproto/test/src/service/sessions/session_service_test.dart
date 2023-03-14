@@ -11,7 +11,7 @@ import '../../../mocks/client_context_stubs.dart' as context;
 import '../common_expectations.dart';
 
 void main() {
-  group('.getCurrentSession', () {
+  group('.findCurrentSession', () {
     test('normal case', () async {
       final sessions = SessionsService(
         did: 'test',
@@ -19,12 +19,12 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/com.atproto.session.get',
-          'test/src/service/sessions/data/get_current_session.json',
+          'test/src/service/sessions/data/find_current_session.json',
           {},
         ),
       );
 
-      final response = await sessions.getCurrentSession();
+      final response = await sessions.findCurrentSession();
 
       expect(response, isA<core.ATProtoResponse>());
       expect(response.data, isA<CurrentSession>());
@@ -37,14 +37,14 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/com.atproto.session.get',
-          'test/src/service/sessions/data/get_current_session.json',
+          'test/src/service/sessions/data/find_current_session.json',
           {},
           statusCode: 401,
         ),
       );
 
       expectUnauthorizedException(
-        () async => await sessions.getCurrentSession(),
+        () async => await sessions.findCurrentSession(),
       );
     });
 
@@ -55,14 +55,14 @@ void main() {
         context: context.buildGetStub(
           'test',
           '/xrpc/com.atproto.session.get',
-          'test/src/service/sessions/data/get_current_session.json',
+          'test/src/service/sessions/data/find_current_session.json',
           {},
           statusCode: 429,
         ),
       );
 
       expectRateLimitExceededException(
-        () async => await sessions.getCurrentSession(),
+        () async => await sessions.findCurrentSession(),
       );
     });
   });

@@ -32,7 +32,7 @@ Future<void> main() async {
     );
 
     //! Let's get home timeline!
-    final feeds = await bluesky.feeds.getHomeTimeline(
+    final feeds = await bluesky.feeds.findHomeTimeline(
       limit: 10,
     );
 
