@@ -35,6 +35,8 @@ export 'package:bluesky/src/service/entities/embed_image.dart';
 export 'package:bluesky/src/service/entities/entity.dart';
 export 'package:bluesky/src/service/entities/feed.dart';
 export 'package:bluesky/src/service/entities/feeds.dart';
+export 'package:bluesky/src/service/entities/like.dart';
+export 'package:bluesky/src/service/entities/likes.dart';
 export 'package:bluesky/src/service/entities/media_meta.dart';
 export 'package:bluesky/src/service/entities/notification.dart';
 export 'package:bluesky/src/service/entities/notifications.dart';

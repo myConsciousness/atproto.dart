@@ -8,6 +8,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../bluesky_base_service.dart';
 import '../entities/feeds.dart';
+import '../entities/likes.dart';
 import 'feed_algorithm.dart';
 
 abstract class FeedsService {
@@ -187,6 +188,13 @@ abstract class FeedsService {
     int? limit,
     String? cursor,
   });
+
+  Future<core.ATProtoResponse<Likes>> findLikes({
+    required String uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+  });
 }
 
 class _FeedsService extends BlueskyBaseService implements FeedsService {
@@ -306,5 +314,26 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           },
         ),
         dataBuilder: Feeds.fromJson,
+      );
+
+  @override
+  Future<atp.ATProtoResponse<Likes>> findLikes({
+    required String uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+  }) async =>
+      super.transformSingleDataResponse(
+        await super.get(
+          '/xrpc/app.bsky.feed.getVotes',
+          queryParameters: {
+            'uri': uri,
+            'cid': cid,
+            'direction': 'up',
+            'limit': limit,
+            'before': cursor,
+          },
+        ),
+        dataBuilder: Likes.fromJson,
       );
 }
