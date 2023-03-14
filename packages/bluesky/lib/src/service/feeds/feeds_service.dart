@@ -189,6 +189,26 @@ abstract class FeedsService {
     String? cursor,
   });
 
+  /// Returns likes of specific post.
+  ///
+  /// ## Parameters
+  ///
+  /// - [uri]: The post uri.
+  ///
+  /// - [cid]: The content id.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getVotes
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getVotes.json
   Future<core.ATProtoResponse<Likes>> findLikes({
     required String uri,
     String? cid,

@@ -7,6 +7,7 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../bluesky_base_service.dart';
+import '../entities/follows.dart';
 
 abstract class GraphsService {
   /// Returns the new instance of [GraphsService].
@@ -63,6 +64,12 @@ abstract class GraphsService {
   Future<core.ATProtoResponse<core.Empty>> deleteFollow({
     required String uri,
   });
+
+  Future<core.ATProtoResponse<Follows>> findFollows({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
 }
 
 class _GraphsService extends BlueskyBaseService implements GraphsService {
@@ -97,5 +104,23 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       await atproto.repositories.deleteRecord(
         collection: 'app.bsky.graph.follow',
         uri: uri,
+      );
+
+  @override
+  Future<atp.ATProtoResponse<Follows>> findFollows({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) async =>
+      super.transformSingleDataResponse(
+        await super.get(
+          '/xrpc/app.bsky.graph.getFollows',
+          queryParameters: {
+            'user': actor,
+            'limit': limit,
+            'before': cursor,
+          },
+        ),
+        dataBuilder: Follows.fromJson,
       );
 }
