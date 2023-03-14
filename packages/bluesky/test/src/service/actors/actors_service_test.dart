@@ -8,6 +8,7 @@ import 'package:bluesky/src/service/actors/actors_service.dart';
 import 'package:bluesky/src/service/entities/actor_profile.dart';
 import 'package:bluesky/src/service/entities/actor_profiles.dart';
 import 'package:bluesky/src/service/entities/actors.dart';
+import 'package:bluesky/src/service/entities/users.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
@@ -39,7 +40,7 @@ void main() {
       );
 
       expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<Actors>());
+      expect(response.data, isA<Users>());
     });
 
     test('when unauthorized', () async {
@@ -245,6 +246,71 @@ void main() {
             'test2.bsky.social',
           ],
         ),
+      );
+    });
+  });
+
+  group('.findSuggestions', () {
+    test('normal case', () async {
+      final actors = ActorsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        service: 'test',
+        context: context.buildGetStub(
+          'test',
+          '/xrpc/app.bsky.actor.getSuggestions',
+          'test/src/service/actors/data/find_suggestions.json',
+          {
+            'limit': '10',
+            'cursor': '1234',
+          },
+        ),
+      );
+
+      final response = await actors.findSuggestions(limit: 10, cursor: '1234');
+
+      expect(response, isA<ATProtoResponse>());
+      expect(response.data, isA<Actors>());
+    });
+
+    test('when unauthorized', () async {
+      final actors = ActorsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        service: 'test',
+        context: context.buildGetStub(
+          'test',
+          '/xrpc/app.bsky.actor.getSuggestions',
+          'test/src/service/actors/data/find_suggestions.json',
+          {
+            'limit': '10',
+            'cursor': '1234',
+          },
+          statusCode: 401,
+        ),
+      );
+
+      expectUnauthorizedException(
+        () async => await actors.findSuggestions(limit: 10, cursor: '1234'),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final actors = ActorsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        service: 'test',
+        context: context.buildGetStub(
+          'test',
+          '/xrpc/app.bsky.actor.getSuggestions',
+          'test/src/service/actors/data/find_suggestions.json',
+          {
+            'limit': '10',
+            'cursor': '1234',
+          },
+          statusCode: 429,
+        ),
+      );
+
+      expectRateLimitExceededException(
+        () async => await actors.findSuggestions(limit: 10, cursor: '1234'),
       );
     });
   });

@@ -10,6 +10,7 @@ import '../bluesky_base_service.dart';
 import '../entities/actor_profile.dart';
 import '../entities/actor_profiles.dart';
 import '../entities/actors.dart';
+import '../entities/users.dart';
 
 abstract class ActorsService {
   /// Returns the new instance of [ActorsService].
@@ -42,7 +43,7 @@ abstract class ActorsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/search.json
-  Future<core.ATProtoResponse<Actors>> searchActors({
+  Future<core.ATProtoResponse<Users>> searchActors({
     required String term,
     int? limit,
     String? cursor,
@@ -81,6 +82,27 @@ abstract class ActorsService {
   Future<core.ATProtoResponse<ActorProfiles>> findProfiles({
     required List<String> actors,
   });
+
+  /// Get a list of actors suggested for following. Used in discovery UIs.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.actor.getSuggestions
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getSuggestions.json
+  Future<core.ATProtoResponse<Actors>> findSuggestions({
+    int? limit,
+    String? cursor,
+  });
 }
 
 class _ActorsService extends BlueskyBaseService implements ActorsService {
@@ -92,7 +114,7 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
   });
 
   @override
-  Future<core.ATProtoResponse<Actors>> searchActors({
+  Future<core.ATProtoResponse<Users>> searchActors({
     required String term,
     int? limit,
     String? cursor,
@@ -106,7 +128,7 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
             'before': cursor,
           },
         ),
-        dataBuilder: Actors.fromJson,
+        dataBuilder: Users.fromJson,
       );
 
   @override
@@ -135,5 +157,21 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
           },
         ),
         dataBuilder: ActorProfiles.fromJson,
+      );
+
+  @override
+  Future<atp.ATProtoResponse<Actors>> findSuggestions({
+    int? limit,
+    String? cursor,
+  }) async =>
+      super.transformSingleDataResponse(
+        await super.get(
+          '/xrpc/app.bsky.actor.getSuggestions',
+          queryParameters: {
+            'limit': limit,
+            'cursor': cursor,
+          },
+        ),
+        dataBuilder: Actors.fromJson,
       );
 }

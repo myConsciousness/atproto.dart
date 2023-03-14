@@ -1,0 +1,649 @@
+{
+  "cursor": "235::did:plc:5trbo6ijzaizkszgcpvx7gnf",
+  "actors": [
+    {
+      "did": "did:plc:fjsmdevv3mmzc3dpd36u5yxc",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "hnbot.bsky.social",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:p52irwmwli3mlkfy3c33mt4b",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "leogo.cloud",
+      "displayName": "Leonardo",
+      "description": "um dos primeiros a entrar no céu - 29y, brazuquita e falastrão, gente boa e querido da taylor swift ",
+      "avatar": "https://cdn.bsky.social/imgproxy/GnJyqKKAIlp8nbuuoIwldA6j8VaxCx7qVAFoJKFnSM0/rs:fill:1000:1000:1:0/plain/bafkreigmd6xjm4ipoqzgwseummpfgxizmbq7z7ppxch2fvfx7jjkxm6i44@jpeg",
+      "indexedAt": "2023-03-12T20:22:55.136Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:ximvttntrphvv7letr2ixqqt",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "leandro.ink",
+      "displayName": "Lê ☺️",
+      "description": "🇧🇷🇺🇸\nGet a grip, get a life and get over it!!!\nInstagram.com/90krauss",
+      "avatar": "https://cdn.bsky.social/imgproxy/39cK7jbBw1_eipBQbiQwkRNUR0_W09zkEkx47iZwo74/rs:fill:1000:1000:1:0/plain/bafkreigvwocqotbphcptcrezjgkhpt6tcu7cncal7s7vqoer7gtrlwdrky@jpeg",
+      "indexedAt": "2023-03-13T01:38:08.546Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:r2mvigf2j6pzmsl7httjmqty",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "leo.bsky.social",
+      "displayName": "𝖑𝖊𝖔.",
+      "description": "Baseado em desastres reais.",
+      "avatar": "https://cdn.bsky.social/imgproxy/B-clTihUz0tBTkyGLJhDqKttGwyajybvxeIXVFivaBk/rs:fill:1000:1000:1:0/plain/bafkreiebeb4dslm3bwrnxfdnko3svvbh3znxxtmeyl552r22ipghdlkobu@jpeg",
+      "indexedAt": "2023-03-13T16:37:47.091Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:io5kzrizagutlrawyxc7yg2i",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "lifeonmars.bsky.social",
+      "displayName": "osmars",
+      "description": "28, geminiano e I don't wanna slay nobody ✨\nIG: https://instagram.com/lifeonosmars",
+      "avatar": "https://cdn.bsky.social/imgproxy/yuSN6ndvvurqNC27SYpmMFJfiPDypIWWjbNuENyscpo/rs:fill:1000:1000:1:0/plain/bafkreic6af4f24j226dgil44ekxmtxcyd3kh3u2hv65hffw42qbnig65r4@jpeg",
+      "indexedAt": "2023-03-10T00:50:00.215Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:hpxc7twjnxhnnjn2dyaqpfo2",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "eduardo.bsky.social",
+      "displayName": "edu. ",
+      "description": "Ψ | he/him - ele/dele\ncomentarista da vida",
+      "avatar": "https://cdn.bsky.social/imgproxy/w-CdOSypO0BCcDJTVpQZGHtTxUVdWxUPE76NW_Q-YaU/rs:fill:1000:1000:1:0/plain/bafkreiblcnkj33myqa37o4xdhuqwgofzni2s4g6tzl2x7lkxhj43rcsgre@jpeg",
+      "indexedAt": "2023-03-13T12:46:00.038Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:7nvpbh43v3onqkro7t3jgx2l",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "paluccik.bsky.social",
+      "displayName": "Kaique",
+      "description": "um viadão",
+      "avatar": "https://cdn.bsky.social/imgproxy/GB_-0V_VE0evbYAqQH5SAZ6aN9qGmPMAdzYTUVzi2Io/rs:fill:1000:1000:1:0/plain/bafkreihegqaaprrphkkt7cfltlkpv5ppyp6qsvteu4jzxwskog5x5htzxa@jpeg",
+      "indexedAt": "2023-03-13T12:35:52.493Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:6objvq5gprmuleio2qudohtn",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "livialamblet.com",
+      "displayName": "Lívia Lamblet ",
+      "description": "Cheguei aqui quando tudo era mato.\n\nMemes, notícias e reclamações - Jornalista | Escritora | Creator | Podcaster | Esquerda | Botafogo | Imigrante | Mãe \n\n📧 livialambletheatherly@gmail.com\n\nhttp://instagram.com/livialamblet\nhttp://tiktok.com/@livialamblet",
+      "avatar": "https://cdn.bsky.social/imgproxy/0ctJDLmxgEao0788kCI5X0RBzNlsq79vBzT3OUZvtFA/rs:fill:1000:1000:1:0/plain/bafkreiaazzrmjf5zfulmpeku3xp42dfxpycenbprmbvb2povdegivnhuyu@jpeg",
+      "indexedAt": "2023-03-04T16:42:18.648Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:oky5czdrnfjpqslsw2a5iclo",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "jay.bsky.social",
+      "displayName": "Jay 🦋",
+      "description": "chief cat-herder around here\n\nsocieties evolve to reflect the structure of their dominant form of communication",
+      "avatar": "https://cdn.bsky.social/imgproxy/ogSgUNedsoOiSf3Tu_rixfF3Ku4lJPeBJV_oam5TKqU/rs:fill:1000:1000:1:0/plain/bafkreihquydaf5xer53afkmdefp2hpwbtqcgurxo2hsdkrpwpvm6uhkyg4@jpeg",
+      "indexedAt": "2023-02-04T22:05:27.856Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:kyhodkh5hgmq5gy526e4mr6l",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "alana.bsky.social",
+      "displayName": "Alana",
+      "description": "Personificação e devaneios diários em alguns carácteres.",
+      "avatar": "https://cdn.bsky.social/imgproxy/Q94_qpH44A4ClvzX6xxczQvQ-tkMySmhB3T6lepKp50/rs:fill:1000:1000:1:0/plain/bafkreihy4fgtjd4hxncdlm2bakniv3hsjp4l6oedhuqosbmpcghk77xcae@jpeg",
+      "indexedAt": "2023-03-12T22:49:24.670Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:kkdc47wz6nutpwx4pqdiixdc",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "diegosfm.com",
+      "displayName": "Diego Stedile",
+      "description": "jornalista e designer \ncriei o @escutai.com\n\n🔗 bio.escutai.com",
+      "avatar": "https://cdn.bsky.social/imgproxy/cPd2ys0Qih9w79ERTJuzPuM6Xg7XbHr2LkKiwPdDRwI/rs:fill:1000:1000:1:0/plain/bafkreihnjzz4h3bmkbo7vo72qzc5heeplfkgj7y4ngan5lzv4pm5or7mcm@jpeg",
+      "indexedAt": "2023-03-09T15:49:04.317Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:xr2ehpmzbody6tgehsp4yubu",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "fael.fun",
+      "displayName": "Rafael",
+      "description": "I work with zombies and supers. 🧟‍♂️🦸🏻‍♂️🧟‍♀️🦸🏻‍♀️\nOwner of @WalkingDeadBR.bsky.social and @TheBoysTVBrasil.bsky.social \nCONTATO: rafael@walkingdeadbr.com",
+      "avatar": "https://cdn.bsky.social/imgproxy/59_vhG8gglk2y5-DxutYGnngFzblZDwOjGh6y84CxyQ/rs:fill:1000:1000:1:0/plain/bafkreibkbbgysfavv6vpnuzaygwrldfu7wy3cnhyym3uktgqkmuika7yfq@jpeg",
+      "indexedAt": "2023-03-04T01:51:35.298Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:6xkpc4w3glheznpxyuu3rawt",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "pietraparker.com",
+      "displayName": "Pietra Parker",
+      "description": "The first Drag Queen on BlueSky 💁🏼‍♀️\nThe Queen from Rio 👑✨\nBrazilian Drag Queen based in NYC.\nContent Creator\nBibliotecária do Acervo BlueSky\n🇧🇷🇺🇸\nhttps://linktr.ee/pietraparker",
+      "avatar": "https://cdn.bsky.social/imgproxy/3Tj2Ow96vWGFabZAJ5x-Q0MwrtR-3x_q3U4LNxFYm4Y/rs:fill:1000:1000:1:0/plain/bafkreiaib27x66dvkaw543mzrqfvl4iudfyvjhwunalb7rfl7n3vlsbjsq@jpeg",
+      "indexedAt": "2023-03-06T20:17:58.638Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:ppavkt7yfl3isxvbx2utgqxc",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "itsluuga.com",
+      "displayName": "Lu Ugá ",
+      "description": "1th Trans 🏳️‍⚧️ on BlueSky!                  🐦@itsluuga\nBAB INFLUENCER 😈                    📷@itsluanababe\nBrazilian 🇧🇷\nPoliglota 🇮🇹🇪🇸🇨🇭🇫🇷\nActress 🎭 \nCinematography🎬 \nMusical theatre🎶\nTaurus♉️\n\nManda um PIX😜 https://live",
+      "avatar": "https://cdn.bsky.social/imgproxy/0gX2GU7HnK1gdnAHPScoTGtYycP6PJ29v-xth8wq1rY/rs:fill:1000:1000:1:0/plain/bafkreibz7z6rpt6r2vqnvkarnwyqz2cv4hmvj2mptbidsob2nlyclz7s4i@jpeg",
+      "indexedAt": "2023-03-08T08:37:37.366Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:d2waeelfu2d2p2i4rmn2znuq",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "ggrealoficial.bsky.social",
+      "displayName": "🎙️GG🦄",
+      "description": "Comunicação • Podcast • Política • Cultura Pop || LGBTQIAPN+ || Podcaster no BOM DIA, BIXA 🏳️‍🌈🏳️‍⚧️ || #TeamAline 🐛\n\nTT/IG: @gg_realoficial \n\nꋪꀤꂦ, ßꋪꍏꌗꀤ꒒",
+      "avatar": "https://cdn.bsky.social/imgproxy/NaWX2IelCn9PuLyrV40ljNQozfN5ebXnu_4yUXmgzH0/rs:fill:1000:1000:1:0/plain/bafkreiht54bogntpksbqad73mbj4usr65wshi4lynmifauh3ddpqecph7i@jpeg",
+      "indexedAt": "2023-03-06T21:20:29.815Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:5i7pfxcy7kkbfiqacxee3lkl",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "teenagedream.bsky.social",
+      "displayName": "𝐰𝐞𝐳𝐲",
+      "description": "Love is free, but all magic comes with a price.",
+      "avatar": "https://cdn.bsky.social/imgproxy/1Qa0lzW8OrxIvn9glqNsGHMyOtlLMys6SuM-fh2wCrE/rs:fill:1000:1000:1:0/plain/bafkreiewhp4xnogzpdtdvhfblyuwwflg3m2qimaeqj3myljwkoz6xuovxy@jpeg",
+      "indexedAt": "2023-03-13T16:39:11.235Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:dkitop7vex5gmuze5mctpvu5",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "vic.bsky.social",
+      "displayName": "vic",
+      "description": "charlie stan account\nar-br   she/ela",
+      "avatar": "https://cdn.bsky.social/imgproxy/N160bmr_TqREhlkTtPjsuna88PQ6S_V0JCtGRYNoVDI/rs:fill:1000:1000:1:0/plain/bafkreid7r6gsydgsl2h2pqomttggimsoacxizbh4byv6cxrdijq7j42sna@jpeg",
+      "indexedAt": "2023-03-03T22:41:29.560Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:rfkxuyho2sofp3vlb6bkii72",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "noraglyphs.bsky.social",
+      "displayName": "noraglyphs",
+      "description": "おはようからおやすみまでごろごろしています。",
+      "avatar": "https://cdn.bsky.social/imgproxy/wibPSFnNskycKgU6jsVp9zzRu4oZdezGB9fN-5cLdoE/rs:fill:1000:1000:1:0/plain/bafkreibwtor6qpxy7rh4nirjkx3eeoagopq4u75lxmlusae2ln4ex6yumm@jpeg",
+      "indexedAt": "2023-03-05T02:36:42.732Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:rbc4azwqfmwbpf2g4kpgedlx",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "michilini.bsky.social",
+      "displayName": "will ",
+      "description": "Escorpiano doido, viciado em cafe e MedLouco\nInstagram.com/wmichilini\n🇧🇷⚕",
+      "avatar": "https://cdn.bsky.social/imgproxy/bgjwiCJhd257iWtmmdtS2rZJ62HYZYM1drUPM6BkcSw/rs:fill:1000:1000:1:0/plain/bafkreicwtjol4ombnfipqso5kuushe4w2ygo6ur6ottn3lskudxeetzrdu@jpeg",
+      "indexedAt": "2023-03-04T17:08:08.724Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:xryvr4b4lrrtvt6upr4x7fgb",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "geca.fun",
+      "displayName": "Ana M.",
+      "description": "Quando eu cheguei aqui, tudo era mato.\n🐦 @gecatweets\n📸 @___anatm",
+      "avatar": "https://cdn.bsky.social/imgproxy/vYmV6tqkDaTRPtxtFizifNxASFXmfCST4f35bwWX5us/rs:fill:1000:1000:1:0/plain/bafkreiaralwpbz6zz66m3csaxrnx25mkv2ol3d2m5sfqkhoxykcbekwmpe@jpeg",
+      "indexedAt": "2023-03-12T00:19:48.826Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:bn73cubjb5omrybucnipycas",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "vito.fyi",
+      "displayName": "VITO",
+      "description": "🏳️‍🌈 Carioca que pensa demais\n🎓 Comunicólogo, Publicitário e Designer\n\n🧸 Insta: http://instagr.am/mostlyvito\n🔗 Mais redes: http://vito.fyi",
+      "avatar": "https://cdn.bsky.social/imgproxy/DVfrXgaf9w9MEvc3CMu-Qef3SbgYZfRa7FYAkLCxnmI/rs:fill:1000:1000:1:0/plain/bafkreia2licmy25r6gzrrqd7vyd6j66rbtl6e7a4fe74s2cozs4dj2wftm@jpeg",
+      "indexedAt": "2023-03-13T15:57:43.608Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:ryfyesagyunfue3lnxbzn5ok",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "morgana.bsky.social",
+      "displayName": "morg",
+      "description": "💛🐶☀️🐚🌴🥝🦜🥥🍋",
+      "avatar": "https://cdn.bsky.social/imgproxy/9tGUdgsBjuFnKwn1nv6BFb9w-LtziJkErZwbou-mg9U/rs:fill:1000:1000:1:0/plain/bafkreih7e2nhzeunihsqrsivarnmy5yf62n2b6f24h3mosbstwwu7sdrdi@jpeg",
+      "indexedAt": "2023-03-04T04:55:32.384Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:tsk5huy4xspr4ku3smmrhe5k",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "case.bsky.social",
+      "displayName": "Case NY Edition ",
+      "description": "Sloth. Thought marinator. \n",
+      "avatar": "https://cdn.bsky.social/imgproxy/OMXeKHbLdnxhCyS8qHXqplLsCkXrLlAVvBYrU9V_VIY/rs:fill:1000:1000:1:0/plain/bafkreienuejxtwu7elxbacetowepml2zfkj3qd4ugnteqpxdnvbdubyfri@jpeg",
+      "indexedAt": "2023-01-26T13:53:55.543Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:havjejszneeqokktmykuz2ez",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "minaj.com.br",
+      "displayName": "minaj ♥",
+      "description": "six sad sips from the wine\nig: @guilhitto\n",
+      "avatar": "https://cdn.bsky.social/imgproxy/xT4-MNcwOKXNUuUxhjwPvi1ejOwhvD8Q7QJEU8hS4BY/rs:fill:1000:1000:1:0/plain/bafkreig5onbylgjgr4hjax2wob76v5imriwfhobf6r2ph6xxaex6s4ud5m@jpeg",
+      "indexedAt": "2023-03-09T20:35:34.136Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:3ivn5vbbdnvahj7xwws42h52",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "hans.bsky.social",
+      "displayName": "hans",
+      "description": "hans por hans, as várias faces de mim 🤠",
+      "avatar": "https://cdn.bsky.social/imgproxy/h1urQCLplLJt-yj5BUqBuYY9V9ZTdOuIiq2DdtokWuc/rs:fill:1000:1000:1:0/plain/bafkreigffl3tzrk4txdhh5gscrqdhxig5pjwwvilc6ebh74rzueldmasry@jpeg",
+      "indexedAt": "2023-03-02T04:07:55.380Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:f3ixoayf7kham4t2razfzf5i",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "juniorclemente.bsky.social",
+      "displayName": "Junior no 1° nome ☁️",
+      "description": "Não sou fofoqueiro, só passo informações. \n\n🎮 Gamer\n📍São Paulo - SP",
+      "avatar": "https://cdn.bsky.social/imgproxy/ywMPfncgmfQjdDZDF-Dq8dpASkdQnuwo768GmdybcoY/rs:fill:1000:1000:1:0/plain/bafkreiexcxna2ctdh7fekkfbfgoawocpj47qtnmpd5dddcbhyep7ry7zli@jpeg",
+      "indexedAt": "2023-03-08T23:53:07.787Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:ycg2blb5xnaz42y7cwrgzzwt",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "joaovitor.bsky.social",
+      "displayName": "jV",
+      "description": "pionayra no bsky \ninstagram.com/joaovitorfell",
+      "avatar": "https://cdn.bsky.social/imgproxy/zzTgmGMfNcY8M-K1-YrrEFTylS-gonFQCF_6VzB_mmI/rs:fill:1000:1000:1:0/plain/bafkreidzgnnpeuhv7haxthtb2igiumyqxdakjdy6thjsgrj5awswirefx4@jpeg",
+      "indexedAt": "2023-03-14T04:23:46.047Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:qnoogorrz6hynkgowmyxi6g2",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "lukas.bsky.social",
+      "displayName": "lucas",
+      "description": "www.instagram.com/loucasmarques",
+      "avatar": "https://cdn.bsky.social/imgproxy/cXArbPgtKKsE3uoC0rNDqm7NdsE4YR3Ytyh-DKN35_o/rs:fill:1000:1000:1:0/plain/bafkreier7cm35chhcpqh2mpksyq4us5zcowu7w4muorxm7f3yohatwfydy@jpeg",
+      "indexedAt": "2023-03-10T03:32:54.468Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:7axcqwj4roha6mqpdhpdwczx",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "wang.social",
+      "displayName": "Peter W🤓",
+      "description": "Anaconda, Python, PyData, PyScript; Center for Humane Tech; Game~B; Physics, Cybernetics, Memetics. A student of the human condition.\nMemento mori.",
+      "avatar": "https://cdn.bsky.social/imgproxy/Ax1WlVxdG7eMJn5rR0mhFj71tg4LUotX02lpTZRRVMc/rs:fill:1000:1000:1:0/plain/bafkreibilpqoaykwkfuhiecgngtyodozgjnst3k4mjoffxoug5tsz26jlm@jpeg",
+      "indexedAt": "2023-03-03T13:04:28.807Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:5gq43raiv2qcrtqhvm6vh3ks",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "dylanbounce.com",
+      "displayName": "Dylan Bounce",
+      "description": "um dos primeiros pioneiros do bluesky, pavimentei aqui quando era apenas mato! 🫶🏻\n\napresentador! eu cobri o @lollapaloozabr, @rockinrio, @mtvmiawbrasil e apresentei o @breaktudoawards 2022! 📧 hello@dylanbounce.com\n\n🔗 https://linktr.ee/dylanbounce",
+      "avatar": "https://cdn.bsky.social/imgproxy/wgr-kl5XFWqR8kZbSCm1wGfGbDCLvzW81nNKOdSDTyg/rs:fill:1000:1000:1:0/plain/bafkreigcsvffwqylq5svr5aumcvwwjkklvc7r7tcwicuonnatfego3l2xe@jpeg",
+      "indexedAt": "2023-03-11T04:13:51.295Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:bapnorbjvs43bojtwki62mpd",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "chris.bsky.social",
+      "displayName": "Chris Painter",
+      "description": "Semiconductors \n\nMaking vaccines go faster at Alvea\n\nBluesky’s first crypto scam bot",
+      "avatar": "https://cdn.bsky.social/imgproxy/xmmwCpwWYDOVt0fr1d555mjlE3XdhkCIbDhajAsM3TM/rs:fill:1000:1000:1:0/plain/bafkreieg7ogxrip37fyfhikuit7w7gxecpyrrcwnoq2zojlgx2vuhtqgge@jpeg",
+      "indexedAt": "2023-03-01T01:45:23.314Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:nxtgtzge53oft7cx6tqdsfcn",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "arunwadhwa.com",
+      "displayName": "Dr. Arun Wadhwa",
+      "description": "Physician (MBBS/临床医学), Epistemophile, Student Researcher (Cancer Immunology, Vaccine Development, Neurodegenerative Disorders), Ex-WebDev",
+      "avatar": "https://cdn.bsky.social/imgproxy/bOll78YSvVq2BdM781ywuT2uCVbNyypu1Z1_uAzgjCg/rs:fill:1000:1000:1:0/plain/bafkreiasrostllb2mxtlfhxl2vookes3hohitgqhprw7kxuu5vamoc2f7a@jpeg",
+      "indexedAt": "2023-03-01T15:04:10.928Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:5so32tsxupqahsmfmgt35tpi",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "aruacosta.com",
+      "displayName": "Ariel",
+      "description": "Marketing Executive ",
+      "avatar": "https://cdn.bsky.social/imgproxy/PUR4ClXByunQQkSdkmBvfUwHLB_F0A3m-GxVz6zn9hA/rs:fill:1000:1000:1:0/plain/bafkreifwat45iydo3idprthjcyjhbh4rrdzvh5w7hqhhqtd7be5opnbefe@jpeg",
+      "indexedAt": "2023-03-12T21:13:17.032Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:qhwcwzxo4ayekj5pembdfoxa",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "ravoque.com.br",
+      "displayName": "filipe",
+      "description": "casual fortnite player, all-in-one marketing dude at a vacation club, former wyndham marketing dude ☺️ i love e-mails! \n\n✉️ all contacts on the website\n🇧🇷 Rio de Janeiro\n\nhttps://ravoque.com.br",
+      "avatar": "https://cdn.bsky.social/imgproxy/2F9-pcMiITEZrrPEok0KwKbRiDjbF1S4AEyIvxigWbo/rs:fill:1000:1000:1:0/plain/bafkreiajqtb34kotobxjhbmg5ftuxu5r4zfs4sxbzfnhjffg3g22krdiau@jpeg",
+      "indexedAt": "2023-03-12T05:01:43.430Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:hzsmlowpv5d565fvn53m6vqc",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "luana.bsky.social",
+      "displayName": "lu 💫",
+      "description": "“I still don't know where to go\nBut welcome to the show”",
+      "avatar": "https://cdn.bsky.social/imgproxy/x6pVUCTNvvFPtCuhfN8kGcOtmKtj0cJEhwAEhUPu3xo/rs:fill:1000:1000:1:0/plain/bafkreibgo2ctgc5dsmjb3wb6otfo2ksp4sgvgygxsby4vdhk6ykslnvbiy@jpeg",
+      "indexedAt": "2023-03-02T03:28:51.046Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:f5gydkkaosrulalw3ckwi2cu",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "diegor.bsky.social",
+      "displayName": "Diego R ",
+      "description": "Dado Obsoleto \n",
+      "avatar": "https://cdn.bsky.social/imgproxy/LiUEr_OlSFA9ACbYjXn0IJneiSTBHLABm5iXSqYSIUs/rs:fill:1000:1000:1:0/plain/bafkreibcv2dlrxsuzh3ezdzoxe2vhqv6khzfkcydco3mfwhhzihva32kym@jpeg",
+      "indexedAt": "2023-03-07T19:16:44.410Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:d3zpokjdspr22chfrc427eis",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "luy.bsky.social",
+      "displayName": "luy",
+      "description": "cinco profissões zero carisma ",
+      "avatar": "https://cdn.bsky.social/imgproxy/FQo9jxS1cZorLaMkcVS8zESOA08wa4NyG-mXSubzRNA/rs:fill:1000:1000:1:0/plain/bafkreiabuq7psyux5theb6mxhdkfp3u6xzwzd2certlzch6uzjgxlcvsz4@jpeg",
+      "indexedAt": "2023-03-12T02:32:58.485Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:icbx4qyzgvsuhjc5q5grp54c",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "leonardo.bsky.social",
+      "displayName": "Leo𓃭",
+      "description": "céu azul e mato \nBR®🇧🇷\n♋︎∣♌︎",
+      "avatar": "https://cdn.bsky.social/imgproxy/ibIF46shdboF8OA8o-8SfsPlB4VvVy-XHTSHDNa_JgU/rs:fill:1000:1000:1:0/plain/bafkreibrdrqhhkgw27cd4bc45pnyz2gze6fxgzbw4x7524x6ylxkbdjh3e@jpeg",
+      "indexedAt": "2023-03-01T18:08:42.710Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:pnmg262atn7aysuak2hqas62",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "eliondas.bsky.social",
+      "displayName": "𝕰𝖑𝖎.exe",
+      "description": "Nunca prometi coerência ",
+      "avatar": "https://cdn.bsky.social/imgproxy/O_Jg7xzfq5NeMG-UFAOoYUwNkZo4H7IKaoiO5wQszS8/rs:fill:1000:1000:1:0/plain/bafkreibn2ljs3rabszx6hsxh2ef4pdhcfqlbafvnd46vccx5xlv4avicba@jpeg",
+      "indexedAt": "2023-03-08T14:15:58.457Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:eqnsc3edjbj2x4zxnkwjxce3",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "simontomes.com",
+      "displayName": "Simon",
+      "description": "CommunityBoss at Ministry of Testing | Community Engineer and Advocate | Tester | Founder of The Albums community (launching in 2023) | Ex-Startup Co-Founder (TestBuddy/Qeek) | Music Explorer | he/him",
+      "avatar": "https://cdn.bsky.social/imgproxy/rAd-Xn8sd9CFM0KJT2m_h1QbaTEb-uVy4CcFA121qIU/rs:fill:1000:1000:1:0/plain/bafkreifr2vvg4dmrjj4zr6qhn5644lpfocckxq6rnyb7cvklrwam2pyl34@jpeg",
+      "indexedAt": "2023-03-09T21:42:01.808Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:i2yh6absdqpgouxjgnhyve34",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "patrickribeiro.bsky.social",
+      "displayName": "Pat ",
+      "description": "O primeiro Belo-horizontino e\nfã da Katy Perry a chegar aqui. \ninstagram.com/petrickribeiro",
+      "avatar": "https://cdn.bsky.social/imgproxy/0Q81rK-_6Tz63youkXzQ8mMw1bviL2dsNC79wh7-5bA/rs:fill:1000:1000:1:0/plain/bafkreibmbgmttju7kmqjxj3p6ianaevjwli57cltulwmidvcu4bjbqkuxa@jpeg",
+      "indexedAt": "2023-03-08T10:16:29.429Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:555jtz4tuogfkgjxx2btz2hi",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "jcrvlh.com",
+      "displayName": "jeff",
+      "description": "Cheguei aqui quando tudo era nuvem\njcrvlh.com\n",
+      "avatar": "https://cdn.bsky.social/imgproxy/Liy2tdox5S_0KHKcBP0cqJXwogjH6_kGmElWB4l_0i4/rs:fill:1000:1000:1:0/plain/bafkreicjpo3uoigt5zir67x6malgbvm47gywbll7oxysa3pyxzau76xumq@jpeg",
+      "indexedAt": "2023-03-13T21:33:36.928Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:ueradsahb4urc4tqpyxmw3dh",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "thiagoandre.bsky.social",
+      "displayName": "spec",
+      "description": "doja cat! <3 | いて座\nhttps://instagram.com/thiagoandre",
+      "avatar": "https://cdn.bsky.social/imgproxy/MQ0i1WKUAytmtIWMo-FO9uXt4SVlHt7aBfTiTcwCYXI/rs:fill:1000:1000:1:0/plain/bafkreiec5byfk575w7fiav5f5ksmdremuumekpfkjxwa7goj5ncvwxhk4q@jpeg",
+      "indexedAt": "2023-03-13T11:04:45.296Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:nu5ivyol6dytbro5o2yxqo5d",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "kaua.bsky.social",
+      "displayName": "kauã.",
+      "description": "cadê o nosso querido zé gotinha\ninsta: @kauatorress\n\nweb developer",
+      "avatar": "https://cdn.bsky.social/imgproxy/a74a2e2JErHSSFmFZLznSV1GPYgYhoeujY21BcVNcJk/rs:fill:1000:1000:1:0/plain/bafkreig3sz5xf3m2wxpjalamag7g4jgcukkqiqllszs236b2ibjed73iay@jpeg",
+      "indexedAt": "2023-03-06T03:59:58.033Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:44ybard66vv44zksje25o7dz",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "bnewbold.net",
+      "displayName": "bryan newbold",
+      "description": "dweb, cycling, snow, big cities, wiki. I like speculating about found objects.\nprotocol engineer @bluesky. formerly archive.org\nelsewhere: bnewbold.net / @bnewbold@social.coop",
+      "avatar": "https://cdn.bsky.social/imgproxy/ME3kwdC1jHAqo_w9OLxgCsCIcqNKJw2HOsBzQ4Hosmw/rs:fill:1000:1000:1:0/plain/bafkreig5rdgil4jtaem745uyv5qtiqtslgjwkb46j7liu3ufincoa2twqi@jpeg",
+      "indexedAt": "2023-03-09T18:13:54.504Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:tahc3k3rhg6f3vikiachpxeu",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "joaohenrique.bsky.social",
+      "displayName": "Joao",
+      "avatar": "https://cdn.bsky.social/imgproxy/xcv5WzKlN2mGZZZ-QEaRX4WA9hOX5Y-tdBFVDGeRLuQ/rs:fill:1000:1000:1:0/plain/bafkreiehn5hdorrmocm5w4xqpj64l64ofq5dwsuplvnruihjzsmiilgaby@jpeg",
+      "indexedAt": "2023-03-04T04:10:52.682Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:2ihmx4hpbfvr5k2fyl74ypep",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "niezam.bsky.social",
+      "displayName": "niezam",
+      "description": "Millennials-Gen Y, in Flames 🔥, latte & 🍕. ₿ capitalist. ",
+      "avatar": "https://cdn.bsky.social/imgproxy/Lzs73svXVNSbbPTz6In4_W69U-qr5cKhqix4vFShuQs/rs:fill:1000:1000:1:0/plain/bafkreif6egtp4w3o4rxiazsbk53rd3biwqwfbaumvpca7x2vbl2kd2bc4y@jpeg",
+      "indexedAt": "2023-03-01T17:59:23.180Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:nb45ciey4zcmiennmrlnn6bc",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "katherine.bsky.social",
+      "displayName": "Katherine Champagne",
+      "avatar": "https://cdn.bsky.social/imgproxy/GeXfjkIzr9EEYikRT0JZx2XJpDPXXTHOomOweFDzxeg/rs:fill:1000:1000:1:0/plain/bafkreib2qlkwvpuqn2f7jrgergqvqkjkor7gxyn6b3zfgrfj7saxehi47q@jpeg",
+      "indexedAt": "2023-02-03T23:03:56.298Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:qy7bv2fsvwofzik7s7owbtvt",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "dieselrodrigo.com",
+      "displayName": "Rodrigo Diesel ",
+      "description": "Professor, tiktoker, autista e gaymer\n(ele/dele)\n\nMestre em linguística, doutorando em Tecnologia e Sociedade.\n\nE-mail: dieselrodrigo@gmail.com",
+      "avatar": "https://cdn.bsky.social/imgproxy/HAGyWeid5H1p21kBiIkaE0tljPVXVtpXbQbkGEYs4qA/rs:fill:1000:1000:1:0/plain/bafkreihpe577m65ygrrdcagiz4dzddgo4sx7w63cmdhzmna5wgex6dglxq@jpeg",
+      "indexedAt": "2023-03-05T20:31:01.596Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "did": "did:plc:5trbo6ijzaizkszgcpvx7gnf",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "pqpvittar.bsky.social",
+      "displayName": "Matheus &",
+      "description": "23 ʏᴇᴀʀs, ᴄᴀᴘʀɪᴄᴏʀɴɪᴀɴᴏ\nVocê é feliz? ",
+      "avatar": "https://cdn.bsky.social/imgproxy/Cp90szDHGYHz8OWvI8lJOEtov2ktyjVe_DnNRfbu61M/rs:fill:1000:1000:1:0/plain/bafkreigo45eigur3rloglhdv5cyiciuovll5ukysfjxy2prwcoq24dl7cy@jpeg",
+      "indexedAt": "2023-03-07T04:05:25.258Z",
+      "viewer": { "muted": false }
+    }
+  ]
+}

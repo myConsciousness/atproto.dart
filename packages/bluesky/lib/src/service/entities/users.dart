@@ -10,15 +10,15 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import 'actor.dart';
 
-part 'actors.freezed.dart';
-part 'actors.g.dart';
+part 'users.freezed.dart';
+part 'users.g.dart';
 
 @freezed
-class Actors with _$Actors {
-  const factory Actors({
-    required List<Actor> actors,
+class Users with _$Users {
+  const factory Users({
+    required List<Actor> users,
     required String cursor,
-  }) = _Actors;
+  }) = _Users;
 
-  factory Actors.fromJson(Map<String, Object?> json) => _$ActorsFromJson(json);
+  factory Users.fromJson(Map<String, Object?> json) => _$UsersFromJson(json);
 }
