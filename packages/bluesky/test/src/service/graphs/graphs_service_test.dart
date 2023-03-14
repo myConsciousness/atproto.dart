@@ -175,4 +175,84 @@ void main() {
       );
     });
   });
+
+  group('.findFollows', () {
+    test('normal case', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        service: 'test',
+        context: context.buildGetStub(
+          'test',
+          '/xrpc/app.bsky.graph.getFollows',
+          'test/src/service/graphs/data/find_follows.json',
+          {
+            'user': 'shinyakato.dev',
+            'limit': '10',
+            'before': '1234',
+          },
+        ),
+      );
+
+      final response = await graphs.findFollows(
+        actor: 'shinyakato.dev',
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<ATProtoResponse>());
+      expect(response.data, isA<Follows>());
+    });
+
+    test('when unauthorized', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        service: 'test',
+        context: context.buildGetStub(
+          'test',
+          '/xrpc/app.bsky.graph.getFollows',
+          'test/src/service/graphs/data/find_follows.json',
+          {
+            'user': 'shinyakato.dev',
+            'limit': '10',
+            'before': '1234',
+          },
+          statusCode: 401,
+        ),
+      );
+
+      expectUnauthorizedException(
+        () async => await graphs.findFollows(
+          actor: 'shinyakato.dev',
+          limit: 10,
+          cursor: '1234',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        service: 'test',
+        context: context.buildGetStub(
+          'test',
+          '/xrpc/app.bsky.graph.getFollows',
+          'test/src/service/graphs/data/find_follows.json',
+          {
+            'user': 'shinyakato.dev',
+            'limit': '10',
+            'before': '1234',
+          },
+          statusCode: 429,
+        ),
+      );
+
+      expectRateLimitExceededException(
+        () async => await graphs.findFollows(
+          actor: 'shinyakato.dev',
+          limit: 10,
+          cursor: '1234',
+        ),
+      );
+    });
+  });
 }

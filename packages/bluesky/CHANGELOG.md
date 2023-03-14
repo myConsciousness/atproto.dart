@@ -3,6 +3,7 @@
 ## v0.2.3
 
 - Added `findLikes` in `FeedsService`. ([#37](https://github.com/myConsciousness/atproto.dart/issues/37))
+- Added `findFollows` in `GraphsService`. ([#26](https://github.com/myConsciousness/atproto.dart/issues/26))
 
 ## v0.2.2
 
