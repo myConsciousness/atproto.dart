@@ -189,6 +189,7 @@ Future<bsky.Session> get _session async {
 | [POST app.bsky.feed.vote](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/vote.json)                  | [createLike](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/createLike.html)             |
 | [POST app.bsky.feed.vote](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/vote.json)                  | [deleteLike](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/deleteLike.html)             |
 | [GET app.bsky.feed.getAuthorFeed](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getAuthorFeed.json) | [findFeeds](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findFeeds.html)               |
+| [GET app.bsky.feed.getVotes](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getVotes.json)           | [findLikes](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findLikes.html)               |
 
 ### 1.3.3. Notifications
 
@@ -212,7 +213,7 @@ Future<bsky.Session> get _session async {
 
 | Prefix     | Description                                                           |
 | ---------- | --------------------------------------------------------------------- |
-| **find**    | This prefix is attached to endpoints that reference accounts, etc.    |
+| **find**   | This prefix is attached to endpoints that reference accounts, etc.    |
 | **search** | This prefix is attached to endpoints that perform extensive searches. |
 | **create** | This prefix is attached to the endpoint performing the create state.  |
 | **delete** | This prefix is attached to the endpoint performing the delete state.  |
