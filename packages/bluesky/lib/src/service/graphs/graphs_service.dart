@@ -7,6 +7,7 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../bluesky_base_service.dart';
+import '../entities/followers.dart';
 import '../entities/follows.dart';
 
 abstract class GraphsService {
@@ -65,7 +66,51 @@ abstract class GraphsService {
     required String uri,
   });
 
+  /// Returns follows of specific user.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.deleteRecord
+  /// - app.bsky.graph.getFollows
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollows.json
   Future<core.ATProtoResponse<Follows>> findFollows({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns followers of specific user.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.deleteRecord
+  /// - app.bsky.graph.getFollowers
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollowers.json
+  Future<core.ATProtoResponse<Followers>> findFollowers({
     required String actor,
     int? limit,
     String? cursor,
@@ -122,5 +167,23 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
           },
         ),
         dataBuilder: Follows.fromJson,
+      );
+
+  @override
+  Future<atp.ATProtoResponse<Followers>> findFollowers({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) async =>
+      super.transformSingleDataResponse(
+        await super.get(
+          '/xrpc/app.bsky.graph.getFollowers',
+          queryParameters: {
+            'user': actor,
+            'limit': limit,
+            'before': cursor,
+          },
+        ),
+        dataBuilder: Followers.fromJson,
       );
 }

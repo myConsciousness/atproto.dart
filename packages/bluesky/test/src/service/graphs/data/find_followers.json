@@ -1,0 +1,748 @@
+{
+  "subject": {
+    "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
+    "declaration": {
+      "actorType": "app.bsky.system.actorUser",
+      "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+    },
+    "handle": "shinyakato.dev",
+    "displayName": "Shinya Kato",
+    "avatar": "https://cdn.bsky.social/imgproxy/JF97YphLyIEWfq4KJNO_ZCYm9v_zNcRj7sSB8UZrRBw/rs:fill:1000:1000:1:0/plain/bafkreidqn4z6ocv5snxuqguarboozqdusam2tehccnu23yab7g2sgv64dq@jpeg",
+    "viewer": { "muted": false }
+  },
+  "followers": [
+    {
+      "did": "did:plc:cm4bwax4evxmkiuwxvvkvlmx",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "tho.bsky.social",
+      "displayName": "Thomas Pockrandt",
+      "avatar": "https://cdn.bsky.social/imgproxy/vNz-qGDXF4UYmenhveAPxPDSXBMRgvfoQK3XWrds-18/rs:fill:1000:1000:1:0/plain/bafkreidvjlqht65wd64dae5etrgh2xodgubeyoryxu7nugmcdzwv2qk4jq@jpeg",
+      "viewer": {
+        "muted": false,
+        "followedBy": "at://did:plc:cm4bwax4evxmkiuwxvvkvlmx/app.bsky.graph.follow/3jqv67oyaqt2x"
+      }
+    },
+    {
+      "did": "did:plc:jb274wkbovdc2iaeondziw35",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "alexandra.bsky.social",
+      "displayName": "Alex",
+      "avatar": "https://cdn.bsky.social/imgproxy/-1HBQEa-MauvTdML4Z3sgeiwZ7kfUYQk6q_1LsUu27w/rs:fill:1000:1000:1:0/plain/bafkreie3fl2rlk27caqf43yotj2v6jt4fo4qlc3krbag6virkgeghtbthy@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqujoncksm2a",
+        "followedBy": "at://did:plc:jb274wkbovdc2iaeondziw35/app.bsky.graph.follow/3jquilnsbu32x"
+      }
+    },
+    {
+      "did": "did:plc:5wjxovt7xbbwnwx63gwxbxca",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "quoromtv.bsky.social",
+      "displayName": "Jouse Márquez",
+      "avatar": "https://cdn.bsky.social/imgproxy/Y1iVnr4CoEEtoLHj_Kvx2CFkOVQccvsJec0dobTh8t8/rs:fill:1000:1000:1:0/plain/bafkreibdnwb3cnd4teiihi6v4ko2v6fcxstefs5wf2rpzwe7dy6d2tiuui@jpeg",
+      "viewer": {
+        "muted": false,
+        "followedBy": "at://did:plc:5wjxovt7xbbwnwx63gwxbxca/app.bsky.graph.follow/3jqtwvlgvbf27"
+      }
+    },
+    {
+      "did": "did:plc:guoqdny6ijcx2uqydak2qqsb",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "naoya-t.bsky.social",
+      "displayName": "naoya_t",
+      "avatar": "https://cdn.bsky.social/imgproxy/sjiZs6ZG5I2xgKOr_dEi7hZKb-g5TdYx7obWEj9StNk/rs:fill:1000:1000:1:0/plain/bafkreifxy6ceyieir7z7y2vqborjekq4vtz6owr3lk3w55psau7ofq5fpa@jpeg",
+      "viewer": {
+        "muted": false,
+        "followedBy": "at://did:plc:guoqdny6ijcx2uqydak2qqsb/app.bsky.graph.follow/3jqrrtxeorf2y"
+      }
+    },
+    {
+      "did": "did:plc:lya72n3sftnxascd2u3xx3eb",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "hyd.bsky.social",
+      "displayName": "Hyd/ハイド",
+      "avatar": "https://cdn.bsky.social/imgproxy/wKNiQR1sJNYzDNpAhrUZ4IXc9DANDmznEQknK0FS0NE/rs:fill:1000:1000:1:0/plain/bafkreibjjazmruispj6datebkhpcg5hlw4qhmwaugkyq3iuakyrji7ugtu@jpeg",
+      "viewer": {
+        "muted": false,
+        "followedBy": "at://did:plc:lya72n3sftnxascd2u3xx3eb/app.bsky.graph.follow/3jqrdz46e4v2g"
+      }
+    },
+    {
+      "did": "did:plc:7km3sff4uoc7tbvc67bhqf3z",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "ryota.bsky.social",
+      "displayName": "ryota",
+      "avatar": "https://cdn.bsky.social/imgproxy/gyeTJ50pS8aHquv9N4Jk6u1Z4tTDJzYg9jc-AYE8OE0/rs:fill:1000:1000:1:0/plain/bafkreicbzgai5kyajrytt2oni5pahaaf33to54wid4kp3dht7d2xrai3fy@jpeg",
+      "viewer": {
+        "muted": false,
+        "followedBy": "at://did:plc:7km3sff4uoc7tbvc67bhqf3z/app.bsky.graph.follow/3jqqw6xiuun27"
+      }
+    },
+    {
+      "did": "did:plc:usikjunpk27cjovjljk6y6km",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "milestone.bsky.social",
+      "displayName": "まいるす",
+      "avatar": "https://cdn.bsky.social/imgproxy/pg8O95bjJk8J0Rtq1USGQ786GLBFB5HSH1ZtcHXC194/rs:fill:1000:1000:1:0/plain/bafkreihdcpd35d6yjiipbhnviieqrvkps2poeie6ygnbea3nazgckit4km@jpeg",
+      "viewer": {
+        "muted": false,
+        "followedBy": "at://did:plc:usikjunpk27cjovjljk6y6km/app.bsky.graph.follow/3jqpj76ndik2y"
+      }
+    },
+    {
+      "did": "did:plc:cwkdw675dj5rsnpgttobk3fk",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "dylansteck.com",
+      "displayName": "Dylan",
+      "avatar": "https://cdn.bsky.social/imgproxy/FeLj95V6WFm5MjbXlrE7eJElXRwl_7HZYz5uHI2U5yA/rs:fill:1000:1000:1:0/plain/bafkreien4vlxpiyjco3ykevwnlaijeua62saz3ywkmc3nm6luq6sxs3pnq@jpeg",
+      "viewer": {
+        "muted": false,
+        "followedBy": "at://did:plc:cwkdw675dj5rsnpgttobk3fk/app.bsky.graph.follow/3jqounqc2zs2y"
+      }
+    },
+    {
+      "did": "did:plc:jbwzd523vzucdqfiv7ujfoei",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "wal.bsky.social",
+      "displayName": "わる",
+      "avatar": "https://cdn.bsky.social/imgproxy/302TKu7QmVV-0yujGN6gi_VDeOFihSHzTlPmw_sp6xk/rs:fill:1000:1000:1:0/plain/bafkreid6kumg53hozwq6mrizwlgxoq4kik5ussztq7iafrt3vu2mtowq2q@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqk67zyyv22y",
+        "followedBy": "at://did:plc:jbwzd523vzucdqfiv7ujfoei/app.bsky.graph.follow/3jqnq32wihk2a"
+      }
+    },
+    {
+      "did": "did:plc:x7eachugkduwx45qy2kkk4yq",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "bpo.bsky.social",
+      "displayName": "Ben O’Rourke",
+      "avatar": "https://cdn.bsky.social/imgproxy/3jrxqGtvWDzhh1UUkiTJZZjcZvKleayEQ_mWj_Qrpw4/rs:fill:1000:1000:1:0/plain/bafkreibosofwiexbn26zk5kci72eq2jtth3wayah7cqjx2heh6haagvrjm@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqncfbbaxc2g",
+        "followedBy": "at://did:plc:x7eachugkduwx45qy2kkk4yq/app.bsky.graph.follow/3jqnagoxrfc2x"
+      }
+    },
+    {
+      "did": "did:plc:hidqer25c2ukof6zc55tu3bv",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "dankantor.bsky.social",
+      "displayName": "Dan Kantor ",
+      "avatar": "https://cdn.bsky.social/imgproxy/Eiica_01pEGfnNeoddp15G6gPCe_MtVr25Ai0oxMNkc/rs:fill:1000:1000:1:0/plain/bafkreiagjlsx4kgo7ihumqkrv653nouljstwlpgneb446qawqbp4o3yqw4@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqdeyj5ab22w",
+        "followedBy": "at://did:plc:hidqer25c2ukof6zc55tu3bv/app.bsky.graph.follow/3jqmzqbyyfc2x"
+      }
+    },
+    {
+      "did": "did:plc:75uj45ojacfapdpfgqtupy4a",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "matsuu.bsky.social",
+      "displayName": "matsuu",
+      "avatar": "https://cdn.bsky.social/imgproxy/0NmCbHdef03NOt-WeTwIWGIc-wpSGGluKTuP7qA-DUg/rs:fill:1000:1000:1:0/plain/bafkreibbey5m3kwzvxdvke5rqgpclicavlybti2j6qplyzdfbv2xo3ozpa@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqdeyml7s22w",
+        "followedBy": "at://did:plc:75uj45ojacfapdpfgqtupy4a/app.bsky.graph.follow/3jqlge4sv622g"
+      }
+    },
+    {
+      "did": "did:plc:wikiih2cf36gkqbsvcgynpwt",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "mathias.bsky.social",
+      "displayName": "Mathias",
+      "avatar": "https://cdn.bsky.social/imgproxy/Ys1XUoNjMdT9QoRhhzHU5gHlh3V3RzXiYe1-51ISb-w/rs:fill:1000:1000:1:0/plain/bafkreiajaki2ilneiopv7iuxjx2aoi4rlsjys2vbkrf62uccyrw3czwj6e@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqccjzuioc23",
+        "followedBy": "at://did:plc:wikiih2cf36gkqbsvcgynpwt/app.bsky.graph.follow/3jqldunz5522g"
+      }
+    },
+    {
+      "did": "did:plc:kg35gdgdszqpywe3xelv52jm",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "ka2n.bsky.social",
+      "displayName": "ka2n",
+      "avatar": "https://cdn.bsky.social/imgproxy/OHGK174a-LjJae50S1-TYHjVeXgdIIsQw0pZqBuISQw/rs:fill:1000:1000:1:0/plain/bafkreicveetmn3umpqpfkd5wdh3j2tpi4jgsvj7jmpap4qv2htn2p5hj4y@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqg44h4cpc2w",
+        "followedBy": "at://did:plc:kg35gdgdszqpywe3xelv52jm/app.bsky.graph.follow/3jql7dxpr7k2x"
+      }
+    },
+    {
+      "did": "did:plc:aajyn6qzw67cnmwf7zxzbjdy",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "nighthaven.bsky.social",
+      "displayName": "Nighthaven",
+      "avatar": "https://cdn.bsky.social/imgproxy/LhVKXIwEgOUL6rA6EZmMD74zo_aX6dnSqMfHM_dPsnI/rs:fill:1000:1000:1:0/plain/bafkreiafmomrplgzhwy3vw2n6gzij7ehr3zzdxhstddk4ai7klh5nwdxlm@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqfbgzunl22i",
+        "followedBy": "at://did:plc:aajyn6qzw67cnmwf7zxzbjdy/app.bsky.graph.follow/3jql4do2fbs2x"
+      }
+    },
+    {
+      "did": "did:plc:7gkgfsljdr4bwvdlftm4fxif",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "hana.bsky.social",
+      "displayName": "Hana/はな",
+      "avatar": "https://cdn.bsky.social/imgproxy/Sejz6SY-V4LoFo5cPxutfJFD6nGqgMuc1ECmlbduCOs/rs:fill:1000:1000:1:0/plain/bafkreie25epj42t3osqcqwddwfkgh36nw2h37attzxynziveu4l7jpbzmy@jpeg",
+      "viewer": {
+        "muted": false,
+        "followedBy": "at://did:plc:7gkgfsljdr4bwvdlftm4fxif/app.bsky.graph.follow/3jql3ewglp22x"
+      }
+    },
+    {
+      "did": "did:plc:7wcz7crw4unpykn5yi6sq3mi",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "caffeine.page",
+      "displayName": "かふぇ",
+      "avatar": "https://cdn.bsky.social/imgproxy/C6IsJVvvICl1uWblgfHM8R71vpKTsiYWQLw_Iq-kPiY/rs:fill:1000:1000:1:0/plain/bafkreieix45bjloykb4pmbo5jg62hdgqvocxers4jbu4rzkvtsfnzljmnq@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqk67suw2k27",
+        "followedBy": "at://did:plc:7wcz7crw4unpykn5yi6sq3mi/app.bsky.graph.follow/3jqkrluljbs2x"
+      }
+    },
+    {
+      "did": "did:plc:tr5cijtwcpl2dqrtmjsmmcow",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "makoto.bsky.social",
+      "displayName": "マコト",
+      "avatar": "https://cdn.bsky.social/imgproxy/SBIt9jXG2QEmchNcnHdVY1UXVjfYaMjRlt_IkrdzIBQ/rs:fill:1000:1000:1:0/plain/bafkreigblew6uw63tx2woi3ebkdxz2vxy6vmciq7ktgicwg5abbznmymzq@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqg43pel6k2i",
+        "followedBy": "at://did:plc:tr5cijtwcpl2dqrtmjsmmcow/app.bsky.graph.follow/3jqkdoqlpoc2y"
+      }
+    },
+    {
+      "did": "did:plc:idj5yqmzbcj637mnggb2qeqc",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "mochipe.bsky.social",
+      "displayName": "ぺぺ",
+      "avatar": "https://cdn.bsky.social/imgproxy/N-FGQeRWwNEDZ8pmeNMsfHgsLkBXcSl9B0sTBk-WHzM/rs:fill:1000:1000:1:0/plain/bafkreigxgmhqrykcixxdrtmhxuszp33nwginbmpqx5kyswkifebqncsndu@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqk6a27dz22y",
+        "followedBy": "at://did:plc:idj5yqmzbcj637mnggb2qeqc/app.bsky.graph.follow/3jqkaa3xags27"
+      }
+    },
+    {
+      "did": "did:plc:jmsnrrykqrtsnd4qh6yirxzz",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "discovery.bsky.social",
+      "displayName": "Discovery",
+      "avatar": "https://cdn.bsky.social/imgproxy/PFf6m8IAA01tea2wmYGuPMkpfTWwgBOgZBuRS_2lHuc/rs:fill:1000:1000:1:0/plain/bafkreidwy6swkoyicdm5nypbhyhk7z4o5fe7g5wiyo2255irpb3a6nwffy@jpeg",
+      "viewer": {
+        "muted": false,
+        "followedBy": "at://did:plc:jmsnrrykqrtsnd4qh6yirxzz/app.bsky.graph.follow/3jqk73gtuoc2y"
+      }
+    },
+    {
+      "did": "did:plc:vok247eewjmbmo3kxaizct2i",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "baiser.bsky.social",
+      "displayName": "baiser",
+      "avatar": "https://cdn.bsky.social/imgproxy/FUFsResb2OivchlouMCXu-41-kRZlN2MhMLPt1n4NI4/rs:fill:1000:1000:1:0/plain/bafkreicrwuidebqva6wpm6sfc6ie4ajywbbjxr6ti27im7wrbiybck4xtm@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqk6a7hyik2s",
+        "followedBy": "at://did:plc:vok247eewjmbmo3kxaizct2i/app.bsky.graph.follow/3jqk72ccmns2y"
+      }
+    },
+    {
+      "did": "did:plc:k733ho42hqkv44xzeehmmqvq",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "weep.jp",
+      "displayName": "weepjp",
+      "avatar": "https://cdn.bsky.social/imgproxy/3E_P8VtA4hJdl4EgHzPgzOmblZvbVTb6s_81cu6DrUo/rs:fill:1000:1000:1:0/plain/bafkreifaqf2o2dnphovphohch5xz2unpminrjufpkv5gctbxl4zhjbkmcm@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqdeyojwms2s",
+        "followedBy": "at://did:plc:k733ho42hqkv44xzeehmmqvq/app.bsky.graph.follow/3jqk3v2judk2t"
+      }
+    },
+    {
+      "did": "did:plc:ztbunqxsfqu6wgotrwwhz7n5",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "bisuke.bsky.social",
+      "displayName": "ɓïѕu͏ƙǝ🎌",
+      "avatar": "https://cdn.bsky.social/imgproxy/ReTD7XE-dTcRl9xU7f6dUTguJEuzYXAZtIN8hd-D5V0/rs:fill:1000:1000:1:0/plain/bafkreigaawglvb7cx5ejxdihqt6tcqimzyjs25ceo2ifbkyoqvq5hayfzq@jpeg",
+      "viewer": {
+        "muted": false,
+        "followedBy": "at://did:plc:ztbunqxsfqu6wgotrwwhz7n5/app.bsky.graph.follow/3jqjk36wjkc2d"
+      }
+    },
+    {
+      "did": "did:plc:urj4pkche2yvpr5ilj4ykteu",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "tkusano.bsky.social",
+      "displayName": "Takayuki KUSANO",
+      "avatar": "https://cdn.bsky.social/imgproxy/xs0zn5LDggHhBGWU6DJRKrx2LojYNEGMMLrjvh2gC4s/rs:fill:1000:1000:1:0/plain/bafkreif7ccila6wywksydfexlx4yrygmktca2lq2bshsmrmjs7lxf6ooom@jpeg",
+      "viewer": {
+        "muted": false,
+        "followedBy": "at://did:plc:urj4pkche2yvpr5ilj4ykteu/app.bsky.graph.follow/3jqjiawa2hs2r"
+      }
+    },
+    {
+      "did": "did:plc:7r4g5ke7cepi3jouyglenuda",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "sato.bsky.social",
+      "displayName": "sato",
+      "avatar": "https://cdn.bsky.social/imgproxy/gyeTJ50pS8aHquv9N4Jk6u1Z4tTDJzYg9jc-AYE8OE0/rs:fill:1000:1000:1:0/plain/bafkreicbzgai5kyajrytt2oni5pahaaf33to54wid4kp3dht7d2xrai3fy@jpeg",
+      "viewer": {
+        "muted": false,
+        "followedBy": "at://did:plc:7r4g5ke7cepi3jouyglenuda/app.bsky.graph.follow/3jqiw4f4bps2r"
+      }
+    },
+    {
+      "did": "did:plc:vm7wifn25awqm2zrury5pudg",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "bbc.bsky.social",
+      "displayName": "Crypto News",
+      "avatar": "https://cdn.bsky.social/imgproxy/QfJjImP7zKQZqyHlZ5-T-Qn9ciO9m5Nd_EbNlP2Ad6k/rs:fill:1000:1000:1:0/plain/bafkreicqqb3bdcg3vb5ei5of7z6hl2wi42gmnjjyvwihp6shh7dihqsdfy@jpeg",
+      "viewer": {
+        "muted": false,
+        "followedBy": "at://did:plc:vm7wifn25awqm2zrury5pudg/app.bsky.graph.follow/3jqigxcb3bs2i"
+      }
+    },
+    {
+      "did": "did:plc:m57xbm2dz4g5ywdgekqu4q4q",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "ryumu.dev",
+      "displayName": "ryumu*",
+      "avatar": "https://cdn.bsky.social/imgproxy/NKVy7KAtJn_Ce_GNSRqL4OmBo0J-re7izAro4dWWHDY/rs:fill:1000:1000:1:0/plain/bafkreiemkmiiz4lg34ln7kaignoj6yxdglg2ckqapjpyrbzkw2ymjyufbe@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqmke5mrmk2y",
+        "followedBy": "at://did:plc:m57xbm2dz4g5ywdgekqu4q4q/app.bsky.graph.follow/3jqiagkdl2d25"
+      }
+    },
+    {
+      "did": "did:plc:ylmbufmy5btcigjk27oup4zl",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "nature.bsky.social",
+      "displayName": "Nature ",
+      "avatar": "https://cdn.bsky.social/imgproxy/s0ipLoUpfyQR0lvSJqz-WHsDYor_uzmGQ_a4sv6LYiI/rs:fill:1000:1000:1:0/plain/bafkreibov2zn5u26gxohhfrh6mcalpqwpdqggerdrngyhkr3wlyh6lbvia@jpeg",
+      "viewer": {
+        "muted": false,
+        "followedBy": "at://did:plc:ylmbufmy5btcigjk27oup4zl/app.bsky.graph.follow/3jqi5rnwap325"
+      }
+    },
+    {
+      "did": "did:plc:inyha7f4o7az4e2u6uw3eluk",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "tanhakuyo.bsky.social",
+      "displayName": "喀痰 -kakutan-",
+      "avatar": "https://cdn.bsky.social/imgproxy/ITfM_FMSzb6wXqdBuECmfcvjzpeiG8nIqGPgBneMWKg/rs:fill:1000:1000:1:0/plain/bafkreibdvoi3ds3emijmyad74isy4u46but7n2fxi52w65fy656apd7y6q@jpeg",
+      "viewer": {
+        "muted": false,
+        "followedBy": "at://did:plc:inyha7f4o7az4e2u6uw3eluk/app.bsky.graph.follow/3jqhxe5ku7s2l"
+      }
+    },
+    {
+      "did": "did:plc:3zyvj4eo4ri77no5gu6ak2in",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "moomin.bsky.social",
+      "displayName": "moomin",
+      "avatar": "https://cdn.bsky.social/imgproxy/r9SI8BGXPeihvJ5MqsCYir2TUYMN5vSVRxb9d17gTrw/rs:fill:1000:1000:1:0/plain/bafkreib7uqc2btiquf73hzqvrl7luv2ifym5iseszlxcyrjaefbdefzo2e@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqg442ivjk2i",
+        "followedBy": "at://did:plc:3zyvj4eo4ri77no5gu6ak2in/app.bsky.graph.follow/3jqhp7pbpms2i"
+      }
+    },
+    {
+      "did": "did:plc:6m3jt7ksyqzlg4odlkxjbycz",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "nokotaro.com",
+      "displayName": "takenoko",
+      "avatar": "https://cdn.bsky.social/imgproxy/k8TgDU7w-plS38HJAzg-3HeXgGMT4zm4pRBZcnD2Hj8/rs:fill:1000:1000:1:0/plain/bafkreia6tltopfmaj7d4uwek7rtn323d7dlr4jua3t2dyc6ytbe6kfusbm@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqfbhw3ysc2y",
+        "followedBy": "at://did:plc:6m3jt7ksyqzlg4odlkxjbycz/app.bsky.graph.follow/3jqhnuk7gtc2l"
+      }
+    },
+    {
+      "did": "did:plc:k2xkfr2h54fdd4bqaabjf5ju",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "hebl.bsky.social",
+      "displayName": "hebl",
+      "avatar": "https://cdn.bsky.social/imgproxy/tYHSuAoSjhFhnWn6lIn0LQ82kOwJrS7ql1oHrfxuLi0/rs:fill:1000:1000:1:0/plain/bafkreifygo4fe6nqrubpt74nv5qobvwvpjsqjmxoyily4cqqk7kvp6sxdi@jpeg",
+      "viewer": {
+        "muted": false,
+        "followedBy": "at://did:plc:k2xkfr2h54fdd4bqaabjf5ju/app.bsky.graph.follow/3jqhdexxnvc23"
+      }
+    },
+    {
+      "did": "did:plc:cgl62jlhroosxyjkaffidnon",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "wangdora.jp",
+      "displayName": "Wangdora",
+      "avatar": "https://cdn.bsky.social/imgproxy/JJ5rVFCFipedxNraZdAkdcIyM4Qp1Fk1KdETV-urEQo/rs:fill:1000:1000:1:0/plain/bafkreic7ymtlysxoj3ynlz4l34cy7ybkwhjzynkxjwxrxm2dmrltpi7ddu@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqdey53oek2e",
+        "followedBy": "at://did:plc:cgl62jlhroosxyjkaffidnon/app.bsky.graph.follow/3jqhadbshhl25"
+      }
+    },
+    {
+      "did": "did:plc:j6ay4zouzleiz2trt6jq6pt7",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "schwarzewald.bsky.social",
+      "displayName": "古道京紗",
+      "avatar": "https://cdn.bsky.social/imgproxy/JTNcY7PPdecIECtwdg3dGtkaBwGkvOhELhW6zxUWq1s/rs:fill:1000:1000:1:0/plain/bafkreigkngjw2kpmtrxt6luvltswfi3yqy2ao2vkui6fvshpgaocfmw5dm@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqdex5g2t22e",
+        "followedBy": "at://did:plc:j6ay4zouzleiz2trt6jq6pt7/app.bsky.graph.follow/3jqgoqam54d25"
+      }
+    },
+    {
+      "did": "did:plc:ituhatvv5pyz4rwsj4hfrslh",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "mattn.bsky.social",
+      "displayName": "mattn",
+      "avatar": "https://cdn.bsky.social/imgproxy/DOLQ8fR5LvWtM8sY2OYR3ndlhWc3C3ouYVO493U1x00/rs:fill:1000:1000:1:0/plain/bafkreickodvlxyhtbhkqr3yec6yvsiks5xsvzne62b3iwsqgtqknygnzly@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqcr4it3sc23",
+        "followedBy": "at://did:plc:ituhatvv5pyz4rwsj4hfrslh/app.bsky.graph.follow/3jqfkjnl62k2y"
+      }
+    },
+    {
+      "did": "did:plc:4q5oylj2cq4xixayfrej25of",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "precure.bsky.social",
+      "displayName": "Precure",
+      "avatar": "https://cdn.bsky.social/imgproxy/swG95tNIV5_sX1t6sp5B83_gmWuQnK7w6glQLeHKrQ0/rs:fill:1000:1000:1:0/plain/bafkreibmnuc7vxklofc7a6pjb56kcrdoctli4mq66gue5lrqb33zkymwua@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqg446lj7k2i",
+        "followedBy": "at://did:plc:4q5oylj2cq4xixayfrej25of/app.bsky.graph.follow/3jqggt7ts4223"
+      }
+    },
+    {
+      "did": "did:plc:53j2g6xg7impm2zrfjhfumni",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "leomasui.bsky.social",
+      "displayName": "Leo Masui",
+      "avatar": "https://cdn.bsky.social/imgproxy/Q96I7f3x-8P-eDwWLgRLyJFnADaGb7KZM4B31YzPoTA/rs:fill:1000:1000:1:0/plain/bafkreie3ptuu7wupacw7lpqphgvu7citafgdk5yiqn6vhm2esbggwg3i3y@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqg43jf66k2y",
+        "followedBy": "at://did:plc:53j2g6xg7impm2zrfjhfumni/app.bsky.graph.follow/3jqggkeb4hc2l"
+      }
+    },
+    {
+      "did": "did:plc:c2ymbrygu4pa4prwzv3632xz",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "fernandogros.bsky.social",
+      "displayName": "Fernando Gros",
+      "avatar": "https://cdn.bsky.social/imgproxy/1e7NimjYinTdCfOxUO3TiaUHMhEstXO4UF4wAJ9VFMU/rs:fill:1000:1000:1:0/plain/bafkreiaqbjaslomljla3v5vhxmvbfzcribw6imf2oyqoiwm3zzyec5nfxi@jpeg",
+      "viewer": {
+        "muted": false,
+        "followedBy": "at://did:plc:c2ymbrygu4pa4prwzv3632xz/app.bsky.graph.follow/3jqgffwmn7s2l"
+      }
+    },
+    {
+      "did": "did:plc:tguzkdsvxnr4sadxipmqz2bj",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "soundkitchen.bsky.social",
+      "displayName": "ひげ",
+      "avatar": "https://cdn.bsky.social/imgproxy/B4B5YOrXlnvsQEpU-HQwZH68IL67JEbfVguP6F08k2o/rs:fill:1000:1000:1:0/plain/bafkreif334mo5gjocbkbfvmtrm76osysrgewlhupznvulof6f7wymm47te@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqg43waic22i",
+        "followedBy": "at://did:plc:tguzkdsvxnr4sadxipmqz2bj/app.bsky.graph.follow/3jqgepsguhl25"
+      }
+    },
+    {
+      "did": "did:plc:3nom33lwqextut3ae262dmvo",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "snowcrush.bsky.social",
+      "displayName": "snowcrush@jp",
+      "avatar": "https://cdn.bsky.social/imgproxy/lApGuzvP3JdoeqPuf5edlOVi3Xybd0cdc41Q4RipquY/rs:fill:1000:1000:1:0/plain/bafkreidhu3pgcilyillwwkg7hcjscqlnyalkjzfykj422rcmm24sz4ogxe@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqdeyavlqc2j",
+        "followedBy": "at://did:plc:3nom33lwqextut3ae262dmvo/app.bsky.graph.follow/3jqgedngkr22i"
+      }
+    },
+    {
+      "did": "did:plc:raqb4sf4q236m5kg4igsumjn",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "adieucord.com",
+      "displayName": "adieuCord",
+      "avatar": "https://cdn.bsky.social/imgproxy/Y_OSlYFNlTcQasQpLEETjOh00vzPyqawCx8m3W_u9E4/rs:fill:1000:1000:1:0/plain/bafkreiebtzf74erzn5xm4fo3deuxr2u7o2s2rswvnnibihccrzrwaccmna@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqg443edhc2w",
+        "followedBy": "at://did:plc:raqb4sf4q236m5kg4igsumjn/app.bsky.graph.follow/3jqgdvcvioc2l"
+      }
+    },
+    {
+      "did": "did:plc:ozpgjte34s7ahpczuznv3gqu",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "riq0h.jp",
+      "displayName": "Rikuoh Tsujitani",
+      "avatar": "https://cdn.bsky.social/imgproxy/wahIR-lOxWcEtUVhXI-Y9qBKj9YClLV3XnysKecP79s/rs:fill:1000:1000:1:0/plain/bafkreiexavlenfyrll3srnuz35a5ciqcgp2tb6gtj4g3xt5g67xepgsswq@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqg445uwkk2l",
+        "followedBy": "at://did:plc:ozpgjte34s7ahpczuznv3gqu/app.bsky.graph.follow/3jqgdn2avkk2w"
+      }
+    },
+    {
+      "did": "did:plc:6ztloaqv4shcqdsktwia3njd",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "enjoylifevc.bsky.social",
+      "displayName": "ELIFE眞空",
+      "avatar": "https://cdn.bsky.social/imgproxy/BXyj1cRJgHdcgLYriwEwTcZkb6AyehE5JdPcB9d8HDw/rs:fill:1000:1000:1:0/plain/bafkreiczed3i6enywxnlm3h4ok4u7xapmvvau3rzufjyrvxsdnicfjq6ju@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqg43rc7tk23",
+        "followedBy": "at://did:plc:6ztloaqv4shcqdsktwia3njd/app.bsky.graph.follow/3jqgad3pmhs2y"
+      }
+    },
+    {
+      "did": "did:plc:ldd5xhnpi7n7vy7dcqbi2l6r",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "elpibe.bsky.social",
+      "displayName": "EL PIBE (エルピーベ)",
+      "avatar": "https://cdn.bsky.social/imgproxy/oPmytBc7ugEoJjUF6Bt76-4D2D8G1hmmHyVfF4xjsPc/rs:fill:1000:1000:1:0/plain/bafkreigyqcraehcaksnpawtu2zj6ppa5tmwm7cnaoow3nvtoivparxa6bq@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqg43l3t7c2r",
+        "followedBy": "at://did:plc:ldd5xhnpi7n7vy7dcqbi2l6r/app.bsky.graph.follow/3jqg7d3fc7s23"
+      }
+    },
+    {
+      "did": "did:plc:bv5un6di5t7xoapwmeie4k5r",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "six.bsky.social",
+      "displayName": "ロク",
+      "avatar": "https://cdn.bsky.social/imgproxy/b2u4Q3CnMB8TfRl6Ijcpk1-fXi0-v6tMNCKyNnyJfz4/rs:fill:1000:1000:1:0/plain/bafkreigy2ns6o2ritp4vrz6iyvdvmju2dygg7eflvz3nr3t5pzngp7ozbm@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqfbhskrqs2y",
+        "followedBy": "at://did:plc:bv5un6di5t7xoapwmeie4k5r/app.bsky.graph.follow/3jqg6tklgrl25"
+      }
+    },
+    {
+      "did": "did:plc:uq5fs7nln4auq4m4vgaoctxj",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "tangure.bsky.social",
+      "displayName": "たんぐれー",
+      "avatar": "https://cdn.bsky.social/imgproxy/PDAPjZw1J-P9oa_dwwzwkPy4uuLEOQ9js99D4kSw_Go/rs:fill:1000:1000:1:0/plain/bafkreiavwcpto2z64ds6ltmvgpyjqjyl4hv2pj7omtjtd27ent2secbxw4@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqfbh2he7c2y",
+        "followedBy": "at://did:plc:uq5fs7nln4auq4m4vgaoctxj/app.bsky.graph.follow/3jqg6behynk2i"
+      }
+    },
+    {
+      "did": "did:plc:7we2a77krtumxosyqegsdcqa",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "nyx.bsky.social",
+      "displayName": "くろは",
+      "avatar": "https://cdn.bsky.social/imgproxy/9ZDxDpd5wYsVazHoJ-1vMdQE3-htdjpPBjAamTi75kU/rs:fill:1000:1000:1:0/plain/bafkreifvmuro5luw7r45wdd4p7a5stip7km3zviostptxbke2s76mzbkfe@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqg43zz2os23",
+        "followedBy": "at://did:plc:7we2a77krtumxosyqegsdcqa/app.bsky.graph.follow/3jqg5flnell25"
+      }
+    },
+    {
+      "did": "did:plc:zctnkrhmedw7bzl2flacronf",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "catman.bsky.social",
+      "displayName": "Chris Catoya",
+      "avatar": "https://cdn.bsky.social/imgproxy/7suJ0kvrtjoNHjNYA_za_qXh7uxjjo8KEN80qmPmgZ8/rs:fill:1000:1000:1:0/plain/bafkreihff7u5cpqgl2neencdirvfzgsw7rspxvjqswkel4p4vufqmwoibe@jpeg",
+      "viewer": {
+        "muted": false,
+        "followedBy": "at://did:plc:zctnkrhmedw7bzl2flacronf/app.bsky.graph.follow/3jqfzx5htgd25"
+      }
+    },
+    {
+      "did": "did:plc:36tmqxxepo5jlx54peygtx6i",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "cats.bsky.social",
+      "displayName": "Cat",
+      "avatar": "https://cdn.bsky.social/imgproxy/RH6CME41p0a4Gh16W4b6fxmyMyEKh6OFOzThBMODO-A/rs:fill:1000:1000:1:0/plain/bafkreig24kwjk4kucmeqlgmux2czvgqvbax43w4ovcukfr6rv2yy36chve@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqg43gmszs23",
+        "followedBy": "at://did:plc:36tmqxxepo5jlx54peygtx6i/app.bsky.graph.follow/3jqfxzq22tk2l"
+      }
+    },
+    {
+      "did": "did:plc:ftj5trjj4eiomt22hl7wpd3o",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "rocket.bsky.social",
+      "displayName": "ろー",
+      "avatar": "https://cdn.bsky.social/imgproxy/X59QdChW_b-i25FZI_qx80k6M6PH8USRlZMBUHWPbEE/rs:fill:1000:1000:1:0/plain/bafkreighrkp44he7foxkyeeajosxjb5cxrbw4yr6wvt4iowuk7f3w4y7ru@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqdeyc6t322w",
+        "followedBy": "at://did:plc:ftj5trjj4eiomt22hl7wpd3o/app.bsky.graph.follow/3jqfn5v4pbc2w"
+      }
+    }
+  ],
+  "cursor": "1678253231102::bafyreicgpnpuc34byjcwojpd7izt53bowt347k2zmaxjwppx2isov4uhsq"
+}
