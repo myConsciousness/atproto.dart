@@ -200,10 +200,11 @@ Future<bsky.Session> get _session async {
 
 ### 1.3.4. Graphs
 
-| **Lexicon**                                                                                                             | **Method Name**                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| [POST app.bsky.graphs.follow](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graphs/follow.json) | [createFollow](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/createFollow.html) |
-| [POST app.bsky.graphs.follow](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graphs/follow.json) | [deleteFollow](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/deleteFollow.html) |
+| **Lexicon**                                                                                                                  | **Method Name**                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| [POST app.bsky.graph.follow](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/follow.json)        | [createFollow](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createFollow.html) |
+| [POST app.bsky.graph.follow](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/follow.json)        | [deleteFollow](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/deleteFollow.html) |
+| [GET app.bsky.graph.getFollows](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollows.json) | [findFollows](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/findFollows.html)   |
 
 ## 1.4. Tips 🏄
 
