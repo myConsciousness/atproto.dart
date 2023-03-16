@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.5
+
+- Added `createMute` in `GraphsService`. ([#27](https://github.com/myConsciousness/atproto.dart/issues/27))
+
 ## v0.2.4
 
 - Changed from `upvoteCount` field to `likeCount`, and deleted `downvoteCount`. ([#96](https://github.com/myConsciousness/atproto.dart/issues/96))
