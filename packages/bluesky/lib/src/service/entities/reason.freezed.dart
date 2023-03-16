@@ -20,6 +20,8 @@ Reason _$ReasonFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Reason {
+  @JsonKey(name: '\$type')
+  String get type => throw _privateConstructorUsedError;
   Actor get by => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
@@ -33,7 +35,8 @@ abstract class $ReasonCopyWith<$Res> {
   factory $ReasonCopyWith(Reason value, $Res Function(Reason) then) =
       _$ReasonCopyWithImpl<$Res, Reason>;
   @useResult
-  $Res call({Actor by, DateTime indexedAt});
+  $Res call(
+      {@JsonKey(name: '\$type') String type, Actor by, DateTime indexedAt});
 
   $ActorCopyWith<$Res> get by;
 }
@@ -51,10 +54,15 @@ class _$ReasonCopyWithImpl<$Res, $Val extends Reason>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? by = null,
     Object? indexedAt = null,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       by: null == by
           ? _value.by
           : by // ignore: cast_nullable_to_non_nullable
@@ -81,7 +89,8 @@ abstract class _$$_ReasonCopyWith<$Res> implements $ReasonCopyWith<$Res> {
       __$$_ReasonCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Actor by, DateTime indexedAt});
+  $Res call(
+      {@JsonKey(name: '\$type') String type, Actor by, DateTime indexedAt});
 
   @override
   $ActorCopyWith<$Res> get by;
@@ -97,10 +106,15 @@ class __$$_ReasonCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? by = null,
     Object? indexedAt = null,
   }) {
     return _then(_$_Reason(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       by: null == by
           ? _value.by
           : by // ignore: cast_nullable_to_non_nullable
@@ -116,11 +130,17 @@ class __$$_ReasonCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Reason implements _Reason {
-  const _$_Reason({required this.by, required this.indexedAt});
+  const _$_Reason(
+      {@JsonKey(name: '\$type') required this.type,
+      required this.by,
+      required this.indexedAt});
 
   factory _$_Reason.fromJson(Map<String, dynamic> json) =>
       _$$_ReasonFromJson(json);
 
+  @override
+  @JsonKey(name: '\$type')
+  final String type;
   @override
   final Actor by;
   @override
@@ -128,7 +148,7 @@ class _$_Reason implements _Reason {
 
   @override
   String toString() {
-    return 'Reason(by: $by, indexedAt: $indexedAt)';
+    return 'Reason(type: $type, by: $by, indexedAt: $indexedAt)';
   }
 
   @override
@@ -136,6 +156,7 @@ class _$_Reason implements _Reason {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Reason &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.by, by) || other.by == by) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt));
@@ -143,7 +164,7 @@ class _$_Reason implements _Reason {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, by, indexedAt);
+  int get hashCode => Object.hash(runtimeType, type, by, indexedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -161,10 +182,15 @@ class _$_Reason implements _Reason {
 
 abstract class _Reason implements Reason {
   const factory _Reason(
-      {required final Actor by, required final DateTime indexedAt}) = _$_Reason;
+      {@JsonKey(name: '\$type') required final String type,
+      required final Actor by,
+      required final DateTime indexedAt}) = _$_Reason;
 
   factory _Reason.fromJson(Map<String, dynamic> json) = _$_Reason.fromJson;
 
+  @override
+  @JsonKey(name: '\$type')
+  String get type;
   @override
   Actor get by;
   @override

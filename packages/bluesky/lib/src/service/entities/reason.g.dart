@@ -13,6 +13,7 @@ _$_Reason _$$_ReasonFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_Reason(
+          type: $checkedConvert(r'$type', (v) => v as String),
           by: $checkedConvert(
               'by', (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
           indexedAt:
@@ -20,9 +21,11 @@ _$_Reason _$$_ReasonFromJson(Map json) => $checkedCreate(
         );
         return val;
       },
+      fieldKeyMap: const {'type': r'$type'},
     );
 
 Map<String, dynamic> _$$_ReasonToJson(_$_Reason instance) => <String, dynamic>{
+      r'$type': instance.type,
       'by': instance.by.toJson(),
       'indexedAt': instance.indexedAt.toIso8601String(),
     };
