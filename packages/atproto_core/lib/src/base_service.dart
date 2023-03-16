@@ -44,11 +44,6 @@ abstract class _Service {
     Response response, {
     required DataBuilder<D> dataBuilder,
   });
-
-  ATProtoResponse<List> transformMultiDataResponse<D>(
-    Response response, {
-    required DataBuilder<D> dataBuilder,
-  });
 }
 
 abstract class BaseService implements _Service {
@@ -123,26 +118,6 @@ abstract class BaseService implements _Service {
           jsonDecode(response.body),
         ),
       );
-
-  @override
-  ATProtoResponse<List<D>> transformMultiDataResponse<D>(
-    Response response, {
-    required DataBuilder<D> dataBuilder,
-  }) {
-    final json = jsonDecode(response.body);
-
-    return ATProtoResponse(
-      headers: response.headers,
-      status: HttpStatus.valueOf(response.statusCode),
-      request: ATProtoRequest(
-        method: HttpMethod.valueOf(response.request!.method),
-        url: response.request!.url,
-      ),
-      data: json.isNotEmpty
-          ? json.map<D>((json) => dataBuilder(json)).toList()
-          : [],
-    );
-  }
 
   Response checkResponse(
     final Response response,
