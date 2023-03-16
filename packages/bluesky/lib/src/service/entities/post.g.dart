@@ -22,6 +22,8 @@ _$_Post _$$_PostFromJson(Map json) => $checkedCreate(
           replyCount: $checkedConvert('replyCount', (v) => v as int),
           repostCount: $checkedConvert('repostCount', (v) => v as int),
           likeCount: $checkedConvert('upvoteCount', (v) => v as int),
+          viewer: $checkedConvert('viewer',
+              (v) => PostViewer.fromJson(Map<String, Object?>.from(v as Map))),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
         );
@@ -38,5 +40,6 @@ Map<String, dynamic> _$$_PostToJson(_$_Post instance) => <String, dynamic>{
       'replyCount': instance.replyCount,
       'repostCount': instance.repostCount,
       'upvoteCount': instance.likeCount,
+      'viewer': instance.viewer.toJson(),
       'indexedAt': instance.indexedAt.toIso8601String(),
     };

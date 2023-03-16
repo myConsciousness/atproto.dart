@@ -9,7 +9,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'actor_declaration.dart';
-import 'actor_meta.dart';
+import 'actor_viewer.dart';
 
 part 'actor.freezed.dart';
 part 'actor.g.dart';
@@ -24,7 +24,7 @@ class Actor with _$Actor {
     String? description,
     String? avatar,
     required ActorDeclaration declaration,
-    required ActorMeta viewer,
+    required ActorViewer viewer,
     DateTime? indexedAt,
   }) = _Actor;
 

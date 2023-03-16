@@ -26,7 +26,7 @@ mixin _$Actor {
   String? get description => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
   ActorDeclaration get declaration => throw _privateConstructorUsedError;
-  ActorMeta get viewer => throw _privateConstructorUsedError;
+  ActorViewer get viewer => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,11 +46,11 @@ abstract class $ActorCopyWith<$Res> {
       String? description,
       String? avatar,
       ActorDeclaration declaration,
-      ActorMeta viewer,
+      ActorViewer viewer,
       DateTime? indexedAt});
 
   $ActorDeclarationCopyWith<$Res> get declaration;
-  $ActorMetaCopyWith<$Res> get viewer;
+  $ActorViewerCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
@@ -103,7 +103,7 @@ class _$ActorCopyWithImpl<$Res, $Val extends Actor>
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ActorMeta,
+              as ActorViewer,
       indexedAt: freezed == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -121,8 +121,8 @@ class _$ActorCopyWithImpl<$Res, $Val extends Actor>
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorMetaCopyWith<$Res> get viewer {
-    return $ActorMetaCopyWith<$Res>(_value.viewer, (value) {
+  $ActorViewerCopyWith<$Res> get viewer {
+    return $ActorViewerCopyWith<$Res>(_value.viewer, (value) {
       return _then(_value.copyWith(viewer: value) as $Val);
     });
   }
@@ -141,13 +141,13 @@ abstract class _$$_ActorCopyWith<$Res> implements $ActorCopyWith<$Res> {
       String? description,
       String? avatar,
       ActorDeclaration declaration,
-      ActorMeta viewer,
+      ActorViewer viewer,
       DateTime? indexedAt});
 
   @override
   $ActorDeclarationCopyWith<$Res> get declaration;
   @override
-  $ActorMetaCopyWith<$Res> get viewer;
+  $ActorViewerCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
@@ -196,7 +196,7 @@ class __$$_ActorCopyWithImpl<$Res> extends _$ActorCopyWithImpl<$Res, _$_Actor>
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ActorMeta,
+              as ActorViewer,
       indexedAt: freezed == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -235,7 +235,7 @@ class _$_Actor implements _Actor {
   @override
   final ActorDeclaration declaration;
   @override
-  final ActorMeta viewer;
+  final ActorViewer viewer;
   @override
   final DateTime? indexedAt;
 
@@ -290,7 +290,7 @@ abstract class _Actor implements Actor {
       final String? description,
       final String? avatar,
       required final ActorDeclaration declaration,
-      required final ActorMeta viewer,
+      required final ActorViewer viewer,
       final DateTime? indexedAt}) = _$_Actor;
 
   factory _Actor.fromJson(Map<String, dynamic> json) = _$_Actor.fromJson;
@@ -308,7 +308,7 @@ abstract class _Actor implements Actor {
   @override
   ActorDeclaration get declaration;
   @override
-  ActorMeta get viewer;
+  ActorViewer get viewer;
   @override
   DateTime? get indexedAt;
   @override

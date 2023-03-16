@@ -28,6 +28,7 @@ mixin _$Post {
   int get repostCount => throw _privateConstructorUsedError;
   @JsonKey(name: 'upvoteCount')
   int get likeCount => throw _privateConstructorUsedError;
+  PostViewer get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -48,10 +49,12 @@ abstract class $PostCopyWith<$Res> {
       int replyCount,
       int repostCount,
       @JsonKey(name: 'upvoteCount') int likeCount,
+      PostViewer viewer,
       DateTime indexedAt});
 
   $PostRecordCopyWith<$Res> get record;
   $ActorCopyWith<$Res> get author;
+  $PostViewerCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
@@ -74,6 +77,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? replyCount = null,
     Object? repostCount = null,
     Object? likeCount = null,
+    Object? viewer = null,
     Object? indexedAt = null,
   }) {
     return _then(_value.copyWith(
@@ -105,6 +109,10 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
               as int,
+      viewer: null == viewer
+          ? _value.viewer
+          : viewer // ignore: cast_nullable_to_non_nullable
+              as PostViewer,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -127,6 +135,14 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
       return _then(_value.copyWith(author: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PostViewerCopyWith<$Res> get viewer {
+    return $PostViewerCopyWith<$Res>(_value.viewer, (value) {
+      return _then(_value.copyWith(viewer: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -143,12 +159,15 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       int replyCount,
       int repostCount,
       @JsonKey(name: 'upvoteCount') int likeCount,
+      PostViewer viewer,
       DateTime indexedAt});
 
   @override
   $PostRecordCopyWith<$Res> get record;
   @override
   $ActorCopyWith<$Res> get author;
+  @override
+  $PostViewerCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
@@ -167,6 +186,7 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
     Object? replyCount = null,
     Object? repostCount = null,
     Object? likeCount = null,
+    Object? viewer = null,
     Object? indexedAt = null,
   }) {
     return _then(_$_Post(
@@ -198,6 +218,10 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
               as int,
+      viewer: null == viewer
+          ? _value.viewer
+          : viewer // ignore: cast_nullable_to_non_nullable
+              as PostViewer,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -217,6 +241,7 @@ class _$_Post implements _Post {
       required this.replyCount,
       required this.repostCount,
       @JsonKey(name: 'upvoteCount') required this.likeCount,
+      required this.viewer,
       required this.indexedAt});
 
   factory _$_Post.fromJson(Map<String, dynamic> json) => _$$_PostFromJson(json);
@@ -237,11 +262,13 @@ class _$_Post implements _Post {
   @JsonKey(name: 'upvoteCount')
   final int likeCount;
   @override
+  final PostViewer viewer;
+  @override
   final DateTime indexedAt;
 
   @override
   String toString() {
-    return 'Post(record: $record, author: $author, uri: $uri, cid: $cid, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, indexedAt: $indexedAt)';
+    return 'Post(record: $record, author: $author, uri: $uri, cid: $cid, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, viewer: $viewer, indexedAt: $indexedAt)';
   }
 
   @override
@@ -259,6 +286,7 @@ class _$_Post implements _Post {
                 other.repostCount == repostCount) &&
             (identical(other.likeCount, likeCount) ||
                 other.likeCount == likeCount) &&
+            (identical(other.viewer, viewer) || other.viewer == viewer) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt));
   }
@@ -266,7 +294,7 @@ class _$_Post implements _Post {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, record, author, uri, cid,
-      replyCount, repostCount, likeCount, indexedAt);
+      replyCount, repostCount, likeCount, viewer, indexedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -291,6 +319,7 @@ abstract class _Post implements Post {
       required final int replyCount,
       required final int repostCount,
       @JsonKey(name: 'upvoteCount') required final int likeCount,
+      required final PostViewer viewer,
       required final DateTime indexedAt}) = _$_Post;
 
   factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
@@ -310,6 +339,8 @@ abstract class _Post implements Post {
   @override
   @JsonKey(name: 'upvoteCount')
   int get likeCount;
+  @override
+  PostViewer get viewer;
   @override
   DateTime get indexedAt;
   @override

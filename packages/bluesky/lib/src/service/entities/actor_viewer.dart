@@ -7,18 +7,18 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'actor_meta.freezed.dart';
-part 'actor_meta.g.dart';
+part 'actor_viewer.freezed.dart';
+part 'actor_viewer.g.dart';
 
 @freezed
-class ActorMeta with _$ActorMeta {
+class ActorViewer with _$ActorViewer {
   @JsonSerializable(includeIfNull: false)
-  const factory ActorMeta({
+  const factory ActorViewer({
     @JsonKey(name: 'muted') required bool isMuted,
     String? following,
     String? followedBy,
-  }) = _ActorMeta;
+  }) = _ActorViewer;
 
-  factory ActorMeta.fromJson(Map<String, Object?> json) =>
-      _$ActorMetaFromJson(json);
+  factory ActorViewer.fromJson(Map<String, Object?> json) =>
+      _$ActorViewerFromJson(json);
 }

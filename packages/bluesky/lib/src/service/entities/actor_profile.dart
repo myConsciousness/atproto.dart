@@ -7,7 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'actor_declaration.dart';
-import 'actor_meta.dart';
+import 'actor_viewer.dart';
 
 part 'actor_profile.freezed.dart';
 part 'actor_profile.g.dart';
@@ -25,8 +25,8 @@ class ActorProfile with _$ActorProfile {
     required int followersCount,
     required int postsCount,
     required ActorDeclaration declaration,
-    required ActorMeta viewer,
-    required ActorMeta myState,
+    required ActorViewer viewer,
+    required ActorViewer myState,
     required String creator,
     required DateTime indexedAt,
   }) = _ActorProfile;

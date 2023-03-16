@@ -7,6 +7,7 @@
   - `PostRecord`
   - `Reason`
   - `Embed`
+- Added `PostViewer` in `Post`. ([#98](https://github.com/myConsciousness/atproto.dart/issues/98))
 
 ## v0.2.3
 
