@@ -3,11 +3,16 @@
     "atproto",
     "Bluesky",
     "bsky",
+    "bskyc",
+    "downvote",
     "Kato",
     "Repost",
+    "Reposted",
     "rkey",
+    "Roboto",
     "Shinya",
     "shinyakato",
+    "upvote",
     "xrpc"
   ],
   "[markdown]": {
