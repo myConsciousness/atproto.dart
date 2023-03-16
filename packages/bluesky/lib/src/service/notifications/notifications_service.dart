@@ -54,6 +54,24 @@ abstract class NotificationsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/getCount.json
   Future<core.ATProtoResponse<Count>> findUnreadCount();
+
+  /// Notify server that the user has seen notifications.
+  ///
+  /// ## Parameters
+  ///
+  /// - [seenAt]: The date time the notification was read.
+  ///             If omitted, defaults to the current time.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.notification.updateSeen
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/updateSeen.json
+  Future<core.ATProtoResponse<core.Empty>> updateNotificationsAsRead({
+    DateTime? seenAt,
+  });
 }
 
 class _NotificationsService extends BlueskyBaseService
@@ -88,5 +106,18 @@ class _NotificationsService extends BlueskyBaseService
           '/xrpc/app.bsky.notification.getCount',
         ),
         dataBuilder: Count.fromJson,
+      );
+
+  @override
+  Future<core.ATProtoResponse<core.Empty>> updateNotificationsAsRead({
+    DateTime? seenAt,
+  }) async =>
+      super.transformEmptyDataResponse(
+        await super.post(
+          '/xrpc/app.bsky.notification.updateSeen',
+          body: {
+            'seenAt': (seenAt ?? DateTime.now()).toUtc().toIso8601String(),
+          },
+        ),
       );
 }
