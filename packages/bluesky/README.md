@@ -208,6 +208,7 @@ Future<bsky.Session> get _session async {
 | [GET app.bsky.graph.getFollows](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollows.json)     | [findFollows](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/findFollows.html)     |
 | [GET app.bsky.graph.getFollowers](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollowers.json) | [findFollowers](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/findFollowers.html) |
 | [POST app.bsky.graph.mute](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/mute.json)                | [createMute](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createMute.html)       |
+| [POST app.bsky.graph.unmute](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/unmute.json)            | [deleteMute](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/deleteMute.html)       |
 
 ## 1.4. Tips 🏄
 
