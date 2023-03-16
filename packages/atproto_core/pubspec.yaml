@@ -1,6 +1,6 @@
 name: atproto_core
 description: This package provides core reusable and useful functionality for wrapping At Protocol and related services.
-version: 0.1.0
+version: 0.1.1
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_core
 issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
 funding:
