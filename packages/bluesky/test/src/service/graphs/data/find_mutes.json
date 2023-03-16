@@ -1,0 +1,20 @@
+{
+  "cursor": "1678975930373::did:plc:3tooshjgsaaj63n2evzh5agt",
+  "mutes": [
+    {
+      "did": "did:plc:3tooshjgsaaj63n2evzh5agt",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "sora.bsky.social",
+      "displayName": "",
+      "avatar": "https://cdn.bsky.social/imgproxy/clTpdeF8cfeGoDHWUv8FQQDqkMGNeopTm_Ev1oJVA2A/rs:fill:1000:1000:1:0/plain/bafkreibewwjpmb6fd4tz7xlm5rm2krqetymwiqbq63f2cgskyobgjvi3pm@jpeg",
+      "viewer": {
+        "muted": true,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqdeystpsk2w",
+        "followedBy": "at://did:plc:3tooshjgsaaj63n2evzh5agt/app.bsky.graph.follow/3jqdvfqs6ds2s"
+      }
+    }
+  ]
+}
