@@ -26,8 +26,8 @@ mixin _$Post {
   String get cid => throw _privateConstructorUsedError;
   int get replyCount => throw _privateConstructorUsedError;
   int get repostCount => throw _privateConstructorUsedError;
-  int get upvoteCount => throw _privateConstructorUsedError;
-  int get downvoteCount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'upvoteCount')
+  int get likeCount => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -47,8 +47,7 @@ abstract class $PostCopyWith<$Res> {
       String cid,
       int replyCount,
       int repostCount,
-      int upvoteCount,
-      int downvoteCount,
+      @JsonKey(name: 'upvoteCount') int likeCount,
       DateTime indexedAt});
 
   $PostRecordCopyWith<$Res> get record;
@@ -74,8 +73,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? cid = null,
     Object? replyCount = null,
     Object? repostCount = null,
-    Object? upvoteCount = null,
-    Object? downvoteCount = null,
+    Object? likeCount = null,
     Object? indexedAt = null,
   }) {
     return _then(_value.copyWith(
@@ -103,13 +101,9 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
           ? _value.repostCount
           : repostCount // ignore: cast_nullable_to_non_nullable
               as int,
-      upvoteCount: null == upvoteCount
-          ? _value.upvoteCount
-          : upvoteCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      downvoteCount: null == downvoteCount
-          ? _value.downvoteCount
-          : downvoteCount // ignore: cast_nullable_to_non_nullable
+      likeCount: null == likeCount
+          ? _value.likeCount
+          : likeCount // ignore: cast_nullable_to_non_nullable
               as int,
       indexedAt: null == indexedAt
           ? _value.indexedAt
@@ -148,8 +142,7 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       String cid,
       int replyCount,
       int repostCount,
-      int upvoteCount,
-      int downvoteCount,
+      @JsonKey(name: 'upvoteCount') int likeCount,
       DateTime indexedAt});
 
   @override
@@ -173,8 +166,7 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
     Object? cid = null,
     Object? replyCount = null,
     Object? repostCount = null,
-    Object? upvoteCount = null,
-    Object? downvoteCount = null,
+    Object? likeCount = null,
     Object? indexedAt = null,
   }) {
     return _then(_$_Post(
@@ -202,13 +194,9 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
           ? _value.repostCount
           : repostCount // ignore: cast_nullable_to_non_nullable
               as int,
-      upvoteCount: null == upvoteCount
-          ? _value.upvoteCount
-          : upvoteCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      downvoteCount: null == downvoteCount
-          ? _value.downvoteCount
-          : downvoteCount // ignore: cast_nullable_to_non_nullable
+      likeCount: null == likeCount
+          ? _value.likeCount
+          : likeCount // ignore: cast_nullable_to_non_nullable
               as int,
       indexedAt: null == indexedAt
           ? _value.indexedAt
@@ -228,8 +216,7 @@ class _$_Post implements _Post {
       required this.cid,
       required this.replyCount,
       required this.repostCount,
-      required this.upvoteCount,
-      required this.downvoteCount,
+      @JsonKey(name: 'upvoteCount') required this.likeCount,
       required this.indexedAt});
 
   factory _$_Post.fromJson(Map<String, dynamic> json) => _$$_PostFromJson(json);
@@ -247,15 +234,14 @@ class _$_Post implements _Post {
   @override
   final int repostCount;
   @override
-  final int upvoteCount;
-  @override
-  final int downvoteCount;
+  @JsonKey(name: 'upvoteCount')
+  final int likeCount;
   @override
   final DateTime indexedAt;
 
   @override
   String toString() {
-    return 'Post(record: $record, author: $author, uri: $uri, cid: $cid, replyCount: $replyCount, repostCount: $repostCount, upvoteCount: $upvoteCount, downvoteCount: $downvoteCount, indexedAt: $indexedAt)';
+    return 'Post(record: $record, author: $author, uri: $uri, cid: $cid, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, indexedAt: $indexedAt)';
   }
 
   @override
@@ -271,10 +257,8 @@ class _$_Post implements _Post {
                 other.replyCount == replyCount) &&
             (identical(other.repostCount, repostCount) ||
                 other.repostCount == repostCount) &&
-            (identical(other.upvoteCount, upvoteCount) ||
-                other.upvoteCount == upvoteCount) &&
-            (identical(other.downvoteCount, downvoteCount) ||
-                other.downvoteCount == downvoteCount) &&
+            (identical(other.likeCount, likeCount) ||
+                other.likeCount == likeCount) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt));
   }
@@ -282,7 +266,7 @@ class _$_Post implements _Post {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, record, author, uri, cid,
-      replyCount, repostCount, upvoteCount, downvoteCount, indexedAt);
+      replyCount, repostCount, likeCount, indexedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -306,8 +290,7 @@ abstract class _Post implements Post {
       required final String cid,
       required final int replyCount,
       required final int repostCount,
-      required final int upvoteCount,
-      required final int downvoteCount,
+      @JsonKey(name: 'upvoteCount') required final int likeCount,
       required final DateTime indexedAt}) = _$_Post;
 
   factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
@@ -325,9 +308,8 @@ abstract class _Post implements Post {
   @override
   int get repostCount;
   @override
-  int get upvoteCount;
-  @override
-  int get downvoteCount;
+  @JsonKey(name: 'upvoteCount')
+  int get likeCount;
   @override
   DateTime get indexedAt;
   @override
