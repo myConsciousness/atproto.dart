@@ -55,7 +55,9 @@ So, by using the [bluesky](https://pub.dev/packages/bluesky) package together, y
 
 ## 1.1. Features 💎
 
- ![feature](https://user-images.githubusercontent.com/13072231/225538067-c336982b-413a-4c9f-b004-257b42080c91.png)
+|           [EmbeddedCard](https://pub.dev/documentation/bluesky_cards/latest/bluesky_cards/EmbeddedCard-class.html)            |
+| :---------------------------------------------------------------------------------------------------------------------------: |
+| <img width="50%" src="https://user-images.githubusercontent.com/13072231/225538067-c336982b-413a-4c9f-b004-257b42080c91.png"> |
 
 ## 1.2. Getting Started ⚡
 
