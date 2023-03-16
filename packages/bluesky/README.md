@@ -194,10 +194,11 @@ Future<bsky.Session> get _session async {
 
 ### 1.3.3. Notifications
 
-| **Lexicon**                                                                                                                            | **Method Name**                                                                                                       |
-| -------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| [GET app.bsky.notification.list](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/list.json)         | [findNotifications](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/findNotifications.html) |
-| [GET app.bsky.notification.getCount](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/getCount.json) | [findUnreadCount](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/findUnreadCount.html)     |
+| **Lexicon**                                                                                                                                 | **Method Name**                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| [GET app.bsky.notification.list](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/list.json)              | [findNotifications](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/findNotifications.html)                 |
+| [GET app.bsky.notification.getCount](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/getCount.json)      | [findUnreadCount](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/findUnreadCount.html)                     |
+| [POST app.bsky.notification.updateSeen](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/updateSeen.json) | [updateNotificationsAdRead](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/updateNotificationsAdRead.html) |
 
 ### 1.3.4. Graphs
 
@@ -222,6 +223,7 @@ Future<bsky.Session> get _session async {
 | **search** | This prefix is attached to endpoints that perform extensive searches. |
 | **create** | This prefix is attached to the endpoint performing the create state.  |
 | **delete** | This prefix is attached to the endpoint performing the delete state.  |
+| **update** | This prefix is attached to the endpoint performing the update state.  |
 
 ### 1.4.2. Create Session
 
