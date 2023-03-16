@@ -132,6 +132,23 @@ abstract class GraphsService {
   Future<core.ATProtoResponse<core.Empty>> createMute({
     required String actor,
   });
+
+  /// Unmute an actor by did or handle.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.unmute
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/unmute.json
+  Future<core.ATProtoResponse<core.Empty>> deleteMute({
+    required String actor,
+  });
 }
 
 class _GraphsService extends BlueskyBaseService implements GraphsService {
@@ -211,6 +228,19 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       super.transformEmptyDataResponse(
         await post(
           '/xrpc/app.bsky.graph.mute',
+          body: {
+            'user': actor,
+          },
+        ),
+      );
+
+  @override
+  Future<atp.ATProtoResponse<core.Empty>> deleteMute({
+    required String actor,
+  }) async =>
+      super.transformEmptyDataResponse(
+        await post(
+          '/xrpc/app.bsky.graph.unmute',
           body: {
             'user': actor,
           },

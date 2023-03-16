@@ -406,4 +406,75 @@ void main() {
       );
     });
   });
+
+  group('.deleteMute', () {
+    test('normal case', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+        ),
+        service: 'test',
+        context: context.buildPostStub(
+          'test',
+          '/xrpc/app.bsky.graph.unmute',
+          'test/src/service/graphs/data/delete_mute.json',
+        ),
+      );
+
+      final response = await graphs.deleteMute(
+        actor: 'shinyakato.dev',
+      );
+
+      expect(response, isA<ATProtoResponse>());
+      expect(response.data, isA<Empty>());
+    });
+
+    test('when unauthorized', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+        ),
+        service: 'test',
+        context: context.buildPostStub(
+          'test',
+          '/xrpc/app.bsky.graph.unmute',
+          'test/src/service/graphs/data/delete_mute.json',
+          statusCode: 401,
+        ),
+      );
+
+      expectUnauthorizedException(
+        () async => await graphs.deleteMute(
+          actor: 'shinyakato.dev',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+        ),
+        service: 'test',
+        context: context.buildPostStub(
+          'test',
+          '/xrpc/app.bsky.graph.unmute',
+          'test/src/service/graphs/data/delete_mute.json',
+          statusCode: 429,
+        ),
+      );
+
+      expectRateLimitExceededException(
+        () async => await graphs.deleteMute(
+          actor: 'shinyakato.dev',
+        ),
+      );
+    });
+  });
 }
