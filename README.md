@@ -32,9 +32,13 @@
 
 - [1. Guide 🌎](#1-guide-)
   - [1.1. Packages \& Tools](#11-packages--tools)
+    - [1.1.1. Dart \& Flutter](#111-dart--flutter)
+    - [1.1.2. Flutter](#112-flutter)
+    - [1.1.3. GitHub Actions](#113-github-actions)
   - [1.2. Contribution 🏆](#12-contribution-)
   - [1.3. Support ❤️](#13-support-️)
-  - [1.4. More Information 🧐](#14-more-information-)
+  - [1.4. License 🔑](#14-license-)
+  - [1.5. More Information 🧐](#15-more-information-)
 
 <!-- /TOC -->
 
@@ -47,13 +51,26 @@ and to contribute to the development of [AT Protocol](https://atproto.com) and [
 
 ## 1.1. Packages & Tools
 
-| Name                                                                                            |                                                                  pub.dev                                                                   |                                                                                        Marketplace                                                                                        | Description                                                                                                                                                   |
-| ----------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [atproto_core](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_core) | [![pub package](https://img.shields.io/pub/v/atproto_core.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/atproto_core) |                                                                                             -                                                                                             | Provide core reusable and useful functionality for wrapping At Protocol and related services.                                                                 |
-| [atproto](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto)           |      [![pub package](https://img.shields.io/pub/v/atproto.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/atproto)      |                                                                                             -                                                                                             | Provide the easiest and powerful way to use [com.atproto](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto) lexicons in Dart/Flutter. |
-| [bluesky](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky)           |      [![pub package](https://img.shields.io/pub/v/bluesky.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky)      |                                                                                             -                                                                                             | Provide the easiest and powerful way to use [app.bsky](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky) lexicons in Dart/Flutter.       |
-| [lexicon](https://github.com/myConsciousness/atproto.dart/tree/main/packages/lexicon)           |      [![pub package](https://img.shields.io/pub/v/lexicon.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/lexicon)      |                                                                                             -                                                                                             | Provide AT Protocol standard [lexicon](https://atproto.com/specs/lexicon) objects for Dart/Flutter.                                                           |
-| [bluesky_post](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_post) |                                                                     -                                                                      | [![bluesky-post](https://img.shields.io/static/v1?label=actions&message=myConsciousness/bluesky-post&logo=GitHub&color=00acee)](https://github.com/marketplace/actions/send-bluesky-post) | Use this action to send a post to Bluesky Social from GitHub actions workflow.                                                                                |
+### 1.1.1. Dart & Flutter
+
+| Name                                                                                            |                                                                  pub.dev                                                                   | Description                                                                                                                                                   |
+| ----------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [atproto_core](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_core) | [![pub package](https://img.shields.io/pub/v/atproto_core.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/atproto_core) | Provide core reusable and useful functionality for wrapping At Protocol and related services.                                                                 |
+| [lexicon](https://github.com/myConsciousness/atproto.dart/tree/main/packages/lexicon)           |      [![pub package](https://img.shields.io/pub/v/lexicon.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/lexicon)      | Provide AT Protocol standard [lexicon](https://atproto.com/specs/lexicon) objects for Dart/Flutter.                                                           |
+| [atproto](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto)           |      [![pub package](https://img.shields.io/pub/v/atproto.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/atproto)      | Provide the easiest and powerful way to use [com.atproto](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto) lexicons in Dart/Flutter. |
+| [bluesky](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky)           |      [![pub package](https://img.shields.io/pub/v/bluesky.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky)      | Provide the easiest and powerful way to use [app.bsky](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky) lexicons in Dart/Flutter.       |
+
+### 1.1.2. Flutter
+
+| Name                                                                                              |                                                                   pub.dev                                                                    | Description                                                                          |
+| ------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------ |
+| [bluesky_cards](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_cards) | [![pub package](https://img.shields.io/pub/v/bluesky_cards.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky_cards) | Provide a widget to output Bluesky Social's post content beautifully in Flutter app. |
+
+### 1.1.3. GitHub Actions
+
+| Name                                                                                            |                                                                                        Marketplace                                                                                        | Description                                                                    |
+| ----------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------ |
+| [bluesky_post](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_post) | [![bluesky-post](https://img.shields.io/static/v1?label=actions&message=myConsciousness/bluesky-post&logo=GitHub&color=00acee)](https://github.com/marketplace/actions/send-bluesky-post) | Use this action to send a post to Bluesky Social from GitHub actions workflow. |
 
 ## 1.2. Contribution 🏆
 
@@ -89,9 +106,8 @@ You can also support this project by **becoming a sponsor** on GitHub:
     </a>
   </p>
 </div>
-```
 
-## 1.3. License 🔑
+## 1.4. License 🔑
 
 The source code provided in this monorepo is is provided under the `BSD-3` license.
 
@@ -104,7 +120,7 @@ modification, are permitted provided the conditions.
 > **Note**</br>
 > License notices in the source are strictly validated based on `.github/header-checker-lint.yml`. Please check [header-checker-lint.yml](https://github.com/myConsciousness/atproto.dart/tree/main/.github/header-checker-lint.yml) for the permitted standards.
 
-## 1.4. More Information 🧐
+## 1.5. More Information 🧐
 
 All resources in **atproto.dart** is maintained by **_Kato Shinya ([@myConsciousness](https://github.com/myConsciousness))_**.
 
