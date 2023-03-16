@@ -115,6 +115,23 @@ abstract class GraphsService {
     int? limit,
     String? cursor,
   });
+
+  /// Mute an actor by did or handle.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.mute
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/mute.json
+  Future<core.ATProtoResponse<core.Empty>> createMute({
+    required String actor,
+  });
 }
 
 class _GraphsService extends BlueskyBaseService implements GraphsService {
@@ -185,5 +202,18 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
           },
         ),
         dataBuilder: Followers.fromJson,
+      );
+
+  @override
+  Future<atp.ATProtoResponse<core.Empty>> createMute({
+    required String actor,
+  }) async =>
+      super.transformEmptyDataResponse(
+        await post(
+          '/xrpc/app.bsky.graph.mute',
+          body: {
+            'user': actor,
+          },
+        ),
       );
 }
