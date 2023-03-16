@@ -19,6 +19,7 @@ part 'post_record.g.dart';
 class PostRecord with _$PostRecord {
   @JsonSerializable(includeIfNull: false)
   const factory PostRecord({
+    @JsonKey(name: '\$type') required String type,
     required String text,
     PostRef? reply,
     List<Entity>? entities,

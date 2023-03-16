@@ -20,6 +20,8 @@ Embed _$EmbedFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Embed {
+  @JsonKey(name: '\$type')
+  String get type => throw _privateConstructorUsedError;
   EmbedRecord get record => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -32,7 +34,7 @@ abstract class $EmbedCopyWith<$Res> {
   factory $EmbedCopyWith(Embed value, $Res Function(Embed) then) =
       _$EmbedCopyWithImpl<$Res, Embed>;
   @useResult
-  $Res call({EmbedRecord record});
+  $Res call({@JsonKey(name: '\$type') String type, EmbedRecord record});
 
   $EmbedRecordCopyWith<$Res> get record;
 }
@@ -50,9 +52,14 @@ class _$EmbedCopyWithImpl<$Res, $Val extends Embed>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? record = null,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
@@ -75,7 +82,7 @@ abstract class _$$_EmbedCopyWith<$Res> implements $EmbedCopyWith<$Res> {
       __$$_EmbedCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({EmbedRecord record});
+  $Res call({@JsonKey(name: '\$type') String type, EmbedRecord record});
 
   @override
   $EmbedRecordCopyWith<$Res> get record;
@@ -90,9 +97,14 @@ class __$$_EmbedCopyWithImpl<$Res> extends _$EmbedCopyWithImpl<$Res, _$_Embed>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? record = null,
   }) {
     return _then(_$_Embed(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
@@ -104,17 +116,21 @@ class __$$_EmbedCopyWithImpl<$Res> extends _$EmbedCopyWithImpl<$Res, _$_Embed>
 /// @nodoc
 @JsonSerializable()
 class _$_Embed implements _Embed {
-  const _$_Embed({required this.record});
+  const _$_Embed(
+      {@JsonKey(name: '\$type') required this.type, required this.record});
 
   factory _$_Embed.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedFromJson(json);
 
   @override
+  @JsonKey(name: '\$type')
+  final String type;
+  @override
   final EmbedRecord record;
 
   @override
   String toString() {
-    return 'Embed(record: $record)';
+    return 'Embed(type: $type, record: $record)';
   }
 
   @override
@@ -122,12 +138,13 @@ class _$_Embed implements _Embed {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Embed &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.record, record) || other.record == record));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, record);
+  int get hashCode => Object.hash(runtimeType, type, record);
 
   @JsonKey(ignore: true)
   @override
@@ -144,10 +161,15 @@ class _$_Embed implements _Embed {
 }
 
 abstract class _Embed implements Embed {
-  const factory _Embed({required final EmbedRecord record}) = _$_Embed;
+  const factory _Embed(
+      {@JsonKey(name: '\$type') required final String type,
+      required final EmbedRecord record}) = _$_Embed;
 
   factory _Embed.fromJson(Map<String, dynamic> json) = _$_Embed.fromJson;
 
+  @override
+  @JsonKey(name: '\$type')
+  String get type;
   @override
   EmbedRecord get record;
   @override

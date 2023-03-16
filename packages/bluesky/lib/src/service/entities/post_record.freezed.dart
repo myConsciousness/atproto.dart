@@ -20,6 +20,8 @@ PostRecord _$PostRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostRecord {
+  @JsonKey(name: '\$type')
+  String get type => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
   PostRef? get reply => throw _privateConstructorUsedError;
   List<Entity>? get entities => throw _privateConstructorUsedError;
@@ -39,7 +41,8 @@ abstract class $PostRecordCopyWith<$Res> {
       _$PostRecordCopyWithImpl<$Res, PostRecord>;
   @useResult
   $Res call(
-      {String text,
+      {@JsonKey(name: '\$type') String type,
+      String text,
       PostRef? reply,
       List<Entity>? entities,
       EmbedContents? embed,
@@ -62,6 +65,7 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? text = null,
     Object? reply = freezed,
     Object? entities = freezed,
@@ -69,6 +73,10 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
     Object? createdAt = null,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -126,7 +134,8 @@ abstract class _$$_PostRecordCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String text,
+      {@JsonKey(name: '\$type') String type,
+      String text,
       PostRef? reply,
       List<Entity>? entities,
       EmbedContents? embed,
@@ -149,6 +158,7 @@ class __$$_PostRecordCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? text = null,
     Object? reply = freezed,
     Object? entities = freezed,
@@ -156,6 +166,10 @@ class __$$_PostRecordCopyWithImpl<$Res>
     Object? createdAt = null,
   }) {
     return _then(_$_PostRecord(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -185,7 +199,8 @@ class __$$_PostRecordCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_PostRecord implements _PostRecord {
   const _$_PostRecord(
-      {required this.text,
+      {@JsonKey(name: '\$type') required this.type,
+      required this.text,
       this.reply,
       final List<Entity>? entities,
       this.embed,
@@ -195,6 +210,9 @@ class _$_PostRecord implements _PostRecord {
   factory _$_PostRecord.fromJson(Map<String, dynamic> json) =>
       _$$_PostRecordFromJson(json);
 
+  @override
+  @JsonKey(name: '\$type')
+  final String type;
   @override
   final String text;
   @override
@@ -216,7 +234,7 @@ class _$_PostRecord implements _PostRecord {
 
   @override
   String toString() {
-    return 'PostRecord(text: $text, reply: $reply, entities: $entities, embed: $embed, createdAt: $createdAt)';
+    return 'PostRecord(type: $type, text: $text, reply: $reply, entities: $entities, embed: $embed, createdAt: $createdAt)';
   }
 
   @override
@@ -224,6 +242,7 @@ class _$_PostRecord implements _PostRecord {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PostRecord &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.text, text) || other.text == text) &&
             (identical(other.reply, reply) || other.reply == reply) &&
             const DeepCollectionEquality().equals(other._entities, _entities) &&
@@ -234,7 +253,7 @@ class _$_PostRecord implements _PostRecord {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, text, reply,
+  int get hashCode => Object.hash(runtimeType, type, text, reply,
       const DeepCollectionEquality().hash(_entities), embed, createdAt);
 
   @JsonKey(ignore: true)
@@ -253,7 +272,8 @@ class _$_PostRecord implements _PostRecord {
 
 abstract class _PostRecord implements PostRecord {
   const factory _PostRecord(
-      {required final String text,
+      {@JsonKey(name: '\$type') required final String type,
+      required final String text,
       final PostRef? reply,
       final List<Entity>? entities,
       final EmbedContents? embed,
@@ -262,6 +282,9 @@ abstract class _PostRecord implements PostRecord {
   factory _PostRecord.fromJson(Map<String, dynamic> json) =
       _$_PostRecord.fromJson;
 
+  @override
+  @JsonKey(name: '\$type')
+  String get type;
   @override
   String get text;
   @override

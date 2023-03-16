@@ -13,6 +13,7 @@ _$_PostRecord _$$_PostRecordFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_PostRecord(
+          type: $checkedConvert(r'$type', (v) => v as String),
           text: $checkedConvert('text', (v) => v as String),
           reply: $checkedConvert(
               'reply',
@@ -36,10 +37,12 @@ _$_PostRecord _$$_PostRecordFromJson(Map json) => $checkedCreate(
         );
         return val;
       },
+      fieldKeyMap: const {'type': r'$type'},
     );
 
 Map<String, dynamic> _$$_PostRecordToJson(_$_PostRecord instance) {
   final val = <String, dynamic>{
+    r'$type': instance.type,
     'text': instance.text,
   };
 

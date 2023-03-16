@@ -3,6 +3,10 @@
 ## v0.2.4
 
 - Changed from `upvoteCount` field to `likeCount`, and deleted `downvoteCount`. ([#96](https://github.com/myConsciousness/atproto.dart/issues/96))
+- Added `$type` fields. ([#97](https://github.com/myConsciousness/atproto.dart/issues/97))
+  - `PostRecord`
+  - `Reason`
+  - `Embed`
 
 ## v0.2.3
 

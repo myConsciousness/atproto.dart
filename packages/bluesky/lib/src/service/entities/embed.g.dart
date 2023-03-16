@@ -13,13 +13,16 @@ _$_Embed _$$_EmbedFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_Embed(
+          type: $checkedConvert(r'$type', (v) => v as String),
           record: $checkedConvert('record',
               (v) => EmbedRecord.fromJson(Map<String, Object?>.from(v as Map))),
         );
         return val;
       },
+      fieldKeyMap: const {'type': r'$type'},
     );
 
 Map<String, dynamic> _$$_EmbedToJson(_$_Embed instance) => <String, dynamic>{
+      r'$type': instance.type,
       'record': instance.record.toJson(),
     };
