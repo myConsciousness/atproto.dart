@@ -1,0 +1,66 @@
+name: bluesky_cards
+description: A new Flutter package project.
+version: 0.0.1
+
+environment:
+  sdk: '>=2.19.2 <3.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  bluesky: ^0.2.3
+  cached_network_image: ^3.2.3
+  html_unescape: ^2.0.0
+  url_launcher: ^6.1.10
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/bsky___ic_brand.png
+    - assets/bsky___ic_reposted_by.png
+    - assets/bsky___ic_verified_badge.png
+
+  fonts:
+    - family: Roboto
+
+      fonts:
+        - asset: fonts/Roboto-Thin.ttf
+          weight: 100
+        - asset: fonts/Roboto-ThinItalic.ttf
+          weight: 100
+          style: italic
+        - asset: fonts/Roboto-Light.ttf
+          weight: 200
+        - asset: fonts/Roboto-LightItalic.ttf
+          weight: 200
+          style: italic
+        - asset: fonts/Roboto-Regular.ttf
+          weight: 400
+        - asset: fonts/Roboto-RegularItalic.ttf
+          weight: 400
+          style: italic
+        - asset: fonts/Roboto-Medium.ttf
+          weight: 500
+        - asset: fonts/Roboto-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: fonts/Roboto-Bold.ttf
+          weight: 700
+        - asset: fonts/Roboto-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: fonts/Roboto-Black.ttf
+          weight: 900
+        - asset: fonts/Roboto-BlackItalic.ttf
+          weight: 900
+          style: italic
