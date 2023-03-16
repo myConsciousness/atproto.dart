@@ -9,7 +9,6 @@ import 'author.dart';
 import 'avatar_image.dart';
 import 'bluesky_brand.dart';
 import 'core/font.dart';
-import 'core/package.dart';
 import 'default_text_styles.dart';
 import 'open_url.dart';
 import 'post.dart';
@@ -28,10 +27,12 @@ class EmbeddedCard extends StatelessWidget {
     String service = 'staging.bsky.app',
     required String postUri,
     required this.createdAt,
+    this.reason,
     this.backgroundColor,
     this.darkMode = false,
   })  : userLink = 'https://$service/profile/$handle',
-        postLink = 'https://$service/$handle/post/${postUri.split('/').last}';
+        postLink = 'https://$service/$handle/post/${postUri.split('/').last}',
+        repostedUserLink = 'https://$service/profile/${reason?.by.handle}';
 
   factory EmbeddedCard.fromFeed(
     final bsky.Feed feed, {
@@ -46,10 +47,11 @@ class EmbeddedCard extends StatelessWidget {
         avatar: feed.post.author.avatar!,
         replyCount: feed.post.replyCount,
         repostCount: feed.post.repostCount,
-        likeCount: feed.post.upvoteCount,
+        likeCount: feed.post.likeCount,
         service: service,
         postUri: feed.post.uri,
         createdAt: feed.post.indexedAt,
+        reason: feed.reason,
         backgroundColor: backgroundColor,
         darkMode: darkMode,
       );
@@ -62,8 +64,11 @@ class EmbeddedCard extends StatelessWidget {
   final int repostCount;
   final int likeCount;
   final String userLink;
+  final String repostedUserLink;
   final String postLink;
   final DateTime createdAt;
+
+  final bsky.Reason? reason;
 
   /// Background color for the container
   final Color? backgroundColor;
@@ -105,11 +110,12 @@ class EmbeddedCard extends StatelessWidget {
                                 Padding(
                                   padding: EdgeInsets.only(left: 28),
                                   child: Visibility(
-                                    visible: false,
+                                    visible: reason != null &&
+                                        reason!.type.endsWith('reasonRepost'),
                                     child: RepostedBy(
-                                      handle: handle,
-                                      displayName: displayName,
-                                      userLink: userLink,
+                                      handle: reason?.by.handle ?? '',
+                                      displayName: reason?.by.displayName ?? '',
+                                      userLink: repostedUserLink,
                                       style: defaultEmbeddedRepostedByStyle,
                                     ),
                                   ),

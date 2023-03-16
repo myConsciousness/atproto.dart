@@ -3,7 +3,8 @@
 // modification, are permitted provided the conditions.
 
 import 'package:bluesky/bluesky.dart' as bsky;
-import 'package:bluesky_cards/bluesky_cards.dart';
+import 'package:bluesky_cards/bluesky_cards.dart' as bskyc;
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -50,7 +51,7 @@ class BlueskyCards extends StatelessWidget {
                 itemCount: feeds.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Card(
-                    child: EmbeddedCard.fromFeed(feeds[index]),
+                    child: bskyc.EmbeddedCard.fromFeed(feeds[index]),
                   );
                 },
               );
