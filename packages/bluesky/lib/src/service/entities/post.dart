@@ -10,6 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import 'actor.dart';
 import 'post_record.dart';
+import 'post_viewer.dart';
 
 part 'post.freezed.dart';
 part 'post.g.dart';
@@ -24,6 +25,7 @@ class Post with _$Post {
     required int replyCount,
     required int repostCount,
     @JsonKey(name: 'upvoteCount') required int likeCount,
+    required PostViewer viewer,
     required DateTime indexedAt,
   }) = _Post;
 

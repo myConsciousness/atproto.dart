@@ -25,7 +25,10 @@
         "upvoteCount": 0,
         "downvoteCount": 0,
         "indexedAt": "2023-03-13T12:27:14.404Z",
-        "viewer": {}
+        "viewer": {
+          "repost": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.repost/3jqzap2lb7k25",
+          "upvote": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.vote/3jqzaozhgq22z"
+        }
       }
     },
     {

@@ -27,9 +27,9 @@ _$_ActorProfile _$$_ActorProfileFromJson(Map json) => $checkedCreate(
               (v) => ActorDeclaration.fromJson(
                   Map<String, Object?>.from(v as Map))),
           viewer: $checkedConvert('viewer',
-              (v) => ActorMeta.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => ActorViewer.fromJson(Map<String, Object?>.from(v as Map))),
           myState: $checkedConvert('myState',
-              (v) => ActorMeta.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => ActorViewer.fromJson(Map<String, Object?>.from(v as Map))),
           creator: $checkedConvert('creator', (v) => v as String),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),

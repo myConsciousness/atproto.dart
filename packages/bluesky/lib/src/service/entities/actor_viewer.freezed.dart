@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'actor_meta.dart';
+part of 'actor_viewer.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ActorMeta _$ActorMetaFromJson(Map<String, dynamic> json) {
-  return _ActorMeta.fromJson(json);
+ActorViewer _$ActorViewerFromJson(Map<String, dynamic> json) {
+  return _ActorViewer.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ActorMeta {
+mixin _$ActorViewer {
   @JsonKey(name: 'muted')
   bool get isMuted => throw _privateConstructorUsedError;
   String? get following => throw _privateConstructorUsedError;
@@ -27,14 +27,15 @@ mixin _$ActorMeta {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ActorMetaCopyWith<ActorMeta> get copyWith =>
+  $ActorViewerCopyWith<ActorViewer> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ActorMetaCopyWith<$Res> {
-  factory $ActorMetaCopyWith(ActorMeta value, $Res Function(ActorMeta) then) =
-      _$ActorMetaCopyWithImpl<$Res, ActorMeta>;
+abstract class $ActorViewerCopyWith<$Res> {
+  factory $ActorViewerCopyWith(
+          ActorViewer value, $Res Function(ActorViewer) then) =
+      _$ActorViewerCopyWithImpl<$Res, ActorViewer>;
   @useResult
   $Res call(
       {@JsonKey(name: 'muted') bool isMuted,
@@ -43,9 +44,9 @@ abstract class $ActorMetaCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ActorMetaCopyWithImpl<$Res, $Val extends ActorMeta>
-    implements $ActorMetaCopyWith<$Res> {
-  _$ActorMetaCopyWithImpl(this._value, this._then);
+class _$ActorViewerCopyWithImpl<$Res, $Val extends ActorViewer>
+    implements $ActorViewerCopyWith<$Res> {
+  _$ActorViewerCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -77,10 +78,11 @@ class _$ActorMetaCopyWithImpl<$Res, $Val extends ActorMeta>
 }
 
 /// @nodoc
-abstract class _$$_ActorMetaCopyWith<$Res> implements $ActorMetaCopyWith<$Res> {
-  factory _$$_ActorMetaCopyWith(
-          _$_ActorMeta value, $Res Function(_$_ActorMeta) then) =
-      __$$_ActorMetaCopyWithImpl<$Res>;
+abstract class _$$_ActorViewerCopyWith<$Res>
+    implements $ActorViewerCopyWith<$Res> {
+  factory _$$_ActorViewerCopyWith(
+          _$_ActorViewer value, $Res Function(_$_ActorViewer) then) =
+      __$$_ActorViewerCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -90,11 +92,11 @@ abstract class _$$_ActorMetaCopyWith<$Res> implements $ActorMetaCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ActorMetaCopyWithImpl<$Res>
-    extends _$ActorMetaCopyWithImpl<$Res, _$_ActorMeta>
-    implements _$$_ActorMetaCopyWith<$Res> {
-  __$$_ActorMetaCopyWithImpl(
-      _$_ActorMeta _value, $Res Function(_$_ActorMeta) _then)
+class __$$_ActorViewerCopyWithImpl<$Res>
+    extends _$ActorViewerCopyWithImpl<$Res, _$_ActorViewer>
+    implements _$$_ActorViewerCopyWith<$Res> {
+  __$$_ActorViewerCopyWithImpl(
+      _$_ActorViewer _value, $Res Function(_$_ActorViewer) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -104,7 +106,7 @@ class __$$_ActorMetaCopyWithImpl<$Res>
     Object? following = freezed,
     Object? followedBy = freezed,
   }) {
-    return _then(_$_ActorMeta(
+    return _then(_$_ActorViewer(
       isMuted: null == isMuted
           ? _value.isMuted
           : isMuted // ignore: cast_nullable_to_non_nullable
@@ -124,14 +126,14 @@ class __$$_ActorMetaCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_ActorMeta implements _ActorMeta {
-  const _$_ActorMeta(
+class _$_ActorViewer implements _ActorViewer {
+  const _$_ActorViewer(
       {@JsonKey(name: 'muted') required this.isMuted,
       this.following,
       this.followedBy});
 
-  factory _$_ActorMeta.fromJson(Map<String, dynamic> json) =>
-      _$$_ActorMetaFromJson(json);
+  factory _$_ActorViewer.fromJson(Map<String, dynamic> json) =>
+      _$$_ActorViewerFromJson(json);
 
   @override
   @JsonKey(name: 'muted')
@@ -143,14 +145,14 @@ class _$_ActorMeta implements _ActorMeta {
 
   @override
   String toString() {
-    return 'ActorMeta(isMuted: $isMuted, following: $following, followedBy: $followedBy)';
+    return 'ActorViewer(isMuted: $isMuted, following: $following, followedBy: $followedBy)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActorMeta &&
+            other is _$_ActorViewer &&
             (identical(other.isMuted, isMuted) || other.isMuted == isMuted) &&
             (identical(other.following, following) ||
                 other.following == following) &&
@@ -165,25 +167,25 @@ class _$_ActorMeta implements _ActorMeta {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ActorMetaCopyWith<_$_ActorMeta> get copyWith =>
-      __$$_ActorMetaCopyWithImpl<_$_ActorMeta>(this, _$identity);
+  _$$_ActorViewerCopyWith<_$_ActorViewer> get copyWith =>
+      __$$_ActorViewerCopyWithImpl<_$_ActorViewer>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ActorMetaToJson(
+    return _$$_ActorViewerToJson(
       this,
     );
   }
 }
 
-abstract class _ActorMeta implements ActorMeta {
-  const factory _ActorMeta(
+abstract class _ActorViewer implements ActorViewer {
+  const factory _ActorViewer(
       {@JsonKey(name: 'muted') required final bool isMuted,
       final String? following,
-      final String? followedBy}) = _$_ActorMeta;
+      final String? followedBy}) = _$_ActorViewer;
 
-  factory _ActorMeta.fromJson(Map<String, dynamic> json) =
-      _$_ActorMeta.fromJson;
+  factory _ActorViewer.fromJson(Map<String, dynamic> json) =
+      _$_ActorViewer.fromJson;
 
   @override
   @JsonKey(name: 'muted')
@@ -194,6 +196,6 @@ abstract class _ActorMeta implements ActorMeta {
   String? get followedBy;
   @override
   @JsonKey(ignore: true)
-  _$$_ActorMetaCopyWith<_$_ActorMeta> get copyWith =>
+  _$$_ActorViewerCopyWith<_$_ActorViewer> get copyWith =>
       throw _privateConstructorUsedError;
 }

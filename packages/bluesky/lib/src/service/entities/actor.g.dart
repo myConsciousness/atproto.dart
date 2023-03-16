@@ -23,7 +23,7 @@ _$_Actor _$$_ActorFromJson(Map json) => $checkedCreate(
               (v) => ActorDeclaration.fromJson(
                   Map<String, Object?>.from(v as Map))),
           viewer: $checkedConvert('viewer',
-              (v) => ActorMeta.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => ActorViewer.fromJson(Map<String, Object?>.from(v as Map))),
           indexedAt: $checkedConvert('indexedAt',
               (v) => v == null ? null : DateTime.parse(v as String)),
         );

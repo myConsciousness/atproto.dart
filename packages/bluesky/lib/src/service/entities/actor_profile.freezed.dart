@@ -30,8 +30,8 @@ mixin _$ActorProfile {
   int get followersCount => throw _privateConstructorUsedError;
   int get postsCount => throw _privateConstructorUsedError;
   ActorDeclaration get declaration => throw _privateConstructorUsedError;
-  ActorMeta get viewer => throw _privateConstructorUsedError;
-  ActorMeta get myState => throw _privateConstructorUsedError;
+  ActorViewer get viewer => throw _privateConstructorUsedError;
+  ActorViewer get myState => throw _privateConstructorUsedError;
   String get creator => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
@@ -58,14 +58,14 @@ abstract class $ActorProfileCopyWith<$Res> {
       int followersCount,
       int postsCount,
       ActorDeclaration declaration,
-      ActorMeta viewer,
-      ActorMeta myState,
+      ActorViewer viewer,
+      ActorViewer myState,
       String creator,
       DateTime indexedAt});
 
   $ActorDeclarationCopyWith<$Res> get declaration;
-  $ActorMetaCopyWith<$Res> get viewer;
-  $ActorMetaCopyWith<$Res> get myState;
+  $ActorViewerCopyWith<$Res> get viewer;
+  $ActorViewerCopyWith<$Res> get myState;
 }
 
 /// @nodoc
@@ -140,11 +140,11 @@ class _$ActorProfileCopyWithImpl<$Res, $Val extends ActorProfile>
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ActorMeta,
+              as ActorViewer,
       myState: null == myState
           ? _value.myState
           : myState // ignore: cast_nullable_to_non_nullable
-              as ActorMeta,
+              as ActorViewer,
       creator: null == creator
           ? _value.creator
           : creator // ignore: cast_nullable_to_non_nullable
@@ -166,16 +166,16 @@ class _$ActorProfileCopyWithImpl<$Res, $Val extends ActorProfile>
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorMetaCopyWith<$Res> get viewer {
-    return $ActorMetaCopyWith<$Res>(_value.viewer, (value) {
+  $ActorViewerCopyWith<$Res> get viewer {
+    return $ActorViewerCopyWith<$Res>(_value.viewer, (value) {
       return _then(_value.copyWith(viewer: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorMetaCopyWith<$Res> get myState {
-    return $ActorMetaCopyWith<$Res>(_value.myState, (value) {
+  $ActorViewerCopyWith<$Res> get myState {
+    return $ActorViewerCopyWith<$Res>(_value.myState, (value) {
       return _then(_value.copyWith(myState: value) as $Val);
     });
   }
@@ -200,17 +200,17 @@ abstract class _$$_ActorProfileCopyWith<$Res>
       int followersCount,
       int postsCount,
       ActorDeclaration declaration,
-      ActorMeta viewer,
-      ActorMeta myState,
+      ActorViewer viewer,
+      ActorViewer myState,
       String creator,
       DateTime indexedAt});
 
   @override
   $ActorDeclarationCopyWith<$Res> get declaration;
   @override
-  $ActorMetaCopyWith<$Res> get viewer;
+  $ActorViewerCopyWith<$Res> get viewer;
   @override
-  $ActorMetaCopyWith<$Res> get myState;
+  $ActorViewerCopyWith<$Res> get myState;
 }
 
 /// @nodoc
@@ -283,11 +283,11 @@ class __$$_ActorProfileCopyWithImpl<$Res>
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ActorMeta,
+              as ActorViewer,
       myState: null == myState
           ? _value.myState
           : myState // ignore: cast_nullable_to_non_nullable
-              as ActorMeta,
+              as ActorViewer,
       creator: null == creator
           ? _value.creator
           : creator // ignore: cast_nullable_to_non_nullable
@@ -343,9 +343,9 @@ class _$_ActorProfile implements _ActorProfile {
   @override
   final ActorDeclaration declaration;
   @override
-  final ActorMeta viewer;
+  final ActorViewer viewer;
   @override
-  final ActorMeta myState;
+  final ActorViewer myState;
   @override
   final String creator;
   @override
@@ -429,8 +429,8 @@ abstract class _ActorProfile implements ActorProfile {
       required final int followersCount,
       required final int postsCount,
       required final ActorDeclaration declaration,
-      required final ActorMeta viewer,
-      required final ActorMeta myState,
+      required final ActorViewer viewer,
+      required final ActorViewer myState,
       required final String creator,
       required final DateTime indexedAt}) = _$_ActorProfile;
 
@@ -458,9 +458,9 @@ abstract class _ActorProfile implements ActorProfile {
   @override
   ActorDeclaration get declaration;
   @override
-  ActorMeta get viewer;
+  ActorViewer get viewer;
   @override
-  ActorMeta get myState;
+  ActorViewer get myState;
   @override
   String get creator;
   @override
