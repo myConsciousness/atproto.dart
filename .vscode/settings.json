@@ -12,10 +12,11 @@
     "Roboto",
     "Shinya",
     "shinyakato",
+    "Unmute",
     "upvote",
     "xrpc"
   ],
   "[markdown]": {
-    "editor.wordWrap": "off",
-  },
+    "editor.wordWrap": "off"
+  }
 }
