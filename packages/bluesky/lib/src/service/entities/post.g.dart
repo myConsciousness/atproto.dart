@@ -21,13 +21,13 @@ _$_Post _$$_PostFromJson(Map json) => $checkedCreate(
           cid: $checkedConvert('cid', (v) => v as String),
           replyCount: $checkedConvert('replyCount', (v) => v as int),
           repostCount: $checkedConvert('repostCount', (v) => v as int),
-          upvoteCount: $checkedConvert('upvoteCount', (v) => v as int),
-          downvoteCount: $checkedConvert('downvoteCount', (v) => v as int),
+          likeCount: $checkedConvert('upvoteCount', (v) => v as int),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
         );
         return val;
       },
+      fieldKeyMap: const {'likeCount': 'upvoteCount'},
     );
 
 Map<String, dynamic> _$$_PostToJson(_$_Post instance) => <String, dynamic>{
@@ -37,7 +37,6 @@ Map<String, dynamic> _$$_PostToJson(_$_Post instance) => <String, dynamic>{
       'cid': instance.cid,
       'replyCount': instance.replyCount,
       'repostCount': instance.repostCount,
-      'upvoteCount': instance.upvoteCount,
-      'downvoteCount': instance.downvoteCount,
+      'upvoteCount': instance.likeCount,
       'indexedAt': instance.indexedAt.toIso8601String(),
     };

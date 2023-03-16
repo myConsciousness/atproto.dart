@@ -2,6 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: invalid_annotation_target
+
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -21,8 +23,7 @@ class Post with _$Post {
     required String cid,
     required int replyCount,
     required int repostCount,
-    required int upvoteCount,
-    required int downvoteCount,
+    @JsonKey(name: 'upvoteCount') required int likeCount,
     required DateTime indexedAt,
   }) = _Post;
 
