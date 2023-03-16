@@ -40,6 +40,7 @@ export 'package:bluesky/src/service/entities/follows.dart';
 export 'package:bluesky/src/service/entities/like.dart';
 export 'package:bluesky/src/service/entities/likes.dart';
 export 'package:bluesky/src/service/entities/media_meta.dart';
+export 'package:bluesky/src/service/entities/mutes.dart';
 export 'package:bluesky/src/service/entities/notification.dart';
 export 'package:bluesky/src/service/entities/notifications.dart';
 export 'package:bluesky/src/service/entities/post.dart';

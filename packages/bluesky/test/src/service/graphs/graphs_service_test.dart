@@ -477,4 +477,78 @@ void main() {
       );
     });
   });
+
+  group('.findMutes', () {
+    test('normal case', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        service: 'test',
+        context: context.buildGetStub(
+          'test',
+          '/xrpc/app.bsky.graph.getMutes',
+          'test/src/service/graphs/data/find_mutes.json',
+          {
+            'limit': '10',
+            'before': '1234',
+          },
+        ),
+      );
+
+      final response = await graphs.findMutes(
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<ATProtoResponse>());
+      expect(response.data, isA<Mutes>());
+    });
+
+    test('when unauthorized', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        service: 'test',
+        context: context.buildGetStub(
+          'test',
+          '/xrpc/app.bsky.graph.getMutes',
+          'test/src/service/graphs/data/find_mutes.json',
+          {
+            'limit': '10',
+            'before': '1234',
+          },
+          statusCode: 401,
+        ),
+      );
+
+      expectUnauthorizedException(
+        () async => await graphs.findMutes(
+          limit: 10,
+          cursor: '1234',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        service: 'test',
+        context: context.buildGetStub(
+          'test',
+          '/xrpc/app.bsky.graph.getMutes',
+          'test/src/service/graphs/data/find_mutes.json',
+          {
+            'limit': '10',
+            'before': '1234',
+          },
+          statusCode: 429,
+        ),
+      );
+
+      expectRateLimitExceededException(
+        () async => await graphs.findMutes(
+          limit: 10,
+          cursor: '1234',
+        ),
+      );
+    });
+  });
 }

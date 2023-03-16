@@ -9,6 +9,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../bluesky_base_service.dart';
 import '../entities/followers.dart';
 import '../entities/follows.dart';
+import '../entities/mutes.dart';
 
 abstract class GraphsService {
   /// Returns the new instance of [GraphsService].
@@ -149,6 +150,27 @@ abstract class GraphsService {
   Future<core.ATProtoResponse<core.Empty>> deleteMute({
     required String actor,
   });
+
+  /// Who does the viewer mute?
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getMutes
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getMutes.json
+  Future<core.ATProtoResponse<Mutes>> findMutes({
+    int? limit,
+    String? cursor,
+  });
 }
 
 class _GraphsService extends BlueskyBaseService implements GraphsService {
@@ -245,5 +267,21 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
             'user': actor,
           },
         ),
+      );
+
+  @override
+  Future<atp.ATProtoResponse<Mutes>> findMutes({
+    int? limit,
+    String? cursor,
+  }) async =>
+      super.transformSingleDataResponse(
+        await super.get(
+          '/xrpc/app.bsky.graph.getMutes',
+          queryParameters: {
+            'limit': limit,
+            'before': cursor,
+          },
+        ),
+        dataBuilder: Mutes.fromJson,
       );
 }
