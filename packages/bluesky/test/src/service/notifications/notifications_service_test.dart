@@ -143,4 +143,59 @@ void main() {
       );
     });
   });
+
+  group('.updateNotificationsAsRead', () {
+    test('normal case', () async {
+      final notifications = NotificationsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        service: 'test',
+        context: context.buildPostStub(
+          'test',
+          '/xrpc/app.bsky.notification.updateSeen',
+          'test/src/service/notifications/data/update_notifications_as_read.json',
+        ),
+      );
+
+      final response = await notifications.updateNotificationsAsRead(
+        seenAt: DateTime.now(),
+      );
+
+      expect(response, isA<ATProtoResponse>());
+      expect(response.data, isA<Empty>());
+    });
+
+    test('when unauthorized', () async {
+      final notifications = NotificationsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        service: 'test',
+        context: context.buildPostStub(
+          'test',
+          '/xrpc/app.bsky.notification.updateSeen',
+          'test/src/service/notifications/data/update_notifications_as_read.json',
+          statusCode: 401,
+        ),
+      );
+
+      expectUnauthorizedException(
+        () async => await notifications.updateNotificationsAsRead(),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final notifications = NotificationsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        service: 'test',
+        context: context.buildPostStub(
+          'test',
+          '/xrpc/app.bsky.notification.updateSeen',
+          'test/src/service/notifications/data/update_notifications_as_read.json',
+          statusCode: 429,
+        ),
+      );
+
+      expectRateLimitExceededException(
+        () async => await notifications.updateNotificationsAsRead(),
+      );
+    });
+  });
 }
