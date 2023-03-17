@@ -5,7 +5,6 @@
 // 🌎 Project imports:
 import 'package:atproto/atproto.dart';
 import 'package:bluesky/bluesky.dart';
-import 'package:bluesky/src/service/entities/reposted_by.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
