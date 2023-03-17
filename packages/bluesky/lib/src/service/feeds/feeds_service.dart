@@ -7,7 +7,6 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../bluesky_base_service.dart';
-import '../entities/actors.dart';
 import '../entities/feeds.dart';
 import '../entities/likes.dart';
 import '../entities/reposted_by.dart';
