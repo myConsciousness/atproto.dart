@@ -191,6 +191,7 @@ Future<bsky.Session> get _session async {
 | [POST app.bsky.feed.vote](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/vote.json)                  | [deleteLike](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/deleteLike.html)             |
 | [GET app.bsky.feed.getAuthorFeed](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getAuthorFeed.json) | [findFeeds](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findFeeds.html)               |
 | [GET app.bsky.feed.getVotes](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getVotes.json)           | [findLikes](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findLikes.html)               |
+| [GET app.bsky.feed.getRepostedBy](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getRepostedBy.json) | [findRepostedBy](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findRepostedBy.html)     |
 
 ### 1.3.3. Notifications
 
