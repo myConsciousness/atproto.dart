@@ -6,6 +6,7 @@
 - Added `deleteMute` in `GraphsService`. ([#24](https://github.com/myConsciousness/atproto.dart/issues/24))
 - Added `updateNotificationsAsRead` in `NotificationsService`. ([#23](https://github.com/myConsciousness/atproto.dart/issues/23))
 - Added `findMutes` in `GraphsService`. ([#25](https://github.com/myConsciousness/atproto.dart/issues/25))
+- Added `findRepostedBy` in `GraphsService`. ([#39](https://github.com/myConsciousness/atproto.dart/issues/39))
 
 ## v0.2.4
 
