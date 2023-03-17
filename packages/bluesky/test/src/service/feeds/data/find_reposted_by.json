@@ -1,0 +1,20 @@
+{
+  "uri": "at://did:plc:nr55rexy4s2we22j56d4n46b/app.bsky.feed.post/3jr3iaggl2k2t",
+  "repostedBy": [
+    {
+      "did": "did:plc:ragtjsm2j2vknwkz3zp4oxrd",
+      "declaration": {
+        "actorType": "app.bsky.system.actorUser",
+        "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
+      },
+      "handle": "pfrazee.com",
+      "displayName": "Paul Frazee✌️",
+      "avatar": "https://cdn.bsky.social/imgproxy/gf5dEHfcUIkLi2LQFl1S0F7Gtl9jj8RoPP_kS-XA3Vg/rs:fill:1000:1000:1:0/plain/bafkreigwlore6bjbcm4gb46zh6ahfvnudhxzaeapmtro5hljjx4bfakpyy@jpeg",
+      "viewer": {
+        "muted": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqcx6citdc23"
+      }
+    }
+  ],
+  "cursor": "1679004262426::bafyreicli5xxu7lb7v564tt4viidrmc6zqbtxiux42zmevlfadu3el4bpi"
+}
