@@ -49,6 +49,7 @@ export 'package:bluesky/src/service/entities/post_ref.dart';
 export 'package:bluesky/src/service/entities/post_viewer.dart';
 export 'package:bluesky/src/service/entities/reason.dart';
 export 'package:bluesky/src/service/entities/reply.dart';
+export 'package:bluesky/src/service/entities/reposted_by.dart';
 export 'package:bluesky/src/service/entities/strong_ref.dart';
 export 'package:bluesky/src/service/entities/users.dart';
 export 'package:bluesky/src/service/feeds/feed_algorithm.dart';

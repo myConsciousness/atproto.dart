@@ -9,6 +9,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../bluesky_base_service.dart';
 import '../entities/feeds.dart';
 import '../entities/likes.dart';
+import '../entities/reposted_by.dart';
 import 'feed_algorithm.dart';
 
 abstract class FeedsService {
@@ -215,6 +216,33 @@ abstract class FeedsService {
     int? limit,
     String? cursor,
   });
+
+  /// Return the Actor who Reposted the Post of a specific [uri].
+  ///
+  /// ## Parameters
+  ///
+  /// - [uri]: The post uri.
+  ///
+  /// - [cid]: The content id.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getRepostedBy
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getRepostedBy.json
+  Future<core.ATProtoResponse<RepostedBy>> findRepostedBy({
+    required String uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+  });
 }
 
 class _FeedsService extends BlueskyBaseService implements FeedsService {
@@ -355,5 +383,25 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           },
         ),
         dataBuilder: Likes.fromJson,
+      );
+
+  @override
+  Future<atp.ATProtoResponse<RepostedBy>> findRepostedBy({
+    required String uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+  }) async =>
+      super.transformSingleDataResponse(
+        await super.get(
+          '/xrpc/app.bsky.feed.getRepostedBy',
+          queryParameters: {
+            'uri': uri,
+            'cid': cid,
+            'limit': limit,
+            'before': cursor,
+          },
+        ),
+        dataBuilder: RepostedBy.fromJson,
       );
 }
