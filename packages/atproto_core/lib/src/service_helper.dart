@@ -112,18 +112,11 @@ class ServiceHelper implements Service {
     final Map<String, dynamic> queryParameters,
   ) {
     final serializedParameters = queryParameters.map((key, value) {
-      if (value is List<Serializable>?) {
+      if (value is List?) {
         return MapEntry(
           key,
-          value?.toSet().map((e) => e.value).toList().join(','),
+          value?.map((e) => e.toString()).toList(),
         );
-      } else if (value is List<Enum>?) {
-        return MapEntry(
-          key,
-          value?.toSet().map((e) => e.name).join(','),
-        );
-      } else if (value is List?) {
-        return MapEntry(key, value?.map((e) => e.toString()).toList());
       } else if (value is Serializable) {
         return MapEntry(
           key,

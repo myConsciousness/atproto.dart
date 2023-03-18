@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.1.2
+
+- Redefined retry processing as a class and exposed it as `challenge.dart`. ([#128](https://github.com/myConsciousness/atproto.dart/issues/128))
+
 ## v0.1.1
 
 - Deleted `ATProtoResponse<List> transformMultiDataResponse<D>` from `BaseService`. ([#112](https://github.com/myConsciousness/atproto.dart/issues/112))
