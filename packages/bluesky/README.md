@@ -172,12 +172,13 @@ Future<bsky.Session> get _session async {
 
 ### 1.3.1. Actors
 
-| **Lexicon**                                                                                                                          | **Method Name**                                                                                            |
-| ------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
-| [GET app.bsky.actor.search](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/search.json)                 | [searchActors](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/searchActors.html)       |
-| [GET app.bsky.actor.getProfile](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfile.json)         | [findProfile](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/findProfile.html)         |
-| [GET app.bsky.actor.getProfiles](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfiles.json)       | [findProfiles](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/findProfiles.html)       |
-| [GET app.bsky.actor.getSuggestions](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getSuggestions.json) | [findSuggestions](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/findSuggestions.html) |
+| **Lexicon**                                                                                                                                 | **Method Name**                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| [GET app.bsky.actor.search](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/search.json)                        | [searchActors](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/searchActors.html)                 |
+| [GET app.bsky.actor.getProfile](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfile.json)                | [findProfile](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/findProfile.html)                   |
+| [GET app.bsky.actor.getProfiles](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfiles.json)              | [findProfiles](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/findProfiles.html)                 |
+| [GET app.bsky.actor.getSuggestions](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getSuggestions.json)        | [findSuggestions](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/findSuggestions.html)           |
+| [GET app.bsky.actor.searchActorTypeahead](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/searchTypeahead.json) | [searchActorTypeahead](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/searchActorTypeahead.html) |
 
 ### 1.3.2. Feeds
 
