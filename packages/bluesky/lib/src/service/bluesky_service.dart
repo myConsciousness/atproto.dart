@@ -10,6 +10,7 @@ import 'actors/actors_service.dart';
 import 'feeds/feeds_service.dart';
 import 'graphs/graphs_service.dart';
 import 'notifications/notifications_service.dart';
+import 'unspecced/unspecced_service.dart';
 
 abstract class BlueskyService {
   /// Returns the new instance of [BlueskyService].
@@ -35,6 +36,9 @@ abstract class BlueskyService {
 
   /// Returns the graphs service.
   GraphsService get graphs;
+
+  /// Returns the unspecced service.
+  UnspeccedService get unspecced;
 }
 
 class _BlueskyService implements BlueskyService {
@@ -62,6 +66,11 @@ class _BlueskyService implements BlueskyService {
           atproto: atproto,
           service: service,
           context: context,
+        ),
+        unspecced = UnspeccedService(
+          atproto: atproto,
+          service: service,
+          context: context,
         );
 
   @override
@@ -75,4 +84,7 @@ class _BlueskyService implements BlueskyService {
 
   @override
   final GraphsService graphs;
+
+  @override
+  final UnspeccedService unspecced;
 }
