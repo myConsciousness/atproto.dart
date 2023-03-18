@@ -9,6 +9,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../bluesky_base_service.dart';
 import '../entities/actor_profile.dart';
 import '../entities/actor_profiles.dart';
+import '../entities/actor_typeahead.dart';
 import '../entities/actors.dart';
 import '../entities/users.dart';
 
@@ -103,6 +104,11 @@ abstract class ActorsService {
     int? limit,
     String? cursor,
   });
+
+  Future<core.ATProtoResponse<ActorTypeahead>> searchActorTypeahead({
+    required String term,
+    int? limit,
+  });
 }
 
 class _ActorsService extends BlueskyBaseService implements ActorsService {
@@ -173,5 +179,21 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
           },
         ),
         dataBuilder: Actors.fromJson,
+      );
+
+  @override
+  Future<atp.ATProtoResponse<ActorTypeahead>> searchActorTypeahead({
+    required String term,
+    int? limit,
+  }) async =>
+      super.transformSingleDataResponse(
+        await super.get(
+          '/xrpc/app.bsky.actor.searchTypeahead',
+          queryParameters: {
+            'term': term,
+            'limit': limit,
+          },
+        ),
+        dataBuilder: ActorTypeahead.fromJson,
       );
 }
