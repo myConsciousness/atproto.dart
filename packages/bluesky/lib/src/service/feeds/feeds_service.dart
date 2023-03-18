@@ -7,10 +7,10 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../bluesky_base_service.dart';
-import '../entities/feeds.dart';
-import '../entities/likes.dart';
-import '../entities/post_threads.dart';
-import '../entities/reposted_by.dart';
+import '../entities/feeds_data.dart';
+import '../entities/likes_data.dart';
+import '../entities/post_thread_data.dart';
+import '../entities/reposted_by_data.dart';
 import 'feed_algorithm.dart';
 
 abstract class FeedsService {
@@ -118,7 +118,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json
-  Future<core.ATProtoResponse<Feeds>> findHomeTimeline({
+  Future<core.ATProtoResponse<FeedsData>> findHomeTimeline({
     FeedAlgorithm? algorithm,
     int? limit,
     String? cursor,
@@ -185,7 +185,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getAuthorFeed.json
-  Future<core.ATProtoResponse<Feeds>> findFeeds({
+  Future<core.ATProtoResponse<FeedsData>> findFeeds({
     required String author,
     int? limit,
     String? cursor,
@@ -211,7 +211,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getVotes.json
-  Future<core.ATProtoResponse<Likes>> findLikes({
+  Future<core.ATProtoResponse<LikesData>> findLikes({
     required String uri,
     String? cid,
     int? limit,
@@ -238,7 +238,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getRepostedBy.json
-  Future<core.ATProtoResponse<RepostedBy>> findRepostedBy({
+  Future<core.ATProtoResponse<RepostedByData>> findRepostedBy({
     required String uri,
     String? cid,
     int? limit,
@@ -260,7 +260,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getPostThread.json
-  Future<core.ATProtoResponse<PostThreads>> findPostThread({
+  Future<core.ATProtoResponse<PostThreadData>> findPostThread({
     required String uri,
     int? depth,
   });
@@ -297,7 +297,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.ATProtoResponse<Feeds>> findHomeTimeline({
+  Future<core.ATProtoResponse<FeedsData>> findHomeTimeline({
     FeedAlgorithm? algorithm,
     int? limit,
     String? cursor,
@@ -311,7 +311,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
             'before': cursor,
           },
         ),
-        dataBuilder: Feeds.fromJson,
+        dataBuilder: FeedsData.fromJson,
       );
 
   @override
@@ -368,7 +368,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<atp.ATProtoResponse<Feeds>> findFeeds({
+  Future<atp.ATProtoResponse<FeedsData>> findFeeds({
     required String author,
     int? limit,
     String? cursor,
@@ -382,11 +382,11 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
             'before': cursor,
           },
         ),
-        dataBuilder: Feeds.fromJson,
+        dataBuilder: FeedsData.fromJson,
       );
 
   @override
-  Future<atp.ATProtoResponse<Likes>> findLikes({
+  Future<atp.ATProtoResponse<LikesData>> findLikes({
     required String uri,
     String? cid,
     int? limit,
@@ -403,11 +403,11 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
             'before': cursor,
           },
         ),
-        dataBuilder: Likes.fromJson,
+        dataBuilder: LikesData.fromJson,
       );
 
   @override
-  Future<atp.ATProtoResponse<RepostedBy>> findRepostedBy({
+  Future<atp.ATProtoResponse<RepostedByData>> findRepostedBy({
     required String uri,
     String? cid,
     int? limit,
@@ -423,11 +423,11 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
             'before': cursor,
           },
         ),
-        dataBuilder: RepostedBy.fromJson,
+        dataBuilder: RepostedByData.fromJson,
       );
 
   @override
-  Future<atp.ATProtoResponse<PostThreads>> findPostThread({
+  Future<atp.ATProtoResponse<PostThreadData>> findPostThread({
     required String uri,
     int? depth,
   }) async =>
@@ -439,6 +439,6 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
             'depth': depth,
           },
         ),
-        dataBuilder: PostThreads.fromJson,
+        dataBuilder: PostThreadData.fromJson,
       );
 }

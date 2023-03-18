@@ -6,10 +6,10 @@
 import 'package:atproto/atproto.dart';
 import 'package:bluesky/src/service/actors/actors_service.dart';
 import 'package:bluesky/src/service/entities/actor_profile.dart';
-import 'package:bluesky/src/service/entities/actor_profiles.dart';
-import 'package:bluesky/src/service/entities/actor_typeahead.dart';
-import 'package:bluesky/src/service/entities/actors.dart';
-import 'package:bluesky/src/service/entities/users.dart';
+import 'package:bluesky/src/service/entities/actor_profiles_data.dart';
+import 'package:bluesky/src/service/entities/actor_typeahead_data.dart';
+import 'package:bluesky/src/service/entities/actors_data.dart';
+import 'package:bluesky/src/service/entities/users_data.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
@@ -41,7 +41,7 @@ void main() {
       );
 
       expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<Users>());
+      expect(response.data, isA<UsersData>());
     });
 
     test('when unauthorized', () async {
@@ -191,7 +191,7 @@ void main() {
       );
 
       expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<ActorProfiles>());
+      expect(response.data, isA<ActorProfilesData>());
     });
 
     test('when unauthorized', () async {
@@ -270,7 +270,7 @@ void main() {
       final response = await actors.findSuggestions(limit: 10, cursor: '1234');
 
       expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<Actors>());
+      expect(response.data, isA<ActorsData>());
     });
 
     test('when unauthorized', () async {
@@ -338,7 +338,7 @@ void main() {
       );
 
       expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<ActorTypeahead>());
+      expect(response.data, isA<ActorTypeaheadData>());
     });
 
     test('when unauthorized', () async {

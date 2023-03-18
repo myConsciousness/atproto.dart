@@ -4,7 +4,7 @@
 
 // 🌎 Project imports:
 import 'package:atproto/atproto.dart';
-import 'package:bluesky/src/service/entities/feeds.dart';
+import 'package:bluesky/src/service/entities/feeds_data.dart';
 import 'package:bluesky/src/service/unspecced/unspecced_service.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
@@ -35,7 +35,7 @@ void main() {
       );
 
       expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<Feeds>());
+      expect(response.data, isA<FeedsData>());
     });
 
     test('when unauthorized', () async {

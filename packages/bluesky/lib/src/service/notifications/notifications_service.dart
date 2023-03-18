@@ -7,8 +7,8 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../bluesky_base_service.dart';
-import '../entities/count.dart';
-import '../entities/notifications.dart';
+import '../entities/count_data.dart';
+import '../entities/notifications_data.dart';
 
 abstract class NotificationsService {
   /// Returns the new instance of [NotificationsService].
@@ -39,7 +39,7 @@ abstract class NotificationsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/list.json
-  Future<core.ATProtoResponse<Notifications>> findNotifications({
+  Future<core.ATProtoResponse<NotificationsData>> findNotifications({
     int? limit,
     String? cursor,
   });
@@ -53,7 +53,7 @@ abstract class NotificationsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/getCount.json
-  Future<core.ATProtoResponse<Count>> findUnreadCount();
+  Future<core.ATProtoResponse<CountData>> findUnreadCount();
 
   /// Notify server that the user has seen notifications.
   ///
@@ -84,7 +84,7 @@ class _NotificationsService extends BlueskyBaseService
   });
 
   @override
-  Future<core.ATProtoResponse<Notifications>> findNotifications({
+  Future<core.ATProtoResponse<NotificationsData>> findNotifications({
     int? limit,
     String? cursor,
   }) async =>
@@ -96,16 +96,16 @@ class _NotificationsService extends BlueskyBaseService
             'cursor': cursor,
           },
         ),
-        dataBuilder: Notifications.fromJson,
+        dataBuilder: NotificationsData.fromJson,
       );
 
   @override
-  Future<core.ATProtoResponse<Count>> findUnreadCount() async =>
+  Future<core.ATProtoResponse<CountData>> findUnreadCount() async =>
       super.transformSingleDataResponse(
         await super.get(
           '/xrpc/app.bsky.notification.getCount',
         ),
-        dataBuilder: Count.fromJson,
+        dataBuilder: CountData.fromJson,
       );
 
   @override

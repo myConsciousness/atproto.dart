@@ -7,9 +7,9 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../bluesky_base_service.dart';
-import '../entities/followers.dart';
-import '../entities/follows.dart';
-import '../entities/mutes.dart';
+import '../entities/followers_data.dart';
+import '../entities/follows_data.dart';
+import '../entities/mutes_data.dart';
 
 abstract class GraphsService {
   /// Returns the new instance of [GraphsService].
@@ -86,7 +86,7 @@ abstract class GraphsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollows.json
-  Future<core.ATProtoResponse<Follows>> findFollows({
+  Future<core.ATProtoResponse<FollowsData>> findFollows({
     required String actor,
     int? limit,
     String? cursor,
@@ -111,7 +111,7 @@ abstract class GraphsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollowers.json
-  Future<core.ATProtoResponse<Followers>> findFollowers({
+  Future<core.ATProtoResponse<FollowersData>> findFollowers({
     required String actor,
     int? limit,
     String? cursor,
@@ -167,7 +167,7 @@ abstract class GraphsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getMutes.json
-  Future<core.ATProtoResponse<Mutes>> findMutes({
+  Future<core.ATProtoResponse<MutesData>> findMutes({
     int? limit,
     String? cursor,
   });
@@ -208,7 +208,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       );
 
   @override
-  Future<atp.ATProtoResponse<Follows>> findFollows({
+  Future<atp.ATProtoResponse<FollowsData>> findFollows({
     required String actor,
     int? limit,
     String? cursor,
@@ -222,11 +222,11 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
             'before': cursor,
           },
         ),
-        dataBuilder: Follows.fromJson,
+        dataBuilder: FollowsData.fromJson,
       );
 
   @override
-  Future<atp.ATProtoResponse<Followers>> findFollowers({
+  Future<atp.ATProtoResponse<FollowersData>> findFollowers({
     required String actor,
     int? limit,
     String? cursor,
@@ -240,7 +240,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
             'before': cursor,
           },
         ),
-        dataBuilder: Followers.fromJson,
+        dataBuilder: FollowersData.fromJson,
       );
 
   @override
@@ -270,7 +270,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       );
 
   @override
-  Future<atp.ATProtoResponse<Mutes>> findMutes({
+  Future<atp.ATProtoResponse<MutesData>> findMutes({
     int? limit,
     String? cursor,
   }) async =>
@@ -282,6 +282,6 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
             'before': cursor,
           },
         ),
-        dataBuilder: Mutes.fromJson,
+        dataBuilder: MutesData.fromJson,
       );
 }
