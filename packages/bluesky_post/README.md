@@ -12,10 +12,10 @@ This action is implemented in the Dart language and uses [bluesky](https://githu
 
 ## Workflow Usage
 
-Configure your workflow to use `myConsciousness/bluesky-post@v1`,
+Configure your workflow to use `myConsciousness/bluesky-post@v2`,
 and provide the post you want to send as the `text` input.
 
-Provide Bluesky's ATP server with `handle` and `password` to create a session.
+Provide Bluesky's PDS server with `handle` and `password` to create a session.
 
 For example:
 
@@ -29,7 +29,7 @@ jobs:
   post:
     runs-on: ubuntu-latest
     steps:
-      - uses: myConsciousness/bluesky-post@v1
+      - uses: myConsciousness/bluesky-post@v2
         with:
           text: "Hello, Bluesky!"
           handle: ${{ secrets.BLUESKY_HANDLE }}
@@ -39,9 +39,35 @@ jobs:
 Now whenever you push something to your repository, GitHub Actions
 will post to Bluesky on your behalf.
 
+## Specify Authority
+
+Bluesky Social is a distributed microservice.
+So you may possibly want to post to a PDS server other than `bsky.social`.
+
+In that case, set the `service` parameter to the authority you wish to post as follows.
+If the `service` parameter is omitted, the default is `bsky.social`.
+
+```yml
+name: Send Bluesky Post
+
+on:
+    [push]
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: myConsciousness/bluesky-post@v2
+        with:
+          text: "Hello, Bluesky!"
+          handle: ${{ secrets.BLUESKY_HANDLE }}
+          password: ${{ secrets.BLUESKY_PASSWORD }}
+          service: "boobee.blue"
+```
+
 ## More Information
 
-**bluesky-post** was designed and implemented by **_Kato Shinya ([@myConsciousness](https://github.com/myConsciousness))_**.
+**bluesky_post** was designed and implemented by **_Kato Shinya ([@myConsciousness](https://github.com/myConsciousness))_**.
 
 - [Creator Profile](https://github.com/myConsciousness)
 - [License](https://github.com/myConsciousness/atproto.dart/blob/main/LICENSE)
