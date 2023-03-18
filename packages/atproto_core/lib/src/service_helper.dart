@@ -10,6 +10,7 @@ import 'package:http/http.dart' as http;
 
 // 🌎 Project imports:
 import 'client/client_context.dart';
+import 'serializable.dart';
 
 abstract class Service {
   Future<http.Response> get(
@@ -111,13 +112,16 @@ class ServiceHelper implements Service {
     final Map<String, dynamic> queryParameters,
   ) {
     final serializedParameters = queryParameters.map((key, value) {
-      if (value is List<Enum>?) {
+      if (value is List?) {
         return MapEntry(
           key,
-          value?.toSet().map((e) => e.name).join(','),
+          value?.map((e) => e.toString()).toList(),
         );
-      } else if (value is List?) {
-        return MapEntry(key, value?.map((e) => e.toString()).toList());
+      } else if (value is Serializable) {
+        return MapEntry(
+          key,
+          value.value,
+        );
       }
 
       return MapEntry(key, value.toString());
