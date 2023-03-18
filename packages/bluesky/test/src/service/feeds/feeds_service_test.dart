@@ -36,7 +36,7 @@ void main() {
       );
 
       expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<Feeds>());
+      expect(response.data, isA<FeedsData>());
     });
 
     test('when unauthorized', () async {
@@ -604,7 +604,7 @@ void main() {
       );
 
       expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<Feeds>());
+      expect(response.data, isA<FeedsData>());
     });
 
     test('when unauthorized', () async {
@@ -687,7 +687,7 @@ void main() {
       );
 
       expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<Likes>());
+      expect(response.data, isA<LikesData>());
     });
 
     test('when unauthorized', () async {
@@ -775,7 +775,7 @@ void main() {
       );
 
       expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<RepostedBy>());
+      expect(response.data, isA<RepostedByData>());
     });
 
     test('when unauthorized', () async {
@@ -857,7 +857,7 @@ void main() {
       );
 
       expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<PostThreads>());
+      expect(response.data, isA<PostThreadData>());
     });
 
     test('when unauthorized', () async {

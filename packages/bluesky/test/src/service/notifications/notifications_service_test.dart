@@ -4,8 +4,8 @@
 
 // 🌎 Project imports:
 import 'package:atproto/atproto.dart';
-import 'package:bluesky/src/service/entities/count.dart';
-import 'package:bluesky/src/service/entities/notifications.dart';
+import 'package:bluesky/src/service/entities/count_data.dart';
+import 'package:bluesky/src/service/entities/notifications_data.dart';
 import 'package:bluesky/src/service/notifications/notifications_service.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
@@ -36,7 +36,7 @@ void main() {
       );
 
       expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<Notifications>());
+      expect(response.data, isA<NotificationsData>());
     });
 
     test('when unauthorized', () async {
@@ -104,7 +104,7 @@ void main() {
       final response = await notifications.findUnreadCount();
 
       expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<Count>());
+      expect(response.data, isA<CountData>());
     });
 
     test('when unauthorized', () async {

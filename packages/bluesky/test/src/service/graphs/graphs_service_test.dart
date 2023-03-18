@@ -200,7 +200,7 @@ void main() {
       );
 
       expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<Follows>());
+      expect(response.data, isA<FollowsData>());
     });
 
     test('when unauthorized', () async {
@@ -280,7 +280,7 @@ void main() {
       );
 
       expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<Followers>());
+      expect(response.data, isA<FollowersData>());
     });
 
     test('when unauthorized', () async {
@@ -500,7 +500,7 @@ void main() {
       );
 
       expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<Mutes>());
+      expect(response.data, isA<MutesData>());
     });
 
     test('when unauthorized', () async {
