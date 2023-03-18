@@ -8,6 +8,7 @@
 - Added `findMutes` in `GraphsService`. ([#25](https://github.com/myConsciousness/atproto.dart/issues/25))
 - Added `findRepostedBy` in `FeedsService`. ([#39](https://github.com/myConsciousness/atproto.dart/issues/39))
 - Added `UnspeccedService` and `findPopularFeeds`. ([#117](https://github.com/myConsciousness/atproto.dart/issues/117))
+- Added `findPostThread` in `FeedsService`. ([#38](https://github.com/myConsciousness/atproto.dart/issues/38))
 
 ## v0.2.4
 

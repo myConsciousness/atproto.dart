@@ -46,6 +46,8 @@ export 'package:bluesky/src/service/entities/notifications.dart';
 export 'package:bluesky/src/service/entities/post.dart';
 export 'package:bluesky/src/service/entities/post_record.dart';
 export 'package:bluesky/src/service/entities/post_ref.dart';
+export 'package:bluesky/src/service/entities/post_thread.dart';
+export 'package:bluesky/src/service/entities/post_threads.dart';
 export 'package:bluesky/src/service/entities/post_viewer.dart';
 export 'package:bluesky/src/service/entities/reason.dart';
 export 'package:bluesky/src/service/entities/reply.dart';

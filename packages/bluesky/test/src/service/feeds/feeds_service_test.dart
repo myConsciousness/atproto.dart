@@ -834,4 +834,78 @@ void main() {
       );
     });
   });
+
+  group('.findPostThread', () {
+    test('normal case', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        service: 'test',
+        context: context.buildGetStub(
+          'test',
+          '/xrpc/app.bsky.feed.getPostThread',
+          'test/src/service/feeds/data/find_post_thread.json',
+          {
+            'uri': 'at://xxxx',
+            'depth': '5',
+          },
+        ),
+      );
+
+      final response = await feeds.findPostThread(
+        uri: 'at://xxxx',
+        depth: 5,
+      );
+
+      expect(response, isA<ATProtoResponse>());
+      expect(response.data, isA<PostThreads>());
+    });
+
+    test('when unauthorized', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        service: 'test',
+        context: context.buildGetStub(
+          'test',
+          '/xrpc/app.bsky.feed.getPostThread',
+          'test/src/service/feeds/data/find_post_thread.json',
+          {
+            'uri': 'at://xxxx',
+            'depth': '5',
+          },
+          statusCode: 401,
+        ),
+      );
+
+      expectUnauthorizedException(
+        () async => await feeds.findPostThread(
+          uri: 'at://xxxx',
+          depth: 5,
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        service: 'test',
+        context: context.buildGetStub(
+          'test',
+          '/xrpc/app.bsky.feed.getPostThread',
+          'test/src/service/feeds/data/find_post_thread.json',
+          {
+            'uri': 'at://xxxx',
+            'depth': '5',
+          },
+          statusCode: 429,
+        ),
+      );
+
+      expectRateLimitExceededException(
+        () async => await feeds.findPostThread(
+          uri: 'at://xxxx',
+          depth: 5,
+        ),
+      );
+    });
+  });
 }
