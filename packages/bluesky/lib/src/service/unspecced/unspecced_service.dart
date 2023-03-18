@@ -22,6 +22,22 @@ abstract class UnspeccedService {
         context: context,
       );
 
+  /// An unspecced view of globally popular items.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.unspecced.getPopular
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopular.json
   Future<core.ATProtoResponse<Feeds>> findPopularFeeds({
     int? limit,
     String? cursor,
