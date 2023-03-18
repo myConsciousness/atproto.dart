@@ -7,12 +7,16 @@ inputs:
   handle:
     description: >
       Handle name of the user who logs into Bluesky.
-      This information is used by the ATP server to establish a session.
+      This information is used by the PDS server to establish a session.
       For example, "shinyakato.bsky.social".
   password:
     description: >
       Password of the user who logs into Bluesky.
-      This information is used by the ATP server to establish a session.
+      This information is used by the PDS server to establish a session.
+  service:
+    description: >
+      Specify the authority of the PDS server to which you wish to post.
+      If omitted, it will always be "bsky.social".
 
 runs:
   using: "docker"
