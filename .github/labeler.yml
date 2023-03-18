@@ -40,6 +40,8 @@ bsky/lexicon/notifications:
 - packages/bluesky/lib/src/service/notifications/*.dart
 bsky/lexicon/systems:
 - packages/bluesky/lib/src/service/systems/*.dart
+bsky/lexicon/unspecced:
+- packages/bluesky/lib/src/service/unspecced/*.dart
 
 test:
 - packages/atproto_core/test/**/*.dart
