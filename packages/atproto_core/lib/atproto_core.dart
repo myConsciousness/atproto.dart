@@ -18,5 +18,6 @@ export 'package:atproto_core/src/http_method.dart';
 export 'package:atproto_core/src/http_status.dart';
 export 'package:atproto_core/src/response/atproto_request.dart';
 export 'package:atproto_core/src/response/atproto_response.dart';
+export 'package:atproto_core/src/serializable.dart';
 export 'package:atproto_core/src/service_helper.dart';
 export 'package:atproto_core/src/util/json_utils.dart';
