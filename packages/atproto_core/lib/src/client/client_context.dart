@@ -7,10 +7,10 @@ import 'dart:async';
 
 // 📦 Package imports:
 import 'package:http/http.dart' as http;
-import 'package:universal_io/io.dart';
 
 // 🌎 Project imports:
 import '../config/retry_config.dart';
+import 'challenge.dart';
 import 'client.dart';
 import 'retry_policy.dart';
 
@@ -45,12 +45,15 @@ class _ClientContext implements ClientContext {
     required this.timeout,
     RetryConfig? retryConfig,
   })  : _client = Client(accessJwt),
-        _retryPolicy = RetryPolicy(retryConfig);
+        _challenge = Challenge(
+          RetryPolicy(retryConfig),
+        );
 
+  /// The client
   final Client _client;
 
-  /// The policy of retry.
-  final RetryPolicy _retryPolicy;
+  /// The communication challenge for client
+  final Challenge _challenge;
 
   /// The timeout
   final Duration timeout;
@@ -60,7 +63,7 @@ class _ClientContext implements ClientContext {
     Uri uri, {
     Map<String, String> headers = const {},
   }) async =>
-      await _challengeWithRetryIfNecessary(
+      await _challenge.execute(
         _client,
         (client) async => await client.get(
           uri,
@@ -75,7 +78,7 @@ class _ClientContext implements ClientContext {
     Map<String, String> headers = const {},
     dynamic body,
   }) async =>
-      await _challengeWithRetryIfNecessary(
+      await _challenge.execute(
         _client,
         (client) async => await client.post(
           uri,
@@ -84,48 +87,4 @@ class _ClientContext implements ClientContext {
           timeout: timeout,
         ),
       );
-
-  dynamic _challengeWithRetryIfNecessary(
-    final Client client,
-    final dynamic Function(Client client) challenge, {
-    int retryCount = 0,
-  }) async {
-    try {
-      final response = await challenge.call(client);
-
-      if (response.statusCode == 500 || response.statusCode == 503) {
-        if (_retryPolicy.shouldRetry(retryCount)) {
-          return await _retry(client, challenge, retryCount: ++retryCount);
-        }
-      }
-
-      return response;
-    } on SocketException {
-      if (_retryPolicy.shouldRetry(retryCount)) {
-        return await _retry(client, challenge, retryCount: ++retryCount);
-      }
-
-      rethrow;
-    } on TimeoutException {
-      if (_retryPolicy.shouldRetry(retryCount)) {
-        return await _retry(client, challenge, retryCount: ++retryCount);
-      }
-
-      rethrow;
-    }
-  }
-
-  dynamic _retry(
-    final Client client,
-    final dynamic Function(Client client) challenge, {
-    int retryCount = 0,
-  }) async {
-    await _retryPolicy.wait(retryCount);
-
-    return await _challengeWithRetryIfNecessary(
-      client,
-      challenge,
-      retryCount: retryCount,
-    );
-  }
 }

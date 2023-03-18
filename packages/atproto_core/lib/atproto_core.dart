@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 export 'package:atproto_core/src/base_service.dart';
+export 'package:atproto_core/src/client/challenge.dart';
 export 'package:atproto_core/src/client/client_context.dart';
 export 'package:atproto_core/src/client/jitter.dart';
 export 'package:atproto_core/src/client/retry_event.dart';
@@ -17,6 +18,5 @@ export 'package:atproto_core/src/http_method.dart';
 export 'package:atproto_core/src/http_status.dart';
 export 'package:atproto_core/src/response/atproto_request.dart';
 export 'package:atproto_core/src/response/atproto_response.dart';
-export 'package:atproto_core/src/serializable.dart';
 export 'package:atproto_core/src/service_helper.dart';
 export 'package:atproto_core/src/util/json_utils.dart';
