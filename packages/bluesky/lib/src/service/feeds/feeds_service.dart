@@ -9,6 +9,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../bluesky_base_service.dart';
 import '../entities/feeds.dart';
 import '../entities/likes.dart';
+import '../entities/post_threads.dart';
 import '../entities/reposted_by.dart';
 import 'feed_algorithm.dart';
 
@@ -243,6 +244,26 @@ abstract class FeedsService {
     int? limit,
     String? cursor,
   });
+
+  /// Returns a thread in specific post.
+  ///
+  /// ## Parameters
+  ///
+  /// - [uri]: The uri of root post.
+  ///
+  /// - [depth]: Depth of thread to be retrieved.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getPostThread
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getPostThread.json
+  Future<core.ATProtoResponse<PostThreads>> findPostThread({
+    required String uri,
+    int? depth,
+  });
 }
 
 class _FeedsService extends BlueskyBaseService implements FeedsService {
@@ -403,5 +424,21 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           },
         ),
         dataBuilder: RepostedBy.fromJson,
+      );
+
+  @override
+  Future<atp.ATProtoResponse<PostThreads>> findPostThread({
+    required String uri,
+    int? depth,
+  }) async =>
+      super.transformSingleDataResponse(
+        await super.get(
+          '/xrpc/app.bsky.feed.getPostThread',
+          queryParameters: {
+            'uri': uri,
+            'depth': depth,
+          },
+        ),
+        dataBuilder: PostThreads.fromJson,
       );
 }
