@@ -7,6 +7,7 @@ import 'package:atproto/atproto.dart';
 import 'package:bluesky/src/service/actors/actors_service.dart';
 import 'package:bluesky/src/service/entities/actor_profile.dart';
 import 'package:bluesky/src/service/entities/actor_profiles.dart';
+import 'package:bluesky/src/service/entities/actor_typeahead.dart';
 import 'package:bluesky/src/service/entities/actors.dart';
 import 'package:bluesky/src/service/entities/users.dart';
 // 📦 Package imports:
@@ -311,6 +312,80 @@ void main() {
 
       expectRateLimitExceededException(
         () async => await actors.findSuggestions(limit: 10, cursor: '1234'),
+      );
+    });
+  });
+
+  group('.searchActorTypeahead', () {
+    test('normal case', () async {
+      final actors = ActorsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        service: 'test',
+        context: context.buildGetStub(
+          'test',
+          '/xrpc/app.bsky.actor.searchTypeahead',
+          'test/src/service/actors/data/search_actor_typeahead.json',
+          {
+            'term': 'test',
+            'limit': '10',
+          },
+        ),
+      );
+
+      final response = await actors.searchActorTypeahead(
+        term: 'test',
+        limit: 10,
+      );
+
+      expect(response, isA<ATProtoResponse>());
+      expect(response.data, isA<ActorTypeahead>());
+    });
+
+    test('when unauthorized', () async {
+      final actors = ActorsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        service: 'test',
+        context: context.buildGetStub(
+          'test',
+          '/xrpc/app.bsky.actor.searchTypeahead',
+          'test/src/service/actors/data/search_actor_typeahead.json',
+          {
+            'term': 'test',
+            'limit': '10',
+          },
+          statusCode: 401,
+        ),
+      );
+
+      expectUnauthorizedException(
+        () async => await actors.searchActorTypeahead(
+          term: 'test',
+          limit: 10,
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final actors = ActorsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        service: 'test',
+        context: context.buildGetStub(
+          'test',
+          '/xrpc/app.bsky.actor.searchTypeahead',
+          'test/src/service/actors/data/search_actor_typeahead.json',
+          {
+            'term': 'test',
+            'limit': '10',
+          },
+          statusCode: 429,
+        ),
+      );
+
+      expectRateLimitExceededException(
+        () async => await actors.searchActorTypeahead(
+          term: 'test',
+          limit: 10,
+        ),
       );
     });
   });
