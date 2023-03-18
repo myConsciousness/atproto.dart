@@ -41,6 +41,7 @@
     - [1.3.2. Feeds](#132-feeds)
     - [1.3.3. Notifications](#133-notifications)
     - [1.3.4. Graphs](#134-graphs)
+    - [1.3.5. Unspecced](#135-unspecced)
   - [1.4. Tips 🏄](#14-tips-)
     - [1.4.1. Method Names](#141-method-names)
     - [1.4.2. Create Session](#142-create-session)
@@ -212,6 +213,12 @@ Future<bsky.Session> get _session async {
 | [POST app.bsky.graph.mute](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/mute.json)                | [createMute](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createMute.html)       |
 | [POST app.bsky.graph.unmute](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/unmute.json)            | [deleteMute](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/deleteMute.html)       |
 | [GET app.bsky.graph.getMutes](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getMutes.json)         | [findMutes](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/findMutes.html)         |
+
+### 1.3.5. Unspecced
+
+| **Lexicon**                                                                                                                          | **Method Name**                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| [GET app.bsky.unspecced.getPopular](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopular.json) | [findPopularFeeds](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/findPopularFeeds.html) |
 
 ## 1.4. Tips 🏄
 
