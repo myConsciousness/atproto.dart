@@ -6,8 +6,8 @@
 import 'package:atproto/atproto.dart';
 import 'package:bluesky/src/service/actors/actors_service.dart';
 import 'package:bluesky/src/service/entities/actor_profile.dart';
-import 'package:bluesky/src/service/entities/actor_profiles.dart';
-import 'package:bluesky/src/service/entities/actor_typeahead.dart';
+import 'package:bluesky/src/service/entities/actor_profiles_data.dart';
+import 'package:bluesky/src/service/entities/actor_typeahead_data.dart';
 import 'package:bluesky/src/service/entities/actors_data.dart';
 import 'package:bluesky/src/service/entities/users_data.dart';
 // 📦 Package imports:
@@ -191,7 +191,7 @@ void main() {
       );
 
       expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<ActorProfiles>());
+      expect(response.data, isA<ActorProfilesData>());
     });
 
     test('when unauthorized', () async {
@@ -338,7 +338,7 @@ void main() {
       );
 
       expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<ActorTypeahead>());
+      expect(response.data, isA<ActorTypeaheadData>());
     });
 
     test('when unauthorized', () async {

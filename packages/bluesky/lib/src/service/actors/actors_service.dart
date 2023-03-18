@@ -8,8 +8,8 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../bluesky_base_service.dart';
 import '../entities/actor_profile.dart';
-import '../entities/actor_profiles.dart';
-import '../entities/actor_typeahead.dart';
+import '../entities/actor_profiles_data.dart';
+import '../entities/actor_typeahead_data.dart';
 import '../entities/actors_data.dart';
 import '../entities/users_data.dart';
 
@@ -80,7 +80,7 @@ abstract class ActorsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfiles.json
-  Future<core.ATProtoResponse<ActorProfiles>> findProfiles({
+  Future<core.ATProtoResponse<ActorProfilesData>> findProfiles({
     required List<String> actors,
   });
 
@@ -105,7 +105,7 @@ abstract class ActorsService {
     String? cursor,
   });
 
-  Future<core.ATProtoResponse<ActorTypeahead>> searchActorTypeahead({
+  Future<core.ATProtoResponse<ActorTypeaheadData>> searchActorTypeahead({
     required String term,
     int? limit,
   });
@@ -152,7 +152,7 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
       );
 
   @override
-  Future<core.ATProtoResponse<ActorProfiles>> findProfiles({
+  Future<core.ATProtoResponse<ActorProfilesData>> findProfiles({
     required List<String> actors,
   }) async =>
       super.transformSingleDataResponse(
@@ -162,7 +162,7 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
             'actors': actors,
           },
         ),
-        dataBuilder: ActorProfiles.fromJson,
+        dataBuilder: ActorProfilesData.fromJson,
       );
 
   @override
@@ -182,7 +182,7 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
       );
 
   @override
-  Future<atp.ATProtoResponse<ActorTypeahead>> searchActorTypeahead({
+  Future<atp.ATProtoResponse<ActorTypeaheadData>> searchActorTypeahead({
     required String term,
     int? limit,
   }) async =>
@@ -194,6 +194,6 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
             'limit': limit,
           },
         ),
-        dataBuilder: ActorTypeahead.fromJson,
+        dataBuilder: ActorTypeaheadData.fromJson,
       );
 }

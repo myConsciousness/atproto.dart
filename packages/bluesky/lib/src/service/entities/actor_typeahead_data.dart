@@ -7,15 +7,15 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'actor.dart';
 
-part 'actor_typeahead.freezed.dart';
-part 'actor_typeahead.g.dart';
+part 'actor_typeahead_data.freezed.dart';
+part 'actor_typeahead_data.g.dart';
 
 @freezed
-class ActorTypeahead with _$ActorTypeahead {
-  const factory ActorTypeahead({
+class ActorTypeaheadData with _$ActorTypeaheadData {
+  const factory ActorTypeaheadData({
     @JsonKey(name: 'users') required List<Actor> actors,
-  }) = _ActorTypeahead;
+  }) = _ActorTypeaheadData;
 
-  factory ActorTypeahead.fromJson(Map<String, Object?> json) =>
-      _$ActorTypeaheadFromJson(json);
+  factory ActorTypeaheadData.fromJson(Map<String, Object?> json) =>
+      _$ActorTypeaheadDataFromJson(json);
 }

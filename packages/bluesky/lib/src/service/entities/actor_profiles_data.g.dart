@@ -2,17 +2,17 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'actor_profiles.dart';
+part of 'actor_profiles_data.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ActorProfiles _$$_ActorProfilesFromJson(Map json) => $checkedCreate(
-      r'_$_ActorProfiles',
+_$_ActorProfilesData _$$_ActorProfilesDataFromJson(Map json) => $checkedCreate(
+      r'_$_ActorProfilesData',
       json,
       ($checkedConvert) {
-        final val = _$_ActorProfiles(
+        final val = _$_ActorProfilesData(
           profiles: $checkedConvert(
               'profiles',
               (v) => (v as List<dynamic>)
@@ -24,7 +24,8 @@ _$_ActorProfiles _$$_ActorProfilesFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_ActorProfilesToJson(_$_ActorProfiles instance) =>
+Map<String, dynamic> _$$_ActorProfilesDataToJson(
+        _$_ActorProfilesData instance) =>
     <String, dynamic>{
       'profiles': instance.profiles.map((e) => e.toJson()).toList(),
     };

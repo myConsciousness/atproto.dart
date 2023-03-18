@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'actor_typeahead.dart';
+part of 'actor_typeahead_data.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,34 +14,34 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ActorTypeahead _$ActorTypeaheadFromJson(Map<String, dynamic> json) {
-  return _ActorTypeahead.fromJson(json);
+ActorTypeaheadData _$ActorTypeaheadDataFromJson(Map<String, dynamic> json) {
+  return _ActorTypeaheadData.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ActorTypeahead {
+mixin _$ActorTypeaheadData {
   @JsonKey(name: 'users')
   List<Actor> get actors => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ActorTypeaheadCopyWith<ActorTypeahead> get copyWith =>
+  $ActorTypeaheadDataCopyWith<ActorTypeaheadData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ActorTypeaheadCopyWith<$Res> {
-  factory $ActorTypeaheadCopyWith(
-          ActorTypeahead value, $Res Function(ActorTypeahead) then) =
-      _$ActorTypeaheadCopyWithImpl<$Res, ActorTypeahead>;
+abstract class $ActorTypeaheadDataCopyWith<$Res> {
+  factory $ActorTypeaheadDataCopyWith(
+          ActorTypeaheadData value, $Res Function(ActorTypeaheadData) then) =
+      _$ActorTypeaheadDataCopyWithImpl<$Res, ActorTypeaheadData>;
   @useResult
   $Res call({@JsonKey(name: 'users') List<Actor> actors});
 }
 
 /// @nodoc
-class _$ActorTypeaheadCopyWithImpl<$Res, $Val extends ActorTypeahead>
-    implements $ActorTypeaheadCopyWith<$Res> {
-  _$ActorTypeaheadCopyWithImpl(this._value, this._then);
+class _$ActorTypeaheadDataCopyWithImpl<$Res, $Val extends ActorTypeaheadData>
+    implements $ActorTypeaheadDataCopyWith<$Res> {
+  _$ActorTypeaheadDataCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -63,22 +63,22 @@ class _$ActorTypeaheadCopyWithImpl<$Res, $Val extends ActorTypeahead>
 }
 
 /// @nodoc
-abstract class _$$_ActorTypeaheadCopyWith<$Res>
-    implements $ActorTypeaheadCopyWith<$Res> {
-  factory _$$_ActorTypeaheadCopyWith(
-          _$_ActorTypeahead value, $Res Function(_$_ActorTypeahead) then) =
-      __$$_ActorTypeaheadCopyWithImpl<$Res>;
+abstract class _$$_ActorTypeaheadDataCopyWith<$Res>
+    implements $ActorTypeaheadDataCopyWith<$Res> {
+  factory _$$_ActorTypeaheadDataCopyWith(_$_ActorTypeaheadData value,
+          $Res Function(_$_ActorTypeaheadData) then) =
+      __$$_ActorTypeaheadDataCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@JsonKey(name: 'users') List<Actor> actors});
 }
 
 /// @nodoc
-class __$$_ActorTypeaheadCopyWithImpl<$Res>
-    extends _$ActorTypeaheadCopyWithImpl<$Res, _$_ActorTypeahead>
-    implements _$$_ActorTypeaheadCopyWith<$Res> {
-  __$$_ActorTypeaheadCopyWithImpl(
-      _$_ActorTypeahead _value, $Res Function(_$_ActorTypeahead) _then)
+class __$$_ActorTypeaheadDataCopyWithImpl<$Res>
+    extends _$ActorTypeaheadDataCopyWithImpl<$Res, _$_ActorTypeaheadData>
+    implements _$$_ActorTypeaheadDataCopyWith<$Res> {
+  __$$_ActorTypeaheadDataCopyWithImpl(
+      _$_ActorTypeaheadData _value, $Res Function(_$_ActorTypeaheadData) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -86,7 +86,7 @@ class __$$_ActorTypeaheadCopyWithImpl<$Res>
   $Res call({
     Object? actors = null,
   }) {
-    return _then(_$_ActorTypeahead(
+    return _then(_$_ActorTypeaheadData(
       actors: null == actors
           ? _value._actors
           : actors // ignore: cast_nullable_to_non_nullable
@@ -97,13 +97,13 @@ class __$$_ActorTypeaheadCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ActorTypeahead implements _ActorTypeahead {
-  const _$_ActorTypeahead(
+class _$_ActorTypeaheadData implements _ActorTypeaheadData {
+  const _$_ActorTypeaheadData(
       {@JsonKey(name: 'users') required final List<Actor> actors})
       : _actors = actors;
 
-  factory _$_ActorTypeahead.fromJson(Map<String, dynamic> json) =>
-      _$$_ActorTypeaheadFromJson(json);
+  factory _$_ActorTypeaheadData.fromJson(Map<String, dynamic> json) =>
+      _$$_ActorTypeaheadDataFromJson(json);
 
   final List<Actor> _actors;
   @override
@@ -116,14 +116,14 @@ class _$_ActorTypeahead implements _ActorTypeahead {
 
   @override
   String toString() {
-    return 'ActorTypeahead(actors: $actors)';
+    return 'ActorTypeaheadData(actors: $actors)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActorTypeahead &&
+            other is _$_ActorTypeaheadData &&
             const DeepCollectionEquality().equals(other._actors, _actors));
   }
 
@@ -135,30 +135,31 @@ class _$_ActorTypeahead implements _ActorTypeahead {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ActorTypeaheadCopyWith<_$_ActorTypeahead> get copyWith =>
-      __$$_ActorTypeaheadCopyWithImpl<_$_ActorTypeahead>(this, _$identity);
+  _$$_ActorTypeaheadDataCopyWith<_$_ActorTypeaheadData> get copyWith =>
+      __$$_ActorTypeaheadDataCopyWithImpl<_$_ActorTypeaheadData>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ActorTypeaheadToJson(
+    return _$$_ActorTypeaheadDataToJson(
       this,
     );
   }
 }
 
-abstract class _ActorTypeahead implements ActorTypeahead {
-  const factory _ActorTypeahead(
+abstract class _ActorTypeaheadData implements ActorTypeaheadData {
+  const factory _ActorTypeaheadData(
           {@JsonKey(name: 'users') required final List<Actor> actors}) =
-      _$_ActorTypeahead;
+      _$_ActorTypeaheadData;
 
-  factory _ActorTypeahead.fromJson(Map<String, dynamic> json) =
-      _$_ActorTypeahead.fromJson;
+  factory _ActorTypeaheadData.fromJson(Map<String, dynamic> json) =
+      _$_ActorTypeaheadData.fromJson;
 
   @override
   @JsonKey(name: 'users')
   List<Actor> get actors;
   @override
   @JsonKey(ignore: true)
-  _$$_ActorTypeaheadCopyWith<_$_ActorTypeahead> get copyWith =>
+  _$$_ActorTypeaheadDataCopyWith<_$_ActorTypeaheadData> get copyWith =>
       throw _privateConstructorUsedError;
 }

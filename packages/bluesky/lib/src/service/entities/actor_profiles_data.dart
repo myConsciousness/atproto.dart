@@ -7,15 +7,15 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'actor_profile.dart';
 
-part 'actor_profiles.freezed.dart';
-part 'actor_profiles.g.dart';
+part 'actor_profiles_data.freezed.dart';
+part 'actor_profiles_data.g.dart';
 
 @freezed
-class ActorProfiles with _$ActorProfiles {
-  const factory ActorProfiles({
+class ActorProfilesData with _$ActorProfilesData {
+  const factory ActorProfilesData({
     required List<ActorProfile> profiles,
-  }) = _ActorProfiles;
+  }) = _ActorProfilesData;
 
-  factory ActorProfiles.fromJson(Map<String, Object?> json) =>
-      _$ActorProfilesFromJson(json);
+  factory ActorProfilesData.fromJson(Map<String, Object?> json) =>
+      _$ActorProfilesDataFromJson(json);
 }
