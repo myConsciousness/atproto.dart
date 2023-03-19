@@ -26,6 +26,7 @@ jobs:
         channel:
           - stable
         package_path:
+          - packages/nsid
           - packages/atproto_core
           - packages/atproto
           - packages/bluesky
