@@ -26,6 +26,7 @@ jobs:
         channel:
           - stable
         package_path:
+          - packages/at_identifier
           - packages/nsid
           - packages/at_uri
           - packages/atproto_core
