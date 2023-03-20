@@ -76,7 +76,7 @@ import 'package:at_uri/at_uri.dart';
 import 'package:at_uri/at_uri.dart';
 
 void main(List<String> args) {
-  final uri = AtUri.parse('at://bob.com/com.example.post/1234');
+  final uri = ATUri.parse('at://bob.com/com.example.post/1234');
 
   uri.protocol; // => 'at:'
   uri.origin; // => 'at://bob.com'
