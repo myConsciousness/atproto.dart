@@ -1,3 +1,5 @@
+at_identifier:
+- packages/at_identifier/**/*
 nsid:
 - packages/nsid/**/*
 at_uri:

@@ -1,6 +1,9 @@
 BASEDIR=$(dirname "$0")
 
-cd $BASEDIR/../packages/nsid || exit
+cd $BASEDIR/../packages/at_identifier || exit
+dart test
+
+cd ../nsid || exit
 dart test
 
 cd ../at_uri || exit
