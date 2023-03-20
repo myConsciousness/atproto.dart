@@ -52,6 +52,7 @@ bsky/lexicon/unspecced:
 - packages/bluesky/lib/src/service/unspecced/*.dart
 
 test:
+- packages/at_identifier/test/**/*.dart
 - packages/nsid/test/**/*.dart
 - packages/at_uri/test/**/*.dart
 - packages/xrpc/test/**/*.dart
@@ -61,6 +62,8 @@ test:
 - packages/bluesky_cards/test/**/*.dart
 
 documentation:
+- packages/at_identifier/CHANGELOG.md
+- packages/at_identifier/README.md
 - packages/nsid/CHANGELOG.md
 - packages/nsid/README.md
 - packages/at_uri/CHANGELOG.md
