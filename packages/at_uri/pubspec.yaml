@@ -1,7 +1,7 @@
-name: nsid
-description: Provide standard NSID object supported by AT Protocol to Dart/Flutter.
-version: 0.0.2
-repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/nsid
+name: at_uri
+description: Provide standard uri supported by AT Protocol to Dart/Flutter.
+version: 0.0.1
+repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/at_uri
 issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
 funding:
   - https://github.com/sponsors/myConsciousness
