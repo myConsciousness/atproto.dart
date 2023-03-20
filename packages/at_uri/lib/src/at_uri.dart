@@ -11,13 +11,13 @@
 /// - path      = [ "/" coll-nsid [ "/" record-id ] ]
 /// - coll-nsid = nsid
 /// - record-id = 1*pchar
-class ATUri {
-  /// Returns the new instance of [ATUri] based on raw [uri].
-  factory ATUri.parse(final String uri) => ATUri._(uri);
+class AtUri {
+  /// Returns the new instance of [AtUri] based on raw [uri].
+  factory AtUri.parse(final String uri) => AtUri._(uri);
 
-  /// Returns the new instance of [ATUri] based on [handleOrDid],
+  /// Returns the new instance of [AtUri] based on [handleOrDid],
   /// and [collection] and [rkey] as optionals.
-  factory ATUri.make(
+  factory AtUri.make(
     final String handleOrDid, [
     final String? collection,
     final String? rkey,
@@ -33,11 +33,11 @@ class ATUri {
       buffer.write('/$rkey');
     }
 
-    return ATUri._(buffer.toString());
+    return AtUri._(buffer.toString());
   }
 
-  /// Returns the new instance of [ATUri] based on [uri].
-  ATUri._(final String uri) {
+  /// Returns the new instance of [AtUri] based on [uri].
+  AtUri._(final String uri) {
     final parsed = _parse(uri);
 
     if (parsed == null) {

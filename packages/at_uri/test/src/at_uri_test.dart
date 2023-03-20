@@ -347,7 +347,7 @@ void main() {
     ];
 
     for (final $case in cases) {
-      final uri = ATUri.parse($case[0]);
+      final uri = AtUri.parse($case[0]);
 
       expect(uri.protocol, 'at:');
       expect(uri.hostname, $case[1]);
@@ -359,7 +359,7 @@ void main() {
   });
 
   test('handles ATP-specific parsing', () {
-    final uri = ATUri.parse('at://foo.com/com.example.foo/123');
+    final uri = AtUri.parse('at://foo.com/com.example.foo/123');
 
     expect(uri.collection, 'com.example.foo');
     expect(uri.rkey, '123');
