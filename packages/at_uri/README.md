@@ -83,6 +83,9 @@ void main(List<String> args) {
   uri.hostname; // => 'bob.com'
   uri.collection; // => 'com.example.post'
   uri.rkey; // => '1234'
+
+  ensureValidAtUri('at://user.bsky.social'); // => returns void
+  ensureValidAtUri('at//did:plc:asdf123'); // => throws
 }
 ```
 
