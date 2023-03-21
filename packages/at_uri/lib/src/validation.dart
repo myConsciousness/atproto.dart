@@ -23,7 +23,7 @@ void ensureValidAtUri(String uri) {
   }
 
   final parts = uri.split('/');
-  if (parts.length >= 3 && (parts[0] != 'at:' || parts[1].length != 0)) {
+  if (parts.length >= 3 && (parts[0] != 'at:' || parts[1].isNotEmpty)) {
     throw InvalidAtUriError('ATURI must start with "at://"');
   }
   if (parts.length < 3) {
