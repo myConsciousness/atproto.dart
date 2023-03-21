@@ -3,3 +3,5 @@
 // modification, are permitted provided the conditions.
 
 export 'package:at_uri/src/at_uri.dart';
+export 'package:at_uri/src/invalid_at_uri_error.dart';
+export 'package:at_uri/src/validation.dart';
