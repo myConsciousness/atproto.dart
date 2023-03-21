@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/myConsciousness/atproto.dart">
-    <img alt="nsid" width="600px" src="https://user-images.githubusercontent.com/13072231/226187811-50315424-9b52-4890-ad0b-70f7c213a5c0.png">
+    <img alt="nsid" width="600px" src="https://github.com/myConsciousness/atproto.dart/blob/main/resources/atproto.006.png">
   </a>
 </p>
 
