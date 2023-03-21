@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.0.3
+
+- Fixed brand logo.
+
 ## v0.0.2
 
 - Refactored dartdoc.

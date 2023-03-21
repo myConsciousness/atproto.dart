@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/myConsciousness/atproto.dart">
-    <img alt="bluesky_cards" width="600px" src="https://github.com/myConsciousness/atproto.dart/blob/main/resources/brands/atproto.005.png">
+    <img alt="bluesky_cards" width="600px" src="https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/brands/atproto.005.png">
   </a>
 </p>
 
