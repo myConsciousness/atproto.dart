@@ -10,8 +10,8 @@ environment:
   sdk: '>=2.19.2 <3.0.0'
 
 dependencies:
-  at_identifier: ^0.0.2
-  nsid: ^0.0.2
+  at_identifier: ^0.0.3
+  nsid: ^0.0.3
 
 dev_dependencies:
   lints: ^2.0.0
