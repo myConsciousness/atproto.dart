@@ -1,6 +1,6 @@
 name: at_uri
 description: Provide standard uri supported by AT Protocol to Dart/Flutter.
-version: 0.0.1
+version: 0.0.2
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/at_uri
 issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
 funding:
@@ -8,6 +8,10 @@ funding:
 
 environment:
   sdk: '>=2.19.2 <3.0.0'
+
+dependencies:
+  at_identifier: ^0.0.2
+  nsid: ^0.0.2
 
 dev_dependencies:
   lints: ^2.0.0
