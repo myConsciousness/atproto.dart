@@ -29,6 +29,7 @@ jobs:
           - packages/at_identifier
           - packages/nsid
           - packages/at_uri
+          - packages/xrpc
           - packages/atproto_core
           - packages/atproto
           - packages/bluesky
