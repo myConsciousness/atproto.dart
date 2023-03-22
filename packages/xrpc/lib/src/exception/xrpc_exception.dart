@@ -2,9 +2,6 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 📦 Package imports:
-import 'package:http/http.dart' as http;
-
 import '../xrpc_response.dart';
 
 /// This exception indicates that an unexpected error occurred when
