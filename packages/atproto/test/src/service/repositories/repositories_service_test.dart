@@ -7,7 +7,7 @@ import 'package:atproto/src/service/repositories/repositories_service.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:test/test.dart';
 
-import '../../../mocks/client_context_stubs.dart' as context;
+import '../../../mocks/mocked_clients.dart';
 import '../common_expectations.dart';
 
 void main() {
@@ -16,9 +16,11 @@ void main() {
       final repositories = RepositoriesService(
         did: 'test',
         service: 'test',
-        context: context.buildPostStub(
-          'test',
-          '/xrpc/com.atproto.repo.createRecord',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: getMockedPostClient(
           'test/src/service/repositories/data/create_record.json',
         ),
       );
@@ -28,7 +30,7 @@ void main() {
         record: {},
       );
 
-      expect(response, isA<core.ATProtoResponse>());
+      expect(response, isA<core.XRPCResponse>());
       expect(response.data, isA<Record>());
     });
 
@@ -36,10 +38,12 @@ void main() {
       final repositories = RepositoriesService(
         did: 'test',
         service: 'test',
-        context: context.buildPostStub(
-          'test',
-          '/xrpc/com.atproto.repo.createRecord',
-          'test/src/service/repositories/data/create_record.json',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: getMockedPostClient(
+          'test/src/service/data/error.json',
           statusCode: 401,
         ),
       );
@@ -56,10 +60,12 @@ void main() {
       final repositories = RepositoriesService(
         did: 'test',
         service: 'test',
-        context: context.buildPostStub(
-          'test',
-          '/xrpc/com.atproto.repo.createRecord',
-          'test/src/service/repositories/data/create_record.json',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: getMockedPostClient(
+          'test/src/service/data/error.json',
           statusCode: 429,
         ),
       );
@@ -78,9 +84,11 @@ void main() {
       final repositories = RepositoriesService(
         did: 'test',
         service: 'test',
-        context: context.buildPostStub(
-          'test',
-          '/xrpc/com.atproto.repo.deleteRecord',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: getMockedPostClient(
           'test/src/service/repositories/data/delete_record.json',
         ),
       );
@@ -90,18 +98,20 @@ void main() {
         uri: '',
       );
 
-      expect(response, isA<core.ATProtoResponse>());
-      expect(response.data, isA<core.Empty>());
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<core.EmptyData>());
     });
 
     test('when unauthorized', () async {
       final repositories = RepositoriesService(
         did: 'test',
         service: 'test',
-        context: context.buildPostStub(
-          'test',
-          '/xrpc/com.atproto.repo.deleteRecord',
-          'test/src/service/repositories/data/delete_record.json',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: getMockedPostClient(
+          'test/src/service/data/error.json',
           statusCode: 401,
         ),
       );
@@ -118,10 +128,12 @@ void main() {
       final repositories = RepositoriesService(
         did: 'test',
         service: 'test',
-        context: context.buildPostStub(
-          'test',
-          '/xrpc/com.atproto.repo.deleteRecord',
-          'test/src/service/repositories/data/delete_record.json',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: getMockedPostClient(
+          'test/src/service/data/error.json',
           statusCode: 429,
         ),
       );

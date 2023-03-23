@@ -62,7 +62,7 @@ This library provides the easiest way to use [AT Protocol](https://atproto.com/d
 
 This package provides the most basic features of [AT Protocol](https://atproto.com/docs). If you want to use [Bluesky](https://blueskyweb.xyz)'s API, please use [bluesky](https://pub.dev/packages/bluesky)!
 
-Also, the core HTTP request portion of this package is also provided in the [atproto_core](https://pub.dev/packages/atproto_core) package.
+Also, the core HTTP request portion of this package is also provided in the [atproto_core](https://pub.dev/packages/atproto_core) and [xrpc](https://pub.dev/packages/xrpc) packages.
 
 ## 1.1. Features 💎
 
@@ -147,7 +147,7 @@ Future<void> main() async {
     );
   } on atp.UnauthorizedException catch (e) {
     print(e);
-  } on atp.ATProtoException catch (e) {
+  } on atp.XRPCException catch (e) {
     print(e);
   }
 }
@@ -157,17 +157,17 @@ Future<void> main() async {
 
 ### 1.3.1. Session
 
-| **Lexicon**                                                                                                       | **Method Name**                                                                                                    |
-| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| [POST /xrpc/com.atproto.session.create](https://atproto.com/lexicons/com-atproto-session#comatprotosessioncreate) | [createSession](https://pub.dev/documentation/atproto/latest/atproto/createSession.html)                           |
-| [GET /xrpc/com.atproto.session.get](https://atproto.com/lexicons/com-atproto-session#comatprotosessioncreate)     | [findCurrentSession](https://pub.dev/documentation/atproto/latest/atproto/SessionsService/findCurrentSession.html) |
+| **Lexicon**                                                                                                 | **Method Name**                                                                                                    |
+| ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| [POST com.atproto.session.create](https://atproto.com/lexicons/com-atproto-session#comatprotosessioncreate) | [createSession](https://pub.dev/documentation/atproto/latest/atproto/createSession.html)                           |
+| [GET com.atproto.session.get](https://atproto.com/lexicons/com-atproto-session#comatprotosessioncreate)     | [findCurrentSession](https://pub.dev/documentation/atproto/latest/atproto/SessionsService/findCurrentSession.html) |
 
 ### 1.3.2. Repository
 
-| **Lexicon**                                                                                                                                 | **Method Name**                                                                                            |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| [POST /xrpc/com.atproto.repo.createRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/createRecord.json) | [createRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/createRecord.html) |
-| [POST /xrpc/com.atproto.repo.deleteRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/deleteRecord.json) | [deleteRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/deleteRecord.html) |
+| **Lexicon**                                                                                                                           | **Method Name**                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| [POST com.atproto.repo.createRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/createRecord.json) | [createRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/createRecord.html) |
+| [POST com.atproto.repo.deleteRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/deleteRecord.json) | [deleteRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/deleteRecord.html) |
 
 ## 1.4. Tips 🏄
 
@@ -272,23 +272,25 @@ Future<void> main() async {
 }
 ```
 
-The [RetryEvent](https://pub.dev/documentation/atproto/latest/atproto/RetryEvent-class.html) passed to the callback contains information on retries.
+The [RetryEvent](https://pub.dev/documentation/atproto_core/latest/atproto_core/RetryEvent-class.html) passed to the callback contains information on retries.
 
 ### 1.4.5. Thrown Exceptions
 
 **atproto** provides a convenient exception object for easy handling of exceptional responses and errors returned from AT Protocol.
 
-| Exception                                                                                                      | Description                                                                                                           |
-| -------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| [ATProtoException](https://pub.dev/documentation/atproto/latest/atproto_core/ATProtoException-class.html)      | The most basic exception object. For example, it can be used to search for posts that have already been deleted, etc. |
-| [UnauthorizedException](https://pub.dev/documentation/atproto/latest/atproto/UnauthorizedException-class.html) | Thrown when authentication fails with the specified access token.                                                     |
-| [DataNotFoundException](https://pub.dev/documentation/atproto/latest/atproto/DataNotFoundException-class.html) | Thrown when response has no body or data field in body string, or when 404 status is returned.                        |
+| Exception                                                                                                              | Description                                                       |
+| ---------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| [XRPCException](https://pub.dev/documentation/xrpc/latest/xrpc/XRPCException-class.html)                               | Parent class for all the following Exceptions.                    |
+| [UnauthorizedException](https://pub.dev/documentation/xrpc/latest/xrpc/UnauthorizedException-class.html)               | Thrown when authentication fails with the specified access token. |
+| [RateLimitExceededException](https://pub.dev/documentation/xrpc/latest/xrpc/RateLimitExceededException-class.html)     | Thrown when the rate limit is reached.                            |
+| [InvalidRequestException](https://pub.dev/documentation/xrpc/latest/xrpc/InvalidRequestException-class.html)           | Thrown when request parameters are invalid.                       |
+| [InternalServerErrorException](https://pub.dev/documentation/xrpc/latest/xrpc/InternalServerErrorException-class.html) | Thrown when a failure occurs on the ATP server.                   |
 
-Also, all of the above exceptions thrown from the **atproto** process extend [ATProtoException](https://pub.dev/documentation/atproto/latest/atproto_core/ATProtoException-class.html). This means that you can take all exceptions as [ATProtoException](https://pub.dev/documentation/atproto/latest/atproto_core/ATProtoException-class.html) or handle them as certain exception types, depending on the situation.
+Also, all of the above exceptions thrown from the **atproto** process extend [XRPCException](https://pub.dev/documentation/xrpc/latest/xrpc/XRPCException-class.html). This means that you can take all exceptions as [XRPCException](https://pub.dev/documentation/xrpc/latest/xrpc/XRPCException-class.html) or handle them as certain exception types, depending on the situation.
 
-However note that, if you receive an individual type exception, be sure to define the process so that the individual exception type is cached before [ATProtoException](https://pub.dev/documentation/atproto/latest/atproto_core/ATProtoException-class.html). Otherwise, certain type exceptions will also be caught as [ATProtoException](https://pub.dev/documentation/atproto/latest/atproto_core/ATProtoException-class.html).
+However note that, if you receive an individual type exception, be sure to define the process so that the individual exception type is cached before [XRPCException](https://pub.dev/documentation/xrpc/latest/xrpc/XRPCException-class.html). Otherwise, certain type exceptions will also be caught as [XRPCException](https://pub.dev/documentation/xrpc/latest/xrpc/XRPCException-class.html).
 
-Therefore, if you need to catch a specific type of exception in addition to [ATProtoException](https://pub.dev/documentation/atproto/latest/atproto_core/ATProtoException-class.html), be sure to catch [ATProtoException](https://pub.dev/documentation/atproto/latest/atproto_core/ATProtoException-class.html) in the bottom catch clause as in the following example.
+Therefore, if you need to catch a specific type of exception in addition to [XRPCException](https://pub.dev/documentation/xrpc/latest/xrpc/XRPCException-class.html), be sure to catch [XRPCException](https://pub.dev/documentation/v/latest/xrpc/XRPCException-class.html) in the bottom catch clause as in the following example.
 
 ```dart
 import 'package:atproto/atproto.dart' as atp;
@@ -305,7 +307,7 @@ Future<void> main() async {
     print(response);
   } on atp.UnauthorizedException catch (e) {
     print(e);
-  } on atp.ATProtoException catch (e) {
+  } on atp.XRPCException catch (e) {
     print(e);
   }
 }

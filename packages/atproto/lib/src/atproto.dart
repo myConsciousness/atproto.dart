@@ -18,7 +18,8 @@ abstract class ATProto {
     String service = 'bsky.social',
     Duration timeout = const Duration(seconds: 10),
     core.RetryConfig? retryConfig,
-    core.ClientContext? context,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   }) =>
       _ATProto(
         did: did,
@@ -26,7 +27,8 @@ abstract class ATProto {
         service: service,
         timeout: timeout,
         retryConfig: retryConfig,
-        context: context,
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
       );
 
   /// Returns the new instance of [ATProto].
@@ -59,16 +61,18 @@ class _ATProto implements ATProto {
     required String service,
     required Duration timeout,
     core.RetryConfig? retryConfig,
-    core.ClientContext? context,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   }) : _service = ATProtoService(
           did: did,
           service: service,
-          context: context ??
-              core.ClientContext(
-                accessJwt: accessJwt,
-                timeout: timeout,
-                retryConfig: retryConfig,
-              ),
+          context: core.ClientContext(
+            accessJwt: accessJwt,
+            timeout: timeout,
+            retryConfig: retryConfig,
+          ),
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
         );
 
   final ATProtoService _service;

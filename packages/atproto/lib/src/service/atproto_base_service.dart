@@ -10,7 +10,10 @@ abstract class ATProtoBaseService extends core.BaseService {
   ATProtoBaseService({
     required this.did,
     required super.service,
+    required super.methodAuthority,
     required super.context,
+    super.mockedGetClient,
+    super.mockedPostClient,
   });
 
   /// The DID of authenticated user.

@@ -14,19 +14,23 @@ abstract class RepositoriesService {
     required String did,
     required String service,
     required core.ClientContext context,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   }) =>
       _RepositoriesService(
         did: did,
         service: service,
         context: context,
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
       );
 
-  Future<core.ATProtoResponse<Record>> createRecord({
+  Future<core.XRPCResponse<Record>> createRecord({
     required String collection,
     required Map<String, dynamic> record,
   });
 
-  Future<core.ATProtoResponse<core.Empty>> deleteRecord({
+  Future<core.XRPCResponse<core.EmptyData>> deleteRecord({
     required String collection,
     required String uri,
   });
@@ -39,38 +43,36 @@ class _RepositoriesService extends ATProtoBaseService
     required super.did,
     required super.service,
     required super.context,
-  });
+    super.mockedGetClient,
+    super.mockedPostClient,
+  }) : super(methodAuthority: 'repo.atproto.com');
 
   @override
-  Future<core.ATProtoResponse<Record>> createRecord({
+  Future<core.XRPCResponse<Record>> createRecord({
     required String collection,
     required Map<String, dynamic> record,
   }) async =>
-      super.transformSingleDataResponse(
-        await super.post(
-          '/xrpc/com.atproto.repo.createRecord',
-          body: {
-            'did': did,
-            'collection': collection,
-            'record': record,
-          },
-        ),
-        dataBuilder: Record.fromJson,
+      await super.post(
+        'createRecord',
+        body: {
+          'did': did,
+          'collection': collection,
+          'record': record,
+        },
+        to: Record.fromJson,
       );
 
   @override
-  Future<core.ATProtoResponse<core.Empty>> deleteRecord({
+  Future<core.XRPCResponse<core.EmptyData>> deleteRecord({
     required String collection,
     required String uri,
   }) async =>
-      super.transformEmptyDataResponse(
-        await super.post(
-          '/xrpc/com.atproto.repo.deleteRecord',
-          body: {
-            'did': did,
-            'collection': collection,
-            'rkey': uri.split('/').last,
-          },
-        ),
+      await super.post<core.EmptyData>(
+        'deleteRecord',
+        body: {
+          'did': did,
+          'collection': collection,
+          'rkey': uri.split('/').last,
+        },
       );
 }

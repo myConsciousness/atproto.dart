@@ -52,7 +52,7 @@ Future<void> main() async {
     );
   } on atp.UnauthorizedException catch (e) {
     print(e);
-  } on atp.ATProtoException catch (e) {
+  } on atp.XRPCException catch (e) {
     print(e);
   }
 }

@@ -3,30 +3,73 @@
 // modification, are permitted provided the conditions.
 
 import 'package:atproto/src/service/sessions/current_session.dart';
+import 'package:atproto/src/service/sessions/session.dart';
 import 'package:atproto/src/service/sessions/sessions_service.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:test/test.dart';
 
-import '../../../mocks/client_context_stubs.dart' as context;
+import '../../../mocks/mocked_clients.dart';
 import '../common_expectations.dart';
 
 void main() {
+  group('.createSession', () {
+    test('normal case', () async {
+      final response = await createSession(
+        handle: 'shinyakato.dev',
+        password: '1234',
+        mockedPostClient: getMockedPostClient(
+          'test/src/service/sessions/data/create_session.json',
+        ),
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<Session>());
+    });
+
+    test('when unauthorized', () async {
+      expectUnauthorizedException(
+        () async => await createSession(
+          handle: 'shinyakato.dev',
+          password: '1234',
+          mockedPostClient: getMockedPostClient(
+            'test/src/service/data/error.json',
+            statusCode: 401,
+          ),
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      expectRateLimitExceededException(
+        () async => await createSession(
+          handle: 'shinyakato.dev',
+          password: '1234',
+          mockedPostClient: getMockedPostClient(
+            'test/src/service/data/error.json',
+            statusCode: 429,
+          ),
+        ),
+      );
+    });
+  });
+
   group('.findCurrentSession', () {
     test('normal case', () async {
       final sessions = SessionsService(
         did: 'test',
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/com.atproto.session.get',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: getMockedGetClient(
           'test/src/service/sessions/data/find_current_session.json',
-          {},
         ),
       );
 
       final response = await sessions.findCurrentSession();
 
-      expect(response, isA<core.ATProtoResponse>());
+      expect(response, isA<core.XRPCResponse>());
       expect(response.data, isA<CurrentSession>());
     });
 
@@ -34,11 +77,12 @@ void main() {
       final sessions = SessionsService(
         did: 'test',
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/com.atproto.session.get',
-          'test/src/service/sessions/data/find_current_session.json',
-          {},
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: getMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 401,
         ),
       );
@@ -52,11 +96,12 @@ void main() {
       final sessions = SessionsService(
         did: 'test',
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/com.atproto.session.get',
-          'test/src/service/sessions/data/find_current_session.json',
-          {},
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: getMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 429,
         ),
       );

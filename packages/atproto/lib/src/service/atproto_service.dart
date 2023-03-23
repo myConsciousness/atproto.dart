@@ -14,11 +14,15 @@ abstract class ATProtoService {
     required String did,
     required String service,
     required core.ClientContext context,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   }) =>
       _ATProtoService(
         did: did,
         service: service,
         context: context,
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
       );
 
   /// Returns the sessions service.
@@ -34,15 +38,21 @@ class _ATProtoService implements ATProtoService {
     required String did,
     required String service,
     required core.ClientContext context,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   })  : sessions = SessionsService(
           did: did,
           service: service,
           context: context,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
         ),
         repositories = RepositoriesService(
           did: did,
           service: service,
           context: context,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
         );
 
   @override
