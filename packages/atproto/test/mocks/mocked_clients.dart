@@ -8,7 +8,7 @@ import 'dart:io';
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:http/http.dart' as http;
 
-core.GetClient getMockedGetClient(
+core.GetClient createMockedGetClient(
   final String resourcePath, {
   final int statusCode = 200,
 }) {
@@ -29,7 +29,7 @@ core.GetClient getMockedGetClient(
   return mockedClient;
 }
 
-core.PostClient getMockedPostClient(
+core.PostClient createMockedPostClient(
   final String resourcePath, {
   final int statusCode = 200,
 }) {

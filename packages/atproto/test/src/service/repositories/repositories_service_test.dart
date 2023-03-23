@@ -20,7 +20,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedPostClient: getMockedPostClient(
+        mockedPostClient: createMockedPostClient(
           'test/src/service/repositories/data/create_record.json',
         ),
       );
@@ -42,7 +42,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedPostClient: getMockedPostClient(
+        mockedPostClient: createMockedPostClient(
           'test/src/service/data/error.json',
           statusCode: 401,
         ),
@@ -64,7 +64,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedPostClient: getMockedPostClient(
+        mockedPostClient: createMockedPostClient(
           'test/src/service/data/error.json',
           statusCode: 429,
         ),
@@ -88,7 +88,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedPostClient: getMockedPostClient(
+        mockedPostClient: createMockedPostClient(
           'test/src/service/repositories/data/delete_record.json',
         ),
       );
@@ -110,7 +110,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedPostClient: getMockedPostClient(
+        mockedPostClient: createMockedPostClient(
           'test/src/service/data/error.json',
           statusCode: 401,
         ),
@@ -132,7 +132,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedPostClient: getMockedPostClient(
+        mockedPostClient: createMockedPostClient(
           'test/src/service/data/error.json',
           statusCode: 429,
         ),

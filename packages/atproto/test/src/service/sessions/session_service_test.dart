@@ -17,7 +17,7 @@ void main() {
       final response = await createSession(
         handle: 'shinyakato.dev',
         password: '1234',
-        mockedPostClient: getMockedPostClient(
+        mockedPostClient: createMockedPostClient(
           'test/src/service/sessions/data/create_session.json',
         ),
       );
@@ -31,7 +31,7 @@ void main() {
         () async => await createSession(
           handle: 'shinyakato.dev',
           password: '1234',
-          mockedPostClient: getMockedPostClient(
+          mockedPostClient: createMockedPostClient(
             'test/src/service/data/error.json',
             statusCode: 401,
           ),
@@ -44,7 +44,7 @@ void main() {
         () async => await createSession(
           handle: 'shinyakato.dev',
           password: '1234',
-          mockedPostClient: getMockedPostClient(
+          mockedPostClient: createMockedPostClient(
             'test/src/service/data/error.json',
             statusCode: 429,
           ),
@@ -62,7 +62,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: getMockedGetClient(
+        mockedGetClient: createMockedGetClient(
           'test/src/service/sessions/data/find_current_session.json',
         ),
       );
@@ -81,7 +81,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: getMockedGetClient(
+        mockedGetClient: createMockedGetClient(
           'test/src/service/data/error.json',
           statusCode: 401,
         ),
@@ -100,7 +100,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: getMockedGetClient(
+        mockedGetClient: createMockedGetClient(
           'test/src/service/data/error.json',
           statusCode: 429,
         ),
