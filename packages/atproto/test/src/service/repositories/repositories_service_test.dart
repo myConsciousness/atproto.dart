@@ -26,7 +26,7 @@ void main() {
       );
 
       final response = await repositories.createRecord(
-        collection: 'test.post',
+        collection: core.NSID.create('com.atproto', 'test'),
         record: {},
       );
 
@@ -50,7 +50,7 @@ void main() {
 
       expectUnauthorizedException(
         () async => await repositories.createRecord(
-          collection: 'test.post',
+          collection: core.NSID.create('com.atproto', 'test'),
           record: {},
         ),
       );
@@ -72,7 +72,7 @@ void main() {
 
       expectRateLimitExceededException(
         () async => await repositories.createRecord(
-          collection: 'test.post',
+          collection: core.NSID.create('com.atproto', 'test'),
           record: {},
         ),
       );
@@ -94,7 +94,7 @@ void main() {
       );
 
       final response = await repositories.deleteRecord(
-        collection: 'test.post',
+        collection: core.NSID.create('com.atproto', 'test'),
         uri: '',
       );
 
@@ -118,7 +118,7 @@ void main() {
 
       expectUnauthorizedException(
         () async => await repositories.deleteRecord(
-          collection: 'test.post',
+          collection: core.NSID.create('com.atproto', 'test'),
           uri: '',
         ),
       );
@@ -140,7 +140,7 @@ void main() {
 
       expectRateLimitExceededException(
         () async => await repositories.deleteRecord(
-          collection: 'test.post',
+          collection: core.NSID.create('com.atproto', 'test'),
           uri: '',
         ),
       );

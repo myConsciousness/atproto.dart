@@ -38,7 +38,10 @@ Future<void> main() async {
 
     //! Create a record to specific service.
     final createdRecord = await atproto.repositories.createRecord(
-      collection: 'app.bsky.feed.post',
+      collection: atp.NSID.create(
+        'feed.bsky.app',
+        'post',
+      ),
       record: {
         'text': 'Hello, Bluesky!',
         "createdAt": DateTime.now().toUtc().toIso8601String(),
@@ -47,7 +50,10 @@ Future<void> main() async {
 
     //! And delete it.
     await atproto.repositories.deleteRecord(
-      collection: 'app.bsky.feed.post',
+      collection: atp.NSID.create(
+        'feed.bsky.app',
+        'post',
+      ),
       uri: createdRecord.data.uri,
     );
   } on atp.UnauthorizedException catch (e) {

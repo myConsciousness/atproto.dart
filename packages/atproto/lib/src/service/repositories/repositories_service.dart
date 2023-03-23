@@ -26,12 +26,12 @@ abstract class RepositoriesService {
       );
 
   Future<core.XRPCResponse<Record>> createRecord({
-    required String collection,
+    required core.NSID collection,
     required Map<String, dynamic> record,
   });
 
   Future<core.XRPCResponse<core.EmptyData>> deleteRecord({
-    required String collection,
+    required core.NSID collection,
     required String uri,
   });
 }
@@ -49,14 +49,14 @@ class _RepositoriesService extends ATProtoBaseService
 
   @override
   Future<core.XRPCResponse<Record>> createRecord({
-    required String collection,
+    required core.NSID collection,
     required Map<String, dynamic> record,
   }) async =>
       await super.post(
         'createRecord',
         body: {
           'did': did,
-          'collection': collection,
+          'collection': collection.toString(),
           'record': record,
         },
         to: Record.fromJson,
@@ -64,14 +64,14 @@ class _RepositoriesService extends ATProtoBaseService
 
   @override
   Future<core.XRPCResponse<core.EmptyData>> deleteRecord({
-    required String collection,
+    required core.NSID collection,
     required String uri,
   }) async =>
       await super.post<core.EmptyData>(
         'deleteRecord',
         body: {
           'did': did,
-          'collection': collection,
+          'collection': collection.toString(),
           'rkey': uri.split('/').last,
         },
       );
