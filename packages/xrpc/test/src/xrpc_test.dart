@@ -177,6 +177,10 @@ void main() {
     test('simple case', () async {
       final response = await query(
         NSID.create('test.com', 'get'),
+        parameters: {
+          'test': 'test',
+          'test2': 10,
+        },
         to: EmptyData.fromJson,
         getClient: (url, {headers}) async => Response(
           '{}',

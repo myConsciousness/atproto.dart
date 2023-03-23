@@ -147,36 +147,26 @@ dynamic removeNullValues(final dynamic object) {
 }
 
 @visibleForTesting
-Map<String, dynamic> convertParameters(final Map<String, dynamic> parameters) {
-  final serialized = parameters.map((key, value) {
-    if (value is List?) {
-      return MapEntry(
-        key,
-        value?.map((e) => e.toString()).toList(),
-      );
-    } else if (value is Serializable) {
-      return MapEntry(
-        key,
-        value.value,
-      );
-    }
+Map<String, dynamic> convertParameters(final Map<String, dynamic> parameters) =>
+    parameters.map((key, value) {
+      if (value is List?) {
+        return MapEntry(
+          key,
+          value?.map((e) => e.toString()).toList(),
+        );
+      } else if (value is Serializable) {
+        return MapEntry(
+          key,
+          value.value,
+        );
+      }
 
-    return MapEntry(key, value);
-  });
-
-  return Map.from(serialized).map(
-    //! Uri.https(...) needs iterable in the value for query params by
-    //! which it means a String in the value of the Map too. So you need
-    //! to convert it from Map<String, dynamic> to Map<String, String>
-    (key, value) {
       if (value is DateTime) {
         return MapEntry(key, value.toUtc().toIso8601String());
       }
 
-      return MapEntry(key, value);
-    },
-  );
-}
+      return MapEntry(key, value.toString());
+    });
 
 XRPCResponse<T> _buildResponse<T>(
   final http.Response response,
