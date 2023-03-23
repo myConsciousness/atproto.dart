@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -20,7 +21,7 @@ class Post with _$Post {
   const factory Post({
     required PostRecord record,
     required Actor author,
-    required String uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     required int replyCount,
     required int repostCount,

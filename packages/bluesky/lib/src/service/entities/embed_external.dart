@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -19,7 +20,7 @@ class EmbedExternal with _$EmbedExternal {
   const factory EmbedExternal({
     required String title,
     required String description,
-    required String uri,
+    @AtUriConverter() required AtUri uri,
     MediaMeta? thumb,
   }) = _EmbedExternal;
 

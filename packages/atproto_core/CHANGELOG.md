@@ -3,6 +3,7 @@
 ## v0.2.0
 
 - Use `xrpc` package and refactored structures. ([#146](https://github.com/myConsciousness/atproto.dart/issues/146))
+- Exposed `AtUri`. ([#144](https://github.com/myConsciousness/atproto.dart/issues/144))
 
 ## v0.1.2
 

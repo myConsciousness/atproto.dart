@@ -22,7 +22,8 @@ Post _$PostFromJson(Map<String, dynamic> json) {
 mixin _$Post {
   PostRecord get record => throw _privateConstructorUsedError;
   Actor get author => throw _privateConstructorUsedError;
-  String get uri => throw _privateConstructorUsedError;
+  @AtUriConverter()
+  AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   int get replyCount => throw _privateConstructorUsedError;
   int get repostCount => throw _privateConstructorUsedError;
@@ -44,7 +45,7 @@ abstract class $PostCopyWith<$Res> {
   $Res call(
       {PostRecord record,
       Actor author,
-      String uri,
+      @AtUriConverter() AtUri uri,
       String cid,
       int replyCount,
       int repostCount,
@@ -92,7 +93,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AtUri,
       cid: null == cid
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
@@ -154,7 +155,7 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
   $Res call(
       {PostRecord record,
       Actor author,
-      String uri,
+      @AtUriConverter() AtUri uri,
       String cid,
       int replyCount,
       int repostCount,
@@ -201,7 +202,7 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AtUri,
       cid: null == cid
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
@@ -236,7 +237,7 @@ class _$_Post implements _Post {
   const _$_Post(
       {required this.record,
       required this.author,
-      required this.uri,
+      @AtUriConverter() required this.uri,
       required this.cid,
       required this.replyCount,
       required this.repostCount,
@@ -251,7 +252,8 @@ class _$_Post implements _Post {
   @override
   final Actor author;
   @override
-  final String uri;
+  @AtUriConverter()
+  final AtUri uri;
   @override
   final String cid;
   @override
@@ -314,7 +316,7 @@ abstract class _Post implements Post {
   const factory _Post(
       {required final PostRecord record,
       required final Actor author,
-      required final String uri,
+      @AtUriConverter() required final AtUri uri,
       required final String cid,
       required final int replyCount,
       required final int repostCount,
@@ -329,7 +331,8 @@ abstract class _Post implements Post {
   @override
   Actor get author;
   @override
-  String get uri;
+  @AtUriConverter()
+  AtUri get uri;
   @override
   String get cid;
   @override

@@ -32,7 +32,7 @@ abstract class RepositoriesService {
 
   Future<core.XRPCResponse<core.EmptyData>> deleteRecord({
     required core.NSID collection,
-    required String uri,
+    required core.AtUri uri,
   });
 }
 
@@ -65,14 +65,14 @@ class _RepositoriesService extends ATProtoBaseService
   @override
   Future<core.XRPCResponse<core.EmptyData>> deleteRecord({
     required core.NSID collection,
-    required String uri,
+    required core.AtUri uri,
   }) async =>
       await super.post<core.EmptyData>(
         'deleteRecord',
         body: {
           'did': did,
           'collection': collection.toString(),
-          'rkey': uri.split('/').last,
+          'rkey': uri.rkey,
         },
       );
 }

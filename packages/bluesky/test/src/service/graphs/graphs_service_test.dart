@@ -113,7 +113,7 @@ void main() {
       );
 
       final response = await graphs.deleteFollow(
-        uri: 'at://test',
+        uri: AtUri.parse('at://foo.com/com.example.foo/123'),
       );
 
       expect(response, isA<XRPCResponse>());
@@ -140,7 +140,7 @@ void main() {
 
       expectUnauthorizedException(
         () async => await graphs.deleteFollow(
-          uri: 'at://test',
+          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
       );
     });
@@ -165,7 +165,7 @@ void main() {
 
       expectRateLimitExceededException(
         () async => await graphs.deleteFollow(
-          uri: 'at://test',
+          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
       );
     });

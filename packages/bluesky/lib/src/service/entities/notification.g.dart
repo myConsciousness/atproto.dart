@@ -14,7 +14,8 @@ _$_Notification _$$_NotificationFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$_Notification(
           cid: $checkedConvert('cid', (v) => v as String),
-          uri: $checkedConvert('uri', (v) => v as String),
+          uri: $checkedConvert(
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           author: $checkedConvert('author',
               (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
           reason: $checkedConvert(
@@ -31,7 +32,7 @@ _$_Notification _$$_NotificationFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$_NotificationToJson(_$_Notification instance) {
   final val = <String, dynamic>{
     'cid': instance.cid,
-    'uri': instance.uri,
+    'uri': const AtUriConverter().toJson(instance.uri),
     'author': instance.author.toJson(),
     'reason': _$NotificationReasonEnumMap[instance.reason]!,
   };

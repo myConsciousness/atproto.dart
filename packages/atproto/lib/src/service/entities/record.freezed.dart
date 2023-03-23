@@ -21,7 +21,8 @@ Record _$RecordFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Record {
   String get cid => throw _privateConstructorUsedError;
-  String get uri => throw _privateConstructorUsedError;
+  @AtUriConverter()
+  AtUri get uri => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +34,7 @@ abstract class $RecordCopyWith<$Res> {
   factory $RecordCopyWith(Record value, $Res Function(Record) then) =
       _$RecordCopyWithImpl<$Res, Record>;
   @useResult
-  $Res call({String cid, String uri});
+  $Res call({String cid, @AtUriConverter() AtUri uri});
 }
 
 /// @nodoc
@@ -60,7 +61,7 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AtUri,
     ) as $Val);
   }
 }
@@ -71,7 +72,7 @@ abstract class _$$_RecordCopyWith<$Res> implements $RecordCopyWith<$Res> {
       __$$_RecordCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String cid, String uri});
+  $Res call({String cid, @AtUriConverter() AtUri uri});
 }
 
 /// @nodoc
@@ -95,7 +96,7 @@ class __$$_RecordCopyWithImpl<$Res>
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AtUri,
     ));
   }
 }
@@ -103,7 +104,7 @@ class __$$_RecordCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Record implements _Record {
-  const _$_Record({required this.cid, required this.uri});
+  const _$_Record({required this.cid, @AtUriConverter() required this.uri});
 
   factory _$_Record.fromJson(Map<String, dynamic> json) =>
       _$$_RecordFromJson(json);
@@ -111,7 +112,8 @@ class _$_Record implements _Record {
   @override
   final String cid;
   @override
-  final String uri;
+  @AtUriConverter()
+  final AtUri uri;
 
   @override
   String toString() {
@@ -147,14 +149,16 @@ class _$_Record implements _Record {
 
 abstract class _Record implements Record {
   const factory _Record(
-      {required final String cid, required final String uri}) = _$_Record;
+      {required final String cid,
+      @AtUriConverter() required final AtUri uri}) = _$_Record;
 
   factory _Record.fromJson(Map<String, dynamic> json) = _$_Record.fromJson;
 
   @override
   String get cid;
   @override
-  String get uri;
+  @AtUriConverter()
+  AtUri get uri;
   @override
   @JsonKey(ignore: true)
   _$$_RecordCopyWith<_$_Record> get copyWith =>

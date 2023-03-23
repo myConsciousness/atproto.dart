@@ -22,7 +22,8 @@ EmbedExternal _$EmbedExternalFromJson(Map<String, dynamic> json) {
 mixin _$EmbedExternal {
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  String get uri => throw _privateConstructorUsedError;
+  @AtUriConverter()
+  AtUri get uri => throw _privateConstructorUsedError;
   MediaMeta? get thumb => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +38,11 @@ abstract class $EmbedExternalCopyWith<$Res> {
           EmbedExternal value, $Res Function(EmbedExternal) then) =
       _$EmbedExternalCopyWithImpl<$Res, EmbedExternal>;
   @useResult
-  $Res call({String title, String description, String uri, MediaMeta? thumb});
+  $Res call(
+      {String title,
+      String description,
+      @AtUriConverter() AtUri uri,
+      MediaMeta? thumb});
 
   $MediaMetaCopyWith<$Res>? get thumb;
 }
@@ -72,7 +77,7 @@ class _$EmbedExternalCopyWithImpl<$Res, $Val extends EmbedExternal>
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AtUri,
       thumb: freezed == thumb
           ? _value.thumb
           : thumb // ignore: cast_nullable_to_non_nullable
@@ -101,7 +106,11 @@ abstract class _$$_EmbedExternalCopyWith<$Res>
       __$$_EmbedExternalCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String title, String description, String uri, MediaMeta? thumb});
+  $Res call(
+      {String title,
+      String description,
+      @AtUriConverter() AtUri uri,
+      MediaMeta? thumb});
 
   @override
   $MediaMetaCopyWith<$Res>? get thumb;
@@ -135,7 +144,7 @@ class __$$_EmbedExternalCopyWithImpl<$Res>
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AtUri,
       thumb: freezed == thumb
           ? _value.thumb
           : thumb // ignore: cast_nullable_to_non_nullable
@@ -151,7 +160,7 @@ class _$_EmbedExternal implements _EmbedExternal {
   const _$_EmbedExternal(
       {required this.title,
       required this.description,
-      required this.uri,
+      @AtUriConverter() required this.uri,
       this.thumb});
 
   factory _$_EmbedExternal.fromJson(Map<String, dynamic> json) =>
@@ -162,7 +171,8 @@ class _$_EmbedExternal implements _EmbedExternal {
   @override
   final String description;
   @override
-  final String uri;
+  @AtUriConverter()
+  final AtUri uri;
   @override
   final MediaMeta? thumb;
 
@@ -205,7 +215,7 @@ abstract class _EmbedExternal implements EmbedExternal {
   const factory _EmbedExternal(
       {required final String title,
       required final String description,
-      required final String uri,
+      @AtUriConverter() required final AtUri uri,
       final MediaMeta? thumb}) = _$_EmbedExternal;
 
   factory _EmbedExternal.fromJson(Map<String, dynamic> json) =
@@ -216,7 +226,8 @@ abstract class _EmbedExternal implements EmbedExternal {
   @override
   String get description;
   @override
-  String get uri;
+  @AtUriConverter()
+  AtUri get uri;
   @override
   MediaMeta? get thumb;
   @override

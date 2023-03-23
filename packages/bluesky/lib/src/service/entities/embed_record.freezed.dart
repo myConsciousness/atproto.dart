@@ -21,7 +21,8 @@ EmbedRecord _$EmbedRecordFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$EmbedRecord {
   String get cid => throw _privateConstructorUsedError;
-  String get uri => throw _privateConstructorUsedError;
+  @AtUriConverter()
+  AtUri get uri => throw _privateConstructorUsedError;
   Actor get author => throw _privateConstructorUsedError;
   Post get record => throw _privateConstructorUsedError;
 
@@ -37,7 +38,8 @@ abstract class $EmbedRecordCopyWith<$Res> {
           EmbedRecord value, $Res Function(EmbedRecord) then) =
       _$EmbedRecordCopyWithImpl<$Res, EmbedRecord>;
   @useResult
-  $Res call({String cid, String uri, Actor author, Post record});
+  $Res call(
+      {String cid, @AtUriConverter() AtUri uri, Actor author, Post record});
 
   $ActorCopyWith<$Res> get author;
   $PostCopyWith<$Res> get record;
@@ -69,7 +71,7 @@ class _$EmbedRecordCopyWithImpl<$Res, $Val extends EmbedRecord>
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AtUri,
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
@@ -106,7 +108,8 @@ abstract class _$$_EmbedRecordCopyWith<$Res>
       __$$_EmbedRecordCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String cid, String uri, Actor author, Post record});
+  $Res call(
+      {String cid, @AtUriConverter() AtUri uri, Actor author, Post record});
 
   @override
   $ActorCopyWith<$Res> get author;
@@ -138,7 +141,7 @@ class __$$_EmbedRecordCopyWithImpl<$Res>
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AtUri,
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
@@ -156,7 +159,7 @@ class __$$_EmbedRecordCopyWithImpl<$Res>
 class _$_EmbedRecord implements _EmbedRecord {
   const _$_EmbedRecord(
       {required this.cid,
-      required this.uri,
+      @AtUriConverter() required this.uri,
       required this.author,
       required this.record});
 
@@ -166,7 +169,8 @@ class _$_EmbedRecord implements _EmbedRecord {
   @override
   final String cid;
   @override
-  final String uri;
+  @AtUriConverter()
+  final AtUri uri;
   @override
   final Actor author;
   @override
@@ -209,7 +213,7 @@ class _$_EmbedRecord implements _EmbedRecord {
 abstract class _EmbedRecord implements EmbedRecord {
   const factory _EmbedRecord(
       {required final String cid,
-      required final String uri,
+      @AtUriConverter() required final AtUri uri,
       required final Actor author,
       required final Post record}) = _$_EmbedRecord;
 
@@ -219,7 +223,8 @@ abstract class _EmbedRecord implements EmbedRecord {
   @override
   String get cid;
   @override
-  String get uri;
+  @AtUriConverter()
+  AtUri get uri;
   @override
   Actor get author;
   @override

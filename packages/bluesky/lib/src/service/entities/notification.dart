@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'actor.dart';
@@ -17,7 +18,7 @@ class Notification with _$Notification {
   @JsonSerializable(includeIfNull: false)
   const factory Notification({
     required String cid,
-    required String uri,
+    @AtUriConverter() required AtUri uri,
     required Actor author,
     required NotificationReason reason,
     String? reasonSubject,

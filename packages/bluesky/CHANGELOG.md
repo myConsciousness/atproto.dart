@@ -3,6 +3,7 @@
 ## v0.3.0
 
 - Fixed to use `xrpc` package and refactored structures. ([#146](https://github.com/myConsciousness/atproto.dart/issues/146))
+- Fixed to use `at_uri` for `uri` parameters. ([#144](https://github.com/myConsciousness/atproto.dart/issues/144))
 
 ## v0.2.5
 

@@ -14,7 +14,8 @@ _$_StrongRef _$$_StrongRefFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$_StrongRef(
           cid: $checkedConvert('cid', (v) => v as String),
-          uri: $checkedConvert('uri', (v) => v as String),
+          uri: $checkedConvert(
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
         );
         return val;
       },
@@ -23,5 +24,5 @@ _$_StrongRef _$$_StrongRefFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$_StrongRefToJson(_$_StrongRef instance) =>
     <String, dynamic>{
       'cid': instance.cid,
-      'uri': instance.uri,
+      'uri': const AtUriConverter().toJson(instance.uri),
     };

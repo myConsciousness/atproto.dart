@@ -21,7 +21,8 @@ Notification _$NotificationFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Notification {
   String get cid => throw _privateConstructorUsedError;
-  String get uri => throw _privateConstructorUsedError;
+  @AtUriConverter()
+  AtUri get uri => throw _privateConstructorUsedError;
   Actor get author => throw _privateConstructorUsedError;
   NotificationReason get reason => throw _privateConstructorUsedError;
   String? get reasonSubject => throw _privateConstructorUsedError;
@@ -42,7 +43,7 @@ abstract class $NotificationCopyWith<$Res> {
   @useResult
   $Res call(
       {String cid,
-      String uri,
+      @AtUriConverter() AtUri uri,
       Actor author,
       NotificationReason reason,
       String? reasonSubject,
@@ -81,7 +82,7 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AtUri,
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
@@ -124,7 +125,7 @@ abstract class _$$_NotificationCopyWith<$Res>
   @useResult
   $Res call(
       {String cid,
-      String uri,
+      @AtUriConverter() AtUri uri,
       Actor author,
       NotificationReason reason,
       String? reasonSubject,
@@ -162,7 +163,7 @@ class __$$_NotificationCopyWithImpl<$Res>
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AtUri,
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
@@ -193,7 +194,7 @@ class __$$_NotificationCopyWithImpl<$Res>
 class _$_Notification implements _Notification {
   const _$_Notification(
       {required this.cid,
-      required this.uri,
+      @AtUriConverter() required this.uri,
       required this.author,
       required this.reason,
       this.reasonSubject,
@@ -206,7 +207,8 @@ class _$_Notification implements _Notification {
   @override
   final String cid;
   @override
-  final String uri;
+  @AtUriConverter()
+  final AtUri uri;
   @override
   final Actor author;
   @override
@@ -261,7 +263,7 @@ class _$_Notification implements _Notification {
 abstract class _Notification implements Notification {
   const factory _Notification(
       {required final String cid,
-      required final String uri,
+      @AtUriConverter() required final AtUri uri,
       required final Actor author,
       required final NotificationReason reason,
       final String? reasonSubject,
@@ -274,7 +276,8 @@ abstract class _Notification implements Notification {
   @override
   String get cid;
   @override
-  String get uri;
+  @AtUriConverter()
+  AtUri get uri;
   @override
   Actor get author;
   @override
