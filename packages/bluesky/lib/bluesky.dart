@@ -5,19 +5,23 @@
 export 'package:atproto/atproto.dart' show createSession, Session, Record;
 export 'package:atproto_core/atproto_core.dart'
     show
-        Empty,
-        ATProtoRequest,
-        ATProtoResponse,
-        Jitter,
+        XRPCResponse,
+        XRPCRequest,
+        XRPCError,
+        EmptyData,
+        HttpMethod,
+        HttpStatus,
+        Serializable,
+        XRPCException,
+        InternalServerErrorException,
+        InvalidRequestException,
+        UnauthorizedException,
+        RateLimitExceededException,
         RetryConfig,
         RetryEvent,
-        ATProtoException,
-        UnauthorizedException,
-        DataNotFoundException,
-        RateLimitExceededException,
-        ForbiddenException,
-        HttpMethod,
-        HttpStatus;
+        Jitter,
+        GetClient,
+        PostClient;
 export 'package:bluesky/src/bluesky.dart';
 export 'package:bluesky/src/service/actors/actors_service.dart';
 export 'package:bluesky/src/service/bluesky_service.dart';

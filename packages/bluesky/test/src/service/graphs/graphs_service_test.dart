@@ -4,31 +4,31 @@
 
 // 🌎 Project imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:bluesky/bluesky.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
-import '../../../mocks/client_context_stubs.dart' as context;
+import '../../../mocks/mocked_clients.dart';
 import '../common_expectations.dart';
 
 void main() {
   group('.createFollow', () {
     test('normal case', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.createRecord',
-        'test/src/service/graphs/data/create_follow.json',
-      );
-
       final graphs = GraphsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/graphs/data/create_follow.json',
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       final response = await graphs.createFollow(
@@ -37,27 +37,26 @@ void main() {
         createdAt: DateTime.now(),
       );
 
-      expect(response, isA<ATProtoResponse>());
+      expect(response, isA<XRPCResponse>());
       expect(response.data, isA<Record>());
     });
 
     test('when unauthorized', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.createRecord',
-        'test/src/service/graphs/data/create_follow.json',
-        statusCode: 401,
-      );
-
       final graphs = GraphsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/data/error.json',
+            statusCode: 401,
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       expectUnauthorizedException(
@@ -69,22 +68,21 @@ void main() {
     });
 
     test('when rate limit exceeded', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.createRecord',
-        'test/src/service/graphs/data/create_follow.json',
-        statusCode: 429,
-      );
-
       final graphs = GraphsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/data/error.json',
+            statusCode: 429,
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       expectRateLimitExceededException(
@@ -98,48 +96,46 @@ void main() {
 
   group('.deleteFollow', () {
     test('normal case', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.deleteRecord',
-        'test/src/service/graphs/data/delete_follow.json',
-      );
-
       final graphs = GraphsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/graphs/data/delete_follow.json',
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       final response = await graphs.deleteFollow(
         uri: 'at://test',
       );
 
-      expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<Empty>());
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<EmptyData>());
     });
 
     test('when unauthorized', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.deleteRecord',
-        'test/src/service/graphs/data/delete_follow.json',
-        statusCode: 401,
-      );
-
       final graphs = GraphsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/data/error.json',
+            statusCode: 401,
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       expectUnauthorizedException(
@@ -150,22 +146,21 @@ void main() {
     });
 
     test('when rate limit exceeded', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.deleteRecord',
-        'test/src/service/graphs/data/delete_follow.json',
-        statusCode: 429,
-      );
-
       final graphs = GraphsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/data/error.json',
+            statusCode: 429,
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       expectRateLimitExceededException(
@@ -181,15 +176,12 @@ void main() {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.graph.getFollows',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
           'test/src/service/graphs/data/find_follows.json',
-          {
-            'user': 'shinyakato.dev',
-            'limit': '10',
-            'before': '1234',
-          },
         ),
       );
 
@@ -199,7 +191,7 @@ void main() {
         cursor: '1234',
       );
 
-      expect(response, isA<ATProtoResponse>());
+      expect(response, isA<XRPCResponse>());
       expect(response.data, isA<FollowsData>());
     });
 
@@ -207,15 +199,12 @@ void main() {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.graph.getFollows',
-          'test/src/service/graphs/data/find_follows.json',
-          {
-            'user': 'shinyakato.dev',
-            'limit': '10',
-            'before': '1234',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 401,
         ),
       );
@@ -233,15 +222,12 @@ void main() {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.graph.getFollows',
-          'test/src/service/graphs/data/find_follows.json',
-          {
-            'user': 'shinyakato.dev',
-            'limit': '10',
-            'before': '1234',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 429,
         ),
       );
@@ -261,15 +247,12 @@ void main() {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.graph.getFollowers',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
           'test/src/service/graphs/data/find_followers.json',
-          {
-            'user': 'shinyakato.dev',
-            'limit': '10',
-            'before': '1234',
-          },
         ),
       );
 
@@ -279,7 +262,7 @@ void main() {
         cursor: '1234',
       );
 
-      expect(response, isA<ATProtoResponse>());
+      expect(response, isA<XRPCResponse>());
       expect(response.data, isA<FollowersData>());
     });
 
@@ -287,15 +270,12 @@ void main() {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.graph.getFollowers',
-          'test/src/service/graphs/data/find_followers.json',
-          {
-            'user': 'shinyakato.dev',
-            'limit': '10',
-            'before': '1234',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 401,
         ),
       );
@@ -313,15 +293,12 @@ void main() {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.graph.getFollowers',
-          'test/src/service/graphs/data/find_followers.json',
-          {
-            'user': 'shinyakato.dev',
-            'limit': '10',
-            'before': '1234',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 429,
         ),
       );
@@ -345,9 +322,11 @@ void main() {
           service: 'test',
         ),
         service: 'test',
-        context: context.buildPostStub(
-          'test',
-          '/xrpc/app.bsky.graph.mute',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: createMockedPostClient(
           'test/src/service/graphs/data/create_mute.json',
         ),
       );
@@ -356,8 +335,8 @@ void main() {
         actor: 'shinyakato.dev',
       );
 
-      expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<Empty>());
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<EmptyData>());
     });
 
     test('when unauthorized', () async {
@@ -368,10 +347,12 @@ void main() {
           service: 'test',
         ),
         service: 'test',
-        context: context.buildPostStub(
-          'test',
-          '/xrpc/app.bsky.graph.mute',
-          'test/src/service/graphs/data/create_mute.json',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: createMockedPostClient(
+          'test/src/service/data/error.json',
           statusCode: 401,
         ),
       );
@@ -391,10 +372,12 @@ void main() {
           service: 'test',
         ),
         service: 'test',
-        context: context.buildPostStub(
-          'test',
-          '/xrpc/app.bsky.graph.mute',
-          'test/src/service/graphs/data/create_mute.json',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: createMockedPostClient(
+          'test/src/service/data/error.json',
           statusCode: 429,
         ),
       );
@@ -416,9 +399,11 @@ void main() {
           service: 'test',
         ),
         service: 'test',
-        context: context.buildPostStub(
-          'test',
-          '/xrpc/app.bsky.graph.unmute',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: createMockedPostClient(
           'test/src/service/graphs/data/delete_mute.json',
         ),
       );
@@ -427,8 +412,8 @@ void main() {
         actor: 'shinyakato.dev',
       );
 
-      expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<Empty>());
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<EmptyData>());
     });
 
     test('when unauthorized', () async {
@@ -439,10 +424,12 @@ void main() {
           service: 'test',
         ),
         service: 'test',
-        context: context.buildPostStub(
-          'test',
-          '/xrpc/app.bsky.graph.unmute',
-          'test/src/service/graphs/data/delete_mute.json',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: createMockedPostClient(
+          'test/src/service/data/error.json',
           statusCode: 401,
         ),
       );
@@ -462,10 +449,12 @@ void main() {
           service: 'test',
         ),
         service: 'test',
-        context: context.buildPostStub(
-          'test',
-          '/xrpc/app.bsky.graph.unmute',
-          'test/src/service/graphs/data/delete_mute.json',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: createMockedPostClient(
+          'test/src/service/data/error.json',
           statusCode: 429,
         ),
       );
@@ -483,14 +472,12 @@ void main() {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.graph.getMutes',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
           'test/src/service/graphs/data/find_mutes.json',
-          {
-            'limit': '10',
-            'before': '1234',
-          },
         ),
       );
 
@@ -499,7 +486,7 @@ void main() {
         cursor: '1234',
       );
 
-      expect(response, isA<ATProtoResponse>());
+      expect(response, isA<XRPCResponse>());
       expect(response.data, isA<MutesData>());
     });
 
@@ -507,14 +494,12 @@ void main() {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.graph.getMutes',
-          'test/src/service/graphs/data/find_mutes.json',
-          {
-            'limit': '10',
-            'before': '1234',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 401,
         ),
       );
@@ -531,14 +516,12 @@ void main() {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.graph.getMutes',
-          'test/src/service/graphs/data/find_mutes.json',
-          {
-            'limit': '10',
-            'before': '1234',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 429,
         ),
       );

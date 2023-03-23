@@ -4,11 +4,12 @@
 
 // 🌎 Project imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:bluesky/bluesky.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
-import '../../../mocks/client_context_stubs.dart' as context;
+import '../../../mocks/mocked_clients.dart';
 import '../common_expectations.dart';
 
 void main() {
@@ -17,15 +18,12 @@ void main() {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.feed.getTimeline',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
           'test/src/service/feeds/data/find_home_timeline.json',
-          {
-            'algorithm': 'reverse-chronological',
-            'limit': '10',
-            'before': '1234'
-          },
         ),
       );
 
@@ -35,7 +33,7 @@ void main() {
         cursor: '1234',
       );
 
-      expect(response, isA<ATProtoResponse>());
+      expect(response, isA<XRPCResponse>());
       expect(response.data, isA<FeedsData>());
     });
 
@@ -43,15 +41,12 @@ void main() {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.feed.getTimeline',
-          'test/src/service/feeds/data/find_home_timeline.json',
-          {
-            'algorithm': 'reverse-chronological',
-            'limit': '10',
-            'before': '1234'
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 401,
         ),
       );
@@ -69,15 +64,12 @@ void main() {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.feed.getTimeline',
-          'test/src/service/feeds/data/find_home_timeline.json',
-          {
-            'algorithm': 'reverse-chronological',
-            'limit': '10',
-            'before': '1234'
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 429,
         ),
       );
@@ -94,48 +86,46 @@ void main() {
 
   group('.createPost', () {
     test('normal case', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.createRecord',
-        'test/src/service/feeds/data/create_post.json',
-      );
-
       final feeds = FeedsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/feeds/data/create_post.json',
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       final response = await feeds.createPost(
         text: 'test',
       );
 
-      expect(response, isA<ATProtoResponse>());
+      expect(response, isA<XRPCResponse>());
       expect(response.data, isA<Record>());
     });
 
     test('when unauthorized', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.createRecord',
-        'test/src/service/feeds/data/create_post.json',
-        statusCode: 401,
-      );
-
       final feeds = FeedsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/data/error.json',
+            statusCode: 401,
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       expectUnauthorizedException(
@@ -146,22 +136,21 @@ void main() {
     });
 
     test('when rate limit exceeded', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.createRecord',
-        'test/src/service/feeds/data/create_post.json',
-        statusCode: 429,
-      );
-
       final feeds = FeedsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/data/error.json',
+            statusCode: 429,
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       expectRateLimitExceededException(
@@ -174,48 +163,46 @@ void main() {
 
   group('.deletePost', () {
     test('normal case', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.deleteRecord',
-        'test/src/service/feeds/data/delete_post.json',
-      );
-
       final feeds = FeedsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/feeds/data/delete_post.json',
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       final response = await feeds.deletePost(
         uri: 'test',
       );
 
-      expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<Empty>());
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<EmptyData>());
     });
 
     test('when unauthorized', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.deleteRecord',
-        'test/src/service/feeds/data/delete_post.json',
-        statusCode: 401,
-      );
-
       final feeds = FeedsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/data/error.json',
+            statusCode: 401,
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       expectUnauthorizedException(
@@ -226,22 +213,21 @@ void main() {
     });
 
     test('when rate limit exceeded', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.deleteRecord',
-        'test/src/service/feeds/data/delete_post.json',
-        statusCode: 429,
-      );
-
       final feeds = FeedsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/data/error.json',
+            statusCode: 429,
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       expectRateLimitExceededException(
@@ -254,21 +240,20 @@ void main() {
 
   group('.createRepost', () {
     test('normal case', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.createRecord',
-        'test/src/service/feeds/data/create_repost.json',
-      );
-
       final feeds = FeedsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/feeds/data/create_repost.json',
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       final response = await feeds.createRepost(
@@ -277,27 +262,26 @@ void main() {
         createdAt: DateTime.now(),
       );
 
-      expect(response, isA<ATProtoResponse>());
+      expect(response, isA<XRPCResponse>());
       expect(response.data, isA<Record>());
     });
 
     test('when unauthorized', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.createRecord',
-        'test/src/service/feeds/data/create_repost.json',
-        statusCode: 401,
-      );
-
       final feeds = FeedsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/data/error.json',
+            statusCode: 401,
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       expectUnauthorizedException(
@@ -309,22 +293,21 @@ void main() {
     });
 
     test('when rate limit exceeded', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.createRecord',
-        'test/src/service/feeds/data/create_repost.json',
-        statusCode: 429,
-      );
-
       final feeds = FeedsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/data/error.json',
+            statusCode: 429,
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       expectRateLimitExceededException(
@@ -338,48 +321,46 @@ void main() {
 
   group('.deleteRepost', () {
     test('normal case', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.deleteRecord',
-        'test/src/service/feeds/data/delete_repost.json',
-      );
-
       final feeds = FeedsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/feeds/data/delete_repost.json',
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       final response = await feeds.deleteRepost(
         uri: 'at://test',
       );
 
-      expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<Empty>());
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<EmptyData>());
     });
 
     test('when unauthorized', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.deleteRecord',
-        'test/src/service/feeds/data/delete_repost.json',
-        statusCode: 401,
-      );
-
       final feeds = FeedsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/data/error.json',
+            statusCode: 401,
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       expectUnauthorizedException(
@@ -390,22 +371,21 @@ void main() {
     });
 
     test('when rate limit exceeded', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.deleteRecord',
-        'test/src/service/feeds/data/delete_repost.json',
-        statusCode: 429,
-      );
-
       final feeds = FeedsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/data/error.json',
+            statusCode: 429,
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       expectRateLimitExceededException(
@@ -418,21 +398,20 @@ void main() {
 
   group('.createLike', () {
     test('normal case', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.createRecord',
-        'test/src/service/feeds/data/create_like.json',
-      );
-
       final feeds = FeedsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/feeds/data/create_like.json',
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       final response = await feeds.createLike(
@@ -441,27 +420,26 @@ void main() {
         createdAt: DateTime.now(),
       );
 
-      expect(response, isA<ATProtoResponse>());
+      expect(response, isA<XRPCResponse>());
       expect(response.data, isA<Record>());
     });
 
     test('when unauthorized', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.createRecord',
-        'test/src/service/feeds/data/create_like.json',
-        statusCode: 401,
-      );
-
       final feeds = FeedsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/data/error.json',
+            statusCode: 401,
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       expectUnauthorizedException(
@@ -473,22 +451,21 @@ void main() {
     });
 
     test('when rate limit exceeded', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.createRecord',
-        'test/src/service/feeds/data/create_like.json',
-        statusCode: 429,
-      );
-
       final feeds = FeedsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/data/error.json',
+            statusCode: 429,
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       expectRateLimitExceededException(
@@ -502,48 +479,46 @@ void main() {
 
   group('.deleteLike', () {
     test('normal case', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.deleteRecord',
-        'test/src/service/feeds/data/delete_like.json',
-      );
-
       final feeds = FeedsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/feeds/data/delete_like.json',
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       final response = await feeds.deleteLike(
         uri: 'at://test',
       );
 
-      expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<Empty>());
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<EmptyData>());
     });
 
     test('when unauthorized', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.deleteRecord',
-        'test/src/service/feeds/data/delete_like.json',
-        statusCode: 401,
-      );
-
       final feeds = FeedsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/data/error.json',
+            statusCode: 401,
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       expectUnauthorizedException(
@@ -554,22 +529,21 @@ void main() {
     });
 
     test('when rate limit exceeded', () async {
-      final mockedContext = context.buildPostStub(
-        'test',
-        '/xrpc/com.atproto.repo.deleteRecord',
-        'test/src/service/feeds/data/delete_like.json',
-        statusCode: 429,
-      );
-
       final feeds = FeedsService(
         atproto: ATProto(
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          context: mockedContext,
+          mockedPostClient: createMockedPostClient(
+            'test/src/service/data/error.json',
+            statusCode: 429,
+          ),
         ),
         service: 'test',
-        context: mockedContext,
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
       );
 
       expectRateLimitExceededException(
@@ -585,15 +559,12 @@ void main() {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.feed.getAuthorFeed',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
           'test/src/service/feeds/data/find_feeds.json',
-          {
-            'author': 'shinyakato.dev',
-            'limit': '10',
-            'before': '1234',
-          },
         ),
       );
 
@@ -603,7 +574,7 @@ void main() {
         cursor: '1234',
       );
 
-      expect(response, isA<ATProtoResponse>());
+      expect(response, isA<XRPCResponse>());
       expect(response.data, isA<FeedsData>());
     });
 
@@ -611,15 +582,12 @@ void main() {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.feed.getAuthorFeed',
-          'test/src/service/feeds/data/find_feeds.json',
-          {
-            'author': 'shinyakato.dev',
-            'limit': '10',
-            'before': '1234',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 401,
         ),
       );
@@ -637,15 +605,12 @@ void main() {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.feed.getAuthorFeed',
-          'test/src/service/feeds/data/find_feeds.json',
-          {
-            'author': 'shinyakato.dev',
-            'limit': '10',
-            'before': '1234',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 429,
         ),
       );
@@ -665,17 +630,12 @@ void main() {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.feed.getVotes',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
           'test/src/service/feeds/data/find_likes.json',
-          {
-            'uri': 'at://xxxxx',
-            'cid': 'test',
-            'direction': 'up',
-            'limit': '10',
-            'before': '1234',
-          },
         ),
       );
 
@@ -686,7 +646,7 @@ void main() {
         cursor: '1234',
       );
 
-      expect(response, isA<ATProtoResponse>());
+      expect(response, isA<XRPCResponse>());
       expect(response.data, isA<LikesData>());
     });
 
@@ -694,17 +654,12 @@ void main() {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.feed.getVotes',
-          'test/src/service/feeds/data/find_likes.json',
-          {
-            'uri': 'at://xxxxx',
-            'cid': 'test',
-            'direction': 'up',
-            'limit': '10',
-            'before': '1234',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 401,
         ),
       );
@@ -723,17 +678,12 @@ void main() {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.feed.getVotes',
-          'test/src/service/feeds/data/find_likes.json',
-          {
-            'uri': 'at://xxxxx',
-            'cid': 'test',
-            'direction': 'up',
-            'limit': '10',
-            'before': '1234',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 429,
         ),
       );
@@ -754,16 +704,12 @@ void main() {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.feed.getRepostedBy',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
           'test/src/service/feeds/data/find_reposted_by.json',
-          {
-            'uri': 'at://xxxxx',
-            'cid': 'test',
-            'limit': '10',
-            'before': '1234',
-          },
         ),
       );
 
@@ -774,7 +720,7 @@ void main() {
         cursor: '1234',
       );
 
-      expect(response, isA<ATProtoResponse>());
+      expect(response, isA<XRPCResponse>());
       expect(response.data, isA<RepostedByData>());
     });
 
@@ -782,16 +728,12 @@ void main() {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.feed.getRepostedBy',
-          'test/src/service/feeds/data/find_reposted_by.json',
-          {
-            'uri': 'at://xxxxx',
-            'cid': 'test',
-            'limit': '10',
-            'before': '1234',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 401,
         ),
       );
@@ -810,16 +752,12 @@ void main() {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.feed.getRepostedBy',
-          'test/src/service/feeds/data/find_reposted_by.json',
-          {
-            'uri': 'at://xxxxx',
-            'cid': 'test',
-            'limit': '10',
-            'before': '1234',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 429,
         ),
       );
@@ -840,14 +778,12 @@ void main() {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.feed.getPostThread',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
           'test/src/service/feeds/data/find_post_thread.json',
-          {
-            'uri': 'at://xxxx',
-            'depth': '5',
-          },
         ),
       );
 
@@ -856,7 +792,7 @@ void main() {
         depth: 5,
       );
 
-      expect(response, isA<ATProtoResponse>());
+      expect(response, isA<XRPCResponse>());
       expect(response.data, isA<PostThreadData>());
     });
 
@@ -864,14 +800,12 @@ void main() {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.feed.getPostThread',
-          'test/src/service/feeds/data/find_post_thread.json',
-          {
-            'uri': 'at://xxxx',
-            'depth': '5',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 401,
         ),
       );
@@ -888,14 +822,12 @@ void main() {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.feed.getPostThread',
-          'test/src/service/feeds/data/find_post_thread.json',
-          {
-            'uri': 'at://xxxx',
-            'depth': '5',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 429,
         ),
       );

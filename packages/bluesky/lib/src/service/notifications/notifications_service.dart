@@ -16,11 +16,15 @@ abstract class NotificationsService {
     required atp.ATProto atproto,
     required String service,
     required core.ClientContext context,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   }) =>
       _NotificationsService(
         atproto: atproto,
         service: service,
         context: context,
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
       );
 
   /// Returns notifications authenticated user received.
@@ -39,7 +43,7 @@ abstract class NotificationsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/list.json
-  Future<core.ATProtoResponse<NotificationsData>> findNotifications({
+  Future<core.XRPCResponse<NotificationsData>> findNotifications({
     int? limit,
     String? cursor,
   });
@@ -53,7 +57,7 @@ abstract class NotificationsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/getCount.json
-  Future<core.ATProtoResponse<CountData>> findUnreadCount();
+  Future<core.XRPCResponse<CountData>> findUnreadCount();
 
   /// Notify server that the user has seen notifications.
   ///
@@ -69,7 +73,7 @@ abstract class NotificationsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/updateSeen.json
-  Future<core.ATProtoResponse<core.Empty>> updateNotificationsAsRead({
+  Future<core.XRPCResponse<core.EmptyData>> updateNotificationsAsRead({
     DateTime? seenAt,
   });
 }
@@ -81,43 +85,39 @@ class _NotificationsService extends BlueskyBaseService
     required super.atproto,
     required super.service,
     required super.context,
-  });
+    super.mockedGetClient,
+    super.mockedPostClient,
+  }) : super(methodAuthority: 'notification.bsky.app');
 
   @override
-  Future<core.ATProtoResponse<NotificationsData>> findNotifications({
+  Future<core.XRPCResponse<NotificationsData>> findNotifications({
     int? limit,
     String? cursor,
   }) async =>
-      super.transformSingleDataResponse(
-        await super.get(
-          '/xrpc/app.bsky.notification.list',
-          queryParameters: {
-            'limit': limit,
-            'cursor': cursor,
-          },
-        ),
-        dataBuilder: NotificationsData.fromJson,
+      await super.get(
+        'list',
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: NotificationsData.fromJson,
       );
 
   @override
-  Future<core.ATProtoResponse<CountData>> findUnreadCount() async =>
-      super.transformSingleDataResponse(
-        await super.get(
-          '/xrpc/app.bsky.notification.getCount',
-        ),
-        dataBuilder: CountData.fromJson,
+  Future<core.XRPCResponse<CountData>> findUnreadCount() async =>
+      await super.get(
+        'getCount',
+        to: CountData.fromJson,
       );
 
   @override
-  Future<core.ATProtoResponse<core.Empty>> updateNotificationsAsRead({
+  Future<core.XRPCResponse<core.EmptyData>> updateNotificationsAsRead({
     DateTime? seenAt,
   }) async =>
-      super.transformEmptyDataResponse(
-        await super.post(
-          '/xrpc/app.bsky.notification.updateSeen',
-          body: {
-            'seenAt': (seenAt ?? DateTime.now()).toUtc().toIso8601String(),
-          },
-        ),
+      await super.post<core.EmptyData>(
+        'updateSeen',
+        body: {
+          'seenAt': (seenAt ?? DateTime.now()).toUtc().toIso8601String(),
+        },
       );
 }

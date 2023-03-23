@@ -4,13 +4,14 @@
 
 // 🌎 Project imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:bluesky/src/service/entities/count_data.dart';
 import 'package:bluesky/src/service/entities/notifications_data.dart';
 import 'package:bluesky/src/service/notifications/notifications_service.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
-import '../../../mocks/client_context_stubs.dart' as context;
+import '../../../mocks/mocked_clients.dart';
 import '../common_expectations.dart';
 
 void main() {
@@ -19,14 +20,12 @@ void main() {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.notification.list',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
           'test/src/service/notifications/data/find_notifications.json',
-          {
-            'limit': '10',
-            'cursor': '1234',
-          },
         ),
       );
 
@@ -35,7 +34,7 @@ void main() {
         cursor: '1234',
       );
 
-      expect(response, isA<ATProtoResponse>());
+      expect(response, isA<XRPCResponse>());
       expect(response.data, isA<NotificationsData>());
     });
 
@@ -43,14 +42,12 @@ void main() {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.notification.list',
-          'test/src/service/notifications/data/find_notifications.json',
-          {
-            'limit': '10',
-            'cursor': '1234',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 401,
         ),
       );
@@ -67,14 +64,12 @@ void main() {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.notification.list',
-          'test/src/service/notifications/data/find_notifications.json',
-          {
-            'limit': '10',
-            'cursor': '1234',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 429,
         ),
       );
@@ -93,17 +88,18 @@ void main() {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.notification.getCount',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
           'test/src/service/notifications/data/find_unread_count.json',
-          {},
         ),
       );
 
       final response = await notifications.findUnreadCount();
 
-      expect(response, isA<ATProtoResponse>());
+      expect(response, isA<XRPCResponse>());
       expect(response.data, isA<CountData>());
     });
 
@@ -111,11 +107,12 @@ void main() {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.notification.getCount',
-          'test/src/service/notifications/data/find_unread_count.json',
-          {},
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 401,
         ),
       );
@@ -129,11 +126,12 @@ void main() {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.notification.getCount',
-          'test/src/service/notifications/data/find_unread_count.json',
-          {},
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 429,
         ),
       );
@@ -149,9 +147,11 @@ void main() {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildPostStub(
-          'test',
-          '/xrpc/app.bsky.notification.updateSeen',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: createMockedPostClient(
           'test/src/service/notifications/data/update_notifications_as_read.json',
         ),
       );
@@ -160,18 +160,20 @@ void main() {
         seenAt: DateTime.now(),
       );
 
-      expect(response, isA<ATProtoResponse>());
-      expect(response.data, isA<Empty>());
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<EmptyData>());
     });
 
     test('when unauthorized', () async {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildPostStub(
-          'test',
-          '/xrpc/app.bsky.notification.updateSeen',
-          'test/src/service/notifications/data/update_notifications_as_read.json',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: createMockedPostClient(
+          'test/src/service/data/error.json',
           statusCode: 401,
         ),
       );
@@ -185,10 +187,12 @@ void main() {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildPostStub(
-          'test',
-          '/xrpc/app.bsky.notification.updateSeen',
-          'test/src/service/notifications/data/update_notifications_as_read.json',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: createMockedPostClient(
+          'test/src/service/data/error.json',
           statusCode: 429,
         ),
       );

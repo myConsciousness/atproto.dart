@@ -19,11 +19,15 @@ abstract class FeedsService {
     required atp.ATProto atproto,
     required String service,
     required core.ClientContext context,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   }) =>
       _FeedsService(
         atproto: atproto,
         service: service,
         context: context,
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
       );
 
   /// Creates a new post.
@@ -43,7 +47,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json
-  Future<core.ATProtoResponse<atp.Record>> createPost({
+  Future<core.XRPCResponse<atp.Record>> createPost({
     required String text,
     DateTime? createdAt,
   });
@@ -62,7 +66,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json
-  Future<core.ATProtoResponse<core.Empty>> deletePost({
+  Future<core.XRPCResponse<core.EmptyData>> deletePost({
     required String uri,
   });
 
@@ -85,7 +89,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json
-  Future<core.ATProtoResponse<atp.Record>> createRepost({
+  Future<core.XRPCResponse<atp.Record>> createRepost({
     required String cid,
     required String uri,
     DateTime? createdAt,
@@ -105,7 +109,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json
-  Future<core.ATProtoResponse<core.Empty>> deleteRepost({
+  Future<core.XRPCResponse<core.EmptyData>> deleteRepost({
     required String uri,
   });
 
@@ -118,7 +122,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json
-  Future<core.ATProtoResponse<FeedsData>> findHomeTimeline({
+  Future<core.XRPCResponse<FeedsData>> findHomeTimeline({
     FeedAlgorithm? algorithm,
     int? limit,
     String? cursor,
@@ -143,7 +147,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/vote.json
-  Future<core.ATProtoResponse<atp.Record>> createLike({
+  Future<core.XRPCResponse<atp.Record>> createLike({
     required String cid,
     required String uri,
     DateTime? createdAt,
@@ -163,7 +167,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/vote.json
-  Future<core.ATProtoResponse<core.Empty>> deleteLike({
+  Future<core.XRPCResponse<core.EmptyData>> deleteLike({
     required String uri,
   });
 
@@ -185,7 +189,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getAuthorFeed.json
-  Future<core.ATProtoResponse<FeedsData>> findFeeds({
+  Future<core.XRPCResponse<FeedsData>> findFeeds({
     required String author,
     int? limit,
     String? cursor,
@@ -211,7 +215,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getVotes.json
-  Future<core.ATProtoResponse<LikesData>> findLikes({
+  Future<core.XRPCResponse<LikesData>> findLikes({
     required String uri,
     String? cid,
     int? limit,
@@ -238,7 +242,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getRepostedBy.json
-  Future<core.ATProtoResponse<RepostedByData>> findRepostedBy({
+  Future<core.XRPCResponse<RepostedByData>> findRepostedBy({
     required String uri,
     String? cid,
     int? limit,
@@ -260,7 +264,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getPostThread.json
-  Future<core.ATProtoResponse<PostThreadData>> findPostThread({
+  Future<core.XRPCResponse<PostThreadData>> findPostThread({
     required String uri,
     int? depth,
   });
@@ -272,15 +276,17 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     required super.atproto,
     required super.service,
     required super.context,
-  });
+    super.mockedGetClient,
+    super.mockedPostClient,
+  }) : super(methodAuthority: 'feed.bsky.app');
 
   @override
-  Future<core.ATProtoResponse<atp.Record>> createPost({
+  Future<core.XRPCResponse<atp.Record>> createPost({
     required String text,
     DateTime? createdAt,
   }) async =>
       await atproto.repositories.createRecord(
-        collection: 'app.bsky.feed.post',
+        collection: createNSID('post'),
         record: {
           'text': text,
           'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
@@ -288,40 +294,38 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.ATProtoResponse<core.Empty>> deletePost({
+  Future<core.XRPCResponse<core.EmptyData>> deletePost({
     required String uri,
   }) async =>
       await atproto.repositories.deleteRecord(
-        collection: 'app.bsky.feed.post',
+        collection: createNSID('post'),
         uri: uri,
       );
 
   @override
-  Future<core.ATProtoResponse<FeedsData>> findHomeTimeline({
+  Future<core.XRPCResponse<FeedsData>> findHomeTimeline({
     FeedAlgorithm? algorithm,
     int? limit,
     String? cursor,
   }) async =>
-      super.transformSingleDataResponse(
-        await super.get(
-          '/xrpc/app.bsky.feed.getTimeline',
-          queryParameters: {
-            'algorithm': algorithm,
-            'limit': limit,
-            'before': cursor,
-          },
-        ),
-        dataBuilder: FeedsData.fromJson,
+      await super.get(
+        'getTimeline',
+        parameters: {
+          'algorithm': algorithm,
+          'limit': limit,
+          'before': cursor,
+        },
+        to: FeedsData.fromJson,
       );
 
   @override
-  Future<atp.ATProtoResponse<atp.Record>> createRepost({
+  Future<core.XRPCResponse<atp.Record>> createRepost({
     required String cid,
     required String uri,
     DateTime? createdAt,
   }) async =>
       await atproto.repositories.createRecord(
-        collection: 'app.bsky.feed.repost',
+        collection: createNSID('repost'),
         record: {
           'subject': {
             'cid': cid,
@@ -332,22 +336,22 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<atp.ATProtoResponse<core.Empty>> deleteRepost({
+  Future<core.XRPCResponse<core.EmptyData>> deleteRepost({
     required String uri,
   }) async =>
       await atproto.repositories.deleteRecord(
-        collection: 'app.bsky.feed.repost',
+        collection: createNSID('repost'),
         uri: uri,
       );
 
   @override
-  Future<atp.ATProtoResponse<atp.Record>> createLike({
+  Future<core.XRPCResponse<atp.Record>> createLike({
     required String cid,
     required String uri,
     DateTime? createdAt,
   }) async =>
       await atproto.repositories.createRecord(
-        collection: 'app.bsky.feed.vote',
+        collection: createNSID('vote'),
         record: {
           'subject': {
             'cid': cid,
@@ -359,86 +363,78 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<atp.ATProtoResponse<core.Empty>> deleteLike({
+  Future<core.XRPCResponse<core.EmptyData>> deleteLike({
     required String uri,
   }) async =>
       await atproto.repositories.deleteRecord(
-        collection: 'app.bsky.feed.vote',
+        collection: createNSID('vote'),
         uri: uri,
       );
 
   @override
-  Future<atp.ATProtoResponse<FeedsData>> findFeeds({
+  Future<core.XRPCResponse<FeedsData>> findFeeds({
     required String author,
     int? limit,
     String? cursor,
   }) async =>
-      super.transformSingleDataResponse(
-        await super.get(
-          '/xrpc/app.bsky.feed.getAuthorFeed',
-          queryParameters: {
-            'author': author,
-            'limit': limit,
-            'before': cursor,
-          },
-        ),
-        dataBuilder: FeedsData.fromJson,
+      await super.get(
+        'getAuthorFeed',
+        parameters: {
+          'author': author,
+          'limit': limit,
+          'before': cursor,
+        },
+        to: FeedsData.fromJson,
       );
 
   @override
-  Future<atp.ATProtoResponse<LikesData>> findLikes({
+  Future<core.XRPCResponse<LikesData>> findLikes({
     required String uri,
     String? cid,
     int? limit,
     String? cursor,
   }) async =>
-      super.transformSingleDataResponse(
-        await super.get(
-          '/xrpc/app.bsky.feed.getVotes',
-          queryParameters: {
-            'uri': uri,
-            'cid': cid,
-            'direction': 'up',
-            'limit': limit,
-            'before': cursor,
-          },
-        ),
-        dataBuilder: LikesData.fromJson,
+      await super.get(
+        'getVotes',
+        parameters: {
+          'uri': uri,
+          'cid': cid,
+          'direction': 'up',
+          'limit': limit,
+          'before': cursor,
+        },
+        to: LikesData.fromJson,
       );
 
   @override
-  Future<atp.ATProtoResponse<RepostedByData>> findRepostedBy({
+  Future<core.XRPCResponse<RepostedByData>> findRepostedBy({
     required String uri,
     String? cid,
     int? limit,
     String? cursor,
   }) async =>
-      super.transformSingleDataResponse(
-        await super.get(
-          '/xrpc/app.bsky.feed.getRepostedBy',
-          queryParameters: {
-            'uri': uri,
-            'cid': cid,
-            'limit': limit,
-            'before': cursor,
-          },
-        ),
-        dataBuilder: RepostedByData.fromJson,
+      await super.get(
+        'getRepostedBy',
+        parameters: {
+          'uri': uri,
+          'cid': cid,
+          'limit': limit,
+          'before': cursor,
+        },
+        to: RepostedByData.fromJson,
       );
 
   @override
-  Future<atp.ATProtoResponse<PostThreadData>> findPostThread({
+  Future<core.XRPCResponse<PostThreadData>> findPostThread({
     required String uri,
     int? depth,
   }) async =>
-      super.transformSingleDataResponse(
-        await super.get(
-          '/xrpc/app.bsky.feed.getPostThread',
-          queryParameters: {
-            'uri': uri,
-            'depth': depth,
-          },
-        ),
-        dataBuilder: PostThreadData.fromJson,
+      await super.get(
+        'getPostThread',
+        parameters: {
+          'uri': uri,
+          'depth': depth,
+        },
+        to: PostThreadData.fromJson,
       );
 }

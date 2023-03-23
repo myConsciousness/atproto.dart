@@ -51,10 +51,8 @@ Future<void> main() async {
     );
   } on bsky.UnauthorizedException catch (e) {
     print(e);
-  } on bsky.ATProtoException catch (e) {
-    print(e.body);
-    print(e.response);
-    print(e.message);
+  } on bsky.XRPCException catch (e) {
+    print(e);
   }
 }
 

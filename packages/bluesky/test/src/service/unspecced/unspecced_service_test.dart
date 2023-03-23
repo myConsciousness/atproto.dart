@@ -4,12 +4,13 @@
 
 // 🌎 Project imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:bluesky/src/service/entities/feeds_data.dart';
 import 'package:bluesky/src/service/unspecced/unspecced_service.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
-import '../../../mocks/client_context_stubs.dart' as context;
+import '../../../mocks/mocked_clients.dart';
 import '../common_expectations.dart';
 
 void main() {
@@ -18,14 +19,12 @@ void main() {
       final unspecced = UnspeccedService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.unspecced.getPopular',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
           'test/src/service/unspecced/data/find_popular_feeds.json',
-          {
-            'limit': '10',
-            'before': '1234',
-          },
         ),
       );
 
@@ -34,7 +33,7 @@ void main() {
         cursor: '1234',
       );
 
-      expect(response, isA<ATProtoResponse>());
+      expect(response, isA<XRPCResponse>());
       expect(response.data, isA<FeedsData>());
     });
 
@@ -42,14 +41,12 @@ void main() {
       final unspecced = UnspeccedService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.unspecced.getPopular',
-          'test/src/service/unspecced/data/find_popular_feeds.json',
-          {
-            'limit': '10',
-            'before': '1234',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 401,
         ),
       );
@@ -66,14 +63,12 @@ void main() {
       final unspecced = UnspeccedService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.unspecced.getPopular',
-          'test/src/service/unspecced/data/find_popular_feeds.json',
-          {
-            'limit': '10',
-            'before': '1234',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 429,
         ),
       );
