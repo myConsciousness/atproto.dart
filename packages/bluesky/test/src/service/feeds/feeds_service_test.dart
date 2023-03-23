@@ -180,7 +180,7 @@ void main() {
       );
 
       final response = await feeds.deletePost(
-        uri: 'test',
+        uri: AtUri.parse('at://foo.com/com.example.foo/123'),
       );
 
       expect(response, isA<XRPCResponse>());
@@ -207,7 +207,7 @@ void main() {
 
       expectUnauthorizedException(
         () async => await feeds.deletePost(
-          uri: 'test',
+          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
       );
     });
@@ -232,7 +232,7 @@ void main() {
 
       expectRateLimitExceededException(
         () async => await feeds.deletePost(
-          uri: 'test',
+          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
       );
     });
@@ -258,7 +258,7 @@ void main() {
 
       final response = await feeds.createRepost(
         cid: '1234',
-        uri: 'at://test',
+        uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         createdAt: DateTime.now(),
       );
 
@@ -287,7 +287,7 @@ void main() {
       expectUnauthorizedException(
         () async => await feeds.createRepost(
           cid: '1234',
-          uri: 'at://test',
+          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
       );
     });
@@ -313,7 +313,7 @@ void main() {
       expectRateLimitExceededException(
         () async => await feeds.createRepost(
           cid: '1234',
-          uri: 'at://test',
+          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
       );
     });
@@ -338,7 +338,7 @@ void main() {
       );
 
       final response = await feeds.deleteRepost(
-        uri: 'at://test',
+        uri: AtUri.parse('at://foo.com/com.example.foo/123'),
       );
 
       expect(response, isA<XRPCResponse>());
@@ -365,7 +365,7 @@ void main() {
 
       expectUnauthorizedException(
         () async => await feeds.deleteRepost(
-          uri: 'at://test',
+          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
       );
     });
@@ -390,7 +390,7 @@ void main() {
 
       expectRateLimitExceededException(
         () async => await feeds.deleteRepost(
-          uri: 'at://test',
+          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
       );
     });
@@ -416,7 +416,7 @@ void main() {
 
       final response = await feeds.createLike(
         cid: '1234',
-        uri: 'at://test',
+        uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         createdAt: DateTime.now(),
       );
 
@@ -445,7 +445,7 @@ void main() {
       expectUnauthorizedException(
         () async => await feeds.createLike(
           cid: '1234',
-          uri: 'at://test',
+          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
       );
     });
@@ -471,7 +471,7 @@ void main() {
       expectRateLimitExceededException(
         () async => await feeds.createLike(
           cid: '1234',
-          uri: 'at://test',
+          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
       );
     });
@@ -496,7 +496,7 @@ void main() {
       );
 
       final response = await feeds.deleteLike(
-        uri: 'at://test',
+        uri: AtUri.parse('at://foo.com/com.example.foo/123'),
       );
 
       expect(response, isA<XRPCResponse>());
@@ -523,7 +523,7 @@ void main() {
 
       expectUnauthorizedException(
         () async => await feeds.deleteLike(
-          uri: 'at://test',
+          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
       );
     });
@@ -548,7 +548,7 @@ void main() {
 
       expectRateLimitExceededException(
         () async => await feeds.deleteLike(
-          uri: 'at://test',
+          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
       );
     });
@@ -640,7 +640,7 @@ void main() {
       );
 
       final response = await feeds.findLikes(
-        uri: 'at://xxxxx',
+        uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         cid: 'test',
         limit: 10,
         cursor: '1234',
@@ -666,7 +666,7 @@ void main() {
 
       expectUnauthorizedException(
         () async => await feeds.findLikes(
-          uri: 'at://xxxxx',
+          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
           cid: 'test',
           limit: 10,
           cursor: '1234',
@@ -690,7 +690,7 @@ void main() {
 
       expectRateLimitExceededException(
         () async => await feeds.findLikes(
-          uri: 'at://xxxxx',
+          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
           cid: 'test',
           limit: 10,
           cursor: '1234',
@@ -714,7 +714,7 @@ void main() {
       );
 
       final response = await feeds.findRepostedBy(
-        uri: 'at://xxxxx',
+        uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         cid: 'test',
         limit: 10,
         cursor: '1234',
@@ -740,7 +740,7 @@ void main() {
 
       expectUnauthorizedException(
         () async => await feeds.findRepostedBy(
-          uri: 'at://xxxxx',
+          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
           cid: 'test',
           limit: 10,
           cursor: '1234',
@@ -764,7 +764,7 @@ void main() {
 
       expectRateLimitExceededException(
         () async => await feeds.findRepostedBy(
-          uri: 'at://xxxxx',
+          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
           cid: 'test',
           limit: 10,
           cursor: '1234',
@@ -788,7 +788,7 @@ void main() {
       );
 
       final response = await feeds.findPostThread(
-        uri: 'at://xxxx',
+        uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         depth: 5,
       );
 
@@ -812,7 +812,7 @@ void main() {
 
       expectUnauthorizedException(
         () async => await feeds.findPostThread(
-          uri: 'at://xxxx',
+          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
           depth: 5,
         ),
       );
@@ -834,7 +834,7 @@ void main() {
 
       expectRateLimitExceededException(
         () async => await feeds.findPostThread(
-          uri: 'at://xxxx',
+          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
           depth: 5,
         ),
       );

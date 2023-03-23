@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -16,7 +17,7 @@ part 'embed_record.g.dart';
 class EmbedRecord with _$EmbedRecord {
   const factory EmbedRecord({
     required String cid,
-    required String uri,
+    @AtUriConverter() required AtUri uri,
     required Actor author,
     required Post record,
   }) = _EmbedRecord;

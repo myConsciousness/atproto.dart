@@ -15,7 +15,8 @@ _$_EmbedExternal _$$_EmbedExternalFromJson(Map json) => $checkedCreate(
         final val = _$_EmbedExternal(
           title: $checkedConvert('title', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String),
-          uri: $checkedConvert('uri', (v) => v as String),
+          uri: $checkedConvert(
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           thumb: $checkedConvert(
               'thumb',
               (v) => v == null
@@ -30,7 +31,7 @@ Map<String, dynamic> _$$_EmbedExternalToJson(_$_EmbedExternal instance) {
   final val = <String, dynamic>{
     'title': instance.title,
     'description': instance.description,
-    'uri': instance.uri,
+    'uri': const AtUriConverter().toJson(instance.uri),
   };
 
   void writeNotNull(String key, dynamic value) {

@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'like.dart';
@@ -16,7 +17,7 @@ part 'likes_data.g.dart';
 class LikesData with _$LikesData {
   const factory LikesData({
     @JsonKey(name: 'votes') required List<Like> likes,
-    required String uri,
+    @AtUriConverter() required AtUri uri,
     required String cursor,
   }) = _LikesData;
 

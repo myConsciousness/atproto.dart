@@ -22,7 +22,8 @@ LikesData _$LikesDataFromJson(Map<String, dynamic> json) {
 mixin _$LikesData {
   @JsonKey(name: 'votes')
   List<Like> get likes => throw _privateConstructorUsedError;
-  String get uri => throw _privateConstructorUsedError;
+  @AtUriConverter()
+  AtUri get uri => throw _privateConstructorUsedError;
   String get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +38,9 @@ abstract class $LikesDataCopyWith<$Res> {
       _$LikesDataCopyWithImpl<$Res, LikesData>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'votes') List<Like> likes, String uri, String cursor});
+      {@JsonKey(name: 'votes') List<Like> likes,
+      @AtUriConverter() AtUri uri,
+      String cursor});
 }
 
 /// @nodoc
@@ -65,7 +68,7 @@ class _$LikesDataCopyWithImpl<$Res, $Val extends LikesData>
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AtUri,
       cursor: null == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -82,7 +85,9 @@ abstract class _$$_LikesDataCopyWith<$Res> implements $LikesDataCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'votes') List<Like> likes, String uri, String cursor});
+      {@JsonKey(name: 'votes') List<Like> likes,
+      @AtUriConverter() AtUri uri,
+      String cursor});
 }
 
 /// @nodoc
@@ -108,7 +113,7 @@ class __$$_LikesDataCopyWithImpl<$Res>
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AtUri,
       cursor: null == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -122,7 +127,7 @@ class __$$_LikesDataCopyWithImpl<$Res>
 class _$_LikesData implements _LikesData {
   const _$_LikesData(
       {@JsonKey(name: 'votes') required final List<Like> likes,
-      required this.uri,
+      @AtUriConverter() required this.uri,
       required this.cursor})
       : _likes = likes;
 
@@ -139,7 +144,8 @@ class _$_LikesData implements _LikesData {
   }
 
   @override
-  final String uri;
+  @AtUriConverter()
+  final AtUri uri;
   @override
   final String cursor;
 
@@ -180,7 +186,7 @@ class _$_LikesData implements _LikesData {
 abstract class _LikesData implements LikesData {
   const factory _LikesData(
       {@JsonKey(name: 'votes') required final List<Like> likes,
-      required final String uri,
+      @AtUriConverter() required final AtUri uri,
       required final String cursor}) = _$_LikesData;
 
   factory _LikesData.fromJson(Map<String, dynamic> json) =
@@ -190,7 +196,8 @@ abstract class _LikesData implements LikesData {
   @JsonKey(name: 'votes')
   List<Like> get likes;
   @override
-  String get uri;
+  @AtUriConverter()
+  AtUri get uri;
   @override
   String get cursor;
   @override

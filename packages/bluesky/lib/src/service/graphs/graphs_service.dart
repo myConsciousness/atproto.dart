@@ -68,7 +68,7 @@ abstract class GraphsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/follow.json
   Future<core.XRPCResponse<core.EmptyData>> deleteFollow({
-    required String uri,
+    required core.AtUri uri,
   });
 
   /// Returns follows of specific user.
@@ -206,7 +206,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
 
   @override
   Future<core.XRPCResponse<core.EmptyData>> deleteFollow({
-    required String uri,
+    required core.AtUri uri,
   }) async =>
       await atproto.repositories.deleteRecord(
         collection: createNSID('follow'),

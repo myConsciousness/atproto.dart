@@ -21,7 +21,8 @@ RepostedByData _$RepostedByDataFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$RepostedByData {
   List<Actor> get repostedBy => throw _privateConstructorUsedError;
-  String get uri => throw _privateConstructorUsedError;
+  @AtUriConverter()
+  AtUri get uri => throw _privateConstructorUsedError;
   String get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +37,8 @@ abstract class $RepostedByDataCopyWith<$Res> {
           RepostedByData value, $Res Function(RepostedByData) then) =
       _$RepostedByDataCopyWithImpl<$Res, RepostedByData>;
   @useResult
-  $Res call({List<Actor> repostedBy, String uri, String cursor});
+  $Res call(
+      {List<Actor> repostedBy, @AtUriConverter() AtUri uri, String cursor});
 }
 
 /// @nodoc
@@ -64,7 +66,7 @@ class _$RepostedByDataCopyWithImpl<$Res, $Val extends RepostedByData>
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AtUri,
       cursor: null == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -81,7 +83,8 @@ abstract class _$$_RepostedByDataCopyWith<$Res>
       __$$_RepostedByDataCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Actor> repostedBy, String uri, String cursor});
+  $Res call(
+      {List<Actor> repostedBy, @AtUriConverter() AtUri uri, String cursor});
 }
 
 /// @nodoc
@@ -107,7 +110,7 @@ class __$$_RepostedByDataCopyWithImpl<$Res>
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AtUri,
       cursor: null == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -121,7 +124,7 @@ class __$$_RepostedByDataCopyWithImpl<$Res>
 class _$_RepostedByData implements _RepostedByData {
   const _$_RepostedByData(
       {required final List<Actor> repostedBy,
-      required this.uri,
+      @AtUriConverter() required this.uri,
       required this.cursor})
       : _repostedBy = repostedBy;
 
@@ -137,7 +140,8 @@ class _$_RepostedByData implements _RepostedByData {
   }
 
   @override
-  final String uri;
+  @AtUriConverter()
+  final AtUri uri;
   @override
   final String cursor;
 
@@ -179,7 +183,7 @@ class _$_RepostedByData implements _RepostedByData {
 abstract class _RepostedByData implements RepostedByData {
   const factory _RepostedByData(
       {required final List<Actor> repostedBy,
-      required final String uri,
+      @AtUriConverter() required final AtUri uri,
       required final String cursor}) = _$_RepostedByData;
 
   factory _RepostedByData.fromJson(Map<String, dynamic> json) =
@@ -188,7 +192,8 @@ abstract class _RepostedByData implements RepostedByData {
   @override
   List<Actor> get repostedBy;
   @override
-  String get uri;
+  @AtUriConverter()
+  AtUri get uri;
   @override
   String get cursor;
   @override

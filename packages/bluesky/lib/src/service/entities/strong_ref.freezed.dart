@@ -21,7 +21,8 @@ StrongRef _$StrongRefFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$StrongRef {
   String get cid => throw _privateConstructorUsedError;
-  String get uri => throw _privateConstructorUsedError;
+  @AtUriConverter()
+  AtUri get uri => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,7 @@ abstract class $StrongRefCopyWith<$Res> {
   factory $StrongRefCopyWith(StrongRef value, $Res Function(StrongRef) then) =
       _$StrongRefCopyWithImpl<$Res, StrongRef>;
   @useResult
-  $Res call({String cid, String uri});
+  $Res call({String cid, @AtUriConverter() AtUri uri});
 }
 
 /// @nodoc
@@ -61,7 +62,7 @@ class _$StrongRefCopyWithImpl<$Res, $Val extends StrongRef>
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AtUri,
     ) as $Val);
   }
 }
@@ -73,7 +74,7 @@ abstract class _$$_StrongRefCopyWith<$Res> implements $StrongRefCopyWith<$Res> {
       __$$_StrongRefCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String cid, String uri});
+  $Res call({String cid, @AtUriConverter() AtUri uri});
 }
 
 /// @nodoc
@@ -98,7 +99,7 @@ class __$$_StrongRefCopyWithImpl<$Res>
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AtUri,
     ));
   }
 }
@@ -106,7 +107,7 @@ class __$$_StrongRefCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_StrongRef implements _StrongRef {
-  const _$_StrongRef({required this.cid, required this.uri});
+  const _$_StrongRef({required this.cid, @AtUriConverter() required this.uri});
 
   factory _$_StrongRef.fromJson(Map<String, dynamic> json) =>
       _$$_StrongRefFromJson(json);
@@ -114,7 +115,8 @@ class _$_StrongRef implements _StrongRef {
   @override
   final String cid;
   @override
-  final String uri;
+  @AtUriConverter()
+  final AtUri uri;
 
   @override
   String toString() {
@@ -150,7 +152,8 @@ class _$_StrongRef implements _StrongRef {
 
 abstract class _StrongRef implements StrongRef {
   const factory _StrongRef(
-      {required final String cid, required final String uri}) = _$_StrongRef;
+      {required final String cid,
+      @AtUriConverter() required final AtUri uri}) = _$_StrongRef;
 
   factory _StrongRef.fromJson(Map<String, dynamic> json) =
       _$_StrongRef.fromJson;
@@ -158,7 +161,8 @@ abstract class _StrongRef implements StrongRef {
   @override
   String get cid;
   @override
-  String get uri;
+  @AtUriConverter()
+  AtUri get uri;
   @override
   @JsonKey(ignore: true)
   _$$_StrongRefCopyWith<_$_StrongRef> get copyWith =>

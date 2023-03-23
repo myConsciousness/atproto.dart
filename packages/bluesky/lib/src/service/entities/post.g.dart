@@ -17,7 +17,8 @@ _$_Post _$$_PostFromJson(Map json) => $checkedCreate(
               (v) => PostRecord.fromJson(Map<String, Object?>.from(v as Map))),
           author: $checkedConvert('author',
               (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
-          uri: $checkedConvert('uri', (v) => v as String),
+          uri: $checkedConvert(
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
           replyCount: $checkedConvert('replyCount', (v) => v as int),
           repostCount: $checkedConvert('repostCount', (v) => v as int),
@@ -35,7 +36,7 @@ _$_Post _$$_PostFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$_PostToJson(_$_Post instance) => <String, dynamic>{
       'record': instance.record.toJson(),
       'author': instance.author.toJson(),
-      'uri': instance.uri,
+      'uri': const AtUriConverter().toJson(instance.uri),
       'cid': instance.cid,
       'replyCount': instance.replyCount,
       'repostCount': instance.repostCount,

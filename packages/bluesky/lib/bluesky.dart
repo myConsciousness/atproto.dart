@@ -12,6 +12,7 @@ export 'package:atproto_core/atproto_core.dart'
         HttpMethod,
         HttpStatus,
         Serializable,
+        AtUri,
         XRPCException,
         InternalServerErrorException,
         InvalidRequestException,
