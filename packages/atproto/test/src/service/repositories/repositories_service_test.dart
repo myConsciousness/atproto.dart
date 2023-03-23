@@ -95,7 +95,7 @@ void main() {
 
       final response = await repositories.deleteRecord(
         collection: core.NSID.create('com.atproto', 'test'),
-        uri: '',
+        uri: core.AtUri.make('at://foo.com/com.example.foo/123'),
       );
 
       expect(response, isA<core.XRPCResponse>());
@@ -119,7 +119,7 @@ void main() {
       expectUnauthorizedException(
         () async => await repositories.deleteRecord(
           collection: core.NSID.create('com.atproto', 'test'),
-          uri: '',
+          uri: core.AtUri.make('at://foo.com/com.example.foo/123'),
         ),
       );
     });
@@ -141,7 +141,7 @@ void main() {
       expectRateLimitExceededException(
         () async => await repositories.deleteRecord(
           collection: core.NSID.create('com.atproto', 'test'),
-          uri: '',
+          uri: core.AtUri.make('at://foo.com/com.example.foo/123'),
         ),
       );
     });
