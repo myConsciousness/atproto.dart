@@ -9,7 +9,7 @@ environment:
   sdk: ">=2.19.2 <3.0.0"
 
 dependencies:
-  xrpc: ^0.0.2
+  xrpc: ^0.0.3
   universal_io: ^2.2.0
 
 dev_dependencies:
