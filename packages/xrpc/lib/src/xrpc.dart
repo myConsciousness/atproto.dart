@@ -22,8 +22,7 @@ import 'xrpc_request.dart';
 import 'xrpc_response.dart';
 
 /// The default service to communicate.
-@visibleForTesting
-const defaultService = 'bsky.social';
+const _defaultService = 'bsky.social';
 
 /// A function type that expresses the function of converting response body
 /// to model objects.
@@ -31,19 +30,19 @@ typedef To<T> = T Function(Map<String, Object?> json);
 
 Future<XRPCResponse<T>> query<T>(
   final nsid.NSID methodId, {
-  final String service = defaultService,
+  final String? service,
   final Map<String, String>? headers,
   final Map<String, dynamic>? parameters,
   final Duration timeout = const Duration(seconds: 10),
   required final To<T> to,
-  final GetClient getClient = http.get,
+  final GetClient? getClient,
 }) async =>
     _buildResponse<T>(
       checkStatus(
-        await getClient
+        await (getClient ?? http.get)
             .call(
               Uri.https(
-                service,
+                service ?? _defaultService,
                 '/xrpc/$methodId',
                 convertParameters(
                   removeNullValues(parameters) ?? {},
@@ -58,19 +57,19 @@ Future<XRPCResponse<T>> query<T>(
 
 Future<XRPCResponse<T>> procedure<T>(
   final nsid.NSID methodId, {
-  final String service = defaultService,
+  final String? service,
   final Map<String, String>? headers,
   final Map<String, dynamic>? body,
   final Duration timeout = const Duration(seconds: 10),
   final To<T>? to,
-  final PostClient postClient = http.post,
+  final PostClient? postClient,
 }) async =>
     _buildResponse<T>(
       checkStatus(
-        await postClient
+        await (postClient ?? http.post)
             .call(
               Uri.https(
-                service,
+                service ?? _defaultService,
                 '/xrpc/$methodId',
               ),
               headers: {

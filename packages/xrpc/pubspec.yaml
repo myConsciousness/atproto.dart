@@ -1,6 +1,6 @@
 name: xrpc
 description: Provide an HTTP client specialized for XRPC communication in AT Protocol.
-version: 0.0.1
+version: 0.0.2
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/xrpc
 issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
 funding:
