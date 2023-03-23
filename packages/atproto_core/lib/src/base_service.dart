@@ -85,4 +85,8 @@ abstract class BaseService implements _Service {
         to: to,
         postClient: _mockedPostClient,
       );
+
+  /// Returns the NSID based on this service and [methodName].
+  xrpc.NSID createNSID(final String methodName) =>
+      xrpc.NSID.create(_methodAuthority, methodName);
 }
