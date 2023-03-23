@@ -22,8 +22,7 @@ import 'xrpc_request.dart';
 import 'xrpc_response.dart';
 
 /// The default service to communicate.
-@visibleForTesting
-const defaultService = 'bsky.social';
+const _defaultService = 'bsky.social';
 
 /// A function type that expresses the function of converting response body
 /// to model objects.
@@ -31,19 +30,19 @@ typedef To<T> = T Function(Map<String, Object?> json);
 
 Future<XRPCResponse<T>> query<T>(
   final nsid.NSID methodId, {
-  final String service = defaultService,
+  final String? service,
   final Map<String, String>? headers,
   final Map<String, dynamic>? parameters,
   final Duration timeout = const Duration(seconds: 10),
   required final To<T> to,
-  final GetClient getClient = http.get,
+  final GetClient? getClient,
 }) async =>
     _buildResponse<T>(
       checkStatus(
-        await getClient
+        await (getClient ?? http.get)
             .call(
               Uri.https(
-                service,
+                service ?? _defaultService,
                 '/xrpc/$methodId',
                 convertParameters(
                   removeNullValues(parameters) ?? {},
@@ -58,19 +57,19 @@ Future<XRPCResponse<T>> query<T>(
 
 Future<XRPCResponse<T>> procedure<T>(
   final nsid.NSID methodId, {
-  final String service = defaultService,
+  final String? service,
   final Map<String, String>? headers,
   final Map<String, dynamic>? body,
   final Duration timeout = const Duration(seconds: 10),
   final To<T>? to,
-  final PostClient postClient = http.post,
+  final PostClient? postClient,
 }) async =>
     _buildResponse<T>(
       checkStatus(
-        await postClient
+        await (postClient ?? http.post)
             .call(
               Uri.https(
-                service,
+                service ?? _defaultService,
                 '/xrpc/$methodId',
               ),
               headers: {
@@ -148,36 +147,26 @@ dynamic removeNullValues(final dynamic object) {
 }
 
 @visibleForTesting
-Map<String, dynamic> convertParameters(final Map<String, dynamic> parameters) {
-  final serialized = parameters.map((key, value) {
-    if (value is List?) {
-      return MapEntry(
-        key,
-        value?.map((e) => e.toString()).toList(),
-      );
-    } else if (value is Serializable) {
-      return MapEntry(
-        key,
-        value.value,
-      );
-    }
+Map<String, dynamic> convertParameters(final Map<String, dynamic> parameters) =>
+    parameters.map((key, value) {
+      if (value is List?) {
+        return MapEntry(
+          key,
+          value?.map((e) => e.toString()).toList(),
+        );
+      } else if (value is Serializable) {
+        return MapEntry(
+          key,
+          value.value,
+        );
+      }
 
-    return MapEntry(key, value);
-  });
-
-  return Map.from(serialized).map(
-    //! Uri.https(...) needs iterable in the value for query params by
-    //! which it means a String in the value of the Map too. So you need
-    //! to convert it from Map<String, dynamic> to Map<String, String>
-    (key, value) {
       if (value is DateTime) {
         return MapEntry(key, value.toUtc().toIso8601String());
       }
 
-      return MapEntry(key, value);
-    },
-  );
-}
+      return MapEntry(key, value.toString());
+    });
 
 XRPCResponse<T> _buildResponse<T>(
   final http.Response response,

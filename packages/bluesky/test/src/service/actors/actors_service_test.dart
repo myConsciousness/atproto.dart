@@ -4,6 +4,7 @@
 
 // 🌎 Project imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:bluesky/src/service/actors/actors_service.dart';
 import 'package:bluesky/src/service/entities/actor_profile.dart';
 import 'package:bluesky/src/service/entities/actor_profiles_data.dart';
@@ -13,7 +14,7 @@ import 'package:bluesky/src/service/entities/users_data.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
-import '../../../mocks/client_context_stubs.dart' as context;
+import '../../../mocks/mocked_clients.dart';
 import '../common_expectations.dart';
 
 void main() {
@@ -22,15 +23,12 @@ void main() {
       final actors = ActorsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.actor.search',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
           'test/src/service/actors/data/search_actors.json',
-          {
-            'term': 'test',
-            'limit': '10',
-            'before': '1234',
-          },
         ),
       );
 
@@ -40,7 +38,7 @@ void main() {
         cursor: '1234',
       );
 
-      expect(response, isA<ATProtoResponse>());
+      expect(response, isA<XRPCResponse>());
       expect(response.data, isA<UsersData>());
     });
 
@@ -48,15 +46,12 @@ void main() {
       final actors = ActorsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.actor.search',
-          'test/src/service/actors/data/search_actors.json',
-          {
-            'term': 'test',
-            'limit': '10',
-            'before': '1234',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 401,
         ),
       );
@@ -74,15 +69,12 @@ void main() {
       final actors = ActorsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.actor.search',
-          'test/src/service/actors/data/search_actors.json',
-          {
-            'term': 'test',
-            'limit': '10',
-            'before': '1234',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 429,
         ),
       );
@@ -102,13 +94,12 @@ void main() {
       final actors = ActorsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.actor.getProfile',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
           'test/src/service/actors/data/find_profile.json',
-          {
-            'actor': 'test.bsky.social',
-          },
         ),
       );
 
@@ -116,7 +107,7 @@ void main() {
         actor: 'test.bsky.social',
       );
 
-      expect(response, isA<ATProtoResponse>());
+      expect(response, isA<XRPCResponse>());
       expect(response.data, isA<ActorProfile>());
     });
 
@@ -124,13 +115,12 @@ void main() {
       final actors = ActorsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.actor.getProfile',
-          'test/src/service/actors/data/find_profile.json',
-          {
-            'actor': 'test.bsky.social',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 401,
         ),
       );
@@ -146,13 +136,12 @@ void main() {
       final actors = ActorsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.actor.getProfile',
-          'test/src/service/actors/data/find_profile.json',
-          {
-            'actor': 'test.bsky.social',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 429,
         ),
       );
@@ -170,16 +159,12 @@ void main() {
       final actors = ActorsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.actor.getProfiles',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
           'test/src/service/actors/data/find_profiles.json',
-          {
-            'actors': [
-              'test.bsky.social',
-              'test2.bsky.social',
-            ],
-          },
         ),
       );
 
@@ -190,7 +175,7 @@ void main() {
         ],
       );
 
-      expect(response, isA<ATProtoResponse>());
+      expect(response, isA<XRPCResponse>());
       expect(response.data, isA<ActorProfilesData>());
     });
 
@@ -198,16 +183,12 @@ void main() {
       final actors = ActorsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.actor.getProfiles',
-          'test/src/service/actors/data/find_profiles.json',
-          {
-            'actors': [
-              'test.bsky.social',
-              'test2.bsky.social',
-            ],
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 401,
         ),
       );
@@ -226,16 +207,12 @@ void main() {
       final actors = ActorsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.actor.getProfiles',
-          'test/src/service/actors/data/find_profiles.json',
-          {
-            'actors': [
-              'test.bsky.social',
-              'test2.bsky.social',
-            ],
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 429,
         ),
       );
@@ -256,20 +233,18 @@ void main() {
       final actors = ActorsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.actor.getSuggestions',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
           'test/src/service/actors/data/find_suggestions.json',
-          {
-            'limit': '10',
-            'cursor': '1234',
-          },
         ),
       );
 
       final response = await actors.findSuggestions(limit: 10, cursor: '1234');
 
-      expect(response, isA<ATProtoResponse>());
+      expect(response, isA<XRPCResponse>());
       expect(response.data, isA<ActorsData>());
     });
 
@@ -277,14 +252,12 @@ void main() {
       final actors = ActorsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.actor.getSuggestions',
-          'test/src/service/actors/data/find_suggestions.json',
-          {
-            'limit': '10',
-            'cursor': '1234',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 401,
         ),
       );
@@ -298,14 +271,12 @@ void main() {
       final actors = ActorsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.actor.getSuggestions',
-          'test/src/service/actors/data/find_suggestions.json',
-          {
-            'limit': '10',
-            'cursor': '1234',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 429,
         ),
       );
@@ -321,14 +292,12 @@ void main() {
       final actors = ActorsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.actor.searchTypeahead',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
           'test/src/service/actors/data/search_actor_typeahead.json',
-          {
-            'term': 'test',
-            'limit': '10',
-          },
         ),
       );
 
@@ -337,7 +306,7 @@ void main() {
         limit: 10,
       );
 
-      expect(response, isA<ATProtoResponse>());
+      expect(response, isA<XRPCResponse>());
       expect(response.data, isA<ActorTypeaheadData>());
     });
 
@@ -345,14 +314,12 @@ void main() {
       final actors = ActorsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.actor.searchTypeahead',
-          'test/src/service/actors/data/search_actor_typeahead.json',
-          {
-            'term': 'test',
-            'limit': '10',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 401,
         ),
       );
@@ -369,14 +336,12 @@ void main() {
       final actors = ActorsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
         service: 'test',
-        context: context.buildGetStub(
-          'test',
-          '/xrpc/app.bsky.actor.searchTypeahead',
-          'test/src/service/actors/data/search_actor_typeahead.json',
-          {
-            'term': 'test',
-            'limit': '10',
-          },
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: createMockedGetClient(
+          'test/src/service/data/error.json',
           statusCode: 429,
         ),
       );

@@ -15,11 +15,15 @@ abstract class UnspeccedService {
     required atp.ATProto atproto,
     required String service,
     required core.ClientContext context,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   }) =>
       _UnspeccedService(
         atproto: atproto,
         service: service,
         context: context,
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
       );
 
   /// An unspecced view of globally popular items.
@@ -38,7 +42,7 @@ abstract class UnspeccedService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopular.json
-  Future<core.ATProtoResponse<FeedsData>> findPopularFeeds({
+  Future<core.XRPCResponse<FeedsData>> findPopularFeeds({
     int? limit,
     String? cursor,
   });
@@ -50,21 +54,21 @@ class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
     required super.atproto,
     required super.service,
     required super.context,
-  });
+    super.mockedGetClient,
+    super.mockedPostClient,
+  }) : super(methodAuthority: 'unspecced.bsky.app');
 
   @override
-  Future<atp.ATProtoResponse<FeedsData>> findPopularFeeds({
+  Future<atp.XRPCResponse<FeedsData>> findPopularFeeds({
     int? limit,
     String? cursor,
   }) async =>
-      super.transformSingleDataResponse(
-        await super.get(
-          '/xrpc/app.bsky.unspecced.getPopular',
-          queryParameters: {
-            'limit': limit,
-            'before': cursor,
-          },
-        ),
-        dataBuilder: FeedsData.fromJson,
+      await super.get(
+        'getPopular',
+        parameters: {
+          'limit': limit,
+          'before': cursor,
+        },
+        to: FeedsData.fromJson,
       );
 }

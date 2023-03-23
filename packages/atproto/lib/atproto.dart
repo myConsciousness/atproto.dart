@@ -11,16 +11,21 @@ export 'package:atproto/src/service/sessions/session.dart';
 export 'package:atproto/src/service/sessions/sessions_service.dart';
 export 'package:atproto_core/atproto_core.dart'
     show
-        Empty,
-        ATProtoRequest,
-        ATProtoResponse,
-        Jitter,
+        XRPCResponse,
+        XRPCRequest,
+        XRPCError,
+        EmptyData,
+        HttpMethod,
+        HttpStatus,
+        Serializable,
+        NSID,
+        XRPCException,
+        InternalServerErrorException,
+        InvalidRequestException,
+        UnauthorizedException,
+        RateLimitExceededException,
         RetryConfig,
         RetryEvent,
-        ATProtoException,
-        UnauthorizedException,
-        DataNotFoundException,
-        RateLimitExceededException,
-        ForbiddenException,
-        HttpMethod,
-        HttpStatus;
+        Jitter,
+        GetClient,
+        PostClient;

@@ -19,11 +19,15 @@ abstract class ActorsService {
     required atp.ATProto atproto,
     required String service,
     required core.ClientContext context,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   }) =>
       _ActorsService(
         atproto: atproto,
         service: service,
         context: context,
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
       );
 
   /// Find UsersData matching search criteria.
@@ -44,7 +48,7 @@ abstract class ActorsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/search.json
-  Future<core.ATProtoResponse<UsersData>> searchActors({
+  Future<core.XRPCResponse<UsersData>> searchActors({
     required String term,
     int? limit,
     String? cursor,
@@ -63,7 +67,7 @@ abstract class ActorsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfile.json
-  Future<core.ATProtoResponse<ActorProfile>> findProfile({
+  Future<core.XRPCResponse<ActorProfile>> findProfile({
     required String actor,
   });
 
@@ -80,7 +84,7 @@ abstract class ActorsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfiles.json
-  Future<core.ATProtoResponse<ActorProfilesData>> findProfiles({
+  Future<core.XRPCResponse<ActorProfilesData>> findProfiles({
     required List<String> actors,
   });
 
@@ -100,12 +104,12 @@ abstract class ActorsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getSuggestions.json
-  Future<core.ATProtoResponse<ActorsData>> findSuggestions({
+  Future<core.XRPCResponse<ActorsData>> findSuggestions({
     int? limit,
     String? cursor,
   });
 
-  Future<core.ATProtoResponse<ActorTypeaheadData>> searchActorTypeahead({
+  Future<core.XRPCResponse<ActorTypeaheadData>> searchActorTypeahead({
     required String term,
     int? limit,
   });
@@ -117,83 +121,75 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
     required super.atproto,
     required super.service,
     required super.context,
-  });
+    super.mockedGetClient,
+    super.mockedPostClient,
+  }) : super(methodAuthority: 'actor.bsky.app');
 
   @override
-  Future<core.ATProtoResponse<UsersData>> searchActors({
+  Future<core.XRPCResponse<UsersData>> searchActors({
     required String term,
     int? limit,
     String? cursor,
   }) async =>
-      super.transformSingleDataResponse(
-        await super.get(
-          '/xrpc/app.bsky.actor.search',
-          queryParameters: {
-            'term': term,
-            'limit': limit,
-            'before': cursor,
-          },
-        ),
-        dataBuilder: UsersData.fromJson,
+      await super.get(
+        'search',
+        parameters: {
+          'term': term,
+          'limit': limit,
+          'before': cursor,
+        },
+        to: UsersData.fromJson,
       );
 
   @override
-  Future<core.ATProtoResponse<ActorProfile>> findProfile({
+  Future<core.XRPCResponse<ActorProfile>> findProfile({
     required String actor,
   }) async =>
-      super.transformSingleDataResponse(
-        await super.get(
-          '/xrpc/app.bsky.actor.getProfile',
-          queryParameters: {
-            'actor': actor,
-          },
-        ),
-        dataBuilder: ActorProfile.fromJson,
+      await super.get(
+        'getProfile',
+        parameters: {
+          'actor': actor,
+        },
+        to: ActorProfile.fromJson,
       );
 
   @override
-  Future<core.ATProtoResponse<ActorProfilesData>> findProfiles({
+  Future<core.XRPCResponse<ActorProfilesData>> findProfiles({
     required List<String> actors,
   }) async =>
-      super.transformSingleDataResponse(
-        await super.get(
-          '/xrpc/app.bsky.actor.getProfiles',
-          queryParameters: {
-            'actors': actors,
-          },
-        ),
-        dataBuilder: ActorProfilesData.fromJson,
+      await super.get(
+        'getProfiles',
+        parameters: {
+          'actors': actors,
+        },
+        to: ActorProfilesData.fromJson,
       );
 
   @override
-  Future<atp.ATProtoResponse<ActorsData>> findSuggestions({
+  Future<core.XRPCResponse<ActorsData>> findSuggestions({
     int? limit,
     String? cursor,
   }) async =>
-      super.transformSingleDataResponse(
-        await super.get(
-          '/xrpc/app.bsky.actor.getSuggestions',
-          queryParameters: {
-            'limit': limit,
-            'cursor': cursor,
-          },
-        ),
-        dataBuilder: ActorsData.fromJson,
+      await super.get(
+        'getSuggestions',
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: ActorsData.fromJson,
       );
 
   @override
-  Future<atp.ATProtoResponse<ActorTypeaheadData>> searchActorTypeahead({
+  Future<core.XRPCResponse<ActorTypeaheadData>> searchActorTypeahead({
     required String term,
     int? limit,
   }) async =>
-      super.transformSingleDataResponse(
-        await super.get(
-          '/xrpc/app.bsky.actor.searchTypeahead',
-          queryParameters: {
-            'term': term,
-            'limit': limit,
-          },
-        ),
-        dataBuilder: ActorTypeaheadData.fromJson,
+      await super.get(
+        'searchTypeahead',
+        parameters: {
+          'term': term,
+          'limit': limit,
+        },
+        to: ActorTypeaheadData.fromJson,
       );
 }

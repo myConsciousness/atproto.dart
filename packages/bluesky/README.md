@@ -150,10 +150,8 @@ Future<void> main() async {
     );
   } on bsky.UnauthorizedException catch (e) {
     print(e);
-  } on bsky.ATProtoException catch (e) {
-    print(e.body);
-    print(e.response);
-    print(e.message);
+  } on bsky.XRPCException catch (e) {
+    print(e);
   }
 }
 
@@ -412,23 +410,25 @@ Future<void> main() async {
 }
 ```
 
-The [RetryEvent](https://pub.dev/documentation/bluesky/latest/bluesky/RetryEvent-class.html) passed to the callback contains information on retries.
+The [RetryEvent](https://pub.dev/documentation/atproto_core/latest/atproto_core/RetryEvent-class.html) passed to the callback contains information on retries.
 
 ### 1.4.6. Thrown Exceptions
 
 **bluesky** provides a convenient exception object for easy handling of exceptional responses and errors returned from AT Protocol.
 
-| Exception                                                                                                      | Description                                                                                                           |
-| -------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| [ATProtoException](https://pub.dev/documentation/bluesky/latest/atproto_core/ATProtoException-class.html)      | The most basic exception object. For example, it can be used to search for posts that have already been deleted, etc. |
-| [UnauthorizedException](https://pub.dev/documentation/bluesky/latest/atproto/UnauthorizedException-class.html) | Thrown when authentication fails with the specified access token.                                                     |
-| [DataNotFoundException](https://pub.dev/documentation/bluesky/latest/atproto/DataNotFoundException-class.html) | Thrown when response has no body or data field in body string, or when 404 status is returned.                        |
+| Exception                                                                                                              | Description                                                       |
+| ---------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| [XRPCException](https://pub.dev/documentation/xrpc/latest/xrpc/XRPCException-class.html)                               | Parent class for all the following Exceptions.                    |
+| [UnauthorizedException](https://pub.dev/documentation/xrpc/latest/xrpc/UnauthorizedException-class.html)               | Thrown when authentication fails with the specified access token. |
+| [RateLimitExceededException](https://pub.dev/documentation/xrpc/latest/xrpc/RateLimitExceededException-class.html)     | Thrown when the rate limit is reached.                            |
+| [InvalidRequestException](https://pub.dev/documentation/xrpc/latest/xrpc/InvalidRequestException-class.html)           | Thrown when request parameters are invalid.                       |
+| [InternalServerErrorException](https://pub.dev/documentation/xrpc/latest/xrpc/InternalServerErrorException-class.html) | Thrown when a failure occurs on the ATP server.                   |
 
-Also, all of the above exceptions thrown from the **bluesky** process extend [ATProtoException](https://pub.dev/documentation/bluesky/latest/atproto_core/ATProtoException-class.html). This means that you can take all exceptions as [ATProtoException](https://pub.dev/documentation/bluesky/latest/atproto_core/ATProtoException-class.html) or handle them as certain exception types, depending on the situation.
+Also, all of the above exceptions thrown from the **bluesky** process extend [XRPCException](https://pub.dev/documentation/xrpc/latest/xrpc/XRPCException-class.html). This means that you can take all exceptions as [XRPCException](https://pub.dev/documentation/xrpc/latest/xrpc/XRPCException-class.html) or handle them as certain exception types, depending on the situation.
 
-However note that, if you receive an individual type exception, be sure to define the process so that the individual exception type is cached before [ATProtoException](https://pub.dev/documentation/bluesky/latest/atproto_core/ATProtoException-class.html). Otherwise, certain type exceptions will also be caught as [ATProtoException](https://pub.dev/documentation/bluesky/latest/atproto_core/ATProtoException-class.html).
+However note that, if you receive an individual type exception, be sure to define the process so that the individual exception type is cached before [XRPCException](https://pub.dev/documentation/xrpc/latest/xrpc/XRPCException-class.html). Otherwise, certain type exceptions will also be caught as [XRPCException](https://pub.dev/documentation/xrpc/latest/xrpc/XRPCException-class.html).
 
-Therefore, if you need to catch a specific type of exception in addition to [ATProtoException](https://pub.dev/documentation/bluesky/latest/atproto_core/ATProtoException-class.html), be sure to catch [ATProtoException](https://pub.dev/documentation/bluesky/latest/atproto_core/ATProtoException-class.html) in the bottom catch clause as in the following example.
+Therefore, if you need to catch a specific type of exception in addition to [XRPCException](https://pub.dev/documentation/xrpc/latest/xrpc/XRPCException-class.html), be sure to catch [XRPCException](https://pub.dev/documentation/v/latest/xrpc/XRPCException-class.html) in the bottom catch clause as in the following example.
 
 ```dart
 import 'package:bluesky/bluesky.dart' as bsky;
@@ -445,7 +445,7 @@ Future<void> main() async {
     print(response);
   } on bsky.UnauthorizedException catch (e) {
     print(e);
-  } on bsky.ATProtoException catch (e) {
+  } on bsky.XRPCException catch (e) {
     print(e);
   }
 }

@@ -17,11 +17,15 @@ abstract class GraphsService {
     required atp.ATProto atproto,
     required String service,
     required core.ClientContext context,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   }) =>
       _GraphsService(
         atproto: atproto,
         service: service,
         context: context,
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
       );
 
   /// Creates a follow.
@@ -43,7 +47,7 @@ abstract class GraphsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/follow.json
-  Future<core.ATProtoResponse<atp.Record>> createFollow({
+  Future<core.XRPCResponse<atp.Record>> createFollow({
     required String did,
     required String declarationCid,
     DateTime? createdAt,
@@ -63,7 +67,7 @@ abstract class GraphsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/follow.json
-  Future<core.ATProtoResponse<core.Empty>> deleteFollow({
+  Future<core.XRPCResponse<core.EmptyData>> deleteFollow({
     required String uri,
   });
 
@@ -86,7 +90,7 @@ abstract class GraphsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollows.json
-  Future<core.ATProtoResponse<FollowsData>> findFollows({
+  Future<core.XRPCResponse<FollowsData>> findFollows({
     required String actor,
     int? limit,
     String? cursor,
@@ -111,7 +115,7 @@ abstract class GraphsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollowers.json
-  Future<core.ATProtoResponse<FollowersData>> findFollowers({
+  Future<core.XRPCResponse<FollowersData>> findFollowers({
     required String actor,
     int? limit,
     String? cursor,
@@ -130,7 +134,7 @@ abstract class GraphsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/mute.json
-  Future<core.ATProtoResponse<core.Empty>> createMute({
+  Future<core.XRPCResponse<core.EmptyData>> createMute({
     required String actor,
   });
 
@@ -147,7 +151,7 @@ abstract class GraphsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/unmute.json
-  Future<core.ATProtoResponse<core.Empty>> deleteMute({
+  Future<core.XRPCResponse<core.EmptyData>> deleteMute({
     required String actor,
   });
 
@@ -167,7 +171,7 @@ abstract class GraphsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getMutes.json
-  Future<core.ATProtoResponse<MutesData>> findMutes({
+  Future<core.XRPCResponse<MutesData>> findMutes({
     int? limit,
     String? cursor,
   });
@@ -179,16 +183,18 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
     required super.atproto,
     required super.service,
     required super.context,
-  });
+    super.mockedGetClient,
+    super.mockedPostClient,
+  }) : super(methodAuthority: 'graph.bsky.app');
 
   @override
-  Future<atp.ATProtoResponse<atp.Record>> createFollow({
+  Future<core.XRPCResponse<atp.Record>> createFollow({
     required String did,
     required String declarationCid,
     DateTime? createdAt,
   }) async =>
       await atproto.repositories.createRecord(
-        collection: 'app.bsky.graph.follow',
+        collection: createNSID('follow'),
         record: {
           'subject': {
             'did': did,
@@ -199,89 +205,79 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       );
 
   @override
-  Future<atp.ATProtoResponse<core.Empty>> deleteFollow({
+  Future<core.XRPCResponse<core.EmptyData>> deleteFollow({
     required String uri,
   }) async =>
       await atproto.repositories.deleteRecord(
-        collection: 'app.bsky.graph.follow',
+        collection: createNSID('follow'),
         uri: uri,
       );
 
   @override
-  Future<atp.ATProtoResponse<FollowsData>> findFollows({
+  Future<core.XRPCResponse<FollowsData>> findFollows({
     required String actor,
     int? limit,
     String? cursor,
   }) async =>
-      super.transformSingleDataResponse(
-        await super.get(
-          '/xrpc/app.bsky.graph.getFollows',
-          queryParameters: {
-            'user': actor,
-            'limit': limit,
-            'before': cursor,
-          },
-        ),
-        dataBuilder: FollowsData.fromJson,
+      await super.get(
+        'getFollows',
+        parameters: {
+          'user': actor,
+          'limit': limit,
+          'before': cursor,
+        },
+        to: FollowsData.fromJson,
       );
 
   @override
-  Future<atp.ATProtoResponse<FollowersData>> findFollowers({
+  Future<core.XRPCResponse<FollowersData>> findFollowers({
     required String actor,
     int? limit,
     String? cursor,
   }) async =>
-      super.transformSingleDataResponse(
-        await super.get(
-          '/xrpc/app.bsky.graph.getFollowers',
-          queryParameters: {
-            'user': actor,
-            'limit': limit,
-            'before': cursor,
-          },
-        ),
-        dataBuilder: FollowersData.fromJson,
+      await super.get(
+        'getFollowers',
+        parameters: {
+          'user': actor,
+          'limit': limit,
+          'before': cursor,
+        },
+        to: FollowersData.fromJson,
       );
 
   @override
-  Future<atp.ATProtoResponse<core.Empty>> createMute({
+  Future<core.XRPCResponse<core.EmptyData>> createMute({
     required String actor,
   }) async =>
-      super.transformEmptyDataResponse(
-        await post(
-          '/xrpc/app.bsky.graph.mute',
-          body: {
-            'user': actor,
-          },
-        ),
+      await post<core.EmptyData>(
+        'mute',
+        body: {
+          'user': actor,
+        },
       );
 
   @override
-  Future<atp.ATProtoResponse<core.Empty>> deleteMute({
+  Future<core.XRPCResponse<core.EmptyData>> deleteMute({
     required String actor,
   }) async =>
-      super.transformEmptyDataResponse(
-        await post(
-          '/xrpc/app.bsky.graph.unmute',
-          body: {
-            'user': actor,
-          },
-        ),
+      await post<core.EmptyData>(
+        'unmute',
+        body: {
+          'user': actor,
+        },
       );
 
   @override
-  Future<atp.ATProtoResponse<MutesData>> findMutes({
+  Future<core.XRPCResponse<MutesData>> findMutes({
     int? limit,
     String? cursor,
   }) async =>
-      super.transformSingleDataResponse(
-        await super.get(
-          '/xrpc/app.bsky.graph.getMutes',
-          queryParameters: {
-            'limit': limit,
-            'before': cursor,
-          },
-        ),
-        dataBuilder: MutesData.fromJson,
+      await super.get(
+        'getMutes',
+        parameters: {
+          'limit': limit,
+          'before': cursor,
+        },
+        to: MutesData.fromJson,
       );
 }

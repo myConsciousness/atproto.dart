@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.0
+
+- Fixed to use `xrpc` package and refactored structures. ([#146](https://github.com/myConsciousness/atproto.dart/issues/146))
+
 ## v0.2.5
 
 - Added `createMute` in `GraphsService`. ([#27](https://github.com/myConsciousness/atproto.dart/issues/27))

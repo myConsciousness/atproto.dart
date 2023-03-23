@@ -6,6 +6,9 @@ dart test
 cd ../nsid || exit
 dart test
 
+cd ../xrpc || exit
+dart test
+
 cd ../at_uri || exit
 dart test
 

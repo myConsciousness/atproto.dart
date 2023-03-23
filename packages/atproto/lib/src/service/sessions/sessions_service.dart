@@ -2,64 +2,35 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🎯 Dart imports:
-import 'dart:convert';
-
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
-import 'package:http/http.dart' as http;
+import 'package:xrpc/xrpc.dart' as xrpc;
 
 import '../atproto_base_service.dart';
 import 'current_session.dart';
 import 'session.dart';
 
-Future<core.ATProtoResponse<Session>> createSession({
+Future<core.XRPCResponse<Session>> createSession({
   String service = 'bsky.social',
   required String handle,
   required String password,
-}) async {
-  final response = await http.post(
-    Uri.https(
-      service,
-      '/xrpc/com.atproto.session.create',
-    ),
-    body: jsonEncode(
-      {
+  final core.PostClient? mockedPostClient,
+}) async =>
+    await xrpc.procedure(
+      core.NSID.create(
+        'session.atproto.com',
+        'create',
+      ),
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: {
         'handle': handle,
         'password': password,
       },
-    ),
-    headers: {
-      'Content-type': 'application/json',
-    },
-  );
-
-  if (response.statusCode == 401) {
-    throw core.UnauthorizedException(
-      'Failed to authorize',
-      response,
+      to: Session.fromJson,
+      postClient: mockedPostClient,
     );
-  }
-
-  if (response.statusCode != 200) {
-    throw core.ATProtoException(
-      'Failed to create session',
-      response,
-    );
-  }
-
-  return core.ATProtoResponse(
-    headers: response.headers,
-    status: core.HttpStatus.ok,
-    request: core.ATProtoRequest(
-      method: core.HttpMethod.post,
-      url: response.request!.url,
-    ),
-    data: Session.fromJson(
-      jsonDecode(response.body),
-    ),
-  );
-}
 
 abstract class SessionsService {
   /// Returns the new instance of [SessionsService].
@@ -67,14 +38,18 @@ abstract class SessionsService {
     required String did,
     required String service,
     required core.ClientContext context,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   }) =>
       _SessionsService(
         did: did,
         service: service,
         context: context,
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
       );
 
-  Future<core.ATProtoResponse<CurrentSession>> findCurrentSession();
+  Future<core.XRPCResponse<CurrentSession>> findCurrentSession();
 }
 
 class _SessionsService extends ATProtoBaseService implements SessionsService {
@@ -83,14 +58,16 @@ class _SessionsService extends ATProtoBaseService implements SessionsService {
     required super.did,
     required super.service,
     required super.context,
-  });
+    super.mockedGetClient,
+    super.mockedPostClient,
+  }) : super(methodAuthority: 'session.atproto.com');
 
   @override
-  Future<core.ATProtoResponse<CurrentSession>> findCurrentSession() async =>
-      super.transformSingleDataResponse(
-        await super.get(
-          '/xrpc/com.atproto.session.get',
-        ),
-        dataBuilder: CurrentSession.fromJson,
+  Future<core.XRPCResponse<CurrentSession>> findCurrentSession({
+    final core.GetClient? mockedGetClient,
+  }) async =>
+      await super.get(
+        'get',
+        to: CurrentSession.fromJson,
       );
 }
