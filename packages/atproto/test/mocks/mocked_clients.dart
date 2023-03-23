@@ -19,6 +19,7 @@ core.GetClient createMockedGetClient(
     return http.Response(
       File(resourcePath).readAsStringSync(),
       statusCode,
+      headers: {'content-type': 'application/json; charset=utf-8'},
       request: http.Request(
         'GET',
         Uri.parse('https://bsky.social/xrpc/test'),
@@ -42,6 +43,7 @@ core.PostClient createMockedPostClient(
     return http.Response(
       File(resourcePath).readAsStringSync(),
       statusCode,
+      headers: {'content-type': 'application/json; charset=utf-8'},
       request: http.Request(
         'POST',
         Uri.parse('https://bsky.social/xrpc/test'),
