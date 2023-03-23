@@ -17,14 +17,12 @@ abstract class _Service {
     final String methodName, {
     final Map<String, dynamic>? parameters,
     required final xrpc.To<T> to,
-    final xrpc.GetClient? getClient,
   });
 
   Future<xrpc.XRPCResponse<T>> post<T>(
     final String methodName, {
     required final dynamic body,
     final xrpc.To<T>? to,
-    final xrpc.PostClient? postClient,
   });
 }
 
@@ -34,9 +32,13 @@ abstract class BaseService implements _Service {
     required String service,
     required String methodAuthority,
     required ClientContext context,
+    final xrpc.GetClient? mockedGetClient,
+    final xrpc.PostClient? mockedPostClient,
   })  : _service = service,
         _methodAuthority = methodAuthority,
-        _context = context;
+        _context = context,
+        _mockedGetClient = mockedGetClient,
+        _mockedPostClient = mockedPostClient;
 
   /// The base service.
   final String _service;
@@ -47,12 +49,14 @@ abstract class BaseService implements _Service {
   /// The context for HTTP clients.
   final ClientContext _context;
 
+  final xrpc.GetClient? _mockedGetClient;
+  final xrpc.PostClient? _mockedPostClient;
+
   @override
   Future<xrpc.XRPCResponse<T>> get<T>(
     final String methodName, {
     final Map<String, dynamic>? parameters,
     required final xrpc.To<T> to,
-    final xrpc.GetClient? getClient,
   }) async =>
       await _context.get(
         xrpc.NSID.create(
@@ -62,7 +66,7 @@ abstract class BaseService implements _Service {
         service: _service,
         parameters: parameters,
         to: to,
-        getClient: getClient,
+        getClient: _mockedGetClient,
       );
 
   @override
@@ -70,7 +74,6 @@ abstract class BaseService implements _Service {
     final String methodName, {
     required final dynamic body,
     final xrpc.To<T>? to,
-    final xrpc.PostClient? postClient,
   }) async =>
       await _context.post(
         xrpc.NSID.create(
@@ -80,6 +83,6 @@ abstract class BaseService implements _Service {
         service: _service,
         body: body,
         to: to,
-        postClient: postClient,
+        postClient: _mockedPostClient,
       );
 }
