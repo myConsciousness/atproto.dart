@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.0
+
+- Use `xrpc` package and refactored structures. ([#146](https://github.com/myConsciousness/atproto.dart/issues/146))
+
 ## v0.1.2
 
 - Redefined retry processing as a class and exposed it as `challenge.dart`. ([#128](https://github.com/myConsciousness/atproto.dart/issues/128))

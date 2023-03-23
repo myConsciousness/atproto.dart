@@ -4,26 +4,29 @@
 
 // 🎯 Dart imports:
 import 'dart:async';
-import 'dart:convert';
 
-// 📦 Package imports:
-import 'package:http/http.dart' as http;
+import 'package:xrpc/xrpc.dart' as xrpc;
 
 abstract class Client {
   /// Returns the new instance of [Client].
   factory Client(final String accessJwt) => _Client(accessJwt);
 
-  Future<http.Response> get(
-    Uri uri, {
-    required Duration timeout,
-    Map<String, String> headers,
+  Future<xrpc.XRPCResponse<T>> get<T>(
+    final xrpc.NSID methodId, {
+    required final String service,
+    final Map<String, dynamic>? parameters,
+    required final xrpc.To<T> to,
+    required final Duration timeout,
+    final xrpc.GetClient? getClient,
   });
 
-  Future<http.Response> post(
-    Uri uri, {
-    Map<String, String> headers = const {},
-    dynamic body,
-    required Duration timeout,
+  Future<xrpc.XRPCResponse<T>> post<T>(
+    final xrpc.NSID methodId, {
+    required final String service,
+    required final dynamic body,
+    final xrpc.To<T>? to,
+    required final Duration timeout,
+    final xrpc.PostClient? postClient,
   });
 }
 
@@ -35,31 +38,40 @@ class _Client implements Client {
   final String _accessJwt;
 
   @override
-  Future<http.Response> get(
-    Uri uri, {
-    required Duration timeout,
-    Map<String, String> headers = const {},
+  Future<xrpc.XRPCResponse<T>> get<T>(
+    final xrpc.NSID methodId, {
+    required final String service,
+    final Map<String, dynamic>? parameters,
+    required final xrpc.To<T> to,
+    required final Duration timeout,
+    final xrpc.GetClient? getClient,
   }) async =>
-      await http
-          .get(
-            uri,
-            headers: {'Authorization': 'Bearer $_accessJwt'}..addAll(headers),
-          )
-          .timeout(timeout);
+      await xrpc.query(
+        methodId,
+        service: service,
+        parameters: parameters,
+        headers: {'Authorization': 'Bearer $_accessJwt'},
+        to: to,
+        timeout: timeout,
+        getClient: getClient,
+      );
 
   @override
-  Future<http.Response> post(
-    Uri uri, {
-    Map<String, String> headers = const {},
-    dynamic body,
-    required Duration timeout,
+  Future<xrpc.XRPCResponse<T>> post<T>(
+    final xrpc.NSID methodId, {
+    required final String service,
+    required final dynamic body,
+    final xrpc.To<T>? to,
+    required final Duration timeout,
+    final xrpc.PostClient? postClient,
   }) async =>
-      await http
-          .post(
-            uri,
-            headers: {'Authorization': 'Bearer $_accessJwt'}..addAll(headers),
-            body: body,
-            encoding: utf8,
-          )
-          .timeout(timeout);
+      await xrpc.procedure(
+        methodId,
+        service: service,
+        headers: {'Authorization': 'Bearer $_accessJwt'},
+        body: body,
+        to: to,
+        timeout: timeout,
+        postClient: postClient,
+      );
 }

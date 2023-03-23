@@ -23,8 +23,9 @@ class Challenge {
   }) async {
     try {
       final response = await action.call(client);
+      final statusCode = response.status.code;
 
-      if (response.statusCode == 500 || response.statusCode == 503) {
+      if (statusCode == 500 || statusCode == 503) {
         if (_retryPolicy.shouldRetry(retryCount)) {
           return await _retry(client, action, retryCount: ++retryCount);
         }

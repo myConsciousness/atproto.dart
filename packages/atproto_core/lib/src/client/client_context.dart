@@ -5,10 +5,9 @@
 // 🎯 Dart imports:
 import 'dart:async';
 
-// 📦 Package imports:
-import 'package:http/http.dart' as http;
-
 // 🌎 Project imports:
+import 'package:xrpc/xrpc.dart' as xrpc;
+
 import '../config/retry_config.dart';
 import 'challenge.dart';
 import 'client.dart';
@@ -27,15 +26,20 @@ abstract class ClientContext {
         retryConfig: retryConfig,
       );
 
-  Future<http.Response> get(
-    Uri uri, {
-    Map<String, String> headers = const {},
+  Future<xrpc.XRPCResponse<T>> get<T>(
+    final xrpc.NSID methodId, {
+    required final String service,
+    final Map<String, dynamic>? parameters,
+    required final xrpc.To<T> to,
+    final xrpc.GetClient? getClient,
   });
 
-  Future<http.Response> post(
-    Uri uri, {
-    Map<String, String> headers = const {},
-    dynamic body,
+  Future<xrpc.XRPCResponse<T>> post<T>(
+    final xrpc.NSID methodId, {
+    required final String service,
+    required final dynamic body,
+    final xrpc.To<T>? to,
+    final xrpc.PostClient? postClient,
   });
 }
 
@@ -59,32 +63,42 @@ class _ClientContext implements ClientContext {
   final Duration timeout;
 
   @override
-  Future<http.Response> get(
-    Uri uri, {
-    Map<String, String> headers = const {},
+  Future<xrpc.XRPCResponse<T>> get<T>(
+    final xrpc.NSID methodId, {
+    required final String service,
+    final Map<String, dynamic>? parameters,
+    required final xrpc.To<T> to,
+    final xrpc.GetClient? getClient,
   }) async =>
       await _challenge.execute(
         _client,
         (client) async => await client.get(
-          uri,
+          methodId,
+          service: service,
+          parameters: parameters,
+          to: to,
           timeout: timeout,
-          headers: headers,
+          getClient: getClient,
         ),
       );
 
   @override
-  Future<http.Response> post(
-    Uri uri, {
-    Map<String, String> headers = const {},
-    dynamic body,
+  Future<xrpc.XRPCResponse<T>> post<T>(
+    final xrpc.NSID methodId, {
+    required final String service,
+    required final dynamic body,
+    final xrpc.To<T>? to,
+    final xrpc.PostClient? postClient,
   }) async =>
       await _challenge.execute(
         _client,
         (client) async => await client.post(
-          uri,
-          headers: headers,
+          methodId,
+          service: service,
           body: body,
+          to: to,
           timeout: timeout,
+          postClient: postClient,
         ),
       );
 }
