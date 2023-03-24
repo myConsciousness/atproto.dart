@@ -1,4 +1,4 @@
-name: atproto.dart
+name: atproto
 
 command:
   bootstrap:
@@ -10,6 +10,11 @@ packages:
   - examples/**
 
 scripts:
+  get:
+    run: melos exec -c 1 -- \
+           flutter pub get
+    description: Run pub get command in this project.
+
   analyze:
     run: |
       melos exec -c 1 -- \
