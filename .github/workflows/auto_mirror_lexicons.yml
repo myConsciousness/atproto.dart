@@ -3,7 +3,7 @@ name: Auto Mirror Lexicons
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 12 * * *"
+    - cron: "0 10 * * *"
 
 jobs:
   build:
@@ -13,9 +13,11 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Create New Branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "${{ github.actor }}"
-          git config --global user.email "contact@shinyakato.dev"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           git checkout -b auto-mirror-lexicons
           git push -u origin auto-mirror-lexicons
 
@@ -37,6 +39,6 @@ jobs:
           branch: auto-mirror-lexicons
           base: main
           labels: Github Actions
-          assignees: myConsciousness
+          assignees: "${{ github.actor }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
