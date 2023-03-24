@@ -1,0 +1,42 @@
+name: Auto Mirror Lexicons
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 12 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Create New Branch
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git checkout -b auto-mirror-lexicons
+          git push -u origin auto-mirror-lexicons
+
+      - name: Install dependencies
+        run: dart pub get
+
+      - uses: dart-lang/setup-dart@v1.3
+
+      - name: Auto Mirror Lexicons
+        run: dart run ./bin/mirror_lexicons.dart
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: "[Scheduled] Auto Mirror Lexicons"
+          title: "[Scheduled] Auto Mirror Lexicons"
+          branch: auto-mirror-lexicons
+          base: main
+          labels: Github Actions
+          assignees: myConsciousness
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
