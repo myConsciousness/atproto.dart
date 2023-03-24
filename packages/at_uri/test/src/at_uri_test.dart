@@ -364,4 +364,15 @@ void main() {
     expect(uri.collection, 'com.example.foo');
     expect(uri.rkey, '123');
   });
+
+  test('.toString', () {
+    final actual = AtUri.parse(
+      'at://did:plc:ohwup7m7r565tbdhulp77tkp/app.bsky.feed.post/3jqspl3hnee2a',
+    );
+
+    expect(
+      actual.toString(),
+      'at://did:plc:ohwup7m7r565tbdhulp77tkp/app.bsky.feed.post/3jqspl3hnee2a',
+    );
+  });
 }

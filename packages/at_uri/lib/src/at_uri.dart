@@ -101,10 +101,14 @@ class AtUri {
 
     if (!pathname.startsWith('/')) {
       buffer.write('/$pathname');
+    } else {
+      buffer.write(pathname);
     }
 
     if (hash.isNotEmpty && !hash.startsWith('#')) {
       buffer.write('#$hash');
+    } else {
+      buffer.write(hash);
     }
 
     return buffer.toString();
