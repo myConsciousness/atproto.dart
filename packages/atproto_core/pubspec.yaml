@@ -10,7 +10,7 @@ environment:
 
 dependencies:
   xrpc: ^0.0.3
-  at_uri: ^0.0.2
+  at_uri: ^0.0.3
   universal_io: ^2.2.0
   freezed_annotation: ^2.2.0
 
