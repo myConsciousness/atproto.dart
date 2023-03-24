@@ -5,10 +5,8 @@
 import 'package:atproto/src/entities/record.dart';
 import 'package:atproto/src/repositories/repositories_service.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
+import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
-
-import '../../mocks/mocked_clients.dart';
-import '../common_expectations.dart';
 
 void main() {
   group('.createRecord', () {
@@ -20,7 +18,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedPostClient: createMockedPostClient(
+        mockedPostClient: atp_test.createMockedPostClient(
           'test/src/repositories/data/create_record.json',
         ),
       );
@@ -42,13 +40,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedPostClient: createMockedPostClient(
+        mockedPostClient: atp_test.createMockedPostClient(
           'test/src/data/error.json',
           statusCode: 401,
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await repositories.createRecord(
           collection: core.NSID.create('com.atproto', 'test'),
           record: {},
@@ -64,13 +62,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedPostClient: createMockedPostClient(
+        mockedPostClient: atp_test.createMockedPostClient(
           'test/src/data/error.json',
           statusCode: 429,
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await repositories.createRecord(
           collection: core.NSID.create('com.atproto', 'test'),
           record: {},
@@ -88,7 +86,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedPostClient: createMockedPostClient(
+        mockedPostClient: atp_test.createMockedPostClient(
           'test/src/repositories/data/delete_record.json',
         ),
       );
@@ -110,13 +108,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedPostClient: createMockedPostClient(
+        mockedPostClient: atp_test.createMockedPostClient(
           'test/src/data/error.json',
           statusCode: 401,
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await repositories.deleteRecord(
           collection: core.NSID.create('com.atproto', 'test'),
           uri: core.AtUri.parse('at://foo.com/com.example.foo/123'),
@@ -132,13 +130,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedPostClient: createMockedPostClient(
+        mockedPostClient: atp_test.createMockedPostClient(
           'test/src/data/error.json',
           statusCode: 429,
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await repositories.deleteRecord(
           collection: core.NSID.create('com.atproto', 'test'),
           uri: core.AtUri.parse('at://foo.com/com.example.foo/123'),

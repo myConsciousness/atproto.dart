@@ -5,14 +5,12 @@
 // 🌎 Project imports:
 import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:bluesky/src/entities/count_data.dart';
 import 'package:bluesky/src/entities/notifications_data.dart';
 import 'package:bluesky/src/notifications/notifications_service.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
-
-import '../../mocks/mocked_clients.dart';
-import '../common_expectations.dart';
 
 void main() {
   group('.findNotifications', () {
@@ -24,7 +22,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/notifications/data/find_notifications.json',
         ),
       );
@@ -46,13 +44,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 401,
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await notifications.findNotifications(
           limit: 10,
           cursor: '1234',
@@ -68,13 +66,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 429,
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await notifications.findNotifications(
           limit: 10,
           cursor: '1234',
@@ -92,7 +90,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/notifications/data/find_unread_count.json',
         ),
       );
@@ -111,13 +109,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 401,
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await notifications.findUnreadCount(),
       );
     });
@@ -130,13 +128,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 429,
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await notifications.findUnreadCount(),
       );
     });
@@ -151,7 +149,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedPostClient: createMockedPostClient(
+        mockedPostClient: atp_test.createMockedPostClient(
           'test/src/notifications/data/update_notifications_as_read.json',
         ),
       );
@@ -172,13 +170,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedPostClient: createMockedPostClient(
+        mockedPostClient: atp_test.createMockedPostClient(
           'test/src/data/error.json',
           statusCode: 401,
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await notifications.updateNotificationsAsRead(),
       );
     });
@@ -191,13 +189,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedPostClient: createMockedPostClient(
+        mockedPostClient: atp_test.createMockedPostClient(
           'test/src/data/error.json',
           statusCode: 429,
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await notifications.updateNotificationsAsRead(),
       );
     });

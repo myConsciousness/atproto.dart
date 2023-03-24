@@ -5,12 +5,10 @@
 // 🌎 Project imports:
 import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:bluesky/bluesky.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
-
-import '../../mocks/mocked_clients.dart';
-import '../common_expectations.dart';
 
 void main() {
   group('.createFollow', () {
@@ -20,7 +18,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/graphs/data/create_follow.json',
           ),
         ),
@@ -47,7 +45,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 401,
           ),
@@ -59,7 +57,7 @@ void main() {
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await graphs.createFollow(
           did: 'test',
           declarationCid: '1234',
@@ -73,7 +71,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 429,
           ),
@@ -85,7 +83,7 @@ void main() {
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await graphs.createFollow(
           did: 'test',
           declarationCid: '1234',
@@ -101,7 +99,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/graphs/data/delete_follow.json',
           ),
         ),
@@ -126,7 +124,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 401,
           ),
@@ -138,7 +136,7 @@ void main() {
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await graphs.deleteFollow(
           uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
@@ -151,7 +149,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 429,
           ),
@@ -163,7 +161,7 @@ void main() {
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await graphs.deleteFollow(
           uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
@@ -180,7 +178,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/graphs/data/find_follows.json',
         ),
       );
@@ -203,13 +201,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 401,
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await graphs.findFollows(
           actor: 'shinyakato.dev',
           limit: 10,
@@ -226,13 +224,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 429,
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await graphs.findFollows(
           actor: 'shinyakato.dev',
           limit: 10,
@@ -251,7 +249,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/graphs/data/find_followers.json',
         ),
       );
@@ -274,13 +272,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 401,
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await graphs.findFollowers(
           actor: 'shinyakato.dev',
           limit: 10,
@@ -297,13 +295,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 429,
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await graphs.findFollowers(
           actor: 'shinyakato.dev',
           limit: 10,
@@ -326,7 +324,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedPostClient: createMockedPostClient(
+        mockedPostClient: atp_test.createMockedPostClient(
           'test/src/graphs/data/create_mute.json',
         ),
       );
@@ -351,13 +349,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedPostClient: createMockedPostClient(
+        mockedPostClient: atp_test.createMockedPostClient(
           'test/src/data/error.json',
           statusCode: 401,
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await graphs.createMute(
           actor: 'shinyakato.dev',
         ),
@@ -376,13 +374,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedPostClient: createMockedPostClient(
+        mockedPostClient: atp_test.createMockedPostClient(
           'test/src/data/error.json',
           statusCode: 429,
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await graphs.createMute(
           actor: 'shinyakato.dev',
         ),
@@ -403,7 +401,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedPostClient: createMockedPostClient(
+        mockedPostClient: atp_test.createMockedPostClient(
           'test/src/graphs/data/delete_mute.json',
         ),
       );
@@ -428,13 +426,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedPostClient: createMockedPostClient(
+        mockedPostClient: atp_test.createMockedPostClient(
           'test/src/data/error.json',
           statusCode: 401,
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await graphs.deleteMute(
           actor: 'shinyakato.dev',
         ),
@@ -453,13 +451,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedPostClient: createMockedPostClient(
+        mockedPostClient: atp_test.createMockedPostClient(
           'test/src/data/error.json',
           statusCode: 429,
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await graphs.deleteMute(
           actor: 'shinyakato.dev',
         ),
@@ -476,7 +474,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/graphs/data/find_mutes.json',
         ),
       );
@@ -498,13 +496,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 401,
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await graphs.findMutes(
           limit: 10,
           cursor: '1234',
@@ -520,13 +518,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 429,
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await graphs.findMutes(
           limit: 10,
           cursor: '1234',

@@ -5,13 +5,11 @@
 // 🌎 Project imports:
 import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:bluesky/src/entities/feeds_data.dart';
 import 'package:bluesky/src/unspecced/unspecced_service.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
-
-import '../../mocks/mocked_clients.dart';
-import '../common_expectations.dart';
 
 void main() {
   group('.findPopularFeeds', () {
@@ -23,7 +21,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/unspecced/data/find_popular_feeds.json',
         ),
       );
@@ -45,13 +43,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 401,
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await unspecced.findPopularFeeds(
           limit: 10,
           cursor: '1234',
@@ -67,13 +65,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 429,
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await unspecced.findPopularFeeds(
           limit: 10,
           cursor: '1234',
