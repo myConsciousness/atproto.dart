@@ -2,8 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:atproto/src/service/entities/record.dart';
-import 'package:atproto/src/service/repositories/repositories_service.dart';
+import 'package:atproto/src/entities/record.dart';
+import 'package:atproto/src/repositories/repositories_service.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:test/test.dart';
 

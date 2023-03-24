@@ -5,10 +5,10 @@
 // 🌎 Project imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 
-import 'service/atproto_service.dart';
-import 'service/repositories/repositories_service.dart';
-import 'service/sessions/session.dart';
-import 'service/sessions/sessions_service.dart';
+import 'atproto_service.dart';
+import 'repositories/repositories_service.dart';
+import 'sessions/session.dart';
+import 'sessions/sessions_service.dart';
 
 abstract class ATProto {
   /// Returns the new instance of [ATProto].
