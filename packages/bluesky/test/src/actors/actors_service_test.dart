@@ -5,6 +5,7 @@
 // 🌎 Project imports:
 import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:bluesky/src/actors/actors_service.dart';
 import 'package:bluesky/src/entities/actor_profile.dart';
 import 'package:bluesky/src/entities/actor_profiles_data.dart';
@@ -13,9 +14,6 @@ import 'package:bluesky/src/entities/actors_data.dart';
 import 'package:bluesky/src/entities/users_data.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
-
-import '../../mocks/mocked_clients.dart';
-import '../common_expectations.dart';
 
 void main() {
   group('.searchActors', () {
@@ -27,7 +25,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/actors/data/search_actors.json',
         ),
       );
@@ -50,13 +48,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 401,
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await actors.searchActors(
           term: 'test',
           limit: 10,
@@ -73,13 +71,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 429,
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await actors.searchActors(
           term: 'test',
           limit: 10,
@@ -98,7 +96,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/actors/data/find_profile.json',
         ),
       );
@@ -119,13 +117,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 401,
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await actors.findProfile(
           actor: 'test.bsky.social',
         ),
@@ -140,13 +138,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 429,
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await actors.findProfile(
           actor: 'test.bsky.social',
         ),
@@ -163,7 +161,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/actors/data/find_profiles.json',
         ),
       );
@@ -187,13 +185,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 401,
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await actors.findProfiles(
           actors: [
             'test.bsky.social',
@@ -211,13 +209,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 429,
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await actors.findProfiles(
           actors: [
             'test.bsky.social',
@@ -237,7 +235,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/actors/data/find_suggestions.json',
         ),
       );
@@ -256,13 +254,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 401,
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await actors.findSuggestions(limit: 10, cursor: '1234'),
       );
     });
@@ -275,13 +273,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 429,
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await actors.findSuggestions(limit: 10, cursor: '1234'),
       );
     });
@@ -296,7 +294,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/actors/data/search_actor_typeahead.json',
         ),
       );
@@ -318,13 +316,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 401,
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await actors.searchActorTypeahead(
           term: 'test',
           limit: 10,
@@ -340,13 +338,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 429,
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await actors.searchActorTypeahead(
           term: 'test',
           limit: 10,

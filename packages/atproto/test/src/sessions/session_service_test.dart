@@ -6,10 +6,8 @@ import 'package:atproto/src/sessions/current_session.dart';
 import 'package:atproto/src/sessions/session.dart';
 import 'package:atproto/src/sessions/sessions_service.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
+import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
-
-import '../../mocks/mocked_clients.dart';
-import '../common_expectations.dart';
 
 void main() {
   group('.createSession', () {
@@ -17,7 +15,7 @@ void main() {
       final response = await createSession(
         handle: 'shinyakato.dev',
         password: '1234',
-        mockedPostClient: createMockedPostClient(
+        mockedPostClient: atp_test.createMockedPostClient(
           'test/src/sessions/data/create_session.json',
         ),
       );
@@ -27,11 +25,11 @@ void main() {
     });
 
     test('when unauthorized', () async {
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await createSession(
           handle: 'shinyakato.dev',
           password: '1234',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 401,
           ),
@@ -40,11 +38,11 @@ void main() {
     });
 
     test('when rate limit exceeded', () async {
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await createSession(
           handle: 'shinyakato.dev',
           password: '1234',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 429,
           ),
@@ -62,7 +60,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/sessions/data/find_current_session.json',
         ),
       );
@@ -81,13 +79,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 401,
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await sessions.findCurrentSession(),
       );
     });
@@ -100,13 +98,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 429,
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await sessions.findCurrentSession(),
       );
     });

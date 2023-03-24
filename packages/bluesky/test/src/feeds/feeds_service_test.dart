@@ -5,12 +5,10 @@
 // 🌎 Project imports:
 import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:bluesky/bluesky.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
-
-import '../../mocks/mocked_clients.dart';
-import '../common_expectations.dart';
 
 void main() {
   group('.findHomeTimeline', () {
@@ -22,7 +20,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/feeds/data/find_home_timeline.json',
         ),
       );
@@ -45,13 +43,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 401,
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await feeds.findHomeTimeline(
           algorithm: FeedAlgorithm.reverseChronological,
           limit: 10,
@@ -68,13 +66,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 429,
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await feeds.findHomeTimeline(
           algorithm: FeedAlgorithm.reverseChronological,
           limit: 10,
@@ -91,7 +89,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/feeds/data/create_post.json',
           ),
         ),
@@ -116,7 +114,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 401,
           ),
@@ -128,7 +126,7 @@ void main() {
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await feeds.createPost(
           text: 'test',
         ),
@@ -141,7 +139,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 429,
           ),
@@ -153,7 +151,7 @@ void main() {
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await feeds.createPost(
           text: 'test',
         ),
@@ -168,7 +166,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/feeds/data/delete_post.json',
           ),
         ),
@@ -193,7 +191,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 401,
           ),
@@ -205,7 +203,7 @@ void main() {
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await feeds.deletePost(
           uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
@@ -218,7 +216,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 429,
           ),
@@ -230,7 +228,7 @@ void main() {
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await feeds.deletePost(
           uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
@@ -245,7 +243,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/feeds/data/create_repost.json',
           ),
         ),
@@ -272,7 +270,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 401,
           ),
@@ -284,7 +282,7 @@ void main() {
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await feeds.createRepost(
           cid: '1234',
           uri: AtUri.parse('at://foo.com/com.example.foo/123'),
@@ -298,7 +296,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 429,
           ),
@@ -310,7 +308,7 @@ void main() {
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await feeds.createRepost(
           cid: '1234',
           uri: AtUri.parse('at://foo.com/com.example.foo/123'),
@@ -326,7 +324,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/feeds/data/delete_repost.json',
           ),
         ),
@@ -351,7 +349,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 401,
           ),
@@ -363,7 +361,7 @@ void main() {
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await feeds.deleteRepost(
           uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
@@ -376,7 +374,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 429,
           ),
@@ -388,7 +386,7 @@ void main() {
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await feeds.deleteRepost(
           uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
@@ -403,7 +401,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/feeds/data/create_like.json',
           ),
         ),
@@ -430,7 +428,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 401,
           ),
@@ -442,7 +440,7 @@ void main() {
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await feeds.createLike(
           cid: '1234',
           uri: AtUri.parse('at://foo.com/com.example.foo/123'),
@@ -456,7 +454,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 429,
           ),
@@ -468,7 +466,7 @@ void main() {
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await feeds.createLike(
           cid: '1234',
           uri: AtUri.parse('at://foo.com/com.example.foo/123'),
@@ -484,7 +482,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/feeds/data/delete_like.json',
           ),
         ),
@@ -509,7 +507,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 401,
           ),
@@ -521,7 +519,7 @@ void main() {
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await feeds.deleteLike(
           uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
@@ -534,7 +532,7 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: createMockedPostClient(
+          mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 429,
           ),
@@ -546,7 +544,7 @@ void main() {
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await feeds.deleteLike(
           uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
@@ -563,7 +561,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/feeds/data/find_feeds.json',
         ),
       );
@@ -586,13 +584,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 401,
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await feeds.findFeeds(
           author: 'shinyakato.dev',
           limit: 10,
@@ -609,13 +607,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 429,
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await feeds.findFeeds(
           author: 'shinyakato.dev',
           limit: 10,
@@ -634,7 +632,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/feeds/data/find_likes.json',
         ),
       );
@@ -658,13 +656,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 401,
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await feeds.findLikes(
           uri: AtUri.parse('at://foo.com/com.example.foo/123'),
           cid: 'test',
@@ -682,13 +680,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 429,
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await feeds.findLikes(
           uri: AtUri.parse('at://foo.com/com.example.foo/123'),
           cid: 'test',
@@ -708,7 +706,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/feeds/data/find_reposted_by.json',
         ),
       );
@@ -732,13 +730,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 401,
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await feeds.findRepostedBy(
           uri: AtUri.parse('at://foo.com/com.example.foo/123'),
           cid: 'test',
@@ -756,13 +754,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 429,
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await feeds.findRepostedBy(
           uri: AtUri.parse('at://foo.com/com.example.foo/123'),
           cid: 'test',
@@ -782,7 +780,7 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/feeds/data/find_post_thread.json',
         ),
       );
@@ -804,13 +802,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 401,
         ),
       );
 
-      expectUnauthorizedException(
+      atp_test.expectUnauthorizedException(
         () async => await feeds.findPostThread(
           uri: AtUri.parse('at://foo.com/com.example.foo/123'),
           depth: 5,
@@ -826,13 +824,13 @@ void main() {
           accessJwt: '1234',
           timeout: Duration.zero,
         ),
-        mockedGetClient: createMockedGetClient(
+        mockedGetClient: atp_test.createMockedGetClient(
           'test/src/data/error.json',
           statusCode: 429,
         ),
       );
 
-      expectRateLimitExceededException(
+      atp_test.expectRateLimitExceededException(
         () async => await feeds.findPostThread(
           uri: AtUri.parse('at://foo.com/com.example.foo/123'),
           depth: 5,
