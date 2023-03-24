@@ -8,6 +8,8 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:xrpc/xrpc.dart' as xrpc;
 
+/// Returns the mocked [xrpc.GetClient]
+/// based on [resourcePath] and [statusCode].
 xrpc.GetClient createMockedGetClient(
   final String resourcePath, {
   final int statusCode = 200,
@@ -22,7 +24,7 @@ xrpc.GetClient createMockedGetClient(
       headers: {'content-type': 'application/json; charset=utf-8'},
       request: http.Request(
         'GET',
-        Uri.parse('https://bsky.social/xrpc/test'),
+        Uri.parse('https://bsky.social/xrpc/test.get'),
       ),
     );
   }
@@ -30,6 +32,8 @@ xrpc.GetClient createMockedGetClient(
   return mockedClient;
 }
 
+/// Returns the mocked [xrpc.PostClient]
+/// based on [resourcePath] and [statusCode].
 xrpc.PostClient createMockedPostClient(
   final String resourcePath, {
   final int statusCode = 200,
@@ -46,7 +50,7 @@ xrpc.PostClient createMockedPostClient(
       headers: {'content-type': 'application/json; charset=utf-8'},
       request: http.Request(
         'POST',
-        Uri.parse('https://bsky.social/xrpc/test'),
+        Uri.parse('https://bsky.social/xrpc/test.post'),
       ),
     );
   }
