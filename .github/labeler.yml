@@ -20,38 +20,38 @@ bluesky_cards:
 - packages/bluesky_cards/**/*
 
 atproto/lexicon/accounts:
-- packages/atproto/lib/src/service/accounts/*.dart
+- packages/atproto/lib/src/accounts/*.dart
 atproto/lexicon/admin:
-- packages/atproto/lib/src/service/admin/*.dart
+- packages/atproto/lib/src/admin/*.dart
 atproto/lexicon/blob:
-- packages/atproto/lib/src/service/blob/*.dart
+- packages/atproto/lib/src/blob/*.dart
 atproto/lexicon/handles:
-- packages/atproto/lib/src/service/handles/*.dart
+- packages/atproto/lib/src/handles/*.dart
 atproto/lexicon/repositories:
-- packages/atproto/lib/src/service/repositories/*.dart
+- packages/atproto/lib/src/repositories/*.dart
 atproto/lexicon/reports:
-- packages/atproto/lib/src/service/reports/*.dart
+- packages/atproto/lib/src/reports/*.dart
 atproto/lexicon/servers:
-- packages/atproto/lib/src/service/servers/*.dart
+- packages/atproto/lib/src/servers/*.dart
 atproto/lexicon/sessions:
-- packages/atproto/lib/src/service/sessions/*.dart
+- packages/atproto/lib/src/sessions/*.dart
 atproto/lexicon/syncs:
-- packages/atproto/lib/src/service/syncs/*.dart
+- packages/atproto/lib/src/syncs/*.dart
 
 bsky/lexicon/actors:
-- packages/bluesky/lib/src/service/actors/*.dart
+- packages/bluesky/lib/src/actors/*.dart
 bsky/lexicon/feeds:
-- packages/bluesky/lib/src/service/feeds/*.dart
+- packages/bluesky/lib/src/feeds/*.dart
 bsky/lexicon/embed:
-- packages/bluesky/lib/src/service/embed/*.dart
+- packages/bluesky/lib/src/embed/*.dart
 bsky/lexicon/graphs:
-- packages/bluesky/lib/src/service/graphs/*.dart
+- packages/bluesky/lib/src/graphs/*.dart
 bsky/lexicon/notifications:
-- packages/bluesky/lib/src/service/notifications/*.dart
+- packages/bluesky/lib/src/notifications/*.dart
 bsky/lexicon/systems:
-- packages/bluesky/lib/src/service/systems/*.dart
+- packages/bluesky/lib/src/systems/*.dart
 bsky/lexicon/unspecced:
-- packages/bluesky/lib/src/service/unspecced/*.dart
+- packages/bluesky/lib/src/unspecced/*.dart
 
 test:
 - packages/at_identifier/test/**/*.dart

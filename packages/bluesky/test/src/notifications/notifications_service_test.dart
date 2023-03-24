@@ -5,13 +5,13 @@
 // 🌎 Project imports:
 import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
-import 'package:bluesky/src/service/entities/count_data.dart';
-import 'package:bluesky/src/service/entities/notifications_data.dart';
-import 'package:bluesky/src/service/notifications/notifications_service.dart';
+import 'package:bluesky/src/entities/count_data.dart';
+import 'package:bluesky/src/entities/notifications_data.dart';
+import 'package:bluesky/src/notifications/notifications_service.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
-import '../../../mocks/mocked_clients.dart';
+import '../../mocks/mocked_clients.dart';
 import '../common_expectations.dart';
 
 void main() {
@@ -25,7 +25,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/notifications/data/find_notifications.json',
+          'test/src/notifications/data/find_notifications.json',
         ),
       );
 
@@ -47,7 +47,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 401,
         ),
       );
@@ -69,7 +69,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 429,
         ),
       );
@@ -93,7 +93,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/notifications/data/find_unread_count.json',
+          'test/src/notifications/data/find_unread_count.json',
         ),
       );
 
@@ -112,7 +112,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 401,
         ),
       );
@@ -131,7 +131,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 429,
         ),
       );
@@ -152,7 +152,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedPostClient: createMockedPostClient(
-          'test/src/service/notifications/data/update_notifications_as_read.json',
+          'test/src/notifications/data/update_notifications_as_read.json',
         ),
       );
 
@@ -173,7 +173,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedPostClient: createMockedPostClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 401,
         ),
       );
@@ -192,7 +192,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedPostClient: createMockedPostClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 429,
         ),
       );

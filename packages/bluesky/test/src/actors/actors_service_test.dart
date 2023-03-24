@@ -5,16 +5,16 @@
 // 🌎 Project imports:
 import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
-import 'package:bluesky/src/service/actors/actors_service.dart';
-import 'package:bluesky/src/service/entities/actor_profile.dart';
-import 'package:bluesky/src/service/entities/actor_profiles_data.dart';
-import 'package:bluesky/src/service/entities/actor_typeahead_data.dart';
-import 'package:bluesky/src/service/entities/actors_data.dart';
-import 'package:bluesky/src/service/entities/users_data.dart';
+import 'package:bluesky/src/actors/actors_service.dart';
+import 'package:bluesky/src/entities/actor_profile.dart';
+import 'package:bluesky/src/entities/actor_profiles_data.dart';
+import 'package:bluesky/src/entities/actor_typeahead_data.dart';
+import 'package:bluesky/src/entities/actors_data.dart';
+import 'package:bluesky/src/entities/users_data.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
-import '../../../mocks/mocked_clients.dart';
+import '../../mocks/mocked_clients.dart';
 import '../common_expectations.dart';
 
 void main() {
@@ -28,7 +28,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/actors/data/search_actors.json',
+          'test/src/actors/data/search_actors.json',
         ),
       );
 
@@ -51,7 +51,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 401,
         ),
       );
@@ -74,7 +74,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 429,
         ),
       );
@@ -99,7 +99,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/actors/data/find_profile.json',
+          'test/src/actors/data/find_profile.json',
         ),
       );
 
@@ -120,7 +120,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 401,
         ),
       );
@@ -141,7 +141,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 429,
         ),
       );
@@ -164,7 +164,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/actors/data/find_profiles.json',
+          'test/src/actors/data/find_profiles.json',
         ),
       );
 
@@ -188,7 +188,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 401,
         ),
       );
@@ -212,7 +212,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 429,
         ),
       );
@@ -238,7 +238,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/actors/data/find_suggestions.json',
+          'test/src/actors/data/find_suggestions.json',
         ),
       );
 
@@ -257,7 +257,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 401,
         ),
       );
@@ -276,7 +276,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 429,
         ),
       );
@@ -297,7 +297,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/actors/data/search_actor_typeahead.json',
+          'test/src/actors/data/search_actor_typeahead.json',
         ),
       );
 
@@ -319,7 +319,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 401,
         ),
       );
@@ -341,7 +341,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 429,
         ),
       );

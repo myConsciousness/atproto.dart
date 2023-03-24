@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:bluesky/src/service/feeds/feed_algorithm.dart';
+import 'package:bluesky/src/feeds/feed_algorithm.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 

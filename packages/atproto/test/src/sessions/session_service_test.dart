@@ -2,13 +2,13 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:atproto/src/service/sessions/current_session.dart';
-import 'package:atproto/src/service/sessions/session.dart';
-import 'package:atproto/src/service/sessions/sessions_service.dart';
+import 'package:atproto/src/sessions/current_session.dart';
+import 'package:atproto/src/sessions/session.dart';
+import 'package:atproto/src/sessions/sessions_service.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:test/test.dart';
 
-import '../../../mocks/mocked_clients.dart';
+import '../../mocks/mocked_clients.dart';
 import '../common_expectations.dart';
 
 void main() {
@@ -18,7 +18,7 @@ void main() {
         handle: 'shinyakato.dev',
         password: '1234',
         mockedPostClient: createMockedPostClient(
-          'test/src/service/sessions/data/create_session.json',
+          'test/src/sessions/data/create_session.json',
         ),
       );
 
@@ -32,7 +32,7 @@ void main() {
           handle: 'shinyakato.dev',
           password: '1234',
           mockedPostClient: createMockedPostClient(
-            'test/src/service/data/error.json',
+            'test/src/data/error.json',
             statusCode: 401,
           ),
         ),
@@ -45,7 +45,7 @@ void main() {
           handle: 'shinyakato.dev',
           password: '1234',
           mockedPostClient: createMockedPostClient(
-            'test/src/service/data/error.json',
+            'test/src/data/error.json',
             statusCode: 429,
           ),
         ),
@@ -63,7 +63,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/sessions/data/find_current_session.json',
+          'test/src/sessions/data/find_current_session.json',
         ),
       );
 
@@ -82,7 +82,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 401,
         ),
       );
@@ -101,7 +101,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 429,
         ),
       );
