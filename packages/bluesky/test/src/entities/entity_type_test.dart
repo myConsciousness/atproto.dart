@@ -2,7 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:bluesky/src/service/entities/entity.dart';
+import 'package:bluesky/src/entities/entity.dart';
 import 'package:test/test.dart';
 
 void main() {

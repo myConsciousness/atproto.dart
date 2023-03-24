@@ -6,12 +6,12 @@
 import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
-import 'service/actors/actors_service.dart';
-import 'service/bluesky_service.dart';
-import 'service/feeds/feeds_service.dart';
-import 'service/graphs/graphs_service.dart';
-import 'service/notifications/notifications_service.dart';
-import 'service/unspecced/unspecced_service.dart';
+import 'actors/actors_service.dart';
+import 'bluesky_service.dart';
+import 'feeds/feeds_service.dart';
+import 'graphs/graphs_service.dart';
+import 'notifications/notifications_service.dart';
+import 'unspecced/unspecced_service.dart';
 
 abstract class Bluesky {
   /// Returns the new instance of [Bluesky].

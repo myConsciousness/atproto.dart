@@ -7,7 +7,7 @@ import 'package:atproto/src/repositories/repositories_service.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:test/test.dart';
 
-import '../../../mocks/mocked_clients.dart';
+import '../../mocks/mocked_clients.dart';
 import '../common_expectations.dart';
 
 void main() {
@@ -21,7 +21,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedPostClient: createMockedPostClient(
-          'test/src/service/repositories/data/create_record.json',
+          'test/src/repositories/data/create_record.json',
         ),
       );
 
@@ -43,7 +43,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedPostClient: createMockedPostClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 401,
         ),
       );
@@ -65,7 +65,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedPostClient: createMockedPostClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 429,
         ),
       );
@@ -89,7 +89,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedPostClient: createMockedPostClient(
-          'test/src/service/repositories/data/delete_record.json',
+          'test/src/repositories/data/delete_record.json',
         ),
       );
 
@@ -111,7 +111,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedPostClient: createMockedPostClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 401,
         ),
       );
@@ -133,7 +133,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedPostClient: createMockedPostClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 429,
         ),
       );

@@ -9,7 +9,7 @@ import 'package:bluesky/bluesky.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
-import '../../../mocks/mocked_clients.dart';
+import '../../mocks/mocked_clients.dart';
 import '../common_expectations.dart';
 
 void main() {
@@ -23,7 +23,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/feeds/data/find_home_timeline.json',
+          'test/src/feeds/data/find_home_timeline.json',
         ),
       );
 
@@ -46,7 +46,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 401,
         ),
       );
@@ -69,7 +69,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 429,
         ),
       );
@@ -92,7 +92,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
           mockedPostClient: createMockedPostClient(
-            'test/src/service/feeds/data/create_post.json',
+            'test/src/feeds/data/create_post.json',
           ),
         ),
         service: 'test',
@@ -117,7 +117,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
           mockedPostClient: createMockedPostClient(
-            'test/src/service/data/error.json',
+            'test/src/data/error.json',
             statusCode: 401,
           ),
         ),
@@ -142,7 +142,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
           mockedPostClient: createMockedPostClient(
-            'test/src/service/data/error.json',
+            'test/src/data/error.json',
             statusCode: 429,
           ),
         ),
@@ -169,7 +169,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
           mockedPostClient: createMockedPostClient(
-            'test/src/service/feeds/data/delete_post.json',
+            'test/src/feeds/data/delete_post.json',
           ),
         ),
         service: 'test',
@@ -194,7 +194,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
           mockedPostClient: createMockedPostClient(
-            'test/src/service/data/error.json',
+            'test/src/data/error.json',
             statusCode: 401,
           ),
         ),
@@ -219,7 +219,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
           mockedPostClient: createMockedPostClient(
-            'test/src/service/data/error.json',
+            'test/src/data/error.json',
             statusCode: 429,
           ),
         ),
@@ -246,7 +246,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
           mockedPostClient: createMockedPostClient(
-            'test/src/service/feeds/data/create_repost.json',
+            'test/src/feeds/data/create_repost.json',
           ),
         ),
         service: 'test',
@@ -273,7 +273,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
           mockedPostClient: createMockedPostClient(
-            'test/src/service/data/error.json',
+            'test/src/data/error.json',
             statusCode: 401,
           ),
         ),
@@ -299,7 +299,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
           mockedPostClient: createMockedPostClient(
-            'test/src/service/data/error.json',
+            'test/src/data/error.json',
             statusCode: 429,
           ),
         ),
@@ -327,7 +327,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
           mockedPostClient: createMockedPostClient(
-            'test/src/service/feeds/data/delete_repost.json',
+            'test/src/feeds/data/delete_repost.json',
           ),
         ),
         service: 'test',
@@ -352,7 +352,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
           mockedPostClient: createMockedPostClient(
-            'test/src/service/data/error.json',
+            'test/src/data/error.json',
             statusCode: 401,
           ),
         ),
@@ -377,7 +377,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
           mockedPostClient: createMockedPostClient(
-            'test/src/service/data/error.json',
+            'test/src/data/error.json',
             statusCode: 429,
           ),
         ),
@@ -404,7 +404,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
           mockedPostClient: createMockedPostClient(
-            'test/src/service/feeds/data/create_like.json',
+            'test/src/feeds/data/create_like.json',
           ),
         ),
         service: 'test',
@@ -431,7 +431,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
           mockedPostClient: createMockedPostClient(
-            'test/src/service/data/error.json',
+            'test/src/data/error.json',
             statusCode: 401,
           ),
         ),
@@ -457,7 +457,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
           mockedPostClient: createMockedPostClient(
-            'test/src/service/data/error.json',
+            'test/src/data/error.json',
             statusCode: 429,
           ),
         ),
@@ -485,7 +485,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
           mockedPostClient: createMockedPostClient(
-            'test/src/service/feeds/data/delete_like.json',
+            'test/src/feeds/data/delete_like.json',
           ),
         ),
         service: 'test',
@@ -510,7 +510,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
           mockedPostClient: createMockedPostClient(
-            'test/src/service/data/error.json',
+            'test/src/data/error.json',
             statusCode: 401,
           ),
         ),
@@ -535,7 +535,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
           mockedPostClient: createMockedPostClient(
-            'test/src/service/data/error.json',
+            'test/src/data/error.json',
             statusCode: 429,
           ),
         ),
@@ -564,7 +564,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/feeds/data/find_feeds.json',
+          'test/src/feeds/data/find_feeds.json',
         ),
       );
 
@@ -587,7 +587,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 401,
         ),
       );
@@ -610,7 +610,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 429,
         ),
       );
@@ -635,7 +635,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/feeds/data/find_likes.json',
+          'test/src/feeds/data/find_likes.json',
         ),
       );
 
@@ -659,7 +659,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 401,
         ),
       );
@@ -683,7 +683,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 429,
         ),
       );
@@ -709,7 +709,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/feeds/data/find_reposted_by.json',
+          'test/src/feeds/data/find_reposted_by.json',
         ),
       );
 
@@ -733,7 +733,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 401,
         ),
       );
@@ -757,7 +757,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 429,
         ),
       );
@@ -783,7 +783,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/feeds/data/find_post_thread.json',
+          'test/src/feeds/data/find_post_thread.json',
         ),
       );
 
@@ -805,7 +805,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 401,
         ),
       );
@@ -827,7 +827,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 429,
         ),
       );

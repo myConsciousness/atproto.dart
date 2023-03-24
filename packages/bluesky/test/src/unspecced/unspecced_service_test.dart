@@ -5,12 +5,12 @@
 // 🌎 Project imports:
 import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
-import 'package:bluesky/src/service/entities/feeds_data.dart';
-import 'package:bluesky/src/service/unspecced/unspecced_service.dart';
+import 'package:bluesky/src/entities/feeds_data.dart';
+import 'package:bluesky/src/unspecced/unspecced_service.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
-import '../../../mocks/mocked_clients.dart';
+import '../../mocks/mocked_clients.dart';
 import '../common_expectations.dart';
 
 void main() {
@@ -24,7 +24,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/unspecced/data/find_popular_feeds.json',
+          'test/src/unspecced/data/find_popular_feeds.json',
         ),
       );
 
@@ -46,7 +46,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 401,
         ),
       );
@@ -68,7 +68,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: createMockedGetClient(
-          'test/src/service/data/error.json',
+          'test/src/data/error.json',
           statusCode: 429,
         ),
       );
