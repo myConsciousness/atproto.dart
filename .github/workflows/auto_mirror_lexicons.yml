@@ -15,7 +15,7 @@ jobs:
       - name: Create New Branch
         run: |
           git config --global user.name "${{ github.actor }}"
-          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git config --global user.email "contact@shinyakato.dev"
           git checkout -b auto-mirror-lexicons
           git push -u origin auto-mirror-lexicons
 
