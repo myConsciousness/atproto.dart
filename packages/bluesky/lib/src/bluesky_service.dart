@@ -18,11 +18,15 @@ abstract class BlueskyService {
     required ATProto atproto,
     required String service,
     required core.ClientContext context,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   }) =>
       _BlueskyService(
         atproto: atproto,
         service: service,
         context: context,
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
       );
 
   /// Returns the actors service.
@@ -47,30 +51,42 @@ class _BlueskyService implements BlueskyService {
     required ATProto atproto,
     required String service,
     required core.ClientContext context,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   })  : actors = ActorsService(
           atproto: atproto,
           service: service,
           context: context,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
         ),
         feeds = FeedsService(
           atproto: atproto,
           service: service,
           context: context,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
         ),
         notifications = NotificationsService(
           atproto: atproto,
           service: service,
           context: context,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
         ),
         graphs = GraphsService(
           atproto: atproto,
           service: service,
           context: context,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
         ),
         unspecced = UnspeccedService(
           atproto: atproto,
           service: service,
           context: context,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
         );
 
   @override
