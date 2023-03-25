@@ -21,6 +21,8 @@ abstract class Bluesky {
     String service = 'bsky.social',
     Duration timeout = const Duration(seconds: 10),
     core.RetryConfig? retryConfig,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   }) =>
       _Bluesky(
         did: did,
@@ -28,6 +30,8 @@ abstract class Bluesky {
         service: service,
         timeout: timeout,
         retryConfig: retryConfig,
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
       );
 
   /// Returns the new instance of [Bluesky].
@@ -36,6 +40,8 @@ abstract class Bluesky {
     String service = 'bsky.social',
     Duration timeout = const Duration(seconds: 10),
     core.RetryConfig? retryConfig,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   }) =>
       _Bluesky(
         did: session.did,
@@ -43,6 +49,8 @@ abstract class Bluesky {
         service: service,
         timeout: timeout,
         retryConfig: retryConfig,
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
       );
 
   /// Returns the actors service.
@@ -69,6 +77,8 @@ class _Bluesky implements Bluesky {
     required String service,
     required Duration timeout,
     core.RetryConfig? retryConfig,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   }) : _service = BlueskyService(
           atproto: atp.ATProto(
             did: did,
@@ -83,6 +93,8 @@ class _Bluesky implements Bluesky {
             timeout: timeout,
             retryConfig: retryConfig,
           ),
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
         );
 
   final BlueskyService _service;
