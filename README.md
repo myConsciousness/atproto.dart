@@ -34,7 +34,8 @@
   - [1.1. Packages \& Tools](#11-packages--tools)
     - [1.1.1. Dart \& Flutter](#111-dart--flutter)
     - [1.1.2. Flutter](#112-flutter)
-    - [1.1.3. GitHub Actions](#113-github-actions)
+    - [1.1.3. CLI](#113-cli)
+    - [1.1.4. GitHub Actions](#114-github-actions)
   - [1.2. Contribution 🏆](#12-contribution-)
   - [1.3. Support ❤️](#13-support-️)
   - [1.4. License 🔑](#14-license-)
@@ -59,7 +60,7 @@ and to contribute to the development of [AT Protocol](https://atproto.com) and [
 | [nsid](https://github.com/myConsciousness/atproto.dart/tree/main/packages/nsid)                   |          [![pub package](https://img.shields.io/pub/v/nsid.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/nsid)          | Provide standard NSID object supported by AT Protocol to Dart/Flutter.                                                                                        |
 | [at_uri](https://github.com/myConsciousness/atproto.dart/tree/main/packages/at_uri)               |        [![pub package](https://img.shields.io/pub/v/at_uri.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/at_uri)        | Provide standard uri supported by AT Protocol to Dart/Flutter.                                                                                                |
 | [xrpc](https://github.com/myConsciousness/atproto.dart/tree/main/packages/xrpc)                   |          [![pub package](https://img.shields.io/pub/v/xrpc.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/xrpc)          | Provide an HTTP client specialized for XRPC communication in AT Protocol                                                                                      |
-| [atproto_test](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_test)   |  [![pub package](https://img.shields.io/pub/v/atproto_test.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/atproto_test)  | This package provides core reusable and useful functionality for testing [atproto](https://pub.dartlang.org/packages/atproto) based packages.                 |
+| [atproto_test](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_test)   |  [![pub package](https://img.shields.io/pub/v/atproto_test.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/atproto_test)  | Provide reusable and useful functionality for testing [atproto](https://pub.dartlang.org/packages/atproto) based packages.                                    |
 | [atproto_core](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_core)   |  [![pub package](https://img.shields.io/pub/v/atproto_core.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/atproto_core)  | Provide core reusable and useful functionality for wrapping AT Protocol and related services.                                                                 |
 | [lexicon](https://github.com/myConsciousness/atproto.dart/tree/main/packages/lexicon)             |       [![pub package](https://img.shields.io/pub/v/lexicon.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/lexicon)       | Provide AT Protocol standard [lexicon](https://atproto.com/specs/lexicon) objects for Dart/Flutter.                                                           |
 | [atproto](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto)             |       [![pub package](https://img.shields.io/pub/v/atproto.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/atproto)       | Provide the easiest and powerful way to use [com.atproto](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto) lexicons in Dart/Flutter. |
@@ -71,7 +72,13 @@ and to contribute to the development of [AT Protocol](https://atproto.com) and [
 | ------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------ |
 | [bluesky_cards](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_cards) | [![pub package](https://img.shields.io/pub/v/bluesky_cards.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky_cards) | Provide a widget to output Bluesky Social's post content beautifully in Flutter app. |
 
-### 1.1.3. GitHub Actions
+### 1.1.3. CLI
+
+| Name                                                                                                 |                                                          pub.dev                                                           | Description                                                                                            |
+| ---------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------------------------ |
+| [bluesky_cli (bsky)](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_cli) | [![pub package](https://img.shields.io/pub/v/bsky.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bsky) | CLI tool to easily try out [bluesky](https://pub.dartlang.org/packages/bluesky) from the command line. |
+
+### 1.1.4. GitHub Actions
 
 | Name                                                                                            |                                                                                        Marketplace                                                                                        | Description                                                                    |
 | ----------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------ |
