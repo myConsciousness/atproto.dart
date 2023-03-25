@@ -16,6 +16,8 @@ atproto:
 - packages/atproto/**/*
 bluesky:
 - packages/bluesky/**/*
+bluesky_cli:
+- packages/bluesky_cli/**/*
 bluesky_cards:
 - packages/bluesky_cards/**/*
 
@@ -62,6 +64,7 @@ test:
 - packages/atproto_core/test/**/*.dart
 - packages/atproto/test/**/*.dart
 - packages/bluesky/test/**/*.dart
+- packages/bluesky_cli/test/**/*.dart
 - packages/bluesky_cards/test/**/*.dart
 
 documentation:
@@ -81,6 +84,8 @@ documentation:
 - packages/atproto/README.md
 - packages/bluesky/CHANGELOG.md
 - packages/bluesky/README.md
+- packages/bluesky_cli/CHANGELOG.md
+- packages/bluesky_cli/README.md
 - packages/bluesky_cards/CHANGELOG.md
 - packages/bluesky_cards/README.md
 - CODE_OF_CONDUCT.md
