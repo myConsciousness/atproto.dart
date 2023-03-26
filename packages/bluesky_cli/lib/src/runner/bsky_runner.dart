@@ -23,11 +23,9 @@ class Bsky extends _Bsky {
 
   @override
   Future<void> run() async {
-    try {
-      final response = await action.call();
-    } on XRPCException catch (e) {
-      e.response;
-    }
+    final response = await action.call();
+
+    logger.success(response.data);
   }
 }
 

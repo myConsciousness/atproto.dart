@@ -4,15 +4,15 @@
 
 import 'package:xrpc/xrpc.dart' as xrpc;
 
-import 'query_command.dart';
+import '../query_command.dart';
 
 /// The command for `app.bsky.feed.getTimeline`.
 class ShowTimelineCommand extends QueryCommand {
   /// Returns the new instance of [ShowTimelineCommand].
   ShowTimelineCommand() {
-    argParser.addOption('algorithm');
-    argParser.addOption('limit');
-    argParser.addOption('before');
+    argParser.addOption('algorithm', defaultsTo: null);
+    argParser.addOption('limit', defaultsTo: null);
+    argParser.addOption('before', defaultsTo: null);
   }
 
   @override

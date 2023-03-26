@@ -2,11 +2,14 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:args/command_runner.dart';
-import 'package:bluesky_cli/src/command/show_timeline.dart';
+import 'package:bluesky_cli/bluesky_cli.dart' as bsky;
+import 'package:cli_launcher/cli_launcher.dart' as cli;
 
-void main(List<String> args) {
-  CommandRunner('bsky', '')
-    ..addCommand(ShowTimelineCommand())
-    ..run(args);
-}
+void main(List<String> args) async => cli.launchExecutable(
+      args,
+      cli.LaunchConfig(
+        name: cli.ExecutableName('bsky'),
+        launchFromSelf: false,
+        entrypoint: bsky.entryPoint,
+      ),
+    );

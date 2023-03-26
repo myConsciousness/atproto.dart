@@ -1,5 +1,5 @@
 # Release Note
 
-## v0.0.1
+## v0.0.0
 
-- First Release.
+- Let's start.

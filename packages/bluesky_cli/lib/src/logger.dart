@@ -169,12 +169,13 @@ mixin _DelegateLogger implements Logger {
   void flush() => _logger.flush();
 }
 
-extension ToMelosLoggerExtension on Logger {
+extension ToBskyLoggerExtension on Logger {
   BskyLogger toBskyLogger() {
     final self = this;
     if (self is BskyLogger) {
       return self;
     }
+
     return BskyLogger(this);
   }
 }
