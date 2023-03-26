@@ -1,5 +1,5 @@
 name: bluesky_cli
-description: A powerful CLI tool that allows Bluesky Social's API to be executed from the command line powered by Dart language.
+description: A powerful CLI tool that allows Bluesky Social's APIs to be executed from the command line powered by Dart language.
 version: 0.0.1
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_cli
 issue_tracker: https://github.com/myConsciousness/atproto.dart/issues

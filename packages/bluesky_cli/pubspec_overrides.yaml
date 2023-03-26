@@ -1,0 +1,5 @@
+dependency_overrides:
+  xrpc:
+    path: ../xrpc
+  at_uri:
+    path: ../at_uri
