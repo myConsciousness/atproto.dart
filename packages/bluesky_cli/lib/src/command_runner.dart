@@ -28,13 +28,30 @@ class BskyCommandRunner extends CommandRunner<void> {
   BskyCommandRunner()
       : super(
           'bsky',
-          'A CLI tool for accessing APIs of Bluesky Social.',
+          "A useful and powerful CLI tool to use Bluesky Social's APIs.",
         ) {
-    argParser.addFlag(
-      'verbose',
-      negatable: false,
-      help: 'Enable verbose logging.',
-    );
+    argParser
+      ..addOption(
+        'handle',
+        help: 'Bluesky handle for authentication.',
+        defaultsTo: Platform.environment['BLUESKY_HANDLE'],
+      )
+      ..addOption(
+        'password',
+        help: 'Bluesky password for authentication.',
+        defaultsTo: Platform.environment['BLUESKY_PASSWORD'],
+      )
+      ..addOption(
+        'service',
+        help: 'Name of the service sending the request. '
+            'Default is "bsky.social".',
+        defaultsTo: null,
+      )
+      ..addFlag(
+        'verbose',
+        negatable: false,
+        help: 'Enable verbose logging.',
+      );
 
     addCommand(ShowTimelineCommand());
   }
