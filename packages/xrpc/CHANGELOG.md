@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.0.5
+
+- Fixed `XRPCResponse` to `XRPCResponse<XRPCError>` in `XRPCException`. ([#177](https://github.com/myConsciousness/atproto.dart/issues/177))
+
 ## v0.0.4
 
 - Allow String to be set to data in `XRPCResponse`. ([#174](https://github.com/myConsciousness/atproto.dart/issues/174))
