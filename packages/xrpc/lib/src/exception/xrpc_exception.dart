@@ -2,6 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import '../xrpc_error.dart';
 import '../xrpc_response.dart';
 
 /// This exception indicates that an unexpected error occurred when
@@ -13,8 +14,8 @@ class XRPCException implements Exception {
     final String label = 'XRPCException',
   }) : _label = label;
 
-  /// The response from the ATP.
-  final XRPCResponse response;
+  /// The response from the ATP server.
+  final XRPCResponse<XRPCError> response;
 
   /// The label of this exception.
   final String _label;
