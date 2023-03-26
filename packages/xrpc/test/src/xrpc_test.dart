@@ -192,6 +192,43 @@ void main() {
       expect(response, isA<XRPCResponse<EmptyData>>());
       expect(response.data, isA<EmptyData>());
     });
+
+    test('"to" parameter is missing', () async {
+      final response = await query<EmptyData>(
+        NSID.create('test.com', 'get'),
+        parameters: {
+          'test': 'test',
+          'test2': 10,
+        },
+        getClient: (url, {headers}) async => Response(
+          '{}',
+          200,
+          request: Request('GET', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response, isA<XRPCResponse<EmptyData>>());
+      expect(response.data, isA<EmptyData>());
+    });
+
+    test('T is String', () async {
+      final response = await query<String>(
+        NSID.create('test.com', 'get'),
+        parameters: {
+          'test': 'test',
+          'test2': 10,
+        },
+        getClient: (url, {headers}) async => Response(
+          '{"test": "test"}',
+          200,
+          request: Request('GET', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response, isA<XRPCResponse<String>>());
+      expect(response.data, isA<String>());
+      expect(response.data, '{"test": "test"}');
+    });
   });
 
   group('.procedure', () {
@@ -222,6 +259,21 @@ void main() {
 
       expect(response, isA<XRPCResponse<EmptyData>>());
       expect(response.data, isA<EmptyData>());
+    });
+
+    test('T is String', () async {
+      final response = await procedure<String>(
+        NSID.create('test.com', 'get'),
+        postClient: (url, {body, encoding, headers}) async => Response(
+          '{"test": "test"}',
+          200,
+          request: Request('POST', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response, isA<XRPCResponse<String>>());
+      expect(response.data, isA<String>());
+      expect(response.data, '{"test": "test"}');
     });
   });
 }
