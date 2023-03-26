@@ -2,14 +2,18 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:xrpc/xrpc.dart';
+import 'package:xrpc/xrpc.dart' as xrpc;
 
-import '../runner/bsky_runner.dart';
-import 'bsky_command.dart';
+import 'query_command.dart';
 
-class ShowTimelineCommand extends BskyCommand {
+/// The command for `app.bsky.feed.getTimeline`.
+class ShowTimelineCommand extends QueryCommand {
   /// Returns the new instance of [ShowTimelineCommand].
-  ShowTimelineCommand();
+  ShowTimelineCommand() {
+    argParser.addOption('algorithm');
+    argParser.addOption('limit');
+    argParser.addOption('before');
+  }
 
   @override
   final String name = 'show-timeline';
@@ -21,11 +25,15 @@ class ShowTimelineCommand extends BskyCommand {
   final String invocation = 'bsky show-timeline';
 
   @override
-  Future<void> run() async => await Bsky(
-        logger,
-        action: () async => await query(
-          NSID.create('', name),
-          to: EmptyData.fromJson,
-        ),
-      ).run();
+  xrpc.NSID get methodId => xrpc.NSID.create(
+        'feed.bask.app',
+        'getTimeline',
+      );
+
+  @override
+  Map<String, dynamic>? get parameters => {
+        'algorithm': argResults!['algorithm'],
+        'limit': argResults!['limit'],
+        'before': argResults!['before'],
+      };
 }

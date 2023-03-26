@@ -20,9 +20,6 @@ abstract class BskyCommand extends Command<void> {
   late final logger =
       BskyLogger(global.verbose ? Logger.verbose() : Logger.standard());
 
-  @override
-  final ArgParser argParser = ArgParser();
-
   GlobalOptions _parseGlobalOptions() => GlobalOptions(
         verbose: globalResults!['verbose']! as bool,
       );
