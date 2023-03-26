@@ -9,9 +9,6 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 
 import 'client/client_context.dart';
 
-/// The callback function for building data object from response.
-typedef DataBuilder<D> = D Function(Map<String, Object?> json);
-
 abstract class _Service {
   Future<xrpc.XRPCResponse<T>> get<T>(
     final String methodName, {
