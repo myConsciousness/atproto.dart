@@ -28,13 +28,117 @@ const _defaultService = 'bsky.social';
 /// to model objects.
 typedef To<T> = T Function(Map<String, Object?> json);
 
+/// Performs GET communication to the ATP server.
+///
+/// ## NSID
+///
+/// Specify the ID of the method to be executed on the ATP
+///  server as NSID in [methodId]. For example, `app.bsky.actor.getProfile`
+/// can be specified as follows:
+///
+/// ```dart
+/// final methodId = NSID.create('actor.bsky.app', 'getProfile');
+/// ```
+///
+/// ## Service
+///
+/// If you want to specify a service with which you want to communicate,
+/// specify it in the [service] parameter. If the [service] parameter is
+/// omitted, `bsky.social` is specified by default.
+///
+/// ## Headers and Parameters
+///
+/// The [headers] parameter can be any header information similar to that
+/// of an HTTP request, and the [parameters] can be request parameters.
+///
+/// Request parameters passed to this method can include null,
+/// and null parameters are safely removed recursively before
+/// GET communication is performed. Also, values of the [DateTime] type are
+/// automatically converted to the ISO8601 format for UTC time as follows
+/// before GET communication.
+///
+/// ```dart
+/// final converted = dateTime.toUtc().toIso8601String();
+/// ```
+///
+/// ## Timeout
+///
+/// The default timeout period is 10 seconds, and the [timeout] parameter
+/// can be used to specify an arbitrary timeout period.
+///
+/// ## Conversion of Result Object
+///
+/// By using the [to] parameter, the response body can be converted to an
+/// arbitrary type object before receiving the results. XRPC is designed to
+/// return results from the ATP server in JSON format, so please pass a
+/// function that generates a type object from JSON. For example, it can be
+/// used as follows:
+///
+/// ```dart
+/// final session = await query(
+///   NSID.create(
+///     'session.atproto.com',
+///     'get',
+///   ),
+///   headers: {'Authorization': 'Bearer ${response.data.accessJwt}'},
+///   to: CurrentSession.fromJson,
+/// );
+///
+/// session.data // → The type is `CurrentSession`
+/// ```
+///
+/// If the [to] parameter is omitted, it is interpreted as [EmptyData] and
+/// the `data` field in [XRPCResponse] is always set to [EmptyData].
+///
+/// If you want to get the result as a [String] without converting it
+/// to a specific type object, specify the following:
+///
+/// ```dart
+/// final session = await query<String>(
+///   NSID.create(
+///     'session.atproto.com',
+///     'get',
+///   ),
+///   headers: {'Authorization': 'Bearer ${response.data.accessJwt}'},
+/// );
+///
+/// session.data // → The type is `String`
+/// ```
+///
+/// ## Mocking Client
+///
+/// When testing, it is preferable to mock the client and use only
+/// the expected results without sending requests to the ATP server.
+///
+/// This package is designed to make it easy to define this mocking and
+/// should be specified as follows:
+///
+/// ```dart
+/// final session = await query(
+///   NSID.create(
+///     'session.atproto.com',
+///     'get',
+///   ),
+///   headers: {'Authorization': 'Bearer ${response.data.accessJwt}'},
+///   to: CurrentSession.fromJson,
+///   getClient: (url, {headers}) async => Response(
+///     '{"test": "test"}',
+///     200,
+///     headers: {'content-type': 'application/json; charset=utf-8'},
+///     request: Request(
+///       'GET',
+///       Uri.https('bsky.social', '/xrpc/test.get'),
+///     ),
+///   ),
+/// );
+/// ```
 Future<XRPCResponse<T>> query<T>(
   final nsid.NSID methodId, {
   final String? service,
   final Map<String, String>? headers,
   final Map<String, dynamic>? parameters,
   final Duration timeout = const Duration(seconds: 10),
-  required final To<T> to,
+  final To<T>? to,
   final GetClient? getClient,
 }) async =>
     _buildResponse<T>(
@@ -55,6 +159,112 @@ Future<XRPCResponse<T>> query<T>(
       to,
     );
 
+/// Performs POST communication to the ATP server.
+///
+/// ## NSID
+///
+/// Specify the ID of the method to be executed on the ATP
+///  server as NSID in [methodId]. For example, `app.bsky.actor.getProfile`
+/// can be specified as follows:
+///
+/// ```dart
+/// final methodId = NSID.create('feed.bsky.app', 'post');
+/// ```
+///
+/// ## Service
+///
+/// If you want to specify a service with which you want to communicate,
+/// specify it in the [service] parameter. If the [service] parameter is
+/// omitted, `bsky.social` is specified by default.
+///
+/// ## Headers and Parameters
+///
+/// The [headers] parameter can be any header information similar to that
+/// of an HTTP request, and the [body] can be request form.
+///
+/// Request body passed to this method can include null,
+/// and null parameters are safely removed recursively before
+/// GET communication is performed.
+///
+/// ## Timeout
+///
+/// The default timeout period is 10 seconds, and the [timeout] parameter
+/// can be used to specify an arbitrary timeout period.
+///
+/// ## Conversion of Result Object
+///
+/// By using the [to] parameter, the response body can be converted to an
+/// arbitrary type object before receiving the results. XRPC is designed to
+/// return results from the ATP server in JSON format, so please pass a
+/// function that generates a type object from JSON. For example, it can be
+/// used as follows:
+///
+/// ```dart
+/// final response = await procedure(
+///   NSID.create(
+///     'session.atproto.com',
+///     'create',
+///   ),
+///   body: {
+///     'handle': 'HANDLE',
+///     'password': 'PASSWORD',
+///   },
+///   to: Session.fromJson,
+/// );
+///
+/// response.data // → The type is `Session`
+/// ```
+///
+/// If the [to] parameter is omitted, it is interpreted as [EmptyData] and
+/// the `data` field in [XRPCResponse] is always set to [EmptyData].
+///
+/// If you want to get the result as a [String] without converting it
+/// to a specific type object, specify the following:
+///
+/// ```dart
+/// final response = await procedure<String>(
+///   NSID.create(
+///     'session.atproto.com',
+///     'create',
+///   ),
+///   body: {
+///     'handle': 'HANDLE',
+///     'password': 'PASSWORD',
+///   },
+/// );
+///
+/// response.data // → The type is `String`
+/// ```
+///
+/// ## Mocking Client
+///
+/// When testing, it is preferable to mock the client and use only
+/// the expected results without sending requests to the ATP server.
+///
+/// This package is designed to make it easy to define this mocking and
+/// should be specified as follows:
+///
+/// ```dart
+/// final response = await procedure<String>(
+///   NSID.create(
+///     'session.atproto.com',
+///     'create',
+///   ),
+///   body: {
+///     'handle': 'HANDLE',
+///     'password': 'PASSWORD',
+///   },
+///   postClient: (url, {body, encoding, headers}) async => Response(
+///     '{"test": "test"}',
+///     200,
+///     headers: {'content-type': 'application/json; charset=utf-8'},
+///     request: Request(
+///       'POST',
+///       Uri.https('bsky.social', '/xrpc/test.post'),
+///     ),
+///   ),
+/// );
+/// ```
 Future<XRPCResponse<T>> procedure<T>(
   final nsid.NSID methodId, {
   final String? service,
@@ -168,6 +378,7 @@ Map<String, dynamic> convertParameters(final Map<String, dynamic> parameters) =>
       return MapEntry(key, value.toString());
     });
 
+/// Returns the response object.
 XRPCResponse<T> _buildResponse<T>(
   final http.Response response,
   final To<T>? to,
@@ -179,13 +390,30 @@ XRPCResponse<T> _buildResponse<T>(
         method: HttpMethod.valueOf(response.request!.method),
         url: response.request!.url,
       ),
-      data: to != null
-          ? to.call(jsonDecode(response.body))
-          : (const EmptyData() as T),
+      data: _transformData(response.body, to),
     );
 
+/// Returns the error response.
 XRPCResponse<XRPCError> _buildErrorResponse(final http.Response response) =>
     _buildResponse(
       response,
       XRPCError.fromJson,
     );
+
+/// Returns the transformed data object.
+T _transformData<T>(
+  final String body,
+  final To<T>? to,
+) {
+  if (to != null) {
+    return to.call(
+      jsonDecode(body),
+    );
+  }
+
+  if (T == String) {
+    return body as T;
+  }
+
+  return const EmptyData() as T;
+}
