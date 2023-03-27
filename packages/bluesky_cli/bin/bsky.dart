@@ -8,7 +8,7 @@ import 'package:cli_launcher/cli_launcher.dart' as cli;
 void main(List<String> args) => cli.launchExecutable(
       args,
       cli.LaunchConfig(
-        name: cli.ExecutableName('bsky'),
+        name: cli.ExecutableName('bsky', package: 'bluesky_cli'),
         launchFromSelf: false,
         entrypoint: bsky.entryPoint,
       ),
