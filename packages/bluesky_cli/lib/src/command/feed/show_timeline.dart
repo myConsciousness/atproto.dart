@@ -10,9 +10,23 @@ import '../query_command.dart';
 class ShowTimelineCommand extends QueryCommand {
   /// Returns the new instance of [ShowTimelineCommand].
   ShowTimelineCommand() {
-    argParser.addOption('algorithm', defaultsTo: null);
-    argParser.addOption('limit', defaultsTo: null);
-    argParser.addOption('before', defaultsTo: null);
+    argParser
+      ..addOption(
+        'algorithm',
+        help: 'Algorithm for displaying timeline. '
+            'Defaults to "reverse-chronological"',
+        defaultsTo: null,
+      )
+      ..addOption(
+        'limit',
+        help: 'Maximum search limit from 1 to 100. Defaults to 50.',
+        defaultsTo: null,
+      )
+      ..addOption(
+        'cursor',
+        help: 'Token for pagination.',
+        defaultsTo: null,
+      );
   }
 
   @override
@@ -22,7 +36,7 @@ class ShowTimelineCommand extends QueryCommand {
   final String description = 'Show the timeline of authenticated user.';
 
   @override
-  final String invocation = 'bsky show-timeline';
+  final String invocation = 'bsky show-timeline [algorithm] [limit] [cursor]';
 
   @override
   xrpc.NSID get methodId => xrpc.NSID.create(
@@ -34,6 +48,6 @@ class ShowTimelineCommand extends QueryCommand {
   Map<String, dynamic>? get parameters => {
         'algorithm': argResults!['algorithm'],
         'limit': argResults!['limit'],
-        'before': argResults!['before'],
+        'before': argResults!['cursor'],
       };
 }

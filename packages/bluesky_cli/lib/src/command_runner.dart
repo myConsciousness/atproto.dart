@@ -44,7 +44,7 @@ class BskyCommandRunner extends CommandRunner<void> {
       ..addOption(
         'service',
         help: 'Name of the service sending the request. '
-            'Default is "bsky.social".',
+            'Defaults to "bsky.social".',
         defaultsTo: null,
       )
       ..addFlag(
