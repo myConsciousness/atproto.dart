@@ -12,6 +12,7 @@ import 'feed/repost.dart';
 import 'feed/reposted_by.dart';
 import 'feed/thread.dart';
 import 'feed/timeline.dart';
+import 'unspecced/popular.dart';
 
 final commonCommands = <BskyCommand>[
   DeleteCommand(),
@@ -26,4 +27,8 @@ final feedCommands = <BskyCommand>[
   FeedCommand(),
   ThreadCommand(),
   RepostedByCommand(),
+];
+
+final unspeccedCommands = <BskyCommand>[
+  PopularCommand(),
 ];

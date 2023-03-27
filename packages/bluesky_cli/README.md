@@ -74,10 +74,11 @@ Global options:
     --service     Name of the service sending the request. Defaults to "bsky.social".
 
 Available commands:
-  delete        Delete a specific content from repository.
+    delete        Delete a specific content from repository.
   feed          Show the feed of specific actor.
   like          Like a specific post.
   likes         Show the likes of specific post.
+  popular       Show the popular contents.
   post          Post to Bluesky Social.
   repost        Repost a specific post.
   reposted-by   Show the actors reposted specific post.
