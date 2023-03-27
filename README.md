@@ -74,9 +74,9 @@ and to contribute to the development of [AT Protocol](https://atproto.com) and [
 
 ### 1.1.3. CLI
 
-| Name                                                                                                 |                                                          pub.dev                                                           | Description                                                                                            |
-| ---------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------------------------ |
-| [bluesky_cli (bsky)](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_cli) | [![pub package](https://img.shields.io/pub/v/bsky.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bsky) | CLI tool to easily try out [bluesky](https://pub.dartlang.org/packages/bluesky) from the command line. |
+| Name                                                                                          |                                                                 pub.dev                                                                  | Description                                                         |
+| --------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------- |
+| [bluesky_cli](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_cli) | [![pub package](https://img.shields.io/pub/v/bluesky_cli.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky_cli) | CLI tool to easily use Bluesky Social's APIs from the command line. |
 
 ### 1.1.4. GitHub Actions
 

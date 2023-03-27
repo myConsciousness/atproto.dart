@@ -2,4 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-export 'package:bluesky_cli/src/command_runner.dart' show entryPoint;
+import 'feed/show_timeline.dart';
+
+final feedCommands = [
+  ShowTimelineCommand(),
+];
