@@ -12,6 +12,9 @@ import 'feed/repost.dart';
 import 'feed/reposted_by.dart';
 import 'feed/thread.dart';
 import 'feed/timeline.dart';
+import 'notification/notification_count.dart';
+import 'notification/notifications.dart';
+import 'notification/seen_notifications.dart';
 import 'unspecced/popular.dart';
 
 final commonCommands = <BskyCommand>[
@@ -27,6 +30,12 @@ final feedCommands = <BskyCommand>[
   FeedCommand(),
   ThreadCommand(),
   RepostedByCommand(),
+];
+
+final notificationCommands = <BskyCommand>[
+  NotificationsCommand(),
+  NotificationCountCommand(),
+  SeenNotificationsCommand(),
 ];
 
 final unspeccedCommands = <BskyCommand>[
