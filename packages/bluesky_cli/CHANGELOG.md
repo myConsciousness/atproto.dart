@@ -10,6 +10,12 @@
   - `getAuthorFeed.json`
   - `getVotes.json`
   - `getPostThread.json`
+- Supported `app.bsky.unspecced` endpoint. ([#181](https://github.com/myConsciousness/atproto.dart/issues/181))
+  - `getPopular.json`
+- Supported `app.bsky.notification` endpoints. ([#184](https://github.com/myConsciousness/atproto.dart/issues/184))
+  - `list.json`
+  - `getCount.json`
+  - `updateSeen.json`
 
 ## v0.0.2
 
