@@ -46,7 +46,7 @@
 
 # 1. Guide 🌎
 
-This library provides the easiest way to use [XRPC](https://atproto.com/specs/bluesky_cli) supported by [AT Protocol](https://atproto.com) in **Dart** and **Flutter** apps.
+A powerful CLI tool that allows [Bluesky Social](https://bsky.app)'s APIs to be executed from the command line powered by Dart language.
 
 **Show some ❤️ and star the repo to support the project.**
 
