@@ -13,7 +13,7 @@ class FeedCommand extends QueryCommand {
     argParser
       ..addOption(
         'actor',
-        help: 'Handle or DID of owner of feed.',
+        help: "Handle or DID of feed's owner.",
         defaultsTo: null,
       )
       ..addOption(
