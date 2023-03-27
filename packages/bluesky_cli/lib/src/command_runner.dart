@@ -12,7 +12,7 @@ import 'package:cli_util/cli_logging.dart';
 import 'package:xrpc/xrpc.dart';
 
 import './version.g.dart';
-import 'command/feed/show_timeline.dart';
+import 'command/commands.dart';
 import 'logger.dart';
 
 /// A class that can run Bsky commands.
@@ -53,7 +53,9 @@ class BskyCommandRunner extends CommandRunner<void> {
         help: 'Enable verbose logging.',
       );
 
-    addCommand(ShowTimelineCommand());
+    for (final command in [...feedCommands]) {
+      addCommand(command);
+    }
   }
 
   @override

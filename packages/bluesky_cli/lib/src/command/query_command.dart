@@ -23,6 +23,8 @@ abstract class QueryCommand extends BskyCommand {
         logger,
         action: () async => await xrpc.query<String>(
           methodId,
+          service: service,
+          headers: {'Authorization': 'Bearer ${await accessJwt}'},
           parameters: parameters,
         ),
       ).run();

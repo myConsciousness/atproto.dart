@@ -24,8 +24,12 @@ class Bsky extends _Bsky {
   @override
   Future<void> run() async {
     final response = await action.call();
+    final status = response.status;
 
-    logger.success(response.data);
+    logger
+      ..success('${status.code} ${status.message}')
+      ..success(response.request.toString())
+      ..success(response.data);
   }
 }
 

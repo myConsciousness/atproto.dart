@@ -26,7 +26,7 @@ class ShowTimelineCommand extends QueryCommand {
 
   @override
   xrpc.NSID get methodId => xrpc.NSID.create(
-        'feed.bask.app',
+        'feed.bsky.app',
         'getTimeline',
       );
 
