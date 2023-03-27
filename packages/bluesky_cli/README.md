@@ -74,7 +74,15 @@ Global options:
     --service     Name of the service sending the request. Defaults to "bsky.social".
 
 Available commands:
-  show-timeline   Show the timeline of authenticated user.
+  delete        Delete a specific content from repository.
+  feed          Show the feed of specific actor.
+  like          Like a specific post.
+  likes         Show the likes of specific post.
+  post          Post to Bluesky Social.
+  repost        Repost a specific post.
+  reposted-by   Show the actors reposted specific post.
+  thread        Show the thread of specific post.
+  timeline      Show the timeline of authenticated user.
 
 Run "bsky help <command>" for more information about a command.
 ```

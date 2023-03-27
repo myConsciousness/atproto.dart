@@ -22,7 +22,15 @@ Global options:
     --service     Name of the service sending the request. Defaults to "bsky.social".
 
 Available commands:
-  show-timeline   Show the timeline of authenticated user.
+  delete        Delete a specific content from repository.
+  feed          Show the feed of specific actor.
+  like          Like a specific post.
+  likes         Show the likes of specific post.
+  post          Post to Bluesky Social.
+  repost        Repost a specific post.
+  reposted-by   Show the actors reposted specific post.
+  thread        Show the thread of specific post.
+  timeline      Show the timeline of authenticated user.
 
 Run "bsky help <command>" for more information about a command.
 ```
@@ -36,7 +44,7 @@ The following methods are available to authenticate with Bluesky Social via this
 Authentication data can be specified for `handle` and `password` in Global Options.
 
 ```bash
-bsky show-timeline --handle=shinyakato.dev --password=xxxxxxxxx
+bsky timeline --handle=shinyakato.dev --password=xxxxxxxxx
 ```
 
 ### Environment Variables
@@ -52,5 +60,5 @@ the specification of authentication data in Global Options can be omitted.
 Then you can call like:
 
 ```bash
-bsky show-timeline
+bsky timeline
 ```
