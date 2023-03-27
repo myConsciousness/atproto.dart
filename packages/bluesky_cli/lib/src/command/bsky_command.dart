@@ -28,8 +28,31 @@ abstract class BskyCommand extends Command<void> {
     globalResults!['password'],
   );
 
+  Map<String, dynamic> _session = {};
+
   /// Returns the authenticated access token.
   Future<String> get accessJwt async {
+    if (_session.isNotEmpty) {
+      return _session['accessJwt'];
+    }
+
+    final session = await _createSession();
+
+    return session['accessJwt'];
+  }
+
+  /// Returns the authenticated DID.
+  Future<String> get did async {
+    if (_session.isNotEmpty) {
+      return _session['did'];
+    }
+
+    final session = await _createSession();
+
+    return session['did'];
+  }
+
+  Future<Map<String, dynamic>> _createSession() async {
     final response = await xrpc.procedure<String>(
       xrpc.NSID.create(
         'session.atproto.com',
@@ -42,6 +65,8 @@ abstract class BskyCommand extends Command<void> {
       },
     );
 
-    return jsonDecode(response.data)['accessJwt'];
+    _session = jsonDecode(response.data);
+
+    return _session;
   }
 }

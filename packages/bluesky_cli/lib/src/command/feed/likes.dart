@@ -2,19 +2,24 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'package:at_uri/at_uri.dart';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 import '../query_command.dart';
 
-/// The command for `app.bsky.feed.getTimeline`.
-class ShowTimelineCommand extends QueryCommand {
-  /// Returns the new instance of [ShowTimelineCommand].
-  ShowTimelineCommand() {
+/// The command for `app.bsky.feed.getVotes`.
+class LikesCommand extends QueryCommand {
+  /// Returns the new instance of [LikesCommand].
+  LikesCommand() {
     argParser
       ..addOption(
-        'algorithm',
-        help: 'Algorithm for displaying timeline. '
-            'Defaults to "reverse-chronological"',
+        'uri',
+        help: 'AT Uri of the post to be liked.',
+        defaultsTo: '',
+      )
+      ..addOption(
+        'cid',
+        help: 'Content ID for the post.',
         defaultsTo: null,
       )
       ..addOption(
@@ -30,23 +35,25 @@ class ShowTimelineCommand extends QueryCommand {
   }
 
   @override
-  final String name = 'show-timeline';
+  final String name = 'likes';
 
   @override
-  final String description = 'Show the timeline of authenticated user.';
+  final String description = 'Show the likes of specific post.';
 
   @override
-  final String invocation = 'bsky show-timeline [algorithm] [limit] [cursor]';
+  final String invocation = 'bsky likes [uri] [cid] [limit] [cursor]';
 
   @override
   xrpc.NSID get methodId => xrpc.NSID.create(
         'feed.bsky.app',
-        'getTimeline',
+        'getVotes',
       );
 
   @override
   Map<String, dynamic>? get parameters => {
-        'algorithm': argResults!['algorithm'],
+        'uri': AtUri.parse(argResults!['uri']).toString(),
+        'cid': argResults!['cid'],
+        'direction': 'up',
         'limit': argResults!['limit'],
         'before': argResults!['cursor'],
       };
