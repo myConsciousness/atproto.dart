@@ -53,7 +53,11 @@ class BskyCommandRunner extends CommandRunner<void> {
         help: 'Enable verbose logging.',
       );
 
-    for (final command in [...commonCommands, ...feedCommands]) {
+    for (final command in [
+      ...commonCommands,
+      ...feedCommands,
+      ...unspeccedCommands,
+    ]) {
       addCommand(command);
     }
   }

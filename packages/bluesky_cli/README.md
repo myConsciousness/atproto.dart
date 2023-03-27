@@ -78,6 +78,7 @@ Available commands:
   feed          Show the feed of specific actor.
   like          Like a specific post.
   likes         Show the likes of specific post.
+  popular       Show the popular contents.
   post          Post to Bluesky Social.
   repost        Repost a specific post.
   reposted-by   Show the actors reposted specific post.
