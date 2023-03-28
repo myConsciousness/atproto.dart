@@ -22,6 +22,13 @@
   - `getProfiles.json`
   - `getSuggestions.json`
   - `searchTypeahead.json`
+- Supported `app.bsky.graph` endpoints. ([#183](https://github.com/myConsciousness/atproto.dart/issues/183))
+  - `follow.json`
+  - `getFollows.json`
+  - `getFollowers.json`
+  - `mute.json`
+  - `unmute.json`
+  - `getMutes.json`
 
 ## v0.0.2
 

@@ -26,8 +26,13 @@ Available commands:
   actor-typeahead      Show the typeahead for actors.
   delete               Delete a specific content from repository.
   feed                 Show the feed of specific actor.
+  follow               Follow an user.
+  followers            Show the followers.
+  follows              Show the following users.
   like                 Like a specific post.
   likes                Show the likes of specific post.
+  mute                 Mute an user.
+  mutes                Show the muted users.
   notification-count   Show the count of notification of authenticated user.
   notifications        Show the notifications of authenticated user.
   popular              Show the popular content.
@@ -40,6 +45,7 @@ Available commands:
   seen-notifications   Update all notifications to read.
   thread               Show the thread of specific post.
   timeline             Show the timeline of authenticated user.
+  unmute               Unmute an user.
 
 Run "bsky help <command>" for more information about a command.
 ```

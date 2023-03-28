@@ -60,12 +60,8 @@ class BskyLogger with _DelegateLogger {
     }
   }
 
-  void success(String message, {bool dryRun = false}) {
-    if (dryRun) {
-      stdout(successMessageColor(message));
-    } else {
-      stdout(successMessageColor(successStyle(message)));
-    }
+  void success(String message) {
+    stdout(successMessageColor(successStyle(message)));
   }
 
   void warning(String message, {bool label = true, bool dryRun = false}) {
@@ -80,12 +76,8 @@ class BskyLogger with _DelegateLogger {
     }
   }
 
-  void error(String message, {bool label = true}) {
-    if (label) {
-      stderr('$errorLabel${errorLabelColor(':')} $message');
-    } else {
-      stderr(errorMessageColor(message));
-    }
+  void error(String message) {
+    stderr(errorMessageColor(message));
   }
 
   void hint(String message, {bool label = true}) {
