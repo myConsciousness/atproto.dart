@@ -31,7 +31,6 @@ void main() {
 
       final response = await graphs.createFollow(
         did: 'test',
-        declarationCid: '1234',
         createdAt: DateTime.now(),
       );
 
@@ -60,7 +59,6 @@ void main() {
       atp_test.expectUnauthorizedException(
         () async => await graphs.createFollow(
           did: 'test',
-          declarationCid: '1234',
         ),
       );
     });
@@ -86,7 +84,6 @@ void main() {
       atp_test.expectRateLimitExceededException(
         () async => await graphs.createFollow(
           did: 'test',
-          declarationCid: '1234',
         ),
       );
     });
