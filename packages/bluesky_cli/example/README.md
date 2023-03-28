@@ -22,6 +22,8 @@ Global options:
     --service     Name of the service sending the request. Defaults to "bsky.social".
 
 Available commands:
+  actor-suggestions    Show the actor suggestions.
+  actor-typeahead      Show the typeahead for actors.
   delete               Delete a specific content from repository.
   feed                 Show the feed of specific actor.
   like                 Like a specific post.
@@ -30,8 +32,11 @@ Available commands:
   notifications        Show the notifications of authenticated user.
   popular              Show the popular content.
   post                 Post to Bluesky Social.
+  profile              Show the profile of specific user.
+  profiles             Show the profiles of specific users.
   repost               Repost a specific post.
   reposted-by          Show the actors reposted specific post.
+  search-actors        Search the actors based on term.
   seen-notifications   Update all notifications to read.
   thread               Show the thread of specific post.
   timeline             Show the timeline of authenticated user.

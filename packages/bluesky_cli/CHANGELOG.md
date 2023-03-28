@@ -16,6 +16,12 @@
   - `list.json`
   - `getCount.json`
   - `updateSeen.json`
+- Supported `app.bsky.actor` endpoints. ([#182](https://github.com/myConsciousness/atproto.dart/issues/182))
+  - `search.json`
+  - `getProfile.json`
+  - `getProfiles.json`
+  - `getSuggestions.json`
+  - `searchTypeahead.json`
 
 ## v0.0.2
 
