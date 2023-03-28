@@ -9,7 +9,6 @@ import 'package:args/args.dart';
 import 'package:args/command_runner.dart';
 import 'package:cli_launcher/cli_launcher.dart';
 import 'package:cli_util/cli_logging.dart';
-import 'package:xrpc/xrpc.dart';
 
 import './version.g.dart';
 import 'command/commands.dart';
@@ -58,6 +57,7 @@ class BskyCommandRunner extends CommandRunner<void> {
       ...actorCommands,
       ...feedCommands,
       ...notificationCommands,
+      ...graphCommands,
       ...unspeccedCommands,
     ]) {
       addCommand(command);
@@ -83,9 +83,6 @@ FutureOr<void> entryPoint(
 
   try {
     await BskyCommandRunner().run(args);
-  } on XRPCException catch (e) {
-    stderr.writeln(e.response.data.toString());
-    exitCode = 1;
   } on UsageException catch (e) {
     stderr.writeln(e.toString());
     exitCode = 1;
