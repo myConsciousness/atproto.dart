@@ -34,8 +34,6 @@ abstract class GraphsService {
   ///
   /// - [did]: The unique user id.
   ///
-  /// - [declarationCid]: The declaration id of target user.
-  ///
   /// - [createdAt]: Date and time the follow was created.
   ///                If omitted, defaults to the current time.
   ///
@@ -49,7 +47,6 @@ abstract class GraphsService {
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/follow.json
   Future<core.XRPCResponse<atp.Record>> createFollow({
     required String did,
-    required String declarationCid,
     DateTime? createdAt,
   });
 
@@ -190,7 +187,6 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
   @override
   Future<core.XRPCResponse<atp.Record>> createFollow({
     required String did,
-    required String declarationCid,
     DateTime? createdAt,
   }) async =>
       await atproto.repositories.createRecord(
@@ -198,7 +194,6 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
         record: {
           'subject': {
             'did': did,
-            'declarationCid': declarationCid,
           },
           'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
         },
