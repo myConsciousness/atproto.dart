@@ -36,10 +36,11 @@
     - [1.1.2. Flutter](#112-flutter)
     - [1.1.3. CLI](#113-cli)
     - [1.1.4. GitHub Actions](#114-github-actions)
-  - [1.2. Contribution 🏆](#12-contribution-)
-  - [1.3. Support ❤️](#13-support-️)
-  - [1.4. License 🔑](#14-license-)
-  - [1.5. More Information 🧐](#15-more-information-)
+  - [1.2. Melos Commands](#12-melos-commands)
+  - [1.3. Contribution 🏆](#13-contribution-)
+  - [1.4. Support ❤️](#14-support-️)
+  - [1.5. License 🔑](#15-license-)
+  - [1.6. More Information 🧐](#16-more-information-)
 
 <!-- /TOC -->
 
@@ -84,7 +85,27 @@ and to contribute to the development of [AT Protocol](https://atproto.com) and [
 | ----------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------ |
 | [bluesky_post](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_post) | [![bluesky-post](https://img.shields.io/static/v1?label=actions&message=myConsciousness/bluesky-post&logo=GitHub&color=00acee)](https://github.com/marketplace/actions/send-bluesky-post) | Use this action to send a post to Bluesky Social from GitHub actions workflow. |
 
-## 1.2. Contribution 🏆
+## 1.2. Melos Commands
+
+This project consists of several packages and is managed using [Melos](https://github.com/invertase/melos).
+
+The Melos commands available for this project are:
+
+| Command            | Description                                               |
+| ------------------ | --------------------------------------------------------- |
+| melos get          | Run `pub get` command in this project.                    |
+| melos analyze      | Run `dart analyze` in all packages.                       |
+| melos test         | Run all Dart & Flutter tests in this project.             |
+| melos test:dart    | Run Dart tests for a specific package in this project.    |
+| melos test:flutter | Run Flutter tests for a specific package in this project. |
+
+> Note: </br>
+> Depending on the development status of each package, some scripts may fail
+> due to unresolved dependencies of packages that have not yet been released.
+> </br>
+> In that case, please move to the respective package and execute the dart command.
+
+## 1.3. Contribution 🏆
 
 If you would like to contribute to **atproto.dart**, please create an [issue](https://github.com/myConsciousness/atproto.dart/issues) or create a Pull Request.
 
@@ -105,7 +126,7 @@ Or you can create a [discussion](https://github.com/myConsciousness/atproto.dart
 
 **Feel free to join this development, diverse opinions make software better!**
 
-## 1.3. Support ❤️
+## 1.4. Support ❤️
 
 The simplest way to show us your support is by **giving the project a star** at [GitHub](https://github.com/myConsciousness/atproto.dart) and [Pub.dev](https://pub.dev/packages/bluesky).
 
@@ -119,7 +140,7 @@ You can also support this project by **becoming a sponsor** on GitHub:
   </p>
 </div>
 
-## 1.4. License 🔑
+## 1.5. License 🔑
 
 The source code provided in this monorepo is is provided under the `BSD-3` license.
 
@@ -132,7 +153,7 @@ modification, are permitted provided the conditions.
 > **Note**</br>
 > License notices in the source are strictly validated based on `.github/header-checker-lint.yml`. Please check [header-checker-lint.yml](https://github.com/myConsciousness/atproto.dart/tree/main/.github/header-checker-lint.yml) for the permitted standards.
 
-## 1.5. More Information 🧐
+## 1.6. More Information 🧐
 
 All resources in **atproto.dart** is maintained by **_Kato Shinya ([@myConsciousness](https://github.com/myConsciousness))_**.
 
