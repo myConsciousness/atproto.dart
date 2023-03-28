@@ -55,6 +55,7 @@ class BskyCommandRunner extends CommandRunner<void> {
 
     for (final command in [
       ...commonCommands,
+      ...actorCommands,
       ...feedCommands,
       ...notificationCommands,
       ...unspeccedCommands,
