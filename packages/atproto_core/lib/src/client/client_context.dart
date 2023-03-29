@@ -9,9 +9,12 @@ import 'dart:async';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 import '../config/retry_config.dart';
+import 'anonymous_client.dart';
+import 'auth_required_client.dart';
 import 'challenge.dart';
-import 'client.dart';
+import 'client_resolver.dart';
 import 'retry_policy.dart';
+import 'user_context.dart';
 
 abstract class ClientContext {
   /// Returns the new instance of [ClientContext].
@@ -28,6 +31,7 @@ abstract class ClientContext {
 
   Future<xrpc.XRPCResponse<T>> get<T>(
     final xrpc.NSID methodId, {
+    required UserContext userContext,
     required final String service,
     final Map<String, dynamic>? parameters,
     required final xrpc.To<T> to,
@@ -36,6 +40,7 @@ abstract class ClientContext {
 
   Future<xrpc.XRPCResponse<T>> post<T>(
     final xrpc.NSID methodId, {
+    required UserContext userContext,
     required final String service,
     required final dynamic body,
     final xrpc.To<T>? to,
@@ -48,13 +53,16 @@ class _ClientContext implements ClientContext {
     required String accessJwt,
     required this.timeout,
     RetryConfig? retryConfig,
-  })  : _client = Client(accessJwt),
+  })  : _clientResolver = ClientResolver(
+          AnonymousClient(),
+          AuthRequiredClient(accessJwt),
+        ),
         _challenge = Challenge(
           RetryPolicy(retryConfig),
         );
 
-  /// The client
-  final Client _client;
+  // The resolver of clients
+  final ClientResolver _clientResolver;
 
   /// The communication challenge for client
   final Challenge _challenge;
@@ -65,13 +73,14 @@ class _ClientContext implements ClientContext {
   @override
   Future<xrpc.XRPCResponse<T>> get<T>(
     final xrpc.NSID methodId, {
+    required UserContext userContext,
     required final String service,
     final Map<String, dynamic>? parameters,
     required final xrpc.To<T> to,
     final xrpc.GetClient? getClient,
   }) async =>
       await _challenge.execute(
-        _client,
+        _clientResolver.execute(userContext),
         (client) async => await client.get(
           methodId,
           service: service,
@@ -85,13 +94,14 @@ class _ClientContext implements ClientContext {
   @override
   Future<xrpc.XRPCResponse<T>> post<T>(
     final xrpc.NSID methodId, {
+    required UserContext userContext,
     required final String service,
     required final dynamic body,
     final xrpc.To<T>? to,
     final xrpc.PostClient? postClient,
   }) async =>
       await _challenge.execute(
-        _client,
+        _clientResolver.execute(userContext),
         (client) async => await client.post(
           methodId,
           service: service,

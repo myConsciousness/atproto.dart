@@ -8,6 +8,7 @@ export 'package:atproto_core/src/client/challenge.dart';
 export 'package:atproto_core/src/client/client_context.dart';
 export 'package:atproto_core/src/client/jitter.dart';
 export 'package:atproto_core/src/client/retry_event.dart';
+export 'package:atproto_core/src/client/user_context.dart';
 export 'package:atproto_core/src/config/retry_config.dart';
 export 'package:atproto_core/src/converter/at_uri_converter.dart';
 export 'package:xrpc/xrpc.dart'
