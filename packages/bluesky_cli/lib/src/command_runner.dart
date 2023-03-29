@@ -47,6 +47,11 @@ class BskyCommandRunner extends CommandRunner<void> {
         defaultsTo: null,
       )
       ..addFlag(
+        'pretty',
+        negatable: false,
+        help: 'Enable to output JSON in pretty format.',
+      )
+      ..addFlag(
         'verbose',
         negatable: false,
         help: 'Enable verbose logging.',

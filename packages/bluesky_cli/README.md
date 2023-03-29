@@ -37,10 +37,12 @@
     - [1.1.3. Authentication](#113-authentication)
       - [1.1.3.1. Global Options](#1131-global-options)
       - [1.1.3.2. Environment Variables](#1132-environment-variables)
-  - [1.2. Contribution 🏆](#12-contribution-)
-  - [1.3. Support ❤️](#13-support-️)
-  - [1.4. License 🔑](#14-license-)
-  - [1.5. More Information 🧐](#15-more-information-)
+  - [1.2. Tips 🏄](#12-tips-)
+    - [1.2.1. Prettify JSON](#121-prettify-json)
+  - [1.3. Contribution 🏆](#13-contribution-)
+  - [1.4. Support ❤️](#14-support-️)
+  - [1.5. License 🔑](#15-license-)
+  - [1.6. More Information 🧐](#16-more-information-)
 
 <!-- /TOC -->
 
@@ -72,6 +74,8 @@ Global options:
     --password    Bluesky password for authentication.
                   (defaults to environment variable "BLUESKY_PASSWORD")
     --service     Name of the service sending the request. Defaults to "bsky.social".
+    --pretty      Enable to output JSON in pretty format.
+    --verbose     Enable verbose logging.
 
 Available commands:
   actor-suggestions    Show the actor suggestions.
@@ -130,11 +134,22 @@ Then you can call like:
 bsky timeline
 ```
 
-## 1.2. Contribution 🏆
+## 1.2. Tips 🏄
+
+### 1.2.1. Prettify JSON
+
+The JSON output from this CLI tool is unformatted,
+but you can use the following options to output JSON in a formatted state.
+
+```bash
+bsky timeline --pretty
+```
+
+## 1.3. Contribution 🏆
 
 If you would like to contribute to **bluesky_cli**, please create an [issue](https://github.com/myConsciousness/atproto.dart/issues) or create a Pull Request.
 
-There are many ways to contribute to the OSS. For example, the following subjects can be cobluesky_cliered:
+There are many ways to contribute to the OSS. For example, the following subjects can be considered:
 
 - There are request parameters or response fields that are not implemented.
 - Documentation is outdated or incomplete.
@@ -151,7 +166,7 @@ Or you can create a [discussion](https://github.com/myConsciousness/atproto.dart
 
 **Feel free to join this development, diverse opinions make software better!**
 
-## 1.3. Support ❤️
+## 1.4. Support ❤️
 
 The simplest way to show us your support is by **giving the project a star** at [GitHub](https://github.com/myConsciousness/atproto.dart) and [Pub.dev](https://pub.dev/packages/bluesky_cli).
 
@@ -177,7 +192,7 @@ You can also show on your repository that your app is made with **bluesky_cli** 
 [![Powered by bluesky_cli](https://img.shields.io/badge/Powered%20by-bluesky_cli-00acee.svg?style=for-the-badge)](https://github.com/myConsciousness/atproto.dart)
 ```
 
-## 1.4. License 🔑
+## 1.5. License 🔑
 
 All resources of **bluesky_cli** is provided under the `BSD-3` license.
 
@@ -190,7 +205,7 @@ modification, are permitted provided the conditions.
 > **Note**</br>
 > License notices in the source are strictly validated based on `.github/header-checker-lint.yml`. Please check [header-checker-lint.yml](https://github.com/myConsciousness/atproto.dart/tree/main/.github/header-checker-lint.yml) for the permitted standards.
 
-## 1.5. More Information 🧐
+## 1.6. More Information 🧐
 
 **bluesky_cli** was designed and implemented by **_Kato Shinya ([@myConsciousness](https://github.com/myConsciousness))_**.
 
