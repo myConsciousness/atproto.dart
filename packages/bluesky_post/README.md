@@ -15,7 +15,7 @@ This action is implemented in the Dart language and uses [bluesky](https://githu
 Configure your workflow to use `myConsciousness/bluesky-post@v2`,
 and provide the post you want to send as the `text` input.
 
-Provide Bluesky's PDS server with `handle` and `password` to create a session.
+Provide Bluesky's ATP server with `handle` and `password` to create a session.
 
 For example:
 
@@ -42,7 +42,7 @@ will post to Bluesky on your behalf.
 ## Specify Authority
 
 Bluesky Social is a distributed microservice.
-So you may possibly want to post to a PDS server other than `bsky.social`.
+So you may possibly want to post to a ATP server other than `bsky.social`.
 
 In that case, set the `service` parameter to the authority you wish to post as follows.
 If the `service` parameter is omitted, the default is `bsky.social`.
@@ -63,6 +63,34 @@ jobs:
           handle: ${{ secrets.BLUESKY_HANDLE }}
           password: ${{ secrets.BLUESKY_PASSWORD }}
           service: "boobee.blue"
+```
+
+## Retry
+
+Server error or network errors may temporarily occur during API communication to the ATP server.
+In such cases, retrying at regular intervals may result in successful processing.
+
+This Actions supports `Retry`, and you can specify the maximum number of retries.
+The default retry count is 5.
+
+You can specify the following.
+
+```yml
+name: Send Bluesky Post
+
+on:
+    [push]
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: myConsciousness/bluesky-post@v2
+        with:
+          text: "Hello, Bluesky!"
+          handle: ${{ secrets.BLUESKY_HANDLE }}
+          password: ${{ secrets.BLUESKY_PASSWORD }}
+          retry-count: 5
 ```
 
 ## More Information
