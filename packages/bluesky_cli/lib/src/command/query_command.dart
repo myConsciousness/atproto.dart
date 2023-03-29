@@ -28,5 +28,7 @@ abstract class QueryCommand extends BskyCommand {
           parameters: parameters,
         ),
         pretty: globalResults!['pretty'],
+        showStatus: globalResults!['status'],
+        showRequest: globalResults!['request'],
       ).run();
 }

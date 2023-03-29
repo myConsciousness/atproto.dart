@@ -52,6 +52,16 @@ class BskyCommandRunner extends CommandRunner<void> {
         help: 'Enable to output JSON in pretty format.',
       )
       ..addFlag(
+        'status',
+        negatable: false,
+        help: 'Enable to output status code and reason phrase.',
+      )
+      ..addFlag(
+        'request',
+        negatable: false,
+        help: 'Enable to output request method and URI.',
+      )
+      ..addFlag(
         'verbose',
         negatable: false,
         help: 'Enable verbose logging.',

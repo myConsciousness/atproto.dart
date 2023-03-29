@@ -39,6 +39,7 @@
       - [1.1.3.2. Environment Variables](#1132-environment-variables)
   - [1.2. Tips 🏄](#12-tips-)
     - [1.2.1. Prettify JSON](#121-prettify-json)
+    - [1.2.2. Show Status and Request](#122-show-status-and-request)
   - [1.3. Contribution 🏆](#13-contribution-)
   - [1.4. Support ❤️](#14-support-️)
   - [1.5. License 🔑](#15-license-)
@@ -75,6 +76,8 @@ Global options:
                   (defaults to environment variable "BLUESKY_PASSWORD")
     --service     Name of the service sending the request. Defaults to "bsky.social".
     --pretty      Enable to output JSON in pretty format.
+    --status      Enable to output status code and reason phrase.
+    --request     Enable to output request method and URI.
     --verbose     Enable verbose logging.
 
 Available commands:
@@ -143,6 +146,15 @@ but you can use the following options to output JSON in a formatted state.
 
 ```bash
 bsky timeline --pretty
+```
+
+### 1.2.2. Show Status and Request
+
+The status code and request URI are not output by default,
+but can be output with the following options.
+
+```bash
+bsky timeline --status --request
 ```
 
 ## 1.3. Contribution 🏆

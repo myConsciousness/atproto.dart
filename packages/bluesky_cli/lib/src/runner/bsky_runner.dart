@@ -16,6 +16,8 @@ class Bsky extends _Bsky {
     Logger? logger, {
     required this.action,
     required this.pretty,
+    required this.showStatus,
+    required this.showRequest,
   }) : logger = (logger ?? Logger.standard()).toBskyLogger();
 
   @override
@@ -27,23 +29,41 @@ class Bsky extends _Bsky {
   /// The flag indicates whether JSON should be formatted for output.
   final bool pretty;
 
+  /// The flag indicates whether status code and reason phrase
+  /// should be output.
+  final bool showStatus;
+
+  /// The flag indicates whether request method and request URI
+  /// should be output
+  final bool showRequest;
+
   @override
   Future<void> run() async {
     try {
       final response = await action.call();
       final status = response.status;
 
-      logger
-        ..success('${status.code} ${status.message}')
-        ..success(response.request.toString())
-        ..success(_getJsonString(response.data));
+      if (showStatus) {
+        logger.success('${status.code} ${status.message}');
+      }
+
+      if (showRequest) {
+        logger.success(response.request.toString());
+      }
+
+      logger.success(_getJsonString(response.data));
     } on XRPCException catch (e) {
       final status = e.response.status;
 
-      logger
-        ..error('${status.code} ${status.message}')
-        ..error(e.response.request.toString())
-        ..error(_getJsonString(jsonEncode(e.response.data.toJson())));
+      if (showStatus) {
+        logger.error('${status.code} ${status.message}');
+      }
+
+      if (showRequest) {
+        logger.error(e.response.request.toString());
+      }
+
+      logger.error(_getJsonString(jsonEncode(e.response.data.toJson())));
 
       exitCode = 1;
     }
