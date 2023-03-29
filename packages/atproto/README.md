@@ -371,7 +371,7 @@ You can also show on your repository that your app is made with **atproto** by u
 All resources of **atproto** is provided under the `BSD-3` license.
 
 ```license
-Copyright 2023 Kato Shinya. All rights reserved.
+Copyright 2023 Shinya Kato. All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided the conditions.
 ```
@@ -381,7 +381,7 @@ modification, are permitted provided the conditions.
 
 ## 1.8. More Information 🧐
 
-**atproto** was designed and implemented by **_Kato Shinya ([@myConsciousness](https://github.com/myConsciousness))_**.
+**atproto** was designed and implemented by **_Shinya Kato ([@myConsciousness](https://github.com/myConsciousness))_**.
 
 - [Creator Profile](https://github.com/myConsciousness)
 - [License](https://github.com/myConsciousness/atproto.dart/blob/main/LICENSE)

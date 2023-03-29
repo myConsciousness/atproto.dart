@@ -145,7 +145,7 @@ You can also support this project by **becoming a sponsor** on GitHub:
 The source code provided in this monorepo is is provided under the `BSD-3` license.
 
 ```license
-Copyright 2023 Kato Shinya. All rights reserved.
+Copyright 2023 Shinya Kato. All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided the conditions.
 ```
@@ -155,7 +155,7 @@ modification, are permitted provided the conditions.
 
 ## 1.6. More Information 🧐
 
-All resources in **atproto.dart** is maintained by **_Kato Shinya ([@myConsciousness](https://github.com/myConsciousness))_**.
+All resources in **atproto.dart** is maintained by **_Shinya Kato ([@myConsciousness](https://github.com/myConsciousness))_**.
 
 - [Creator Profile](https://github.com/myConsciousness)
 - [License](https://github.com/myConsciousness/atproto.dart/blob/main/LICENSE)
