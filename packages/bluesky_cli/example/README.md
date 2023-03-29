@@ -21,6 +21,8 @@ Global options:
                   (defaults to environment variable "BLUESKY_PASSWORD")
     --service     Name of the service sending the request. Defaults to "bsky.social".
     --pretty      Enable to output JSON in pretty format.
+    --status      Enable to output status code and reason phrase.
+    --request     Enable to output request method and URI.
     --verbose     Enable verbose logging.
 
 Available commands:

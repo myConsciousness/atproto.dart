@@ -1,5 +1,13 @@
 # Release Note
 
+## v0.0.4
+
+- Supported the option to prettify JSON. ([#193](https://github.com/myConsciousness/atproto.dart/issues/193))
+  - `--pretty`
+- Status code and request URI output is now optional and defaults to `false`. Use following options to enable to output. ([#195](https://github.com/myConsciousness/atproto.dart/issues/195))
+  - `--status`
+  - `--request`
+
 ## v0.0.3
 
 - Supported `app.bsky.feed` endpoints. ([#180](https://github.com/myConsciousness/atproto.dart/issues/180))

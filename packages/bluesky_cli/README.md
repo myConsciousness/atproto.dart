@@ -39,10 +39,11 @@
       - [1.1.3.2. Environment Variables](#1132-environment-variables)
   - [1.2. Tips 🏄](#12-tips-)
     - [1.2.1. Prettify JSON](#121-prettify-json)
-  - [1.3. Contribution 🏆](#13-contribution-)
-  - [1.4. Support ❤️](#14-support-️)
-  - [1.5. License 🔑](#15-license-)
-  - [1.6. More Information 🧐](#16-more-information-)
+  - [1.3. Show Status and Request](#13-show-status-and-request)
+  - [1.4. Contribution 🏆](#14-contribution-)
+  - [1.5. Support ❤️](#15-support-️)
+  - [1.6. License 🔑](#16-license-)
+  - [1.7. More Information 🧐](#17-more-information-)
 
 <!-- /TOC -->
 
@@ -75,6 +76,8 @@ Global options:
                   (defaults to environment variable "BLUESKY_PASSWORD")
     --service     Name of the service sending the request. Defaults to "bsky.social".
     --pretty      Enable to output JSON in pretty format.
+    --status      Enable to output status code and reason phrase.
+    --request     Enable to output request method and URI.
     --verbose     Enable verbose logging.
 
 Available commands:
@@ -145,7 +148,16 @@ but you can use the following options to output JSON in a formatted state.
 bsky timeline --pretty
 ```
 
-## 1.3. Contribution 🏆
+## 1.3. Show Status and Request
+
+The status code and request URI are not output by default,
+but can be output with the following options.
+
+```bash
+bsky timeline --status --request
+```
+
+## 1.4. Contribution 🏆
 
 If you would like to contribute to **bluesky_cli**, please create an [issue](https://github.com/myConsciousness/atproto.dart/issues) or create a Pull Request.
 
@@ -166,7 +178,7 @@ Or you can create a [discussion](https://github.com/myConsciousness/atproto.dart
 
 **Feel free to join this development, diverse opinions make software better!**
 
-## 1.4. Support ❤️
+## 1.5. Support ❤️
 
 The simplest way to show us your support is by **giving the project a star** at [GitHub](https://github.com/myConsciousness/atproto.dart) and [Pub.dev](https://pub.dev/packages/bluesky_cli).
 
@@ -192,7 +204,7 @@ You can also show on your repository that your app is made with **bluesky_cli** 
 [![Powered by bluesky_cli](https://img.shields.io/badge/Powered%20by-bluesky_cli-00acee.svg?style=for-the-badge)](https://github.com/myConsciousness/atproto.dart)
 ```
 
-## 1.5. License 🔑
+## 1.6. License 🔑
 
 All resources of **bluesky_cli** is provided under the `BSD-3` license.
 
@@ -205,7 +217,7 @@ modification, are permitted provided the conditions.
 > **Note**</br>
 > License notices in the source are strictly validated based on `.github/header-checker-lint.yml`. Please check [header-checker-lint.yml](https://github.com/myConsciousness/atproto.dart/tree/main/.github/header-checker-lint.yml) for the permitted standards.
 
-## 1.6. More Information 🧐
+## 1.7. More Information 🧐
 
 **bluesky_cli** was designed and implemented by **_Kato Shinya ([@myConsciousness](https://github.com/myConsciousness))_**.
 

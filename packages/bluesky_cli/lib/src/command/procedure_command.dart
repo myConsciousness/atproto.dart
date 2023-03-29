@@ -30,5 +30,7 @@ abstract class ProcedureCommand extends BskyCommand {
           body: await body,
         ),
         pretty: globalResults!['pretty'],
+        showStatus: globalResults!['status'],
+        showRequest: globalResults!['request'],
       ).run();
 }
