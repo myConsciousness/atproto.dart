@@ -9,6 +9,11 @@ import 'package:bluesky/bluesky.dart' as bsky;
 
 Future<void> post() async {
   final service = _service;
+  final retryCount = core.getInput(name: 'retry-count');
+
+  final retryConfig = bsky.RetryConfig(
+    maxAttempts: retryCount.isEmpty ? 5 : int.parse(retryCount),
+  );
 
   final session = await bsky.createSession(
     service: service,
@@ -26,11 +31,13 @@ Future<void> post() async {
         trimWhitespace: true,
       ),
     ),
+    retryConfig: retryConfig,
   );
 
   final bluesky = bsky.Bluesky.fromSession(
     session.data,
     service: service,
+    retryConfig: retryConfig,
   );
 
   final createdPost = await bluesky.feeds.createPost(
@@ -43,7 +50,6 @@ Future<void> post() async {
   core.info(message: 'Sent a post successfully!');
   core.info(message: 'cid = [${createdPost.data.cid}]');
   core.info(message: 'uri = [${createdPost.data.uri}]');
-  core.info(message: 'rkey = [${createdPost.data.uri.split('/').last}]');
 }
 
 String get _service {
