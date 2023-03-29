@@ -22,10 +22,6 @@ _$_ActorProfile _$$_ActorProfileFromJson(Map json) => $checkedCreate(
           followsCount: $checkedConvert('followsCount', (v) => v as int),
           followersCount: $checkedConvert('followersCount', (v) => v as int),
           postsCount: $checkedConvert('postsCount', (v) => v as int),
-          declaration: $checkedConvert(
-              'declaration',
-              (v) => ActorDeclaration.fromJson(
-                  Map<String, Object?>.from(v as Map))),
           viewer: $checkedConvert('viewer',
               (v) => ActorViewer.fromJson(Map<String, Object?>.from(v as Map))),
           myState: $checkedConvert('myState',
@@ -49,7 +45,6 @@ Map<String, dynamic> _$$_ActorProfileToJson(_$_ActorProfile instance) =>
       'followsCount': instance.followsCount,
       'followersCount': instance.followersCount,
       'postsCount': instance.postsCount,
-      'declaration': instance.declaration.toJson(),
       'viewer': instance.viewer.toJson(),
       'myState': instance.myState.toJson(),
       'creator': instance.creator,

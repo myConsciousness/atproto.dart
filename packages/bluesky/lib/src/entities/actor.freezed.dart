@@ -25,7 +25,6 @@ mixin _$Actor {
   String? get displayName => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
-  ActorDeclaration get declaration => throw _privateConstructorUsedError;
   ActorViewer get viewer => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
 
@@ -45,11 +44,9 @@ abstract class $ActorCopyWith<$Res> {
       String? displayName,
       String? description,
       String? avatar,
-      ActorDeclaration declaration,
       ActorViewer viewer,
       DateTime? indexedAt});
 
-  $ActorDeclarationCopyWith<$Res> get declaration;
   $ActorViewerCopyWith<$Res> get viewer;
 }
 
@@ -71,7 +68,6 @@ class _$ActorCopyWithImpl<$Res, $Val extends Actor>
     Object? displayName = freezed,
     Object? description = freezed,
     Object? avatar = freezed,
-    Object? declaration = null,
     Object? viewer = null,
     Object? indexedAt = freezed,
   }) {
@@ -96,10 +92,6 @@ class _$ActorCopyWithImpl<$Res, $Val extends Actor>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      declaration: null == declaration
-          ? _value.declaration
-          : declaration // ignore: cast_nullable_to_non_nullable
-              as ActorDeclaration,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -109,14 +101,6 @@ class _$ActorCopyWithImpl<$Res, $Val extends Actor>
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ActorDeclarationCopyWith<$Res> get declaration {
-    return $ActorDeclarationCopyWith<$Res>(_value.declaration, (value) {
-      return _then(_value.copyWith(declaration: value) as $Val);
-    });
   }
 
   @override
@@ -140,12 +124,9 @@ abstract class _$$_ActorCopyWith<$Res> implements $ActorCopyWith<$Res> {
       String? displayName,
       String? description,
       String? avatar,
-      ActorDeclaration declaration,
       ActorViewer viewer,
       DateTime? indexedAt});
 
-  @override
-  $ActorDeclarationCopyWith<$Res> get declaration;
   @override
   $ActorViewerCopyWith<$Res> get viewer;
 }
@@ -164,7 +145,6 @@ class __$$_ActorCopyWithImpl<$Res> extends _$ActorCopyWithImpl<$Res, _$_Actor>
     Object? displayName = freezed,
     Object? description = freezed,
     Object? avatar = freezed,
-    Object? declaration = null,
     Object? viewer = null,
     Object? indexedAt = freezed,
   }) {
@@ -189,10 +169,6 @@ class __$$_ActorCopyWithImpl<$Res> extends _$ActorCopyWithImpl<$Res, _$_Actor>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      declaration: null == declaration
-          ? _value.declaration
-          : declaration // ignore: cast_nullable_to_non_nullable
-              as ActorDeclaration,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -215,7 +191,6 @@ class _$_Actor implements _Actor {
       this.displayName,
       this.description,
       this.avatar,
-      required this.declaration,
       required this.viewer,
       this.indexedAt});
 
@@ -233,15 +208,13 @@ class _$_Actor implements _Actor {
   @override
   final String? avatar;
   @override
-  final ActorDeclaration declaration;
-  @override
   final ActorViewer viewer;
   @override
   final DateTime? indexedAt;
 
   @override
   String toString() {
-    return 'Actor(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, declaration: $declaration, viewer: $viewer, indexedAt: $indexedAt)';
+    return 'Actor(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, viewer: $viewer, indexedAt: $indexedAt)';
   }
 
   @override
@@ -256,8 +229,6 @@ class _$_Actor implements _Actor {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
-            (identical(other.declaration, declaration) ||
-                other.declaration == declaration) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt));
@@ -266,7 +237,7 @@ class _$_Actor implements _Actor {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, did, handle, displayName,
-      description, avatar, declaration, viewer, indexedAt);
+      description, avatar, viewer, indexedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -289,7 +260,6 @@ abstract class _Actor implements Actor {
       final String? displayName,
       final String? description,
       final String? avatar,
-      required final ActorDeclaration declaration,
       required final ActorViewer viewer,
       final DateTime? indexedAt}) = _$_Actor;
 
@@ -305,8 +275,6 @@ abstract class _Actor implements Actor {
   String? get description;
   @override
   String? get avatar;
-  @override
-  ActorDeclaration get declaration;
   @override
   ActorViewer get viewer;
   @override

@@ -27,7 +27,6 @@ export 'package:bluesky/src/actors/actors_service.dart';
 export 'package:bluesky/src/bluesky.dart';
 export 'package:bluesky/src/bluesky_service.dart';
 export 'package:bluesky/src/entities/actor.dart';
-export 'package:bluesky/src/entities/actor_declaration.dart';
 export 'package:bluesky/src/entities/actor_profile.dart';
 export 'package:bluesky/src/entities/actor_profiles_data.dart';
 export 'package:bluesky/src/entities/actor_typeahead_data.dart';
