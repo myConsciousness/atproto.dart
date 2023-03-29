@@ -29,7 +29,6 @@ mixin _$ActorProfile {
   int get followsCount => throw _privateConstructorUsedError;
   int get followersCount => throw _privateConstructorUsedError;
   int get postsCount => throw _privateConstructorUsedError;
-  ActorDeclaration get declaration => throw _privateConstructorUsedError;
   ActorViewer get viewer => throw _privateConstructorUsedError;
   ActorViewer get myState => throw _privateConstructorUsedError;
   String get creator => throw _privateConstructorUsedError;
@@ -57,13 +56,11 @@ abstract class $ActorProfileCopyWith<$Res> {
       int followsCount,
       int followersCount,
       int postsCount,
-      ActorDeclaration declaration,
       ActorViewer viewer,
       ActorViewer myState,
       String creator,
       DateTime indexedAt});
 
-  $ActorDeclarationCopyWith<$Res> get declaration;
   $ActorViewerCopyWith<$Res> get viewer;
   $ActorViewerCopyWith<$Res> get myState;
 }
@@ -90,7 +87,6 @@ class _$ActorProfileCopyWithImpl<$Res, $Val extends ActorProfile>
     Object? followsCount = null,
     Object? followersCount = null,
     Object? postsCount = null,
-    Object? declaration = null,
     Object? viewer = null,
     Object? myState = null,
     Object? creator = null,
@@ -133,10 +129,6 @@ class _$ActorProfileCopyWithImpl<$Res, $Val extends ActorProfile>
           ? _value.postsCount
           : postsCount // ignore: cast_nullable_to_non_nullable
               as int,
-      declaration: null == declaration
-          ? _value.declaration
-          : declaration // ignore: cast_nullable_to_non_nullable
-              as ActorDeclaration,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -154,14 +146,6 @@ class _$ActorProfileCopyWithImpl<$Res, $Val extends ActorProfile>
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ActorDeclarationCopyWith<$Res> get declaration {
-    return $ActorDeclarationCopyWith<$Res>(_value.declaration, (value) {
-      return _then(_value.copyWith(declaration: value) as $Val);
-    });
   }
 
   @override
@@ -199,14 +183,11 @@ abstract class _$$_ActorProfileCopyWith<$Res>
       int followsCount,
       int followersCount,
       int postsCount,
-      ActorDeclaration declaration,
       ActorViewer viewer,
       ActorViewer myState,
       String creator,
       DateTime indexedAt});
 
-  @override
-  $ActorDeclarationCopyWith<$Res> get declaration;
   @override
   $ActorViewerCopyWith<$Res> get viewer;
   @override
@@ -233,7 +214,6 @@ class __$$_ActorProfileCopyWithImpl<$Res>
     Object? followsCount = null,
     Object? followersCount = null,
     Object? postsCount = null,
-    Object? declaration = null,
     Object? viewer = null,
     Object? myState = null,
     Object? creator = null,
@@ -276,10 +256,6 @@ class __$$_ActorProfileCopyWithImpl<$Res>
           ? _value.postsCount
           : postsCount // ignore: cast_nullable_to_non_nullable
               as int,
-      declaration: null == declaration
-          ? _value.declaration
-          : declaration // ignore: cast_nullable_to_non_nullable
-              as ActorDeclaration,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -313,7 +289,6 @@ class _$_ActorProfile implements _ActorProfile {
       required this.followsCount,
       required this.followersCount,
       required this.postsCount,
-      required this.declaration,
       required this.viewer,
       required this.myState,
       required this.creator,
@@ -341,8 +316,6 @@ class _$_ActorProfile implements _ActorProfile {
   @override
   final int postsCount;
   @override
-  final ActorDeclaration declaration;
-  @override
   final ActorViewer viewer;
   @override
   final ActorViewer myState;
@@ -353,7 +326,7 @@ class _$_ActorProfile implements _ActorProfile {
 
   @override
   String toString() {
-    return 'ActorProfile(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, followsCount: $followsCount, followersCount: $followersCount, postsCount: $postsCount, declaration: $declaration, viewer: $viewer, myState: $myState, creator: $creator, indexedAt: $indexedAt)';
+    return 'ActorProfile(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, followsCount: $followsCount, followersCount: $followersCount, postsCount: $postsCount, viewer: $viewer, myState: $myState, creator: $creator, indexedAt: $indexedAt)';
   }
 
   @override
@@ -375,8 +348,6 @@ class _$_ActorProfile implements _ActorProfile {
                 other.followersCount == followersCount) &&
             (identical(other.postsCount, postsCount) ||
                 other.postsCount == postsCount) &&
-            (identical(other.declaration, declaration) ||
-                other.declaration == declaration) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
             (identical(other.myState, myState) || other.myState == myState) &&
             (identical(other.creator, creator) || other.creator == creator) &&
@@ -397,7 +368,6 @@ class _$_ActorProfile implements _ActorProfile {
       followsCount,
       followersCount,
       postsCount,
-      declaration,
       viewer,
       myState,
       creator,
@@ -428,7 +398,6 @@ abstract class _ActorProfile implements ActorProfile {
       required final int followsCount,
       required final int followersCount,
       required final int postsCount,
-      required final ActorDeclaration declaration,
       required final ActorViewer viewer,
       required final ActorViewer myState,
       required final String creator,
@@ -455,8 +424,6 @@ abstract class _ActorProfile implements ActorProfile {
   int get followersCount;
   @override
   int get postsCount;
-  @override
-  ActorDeclaration get declaration;
   @override
   ActorViewer get viewer;
   @override
