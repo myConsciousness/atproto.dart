@@ -20,6 +20,8 @@ Global options:
     --password    Bluesky password for authentication.
                   (defaults to environment variable "BLUESKY_PASSWORD")
     --service     Name of the service sending the request. Defaults to "bsky.social".
+    --pretty      Enable to output JSON in pretty format.
+    --verbose     Enable verbose logging.
 
 Available commands:
   actor-suggestions    Show the actor suggestions.

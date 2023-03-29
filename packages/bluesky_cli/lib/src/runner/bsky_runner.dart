@@ -15,6 +15,7 @@ class Bsky extends _Bsky {
   Bsky(
     Logger? logger, {
     required this.action,
+    required this.pretty,
   }) : logger = (logger ?? Logger.standard()).toBskyLogger();
 
   @override
@@ -22,6 +23,9 @@ class Bsky extends _Bsky {
 
   /// The bsky action.
   final Future<XRPCResponse<String>> Function() action;
+
+  /// The flag indicates whether JSON should be formatted for output.
+  final bool pretty;
 
   @override
   Future<void> run() async {
@@ -32,17 +36,27 @@ class Bsky extends _Bsky {
       logger
         ..success('${status.code} ${status.message}')
         ..success(response.request.toString())
-        ..success(response.data);
+        ..success(_getJsonString(response.data));
     } on XRPCException catch (e) {
       final status = e.response.status;
 
       logger
         ..error('${status.code} ${status.message}')
         ..error(e.response.request.toString())
-        ..error(jsonEncode(e.response.data.toJson()));
+        ..error(_getJsonString(jsonEncode(e.response.data.toJson())));
 
       exitCode = 1;
     }
+  }
+
+  String _getJsonString(final String json) {
+    if (pretty) {
+      final encoder = JsonEncoder.withIndent('    ');
+
+      return encoder.convert(jsonDecode(json));
+    }
+
+    return json;
   }
 }
 

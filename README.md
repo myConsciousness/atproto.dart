@@ -99,11 +99,11 @@ The Melos commands available for this project are:
 | melos test:dart    | Run Dart tests for a specific package in this project.    |
 | melos test:flutter | Run Flutter tests for a specific package in this project. |
 
-> Note: </br>
+> **Note**: </br>
 > Depending on the development status of each package, some scripts may fail
 > due to unresolved dependencies of packages that have not yet been released.
-> </br>
-> In that case, please move to the respective package and execute the dart command.
+> </br></br>
+> In that case, please move to the each package and execute the dart command.
 
 ## 1.3. Contribution 🏆
 

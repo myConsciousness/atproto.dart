@@ -29,5 +29,6 @@ abstract class ProcedureCommand extends BskyCommand {
           headers: {'Authorization': 'Bearer ${await accessJwt}'},
           body: await body,
         ),
+        pretty: globalResults!['pretty'],
       ).run();
 }
