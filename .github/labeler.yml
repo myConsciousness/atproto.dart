@@ -1,5 +1,5 @@
 website:
-- website/**/*
+- docs/**/*
 
 at_identifier:
 - packages/at_identifier/**/*
