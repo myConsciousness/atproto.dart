@@ -10,7 +10,7 @@
 <!-- /TOC -->
 
 This document outlines security procedures and general policies for the `atproto.dart`
-project created by `Kato Shinya`.
+project created by `Shinya Kato`.
 
 ## 1.1. Reporting a Bug
 

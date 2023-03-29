@@ -95,7 +95,7 @@ jobs:
 
 ## More Information
 
-**bluesky_post** was designed and implemented by **_Kato Shinya ([@myConsciousness](https://github.com/myConsciousness))_**.
+**bluesky_post** was designed and implemented by **_Shinya Kato ([@myConsciousness](https://github.com/myConsciousness))_**.
 
 - [Creator Profile](https://github.com/myConsciousness)
 - [License](https://github.com/myConsciousness/atproto.dart/blob/main/LICENSE)
