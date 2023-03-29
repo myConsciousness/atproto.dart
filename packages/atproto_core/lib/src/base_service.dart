@@ -8,16 +8,19 @@ import 'dart:async';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 import 'client/client_context.dart';
+import 'client/user_context.dart';
 
 abstract class _Service {
   Future<xrpc.XRPCResponse<T>> get<T>(
     final String methodName, {
+    final UserContext userContext = UserContext.authRequired,
     final Map<String, dynamic>? parameters,
     required final xrpc.To<T> to,
   });
 
   Future<xrpc.XRPCResponse<T>> post<T>(
     final String methodName, {
+    final UserContext userContext = UserContext.authRequired,
     required final dynamic body,
     final xrpc.To<T>? to,
   });
@@ -52,6 +55,7 @@ abstract class BaseService implements _Service {
   @override
   Future<xrpc.XRPCResponse<T>> get<T>(
     final String methodName, {
+    final UserContext userContext = UserContext.authRequired,
     final Map<String, dynamic>? parameters,
     required final xrpc.To<T> to,
   }) async =>
@@ -60,6 +64,7 @@ abstract class BaseService implements _Service {
           _methodAuthority,
           methodName,
         ),
+        userContext: userContext,
         service: _service,
         parameters: parameters,
         to: to,
@@ -69,6 +74,7 @@ abstract class BaseService implements _Service {
   @override
   Future<xrpc.XRPCResponse<T>> post<T>(
     final String methodName, {
+    final UserContext userContext = UserContext.authRequired,
     required final dynamic body,
     final xrpc.To<T>? to,
   }) async =>
@@ -77,6 +83,7 @@ abstract class BaseService implements _Service {
           _methodAuthority,
           methodName,
         ),
+        userContext: userContext,
         service: _service,
         body: body,
         to: to,
