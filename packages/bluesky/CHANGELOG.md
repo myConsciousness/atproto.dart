@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.1
+
+- Removed `ActorDeclaration`. ([#199](https://github.com/myConsciousness/atproto.dart/issues/199))
+
 ## v0.3.0
 
 - Fixed to use `xrpc` package and refactored structures. ([#146](https://github.com/myConsciousness/atproto.dart/issues/146))
