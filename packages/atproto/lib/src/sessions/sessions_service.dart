@@ -4,33 +4,76 @@
 
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
-import 'package:xrpc/xrpc.dart' as xrpc;
 
 import '../atproto_base_service.dart';
 import 'current_session.dart';
 import 'session.dart';
 
+/// Create an authentication session.
+///
+/// ## Parameters
+///
+/// - [handle]: Handle name in Bluesky Social.
+///
+/// - [password]: Password for authentication.
+///
+/// ## Lexicon
+///
+/// - com.atproto.session.create
+///
+/// ## Reference
+///
+/// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/session/create.json
 Future<core.XRPCResponse<Session>> createSession({
   String service = 'bsky.social',
   required String handle,
   required String password,
+  core.RetryConfig? retryConfig,
   final core.PostClient? mockedPostClient,
-}) async =>
-    await xrpc.procedure(
-      core.NSID.create(
-        'session.atproto.com',
+}) async {
+  final session = _$SessionsService(
+    service: service,
+    retryConfig: retryConfig,
+    mockedPostClient: mockedPostClient,
+  );
+
+  return await session.createSession(
+    handle: handle,
+    password: password,
+  );
+}
+
+class _$SessionsService extends ATProtoBaseService {
+  /// Returns the new instance of [_$SessionsService].
+  _$SessionsService({
+    required super.service,
+    core.RetryConfig? retryConfig,
+    super.mockedPostClient,
+  }) : super(
+          did: '',
+          context: core.ClientContext(
+            accessJwt: '',
+            timeout: Duration(seconds: 10),
+            retryConfig: retryConfig,
+          ),
+          methodAuthority: 'session.atproto.com',
+        );
+
+  Future<core.XRPCResponse<Session>> createSession({
+    String service = 'bsky.social',
+    required String handle,
+    required String password,
+  }) async =>
+      await super.post(
         'create',
-      ),
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: {
-        'handle': handle,
-        'password': password,
-      },
-      to: Session.fromJson,
-      postClient: mockedPostClient,
-    );
+        body: {
+          'handle': handle,
+          'password': password,
+        },
+        to: Session.fromJson,
+        userContext: core.UserContext.anonymousOnly,
+      );
+}
 
 abstract class SessionsService {
   /// Returns the new instance of [SessionsService].
@@ -49,6 +92,15 @@ abstract class SessionsService {
         mockedPostClient: mockedPostClient,
       );
 
+  /// Get information about the current session.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.session.get
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/session/get.json
   Future<core.XRPCResponse<CurrentSession>> findCurrentSession();
 }
 
