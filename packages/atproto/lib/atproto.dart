@@ -4,12 +4,12 @@
 
 export 'package:atproto/src/atproto.dart';
 export 'package:atproto/src/atproto_service.dart';
-export 'package:atproto/src/entities/did_data.dart';
-export 'package:atproto/src/entities/record_data.dart';
+export 'package:atproto/src/entities/current_session.dart';
+export 'package:atproto/src/entities/did.dart';
+export 'package:atproto/src/entities/record.dart';
+export 'package:atproto/src/entities/session.dart';
 export 'package:atproto/src/handles/handles_service.dart';
 export 'package:atproto/src/repositories/repositories_service.dart';
-export 'package:atproto/src/sessions/current_session.dart';
-export 'package:atproto/src/sessions/session.dart';
 export 'package:atproto/src/sessions/sessions_service.dart';
 export 'package:atproto_core/atproto_core.dart'
     show

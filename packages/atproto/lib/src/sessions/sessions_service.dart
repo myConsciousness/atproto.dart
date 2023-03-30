@@ -6,8 +6,8 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../atproto_base_service.dart';
-import 'current_session.dart';
-import 'session.dart';
+import '../entities/current_session.dart';
+import '../entities/session.dart';
 
 /// Create an authentication session.
 ///
