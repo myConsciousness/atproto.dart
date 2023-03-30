@@ -25,13 +25,13 @@ class EmbeddedCard extends StatelessWidget {
     required this.repostCount,
     required this.likeCount,
     String service = 'staging.bsky.app',
-    required String postUri,
+    required bsky.AtUri postUri,
     required this.createdAt,
     this.reason,
     this.backgroundColor,
     this.darkMode = false,
   })  : userLink = 'https://$service/profile/$handle',
-        postLink = 'https://$service/$handle/post/${postUri.split('/').last}',
+        postLink = 'https://$service/$handle/post/${postUri.rkey}',
         repostedUserLink = 'https://$service/profile/${reason?.by.handle}';
 
   factory EmbeddedCard.fromFeed(
