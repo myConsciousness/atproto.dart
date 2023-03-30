@@ -2,6 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: invalid_annotation_target
+
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -13,6 +15,7 @@ part 'actor_profile.g.dart';
 
 @freezed
 class ActorProfile with _$ActorProfile {
+  @JsonSerializable(includeIfNull: false)
   const factory ActorProfile({
     required String did,
     required String handle,

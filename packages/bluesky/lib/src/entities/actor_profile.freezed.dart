@@ -277,7 +277,8 @@ class __$$_ActorProfileCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(includeIfNull: false)
 class _$_ActorProfile implements _ActorProfile {
   const _$_ActorProfile(
       {required this.did,

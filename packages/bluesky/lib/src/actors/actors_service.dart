@@ -109,6 +109,22 @@ abstract class ActorsService {
     String? cursor,
   });
 
+  /// Find user suggestions for a search term.
+  ///
+  /// ## Parameters
+  ///
+  /// - [term]: The search term.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.actor.searchTypeahead
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/searchTypeahead.json
   Future<core.XRPCResponse<ActorTypeaheadData>> searchActorTypeahead({
     required String term,
     int? limit,
