@@ -106,7 +106,7 @@ Future<void> main() async {
 
 If you would like to contribute to **xrpc**, please create an [issue](https://github.com/myConsciousness/atproto.dart/issues) or create a Pull Request.
 
-There are many ways to contribute to the OSS. For example, the following subjects can be coxrpcered:
+There are many ways to contribute to the OSS. For example, the following subjects can be considered:
 
 - There are request parameters or response fields that are not implemented.
 - Documentation is outdated or incomplete.
