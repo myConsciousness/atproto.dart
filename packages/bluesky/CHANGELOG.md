@@ -3,6 +3,7 @@
 ## v0.3.1
 
 - Removed `ActorDeclaration`. ([#199](https://github.com/myConsciousness/atproto.dart/issues/199))
+- Fixed `INFO: The annotation 'JsonKey' can only be used on fields or getters.`. ([#201](https://github.com/myConsciousness/atproto.dart/issues/201))
 
 ## v0.3.0
 

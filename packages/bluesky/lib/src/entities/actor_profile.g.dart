@@ -34,19 +34,28 @@ _$_ActorProfile _$$_ActorProfileFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_ActorProfileToJson(_$_ActorProfile instance) =>
-    <String, dynamic>{
-      'did': instance.did,
-      'handle': instance.handle,
-      'displayName': instance.displayName,
-      'description': instance.description,
-      'avatar': instance.avatar,
-      'banner': instance.banner,
-      'followsCount': instance.followsCount,
-      'followersCount': instance.followersCount,
-      'postsCount': instance.postsCount,
-      'viewer': instance.viewer.toJson(),
-      'myState': instance.myState.toJson(),
-      'creator': instance.creator,
-      'indexedAt': instance.indexedAt.toIso8601String(),
-    };
+Map<String, dynamic> _$$_ActorProfileToJson(_$_ActorProfile instance) {
+  final val = <String, dynamic>{
+    'did': instance.did,
+    'handle': instance.handle,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('displayName', instance.displayName);
+  writeNotNull('description', instance.description);
+  writeNotNull('avatar', instance.avatar);
+  writeNotNull('banner', instance.banner);
+  val['followsCount'] = instance.followsCount;
+  val['followersCount'] = instance.followersCount;
+  val['postsCount'] = instance.postsCount;
+  val['viewer'] = instance.viewer.toJson();
+  val['myState'] = instance.myState.toJson();
+  val['creator'] = instance.creator;
+  val['indexedAt'] = instance.indexedAt.toIso8601String();
+  return val;
+}
