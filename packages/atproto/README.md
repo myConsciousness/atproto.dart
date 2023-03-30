@@ -38,7 +38,8 @@
     - [1.2.3. Implementation](#123-implementation)
   - [1.3. Supported Lexicons 👀](#13-supported-lexicons-)
     - [1.3.1. Session](#131-session)
-    - [1.3.2. Repository](#132-repository)
+    - [1.3.2. Identity](#132-identity)
+    - [1.3.3. Repository](#133-repository)
   - [1.4. Tips 🏄](#14-tips-)
     - [1.4.1. Method Names](#141-method-names)
     - [1.4.2. Null Parameter at Request](#142-null-parameter-at-request)
@@ -168,7 +169,14 @@ Future<void> main() async {
 | [POST com.atproto.session.create](https://atproto.com/lexicons/com-atproto-session#comatprotosessioncreate) | [createSession](https://pub.dev/documentation/atproto/latest/atproto/createSession.html)                           |
 | [GET com.atproto.session.get](https://atproto.com/lexicons/com-atproto-session#comatprotosessioncreate)     | [findCurrentSession](https://pub.dev/documentation/atproto/latest/atproto/SessionsService/findCurrentSession.html) |
 
-### 1.3.2. Repository
+### 1.3.2. Identity
+
+| **Lexicon**                                                                                                                     | **Method Name**                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| [GET com.atproto.handle.resolve](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/handle/resolve.jsone) | [findDID](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService/findDID.html)           |
+| [POST com.atproto.handle.update](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/handle/update.jsone)  | [updateHandle](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService/updateHandle.html) |
+
+### 1.3.3. Repository
 
 | **Lexicon**                                                                                                                           | **Method Name**                                                                                            |
 | ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |

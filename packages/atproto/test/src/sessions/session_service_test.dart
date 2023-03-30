@@ -2,8 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:atproto/src/sessions/current_session.dart';
-import 'package:atproto/src/sessions/session.dart';
+import 'package:atproto/src/entities/current_session.dart';
+import 'package:atproto/src/entities/session.dart';
 import 'package:atproto/src/sessions/sessions_service.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
