@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 import 'package:atproto/src/entities/did.dart';
-import 'package:atproto/src/handles/handles_service.dart';
+import 'package:atproto/src/identities/identities_service.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
@@ -11,7 +11,7 @@ import 'package:test/test.dart';
 void main() {
   group('.findDID', () {
     test('normal case', () async {
-      final handles = HandlesService(
+      final identities = IdentitiesService(
         did: 'test',
         service: 'test',
         context: core.ClientContext(
@@ -19,11 +19,11 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/handles/data/find_did.json',
+          'test/src/identities/data/find_did.json',
         ),
       );
 
-      final response = await handles.findDID(
+      final response = await identities.findDID(
         handle: 'shinyakato.dev',
       );
 
@@ -32,7 +32,7 @@ void main() {
     });
 
     test('when unauthorized', () async {
-      final handles = HandlesService(
+      final identities = IdentitiesService(
         did: 'test',
         service: 'test',
         context: core.ClientContext(
@@ -46,14 +46,14 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await handles.findDID(
+        () async => await identities.findDID(
           handle: 'shinyakato.dev',
         ),
       );
     });
 
     test('when rate limit exceeded', () async {
-      final handles = HandlesService(
+      final identities = IdentitiesService(
         did: 'test',
         service: 'test',
         context: core.ClientContext(
@@ -67,7 +67,7 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await handles.findDID(
+        () async => await identities.findDID(
           handle: 'shinyakato.dev',
         ),
       );

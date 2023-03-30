@@ -7,16 +7,16 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../atproto_base_service.dart';
 import '../entities/did.dart';
 
-abstract class HandlesService {
-  /// Returns the new instance of [HandlesService].
-  factory HandlesService({
+abstract class IdentitiesService {
+  /// Returns the new instance of [IdentitiesService].
+  factory IdentitiesService({
     required String did,
     required String service,
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) =>
-      _HandlesService(
+      _IdentitiesService(
         did: did,
         service: service,
         context: context,
@@ -42,9 +42,10 @@ abstract class HandlesService {
   });
 }
 
-class _HandlesService extends ATProtoBaseService implements HandlesService {
-  /// Returns the new instance of [_HandlesService].
-  _HandlesService({
+class _IdentitiesService extends ATProtoBaseService
+    implements IdentitiesService {
+  /// Returns the new instance of [_IdentitiesService].
+  _IdentitiesService({
     required super.did,
     required super.service,
     required super.context,
