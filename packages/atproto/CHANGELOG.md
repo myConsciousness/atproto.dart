@@ -3,6 +3,7 @@
 ## v0.2.1
 
 - Added `IdentitiesService` and `findDID`. ([#211](https://github.com/myConsciousness/atproto.dart/issues/211))
+- Added `updateHandle` in `IdentitiesService`. ([#212](https://github.com/myConsciousness/atproto.dart/issues/212))
 
 ## v0.2.0
 
