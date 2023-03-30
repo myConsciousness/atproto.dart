@@ -4,8 +4,8 @@
 
 export 'package:atproto/src/atproto.dart';
 export 'package:atproto/src/atproto_service.dart';
-export 'package:atproto/src/entities/did.dart';
-export 'package:atproto/src/entities/record.dart';
+export 'package:atproto/src/entities/did_data.dart';
+export 'package:atproto/src/entities/record_data.dart';
 export 'package:atproto/src/handles/handles_service.dart';
 export 'package:atproto/src/repositories/repositories_service.dart';
 export 'package:atproto/src/sessions/current_session.dart';
