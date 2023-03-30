@@ -165,17 +165,18 @@ Future<void> main() async {
 
 ### 1.3.1. Session
 
-| **Lexicon**                                                                                                 | **Method Name**                                                                                                    |
-| ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| [POST com.atproto.session.create](https://atproto.com/lexicons/com-atproto-session#comatprotosessioncreate) | [createSession](https://pub.dev/documentation/atproto/latest/atproto/createSession.html)                           |
-| [GET com.atproto.session.get](https://atproto.com/lexicons/com-atproto-session#comatprotosessioncreate)     | [findCurrentSession](https://pub.dev/documentation/atproto/latest/atproto/SessionsService/findCurrentSession.html) |
+| **Lexicon**                                                                                                                       | **Method Name**                                                                                                    |
+| --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| [POST com.atproto.session.create](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/session/create.json)   | [createSession](https://pub.dev/documentation/atproto/latest/atproto/createSession.html)                           |
+| [POST com.atproto.session.refresh](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/session/refresh.json) | [refreshSession](https://pub.dev/documentation/atproto/latest/atproto/SessionsService/refreshSession.html)         |
+| [GET com.atproto.session.get](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/session/get.json)          | [findCurrentSession](https://pub.dev/documentation/atproto/latest/atproto/SessionsService/findCurrentSession.html) |
 
 ### 1.3.2. Identity
 
-| **Lexicon**                                                                                                                     | **Method Name**                                                                                          |
-| ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| [GET com.atproto.handle.resolve](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/handle/resolve.jsone) | [findDID](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService/findDID.html)           |
-| [POST com.atproto.handle.update](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/handle/update.jsone)  | [updateHandle](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService/updateHandle.html) |
+| **Lexicon**                                                                                                                    | **Method Name**                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| [GET com.atproto.handle.resolve](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/handle/resolve.json) | [findDID](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService/findDID.html)           |
+| [POST com.atproto.handle.update](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/handle/update.json)  | [updateHandle](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService/updateHandle.html) |
 
 ### 1.3.3. Repository
 
@@ -196,11 +197,12 @@ Future<void> main() async {
 
 **atproto** uses the following standard prefixes depending on endpoint characteristics. So it's very easy to find the method corresponding to the endpoint you want to use!
 
-| Prefix     | Description                                                          |
-| ---------- | -------------------------------------------------------------------- |
-| **find**   | This prefix is attached to endpoints that reference accounts, etc.   |
-| **create** | This prefix is attached to the endpoint performing the create state. |
-| **delete** | This prefix is attached to the endpoint performing the delete state. |
+| Prefix      | Description                                                           |
+| ----------- | --------------------------------------------------------------------- |
+| **find**    | This prefix is attached to endpoints that reference accounts, etc.    |
+| **create**  | This prefix is attached to the endpoint performing the create state.  |
+| **delete**  | This prefix is attached to the endpoint performing the delete state.  |
+| **refresh** | This prefix is attached to the endpoint performing the refresh state. |
 
 ### 1.4.2. Null Parameter at Request
 

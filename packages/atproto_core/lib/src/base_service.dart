@@ -75,7 +75,8 @@ abstract class BaseService implements _Service {
   Future<xrpc.XRPCResponse<T>> post<T>(
     final String methodName, {
     final UserContext userContext = UserContext.authRequired,
-    required final dynamic body,
+    final Map<String, String>? headers,
+    final dynamic body,
     final xrpc.To<T>? to,
   }) async =>
       await _context.post(
@@ -85,6 +86,7 @@ abstract class BaseService implements _Service {
         ),
         userContext: userContext,
         service: _service,
+        headers: headers,
         body: body,
         to: to,
         postClient: _mockedPostClient,

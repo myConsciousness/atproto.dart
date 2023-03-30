@@ -178,5 +178,6 @@ So `atproto` uses the following standard prefixes depending on endpoint characte
 | **search**  | This prefix is attached to endpoints that perform extensive searches. |
 | **connect** | This prefix is attached to endpoints with high-performance streaming. |
 | **create**  | This prefix is attached to the endpoint performing the create state.  |
+| **refresh** | This prefix is attached to the endpoint performing the refresh state. |
 | **delete**  | This prefix is attached to the endpoint performing the delete state.  |
 | **update**  | This prefix is attached to the endpoint performing the update state.  |

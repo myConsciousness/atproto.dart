@@ -102,6 +102,23 @@ abstract class SessionsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/session/get.json
   Future<core.XRPCResponse<CurrentSession>> findCurrentSession();
+
+  /// Refresh an authentication session.
+  ///
+  /// ## Parameters
+  ///
+  /// - [refreshJwt]: The token for refreshing session.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.session.refresh
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/session/refresh.json
+  Future<core.XRPCResponse<Session>> refreshSession({
+    required String refreshJwt,
+  });
 }
 
 class _SessionsService extends ATProtoBaseService implements SessionsService {
@@ -119,5 +136,18 @@ class _SessionsService extends ATProtoBaseService implements SessionsService {
       await super.get(
         'get',
         to: CurrentSession.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Session>> refreshSession({
+    required String refreshJwt,
+  }) async =>
+      await super.post(
+        'refresh',
+        headers: {
+          'Authorization': 'Bearer $refreshJwt',
+        },
+        to: Session.fromJson,
+        userContext: core.UserContext.anonymousOnly,
       );
 }

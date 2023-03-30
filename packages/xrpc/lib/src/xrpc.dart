@@ -285,9 +285,11 @@ Future<XRPCResponse<T>> procedure<T>(
               headers: {
                 'Content-type': 'application/json',
               }..addAll(headers ?? {}),
-              body: jsonEncode(
-                removeNullValues(body) ?? {},
-              ),
+              body: body != null
+                  ? jsonEncode(
+                      removeNullValues(body) ?? {},
+                    )
+                  : null,
               encoding: utf8,
             )
             .timeout(timeout),

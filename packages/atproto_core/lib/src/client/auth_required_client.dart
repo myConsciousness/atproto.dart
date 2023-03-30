@@ -36,7 +36,8 @@ class AuthRequiredClient implements Client {
   Future<xrpc.XRPCResponse<T>> post<T>(
     final xrpc.NSID methodId, {
     required final String service,
-    required final dynamic body,
+    final Map<String, String>? headers,
+    final dynamic body,
     final xrpc.To<T>? to,
     required final Duration timeout,
     final xrpc.PostClient? postClient,
@@ -44,7 +45,10 @@ class AuthRequiredClient implements Client {
       await xrpc.procedure(
         methodId,
         service: service,
-        headers: {'Authorization': 'Bearer $_accessJwt'},
+        headers: {
+          'Authorization': 'Bearer $_accessJwt',
+          ...headers ?? {},
+        },
         body: body,
         to: to,
         timeout: timeout,
