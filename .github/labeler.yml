@@ -34,8 +34,8 @@ atproto/lexicon/identities:
 - packages/atproto/lib/src/identities/*.dart
 atproto/lexicon/repositories:
 - packages/atproto/lib/src/repositories/*.dart
-atproto/lexicon/reports:
-- packages/atproto/lib/src/reports/*.dart
+atproto/lexicon/moderation:
+- packages/atproto/lib/src/moderation/*.dart
 atproto/lexicon/servers:
 - packages/atproto/lib/src/servers/*.dart
 atproto/lexicon/sessions:
