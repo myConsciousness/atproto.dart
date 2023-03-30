@@ -6,7 +6,7 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../atproto_base_service.dart';
-import '../entities/record.dart';
+import '../entities/record_data.dart';
 
 abstract class RepositoriesService {
   /// Returns the new instance of [RepositoriesService].
@@ -25,7 +25,7 @@ abstract class RepositoriesService {
         mockedPostClient: mockedPostClient,
       );
 
-  Future<core.XRPCResponse<Record>> createRecord({
+  Future<core.XRPCResponse<RecordData>> createRecord({
     required core.NSID collection,
     required Map<String, dynamic> record,
   });
@@ -48,7 +48,7 @@ class _RepositoriesService extends ATProtoBaseService
   }) : super(methodAuthority: 'repo.atproto.com');
 
   @override
-  Future<core.XRPCResponse<Record>> createRecord({
+  Future<core.XRPCResponse<RecordData>> createRecord({
     required core.NSID collection,
     required Map<String, dynamic> record,
   }) async =>
@@ -59,7 +59,7 @@ class _RepositoriesService extends ATProtoBaseService
           'collection': collection.toString(),
           'record': record,
         },
-        to: Record.fromJson,
+        to: RecordData.fromJson,
       );
 
   @override

@@ -2,7 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:atproto/src/entities/record.dart';
+import 'package:atproto/src/entities/record_data.dart';
 import 'package:atproto/src/repositories/repositories_service.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
@@ -29,7 +29,7 @@ void main() {
       );
 
       expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<Record>());
+      expect(response.data, isA<RecordData>());
     });
 
     test('when unauthorized', () async {

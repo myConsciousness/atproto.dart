@@ -115,9 +115,7 @@ class _SessionsService extends ATProtoBaseService implements SessionsService {
   }) : super(methodAuthority: 'session.atproto.com');
 
   @override
-  Future<core.XRPCResponse<CurrentSession>> findCurrentSession({
-    final core.GetClient? mockedGetClient,
-  }) async =>
+  Future<core.XRPCResponse<CurrentSession>> findCurrentSession() async =>
       await super.get(
         'get',
         to: CurrentSession.fromJson,

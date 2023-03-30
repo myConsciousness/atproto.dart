@@ -6,6 +6,7 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import 'atproto_service.dart';
+import 'handles/handles_service.dart';
 import 'repositories/repositories_service.dart';
 import 'sessions/session.dart';
 import 'sessions/sessions_service.dart';
@@ -49,6 +50,9 @@ abstract class ATProto {
   /// Returns the sessions service.
   SessionsService get sessions;
 
+  /// Returns the handles service.
+  HandlesService get handles;
+
   /// Returns the repositories service.
   RepositoriesService get repositories;
 }
@@ -79,6 +83,9 @@ class _ATProto implements ATProto {
 
   @override
   SessionsService get sessions => _service.sessions;
+
+  @override
+  HandlesService get handles => _service.handles;
 
   @override
   RepositoriesService get repositories => _service.repositories;

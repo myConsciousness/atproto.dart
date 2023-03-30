@@ -2,17 +2,17 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'record.dart';
+part of 'record_data.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Record _$$_RecordFromJson(Map json) => $checkedCreate(
-      r'_$_Record',
+_$_RecordData _$$_RecordDataFromJson(Map json) => $checkedCreate(
+      r'_$_RecordData',
       json,
       ($checkedConvert) {
-        final val = _$_Record(
+        final val = _$_RecordData(
           cid: $checkedConvert('cid', (v) => v as String),
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
@@ -21,7 +21,8 @@ _$_Record _$$_RecordFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_RecordToJson(_$_Record instance) => <String, dynamic>{
+Map<String, dynamic> _$$_RecordDataToJson(_$_RecordData instance) =>
+    <String, dynamic>{
       'cid': instance.cid,
       'uri': const AtUriConverter().toJson(instance.uri),
     };
