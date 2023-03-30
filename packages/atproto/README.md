@@ -40,6 +40,7 @@
     - [1.3.1. Session](#131-session)
     - [1.3.2. Identity](#132-identity)
     - [1.3.3. Repository](#133-repository)
+    - [1.3.4. Moderation](#134-moderation)
   - [1.4. Tips 🏄](#14-tips-)
     - [1.4.1. Method Names](#141-method-names)
     - [1.4.2. Null Parameter at Request](#142-null-parameter-at-request)
@@ -182,6 +183,12 @@ Future<void> main() async {
 | ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | [POST com.atproto.repo.createRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/createRecord.json) | [createRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/createRecord.html) |
 | [POST com.atproto.repo.deleteRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/deleteRecord.json) | [deleteRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/deleteRecord.html) |
+
+### 1.3.4. Moderation
+
+| **Lexicon**                                                                                                                   | **Method Name**                                                                                          |
+| ----------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| [POST com.atproto.report.create](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/report/create.json) | [createReport](https://pub.dev/documentation/atproto/latest/atproto/ModerationService/createReport.html) |
 
 ## 1.4. Tips 🏄
 
