@@ -1,3 +1,6 @@
+website:
+- packages/website/**/*
+
 at_identifier:
 - packages/at_identifier/**/*
 nsid:
