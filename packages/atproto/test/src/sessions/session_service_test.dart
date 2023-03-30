@@ -110,7 +110,7 @@ void main() {
     });
   });
 
-  group('.createSession', () {
+  group('.refreshSession', () {
     test('normal case', () async {
       final sessions = SessionsService(
         did: 'test',
