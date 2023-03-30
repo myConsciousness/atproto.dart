@@ -8,7 +8,7 @@ export 'package:atproto/src/entities/current_session.dart';
 export 'package:atproto/src/entities/did.dart';
 export 'package:atproto/src/entities/record.dart';
 export 'package:atproto/src/entities/session.dart';
-export 'package:atproto/src/handles/handles_service.dart';
+export 'package:atproto/src/identities/identities_service.dart';
 export 'package:atproto/src/repositories/repositories_service.dart';
 export 'package:atproto/src/sessions/sessions_service.dart';
 export 'package:atproto_core/atproto_core.dart'
