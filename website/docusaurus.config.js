@@ -64,9 +64,9 @@ const config = {
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
       navbar: {
-        title: "My Site",
+        title: "atproto.dart",
         logo: {
-          alt: "My Site Logo",
+          alt: "atproto.dart logo",
           src: "img/logo.svg",
         },
         items: [
@@ -115,6 +115,11 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+      },
+      colorMode: {
+        defaultMode: "dark",
+        disableSwitch: true,
+        respectPrefersColorScheme: false,
       },
     }),
 };
