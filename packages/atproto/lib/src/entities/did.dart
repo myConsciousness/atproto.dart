@@ -5,15 +5,14 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'did_data.freezed.dart';
-part 'did_data.g.dart';
+part 'did.freezed.dart';
+part 'did.g.dart';
 
 @freezed
-class DidData with _$DidData {
-  const factory DidData({
+class DID with _$DID {
+  const factory DID({
     required String did,
-  }) = _DidData;
+  }) = _DID;
 
-  factory DidData.fromJson(Map<String, Object?> json) =>
-      _$DidDataFromJson(json);
+  factory DID.fromJson(Map<String, Object?> json) => _$DIDFromJson(json);
 }

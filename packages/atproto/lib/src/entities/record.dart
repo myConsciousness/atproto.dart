@@ -6,16 +6,15 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'record_data.freezed.dart';
-part 'record_data.g.dart';
+part 'record.freezed.dart';
+part 'record.g.dart';
 
 @freezed
-class RecordData with _$RecordData {
-  const factory RecordData({
+class Record with _$Record {
+  const factory Record({
     required String cid,
     @AtUriConverter() required AtUri uri,
-  }) = _RecordData;
+  }) = _Record;
 
-  factory RecordData.fromJson(Map<String, Object?> json) =>
-      _$RecordDataFromJson(json);
+  factory Record.fromJson(Map<String, Object?> json) => _$RecordFromJson(json);
 }

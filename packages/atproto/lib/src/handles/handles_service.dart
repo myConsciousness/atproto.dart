@@ -5,7 +5,7 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../atproto_base_service.dart';
-import '../entities/did_data.dart';
+import '../entities/did.dart';
 
 abstract class HandlesService {
   /// Returns the new instance of [HandlesService].
@@ -37,7 +37,7 @@ abstract class HandlesService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/handle/resolve.json
-  Future<core.XRPCResponse<DidData>> findDID({
+  Future<core.XRPCResponse<DID>> findDID({
     required String handle,
   });
 }
@@ -53,7 +53,7 @@ class _HandlesService extends ATProtoBaseService implements HandlesService {
   }) : super(methodAuthority: 'handle.atproto.com');
 
   @override
-  Future<core.XRPCResponse<DidData>> findDID({
+  Future<core.XRPCResponse<DID>> findDID({
     required String handle,
   }) async =>
       await super.get(
@@ -61,6 +61,6 @@ class _HandlesService extends ATProtoBaseService implements HandlesService {
         parameters: {
           'handle': handle,
         },
-        to: DidData.fromJson,
+        to: DID.fromJson,
       );
 }
