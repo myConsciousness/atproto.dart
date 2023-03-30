@@ -6,8 +6,8 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../atproto_base_service.dart';
-import 'current_session.dart';
-import 'session.dart';
+import '../entities/current_session.dart';
+import '../entities/session.dart';
 
 /// Create an authentication session.
 ///
@@ -115,9 +115,7 @@ class _SessionsService extends ATProtoBaseService implements SessionsService {
   }) : super(methodAuthority: 'session.atproto.com');
 
   @override
-  Future<core.XRPCResponse<CurrentSession>> findCurrentSession({
-    final core.GetClient? mockedGetClient,
-  }) async =>
+  Future<core.XRPCResponse<CurrentSession>> findCurrentSession() async =>
       await super.get(
         'get',
         to: CurrentSession.fromJson,

@@ -5,6 +5,7 @@
 // 🌎 Project imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 
+import 'identities/identities_service.dart';
 import 'repositories/repositories_service.dart';
 import 'sessions/sessions_service.dart';
 
@@ -28,6 +29,9 @@ abstract class ATProtoService {
   /// Returns the sessions service.
   SessionsService get sessions;
 
+  /// Returns the new instance of identities service.
+  IdentitiesService get identities;
+
   /// Returns the repositories service.
   RepositoriesService get repositories;
 }
@@ -47,6 +51,13 @@ class _ATProtoService implements ATProtoService {
           mockedGetClient: mockedGetClient,
           mockedPostClient: mockedPostClient,
         ),
+        identities = IdentitiesService(
+          did: did,
+          service: service,
+          context: context,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
+        ),
         repositories = RepositoriesService(
           did: did,
           service: service,
@@ -57,6 +68,9 @@ class _ATProtoService implements ATProtoService {
 
   @override
   final SessionsService sessions;
+
+  @override
+  final IdentitiesService identities;
 
   @override
   final RepositoriesService repositories;

@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.1
+
+- Added `IdentitiesService` and `findDID`. ([#211](https://github.com/myConsciousness/atproto.dart/issues/211))
+
 ## v0.2.0
 
 - Fixed to use `xrpc` package and refactored structures. ([#146](https://github.com/myConsciousness/atproto.dart/issues/146))
