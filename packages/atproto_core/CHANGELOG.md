@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.1
+
+- Fixed to `body` as optional and added `headers` for `post`. ([#218](https://github.com/myConsciousness/atproto.dart/issues/218))
+
 ## v0.2.0
 
 - Use `xrpc` package and refactored structures. ([#146](https://github.com/myConsciousness/atproto.dart/issues/146))

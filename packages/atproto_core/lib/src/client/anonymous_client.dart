@@ -32,7 +32,8 @@ class AnonymousClient implements Client {
   Future<xrpc.XRPCResponse<T>> post<T>(
     final xrpc.NSID methodId, {
     required final String service,
-    required final dynamic body,
+    final Map<String, String>? headers,
+    final dynamic body,
     final xrpc.To<T>? to,
     required final Duration timeout,
     final xrpc.PostClient? postClient,
@@ -40,6 +41,7 @@ class AnonymousClient implements Client {
       await xrpc.procedure(
         methodId,
         service: service,
+        headers: headers,
         body: body,
         to: to,
         timeout: timeout,

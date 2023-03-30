@@ -42,7 +42,8 @@ abstract class ClientContext {
     final xrpc.NSID methodId, {
     required UserContext userContext,
     required final String service,
-    required final dynamic body,
+    final Map<String, String>? headers,
+    final dynamic body,
     final xrpc.To<T>? to,
     final xrpc.PostClient? postClient,
   });
@@ -96,7 +97,8 @@ class _ClientContext implements ClientContext {
     final xrpc.NSID methodId, {
     required UserContext userContext,
     required final String service,
-    required final dynamic body,
+    final Map<String, String>? headers,
+    final dynamic body,
     final xrpc.To<T>? to,
     final xrpc.PostClient? postClient,
   }) async =>
@@ -105,6 +107,7 @@ class _ClientContext implements ClientContext {
         (client) async => await client.post(
           methodId,
           service: service,
+          headers: headers,
           body: body,
           to: to,
           timeout: timeout,
