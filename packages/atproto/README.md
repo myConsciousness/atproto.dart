@@ -171,9 +171,10 @@ Future<void> main() async {
 
 ### 1.3.2. Identity
 
-| **Lexicon**                                                                                                                     | **Method Name**                                                                             |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| [GET com.atproto.handle.resolve](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/handle/resolve.jsone) | [findDID](https://pub.dev/documentation/atproto/latest/atproto/HandlesService/findDID.html) |
+| **Lexicon**                                                                                                                     | **Method Name**                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| [GET com.atproto.handle.resolve](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/handle/resolve.jsone) | [findDID](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService/findDID.html)           |
+| [POST com.atproto.handle.update](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/handle/update.jsone)  | [updateHandle](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService/updateHandle.html) |
 
 ### 1.3.3. Repository
 

@@ -40,6 +40,23 @@ abstract class IdentitiesService {
   Future<core.XRPCResponse<DID>> findDID({
     required String handle,
   });
+
+  /// Updates the handle of the account.
+  ///
+  /// ## Parameters
+  ///
+  /// - [handle]: The handle to be updated.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.handle.update
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/handle/update.json
+  Future<core.XRPCResponse<core.EmptyData>> updateHandle({
+    required String handle,
+  });
 }
 
 class _IdentitiesService extends ATProtoBaseService
@@ -63,5 +80,16 @@ class _IdentitiesService extends ATProtoBaseService
           'handle': handle,
         },
         to: DID.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> updateHandle({
+    required String handle,
+  }) async =>
+      await super.post(
+        'update',
+        body: {
+          'handle': handle,
+        },
       );
 }
