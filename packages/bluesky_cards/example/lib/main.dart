@@ -24,7 +24,7 @@ class BlueskyCards extends StatelessWidget {
     return Scaffold(
       body: FutureBuilder(
         future: bsky.createSession(
-          handle: 'YOUR_HANDLE_OR_EMAIL',
+          identifier: 'YOUR_HANDLE_OR_EMAIL',
           password: 'YOUR_PASSWORD',
         ),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
