@@ -28,17 +28,18 @@ abstract class IdentitiesService {
   ///
   /// ## Parameters
   ///
-  /// - [handle]: The handle to be resolved as DID.
+  /// - [handle]: The handle to resolve.
+  ///             If not supplied, will resolve the host's own handle.
   ///
   /// ## Lexicon
   ///
-  /// - com.atproto.handle.resolve
+  /// - com.atproto.identity.resolveHandle
   ///
   /// ## Reference
   ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/handle/resolve.json
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/identity/resolveHandle.json
   Future<core.XRPCResponse<DID>> findDID({
-    required String handle,
+    String? handle,
   });
 
   /// Updates the handle of the account.
@@ -49,11 +50,11 @@ abstract class IdentitiesService {
   ///
   /// ## Lexicon
   ///
-  /// - com.atproto.handle.update
+  /// - com.atproto.identity.updateHandle
   ///
   /// ## Reference
   ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/handle/update.json
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/identity/updateHandle.json
   Future<core.XRPCResponse<core.EmptyData>> updateHandle({
     required String handle,
   });
@@ -72,10 +73,10 @@ class _IdentitiesService extends ATProtoBaseService
 
   @override
   Future<core.XRPCResponse<DID>> findDID({
-    required String handle,
+    String? handle,
   }) async =>
       await super.get(
-        'resolve',
+        'resolveHandle',
         parameters: {
           'handle': handle,
         },
@@ -87,7 +88,7 @@ class _IdentitiesService extends ATProtoBaseService
     required String handle,
   }) async =>
       await super.post(
-        'update',
+        'updateHandle',
         body: {
           'handle': handle,
         },

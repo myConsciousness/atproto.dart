@@ -126,11 +126,11 @@ abstract class GraphsService {
   ///
   /// ## Lexicon
   ///
-  /// - app.bsky.graph.mute
+  /// - app.bsky.graph.muteActor
   ///
   /// ## Reference
   ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/mute.json
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/muteActor.json
   Future<core.XRPCResponse<core.EmptyData>> createMute({
     required String actor,
   });
@@ -143,11 +143,11 @@ abstract class GraphsService {
   ///
   /// ## Lexicon
   ///
-  /// - app.bsky.graph.unmute
+  /// - app.bsky.graph.unmuteActor
   ///
   /// ## Reference
   ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/unmute.json
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/unmuteActor.json
   Future<core.XRPCResponse<core.EmptyData>> deleteMute({
     required String actor,
   });
@@ -217,9 +217,9 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       await super.get(
         'getFollows',
         parameters: {
-          'user': actor,
+          'actor': actor,
           'limit': limit,
-          'before': cursor,
+          'cursor': cursor,
         },
         to: FollowsData.fromJson,
       );
@@ -233,9 +233,9 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       await super.get(
         'getFollowers',
         parameters: {
-          'user': actor,
+          'actor': actor,
           'limit': limit,
-          'before': cursor,
+          'cursor': cursor,
         },
         to: FollowersData.fromJson,
       );
@@ -245,9 +245,9 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
     required String actor,
   }) async =>
       await post<core.EmptyData>(
-        'mute',
+        'muteActor',
         body: {
-          'user': actor,
+          'actor': actor,
         },
       );
 
@@ -256,9 +256,9 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
     required String actor,
   }) async =>
       await post<core.EmptyData>(
-        'unmute',
+        'unmuteActor',
         body: {
-          'user': actor,
+          'actor': actor,
         },
       );
 
@@ -271,7 +271,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
         'getMutes',
         parameters: {
           'limit': limit,
-          'before': cursor,
+          'cursor': cursor,
         },
         to: MutesData.fromJson,
       );

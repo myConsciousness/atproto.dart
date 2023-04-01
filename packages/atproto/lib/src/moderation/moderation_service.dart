@@ -30,25 +30,25 @@ abstract class ModerationService {
   ///
   /// ## Parameters
   ///
+  /// - [subject]: The subject for this report.
+  ///              The contents for report depends on strong ref or repo ref.
+  ///
   /// - [reasonType]: The reason type for this report.
   ///             The default is `ModerationReasonType.spam`.
   ///
   /// - [reason]: The reason for this report.
   ///
-  /// - [subject]: The subject for this report.
-  ///              The contents for report depends on strong ref or repo ref.
-  ///
   /// ## Lexicon
   ///
-  /// - com.atproto.report.create
+  /// - com.atproto.moderation.createReport
   ///
   /// ## Reference
   ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/report/create.json
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/moderation/createReport.json
   Future<core.XRPCResponse<Report>> createReport({
+    required ReportSubject subject,
     ModerationReasonType reasonType = ModerationReasonType.spam,
     String? reason,
-    required ReportSubject subject,
   });
 }
 
@@ -65,16 +65,16 @@ class _ModerationService extends ATProtoBaseService
 
   @override
   Future<core.XRPCResponse<Report>> createReport({
+    required ReportSubject subject,
     ModerationReasonType reasonType = ModerationReasonType.spam,
     String? reason,
-    required ReportSubject subject,
   }) async =>
       super.post(
         'create',
         body: {
+          'subject': subject.toJson(),
           'reasonType': reasonType.value,
           'reason': reason,
-          'subject': subject.toJson(),
         },
         to: Report.fromJson,
       );

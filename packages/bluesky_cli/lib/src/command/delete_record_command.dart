@@ -27,7 +27,7 @@ abstract class DeleteRecordCommand extends ProcedureCommand {
 
   @override
   FutureOr<Map<String, dynamic>>? get body async => {
-        'did': await did,
+        'repo': await did,
         'collection': collection.toString(),
         'rkey': uri.rkey,
       };

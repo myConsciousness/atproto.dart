@@ -31,11 +31,11 @@ class UnmuteCommand extends ProcedureCommand {
   @override
   xrpc.NSID get methodId => xrpc.NSID.create(
         'graph.bsky.app',
-        'unmute',
+        'unmuteActor',
       );
 
   @override
   FutureOr<Map<String, dynamic>>? get body => {
-        'user': argResults!['actor'],
+        'actor': argResults!['actor'],
       };
 }

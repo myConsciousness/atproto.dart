@@ -40,13 +40,13 @@ class SearchActorsCommand extends QueryCommand {
   @override
   xrpc.NSID get methodId => xrpc.NSID.create(
         'actor.bsky.app',
-        'search',
+        'searchActors',
       );
 
   @override
   Map<String, dynamic>? get parameters => {
         'term': argResults!['term'],
         'limit': argResults!['limit'],
-        'before': argResults!['cursor'],
+        'cursor': argResults!['cursor'],
       };
 }

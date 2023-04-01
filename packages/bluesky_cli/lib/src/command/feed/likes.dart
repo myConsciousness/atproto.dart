@@ -46,15 +46,14 @@ class LikesCommand extends QueryCommand {
   @override
   xrpc.NSID get methodId => xrpc.NSID.create(
         'feed.bsky.app',
-        'getVotes',
+        'getLikes',
       );
 
   @override
   Map<String, dynamic>? get parameters => {
         'uri': AtUri.parse(argResults!['uri']).toString(),
         'cid': argResults!['cid'],
-        'direction': 'up',
         'limit': argResults!['limit'],
-        'before': argResults!['cursor'],
+        'cursor': argResults!['cursor'],
       };
 }

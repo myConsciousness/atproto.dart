@@ -67,7 +67,7 @@ class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
         'getPopular',
         parameters: {
           'limit': limit,
-          'before': cursor,
+          'cursor': cursor,
         },
         to: FeedsData.fromJson,
       );

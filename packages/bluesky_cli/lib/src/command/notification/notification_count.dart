@@ -24,7 +24,7 @@ class NotificationCountCommand extends QueryCommand {
   @override
   xrpc.NSID get methodId => xrpc.NSID.create(
         'notification.bsky.app',
-        'getCount',
+        'getUnreadCount',
       );
 
   @override

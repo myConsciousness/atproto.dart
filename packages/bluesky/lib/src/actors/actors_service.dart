@@ -148,11 +148,11 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
     String? cursor,
   }) async =>
       await super.get(
-        'search',
+        'searchActors',
         parameters: {
           'term': term,
           'limit': limit,
-          'before': cursor,
+          'cursor': cursor,
         },
         to: UsersData.fromJson,
       );
@@ -201,7 +201,7 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
     int? limit,
   }) async =>
       await super.get(
-        'searchTypeahead',
+        'searchActorsTypeahead',
         parameters: {
           'term': term,
           'limit': limit,

@@ -35,7 +35,7 @@ class ActorTypeaheadCommand extends QueryCommand {
   @override
   xrpc.NSID get methodId => xrpc.NSID.create(
         'actor.bsky.app',
-        'searchTypeahead',
+        'searchActorsTypeahead',
       );
 
   @override

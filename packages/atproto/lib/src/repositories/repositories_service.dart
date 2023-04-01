@@ -55,7 +55,7 @@ class _RepositoriesService extends ATProtoBaseService
       await super.post(
         'createRecord',
         body: {
-          'did': did,
+          'repo': did,
           'collection': collection.toString(),
           'record': record,
         },
@@ -70,7 +70,7 @@ class _RepositoriesService extends ATProtoBaseService
       await super.post<core.EmptyData>(
         'deleteRecord',
         body: {
-          'did': did,
+          'repo': did,
           'collection': collection.toString(),
           'rkey': uri.rkey,
         },
