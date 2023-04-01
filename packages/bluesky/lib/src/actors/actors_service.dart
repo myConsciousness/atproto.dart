@@ -124,7 +124,7 @@ abstract class ActorsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/searchActorsTypeahead.json
-  Future<core.XRPCResponse<ActorsTypeaheadData>> searchActorsTypeahead({
+  Future<core.XRPCResponse<ActorsTypeaheadData>> searchTypeahead({
     required String term,
     int? limit,
   });
@@ -195,7 +195,7 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
       );
 
   @override
-  Future<core.XRPCResponse<ActorsTypeaheadData>> searchActorsTypeahead({
+  Future<core.XRPCResponse<ActorsTypeaheadData>> searchTypeahead({
     required String term,
     int? limit,
   }) async =>

@@ -25,14 +25,14 @@ void main() {
         ),
       );
 
-      final response = await feeds.findHomeTimeline(
+      final response = await feeds.findTimeline(
         algorithm: FeedAlgorithm.reverseChronological,
         limit: 10,
         cursor: '1234',
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<FeedsData>());
+      expect(response.data, isA<FeedData>());
     });
 
     test('when unauthorized', () async {
@@ -50,7 +50,7 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await feeds.findHomeTimeline(
+        () async => await feeds.findTimeline(
           algorithm: FeedAlgorithm.reverseChronological,
           limit: 10,
           cursor: '1234',
@@ -73,7 +73,7 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await feeds.findHomeTimeline(
+        () async => await feeds.findTimeline(
           algorithm: FeedAlgorithm.reverseChronological,
           limit: 10,
           cursor: '1234',
@@ -566,14 +566,14 @@ void main() {
         ),
       );
 
-      final response = await feeds.findFeeds(
+      final response = await feeds.findAuthoredBy(
         actor: 'shinyakato.dev',
         limit: 10,
         cursor: '1234',
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<FeedsData>());
+      expect(response.data, isA<FeedData>());
     });
 
     test('when unauthorized', () async {
@@ -591,7 +591,7 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await feeds.findFeeds(
+        () async => await feeds.findAuthoredBy(
           actor: 'shinyakato.dev',
           limit: 10,
           cursor: '1234',
@@ -614,7 +614,7 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await feeds.findFeeds(
+        () async => await feeds.findAuthoredBy(
           actor: 'shinyakato.dev',
           limit: 10,
           cursor: '1234',

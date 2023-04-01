@@ -39,7 +39,7 @@ export 'package:bluesky/src/entities/embed_external.dart';
 export 'package:bluesky/src/entities/embed_image.dart';
 export 'package:bluesky/src/entities/entity.dart';
 export 'package:bluesky/src/entities/feed.dart';
-export 'package:bluesky/src/entities/feeds_data.dart';
+export 'package:bluesky/src/entities/feed_data.dart';
 export 'package:bluesky/src/entities/followers_data.dart';
 export 'package:bluesky/src/entities/follows_data.dart';
 export 'package:bluesky/src/entities/like.dart';

@@ -7,7 +7,7 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../bluesky_base_service.dart';
-import '../entities/feeds_data.dart';
+import '../entities/feed_data.dart';
 import '../entities/likes_data.dart';
 import '../entities/post_thread_data.dart';
 import '../entities/reposted_by_data.dart';
@@ -122,7 +122,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json
-  Future<core.XRPCResponse<FeedsData>> findHomeTimeline({
+  Future<core.XRPCResponse<FeedData>> findTimeline({
     FeedAlgorithm? algorithm,
     int? limit,
     String? cursor,
@@ -189,7 +189,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getAuthorFeed.json
-  Future<core.XRPCResponse<FeedsData>> findFeeds({
+  Future<core.XRPCResponse<FeedData>> findAuthoredBy({
     required String actor,
     int? limit,
     String? cursor,
@@ -303,7 +303,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<FeedsData>> findHomeTimeline({
+  Future<core.XRPCResponse<FeedData>> findTimeline({
     FeedAlgorithm? algorithm,
     int? limit,
     String? cursor,
@@ -315,7 +315,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'limit': limit,
           'cursor': cursor,
         },
-        to: FeedsData.fromJson,
+        to: FeedData.fromJson,
       );
 
   @override
@@ -371,7 +371,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<FeedsData>> findFeeds({
+  Future<core.XRPCResponse<FeedData>> findAuthoredBy({
     required String actor,
     int? limit,
     String? cursor,
@@ -383,7 +383,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'limit': limit,
           'cursor': cursor,
         },
-        to: FeedsData.fromJson,
+        to: FeedData.fromJson,
       );
 
   @override

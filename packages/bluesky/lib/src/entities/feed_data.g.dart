@@ -2,18 +2,18 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'feeds_data.dart';
+part of 'feed_data.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_FeedsData _$$_FeedsDataFromJson(Map json) => $checkedCreate(
-      r'_$_FeedsData',
+_$_FeedData _$$_FeedDataFromJson(Map json) => $checkedCreate(
+      r'_$_FeedData',
       json,
       ($checkedConvert) {
-        final val = _$_FeedsData(
-          feeds: $checkedConvert(
+        final val = _$_FeedData(
+          feed: $checkedConvert(
               'feed',
               (v) => (v as List<dynamic>)
                   .map(
@@ -23,11 +23,10 @@ _$_FeedsData _$$_FeedsDataFromJson(Map json) => $checkedCreate(
         );
         return val;
       },
-      fieldKeyMap: const {'feeds': 'feed'},
     );
 
-Map<String, dynamic> _$$_FeedsDataToJson(_$_FeedsData instance) =>
+Map<String, dynamic> _$$_FeedDataToJson(_$_FeedData instance) =>
     <String, dynamic>{
-      'feed': instance.feeds.map((e) => e.toJson()).toList(),
+      'feed': instance.feed.map((e) => e.toJson()).toList(),
       'cursor': instance.cursor,
     };
