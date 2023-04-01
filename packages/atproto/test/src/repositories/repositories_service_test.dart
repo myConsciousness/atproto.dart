@@ -92,7 +92,6 @@ void main() {
       );
 
       final response = await repositories.deleteRecord(
-        collection: core.NSID.create('com.atproto', 'test'),
         uri: core.AtUri.parse('at://foo.com/com.example.foo/123'),
       );
 
@@ -116,7 +115,6 @@ void main() {
 
       atp_test.expectUnauthorizedException(
         () async => await repositories.deleteRecord(
-          collection: core.NSID.create('com.atproto', 'test'),
           uri: core.AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
       );
@@ -138,7 +136,6 @@ void main() {
 
       atp_test.expectRateLimitExceededException(
         () async => await repositories.deleteRecord(
-          collection: core.NSID.create('com.atproto', 'test'),
           uri: core.AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
       );

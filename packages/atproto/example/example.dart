@@ -50,10 +50,6 @@ Future<void> main() async {
 
     //! And delete it.
     await atproto.repositories.deleteRecord(
-      collection: atp.NSID.create(
-        'feed.bsky.app',
-        'post',
-      ),
       uri: createdRecord.data.uri,
     );
   } on atp.UnauthorizedException catch (e) {
