@@ -46,7 +46,7 @@ Future<void> main() async {
     print(createdRecord);
 
     //! And delete it.
-    await bluesky.feeds.deletePost(
+    await bluesky.repositories.deleteRecord(
       uri: createdRecord.data.uri,
     );
   } on bsky.UnauthorizedException catch (e) {

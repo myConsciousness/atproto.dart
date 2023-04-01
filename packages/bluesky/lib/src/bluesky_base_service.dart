@@ -12,7 +12,7 @@ abstract class BlueskyBaseService extends core.BaseService {
     required this.atproto,
     required super.service,
     required super.context,
-    required super.methodAuthority,
+    super.methodAuthority = '',
     super.mockedGetClient,
     super.mockedPostClient,
   });

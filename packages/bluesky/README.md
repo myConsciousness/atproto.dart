@@ -145,7 +145,7 @@ Future<void> main() async {
     print(createdRecord);
 
     //! And delete it.
-    await bluesky.feeds.deletePost(
+    await bluesky.repositories.deleteRecord(
       uri: createdRecord.data.uri,
     );
   } on bsky.UnauthorizedException catch (e) {
@@ -183,12 +183,9 @@ Future<bsky.Session> get _session async {
 | **Lexicon**                                                                                                                      | **Method Name**                                                                                         |
 | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | [POST app.bsky.feed.post](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json)                  | [createPost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/createPost.html)         |
-| [POST app.bsky.feed.post](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json)                  | [deletePost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/deletePost.html)         |
 | [GET app.bsky.feed.getTimeline](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json)     | [findTimeline](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findTimeline.html)     |
 | [POST app.bsky.feed.repost](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json)              | [createRepost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/createRepost.html)     |
-| [POST app.bsky.feed.repost](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json)              | [deleteRepost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/deleteRepost.html)     |
 | [POST app.bsky.feed.like](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/like.json)                  | [createLike](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/createLike.html)         |
-| [POST app.bsky.feed.like](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/like.json)                  | [deleteLike](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/deleteLike.html)         |
 | [GET app.bsky.feed.getAuthorFeed](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getAuthorFeed.json) | [findAuthoredBy](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findAuthoredBy.html) |
 | [GET app.bsky.feed.getLikes](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getLikes.json)           | [findLikes](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findLikes.html)           |
 | [GET app.bsky.feed.getRepostedBy](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getRepostedBy.json) | [findRepostedBy](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findRepostedBy.html) |
@@ -207,7 +204,6 @@ Future<bsky.Session> get _session async {
 | **Lexicon**                                                                                                                      | **Method Name**                                                                                        |
 | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | [POST app.bsky.graph.follow](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/follow.json)            | [createFollow](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createFollow.html)   |
-| [POST app.bsky.graph.follow](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/follow.json)            | [deleteFollow](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/deleteFollow.html)   |
 | [GET app.bsky.graph.getFollows](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollows.json)     | [findFollows](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/findFollows.html)     |
 | [GET app.bsky.graph.getFollowers](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollowers.json) | [findFollowers](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/findFollowers.html) |
 | [POST app.bsky.graph.muteActor](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/muteActor.json)      | [createMute](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createMute.html)       |

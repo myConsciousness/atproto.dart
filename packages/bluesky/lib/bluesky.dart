@@ -62,4 +62,5 @@ export 'package:bluesky/src/feeds/feed_algorithm.dart';
 export 'package:bluesky/src/feeds/feeds_service.dart';
 export 'package:bluesky/src/graphs/graphs_service.dart';
 export 'package:bluesky/src/notifications/notifications_service.dart';
+export 'package:bluesky/src/repositories/repositories_service.dart';
 export 'package:bluesky/src/unspecced/unspecced_service.dart';

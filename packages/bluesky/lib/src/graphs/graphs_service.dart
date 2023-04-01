@@ -50,24 +50,6 @@ abstract class GraphsService {
     DateTime? createdAt,
   });
 
-  /// Deletes a follow.
-  ///
-  /// ## Parameters
-  ///
-  /// - [uri]: The uri of target record.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.repo.deleteRecord
-  /// - app.bsky.graph.follow
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/follow.json
-  Future<core.XRPCResponse<core.EmptyData>> deleteFollow({
-    required core.AtUri uri,
-  });
-
   /// Returns follows of specific user.
   ///
   /// ## Parameters
@@ -197,15 +179,6 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
           },
           'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
         },
-      );
-
-  @override
-  Future<core.XRPCResponse<core.EmptyData>> deleteFollow({
-    required core.AtUri uri,
-  }) async =>
-      await atproto.repositories.deleteRecord(
-        collection: createNSID('follow'),
-        uri: uri,
       );
 
   @override

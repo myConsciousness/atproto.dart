@@ -3,74 +3,48 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
+import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
-import '../atproto_base_service.dart';
-import '../entities/record.dart';
+import '../bluesky_base_service.dart';
 
 abstract class RepositoriesService {
   /// Returns the new instance of [RepositoriesService].
   factory RepositoriesService({
-    required String did,
+    required atp.ATProto atproto,
     required String service,
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) =>
       _RepositoriesService(
-        did: did,
+        atproto: atproto,
         service: service,
         context: context,
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,
       );
 
-  Future<core.XRPCResponse<Record>> createRecord({
-    required core.NSID collection,
-    required Map<String, dynamic> record,
-  });
-
+  /// Deletes a record based on [uri].
   Future<core.XRPCResponse<core.EmptyData>> deleteRecord({
     required core.AtUri uri,
   });
 }
 
-class _RepositoriesService extends ATProtoBaseService
+class _RepositoriesService extends BlueskyBaseService
     implements RepositoriesService {
   /// Returns the new instance of [_RepositoriesService].
   _RepositoriesService({
-    required super.did,
+    required super.atproto,
     required super.service,
     required super.context,
     super.mockedGetClient,
     super.mockedPostClient,
-  }) : super(methodAuthority: 'repo.atproto.com');
+  });
 
   @override
-  Future<core.XRPCResponse<Record>> createRecord({
-    required core.NSID collection,
-    required Map<String, dynamic> record,
-  }) async =>
-      await super.post(
-        'createRecord',
-        body: {
-          'repo': did,
-          'collection': collection.toString(),
-          'record': record,
-        },
-        to: Record.fromJson,
-      );
-
-  @override
-  Future<core.XRPCResponse<core.EmptyData>> deleteRecord({
+  Future<atp.XRPCResponse<core.EmptyData>> deleteRecord({
     required core.AtUri uri,
   }) async =>
-      await super.post<core.EmptyData>(
-        'deleteRecord',
-        body: {
-          'repo': did,
-          'collection': uri.collection,
-          'rkey': uri.rkey,
-        },
-      );
+      await atproto.repositories.deleteRecord(uri: uri);
 }

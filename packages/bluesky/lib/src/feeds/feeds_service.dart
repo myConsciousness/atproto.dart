@@ -52,24 +52,6 @@ abstract class FeedsService {
     DateTime? createdAt,
   });
 
-  /// Deletes a post.
-  ///
-  /// ## Parameters
-  ///
-  /// - [uri]: The uri of target record.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.repo.deleteRecord
-  /// - app.bsky.feed.post
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json
-  Future<core.XRPCResponse<core.EmptyData>> deletePost({
-    required core.AtUri uri,
-  });
-
   /// Creates a repost.
   ///
   /// ## Parameters
@@ -93,24 +75,6 @@ abstract class FeedsService {
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
-  });
-
-  /// Deletes a repost.
-  ///
-  /// ## Parameters
-  ///
-  /// - [uri]: The uri of target record.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.repo.deleteRecord
-  /// - app.bsky.feed.repost
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json
-  Future<core.XRPCResponse<core.EmptyData>> deleteRepost({
-    required core.AtUri uri,
   });
 
   /// A view of the user's home timeline.
@@ -151,24 +115,6 @@ abstract class FeedsService {
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
-  });
-
-  /// Deletes a like.
-  ///
-  /// ## Parameters
-  ///
-  /// - [uri]: The uri of target record.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.repo.deleteRecord
-  /// - app.bsky.feed.like
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/like.json
-  Future<core.XRPCResponse<core.EmptyData>> deleteLike({
-    required core.AtUri uri,
   });
 
   /// A view of an actor's feed.
@@ -294,15 +240,6 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<core.EmptyData>> deletePost({
-    required core.AtUri uri,
-  }) async =>
-      await atproto.repositories.deleteRecord(
-        collection: createNSID('post'),
-        uri: uri,
-      );
-
-  @override
   Future<core.XRPCResponse<FeedData>> findTimeline({
     FeedAlgorithm? algorithm,
     int? limit,
@@ -336,15 +273,6 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<core.EmptyData>> deleteRepost({
-    required core.AtUri uri,
-  }) async =>
-      await atproto.repositories.deleteRecord(
-        collection: createNSID('repost'),
-        uri: uri,
-      );
-
-  @override
   Future<core.XRPCResponse<atp.Record>> createLike({
     required String cid,
     required core.AtUri uri,
@@ -359,15 +287,6 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           },
           'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String()
         },
-      );
-
-  @override
-  Future<core.XRPCResponse<core.EmptyData>> deleteLike({
-    required core.AtUri uri,
-  }) async =>
-      await atproto.repositories.deleteRecord(
-        collection: createNSID('like'),
-        uri: uri,
       );
 
   @override
