@@ -11,7 +11,6 @@ import '../entities/actor_profile.dart';
 import '../entities/actor_profiles_data.dart';
 import '../entities/actor_typeahead_data.dart';
 import '../entities/actors_data.dart';
-import '../entities/users_data.dart';
 
 abstract class ActorsService {
   /// Returns the new instance of [ActorsService].
@@ -48,7 +47,7 @@ abstract class ActorsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/search.json
-  Future<core.XRPCResponse<UsersData>> searchActors({
+  Future<core.XRPCResponse<ActorsData>> searchActors({
     required String term,
     int? limit,
     String? cursor,
@@ -125,7 +124,7 @@ abstract class ActorsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/searchActorsTypeahead.json
-  Future<core.XRPCResponse<ActorTypeaheadData>> searchActorsTypeahead({
+  Future<core.XRPCResponse<ActorTypeaheadData>> searchActorTypeahead({
     required String term,
     int? limit,
   });
@@ -142,7 +141,7 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
   }) : super(methodAuthority: 'actor.bsky.app');
 
   @override
-  Future<core.XRPCResponse<UsersData>> searchActors({
+  Future<core.XRPCResponse<ActorsData>> searchActors({
     required String term,
     int? limit,
     String? cursor,
@@ -154,7 +153,7 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
           'limit': limit,
           'cursor': cursor,
         },
-        to: UsersData.fromJson,
+        to: ActorsData.fromJson,
       );
 
   @override
@@ -196,7 +195,7 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
       );
 
   @override
-  Future<core.XRPCResponse<ActorTypeaheadData>> searchActorsTypeahead({
+  Future<core.XRPCResponse<ActorTypeaheadData>> searchActorTypeahead({
     required String term,
     int? limit,
   }) async =>

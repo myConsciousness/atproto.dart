@@ -11,7 +11,6 @@ import 'package:bluesky/src/entities/actor_profile.dart';
 import 'package:bluesky/src/entities/actor_profiles_data.dart';
 import 'package:bluesky/src/entities/actor_typeahead_data.dart';
 import 'package:bluesky/src/entities/actors_data.dart';
-import 'package:bluesky/src/entities/users_data.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
@@ -37,7 +36,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<UsersData>());
+      expect(response.data, isA<ActorsData>());
     });
 
     test('when unauthorized', () async {
@@ -299,7 +298,7 @@ void main() {
         ),
       );
 
-      final response = await actors.searchActorsTypeahead(
+      final response = await actors.searchActorTypeahead(
         term: 'test',
         limit: 10,
       );
@@ -323,7 +322,7 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await actors.searchActorsTypeahead(
+        () async => await actors.searchActorTypeahead(
           term: 'test',
           limit: 10,
         ),
@@ -345,7 +344,7 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await actors.searchActorsTypeahead(
+        () async => await actors.searchActorTypeahead(
           term: 'test',
           limit: 10,
         ),

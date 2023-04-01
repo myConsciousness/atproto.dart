@@ -1,6 +1,6 @@
 {
   "cursor": ".7777778::tezos.bsky.social",
-  "users": [
+  "actors": [
     {
       "did": "did:plc:ji4f2ypncqko5cm62pmyxh67",
       "declaration": {

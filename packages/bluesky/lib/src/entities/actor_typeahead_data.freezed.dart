@@ -20,7 +20,6 @@ ActorTypeaheadData _$ActorTypeaheadDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ActorTypeaheadData {
-  @JsonKey(name: 'users')
   List<Actor> get actors => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +34,7 @@ abstract class $ActorTypeaheadDataCopyWith<$Res> {
           ActorTypeaheadData value, $Res Function(ActorTypeaheadData) then) =
       _$ActorTypeaheadDataCopyWithImpl<$Res, ActorTypeaheadData>;
   @useResult
-  $Res call({@JsonKey(name: 'users') List<Actor> actors});
+  $Res call({List<Actor> actors});
 }
 
 /// @nodoc
@@ -70,7 +69,7 @@ abstract class _$$_ActorTypeaheadDataCopyWith<$Res>
       __$$_ActorTypeaheadDataCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: 'users') List<Actor> actors});
+  $Res call({List<Actor> actors});
 }
 
 /// @nodoc
@@ -98,8 +97,7 @@ class __$$_ActorTypeaheadDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ActorTypeaheadData implements _ActorTypeaheadData {
-  const _$_ActorTypeaheadData(
-      {@JsonKey(name: 'users') required final List<Actor> actors})
+  const _$_ActorTypeaheadData({required final List<Actor> actors})
       : _actors = actors;
 
   factory _$_ActorTypeaheadData.fromJson(Map<String, dynamic> json) =>
@@ -107,7 +105,6 @@ class _$_ActorTypeaheadData implements _ActorTypeaheadData {
 
   final List<Actor> _actors;
   @override
-  @JsonKey(name: 'users')
   List<Actor> get actors {
     if (_actors is EqualUnmodifiableListView) return _actors;
     // ignore: implicit_dynamic_type
@@ -148,15 +145,13 @@ class _$_ActorTypeaheadData implements _ActorTypeaheadData {
 }
 
 abstract class _ActorTypeaheadData implements ActorTypeaheadData {
-  const factory _ActorTypeaheadData(
-          {@JsonKey(name: 'users') required final List<Actor> actors}) =
+  const factory _ActorTypeaheadData({required final List<Actor> actors}) =
       _$_ActorTypeaheadData;
 
   factory _ActorTypeaheadData.fromJson(Map<String, dynamic> json) =
       _$_ActorTypeaheadData.fromJson;
 
   @override
-  @JsonKey(name: 'users')
   List<Actor> get actors;
   @override
   @JsonKey(ignore: true)
