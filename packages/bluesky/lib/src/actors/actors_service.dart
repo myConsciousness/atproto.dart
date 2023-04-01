@@ -120,12 +120,12 @@ abstract class ActorsService {
   ///
   /// ## Lexicon
   ///
-  /// - app.bsky.actor.searchTypeahead
+  /// - app.bsky.actor.searchActorsTypeahead
   ///
   /// ## Reference
   ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/searchTypeahead.json
-  Future<core.XRPCResponse<ActorTypeaheadData>> searchActorTypeahead({
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/searchActorsTypeahead.json
+  Future<core.XRPCResponse<ActorTypeaheadData>> searchActorsTypeahead({
     required String term,
     int? limit,
   });
@@ -196,7 +196,7 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
       );
 
   @override
-  Future<core.XRPCResponse<ActorTypeaheadData>> searchActorTypeahead({
+  Future<core.XRPCResponse<ActorTypeaheadData>> searchActorsTypeahead({
     required String term,
     int? limit,
   }) async =>
