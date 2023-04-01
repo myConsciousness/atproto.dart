@@ -299,7 +299,7 @@ void main() {
         ),
       );
 
-      final response = await actors.searchActorTypeahead(
+      final response = await actors.searchActorsTypeahead(
         term: 'test',
         limit: 10,
       );
@@ -323,7 +323,7 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await actors.searchActorTypeahead(
+        () async => await actors.searchActorsTypeahead(
           term: 'test',
           limit: 10,
         ),
@@ -345,7 +345,7 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await actors.searchActorTypeahead(
+        () async => await actors.searchActorsTypeahead(
           term: 'test',
           limit: 10,
         ),
