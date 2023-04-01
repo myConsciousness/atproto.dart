@@ -9,8 +9,8 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../bluesky_base_service.dart';
 import '../entities/actor_profile.dart';
 import '../entities/actor_profiles_data.dart';
-import '../entities/actor_typeahead_data.dart';
 import '../entities/actors_data.dart';
+import '../entities/actors_typeahead_data.dart';
 
 abstract class ActorsService {
   /// Returns the new instance of [ActorsService].
@@ -124,7 +124,7 @@ abstract class ActorsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/searchActorsTypeahead.json
-  Future<core.XRPCResponse<ActorTypeaheadData>> searchActorTypeahead({
+  Future<core.XRPCResponse<ActorsTypeaheadData>> searchActorsTypeahead({
     required String term,
     int? limit,
   });
@@ -195,7 +195,7 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
       );
 
   @override
-  Future<core.XRPCResponse<ActorTypeaheadData>> searchActorTypeahead({
+  Future<core.XRPCResponse<ActorsTypeaheadData>> searchActorsTypeahead({
     required String term,
     int? limit,
   }) async =>
@@ -205,6 +205,6 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
           'term': term,
           'limit': limit,
         },
-        to: ActorTypeaheadData.fromJson,
+        to: ActorsTypeaheadData.fromJson,
       );
 }
