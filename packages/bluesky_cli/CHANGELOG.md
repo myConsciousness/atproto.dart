@@ -1,5 +1,11 @@
 # Release Note
 
+## v0.0.5
+
+- Merged official refactoring. ([#52](https://github.com/myConsciousness/atproto.dart/issues/52))
+  - Renamed global option from `handle` to `identifier`
+  - Renamed environment variable from `BLUESKY_HANDLE` to `BLUESKY_IDENTIFIER`
+
 ## v0.0.4
 
 - Supported the option to prettify JSON. ([#193](https://github.com/myConsciousness/atproto.dart/issues/193))

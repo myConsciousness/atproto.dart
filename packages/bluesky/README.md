@@ -158,7 +158,7 @@ Future<void> main() async {
 Future<bsky.Session> get _session async {
   final session = await bsky.createSession(
     service: 'SERVICE_NAME', //! The default is `bsky.social`
-    handle: 'YOUR_HANDLE', //! Like `shinyakato.bsky.social`
+    identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
     password: 'YOUR_PASSWORD',
   );
 
@@ -248,7 +248,7 @@ import 'package:bluesky/bluesky.dart' as bsky;
 Future<void> main() async {
   final session = await bsky.createSession(
     service: 'SERVICE_NAME', //! The default is `bsky.social`
-    handle: 'YOUR_HANDLE', //! Like `shinyakato.bsky.social`
+    identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
     password: 'YOUR_PASSWORD',
   );
 
@@ -256,7 +256,8 @@ Future<void> main() async {
 }
 ```
 
-Once you have established a session, you can now create an instance of the `Bluesky` object. You can easily create an instance of a `Bluesky` object from a previously established `Session` object.
+Once you have established a session, you can now create an instance of the `Bluesky` object.
+You can easily create an instance of a `Bluesky` object from a previously established `Session` object.
 
 ```dart
 import 'package:bluesky/bluesky.dart' as bsky;
@@ -264,7 +265,7 @@ import 'package:bluesky/bluesky.dart' as bsky;
 Future<void> main() async {
   final session = await bsky.createSession(
     service: 'SERVICE_NAME', //! The default is `bsky.social`
-    handle: 'YOUR_HANDLE', //! Like `shinyakato.bsky.social`
+    identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
     password: 'YOUR_PASSWORD',
   );
 
@@ -282,7 +283,7 @@ import 'package:bluesky/bluesky.dart' as bsky;
 Future<void> main() async {
   final session = await bsky.createSession(
     service: 'SERVICE_NAME', //! The default is `bsky.social`
-    handle: 'YOUR_HANDLE', //! Like `shinyakato.bsky.social`
+    identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
     password: 'YOUR_PASSWORD',
   );
 
@@ -318,7 +319,7 @@ Future<void> main() async {
 
 Future<bsky.Session> get _session async {
   final session = await bsky.createSession(
-    handle: 'YOUR_HANDLE',
+    identifier: 'YOUR_HANDLE_OR_EMAIL',
     password: 'YOUR_PASSWORD',
   );
 

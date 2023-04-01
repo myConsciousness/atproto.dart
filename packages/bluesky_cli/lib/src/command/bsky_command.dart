@@ -24,7 +24,7 @@ abstract class BskyCommand extends Command<void> {
 
   /// The authentication.
   late final _auth = Authentication(
-    globalResults!['handle'],
+    globalResults!['identifier'],
     globalResults!['password'],
   );
 
@@ -55,12 +55,12 @@ abstract class BskyCommand extends Command<void> {
   Future<Map<String, dynamic>> _createSession() async {
     final response = await xrpc.procedure<String>(
       xrpc.NSID.create(
-        'session.atproto.com',
-        'create',
+        'server.atproto.com',
+        'createSession',
       ),
       service: service,
       body: {
-        'handle': _auth.handle,
+        'identifier': _auth.identifier,
         'password': _auth.password,
       },
     );

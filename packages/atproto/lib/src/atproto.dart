@@ -10,7 +10,7 @@ import 'entities/session.dart';
 import 'identities/identities_service.dart';
 import 'moderation/moderation_service.dart';
 import 'repositories/repositories_service.dart';
-import 'sessions/sessions_service.dart';
+import 'servers/servers_service.dart';
 
 abstract class ATProto {
   /// Returns the new instance of [ATProto].
@@ -48,8 +48,8 @@ abstract class ATProto {
         retryConfig: retryConfig,
       );
 
-  /// Returns the sessions service.
-  SessionsService get sessions;
+  /// Returns the servers service.
+  ServersService get servers;
 
   /// Returns the identities service.
   IdentitiesService get identities;
@@ -86,7 +86,7 @@ class _ATProto implements ATProto {
   final ATProtoService _service;
 
   @override
-  SessionsService get sessions => _service.sessions;
+  ServersService get servers => _service.servers;
 
   @override
   IdentitiesService get identities => _service.identities;

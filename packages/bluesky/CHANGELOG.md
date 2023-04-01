@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.2
+
+- Merged official refactoring. ([#52](https://github.com/myConsciousness/atproto.dart/issues/52))
+
 ## v0.3.1
 
 - Removed `ActorDeclaration`. ([#199](https://github.com/myConsciousness/atproto.dart/issues/199))

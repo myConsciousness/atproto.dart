@@ -37,7 +37,7 @@
     - [1.2.2. Import](#122-import)
     - [1.2.3. Implementation](#123-implementation)
   - [1.3. Supported Lexicons 👀](#13-supported-lexicons-)
-    - [1.3.1. Session](#131-session)
+    - [1.3.1. Servers](#131-servers)
     - [1.3.2. Identity](#132-identity)
     - [1.3.3. Repository](#133-repository)
     - [1.3.4. Moderation](#134-moderation)
@@ -106,7 +106,7 @@ Future<void> main() async {
     //! First you need to establish session with ATP server.
     final session = await atp.createSession(
       service: 'SERVICE_NAME', //! The default is `bsky.social`
-      handle: 'YOUR_HANDLE', //! Like `shinyakato.bsky.social`
+      identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
       password: 'YOUR_PASSWORD',
     );
 
@@ -163,20 +163,20 @@ Future<void> main() async {
 
 ## 1.3. Supported Lexicons 👀
 
-### 1.3.1. Session
+### 1.3.1. Servers
 
-| **Lexicon**                                                                                                                       | **Method Name**                                                                                                    |
-| --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| [POST com.atproto.session.create](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/session/create.json)   | [createSession](https://pub.dev/documentation/atproto/latest/atproto/createSession.html)                           |
-| [POST com.atproto.session.refresh](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/session/refresh.json) | [refreshSession](https://pub.dev/documentation/atproto/latest/atproto/SessionsService/refreshSession.html)         |
-| [GET com.atproto.session.get](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/session/get.json)          | [findCurrentSession](https://pub.dev/documentation/atproto/latest/atproto/SessionsService/findCurrentSession.html) |
+| **Lexicon**                                                                                                                                   | **Method Name**                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| [POST com.atproto.server.createSession](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createSession.json)   | [createSession](https://pub.dev/documentation/atproto/latest/atproto/createSession.html)                          |
+| [POST com.atproto.server.refreshSession](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/refreshSession.json) | [refreshSession](https://pub.dev/documentation/atproto/latest/atproto/ServersService/refreshSession.html)         |
+| [GET com.atproto.server.getSession](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/getSession.json)          | [findCurrentSession](https://pub.dev/documentation/atproto/latest/atproto/ServersService/findCurrentSession.html) |
 
 ### 1.3.2. Identity
 
-| **Lexicon**                                                                                                                    | **Method Name**                                                                                          |
-| ------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
-| [GET com.atproto.handle.resolve](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/handle/resolve.json) | [findDID](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService/findDID.html)           |
-| [POST com.atproto.handle.update](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/handle/update.json)  | [updateHandle](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService/updateHandle.html) |
+| **Lexicon**                                                                                                                                    | **Method Name**                                                                                          |
+| ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| [GET com.atproto.identity.resolveHandle](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/identity/resolveHandle.json) | [findDID](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService/findDID.html)           |
+| [POST com.atproto.identity.updateHandle](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/identity/updateHandle.json)  | [updateHandle](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService/updateHandle.html) |
 
 ### 1.3.3. Repository
 
@@ -187,9 +187,9 @@ Future<void> main() async {
 
 ### 1.3.4. Moderation
 
-| **Lexicon**                                                                                                                   | **Method Name**                                                                                          |
-| ----------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| [POST com.atproto.report.create](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/report/create.json) | [createReport](https://pub.dev/documentation/atproto/latest/atproto/ModerationService/createReport.html) |
+| **Lexicon**                                                                                                                                       | **Method Name**                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| [POST com.atproto.moderation.createReport](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/moderation/createReport.json) | [createReport](https://pub.dev/documentation/atproto/latest/atproto/ModerationService/createReport.html) |
 
 ## 1.4. Tips 🏄
 

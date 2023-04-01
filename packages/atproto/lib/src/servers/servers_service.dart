@@ -19,33 +19,33 @@ import '../entities/session.dart';
 ///
 /// ## Lexicon
 ///
-/// - com.atproto.session.create
+/// - com.atproto.server.createSession
 ///
 /// ## Reference
 ///
-/// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/session/create.json
+/// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createSession.json
 Future<core.XRPCResponse<Session>> createSession({
   String service = 'bsky.social',
-  required String handle,
+  String? identifier,
   required String password,
   core.RetryConfig? retryConfig,
   final core.PostClient? mockedPostClient,
 }) async {
-  final session = _$SessionsService(
+  final session = _$ServersService(
     service: service,
     retryConfig: retryConfig,
     mockedPostClient: mockedPostClient,
   );
 
   return await session.createSession(
-    handle: handle,
+    identifier: identifier,
     password: password,
   );
 }
 
-class _$SessionsService extends ATProtoBaseService {
-  /// Returns the new instance of [_$SessionsService].
-  _$SessionsService({
+class _$ServersService extends ATProtoBaseService {
+  /// Returns the new instance of [_$ServersService].
+  _$ServersService({
     required super.service,
     core.RetryConfig? retryConfig,
     super.mockedPostClient,
@@ -56,18 +56,18 @@ class _$SessionsService extends ATProtoBaseService {
             timeout: Duration(seconds: 10),
             retryConfig: retryConfig,
           ),
-          methodAuthority: 'session.atproto.com',
+          methodAuthority: 'server.atproto.com',
         );
 
   Future<core.XRPCResponse<Session>> createSession({
     String service = 'bsky.social',
-    required String handle,
+    String? identifier,
     required String password,
   }) async =>
       await super.post(
-        'create',
+        'createSession',
         body: {
-          'handle': handle,
+          'identifier': identifier,
           'password': password,
         },
         to: Session.fromJson,
@@ -75,16 +75,16 @@ class _$SessionsService extends ATProtoBaseService {
       );
 }
 
-abstract class SessionsService {
-  /// Returns the new instance of [SessionsService].
-  factory SessionsService({
+abstract class ServersService {
+  /// Returns the new instance of [ServersService].
+  factory ServersService({
     required String did,
     required String service,
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) =>
-      _SessionsService(
+      _ServersService(
         did: did,
         service: service,
         context: context,
@@ -96,11 +96,11 @@ abstract class SessionsService {
   ///
   /// ## Lexicon
   ///
-  /// - com.atproto.session.get
+  /// - com.atproto.server.getSession
   ///
   /// ## Reference
   ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/session/get.json
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/getSession.json
   Future<core.XRPCResponse<CurrentSession>> findCurrentSession();
 
   /// Refresh an authentication session.
@@ -111,30 +111,30 @@ abstract class SessionsService {
   ///
   /// ## Lexicon
   ///
-  /// - com.atproto.session.refresh
+  /// - com.atproto.server.refreshSession
   ///
   /// ## Reference
   ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/session/refresh.json
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/refreshSession.json
   Future<core.XRPCResponse<Session>> refreshSession({
     required String refreshJwt,
   });
 }
 
-class _SessionsService extends ATProtoBaseService implements SessionsService {
-  /// Returns the new instance of [_SessionsService].
-  _SessionsService({
+class _ServersService extends ATProtoBaseService implements ServersService {
+  /// Returns the new instance of [_ServersService].
+  _ServersService({
     required super.did,
     required super.service,
     required super.context,
     super.mockedGetClient,
     super.mockedPostClient,
-  }) : super(methodAuthority: 'session.atproto.com');
+  }) : super(methodAuthority: 'server.atproto.com');
 
   @override
   Future<core.XRPCResponse<CurrentSession>> findCurrentSession() async =>
       await super.get(
-        'get',
+        'getSession',
         to: CurrentSession.fromJson,
       );
 
@@ -143,7 +143,7 @@ class _SessionsService extends ATProtoBaseService implements SessionsService {
     required String refreshJwt,
   }) async =>
       await super.post(
-        'refresh',
+        'refreshSession',
         headers: {
           'Authorization': 'Bearer $refreshJwt',
         },

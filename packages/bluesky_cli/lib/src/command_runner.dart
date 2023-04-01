@@ -31,9 +31,9 @@ class BskyCommandRunner extends CommandRunner<void> {
         ) {
     argParser
       ..addOption(
-        'handle',
-        help: 'Bluesky handle for authentication.',
-        defaultsTo: Platform.environment['BLUESKY_HANDLE'],
+        'identifier',
+        help: 'Handle or email address for authentication.',
+        defaultsTo: Platform.environment['BLUESKY_IDENTIFIER'],
       )
       ..addOption(
         'password',

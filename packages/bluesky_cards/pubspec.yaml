@@ -1,6 +1,6 @@
 name: bluesky_cards
 description: Provide widgets to render Bluesky Social post content beautifully in Flutter app.
-version: 0.0.1
+version: 0.0.2
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_cards
 issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
 funding:
@@ -12,7 +12,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  bluesky: ^0.3.1
+  bluesky: ^0.3.2
   cached_network_image: ^3.2.3
   html_unescape: ^2.0.0
   url_launcher: ^6.1.10
