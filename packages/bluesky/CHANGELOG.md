@@ -3,6 +3,11 @@
 ## v0.3.2
 
 - Merged official refactoring. ([#52](https://github.com/myConsciousness/atproto.dart/issues/52))
+  - Removed `deletePost`, `deleteLike`, `deleteRepost`, `deleteFollow`. Use `RepositoriesService.deleteRecord` instead
+  - Renamed from `findHomeTimeline` to `findTimeline`
+  - Renamed from `findActorTypeahead` to `findTypeahead`
+  - Renamed from `findFeeds` to `findAuthoredBy`
+  - Renamed all `users` to `actors`
 
 ## v0.3.1
 
