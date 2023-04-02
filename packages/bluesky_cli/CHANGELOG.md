@@ -5,6 +5,8 @@
 - Merged official refactoring. ([#52](https://github.com/myConsciousness/atproto.dart/issues/52))
   - Renamed global option from `handle` to `identifier`
   - Renamed environment variable from `BLUESKY_HANDLE` to `BLUESKY_IDENTIFIER`
+  - Renamed command from `actor-suggestions` to `suggestions`
+  - Renamed command from `actor-typeahead` to `actors-typeahead`
 
 ## v0.0.4
 

@@ -7,9 +7,9 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 import '../query_command.dart';
 
 /// The command for `app.bsky.actor.getSuggestions`.
-class ActorSuggestionsCommand extends QueryCommand {
-  /// Returns the new instance of [ActorSuggestionsCommand].
-  ActorSuggestionsCommand() {
+class SuggestionsCommand extends QueryCommand {
+  /// Returns the new instance of [SuggestionsCommand].
+  SuggestionsCommand() {
     argParser
       ..addOption(
         'limit',
@@ -24,13 +24,13 @@ class ActorSuggestionsCommand extends QueryCommand {
   }
 
   @override
-  final String name = 'actor-suggestions';
+  final String name = 'suggestions';
 
   @override
   final String description = 'Show the actor suggestions.';
 
   @override
-  final String invocation = 'bsky actor-suggestions [limit] [cursor]';
+  final String invocation = 'bsky suggestions [limit] [cursor]';
 
   @override
   xrpc.NSID get methodId => xrpc.NSID.create(

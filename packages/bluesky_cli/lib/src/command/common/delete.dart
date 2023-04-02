@@ -12,7 +12,7 @@ class DeleteCommand extends DeleteRecordCommand {
   DeleteCommand() {
     argParser.addOption(
       'uri',
-      help: 'AT Uri of the content to be deleted.',
+      help: 'AT Uri of the contents to be deleted.',
       defaultsTo: '',
     );
   }
@@ -21,7 +21,7 @@ class DeleteCommand extends DeleteRecordCommand {
   String get name => 'delete';
 
   @override
-  String get description => 'Delete a specific content from repository.';
+  String get description => 'Delete a specific contents from repository.';
 
   @override
   final String invocation = 'bsky delete [uri]';

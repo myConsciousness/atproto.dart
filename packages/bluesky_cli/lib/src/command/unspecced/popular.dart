@@ -27,7 +27,7 @@ class PopularCommand extends QueryCommand {
   final String name = 'popular';
 
   @override
-  final String description = 'Show the popular content.';
+  final String description = 'Show the popular contents.';
 
   @override
   final String invocation = 'bsky popular [limit] [cursor]';

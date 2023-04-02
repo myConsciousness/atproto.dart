@@ -81,9 +81,8 @@ Global options:
     --verbose     Enable verbose logging.
 
 Available commands:
-  actor-suggestions    Show the actor suggestions.
-  actor-typeahead      Show the typeahead for actors.
-  delete               Delete a specific content from repository.
+  actors-typeahead     Show the typeahead for actors.
+  delete               Delete a specific contents from repository.
   feed                 Show the feed of specific actor.
   follow               Follow an user.
   followers            Show the followers.
@@ -94,7 +93,7 @@ Available commands:
   mutes                Show the muted users.
   notification-count   Show the count of notification of authenticated user.
   notifications        Show the notifications of authenticated user.
-  popular              Show the popular content.
+  popular              Show the popular contents.
   post                 Post to Bluesky Social.
   profile              Show the profile of specific user.
   profiles             Show the profiles of specific users.
@@ -102,6 +101,7 @@ Available commands:
   reposted-by          Show the actors reposted specific post.
   search-actors        Search the actors based on term.
   seen-notifications   Update all notifications to read.
+  suggestions          Show the actor suggestions.
   thread               Show the thread of specific post.
   timeline             Show the timeline of authenticated user.
   unmute               Unmute an user.

@@ -2,11 +2,11 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'actor/actor_suggestions.dart';
-import 'actor/actor_typeahead.dart';
+import 'actor/actors_typeahead.dart';
 import 'actor/profile.dart';
 import 'actor/profiles.dart';
 import 'actor/search_actors.dart';
+import 'actor/suggestions.dart';
 import 'bsky_command.dart';
 import 'common/delete.dart';
 import 'feed/feed.dart';
@@ -36,8 +36,8 @@ final actorCommands = <BskyCommand>[
   SearchActorsCommand(),
   ProfileCommand(),
   ProfilesCommand(),
-  ActorSuggestionsCommand(),
-  ActorTypeaheadCommand(),
+  SuggestionsCommand(),
+  ActorsTypeaheadCommand(),
 ];
 
 final feedCommands = <BskyCommand>[

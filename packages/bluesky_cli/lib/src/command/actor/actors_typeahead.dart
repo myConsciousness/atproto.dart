@@ -6,10 +6,10 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 
 import '../query_command.dart';
 
-/// The command for `app.bsky.actor.searchTypeahead`.
-class ActorTypeaheadCommand extends QueryCommand {
-  /// Returns the new instance of [ActorTypeaheadCommand].
-  ActorTypeaheadCommand() {
+/// The command for `app.bsky.actor.searchActorsTypeahead`.
+class ActorsTypeaheadCommand extends QueryCommand {
+  /// Returns the new instance of [ActorsTypeaheadCommand].
+  ActorsTypeaheadCommand() {
     argParser
       ..addOption(
         'term',
@@ -24,13 +24,13 @@ class ActorTypeaheadCommand extends QueryCommand {
   }
 
   @override
-  final String name = 'actor-typeahead';
+  final String name = 'actors-typeahead';
 
   @override
   final String description = 'Show the typeahead for actors.';
 
   @override
-  final String invocation = 'bsky actor-typeahead [term] [limit]';
+  final String invocation = 'bsky actors-typeahead [term] [limit]';
 
   @override
   xrpc.NSID get methodId => xrpc.NSID.create(
