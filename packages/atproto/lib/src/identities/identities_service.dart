@@ -69,7 +69,7 @@ class _IdentitiesService extends ATProtoBaseService
     required super.context,
     super.mockedGetClient,
     super.mockedPostClient,
-  }) : super(methodAuthority: 'handle.atproto.com');
+  }) : super(methodAuthority: 'identity.atproto.com');
 
   @override
   Future<core.XRPCResponse<DID>> findDID({

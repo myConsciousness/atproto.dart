@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.3
+
+- Fixed lexicon method id from `com.atproto.handle` to `com.atproto.identity`.
+
 ## v0.2.2
 
 - Merged official refactoring. ([#52](https://github.com/myConsciousness/atproto.dart/issues/52))
