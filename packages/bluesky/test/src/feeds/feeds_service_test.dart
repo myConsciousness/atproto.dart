@@ -335,7 +335,7 @@ void main() {
         ),
       );
 
-      final response = await feeds.findAuthoredBy(
+      final response = await feeds.findFeed(
         actor: 'shinyakato.dev',
         limit: 10,
         cursor: '1234',
@@ -360,7 +360,7 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await feeds.findAuthoredBy(
+        () async => await feeds.findFeed(
           actor: 'shinyakato.dev',
           limit: 10,
           cursor: '1234',
@@ -383,7 +383,7 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await feeds.findAuthoredBy(
+        () async => await feeds.findFeed(
           actor: 'shinyakato.dev',
           limit: 10,
           cursor: '1234',

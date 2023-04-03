@@ -135,7 +135,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getAuthorFeed.json
-  Future<core.XRPCResponse<FeedData>> findAuthoredBy({
+  Future<core.XRPCResponse<FeedData>> findFeed({
     required String actor,
     int? limit,
     String? cursor,
@@ -290,7 +290,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<FeedData>> findAuthoredBy({
+  Future<core.XRPCResponse<FeedData>> findFeed({
     required String actor,
     int? limit,
     String? cursor,
