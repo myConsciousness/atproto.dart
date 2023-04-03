@@ -14,7 +14,7 @@ class LikesCommand extends QueryCommand {
     argParser
       ..addOption(
         'uri',
-        help: 'AT Uri of the post to be liked.',
+        help: 'AT Uri of the liked post.',
         defaultsTo: '',
       )
       ..addOption(
