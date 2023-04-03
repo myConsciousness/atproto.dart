@@ -31,11 +31,12 @@ class Notification with _$Notification {
 }
 
 enum NotificationReason {
-  vote,
+  like,
   assertion,
   repost,
   follow,
   invite,
   mention,
   reply,
+  quote,
 }

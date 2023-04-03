@@ -27,7 +27,6 @@ mixin _$Post {
   String get cid => throw _privateConstructorUsedError;
   int get replyCount => throw _privateConstructorUsedError;
   int get repostCount => throw _privateConstructorUsedError;
-  @JsonKey(name: 'upvoteCount')
   int get likeCount => throw _privateConstructorUsedError;
   PostViewer get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
@@ -49,7 +48,7 @@ abstract class $PostCopyWith<$Res> {
       String cid,
       int replyCount,
       int repostCount,
-      @JsonKey(name: 'upvoteCount') int likeCount,
+      int likeCount,
       PostViewer viewer,
       DateTime indexedAt});
 
@@ -159,7 +158,7 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       String cid,
       int replyCount,
       int repostCount,
-      @JsonKey(name: 'upvoteCount') int likeCount,
+      int likeCount,
       PostViewer viewer,
       DateTime indexedAt});
 
@@ -241,7 +240,7 @@ class _$_Post implements _Post {
       required this.cid,
       required this.replyCount,
       required this.repostCount,
-      @JsonKey(name: 'upvoteCount') required this.likeCount,
+      required this.likeCount,
       required this.viewer,
       required this.indexedAt});
 
@@ -261,7 +260,6 @@ class _$_Post implements _Post {
   @override
   final int repostCount;
   @override
-  @JsonKey(name: 'upvoteCount')
   final int likeCount;
   @override
   final PostViewer viewer;
@@ -320,7 +318,7 @@ abstract class _Post implements Post {
       required final String cid,
       required final int replyCount,
       required final int repostCount,
-      @JsonKey(name: 'upvoteCount') required final int likeCount,
+      required final int likeCount,
       required final PostViewer viewer,
       required final DateTime indexedAt}) = _$_Post;
 
@@ -340,7 +338,6 @@ abstract class _Post implements Post {
   @override
   int get repostCount;
   @override
-  @JsonKey(name: 'upvoteCount')
   int get likeCount;
   @override
   PostViewer get viewer;

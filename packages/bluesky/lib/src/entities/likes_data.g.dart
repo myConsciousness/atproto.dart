@@ -14,7 +14,7 @@ _$_LikesData _$$_LikesDataFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$_LikesData(
           likes: $checkedConvert(
-              'votes',
+              'likes',
               (v) => (v as List<dynamic>)
                   .map(
                       (e) => Like.fromJson(Map<String, Object?>.from(e as Map)))
@@ -25,12 +25,11 @@ _$_LikesData _$$_LikesDataFromJson(Map json) => $checkedCreate(
         );
         return val;
       },
-      fieldKeyMap: const {'likes': 'votes'},
     );
 
 Map<String, dynamic> _$$_LikesDataToJson(_$_LikesData instance) =>
     <String, dynamic>{
-      'votes': instance.likes.map((e) => e.toJson()).toList(),
+      'likes': instance.likes.map((e) => e.toJson()).toList(),
       'uri': const AtUriConverter().toJson(instance.uri),
       'cursor': instance.cursor,
     };

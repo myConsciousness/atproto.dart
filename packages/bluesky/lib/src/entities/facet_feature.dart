@@ -7,18 +7,18 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import 'embed_record.dart';
-
-part 'embed.freezed.dart';
-part 'embed.g.dart';
+part 'facet_feature.freezed.dart';
+part 'facet_feature.g.dart';
 
 @freezed
-class Embed with _$Embed {
-  const factory Embed({
+class FacetFeature with _$FacetFeature {
+  @JsonSerializable(includeIfNull: false)
+  const factory FacetFeature({
     @JsonKey(name: '\$type') required String type,
-    required EmbedRecord record,
-  }) = _Embed;
+    String? uri,
+    String? did,
+  }) = _FacetFeature;
 
-  factory Embed.fromJson(Map<String, Object?> json) => _$EmbedFromJson(json);
+  factory FacetFeature.fromJson(Map<String, Object?> json) =>
+      _$FacetFeatureFromJson(json);
 }

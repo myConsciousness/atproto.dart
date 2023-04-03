@@ -13,14 +13,14 @@ _$_Index _$$_IndexFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_Index(
-          start: $checkedConvert('start', (v) => v as int),
-          end: $checkedConvert('end', (v) => v as int),
+          byteStart: $checkedConvert('byteStart', (v) => v as int),
+          byteEnd: $checkedConvert('byteEnd', (v) => v as int),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$$_IndexToJson(_$_Index instance) => <String, dynamic>{
-      'start': instance.start,
-      'end': instance.end,
+      'byteStart': instance.byteStart,
+      'byteEnd': instance.byteEnd,
     };

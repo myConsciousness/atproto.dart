@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.1.0
+
+- Fixed `follow` command.
+
 ## v0.0.5
 
 - Merged official refactoring. ([#52](https://github.com/myConsciousness/atproto.dart/issues/52))

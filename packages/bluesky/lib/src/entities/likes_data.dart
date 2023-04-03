@@ -16,7 +16,7 @@ part 'likes_data.g.dart';
 @freezed
 class LikesData with _$LikesData {
   const factory LikesData({
-    @JsonKey(name: 'votes') required List<Like> likes,
+    required List<Like> likes,
     @AtUriConverter() required AtUri uri,
     required String cursor,
   }) = _LikesData;

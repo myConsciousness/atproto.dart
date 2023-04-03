@@ -20,7 +20,6 @@ LikesData _$LikesDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LikesData {
-  @JsonKey(name: 'votes')
   List<Like> get likes => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
@@ -37,10 +36,7 @@ abstract class $LikesDataCopyWith<$Res> {
   factory $LikesDataCopyWith(LikesData value, $Res Function(LikesData) then) =
       _$LikesDataCopyWithImpl<$Res, LikesData>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'votes') List<Like> likes,
-      @AtUriConverter() AtUri uri,
-      String cursor});
+  $Res call({List<Like> likes, @AtUriConverter() AtUri uri, String cursor});
 }
 
 /// @nodoc
@@ -84,10 +80,7 @@ abstract class _$$_LikesDataCopyWith<$Res> implements $LikesDataCopyWith<$Res> {
       __$$_LikesDataCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'votes') List<Like> likes,
-      @AtUriConverter() AtUri uri,
-      String cursor});
+  $Res call({List<Like> likes, @AtUriConverter() AtUri uri, String cursor});
 }
 
 /// @nodoc
@@ -126,7 +119,7 @@ class __$$_LikesDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_LikesData implements _LikesData {
   const _$_LikesData(
-      {@JsonKey(name: 'votes') required final List<Like> likes,
+      {required final List<Like> likes,
       @AtUriConverter() required this.uri,
       required this.cursor})
       : _likes = likes;
@@ -136,7 +129,6 @@ class _$_LikesData implements _LikesData {
 
   final List<Like> _likes;
   @override
-  @JsonKey(name: 'votes')
   List<Like> get likes {
     if (_likes is EqualUnmodifiableListView) return _likes;
     // ignore: implicit_dynamic_type
@@ -185,7 +177,7 @@ class _$_LikesData implements _LikesData {
 
 abstract class _LikesData implements LikesData {
   const factory _LikesData(
-      {@JsonKey(name: 'votes') required final List<Like> likes,
+      {required final List<Like> likes,
       @AtUriConverter() required final AtUri uri,
       required final String cursor}) = _$_LikesData;
 
@@ -193,7 +185,6 @@ abstract class _LikesData implements LikesData {
       _$_LikesData.fromJson;
 
   @override
-  @JsonKey(name: 'votes')
   List<Like> get likes;
   @override
   @AtUriConverter()

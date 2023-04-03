@@ -24,8 +24,7 @@ mixin _$PostRecord {
   String get type => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
   PostRef? get reply => throw _privateConstructorUsedError;
-  List<Entity>? get entities => throw _privateConstructorUsedError;
-  EmbedContents? get embed => throw _privateConstructorUsedError;
+  List<Facet>? get facets => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,12 +43,10 @@ abstract class $PostRecordCopyWith<$Res> {
       {@JsonKey(name: '\$type') String type,
       String text,
       PostRef? reply,
-      List<Entity>? entities,
-      EmbedContents? embed,
+      List<Facet>? facets,
       DateTime createdAt});
 
   $PostRefCopyWith<$Res>? get reply;
-  $EmbedContentsCopyWith<$Res>? get embed;
 }
 
 /// @nodoc
@@ -68,8 +65,7 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
     Object? type = null,
     Object? text = null,
     Object? reply = freezed,
-    Object? entities = freezed,
-    Object? embed = freezed,
+    Object? facets = freezed,
     Object? createdAt = null,
   }) {
     return _then(_value.copyWith(
@@ -85,14 +81,10 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
           ? _value.reply
           : reply // ignore: cast_nullable_to_non_nullable
               as PostRef?,
-      entities: freezed == entities
-          ? _value.entities
-          : entities // ignore: cast_nullable_to_non_nullable
-              as List<Entity>?,
-      embed: freezed == embed
-          ? _value.embed
-          : embed // ignore: cast_nullable_to_non_nullable
-              as EmbedContents?,
+      facets: freezed == facets
+          ? _value.facets
+          : facets // ignore: cast_nullable_to_non_nullable
+              as List<Facet>?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -111,18 +103,6 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
       return _then(_value.copyWith(reply: value) as $Val);
     });
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $EmbedContentsCopyWith<$Res>? get embed {
-    if (_value.embed == null) {
-      return null;
-    }
-
-    return $EmbedContentsCopyWith<$Res>(_value.embed!, (value) {
-      return _then(_value.copyWith(embed: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -137,14 +117,11 @@ abstract class _$$_PostRecordCopyWith<$Res>
       {@JsonKey(name: '\$type') String type,
       String text,
       PostRef? reply,
-      List<Entity>? entities,
-      EmbedContents? embed,
+      List<Facet>? facets,
       DateTime createdAt});
 
   @override
   $PostRefCopyWith<$Res>? get reply;
-  @override
-  $EmbedContentsCopyWith<$Res>? get embed;
 }
 
 /// @nodoc
@@ -161,8 +138,7 @@ class __$$_PostRecordCopyWithImpl<$Res>
     Object? type = null,
     Object? text = null,
     Object? reply = freezed,
-    Object? entities = freezed,
-    Object? embed = freezed,
+    Object? facets = freezed,
     Object? createdAt = null,
   }) {
     return _then(_$_PostRecord(
@@ -178,14 +154,10 @@ class __$$_PostRecordCopyWithImpl<$Res>
           ? _value.reply
           : reply // ignore: cast_nullable_to_non_nullable
               as PostRef?,
-      entities: freezed == entities
-          ? _value._entities
-          : entities // ignore: cast_nullable_to_non_nullable
-              as List<Entity>?,
-      embed: freezed == embed
-          ? _value.embed
-          : embed // ignore: cast_nullable_to_non_nullable
-              as EmbedContents?,
+      facets: freezed == facets
+          ? _value._facets
+          : facets // ignore: cast_nullable_to_non_nullable
+              as List<Facet>?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -202,10 +174,9 @@ class _$_PostRecord implements _PostRecord {
       {@JsonKey(name: '\$type') required this.type,
       required this.text,
       this.reply,
-      final List<Entity>? entities,
-      this.embed,
+      final List<Facet>? facets,
       required this.createdAt})
-      : _entities = entities;
+      : _facets = facets;
 
   factory _$_PostRecord.fromJson(Map<String, dynamic> json) =>
       _$$_PostRecordFromJson(json);
@@ -217,24 +188,22 @@ class _$_PostRecord implements _PostRecord {
   final String text;
   @override
   final PostRef? reply;
-  final List<Entity>? _entities;
+  final List<Facet>? _facets;
   @override
-  List<Entity>? get entities {
-    final value = _entities;
+  List<Facet>? get facets {
+    final value = _facets;
     if (value == null) return null;
-    if (_entities is EqualUnmodifiableListView) return _entities;
+    if (_facets is EqualUnmodifiableListView) return _facets;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
   @override
-  final EmbedContents? embed;
-  @override
   final DateTime createdAt;
 
   @override
   String toString() {
-    return 'PostRecord(type: $type, text: $text, reply: $reply, entities: $entities, embed: $embed, createdAt: $createdAt)';
+    return 'PostRecord(type: $type, text: $text, reply: $reply, facets: $facets, createdAt: $createdAt)';
   }
 
   @override
@@ -245,8 +214,7 @@ class _$_PostRecord implements _PostRecord {
             (identical(other.type, type) || other.type == type) &&
             (identical(other.text, text) || other.text == text) &&
             (identical(other.reply, reply) || other.reply == reply) &&
-            const DeepCollectionEquality().equals(other._entities, _entities) &&
-            (identical(other.embed, embed) || other.embed == embed) &&
+            const DeepCollectionEquality().equals(other._facets, _facets) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
   }
@@ -254,7 +222,7 @@ class _$_PostRecord implements _PostRecord {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, type, text, reply,
-      const DeepCollectionEquality().hash(_entities), embed, createdAt);
+      const DeepCollectionEquality().hash(_facets), createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -275,8 +243,7 @@ abstract class _PostRecord implements PostRecord {
       {@JsonKey(name: '\$type') required final String type,
       required final String text,
       final PostRef? reply,
-      final List<Entity>? entities,
-      final EmbedContents? embed,
+      final List<Facet>? facets,
       required final DateTime createdAt}) = _$_PostRecord;
 
   factory _PostRecord.fromJson(Map<String, dynamic> json) =
@@ -290,9 +257,7 @@ abstract class _PostRecord implements PostRecord {
   @override
   PostRef? get reply;
   @override
-  List<Entity>? get entities;
-  @override
-  EmbedContents? get embed;
+  List<Facet>? get facets;
   @override
   DateTime get createdAt;
   @override

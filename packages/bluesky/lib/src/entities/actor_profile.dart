@@ -27,8 +27,6 @@ class ActorProfile with _$ActorProfile {
     required int followersCount,
     required int postsCount,
     required ActorViewer viewer,
-    required ActorViewer myState,
-    required String creator,
     required DateTime indexedAt,
   }) = _ActorProfile;
 

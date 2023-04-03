@@ -1,154 +1,62 @@
 {
   "thread": {
-    "$type": "app.bsky.feed.getPostThread#threadViewPost",
+    "$type": "app.bsky.feed.defs#threadViewPost",
     "post": {
-      "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jr6kpgpwn22t",
-      "cid": "bafyreihcwekhoyneazix7vivatqzg6dsowfx2xenidhvwa4rdg75qdbaeu",
+      "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jsgkrvc32k2y",
+      "cid": "bafyreifgygnnkmzom6w5kas7lbmstt2pemdrlskxfas273jp4w6xxhgria",
       "author": {
         "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
-        "declaration": {
-          "actorType": "app.bsky.system.actorUser",
-          "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
-        },
         "handle": "shinyakato.dev",
-        "displayName": "Shinya Kato 🫡",
+        "displayName": "Shinya Kato 🤯",
         "avatar": "https://cdn.bsky.social/imgproxy/JF97YphLyIEWfq4KJNO_ZCYm9v_zNcRj7sSB8UZrRBw/rs:fill:1000:1000:1:0/plain/bafkreidqn4z6ocv5snxuqguarboozqdusam2tehccnu23yab7g2sgv64dq@jpeg",
         "viewer": { "muted": false }
       },
       "record": {
-        "text": "Thread Test",
+        "text": "For testing",
         "$type": "app.bsky.feed.post",
-        "createdAt": "2023-03-18T03:19:52.037Z"
+        "createdAt": "2023-04-03T01:07:42.507853Z"
       },
       "replyCount": 1,
       "repostCount": 0,
-      "upvoteCount": 0,
-      "downvoteCount": 0,
-      "indexedAt": "2023-03-18T03:19:52.380Z",
+      "likeCount": 0,
+      "indexedAt": "2023-04-03T01:07:44.298Z",
       "viewer": {}
     },
     "replies": [
       {
-        "$type": "app.bsky.feed.getPostThread#threadViewPost",
+        "$type": "app.bsky.feed.defs#threadViewPost",
         "post": {
-          "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jr6kpkfcik2g",
-          "cid": "bafyreic3e4umruvwlfxzeumzfbblqh5expxomxkyjuzakf56lehgimneba",
+          "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jsgma5fzk22x",
+          "cid": "bafyreic7ii3b27bvssz245bxop5w5v72x7ldoo57y7ed36wdoi4nr6xmc4",
           "author": {
             "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
-            "declaration": {
-              "actorType": "app.bsky.system.actorUser",
-              "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
-            },
             "handle": "shinyakato.dev",
-            "displayName": "Shinya Kato 🫡",
+            "displayName": "Shinya Kato 🤯",
             "avatar": "https://cdn.bsky.social/imgproxy/JF97YphLyIEWfq4KJNO_ZCYm9v_zNcRj7sSB8UZrRBw/rs:fill:1000:1000:1:0/plain/bafkreidqn4z6ocv5snxuqguarboozqdusam2tehccnu23yab7g2sgv64dq@jpeg",
             "viewer": { "muted": false }
           },
           "record": {
-            "text": "Thread Test",
+            "text": "test thread",
             "$type": "app.bsky.feed.post",
             "reply": {
               "root": {
-                "cid": "bafyreihcwekhoyneazix7vivatqzg6dsowfx2xenidhvwa4rdg75qdbaeu",
-                "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jr6kpgpwn22t"
+                "cid": "bafyreifgygnnkmzom6w5kas7lbmstt2pemdrlskxfas273jp4w6xxhgria",
+                "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jsgkrvc32k2y"
               },
               "parent": {
-                "cid": "bafyreihcwekhoyneazix7vivatqzg6dsowfx2xenidhvwa4rdg75qdbaeu",
-                "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jr6kpgpwn22t"
+                "cid": "bafyreifgygnnkmzom6w5kas7lbmstt2pemdrlskxfas273jp4w6xxhgria",
+                "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jsgkrvc32k2y"
               }
             },
-            "createdAt": "2023-03-18T03:19:56.075Z"
+            "createdAt": "2023-04-03T01:33:35.455Z"
           },
-          "replyCount": 1,
+          "replyCount": 0,
           "repostCount": 0,
-          "upvoteCount": 0,
-          "downvoteCount": 0,
-          "indexedAt": "2023-03-18T03:19:56.226Z",
+          "likeCount": 0,
+          "indexedAt": "2023-04-03T01:33:36.320Z",
           "viewer": {}
         },
-        "replies": [
-          {
-            "$type": "app.bsky.feed.getPostThread#threadViewPost",
-            "post": {
-              "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jr6kr5qw7225",
-              "cid": "bafyreidfamclbdpkcmmydgmgycmdl6kazedw2hlxdrlb3bxye55peyjtj4",
-              "author": {
-                "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
-                "declaration": {
-                  "actorType": "app.bsky.system.actorUser",
-                  "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
-                },
-                "handle": "shinyakato.dev",
-                "displayName": "Shinya Kato 🫡",
-                "avatar": "https://cdn.bsky.social/imgproxy/JF97YphLyIEWfq4KJNO_ZCYm9v_zNcRj7sSB8UZrRBw/rs:fill:1000:1000:1:0/plain/bafkreidqn4z6ocv5snxuqguarboozqdusam2tehccnu23yab7g2sgv64dq@jpeg",
-                "viewer": { "muted": false }
-              },
-              "record": {
-                "text": "Depth Test",
-                "$type": "app.bsky.feed.post",
-                "reply": {
-                  "root": {
-                    "cid": "bafyreihcwekhoyneazix7vivatqzg6dsowfx2xenidhvwa4rdg75qdbaeu",
-                    "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jr6kpgpwn22t"
-                  },
-                  "parent": {
-                    "cid": "bafyreic3e4umruvwlfxzeumzfbblqh5expxomxkyjuzakf56lehgimneba",
-                    "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jr6kpkfcik2g"
-                  }
-                },
-                "createdAt": "2023-03-18T03:20:49.751Z"
-              },
-              "replyCount": 1,
-              "repostCount": 0,
-              "upvoteCount": 0,
-              "downvoteCount": 0,
-              "indexedAt": "2023-03-18T03:20:50.084Z",
-              "viewer": {}
-            },
-            "replies": [
-              {
-                "$type": "app.bsky.feed.getPostThread#threadViewPost",
-                "post": {
-                  "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jr6ksno5oc25",
-                  "cid": "bafyreig6ismbzsozkc2uuwqgcpy37cf2abmptky33untibdcugzct3i2ve",
-                  "author": {
-                    "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
-                    "declaration": {
-                      "actorType": "app.bsky.system.actorUser",
-                      "cid": "bafyreid27zk7lbis4zw5fz4podbvbs4fc5ivwji3dmrwa6zggnj4bnd57u"
-                    },
-                    "handle": "shinyakato.dev",
-                    "displayName": "Shinya Kato 🫡",
-                    "avatar": "https://cdn.bsky.social/imgproxy/JF97YphLyIEWfq4KJNO_ZCYm9v_zNcRj7sSB8UZrRBw/rs:fill:1000:1000:1:0/plain/bafkreidqn4z6ocv5snxuqguarboozqdusam2tehccnu23yab7g2sgv64dq@jpeg",
-                    "viewer": { "muted": false }
-                  },
-                  "record": {
-                    "text": "Depth Test",
-                    "$type": "app.bsky.feed.post",
-                    "reply": {
-                      "root": {
-                        "cid": "bafyreihcwekhoyneazix7vivatqzg6dsowfx2xenidhvwa4rdg75qdbaeu",
-                        "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jr6kpgpwn22t"
-                      },
-                      "parent": {
-                        "cid": "bafyreidfamclbdpkcmmydgmgycmdl6kazedw2hlxdrlb3bxye55peyjtj4",
-                        "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jr6kr5qw7225"
-                      }
-                    },
-                    "createdAt": "2023-03-18T03:21:39.992Z"
-                  },
-                  "replyCount": 0,
-                  "repostCount": 0,
-                  "upvoteCount": 0,
-                  "downvoteCount": 0,
-                  "indexedAt": "2023-03-18T03:21:40.325Z",
-                  "viewer": {}
-                },
-                "replies": []
-              }
-            ]
-          }
-        ]
+        "replies": []
       }
     ]
   }

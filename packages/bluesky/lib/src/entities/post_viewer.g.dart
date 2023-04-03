@@ -14,11 +14,10 @@ _$_PostViewer _$$_PostViewerFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$_PostViewer(
           repost: $checkedConvert('repost', (v) => v as String?),
-          like: $checkedConvert('upvote', (v) => v as String?),
+          like: $checkedConvert('like', (v) => v as String?),
         );
         return val;
       },
-      fieldKeyMap: const {'like': 'upvote'},
     );
 
 Map<String, dynamic> _$$_PostViewerToJson(_$_PostViewer instance) {
@@ -31,6 +30,6 @@ Map<String, dynamic> _$$_PostViewerToJson(_$_PostViewer instance) {
   }
 
   writeNotNull('repost', instance.repost);
-  writeNotNull('upvote', instance.like);
+  writeNotNull('like', instance.like);
   return val;
 }
