@@ -13,7 +13,7 @@ import '../entities/session.dart';
 ///
 /// ## Parameters
 ///
-/// - [handle]: Handle name in Bluesky Social.
+/// - [identifier]: Handle name or email in Bluesky Social.
 ///
 /// - [password]: Password for authentication.
 ///
