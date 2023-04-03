@@ -1,4 +1,6 @@
 dependency_overrides:
   bluesky:
     path: ../bluesky
+  atproto:
+    path: ../atproto
   meta: ^1.8.0

@@ -6,7 +6,7 @@
 import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_test/atproto_test.dart' as atp_test;
-import 'package:bluesky/src/entities/feeds_data.dart';
+import 'package:bluesky/src/entities/feed_data.dart';
 import 'package:bluesky/src/unspecced/unspecced_service.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
@@ -26,13 +26,13 @@ void main() {
         ),
       );
 
-      final response = await unspecced.findPopularFeeds(
+      final response = await unspecced.findPopularFeed(
         limit: 10,
         cursor: '1234',
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<FeedsData>());
+      expect(response.data, isA<FeedData>());
     });
 
     test('when unauthorized', () async {
@@ -50,7 +50,7 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await unspecced.findPopularFeeds(
+        () async => await unspecced.findPopularFeed(
           limit: 10,
           cursor: '1234',
         ),
@@ -72,7 +72,7 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await unspecced.findPopularFeeds(
+        () async => await unspecced.findPopularFeed(
           limit: 10,
           cursor: '1234',
         ),

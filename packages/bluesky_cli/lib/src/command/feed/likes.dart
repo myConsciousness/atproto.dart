@@ -14,7 +14,7 @@ class LikesCommand extends QueryCommand {
     argParser
       ..addOption(
         'uri',
-        help: 'AT Uri of the post to be liked.',
+        help: 'AT Uri of the liked post.',
         defaultsTo: '',
       )
       ..addOption(
@@ -46,15 +46,14 @@ class LikesCommand extends QueryCommand {
   @override
   xrpc.NSID get methodId => xrpc.NSID.create(
         'feed.bsky.app',
-        'getVotes',
+        'getLikes',
       );
 
   @override
   Map<String, dynamic>? get parameters => {
         'uri': AtUri.parse(argResults!['uri']).toString(),
         'cid': argResults!['cid'],
-        'direction': 'up',
         'limit': argResults!['limit'],
-        'before': argResults!['cursor'],
+        'cursor': argResults!['cursor'],
       };
 }

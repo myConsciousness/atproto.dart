@@ -32,7 +32,7 @@ Future<void> main() async {
     );
 
     //! Let's get home timeline!
-    final feeds = await bluesky.feeds.findHomeTimeline(
+    final feeds = await bluesky.feeds.findTimeline(
       limit: 10,
     );
 
@@ -46,7 +46,7 @@ Future<void> main() async {
     print(createdRecord);
 
     //! And delete it.
-    await bluesky.feeds.deletePost(
+    await bluesky.repositories.deleteRecord(
       uri: createdRecord.data.uri,
     );
   } on bsky.UnauthorizedException catch (e) {
@@ -59,7 +59,7 @@ Future<void> main() async {
 Future<bsky.Session> get _session async {
   final session = await bsky.createSession(
     service: 'SERVICE_NAME', //! The default is `bsky.social`
-    handle: 'YOUR_HANDLE', //! Like `shinyakato.bsky.social`
+    identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
     password: 'YOUR_PASSWORD',
   );
 

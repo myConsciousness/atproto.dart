@@ -5,12 +5,12 @@
 class Authentication {
   /// Returns the new instance of [Authentication].
   const Authentication(
-    this.handle,
+    this.identifier,
     this.password,
   );
 
-  /// The handle.
-  final String? handle;
+  /// The identifier.
+  final String? identifier;
 
   /// The password.
   final String? password;

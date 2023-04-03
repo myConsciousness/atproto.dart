@@ -14,7 +14,7 @@ export 'package:atproto/src/moderation/moderation_reason_type.dart';
 export 'package:atproto/src/moderation/moderation_service.dart';
 export 'package:atproto/src/moderation/report_subject.dart';
 export 'package:atproto/src/repositories/repositories_service.dart';
-export 'package:atproto/src/sessions/sessions_service.dart';
+export 'package:atproto/src/servers/servers_service.dart';
 export 'package:atproto_core/atproto_core.dart'
     show
         XRPCResponse,

@@ -2,22 +2,22 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'users_data.dart';
+part of 'feed_data.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UsersData _$$_UsersDataFromJson(Map json) => $checkedCreate(
-      r'_$_UsersData',
+_$_FeedData _$$_FeedDataFromJson(Map json) => $checkedCreate(
+      r'_$_FeedData',
       json,
       ($checkedConvert) {
-        final val = _$_UsersData(
-          users: $checkedConvert(
-              'users',
+        final val = _$_FeedData(
+          feed: $checkedConvert(
+              'feed',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      Actor.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map(
+                      (e) => Feed.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           cursor: $checkedConvert('cursor', (v) => v as String),
         );
@@ -25,8 +25,8 @@ _$_UsersData _$$_UsersDataFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_UsersDataToJson(_$_UsersData instance) =>
+Map<String, dynamic> _$$_FeedDataToJson(_$_FeedData instance) =>
     <String, dynamic>{
-      'users': instance.users.map((e) => e.toJson()).toList(),
+      'feed': instance.feed.map((e) => e.toJson()).toList(),
       'cursor': instance.cursor,
     };

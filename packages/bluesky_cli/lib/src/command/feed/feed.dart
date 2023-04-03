@@ -45,8 +45,8 @@ class FeedCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        'author': argResults!['actor'],
+        'actor': argResults!['actor'],
         'limit': argResults!['limit'],
-        'before': argResults!['cursor'],
+        'cursor': argResults!['cursor'],
       };
 }

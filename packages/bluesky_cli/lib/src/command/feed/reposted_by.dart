@@ -54,6 +54,6 @@ class RepostedByCommand extends QueryCommand {
         'uri': AtUri.parse(argResults!['uri']).toString(),
         'cid': argResults!['cid'],
         'limit': argResults!['limit'],
-        'before': argResults!['cursor'],
+        'cursor': argResults!['cursor'],
       };
 }

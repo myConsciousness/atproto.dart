@@ -15,8 +15,8 @@ Usage: bsky <command> [arguments]
 
 Global options:
 -h, --help        Print this usage information.
-    --handle      Bluesky handle for authentication.
-                  (defaults to environment variable "BLUESKY_HANDLE")
+    --identifier  Handle or email address for authentication.
+                  (defaults to environment variable "BLUESKY_IDENTIFIER")
     --password    Bluesky password for authentication.
                   (defaults to environment variable "BLUESKY_PASSWORD")
     --service     Name of the service sending the request. Defaults to "bsky.social".
@@ -26,9 +26,8 @@ Global options:
     --verbose     Enable verbose logging.
 
 Available commands:
-  actor-suggestions    Show the actor suggestions.
-  actor-typeahead      Show the typeahead for actors.
-  delete               Delete a specific content from repository.
+  actors-typeahead     Show the typeahead for actors.
+  delete               Delete a specific contents from repository.
   feed                 Show the feed of specific actor.
   follow               Follow an user.
   followers            Show the followers.
@@ -39,7 +38,7 @@ Available commands:
   mutes                Show the muted users.
   notification-count   Show the count of notification of authenticated user.
   notifications        Show the notifications of authenticated user.
-  popular              Show the popular content.
+  popular              Show the popular contents.
   post                 Post to Bluesky Social.
   profile              Show the profile of specific user.
   profiles             Show the profiles of specific users.
@@ -47,6 +46,7 @@ Available commands:
   reposted-by          Show the actors reposted specific post.
   search-actors        Search the actors based on term.
   seen-notifications   Update all notifications to read.
+  suggestions          Show the actor suggestions.
   thread               Show the thread of specific post.
   timeline             Show the timeline of authenticated user.
   unmute               Unmute an user.
@@ -60,10 +60,10 @@ The following methods are available to authenticate with Bluesky Social via this
 
 ### Global Options
 
-Authentication data can be specified for `handle` and `password` in Global Options.
+Authentication data can be specified for `identifier` and `password` in Global Options.
 
 ```bash
-bsky timeline --handle=shinyakato.dev --password=xxxxxxxxx
+bsky timeline --identifier=shinyakato.dev --password=xxxxxxxxx
 ```
 
 ### Environment Variables
@@ -73,7 +73,7 @@ the specification of authentication data in Global Options can be omitted.
 
 | Environment Variable | Equivalent Option |
 | -------------------- | ----------------- |
-| BLUESKY_HANDLE       | handle            |
+| BLUESKY_IDENTIFIER   | identifier        |
 | BLUESKY_PASSWORD     | password          |
 
 Then you can call like:

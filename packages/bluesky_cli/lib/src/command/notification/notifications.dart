@@ -35,12 +35,12 @@ class NotificationsCommand extends QueryCommand {
   @override
   xrpc.NSID get methodId => xrpc.NSID.create(
         'notification.bsky.app',
-        'list',
+        'listNotifications',
       );
 
   @override
   Map<String, dynamic>? get parameters => {
         'limit': argResults!['limit'],
-        'before': argResults!['cursor'],
+        'cursor': argResults!['cursor'],
       };
 }

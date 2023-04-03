@@ -7,7 +7,7 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../bluesky_base_service.dart';
-import '../entities/feeds_data.dart';
+import '../entities/feed_data.dart';
 import '../entities/likes_data.dart';
 import '../entities/post_thread_data.dart';
 import '../entities/reposted_by_data.dart';
@@ -52,24 +52,6 @@ abstract class FeedsService {
     DateTime? createdAt,
   });
 
-  /// Deletes a post.
-  ///
-  /// ## Parameters
-  ///
-  /// - [uri]: The uri of target record.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.repo.deleteRecord
-  /// - app.bsky.feed.post
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json
-  Future<core.XRPCResponse<core.EmptyData>> deletePost({
-    required core.AtUri uri,
-  });
-
   /// Creates a repost.
   ///
   /// ## Parameters
@@ -95,24 +77,6 @@ abstract class FeedsService {
     DateTime? createdAt,
   });
 
-  /// Deletes a repost.
-  ///
-  /// ## Parameters
-  ///
-  /// - [uri]: The uri of target record.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.repo.deleteRecord
-  /// - app.bsky.feed.repost
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json
-  Future<core.XRPCResponse<core.EmptyData>> deleteRepost({
-    required core.AtUri uri,
-  });
-
   /// A view of the user's home timeline.
   ///
   /// ## Lexicon
@@ -122,7 +86,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json
-  Future<core.XRPCResponse<FeedsData>> findHomeTimeline({
+  Future<core.XRPCResponse<FeedData>> findTimeline({
     FeedAlgorithm? algorithm,
     int? limit,
     String? cursor,
@@ -142,7 +106,7 @@ abstract class FeedsService {
   /// ## Lexicon
   ///
   /// - com.atproto.repo.createRecord
-  /// - app.bsky.feed.vote
+  /// - app.bsky.feed.like
   ///
   /// ## Reference
   ///
@@ -153,29 +117,11 @@ abstract class FeedsService {
     DateTime? createdAt,
   });
 
-  /// Deletes a like.
+  /// A view of an actor's feed.
   ///
   /// ## Parameters
   ///
-  /// - [uri]: The uri of target record.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.repo.deleteRecord
-  /// - app.bsky.feed.vote
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/vote.json
-  Future<core.XRPCResponse<core.EmptyData>> deleteLike({
-    required core.AtUri uri,
-  });
-
-  /// Returns feeds of specific author.
-  ///
-  /// ## Parameters
-  ///
-  /// - [author]: The DID or handle of target user.
+  /// - [actor]: The DID or handle of target user.
   ///
   /// - [limit]: Maximum number of search results. From 1 to 100.
   ///            The default is 50.
@@ -189,8 +135,8 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getAuthorFeed.json
-  Future<core.XRPCResponse<FeedsData>> findFeeds({
-    required String author,
+  Future<core.XRPCResponse<FeedData>> findFeed({
+    required String actor,
     int? limit,
     String? cursor,
   });
@@ -210,11 +156,11 @@ abstract class FeedsService {
   ///
   /// ## Lexicon
   ///
-  /// - app.bsky.feed.getVotes
+  /// - app.bsky.feed.getLikes
   ///
   /// ## Reference
   ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getVotes.json
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getLikes.json
   Future<core.XRPCResponse<LikesData>> findLikes({
     required core.AtUri uri,
     String? cid,
@@ -294,16 +240,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<core.EmptyData>> deletePost({
-    required core.AtUri uri,
-  }) async =>
-      await atproto.repositories.deleteRecord(
-        collection: createNSID('post'),
-        uri: uri,
-      );
-
-  @override
-  Future<core.XRPCResponse<FeedsData>> findHomeTimeline({
+  Future<core.XRPCResponse<FeedData>> findTimeline({
     FeedAlgorithm? algorithm,
     int? limit,
     String? cursor,
@@ -313,9 +250,9 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
         parameters: {
           'algorithm': algorithm,
           'limit': limit,
-          'before': cursor,
+          'cursor': cursor,
         },
-        to: FeedsData.fromJson,
+        to: FeedData.fromJson,
       );
 
   @override
@@ -336,55 +273,36 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<core.EmptyData>> deleteRepost({
-    required core.AtUri uri,
-  }) async =>
-      await atproto.repositories.deleteRecord(
-        collection: createNSID('repost'),
-        uri: uri,
-      );
-
-  @override
   Future<core.XRPCResponse<atp.Record>> createLike({
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
   }) async =>
       await atproto.repositories.createRecord(
-        collection: createNSID('vote'),
+        collection: createNSID('like'),
         record: {
           'subject': {
             'cid': cid,
             'uri': uri.toString(),
           },
-          'direction': 'up',
           'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String()
         },
       );
 
   @override
-  Future<core.XRPCResponse<core.EmptyData>> deleteLike({
-    required core.AtUri uri,
-  }) async =>
-      await atproto.repositories.deleteRecord(
-        collection: createNSID('vote'),
-        uri: uri,
-      );
-
-  @override
-  Future<core.XRPCResponse<FeedsData>> findFeeds({
-    required String author,
+  Future<core.XRPCResponse<FeedData>> findFeed({
+    required String actor,
     int? limit,
     String? cursor,
   }) async =>
       await super.get(
         'getAuthorFeed',
         parameters: {
-          'author': author,
+          'actor': actor,
           'limit': limit,
-          'before': cursor,
+          'cursor': cursor,
         },
-        to: FeedsData.fromJson,
+        to: FeedData.fromJson,
       );
 
   @override
@@ -395,13 +313,12 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     String? cursor,
   }) async =>
       await super.get(
-        'getVotes',
+        'getLikes',
         parameters: {
           'uri': uri,
           'cid': cid,
-          'direction': 'up',
           'limit': limit,
-          'before': cursor,
+          'cursor': cursor,
         },
         to: LikesData.fromJson,
       );
@@ -419,7 +336,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'uri': uri,
           'cid': cid,
           'limit': limit,
-          'before': cursor,
+          'cursor': cursor,
         },
         to: RepostedByData.fromJson,
       );

@@ -41,7 +41,7 @@ class LikeCommand extends CreateRecordCommand {
   @override
   xrpc.NSID get collection => xrpc.NSID.create(
         'feed.bsky.app',
-        'vote',
+        'like',
       );
 
   @override
@@ -50,7 +50,6 @@ class LikeCommand extends CreateRecordCommand {
           'cid': argResults!['cid'],
           'uri': AtUri.parse(argResults!['uri']).toString(),
         },
-        'direction': 'up',
         'createdAt': argResults!['created-at'],
       };
 }

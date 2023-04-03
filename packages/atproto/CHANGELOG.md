@@ -1,5 +1,12 @@
 # Release Note
 
+## v0.2.2
+
+- Merged official refactoring. ([#52](https://github.com/myConsciousness/atproto.dart/issues/52))
+  - Renamed `SessionService` to `ServersService`
+  - Renamed `handle` parameter in `createSession` to `identifier`
+  - Removed parameter `collection` from `RepositoriesService.deleteRecord`
+
 ## v0.2.1
 
 - Added `IdentitiesService` and `findDID`. ([#211](https://github.com/myConsciousness/atproto.dart/issues/211))

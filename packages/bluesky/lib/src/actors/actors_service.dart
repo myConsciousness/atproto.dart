@@ -9,9 +9,8 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../bluesky_base_service.dart';
 import '../entities/actor_profile.dart';
 import '../entities/actor_profiles_data.dart';
-import '../entities/actor_typeahead_data.dart';
 import '../entities/actors_data.dart';
-import '../entities/users_data.dart';
+import '../entities/actors_typeahead_data.dart';
 
 abstract class ActorsService {
   /// Returns the new instance of [ActorsService].
@@ -48,7 +47,7 @@ abstract class ActorsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/search.json
-  Future<core.XRPCResponse<UsersData>> searchActors({
+  Future<core.XRPCResponse<ActorsData>> searchActors({
     required String term,
     int? limit,
     String? cursor,
@@ -120,12 +119,12 @@ abstract class ActorsService {
   ///
   /// ## Lexicon
   ///
-  /// - app.bsky.actor.searchTypeahead
+  /// - app.bsky.actor.searchActorsTypeahead
   ///
   /// ## Reference
   ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/searchTypeahead.json
-  Future<core.XRPCResponse<ActorTypeaheadData>> searchActorTypeahead({
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/searchActorsTypeahead.json
+  Future<core.XRPCResponse<ActorsTypeaheadData>> searchTypeahead({
     required String term,
     int? limit,
   });
@@ -142,19 +141,19 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
   }) : super(methodAuthority: 'actor.bsky.app');
 
   @override
-  Future<core.XRPCResponse<UsersData>> searchActors({
+  Future<core.XRPCResponse<ActorsData>> searchActors({
     required String term,
     int? limit,
     String? cursor,
   }) async =>
       await super.get(
-        'search',
+        'searchActors',
         parameters: {
           'term': term,
           'limit': limit,
-          'before': cursor,
+          'cursor': cursor,
         },
-        to: UsersData.fromJson,
+        to: ActorsData.fromJson,
       );
 
   @override
@@ -196,16 +195,16 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
       );
 
   @override
-  Future<core.XRPCResponse<ActorTypeaheadData>> searchActorTypeahead({
+  Future<core.XRPCResponse<ActorsTypeaheadData>> searchTypeahead({
     required String term,
     int? limit,
   }) async =>
       await super.get(
-        'searchTypeahead',
+        'searchActorsTypeahead',
         parameters: {
           'term': term,
           'limit': limit,
         },
-        to: ActorTypeaheadData.fromJson,
+        to: ActorsTypeaheadData.fromJson,
       );
 }

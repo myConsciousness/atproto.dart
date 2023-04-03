@@ -41,6 +41,6 @@ class MutesCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
         'limit': argResults!['limit'],
-        'before': argResults!['cursor'],
+        'cursor': argResults!['cursor'],
       };
 }

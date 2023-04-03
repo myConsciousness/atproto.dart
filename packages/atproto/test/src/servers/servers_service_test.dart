@@ -4,7 +4,7 @@
 
 import 'package:atproto/src/entities/current_session.dart';
 import 'package:atproto/src/entities/session.dart';
-import 'package:atproto/src/sessions/sessions_service.dart';
+import 'package:atproto/src/servers/servers_service.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
@@ -13,10 +13,10 @@ void main() {
   group('.createSession', () {
     test('normal case', () async {
       final response = await createSession(
-        handle: 'shinyakato.dev',
+        identifier: 'shinyakato.dev',
         password: '1234',
         mockedPostClient: atp_test.createMockedPostClient(
-          'test/src/sessions/data/create_session.json',
+          'test/src/servers/data/create_session.json',
         ),
       );
 
@@ -27,7 +27,7 @@ void main() {
     test('when unauthorized', () async {
       atp_test.expectUnauthorizedException(
         () async => await createSession(
-          handle: 'shinyakato.dev',
+          identifier: 'shinyakato.dev',
           password: '1234',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
@@ -40,7 +40,7 @@ void main() {
     test('when rate limit exceeded', () async {
       atp_test.expectRateLimitExceededException(
         () async => await createSession(
-          handle: 'shinyakato.dev',
+          identifier: 'shinyakato.dev',
           password: '1234',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
@@ -53,7 +53,7 @@ void main() {
 
   group('.findCurrentSession', () {
     test('normal case', () async {
-      final sessions = SessionsService(
+      final servers = ServersService(
         did: 'test',
         service: 'test',
         context: core.ClientContext(
@@ -61,18 +61,18 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/sessions/data/find_current_session.json',
+          'test/src/servers/data/find_current_session.json',
         ),
       );
 
-      final response = await sessions.findCurrentSession();
+      final response = await servers.findCurrentSession();
 
       expect(response, isA<core.XRPCResponse>());
       expect(response.data, isA<CurrentSession>());
     });
 
     test('when unauthorized', () async {
-      final sessions = SessionsService(
+      final servers = ServersService(
         did: 'test',
         service: 'test',
         context: core.ClientContext(
@@ -86,12 +86,12 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await sessions.findCurrentSession(),
+        () async => await servers.findCurrentSession(),
       );
     });
 
     test('when rate limit exceeded', () async {
-      final sessions = SessionsService(
+      final servers = ServersService(
         did: 'test',
         service: 'test',
         context: core.ClientContext(
@@ -105,14 +105,14 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await sessions.findCurrentSession(),
+        () async => await servers.findCurrentSession(),
       );
     });
   });
 
   group('.refreshSession', () {
     test('normal case', () async {
-      final sessions = SessionsService(
+      final servers = ServersService(
         did: 'test',
         service: 'test',
         context: core.ClientContext(
@@ -120,11 +120,11 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedPostClient: atp_test.createMockedPostClient(
-          'test/src/sessions/data/refresh_session.json',
+          'test/src/servers/data/refresh_session.json',
         ),
       );
 
-      final response = await sessions.refreshSession(
+      final response = await servers.refreshSession(
         refreshJwt: '',
       );
 
@@ -133,7 +133,7 @@ void main() {
     });
 
     test('when unauthorized', () async {
-      final sessions = SessionsService(
+      final servers = ServersService(
         did: 'test',
         service: 'test',
         context: core.ClientContext(
@@ -147,12 +147,12 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await sessions.refreshSession(refreshJwt: ''),
+        () async => await servers.refreshSession(refreshJwt: ''),
       );
     });
 
     test('when rate limit exceeded', () async {
-      final sessions = SessionsService(
+      final servers = ServersService(
         did: 'test',
         service: 'test',
         context: core.ClientContext(
@@ -166,7 +166,7 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await sessions.refreshSession(refreshJwt: ''),
+        () async => await servers.refreshSession(refreshJwt: ''),
       );
     });
   });

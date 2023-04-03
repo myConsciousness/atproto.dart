@@ -38,11 +38,11 @@ abstract class NotificationsService {
   ///
   /// ## Lexicon
   ///
-  /// - app.bsky.notification.list
+  /// - app.bsky.notification.listNotifications
   ///
   /// ## Reference
   ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/list.json
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/listNotifications.json
   Future<core.XRPCResponse<NotificationsData>> findNotifications({
     int? limit,
     String? cursor,
@@ -52,11 +52,11 @@ abstract class NotificationsService {
   ///
   /// ## Lexicon
   ///
-  /// - app.bsky.notification.getCount
+  /// - app.bsky.notification.getUnreadCount
   ///
   /// ## Reference
   ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/getCount.json
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/getUnreadCount.json
   Future<core.XRPCResponse<CountData>> findUnreadCount();
 
   /// Notify server that the user has seen notifications.
@@ -95,7 +95,7 @@ class _NotificationsService extends BlueskyBaseService
     String? cursor,
   }) async =>
       await super.get(
-        'list',
+        'listNotifications',
         parameters: {
           'limit': limit,
           'cursor': cursor,
@@ -106,7 +106,7 @@ class _NotificationsService extends BlueskyBaseService
   @override
   Future<core.XRPCResponse<CountData>> findUnreadCount() async =>
       await super.get(
-        'getCount',
+        'getUnreadCount',
         to: CountData.fromJson,
       );
 

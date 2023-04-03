@@ -6,41 +6,41 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 
 import '../query_command.dart';
 
-/// The command for `app.bsky.actor.getSuggestions`.
-class ActorSuggestionsCommand extends QueryCommand {
-  /// Returns the new instance of [ActorSuggestionsCommand].
-  ActorSuggestionsCommand() {
+/// The command for `app.bsky.actor.searchActorsTypeahead`.
+class ActorsTypeaheadCommand extends QueryCommand {
+  /// Returns the new instance of [ActorsTypeaheadCommand].
+  ActorsTypeaheadCommand() {
     argParser
       ..addOption(
-        'limit',
-        help: 'Maximum search limit from 1 to 100. Defaults to 50.',
+        'term',
+        help: 'Search term.',
         defaultsTo: null,
       )
       ..addOption(
-        'cursor',
-        help: 'Token for pagination.',
+        'limit',
+        help: 'Maximum search limit from 1 to 100. Defaults to 50.',
         defaultsTo: null,
       );
   }
 
   @override
-  final String name = 'actor-suggestions';
+  final String name = 'actors-typeahead';
 
   @override
-  final String description = 'Show the actor suggestions.';
+  final String description = 'Show the typeahead for actors.';
 
   @override
-  final String invocation = 'bsky actor-suggestions [limit] [cursor]';
+  final String invocation = 'bsky actors-typeahead [term] [limit]';
 
   @override
   xrpc.NSID get methodId => xrpc.NSID.create(
         'actor.bsky.app',
-        'getSuggestions',
+        'searchActorsTypeahead',
       );
 
   @override
   Map<String, dynamic>? get parameters => {
+        'term': argResults!['term'],
         'limit': argResults!['limit'],
-        'cursor': argResults!['cursor'],
       };
 }

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'users_data.dart';
+part of 'feed_data.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,33 +14,33 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-UsersData _$UsersDataFromJson(Map<String, dynamic> json) {
-  return _UsersData.fromJson(json);
+FeedData _$FeedDataFromJson(Map<String, dynamic> json) {
+  return _FeedData.fromJson(json);
 }
 
 /// @nodoc
-mixin _$UsersData {
-  List<Actor> get users => throw _privateConstructorUsedError;
+mixin _$FeedData {
+  List<Feed> get feed => throw _privateConstructorUsedError;
   String get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UsersDataCopyWith<UsersData> get copyWith =>
+  $FeedDataCopyWith<FeedData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UsersDataCopyWith<$Res> {
-  factory $UsersDataCopyWith(UsersData value, $Res Function(UsersData) then) =
-      _$UsersDataCopyWithImpl<$Res, UsersData>;
+abstract class $FeedDataCopyWith<$Res> {
+  factory $FeedDataCopyWith(FeedData value, $Res Function(FeedData) then) =
+      _$FeedDataCopyWithImpl<$Res, FeedData>;
   @useResult
-  $Res call({List<Actor> users, String cursor});
+  $Res call({List<Feed> feed, String cursor});
 }
 
 /// @nodoc
-class _$UsersDataCopyWithImpl<$Res, $Val extends UsersData>
-    implements $UsersDataCopyWith<$Res> {
-  _$UsersDataCopyWithImpl(this._value, this._then);
+class _$FeedDataCopyWithImpl<$Res, $Val extends FeedData>
+    implements $FeedDataCopyWith<$Res> {
+  _$FeedDataCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -50,14 +50,14 @@ class _$UsersDataCopyWithImpl<$Res, $Val extends UsersData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? users = null,
+    Object? feed = null,
     Object? cursor = null,
   }) {
     return _then(_value.copyWith(
-      users: null == users
-          ? _value.users
-          : users // ignore: cast_nullable_to_non_nullable
-              as List<Actor>,
+      feed: null == feed
+          ? _value.feed
+          : feed // ignore: cast_nullable_to_non_nullable
+              as List<Feed>,
       cursor: null == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -67,34 +67,34 @@ class _$UsersDataCopyWithImpl<$Res, $Val extends UsersData>
 }
 
 /// @nodoc
-abstract class _$$_UsersDataCopyWith<$Res> implements $UsersDataCopyWith<$Res> {
-  factory _$$_UsersDataCopyWith(
-          _$_UsersData value, $Res Function(_$_UsersData) then) =
-      __$$_UsersDataCopyWithImpl<$Res>;
+abstract class _$$_FeedDataCopyWith<$Res> implements $FeedDataCopyWith<$Res> {
+  factory _$$_FeedDataCopyWith(
+          _$_FeedData value, $Res Function(_$_FeedData) then) =
+      __$$_FeedDataCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Actor> users, String cursor});
+  $Res call({List<Feed> feed, String cursor});
 }
 
 /// @nodoc
-class __$$_UsersDataCopyWithImpl<$Res>
-    extends _$UsersDataCopyWithImpl<$Res, _$_UsersData>
-    implements _$$_UsersDataCopyWith<$Res> {
-  __$$_UsersDataCopyWithImpl(
-      _$_UsersData _value, $Res Function(_$_UsersData) _then)
+class __$$_FeedDataCopyWithImpl<$Res>
+    extends _$FeedDataCopyWithImpl<$Res, _$_FeedData>
+    implements _$$_FeedDataCopyWith<$Res> {
+  __$$_FeedDataCopyWithImpl(
+      _$_FeedData _value, $Res Function(_$_FeedData) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? users = null,
+    Object? feed = null,
     Object? cursor = null,
   }) {
-    return _then(_$_UsersData(
-      users: null == users
-          ? _value._users
-          : users // ignore: cast_nullable_to_non_nullable
-              as List<Actor>,
+    return _then(_$_FeedData(
+      feed: null == feed
+          ? _value._feed
+          : feed // ignore: cast_nullable_to_non_nullable
+              as List<Feed>,
       cursor: null == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -105,19 +105,19 @@ class __$$_UsersDataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UsersData implements _UsersData {
-  const _$_UsersData({required final List<Actor> users, required this.cursor})
-      : _users = users;
+class _$_FeedData implements _FeedData {
+  const _$_FeedData({required final List<Feed> feed, required this.cursor})
+      : _feed = feed;
 
-  factory _$_UsersData.fromJson(Map<String, dynamic> json) =>
-      _$$_UsersDataFromJson(json);
+  factory _$_FeedData.fromJson(Map<String, dynamic> json) =>
+      _$$_FeedDataFromJson(json);
 
-  final List<Actor> _users;
+  final List<Feed> _feed;
   @override
-  List<Actor> get users {
-    if (_users is EqualUnmodifiableListView) return _users;
+  List<Feed> get feed {
+    if (_feed is EqualUnmodifiableListView) return _feed;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_users);
+    return EqualUnmodifiableListView(_feed);
   }
 
   @override
@@ -125,51 +125,50 @@ class _$_UsersData implements _UsersData {
 
   @override
   String toString() {
-    return 'UsersData(users: $users, cursor: $cursor)';
+    return 'FeedData(feed: $feed, cursor: $cursor)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UsersData &&
-            const DeepCollectionEquality().equals(other._users, _users) &&
+            other is _$_FeedData &&
+            const DeepCollectionEquality().equals(other._feed, _feed) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_users), cursor);
+      runtimeType, const DeepCollectionEquality().hash(_feed), cursor);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UsersDataCopyWith<_$_UsersData> get copyWith =>
-      __$$_UsersDataCopyWithImpl<_$_UsersData>(this, _$identity);
+  _$$_FeedDataCopyWith<_$_FeedData> get copyWith =>
+      __$$_FeedDataCopyWithImpl<_$_FeedData>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UsersDataToJson(
+    return _$$_FeedDataToJson(
       this,
     );
   }
 }
 
-abstract class _UsersData implements UsersData {
-  const factory _UsersData(
-      {required final List<Actor> users,
-      required final String cursor}) = _$_UsersData;
+abstract class _FeedData implements FeedData {
+  const factory _FeedData(
+      {required final List<Feed> feed,
+      required final String cursor}) = _$_FeedData;
 
-  factory _UsersData.fromJson(Map<String, dynamic> json) =
-      _$_UsersData.fromJson;
+  factory _FeedData.fromJson(Map<String, dynamic> json) = _$_FeedData.fromJson;
 
   @override
-  List<Actor> get users;
+  List<Feed> get feed;
   @override
   String get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$_UsersDataCopyWith<_$_UsersData> get copyWith =>
+  _$$_FeedDataCopyWith<_$_FeedData> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -10,16 +10,16 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import 'feed.dart';
 
-part 'feeds_data.freezed.dart';
-part 'feeds_data.g.dart';
+part 'feed_data.freezed.dart';
+part 'feed_data.g.dart';
 
 @freezed
-class FeedsData with _$FeedsData {
-  const factory FeedsData({
-    @JsonKey(name: 'feed') required List<Feed> feeds,
+class FeedData with _$FeedData {
+  const factory FeedData({
+    required List<Feed> feed,
     required String cursor,
-  }) = _FeedsData;
+  }) = _FeedData;
 
-  factory FeedsData.fromJson(Map<String, Object?> json) =>
-      _$FeedsDataFromJson(json);
+  factory FeedData.fromJson(Map<String, Object?> json) =>
+      _$FeedDataFromJson(json);
 }

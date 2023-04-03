@@ -8,7 +8,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'identities/identities_service.dart';
 import 'moderation/moderation_service.dart';
 import 'repositories/repositories_service.dart';
-import 'sessions/sessions_service.dart';
+import 'servers/servers_service.dart';
 
 abstract class ATProtoService {
   /// Returns the new instance of [ATProtoService].
@@ -27,8 +27,8 @@ abstract class ATProtoService {
         mockedPostClient: mockedPostClient,
       );
 
-  /// Returns the sessions service.
-  SessionsService get sessions;
+  /// Returns the servers service.
+  ServersService get servers;
 
   /// Returns the new instance of identities service.
   IdentitiesService get identities;
@@ -48,7 +48,7 @@ class _ATProtoService implements ATProtoService {
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  })  : sessions = SessionsService(
+  })  : servers = ServersService(
           did: did,
           service: service,
           context: context,
@@ -78,7 +78,7 @@ class _ATProtoService implements ATProtoService {
         );
 
   @override
-  final SessionsService sessions;
+  final ServersService servers;
 
   @override
   final IdentitiesService identities;

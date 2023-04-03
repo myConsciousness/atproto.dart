@@ -131,7 +131,7 @@ Future<void> main() async {
     );
 
     //! Let's get home timeline!
-    final feeds = await bluesky.feeds.findHomeTimeline(
+    final feeds = await bluesky.feeds.findTimeline(
       limit: 10,
     );
 
@@ -145,7 +145,7 @@ Future<void> main() async {
     print(createdRecord);
 
     //! And delete it.
-    await bluesky.feeds.deletePost(
+    await bluesky.repositories.deleteRecord(
       uri: createdRecord.data.uri,
     );
   } on bsky.UnauthorizedException catch (e) {
@@ -158,7 +158,7 @@ Future<void> main() async {
 Future<bsky.Session> get _session async {
   final session = await bsky.createSession(
     service: 'SERVICE_NAME', //! The default is `bsky.social`
-    handle: 'YOUR_HANDLE', //! Like `shinyakato.bsky.social`
+    identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
     password: 'YOUR_PASSWORD',
   );
 
@@ -170,55 +170,51 @@ Future<bsky.Session> get _session async {
 
 ### 1.3.1. Actors
 
-| **Lexicon**                                                                                                                                 | **Method Name**                                                                                                      |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| [GET app.bsky.actor.search](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/search.json)                        | [searchActors](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/searchActors.html)                 |
-| [GET app.bsky.actor.getProfile](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfile.json)                | [findProfile](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/findProfile.html)                   |
-| [GET app.bsky.actor.getProfiles](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfiles.json)              | [findProfiles](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/findProfiles.html)                 |
-| [GET app.bsky.actor.getSuggestions](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getSuggestions.json)        | [findSuggestions](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/findSuggestions.html)           |
-| [GET app.bsky.actor.searchActorTypeahead](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/searchTypeahead.json) | [searchActorTypeahead](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/searchActorTypeahead.html) |
+| **Lexicon**                                                                                                                                        | **Method Name**                                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| [GET app.bsky.actor.searchActors](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/searchActors.json)                   | [searchActors](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/searchActors.html)       |
+| [GET app.bsky.actor.getProfile](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfile.json)                       | [findProfile](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/findProfile.html)         |
+| [GET app.bsky.actor.getProfiles](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfiles.json)                     | [findProfiles](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/findProfiles.html)       |
+| [GET app.bsky.actor.getSuggestions](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getSuggestions.json)               | [findSuggestions](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/findSuggestions.html) |
+| [GET app.bsky.actor.searchActorsTypeahead](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/searchActorsTypeahead.json) | [searchTypeahead](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/searchTypeahead.html) |
 
 ### 1.3.2. Feeds
 
-| **Lexicon**                                                                                                                      | **Method Name**                                                                                             |
-| -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| [POST app.bsky.feed.post](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json)                  | [createPost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/createPost.html)             |
-| [POST app.bsky.feed.post](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json)                  | [deletePost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/deletePost.html)             |
-| [GET app.bsky.feed.getTimeline](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json)     | [findHomeTimeline](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findHomeTimeline.html) |
-| [POST app.bsky.feed.repost](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json)              | [createRepost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/createRepost.html)         |
-| [POST app.bsky.feed.repost](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json)              | [deleteRepost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/deleteRepost.html)         |
-| [POST app.bsky.feed.vote](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/vote.json)                  | [createLike](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/createLike.html)             |
-| [POST app.bsky.feed.vote](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/vote.json)                  | [deleteLike](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/deleteLike.html)             |
-| [GET app.bsky.feed.getAuthorFeed](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getAuthorFeed.json) | [findFeeds](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findFeeds.html)               |
-| [GET app.bsky.feed.getVotes](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getVotes.json)           | [findLikes](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findLikes.html)               |
-| [GET app.bsky.feed.getRepostedBy](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getRepostedBy.json) | [findRepostedBy](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findRepostedBy.html)     |
-| [GET app.bsky.feed.getPostThread](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getPostThread.json) | [findPosThread](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findPosThread.html)       |
+| **Lexicon**                                                                                                                      | **Method Name**                                                                                         |
+| -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| [POST app.bsky.feed.post](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json)                  | [createPost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/createPost.html)         |
+| [GET app.bsky.feed.getTimeline](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json)     | [findTimeline](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findTimeline.html)     |
+| [POST app.bsky.feed.repost](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json)              | [createRepost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/createRepost.html)     |
+| [POST app.bsky.feed.like](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/like.json)                  | [createLike](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/createLike.html)         |
+| [GET app.bsky.feed.getAuthorFeed](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getAuthorFeed.json) | [findFeed](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findFeed.html)             |
+| [GET app.bsky.feed.getLikes](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getLikes.json)           | [findLikes](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findLikes.html)           |
+| [GET app.bsky.feed.getRepostedBy](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getRepostedBy.json) | [findRepostedBy](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findRepostedBy.html) |
+| [GET app.bsky.feed.getPostThread](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getPostThread.json) | [findPosThread](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findPosThread.html)   |
 
 ### 1.3.3. Notifications
 
-| **Lexicon**                                                                                                                                 | **Method Name**                                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| [GET app.bsky.notification.list](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/list.json)              | [findNotifications](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/findNotifications.html)                 |
-| [GET app.bsky.notification.getCount](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/getCount.json)      | [findUnreadCount](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/findUnreadCount.html)                     |
-| [POST app.bsky.notification.updateSeen](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/updateSeen.json) | [updateNotificationsAdRead](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/updateNotificationsAdRead.html) |
+| **Lexicon**                                                                                                                                              | **Method Name**                                                                                                                       |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| [GET app.bsky.notification.listNotifications](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/listNotifications.json) | [findNotifications](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/findNotifications.html)                 |
+| [GET app.bsky.notification.getUnreadCount](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/getUnreadCount.json)       | [findUnreadCount](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/findUnreadCount.html)                     |
+| [POST app.bsky.notification.updateSeen](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/updateSeen.json)              | [updateNotificationsAdRead](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/updateNotificationsAdRead.html) |
 
 ### 1.3.4. Graphs
 
 | **Lexicon**                                                                                                                      | **Method Name**                                                                                        |
 | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | [POST app.bsky.graph.follow](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/follow.json)            | [createFollow](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createFollow.html)   |
-| [POST app.bsky.graph.follow](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/follow.json)            | [deleteFollow](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/deleteFollow.html)   |
 | [GET app.bsky.graph.getFollows](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollows.json)     | [findFollows](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/findFollows.html)     |
 | [GET app.bsky.graph.getFollowers](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollowers.json) | [findFollowers](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/findFollowers.html) |
-| [POST app.bsky.graph.mute](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/mute.json)                | [createMute](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createMute.html)       |
-| [POST app.bsky.graph.unmute](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/unmute.json)            | [deleteMute](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/deleteMute.html)       |
+| [POST app.bsky.graph.muteActor](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/muteActor.json)      | [createMute](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createMute.html)       |
+| [POST app.bsky.graph.unmuteActor](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/unmuteActor.json)  | [deleteMute](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/deleteMute.html)       |
 | [GET app.bsky.graph.getMutes](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getMutes.json)         | [findMutes](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/findMutes.html)         |
 
 ### 1.3.5. Unspecced
 
-| **Lexicon**                                                                                                                          | **Method Name**                                                                                                 |
-| ------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
-| [GET app.bsky.unspecced.getPopular](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopular.json) | [findPopularFeeds](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/findPopularFeeds.html) |
+| **Lexicon**                                                                                                                          | **Method Name**                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| [GET app.bsky.unspecced.getPopular](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopular.json) | [findPopularFeed](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/findPopularFeed.html) |
 
 ## 1.4. Tips 🏄
 
@@ -248,7 +244,7 @@ import 'package:bluesky/bluesky.dart' as bsky;
 Future<void> main() async {
   final session = await bsky.createSession(
     service: 'SERVICE_NAME', //! The default is `bsky.social`
-    handle: 'YOUR_HANDLE', //! Like `shinyakato.bsky.social`
+    identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
     password: 'YOUR_PASSWORD',
   );
 
@@ -256,7 +252,8 @@ Future<void> main() async {
 }
 ```
 
-Once you have established a session, you can now create an instance of the `Bluesky` object. You can easily create an instance of a `Bluesky` object from a previously established `Session` object.
+Once you have established a session, you can now create an instance of the `Bluesky` object.
+You can easily create an instance of a `Bluesky` object from a previously established `Session` object.
 
 ```dart
 import 'package:bluesky/bluesky.dart' as bsky;
@@ -264,7 +261,7 @@ import 'package:bluesky/bluesky.dart' as bsky;
 Future<void> main() async {
   final session = await bsky.createSession(
     service: 'SERVICE_NAME', //! The default is `bsky.social`
-    handle: 'YOUR_HANDLE', //! Like `shinyakato.bsky.social`
+    identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
     password: 'YOUR_PASSWORD',
   );
 
@@ -282,7 +279,7 @@ import 'package:bluesky/bluesky.dart' as bsky;
 Future<void> main() async {
   final session = await bsky.createSession(
     service: 'SERVICE_NAME', //! The default is `bsky.social`
-    handle: 'YOUR_HANDLE', //! Like `shinyakato.bsky.social`
+    identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
     password: 'YOUR_PASSWORD',
   );
 
@@ -318,7 +315,7 @@ Future<void> main() async {
 
 Future<bsky.Session> get _session async {
   final session = await bsky.createSession(
-    handle: 'YOUR_HANDLE',
+    identifier: 'YOUR_HANDLE_OR_EMAIL',
     password: 'YOUR_PASSWORD',
   );
 

@@ -25,14 +25,14 @@ void main() {
         ),
       );
 
-      final response = await feeds.findHomeTimeline(
+      final response = await feeds.findTimeline(
         algorithm: FeedAlgorithm.reverseChronological,
         limit: 10,
         cursor: '1234',
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<FeedsData>());
+      expect(response.data, isA<FeedData>());
     });
 
     test('when unauthorized', () async {
@@ -50,7 +50,7 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await feeds.findHomeTimeline(
+        () async => await feeds.findTimeline(
           algorithm: FeedAlgorithm.reverseChronological,
           limit: 10,
           cursor: '1234',
@@ -73,7 +73,7 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await feeds.findHomeTimeline(
+        () async => await feeds.findTimeline(
           algorithm: FeedAlgorithm.reverseChronological,
           limit: 10,
           cursor: '1234',
@@ -159,83 +159,6 @@ void main() {
     });
   });
 
-  group('.deletePost', () {
-    test('normal case', () async {
-      final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
-          service: 'test',
-          mockedPostClient: atp_test.createMockedPostClient(
-            'test/src/feeds/data/delete_post.json',
-          ),
-        ),
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-      );
-
-      final response = await feeds.deletePost(
-        uri: AtUri.parse('at://foo.com/com.example.foo/123'),
-      );
-
-      expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<EmptyData>());
-    });
-
-    test('when unauthorized', () async {
-      final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
-          service: 'test',
-          mockedPostClient: atp_test.createMockedPostClient(
-            'test/src/data/error.json',
-            statusCode: 401,
-          ),
-        ),
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-      );
-
-      atp_test.expectUnauthorizedException(
-        () async => await feeds.deletePost(
-          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
-        ),
-      );
-    });
-
-    test('when rate limit exceeded', () async {
-      final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
-          service: 'test',
-          mockedPostClient: atp_test.createMockedPostClient(
-            'test/src/data/error.json',
-            statusCode: 429,
-          ),
-        ),
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-      );
-
-      atp_test.expectRateLimitExceededException(
-        () async => await feeds.deletePost(
-          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
-        ),
-      );
-    });
-  });
-
   group('.createRepost', () {
     test('normal case', () async {
       final feeds = FeedsService(
@@ -311,83 +234,6 @@ void main() {
       atp_test.expectRateLimitExceededException(
         () async => await feeds.createRepost(
           cid: '1234',
-          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
-        ),
-      );
-    });
-  });
-
-  group('.deleteRepost', () {
-    test('normal case', () async {
-      final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
-          service: 'test',
-          mockedPostClient: atp_test.createMockedPostClient(
-            'test/src/feeds/data/delete_repost.json',
-          ),
-        ),
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-      );
-
-      final response = await feeds.deleteRepost(
-        uri: AtUri.parse('at://foo.com/com.example.foo/123'),
-      );
-
-      expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<EmptyData>());
-    });
-
-    test('when unauthorized', () async {
-      final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
-          service: 'test',
-          mockedPostClient: atp_test.createMockedPostClient(
-            'test/src/data/error.json',
-            statusCode: 401,
-          ),
-        ),
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-      );
-
-      atp_test.expectUnauthorizedException(
-        () async => await feeds.deleteRepost(
-          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
-        ),
-      );
-    });
-
-    test('when rate limit exceeded', () async {
-      final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
-          service: 'test',
-          mockedPostClient: atp_test.createMockedPostClient(
-            'test/src/data/error.json',
-            statusCode: 429,
-          ),
-        ),
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-      );
-
-      atp_test.expectRateLimitExceededException(
-        () async => await feeds.deleteRepost(
           uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         ),
       );
@@ -475,83 +321,6 @@ void main() {
     });
   });
 
-  group('.deleteLike', () {
-    test('normal case', () async {
-      final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
-          service: 'test',
-          mockedPostClient: atp_test.createMockedPostClient(
-            'test/src/feeds/data/delete_like.json',
-          ),
-        ),
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-      );
-
-      final response = await feeds.deleteLike(
-        uri: AtUri.parse('at://foo.com/com.example.foo/123'),
-      );
-
-      expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<EmptyData>());
-    });
-
-    test('when unauthorized', () async {
-      final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
-          service: 'test',
-          mockedPostClient: atp_test.createMockedPostClient(
-            'test/src/data/error.json',
-            statusCode: 401,
-          ),
-        ),
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-      );
-
-      atp_test.expectUnauthorizedException(
-        () async => await feeds.deleteLike(
-          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
-        ),
-      );
-    });
-
-    test('when rate limit exceeded', () async {
-      final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
-          service: 'test',
-          mockedPostClient: atp_test.createMockedPostClient(
-            'test/src/data/error.json',
-            statusCode: 429,
-          ),
-        ),
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-      );
-
-      atp_test.expectRateLimitExceededException(
-        () async => await feeds.deleteLike(
-          uri: AtUri.parse('at://foo.com/com.example.foo/123'),
-        ),
-      );
-    });
-  });
-
   group('.findFeeds', () {
     test('normal case', () async {
       final feeds = FeedsService(
@@ -566,14 +335,14 @@ void main() {
         ),
       );
 
-      final response = await feeds.findFeeds(
-        author: 'shinyakato.dev',
+      final response = await feeds.findFeed(
+        actor: 'shinyakato.dev',
         limit: 10,
         cursor: '1234',
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<FeedsData>());
+      expect(response.data, isA<FeedData>());
     });
 
     test('when unauthorized', () async {
@@ -591,8 +360,8 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await feeds.findFeeds(
-          author: 'shinyakato.dev',
+        () async => await feeds.findFeed(
+          actor: 'shinyakato.dev',
           limit: 10,
           cursor: '1234',
         ),
@@ -614,8 +383,8 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await feeds.findFeeds(
-          author: 'shinyakato.dev',
+        () async => await feeds.findFeed(
+          actor: 'shinyakato.dev',
           limit: 10,
           cursor: '1234',
         ),

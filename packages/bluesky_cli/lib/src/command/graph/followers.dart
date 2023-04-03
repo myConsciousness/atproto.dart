@@ -45,8 +45,8 @@ class FollowersCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        'user': argResults!['actor'],
+        'actor': argResults!['actor'],
         'limit': argResults!['limit'],
-        'before': argResults!['cursor'],
+        'cursor': argResults!['cursor'],
       };
 }

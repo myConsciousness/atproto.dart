@@ -2,20 +2,20 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'actor_typeahead_data.dart';
+part of 'actors_typeahead_data.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ActorTypeaheadData _$$_ActorTypeaheadDataFromJson(Map json) =>
+_$_ActorsTypeaheadData _$$_ActorsTypeaheadDataFromJson(Map json) =>
     $checkedCreate(
-      r'_$_ActorTypeaheadData',
+      r'_$_ActorsTypeaheadData',
       json,
       ($checkedConvert) {
-        final val = _$_ActorTypeaheadData(
+        final val = _$_ActorsTypeaheadData(
           actors: $checkedConvert(
-              'users',
+              'actors',
               (v) => (v as List<dynamic>)
                   .map((e) =>
                       Actor.fromJson(Map<String, Object?>.from(e as Map)))
@@ -23,11 +23,10 @@ _$_ActorTypeaheadData _$$_ActorTypeaheadDataFromJson(Map json) =>
         );
         return val;
       },
-      fieldKeyMap: const {'actors': 'users'},
     );
 
-Map<String, dynamic> _$$_ActorTypeaheadDataToJson(
-        _$_ActorTypeaheadData instance) =>
+Map<String, dynamic> _$$_ActorsTypeaheadDataToJson(
+        _$_ActorsTypeaheadData instance) =>
     <String, dynamic>{
-      'users': instance.actors.map((e) => e.toJson()).toList(),
+      'actors': instance.actors.map((e) => e.toJson()).toList(),
     };

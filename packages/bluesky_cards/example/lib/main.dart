@@ -24,7 +24,7 @@ class BlueskyCards extends StatelessWidget {
     return Scaffold(
       body: FutureBuilder(
         future: bsky.createSession(
-          handle: 'YOUR_HANDLE',
+          identifier: 'YOUR_HANDLE_OR_EMAIL',
           password: 'YOUR_PASSWORD',
         ),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -36,8 +36,8 @@ class BlueskyCards extends StatelessWidget {
           final bluesky = bsky.Bluesky.fromSession(session);
 
           return FutureBuilder(
-            future: bluesky.feeds.findFeeds(
-              author: session.did,
+            future: bluesky.feeds.findFeed(
+              actor: session.did,
               limit: 5,
             ),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -45,13 +45,13 @@ class BlueskyCards extends StatelessWidget {
                 return const CircularProgressIndicator();
               }
 
-              final List<bsky.Feed> feeds = snapshot.data.data.feeds;
+              final List<bsky.Feed> feed = snapshot.data.data.feed;
 
               return ListView.builder(
-                itemCount: feeds.length,
+                itemCount: feed.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Card(
-                    child: bskyc.EmbeddedCard.fromFeed(feeds[index]),
+                    child: bskyc.EmbeddedCard.fromFeed(feed[index]),
                   );
                 },
               );
