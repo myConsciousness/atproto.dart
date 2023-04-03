@@ -40,9 +40,7 @@ class FollowCommand extends CreateRecordCommand {
 
   @override
   Map<String, dynamic> get record => {
-        'subject': {
-          'did': argResults!['did'],
-        },
+        'subject': argResults!['did'],
         'createdAt': argResults!['created-at'],
       };
 }

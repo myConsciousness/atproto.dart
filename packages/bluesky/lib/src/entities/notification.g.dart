@@ -50,11 +50,12 @@ Map<String, dynamic> _$$_NotificationToJson(_$_Notification instance) {
 }
 
 const _$NotificationReasonEnumMap = {
-  NotificationReason.vote: 'vote',
+  NotificationReason.like: 'like',
   NotificationReason.assertion: 'assertion',
   NotificationReason.repost: 'repost',
   NotificationReason.follow: 'follow',
   NotificationReason.invite: 'invite',
   NotificationReason.mention: 'mention',
   NotificationReason.reply: 'reply',
+  NotificationReason.quote: 'quote',
 };

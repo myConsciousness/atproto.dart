@@ -174,9 +174,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       await atproto.repositories.createRecord(
         collection: createNSID('follow'),
         record: {
-          'subject': {
-            'did': did,
-          },
+          'subject': did,
           'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
         },
       );

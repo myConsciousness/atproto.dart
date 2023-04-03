@@ -7,17 +7,20 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'post_viewer.freezed.dart';
-part 'post_viewer.g.dart';
+import 'facet_feature.dart';
+import 'index.dart';
+
+part 'facet.freezed.dart';
+part 'facet.g.dart';
 
 @freezed
-class PostViewer with _$PostViewer {
+class Facet with _$Facet {
   @JsonSerializable(includeIfNull: false)
-  const factory PostViewer({
-    String? repost,
-    String? like,
-  }) = _PostViewer;
+  const factory Facet({
+    @JsonKey(name: '\$type') String? type,
+    required Index index,
+    required List<FacetFeature> features,
+  }) = _Facet;
 
-  factory PostViewer.fromJson(Map<String, Object?> json) =>
-      _$PostViewerFromJson(json);
+  factory Facet.fromJson(Map<String, Object?> json) => _$FacetFromJson(json);
 }

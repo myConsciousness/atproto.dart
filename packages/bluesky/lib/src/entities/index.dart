@@ -11,8 +11,8 @@ part 'index.g.dart';
 @freezed
 class Index with _$Index {
   const factory Index({
-    required int start,
-    required int end,
+    required int byteStart,
+    required int byteEnd,
   }) = _Index;
 
   factory Index.fromJson(Map<String, Object?> json) => _$IndexFromJson(json);

@@ -30,8 +30,6 @@ mixin _$ActorProfile {
   int get followersCount => throw _privateConstructorUsedError;
   int get postsCount => throw _privateConstructorUsedError;
   ActorViewer get viewer => throw _privateConstructorUsedError;
-  ActorViewer get myState => throw _privateConstructorUsedError;
-  String get creator => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -57,12 +55,9 @@ abstract class $ActorProfileCopyWith<$Res> {
       int followersCount,
       int postsCount,
       ActorViewer viewer,
-      ActorViewer myState,
-      String creator,
       DateTime indexedAt});
 
   $ActorViewerCopyWith<$Res> get viewer;
-  $ActorViewerCopyWith<$Res> get myState;
 }
 
 /// @nodoc
@@ -88,8 +83,6 @@ class _$ActorProfileCopyWithImpl<$Res, $Val extends ActorProfile>
     Object? followersCount = null,
     Object? postsCount = null,
     Object? viewer = null,
-    Object? myState = null,
-    Object? creator = null,
     Object? indexedAt = null,
   }) {
     return _then(_value.copyWith(
@@ -133,14 +126,6 @@ class _$ActorProfileCopyWithImpl<$Res, $Val extends ActorProfile>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ActorViewer,
-      myState: null == myState
-          ? _value.myState
-          : myState // ignore: cast_nullable_to_non_nullable
-              as ActorViewer,
-      creator: null == creator
-          ? _value.creator
-          : creator // ignore: cast_nullable_to_non_nullable
-              as String,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -153,14 +138,6 @@ class _$ActorProfileCopyWithImpl<$Res, $Val extends ActorProfile>
   $ActorViewerCopyWith<$Res> get viewer {
     return $ActorViewerCopyWith<$Res>(_value.viewer, (value) {
       return _then(_value.copyWith(viewer: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ActorViewerCopyWith<$Res> get myState {
-    return $ActorViewerCopyWith<$Res>(_value.myState, (value) {
-      return _then(_value.copyWith(myState: value) as $Val);
     });
   }
 }
@@ -184,14 +161,10 @@ abstract class _$$_ActorProfileCopyWith<$Res>
       int followersCount,
       int postsCount,
       ActorViewer viewer,
-      ActorViewer myState,
-      String creator,
       DateTime indexedAt});
 
   @override
   $ActorViewerCopyWith<$Res> get viewer;
-  @override
-  $ActorViewerCopyWith<$Res> get myState;
 }
 
 /// @nodoc
@@ -215,8 +188,6 @@ class __$$_ActorProfileCopyWithImpl<$Res>
     Object? followersCount = null,
     Object? postsCount = null,
     Object? viewer = null,
-    Object? myState = null,
-    Object? creator = null,
     Object? indexedAt = null,
   }) {
     return _then(_$_ActorProfile(
@@ -260,14 +231,6 @@ class __$$_ActorProfileCopyWithImpl<$Res>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ActorViewer,
-      myState: null == myState
-          ? _value.myState
-          : myState // ignore: cast_nullable_to_non_nullable
-              as ActorViewer,
-      creator: null == creator
-          ? _value.creator
-          : creator // ignore: cast_nullable_to_non_nullable
-              as String,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -291,8 +254,6 @@ class _$_ActorProfile implements _ActorProfile {
       required this.followersCount,
       required this.postsCount,
       required this.viewer,
-      required this.myState,
-      required this.creator,
       required this.indexedAt});
 
   factory _$_ActorProfile.fromJson(Map<String, dynamic> json) =>
@@ -319,15 +280,11 @@ class _$_ActorProfile implements _ActorProfile {
   @override
   final ActorViewer viewer;
   @override
-  final ActorViewer myState;
-  @override
-  final String creator;
-  @override
   final DateTime indexedAt;
 
   @override
   String toString() {
-    return 'ActorProfile(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, followsCount: $followsCount, followersCount: $followersCount, postsCount: $postsCount, viewer: $viewer, myState: $myState, creator: $creator, indexedAt: $indexedAt)';
+    return 'ActorProfile(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, followsCount: $followsCount, followersCount: $followersCount, postsCount: $postsCount, viewer: $viewer, indexedAt: $indexedAt)';
   }
 
   @override
@@ -350,8 +307,6 @@ class _$_ActorProfile implements _ActorProfile {
             (identical(other.postsCount, postsCount) ||
                 other.postsCount == postsCount) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
-            (identical(other.myState, myState) || other.myState == myState) &&
-            (identical(other.creator, creator) || other.creator == creator) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt));
   }
@@ -370,8 +325,6 @@ class _$_ActorProfile implements _ActorProfile {
       followersCount,
       postsCount,
       viewer,
-      myState,
-      creator,
       indexedAt);
 
   @JsonKey(ignore: true)
@@ -400,8 +353,6 @@ abstract class _ActorProfile implements ActorProfile {
       required final int followersCount,
       required final int postsCount,
       required final ActorViewer viewer,
-      required final ActorViewer myState,
-      required final String creator,
       required final DateTime indexedAt}) = _$_ActorProfile;
 
   factory _ActorProfile.fromJson(Map<String, dynamic> json) =
@@ -427,10 +378,6 @@ abstract class _ActorProfile implements ActorProfile {
   int get postsCount;
   @override
   ActorViewer get viewer;
-  @override
-  ActorViewer get myState;
-  @override
-  String get creator;
   @override
   DateTime get indexedAt;
   @override

@@ -25,7 +25,7 @@ class Post with _$Post {
     required String cid,
     required int replyCount,
     required int repostCount,
-    @JsonKey(name: 'upvoteCount') required int likeCount,
+    required int likeCount,
     required PostViewer viewer,
     required DateTime indexedAt,
   }) = _Post;

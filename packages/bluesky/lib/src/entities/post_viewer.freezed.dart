@@ -21,7 +21,6 @@ PostViewer _$PostViewerFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PostViewer {
   String? get repost => throw _privateConstructorUsedError;
-  @JsonKey(name: 'upvote')
   String? get like => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +35,7 @@ abstract class $PostViewerCopyWith<$Res> {
           PostViewer value, $Res Function(PostViewer) then) =
       _$PostViewerCopyWithImpl<$Res, PostViewer>;
   @useResult
-  $Res call({String? repost, @JsonKey(name: 'upvote') String? like});
+  $Res call({String? repost, String? like});
 }
 
 /// @nodoc
@@ -76,7 +75,7 @@ abstract class _$$_PostViewerCopyWith<$Res>
       __$$_PostViewerCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? repost, @JsonKey(name: 'upvote') String? like});
+  $Res call({String? repost, String? like});
 }
 
 /// @nodoc
@@ -110,7 +109,7 @@ class __$$_PostViewerCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$_PostViewer implements _PostViewer {
-  const _$_PostViewer({this.repost, @JsonKey(name: 'upvote') this.like});
+  const _$_PostViewer({this.repost, this.like});
 
   factory _$_PostViewer.fromJson(Map<String, dynamic> json) =>
       _$$_PostViewerFromJson(json);
@@ -118,7 +117,6 @@ class _$_PostViewer implements _PostViewer {
   @override
   final String? repost;
   @override
-  @JsonKey(name: 'upvote')
   final String? like;
 
   @override
@@ -154,9 +152,8 @@ class _$_PostViewer implements _PostViewer {
 }
 
 abstract class _PostViewer implements PostViewer {
-  const factory _PostViewer(
-      {final String? repost,
-      @JsonKey(name: 'upvote') final String? like}) = _$_PostViewer;
+  const factory _PostViewer({final String? repost, final String? like}) =
+      _$_PostViewer;
 
   factory _PostViewer.fromJson(Map<String, dynamic> json) =
       _$_PostViewer.fromJson;
@@ -164,7 +161,6 @@ abstract class _PostViewer implements PostViewer {
   @override
   String? get repost;
   @override
-  @JsonKey(name: 'upvote')
   String? get like;
   @override
   @JsonKey(ignore: true)

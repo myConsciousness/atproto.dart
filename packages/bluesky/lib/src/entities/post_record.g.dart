@@ -20,18 +20,12 @@ _$_PostRecord _$$_PostRecordFromJson(Map json) => $checkedCreate(
               (v) => v == null
                   ? null
                   : PostRef.fromJson(Map<String, Object?>.from(v as Map))),
-          entities: $checkedConvert(
-              'entities',
+          facets: $checkedConvert(
+              'facets',
               (v) => (v as List<dynamic>?)
                   ?.map((e) =>
-                      Entity.fromJson(Map<String, Object?>.from(e as Map)))
+                      Facet.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
-          embed: $checkedConvert(
-              'embed',
-              (v) => v == null
-                  ? null
-                  : EmbedContents.fromJson(
-                      Map<String, Object?>.from(v as Map))),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
         );
@@ -53,8 +47,7 @@ Map<String, dynamic> _$$_PostRecordToJson(_$_PostRecord instance) {
   }
 
   writeNotNull('reply', instance.reply?.toJson());
-  writeNotNull('entities', instance.entities?.map((e) => e.toJson()).toList());
-  writeNotNull('embed', instance.embed?.toJson());
+  writeNotNull('facets', instance.facets?.map((e) => e.toJson()).toList());
   val['createdAt'] = instance.createdAt.toIso8601String();
   return val;
 }

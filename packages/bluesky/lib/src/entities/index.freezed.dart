@@ -20,8 +20,8 @@ Index _$IndexFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Index {
-  int get start => throw _privateConstructorUsedError;
-  int get end => throw _privateConstructorUsedError;
+  int get byteStart => throw _privateConstructorUsedError;
+  int get byteEnd => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +33,7 @@ abstract class $IndexCopyWith<$Res> {
   factory $IndexCopyWith(Index value, $Res Function(Index) then) =
       _$IndexCopyWithImpl<$Res, Index>;
   @useResult
-  $Res call({int start, int end});
+  $Res call({int byteStart, int byteEnd});
 }
 
 /// @nodoc
@@ -49,17 +49,17 @@ class _$IndexCopyWithImpl<$Res, $Val extends Index>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? start = null,
-    Object? end = null,
+    Object? byteStart = null,
+    Object? byteEnd = null,
   }) {
     return _then(_value.copyWith(
-      start: null == start
-          ? _value.start
-          : start // ignore: cast_nullable_to_non_nullable
+      byteStart: null == byteStart
+          ? _value.byteStart
+          : byteStart // ignore: cast_nullable_to_non_nullable
               as int,
-      end: null == end
-          ? _value.end
-          : end // ignore: cast_nullable_to_non_nullable
+      byteEnd: null == byteEnd
+          ? _value.byteEnd
+          : byteEnd // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
   }
@@ -71,7 +71,7 @@ abstract class _$$_IndexCopyWith<$Res> implements $IndexCopyWith<$Res> {
       __$$_IndexCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int start, int end});
+  $Res call({int byteStart, int byteEnd});
 }
 
 /// @nodoc
@@ -83,17 +83,17 @@ class __$$_IndexCopyWithImpl<$Res> extends _$IndexCopyWithImpl<$Res, _$_Index>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? start = null,
-    Object? end = null,
+    Object? byteStart = null,
+    Object? byteEnd = null,
   }) {
     return _then(_$_Index(
-      start: null == start
-          ? _value.start
-          : start // ignore: cast_nullable_to_non_nullable
+      byteStart: null == byteStart
+          ? _value.byteStart
+          : byteStart // ignore: cast_nullable_to_non_nullable
               as int,
-      end: null == end
-          ? _value.end
-          : end // ignore: cast_nullable_to_non_nullable
+      byteEnd: null == byteEnd
+          ? _value.byteEnd
+          : byteEnd // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -102,19 +102,19 @@ class __$$_IndexCopyWithImpl<$Res> extends _$IndexCopyWithImpl<$Res, _$_Index>
 /// @nodoc
 @JsonSerializable()
 class _$_Index implements _Index {
-  const _$_Index({required this.start, required this.end});
+  const _$_Index({required this.byteStart, required this.byteEnd});
 
   factory _$_Index.fromJson(Map<String, dynamic> json) =>
       _$$_IndexFromJson(json);
 
   @override
-  final int start;
+  final int byteStart;
   @override
-  final int end;
+  final int byteEnd;
 
   @override
   String toString() {
-    return 'Index(start: $start, end: $end)';
+    return 'Index(byteStart: $byteStart, byteEnd: $byteEnd)';
   }
 
   @override
@@ -122,13 +122,14 @@ class _$_Index implements _Index {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Index &&
-            (identical(other.start, start) || other.start == start) &&
-            (identical(other.end, end) || other.end == end));
+            (identical(other.byteStart, byteStart) ||
+                other.byteStart == byteStart) &&
+            (identical(other.byteEnd, byteEnd) || other.byteEnd == byteEnd));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, start, end);
+  int get hashCode => Object.hash(runtimeType, byteStart, byteEnd);
 
   @JsonKey(ignore: true)
   @override
@@ -145,15 +146,15 @@ class _$_Index implements _Index {
 }
 
 abstract class _Index implements Index {
-  const factory _Index({required final int start, required final int end}) =
-      _$_Index;
+  const factory _Index(
+      {required final int byteStart, required final int byteEnd}) = _$_Index;
 
   factory _Index.fromJson(Map<String, dynamic> json) = _$_Index.fromJson;
 
   @override
-  int get start;
+  int get byteStart;
   @override
-  int get end;
+  int get byteEnd;
   @override
   @JsonKey(ignore: true)
   _$$_IndexCopyWith<_$_Index> get copyWith =>
