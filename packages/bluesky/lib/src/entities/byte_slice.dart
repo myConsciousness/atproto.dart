@@ -5,15 +5,16 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'index.freezed.dart';
-part 'index.g.dart';
+part 'byte_slice.freezed.dart';
+part 'byte_slice.g.dart';
 
 @freezed
-class Index with _$Index {
-  const factory Index({
+class ByteSlice with _$ByteSlice {
+  const factory ByteSlice({
     required int byteStart,
     required int byteEnd,
-  }) = _Index;
+  }) = _ByteSlice;
 
-  factory Index.fromJson(Map<String, Object?> json) => _$IndexFromJson(json);
+  factory ByteSlice.fromJson(Map<String, Object?> json) =>
+      _$ByteSliceFromJson(json);
 }

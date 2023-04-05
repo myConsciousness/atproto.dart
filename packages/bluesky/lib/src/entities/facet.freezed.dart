@@ -22,7 +22,8 @@ Facet _$FacetFromJson(Map<String, dynamic> json) {
 mixin _$Facet {
   @JsonKey(name: '\$type')
   String? get type => throw _privateConstructorUsedError;
-  Index get index => throw _privateConstructorUsedError;
+  ByteSlice get index => throw _privateConstructorUsedError;
+  @FacetFeatureConverter()
   List<FacetFeature> get features => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,10 +38,10 @@ abstract class $FacetCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: '\$type') String? type,
-      Index index,
-      List<FacetFeature> features});
+      ByteSlice index,
+      @FacetFeatureConverter() List<FacetFeature> features});
 
-  $IndexCopyWith<$Res> get index;
+  $ByteSliceCopyWith<$Res> get index;
 }
 
 /// @nodoc
@@ -68,7 +69,7 @@ class _$FacetCopyWithImpl<$Res, $Val extends Facet>
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
-              as Index,
+              as ByteSlice,
       features: null == features
           ? _value.features
           : features // ignore: cast_nullable_to_non_nullable
@@ -78,8 +79,8 @@ class _$FacetCopyWithImpl<$Res, $Val extends Facet>
 
   @override
   @pragma('vm:prefer-inline')
-  $IndexCopyWith<$Res> get index {
-    return $IndexCopyWith<$Res>(_value.index, (value) {
+  $ByteSliceCopyWith<$Res> get index {
+    return $ByteSliceCopyWith<$Res>(_value.index, (value) {
       return _then(_value.copyWith(index: value) as $Val);
     });
   }
@@ -93,11 +94,11 @@ abstract class _$$_FacetCopyWith<$Res> implements $FacetCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: '\$type') String? type,
-      Index index,
-      List<FacetFeature> features});
+      ByteSlice index,
+      @FacetFeatureConverter() List<FacetFeature> features});
 
   @override
-  $IndexCopyWith<$Res> get index;
+  $ByteSliceCopyWith<$Res> get index;
 }
 
 /// @nodoc
@@ -121,7 +122,7 @@ class __$$_FacetCopyWithImpl<$Res> extends _$FacetCopyWithImpl<$Res, _$_Facet>
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
-              as Index,
+              as ByteSlice,
       features: null == features
           ? _value._features
           : features // ignore: cast_nullable_to_non_nullable
@@ -137,7 +138,7 @@ class _$_Facet implements _Facet {
   const _$_Facet(
       {@JsonKey(name: '\$type') this.type,
       required this.index,
-      required final List<FacetFeature> features})
+      @FacetFeatureConverter() required final List<FacetFeature> features})
       : _features = features;
 
   factory _$_Facet.fromJson(Map<String, dynamic> json) =>
@@ -147,9 +148,10 @@ class _$_Facet implements _Facet {
   @JsonKey(name: '\$type')
   final String? type;
   @override
-  final Index index;
+  final ByteSlice index;
   final List<FacetFeature> _features;
   @override
+  @FacetFeatureConverter()
   List<FacetFeature> get features {
     if (_features is EqualUnmodifiableListView) return _features;
     // ignore: implicit_dynamic_type
@@ -192,9 +194,11 @@ class _$_Facet implements _Facet {
 
 abstract class _Facet implements Facet {
   const factory _Facet(
-      {@JsonKey(name: '\$type') final String? type,
-      required final Index index,
-      required final List<FacetFeature> features}) = _$_Facet;
+      {@JsonKey(name: '\$type')
+          final String? type,
+      required final ByteSlice index,
+      @FacetFeatureConverter()
+          required final List<FacetFeature> features}) = _$_Facet;
 
   factory _Facet.fromJson(Map<String, dynamic> json) = _$_Facet.fromJson;
 
@@ -202,8 +206,9 @@ abstract class _Facet implements Facet {
   @JsonKey(name: '\$type')
   String? get type;
   @override
-  Index get index;
+  ByteSlice get index;
   @override
+  @FacetFeatureConverter()
   List<FacetFeature> get features;
   @override
   @JsonKey(ignore: true)

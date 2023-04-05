@@ -25,6 +25,8 @@ mixin _$Post {
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
+  @EmbedViewConverter()
+  EmbedView? get embed => throw _privateConstructorUsedError;
   int get replyCount => throw _privateConstructorUsedError;
   int get repostCount => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
@@ -46,6 +48,7 @@ abstract class $PostCopyWith<$Res> {
       Actor author,
       @AtUriConverter() AtUri uri,
       String cid,
+      @EmbedViewConverter() EmbedView? embed,
       int replyCount,
       int repostCount,
       int likeCount,
@@ -54,6 +57,7 @@ abstract class $PostCopyWith<$Res> {
 
   $PostRecordCopyWith<$Res> get record;
   $ActorCopyWith<$Res> get author;
+  $EmbedViewCopyWith<$Res>? get embed;
   $PostViewerCopyWith<$Res> get viewer;
 }
 
@@ -74,6 +78,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? author = null,
     Object? uri = null,
     Object? cid = null,
+    Object? embed = freezed,
     Object? replyCount = null,
     Object? repostCount = null,
     Object? likeCount = null,
@@ -97,6 +102,10 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String,
+      embed: freezed == embed
+          ? _value.embed
+          : embed // ignore: cast_nullable_to_non_nullable
+              as EmbedView?,
       replyCount: null == replyCount
           ? _value.replyCount
           : replyCount // ignore: cast_nullable_to_non_nullable
@@ -138,6 +147,18 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
 
   @override
   @pragma('vm:prefer-inline')
+  $EmbedViewCopyWith<$Res>? get embed {
+    if (_value.embed == null) {
+      return null;
+    }
+
+    return $EmbedViewCopyWith<$Res>(_value.embed!, (value) {
+      return _then(_value.copyWith(embed: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $PostViewerCopyWith<$Res> get viewer {
     return $PostViewerCopyWith<$Res>(_value.viewer, (value) {
       return _then(_value.copyWith(viewer: value) as $Val);
@@ -156,6 +177,7 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       Actor author,
       @AtUriConverter() AtUri uri,
       String cid,
+      @EmbedViewConverter() EmbedView? embed,
       int replyCount,
       int repostCount,
       int likeCount,
@@ -166,6 +188,8 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
   $PostRecordCopyWith<$Res> get record;
   @override
   $ActorCopyWith<$Res> get author;
+  @override
+  $EmbedViewCopyWith<$Res>? get embed;
   @override
   $PostViewerCopyWith<$Res> get viewer;
 }
@@ -183,6 +207,7 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
     Object? author = null,
     Object? uri = null,
     Object? cid = null,
+    Object? embed = freezed,
     Object? replyCount = null,
     Object? repostCount = null,
     Object? likeCount = null,
@@ -206,6 +231,10 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String,
+      embed: freezed == embed
+          ? _value.embed
+          : embed // ignore: cast_nullable_to_non_nullable
+              as EmbedView?,
       replyCount: null == replyCount
           ? _value.replyCount
           : replyCount // ignore: cast_nullable_to_non_nullable
@@ -238,6 +267,7 @@ class _$_Post implements _Post {
       required this.author,
       @AtUriConverter() required this.uri,
       required this.cid,
+      @EmbedViewConverter() this.embed,
       required this.replyCount,
       required this.repostCount,
       required this.likeCount,
@@ -256,6 +286,9 @@ class _$_Post implements _Post {
   @override
   final String cid;
   @override
+  @EmbedViewConverter()
+  final EmbedView? embed;
+  @override
   final int replyCount;
   @override
   final int repostCount;
@@ -268,7 +301,7 @@ class _$_Post implements _Post {
 
   @override
   String toString() {
-    return 'Post(record: $record, author: $author, uri: $uri, cid: $cid, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, viewer: $viewer, indexedAt: $indexedAt)';
+    return 'Post(record: $record, author: $author, uri: $uri, cid: $cid, embed: $embed, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, viewer: $viewer, indexedAt: $indexedAt)';
   }
 
   @override
@@ -280,6 +313,7 @@ class _$_Post implements _Post {
             (identical(other.author, author) || other.author == author) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
+            (identical(other.embed, embed) || other.embed == embed) &&
             (identical(other.replyCount, replyCount) ||
                 other.replyCount == replyCount) &&
             (identical(other.repostCount, repostCount) ||
@@ -293,7 +327,7 @@ class _$_Post implements _Post {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, record, author, uri, cid,
+  int get hashCode => Object.hash(runtimeType, record, author, uri, cid, embed,
       replyCount, repostCount, likeCount, viewer, indexedAt);
 
   @JsonKey(ignore: true)
@@ -316,6 +350,7 @@ abstract class _Post implements Post {
       required final Actor author,
       @AtUriConverter() required final AtUri uri,
       required final String cid,
+      @EmbedViewConverter() final EmbedView? embed,
       required final int replyCount,
       required final int repostCount,
       required final int likeCount,
@@ -333,6 +368,9 @@ abstract class _Post implements Post {
   AtUri get uri;
   @override
   String get cid;
+  @override
+  @EmbedViewConverter()
+  EmbedView? get embed;
   @override
   int get replyCount;
   @override

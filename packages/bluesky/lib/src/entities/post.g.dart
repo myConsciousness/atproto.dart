@@ -20,6 +20,10 @@ _$_Post _$$_PostFromJson(Map json) => $checkedCreate(
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
+          embed: $checkedConvert(
+              'embed',
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, EmbedView>(
+                  v, const EmbedViewConverter().fromJson)),
           replyCount: $checkedConvert('replyCount', (v) => v as int),
           repostCount: $checkedConvert('repostCount', (v) => v as int),
           likeCount: $checkedConvert('likeCount', (v) => v as int),
@@ -37,9 +41,23 @@ Map<String, dynamic> _$$_PostToJson(_$_Post instance) => <String, dynamic>{
       'author': instance.author.toJson(),
       'uri': const AtUriConverter().toJson(instance.uri),
       'cid': instance.cid,
+      'embed': _$JsonConverterToJson<Map<String, dynamic>, EmbedView>(
+          instance.embed, const EmbedViewConverter().toJson),
       'replyCount': instance.replyCount,
       'repostCount': instance.repostCount,
       'likeCount': instance.likeCount,
       'viewer': instance.viewer.toJson(),
       'indexedAt': instance.indexedAt.toIso8601String(),
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

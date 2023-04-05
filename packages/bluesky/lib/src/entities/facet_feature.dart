@@ -7,18 +7,20 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'facet_link.dart';
+import 'facet_mention.dart';
+
 part 'facet_feature.freezed.dart';
-part 'facet_feature.g.dart';
 
 @freezed
 class FacetFeature with _$FacetFeature {
-  @JsonSerializable(includeIfNull: false)
-  const factory FacetFeature({
-    @JsonKey(name: '\$type') required String type,
-    String? uri,
-    String? did,
-  }) = _FacetFeature;
+  /// A facet feature for actor mentions.
+  const factory FacetFeature.mention({
+    required FacetMention data,
+  }) = _Mention;
 
-  factory FacetFeature.fromJson(Map<String, Object?> json) =>
-      _$FacetFeatureFromJson(json);
+  /// A facet feature for links.
+  const factory FacetFeature.link({
+    required FacetLink data,
+  }) = _Link;
 }

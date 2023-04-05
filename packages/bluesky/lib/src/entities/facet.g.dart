@@ -15,12 +15,12 @@ _$_Facet _$$_FacetFromJson(Map json) => $checkedCreate(
         final val = _$_Facet(
           type: $checkedConvert(r'$type', (v) => v as String?),
           index: $checkedConvert('index',
-              (v) => Index.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => ByteSlice.fromJson(Map<String, Object?>.from(v as Map))),
           features: $checkedConvert(
               'features',
               (v) => (v as List<dynamic>)
-                  .map((e) => FacetFeature.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) => const FacetFeatureConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
         );
         return val;
@@ -39,6 +39,7 @@ Map<String, dynamic> _$$_FacetToJson(_$_Facet instance) {
 
   writeNotNull(r'$type', instance.type);
   val['index'] = instance.index.toJson();
-  val['features'] = instance.features.map((e) => e.toJson()).toList();
+  val['features'] =
+      instance.features.map(const FacetFeatureConverter().toJson).toList();
   return val;
 }

@@ -10,6 +10,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'actor.dart';
+import 'converter/embed_view_converter.dart';
+import 'embed_view.dart';
 import 'post_record.dart';
 import 'post_viewer.dart';
 
@@ -23,6 +25,7 @@ class Post with _$Post {
     required Actor author,
     @AtUriConverter() required AtUri uri,
     required String cid,
+    @EmbedViewConverter() EmbedView? embed,
     required int replyCount,
     required int repostCount,
     required int likeCount,
