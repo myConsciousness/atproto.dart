@@ -34,6 +34,7 @@ export 'package:bluesky/src/entities/actors_data.dart';
 export 'package:bluesky/src/entities/actors_typeahead_data.dart';
 export 'package:bluesky/src/entities/blob.dart';
 export 'package:bluesky/src/entities/blob_ref.dart';
+export 'package:bluesky/src/entities/byte_slice.dart';
 export 'package:bluesky/src/entities/count_data.dart';
 export 'package:bluesky/src/entities/embed.dart';
 export 'package:bluesky/src/entities/embed_external.dart';
