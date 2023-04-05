@@ -8,6 +8,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'converter/embed_converter.dart';
+import 'embed.dart';
 import 'facet.dart';
 import 'post_ref.dart';
 
@@ -21,6 +23,7 @@ class PostRecord with _$PostRecord {
     @JsonKey(name: '\$type') required String type,
     required String text,
     PostRef? reply,
+    @EmbedConverter() Embed? embed,
     List<Facet>? facets,
     required DateTime createdAt,
   }) = _PostRecord;

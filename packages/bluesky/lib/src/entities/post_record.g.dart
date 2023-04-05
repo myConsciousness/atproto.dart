@@ -20,6 +20,10 @@ _$_PostRecord _$$_PostRecordFromJson(Map json) => $checkedCreate(
               (v) => v == null
                   ? null
                   : PostRef.fromJson(Map<String, Object?>.from(v as Map))),
+          embed: $checkedConvert(
+              'embed',
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, Embed>(
+                  v, const EmbedConverter().fromJson)),
           facets: $checkedConvert(
               'facets',
               (v) => (v as List<dynamic>?)
@@ -47,7 +51,23 @@ Map<String, dynamic> _$$_PostRecordToJson(_$_PostRecord instance) {
   }
 
   writeNotNull('reply', instance.reply?.toJson());
+  writeNotNull(
+      'embed',
+      _$JsonConverterToJson<Map<String, dynamic>, Embed>(
+          instance.embed, const EmbedConverter().toJson));
   writeNotNull('facets', instance.facets?.map((e) => e.toJson()).toList());
   val['createdAt'] = instance.createdAt.toIso8601String();
   return val;
 }
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

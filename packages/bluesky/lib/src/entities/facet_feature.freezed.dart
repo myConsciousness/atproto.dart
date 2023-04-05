@@ -14,20 +14,46 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-FacetFeature _$FacetFeatureFromJson(Map<String, dynamic> json) {
-  return _FacetFeature.fromJson(json);
-}
-
 /// @nodoc
 mixin _$FacetFeature {
-  @JsonKey(name: '\$type')
-  String get type => throw _privateConstructorUsedError;
-  String? get uri => throw _privateConstructorUsedError;
-  String? get did => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $FacetFeatureCopyWith<FacetFeature> get copyWith =>
+  Object get data => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(FacetMention data) mention,
+    required TResult Function(FacetLink data) link,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FacetMention data)? mention,
+    TResult? Function(FacetLink data)? link,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FacetMention data)? mention,
+    TResult Function(FacetLink data)? link,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Mention value) mention,
+    required TResult Function(_Link value) link,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Mention value)? mention,
+    TResult? Function(_Link value)? link,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Mention value)? mention,
+    TResult Function(_Link value)? link,
+    required TResult orElse(),
+  }) =>
       throw _privateConstructorUsedError;
 }
 
@@ -36,8 +62,6 @@ abstract class $FacetFeatureCopyWith<$Res> {
   factory $FacetFeatureCopyWith(
           FacetFeature value, $Res Function(FacetFeature) then) =
       _$FacetFeatureCopyWithImpl<$Res, FacetFeature>;
-  @useResult
-  $Res call({@JsonKey(name: '\$type') String type, String? uri, String? did});
 }
 
 /// @nodoc
@@ -49,143 +73,288 @@ class _$FacetFeatureCopyWithImpl<$Res, $Val extends FacetFeature>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? uri = freezed,
-    Object? did = freezed,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      uri: freezed == uri
-          ? _value.uri
-          : uri // ignore: cast_nullable_to_non_nullable
-              as String?,
-      did: freezed == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_FacetFeatureCopyWith<$Res>
-    implements $FacetFeatureCopyWith<$Res> {
-  factory _$$_FacetFeatureCopyWith(
-          _$_FacetFeature value, $Res Function(_$_FacetFeature) then) =
-      __$$_FacetFeatureCopyWithImpl<$Res>;
-  @override
+abstract class _$$_MentionCopyWith<$Res> {
+  factory _$$_MentionCopyWith(
+          _$_Mention value, $Res Function(_$_Mention) then) =
+      __$$_MentionCopyWithImpl<$Res>;
   @useResult
-  $Res call({@JsonKey(name: '\$type') String type, String? uri, String? did});
+  $Res call({FacetMention data});
+
+  $FacetMentionCopyWith<$Res> get data;
 }
 
 /// @nodoc
-class __$$_FacetFeatureCopyWithImpl<$Res>
-    extends _$FacetFeatureCopyWithImpl<$Res, _$_FacetFeature>
-    implements _$$_FacetFeatureCopyWith<$Res> {
-  __$$_FacetFeatureCopyWithImpl(
-      _$_FacetFeature _value, $Res Function(_$_FacetFeature) _then)
+class __$$_MentionCopyWithImpl<$Res>
+    extends _$FacetFeatureCopyWithImpl<$Res, _$_Mention>
+    implements _$$_MentionCopyWith<$Res> {
+  __$$_MentionCopyWithImpl(_$_Mention _value, $Res Function(_$_Mention) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
-    Object? uri = freezed,
-    Object? did = freezed,
+    Object? data = null,
   }) {
-    return _then(_$_FacetFeature(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      uri: freezed == uri
-          ? _value.uri
-          : uri // ignore: cast_nullable_to_non_nullable
-              as String?,
-      did: freezed == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String?,
+    return _then(_$_Mention(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as FacetMention,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FacetMentionCopyWith<$Res> get data {
+    return $FacetMentionCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
   }
 }
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
-class _$_FacetFeature implements _FacetFeature {
-  const _$_FacetFeature(
-      {@JsonKey(name: '\$type') required this.type, this.uri, this.did});
-
-  factory _$_FacetFeature.fromJson(Map<String, dynamic> json) =>
-      _$$_FacetFeatureFromJson(json);
+class _$_Mention implements _Mention {
+  const _$_Mention({required this.data});
 
   @override
-  @JsonKey(name: '\$type')
-  final String type;
-  @override
-  final String? uri;
-  @override
-  final String? did;
+  final FacetMention data;
 
   @override
   String toString() {
-    return 'FacetFeature(type: $type, uri: $uri, did: $did)';
+    return 'FacetFeature.mention(data: $data)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FacetFeature &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.uri, uri) || other.uri == uri) &&
-            (identical(other.did, did) || other.did == did));
+            other is _$_Mention &&
+            (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, uri, did);
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FacetFeatureCopyWith<_$_FacetFeature> get copyWith =>
-      __$$_FacetFeatureCopyWithImpl<_$_FacetFeature>(this, _$identity);
+  _$$_MentionCopyWith<_$_Mention> get copyWith =>
+      __$$_MentionCopyWithImpl<_$_Mention>(this, _$identity);
 
   @override
-  Map<String, dynamic> toJson() {
-    return _$$_FacetFeatureToJson(
-      this,
-    );
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(FacetMention data) mention,
+    required TResult Function(FacetLink data) link,
+  }) {
+    return mention(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FacetMention data)? mention,
+    TResult? Function(FacetLink data)? link,
+  }) {
+    return mention?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FacetMention data)? mention,
+    TResult Function(FacetLink data)? link,
+    required TResult orElse(),
+  }) {
+    if (mention != null) {
+      return mention(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Mention value) mention,
+    required TResult Function(_Link value) link,
+  }) {
+    return mention(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Mention value)? mention,
+    TResult? Function(_Link value)? link,
+  }) {
+    return mention?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Mention value)? mention,
+    TResult Function(_Link value)? link,
+    required TResult orElse(),
+  }) {
+    if (mention != null) {
+      return mention(this);
+    }
+    return orElse();
   }
 }
 
-abstract class _FacetFeature implements FacetFeature {
-  const factory _FacetFeature(
-      {@JsonKey(name: '\$type') required final String type,
-      final String? uri,
-      final String? did}) = _$_FacetFeature;
-
-  factory _FacetFeature.fromJson(Map<String, dynamic> json) =
-      _$_FacetFeature.fromJson;
+abstract class _Mention implements FacetFeature {
+  const factory _Mention({required final FacetMention data}) = _$_Mention;
 
   @override
-  @JsonKey(name: '\$type')
-  String get type;
-  @override
-  String? get uri;
-  @override
-  String? get did;
-  @override
+  FacetMention get data;
   @JsonKey(ignore: true)
-  _$$_FacetFeatureCopyWith<_$_FacetFeature> get copyWith =>
+  _$$_MentionCopyWith<_$_Mention> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_LinkCopyWith<$Res> {
+  factory _$$_LinkCopyWith(_$_Link value, $Res Function(_$_Link) then) =
+      __$$_LinkCopyWithImpl<$Res>;
+  @useResult
+  $Res call({FacetLink data});
+
+  $FacetLinkCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_LinkCopyWithImpl<$Res>
+    extends _$FacetFeatureCopyWithImpl<$Res, _$_Link>
+    implements _$$_LinkCopyWith<$Res> {
+  __$$_LinkCopyWithImpl(_$_Link _value, $Res Function(_$_Link) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_Link(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as FacetLink,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FacetLinkCopyWith<$Res> get data {
+    return $FacetLinkCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_Link implements _Link {
+  const _$_Link({required this.data});
+
+  @override
+  final FacetLink data;
+
+  @override
+  String toString() {
+    return 'FacetFeature.link(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Link &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LinkCopyWith<_$_Link> get copyWith =>
+      __$$_LinkCopyWithImpl<_$_Link>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(FacetMention data) mention,
+    required TResult Function(FacetLink data) link,
+  }) {
+    return link(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FacetMention data)? mention,
+    TResult? Function(FacetLink data)? link,
+  }) {
+    return link?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FacetMention data)? mention,
+    TResult Function(FacetLink data)? link,
+    required TResult orElse(),
+  }) {
+    if (link != null) {
+      return link(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Mention value) mention,
+    required TResult Function(_Link value) link,
+  }) {
+    return link(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Mention value)? mention,
+    TResult? Function(_Link value)? link,
+  }) {
+    return link?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Mention value)? mention,
+    TResult Function(_Link value)? link,
+    required TResult orElse(),
+  }) {
+    if (link != null) {
+      return link(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Link implements FacetFeature {
+  const factory _Link({required final FacetLink data}) = _$_Link;
+
+  @override
+  FacetLink get data;
+  @JsonKey(ignore: true)
+  _$$_LinkCopyWith<_$_Link> get copyWith => throw _privateConstructorUsedError;
 }

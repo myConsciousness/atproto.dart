@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.3
+
+- Supported `facet` and `embed` features in `Post`. ([#234](https://github.com/myConsciousness/atproto.dart/issues/234))
+
 ## v0.3.2
 
 - Merged official refactoring. ([#52](https://github.com/myConsciousness/atproto.dart/issues/52))

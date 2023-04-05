@@ -2,17 +2,17 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'index.dart';
+part of 'byte_slice.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Index _$$_IndexFromJson(Map json) => $checkedCreate(
-      r'_$_Index',
+_$_ByteSlice _$$_ByteSliceFromJson(Map json) => $checkedCreate(
+      r'_$_ByteSlice',
       json,
       ($checkedConvert) {
-        final val = _$_Index(
+        final val = _$_ByteSlice(
           byteStart: $checkedConvert('byteStart', (v) => v as int),
           byteEnd: $checkedConvert('byteEnd', (v) => v as int),
         );
@@ -20,7 +20,8 @@ _$_Index _$$_IndexFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_IndexToJson(_$_Index instance) => <String, dynamic>{
+Map<String, dynamic> _$$_ByteSliceToJson(_$_ByteSlice instance) =>
+    <String, dynamic>{
       'byteStart': instance.byteStart,
       'byteEnd': instance.byteEnd,
     };

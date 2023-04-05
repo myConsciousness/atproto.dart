@@ -24,6 +24,8 @@ mixin _$PostRecord {
   String get type => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
   PostRef? get reply => throw _privateConstructorUsedError;
+  @EmbedConverter()
+  Embed? get embed => throw _privateConstructorUsedError;
   List<Facet>? get facets => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -43,10 +45,12 @@ abstract class $PostRecordCopyWith<$Res> {
       {@JsonKey(name: '\$type') String type,
       String text,
       PostRef? reply,
+      @EmbedConverter() Embed? embed,
       List<Facet>? facets,
       DateTime createdAt});
 
   $PostRefCopyWith<$Res>? get reply;
+  $EmbedCopyWith<$Res>? get embed;
 }
 
 /// @nodoc
@@ -65,6 +69,7 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
     Object? type = null,
     Object? text = null,
     Object? reply = freezed,
+    Object? embed = freezed,
     Object? facets = freezed,
     Object? createdAt = null,
   }) {
@@ -81,6 +86,10 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
           ? _value.reply
           : reply // ignore: cast_nullable_to_non_nullable
               as PostRef?,
+      embed: freezed == embed
+          ? _value.embed
+          : embed // ignore: cast_nullable_to_non_nullable
+              as Embed?,
       facets: freezed == facets
           ? _value.facets
           : facets // ignore: cast_nullable_to_non_nullable
@@ -103,6 +112,18 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
       return _then(_value.copyWith(reply: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $EmbedCopyWith<$Res>? get embed {
+    if (_value.embed == null) {
+      return null;
+    }
+
+    return $EmbedCopyWith<$Res>(_value.embed!, (value) {
+      return _then(_value.copyWith(embed: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -117,11 +138,14 @@ abstract class _$$_PostRecordCopyWith<$Res>
       {@JsonKey(name: '\$type') String type,
       String text,
       PostRef? reply,
+      @EmbedConverter() Embed? embed,
       List<Facet>? facets,
       DateTime createdAt});
 
   @override
   $PostRefCopyWith<$Res>? get reply;
+  @override
+  $EmbedCopyWith<$Res>? get embed;
 }
 
 /// @nodoc
@@ -138,6 +162,7 @@ class __$$_PostRecordCopyWithImpl<$Res>
     Object? type = null,
     Object? text = null,
     Object? reply = freezed,
+    Object? embed = freezed,
     Object? facets = freezed,
     Object? createdAt = null,
   }) {
@@ -154,6 +179,10 @@ class __$$_PostRecordCopyWithImpl<$Res>
           ? _value.reply
           : reply // ignore: cast_nullable_to_non_nullable
               as PostRef?,
+      embed: freezed == embed
+          ? _value.embed
+          : embed // ignore: cast_nullable_to_non_nullable
+              as Embed?,
       facets: freezed == facets
           ? _value._facets
           : facets // ignore: cast_nullable_to_non_nullable
@@ -174,6 +203,7 @@ class _$_PostRecord implements _PostRecord {
       {@JsonKey(name: '\$type') required this.type,
       required this.text,
       this.reply,
+      @EmbedConverter() this.embed,
       final List<Facet>? facets,
       required this.createdAt})
       : _facets = facets;
@@ -188,6 +218,9 @@ class _$_PostRecord implements _PostRecord {
   final String text;
   @override
   final PostRef? reply;
+  @override
+  @EmbedConverter()
+  final Embed? embed;
   final List<Facet>? _facets;
   @override
   List<Facet>? get facets {
@@ -203,7 +236,7 @@ class _$_PostRecord implements _PostRecord {
 
   @override
   String toString() {
-    return 'PostRecord(type: $type, text: $text, reply: $reply, facets: $facets, createdAt: $createdAt)';
+    return 'PostRecord(type: $type, text: $text, reply: $reply, embed: $embed, facets: $facets, createdAt: $createdAt)';
   }
 
   @override
@@ -214,6 +247,7 @@ class _$_PostRecord implements _PostRecord {
             (identical(other.type, type) || other.type == type) &&
             (identical(other.text, text) || other.text == text) &&
             (identical(other.reply, reply) || other.reply == reply) &&
+            (identical(other.embed, embed) || other.embed == embed) &&
             const DeepCollectionEquality().equals(other._facets, _facets) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
@@ -221,7 +255,7 @@ class _$_PostRecord implements _PostRecord {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, text, reply,
+  int get hashCode => Object.hash(runtimeType, type, text, reply, embed,
       const DeepCollectionEquality().hash(_facets), createdAt);
 
   @JsonKey(ignore: true)
@@ -243,6 +277,7 @@ abstract class _PostRecord implements PostRecord {
       {@JsonKey(name: '\$type') required final String type,
       required final String text,
       final PostRef? reply,
+      @EmbedConverter() final Embed? embed,
       final List<Facet>? facets,
       required final DateTime createdAt}) = _$_PostRecord;
 
@@ -256,6 +291,9 @@ abstract class _PostRecord implements PostRecord {
   String get text;
   @override
   PostRef? get reply;
+  @override
+  @EmbedConverter()
+  Embed? get embed;
   @override
   List<Facet>? get facets;
   @override
