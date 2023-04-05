@@ -15,7 +15,7 @@ This action is implemented in the Dart language and uses [bluesky](https://githu
 Configure your workflow to use `myConsciousness/bluesky-post@v2`,
 and provide the post you want to send as the `text` input.
 
-Provide Bluesky's ATP server with `handle` and `password` to create a session.
+Provide Bluesky's ATP server with `identifier` (handle or email) and `password` to create a session.
 
 For example:
 
@@ -32,7 +32,7 @@ jobs:
       - uses: myConsciousness/bluesky-post@v2
         with:
           text: "Hello, Bluesky!"
-          handle: ${{ secrets.BLUESKY_HANDLE }}
+          identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
           password: ${{ secrets.BLUESKY_PASSWORD }}
 ```
 
@@ -60,7 +60,7 @@ jobs:
       - uses: myConsciousness/bluesky-post@v2
         with:
           text: "Hello, Bluesky!"
-          handle: ${{ secrets.BLUESKY_HANDLE }}
+          identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
           password: ${{ secrets.BLUESKY_PASSWORD }}
           service: "boobee.blue"
 ```
@@ -88,7 +88,7 @@ jobs:
       - uses: myConsciousness/bluesky-post@v2
         with:
           text: "Hello, Bluesky!"
-          handle: ${{ secrets.BLUESKY_HANDLE }}
+          identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
           password: ${{ secrets.BLUESKY_PASSWORD }}
           retry-count: 5
 ```

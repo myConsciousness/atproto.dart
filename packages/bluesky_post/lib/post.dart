@@ -18,7 +18,7 @@ Future<void> post() async {
   final session = await bsky.createSession(
     service: service,
     identifier: core.getInput(
-      name: 'handle',
+      name: 'identifier',
       options: core.InputOptions(
         required: true,
         trimWhitespace: true,
