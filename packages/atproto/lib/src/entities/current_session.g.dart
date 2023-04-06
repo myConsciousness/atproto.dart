@@ -15,6 +15,7 @@ _$_CurrentSession _$$_CurrentSessionFromJson(Map json) => $checkedCreate(
         final val = _$_CurrentSession(
           did: $checkedConvert('did', (v) => v as String),
           handle: $checkedConvert('handle', (v) => v as String),
+          email: $checkedConvert('email', (v) => v as String),
         );
         return val;
       },
@@ -24,4 +25,5 @@ Map<String, dynamic> _$$_CurrentSessionToJson(_$_CurrentSession instance) =>
     <String, dynamic>{
       'did': instance.did,
       'handle': instance.handle,
+      'email': instance.email,
     };

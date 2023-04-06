@@ -15,6 +15,7 @@ _$_Session _$$_SessionFromJson(Map json) => $checkedCreate(
         final val = _$_Session(
           did: $checkedConvert('did', (v) => v as String),
           handle: $checkedConvert('handle', (v) => v as String),
+          email: $checkedConvert('email', (v) => v as String?),
           accessJwt: $checkedConvert('accessJwt', (v) => v as String),
           refreshJwt: $checkedConvert('refreshJwt', (v) => v as String),
         );
@@ -26,6 +27,7 @@ Map<String, dynamic> _$$_SessionToJson(_$_Session instance) =>
     <String, dynamic>{
       'did': instance.did,
       'handle': instance.handle,
+      'email': instance.email,
       'accessJwt': instance.accessJwt,
       'refreshJwt': instance.refreshJwt,
     };

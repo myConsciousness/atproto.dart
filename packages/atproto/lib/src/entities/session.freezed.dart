@@ -22,6 +22,7 @@ Session _$SessionFromJson(Map<String, dynamic> json) {
 mixin _$Session {
   String get did => throw _privateConstructorUsedError;
   String get handle => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
   String get accessJwt => throw _privateConstructorUsedError;
   String get refreshJwt => throw _privateConstructorUsedError;
 
@@ -35,7 +36,12 @@ abstract class $SessionCopyWith<$Res> {
   factory $SessionCopyWith(Session value, $Res Function(Session) then) =
       _$SessionCopyWithImpl<$Res, Session>;
   @useResult
-  $Res call({String did, String handle, String accessJwt, String refreshJwt});
+  $Res call(
+      {String did,
+      String handle,
+      String? email,
+      String accessJwt,
+      String refreshJwt});
 }
 
 /// @nodoc
@@ -53,6 +59,7 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
   $Res call({
     Object? did = null,
     Object? handle = null,
+    Object? email = freezed,
     Object? accessJwt = null,
     Object? refreshJwt = null,
   }) {
@@ -65,6 +72,10 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
           ? _value.handle
           : handle // ignore: cast_nullable_to_non_nullable
               as String,
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
       accessJwt: null == accessJwt
           ? _value.accessJwt
           : accessJwt // ignore: cast_nullable_to_non_nullable
@@ -84,7 +95,12 @@ abstract class _$$_SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
       __$$_SessionCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String did, String handle, String accessJwt, String refreshJwt});
+  $Res call(
+      {String did,
+      String handle,
+      String? email,
+      String accessJwt,
+      String refreshJwt});
 }
 
 /// @nodoc
@@ -99,6 +115,7 @@ class __$$_SessionCopyWithImpl<$Res>
   $Res call({
     Object? did = null,
     Object? handle = null,
+    Object? email = freezed,
     Object? accessJwt = null,
     Object? refreshJwt = null,
   }) {
@@ -111,6 +128,10 @@ class __$$_SessionCopyWithImpl<$Res>
           ? _value.handle
           : handle // ignore: cast_nullable_to_non_nullable
               as String,
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
       accessJwt: null == accessJwt
           ? _value.accessJwt
           : accessJwt // ignore: cast_nullable_to_non_nullable
@@ -129,6 +150,7 @@ class _$_Session implements _Session {
   const _$_Session(
       {required this.did,
       required this.handle,
+      this.email,
       required this.accessJwt,
       required this.refreshJwt});
 
@@ -140,13 +162,15 @@ class _$_Session implements _Session {
   @override
   final String handle;
   @override
+  final String? email;
+  @override
   final String accessJwt;
   @override
   final String refreshJwt;
 
   @override
   String toString() {
-    return 'Session(did: $did, handle: $handle, accessJwt: $accessJwt, refreshJwt: $refreshJwt)';
+    return 'Session(did: $did, handle: $handle, email: $email, accessJwt: $accessJwt, refreshJwt: $refreshJwt)';
   }
 
   @override
@@ -156,6 +180,7 @@ class _$_Session implements _Session {
             other is _$_Session &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.handle, handle) || other.handle == handle) &&
+            (identical(other.email, email) || other.email == email) &&
             (identical(other.accessJwt, accessJwt) ||
                 other.accessJwt == accessJwt) &&
             (identical(other.refreshJwt, refreshJwt) ||
@@ -165,7 +190,7 @@ class _$_Session implements _Session {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, did, handle, accessJwt, refreshJwt);
+      Object.hash(runtimeType, did, handle, email, accessJwt, refreshJwt);
 
   @JsonKey(ignore: true)
   @override
@@ -185,6 +210,7 @@ abstract class _Session implements Session {
   const factory _Session(
       {required final String did,
       required final String handle,
+      final String? email,
       required final String accessJwt,
       required final String refreshJwt}) = _$_Session;
 
@@ -194,6 +220,8 @@ abstract class _Session implements Session {
   String get did;
   @override
   String get handle;
+  @override
+  String? get email;
   @override
   String get accessJwt;
   @override
