@@ -22,6 +22,7 @@ CurrentSession _$CurrentSessionFromJson(Map<String, dynamic> json) {
 mixin _$CurrentSession {
   String get did => throw _privateConstructorUsedError;
   String get handle => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,7 @@ abstract class $CurrentSessionCopyWith<$Res> {
           CurrentSession value, $Res Function(CurrentSession) then) =
       _$CurrentSessionCopyWithImpl<$Res, CurrentSession>;
   @useResult
-  $Res call({String did, String handle});
+  $Res call({String did, String handle, String email});
 }
 
 /// @nodoc
@@ -53,6 +54,7 @@ class _$CurrentSessionCopyWithImpl<$Res, $Val extends CurrentSession>
   $Res call({
     Object? did = null,
     Object? handle = null,
+    Object? email = null,
   }) {
     return _then(_value.copyWith(
       did: null == did
@@ -62,6 +64,10 @@ class _$CurrentSessionCopyWithImpl<$Res, $Val extends CurrentSession>
       handle: null == handle
           ? _value.handle
           : handle // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -75,7 +81,7 @@ abstract class _$$_CurrentSessionCopyWith<$Res>
       __$$_CurrentSessionCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String did, String handle});
+  $Res call({String did, String handle, String email});
 }
 
 /// @nodoc
@@ -91,6 +97,7 @@ class __$$_CurrentSessionCopyWithImpl<$Res>
   $Res call({
     Object? did = null,
     Object? handle = null,
+    Object? email = null,
   }) {
     return _then(_$_CurrentSession(
       did: null == did
@@ -101,6 +108,10 @@ class __$$_CurrentSessionCopyWithImpl<$Res>
           ? _value.handle
           : handle // ignore: cast_nullable_to_non_nullable
               as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -108,7 +119,8 @@ class __$$_CurrentSessionCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CurrentSession implements _CurrentSession {
-  const _$_CurrentSession({required this.did, required this.handle});
+  const _$_CurrentSession(
+      {required this.did, required this.handle, required this.email});
 
   factory _$_CurrentSession.fromJson(Map<String, dynamic> json) =>
       _$$_CurrentSessionFromJson(json);
@@ -117,10 +129,12 @@ class _$_CurrentSession implements _CurrentSession {
   final String did;
   @override
   final String handle;
+  @override
+  final String email;
 
   @override
   String toString() {
-    return 'CurrentSession(did: $did, handle: $handle)';
+    return 'CurrentSession(did: $did, handle: $handle, email: $email)';
   }
 
   @override
@@ -129,12 +143,13 @@ class _$_CurrentSession implements _CurrentSession {
         (other.runtimeType == runtimeType &&
             other is _$_CurrentSession &&
             (identical(other.did, did) || other.did == did) &&
-            (identical(other.handle, handle) || other.handle == handle));
+            (identical(other.handle, handle) || other.handle == handle) &&
+            (identical(other.email, email) || other.email == email));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, did, handle);
+  int get hashCode => Object.hash(runtimeType, did, handle, email);
 
   @JsonKey(ignore: true)
   @override
@@ -153,7 +168,8 @@ class _$_CurrentSession implements _CurrentSession {
 abstract class _CurrentSession implements CurrentSession {
   const factory _CurrentSession(
       {required final String did,
-      required final String handle}) = _$_CurrentSession;
+      required final String handle,
+      required final String email}) = _$_CurrentSession;
 
   factory _CurrentSession.fromJson(Map<String, dynamic> json) =
       _$_CurrentSession.fromJson;
@@ -162,6 +178,8 @@ abstract class _CurrentSession implements CurrentSession {
   String get did;
   @override
   String get handle;
+  @override
+  String get email;
   @override
   @JsonKey(ignore: true)
   _$$_CurrentSessionCopyWith<_$_CurrentSession> get copyWith =>

@@ -13,6 +13,7 @@ class CurrentSession with _$CurrentSession {
   const factory CurrentSession({
     required String did,
     required String handle,
+    required String email,
   }) = _CurrentSession;
 
   factory CurrentSession.fromJson(Map<String, Object?> json) =>

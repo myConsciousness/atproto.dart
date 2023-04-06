@@ -13,6 +13,7 @@ class Session with _$Session {
   const factory Session({
     required String did,
     required String handle,
+    String? email,
     required String accessJwt,
     required String refreshJwt,
   }) = _Session;
