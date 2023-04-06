@@ -17,6 +17,8 @@ lexicon:
 - packages/lexicon/**/*
 atproto:
 - packages/atproto/**/*
+atproto_cli:
+- packages/atproto_cli/**/*
 bluesky:
 - packages/bluesky/**/*
 bluesky_cli:
@@ -66,6 +68,7 @@ test:
 - packages/atproto_test/test/**/*.dart
 - packages/atproto_core/test/**/*.dart
 - packages/atproto/test/**/*.dart
+- packages/atproto_cli/test/**/*.dart
 - packages/bluesky/test/**/*.dart
 - packages/bluesky_cli/test/**/*.dart
 - packages/bluesky_cards/test/**/*.dart
@@ -85,6 +88,8 @@ documentation:
 - packages/atproto_core/README.md
 - packages/atproto/CHANGELOG.md
 - packages/atproto/README.md
+- packages/atproto_cli/CHANGELOG.md
+- packages/atproto_cli/README.md
 - packages/bluesky/CHANGELOG.md
 - packages/bluesky/README.md
 - packages/bluesky_cli/CHANGELOG.md

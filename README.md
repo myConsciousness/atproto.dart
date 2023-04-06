@@ -77,6 +77,7 @@ and to contribute to the development of [AT Protocol](https://atproto.com) and [
 
 | Name                                                                                          |                                                                 pub.dev                                                                  | Description                                                         |
 | --------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------- |
+| [atproto_cli](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_cli) | [![pub package](https://img.shields.io/pub/v/atproto_cli.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/atproto_cli) | CLI tool to easily use AT Protocol's APIs from the command line.    |
 | [bluesky_cli](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_cli) | [![pub package](https://img.shields.io/pub/v/bluesky_cli.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky_cli) | CLI tool to easily use Bluesky Social's APIs from the command line. |
 
 ### 1.1.4. GitHub Actions
