@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.4
+
+- Added `email` field to `Session` and `CurrentSession`. ([#235](https://github.com/myConsciousness/atproto.dart/issues/235))
+
 ## v0.2.3
 
 - Fixed lexicon method id from `com.atproto.handle` to `com.atproto.identity`.
