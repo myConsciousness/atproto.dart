@@ -1,0 +1,25 @@
+name: atproto_cli
+description: A powerful CLI tool that allows AT Protocol's APIs to be executed from the command line powered by Dart language.
+version: 0.0.1
+repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_cli
+issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
+funding:
+  - https://github.com/sponsors/myConsciousness
+
+environment:
+  sdk: '>=2.19.6 <3.0.0'
+
+executables:
+  atp:
+
+dependencies:
+  xrpc: ^0.0.6
+  at_uri: ^0.0.3
+  ansi_styles: ^0.3.1
+  args: ^2.0.0
+  cli_launcher: ^0.3.0
+  cli_util: ^0.3.0
+
+dev_dependencies:
+  lints: ^2.0.0
+  test: ^1.21.0
