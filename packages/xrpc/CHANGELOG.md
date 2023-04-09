@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.0.7
+
+- Downgrade `meta` to make this package compatible with Flutter. ([#242](https://github.com/myConsciousness/atproto.dart/issues/242))
+
 ## v0.0.6
 
 - Fix to pass null if body is null during POST. ([#218](https://github.com/myConsciousness/atproto.dart/issues/218))

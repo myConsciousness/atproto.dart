@@ -9,7 +9,7 @@ environment:
   sdk: ">=2.19.2 <3.0.0"
 
 dependencies:
-  atproto_core: ^0.2.1
+  atproto_core: ^0.2.2
   freezed_annotation: ^2.2.0
   json_annotation: ^4.8.0
 
