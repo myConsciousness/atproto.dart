@@ -10,7 +10,9 @@ import 'atp_command.dart';
 /// The command for query communication.
 abstract class QueryCommand extends AtpCommand {
   /// Returns the new instance of [QueryCommand].
-  QueryCommand();
+  QueryCommand({this.authRequired = true});
+
+  final bool authRequired;
 
   /// Returns the method id.
   xrpc.NSID get methodId;
@@ -24,7 +26,9 @@ abstract class QueryCommand extends AtpCommand {
         action: () async => await xrpc.query<String>(
           methodId,
           service: service,
-          headers: {'Authorization': 'Bearer ${await accessJwt}'},
+          headers: authRequired
+              ? {'Authorization': 'Bearer ${await accessJwt}'}
+              : {},
           parameters: parameters,
         ),
         pretty: globalResults!['pretty'],

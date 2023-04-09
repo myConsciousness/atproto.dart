@@ -18,7 +18,7 @@ class Atp extends _Atp {
     required this.pretty,
     required this.showStatus,
     required this.showRequest,
-  }) : logger = (logger ?? Logger.standard()).toBskyLogger();
+  }) : logger = (logger ?? Logger.standard()).toAtpLogger();
 
   @override
   final AtpLogger logger;

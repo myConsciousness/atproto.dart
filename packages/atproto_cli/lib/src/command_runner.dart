@@ -37,7 +37,7 @@ class AtpCommandRunner extends CommandRunner<void> {
       )
       ..addOption(
         'password',
-        help: 'Bluesky password for authentication.',
+        help: 'Password for authentication.',
         defaultsTo: Platform.environment['BLUESKY_PASSWORD'],
       )
       ..addOption(
@@ -67,7 +67,10 @@ class AtpCommandRunner extends CommandRunner<void> {
         help: 'Enable verbose logging.',
       );
 
-    for (final command in [...commonCommands]) {
+    for (final command in [
+      ...repoCommands,
+      ...serverCommands,
+    ]) {
       addCommand(command);
     }
   }

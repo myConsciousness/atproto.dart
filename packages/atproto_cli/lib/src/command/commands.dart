@@ -3,8 +3,15 @@
 // modification, are permitted provided the conditions.
 
 import 'atp_command.dart';
-import 'common/delete.dart';
+import 'repo/create_record.dart';
+import 'repo/delete_record.dart';
+import 'server/create_session.dart';
 
-final commonCommands = <AtpCommand>[
-  DeleteCommand(),
+final repoCommands = <AtpCommand>[
+  CreateRecordCommand(),
+  DeleteRecordCommand(),
+];
+
+final serverCommands = <AtpCommand>[
+  CreateSessionCommand(),
 ];

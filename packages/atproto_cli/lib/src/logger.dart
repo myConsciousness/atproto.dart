@@ -161,7 +161,7 @@ mixin _DelegateLogger implements Logger {
 }
 
 extension ToAtpLoggerExtension on Logger {
-  AtpLogger toBskyLogger() {
+  AtpLogger toAtpLogger() {
     final self = this;
     if (self is AtpLogger) {
       return self;

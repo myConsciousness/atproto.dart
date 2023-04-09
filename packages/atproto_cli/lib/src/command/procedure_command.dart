@@ -12,7 +12,9 @@ import 'atp_command.dart';
 /// The command for procedure communication.
 abstract class ProcedureCommand extends AtpCommand {
   /// Returns the new instance of [ProcedureCommand].
-  ProcedureCommand();
+  ProcedureCommand({this.authRequired = true});
+
+  final bool authRequired;
 
   /// Returns the method id.
   xrpc.NSID get methodId;
@@ -26,7 +28,9 @@ abstract class ProcedureCommand extends AtpCommand {
         action: () async => await xrpc.procedure<String>(
           methodId,
           service: service,
-          headers: {'Authorization': 'Bearer ${await accessJwt}'},
+          headers: authRequired
+              ? {'Authorization': 'Bearer ${await accessJwt}'}
+              : {},
           body: await body,
         ),
         pretty: globalResults!['pretty'],
