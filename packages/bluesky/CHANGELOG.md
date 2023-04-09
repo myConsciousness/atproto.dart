@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.4
+
+- Upgraded `xrpc` to make this package with Flutter. ([#242](https://github.com/myConsciousness/atproto.dart/issues/242))
+
 ## v0.3.3
 
 - Supported `facet` and `embed` features in `Post`. ([#234](https://github.com/myConsciousness/atproto.dart/issues/234))

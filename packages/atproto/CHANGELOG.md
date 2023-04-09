@@ -3,6 +3,7 @@
 ## v0.2.4
 
 - Added `email` field to `Session` and `CurrentSession`. ([#235](https://github.com/myConsciousness/atproto.dart/issues/235))
+- Upgraded `xrpc` to make this package compatible with Flutter. ([#242](https://github.com/myConsciousness/atproto.dart/issues/242))
 
 ## v0.2.3
 

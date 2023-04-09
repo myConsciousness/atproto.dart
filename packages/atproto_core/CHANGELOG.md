@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.2
+
+- Upgraded `xrpc` to make this package compatible with Flutter. ([#242](https://github.com/myConsciousness/atproto.dart/issues/242))
+
 ## v0.2.1
 
 - Fixed to `body` as optional and added `headers` for `post`. ([#218](https://github.com/myConsciousness/atproto.dart/issues/218))
