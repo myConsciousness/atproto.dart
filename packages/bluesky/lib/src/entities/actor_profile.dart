@@ -27,7 +27,7 @@ class ActorProfile with _$ActorProfile {
     required int followersCount,
     required int postsCount,
     required ActorViewer viewer,
-    required DateTime indexedAt,
+    DateTime? indexedAt,
   }) = _ActorProfile;
 
   factory ActorProfile.fromJson(Map<String, Object?> json) =>
