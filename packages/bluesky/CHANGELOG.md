@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.5
+
+- Fixed to make `indexedAt` nullable in `ActorProfile`. ([#244](https://github.com/myConsciousness/atproto.dart/issues/244))
+
 ## v0.3.4
 
 - Upgraded `xrpc` to make this package with Flutter. ([#242](https://github.com/myConsciousness/atproto.dart/issues/242))
