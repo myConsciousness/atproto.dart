@@ -13,7 +13,9 @@ part 'facet_link.g.dart';
 @freezed
 class FacetLink with _$FacetLink {
   const factory FacetLink({
-    @JsonKey(name: '\$type') required String type,
+    @Default('app.bsky.richtext.facet#mention')
+    @JsonKey(name: '\$type')
+        String type,
     required String uri,
   }) = _FacetLink;
 

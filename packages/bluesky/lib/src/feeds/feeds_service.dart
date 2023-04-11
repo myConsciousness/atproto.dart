@@ -7,9 +7,11 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../bluesky_base_service.dart';
+import '../entities/facet.dart';
 import '../entities/feed_data.dart';
 import '../entities/likes_data.dart';
 import '../entities/post_thread_data.dart';
+import '../entities/reply_ref.dart';
 import '../entities/reposted_by_data.dart';
 import 'feed_algorithm.dart';
 
@@ -36,6 +38,10 @@ abstract class FeedsService {
   ///
   /// - [text]: The text you want to post.
   ///
+  /// - [reply]: A reference of reply to.
+  ///
+  /// - [facets]: A facet features for [text].
+  ///
   /// - [createdAt]: Date and time the post was created.
   ///                If omitted, defaults to the current time.
   ///
@@ -49,6 +55,8 @@ abstract class FeedsService {
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json
   Future<core.XRPCResponse<atp.Record>> createPost({
     required String text,
+    ReplyRef? reply,
+    List<Facet>? facets,
     DateTime? createdAt,
   });
 
@@ -229,12 +237,16 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
   @override
   Future<core.XRPCResponse<atp.Record>> createPost({
     required String text,
+    ReplyRef? reply,
+    List<Facet>? facets,
     DateTime? createdAt,
   }) async =>
       await atproto.repositories.createRecord(
         collection: createNSID('post'),
         record: {
           'text': text,
+          'reply': reply?.toJson(),
+          'facets': facets?.map((e) => e.toJson()).toList(),
           'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
         },
       );

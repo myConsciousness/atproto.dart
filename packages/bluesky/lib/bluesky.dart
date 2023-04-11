@@ -73,6 +73,7 @@ export 'package:bluesky/src/entities/post_thread_data.dart';
 export 'package:bluesky/src/entities/post_viewer.dart';
 export 'package:bluesky/src/entities/reason.dart';
 export 'package:bluesky/src/entities/reply.dart';
+export 'package:bluesky/src/entities/reply_ref.dart';
 export 'package:bluesky/src/entities/reposted_by_data.dart';
 export 'package:bluesky/src/entities/strong_ref.dart';
 export 'package:bluesky/src/feeds/feed_algorithm.dart';
