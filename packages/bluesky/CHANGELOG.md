@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.6
+
+- Added `reply` parameter in `createPost`.
+
 ## v0.3.5
 
 - Fixed to make `indexedAt` nullable in `ActorProfile`. ([#244](https://github.com/myConsciousness/atproto.dart/issues/244))
