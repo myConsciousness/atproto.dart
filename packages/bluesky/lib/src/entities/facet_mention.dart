@@ -13,7 +13,9 @@ part 'facet_mention.g.dart';
 @freezed
 class FacetMention with _$FacetMention {
   const factory FacetMention({
-    @JsonKey(name: '\$type') required String type,
+    @Default('app.bsky.richtext.facet#mention')
+    @JsonKey(name: '\$type')
+        String type,
     required String did,
   }) = _FacetMention;
 

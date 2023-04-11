@@ -13,7 +13,8 @@ _$_FacetMention _$$_FacetMentionFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_FacetMention(
-          type: $checkedConvert(r'$type', (v) => v as String),
+          type: $checkedConvert(r'$type',
+              (v) => v as String? ?? 'app.bsky.richtext.facet#mention'),
           did: $checkedConvert('did', (v) => v as String),
         );
         return val;

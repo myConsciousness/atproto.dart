@@ -110,7 +110,8 @@ class __$$_FacetMentionCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_FacetMention implements _FacetMention {
   const _$_FacetMention(
-      {@JsonKey(name: '\$type') required this.type, required this.did});
+      {@JsonKey(name: '\$type') this.type = 'app.bsky.richtext.facet#mention',
+      required this.did});
 
   factory _$_FacetMention.fromJson(Map<String, dynamic> json) =>
       _$$_FacetMentionFromJson(json);
@@ -155,7 +156,7 @@ class _$_FacetMention implements _FacetMention {
 
 abstract class _FacetMention implements FacetMention {
   const factory _FacetMention(
-      {@JsonKey(name: '\$type') required final String type,
+      {@JsonKey(name: '\$type') final String type,
       required final String did}) = _$_FacetMention;
 
   factory _FacetMention.fromJson(Map<String, dynamic> json) =
