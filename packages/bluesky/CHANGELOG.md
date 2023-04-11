@@ -2,7 +2,7 @@
 
 ## v0.3.6
 
-- Added `reply` parameter in `createPost`.
+- Added `reply` parameter in `createPost`. ([#246](https://github.com/myConsciousness/atproto.dart/pull/246))
 
 ## v0.3.5
 
