@@ -3,6 +3,7 @@
 ## v0.3.6
 
 - Added `reply` parameter in `createPost`. ([#246](https://github.com/myConsciousness/atproto.dart/pull/246))
+- Added `facets` parameter in `createPost`. ([#247](https://github.com/myConsciousness/atproto.dart/pull/247))
 
 ## v0.3.5
 
