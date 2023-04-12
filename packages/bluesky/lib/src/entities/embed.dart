@@ -16,6 +16,9 @@ part 'embed.freezed.dart';
 
 @freezed
 class Embed with _$Embed {
+  // ignore: unused_element
+  const Embed._();
+
   const factory Embed.record({
     required EmbedRecord data,
   }) = _Record;
@@ -31,4 +34,12 @@ class Embed with _$Embed {
   const factory Embed.recordWithMedia({
     required EmbedRecordWithMedia data,
   }) = _RecordWithMedia;
+
+  /// Returns the JSON representation.
+  Map<String, dynamic> toJson() => when(
+        record: (data) => data.toJson(),
+        images: (data) => data.toJson(),
+        external: (data) => data.toJson(),
+        recordWithMedia: (data) => data.toJson(),
+      );
 }

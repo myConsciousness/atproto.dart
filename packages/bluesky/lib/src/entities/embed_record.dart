@@ -15,7 +15,7 @@ part 'embed_record.g.dart';
 @freezed
 class EmbedRecord with _$EmbedRecord {
   const factory EmbedRecord({
-    @JsonKey(name: '\$type') required String type,
+    @Default('app.bsky.embed.record') @JsonKey(name: '\$type') String type,
     @JsonKey(name: 'record') required StrongRef ref,
   }) = _EmbedRecord;
 

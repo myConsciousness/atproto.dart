@@ -152,7 +152,7 @@ class __$$_EmbedRecordWithMediaCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedRecordWithMedia implements _EmbedRecordWithMedia {
   const _$_EmbedRecordWithMedia(
-      {@JsonKey(name: '\$type') required this.type,
+      {@JsonKey(name: '\$type') this.type = 'app.bsky.embed.recordWithMedia',
       required this.record,
       required this.media});
 
@@ -203,7 +203,7 @@ class _$_EmbedRecordWithMedia implements _EmbedRecordWithMedia {
 
 abstract class _EmbedRecordWithMedia implements EmbedRecordWithMedia {
   const factory _EmbedRecordWithMedia(
-      {@JsonKey(name: '\$type') required final String type,
+      {@JsonKey(name: '\$type') final String type,
       required final EmbedRecord record,
       required final EmbedImages media}) = _$_EmbedRecordWithMedia;
 

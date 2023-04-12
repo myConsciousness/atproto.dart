@@ -125,7 +125,8 @@ class __$$_EmbedExternalCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedExternal implements _EmbedExternal {
   const _$_EmbedExternal(
-      {@JsonKey(name: '\$type') required this.type, required this.external});
+      {@JsonKey(name: '\$type') this.type = 'app.bsky.embed.external',
+      required this.external});
 
   factory _$_EmbedExternal.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedExternalFromJson(json);
@@ -171,7 +172,7 @@ class _$_EmbedExternal implements _EmbedExternal {
 
 abstract class _EmbedExternal implements EmbedExternal {
   const factory _EmbedExternal(
-      {@JsonKey(name: '\$type') required final String type,
+      {@JsonKey(name: '\$type') final String type,
       required final EmbedExternalThumbnail external}) = _$_EmbedExternal;
 
   factory _EmbedExternal.fromJson(Map<String, dynamic> json) =

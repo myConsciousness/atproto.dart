@@ -7,6 +7,7 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../bluesky_base_service.dart';
+import '../entities/embed.dart';
 import '../entities/facet.dart';
 import '../entities/feed_data.dart';
 import '../entities/likes_data.dart';
@@ -42,6 +43,8 @@ abstract class FeedsService {
   ///
   /// - [facets]: A facet features for [text].
   ///
+  /// - [embed]: Embed contents of this post.
+  ///
   /// - [createdAt]: Date and time the post was created.
   ///                If omitted, defaults to the current time.
   ///
@@ -57,6 +60,7 @@ abstract class FeedsService {
     required String text,
     ReplyRef? reply,
     List<Facet>? facets,
+    Embed? embed,
     DateTime? createdAt,
   });
 
@@ -239,6 +243,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     required String text,
     ReplyRef? reply,
     List<Facet>? facets,
+    Embed? embed,
     DateTime? createdAt,
   }) async =>
       await atproto.repositories.createRecord(
@@ -247,6 +252,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'text': text,
           'reply': reply?.toJson(),
           'facets': facets?.map((e) => e.toJson()).toList(),
+          'embed': embed?.toJson(),
           'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
         },
       );
