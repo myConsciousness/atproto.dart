@@ -16,7 +16,9 @@ part 'embed_record_with_media.g.dart';
 @freezed
 class EmbedRecordWithMedia with _$EmbedRecordWithMedia {
   const factory EmbedRecordWithMedia({
-    @JsonKey(name: '\$type') required String type,
+    @Default('app.bsky.embed.recordWithMedia')
+    @JsonKey(name: '\$type')
+        String type,
     required EmbedRecord record,
     required EmbedImages media,
   }) = _EmbedRecordWithMedia;

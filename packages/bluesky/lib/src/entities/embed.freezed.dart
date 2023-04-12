@@ -126,8 +126,8 @@ class __$$_RecordCopyWithImpl<$Res> extends _$EmbedCopyWithImpl<$Res, _$_Record>
 
 /// @nodoc
 
-class _$_Record implements _Record {
-  const _$_Record({required this.data});
+class _$_Record extends _Record {
+  const _$_Record({required this.data}) : super._();
 
   @override
   final EmbedRecord data;
@@ -229,8 +229,9 @@ class _$_Record implements _Record {
   }
 }
 
-abstract class _Record implements Embed {
+abstract class _Record extends Embed {
   const factory _Record({required final EmbedRecord data}) = _$_Record;
+  const _Record._() : super._();
 
   @override
   EmbedRecord get data;
@@ -279,8 +280,8 @@ class __$$_ImagesCopyWithImpl<$Res> extends _$EmbedCopyWithImpl<$Res, _$_Images>
 
 /// @nodoc
 
-class _$_Images implements _Images {
-  const _$_Images({required this.data});
+class _$_Images extends _Images {
+  const _$_Images({required this.data}) : super._();
 
   @override
   final EmbedImages data;
@@ -382,8 +383,9 @@ class _$_Images implements _Images {
   }
 }
 
-abstract class _Images implements Embed {
+abstract class _Images extends Embed {
   const factory _Images({required final EmbedImages data}) = _$_Images;
+  const _Images._() : super._();
 
   @override
   EmbedImages get data;
@@ -435,8 +437,8 @@ class __$$_ExternalCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_External implements _External {
-  const _$_External({required this.data});
+class _$_External extends _External {
+  const _$_External({required this.data}) : super._();
 
   @override
   final EmbedExternal data;
@@ -538,8 +540,9 @@ class _$_External implements _External {
   }
 }
 
-abstract class _External implements Embed {
+abstract class _External extends Embed {
   const factory _External({required final EmbedExternal data}) = _$_External;
+  const _External._() : super._();
 
   @override
   EmbedExternal get data;
@@ -591,8 +594,8 @@ class __$$_RecordWithMediaCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_RecordWithMedia implements _RecordWithMedia {
-  const _$_RecordWithMedia({required this.data});
+class _$_RecordWithMedia extends _RecordWithMedia {
+  const _$_RecordWithMedia({required this.data}) : super._();
 
   @override
   final EmbedRecordWithMedia data;
@@ -694,9 +697,10 @@ class _$_RecordWithMedia implements _RecordWithMedia {
   }
 }
 
-abstract class _RecordWithMedia implements Embed {
+abstract class _RecordWithMedia extends Embed {
   const factory _RecordWithMedia({required final EmbedRecordWithMedia data}) =
       _$_RecordWithMedia;
+  const _RecordWithMedia._() : super._();
 
   @override
   EmbedRecordWithMedia get data;

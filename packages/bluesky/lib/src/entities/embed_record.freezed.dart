@@ -128,7 +128,7 @@ class __$$_EmbedRecordCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedRecord implements _EmbedRecord {
   const _$_EmbedRecord(
-      {@JsonKey(name: '\$type') required this.type,
+      {@JsonKey(name: '\$type') this.type = 'app.bsky.embed.record',
       @JsonKey(name: 'record') required this.ref});
 
   factory _$_EmbedRecord.fromJson(Map<String, dynamic> json) =>
@@ -175,7 +175,7 @@ class _$_EmbedRecord implements _EmbedRecord {
 
 abstract class _EmbedRecord implements EmbedRecord {
   const factory _EmbedRecord(
-      {@JsonKey(name: '\$type') required final String type,
+      {@JsonKey(name: '\$type') final String type,
       @JsonKey(name: 'record') required final StrongRef ref}) = _$_EmbedRecord;
 
   factory _EmbedRecord.fromJson(Map<String, dynamic> json) =

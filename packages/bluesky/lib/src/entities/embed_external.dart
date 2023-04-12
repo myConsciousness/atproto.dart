@@ -15,7 +15,7 @@ part 'embed_external.g.dart';
 @freezed
 class EmbedExternal with _$EmbedExternal {
   const factory EmbedExternal({
-    @JsonKey(name: '\$type') required String type,
+    @Default('app.bsky.embed.external') @JsonKey(name: '\$type') String type,
     required EmbedExternalThumbnail external,
   }) = _EmbedExternal;
 
