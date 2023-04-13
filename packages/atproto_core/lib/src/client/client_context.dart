@@ -4,6 +4,7 @@
 
 // 🎯 Dart imports:
 import 'dart:async';
+import 'dart:io';
 
 // 🌎 Project imports:
 import 'package:xrpc/xrpc.dart' as xrpc;
@@ -46,6 +47,14 @@ abstract class ClientContext {
     final dynamic body,
     final xrpc.To<T>? to,
     final xrpc.PostClient? postClient,
+  });
+
+  Future<xrpc.XRPCResponse<xrpc.BlobData>> upload(
+    final File file, {
+    required UserContext userContext,
+    final String? service,
+    final Map<String, String>? headers,
+    final Duration timeout = const Duration(seconds: 10),
   });
 }
 
@@ -112,6 +121,24 @@ class _ClientContext implements ClientContext {
           to: to,
           timeout: timeout,
           postClient: postClient,
+        ),
+      );
+
+  @override
+  Future<xrpc.XRPCResponse<xrpc.BlobData>> upload(
+    final File file, {
+    required UserContext userContext,
+    final String? service,
+    final Map<String, String>? headers,
+    final Duration timeout = const Duration(seconds: 10),
+  }) async =>
+      await _challenge.execute(
+        _clientResolver.execute(userContext),
+        (client) async => await client.upload(
+          file,
+          service: service,
+          headers: headers,
+          timeout: timeout,
         ),
       );
 }

@@ -4,6 +4,7 @@
 
 // 🎯 Dart imports:
 import 'dart:async';
+import 'dart:io';
 
 import 'package:xrpc/xrpc.dart' as xrpc;
 
@@ -23,6 +24,14 @@ abstract class _Service {
     final UserContext userContext = UserContext.authRequired,
     required final dynamic body,
     final xrpc.To<T>? to,
+  });
+
+  Future<xrpc.XRPCResponse<xrpc.BlobData>> upload(
+    final File file, {
+    required UserContext userContext,
+    final String? service,
+    final Map<String, String>? headers,
+    final Duration timeout = const Duration(seconds: 10),
   });
 }
 
@@ -90,6 +99,21 @@ abstract class BaseService implements _Service {
         body: body,
         to: to,
         postClient: _mockedPostClient,
+      );
+
+  @override
+  Future<xrpc.XRPCResponse<xrpc.BlobData>> upload(
+    final File file, {
+    UserContext userContext = UserContext.authRequired,
+    final String? service,
+    final Map<String, String>? headers,
+    final Duration timeout = const Duration(seconds: 10),
+  }) async =>
+      await _context.upload(
+        file,
+        userContext: userContext,
+        service: _service,
+        headers: headers,
       );
 
   /// Returns the NSID based on this service and [methodName].

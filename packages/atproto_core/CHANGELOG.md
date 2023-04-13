@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.3
+
+- Added `upload` feature. ([#249](https://github.com/myConsciousness/atproto.dart/issues/249))
+
 ## v0.2.2
 
 - Upgraded `xrpc` to make this package compatible with Flutter. ([#242](https://github.com/myConsciousness/atproto.dart/issues/242))

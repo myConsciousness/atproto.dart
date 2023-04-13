@@ -4,6 +4,7 @@
 
 // 🎯 Dart imports:
 import 'dart:async';
+import 'dart:io';
 
 import 'package:xrpc/xrpc.dart' as xrpc;
 
@@ -25,5 +26,12 @@ abstract class Client {
     final xrpc.To<T>? to,
     required final Duration timeout,
     final xrpc.PostClient? postClient,
+  });
+
+  Future<xrpc.XRPCResponse<xrpc.BlobData>> upload(
+    final File file, {
+    final String? service,
+    final Map<String, String>? headers,
+    final Duration timeout = const Duration(seconds: 10),
   });
 }
