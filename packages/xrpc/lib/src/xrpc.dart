@@ -3,13 +3,15 @@
 // modification, are permitted provided the conditions.
 
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 import 'package:nsid/nsid.dart' as nsid;
 
 import 'client_types.dart';
-import 'empty_data.dart';
+import 'entities/blob_data.dart';
+import 'entities/empty_data.dart';
 import 'exception/internal_server_error_exception.dart';
 import 'exception/invalid_request_exception.dart';
 import 'exception/rate_limit_exceeded_exception.dart';
@@ -296,6 +298,46 @@ Future<XRPCResponse<T>> procedure<T>(
       ),
       to,
     );
+
+/// Uploads blob.
+Future<XRPCResponse<BlobData>> upload(
+  final File file, {
+  final String? service,
+  final Map<String, String>? headers,
+  final Duration timeout = const Duration(seconds: 10),
+}) async {
+  final methodId = nsid.NSID.create(
+    'repo.atproto.com',
+    'uploadBlob',
+  );
+
+  final request = http.MultipartRequest(
+    HttpMethod.post.value,
+    Uri.https(
+      service ?? 'bsky.social',
+      '/xrpc/${methodId.toString()}',
+    ),
+  );
+
+  request.headers.addAll({
+    'Content-Type': '*/*',
+  }..addAll(headers ?? {}));
+
+  request.files.add(
+    http.MultipartFile.fromBytes(
+      '',
+      file.readAsBytesSync(),
+    ),
+  );
+
+  final stream = await request.send().timeout(timeout);
+  final response = await http.Response.fromStream(stream);
+
+  return _buildResponse(
+    checkStatus(response),
+    BlobData.fromJson,
+  );
+}
 
 @visibleForTesting
 http.Response checkStatus(final http.Response response) {

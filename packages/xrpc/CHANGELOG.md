@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.0.8
+
+- Added `upload` function. ([#249](https://github.com/myConsciousness/atproto.dart/issues/249))
+
 ## v0.0.7
 
 - Downgrade `meta` to make this package compatible with Flutter. ([#242](https://github.com/myConsciousness/atproto.dart/issues/242))
