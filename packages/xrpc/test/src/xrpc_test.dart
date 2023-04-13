@@ -5,7 +5,7 @@
 import 'package:http/http.dart';
 import 'package:nsid/nsid.dart';
 import 'package:test/test.dart';
-import 'package:xrpc/src/empty_data.dart';
+import 'package:xrpc/src/entities/empty_data.dart';
 import 'package:xrpc/src/exception/internal_server_error_exception.dart';
 import 'package:xrpc/src/exception/invalid_request_exception.dart';
 import 'package:xrpc/src/exception/rate_limit_exceeded_exception.dart';
