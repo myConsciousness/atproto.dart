@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.7
+
+- Upgraded `xrpc`. ([#249](https://github.com/myConsciousness/atproto.dart/issues/249))
+
 ## v0.2.6
 
 - Upgraded `xrpc`. ([#249](https://github.com/myConsciousness/atproto.dart/issues/249))

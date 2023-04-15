@@ -15,6 +15,7 @@ part 'embed_images.g.dart';
 @freezed
 class EmbedImages with _$EmbedImages {
   const factory EmbedImages({
+    @Default('app.bsky.embed.images') @JsonKey(name: '\$type') String type,
     required List<Image> images,
   }) = _EmbedImages;
 

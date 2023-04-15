@@ -2,7 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-export 'package:atproto/atproto.dart' show Session, Record;
+export 'package:atproto/atproto.dart'
+    show Session, Record, Blob, BlobData, BlobRef;
 export 'package:atproto_core/atproto_core.dart'
     show
         XRPCResponse,
@@ -32,8 +33,6 @@ export 'package:bluesky/src/entities/actor_profiles_data.dart';
 export 'package:bluesky/src/entities/actor_viewer.dart';
 export 'package:bluesky/src/entities/actors_data.dart';
 export 'package:bluesky/src/entities/actors_typeahead_data.dart';
-export 'package:bluesky/src/entities/blob.dart';
-export 'package:bluesky/src/entities/blob_ref.dart';
 export 'package:bluesky/src/entities/byte_slice.dart';
 export 'package:bluesky/src/entities/count_data.dart';
 export 'package:bluesky/src/entities/embed.dart';
