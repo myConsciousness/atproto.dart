@@ -108,7 +108,7 @@ class __$$_FacetLinkCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_FacetLink implements _FacetLink {
   const _$_FacetLink(
-      {@JsonKey(name: '\$type') this.type = 'app.bsky.richtext.facet#mention',
+      {@JsonKey(name: '\$type') this.type = 'app.bsky.richtext.facet#link',
       required this.uri});
 
   factory _$_FacetLink.fromJson(Map<String, dynamic> json) =>
