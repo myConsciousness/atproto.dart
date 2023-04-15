@@ -5,18 +5,19 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'image.freezed.dart';
-part 'image.g.dart';
+import 'blob.dart';
+
+part 'blob_data.freezed.dart';
+part 'blob_data.g.dart';
 
 @freezed
-class Image with _$Image {
-  const factory Image({
-    required String alt,
-    required Blob image,
-  }) = _Image;
+class BlobData with _$BlobData {
+  const factory BlobData({
+    required Blob blob,
+  }) = _BlobData;
 
-  factory Image.fromJson(Map<String, Object?> json) => _$ImageFromJson(json);
+  factory BlobData.fromJson(Map<String, Object?> json) =>
+      _$BlobDataFromJson(json);
 }

@@ -4,6 +4,9 @@
 
 export 'package:atproto/src/atproto.dart';
 export 'package:atproto/src/atproto_service.dart';
+export 'package:atproto/src/entities/blob.dart';
+export 'package:atproto/src/entities/blob_data.dart';
+export 'package:atproto/src/entities/blob_ref.dart';
 export 'package:atproto/src/entities/current_session.dart';
 export 'package:atproto/src/entities/did.dart';
 export 'package:atproto/src/entities/record.dart';

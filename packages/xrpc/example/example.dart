@@ -8,11 +8,11 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 Future<void> main() async {
   final response = await xrpc.procedure(
     xrpc.NSID.create(
-      'session.atproto.com',
-      'create',
+      'server.atproto.com',
+      'createSession',
     ),
     body: {
-      'handle': 'HANDLE',
+      'identifier': 'HANDLE_OR_EMAIL',
       'password': 'PASSWORD',
     },
     to: atproto.Session.fromJson,
@@ -20,8 +20,8 @@ Future<void> main() async {
 
   final session = await xrpc.query(
     xrpc.NSID.create(
-      'session.atproto.com',
-      'get',
+      'server.atproto.com',
+      'getSession',
     ),
     headers: {'Authorization': 'Bearer ${response.data.accessJwt}'},
     to: atproto.CurrentSession.fromJson,

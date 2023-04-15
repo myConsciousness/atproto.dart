@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 import 'package:test/test.dart';
-import 'package:xrpc/src/empty_data.dart';
+import 'package:xrpc/src/entities/empty_data.dart';
 
 void main() {
   test('.toJson', () {

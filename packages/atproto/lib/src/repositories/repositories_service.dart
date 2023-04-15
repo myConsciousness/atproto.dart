@@ -2,10 +2,12 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🌎 Project imports:
+import 'dart:io';
+
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../atproto_base_service.dart';
+import '../entities/blob_data.dart';
 import '../entities/record.dart';
 
 abstract class RepositoriesService {
@@ -33,6 +35,10 @@ abstract class RepositoriesService {
   Future<core.XRPCResponse<core.EmptyData>> deleteRecord({
     required core.AtUri uri,
   });
+
+  Future<core.XRPCResponse<BlobData>> uploadBlob(
+    final File file,
+  );
 }
 
 class _RepositoriesService extends ATProtoBaseService
@@ -72,5 +78,13 @@ class _RepositoriesService extends ATProtoBaseService
           'collection': uri.collection,
           'rkey': uri.rkey,
         },
+      );
+
+  @override
+  Future<core.XRPCResponse<BlobData>> uploadBlob(final File file) async =>
+      await super.upload(
+        super.createNSID('uploadBlob'),
+        file,
+        to: BlobData.fromJson,
       );
 }

@@ -13,6 +13,8 @@ _$_EmbedImages _$$_EmbedImagesFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_EmbedImages(
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? 'app.bsky.embed.images'),
           images: $checkedConvert(
               'images',
               (v) => (v as List<dynamic>)
@@ -22,9 +24,11 @@ _$_EmbedImages _$$_EmbedImagesFromJson(Map json) => $checkedCreate(
         );
         return val;
       },
+      fieldKeyMap: const {'type': r'$type'},
     );
 
 Map<String, dynamic> _$$_EmbedImagesToJson(_$_EmbedImages instance) =>
     <String, dynamic>{
+      r'$type': instance.type,
       'images': instance.images.map((e) => e.toJson()).toList(),
     };
