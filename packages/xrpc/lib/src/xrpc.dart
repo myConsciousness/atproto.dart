@@ -319,7 +319,7 @@ Future<XRPCResponse<T>> upload<T>(
           headers: {
             'Content-Type': lookupMimeType(file.path)!,
           }..addAll(headers ?? {}),
-          body: base64Encode(file.readAsBytesSync()),
+          body: file.readAsBytesSync(),
         ),
       ),
       to,
