@@ -2,6 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'dart:io';
+
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 import 'client.dart';
@@ -52,6 +54,29 @@ class AuthRequiredClient implements Client {
         body: body,
         to: to,
         timeout: timeout,
+        postClient: postClient,
+      );
+
+  @override
+  Future<xrpc.XRPCResponse<T>> upload<T>(
+    final xrpc.NSID methodId,
+    final File file, {
+    final String? service,
+    final Map<String, String>? headers,
+    final Duration timeout = const Duration(seconds: 10),
+    final xrpc.To<T>? to,
+    final xrpc.PostClient? postClient,
+  }) async =>
+      await xrpc.upload(
+        methodId,
+        file,
+        service: service,
+        headers: {
+          'Authorization': 'Bearer $_accessJwt',
+          ...headers ?? {},
+        },
+        timeout: timeout,
+        to: to,
         postClient: postClient,
       );
 }

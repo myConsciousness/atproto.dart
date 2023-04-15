@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.5
+
+- Supported `com.atproto.repo.uploadBlob`. ([#249](https://github.com/myConsciousness/atproto.dart/issues/249))
+
 ## v0.2.4
 
 - Added `email` field to `Session` and `CurrentSession`. ([#235](https://github.com/myConsciousness/atproto.dart/issues/235))

@@ -20,6 +20,8 @@ EmbedImages _$EmbedImagesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmbedImages {
+  @JsonKey(name: '\$type')
+  String get type => throw _privateConstructorUsedError;
   List<Image> get images => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +36,7 @@ abstract class $EmbedImagesCopyWith<$Res> {
           EmbedImages value, $Res Function(EmbedImages) then) =
       _$EmbedImagesCopyWithImpl<$Res, EmbedImages>;
   @useResult
-  $Res call({List<Image> images});
+  $Res call({@JsonKey(name: '\$type') String type, List<Image> images});
 }
 
 /// @nodoc
@@ -50,9 +52,14 @@ class _$EmbedImagesCopyWithImpl<$Res, $Val extends EmbedImages>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? images = null,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       images: null == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
@@ -69,7 +76,7 @@ abstract class _$$_EmbedImagesCopyWith<$Res>
       __$$_EmbedImagesCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Image> images});
+  $Res call({@JsonKey(name: '\$type') String type, List<Image> images});
 }
 
 /// @nodoc
@@ -83,9 +90,14 @@ class __$$_EmbedImagesCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? images = null,
   }) {
     return _then(_$_EmbedImages(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       images: null == images
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
@@ -97,11 +109,17 @@ class __$$_EmbedImagesCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_EmbedImages implements _EmbedImages {
-  const _$_EmbedImages({required final List<Image> images}) : _images = images;
+  const _$_EmbedImages(
+      {@JsonKey(name: '\$type') this.type = 'app.bsky.embed.images',
+      required final List<Image> images})
+      : _images = images;
 
   factory _$_EmbedImages.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedImagesFromJson(json);
 
+  @override
+  @JsonKey(name: '\$type')
+  final String type;
   final List<Image> _images;
   @override
   List<Image> get images {
@@ -112,7 +130,7 @@ class _$_EmbedImages implements _EmbedImages {
 
   @override
   String toString() {
-    return 'EmbedImages(images: $images)';
+    return 'EmbedImages(type: $type, images: $images)';
   }
 
   @override
@@ -120,13 +138,14 @@ class _$_EmbedImages implements _EmbedImages {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EmbedImages &&
+            (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._images, _images));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_images));
+  int get hashCode => Object.hash(
+      runtimeType, type, const DeepCollectionEquality().hash(_images));
 
   @JsonKey(ignore: true)
   @override
@@ -143,12 +162,16 @@ class _$_EmbedImages implements _EmbedImages {
 }
 
 abstract class _EmbedImages implements EmbedImages {
-  const factory _EmbedImages({required final List<Image> images}) =
-      _$_EmbedImages;
+  const factory _EmbedImages(
+      {@JsonKey(name: '\$type') final String type,
+      required final List<Image> images}) = _$_EmbedImages;
 
   factory _EmbedImages.fromJson(Map<String, dynamic> json) =
       _$_EmbedImages.fromJson;
 
+  @override
+  @JsonKey(name: '\$type')
+  String get type;
   @override
   List<Image> get images;
   @override

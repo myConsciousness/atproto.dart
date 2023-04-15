@@ -3,6 +3,8 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
+import 'dart:io';
+
 import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
@@ -29,6 +31,10 @@ abstract class RepositoriesService {
   Future<core.XRPCResponse<core.EmptyData>> deleteRecord({
     required core.AtUri uri,
   });
+
+  Future<core.XRPCResponse<atp.BlobData>> uploadBlob(
+    final File file,
+  );
 }
 
 class _RepositoriesService extends BlueskyBaseService
@@ -47,4 +53,8 @@ class _RepositoriesService extends BlueskyBaseService
     required core.AtUri uri,
   }) async =>
       await atproto.repositories.deleteRecord(uri: uri);
+
+  @override
+  Future<atp.XRPCResponse<atp.BlobData>> uploadBlob(final File file) async =>
+      await super.atproto.repositories.uploadBlob(file);
 }

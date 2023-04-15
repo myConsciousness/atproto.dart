@@ -3,13 +3,15 @@
 // modification, are permitted provided the conditions.
 
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
+import 'package:mime/mime.dart';
 import 'package:nsid/nsid.dart' as nsid;
 
 import 'client_types.dart';
-import 'empty_data.dart';
+import 'entities/empty_data.dart';
 import 'exception/internal_server_error_exception.dart';
 import 'exception/invalid_request_exception.dart';
 import 'exception/rate_limit_exceeded_exception.dart';
@@ -293,6 +295,32 @@ Future<XRPCResponse<T>> procedure<T>(
               encoding: utf8,
             )
             .timeout(timeout),
+      ),
+      to,
+    );
+
+/// Uploads blob.
+Future<XRPCResponse<T>> upload<T>(
+  final nsid.NSID methodId,
+  final File file, {
+  final String? service,
+  final Map<String, String>? headers,
+  final Duration timeout = const Duration(seconds: 10),
+  final To<T>? to,
+  final PostClient? postClient,
+}) async =>
+    _buildResponse(
+      checkStatus(
+        await (postClient ?? http.post).call(
+          Uri.https(
+            service ?? 'bsky.social',
+            '/xrpc/${methodId.toString()}',
+          ),
+          headers: {
+            'Content-Type': lookupMimeType(file.path)!,
+          }..addAll(headers ?? {}),
+          body: file.readAsBytesSync(),
+        ),
       ),
       to,
     );
