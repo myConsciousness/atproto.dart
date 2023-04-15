@@ -28,10 +28,13 @@ abstract class Client {
     final xrpc.PostClient? postClient,
   });
 
-  Future<xrpc.XRPCResponse<xrpc.BlobData>> upload(
+  Future<xrpc.XRPCResponse<T>> upload<T>(
+    final xrpc.NSID methodId,
     final File file, {
     final String? service,
     final Map<String, String>? headers,
     final Duration timeout = const Duration(seconds: 10),
+    final xrpc.To<T>? to,
+    final xrpc.PostClient? postClient,
   });
 }

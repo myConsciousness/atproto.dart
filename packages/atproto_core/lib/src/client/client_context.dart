@@ -49,12 +49,15 @@ abstract class ClientContext {
     final xrpc.PostClient? postClient,
   });
 
-  Future<xrpc.XRPCResponse<xrpc.BlobData>> upload(
+  Future<xrpc.XRPCResponse<T>> upload<T>(
+    final xrpc.NSID methodId,
     final File file, {
     required UserContext userContext,
     final String? service,
     final Map<String, String>? headers,
     final Duration timeout = const Duration(seconds: 10),
+    final xrpc.To<T>? to,
+    final xrpc.PostClient? postClient,
   });
 }
 
@@ -125,20 +128,26 @@ class _ClientContext implements ClientContext {
       );
 
   @override
-  Future<xrpc.XRPCResponse<xrpc.BlobData>> upload(
+  Future<xrpc.XRPCResponse<T>> upload<T>(
+    final xrpc.NSID methodId,
     final File file, {
     required UserContext userContext,
     final String? service,
     final Map<String, String>? headers,
     final Duration timeout = const Duration(seconds: 10),
+    final xrpc.To<T>? to,
+    final xrpc.PostClient? postClient,
   }) async =>
       await _challenge.execute(
         _clientResolver.execute(userContext),
         (client) async => await client.upload(
+          methodId,
           file,
           service: service,
           headers: headers,
           timeout: timeout,
+          to: to,
+          postClient: postClient,
         ),
       );
 }
