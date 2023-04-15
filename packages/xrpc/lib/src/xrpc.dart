@@ -7,6 +7,7 @@ import 'dart:io';
 
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
+import 'package:mime/mime.dart';
 import 'package:nsid/nsid.dart' as nsid;
 
 import 'client_types.dart';
@@ -306,34 +307,23 @@ Future<XRPCResponse<T>> upload<T>(
   final Map<String, String>? headers,
   final Duration timeout = const Duration(seconds: 10),
   final To<T>? to,
-}) async {
-  final request = http.MultipartRequest(
-    HttpMethod.post.value,
-    Uri.https(
-      service ?? 'bsky.social',
-      '/xrpc/${methodId.toString()}',
-    ),
-  );
-
-  request.headers.addAll({
-    'Content-Type': '*/*',
-  }..addAll(headers ?? {}));
-
-  request.files.add(
-    http.MultipartFile.fromBytes(
-      '',
-      file.readAsBytesSync(),
-    ),
-  );
-
-  final stream = await request.send().timeout(timeout);
-  final response = await http.Response.fromStream(stream);
-
-  return _buildResponse(
-    checkStatus(response),
-    to,
-  );
-}
+  final PostClient? postClient,
+}) async =>
+    _buildResponse(
+      checkStatus(
+        await (postClient ?? http.post).call(
+          Uri.https(
+            service ?? 'bsky.social',
+            '/xrpc/${methodId.toString()}',
+          ),
+          headers: {
+            'Content-Type': lookupMimeType(file.path)!,
+          }..addAll(headers ?? {}),
+          body: base64Encode(file.readAsBytesSync()),
+        ),
+      ),
+      to,
+    );
 
 @visibleForTesting
 http.Response checkStatus(final http.Response response) {
