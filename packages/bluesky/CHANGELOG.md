@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.7
+
+- Fixed type of `facet_link` from `app.bsky.richtext.facet#mention` to `app.bsky.richtext.facet#link`.
+
 ## v0.3.6
 
 - Added `reply` parameter in `createPost`. ([#246](https://github.com/myConsciousness/atproto.dart/pull/246))
