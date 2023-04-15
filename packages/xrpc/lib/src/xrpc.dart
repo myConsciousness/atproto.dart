@@ -10,7 +10,6 @@ import 'package:meta/meta.dart';
 import 'package:nsid/nsid.dart' as nsid;
 
 import 'client_types.dart';
-import 'entities/blob_data.dart';
 import 'entities/empty_data.dart';
 import 'exception/internal_server_error_exception.dart';
 import 'exception/invalid_request_exception.dart';
@@ -300,17 +299,14 @@ Future<XRPCResponse<T>> procedure<T>(
     );
 
 /// Uploads blob.
-Future<XRPCResponse<BlobData>> upload(
+Future<XRPCResponse<T>> upload<T>(
+  final nsid.NSID methodId,
   final File file, {
   final String? service,
   final Map<String, String>? headers,
   final Duration timeout = const Duration(seconds: 10),
+  final To<T>? to,
 }) async {
-  final methodId = nsid.NSID.create(
-    'repo.atproto.com',
-    'uploadBlob',
-  );
-
   final request = http.MultipartRequest(
     HttpMethod.post.value,
     Uri.https(
@@ -335,7 +331,7 @@ Future<XRPCResponse<BlobData>> upload(
 
   return _buildResponse(
     checkStatus(response),
-    BlobData.fromJson,
+    to,
   );
 }
 

@@ -1,5 +1,13 @@
 # Release Note
 
+## v0.0.10
+
+- Fixed structures. ([#249](https://github.com/myConsciousness/atproto.dart/issues/249))
+
+## v0.0.9
+
+- Fixed build config. ([#249](https://github.com/myConsciousness/atproto.dart/issues/249))
+
 ## v0.0.8
 
 - Added `upload` function. ([#249](https://github.com/myConsciousness/atproto.dart/issues/249))
