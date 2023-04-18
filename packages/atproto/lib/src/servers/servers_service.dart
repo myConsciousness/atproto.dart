@@ -6,6 +6,7 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../atproto_base_service.dart';
+import '../entities/account.dart';
 import '../entities/current_session.dart';
 import '../entities/session.dart';
 
@@ -119,6 +120,35 @@ abstract class ServersService {
   Future<core.XRPCResponse<Session>> refreshSession({
     required String refreshJwt,
   });
+
+  /// Create an account.
+  ///
+  /// ## Parameters
+  ///
+  /// - [handle]: The account handle.
+  ///
+  /// - [email]: The email for authentication.
+  ///
+  /// - [password]: The password.
+  ///
+  /// - [inviteCode]: Invitation code.
+  ///
+  /// - [recoveryCode]: Key to recover account.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.createAccount
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createAccount.json
+  Future<core.XRPCResponse<Account>> createAccount({
+    required String handle,
+    required String email,
+    required String password,
+    String? inviteCode,
+    String? recoveryKey,
+  });
 }
 
 class _ServersService extends ATProtoBaseService implements ServersService {
@@ -149,5 +179,26 @@ class _ServersService extends ATProtoBaseService implements ServersService {
         },
         to: Session.fromJson,
         userContext: core.UserContext.anonymousOnly,
+      );
+
+  @override
+  Future<core.XRPCResponse<Account>> createAccount({
+    required String handle,
+    required String email,
+    required String password,
+    String? inviteCode,
+    String? recoveryKey,
+  }) async =>
+      await super.post(
+        'createAccount',
+        userContext: core.UserContext.anonymousOnly,
+        body: {
+          'handle': handle,
+          'email': email,
+          'password': password,
+          'inviteCode': inviteCode,
+          'recoveryKey': recoveryKey,
+        },
+        to: Account.fromJson,
       );
 }

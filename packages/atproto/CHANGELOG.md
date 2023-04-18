@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.6
+
+- Supported `com.atproto.server.createAccount`. ([#256](https://github.com/myConsciousness/atproto.dart/issues/256))
+
 ## v0.2.5
 
 - Supported `com.atproto.repo.uploadBlob`. ([#249](https://github.com/myConsciousness/atproto.dart/issues/249))

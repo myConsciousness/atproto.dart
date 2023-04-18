@@ -2,6 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'package:atproto/src/entities/account.dart';
 import 'package:atproto/src/entities/current_session.dart';
 import 'package:atproto/src/entities/session.dart';
 import 'package:atproto/src/servers/servers_service.dart';
@@ -167,6 +168,77 @@ void main() {
 
       atp_test.expectRateLimitExceededException(
         () async => await servers.refreshSession(refreshJwt: ''),
+      );
+    });
+  });
+
+  group('.createAccount', () {
+    test('normal case', () async {
+      final servers = ServersService(
+        did: 'test',
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/servers/data/create_account.json',
+        ),
+      );
+
+      final response = await servers.createAccount(
+        handle: 'shinyakato.stems',
+        password: 'xxxxxxxxxx',
+        email: 'xxxxxx@gmail.com',
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<Account>());
+    });
+
+    test('when unauthorized', () async {
+      final servers = ServersService(
+        did: 'test',
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await servers.createAccount(
+          handle: 'shinyakato.stems',
+          password: 'xxxxxxxxxx',
+          email: 'xxxxxx@gmail.com',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final servers = ServersService(
+        did: 'test',
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await servers.createAccount(
+          handle: 'shinyakato.stems',
+          password: 'xxxxxxxxxx',
+          email: 'xxxxxx@gmail.com',
+        ),
       );
     });
   });
