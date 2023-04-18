@@ -166,6 +166,7 @@ Future<void> main() async {
 | [POST com.atproto.server.createSession](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createSession.json)   | [createSession](https://pub.dev/documentation/atproto/latest/atproto/createSession.html)                          |
 | [POST com.atproto.server.refreshSession](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/refreshSession.json) | [refreshSession](https://pub.dev/documentation/atproto/latest/atproto/ServersService/refreshSession.html)         |
 | [GET com.atproto.server.getSession](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/getSession.json)          | [findCurrentSession](https://pub.dev/documentation/atproto/latest/atproto/ServersService/findCurrentSession.html) |
+| [POST com.atproto.server.createAccount](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createAccount.json)   | [createAccount](https://pub.dev/documentation/atproto/latest/atproto/ServersService/createAccount.html)           |
 
 ### 1.3.2. Identity
 
