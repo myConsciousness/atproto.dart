@@ -15,6 +15,7 @@ class AnonymousClient implements Client {
   @override
   Future<xrpc.XRPCResponse<T>> get<T>(
     final xrpc.NSID methodId, {
+    final xrpc.Protocol? protocol,
     required final String service,
     final Map<String, dynamic>? parameters,
     required final xrpc.To<T> to,
@@ -23,6 +24,7 @@ class AnonymousClient implements Client {
   }) async =>
       await xrpc.query(
         methodId,
+        protocol: protocol ?? xrpc.Protocol.https,
         service: service,
         parameters: parameters,
         to: to,
@@ -33,6 +35,7 @@ class AnonymousClient implements Client {
   @override
   Future<xrpc.XRPCResponse<T>> post<T>(
     final xrpc.NSID methodId, {
+    final xrpc.Protocol? protocol,
     required final String service,
     final Map<String, String>? headers,
     final dynamic body,
@@ -42,6 +45,7 @@ class AnonymousClient implements Client {
   }) async =>
       await xrpc.procedure(
         methodId,
+        protocol: protocol ?? xrpc.Protocol.https,
         service: service,
         headers: headers,
         body: body,
@@ -54,6 +58,7 @@ class AnonymousClient implements Client {
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final xrpc.NSID methodId,
     final File file, {
+    final xrpc.Protocol? protocol,
     final String? service,
     final Map<String, String>? headers,
     final Duration timeout = const Duration(seconds: 10),
@@ -63,6 +68,7 @@ class AnonymousClient implements Client {
       await xrpc.upload(
         methodId,
         file,
+        protocol: protocol ?? xrpc.Protocol.https,
         service: service,
         headers: headers,
         timeout: timeout,

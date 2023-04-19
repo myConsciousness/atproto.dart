@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.8
+
+- Upgraded `xrpc` and added `protocol` option. ([#269](https://github.com/myConsciousness/atproto.dart/issues/269))
+
 ## v0.2.7
 
 - Upgraded `xrpc`. ([#249](https://github.com/myConsciousness/atproto.dart/issues/249))

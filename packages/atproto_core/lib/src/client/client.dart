@@ -11,6 +11,7 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 abstract class Client {
   Future<xrpc.XRPCResponse<T>> get<T>(
     final xrpc.NSID methodId, {
+    final xrpc.Protocol? protocol,
     required final String service,
     final Map<String, dynamic>? parameters,
     required final xrpc.To<T> to,
@@ -20,6 +21,7 @@ abstract class Client {
 
   Future<xrpc.XRPCResponse<T>> post<T>(
     final xrpc.NSID methodId, {
+    final xrpc.Protocol? protocol,
     required final String service,
     final Map<String, String>? headers,
     final dynamic body,
@@ -31,6 +33,7 @@ abstract class Client {
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final xrpc.NSID methodId,
     final File file, {
+    final xrpc.Protocol? protocol,
     final String? service,
     final Map<String, String>? headers,
     final Duration timeout = const Duration(seconds: 10),
