@@ -13,6 +13,7 @@ abstract class UnspeccedService {
   /// Returns the new instance of [UnspeccedService].
   factory UnspeccedService({
     required atp.ATProto atproto,
+    required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
@@ -20,6 +21,7 @@ abstract class UnspeccedService {
   }) =>
       _UnspeccedService(
         atproto: atproto,
+        protocol: protocol,
         service: service,
         context: context,
         mockedGetClient: mockedGetClient,
@@ -52,6 +54,7 @@ class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
   /// Returns the new instance of [_UnspeccedService].
   _UnspeccedService({
     required super.atproto,
+    required super.protocol,
     required super.service,
     required super.context,
     super.mockedGetClient,

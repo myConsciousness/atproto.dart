@@ -13,6 +13,7 @@ void main() {
     test('normal case', () async {
       final identities = IdentitiesService(
         did: 'test',
+        protocol: core.Protocol.https,
         service: 'test',
         context: core.ClientContext(
           accessJwt: '1234',
@@ -33,6 +34,7 @@ void main() {
 
     test('when unauthorized', () async {
       final identities = IdentitiesService(
+        protocol: core.Protocol.https,
         did: 'test',
         service: 'test',
         context: core.ClientContext(
@@ -54,6 +56,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final identities = IdentitiesService(
+        protocol: core.Protocol.https,
         did: 'test',
         service: 'test',
         context: core.ClientContext(
@@ -77,6 +80,7 @@ void main() {
   group('.updateHandle', () {
     test('normal case', () async {
       final identities = IdentitiesService(
+        protocol: core.Protocol.https,
         did: 'test',
         service: 'test',
         context: core.ClientContext(
@@ -98,6 +102,7 @@ void main() {
 
     test('when unauthorized', () async {
       final identities = IdentitiesService(
+        protocol: core.Protocol.https,
         did: 'test',
         service: 'test',
         context: core.ClientContext(
@@ -119,6 +124,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final identities = IdentitiesService(
+        protocol: core.Protocol.https,
         did: 'test',
         service: 'test',
         context: core.ClientContext(

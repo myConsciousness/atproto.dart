@@ -22,6 +22,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 ///
 /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createSession.json
 Future<core.XRPCResponse<atp.Session>> createSession({
+  core.Protocol protocol = core.Protocol.https,
   String service = 'bsky.social',
   required String identifier,
   required String password,
@@ -29,6 +30,7 @@ Future<core.XRPCResponse<atp.Session>> createSession({
   final core.PostClient? mockedPostClient,
 }) async =>
     await atp.createSession(
+      protocol: protocol,
       service: service,
       identifier: identifier,
       password: password,

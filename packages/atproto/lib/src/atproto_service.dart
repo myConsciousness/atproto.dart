@@ -14,7 +14,7 @@ abstract class ATProtoService {
   /// Returns the new instance of [ATProtoService].
   factory ATProtoService({
     required String did,
-    final core.Protocol? protocol,
+    required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
@@ -46,7 +46,7 @@ class _ATProtoService implements ATProtoService {
   /// Returns the new instance of [_ATProtoService].
   _ATProtoService({
     required String did,
-    final core.Protocol? protocol,
+    required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,

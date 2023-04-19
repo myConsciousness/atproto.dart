@@ -16,6 +16,7 @@ abstract class ActorsService {
   /// Returns the new instance of [ActorsService].
   factory ActorsService({
     required atp.ATProto atproto,
+    required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
@@ -23,6 +24,7 @@ abstract class ActorsService {
   }) =>
       _ActorsService(
         atproto: atproto,
+        protocol: protocol,
         service: service,
         context: context,
         mockedGetClient: mockedGetClient,
@@ -134,6 +136,7 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
   /// Returns the new instance of [_ActorsService].
   _ActorsService({
     required super.atproto,
+    required super.protocol,
     required super.service,
     required super.context,
     super.mockedGetClient,

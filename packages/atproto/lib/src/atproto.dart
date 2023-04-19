@@ -17,7 +17,7 @@ abstract class ATProto {
   factory ATProto({
     required String did,
     required String accessJwt,
-    final core.Protocol? protocol,
+    core.Protocol protocol = core.Protocol.https,
     String service = 'bsky.social',
     Duration timeout = const Duration(seconds: 10),
     core.RetryConfig? retryConfig,
@@ -38,7 +38,7 @@ abstract class ATProto {
   /// Returns the new instance of [ATProto].
   factory ATProto.fromSession(
     final Session session, {
-    final core.Protocol? protocol,
+    core.Protocol protocol = core.Protocol.https,
     String service = 'bsky.social',
     Duration timeout = const Duration(seconds: 10),
     core.RetryConfig? retryConfig,
@@ -70,7 +70,7 @@ class _ATProto implements ATProto {
   _ATProto({
     required String did,
     required String accessJwt,
-    final core.Protocol? protocol,
+    required core.Protocol protocol,
     required String service,
     required Duration timeout,
     core.RetryConfig? retryConfig,

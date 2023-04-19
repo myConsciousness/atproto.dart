@@ -57,6 +57,7 @@ void main() {
     test('normal case', () async {
       final servers = ServersService(
         did: 'test',
+        protocol: core.Protocol.https,
         service: 'test',
         context: core.ClientContext(
           accessJwt: '1234',
@@ -76,6 +77,7 @@ void main() {
     test('when unauthorized', () async {
       final servers = ServersService(
         did: 'test',
+        protocol: core.Protocol.https,
         service: 'test',
         context: core.ClientContext(
           accessJwt: '1234',
@@ -95,6 +97,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final servers = ServersService(
         did: 'test',
+        protocol: core.Protocol.https,
         service: 'test',
         context: core.ClientContext(
           accessJwt: '1234',
@@ -116,6 +119,7 @@ void main() {
     test('normal case', () async {
       final servers = ServersService(
         did: 'test',
+        protocol: core.Protocol.https,
         service: 'test',
         context: core.ClientContext(
           accessJwt: '1234',
@@ -137,6 +141,7 @@ void main() {
     test('when unauthorized', () async {
       final servers = ServersService(
         did: 'test',
+        protocol: core.Protocol.https,
         service: 'test',
         context: core.ClientContext(
           accessJwt: '1234',
@@ -156,6 +161,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final servers = ServersService(
         did: 'test',
+        protocol: core.Protocol.https,
         service: 'test',
         context: core.ClientContext(
           accessJwt: '1234',
@@ -177,6 +183,7 @@ void main() {
     test('normal case', () async {
       final servers = ServersService(
         did: 'test',
+        protocol: core.Protocol.https,
         service: 'test',
         context: core.ClientContext(
           accessJwt: '1234',
@@ -200,6 +207,7 @@ void main() {
     test('when unauthorized', () async {
       final servers = ServersService(
         did: 'test',
+        protocol: core.Protocol.https,
         service: 'test',
         context: core.ClientContext(
           accessJwt: '1234',
@@ -223,6 +231,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final servers = ServersService(
         did: 'test',
+        protocol: core.Protocol.https,
         service: 'test',
         context: core.ClientContext(
           accessJwt: '1234',
@@ -248,6 +257,7 @@ void main() {
     test('normal case', () async {
       final servers = ServersService(
         did: 'test',
+        protocol: core.Protocol.https,
         service: 'test',
         context: core.ClientContext(
           accessJwt: '1234',
@@ -270,6 +280,7 @@ void main() {
     test('when unauthorized', () async {
       final servers = ServersService(
         did: 'test',
+        protocol: core.Protocol.https,
         service: 'test',
         context: core.ClientContext(
           accessJwt: '1234',
@@ -292,6 +303,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final servers = ServersService(
         did: 'test',
+        protocol: core.Protocol.https,
         service: 'test',
         context: core.ClientContext(
           accessJwt: '1234',

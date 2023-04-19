@@ -11,7 +11,7 @@ abstract class IdentitiesService {
   /// Returns the new instance of [IdentitiesService].
   factory IdentitiesService({
     required String did,
-    final core.Protocol? protocol,
+    required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
@@ -67,7 +67,7 @@ class _IdentitiesService extends ATProtoBaseService
   /// Returns the new instance of [_IdentitiesService].
   _IdentitiesService({
     required super.did,
-    super.protocol,
+    required super.protocol,
     required super.service,
     required super.context,
     super.mockedGetClient,

@@ -14,6 +14,7 @@ abstract class NotificationsService {
   /// Returns the new instance of [NotificationsService].
   factory NotificationsService({
     required atp.ATProto atproto,
+    required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
@@ -21,6 +22,7 @@ abstract class NotificationsService {
   }) =>
       _NotificationsService(
         atproto: atproto,
+        protocol: protocol,
         service: service,
         context: context,
         mockedGetClient: mockedGetClient,
@@ -83,6 +85,7 @@ class _NotificationsService extends BlueskyBaseService
   /// Returns the new instance of [_NotificationsService].
   _NotificationsService({
     required super.atproto,
+    required super.protocol,
     required super.service,
     required super.context,
     super.mockedGetClient,

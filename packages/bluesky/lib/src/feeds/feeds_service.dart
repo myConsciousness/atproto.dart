@@ -20,6 +20,7 @@ abstract class FeedsService {
   /// Returns the new instance of [FeedsService].
   factory FeedsService({
     required atp.ATProto atproto,
+    required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
@@ -27,6 +28,7 @@ abstract class FeedsService {
   }) =>
       _FeedsService(
         atproto: atproto,
+        protocol: protocol,
         service: service,
         context: context,
         mockedGetClient: mockedGetClient,
@@ -232,6 +234,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
   /// Returns the new instance of [_FeedsService].
   _FeedsService({
     required super.atproto,
+    required super.protocol,
     required super.service,
     required super.context,
     super.mockedGetClient,

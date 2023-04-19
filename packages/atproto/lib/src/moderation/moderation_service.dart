@@ -13,7 +13,7 @@ abstract class ModerationService {
   /// Returns the new instance of [ModerationService].
   factory ModerationService({
     required String did,
-    final core.Protocol? protocol,
+    required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
@@ -59,7 +59,7 @@ class _ModerationService extends ATProtoBaseService
   /// Returns the new instance of [_ModerationService].
   _ModerationService({
     required super.did,
-    super.protocol,
+    required super.protocol,
     required super.service,
     required super.context,
     super.mockedGetClient,

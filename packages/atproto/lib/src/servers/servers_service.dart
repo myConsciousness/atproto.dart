@@ -27,7 +27,7 @@ import '../entities/session.dart';
 ///
 /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createSession.json
 Future<core.XRPCResponse<Session>> createSession({
-  final core.Protocol? protocol,
+  core.Protocol protocol = core.Protocol.https,
   String service = 'bsky.social',
   String? identifier,
   required String password,
@@ -50,7 +50,7 @@ Future<core.XRPCResponse<Session>> createSession({
 class _$ServersService extends ATProtoBaseService {
   /// Returns the new instance of [_$ServersService].
   _$ServersService({
-    super.protocol,
+    required super.protocol,
     required super.service,
     core.RetryConfig? retryConfig,
     super.mockedPostClient,
@@ -84,7 +84,7 @@ abstract class ServersService {
   /// Returns the new instance of [ServersService].
   factory ServersService({
     required String did,
-    final core.Protocol? protocol,
+    required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,

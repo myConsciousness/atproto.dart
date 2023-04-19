@@ -19,6 +19,7 @@ abstract class Bluesky {
   factory Bluesky({
     required String did,
     required String accessJwt,
+    core.Protocol protocol = core.Protocol.https,
     String service = 'bsky.social',
     Duration timeout = const Duration(seconds: 10),
     core.RetryConfig? retryConfig,
@@ -28,6 +29,7 @@ abstract class Bluesky {
       _Bluesky(
         did: did,
         accessJwt: accessJwt,
+        protocol: protocol,
         service: service,
         timeout: timeout,
         retryConfig: retryConfig,
@@ -38,6 +40,7 @@ abstract class Bluesky {
   /// Returns the new instance of [Bluesky].
   factory Bluesky.fromSession(
     final atp.Session session, {
+    core.Protocol protocol = core.Protocol.https,
     String service = 'bsky.social',
     Duration timeout = const Duration(seconds: 10),
     core.RetryConfig? retryConfig,
@@ -47,6 +50,7 @@ abstract class Bluesky {
       _Bluesky(
         did: session.did,
         accessJwt: session.accessJwt,
+        protocol: protocol,
         service: service,
         timeout: timeout,
         retryConfig: retryConfig,
@@ -78,6 +82,7 @@ class _Bluesky implements Bluesky {
   _Bluesky({
     required String did,
     required String accessJwt,
+    required core.Protocol protocol,
     required String service,
     required Duration timeout,
     core.RetryConfig? retryConfig,
@@ -87,10 +92,12 @@ class _Bluesky implements Bluesky {
           atproto: atp.ATProto(
             did: did,
             accessJwt: accessJwt,
+            protocol: protocol,
             service: service,
             timeout: timeout,
             retryConfig: retryConfig,
           ),
+          protocol: protocol,
           service: service,
           context: core.ClientContext(
             accessJwt: accessJwt,

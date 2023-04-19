@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.8
+
+- Added `protocol` option. Defaults to `HTTPS`. ([#269](https://github.com/myConsciousness/atproto.dart/issues/269))
+
 ## v0.3.7
 
 - Fixed type of `facet_link` from `app.bsky.richtext.facet#mention` to `app.bsky.richtext.facet#link`.
