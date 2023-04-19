@@ -4,6 +4,7 @@
 
 import 'package:atproto/src/entities/account.dart';
 import 'package:atproto/src/entities/current_session.dart';
+import 'package:atproto/src/entities/invite_code.dart';
 import 'package:atproto/src/entities/session.dart';
 import 'package:atproto/src/servers/servers_service.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
@@ -238,6 +239,74 @@ void main() {
           handle: 'shinyakato.stems',
           password: 'xxxxxxxxxx',
           email: 'xxxxxx@gmail.com',
+        ),
+      );
+    });
+  });
+
+  group('.createInviteCode', () {
+    test('normal case', () async {
+      final servers = ServersService(
+        did: 'test',
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/servers/data/create_invite_code.json',
+        ),
+      );
+
+      final response = await servers.createInviteCode(
+        useCount: 5,
+        forAccount: 'xxxxxxxx',
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<InviteCode>());
+    });
+
+    test('when unauthorized', () async {
+      final servers = ServersService(
+        did: 'test',
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await servers.createInviteCode(
+          useCount: 5,
+          forAccount: 'xxxxxxxx',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final servers = ServersService(
+        did: 'test',
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await servers.createInviteCode(
+          useCount: 5,
+          forAccount: 'xxxxxxxx',
         ),
       );
     });
