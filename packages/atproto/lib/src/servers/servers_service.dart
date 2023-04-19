@@ -8,6 +8,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../atproto_base_service.dart';
 import '../entities/account.dart';
 import '../entities/current_session.dart';
+import '../entities/invite_code.dart';
 import '../entities/session.dart';
 
 /// Create an authentication session.
@@ -149,6 +150,26 @@ abstract class ServersService {
     String? inviteCode,
     String? recoveryKey,
   });
+
+  /// Create an invite code.
+  ///
+  /// ## Parameter
+  ///
+  /// - [useCount]: The count of use.
+  ///
+  /// - [forAccount]: The account to send a created code.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.createInviteCode
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createInviteCode.json
+  Future<core.XRPCResponse<InviteCode>> createInviteCode({
+    required int useCount,
+    String? forAccount,
+  });
 }
 
 class _ServersService extends ATProtoBaseService implements ServersService {
@@ -200,5 +221,19 @@ class _ServersService extends ATProtoBaseService implements ServersService {
           'recoveryKey': recoveryKey,
         },
         to: Account.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<InviteCode>> createInviteCode({
+    required int useCount,
+    String? forAccount,
+  }) async =>
+      await super.post(
+        'createInviteCode',
+        body: {
+          'useCount': useCount,
+          'forAccount': forAccount,
+        },
+        to: InviteCode.fromJson,
       );
 }
