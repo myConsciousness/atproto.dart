@@ -27,6 +27,7 @@ import '../entities/session.dart';
 ///
 /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createSession.json
 Future<core.XRPCResponse<Session>> createSession({
+  core.Protocol protocol = core.Protocol.https,
   String service = 'bsky.social',
   String? identifier,
   required String password,
@@ -34,6 +35,7 @@ Future<core.XRPCResponse<Session>> createSession({
   final core.PostClient? mockedPostClient,
 }) async {
   final session = _$ServersService(
+    protocol: protocol,
     service: service,
     retryConfig: retryConfig,
     mockedPostClient: mockedPostClient,
@@ -48,6 +50,7 @@ Future<core.XRPCResponse<Session>> createSession({
 class _$ServersService extends ATProtoBaseService {
   /// Returns the new instance of [_$ServersService].
   _$ServersService({
+    required super.protocol,
     required super.service,
     core.RetryConfig? retryConfig,
     super.mockedPostClient,
@@ -81,6 +84,7 @@ abstract class ServersService {
   /// Returns the new instance of [ServersService].
   factory ServersService({
     required String did,
+    required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
@@ -88,6 +92,7 @@ abstract class ServersService {
   }) =>
       _ServersService(
         did: did,
+        protocol: protocol,
         service: service,
         context: context,
         mockedGetClient: mockedGetClient,
@@ -176,6 +181,7 @@ class _ServersService extends ATProtoBaseService implements ServersService {
   /// Returns the new instance of [_ServersService].
   _ServersService({
     required super.did,
+    super.protocol,
     required super.service,
     required super.context,
     super.mockedGetClient,

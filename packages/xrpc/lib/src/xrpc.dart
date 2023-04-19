@@ -16,8 +16,10 @@ import 'exception/internal_server_error_exception.dart';
 import 'exception/invalid_request_exception.dart';
 import 'exception/rate_limit_exceeded_exception.dart';
 import 'exception/unauthorized_exception.dart';
+import 'exception/xrpc_not_supported_exception.dart';
 import 'http_method.dart';
 import 'http_status.dart';
+import 'protocol.dart';
 import 'serializable.dart';
 import 'xrpc_error.dart';
 import 'xrpc_request.dart';
@@ -29,6 +31,10 @@ const _defaultService = 'bsky.social';
 /// A function type that expresses the function of converting response body
 /// to model objects.
 typedef To<T> = T Function(Map<String, Object?> json);
+
+/// A function type that express factory for URI.
+typedef UriFactory = Uri Function(String authority,
+    [String unencodedPath, Map<String, dynamic>? queryParameters]);
 
 /// Performs GET communication to the ATP server.
 ///
@@ -136,6 +142,7 @@ typedef To<T> = T Function(Map<String, Object?> json);
 /// ```
 Future<XRPCResponse<T>> query<T>(
   final nsid.NSID methodId, {
+  final Protocol protocol = Protocol.https,
   final String? service,
   final Map<String, String>? headers,
   final Map<String, dynamic>? parameters,
@@ -147,7 +154,7 @@ Future<XRPCResponse<T>> query<T>(
       checkStatus(
         await (getClient ?? http.get)
             .call(
-              Uri.https(
+              _getUriFactory(protocol).call(
                 service ?? _defaultService,
                 '/xrpc/$methodId',
                 convertParameters(
@@ -269,6 +276,7 @@ Future<XRPCResponse<T>> query<T>(
 /// ```
 Future<XRPCResponse<T>> procedure<T>(
   final nsid.NSID methodId, {
+  final Protocol protocol = Protocol.https,
   final String? service,
   final Map<String, String>? headers,
   final Map<String, dynamic>? body,
@@ -280,7 +288,7 @@ Future<XRPCResponse<T>> procedure<T>(
       checkStatus(
         await (postClient ?? http.post)
             .call(
-              Uri.https(
+              _getUriFactory(protocol).call(
                 service ?? _defaultService,
                 '/xrpc/$methodId',
               ),
@@ -303,6 +311,7 @@ Future<XRPCResponse<T>> procedure<T>(
 Future<XRPCResponse<T>> upload<T>(
   final nsid.NSID methodId,
   final File file, {
+  final Protocol protocol = Protocol.https,
   final String? service,
   final Map<String, String>? headers,
   final Duration timeout = const Duration(seconds: 10),
@@ -312,7 +321,7 @@ Future<XRPCResponse<T>> upload<T>(
     _buildResponse(
       checkStatus(
         await (postClient ?? http.post).call(
-          Uri.https(
+          _getUriFactory(protocol).call(
             service ?? 'bsky.social',
             '/xrpc/${methodId.toString()}',
           ),
@@ -347,6 +356,13 @@ http.Response checkStatus(final http.Response response) {
 
   if (statusCode >= 400 && statusCode < 500) {
     throw InvalidRequestException(
+      _buildErrorResponse(response),
+    );
+  }
+
+  if ((statusCode >= 100 && statusCode < 200) ||
+      (statusCode >= 300 && statusCode < 400)) {
+    throw XRPCNotSupportedException(
       _buildErrorResponse(response),
     );
   }
@@ -447,3 +463,7 @@ T _transformData<T>(
 
   return const EmptyData() as T;
 }
+
+/// Returns the uri factory based on [protocol].
+UriFactory _getUriFactory(final Protocol protocol) =>
+    protocol == Protocol.https ? Uri.https : Uri.http;

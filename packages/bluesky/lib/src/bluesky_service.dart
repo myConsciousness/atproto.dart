@@ -17,6 +17,7 @@ abstract class BlueskyService {
   /// Returns the new instance of [BlueskyService].
   factory BlueskyService({
     required atp.ATProto atproto,
+    required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
@@ -24,6 +25,7 @@ abstract class BlueskyService {
   }) =>
       _BlueskyService(
         atproto: atproto,
+        protocol: protocol,
         service: service,
         context: context,
         mockedGetClient: mockedGetClient,
@@ -53,12 +55,14 @@ class _BlueskyService implements BlueskyService {
   /// Returns the new instance of [_BlueskyService].
   _BlueskyService({
     required atp.ATProto atproto,
+    required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   })  : actors = ActorsService(
           atproto: atproto,
+          protocol: protocol,
           service: service,
           context: context,
           mockedGetClient: mockedGetClient,
@@ -66,6 +70,7 @@ class _BlueskyService implements BlueskyService {
         ),
         feeds = FeedsService(
           atproto: atproto,
+          protocol: protocol,
           service: service,
           context: context,
           mockedGetClient: mockedGetClient,
@@ -73,6 +78,7 @@ class _BlueskyService implements BlueskyService {
         ),
         notifications = NotificationsService(
           atproto: atproto,
+          protocol: protocol,
           service: service,
           context: context,
           mockedGetClient: mockedGetClient,
@@ -80,6 +86,7 @@ class _BlueskyService implements BlueskyService {
         ),
         graphs = GraphsService(
           atproto: atproto,
+          protocol: protocol,
           service: service,
           context: context,
           mockedGetClient: mockedGetClient,
@@ -87,6 +94,7 @@ class _BlueskyService implements BlueskyService {
         ),
         unspecced = UnspeccedService(
           atproto: atproto,
+          protocol: protocol,
           service: service,
           context: context,
           mockedGetClient: mockedGetClient,
@@ -94,6 +102,7 @@ class _BlueskyService implements BlueskyService {
         ),
         repositories = RepositoriesService(
           atproto: atproto,
+          protocol: protocol,
           service: service,
           context: context,
           mockedGetClient: mockedGetClient,

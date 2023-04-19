@@ -15,6 +15,7 @@ void main() {
     test('normal case', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -38,6 +39,7 @@ void main() {
     test('when unauthorized', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -61,6 +63,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -93,6 +96,7 @@ void main() {
             'test/src/feeds/data/create_post.json',
           ),
         ),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -119,6 +123,7 @@ void main() {
             statusCode: 401,
           ),
         ),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -144,6 +149,7 @@ void main() {
             statusCode: 429,
           ),
         ),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -170,6 +176,7 @@ void main() {
             'test/src/feeds/data/create_repost.json',
           ),
         ),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -198,6 +205,7 @@ void main() {
             statusCode: 401,
           ),
         ),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -224,6 +232,7 @@ void main() {
             statusCode: 429,
           ),
         ),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -251,6 +260,7 @@ void main() {
             'test/src/feeds/data/create_like.json',
           ),
         ),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -279,6 +289,7 @@ void main() {
             statusCode: 401,
           ),
         ),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -305,6 +316,7 @@ void main() {
             statusCode: 429,
           ),
         ),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -325,6 +337,7 @@ void main() {
     test('normal case', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -348,6 +361,7 @@ void main() {
     test('when unauthorized', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -371,6 +385,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -396,6 +411,7 @@ void main() {
     test('normal case', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -420,6 +436,7 @@ void main() {
     test('when unauthorized', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -444,6 +461,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -470,6 +488,7 @@ void main() {
     test('normal case', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -494,6 +513,7 @@ void main() {
     test('when unauthorized', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -518,6 +538,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -544,6 +565,7 @@ void main() {
     test('normal case', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -566,6 +588,7 @@ void main() {
     test('when unauthorized', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
@@ -588,6 +611,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',

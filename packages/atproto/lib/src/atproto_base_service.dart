@@ -9,6 +9,7 @@ abstract class ATProtoBaseService extends core.BaseService {
   /// Returns the new instance of [ATProtoBaseService].
   ATProtoBaseService({
     required this.did,
+    required super.protocol,
     required super.service,
     required super.methodAuthority,
     required super.context,

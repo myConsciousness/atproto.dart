@@ -14,6 +14,7 @@ abstract class ATProtoService {
   /// Returns the new instance of [ATProtoService].
   factory ATProtoService({
     required String did,
+    required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
@@ -21,6 +22,7 @@ abstract class ATProtoService {
   }) =>
       _ATProtoService(
         did: did,
+        protocol: protocol,
         service: service,
         context: context,
         mockedGetClient: mockedGetClient,
@@ -44,12 +46,14 @@ class _ATProtoService implements ATProtoService {
   /// Returns the new instance of [_ATProtoService].
   _ATProtoService({
     required String did,
+    required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   })  : servers = ServersService(
           did: did,
+          protocol: protocol,
           service: service,
           context: context,
           mockedGetClient: mockedGetClient,
@@ -57,6 +61,7 @@ class _ATProtoService implements ATProtoService {
         ),
         identities = IdentitiesService(
           did: did,
+          protocol: protocol,
           service: service,
           context: context,
           mockedGetClient: mockedGetClient,
@@ -64,6 +69,7 @@ class _ATProtoService implements ATProtoService {
         ),
         repositories = RepositoriesService(
           did: did,
+          protocol: protocol,
           service: service,
           context: context,
           mockedGetClient: mockedGetClient,
@@ -71,6 +77,7 @@ class _ATProtoService implements ATProtoService {
         ),
         moderation = ModerationService(
           did: did,
+          protocol: protocol,
           service: service,
           context: context,
           mockedGetClient: mockedGetClient,

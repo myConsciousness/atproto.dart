@@ -41,16 +41,21 @@ abstract class _Service {
 abstract class BaseService implements _Service {
   /// Returns the new instance of [BaseService].
   BaseService({
+    xrpc.Protocol? protocol,
     required String service,
     required String methodAuthority,
     required ClientContext context,
     final xrpc.GetClient? mockedGetClient,
     final xrpc.PostClient? mockedPostClient,
-  })  : _service = service,
+  })  : _protocol = protocol,
+        _service = service,
         _methodAuthority = methodAuthority,
         _context = context,
         _mockedGetClient = mockedGetClient,
         _mockedPostClient = mockedPostClient;
+
+  /// The communication protocol.
+  final xrpc.Protocol? _protocol;
 
   /// The base service.
   final String _service;
@@ -77,6 +82,7 @@ abstract class BaseService implements _Service {
           methodName,
         ),
         userContext: userContext,
+        protocol: _protocol,
         service: _service,
         parameters: parameters,
         to: to,
@@ -97,6 +103,7 @@ abstract class BaseService implements _Service {
           methodName,
         ),
         userContext: userContext,
+        protocol: _protocol,
         service: _service,
         headers: headers,
         body: body,
@@ -119,6 +126,7 @@ abstract class BaseService implements _Service {
         methodId,
         file,
         userContext: userContext,
+        protocol: _protocol,
         service: _service,
         headers: headers,
         to: to,

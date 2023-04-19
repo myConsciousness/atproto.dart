@@ -10,6 +10,7 @@ import 'package:xrpc/src/exception/internal_server_error_exception.dart';
 import 'package:xrpc/src/exception/invalid_request_exception.dart';
 import 'package:xrpc/src/exception/rate_limit_exceeded_exception.dart';
 import 'package:xrpc/src/exception/unauthorized_exception.dart';
+import 'package:xrpc/src/exception/xrpc_not_supported_exception.dart';
 import 'package:xrpc/src/serializable.dart';
 import 'package:xrpc/src/xrpc.dart';
 import 'package:xrpc/src/xrpc_response.dart';
@@ -68,6 +69,32 @@ void main() {
           ),
         ),
         throwsA(isA<InvalidRequestException>()),
+      );
+    });
+
+    test('statusCode >= 100 && statusCode < 200', () {
+      expect(
+        () => checkStatus(
+          Response(
+            '{"error":"", "message": ""}',
+            100,
+            request: Request('GET', Uri.https('bsky.social')),
+          ),
+        ),
+        throwsA(isA<XRPCNotSupportedException>()),
+      );
+    });
+
+    test('statusCode >= 300 && statusCode < 400', () {
+      expect(
+        () => checkStatus(
+          Response(
+            '{"error":"", "message": ""}',
+            300,
+            request: Request('GET', Uri.https('bsky.social')),
+          ),
+        ),
+        throwsA(isA<XRPCNotSupportedException>()),
       );
     });
 

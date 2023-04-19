@@ -17,6 +17,7 @@ abstract class ATProto {
   factory ATProto({
     required String did,
     required String accessJwt,
+    core.Protocol protocol = core.Protocol.https,
     String service = 'bsky.social',
     Duration timeout = const Duration(seconds: 10),
     core.RetryConfig? retryConfig,
@@ -26,6 +27,7 @@ abstract class ATProto {
       _ATProto(
         did: did,
         accessJwt: accessJwt,
+        protocol: protocol,
         service: service,
         timeout: timeout,
         retryConfig: retryConfig,
@@ -36,6 +38,7 @@ abstract class ATProto {
   /// Returns the new instance of [ATProto].
   factory ATProto.fromSession(
     final Session session, {
+    core.Protocol protocol = core.Protocol.https,
     String service = 'bsky.social',
     Duration timeout = const Duration(seconds: 10),
     core.RetryConfig? retryConfig,
@@ -43,6 +46,7 @@ abstract class ATProto {
       _ATProto(
         did: session.did,
         accessJwt: session.accessJwt,
+        protocol: protocol,
         service: service,
         timeout: timeout,
         retryConfig: retryConfig,
@@ -66,6 +70,7 @@ class _ATProto implements ATProto {
   _ATProto({
     required String did,
     required String accessJwt,
+    required core.Protocol protocol,
     required String service,
     required Duration timeout,
     core.RetryConfig? retryConfig,
@@ -73,6 +78,7 @@ class _ATProto implements ATProto {
     final core.PostClient? mockedPostClient,
   }) : _service = ATProtoService(
           did: did,
+          protocol: protocol,
           service: service,
           context: core.ClientContext(
             accessJwt: accessJwt,

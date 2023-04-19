@@ -10,6 +10,7 @@ abstract class BlueskyBaseService extends core.BaseService {
   /// Returns the new instance of [BlueskyBaseService].
   BlueskyBaseService({
     required this.atproto,
+    required super.protocol,
     required super.service,
     required super.context,
     super.methodAuthority = '',

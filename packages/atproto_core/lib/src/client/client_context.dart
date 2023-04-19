@@ -33,6 +33,7 @@ abstract class ClientContext {
   Future<xrpc.XRPCResponse<T>> get<T>(
     final xrpc.NSID methodId, {
     required UserContext userContext,
+    final xrpc.Protocol? protocol,
     required final String service,
     final Map<String, dynamic>? parameters,
     required final xrpc.To<T> to,
@@ -42,6 +43,7 @@ abstract class ClientContext {
   Future<xrpc.XRPCResponse<T>> post<T>(
     final xrpc.NSID methodId, {
     required UserContext userContext,
+    final xrpc.Protocol? protocol,
     required final String service,
     final Map<String, String>? headers,
     final dynamic body,
@@ -53,6 +55,7 @@ abstract class ClientContext {
     final xrpc.NSID methodId,
     final File file, {
     required UserContext userContext,
+    final xrpc.Protocol? protocol,
     final String? service,
     final Map<String, String>? headers,
     final Duration timeout = const Duration(seconds: 10),
@@ -87,6 +90,7 @@ class _ClientContext implements ClientContext {
   Future<xrpc.XRPCResponse<T>> get<T>(
     final xrpc.NSID methodId, {
     required UserContext userContext,
+    final xrpc.Protocol? protocol,
     required final String service,
     final Map<String, dynamic>? parameters,
     required final xrpc.To<T> to,
@@ -96,6 +100,7 @@ class _ClientContext implements ClientContext {
         _clientResolver.execute(userContext),
         (client) async => await client.get(
           methodId,
+          protocol: protocol,
           service: service,
           parameters: parameters,
           to: to,
@@ -108,6 +113,7 @@ class _ClientContext implements ClientContext {
   Future<xrpc.XRPCResponse<T>> post<T>(
     final xrpc.NSID methodId, {
     required UserContext userContext,
+    final xrpc.Protocol? protocol,
     required final String service,
     final Map<String, String>? headers,
     final dynamic body,
@@ -118,6 +124,7 @@ class _ClientContext implements ClientContext {
         _clientResolver.execute(userContext),
         (client) async => await client.post(
           methodId,
+          protocol: protocol,
           service: service,
           headers: headers,
           body: body,
@@ -132,6 +139,7 @@ class _ClientContext implements ClientContext {
     final xrpc.NSID methodId,
     final File file, {
     required UserContext userContext,
+    final xrpc.Protocol? protocol,
     final String? service,
     final Map<String, String>? headers,
     final Duration timeout = const Duration(seconds: 10),
@@ -143,6 +151,7 @@ class _ClientContext implements ClientContext {
         (client) async => await client.upload(
           methodId,
           file,
+          protocol: protocol,
           service: service,
           headers: headers,
           timeout: timeout,

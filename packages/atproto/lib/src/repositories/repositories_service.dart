@@ -14,6 +14,7 @@ abstract class RepositoriesService {
   /// Returns the new instance of [RepositoriesService].
   factory RepositoriesService({
     required String did,
+    required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
@@ -21,6 +22,7 @@ abstract class RepositoriesService {
   }) =>
       _RepositoriesService(
         did: did,
+        protocol: protocol,
         service: service,
         context: context,
         mockedGetClient: mockedGetClient,
@@ -46,6 +48,7 @@ class _RepositoriesService extends ATProtoBaseService
   /// Returns the new instance of [_RepositoriesService].
   _RepositoriesService({
     required super.did,
+    required super.protocol,
     required super.service,
     required super.context,
     super.mockedGetClient,
