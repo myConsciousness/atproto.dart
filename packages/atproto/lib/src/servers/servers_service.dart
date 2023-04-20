@@ -156,11 +156,20 @@ abstract class ServersService {
     String? recoveryKey,
   });
 
+  /// Initiate a user account deletion via email.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.requestAccountDelete
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/requestAccountDelete.json
+  Future<core.XRPCResponse<core.EmptyData>> requestDeleteAccount();
+
   /// Delete a user account with a token and password.
   ///
   /// ## Parameters
-  ///
-  /// - [did]: DID of the account to be deleted.
   ///
   /// - [password]: Password for authentication.
   ///
@@ -174,7 +183,6 @@ abstract class ServersService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/deleteAccount.json
   Future<core.XRPCResponse<core.EmptyData>> deleteAccount({
-    required String did,
     required String password,
     required String token,
   });
@@ -253,8 +261,11 @@ class _ServersService extends ATProtoBaseService implements ServersService {
       );
 
   @override
+  Future<core.XRPCResponse<core.EmptyData>> requestDeleteAccount() async =>
+      await super.post('requestAccountDelete');
+
+  @override
   Future<core.XRPCResponse<core.EmptyData>> deleteAccount({
-    required String did,
     required String password,
     required String token,
   }) async =>

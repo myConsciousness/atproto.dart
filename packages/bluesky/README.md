@@ -222,13 +222,17 @@ Future<bsky.Session> get _session async {
 
 **bluesky** uses the following standard prefixes depending on endpoint characteristics. So it's very easy to find the method corresponding to the endpoint you want to use!
 
-| Prefix     | Description                                                           |
-| ---------- | --------------------------------------------------------------------- |
-| **find**   | This prefix is attached to endpoints that reference accounts, etc.    |
-| **search** | This prefix is attached to endpoints that perform extensive searches. |
-| **create** | This prefix is attached to the endpoint performing the create state.  |
-| **delete** | This prefix is attached to the endpoint performing the delete state.  |
-| **update** | This prefix is attached to the endpoint performing the update state.  |
+| Prefix      | Description                                                               |
+| ----------- | ------------------------------------------------------------------------- |
+| **find**    | This prefix is attached to endpoints that reference post etc.             |
+| **search**  | This prefix is attached to endpoints that perform extensive searches.     |
+| **connect** | This prefix is attached to endpoints with high-performance streaming.     |
+| **create**  | This prefix is attached to the endpoint performing the create state.      |
+| **refresh** | This prefix is attached to the endpoint performing the refresh state.     |
+| **delete**  | This prefix is attached to the endpoint performing the delete state.      |
+| **update**  | This prefix is attached to the endpoint performing the update state.      |
+| **upload**  | This prefix is attached to the endpoint performing the upload contents.   |
+| **request** | This prefix is attached to the endpoint performing the request via email. |
 
 ### 1.4.2. Create Session
 
