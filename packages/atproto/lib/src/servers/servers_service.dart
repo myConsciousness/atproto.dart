@@ -169,6 +169,8 @@ abstract class ServersService {
 
   /// Delete a user account with a token and password.
   ///
+  /// Publish the [token] using [requestDeleteAccount] at first.
+  ///
   /// ## Parameters
   ///
   /// - [password]: Password for authentication.
@@ -222,6 +224,28 @@ abstract class ServersService {
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/requestPasswordReset.json
   Future<core.XRPCResponse<core.EmptyData>> requestPasswordReset({
     required String email,
+  });
+
+  /// Update a user account password using a token.
+  ///
+  /// Publish the [token] using [requestPasswordReset] at first.
+  ///
+  /// ## Parameters
+  ///
+  /// - [password]: New password to update.
+  ///
+  /// - [token]: The published token.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.resetPassword
+  ///
+  /// - Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/resetPassword.json
+  Future<core.XRPCResponse<core.EmptyData>> updatePassword({
+    required String password,
+    required String token,
   });
 }
 
@@ -317,6 +341,19 @@ class _ServersService extends ATProtoBaseService implements ServersService {
         'requestPasswordReset',
         body: {
           'email': email,
+        },
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> updatePassword({
+    required String password,
+    required String token,
+  }) async =>
+      await super.post(
+        'resetPassword',
+        body: {
+          'password': password,
+          'token': token,
         },
       );
 }
