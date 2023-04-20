@@ -156,6 +156,29 @@ abstract class ServersService {
     String? recoveryKey,
   });
 
+  /// Delete a user account with a token and password.
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: DID of the account to be deleted.
+  ///
+  /// - [password]: Password for authentication.
+  ///
+  /// - [token]: The published token.
+  ///
+  /// ## Lexicon
+  ///
+  /// - Delete a user account with a token and password.
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/deleteAccount.json
+  Future<core.XRPCResponse<core.EmptyData>> deleteAccount({
+    required String did,
+    required String password,
+    required String token,
+  });
+
   /// Create an invite code.
   ///
   /// ## Parameter
@@ -227,6 +250,21 @@ class _ServersService extends ATProtoBaseService implements ServersService {
           'recoveryKey': recoveryKey,
         },
         to: Account.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> deleteAccount({
+    required String did,
+    required String password,
+    required String token,
+  }) async =>
+      await super.post(
+        'deleteAccount',
+        body: {
+          'did': did,
+          'password': password,
+          'token': token,
+        },
       );
 
   @override
