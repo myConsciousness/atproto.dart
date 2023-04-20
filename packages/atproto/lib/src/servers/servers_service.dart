@@ -206,6 +206,23 @@ abstract class ServersService {
     required int useCount,
     String? forAccount,
   });
+
+  /// Initiate a user account password reset via email.
+  ///
+  /// ## Parameters
+  ///
+  /// - [email]: The email address to send a guide to reset a password.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.requestPasswordReset
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/requestPasswordReset.json
+  Future<core.XRPCResponse<core.EmptyData>> requestPasswordReset({
+    required String email,
+  });
 }
 
 class _ServersService extends ATProtoBaseService implements ServersService {
@@ -290,5 +307,16 @@ class _ServersService extends ATProtoBaseService implements ServersService {
           'forAccount': forAccount,
         },
         to: InviteCode.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> requestPasswordReset({
+    required String email,
+  }) async =>
+      await super.post(
+        'requestPasswordReset',
+        body: {
+          'email': email,
+        },
       );
 }
