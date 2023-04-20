@@ -8,6 +8,7 @@
 - Supported `com.atproto.server.deleteAccount`. ([#259](https://github.com/myConsciousness/atproto.dart/issues/259))
 - Supported `com.atproto.server.requestDeleteAccount`. ([#273](https://github.com/myConsciousness/atproto.dart/issues/273))
 - Supported `com.atproto.server.requestPasswordReset`. ([#263](https://github.com/myConsciousness/atproto.dart/issues/263))
+- Supported `com.atproto.server.updatePassword`. ([#264](https://github.com/myConsciousness/atproto.dart/issues/264))
 
 ## v0.2.5
 

@@ -171,6 +171,7 @@ Future<void> main() async {
 | [POST com.atproto.server.deleteAccount](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/deleteAccount.json)               | [deleteAccount](https://pub.dev/documentation/atproto/latest/atproto/ServersService/deleteAccount.html)               |
 | [POST com.atproto.server.createInviteCode](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createInviteCode.json)         | [createInviteCode](https://pub.dev/documentation/atproto/latest/atproto/ServersService/createInviteCode.html)         |
 | [POST com.atproto.server.requestPasswordReset](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/requestPasswordReset.json) | [requestPasswordReset](https://pub.dev/documentation/atproto/latest/atproto/ServersService/requestPasswordReset.html) |
+| [POST com.atproto.server.resetPassword](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/resetPassword.json)               | [updatePassword](https://pub.dev/documentation/atproto/latest/atproto/ServersService/updatePassword.html)             |
 
 ### 1.3.2. Identity
 
