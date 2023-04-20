@@ -5,6 +5,7 @@
 export 'package:atproto/src/atproto.dart';
 export 'package:atproto/src/atproto_service.dart';
 export 'package:atproto/src/entities/account.dart';
+export 'package:atproto/src/entities/app_password.dart';
 export 'package:atproto/src/entities/blob.dart';
 export 'package:atproto/src/entities/blob_data.dart';
 export 'package:atproto/src/entities/blob_ref.dart';

@@ -7,6 +7,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../atproto_base_service.dart';
 import '../entities/account.dart';
+import '../entities/app_password.dart';
 import '../entities/current_session.dart';
 import '../entities/invite_code.dart';
 import '../entities/session.dart';
@@ -247,6 +248,10 @@ abstract class ServersService {
     required String password,
     required String token,
   });
+
+  Future<core.XRPCResponse<AppPassword>> createAppPassword({
+    required String name,
+  });
 }
 
 class _ServersService extends ATProtoBaseService implements ServersService {
@@ -355,5 +360,17 @@ class _ServersService extends ATProtoBaseService implements ServersService {
           'password': password,
           'token': token,
         },
+      );
+
+  @override
+  Future<core.XRPCResponse<AppPassword>> createAppPassword({
+    required String name,
+  }) async =>
+      await super.post(
+        'createAppPassword',
+        body: {
+          'name': name,
+        },
+        to: AppPassword.fromJson,
       );
 }
