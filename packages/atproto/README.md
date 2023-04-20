@@ -161,14 +161,15 @@ Future<void> main() async {
 
 ### 1.3.1. Servers
 
-| **Lexicon**                                                                                                                                       | **Method Name**                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| [POST com.atproto.server.createSession](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createSession.json)       | [createSession](https://pub.dev/documentation/atproto/latest/atproto/createSession.html)                          |
-| [POST com.atproto.server.refreshSession](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/refreshSession.json)     | [refreshSession](https://pub.dev/documentation/atproto/latest/atproto/ServersService/refreshSession.html)         |
-| [GET com.atproto.server.getSession](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/getSession.json)              | [findCurrentSession](https://pub.dev/documentation/atproto/latest/atproto/ServersService/findCurrentSession.html) |
-| [POST com.atproto.server.createAccount](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createAccount.json)       | [createAccount](https://pub.dev/documentation/atproto/latest/atproto/ServersService/createAccount.html)           |
-| [POST com.atproto.server.deleteAccount](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/deleteAccount.json)       | [deleteAccount](https://pub.dev/documentation/atproto/latest/atproto/ServersService/deleteAccount.html)           |
-| [POST com.atproto.server.createInviteCode](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createInviteCode.json) | [createInviteCode](https://pub.dev/documentation/atproto/latest/atproto/ServersService/createInviteCode.html)     |
+| **Lexicon**                                                                                                                                               | **Method Name**                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| [POST com.atproto.server.createSession](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createSession.json)               | [createSession](https://pub.dev/documentation/atproto/latest/atproto/createSession.html)                              |
+| [POST com.atproto.server.refreshSession](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/refreshSession.json)             | [refreshSession](https://pub.dev/documentation/atproto/latest/atproto/ServersService/refreshSession.html)             |
+| [GET com.atproto.server.getSession](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/getSession.json)                      | [findCurrentSession](https://pub.dev/documentation/atproto/latest/atproto/ServersService/findCurrentSession.html)     |
+| [POST com.atproto.server.createAccount](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createAccount.json)               | [createAccount](https://pub.dev/documentation/atproto/latest/atproto/ServersService/createAccount.html)               |
+| [POST com.atproto.server.requestDeleteAccount](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/requestDeleteAccount.json) | [requestDeleteAccount](https://pub.dev/documentation/atproto/latest/atproto/ServersService/requestDeleteAccount.html) |
+| [POST com.atproto.server.deleteAccount](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/deleteAccount.json)               | [deleteAccount](https://pub.dev/documentation/atproto/latest/atproto/ServersService/deleteAccount.html)               |
+| [POST com.atproto.server.createInviteCode](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createInviteCode.json)         | [createInviteCode](https://pub.dev/documentation/atproto/latest/atproto/ServersService/createInviteCode.html)         |
 
 ### 1.3.2. Identity
 
@@ -197,13 +198,17 @@ Future<void> main() async {
 
 **atproto** uses the following standard prefixes depending on endpoint characteristics. So it's very easy to find the method corresponding to the endpoint you want to use!
 
-| Prefix      | Description                                                             |
-| ----------- | ----------------------------------------------------------------------- |
-| **find**    | This prefix is attached to endpoints that reference accounts, etc.      |
-| **create**  | This prefix is attached to the endpoint performing the create state.    |
-| **delete**  | This prefix is attached to the endpoint performing the delete state.    |
-| **refresh** | This prefix is attached to the endpoint performing the refresh state.   |
-| **upload**  | This prefix is attached to the endpoint performing the upload contents. |
+| Prefix      | Description                                                               |
+| ----------- | ------------------------------------------------------------------------- |
+| **find**    | This prefix is attached to endpoints that reference post etc.             |
+| **search**  | This prefix is attached to endpoints that perform extensive searches.     |
+| **connect** | This prefix is attached to endpoints with high-performance streaming.     |
+| **create**  | This prefix is attached to the endpoint performing the create state.      |
+| **refresh** | This prefix is attached to the endpoint performing the refresh state.     |
+| **delete**  | This prefix is attached to the endpoint performing the delete state.      |
+| **update**  | This prefix is attached to the endpoint performing the update state.      |
+| **upload**  | This prefix is attached to the endpoint performing the upload contents.   |
+| **request** | This prefix is attached to the endpoint performing the request via email. |
 
 ### 1.4.2. Null Parameter at Request
 

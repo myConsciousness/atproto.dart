@@ -6,6 +6,7 @@
 - Supported `com.atproto.server.createInviteCode`. ([#257](https://github.com/myConsciousness/atproto.dart/issues/257))
 - Added `protocol` option. Defaults to `HTTPS`. ([#269](https://github.com/myConsciousness/atproto.dart/issues/269))
 - Supported `com.atproto.server.deleteAccount`. ([#259](https://github.com/myConsciousness/atproto.dart/issues/259))
+- Supported `com.atproto.server.requestDeleteAccount`. ([#273](https://github.com/myConsciousness/atproto.dart/issues/273))
 
 ## v0.2.5
 
