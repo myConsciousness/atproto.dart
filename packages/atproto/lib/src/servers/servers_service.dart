@@ -249,7 +249,37 @@ abstract class ServersService {
     required String token,
   });
 
+  /// Create an app-specific password.
+  ///
+  /// ## Parameters
+  ///
+  /// - [name]: The name of token.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.createAppPassword
+  ///
+  /// - Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createAppPassword.json
   Future<core.XRPCResponse<AppPassword>> createAppPassword({
+    required String name,
+  });
+
+  /// Revoke an app-specific password by name.
+  ///
+  /// ## Parameters
+  ///
+  /// - [name]: The name of created token.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.revokeAppPassword
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/revokeAppPassword.json
+  Future<core.XRPCResponse<core.EmptyData>> deleteAppPassword({
     required String name,
   });
 }
@@ -372,5 +402,16 @@ class _ServersService extends ATProtoBaseService implements ServersService {
           'name': name,
         },
         to: AppPassword.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> deleteAppPassword({
+    required String name,
+  }) async =>
+      await super.post(
+        'revokeAppPassword',
+        body: {
+          'name': name,
+        },
       );
 }
