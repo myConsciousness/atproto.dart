@@ -8,7 +8,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'converter/embed_view_media_converter.dart';
-import 'embed_view_images.dart';
 import 'embed_view_media.dart';
 import 'embed_view_record.dart';
 
