@@ -24,7 +24,8 @@ mixin _$EmbedViewRecordWithMedia {
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
   EmbedViewRecord get record => throw _privateConstructorUsedError;
-  EmbedViewImages get media => throw _privateConstructorUsedError;
+  @EmbedViewMediaConverter()
+  EmbedViewMedia get media => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,10 +42,10 @@ abstract class $EmbedViewRecordWithMediaCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: '\$type') String type,
       EmbedViewRecord record,
-      EmbedViewImages media});
+      @EmbedViewMediaConverter() EmbedViewMedia media});
 
   $EmbedViewRecordCopyWith<$Res> get record;
-  $EmbedViewImagesCopyWith<$Res> get media;
+  $EmbedViewMediaCopyWith<$Res> get media;
 }
 
 /// @nodoc
@@ -77,7 +78,7 @@ class _$EmbedViewRecordWithMediaCopyWithImpl<$Res,
       media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as EmbedViewImages,
+              as EmbedViewMedia,
     ) as $Val);
   }
 
@@ -91,8 +92,8 @@ class _$EmbedViewRecordWithMediaCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $EmbedViewImagesCopyWith<$Res> get media {
-    return $EmbedViewImagesCopyWith<$Res>(_value.media, (value) {
+  $EmbedViewMediaCopyWith<$Res> get media {
+    return $EmbedViewMediaCopyWith<$Res>(_value.media, (value) {
       return _then(_value.copyWith(media: value) as $Val);
     });
   }
@@ -110,12 +111,12 @@ abstract class _$$_EmbedViewRecordWithMediaCopyWith<$Res>
   $Res call(
       {@JsonKey(name: '\$type') String type,
       EmbedViewRecord record,
-      EmbedViewImages media});
+      @EmbedViewMediaConverter() EmbedViewMedia media});
 
   @override
   $EmbedViewRecordCopyWith<$Res> get record;
   @override
-  $EmbedViewImagesCopyWith<$Res> get media;
+  $EmbedViewMediaCopyWith<$Res> get media;
 }
 
 /// @nodoc
@@ -146,7 +147,7 @@ class __$$_EmbedViewRecordWithMediaCopyWithImpl<$Res>
       media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as EmbedViewImages,
+              as EmbedViewMedia,
     ));
   }
 }
@@ -157,7 +158,7 @@ class _$_EmbedViewRecordWithMedia implements _EmbedViewRecordWithMedia {
   const _$_EmbedViewRecordWithMedia(
       {@JsonKey(name: '\$type') required this.type,
       required this.record,
-      required this.media});
+      @EmbedViewMediaConverter() required this.media});
 
   factory _$_EmbedViewRecordWithMedia.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedViewRecordWithMediaFromJson(json);
@@ -168,7 +169,8 @@ class _$_EmbedViewRecordWithMedia implements _EmbedViewRecordWithMedia {
   @override
   final EmbedViewRecord record;
   @override
-  final EmbedViewImages media;
+  @EmbedViewMediaConverter()
+  final EmbedViewMedia media;
 
   @override
   String toString() {
@@ -206,9 +208,10 @@ class _$_EmbedViewRecordWithMedia implements _EmbedViewRecordWithMedia {
 
 abstract class _EmbedViewRecordWithMedia implements EmbedViewRecordWithMedia {
   const factory _EmbedViewRecordWithMedia(
-      {@JsonKey(name: '\$type') required final String type,
-      required final EmbedViewRecord record,
-      required final EmbedViewImages media}) = _$_EmbedViewRecordWithMedia;
+          {@JsonKey(name: '\$type') required final String type,
+          required final EmbedViewRecord record,
+          @EmbedViewMediaConverter() required final EmbedViewMedia media}) =
+      _$_EmbedViewRecordWithMedia;
 
   factory _EmbedViewRecordWithMedia.fromJson(Map<String, dynamic> json) =
       _$_EmbedViewRecordWithMedia.fromJson;
@@ -219,7 +222,8 @@ abstract class _EmbedViewRecordWithMedia implements EmbedViewRecordWithMedia {
   @override
   EmbedViewRecord get record;
   @override
-  EmbedViewImages get media;
+  @EmbedViewMediaConverter()
+  EmbedViewMedia get media;
   @override
   @JsonKey(ignore: true)
   _$$_EmbedViewRecordWithMediaCopyWith<_$_EmbedViewRecordWithMedia>

@@ -21,8 +21,8 @@ _$_EmbedViewRecordWithMedia _$$_EmbedViewRecordWithMediaFromJson(Map json) =>
                   Map<String, Object?>.from(v as Map))),
           media: $checkedConvert(
               'media',
-              (v) => EmbedViewImages.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+              (v) => const EmbedViewMediaConverter()
+                  .fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -34,5 +34,5 @@ Map<String, dynamic> _$$_EmbedViewRecordWithMediaToJson(
     <String, dynamic>{
       r'$type': instance.type,
       'record': instance.record.toJson(),
-      'media': instance.media.toJson(),
+      'media': const EmbedViewMediaConverter().toJson(instance.media),
     };

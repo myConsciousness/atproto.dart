@@ -2,6 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'dart:convert';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../embed_view.dart';

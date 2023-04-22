@@ -2,61 +2,389 @@
   "thread": {
     "$type": "app.bsky.feed.defs#threadViewPost",
     "post": {
-      "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jsgkrvc32k2y",
-      "cid": "bafyreifgygnnkmzom6w5kas7lbmstt2pemdrlskxfas273jp4w6xxhgria",
+      "uri": "at://did:plc:by3jhwdqgbtrcc7q4tkkv3cf/app.bsky.feed.post/3jtvi2jrijx2y",
+      "cid": "bafyreihjvnk63tmykb7bdsboxfuu27qel4jings3npew4ntoueki2oxuzu",
       "author": {
-        "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
-        "handle": "shinyakato.dev",
-        "displayName": "Shinya Kato 🤯",
-        "avatar": "https://cdn.bsky.social/imgproxy/JF97YphLyIEWfq4KJNO_ZCYm9v_zNcRj7sSB8UZrRBw/rs:fill:1000:1000:1:0/plain/bafkreidqn4z6ocv5snxuqguarboozqdusam2tehccnu23yab7g2sgv64dq@jpeg",
-        "viewer": { "muted": false }
+        "did": "did:plc:by3jhwdqgbtrcc7q4tkkv3cf",
+        "handle": "aliceisjustplaying.bsky.social",
+        "displayName": "alice",
+        "avatar": "https://cdn.bsky.social/imgproxy/wMlT1VF1cCcmMDbidkajVHOn53GfLbHtHhrt30Jog_U/rs:fill:1000:1000:1:0/plain/bafkreiaa2be4xc622hrsamk42d7yfihjsnnfkmcjj6ek6a5q6b6i63dlwi@jpeg",
+        "viewer": {
+          "muted": false,
+          "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jrjuf3ejr22p"
+        },
+        "labels": []
       },
       "record": {
-        "text": "For testing",
+        "text": "now available for everyone to try in your browser! you have to log in on the page but it's 100% client-side javascript so your password stays in your browser and is only sent to bluesky.\n\nhttps://bluesky-heatmap.fly.dev/",
         "$type": "app.bsky.feed.post",
-        "createdAt": "2023-04-03T01:07:42.507853Z"
+        "embed": {
+          "$type": "app.bsky.embed.recordWithMedia",
+          "media": {
+            "$type": "app.bsky.embed.external",
+            "external": {
+              "uri": "https://bluesky-heatmap.fly.dev/",
+              "thumb": {
+                "$type": "blob",
+                "ref": {
+                  "$link": "bafkreig4g4l6fwfl6r5z7yydzzfo2l26k5pajgdq2ue2tdu3xszbd3y6p4"
+                },
+                "mimeType": "image/jpeg",
+                "size": 267294
+              },
+              "title": "Bluesky Posts Heatmap Generator",
+              "description": "Generates GitHub-style heatmaps from your Bluesky posts."
+            }
+          },
+          "record": {
+            "$type": "app.bsky.embed.record",
+            "record": {
+              "cid": "bafyreic26yhtn46jxaggts75mbzmxth3tab6k5wj6krbvrumj5t63jqnjq",
+              "uri": "at://did:plc:by3jhwdqgbtrcc7q4tkkv3cf/app.bsky.feed.post/3jtoq4zmhvz2z"
+            }
+          }
+        },
+        "facets": [
+          {
+            "index": { "byteEnd": 220, "byteStart": 188 },
+            "features": [
+              {
+                "uri": "https://bluesky-heatmap.fly.dev/",
+                "$type": "app.bsky.richtext.facet#link"
+              }
+            ]
+          }
+        ],
+        "createdAt": "2023-04-21T16:54:00.468Z"
       },
-      "replyCount": 1,
-      "repostCount": 0,
-      "likeCount": 0,
-      "indexedAt": "2023-04-03T01:07:44.298Z",
-      "viewer": {}
+      "embed": {
+        "$type": "app.bsky.embed.recordWithMedia#view",
+        "record": {
+          "record": {
+            "$type": "app.bsky.embed.record#viewRecord",
+            "uri": "at://did:plc:by3jhwdqgbtrcc7q4tkkv3cf/app.bsky.feed.post/3jtoq4zmhvz2z",
+            "cid": "bafyreic26yhtn46jxaggts75mbzmxth3tab6k5wj6krbvrumj5t63jqnjq",
+            "author": {
+              "did": "did:plc:by3jhwdqgbtrcc7q4tkkv3cf",
+              "handle": "aliceisjustplaying.bsky.social",
+              "displayName": "alice",
+              "avatar": "https://cdn.bsky.social/imgproxy/wMlT1VF1cCcmMDbidkajVHOn53GfLbHtHhrt30Jog_U/rs:fill:1000:1000:1:0/plain/bafkreiaa2be4xc622hrsamk42d7yfihjsnnfkmcjj6ek6a5q6b6i63dlwi@jpeg",
+              "viewer": {
+                "muted": false,
+                "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jrjuf3ejr22p"
+              },
+              "labels": []
+            },
+            "value": {
+              "text": "🦋 posting frequency heatmaps 🦋\n\ntoday's pet project (inspo @nvpkp.bsky.social) is a tool that generates a heatmap based on posting frequency.\n\nexamples below for @jay.bsky.team, @pfrazee.com, @why.bsky.team and @emilyliu.me\n\ncode: https://github.com/aliceisjustplaying/bluesky-calendar-heatmap",
+              "$type": "app.bsky.feed.post",
+              "embed": {
+                "$type": "app.bsky.embed.images",
+                "images": [
+                  {
+                    "alt": "",
+                    "image": {
+                      "$type": "blob",
+                      "ref": {
+                        "$link": "bafkreiarkiifnjbcdzg2s4ogxynoqqsrypieqljrkdfh4oxwrhjhr65czq"
+                      },
+                      "mimeType": "image/jpeg",
+                      "size": 115277
+                    }
+                  },
+                  {
+                    "alt": "",
+                    "image": {
+                      "$type": "blob",
+                      "ref": {
+                        "$link": "bafkreibxflu6bq427zuavldwcu7ws3hlvl4misxpxrewqdx6vh7yic4cti"
+                      },
+                      "mimeType": "image/jpeg",
+                      "size": 121140
+                    }
+                  },
+                  {
+                    "alt": "",
+                    "image": {
+                      "$type": "blob",
+                      "ref": {
+                        "$link": "bafkreibpduymag7b3rz4hf2rupunylpo6xgnp2rc2qkoulmhguvzyv6czq"
+                      },
+                      "mimeType": "image/jpeg",
+                      "size": 109254
+                    }
+                  },
+                  {
+                    "alt": "",
+                    "image": {
+                      "$type": "blob",
+                      "ref": {
+                        "$link": "bafkreih4soy6jkkwndz6rdnq5bif6rmacnw755pxk2hs44iqjz7zgtchgy"
+                      },
+                      "mimeType": "image/jpeg",
+                      "size": 81219
+                    }
+                  }
+                ]
+              },
+              "facets": [
+                {
+                  "$type": "app.bsky.richtext.facet",
+                  "index": { "byteEnd": 83, "byteStart": 65 },
+                  "features": [
+                    {
+                      "did": "did:plc:xbxpdv7nstw5ybmlneupnuaa",
+                      "$type": "app.bsky.richtext.facet#mention"
+                    }
+                  ]
+                },
+                {
+                  "$type": "app.bsky.richtext.facet",
+                  "index": { "byteEnd": 182, "byteStart": 168 },
+                  "features": [
+                    {
+                      "did": "did:plc:oky5czdrnfjpqslsw2a5iclo",
+                      "$type": "app.bsky.richtext.facet#mention"
+                    }
+                  ]
+                },
+                {
+                  "$type": "app.bsky.richtext.facet",
+                  "index": { "byteEnd": 196, "byteStart": 184 },
+                  "features": [
+                    {
+                      "did": "did:plc:ragtjsm2j2vknwkz3zp4oxrd",
+                      "$type": "app.bsky.richtext.facet#mention"
+                    }
+                  ]
+                },
+                {
+                  "$type": "app.bsky.richtext.facet",
+                  "index": { "byteEnd": 212, "byteStart": 198 },
+                  "features": [
+                    {
+                      "did": "did:plc:vpkhqolt662uhesyj6nxm7ys",
+                      "$type": "app.bsky.richtext.facet#mention"
+                    }
+                  ]
+                },
+                {
+                  "$type": "app.bsky.richtext.facet",
+                  "index": { "byteEnd": 229, "byteStart": 217 },
+                  "features": [
+                    {
+                      "did": "did:plc:vjug55kidv6sye7ykr5faxxn",
+                      "$type": "app.bsky.richtext.facet#mention"
+                    }
+                  ]
+                },
+                {
+                  "index": { "byteEnd": 299, "byteStart": 237 },
+                  "features": [
+                    {
+                      "uri": "https://github.com/aliceisjustplaying/bluesky-calendar-heatmap",
+                      "$type": "app.bsky.richtext.facet#link"
+                    }
+                  ]
+                }
+              ],
+              "createdAt": "2023-04-19T00:29:55.940Z"
+            },
+            "embeds": [
+              {
+                "$type": "app.bsky.embed.images#view",
+                "images": [
+                  {
+                    "thumb": "https://cdn.bsky.social/imgproxy/pPTdpAsry134a_a4HZuQR_XA1X5H6cnUNqX6o5qH2ko/rs:fit:1000:1000:1:0/plain/bafkreiarkiifnjbcdzg2s4ogxynoqqsrypieqljrkdfh4oxwrhjhr65czq@jpeg",
+                    "fullsize": "https://cdn.bsky.social/imgproxy/CIGq5I9xIMX1Ap6ITN79wntbx-k2CcnSf9a60V4XkyI/rs:fit:2000:2000:1:0/plain/bafkreiarkiifnjbcdzg2s4ogxynoqqsrypieqljrkdfh4oxwrhjhr65czq@jpeg",
+                    "alt": ""
+                  },
+                  {
+                    "thumb": "https://cdn.bsky.social/imgproxy/In3L_MlPxae1j08CtQO2GqkhfbKwqMi5LApWoo_uQL0/rs:fit:1000:1000:1:0/plain/bafkreibxflu6bq427zuavldwcu7ws3hlvl4misxpxrewqdx6vh7yic4cti@jpeg",
+                    "fullsize": "https://cdn.bsky.social/imgproxy/iOU34oE2C4l9fRrXdKNZQR4bM0wpMDA1Gt-atDjvCno/rs:fit:2000:2000:1:0/plain/bafkreibxflu6bq427zuavldwcu7ws3hlvl4misxpxrewqdx6vh7yic4cti@jpeg",
+                    "alt": ""
+                  },
+                  {
+                    "thumb": "https://cdn.bsky.social/imgproxy/De3WesdtXMBeSf4nDAsqIkmrLCOQofqkDTF3o5ZXIjg/rs:fit:1000:1000:1:0/plain/bafkreibpduymag7b3rz4hf2rupunylpo6xgnp2rc2qkoulmhguvzyv6czq@jpeg",
+                    "fullsize": "https://cdn.bsky.social/imgproxy/oqHW-ozsQ1tbRxYjMFzxRtM3NAaJeOzZe9E1_UelXHk/rs:fit:2000:2000:1:0/plain/bafkreibpduymag7b3rz4hf2rupunylpo6xgnp2rc2qkoulmhguvzyv6czq@jpeg",
+                    "alt": ""
+                  },
+                  {
+                    "thumb": "https://cdn.bsky.social/imgproxy/bLvXP1T9BfMFir8ZAt3lNpNEfbXPFD_gUsiXgrfv0qM/rs:fit:1000:1000:1:0/plain/bafkreih4soy6jkkwndz6rdnq5bif6rmacnw755pxk2hs44iqjz7zgtchgy@jpeg",
+                    "fullsize": "https://cdn.bsky.social/imgproxy/SUX9AgdGn9NW1b4FW4XzBCfysNG5t1u5hCjl4ZXJat0/rs:fit:2000:2000:1:0/plain/bafkreih4soy6jkkwndz6rdnq5bif6rmacnw755pxk2hs44iqjz7zgtchgy@jpeg",
+                    "alt": ""
+                  }
+                ]
+              }
+            ],
+            "indexedAt": "2023-04-19T00:29:56.174Z"
+          }
+        },
+        "media": {
+          "$type": "app.bsky.embed.external#view",
+          "external": {
+            "uri": "https://bluesky-heatmap.fly.dev/",
+            "title": "Bluesky Posts Heatmap Generator",
+            "description": "Generates GitHub-style heatmaps from your Bluesky posts.",
+            "thumb": "https://cdn.bsky.social/imgproxy/D9T9zniDNXAARr3W2DT--BSHn7JwNUW0CUOtPyGzBtY/rs:fit:1000:1000:1:0/plain/bafkreig4g4l6fwfl6r5z7yydzzfo2l26k5pajgdq2ue2tdu3xszbd3y6p4@jpeg"
+          }
+        }
+      },
+      "replyCount": 2,
+      "repostCount": 6,
+      "likeCount": 26,
+      "indexedAt": "2023-04-21T16:54:00.688Z",
+      "viewer": {},
+      "labels": []
     },
     "replies": [
       {
         "$type": "app.bsky.feed.defs#threadViewPost",
         "post": {
-          "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jsgma5fzk22x",
-          "cid": "bafyreic7ii3b27bvssz245bxop5w5v72x7ldoo57y7ed36wdoi4nr6xmc4",
+          "uri": "at://did:plc:xbxpdv7nstw5ybmlneupnuaa/app.bsky.feed.post/3jtvjdinqcm2a",
+          "cid": "bafyreihenhtf34fadzx4prhywuz24esbrldwzlvd3e5zmkgjailjrp5d74",
           "author": {
-            "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
-            "handle": "shinyakato.dev",
-            "displayName": "Shinya Kato 🤯",
-            "avatar": "https://cdn.bsky.social/imgproxy/JF97YphLyIEWfq4KJNO_ZCYm9v_zNcRj7sSB8UZrRBw/rs:fill:1000:1000:1:0/plain/bafkreidqn4z6ocv5snxuqguarboozqdusam2tehccnu23yab7g2sgv64dq@jpeg",
-            "viewer": { "muted": false }
+            "did": "did:plc:xbxpdv7nstw5ybmlneupnuaa",
+            "handle": "nvpkp.bsky.social",
+            "displayName": "nvpkp",
+            "avatar": "https://cdn.bsky.social/imgproxy/NJFkagUFs6mhDu4rwSQ0wiNwasXAF7r5Oxd9eNF6jTo/rs:fill:1000:1000:1:0/plain/bafkreigepzue7gdb45edfo6gmwzabjf5baxc37gnsti5hk7pmhre2vanu4@jpeg",
+            "viewer": {
+              "muted": false,
+              "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jrmkwsamcs2i"
+            },
+            "labels": []
           },
           "record": {
-            "text": "test thread",
+            "text": "🔥",
             "$type": "app.bsky.feed.post",
             "reply": {
               "root": {
-                "cid": "bafyreifgygnnkmzom6w5kas7lbmstt2pemdrlskxfas273jp4w6xxhgria",
-                "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jsgkrvc32k2y"
+                "cid": "bafyreihjvnk63tmykb7bdsboxfuu27qel4jings3npew4ntoueki2oxuzu",
+                "uri": "at://did:plc:by3jhwdqgbtrcc7q4tkkv3cf/app.bsky.feed.post/3jtvi2jrijx2y"
               },
               "parent": {
-                "cid": "bafyreifgygnnkmzom6w5kas7lbmstt2pemdrlskxfas273jp4w6xxhgria",
-                "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jsgkrvc32k2y"
+                "cid": "bafyreihjvnk63tmykb7bdsboxfuu27qel4jings3npew4ntoueki2oxuzu",
+                "uri": "at://did:plc:by3jhwdqgbtrcc7q4tkkv3cf/app.bsky.feed.post/3jtvi2jrijx2y"
               }
             },
-            "createdAt": "2023-04-03T01:33:35.455Z"
+            "createdAt": "2023-04-21T17:16:55.017Z"
           },
           "replyCount": 0,
           "repostCount": 0,
-          "likeCount": 0,
-          "indexedAt": "2023-04-03T01:33:36.320Z",
-          "viewer": {}
+          "likeCount": 3,
+          "indexedAt": "2023-04-21T17:16:55.248Z",
+          "viewer": {},
+          "labels": []
         },
         "replies": []
+      },
+      {
+        "$type": "app.bsky.feed.defs#threadViewPost",
+        "post": {
+          "uri": "at://did:plc:o3muczkqodgc563d4rip3rpn/app.bsky.feed.post/3jtviwrkkbn2e",
+          "cid": "bafyreibhhw4evfog5pqfvu366tt2pdyj22cs7j3xyu7otmrcrglz6cp3zu",
+          "author": {
+            "did": "did:plc:o3muczkqodgc563d4rip3rpn",
+            "handle": "bcgraham.outgroup.social",
+            "displayName": "Brian Graham",
+            "avatar": "https://cdn.bsky.social/imgproxy/R54R5HonSLC57MV-VPeOjOWaiLZNfKLnnu2CI38om6I/rs:fill:1000:1000:1:0/plain/bafkreib4gbhzte5w24sp27qkc3xfb7n5epfgqnzhyel3vxhr5iji4omlae@jpeg",
+            "viewer": {
+              "muted": false,
+              "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jsxmuqk7ic2z"
+            },
+            "labels": []
+          },
+          "record": {
+            "text": "can someone who bikes without a helmet get my graph for me",
+            "$type": "app.bsky.feed.post",
+            "reply": {
+              "root": {
+                "cid": "bafyreihjvnk63tmykb7bdsboxfuu27qel4jings3npew4ntoueki2oxuzu",
+                "uri": "at://did:plc:by3jhwdqgbtrcc7q4tkkv3cf/app.bsky.feed.post/3jtvi2jrijx2y"
+              },
+              "parent": {
+                "cid": "bafyreihjvnk63tmykb7bdsboxfuu27qel4jings3npew4ntoueki2oxuzu",
+                "uri": "at://did:plc:by3jhwdqgbtrcc7q4tkkv3cf/app.bsky.feed.post/3jtvi2jrijx2y"
+              }
+            },
+            "createdAt": "2023-04-21T17:09:48.239Z"
+          },
+          "replyCount": 1,
+          "repostCount": 0,
+          "likeCount": 2,
+          "indexedAt": "2023-04-21T17:09:48.373Z",
+          "viewer": {},
+          "labels": []
+        },
+        "replies": [
+          {
+            "$type": "app.bsky.feed.defs#threadViewPost",
+            "post": {
+              "uri": "at://did:plc:kef63ihhci7f5xhriu4asjhb/app.bsky.feed.post/3jtvu6gnhmk2r",
+              "cid": "bafyreigkre3gtmsbutkkubiumg2yrxamveuc4k2xykwt7lyjr5ioctyeym",
+              "author": {
+                "did": "did:plc:kef63ihhci7f5xhriu4asjhb",
+                "handle": "tautologer.com",
+                "displayName": "tautologer",
+                "avatar": "https://cdn.bsky.social/imgproxy/mUQ0ZGXruUg_4zbyJDCyDtvCYIzjlqAjVerssQ5J1sw/rs:fill:1000:1000:1:0/plain/bafkreiau2o7geriwyjx2qhtry3mfw7bv6r7j4jllbtch5sx4vpcktrllby@jpeg",
+                "viewer": {
+                  "muted": false,
+                  "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jsxg63h2hd2o",
+                  "followedBy": "at://did:plc:kef63ihhci7f5xhriu4asjhb/app.bsky.graph.follow/3jsxgfza6gk2r"
+                },
+                "labels": []
+              },
+              "record": {
+                "text": "",
+                "$type": "app.bsky.feed.post",
+                "embed": {
+                  "$type": "app.bsky.embed.images",
+                  "images": [
+                    {
+                      "alt": "",
+                      "image": {
+                        "$type": "blob",
+                        "ref": {
+                          "$link": "bafkreieehb3uulqvxmi42ordrv4ovdm4cq3ceveyei3kqlrunbrke56say"
+                        },
+                        "mimeType": "image/jpeg",
+                        "size": 65237
+                      }
+                    }
+                  ]
+                },
+                "reply": {
+                  "root": {
+                    "cid": "bafyreihjvnk63tmykb7bdsboxfuu27qel4jings3npew4ntoueki2oxuzu",
+                    "uri": "at://did:plc:by3jhwdqgbtrcc7q4tkkv3cf/app.bsky.feed.post/3jtvi2jrijx2y"
+                  },
+                  "parent": {
+                    "cid": "bafyreibhhw4evfog5pqfvu366tt2pdyj22cs7j3xyu7otmrcrglz6cp3zu",
+                    "uri": "at://did:plc:o3muczkqodgc563d4rip3rpn/app.bsky.feed.post/3jtviwrkkbn2e"
+                  }
+                },
+                "createdAt": "2023-04-21T20:30:55.432Z"
+              },
+              "embed": {
+                "$type": "app.bsky.embed.images#view",
+                "images": [
+                  {
+                    "thumb": "https://cdn.bsky.social/imgproxy/0127YWGvFkaXQ_0gSGboF2ybqVlzm1I1grqa1nTQ7VU/rs:fit:1000:1000:1:0/plain/bafkreieehb3uulqvxmi42ordrv4ovdm4cq3ceveyei3kqlrunbrke56say@jpeg",
+                    "fullsize": "https://cdn.bsky.social/imgproxy/yV0Lt9S7Gv9husTOerPTUdUnTuOkZR3rph2Nm5rLOug/rs:fit:2000:2000:1:0/plain/bafkreieehb3uulqvxmi42ordrv4ovdm4cq3ceveyei3kqlrunbrke56say@jpeg",
+                    "alt": ""
+                  }
+                ]
+              },
+              "replyCount": 0,
+              "repostCount": 0,
+              "likeCount": 2,
+              "indexedAt": "2023-04-21T20:30:56.530Z",
+              "viewer": {},
+              "labels": []
+            },
+            "replies": []
+          }
+        ]
       }
     ]
   }
