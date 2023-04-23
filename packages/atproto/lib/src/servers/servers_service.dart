@@ -11,6 +11,7 @@ import '../entities/app_password.dart';
 import '../entities/app_passwords.dart';
 import '../entities/current_session.dart';
 import '../entities/invite_code.dart';
+import '../entities/invite_codes.dart';
 import '../entities/session.dart';
 
 /// Create an authentication session.
@@ -211,6 +212,26 @@ abstract class ServersService {
     String? forAccount,
   });
 
+  /// Get all invite codes for a given account.
+  ///
+  /// ## Parameters
+  ///
+  /// - [includeUsed]: Whether to include used codes.
+  ///
+  /// - [createAvailable]: Whether to generate new code.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.getAccountInviteCodes
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/getAccountInviteCodes.json
+  Future<core.XRPCResponse<InviteCodes>> findInviteCodes({
+    bool? includeUsed,
+    bool? createAvailable,
+  });
+
   /// Initiate a user account password reset via email.
   ///
   /// ## Parameters
@@ -378,6 +399,20 @@ class _ServersService extends ATProtoBaseService implements ServersService {
           'forAccount': forAccount,
         },
         to: InviteCode.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<InviteCodes>> findInviteCodes({
+    bool? includeUsed,
+    bool? createAvailable,
+  }) async =>
+      await super.get(
+        'getAccountInviteCodes',
+        parameters: {
+          'includeUsed': includeUsed,
+          'createAvailable': createAvailable,
+        },
+        to: InviteCodes.fromJson,
       );
 
   @override
