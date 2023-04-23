@@ -12,6 +12,7 @@
 - Supported `com.atproto.server.createAppPassword`. ([#277](https://github.com/myConsciousness/atproto.dart/issues/277))
 - Supported `com.atproto.server.deleteAppPassword`. ([#279](https://github.com/myConsciousness/atproto.dart/issues/279))
 - Supported `com.atproto.server.listAppPasswords`. ([#278](https://github.com/myConsciousness/atproto.dart/issues/278))
+- Supported `com.atproto.server.getAccountInviteCodes`. ([#261](https://github.com/myConsciousness/atproto.dart/issues/261))
 
 ## v0.2.5
 

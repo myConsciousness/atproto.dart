@@ -12,6 +12,8 @@ export 'package:atproto/src/entities/blob_data.dart';
 export 'package:atproto/src/entities/blob_ref.dart';
 export 'package:atproto/src/entities/current_session.dart';
 export 'package:atproto/src/entities/did.dart';
+export 'package:atproto/src/entities/invite_code.dart';
+export 'package:atproto/src/entities/invite_codes.dart';
 export 'package:atproto/src/entities/record.dart';
 export 'package:atproto/src/entities/report.dart';
 export 'package:atproto/src/entities/sealed_app_password.dart';
