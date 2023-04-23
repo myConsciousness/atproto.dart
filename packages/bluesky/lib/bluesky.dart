@@ -3,7 +3,27 @@
 // modification, are permitted provided the conditions.
 
 export 'package:atproto/atproto.dart'
-    show Session, Record, Blob, BlobData, BlobRef;
+    show
+        Session,
+        Record,
+        DID,
+        Blob,
+        BlobData,
+        BlobRef,
+        CurrentSession,
+        Account,
+        InviteCode,
+        InviteCodes,
+        AppPassword,
+        AppPasswords,
+        Report,
+        ModerationReasonType,
+        ReportSubject,
+        ServersService,
+        IdentitiesService,
+        RepositoriesService,
+        ModerationService;
+
 export 'package:atproto_core/atproto_core.dart'
     show
         XRPCResponse,
@@ -83,6 +103,5 @@ export 'package:bluesky/src/feeds/feed_algorithm.dart';
 export 'package:bluesky/src/feeds/feeds_service.dart';
 export 'package:bluesky/src/graphs/graphs_service.dart';
 export 'package:bluesky/src/notifications/notifications_service.dart';
-export 'package:bluesky/src/repositories/repositories_service.dart';
 export 'package:bluesky/src/servers/servers_service.dart' show createSession;
 export 'package:bluesky/src/unspecced/unspecced_service.dart';

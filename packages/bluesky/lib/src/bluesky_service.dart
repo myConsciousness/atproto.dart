@@ -10,7 +10,6 @@ import 'actors/actors_service.dart';
 import 'feeds/feeds_service.dart';
 import 'graphs/graphs_service.dart';
 import 'notifications/notifications_service.dart';
-import 'repositories/repositories_service.dart';
 import 'unspecced/unspecced_service.dart';
 
 abstract class BlueskyService {
@@ -47,8 +46,17 @@ abstract class BlueskyService {
   /// Returns the unspecced service.
   UnspeccedService get unspecced;
 
+  /// Returns the servers service.
+  atp.ServersService get servers;
+
+  /// Returns the identities service.
+  atp.IdentitiesService get identities;
+
   /// Returns the repositories service.
-  RepositoriesService get repositories;
+  atp.RepositoriesService get repositories;
+
+  /// Returns the moderation service.
+  atp.ModerationService get moderation;
 }
 
 class _BlueskyService implements BlueskyService {
@@ -100,14 +108,10 @@ class _BlueskyService implements BlueskyService {
           mockedGetClient: mockedGetClient,
           mockedPostClient: mockedPostClient,
         ),
-        repositories = RepositoriesService(
-          atproto: atproto,
-          protocol: protocol,
-          service: service,
-          context: context,
-          mockedGetClient: mockedGetClient,
-          mockedPostClient: mockedPostClient,
-        );
+        servers = atproto.servers,
+        identities = atproto.identities,
+        repositories = atproto.repositories,
+        moderation = atproto.moderation;
 
   @override
   final ActorsService actors;
@@ -125,5 +129,14 @@ class _BlueskyService implements BlueskyService {
   final UnspeccedService unspecced;
 
   @override
-  final RepositoriesService repositories;
+  final atp.ServersService servers;
+
+  @override
+  final atp.IdentitiesService identities;
+
+  @override
+  final atp.RepositoriesService repositories;
+
+  @override
+  final atp.ModerationService moderation;
 }

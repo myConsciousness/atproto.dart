@@ -29,15 +29,56 @@ abstract class RepositoriesService {
         mockedPostClient: mockedPostClient,
       );
 
+  /// Create a new record.
+  ///
+  /// ## Parameters
+  ///
+  /// - [collection]: The name of space to be stored in NSID format.
+  ///
+  /// - [record]: The record to be stored.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.createRecord
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/createRecord.json
   Future<core.XRPCResponse<Record>> createRecord({
     required core.NSID collection,
     required Map<String, dynamic> record,
   });
 
+  /// Delete a record, or ensure it doesn't exist.
+  ///
+  /// ## Parameters
+  ///
+  /// - [uri]: The contents uri to be deleted in AT URI format.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.deleteRecord
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/deleteRecord.json
   Future<core.XRPCResponse<core.EmptyData>> deleteRecord({
     required core.AtUri uri,
   });
 
+  /// Upload a new blob to be added to repo in a later request.
+  ///
+  /// ## Parameters
+  ///
+  /// - [file]: The file object to be uploaded.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.uploadBlob
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/uploadBlob.json
   Future<core.XRPCResponse<BlobData>> uploadBlob(
     final File file,
   );

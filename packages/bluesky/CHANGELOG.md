@@ -4,6 +4,11 @@
 
 - Added `protocol` option. Defaults to `HTTPS`. ([#269](https://github.com/myConsciousness/atproto.dart/issues/269))
 - Fixed bugs of `media` field in `EmbedRecordWithMedia` and `EmbedViewRecordWithMedia`. ([#282](https://github.com/myConsciousness/atproto.dart/issues/282))
+- Added `atproto` services. You can access the functionality of the `atproto` package from the `bluesky` package without having to use the `atproto` package directly.
+  - `IdentitiesService`
+  - `ServersService`
+  - `RepositoriesService`
+  - `ModerationService`
 
 ## v0.3.7
 
