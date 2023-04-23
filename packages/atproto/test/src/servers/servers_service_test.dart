@@ -4,6 +4,7 @@
 
 import 'package:atproto/src/entities/account.dart';
 import 'package:atproto/src/entities/app_password.dart';
+import 'package:atproto/src/entities/app_passwords.dart';
 import 'package:atproto/src/entities/current_session.dart';
 import 'package:atproto/src/entities/invite_code.dart';
 import 'package:atproto/src/entities/session.dart';
@@ -716,6 +717,68 @@ void main() {
 
       atp_test.expectRateLimitExceededException(
         () async => await servers.deleteAppPassword(name: 'ブルスコ'),
+      );
+    });
+  });
+
+  group('.findAppPasswords', () {
+    test('normal case', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/servers/data/find_app_passwords.json',
+        ),
+      );
+
+      final response = await servers.findAppPasswords();
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<AppPasswords>());
+    });
+
+    test('when unauthorized', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await servers.findAppPasswords(),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await servers.findAppPasswords(),
       );
     });
   });

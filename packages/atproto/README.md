@@ -174,6 +174,7 @@ Future<void> main() async {
 | [POST com.atproto.server.resetPassword](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/resetPassword.json)               | [updatePassword](https://pub.dev/documentation/atproto/latest/atproto/ServersService/updatePassword.html)             |
 | [POST com.atproto.server.createAppPassword](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createAppPassword.json)       | [createAppPassword](https://pub.dev/documentation/atproto/latest/atproto/ServersService/createAppPassword.html)       |
 | [POST com.atproto.server.revokeAppPassword](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/revokeAppPassword.json)       | [deleteAppPassword](https://pub.dev/documentation/atproto/latest/atproto/ServersService/deleteAppPassword.html)       |
+| [GET com.atproto.server.listAppPasswords](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/listAppPasswords.json)          | [findAppPasswords](https://pub.dev/documentation/atproto/latest/atproto/ServersService/findAppPasswords.html)         |
 
 ### 1.3.2. Identity
 
