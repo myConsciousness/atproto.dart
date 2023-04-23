@@ -11,7 +11,6 @@ import 'bluesky_service.dart';
 import 'feeds/feeds_service.dart';
 import 'graphs/graphs_service.dart';
 import 'notifications/notifications_service.dart';
-import 'repositories/repositories_service.dart';
 import 'unspecced/unspecced_service.dart';
 
 abstract class Bluesky {
@@ -73,8 +72,17 @@ abstract class Bluesky {
   /// Returns the unspecced service.
   UnspeccedService get unspecced;
 
+  /// Returns the servers service.
+  atp.ServersService get servers;
+
+  /// Returns the identities service.
+  atp.IdentitiesService get identities;
+
   /// Returns the repositories service.
-  RepositoriesService get repositories;
+  atp.RepositoriesService get repositories;
+
+  /// Returns the moderation service.
+  atp.ModerationService get moderation;
 }
 
 class _Bluesky implements Bluesky {
@@ -126,5 +134,14 @@ class _Bluesky implements Bluesky {
   UnspeccedService get unspecced => _service.unspecced;
 
   @override
-  RepositoriesService get repositories => _service.repositories;
+  atp.ServersService get servers => _service.servers;
+
+  @override
+  atp.IdentitiesService get identities => _service.identities;
+
+  @override
+  atp.RepositoriesService get repositories => _service.repositories;
+
+  @override
+  atp.ModerationService get moderation => _service.moderation;
 }
