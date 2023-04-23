@@ -8,6 +8,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../atproto_base_service.dart';
 import '../entities/account.dart';
 import '../entities/app_password.dart';
+import '../entities/app_passwords.dart';
 import '../entities/current_session.dart';
 import '../entities/invite_code.dart';
 import '../entities/session.dart';
@@ -282,6 +283,17 @@ abstract class ServersService {
   Future<core.XRPCResponse<core.EmptyData>> deleteAppPassword({
     required String name,
   });
+
+  /// List all app-specific passwords.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.listAppPasswords
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/listAppPasswords.json
+  Future<core.XRPCResponse<AppPasswords>> findAppPasswords();
 }
 
 class _ServersService extends ATProtoBaseService implements ServersService {
@@ -413,5 +425,12 @@ class _ServersService extends ATProtoBaseService implements ServersService {
         body: {
           'name': name,
         },
+      );
+
+  @override
+  Future<core.XRPCResponse<AppPasswords>> findAppPasswords() async =>
+      await super.get(
+        'listAppPasswords',
+        to: AppPasswords.fromJson,
       );
 }
