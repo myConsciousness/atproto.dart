@@ -18,26 +18,30 @@ _$_Report _$$_ReportFromJson(Map json) => $checkedCreate(
               (v) => $enumDecode(_$ModerationReasonTypeEnumMap, v)),
           subject: $checkedConvert(
               'subject',
-              (v) => const _ReportSubjectConverter()
+              (v) => const ReportSubjectConverter()
                   .fromJson(v as Map<String, dynamic>)),
-          reportedBy: $checkedConvert('reportedByDid', (v) => v as String),
+          reportedBy: $checkedConvert('reportedBy', (v) => v as String),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
         );
         return val;
       },
-      fieldKeyMap: const {'reportedBy': 'reportedByDid'},
     );
 
 Map<String, dynamic> _$$_ReportToJson(_$_Report instance) => <String, dynamic>{
       'id': instance.id,
       'reasonType': _$ModerationReasonTypeEnumMap[instance.reasonType]!,
-      'subject': const _ReportSubjectConverter().toJson(instance.subject),
-      'reportedByDid': instance.reportedBy,
+      'subject': const ReportSubjectConverter().toJson(instance.subject),
+      'reportedBy': instance.reportedBy,
       'createdAt': instance.createdAt.toIso8601String(),
     };
 
 const _$ModerationReasonTypeEnumMap = {
-  ModerationReasonType.spam: 'com.atproto.report.reasonType#spam',
-  ModerationReasonType.other: 'com.atproto.report.reasonType#other',
+  ModerationReasonType.spam: 'com.atproto.moderation.defs#reasonSpam',
+  ModerationReasonType.violation: 'com.atproto.moderation.defs#reasonViolation',
+  ModerationReasonType.misleading:
+      'com.atproto.moderation.defs#reasonMisleading',
+  ModerationReasonType.sexual: 'com.atproto.moderation.defs#reasonSexual',
+  ModerationReasonType.rude: 'com.atproto.moderation.defs#reasonRude',
+  ModerationReasonType.other: 'com.atproto.moderation.defs#reasonOther',
 };

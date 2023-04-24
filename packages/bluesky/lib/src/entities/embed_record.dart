@@ -5,9 +5,8 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto/atproto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import 'strong_ref.dart';
 
 part 'embed_record.freezed.dart';
 part 'embed_record.g.dart';

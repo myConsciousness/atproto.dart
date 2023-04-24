@@ -12,6 +12,7 @@ part 'strong_ref.g.dart';
 @freezed
 class StrongRef with _$StrongRef {
   const factory StrongRef({
+    @Default('com.atproto.repo.strongRef') @JsonKey(name: '\$type') String type,
     required String cid,
     @AtUriConverter() required AtUri uri,
   }) = _StrongRef;

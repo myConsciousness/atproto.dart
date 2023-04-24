@@ -3,6 +3,8 @@
 // modification, are permitted provided the conditions.
 
 import 'package:atproto/atproto.dart';
+import 'package:atproto/src/entities/repo_ref.dart';
+import 'package:atproto/src/entities/strong_ref.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
@@ -24,13 +26,15 @@ void main() {
       );
 
       final response = await moderation.createReport(
-        subject: ReportSubject.fromRepoRef(did: 'did'),
+        subject: ReportSubject.repoRef(
+          data: RepoRef(
+            did: 'xxxxxx',
+          ),
+        ),
       );
 
       expect(response, isA<core.XRPCResponse>());
       expect(response.data, isA<Report>());
-      expect(response.data.subject.isRepoRef, isTrue);
-      expect(response.data.subject.isStrongRef, isFalse);
     });
 
     test('with strong ref', () async {
@@ -48,18 +52,18 @@ void main() {
       );
 
       final response = await moderation.createReport(
-        subject: ReportSubject.fromStrongRef(
-          uri: AtUri.parse(
-            'at://did:plc:ohwup7m7r565tbdhulp77tkp/app.bsky.feed.post/3jqspl3hnee2a',
+        subject: ReportSubject.strongRef(
+          data: StrongRef(
+            uri: AtUri.parse(
+              'at://did:plc:ohwup7m7r565tbdhulp77tkp/app.bsky.feed.post/3jqspl3hnee2a',
+            ),
+            cid: 'bafyreifcgt6catvflibh2drq5aelaz5lgazu34aklhbo5zmol374jfkajm',
           ),
-          cid: 'bafyreifcgt6catvflibh2drq5aelaz5lgazu34aklhbo5zmol374jfkajm',
         ),
       );
 
       expect(response, isA<core.XRPCResponse>());
       expect(response.data, isA<Report>());
-      expect(response.data.subject.isRepoRef, isFalse);
-      expect(response.data.subject.isStrongRef, isTrue);
     });
 
     test('when unauthorized', () async {
@@ -79,7 +83,9 @@ void main() {
 
       atp_test.expectUnauthorizedException(
         () async => await moderation.createReport(
-          subject: ReportSubject.fromRepoRef(did: 'did'),
+          subject: ReportSubject.repoRef(
+            data: RepoRef(did: 'did'),
+          ),
         ),
       );
     });
@@ -101,7 +107,9 @@ void main() {
 
       atp_test.expectRateLimitExceededException(
         () async => await moderation.createReport(
-          subject: ReportSubject.fromRepoRef(did: 'did'),
+          subject: ReportSubject.repoRef(
+            data: RepoRef(did: 'did'),
+          ),
         ),
       );
     });

@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.7
+
+- Added moderation reasons, and fixed `report_subject` to union. ([#288](https://github.com/myConsciousness/atproto.dart/issues/288))
+
 ## v0.2.6
 
 - Supported `com.atproto.server.createAccount`. ([#256](https://github.com/myConsciousness/atproto.dart/issues/256))

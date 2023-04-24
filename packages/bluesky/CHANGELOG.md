@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.9
+
+- Upgraded `atproto`. ([#288](https://github.com/myConsciousness/atproto.dart/issues/288))
+
 ## v0.3.8
 
 - Added `protocol` option. Defaults to `HTTPS`. ([#269](https://github.com/myConsciousness/atproto.dart/issues/269))
