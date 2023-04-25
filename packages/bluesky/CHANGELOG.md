@@ -1,7 +1,9 @@
 # Release Note
 
-## v0.3.9
+## v0.4.0
 
+- Refactored object names.
+- Supported `app.bsky.feed.getPosts`. ([#292](https://github.com/myConsciousness/atproto.dart/issues/292))
 - Upgraded `atproto`. ([#288](https://github.com/myConsciousness/atproto.dart/issues/288))
 
 ## v0.3.8

@@ -33,7 +33,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<FeedData>());
+      expect(response.data, isA<Feed>());
     });
 
     test('when unauthorized', () async {
@@ -355,7 +355,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<FeedData>());
+      expect(response.data, isA<Feed>());
     });
 
     test('when unauthorized', () async {
@@ -430,7 +430,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<LikesData>());
+      expect(response.data, isA<Likes>());
     });
 
     test('when unauthorized', () async {
@@ -507,7 +507,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<RepostedByData>());
+      expect(response.data, isA<RepostedBy>());
     });
 
     test('when unauthorized', () async {
@@ -582,7 +582,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<PostThreadData>());
+      expect(response.data, isA<PostThread>());
     });
 
     test('when unauthorized', () async {
@@ -627,6 +627,74 @@ void main() {
         () async => await feeds.findPostThread(
           uri: AtUri.parse('at://foo.com/com.example.foo/123'),
           depth: 5,
+        ),
+      );
+    });
+  });
+
+  group('.findPosts', () {
+    test('normal case', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/find_posts.json',
+        ),
+      );
+
+      final response = await feeds.findPosts(
+        uris: [AtUri.parse('at://foo.com/com.example.foo/123')],
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Posts>());
+    });
+
+    test('when unauthorized', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await feeds.findPosts(
+          uris: [AtUri.parse('at://foo.com/com.example.foo/123')],
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await feeds.findPosts(
+          uris: [AtUri.parse('at://foo.com/com.example.foo/123')],
         ),
       );
     });

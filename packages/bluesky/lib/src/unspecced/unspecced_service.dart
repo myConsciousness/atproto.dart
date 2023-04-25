@@ -7,7 +7,7 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../bluesky_base_service.dart';
-import '../entities/feed_data.dart';
+import '../entities/feed.dart';
 
 abstract class UnspeccedService {
   /// Returns the new instance of [UnspeccedService].
@@ -44,7 +44,7 @@ abstract class UnspeccedService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopular.json
-  Future<core.XRPCResponse<FeedData>> findPopularFeed({
+  Future<core.XRPCResponse<Feed>> findPopularFeed({
     int? limit,
     String? cursor,
   });
@@ -62,7 +62,7 @@ class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
   }) : super(methodAuthority: 'unspecced.bsky.app');
 
   @override
-  Future<atp.XRPCResponse<FeedData>> findPopularFeed({
+  Future<atp.XRPCResponse<Feed>> findPopularFeed({
     int? limit,
     String? cursor,
   }) async =>
@@ -72,6 +72,6 @@ class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
           'limit': limit,
           'cursor': cursor,
         },
-        to: FeedData.fromJson,
+        to: Feed.fromJson,
       );
 }

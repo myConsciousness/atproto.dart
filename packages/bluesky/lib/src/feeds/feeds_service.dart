@@ -9,11 +9,12 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../bluesky_base_service.dart';
 import '../entities/embed.dart';
 import '../entities/facet.dart';
-import '../entities/feed_data.dart';
-import '../entities/likes_data.dart';
-import '../entities/post_thread_data.dart';
+import '../entities/feed.dart';
+import '../entities/likes.dart';
+import '../entities/post_thread.dart';
+import '../entities/posts.dart';
 import '../entities/reply_ref.dart';
-import '../entities/reposted_by_data.dart';
+import '../entities/reposted_by.dart';
 import 'feed_algorithm.dart';
 
 abstract class FeedsService {
@@ -100,7 +101,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json
-  Future<core.XRPCResponse<FeedData>> findTimeline({
+  Future<core.XRPCResponse<Feed>> findTimeline({
     FeedAlgorithm? algorithm,
     int? limit,
     String? cursor,
@@ -149,7 +150,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getAuthorFeed.json
-  Future<core.XRPCResponse<FeedData>> findFeed({
+  Future<core.XRPCResponse<Feed>> findFeed({
     required String actor,
     int? limit,
     String? cursor,
@@ -175,7 +176,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getLikes.json
-  Future<core.XRPCResponse<LikesData>> findLikes({
+  Future<core.XRPCResponse<Likes>> findLikes({
     required core.AtUri uri,
     String? cid,
     int? limit,
@@ -202,7 +203,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getRepostedBy.json
-  Future<core.XRPCResponse<RepostedByData>> findRepostedBy({
+  Future<core.XRPCResponse<RepostedBy>> findRepostedBy({
     required core.AtUri uri,
     String? cid,
     int? limit,
@@ -224,9 +225,26 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getPostThread.json
-  Future<core.XRPCResponse<PostThreadData>> findPostThread({
+  Future<core.XRPCResponse<PostThread>> findPostThread({
     required core.AtUri uri,
     int? depth,
+  });
+
+  /// A view of an actor's feed.
+  ///
+  /// ## Parameters
+  ///
+  /// - [uris]: The AT URIs to be retrieved.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getPosts
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getPosts.json
+  Future<core.XRPCResponse<Posts>> findPosts({
+    required List<core.AtUri> uris,
   });
 }
 
@@ -261,7 +279,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<FeedData>> findTimeline({
+  Future<core.XRPCResponse<Feed>> findTimeline({
     FeedAlgorithm? algorithm,
     int? limit,
     String? cursor,
@@ -273,7 +291,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'limit': limit,
           'cursor': cursor,
         },
-        to: FeedData.fromJson,
+        to: Feed.fromJson,
       );
 
   @override
@@ -311,7 +329,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<FeedData>> findFeed({
+  Future<core.XRPCResponse<Feed>> findFeed({
     required String actor,
     int? limit,
     String? cursor,
@@ -323,11 +341,11 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'limit': limit,
           'cursor': cursor,
         },
-        to: FeedData.fromJson,
+        to: Feed.fromJson,
       );
 
   @override
-  Future<core.XRPCResponse<LikesData>> findLikes({
+  Future<core.XRPCResponse<Likes>> findLikes({
     required core.AtUri uri,
     String? cid,
     int? limit,
@@ -341,11 +359,11 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'limit': limit,
           'cursor': cursor,
         },
-        to: LikesData.fromJson,
+        to: Likes.fromJson,
       );
 
   @override
-  Future<core.XRPCResponse<RepostedByData>> findRepostedBy({
+  Future<core.XRPCResponse<RepostedBy>> findRepostedBy({
     required core.AtUri uri,
     String? cid,
     int? limit,
@@ -359,11 +377,11 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'limit': limit,
           'cursor': cursor,
         },
-        to: RepostedByData.fromJson,
+        to: RepostedBy.fromJson,
       );
 
   @override
-  Future<core.XRPCResponse<PostThreadData>> findPostThread({
+  Future<core.XRPCResponse<PostThread>> findPostThread({
     required core.AtUri uri,
     int? depth,
   }) async =>
@@ -373,6 +391,18 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'uri': uri,
           'depth': depth,
         },
-        to: PostThreadData.fromJson,
+        to: PostThread.fromJson,
+      );
+
+  @override
+  Future<atp.XRPCResponse<Posts>> findPosts({
+    required List<atp.AtUri> uris,
+  }) async =>
+      await super.get(
+        'getPosts',
+        parameters: {
+          'uris': uris.map((e) => e.toString()).toList(),
+        },
+        to: Posts.fromJson,
       );
 }

@@ -7,9 +7,9 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../bluesky_base_service.dart';
-import '../entities/followers_data.dart';
-import '../entities/follows_data.dart';
-import '../entities/mutes_data.dart';
+import '../entities/followers.dart';
+import '../entities/follows.dart';
+import '../entities/mutes.dart';
 
 abstract class GraphsService {
   /// Returns the new instance of [GraphsService].
@@ -71,7 +71,7 @@ abstract class GraphsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollows.json
-  Future<core.XRPCResponse<FollowsData>> findFollows({
+  Future<core.XRPCResponse<Follows>> findFollows({
     required String actor,
     int? limit,
     String? cursor,
@@ -96,7 +96,7 @@ abstract class GraphsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollowers.json
-  Future<core.XRPCResponse<FollowersData>> findFollowers({
+  Future<core.XRPCResponse<Followers>> findFollowers({
     required String actor,
     int? limit,
     String? cursor,
@@ -152,7 +152,7 @@ abstract class GraphsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getMutes.json
-  Future<core.XRPCResponse<MutesData>> findMutes({
+  Future<core.XRPCResponse<Mutes>> findMutes({
     int? limit,
     String? cursor,
   });
@@ -183,7 +183,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       );
 
   @override
-  Future<core.XRPCResponse<FollowsData>> findFollows({
+  Future<core.XRPCResponse<Follows>> findFollows({
     required String actor,
     int? limit,
     String? cursor,
@@ -195,11 +195,11 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
           'limit': limit,
           'cursor': cursor,
         },
-        to: FollowsData.fromJson,
+        to: Follows.fromJson,
       );
 
   @override
-  Future<core.XRPCResponse<FollowersData>> findFollowers({
+  Future<core.XRPCResponse<Followers>> findFollowers({
     required String actor,
     int? limit,
     String? cursor,
@@ -211,7 +211,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
           'limit': limit,
           'cursor': cursor,
         },
-        to: FollowersData.fromJson,
+        to: Followers.fromJson,
       );
 
   @override
@@ -237,7 +237,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       );
 
   @override
-  Future<core.XRPCResponse<MutesData>> findMutes({
+  Future<core.XRPCResponse<Mutes>> findMutes({
     int? limit,
     String? cursor,
   }) async =>
@@ -247,6 +247,6 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
           'limit': limit,
           'cursor': cursor,
         },
-        to: MutesData.fromJson,
+        to: Mutes.fromJson,
       );
 }

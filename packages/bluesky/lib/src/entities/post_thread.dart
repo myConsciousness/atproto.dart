@@ -5,7 +5,8 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'post.dart';
+// 🌎 Project imports:
+import 'post_thread_view.dart';
 
 part 'post_thread.freezed.dart';
 part 'post_thread.g.dart';
@@ -13,8 +14,7 @@ part 'post_thread.g.dart';
 @freezed
 class PostThread with _$PostThread {
   const factory PostThread({
-    required Post post,
-    required List<PostThread> replies,
+    required PostThreadView thread,
   }) = _PostThread;
 
   factory PostThread.fromJson(Map<String, Object?> json) =>

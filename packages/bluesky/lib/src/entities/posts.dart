@@ -7,18 +7,16 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import 'feed_view.dart';
+import 'post.dart';
 
-part 'feed.freezed.dart';
-part 'feed.g.dart';
+part 'posts.freezed.dart';
+part 'posts.g.dart';
 
 @freezed
-class Feed with _$Feed {
-  const factory Feed({
-    required List<FeedView> feed,
-    required String cursor,
-  }) = _Feed;
+class Posts with _$Posts {
+  const factory Posts({
+    required List<Post> posts,
+  }) = _Posts;
 
-  factory Feed.fromJson(Map<String, Object?> json) => _$FeedFromJson(json);
+  factory Posts.fromJson(Map<String, Object?> json) => _$PostsFromJson(json);
 }
