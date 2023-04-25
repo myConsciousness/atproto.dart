@@ -5,20 +5,21 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import 'feed_view.dart';
+import 'like.dart';
 
-part 'feed.freezed.dart';
-part 'feed.g.dart';
+part 'likes.freezed.dart';
+part 'likes.g.dart';
 
 @freezed
-class Feed with _$Feed {
-  const factory Feed({
-    required List<FeedView> feed,
+class Likes with _$Likes {
+  const factory Likes({
+    required List<Like> likes,
+    @AtUriConverter() required AtUri uri,
     required String cursor,
-  }) = _Feed;
+  }) = _Likes;
 
-  factory Feed.fromJson(Map<String, Object?> json) => _$FeedFromJson(json);
+  factory Likes.fromJson(Map<String, Object?> json) => _$LikesFromJson(json);
 }

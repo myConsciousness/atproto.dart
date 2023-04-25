@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'feed.dart';
+part of 'mutes.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,32 +14,32 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Feed _$FeedFromJson(Map<String, dynamic> json) {
-  return _Feed.fromJson(json);
+Mutes _$MutesFromJson(Map<String, dynamic> json) {
+  return _Mutes.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Feed {
-  List<FeedView> get feed => throw _privateConstructorUsedError;
+mixin _$Mutes {
+  List<Actor> get mutes => throw _privateConstructorUsedError;
   String get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FeedCopyWith<Feed> get copyWith => throw _privateConstructorUsedError;
+  $MutesCopyWith<Mutes> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FeedCopyWith<$Res> {
-  factory $FeedCopyWith(Feed value, $Res Function(Feed) then) =
-      _$FeedCopyWithImpl<$Res, Feed>;
+abstract class $MutesCopyWith<$Res> {
+  factory $MutesCopyWith(Mutes value, $Res Function(Mutes) then) =
+      _$MutesCopyWithImpl<$Res, Mutes>;
   @useResult
-  $Res call({List<FeedView> feed, String cursor});
+  $Res call({List<Actor> mutes, String cursor});
 }
 
 /// @nodoc
-class _$FeedCopyWithImpl<$Res, $Val extends Feed>
-    implements $FeedCopyWith<$Res> {
-  _$FeedCopyWithImpl(this._value, this._then);
+class _$MutesCopyWithImpl<$Res, $Val extends Mutes>
+    implements $MutesCopyWith<$Res> {
+  _$MutesCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -49,14 +49,14 @@ class _$FeedCopyWithImpl<$Res, $Val extends Feed>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? feed = null,
+    Object? mutes = null,
     Object? cursor = null,
   }) {
     return _then(_value.copyWith(
-      feed: null == feed
-          ? _value.feed
-          : feed // ignore: cast_nullable_to_non_nullable
-              as List<FeedView>,
+      mutes: null == mutes
+          ? _value.mutes
+          : mutes // ignore: cast_nullable_to_non_nullable
+              as List<Actor>,
       cursor: null == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -66,31 +66,31 @@ class _$FeedCopyWithImpl<$Res, $Val extends Feed>
 }
 
 /// @nodoc
-abstract class _$$_FeedCopyWith<$Res> implements $FeedCopyWith<$Res> {
-  factory _$$_FeedCopyWith(_$_Feed value, $Res Function(_$_Feed) then) =
-      __$$_FeedCopyWithImpl<$Res>;
+abstract class _$$_MutesCopyWith<$Res> implements $MutesCopyWith<$Res> {
+  factory _$$_MutesCopyWith(_$_Mutes value, $Res Function(_$_Mutes) then) =
+      __$$_MutesCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<FeedView> feed, String cursor});
+  $Res call({List<Actor> mutes, String cursor});
 }
 
 /// @nodoc
-class __$$_FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res, _$_Feed>
-    implements _$$_FeedCopyWith<$Res> {
-  __$$_FeedCopyWithImpl(_$_Feed _value, $Res Function(_$_Feed) _then)
+class __$$_MutesCopyWithImpl<$Res> extends _$MutesCopyWithImpl<$Res, _$_Mutes>
+    implements _$$_MutesCopyWith<$Res> {
+  __$$_MutesCopyWithImpl(_$_Mutes _value, $Res Function(_$_Mutes) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? feed = null,
+    Object? mutes = null,
     Object? cursor = null,
   }) {
-    return _then(_$_Feed(
-      feed: null == feed
-          ? _value._feed
-          : feed // ignore: cast_nullable_to_non_nullable
-              as List<FeedView>,
+    return _then(_$_Mutes(
+      mutes: null == mutes
+          ? _value._mutes
+          : mutes // ignore: cast_nullable_to_non_nullable
+              as List<Actor>,
       cursor: null == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -101,18 +101,19 @@ class __$$_FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res, _$_Feed>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Feed implements _Feed {
-  const _$_Feed({required final List<FeedView> feed, required this.cursor})
-      : _feed = feed;
+class _$_Mutes implements _Mutes {
+  const _$_Mutes({required final List<Actor> mutes, required this.cursor})
+      : _mutes = mutes;
 
-  factory _$_Feed.fromJson(Map<String, dynamic> json) => _$$_FeedFromJson(json);
+  factory _$_Mutes.fromJson(Map<String, dynamic> json) =>
+      _$$_MutesFromJson(json);
 
-  final List<FeedView> _feed;
+  final List<Actor> _mutes;
   @override
-  List<FeedView> get feed {
-    if (_feed is EqualUnmodifiableListView) return _feed;
+  List<Actor> get mutes {
+    if (_mutes is EqualUnmodifiableListView) return _mutes;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_feed);
+    return EqualUnmodifiableListView(_mutes);
   }
 
   @override
@@ -120,49 +121,50 @@ class _$_Feed implements _Feed {
 
   @override
   String toString() {
-    return 'Feed(feed: $feed, cursor: $cursor)';
+    return 'Mutes(mutes: $mutes, cursor: $cursor)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Feed &&
-            const DeepCollectionEquality().equals(other._feed, _feed) &&
+            other is _$_Mutes &&
+            const DeepCollectionEquality().equals(other._mutes, _mutes) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_feed), cursor);
+      runtimeType, const DeepCollectionEquality().hash(_mutes), cursor);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FeedCopyWith<_$_Feed> get copyWith =>
-      __$$_FeedCopyWithImpl<_$_Feed>(this, _$identity);
+  _$$_MutesCopyWith<_$_Mutes> get copyWith =>
+      __$$_MutesCopyWithImpl<_$_Mutes>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FeedToJson(
+    return _$$_MutesToJson(
       this,
     );
   }
 }
 
-abstract class _Feed implements Feed {
-  const factory _Feed(
-      {required final List<FeedView> feed,
-      required final String cursor}) = _$_Feed;
+abstract class _Mutes implements Mutes {
+  const factory _Mutes(
+      {required final List<Actor> mutes,
+      required final String cursor}) = _$_Mutes;
 
-  factory _Feed.fromJson(Map<String, dynamic> json) = _$_Feed.fromJson;
+  factory _Mutes.fromJson(Map<String, dynamic> json) = _$_Mutes.fromJson;
 
   @override
-  List<FeedView> get feed;
+  List<Actor> get mutes;
   @override
   String get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$_FeedCopyWith<_$_Feed> get copyWith => throw _privateConstructorUsedError;
+  _$$_MutesCopyWith<_$_Mutes> get copyWith =>
+      throw _privateConstructorUsedError;
 }

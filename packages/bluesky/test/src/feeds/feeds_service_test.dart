@@ -7,6 +7,7 @@ import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/src/entities/post_thread_view.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
@@ -33,7 +34,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<FeedData>());
+      expect(response.data, isA<Feed>());
     });
 
     test('when unauthorized', () async {
@@ -355,7 +356,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<FeedData>());
+      expect(response.data, isA<Feed>());
     });
 
     test('when unauthorized', () async {
@@ -430,7 +431,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<LikesData>());
+      expect(response.data, isA<Likes>());
     });
 
     test('when unauthorized', () async {
@@ -507,7 +508,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<RepostedByData>());
+      expect(response.data, isA<RepostedBy>());
     });
 
     test('when unauthorized', () async {
@@ -582,7 +583,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<PostThreadData>());
+      expect(response.data, isA<PostThread>());
     });
 
     test('when unauthorized', () async {

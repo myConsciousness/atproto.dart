@@ -8,9 +8,9 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:bluesky/src/actors/actors_service.dart';
 import 'package:bluesky/src/entities/actor_profile.dart';
-import 'package:bluesky/src/entities/actor_profiles_data.dart';
-import 'package:bluesky/src/entities/actors_data.dart';
-import 'package:bluesky/src/entities/actors_typeahead_data.dart';
+import 'package:bluesky/src/entities/actor_profiles.dart';
+import 'package:bluesky/src/entities/actors.dart';
+import 'package:bluesky/src/entities/actors_typeahead.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
@@ -37,7 +37,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<ActorsData>());
+      expect(response.data, isA<Actors>());
     });
 
     test('when unauthorized', () async {
@@ -180,7 +180,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<ActorProfilesData>());
+      expect(response.data, isA<ActorProfiles>());
     });
 
     test('when unauthorized', () async {
@@ -252,7 +252,7 @@ void main() {
       final response = await actors.findSuggestions(limit: 10, cursor: '1234');
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<ActorsData>());
+      expect(response.data, isA<Actors>());
     });
 
     test('when unauthorized', () async {
@@ -317,7 +317,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<ActorsTypeaheadData>());
+      expect(response.data, isA<ActorsTypeahead>());
     });
 
     test('when unauthorized', () async {

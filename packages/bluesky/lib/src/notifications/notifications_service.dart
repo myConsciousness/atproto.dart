@@ -7,8 +7,8 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../bluesky_base_service.dart';
-import '../entities/count_data.dart';
-import '../entities/notifications_data.dart';
+import '../entities/count.dart';
+import '../entities/notifications.dart';
 
 abstract class NotificationsService {
   /// Returns the new instance of [NotificationsService].
@@ -45,7 +45,7 @@ abstract class NotificationsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/listNotifications.json
-  Future<core.XRPCResponse<NotificationsData>> findNotifications({
+  Future<core.XRPCResponse<Notifications>> findNotifications({
     int? limit,
     String? cursor,
   });
@@ -59,7 +59,7 @@ abstract class NotificationsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/getUnreadCount.json
-  Future<core.XRPCResponse<CountData>> findUnreadCount();
+  Future<core.XRPCResponse<Count>> findUnreadCount();
 
   /// Notify server that the user has seen notifications.
   ///
@@ -93,7 +93,7 @@ class _NotificationsService extends BlueskyBaseService
   }) : super(methodAuthority: 'notification.bsky.app');
 
   @override
-  Future<core.XRPCResponse<NotificationsData>> findNotifications({
+  Future<core.XRPCResponse<Notifications>> findNotifications({
     int? limit,
     String? cursor,
   }) async =>
@@ -103,14 +103,13 @@ class _NotificationsService extends BlueskyBaseService
           'limit': limit,
           'cursor': cursor,
         },
-        to: NotificationsData.fromJson,
+        to: Notifications.fromJson,
       );
 
   @override
-  Future<core.XRPCResponse<CountData>> findUnreadCount() async =>
-      await super.get(
+  Future<core.XRPCResponse<Count>> findUnreadCount() async => await super.get(
         'getUnreadCount',
-        to: CountData.fromJson,
+        to: Count.fromJson,
       );
 
   @override

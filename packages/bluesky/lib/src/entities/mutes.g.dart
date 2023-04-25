@@ -2,22 +2,22 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'feed.dart';
+part of 'mutes.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Feed _$$_FeedFromJson(Map json) => $checkedCreate(
-      r'_$_Feed',
+_$_Mutes _$$_MutesFromJson(Map json) => $checkedCreate(
+      r'_$_Mutes',
       json,
       ($checkedConvert) {
-        final val = _$_Feed(
-          feed: $checkedConvert(
-              'feed',
+        final val = _$_Mutes(
+          mutes: $checkedConvert(
+              'mutes',
               (v) => (v as List<dynamic>)
                   .map((e) =>
-                      FeedView.fromJson(Map<String, Object?>.from(e as Map)))
+                      Actor.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           cursor: $checkedConvert('cursor', (v) => v as String),
         );
@@ -25,7 +25,7 @@ _$_Feed _$$_FeedFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_FeedToJson(_$_Feed instance) => <String, dynamic>{
-      'feed': instance.feed.map((e) => e.toJson()).toList(),
+Map<String, dynamic> _$$_MutesToJson(_$_Mutes instance) => <String, dynamic>{
+      'mutes': instance.mutes.map((e) => e.toJson()).toList(),
       'cursor': instance.cursor,
     };

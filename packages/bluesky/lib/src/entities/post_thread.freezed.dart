@@ -20,8 +20,7 @@ PostThread _$PostThreadFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostThread {
-  Post get post => throw _privateConstructorUsedError;
-  List<PostThread> get replies => throw _privateConstructorUsedError;
+  PostThreadView get thread => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,9 +34,9 @@ abstract class $PostThreadCopyWith<$Res> {
           PostThread value, $Res Function(PostThread) then) =
       _$PostThreadCopyWithImpl<$Res, PostThread>;
   @useResult
-  $Res call({Post post, List<PostThread> replies});
+  $Res call({PostThreadView thread});
 
-  $PostCopyWith<$Res> get post;
+  $PostThreadViewCopyWith<$Res> get thread;
 }
 
 /// @nodoc
@@ -53,26 +52,21 @@ class _$PostThreadCopyWithImpl<$Res, $Val extends PostThread>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? post = null,
-    Object? replies = null,
+    Object? thread = null,
   }) {
     return _then(_value.copyWith(
-      post: null == post
-          ? _value.post
-          : post // ignore: cast_nullable_to_non_nullable
-              as Post,
-      replies: null == replies
-          ? _value.replies
-          : replies // ignore: cast_nullable_to_non_nullable
-              as List<PostThread>,
+      thread: null == thread
+          ? _value.thread
+          : thread // ignore: cast_nullable_to_non_nullable
+              as PostThreadView,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $PostCopyWith<$Res> get post {
-    return $PostCopyWith<$Res>(_value.post, (value) {
-      return _then(_value.copyWith(post: value) as $Val);
+  $PostThreadViewCopyWith<$Res> get thread {
+    return $PostThreadViewCopyWith<$Res>(_value.thread, (value) {
+      return _then(_value.copyWith(thread: value) as $Val);
     });
   }
 }
@@ -85,10 +79,10 @@ abstract class _$$_PostThreadCopyWith<$Res>
       __$$_PostThreadCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Post post, List<PostThread> replies});
+  $Res call({PostThreadView thread});
 
   @override
-  $PostCopyWith<$Res> get post;
+  $PostThreadViewCopyWith<$Res> get thread;
 }
 
 /// @nodoc
@@ -102,18 +96,13 @@ class __$$_PostThreadCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? post = null,
-    Object? replies = null,
+    Object? thread = null,
   }) {
     return _then(_$_PostThread(
-      post: null == post
-          ? _value.post
-          : post // ignore: cast_nullable_to_non_nullable
-              as Post,
-      replies: null == replies
-          ? _value._replies
-          : replies // ignore: cast_nullable_to_non_nullable
-              as List<PostThread>,
+      thread: null == thread
+          ? _value.thread
+          : thread // ignore: cast_nullable_to_non_nullable
+              as PostThreadView,
     ));
   }
 }
@@ -121,26 +110,17 @@ class __$$_PostThreadCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PostThread implements _PostThread {
-  const _$_PostThread(
-      {required this.post, required final List<PostThread> replies})
-      : _replies = replies;
+  const _$_PostThread({required this.thread});
 
   factory _$_PostThread.fromJson(Map<String, dynamic> json) =>
       _$$_PostThreadFromJson(json);
 
   @override
-  final Post post;
-  final List<PostThread> _replies;
-  @override
-  List<PostThread> get replies {
-    if (_replies is EqualUnmodifiableListView) return _replies;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_replies);
-  }
+  final PostThreadView thread;
 
   @override
   String toString() {
-    return 'PostThread(post: $post, replies: $replies)';
+    return 'PostThread(thread: $thread)';
   }
 
   @override
@@ -148,14 +128,12 @@ class _$_PostThread implements _PostThread {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PostThread &&
-            (identical(other.post, post) || other.post == post) &&
-            const DeepCollectionEquality().equals(other._replies, _replies));
+            (identical(other.thread, thread) || other.thread == thread));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, post, const DeepCollectionEquality().hash(_replies));
+  int get hashCode => Object.hash(runtimeType, thread);
 
   @JsonKey(ignore: true)
   @override
@@ -172,17 +150,14 @@ class _$_PostThread implements _PostThread {
 }
 
 abstract class _PostThread implements PostThread {
-  const factory _PostThread(
-      {required final Post post,
-      required final List<PostThread> replies}) = _$_PostThread;
+  const factory _PostThread({required final PostThreadView thread}) =
+      _$_PostThread;
 
   factory _PostThread.fromJson(Map<String, dynamic> json) =
       _$_PostThread.fromJson;
 
   @override
-  Post get post;
-  @override
-  List<PostThread> get replies;
+  PostThreadView get thread;
   @override
   @JsonKey(ignore: true)
   _$$_PostThreadCopyWith<_$_PostThread> get copyWith =>
