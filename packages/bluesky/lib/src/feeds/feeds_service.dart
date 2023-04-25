@@ -12,6 +12,7 @@ import '../entities/facet.dart';
 import '../entities/feed.dart';
 import '../entities/likes.dart';
 import '../entities/post_thread.dart';
+import '../entities/posts.dart';
 import '../entities/reply_ref.dart';
 import '../entities/reposted_by.dart';
 import 'feed_algorithm.dart';
@@ -228,6 +229,23 @@ abstract class FeedsService {
     required core.AtUri uri,
     int? depth,
   });
+
+  /// A view of an actor's feed.
+  ///
+  /// ## Parameters
+  ///
+  /// - [uris]: The AT URIs to be retrieved.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getPosts
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getPosts.json
+  Future<core.XRPCResponse<Posts>> findPosts({
+    required List<core.AtUri> uris,
+  });
 }
 
 class _FeedsService extends BlueskyBaseService implements FeedsService {
@@ -374,5 +392,17 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'depth': depth,
         },
         to: PostThread.fromJson,
+      );
+
+  @override
+  Future<atp.XRPCResponse<Posts>> findPosts({
+    required List<atp.AtUri> uris,
+  }) async =>
+      await super.get(
+        'getPosts',
+        parameters: {
+          'uris': uris.map((e) => e.toString()).toList(),
+        },
+        to: Posts.fromJson,
       );
 }

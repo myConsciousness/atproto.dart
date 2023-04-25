@@ -23,7 +23,6 @@ export 'package:atproto/atproto.dart'
         IdentitiesService,
         RepositoriesService,
         ModerationService;
-
 export 'package:atproto_core/atproto_core.dart'
     show
         XRPCResponse,
@@ -78,8 +77,8 @@ export 'package:bluesky/src/entities/facet.dart';
 export 'package:bluesky/src/entities/facet_feature.dart';
 export 'package:bluesky/src/entities/facet_link.dart';
 export 'package:bluesky/src/entities/facet_mention.dart';
-export 'package:bluesky/src/entities/feed_view.dart';
 export 'package:bluesky/src/entities/feed.dart';
+export 'package:bluesky/src/entities/feed_view.dart';
 export 'package:bluesky/src/entities/followers.dart';
 export 'package:bluesky/src/entities/follows.dart';
 export 'package:bluesky/src/entities/image.dart';
@@ -92,8 +91,9 @@ export 'package:bluesky/src/entities/post.dart';
 export 'package:bluesky/src/entities/post_record.dart';
 export 'package:bluesky/src/entities/post_ref.dart';
 export 'package:bluesky/src/entities/post_thread.dart';
-export 'package:bluesky/src/entities/post_thread.dart';
+export 'package:bluesky/src/entities/post_thread_view.dart';
 export 'package:bluesky/src/entities/post_viewer.dart';
+export 'package:bluesky/src/entities/posts.dart';
 export 'package:bluesky/src/entities/reason.dart';
 export 'package:bluesky/src/entities/reply.dart';
 export 'package:bluesky/src/entities/reply_ref.dart';
