@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.4.0
+
+- Refactored object names.
+- Supported `app.bsky.feed.getPosts`. ([#292](https://github.com/myConsciousness/atproto.dart/issues/292))
+
 ## v0.3.8
 
 - Added `protocol` option. Defaults to `HTTPS`. ([#269](https://github.com/myConsciousness/atproto.dart/issues/269))

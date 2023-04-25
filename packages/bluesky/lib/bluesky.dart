@@ -23,7 +23,6 @@ export 'package:atproto/atproto.dart'
         IdentitiesService,
         RepositoriesService,
         ModerationService;
-
 export 'package:atproto_core/atproto_core.dart'
     show
         XRPCResponse,
@@ -51,12 +50,12 @@ export 'package:bluesky/src/bluesky.dart';
 export 'package:bluesky/src/bluesky_service.dart';
 export 'package:bluesky/src/entities/actor.dart';
 export 'package:bluesky/src/entities/actor_profile.dart';
-export 'package:bluesky/src/entities/actor_profiles_data.dart';
+export 'package:bluesky/src/entities/actor_profiles.dart';
 export 'package:bluesky/src/entities/actor_viewer.dart';
-export 'package:bluesky/src/entities/actors_data.dart';
-export 'package:bluesky/src/entities/actors_typeahead_data.dart';
+export 'package:bluesky/src/entities/actors.dart';
+export 'package:bluesky/src/entities/actors_typeahead.dart';
 export 'package:bluesky/src/entities/byte_slice.dart';
-export 'package:bluesky/src/entities/count_data.dart';
+export 'package:bluesky/src/entities/count.dart';
 export 'package:bluesky/src/entities/embed.dart';
 export 'package:bluesky/src/entities/embed_external.dart';
 export 'package:bluesky/src/entities/embed_external_thumbnail.dart';
@@ -79,25 +78,26 @@ export 'package:bluesky/src/entities/facet_feature.dart';
 export 'package:bluesky/src/entities/facet_link.dart';
 export 'package:bluesky/src/entities/facet_mention.dart';
 export 'package:bluesky/src/entities/feed.dart';
-export 'package:bluesky/src/entities/feed_data.dart';
-export 'package:bluesky/src/entities/followers_data.dart';
-export 'package:bluesky/src/entities/follows_data.dart';
+export 'package:bluesky/src/entities/feed_view.dart';
+export 'package:bluesky/src/entities/followers.dart';
+export 'package:bluesky/src/entities/follows.dart';
 export 'package:bluesky/src/entities/image.dart';
 export 'package:bluesky/src/entities/like.dart';
-export 'package:bluesky/src/entities/likes_data.dart';
-export 'package:bluesky/src/entities/mutes_data.dart';
+export 'package:bluesky/src/entities/likes.dart';
+export 'package:bluesky/src/entities/mutes.dart';
 export 'package:bluesky/src/entities/notification.dart';
-export 'package:bluesky/src/entities/notifications_data.dart';
+export 'package:bluesky/src/entities/notifications.dart';
 export 'package:bluesky/src/entities/post.dart';
 export 'package:bluesky/src/entities/post_record.dart';
 export 'package:bluesky/src/entities/post_ref.dart';
 export 'package:bluesky/src/entities/post_thread.dart';
-export 'package:bluesky/src/entities/post_thread_data.dart';
+export 'package:bluesky/src/entities/post_thread_view.dart';
 export 'package:bluesky/src/entities/post_viewer.dart';
+export 'package:bluesky/src/entities/posts.dart';
 export 'package:bluesky/src/entities/reason.dart';
 export 'package:bluesky/src/entities/reply.dart';
 export 'package:bluesky/src/entities/reply_ref.dart';
-export 'package:bluesky/src/entities/reposted_by_data.dart';
+export 'package:bluesky/src/entities/reposted_by.dart';
 export 'package:bluesky/src/entities/strong_ref.dart';
 export 'package:bluesky/src/feeds/feed_algorithm.dart';
 export 'package:bluesky/src/feeds/feeds_service.dart';

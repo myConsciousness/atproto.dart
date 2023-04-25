@@ -7,18 +7,19 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import 'feed_view.dart';
+import 'actor.dart';
 
-part 'feed.freezed.dart';
-part 'feed.g.dart';
+part 'followers.freezed.dart';
+part 'followers.g.dart';
 
 @freezed
-class Feed with _$Feed {
-  const factory Feed({
-    required List<FeedView> feed,
+class Followers with _$Followers {
+  const factory Followers({
+    required Actor subject,
+    required List<Actor> followers,
     required String cursor,
-  }) = _Feed;
+  }) = _Followers;
 
-  factory Feed.fromJson(Map<String, Object?> json) => _$FeedFromJson(json);
+  factory Followers.fromJson(Map<String, Object?> json) =>
+      _$FollowersFromJson(json);
 }

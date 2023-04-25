@@ -114,7 +114,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<FollowsData>());
+      expect(response.data, isA<Follows>());
     });
 
     test('when unauthorized', () async {
@@ -188,7 +188,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<FollowersData>());
+      expect(response.data, isA<Followers>());
     });
 
     test('when unauthorized', () async {
@@ -421,7 +421,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<MutesData>());
+      expect(response.data, isA<Mutes>());
     });
 
     test('when unauthorized', () async {

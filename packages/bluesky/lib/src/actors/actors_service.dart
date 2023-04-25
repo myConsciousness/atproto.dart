@@ -8,9 +8,9 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../bluesky_base_service.dart';
 import '../entities/actor_profile.dart';
-import '../entities/actor_profiles_data.dart';
-import '../entities/actors_data.dart';
-import '../entities/actors_typeahead_data.dart';
+import '../entities/actor_profiles.dart';
+import '../entities/actors.dart';
+import '../entities/actors_typeahead.dart';
 
 abstract class ActorsService {
   /// Returns the new instance of [ActorsService].
@@ -31,7 +31,7 @@ abstract class ActorsService {
         mockedPostClient: mockedPostClient,
       );
 
-  /// Find UsersData matching search criteria.
+  /// Find Users matching search criteria.
   ///
   /// ## Parameters
   ///
@@ -49,7 +49,7 @@ abstract class ActorsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/search.json
-  Future<core.XRPCResponse<ActorsData>> searchActors({
+  Future<core.XRPCResponse<Actors>> searchActors({
     required String term,
     int? limit,
     String? cursor,
@@ -85,7 +85,7 @@ abstract class ActorsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfiles.json
-  Future<core.XRPCResponse<ActorProfilesData>> findProfiles({
+  Future<core.XRPCResponse<ActorProfiles>> findProfiles({
     required List<String> actors,
   });
 
@@ -105,7 +105,7 @@ abstract class ActorsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getSuggestions.json
-  Future<core.XRPCResponse<ActorsData>> findSuggestions({
+  Future<core.XRPCResponse<Actors>> findSuggestions({
     int? limit,
     String? cursor,
   });
@@ -126,7 +126,7 @@ abstract class ActorsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/searchActorsTypeahead.json
-  Future<core.XRPCResponse<ActorsTypeaheadData>> searchTypeahead({
+  Future<core.XRPCResponse<ActorsTypeahead>> searchTypeahead({
     required String term,
     int? limit,
   });
@@ -144,7 +144,7 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
   }) : super(methodAuthority: 'actor.bsky.app');
 
   @override
-  Future<core.XRPCResponse<ActorsData>> searchActors({
+  Future<core.XRPCResponse<Actors>> searchActors({
     required String term,
     int? limit,
     String? cursor,
@@ -156,7 +156,7 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
           'limit': limit,
           'cursor': cursor,
         },
-        to: ActorsData.fromJson,
+        to: Actors.fromJson,
       );
 
   @override
@@ -172,7 +172,7 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
       );
 
   @override
-  Future<core.XRPCResponse<ActorProfilesData>> findProfiles({
+  Future<core.XRPCResponse<ActorProfiles>> findProfiles({
     required List<String> actors,
   }) async =>
       await super.get(
@@ -180,11 +180,11 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
         parameters: {
           'actors': actors,
         },
-        to: ActorProfilesData.fromJson,
+        to: ActorProfiles.fromJson,
       );
 
   @override
-  Future<core.XRPCResponse<ActorsData>> findSuggestions({
+  Future<core.XRPCResponse<Actors>> findSuggestions({
     int? limit,
     String? cursor,
   }) async =>
@@ -194,11 +194,11 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
           'limit': limit,
           'cursor': cursor,
         },
-        to: ActorsData.fromJson,
+        to: Actors.fromJson,
       );
 
   @override
-  Future<core.XRPCResponse<ActorsTypeaheadData>> searchTypeahead({
+  Future<core.XRPCResponse<ActorsTypeahead>> searchTypeahead({
     required String term,
     int? limit,
   }) async =>
@@ -208,6 +208,6 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
           'term': term,
           'limit': limit,
         },
-        to: ActorsTypeaheadData.fromJson,
+        to: ActorsTypeahead.fromJson,
       );
 }

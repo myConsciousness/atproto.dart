@@ -6,7 +6,7 @@
 import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_test/atproto_test.dart' as atp_test;
-import 'package:bluesky/src/entities/feed_data.dart';
+import 'package:bluesky/src/entities/feed.dart';
 import 'package:bluesky/src/unspecced/unspecced_service.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
@@ -33,7 +33,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<FeedData>());
+      expect(response.data, isA<Feed>());
     });
 
     test('when unauthorized', () async {
