@@ -7,7 +7,6 @@ import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:bluesky/bluesky.dart';
-import 'package:bluesky/src/entities/post_thread_view.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
