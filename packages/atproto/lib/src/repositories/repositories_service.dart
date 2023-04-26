@@ -9,6 +9,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../atproto_base_service.dart';
 import '../entities/blob_data.dart';
 import '../entities/record.dart';
+import '../entities/strong_ref.dart';
 
 abstract class RepositoriesService {
   /// Returns the new instance of [RepositoriesService].
@@ -37,6 +38,12 @@ abstract class RepositoriesService {
   ///
   /// - [record]: The record to be stored.
   ///
+  /// - [validate]: Validate the record?
+  ///
+  /// - [swapRecordCid]: Compare and swap with the previous record by cid.
+  ///
+  /// - [swapCommitCid]: Compare and swap with the previous commit by cid.
+  ///
   /// ## Lexicon
   ///
   /// - com.atproto.repo.createRecord
@@ -47,6 +54,9 @@ abstract class RepositoriesService {
   Future<core.XRPCResponse<Record>> createRecord({
     required core.NSID collection,
     required Map<String, dynamic> record,
+    bool? validate,
+    String? swapRecordCid,
+    String? swapCommitCid,
   });
 
   /// Delete a record, or ensure it doesn't exist.
@@ -54,6 +64,10 @@ abstract class RepositoriesService {
   /// ## Parameters
   ///
   /// - [uri]: The contents uri to be deleted in AT URI format.
+  ///
+  /// - [swapRecordCid]: Compare and swap with the previous record by cid.
+  ///
+  /// - [swapCommitCid]: Compare and swap with the previous commit by cid.
   ///
   /// ## Lexicon
   ///
@@ -64,6 +78,37 @@ abstract class RepositoriesService {
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/deleteRecord.json
   Future<core.XRPCResponse<core.EmptyData>> deleteRecord({
     required core.AtUri uri,
+    String? swapRecordCid,
+    String? swapCommitCid,
+  });
+
+  /// Write a record, creating or updating it as needed.
+  ///
+  /// ## Parameters
+  ///
+  /// - [uri]: AT URI of original record.
+  ///
+  /// - [record]: The record to write.
+  ///
+  /// - [validate]: Validate the record?
+  ///
+  /// - [swapRecordCid]: Compare and swap with the previous record by cid.
+  ///
+  /// - [swapCommitCid]: Compare and swap with the previous commit by cid.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.putRecord
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/putRecord.json
+  Future<core.XRPCResponse<StrongRef>> updateRecord({
+    required core.AtUri uri,
+    required Map<String, dynamic> record,
+    bool? validate,
+    String? swapRecordCid,
+    String? swapCommitCid,
   });
 
   /// Upload a new blob to be added to repo in a later request.
@@ -100,6 +145,9 @@ class _RepositoriesService extends ATProtoBaseService
   Future<core.XRPCResponse<Record>> createRecord({
     required core.NSID collection,
     required Map<String, dynamic> record,
+    bool? validate,
+    String? swapRecordCid,
+    String? swapCommitCid,
   }) async =>
       await super.post(
         'createRecord',
@@ -107,6 +155,9 @@ class _RepositoriesService extends ATProtoBaseService
           'repo': did,
           'collection': collection.toString(),
           'record': record,
+          'validate': validate,
+          'swapRecord': swapRecordCid,
+          'swapCommit': swapCommitCid
         },
         to: Record.fromJson,
       );
@@ -114,6 +165,8 @@ class _RepositoriesService extends ATProtoBaseService
   @override
   Future<core.XRPCResponse<core.EmptyData>> deleteRecord({
     required core.AtUri uri,
+    String? swapRecordCid,
+    String? swapCommitCid,
   }) async =>
       await super.post<core.EmptyData>(
         'deleteRecord',
@@ -121,7 +174,31 @@ class _RepositoriesService extends ATProtoBaseService
           'repo': did,
           'collection': uri.collection,
           'rkey': uri.rkey,
+          'swapRecord': swapRecordCid,
+          'swapCommit': swapCommitCid
         },
+      );
+
+  @override
+  Future<core.XRPCResponse<StrongRef>> updateRecord({
+    required core.AtUri uri,
+    required Map<String, dynamic> record,
+    bool? validate,
+    String? swapRecordCid,
+    String? swapCommitCid,
+  }) async =>
+      await super.post(
+        'putRecord',
+        body: {
+          'repo': did,
+          'collection': uri.collection,
+          'rkey': uri.rkey,
+          'record': record,
+          'validate': validate,
+          'swapRecord': swapRecordCid,
+          'swapCommit': swapCommitCid
+        },
+        to: StrongRef.fromJson,
       );
 
   @override

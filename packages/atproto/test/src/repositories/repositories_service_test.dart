@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 import 'package:atproto/src/entities/record.dart';
+import 'package:atproto/src/entities/strong_ref.dart';
 import 'package:atproto/src/repositories/repositories_service.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
@@ -143,6 +144,77 @@ void main() {
       atp_test.expectRateLimitExceededException(
         () async => await repositories.deleteRecord(
           uri: core.AtUri.parse('at://foo.com/com.example.foo/123'),
+        ),
+      );
+    });
+  });
+
+  group('.updateRecord', () {
+    test('normal case', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/repositories/data/update_record.json',
+        ),
+      );
+
+      final response = await repositories.updateRecord(
+        uri: core.AtUri.parse('at://foo.com/com.example.foo/123'),
+        record: {},
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<StrongRef>());
+    });
+
+    test('when unauthorized', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await repositories.updateRecord(
+          uri: core.AtUri.parse('at://foo.com/com.example.foo/123'),
+          record: {},
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await repositories.updateRecord(
+          uri: core.AtUri.parse('at://foo.com/com.example.foo/123'),
+          record: {},
         ),
       );
     });
