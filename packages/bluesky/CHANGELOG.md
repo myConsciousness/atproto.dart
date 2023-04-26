@@ -5,6 +5,7 @@
 - Refactored object names.
 - Supported `app.bsky.feed.getPosts`. ([#292](https://github.com/myConsciousness/atproto.dart/issues/292))
 - Upgraded `atproto`. ([#288](https://github.com/myConsciousness/atproto.dart/issues/288))
+- Supported `updateProfile`. ([#50](https://github.com/myConsciousness/atproto.dart/issues/50))
 
 ## v0.3.8
 

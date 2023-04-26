@@ -130,6 +130,32 @@ abstract class ActorsService {
     required String term,
     int? limit,
   });
+
+  /// Update profile of yourself.
+  ///
+  /// ## Parameters
+  ///
+  /// - [displayName]: The name to be displayed. Not handle.
+  ///
+  /// - [description]: The cool description.
+  ///
+  /// - [avatar]: The uploaded avatar blob.
+  ///
+  /// - [banner]: The uploaded banner blob.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.actor.profile
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/profile.json
+  Future<core.XRPCResponse<atp.StrongRef>> updateProfile({
+    String? displayName,
+    String? description,
+    atp.Blob? avatar,
+    atp.Blob? banner,
+  });
 }
 
 class _ActorsService extends BlueskyBaseService implements ActorsService {
@@ -209,5 +235,26 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
           'limit': limit,
         },
         to: ActorsTypeahead.fromJson,
+      );
+
+  @override
+  Future<atp.XRPCResponse<atp.StrongRef>> updateProfile({
+    String? displayName,
+    String? description,
+    atp.Blob? avatar,
+    atp.Blob? banner,
+  }) async =>
+      await atproto.repositories.updateRecord(
+        uri: core.AtUri.make(
+          'alice',
+          createNSID('profile').toString(),
+          'self',
+        ),
+        record: {
+          'displayName': displayName,
+          'description': description,
+          'avatar': avatar,
+          'banner': banner,
+        },
       );
 }

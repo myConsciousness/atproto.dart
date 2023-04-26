@@ -366,4 +366,85 @@ void main() {
       );
     });
   });
+
+  group('.updateProfile', () {
+    test('normal case', () async {
+      final actors = ActorsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/actors/data/update_profile.json',
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      final response = await actors.updateProfile(
+        displayName: 'test',
+        description: 'test',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<StrongRef>());
+    });
+
+    test('when unauthorized', () async {
+      final actors = ActorsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+            statusCode: 401,
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await actors.updateProfile(
+          displayName: 'test',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final actors = ActorsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+            statusCode: 429,
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await actors.updateProfile(
+          displayName: 'test',
+        ),
+      );
+    });
+  });
 }
