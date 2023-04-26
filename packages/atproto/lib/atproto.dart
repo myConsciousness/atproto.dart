@@ -15,13 +15,15 @@ export 'package:atproto/src/entities/did.dart';
 export 'package:atproto/src/entities/invite_code.dart';
 export 'package:atproto/src/entities/invite_codes.dart';
 export 'package:atproto/src/entities/record.dart';
+export 'package:atproto/src/entities/repo_ref.dart';
 export 'package:atproto/src/entities/report.dart';
+export 'package:atproto/src/entities/report_subject.dart';
 export 'package:atproto/src/entities/sealed_app_password.dart';
 export 'package:atproto/src/entities/session.dart';
+export 'package:atproto/src/entities/strong_ref.dart';
 export 'package:atproto/src/identities/identities_service.dart';
 export 'package:atproto/src/moderation/moderation_reason_type.dart';
 export 'package:atproto/src/moderation/moderation_service.dart';
-export 'package:atproto/src/moderation/report_subject.dart';
 export 'package:atproto/src/repositories/repositories_service.dart';
 export 'package:atproto/src/servers/servers_service.dart';
 export 'package:atproto_core/atproto_core.dart'

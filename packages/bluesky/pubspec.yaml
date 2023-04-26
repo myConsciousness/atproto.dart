@@ -10,7 +10,7 @@ environment:
 
 dependencies:
   atproto_core: ^0.2.8
-  atproto: ^0.2.6
+  atproto: ^0.2.7
   freezed_annotation: ^2.2.0
   json_annotation: ^4.8.0
 

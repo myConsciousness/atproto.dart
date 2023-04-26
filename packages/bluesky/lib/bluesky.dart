@@ -17,6 +17,8 @@ export 'package:atproto/atproto.dart'
         AppPassword,
         AppPasswords,
         Report,
+        RepoRef,
+        StrongRef,
         ModerationReasonType,
         ReportSubject,
         ServersService,
@@ -98,7 +100,6 @@ export 'package:bluesky/src/entities/reason.dart';
 export 'package:bluesky/src/entities/reply.dart';
 export 'package:bluesky/src/entities/reply_ref.dart';
 export 'package:bluesky/src/entities/reposted_by.dart';
-export 'package:bluesky/src/entities/strong_ref.dart';
 export 'package:bluesky/src/feeds/feed_algorithm.dart';
 export 'package:bluesky/src/feeds/feeds_service.dart';
 export 'package:bluesky/src/graphs/graphs_service.dart';

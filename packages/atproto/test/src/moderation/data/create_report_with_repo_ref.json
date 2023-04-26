@@ -1,11 +1,11 @@
 {
   "id": 130,
   "createdAt": "2023-03-30T06:34:27.573Z",
-  "reasonType": "com.atproto.report.reasonType#spam",
+  "reasonType": "com.atproto.moderation.defs#reasonSexual",
   "reason": "Sorry for testing",
-  "reportedByDid": "did:plc:iijrtk7ocored6zuziwmqq3c",
+  "reportedBy": "did:plc:iijrtk7ocored6zuziwmqq3c",
   "subject": {
-    "$type": "com.atproto.repo.repoRef",
+    "$type": "com.atproto.admin.defs#repoRef",
     "did": "did:plc:3jusl67ujmuucpg4acgo5gtg"
   }
 }

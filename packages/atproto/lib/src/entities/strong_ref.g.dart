@@ -13,16 +13,20 @@ _$_StrongRef _$$_StrongRefFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_StrongRef(
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? 'com.atproto.repo.strongRef'),
           cid: $checkedConvert('cid', (v) => v as String),
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
         );
         return val;
       },
+      fieldKeyMap: const {'type': r'$type'},
     );
 
 Map<String, dynamic> _$$_StrongRefToJson(_$_StrongRef instance) =>
     <String, dynamic>{
+      r'$type': instance.type,
       'cid': instance.cid,
       'uri': const AtUriConverter().toJson(instance.uri),
     };

@@ -22,9 +22,8 @@ Report _$ReportFromJson(Map<String, dynamic> json) {
 mixin _$Report {
   int get id => throw _privateConstructorUsedError;
   ModerationReasonType get reasonType => throw _privateConstructorUsedError;
-  @_ReportSubjectConverter()
+  @ReportSubjectConverter()
   ReportSubject get subject => throw _privateConstructorUsedError;
-  @JsonKey(name: 'reportedByDid')
   String get reportedBy => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -41,9 +40,11 @@ abstract class $ReportCopyWith<$Res> {
   $Res call(
       {int id,
       ModerationReasonType reasonType,
-      @_ReportSubjectConverter() ReportSubject subject,
-      @JsonKey(name: 'reportedByDid') String reportedBy,
+      @ReportSubjectConverter() ReportSubject subject,
+      String reportedBy,
       DateTime createdAt});
+
+  $ReportSubjectCopyWith<$Res> get subject;
 }
 
 /// @nodoc
@@ -88,6 +89,14 @@ class _$ReportCopyWithImpl<$Res, $Val extends Report>
               as DateTime,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ReportSubjectCopyWith<$Res> get subject {
+    return $ReportSubjectCopyWith<$Res>(_value.subject, (value) {
+      return _then(_value.copyWith(subject: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -99,9 +108,12 @@ abstract class _$$_ReportCopyWith<$Res> implements $ReportCopyWith<$Res> {
   $Res call(
       {int id,
       ModerationReasonType reasonType,
-      @_ReportSubjectConverter() ReportSubject subject,
-      @JsonKey(name: 'reportedByDid') String reportedBy,
+      @ReportSubjectConverter() ReportSubject subject,
+      String reportedBy,
       DateTime createdAt});
+
+  @override
+  $ReportSubjectCopyWith<$Res> get subject;
 }
 
 /// @nodoc
@@ -151,8 +163,8 @@ class _$_Report implements _Report {
   const _$_Report(
       {required this.id,
       required this.reasonType,
-      @_ReportSubjectConverter() required this.subject,
-      @JsonKey(name: 'reportedByDid') required this.reportedBy,
+      @ReportSubjectConverter() required this.subject,
+      required this.reportedBy,
       required this.createdAt});
 
   factory _$_Report.fromJson(Map<String, dynamic> json) =>
@@ -163,10 +175,9 @@ class _$_Report implements _Report {
   @override
   final ModerationReasonType reasonType;
   @override
-  @_ReportSubjectConverter()
+  @ReportSubjectConverter()
   final ReportSubject subject;
   @override
-  @JsonKey(name: 'reportedByDid')
   final String reportedBy;
   @override
   final DateTime createdAt;
@@ -214,8 +225,8 @@ abstract class _Report implements Report {
   const factory _Report(
       {required final int id,
       required final ModerationReasonType reasonType,
-      @_ReportSubjectConverter() required final ReportSubject subject,
-      @JsonKey(name: 'reportedByDid') required final String reportedBy,
+      @ReportSubjectConverter() required final ReportSubject subject,
+      required final String reportedBy,
       required final DateTime createdAt}) = _$_Report;
 
   factory _Report.fromJson(Map<String, dynamic> json) = _$_Report.fromJson;
@@ -225,10 +236,9 @@ abstract class _Report implements Report {
   @override
   ModerationReasonType get reasonType;
   @override
-  @_ReportSubjectConverter()
+  @ReportSubjectConverter()
   ReportSubject get subject;
   @override
-  @JsonKey(name: 'reportedByDid')
   String get reportedBy;
   @override
   DateTime get createdAt;

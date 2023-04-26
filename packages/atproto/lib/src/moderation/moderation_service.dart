@@ -6,8 +6,8 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../atproto_base_service.dart';
 import '../entities/report.dart';
+import '../entities/report_subject.dart';
 import 'moderation_reason_type.dart';
-import 'report_subject.dart';
 
 abstract class ModerationService {
   /// Returns the new instance of [ModerationService].
@@ -64,7 +64,7 @@ class _ModerationService extends ATProtoBaseService
     required super.context,
     super.mockedGetClient,
     super.mockedPostClient,
-  }) : super(methodAuthority: 'report.atproto.com');
+  }) : super(methodAuthority: 'moderation.atproto.com');
 
   @override
   Future<core.XRPCResponse<Report>> createReport({
@@ -73,7 +73,7 @@ class _ModerationService extends ATProtoBaseService
     String? reason,
   }) async =>
       super.post(
-        'create',
+        'createReport',
         body: {
           'subject': subject.toJson(),
           'reasonType': reasonType.value,
