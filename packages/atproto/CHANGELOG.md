@@ -3,6 +3,7 @@
 ## v0.2.7
 
 - Added moderation reasons, and fixed `report_subject` to union. ([#288](https://github.com/myConsciousness/atproto.dart/issues/288))
+- Supported `updateRecord`. ([#295](https://github.com/myConsciousness/atproto.dart/issues/295))
 
 ## v0.2.6
 
