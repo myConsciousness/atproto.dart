@@ -8,30 +8,30 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../core/lex_type.dart';
-import 'lex_xrpc_body.dart';
 import 'lex_xrpc_error.dart';
 import 'lex_xrpc_parameters.dart';
+import 'lex_xrpc_subscription_message.dart';
 
-part 'lex_xrpc_procedure.freezed.dart';
-part 'lex_xrpc_procedure.g.dart';
+part 'lex_xrpc_subscription.freezed.dart';
+part 'lex_xrpc_subscription.g.dart';
 
 @freezed
-class LexXrpcProcedure with _$LexXrpcProcedure {
+class LexXrpcSubscription with _$LexXrpcSubscription {
   // ignore: unused_element
-  const LexXrpcProcedure._();
+  const LexXrpcSubscription._();
 
   @JsonSerializable(includeIfNull: false)
-  const factory LexXrpcProcedure({
+  const factory LexXrpcSubscription({
     String? description,
     LexXrpcParameters? parameters,
-    LexXrpcBody? input,
-    LexXrpcBody? output,
+    LexXrpcSubscriptionMessage? message,
+    List<LexXrpcError>? infos,
     List<LexXrpcError>? errors,
-  }) = _LexXrpcQuery;
+  }) = _LexXrpcSubscription;
 
-  factory LexXrpcProcedure.fromJson(Map<String, Object?> json) =>
-      _$LexXrpcProcedureFromJson(json);
+  factory LexXrpcSubscription.fromJson(Map<String, Object?> json) =>
+      _$LexXrpcSubscriptionFromJson(json);
 
   /// Returns the type.
-  LexType get type => LexType.procedure;
+  LexType get type => LexType.subscription;
 }

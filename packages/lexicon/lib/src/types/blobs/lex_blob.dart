@@ -7,6 +7,8 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../core/lex_type.dart';
+
 part 'lex_blob.freezed.dart';
 part 'lex_blob.g.dart';
 
@@ -25,6 +27,6 @@ class LexBlob with _$LexBlob {
   factory LexBlob.fromJson(Map<String, Object?> json) =>
       _$LexBlobFromJson(json);
 
-  /// Returns the type literal.
-  String get type => 'blob';
+  /// Returns the type.
+  LexType get type => LexType.blob;
 }

@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../converter/lex_primitive_converter.dart';
+import '../core/lex_type.dart';
 import '../primitives/lex_primitive.dart';
 
 part 'lex_primitive_array.freezed.dart';
@@ -29,6 +30,6 @@ class LexPrimitiveArray with _$LexPrimitiveArray {
   factory LexPrimitiveArray.fromJson(Map<String, Object?> json) =>
       _$LexPrimitiveArrayFromJson(json);
 
-  /// Returns the type literal.
-  String get type => 'array';
+  /// Returns the type.
+  LexType get type => LexType.token;
 }

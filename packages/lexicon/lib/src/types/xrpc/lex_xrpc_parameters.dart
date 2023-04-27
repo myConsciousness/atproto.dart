@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../converter/lex_xrpc_parameters_property_converter.dart';
+import '../core/lex_type.dart';
 import 'lex_xrpc_parameters_property.dart';
 
 part 'lex_xrpc_parameters.freezed.dart';
@@ -29,6 +30,6 @@ class LexXrpcParameters with _$LexXrpcParameters {
   factory LexXrpcParameters.fromJson(Map<String, Object?> json) =>
       _$LexXrpcParametersFromJson(json);
 
-  /// Returns the type literal.
-  String get type => 'params';
+  /// Returns the type.
+  LexType get type => LexType.params;
 }

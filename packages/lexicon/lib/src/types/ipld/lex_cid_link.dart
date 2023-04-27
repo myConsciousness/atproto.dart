@@ -7,6 +7,8 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../core/lex_type.dart';
+
 part 'lex_cid_link.freezed.dart';
 part 'lex_cid_link.g.dart';
 
@@ -23,6 +25,6 @@ class LexCidLink with _$LexCidLink {
   factory LexCidLink.fromJson(Map<String, Object?> json) =>
       _$LexCidLinkFromJson(json);
 
-  /// Returns the type literal.
-  String get type => 'cid-link';
+  /// Returns the type.
+  LexType get type => LexType.cidLink;
 }

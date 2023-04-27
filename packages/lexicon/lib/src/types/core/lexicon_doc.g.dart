@@ -16,10 +16,12 @@ _$_LexiconDoc _$$_LexiconDocFromJson(Map json) => $checkedCreate(
           lexicon: $checkedConvert('lexicon', (v) => v as int),
           id: $checkedConvert(
               'id', (v) => const NSIDConverter().fromJson(v as String)),
-          type: $checkedConvert(
-              'type', (v) => $enumDecode(_$LexiconTypeEnumMap, v)),
           revision: $checkedConvert('revision', (v) => v as int?),
           description: $checkedConvert('description', (v) => v as String?),
+          defs: $checkedConvert(
+              'defs',
+              (v) => const LexUserTypeConverter()
+                  .fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -29,14 +31,7 @@ Map<String, dynamic> _$$_LexiconDocToJson(_$_LexiconDoc instance) =>
     <String, dynamic>{
       'lexicon': instance.lexicon,
       'id': const NSIDConverter().toJson(instance.id),
-      'type': _$LexiconTypeEnumMap[instance.type]!,
       'revision': instance.revision,
       'description': instance.description,
+      'defs': const LexUserTypeConverter().toJson(instance.defs),
     };
-
-const _$LexiconTypeEnumMap = {
-  LexiconType.query: 'query',
-  LexiconType.procedure: 'procedure',
-  LexiconType.record: 'record',
-  LexiconType.subscription: 'subscription',
-};

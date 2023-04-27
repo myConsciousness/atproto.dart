@@ -8,8 +8,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:nsid/nsid.dart';
 
-import 'converter/nsid_converter.dart';
-import 'lexicon_type.dart';
+import '../converter/lex_user_type_converter.dart';
+import '../converter/nsid_converter.dart';
+import 'lex_user_type.dart';
 
 part 'lexicon_doc.freezed.dart';
 part 'lexicon_doc.g.dart';
@@ -19,9 +20,9 @@ class LexiconDoc with _$LexiconDoc {
   const factory LexiconDoc({
     required int lexicon,
     @NSIDConverter() required NSID id,
-    required LexiconType type,
     int? revision,
     String? description,
+    @LexUserTypeConverter() required LexUserType defs,
   }) = _LexiconDoc;
 
   factory LexiconDoc.fromJson(Map<String, Object?> json) =>

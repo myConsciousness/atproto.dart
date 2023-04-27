@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../converter/lex_object_property_converter.dart';
+import '../core/lex_type.dart';
 import 'lex_object_property.dart';
 
 part 'lex_object.freezed.dart';
@@ -29,6 +30,6 @@ class LexObject with _$LexObject {
   factory LexObject.fromJson(Map<String, Object?> json) =>
       _$LexObjectFromJson(json);
 
-  /// Returns the type literal.
-  String get type => 'object';
+  /// Returns the type.
+  LexType get type => LexType.object;
 }

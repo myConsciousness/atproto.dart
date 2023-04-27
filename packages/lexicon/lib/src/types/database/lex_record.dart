@@ -7,26 +7,26 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../complex/lex_object.dart';
 import '../core/lex_type.dart';
 
-part 'lex_bytes.freezed.dart';
-part 'lex_bytes.g.dart';
+part 'lex_record.freezed.dart';
+part 'lex_record.g.dart';
 
 @freezed
-class LexBytes with _$LexBytes {
+class LexRecord with _$LexRecord {
   // ignore: unused_element
-  const LexBytes._();
+  const LexRecord._();
 
-  @JsonSerializable(includeIfNull: false)
-  const factory LexBytes({
+  const factory LexRecord({
     String? description,
-    int? maxLength,
-    int? minLength,
-  }) = _LexBytes;
+    String? key,
+    required LexObject record,
+  }) = _LexRecord;
 
-  factory LexBytes.fromJson(Map<String, Object?> json) =>
-      _$LexBytesFromJson(json);
+  factory LexRecord.fromJson(Map<String, Object?> json) =>
+      _$LexRecordFromJson(json);
 
   /// Returns the type.
-  LexType get type => LexType.bytes;
+  LexType get type => LexType.record;
 }

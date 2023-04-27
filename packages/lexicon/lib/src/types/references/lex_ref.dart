@@ -7,6 +7,8 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../core/lex_type.dart';
+
 part 'lex_ref.freezed.dart';
 part 'lex_ref.g.dart';
 
@@ -23,6 +25,6 @@ class LexRef with _$LexRef {
 
   factory LexRef.fromJson(Map<String, Object?> json) => _$LexRefFromJson(json);
 
-  /// Returns the type literal.
-  String get type => 'ref';
+  /// Returns the type.
+  LexType get type => LexType.ref;
 }

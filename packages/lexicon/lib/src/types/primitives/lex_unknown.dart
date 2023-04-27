@@ -7,6 +7,8 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../core/lex_type.dart';
+
 part 'lex_unknown.freezed.dart';
 part 'lex_unknown.g.dart';
 
@@ -23,6 +25,6 @@ class LexUnknown with _$LexUnknown {
   factory LexUnknown.fromJson(Map<String, Object?> json) =>
       _$LexUnknownFromJson(json);
 
-  /// Returns the type literal.
-  String get type => 'unknown';
+  /// Returns the type.
+  LexType get type => LexType.unknown;
 }

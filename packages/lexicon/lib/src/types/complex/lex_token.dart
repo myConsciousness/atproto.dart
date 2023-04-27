@@ -7,6 +7,8 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../core/lex_type.dart';
+
 part 'lex_token.freezed.dart';
 part 'lex_token.g.dart';
 
@@ -23,6 +25,6 @@ class LexToken with _$LexToken {
   factory LexToken.fromJson(Map<String, Object?> json) =>
       _$LexTokenFromJson(json);
 
-  /// Returns the type literal.
-  String get type => 'token';
+  /// Returns the type.
+  LexType get type => LexType.token;
 }

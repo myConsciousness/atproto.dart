@@ -7,6 +7,8 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../core/lex_type.dart';
+
 part 'lex_integer.freezed.dart';
 part 'lex_integer.g.dart';
 
@@ -27,6 +29,6 @@ class LexInteger with _$LexInteger {
   factory LexInteger.fromJson(Map<String, Object?> json) =>
       _$LexIntegerFromJson(json);
 
-  /// Returns the type literal.
-  String get type => 'integer';
+  /// Returns the type.
+  LexType get type => LexType.integer;
 }

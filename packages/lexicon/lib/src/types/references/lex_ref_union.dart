@@ -7,6 +7,8 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../core/lex_type.dart';
+
 part 'lex_ref_union.freezed.dart';
 part 'lex_ref_union.g.dart';
 
@@ -25,6 +27,6 @@ class LexRefUnion with _$LexRefUnion {
   factory LexRefUnion.fromJson(Map<String, Object?> json) =>
       _$LexRefUnionFromJson(json);
 
-  /// Returns the type literal.
-  String get type => 'union';
+  /// Returns the type.
+  LexType get type => LexType.union;
 }
