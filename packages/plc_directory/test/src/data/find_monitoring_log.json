@@ -1,0 +1,117 @@
+[
+  {
+    "did": "did:plc:ma37ez4i3gmwkvwpytsqeepp",
+    "operation": {
+      "sig": "tYA3niRLOB6NuzYDhCqiEiwIRUBJuS5sJw126_vvOjcHC3VzpOb_dUCWP0wjsFsQ-TKIo81Asfd0qRZ5X0w8cw",
+      "prev": null,
+      "type": "create",
+      "handle": "gpsnmeajp.bsky.social",
+      "service": "https://bsky.social",
+      "signingKey": "did:key:zQ3shP5TBe1sQfSttXty15FAEHV1DZgcxRZNxvEWnPfLFwLxJ",
+      "recoveryKey": "did:key:zQ3shhCGUqDKjStzuDxPkTxN6ujddP4RkEKJJouJGRRkaLGbg"
+    },
+    "cid": "bafyreidag7zgpcgztfsvnt6e4ubbd35f4mirzhovdxh7grmstwbvqrqd2i",
+    "nullified": false,
+    "createdAt": "2023-03-04T14:15:12.879Z"
+  },
+  {
+    "did": "did:plc:ma37ez4i3gmwkvwpytsqeepp",
+    "operation": {
+      "sig": "0klAI1KcDP62fAEJJFes0ytfUm29kbP7PipnhvgubG1AzrUVoVaGnMtMywfyFioJItH35vJtjiJS9F6S2IttXg",
+      "prev": "bafyreidag7zgpcgztfsvnt6e4ubbd35f4mirzhovdxh7grmstwbvqrqd2i",
+      "type": "plc_operation",
+      "services": {
+        "atproto_pds": {
+          "type": "AtprotoPersonalDataServer",
+          "endpoint": "https://bsky.social"
+        }
+      },
+      "alsoKnownAs": ["at://gpsnmeajp.achetaria.com"],
+      "rotationKeys": [
+        "did:key:zQ3shhCGUqDKjStzuDxPkTxN6ujddP4RkEKJJouJGRRkaLGbg",
+        "did:key:zQ3shP5TBe1sQfSttXty15FAEHV1DZgcxRZNxvEWnPfLFwLxJ"
+      ],
+      "verificationMethods": {
+        "atproto": "did:key:zQ3shP5TBe1sQfSttXty15FAEHV1DZgcxRZNxvEWnPfLFwLxJ"
+      }
+    },
+    "cid": "bafyreick6sbi34r4552x5cv7pki2zdpn2ctrd3ab3urv47eofx3zevhfai",
+    "nullified": false,
+    "createdAt": "2023-03-07T13:28:39.854Z"
+  },
+  {
+    "did": "did:plc:ma37ez4i3gmwkvwpytsqeepp",
+    "operation": {
+      "sig": "qdWegCC5UZyZYt5ye8Vf5t9O55AQTL_OVpQ7rLOOtjlGfHKcN2EjcPnxbHbNOuYPIjE89i-m7YP5CpOx6Exghg",
+      "prev": "bafyreick6sbi34r4552x5cv7pki2zdpn2ctrd3ab3urv47eofx3zevhfai",
+      "type": "plc_operation",
+      "services": {
+        "atproto_pds": {
+          "type": "AtprotoPersonalDataServer",
+          "endpoint": "https://bsky.social"
+        }
+      },
+      "alsoKnownAs": ["at://segment.bsky.social"],
+      "rotationKeys": [
+        "did:key:zQ3shhCGUqDKjStzuDxPkTxN6ujddP4RkEKJJouJGRRkaLGbg",
+        "did:key:zQ3shP5TBe1sQfSttXty15FAEHV1DZgcxRZNxvEWnPfLFwLxJ"
+      ],
+      "verificationMethods": {
+        "atproto": "did:key:zQ3shP5TBe1sQfSttXty15FAEHV1DZgcxRZNxvEWnPfLFwLxJ"
+      }
+    },
+    "cid": "bafyreicw5sbmir2mdz27s6ioemglr67lfe57wkdo55ywbtavuawfp3sotm",
+    "nullified": false,
+    "createdAt": "2023-03-07T14:17:27.084Z"
+  },
+  {
+    "did": "did:plc:ma37ez4i3gmwkvwpytsqeepp",
+    "operation": {
+      "sig": "HnF9Wzm4wUFCVD-UZYBET8GAwbRRqYzF0VqFwU7HmkwzRvSAg6Zm6SAOW3u_Kd4S0mbuAGLTz-KyYRVNlpzymA",
+      "prev": "bafyreicw5sbmir2mdz27s6ioemglr67lfe57wkdo55ywbtavuawfp3sotm",
+      "type": "plc_operation",
+      "services": {
+        "atproto_pds": {
+          "type": "AtprotoPersonalDataServer",
+          "endpoint": "https://bsky.social"
+        }
+      },
+      "alsoKnownAs": ["at://gpsnmeajp.achetaria.com"],
+      "rotationKeys": [
+        "did:key:zQ3shhCGUqDKjStzuDxPkTxN6ujddP4RkEKJJouJGRRkaLGbg",
+        "did:key:zQ3shP5TBe1sQfSttXty15FAEHV1DZgcxRZNxvEWnPfLFwLxJ"
+      ],
+      "verificationMethods": {
+        "atproto": "did:key:zQ3shP5TBe1sQfSttXty15FAEHV1DZgcxRZNxvEWnPfLFwLxJ"
+      }
+    },
+    "cid": "bafyreicgdcodk724z7c75c7kfifznnl2hd3venkqu22liiyea64eyi2h5i",
+    "nullified": false,
+    "createdAt": "2023-03-07T14:18:12.347Z"
+  },
+  {
+    "did": "did:plc:ma37ez4i3gmwkvwpytsqeepp",
+    "operation": {
+      "sig": "7W5dMUDrOXjSmywdBoind8EG2BwJdNBqazZ-uAGLZxkF3Y1vWEboLqnbIhBDpuDG-11mCJ0bXCK1gcmGsowj4Q",
+      "prev": "bafyreicgdcodk724z7c75c7kfifznnl2hd3venkqu22liiyea64eyi2h5i",
+      "type": "plc_operation",
+      "services": {
+        "atproto_pds": {
+          "type": "AtprotoPersonalDataServer",
+          "endpoint": "https://bsky.social"
+        }
+      },
+      "alsoKnownAs": ["at://gpsnmeajp.achetaria.com"],
+      "rotationKeys": [
+        "did:key:zQ3shhCGUqDKjStzuDxPkTxN6ujddP4RkEKJJouJGRRkaLGbg",
+        "did:key:zQ3shpKnbdPx3g3CmPf5cRVTPe1HtSwVn5ish3wSnDPQCbLJK"
+      ],
+      "verificationMethods": {
+        "atproto": "did:key:zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF"
+      }
+    },
+    "cid": "bafyreihonmxja2sx5fjszaumt77jcjjcr4spp6djl64bmgezu6agbhfzua",
+    "nullified": false,
+    "createdAt": "2023-03-09T23:28:45.157Z"
+  }
+]

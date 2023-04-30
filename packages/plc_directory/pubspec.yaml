@@ -1,0 +1,22 @@
+name: plc_directory
+description: A starting point for Dart libraries or applications.
+version: 0.0.1
+repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/plc_directory
+issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
+funding:
+  - https://github.com/sponsors/myConsciousness
+
+environment:
+  sdk: '>=2.19.6 <3.0.0'
+
+dependencies:
+  http: ^0.13.5
+  freezed_annotation: ^2.2.0
+  json_annotation: ^4.8.0
+
+dev_dependencies:
+  lints: ^2.0.0
+  test: ^1.21.0
+  build_runner: ^2.3.3
+  json_serializable: ^6.6.1
+  freezed: ^2.3.2

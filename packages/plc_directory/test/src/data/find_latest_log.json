@@ -1,0 +1,19 @@
+{
+  "sig": "7W5dMUDrOXjSmywdBoind8EG2BwJdNBqazZ-uAGLZxkF3Y1vWEboLqnbIhBDpuDG-11mCJ0bXCK1gcmGsowj4Q",
+  "prev": "bafyreicgdcodk724z7c75c7kfifznnl2hd3venkqu22liiyea64eyi2h5i",
+  "type": "plc_operation",
+  "services": {
+    "atproto_pds": {
+      "type": "AtprotoPersonalDataServer",
+      "endpoint": "https://bsky.social"
+    }
+  },
+  "alsoKnownAs": ["at://gpsnmeajp.achetaria.com"],
+  "rotationKeys": [
+    "did:key:zQ3shhCGUqDKjStzuDxPkTxN6ujddP4RkEKJJouJGRRkaLGbg",
+    "did:key:zQ3shpKnbdPx3g3CmPf5cRVTPe1HtSwVn5ish3wSnDPQCbLJK"
+  ],
+  "verificationMethods": {
+    "atproto": "did:key:zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF"
+  }
+}
