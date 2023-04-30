@@ -54,12 +54,8 @@
               {
                 "alt": "",
                 "image": {
-                  "$type": "blob",
-                  "ref": {
-                    "$link": "bafkreifmlmimajqgi6klwgroooi3mqv4uujqsdradnha3y5k46nni7qh5u"
-                  },
-                  "mimeType": "image/jpeg",
-                  "size": 872973
+                  "cid": "bafkreigyia5vqnnpapjc6p5k23ukzc47kadxhbeuzfvjq52bftz7k2d56a",
+                  "mimeType": "image/jpeg"
                 }
               }
             ]

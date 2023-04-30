@@ -21,7 +21,8 @@ Image _$ImageFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Image {
   String get alt => throw _privateConstructorUsedError;
-  Blob get image => throw _privateConstructorUsedError;
+  @BlobContextConverter()
+  BlobContext get image => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,9 +34,9 @@ abstract class $ImageCopyWith<$Res> {
   factory $ImageCopyWith(Image value, $Res Function(Image) then) =
       _$ImageCopyWithImpl<$Res, Image>;
   @useResult
-  $Res call({String alt, Blob image});
+  $Res call({String alt, @BlobContextConverter() BlobContext image});
 
-  $BlobCopyWith<$Res> get image;
+  $BlobContextCopyWith<$Res> get image;
 }
 
 /// @nodoc
@@ -62,14 +63,14 @@ class _$ImageCopyWithImpl<$Res, $Val extends Image>
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as Blob,
+              as BlobContext,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $BlobCopyWith<$Res> get image {
-    return $BlobCopyWith<$Res>(_value.image, (value) {
+  $BlobContextCopyWith<$Res> get image {
+    return $BlobContextCopyWith<$Res>(_value.image, (value) {
       return _then(_value.copyWith(image: value) as $Val);
     });
   }
@@ -81,10 +82,10 @@ abstract class _$$_ImageCopyWith<$Res> implements $ImageCopyWith<$Res> {
       __$$_ImageCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String alt, Blob image});
+  $Res call({String alt, @BlobContextConverter() BlobContext image});
 
   @override
-  $BlobCopyWith<$Res> get image;
+  $BlobContextCopyWith<$Res> get image;
 }
 
 /// @nodoc
@@ -107,7 +108,7 @@ class __$$_ImageCopyWithImpl<$Res> extends _$ImageCopyWithImpl<$Res, _$_Image>
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as Blob,
+              as BlobContext,
     ));
   }
 }
@@ -115,7 +116,8 @@ class __$$_ImageCopyWithImpl<$Res> extends _$ImageCopyWithImpl<$Res, _$_Image>
 /// @nodoc
 @JsonSerializable()
 class _$_Image implements _Image {
-  const _$_Image({required this.alt, required this.image});
+  const _$_Image(
+      {required this.alt, @BlobContextConverter() required this.image});
 
   factory _$_Image.fromJson(Map<String, dynamic> json) =>
       _$$_ImageFromJson(json);
@@ -123,7 +125,8 @@ class _$_Image implements _Image {
   @override
   final String alt;
   @override
-  final Blob image;
+  @BlobContextConverter()
+  final BlobContext image;
 
   @override
   String toString() {
@@ -158,15 +161,17 @@ class _$_Image implements _Image {
 }
 
 abstract class _Image implements Image {
-  const factory _Image({required final String alt, required final Blob image}) =
-      _$_Image;
+  const factory _Image(
+      {required final String alt,
+      @BlobContextConverter() required final BlobContext image}) = _$_Image;
 
   factory _Image.fromJson(Map<String, dynamic> json) = _$_Image.fromJson;
 
   @override
   String get alt;
   @override
-  Blob get image;
+  @BlobContextConverter()
+  BlobContext get image;
   @override
   @JsonKey(ignore: true)
   _$$_ImageCopyWith<_$_Image> get copyWith =>

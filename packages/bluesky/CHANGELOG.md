@@ -5,6 +5,7 @@
 - Supported `findBlocks`. ([#320](https://github.com/myConsciousness/atproto.dart/issues/320))
 - Supported `createBlock`. ([#320](https://github.com/myConsciousness/atproto.dart/issues/320))
 - Fixed `PostThread` to union type. ([#320](https://github.com/myConsciousness/atproto.dart/issues/320))
+- Supported Blob in legacy format. Now you can use them easily with Union type `BlobContext`. ([#283](https://github.com/myConsciousness/atproto.dart/issues/283))
 
 ## v0.4.0
 

@@ -19,9 +19,8 @@ _$_EmbedExternalThumbnail _$$_EmbedExternalThumbnailFromJson(Map json) =>
           description: $checkedConvert('description', (v) => v as String),
           blob: $checkedConvert(
               'thumb',
-              (v) => v == null
-                  ? null
-                  : Blob.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, BlobContext>(
+                  v, const BlobContextConverter().fromJson)),
         );
         return val;
       },
@@ -42,6 +41,21 @@ Map<String, dynamic> _$$_EmbedExternalThumbnailToJson(
     }
   }
 
-  writeNotNull('thumb', instance.blob?.toJson());
+  writeNotNull(
+      'thumb',
+      _$JsonConverterToJson<Map<String, dynamic>, BlobContext>(
+          instance.blob, const BlobContextConverter().toJson));
   return val;
 }
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

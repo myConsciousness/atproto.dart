@@ -7,8 +7,8 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'service.dart';
-import 'verification_method.dart';
+import 'parsed_service.dart';
+import 'parsed_verification_method.dart';
 
 part 'parsed_did_doc.freezed.dart';
 part 'parsed_did_doc.g.dart';
@@ -20,8 +20,8 @@ class ParsedDidDoc with _$ParsedDidDoc {
     required String id,
     required List<String> alsoKnownAs,
     @JsonKey(name: 'verificationMethod')
-        required List<VerificationMethod> verificationMethods,
-    @JsonKey(name: 'service') required List<Service> services,
+        required List<ParsedVerificationMethod> verificationMethods,
+    @JsonKey(name: 'service') required List<ParsedService> services,
   }) = _ParsedDidDoc;
 
   factory ParsedDidDoc.fromJson(Map<String, Object?> json) =>

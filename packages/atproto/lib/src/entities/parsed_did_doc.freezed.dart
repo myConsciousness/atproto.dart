@@ -25,10 +25,10 @@ mixin _$ParsedDidDoc {
   String get id => throw _privateConstructorUsedError;
   List<String> get alsoKnownAs => throw _privateConstructorUsedError;
   @JsonKey(name: 'verificationMethod')
-  List<VerificationMethod> get verificationMethods =>
+  List<ParsedVerificationMethod> get verificationMethods =>
       throw _privateConstructorUsedError;
   @JsonKey(name: 'service')
-  List<Service> get services => throw _privateConstructorUsedError;
+  List<ParsedService> get services => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,9 +48,9 @@ abstract class $ParsedDidDocCopyWith<$Res> {
       String id,
       List<String> alsoKnownAs,
       @JsonKey(name: 'verificationMethod')
-          List<VerificationMethod> verificationMethods,
+          List<ParsedVerificationMethod> verificationMethods,
       @JsonKey(name: 'service')
-          List<Service> services});
+          List<ParsedService> services});
 }
 
 /// @nodoc
@@ -88,11 +88,11 @@ class _$ParsedDidDocCopyWithImpl<$Res, $Val extends ParsedDidDoc>
       verificationMethods: null == verificationMethods
           ? _value.verificationMethods
           : verificationMethods // ignore: cast_nullable_to_non_nullable
-              as List<VerificationMethod>,
+              as List<ParsedVerificationMethod>,
       services: null == services
           ? _value.services
           : services // ignore: cast_nullable_to_non_nullable
-              as List<Service>,
+              as List<ParsedService>,
     ) as $Val);
   }
 }
@@ -111,9 +111,9 @@ abstract class _$$_ParsedDidDocCopyWith<$Res>
       String id,
       List<String> alsoKnownAs,
       @JsonKey(name: 'verificationMethod')
-          List<VerificationMethod> verificationMethods,
+          List<ParsedVerificationMethod> verificationMethods,
       @JsonKey(name: 'service')
-          List<Service> services});
+          List<ParsedService> services});
 }
 
 /// @nodoc
@@ -149,11 +149,11 @@ class __$$_ParsedDidDocCopyWithImpl<$Res>
       verificationMethods: null == verificationMethods
           ? _value._verificationMethods
           : verificationMethods // ignore: cast_nullable_to_non_nullable
-              as List<VerificationMethod>,
+              as List<ParsedVerificationMethod>,
       services: null == services
           ? _value._services
           : services // ignore: cast_nullable_to_non_nullable
-              as List<Service>,
+              as List<ParsedService>,
     ));
   }
 }
@@ -167,9 +167,9 @@ class _$_ParsedDidDoc implements _ParsedDidDoc {
       required this.id,
       required final List<String> alsoKnownAs,
       @JsonKey(name: 'verificationMethod')
-          required final List<VerificationMethod> verificationMethods,
+          required final List<ParsedVerificationMethod> verificationMethods,
       @JsonKey(name: 'service')
-          required final List<Service> services})
+          required final List<ParsedService> services})
       : _context = context,
         _alsoKnownAs = alsoKnownAs,
         _verificationMethods = verificationMethods,
@@ -197,20 +197,20 @@ class _$_ParsedDidDoc implements _ParsedDidDoc {
     return EqualUnmodifiableListView(_alsoKnownAs);
   }
 
-  final List<VerificationMethod> _verificationMethods;
+  final List<ParsedVerificationMethod> _verificationMethods;
   @override
   @JsonKey(name: 'verificationMethod')
-  List<VerificationMethod> get verificationMethods {
+  List<ParsedVerificationMethod> get verificationMethods {
     if (_verificationMethods is EqualUnmodifiableListView)
       return _verificationMethods;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_verificationMethods);
   }
 
-  final List<Service> _services;
+  final List<ParsedService> _services;
   @override
   @JsonKey(name: 'service')
-  List<Service> get services {
+  List<ParsedService> get services {
     if (_services is EqualUnmodifiableListView) return _services;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_services);
@@ -266,9 +266,9 @@ abstract class _ParsedDidDoc implements ParsedDidDoc {
       required final String id,
       required final List<String> alsoKnownAs,
       @JsonKey(name: 'verificationMethod')
-          required final List<VerificationMethod> verificationMethods,
+          required final List<ParsedVerificationMethod> verificationMethods,
       @JsonKey(name: 'service')
-          required final List<Service> services}) = _$_ParsedDidDoc;
+          required final List<ParsedService> services}) = _$_ParsedDidDoc;
 
   factory _ParsedDidDoc.fromJson(Map<String, dynamic> json) =
       _$_ParsedDidDoc.fromJson;
@@ -282,10 +282,10 @@ abstract class _ParsedDidDoc implements ParsedDidDoc {
   List<String> get alsoKnownAs;
   @override
   @JsonKey(name: 'verificationMethod')
-  List<VerificationMethod> get verificationMethods;
+  List<ParsedVerificationMethod> get verificationMethods;
   @override
   @JsonKey(name: 'service')
-  List<Service> get services;
+  List<ParsedService> get services;
   @override
   @JsonKey(ignore: true)
   _$$_ParsedDidDocCopyWith<_$_ParsedDidDoc> get copyWith =>
