@@ -21,14 +21,14 @@ _$_ParsedDidDoc _$$_ParsedDidDocFromJson(Map json) => $checkedCreate(
           verificationMethods: $checkedConvert(
               'verificationMethod',
               (v) => (v as List<dynamic>)
-                  .map((e) => VerificationMethod.fromJson(
+                  .map((e) => ParsedVerificationMethod.fromJson(
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
           services: $checkedConvert(
               'service',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      Service.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => ParsedService.fromJson(
+                      Map<String, Object?>.from(e as Map)))
                   .toList()),
         );
         return val;

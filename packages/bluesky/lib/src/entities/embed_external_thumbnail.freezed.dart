@@ -24,8 +24,9 @@ mixin _$EmbedExternalThumbnail {
   String get uri => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
+  @BlobContextConverter()
   @JsonKey(name: 'thumb')
-  Blob? get blob => throw _privateConstructorUsedError;
+  BlobContext? get blob => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,9 +44,9 @@ abstract class $EmbedExternalThumbnailCopyWith<$Res> {
       {String uri,
       String title,
       String description,
-      @JsonKey(name: 'thumb') Blob? blob});
+      @BlobContextConverter() @JsonKey(name: 'thumb') BlobContext? blob});
 
-  $BlobCopyWith<$Res>? get blob;
+  $BlobContextCopyWith<$Res>? get blob;
 }
 
 /// @nodoc
@@ -83,18 +84,18 @@ class _$EmbedExternalThumbnailCopyWithImpl<$Res,
       blob: freezed == blob
           ? _value.blob
           : blob // ignore: cast_nullable_to_non_nullable
-              as Blob?,
+              as BlobContext?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $BlobCopyWith<$Res>? get blob {
+  $BlobContextCopyWith<$Res>? get blob {
     if (_value.blob == null) {
       return null;
     }
 
-    return $BlobCopyWith<$Res>(_value.blob!, (value) {
+    return $BlobContextCopyWith<$Res>(_value.blob!, (value) {
       return _then(_value.copyWith(blob: value) as $Val);
     });
   }
@@ -112,10 +113,10 @@ abstract class _$$_EmbedExternalThumbnailCopyWith<$Res>
       {String uri,
       String title,
       String description,
-      @JsonKey(name: 'thumb') Blob? blob});
+      @BlobContextConverter() @JsonKey(name: 'thumb') BlobContext? blob});
 
   @override
-  $BlobCopyWith<$Res>? get blob;
+  $BlobContextCopyWith<$Res>? get blob;
 }
 
 /// @nodoc
@@ -151,7 +152,7 @@ class __$$_EmbedExternalThumbnailCopyWithImpl<$Res>
       blob: freezed == blob
           ? _value.blob
           : blob // ignore: cast_nullable_to_non_nullable
-              as Blob?,
+              as BlobContext?,
     ));
   }
 }
@@ -164,7 +165,7 @@ class _$_EmbedExternalThumbnail implements _EmbedExternalThumbnail {
       {required this.uri,
       required this.title,
       required this.description,
-      @JsonKey(name: 'thumb') this.blob});
+      @BlobContextConverter() @JsonKey(name: 'thumb') this.blob});
 
   factory _$_EmbedExternalThumbnail.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedExternalThumbnailFromJson(json);
@@ -176,8 +177,9 @@ class _$_EmbedExternalThumbnail implements _EmbedExternalThumbnail {
   @override
   final String description;
   @override
+  @BlobContextConverter()
   @JsonKey(name: 'thumb')
-  final Blob? blob;
+  final BlobContext? blob;
 
   @override
   String toString() {
@@ -220,7 +222,9 @@ abstract class _EmbedExternalThumbnail implements EmbedExternalThumbnail {
       {required final String uri,
       required final String title,
       required final String description,
-      @JsonKey(name: 'thumb') final Blob? blob}) = _$_EmbedExternalThumbnail;
+      @BlobContextConverter()
+      @JsonKey(name: 'thumb')
+          final BlobContext? blob}) = _$_EmbedExternalThumbnail;
 
   factory _EmbedExternalThumbnail.fromJson(Map<String, dynamic> json) =
       _$_EmbedExternalThumbnail.fromJson;
@@ -232,8 +236,9 @@ abstract class _EmbedExternalThumbnail implements EmbedExternalThumbnail {
   @override
   String get description;
   @override
+  @BlobContextConverter()
   @JsonKey(name: 'thumb')
-  Blob? get blob;
+  BlobContext? get blob;
   @override
   @JsonKey(ignore: true)
   _$$_EmbedExternalThumbnailCopyWith<_$_EmbedExternalThumbnail> get copyWith =>
