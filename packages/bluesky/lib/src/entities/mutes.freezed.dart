@@ -21,7 +21,7 @@ Mutes _$MutesFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Mutes {
   List<Actor> get mutes => throw _privateConstructorUsedError;
-  String get cursor => throw _privateConstructorUsedError;
+  String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +33,7 @@ abstract class $MutesCopyWith<$Res> {
   factory $MutesCopyWith(Mutes value, $Res Function(Mutes) then) =
       _$MutesCopyWithImpl<$Res, Mutes>;
   @useResult
-  $Res call({List<Actor> mutes, String cursor});
+  $Res call({List<Actor> mutes, String? cursor});
 }
 
 /// @nodoc
@@ -50,17 +50,17 @@ class _$MutesCopyWithImpl<$Res, $Val extends Mutes>
   @override
   $Res call({
     Object? mutes = null,
-    Object? cursor = null,
+    Object? cursor = freezed,
   }) {
     return _then(_value.copyWith(
       mutes: null == mutes
           ? _value.mutes
           : mutes // ignore: cast_nullable_to_non_nullable
               as List<Actor>,
-      cursor: null == cursor
+      cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -71,7 +71,7 @@ abstract class _$$_MutesCopyWith<$Res> implements $MutesCopyWith<$Res> {
       __$$_MutesCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Actor> mutes, String cursor});
+  $Res call({List<Actor> mutes, String? cursor});
 }
 
 /// @nodoc
@@ -84,17 +84,17 @@ class __$$_MutesCopyWithImpl<$Res> extends _$MutesCopyWithImpl<$Res, _$_Mutes>
   @override
   $Res call({
     Object? mutes = null,
-    Object? cursor = null,
+    Object? cursor = freezed,
   }) {
     return _then(_$_Mutes(
       mutes: null == mutes
           ? _value._mutes
           : mutes // ignore: cast_nullable_to_non_nullable
               as List<Actor>,
-      cursor: null == cursor
+      cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -102,7 +102,7 @@ class __$$_MutesCopyWithImpl<$Res> extends _$MutesCopyWithImpl<$Res, _$_Mutes>
 /// @nodoc
 @JsonSerializable()
 class _$_Mutes implements _Mutes {
-  const _$_Mutes({required final List<Actor> mutes, required this.cursor})
+  const _$_Mutes({required final List<Actor> mutes, this.cursor})
       : _mutes = mutes;
 
   factory _$_Mutes.fromJson(Map<String, dynamic> json) =>
@@ -117,7 +117,7 @@ class _$_Mutes implements _Mutes {
   }
 
   @override
-  final String cursor;
+  final String? cursor;
 
   @override
   String toString() {
@@ -154,15 +154,14 @@ class _$_Mutes implements _Mutes {
 
 abstract class _Mutes implements Mutes {
   const factory _Mutes(
-      {required final List<Actor> mutes,
-      required final String cursor}) = _$_Mutes;
+      {required final List<Actor> mutes, final String? cursor}) = _$_Mutes;
 
   factory _Mutes.fromJson(Map<String, dynamic> json) = _$_Mutes.fromJson;
 
   @override
   List<Actor> get mutes;
   @override
-  String get cursor;
+  String? get cursor;
   @override
   @JsonKey(ignore: true)
   _$$_MutesCopyWith<_$_Mutes> get copyWith =>

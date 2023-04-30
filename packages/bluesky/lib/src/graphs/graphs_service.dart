@@ -7,6 +7,7 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../bluesky_base_service.dart';
+import '../entities/blocks.dart';
 import '../entities/followers.dart';
 import '../entities/follows.dart';
 import '../entities/mutes.dart';
@@ -156,6 +157,49 @@ abstract class GraphsService {
     int? limit,
     String? cursor,
   });
+
+  /// Who is the requester's account blocking?
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getBlocks
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getBlocks.json
+  Future<core.XRPCResponse<Blocks>> findBlocks({
+    int? limit,
+    String? cursor,
+  });
+
+  /// A block.
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: The unique user id.
+  ///
+  /// - [createdAt]: Date and time the follow was created.
+  ///                If omitted, defaults to the current time.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.createRecord
+  /// - app.bsky.graph.block
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getBlocks.json
+  Future<core.XRPCResponse<atp.Record>> createBlock({
+    required String did,
+    DateTime? createdAt,
+  });
 }
 
 class _GraphsService extends BlueskyBaseService implements GraphsService {
@@ -248,5 +292,32 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
           'cursor': cursor,
         },
         to: Mutes.fromJson,
+      );
+
+  @override
+  Future<atp.XRPCResponse<Blocks>> findBlocks({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await super.get(
+        'getBlocks',
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: Blocks.fromJson,
+      );
+
+  @override
+  Future<atp.XRPCResponse<atp.Record>> createBlock({
+    required String did,
+    DateTime? createdAt,
+  }) async =>
+      await atproto.repositories.createRecord(
+        collection: createNSID('block'),
+        record: {
+          'subject': did,
+          'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+        },
       );
 }

@@ -22,6 +22,9 @@ ActorViewer _$ActorViewerFromJson(Map<String, dynamic> json) {
 mixin _$ActorViewer {
   @JsonKey(name: 'muted')
   bool get isMuted => throw _privateConstructorUsedError;
+  @JsonKey(name: 'blockedBy')
+  bool get isBlockedBy => throw _privateConstructorUsedError;
+  String? get blocking => throw _privateConstructorUsedError;
   String? get following => throw _privateConstructorUsedError;
   String? get followedBy => throw _privateConstructorUsedError;
 
@@ -39,6 +42,8 @@ abstract class $ActorViewerCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'muted') bool isMuted,
+      @JsonKey(name: 'blockedBy') bool isBlockedBy,
+      String? blocking,
       String? following,
       String? followedBy});
 }
@@ -57,6 +62,8 @@ class _$ActorViewerCopyWithImpl<$Res, $Val extends ActorViewer>
   @override
   $Res call({
     Object? isMuted = null,
+    Object? isBlockedBy = null,
+    Object? blocking = freezed,
     Object? following = freezed,
     Object? followedBy = freezed,
   }) {
@@ -65,6 +72,14 @@ class _$ActorViewerCopyWithImpl<$Res, $Val extends ActorViewer>
           ? _value.isMuted
           : isMuted // ignore: cast_nullable_to_non_nullable
               as bool,
+      isBlockedBy: null == isBlockedBy
+          ? _value.isBlockedBy
+          : isBlockedBy // ignore: cast_nullable_to_non_nullable
+              as bool,
+      blocking: freezed == blocking
+          ? _value.blocking
+          : blocking // ignore: cast_nullable_to_non_nullable
+              as String?,
       following: freezed == following
           ? _value.following
           : following // ignore: cast_nullable_to_non_nullable
@@ -87,6 +102,8 @@ abstract class _$$_ActorViewerCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'muted') bool isMuted,
+      @JsonKey(name: 'blockedBy') bool isBlockedBy,
+      String? blocking,
       String? following,
       String? followedBy});
 }
@@ -103,6 +120,8 @@ class __$$_ActorViewerCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isMuted = null,
+    Object? isBlockedBy = null,
+    Object? blocking = freezed,
     Object? following = freezed,
     Object? followedBy = freezed,
   }) {
@@ -111,6 +130,14 @@ class __$$_ActorViewerCopyWithImpl<$Res>
           ? _value.isMuted
           : isMuted // ignore: cast_nullable_to_non_nullable
               as bool,
+      isBlockedBy: null == isBlockedBy
+          ? _value.isBlockedBy
+          : isBlockedBy // ignore: cast_nullable_to_non_nullable
+              as bool,
+      blocking: freezed == blocking
+          ? _value.blocking
+          : blocking // ignore: cast_nullable_to_non_nullable
+              as String?,
       following: freezed == following
           ? _value.following
           : following // ignore: cast_nullable_to_non_nullable
@@ -129,6 +156,8 @@ class __$$_ActorViewerCopyWithImpl<$Res>
 class _$_ActorViewer implements _ActorViewer {
   const _$_ActorViewer(
       {@JsonKey(name: 'muted') required this.isMuted,
+      @JsonKey(name: 'blockedBy') required this.isBlockedBy,
+      this.blocking,
       this.following,
       this.followedBy});
 
@@ -139,13 +168,18 @@ class _$_ActorViewer implements _ActorViewer {
   @JsonKey(name: 'muted')
   final bool isMuted;
   @override
+  @JsonKey(name: 'blockedBy')
+  final bool isBlockedBy;
+  @override
+  final String? blocking;
+  @override
   final String? following;
   @override
   final String? followedBy;
 
   @override
   String toString() {
-    return 'ActorViewer(isMuted: $isMuted, following: $following, followedBy: $followedBy)';
+    return 'ActorViewer(isMuted: $isMuted, isBlockedBy: $isBlockedBy, blocking: $blocking, following: $following, followedBy: $followedBy)';
   }
 
   @override
@@ -154,6 +188,10 @@ class _$_ActorViewer implements _ActorViewer {
         (other.runtimeType == runtimeType &&
             other is _$_ActorViewer &&
             (identical(other.isMuted, isMuted) || other.isMuted == isMuted) &&
+            (identical(other.isBlockedBy, isBlockedBy) ||
+                other.isBlockedBy == isBlockedBy) &&
+            (identical(other.blocking, blocking) ||
+                other.blocking == blocking) &&
             (identical(other.following, following) ||
                 other.following == following) &&
             (identical(other.followedBy, followedBy) ||
@@ -162,7 +200,8 @@ class _$_ActorViewer implements _ActorViewer {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, isMuted, following, followedBy);
+  int get hashCode => Object.hash(
+      runtimeType, isMuted, isBlockedBy, blocking, following, followedBy);
 
   @JsonKey(ignore: true)
   @override
@@ -181,6 +220,8 @@ class _$_ActorViewer implements _ActorViewer {
 abstract class _ActorViewer implements ActorViewer {
   const factory _ActorViewer(
       {@JsonKey(name: 'muted') required final bool isMuted,
+      @JsonKey(name: 'blockedBy') required final bool isBlockedBy,
+      final String? blocking,
       final String? following,
       final String? followedBy}) = _$_ActorViewer;
 
@@ -190,6 +231,11 @@ abstract class _ActorViewer implements ActorViewer {
   @override
   @JsonKey(name: 'muted')
   bool get isMuted;
+  @override
+  @JsonKey(name: 'blockedBy')
+  bool get isBlockedBy;
+  @override
+  String? get blocking;
   @override
   String? get following;
   @override

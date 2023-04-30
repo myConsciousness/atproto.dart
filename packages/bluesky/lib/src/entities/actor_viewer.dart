@@ -15,6 +15,8 @@ class ActorViewer with _$ActorViewer {
   @JsonSerializable(includeIfNull: false)
   const factory ActorViewer({
     @JsonKey(name: 'muted') required bool isMuted,
+    @JsonKey(name: 'blockedBy') required bool isBlockedBy,
+    String? blocking,
     String? following,
     String? followedBy,
   }) = _ActorViewer;

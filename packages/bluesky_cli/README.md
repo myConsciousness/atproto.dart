@@ -82,6 +82,8 @@ Global options:
 
 Available commands:
   actors-typeahead     Show the typeahead for actors.
+  block                Block an user.
+  blocks               Show the blocked users.
   delete               Delete a specific contents from repository.
   feed                 Show the feed of specific actor.
   follow               Follow an user.

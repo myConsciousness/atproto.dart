@@ -23,7 +23,7 @@ mixin _$Likes {
   List<Like> get likes => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
-  String get cursor => throw _privateConstructorUsedError;
+  String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $LikesCopyWith<$Res> {
   factory $LikesCopyWith(Likes value, $Res Function(Likes) then) =
       _$LikesCopyWithImpl<$Res, Likes>;
   @useResult
-  $Res call({List<Like> likes, @AtUriConverter() AtUri uri, String cursor});
+  $Res call({List<Like> likes, @AtUriConverter() AtUri uri, String? cursor});
 }
 
 /// @nodoc
@@ -53,7 +53,7 @@ class _$LikesCopyWithImpl<$Res, $Val extends Likes>
   $Res call({
     Object? likes = null,
     Object? uri = null,
-    Object? cursor = null,
+    Object? cursor = freezed,
   }) {
     return _then(_value.copyWith(
       likes: null == likes
@@ -64,10 +64,10 @@ class _$LikesCopyWithImpl<$Res, $Val extends Likes>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      cursor: null == cursor
+      cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -78,7 +78,7 @@ abstract class _$$_LikesCopyWith<$Res> implements $LikesCopyWith<$Res> {
       __$$_LikesCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Like> likes, @AtUriConverter() AtUri uri, String cursor});
+  $Res call({List<Like> likes, @AtUriConverter() AtUri uri, String? cursor});
 }
 
 /// @nodoc
@@ -92,7 +92,7 @@ class __$$_LikesCopyWithImpl<$Res> extends _$LikesCopyWithImpl<$Res, _$_Likes>
   $Res call({
     Object? likes = null,
     Object? uri = null,
-    Object? cursor = null,
+    Object? cursor = freezed,
   }) {
     return _then(_$_Likes(
       likes: null == likes
@@ -103,10 +103,10 @@ class __$$_LikesCopyWithImpl<$Res> extends _$LikesCopyWithImpl<$Res, _$_Likes>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      cursor: null == cursor
+      cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -117,7 +117,7 @@ class _$_Likes implements _Likes {
   const _$_Likes(
       {required final List<Like> likes,
       @AtUriConverter() required this.uri,
-      required this.cursor})
+      this.cursor})
       : _likes = likes;
 
   factory _$_Likes.fromJson(Map<String, dynamic> json) =>
@@ -135,7 +135,7 @@ class _$_Likes implements _Likes {
   @AtUriConverter()
   final AtUri uri;
   @override
-  final String cursor;
+  final String? cursor;
 
   @override
   String toString() {
@@ -175,7 +175,7 @@ abstract class _Likes implements Likes {
   const factory _Likes(
       {required final List<Like> likes,
       @AtUriConverter() required final AtUri uri,
-      required final String cursor}) = _$_Likes;
+      final String? cursor}) = _$_Likes;
 
   factory _Likes.fromJson(Map<String, dynamic> json) = _$_Likes.fromJson;
 
@@ -185,7 +185,7 @@ abstract class _Likes implements Likes {
   @AtUriConverter()
   AtUri get uri;
   @override
-  String get cursor;
+  String? get cursor;
   @override
   @JsonKey(ignore: true)
   _$$_LikesCopyWith<_$_Likes> get copyWith =>
