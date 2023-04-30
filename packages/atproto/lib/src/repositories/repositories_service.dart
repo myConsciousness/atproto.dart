@@ -9,6 +9,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../atproto_base_service.dart';
 import '../entities/blob_data.dart';
 import '../entities/record.dart';
+import '../entities/repo.dart';
 import '../entities/strong_ref.dart';
 
 abstract class RepositoriesService {
@@ -127,6 +128,23 @@ abstract class RepositoriesService {
   Future<core.XRPCResponse<BlobData>> uploadBlob(
     final File file,
   );
+
+  /// Get information about the repo, including the list of collections.
+  ///
+  /// ## Parameters
+  ///
+  /// - [identifier]: The handle or DID of the repo.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.describeRepo
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/describeRepo.json
+  Future<core.XRPCResponse<Repo>> findRepo({
+    required String identifier,
+  });
 }
 
 class _RepositoriesService extends ATProtoBaseService
@@ -207,5 +225,18 @@ class _RepositoriesService extends ATProtoBaseService
         super.createNSID('uploadBlob'),
         file,
         to: BlobData.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Repo>> findRepo({
+    required String identifier,
+  }) async =>
+      await super.get(
+        'describeRepo',
+        parameters: {
+          'repo': identifier,
+        },
+        to: Repo.fromJson,
+        userContext: core.UserContext.anonymousOnly,
       );
 }
