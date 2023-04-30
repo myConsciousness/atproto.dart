@@ -17,6 +17,8 @@ import 'feed/repost.dart';
 import 'feed/reposted_by.dart';
 import 'feed/thread.dart';
 import 'feed/timeline.dart';
+import 'graph/block.dart';
+import 'graph/blocks.dart';
 import 'graph/follow.dart';
 import 'graph/followers.dart';
 import 'graph/follows.dart';
@@ -64,6 +66,8 @@ final graphCommands = <BskyCommand>[
   MuteCommand(),
   UnmuteCommand(),
   MutesCommand(),
+  BlockCommand(),
+  BlocksCommand(),
 ];
 
 final unspeccedCommands = <BskyCommand>[
