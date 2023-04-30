@@ -21,7 +21,7 @@ Actors _$ActorsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Actors {
   List<Actor> get actors => throw _privateConstructorUsedError;
-  String get cursor => throw _privateConstructorUsedError;
+  String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +33,7 @@ abstract class $ActorsCopyWith<$Res> {
   factory $ActorsCopyWith(Actors value, $Res Function(Actors) then) =
       _$ActorsCopyWithImpl<$Res, Actors>;
   @useResult
-  $Res call({List<Actor> actors, String cursor});
+  $Res call({List<Actor> actors, String? cursor});
 }
 
 /// @nodoc
@@ -50,17 +50,17 @@ class _$ActorsCopyWithImpl<$Res, $Val extends Actors>
   @override
   $Res call({
     Object? actors = null,
-    Object? cursor = null,
+    Object? cursor = freezed,
   }) {
     return _then(_value.copyWith(
       actors: null == actors
           ? _value.actors
           : actors // ignore: cast_nullable_to_non_nullable
               as List<Actor>,
-      cursor: null == cursor
+      cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -71,7 +71,7 @@ abstract class _$$_ActorsCopyWith<$Res> implements $ActorsCopyWith<$Res> {
       __$$_ActorsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Actor> actors, String cursor});
+  $Res call({List<Actor> actors, String? cursor});
 }
 
 /// @nodoc
@@ -85,17 +85,17 @@ class __$$_ActorsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? actors = null,
-    Object? cursor = null,
+    Object? cursor = freezed,
   }) {
     return _then(_$_Actors(
       actors: null == actors
           ? _value._actors
           : actors // ignore: cast_nullable_to_non_nullable
               as List<Actor>,
-      cursor: null == cursor
+      cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -103,7 +103,7 @@ class __$$_ActorsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Actors implements _Actors {
-  const _$_Actors({required final List<Actor> actors, required this.cursor})
+  const _$_Actors({required final List<Actor> actors, this.cursor})
       : _actors = actors;
 
   factory _$_Actors.fromJson(Map<String, dynamic> json) =>
@@ -118,7 +118,7 @@ class _$_Actors implements _Actors {
   }
 
   @override
-  final String cursor;
+  final String? cursor;
 
   @override
   String toString() {
@@ -155,15 +155,14 @@ class _$_Actors implements _Actors {
 
 abstract class _Actors implements Actors {
   const factory _Actors(
-      {required final List<Actor> actors,
-      required final String cursor}) = _$_Actors;
+      {required final List<Actor> actors, final String? cursor}) = _$_Actors;
 
   factory _Actors.fromJson(Map<String, dynamic> json) = _$_Actors.fromJson;
 
   @override
   List<Actor> get actors;
   @override
-  String get cursor;
+  String? get cursor;
   @override
   @JsonKey(ignore: true)
   _$$_ActorsCopyWith<_$_Actors> get copyWith =>

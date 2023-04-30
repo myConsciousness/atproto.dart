@@ -13,6 +13,7 @@
         "avatar": "https://cdn.bsky.social/imgproxy/iWeJaZIxcw1gXlNudENlFDQHzb6ZuGEp9JGlYBlRRLs/rs:fill:1000:1000:1:0/plain/bafkreiaamsjmwczz7rd2d4pololrfdw2za7cj4zwiqbgz7q6sp4yqgvscm@jpeg",
         "viewer": {
           "muted": false,
+          "blockedBy": false,
           "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jriwhw4uws2d",
           "followedBy": "at://did:plc:d3zpokjdspr22chfrc427eis/app.bsky.graph.follow/3jt4vdct4s22h"
         }

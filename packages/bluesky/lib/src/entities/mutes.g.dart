@@ -19,7 +19,7 @@ _$_Mutes _$$_MutesFromJson(Map json) => $checkedCreate(
                   .map((e) =>
                       Actor.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
-          cursor: $checkedConvert('cursor', (v) => v as String),
+          cursor: $checkedConvert('cursor', (v) => v as String?),
         );
         return val;
       },

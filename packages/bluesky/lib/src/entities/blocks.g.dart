@@ -2,21 +2,19 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'follows.dart';
+part of 'blocks.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Follows _$$_FollowsFromJson(Map json) => $checkedCreate(
-      r'_$_Follows',
+_$_Blocks _$$_BlocksFromJson(Map json) => $checkedCreate(
+      r'_$_Blocks',
       json,
       ($checkedConvert) {
-        final val = _$_Follows(
-          subject: $checkedConvert('subject',
-              (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
-          follows: $checkedConvert(
-              'follows',
+        final val = _$_Blocks(
+          blocks: $checkedConvert(
+              'blocks',
               (v) => (v as List<dynamic>)
                   .map((e) =>
                       Actor.fromJson(Map<String, Object?>.from(e as Map)))
@@ -27,9 +25,17 @@ _$_Follows _$$_FollowsFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_FollowsToJson(_$_Follows instance) =>
-    <String, dynamic>{
-      'subject': instance.subject.toJson(),
-      'follows': instance.follows.map((e) => e.toJson()).toList(),
-      'cursor': instance.cursor,
-    };
+Map<String, dynamic> _$$_BlocksToJson(_$_Blocks instance) {
+  final val = <String, dynamic>{
+    'blocks': instance.blocks.map((e) => e.toJson()).toList(),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('cursor', instance.cursor);
+  return val;
+}

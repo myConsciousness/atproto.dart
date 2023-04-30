@@ -17,7 +17,7 @@ class Follows with _$Follows {
   const factory Follows({
     required Actor subject,
     required List<Actor> follows,
-    required String cursor,
+    String? cursor,
   }) = _Follows;
 
   factory Follows.fromJson(Map<String, Object?> json) =>

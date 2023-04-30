@@ -470,4 +470,156 @@ void main() {
       );
     });
   });
+
+  group('.createBlock', () {
+    test('normal case', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/graphs/data/create_block.json',
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      final response = await graphs.createBlock(
+        did: 'test',
+        createdAt: DateTime.now(),
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Record>());
+    });
+
+    test('when unauthorized', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+            statusCode: 401,
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await graphs.createBlock(
+          did: 'test',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+            statusCode: 429,
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await graphs.createBlock(
+          did: 'test',
+        ),
+      );
+    });
+  });
+
+  group('.findBlocks', () {
+    test('normal case', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/graphs/data/find_blocks.json',
+        ),
+      );
+
+      final response = await graphs.findBlocks(
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Blocks>());
+    });
+
+    test('when unauthorized', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await graphs.findBlocks(
+          limit: 10,
+          cursor: '1234',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await graphs.findBlocks(
+          limit: 10,
+          cursor: '1234',
+        ),
+      );
+    });
+  });
 }

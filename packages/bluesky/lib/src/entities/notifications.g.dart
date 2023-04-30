@@ -19,7 +19,7 @@ _$_Notifications _$$_NotificationsFromJson(Map json) => $checkedCreate(
                   .map((e) => Notification.fromJson(
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
-          cursor: $checkedConvert('cursor', (v) => v as String),
+          cursor: $checkedConvert('cursor', (v) => v as String?),
         );
         return val;
       },

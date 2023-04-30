@@ -14,7 +14,7 @@ part 'notifications.g.dart';
 class Notifications with _$Notifications {
   const factory Notifications({
     required List<Notification> notifications,
-    required String cursor,
+    String? cursor,
   }) = _Notifications;
 
   factory Notifications.fromJson(Map<String, Object?> json) =>
