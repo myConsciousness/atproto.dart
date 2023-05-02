@@ -23,6 +23,7 @@ export 'package:atproto/src/entities/parsed_did_doc.dart';
 export 'package:atproto/src/entities/parsed_service.dart';
 export 'package:atproto/src/entities/parsed_verification_method.dart';
 export 'package:atproto/src/entities/record.dart';
+export 'package:atproto/src/entities/record_value.dart';
 export 'package:atproto/src/entities/repo.dart';
 export 'package:atproto/src/entities/repo_ref.dart';
 export 'package:atproto/src/entities/report.dart';

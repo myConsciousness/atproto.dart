@@ -1,0 +1,31 @@
+{
+  "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3juqjtr23dk2h",
+  "cid": "bafyreiaffp6kg4sdy6opdm4jryusit3hqchyb46ofi4xwsnzzikkfdfu6e",
+  "value": {
+    "text": "@yui.bsky.social /card",
+    "$type": "app.bsky.feed.post",
+    "reply": {
+      "root": {
+        "cid": "bafyreiffl5skyyhl7zuwe2bfqesgp53sy4styqcseg2p76xnzf53ujgbta",
+        "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3juqjg3lgot2z"
+      },
+      "parent": {
+        "cid": "bafyreiffl5skyyhl7zuwe2bfqesgp53sy4styqcseg2p76xnzf53ujgbta",
+        "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3juqjg3lgot2z"
+      }
+    },
+    "facets": [
+      {
+        "$type": "app.bsky.richtext.facet",
+        "index": { "byteEnd": 16, "byteStart": 0 },
+        "features": [
+          {
+            "did": "did:plc:4hqjfn7m6n5hno3doamuhgef",
+            "$type": "app.bsky.richtext.facet#mention"
+          }
+        ]
+      }
+    ],
+    "createdAt": "2023-05-02T11:07:53.210Z"
+  }
+}

@@ -9,6 +9,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../atproto_base_service.dart';
 import '../entities/blob_data.dart';
 import '../entities/record.dart';
+import '../entities/record_value.dart';
 import '../entities/repo.dart';
 import '../entities/strong_ref.dart';
 
@@ -58,6 +59,27 @@ abstract class RepositoriesService {
     bool? validate,
     String? swapRecordCid,
     String? swapCommitCid,
+  });
+
+  /// Get a record.
+  ///
+  /// ## Parameters
+  ///
+  /// - [uri]: The AT URI of record.
+  ///
+  /// - [cid]: The CID of the version of the record. If not specified,
+  ///          then return the most recent version.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.getRecord
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/getRecord.json
+  Future<core.XRPCResponse<RecordValue>> findRecord({
+    required core.AtUri uri,
+    String? cid,
   });
 
   /// Delete a record, or ensure it doesn't exist.
@@ -178,6 +200,22 @@ class _RepositoriesService extends ATProtoBaseService
           'swapCommit': swapCommitCid
         },
         to: Record.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<RecordValue>> findRecord({
+    required core.AtUri uri,
+    String? cid,
+  }) async =>
+      await super.get(
+        'getRecord',
+        parameters: {
+          'repo': did,
+          'collection': uri.collection,
+          'rkey': uri.rkey,
+          'cid': cid,
+        },
+        to: RecordValue.fromJson,
       );
 
   @override
