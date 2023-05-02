@@ -14,6 +14,8 @@ export 'package:atproto/atproto.dart'
         BlobRef,
         CurrentSession,
         Account,
+        CreatedInviteCode,
+        InviteCodeUse,
         InviteCode,
         InviteCodes,
         AppPassword,

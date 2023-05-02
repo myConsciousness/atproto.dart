@@ -9,8 +9,8 @@ import '../atproto_base_service.dart';
 import '../entities/account.dart';
 import '../entities/app_password.dart';
 import '../entities/app_passwords.dart';
+import '../entities/created_invite_code.dart';
 import '../entities/current_session.dart';
-import '../entities/invite_code.dart';
 import '../entities/invite_codes.dart';
 import '../entities/session.dart';
 
@@ -207,7 +207,7 @@ abstract class ServersService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createInviteCode.json
-  Future<core.XRPCResponse<InviteCode>> createInviteCode({
+  Future<core.XRPCResponse<CreatedInviteCode>> createInviteCode({
     required int useCount,
     String? forAccount,
   });
@@ -388,7 +388,7 @@ class _ServersService extends ATProtoBaseService implements ServersService {
       );
 
   @override
-  Future<core.XRPCResponse<InviteCode>> createInviteCode({
+  Future<core.XRPCResponse<CreatedInviteCode>> createInviteCode({
     required int useCount,
     String? forAccount,
   }) async =>
@@ -398,7 +398,7 @@ class _ServersService extends ATProtoBaseService implements ServersService {
           'useCount': useCount,
           'forAccount': forAccount,
         },
-        to: InviteCode.fromJson,
+        to: CreatedInviteCode.fromJson,
       );
 
   @override

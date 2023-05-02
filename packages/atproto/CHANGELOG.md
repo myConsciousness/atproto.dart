@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.9
+
+- Added additional fields in `InviteCode` object.  ([#326](https://github.com/myConsciousness/atproto.dart/issues/326))
+
 ## v0.2.8
 
 - Supported `findRepo`. ([#303](https://github.com/myConsciousness/atproto.dart/issues/303))
