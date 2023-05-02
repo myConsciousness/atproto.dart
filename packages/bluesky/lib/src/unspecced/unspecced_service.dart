@@ -32,6 +32,9 @@ abstract class UnspeccedService {
   ///
   /// ## Parameters
   ///
+  /// - [includeNsfw]: Include NSFW content in the results?
+  ///                  Defaults to false.
+  ///
   /// - [limit]: Maximum number of search results. From 1 to 100.
   ///            The default is 50.
   ///
@@ -45,6 +48,7 @@ abstract class UnspeccedService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopular.json
   Future<core.XRPCResponse<Feed>> findPopularFeed({
+    bool? includeNsfw,
     int? limit,
     String? cursor,
   });
@@ -63,12 +67,14 @@ class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
 
   @override
   Future<atp.XRPCResponse<Feed>> findPopularFeed({
+    bool? includeNsfw,
     int? limit,
     String? cursor,
   }) async =>
       await super.get(
         'getPopular',
         parameters: {
+          'includeNsfw': includeNsfw,
           'limit': limit,
           'cursor': cursor,
         },
