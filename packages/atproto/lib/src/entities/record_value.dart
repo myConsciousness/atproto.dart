@@ -2,6 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: invalid_annotation_target
+
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -11,6 +13,7 @@ part 'record_value.g.dart';
 
 @freezed
 class RecordValue with _$RecordValue {
+  @JsonSerializable(includeIfNull: false)
   const factory RecordValue({
     @AtUriConverter() required AtUri uri,
     String? cid,

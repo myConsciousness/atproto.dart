@@ -120,7 +120,8 @@ class __$$_RecordValueCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(includeIfNull: false)
 class _$_RecordValue implements _RecordValue {
   const _$_RecordValue(
       {@AtUriConverter() required this.uri,

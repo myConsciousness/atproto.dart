@@ -23,9 +23,18 @@ _$_RecordValue _$$_RecordValueFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_RecordValueToJson(_$_RecordValue instance) =>
-    <String, dynamic>{
-      'uri': const AtUriConverter().toJson(instance.uri),
-      'cid': instance.cid,
-      'value': instance.value,
-    };
+Map<String, dynamic> _$$_RecordValueToJson(_$_RecordValue instance) {
+  final val = <String, dynamic>{
+    'uri': const AtUriConverter().toJson(instance.uri),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('cid', instance.cid);
+  val['value'] = instance.value;
+  return val;
+}
