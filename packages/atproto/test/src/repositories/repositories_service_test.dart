@@ -2,7 +2,6 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:atproto/atproto.dart';
 import 'package:atproto/src/entities/record.dart';
 import 'package:atproto/src/entities/record_value.dart';
 import 'package:atproto/src/entities/repo.dart';
@@ -307,7 +306,7 @@ void main() {
       );
 
       final response = await repositories.findRecord(
-        uri: AtUri.parse(
+        uri: core.AtUri.parse(
           'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3juqjtr23dk2h',
         ),
       );
@@ -333,7 +332,7 @@ void main() {
 
       atp_test.expectUnauthorizedException(
         () async => await repositories.findRecord(
-          uri: AtUri.parse(
+          uri: core.AtUri.parse(
             'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3juqjtr23dk2h',
           ),
         ),
@@ -357,7 +356,7 @@ void main() {
 
       atp_test.expectRateLimitExceededException(
         () async => await repositories.findRecord(
-          uri: AtUri.parse(
+          uri: core.AtUri.parse(
             'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3juqjtr23dk2h',
           ),
         ),
