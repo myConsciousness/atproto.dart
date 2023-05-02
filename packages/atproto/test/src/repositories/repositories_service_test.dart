@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 import 'package:atproto/src/entities/record.dart';
+import 'package:atproto/src/entities/record_value.dart';
 import 'package:atproto/src/entities/repo.dart';
 import 'package:atproto/src/entities/strong_ref.dart';
 import 'package:atproto/src/repositories/repositories_service.dart';
@@ -284,6 +285,80 @@ void main() {
       atp_test.expectRateLimitExceededException(
         () async => await repositories.findRepo(
           identifier: 'shinyakato.dev',
+        ),
+      );
+    });
+  });
+
+  group('.findRecord', () {
+    test('normal case', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/repositories/data/find_record.json',
+        ),
+      );
+
+      final response = await repositories.findRecord(
+        uri: core.AtUri.parse(
+          'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3juqjtr23dk2h',
+        ),
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<RecordValue>());
+    });
+
+    test('when unauthorized', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await repositories.findRecord(
+          uri: core.AtUri.parse(
+            'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3juqjtr23dk2h',
+          ),
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await repositories.findRecord(
+          uri: core.AtUri.parse(
+            'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3juqjtr23dk2h',
+          ),
         ),
       );
     });

@@ -6,6 +6,7 @@ export 'package:atproto/atproto.dart'
     show
         Session,
         Record,
+        RecordValue,
         DID,
         Blob,
         LegacyBlob,

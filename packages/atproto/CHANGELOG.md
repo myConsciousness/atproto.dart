@@ -3,6 +3,7 @@
 ## v0.2.9
 
 - Added additional fields in `InviteCode` object.  ([#326](https://github.com/myConsciousness/atproto.dart/issues/326))
+- Supported `findRecord` in `RepositoriesService`. ([#304](https://github.com/myConsciousness/atproto.dart/issues/304))
 
 ## v0.2.8
 
