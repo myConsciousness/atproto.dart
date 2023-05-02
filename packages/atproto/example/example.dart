@@ -2,17 +2,18 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'dart:convert';
-
 import 'package:atproto/atproto.dart' as atp;
 
 Future<void> main() async {
   try {
     //! First you need to establish session with ATP server.
     final session = await atp.createSession(
-      identifier: 'shinyakato.dev', //! Like `shinyakato.bsky.social`
-      password: 'guzmuk-Tikkyg-5diwci',
+      service: 'SERVICE_NAME', //! The default is `bsky.social`
+      identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
+      password: 'YOUR_PASSWORD',
     );
+
+    print(session);
 
     final atproto = atp.ATProto.fromSession(
       session.data,
@@ -35,9 +36,22 @@ Future<void> main() async {
       timeout: Duration(seconds: 20),
     );
 
-    final a = await atproto.servers.findInviteCodes(includeUsed: true);
+    //! Create a record to specific service.
+    final createdRecord = await atproto.repositories.createRecord(
+      collection: atp.NSID.create(
+        'feed.bsky.app',
+        'post',
+      ),
+      record: {
+        'text': 'Hello, Bluesky!',
+        "createdAt": DateTime.now().toUtc().toIso8601String(),
+      },
+    );
 
-    print(jsonEncode(a.toJson()));
+    //! And delete it.
+    await atproto.repositories.deleteRecord(
+      uri: createdRecord.data.uri,
+    );
   } on atp.UnauthorizedException catch (e) {
     print(e);
   } on atp.XRPCException catch (e) {
