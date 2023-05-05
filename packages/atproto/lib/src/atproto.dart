@@ -53,6 +53,22 @@ abstract class ATProto {
         retryConfig: retryConfig,
       );
 
+  /// Returns the new instance of [ATProto] as anonymous.
+  factory ATProto.anonymous({
+    core.Protocol protocol = core.Protocol.https,
+    String service = 'bsky.social',
+    Duration timeout = const Duration(seconds: 10),
+    core.RetryConfig? retryConfig,
+  }) =>
+      _ATProto(
+        did: '',
+        accessJwt: '',
+        protocol: protocol,
+        service: service,
+        timeout: timeout,
+        retryConfig: retryConfig,
+      );
+
   /// Returns the servers service.
   ServersService get servers;
 

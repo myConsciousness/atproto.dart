@@ -5,6 +5,7 @@
 - Added `includeNsfw` flag to `findPopularFeed`. ([#329](https://github.com/myConsciousness/atproto.dart/issues/329))
 - Added `SyncService` and supported stream API as `subscribeRepos` ([#318](https://github.com/myConsciousness/atproto.dart/issues/318))
 - Made `replies` to nullable in `PostThreadViewRecord`. ([#335](https://github.com/myConsciousness/atproto.dart/issues/335))
+- Added `anonymous` constructor in `Bluesky` object. ([#324](https://github.com/myConsciousness/atproto.dart/issues/324))
 
 ## v0.4.1
 
