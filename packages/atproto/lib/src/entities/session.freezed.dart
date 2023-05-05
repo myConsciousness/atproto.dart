@@ -145,7 +145,8 @@ class __$$_SessionCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(includeIfNull: false)
 class _$_Session implements _Session {
   const _$_Session(
       {required this.did,

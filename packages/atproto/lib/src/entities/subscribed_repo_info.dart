@@ -7,20 +7,17 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'session.freezed.dart';
-part 'session.g.dart';
+part 'subscribed_repo_info.freezed.dart';
+part 'subscribed_repo_info.g.dart';
 
 @freezed
-class Session with _$Session {
+class SubscribedRepoInfo with _$SubscribedRepoInfo {
   @JsonSerializable(includeIfNull: false)
-  const factory Session({
-    required String did,
-    required String handle,
-    String? email,
-    required String accessJwt,
-    required String refreshJwt,
-  }) = _Session;
+  const factory SubscribedRepoInfo({
+    required String name,
+    String? message,
+  }) = _SubscribedRepoInfo;
 
-  factory Session.fromJson(Map<String, Object?> json) =>
-      _$SessionFromJson(json);
+  factory SubscribedRepoInfo.fromJson(Map<String, Object?> json) =>
+      _$SubscribedRepoInfoFromJson(json);
 }

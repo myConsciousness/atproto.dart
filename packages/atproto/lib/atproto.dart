@@ -25,17 +25,25 @@ export 'package:atproto/src/entities/parsed_verification_method.dart';
 export 'package:atproto/src/entities/record.dart';
 export 'package:atproto/src/entities/record_value.dart';
 export 'package:atproto/src/entities/repo.dart';
+export 'package:atproto/src/entities/repo_op.dart';
 export 'package:atproto/src/entities/repo_ref.dart';
 export 'package:atproto/src/entities/report.dart';
 export 'package:atproto/src/entities/report_subject.dart';
 export 'package:atproto/src/entities/sealed_app_password.dart';
 export 'package:atproto/src/entities/session.dart';
 export 'package:atproto/src/entities/strong_ref.dart';
+export 'package:atproto/src/entities/subscribed_repo.dart';
+export 'package:atproto/src/entities/subscribed_repo_commit.dart';
+export 'package:atproto/src/entities/subscribed_repo_handle.dart';
+export 'package:atproto/src/entities/subscribed_repo_info.dart';
+export 'package:atproto/src/entities/subscribed_repo_migrate.dart';
+export 'package:atproto/src/entities/subscribed_repo_tombstone.dart';
 export 'package:atproto/src/identities/identities_service.dart';
 export 'package:atproto/src/moderation/moderation_reason_type.dart';
 export 'package:atproto/src/moderation/moderation_service.dart';
 export 'package:atproto/src/repositories/repositories_service.dart';
 export 'package:atproto/src/servers/servers_service.dart';
+export 'package:atproto/src/sync/sync_service.dart';
 export 'package:atproto_core/atproto_core.dart'
     show
         XRPCResponse,

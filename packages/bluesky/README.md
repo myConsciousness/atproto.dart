@@ -46,6 +46,7 @@
     - [1.3.7. Identity](#137-identity)
     - [1.3.8. Repository](#138-repository)
     - [1.3.9. Moderation](#139-moderation)
+    - [1.3.10. Sync](#1310-sync)
   - [1.4. Tips 🏄](#14-tips-)
     - [1.4.1. Method Names](#141-method-names)
     - [1.4.2. Create Session](#142-create-session)
@@ -265,23 +266,29 @@ Future<bsky.Session> get _session async {
 | ------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | [POST com.atproto.moderation.createReport](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/moderation/createReport.json) | [createReport](https://pub.dev/documentation/atproto/latest/atproto/ModerationService/createReport.html) |
 
+### 1.3.10. Sync
+
+| **Lexicon**                                                                                                                          | **Method Name**                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| [com.atproto.sync.subscribeRepos](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/subscribeRepos.json) | [subscribeRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepos.html) |
+
 ## 1.4. Tips 🏄
 
 ### 1.4.1. Method Names
 
 **bluesky** uses the following standard prefixes depending on endpoint characteristics. So it's very easy to find the method corresponding to the endpoint you want to use!
 
-| Prefix      | Description                                                               |
-| ----------- | ------------------------------------------------------------------------- |
-| **find**    | This prefix is attached to endpoints that reference post etc.             |
-| **search**  | This prefix is attached to endpoints that perform extensive searches.     |
-| **connect** | This prefix is attached to endpoints with high-performance streaming.     |
-| **create**  | This prefix is attached to the endpoint performing the create state.      |
-| **refresh** | This prefix is attached to the endpoint performing the refresh state.     |
-| **delete**  | This prefix is attached to the endpoint performing the delete state.      |
-| **update**  | This prefix is attached to the endpoint performing the update state.      |
-| **upload**  | This prefix is attached to the endpoint performing the upload contents.   |
-| **request** | This prefix is attached to the endpoint performing the request via email. |
+| Prefix        | Description                                                               |
+| ------------- | ------------------------------------------------------------------------- |
+| **find**      | This prefix is attached to endpoints that reference post etc.             |
+| **search**    | This prefix is attached to endpoints that perform extensive searches.     |
+| **subscribe** | This prefix is attached to endpoints with high-performance streaming.     |
+| **create**    | This prefix is attached to the endpoint performing the create state.      |
+| **refresh**   | This prefix is attached to the endpoint performing the refresh state.     |
+| **delete**    | This prefix is attached to the endpoint performing the delete state.      |
+| **update**    | This prefix is attached to the endpoint performing the update state.      |
+| **upload**    | This prefix is attached to the endpoint performing the upload contents.   |
+| **request**   | This prefix is attached to the endpoint performing the request via email. |
 
 ### 1.4.2. Create Session
 

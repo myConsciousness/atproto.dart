@@ -2,6 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -9,7 +10,9 @@ import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 import 'package:mime/mime.dart';
 import 'package:nsid/nsid.dart' as nsid;
+import 'package:web_socket_channel/web_socket_channel.dart';
 
+import 'cbor_decoder.dart';
 import 'client_types.dart';
 import 'entities/empty_data.dart';
 import 'exception/internal_server_error_exception.dart';
@@ -21,6 +24,7 @@ import 'http_method.dart';
 import 'http_status.dart';
 import 'protocol.dart';
 import 'serializable.dart';
+import 'subscription.dart';
 import 'xrpc_error.dart';
 import 'xrpc_request.dart';
 import 'xrpc_response.dart';
@@ -322,7 +326,7 @@ Future<XRPCResponse<T>> upload<T>(
       checkStatus(
         await (postClient ?? http.post).call(
           _getUriFactory(protocol).call(
-            service ?? 'bsky.social',
+            service ?? _defaultService,
             '/xrpc/${methodId.toString()}',
           ),
           headers: {
@@ -333,6 +337,54 @@ Future<XRPCResponse<T>> upload<T>(
       ),
       to,
     );
+
+/// Subscribes endpoints associated with [methodId] in WebSocket.
+XRPCResponse<Subscription<T>> subscribe<T>(
+  final nsid.NSID methodId, {
+  final String? service,
+  final Map<String, dynamic>? parameters,
+  final To<T>? to,
+}) {
+  final uri = _buildWsUri(methodId, service, removeNullValues(parameters));
+  final channel = WebSocketChannel.connect(uri);
+
+  final controller = StreamController<T>();
+
+  channel.stream.listen((event) {
+    final merged = {};
+
+    int offset = 0;
+    while (offset < event.length) {
+      final result = decodeCbor(event, offset);
+      offset += result.bytesRead;
+
+      merged.addAll(result.decoded);
+    }
+
+    controller.sink.add(
+      to != null
+          ? to.call(jsonDecode(jsonEncode(merged)))
+          : jsonEncode(merged) as T,
+    );
+  }, onError: (_) async {
+    await channel.sink.close();
+  }, onDone: () async {
+    await channel.sink.close();
+  });
+
+  return XRPCResponse<Subscription<T>>(
+    headers: {},
+    status: HttpStatus.ok,
+    request: XRPCRequest(
+      method: HttpMethod.get,
+      url: uri,
+    ),
+    data: Subscription(
+      channel: channel,
+      controller: controller,
+    ),
+  );
+}
 
 @visibleForTesting
 http.Response checkStatus(final http.Response response) {
@@ -467,3 +519,27 @@ T _transformData<T>(
 /// Returns the uri factory based on [protocol].
 UriFactory _getUriFactory(final Protocol protocol) =>
     protocol == Protocol.https ? Uri.https : Uri.http;
+
+Uri _buildWsUri(
+  final nsid.NSID methodId,
+  final String? service,
+  final Map<String, dynamic>? parameters,
+) {
+  final buffer = StringBuffer()
+    ..write('wss://')
+    ..write(service ?? _defaultService)
+    ..write('/xrpc/')
+    ..write(methodId.toString());
+
+  if (parameters != null && parameters.isNotEmpty) {
+    final kvs = <String>[];
+    for (final entry in parameters.entries) {
+      kvs.add('${entry.key}=${entry.value}');
+    }
+
+    buffer.write('?');
+    buffer.write(kvs.join('&'));
+  }
+
+  return Uri.parse(buffer.toString());
+}

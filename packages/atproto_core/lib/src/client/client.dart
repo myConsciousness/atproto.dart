@@ -40,4 +40,11 @@ abstract class Client {
     final xrpc.To<T>? to,
     final xrpc.PostClient? postClient,
   });
+
+  xrpc.XRPCResponse<xrpc.Subscription<T>> stream<T>(
+    final xrpc.NSID methodId, {
+    final String? service,
+    final Map<String, dynamic>? parameters,
+    final xrpc.To<T>? to,
+  });
 }

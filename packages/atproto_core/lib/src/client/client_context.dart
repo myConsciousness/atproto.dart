@@ -62,6 +62,14 @@ abstract class ClientContext {
     final xrpc.To<T>? to,
     final xrpc.PostClient? postClient,
   });
+
+  Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
+    final xrpc.NSID methodId, {
+    required UserContext userContext,
+    final String? service,
+    final Map<String, dynamic>? parameters,
+    final xrpc.To<T>? to,
+  });
 }
 
 class _ClientContext implements ClientContext {
@@ -157,6 +165,24 @@ class _ClientContext implements ClientContext {
           timeout: timeout,
           to: to,
           postClient: postClient,
+        ),
+      );
+
+  @override
+  Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
+    final xrpc.NSID methodId, {
+    required UserContext userContext,
+    final String? service,
+    final Map<String, dynamic>? parameters,
+    final xrpc.To<T>? to,
+  }) async =>
+      await _challenge.execute(
+        _clientResolver.execute(userContext),
+        (client) => client.stream(
+          methodId,
+          service: service,
+          parameters: parameters,
+          to: to,
         ),
       );
 }

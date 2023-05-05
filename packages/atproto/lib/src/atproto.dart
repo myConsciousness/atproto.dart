@@ -11,6 +11,7 @@ import 'identities/identities_service.dart';
 import 'moderation/moderation_service.dart';
 import 'repositories/repositories_service.dart';
 import 'servers/servers_service.dart';
+import 'sync/sync_service.dart';
 
 abstract class ATProto {
   /// Returns the new instance of [ATProto].
@@ -63,6 +64,9 @@ abstract class ATProto {
 
   /// Returns the moderation service.
   ModerationService get moderation;
+
+  /// Returns the sync service.
+  SyncService get sync;
 }
 
 class _ATProto implements ATProto {
@@ -102,4 +106,7 @@ class _ATProto implements ATProto {
 
   @override
   ModerationService get moderation => _service.moderation;
+
+  @override
+  SyncService get sync => _service.sync;
 }
