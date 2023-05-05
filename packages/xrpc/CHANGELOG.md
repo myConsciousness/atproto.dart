@@ -2,6 +2,10 @@
 
 ## v0.0.13
 
+- Supported subscription function as `subscribe`. ([#318](https://github.com/myConsciousness/atproto.dart/issues/318))
+
+## v0.0.13
+
 - Supported `protocol` options in `query`, `procedure`, `upload`. You can choose `http` as a protocol for your test locally. Defaults to `https`. ([#269](https://github.com/myConsciousness/atproto.dart/issues/269))
 
 ## v0.0.12
