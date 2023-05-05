@@ -17,7 +17,7 @@ class PostThreadViewRecord with _$PostThreadViewRecord {
   const factory PostThreadViewRecord({
     @JsonKey(name: '\$type') required String type,
     required Post post,
-    @PostThreadViewConverter() required List<PostThreadView> replies,
+    @PostThreadViewConverter() List<PostThreadView>? replies,
   }) = _PostThreadViewRecord;
 
   factory PostThreadViewRecord.fromJson(Map<String, Object?> json) =>

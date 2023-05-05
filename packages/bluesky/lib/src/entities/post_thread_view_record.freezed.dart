@@ -24,7 +24,7 @@ mixin _$PostThreadViewRecord {
   String get type => throw _privateConstructorUsedError;
   Post get post => throw _privateConstructorUsedError;
   @PostThreadViewConverter()
-  List<PostThreadView> get replies => throw _privateConstructorUsedError;
+  List<PostThreadView>? get replies => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ abstract class $PostThreadViewRecordCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: '\$type') String type,
       Post post,
-      @PostThreadViewConverter() List<PostThreadView> replies});
+      @PostThreadViewConverter() List<PostThreadView>? replies});
 
   $PostCopyWith<$Res> get post;
 }
@@ -62,7 +62,7 @@ class _$PostThreadViewRecordCopyWithImpl<$Res,
   $Res call({
     Object? type = null,
     Object? post = null,
-    Object? replies = null,
+    Object? replies = freezed,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -73,10 +73,10 @@ class _$PostThreadViewRecordCopyWithImpl<$Res,
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
               as Post,
-      replies: null == replies
+      replies: freezed == replies
           ? _value.replies
           : replies // ignore: cast_nullable_to_non_nullable
-              as List<PostThreadView>,
+              as List<PostThreadView>?,
     ) as $Val);
   }
 
@@ -100,7 +100,7 @@ abstract class _$$_PostThreadViewRecordCopyWith<$Res>
   $Res call(
       {@JsonKey(name: '\$type') String type,
       Post post,
-      @PostThreadViewConverter() List<PostThreadView> replies});
+      @PostThreadViewConverter() List<PostThreadView>? replies});
 
   @override
   $PostCopyWith<$Res> get post;
@@ -119,7 +119,7 @@ class __$$_PostThreadViewRecordCopyWithImpl<$Res>
   $Res call({
     Object? type = null,
     Object? post = null,
-    Object? replies = null,
+    Object? replies = freezed,
   }) {
     return _then(_$_PostThreadViewRecord(
       type: null == type
@@ -130,10 +130,10 @@ class __$$_PostThreadViewRecordCopyWithImpl<$Res>
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
               as Post,
-      replies: null == replies
+      replies: freezed == replies
           ? _value._replies
           : replies // ignore: cast_nullable_to_non_nullable
-              as List<PostThreadView>,
+              as List<PostThreadView>?,
     ));
   }
 }
@@ -144,7 +144,7 @@ class _$_PostThreadViewRecord implements _PostThreadViewRecord {
   const _$_PostThreadViewRecord(
       {@JsonKey(name: '\$type') required this.type,
       required this.post,
-      @PostThreadViewConverter() required final List<PostThreadView> replies})
+      @PostThreadViewConverter() final List<PostThreadView>? replies})
       : _replies = replies;
 
   factory _$_PostThreadViewRecord.fromJson(Map<String, dynamic> json) =>
@@ -155,13 +155,15 @@ class _$_PostThreadViewRecord implements _PostThreadViewRecord {
   final String type;
   @override
   final Post post;
-  final List<PostThreadView> _replies;
+  final List<PostThreadView>? _replies;
   @override
   @PostThreadViewConverter()
-  List<PostThreadView> get replies {
+  List<PostThreadView>? get replies {
+    final value = _replies;
+    if (value == null) return null;
     if (_replies is EqualUnmodifiableListView) return _replies;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_replies);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -201,11 +203,9 @@ class _$_PostThreadViewRecord implements _PostThreadViewRecord {
 
 abstract class _PostThreadViewRecord implements PostThreadViewRecord {
   const factory _PostThreadViewRecord(
-          {@JsonKey(name: '\$type')
-              required final String type,
+          {@JsonKey(name: '\$type') required final String type,
           required final Post post,
-          @PostThreadViewConverter()
-              required final List<PostThreadView> replies}) =
+          @PostThreadViewConverter() final List<PostThreadView>? replies}) =
       _$_PostThreadViewRecord;
 
   factory _PostThreadViewRecord.fromJson(Map<String, dynamic> json) =
@@ -218,7 +218,7 @@ abstract class _PostThreadViewRecord implements PostThreadViewRecord {
   Post get post;
   @override
   @PostThreadViewConverter()
-  List<PostThreadView> get replies;
+  List<PostThreadView>? get replies;
   @override
   @JsonKey(ignore: true)
   _$$_PostThreadViewRecordCopyWith<_$_PostThreadViewRecord> get copyWith =>
