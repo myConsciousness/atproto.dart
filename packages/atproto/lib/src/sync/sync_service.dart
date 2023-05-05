@@ -6,7 +6,6 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../atproto_base_service.dart';
 import '../entities/subscribed_repo.dart';
-import '../entities/subscribed_repo_commit.dart';
 
 abstract class SyncService {
   /// Returns the new instance of [SyncService].
@@ -27,6 +26,19 @@ abstract class SyncService {
         mockedPostClient: mockedPostClient,
       );
 
+  /// Subscribe to repo updates.
+  ///
+  /// ## Parameters
+  ///
+  /// - [cursor]: The last known event to backfill from.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.subscribeRepos
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/subscribeRepos.json
   Future<core.XRPCResponse<core.Subscription<SubscribedRepo>>>
       subscribeRepoUpdates({
     int? cursor,
