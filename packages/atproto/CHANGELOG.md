@@ -5,6 +5,7 @@
 - Added additional fields in `InviteCode` object.  ([#326](https://github.com/myConsciousness/atproto.dart/issues/326))
 - Supported `findRecord` in `RepositoriesService`. ([#304](https://github.com/myConsciousness/atproto.dart/issues/304))
 - Added `SyncService` and supported stream API as `subscribeRepos`. ([#318](https://github.com/myConsciousness/atproto.dart/issues/318))
+- Added `anonymous` constructor in `ATProto` object. ([#324](https://github.com/myConsciousness/atproto.dart/issues/324))
 
 ## v0.2.8
 

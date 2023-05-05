@@ -153,6 +153,12 @@ Future<void> main() async {
     await bluesky.repositories.deleteRecord(
       uri: createdRecord.data.uri,
     );
+
+    //! You can use Stream API easily.
+    final subscription = await bluesky.sync.subscribeRepoUpdates();
+    subscription.data.stream.listen((event) {
+      print(event.toJson());
+    });
   } on bsky.UnauthorizedException catch (e) {
     print(e);
   } on bsky.XRPCException catch (e) {
