@@ -83,6 +83,9 @@ abstract class Bluesky {
 
   /// Returns the moderation service.
   atp.ModerationService get moderation;
+
+  /// Returns the sync service.
+  atp.SyncService get sync;
 }
 
 class _Bluesky implements Bluesky {
@@ -144,4 +147,7 @@ class _Bluesky implements Bluesky {
 
   @override
   atp.ModerationService get moderation => _service.moderation;
+
+  @override
+  atp.SyncService get sync => _service.sync;
 }

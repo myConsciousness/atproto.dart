@@ -65,6 +65,8 @@ abstract class RepositoriesService {
   ///
   /// ## Parameters
   ///
+  /// - [did]: The DID of repo.
+  ///
   /// - [uri]: The AT URI of record.
   ///
   /// - [cid]: The CID of the version of the record. If not specified,
@@ -78,6 +80,7 @@ abstract class RepositoriesService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/getRecord.json
   Future<core.XRPCResponse<RecordValue>> findRecord({
+    required String did,
     required core.AtUri uri,
     String? cid,
   });
@@ -204,6 +207,7 @@ class _RepositoriesService extends ATProtoBaseService
 
   @override
   Future<core.XRPCResponse<RecordValue>> findRecord({
+    required String did,
     required core.AtUri uri,
     String? cid,
   }) async =>

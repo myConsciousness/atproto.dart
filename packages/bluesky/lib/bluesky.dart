@@ -22,6 +22,14 @@ export 'package:atproto/atproto.dart'
         AppPassword,
         AppPasswords,
         Repo,
+        SubscribedRepo,
+        SubscribedRepoCommit,
+        SubscribedRepoHandle,
+        SubscribedRepoInfo,
+        SubscribedRepoMigrate,
+        SubscribedRepoTombstone,
+        RepoOp,
+        RepoAction,
         ParsedDidDoc,
         ParsedVerificationMethod,
         ParsedService,
@@ -33,13 +41,15 @@ export 'package:atproto/atproto.dart'
         ServersService,
         IdentitiesService,
         RepositoriesService,
-        ModerationService;
+        ModerationService,
+        SyncService;
 export 'package:atproto_core/atproto_core.dart'
     show
         XRPCResponse,
         XRPCRequest,
         XRPCError,
         Protocol,
+        Subscription,
         EmptyData,
         HttpMethod,
         HttpStatus,
