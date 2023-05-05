@@ -19,8 +19,8 @@ _$_PostThreadViewRecord _$$_PostThreadViewRecordFromJson(Map json) =>
               (v) => Post.fromJson(Map<String, Object?>.from(v as Map))),
           replies: $checkedConvert(
               'replies',
-              (v) => (v as List<dynamic>)
-                  .map((e) => const PostThreadViewConverter()
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => const PostThreadViewConverter()
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
         );
@@ -34,6 +34,7 @@ Map<String, dynamic> _$$_PostThreadViewRecordToJson(
     <String, dynamic>{
       r'$type': instance.type,
       'post': instance.post.toJson(),
-      'replies':
-          instance.replies.map(const PostThreadViewConverter().toJson).toList(),
+      'replies': instance.replies
+          ?.map(const PostThreadViewConverter().toJson)
+          .toList(),
     };
