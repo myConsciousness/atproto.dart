@@ -1,6 +1,6 @@
 # Release Note
 
-## v0.0.13
+## v0.0.14
 
 - Supported subscription function as `subscribe`. ([#318](https://github.com/myConsciousness/atproto.dart/issues/318))
 
