@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.9
+
+- Upgraded `xrpc` and added `stream` method. ([#318](https://github.com/myConsciousness/atproto.dart/issues/318))
+
 ## v0.2.8
 
 - Upgraded `xrpc` and added `protocol` option. ([#269](https://github.com/myConsciousness/atproto.dart/issues/269))
