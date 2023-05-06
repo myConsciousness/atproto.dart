@@ -4,30 +4,15 @@
       "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
       "handle": "shinyakato.dev",
       "displayName": "Shinya Kato 🤯",
-      "description": "Dart/Flutter & atproto enthusiast\nContrib. bluesky-social/atproto\n\nThe author of many OSS packages for Dart/Flutter\n\nDeveloping Bluesky related packages 👇\nhttps://github.com/myConsciousness/atproto.dart\n\nGitHub: https://github.com/myConsciousness",
+      "description": "Dart/Flutter & atproto enthusiast\nContrib. bluesky-social/atproto\n\nThe author of many OSS packages for Dart/Flutter\n\nDeveloping Bluesky related packages 👇\nhttps://github.com/myConsciousness/atproto.dart\n\nGitHub: @myConsciousness",
       "avatar": "https://cdn.bsky.social/imgproxy/JF97YphLyIEWfq4KJNO_ZCYm9v_zNcRj7sSB8UZrRBw/rs:fill:1000:1000:1:0/plain/bafkreidqn4z6ocv5snxuqguarboozqdusam2tehccnu23yab7g2sgv64dq@jpeg",
       "banner": "https://cdn.bsky.social/imgproxy/0ijMnNxGs3aYg9Xsb5YkfehBkZo2WRJReLgMtljXPM0/rs:fill:3000:1000:1:0/plain/bafkreiaz67sqpaacxjtbj7texvnz5tlnfpthman4kvciymxg2jc2vayd4m@jpeg",
-      "followsCount": 3251,
-      "followersCount": 406,
-      "postsCount": 771,
-      "indexedAt": "2023-03-25T14:57:25.791Z",
-      "viewer": { "muted": false }
-    },
-    {
-      "did": "did:plc:5ruzf2zoakwm4eab3c3z5wfu",
-      "handle": "maya.bsky.social",
-      "displayName": "Maya ",
-      "description": "Dog Mom | Feminist | Artist \nInto PR, Comms, & Brand Management ",
-      "avatar": "https://cdn.bsky.social/imgproxy/YOxiszb7QKB_xFFgu1lc2rOHzijSxLPfAhtj4H9KO1o/rs:fill:1000:1000:1:0/plain/bafkreiesj3vmd6n2vbavbmq4p4ntcx35b72bdc6ca7r5ysi4vw3p32ueay@jpeg",
-      "banner": "https://cdn.bsky.social/imgproxy/Ea8W8qCQTPO_oKjoRuEYxSXZNTm2AA29wrvzyiD9TL4/rs:fill:3000:1000:1:0/plain/bafkreihikl772fu3a7juc3k6ta2iguykcbkcpbmj7ggrdn36m6naantumu@jpeg",
-      "followsCount": 14,
-      "followersCount": 48,
-      "postsCount": 8,
-      "indexedAt": "2023-02-28T01:22:58.345Z",
-      "viewer": {
-        "muted": false,
-        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jrmktzblt22r"
-      }
+      "followsCount": 31769,
+      "followersCount": 4945,
+      "postsCount": 3358,
+      "indexedAt": "2023-04-28T22:04:37.957Z",
+      "viewer": { "muted": false, "blockedBy": false },
+      "labels": []
     }
   ]
 }

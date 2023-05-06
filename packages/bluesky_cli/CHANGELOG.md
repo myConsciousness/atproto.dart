@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.1.1
+
+- Added `block` and `blocks` commands. ([#320](https://github.com/myConsciousness/atproto.dart/issues/320))
+
 ## v0.1.0
 
 - Fixed `follow` command.

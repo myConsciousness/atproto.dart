@@ -4,7 +4,7 @@
       "did": "did:plc:73n7ne236o7y2hs2kdwpurzu",
       "handle": "mehrdadrajabi.com",
       "displayName": "for test",
-      "viewer": { "muted": false }
+      "viewer": { "muted": false, "blockedBy": false }
     },
     {
       "did": "did:plc:ji4f2ypncqko5cm62pmyxh67",
@@ -12,6 +12,7 @@
       "displayName": "tester",
       "viewer": {
         "muted": false,
+        "blockedBy": false,
         "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqdex7dcrt2q"
       }
     },
@@ -21,13 +22,14 @@
       "displayName": "Tess Rinearson",
       "viewer": {
         "muted": false,
+        "blockedBy": false,
         "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jrml2243us2r"
       }
     },
     {
       "did": "did:plc:t2flizmwzbrx4vamddtwai53",
       "handle": "tesla.bsky.social",
-      "viewer": { "muted": false }
+      "viewer": { "muted": false, "blockedBy": false }
     },
     {
       "did": "did:plc:ixecxjsx62yn5bsjswjf6zqx",
@@ -36,6 +38,7 @@
       "avatar": "https://cdn.bsky.social/imgproxy/3kbyTHjZ1iFaUDcsYNhyhIWGaDH45PIljB6kew3dHyk/rs:fill:1000:1000:1:0/plain/bafkreif2jhhse5hykogmhmkzzugjguheux5ab3js5wyxqyqnc4k3wanf5q@jpeg",
       "viewer": {
         "muted": false,
+        "blockedBy": false,
         "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jrksdvwk3s2r"
       }
     },
@@ -46,6 +49,7 @@
       "avatar": "https://cdn.bsky.social/imgproxy/gvzTHjaph6RoVvDmHvmRLJcpIz0vDaqaoLSwgaBWvx8/rs:fill:1000:1000:1:0/plain/bafkreievmbsqekn64hicchk57mycqakkkydjjxtf5ewskoke4g63zwahim@jpeg",
       "viewer": {
         "muted": false,
+        "blockedBy": false,
         "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jrmu232tts2p"
       }
     },
@@ -55,6 +59,7 @@
       "displayName": "Ted Han",
       "viewer": {
         "muted": false,
+        "blockedBy": false,
         "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jrmkut2o622d"
       }
     },
@@ -63,18 +68,18 @@
       "handle": "leon.bsky.social",
       "displayName": "Leon ter Linden",
       "avatar": "https://cdn.bsky.social/imgproxy/MEMPLSX43deroGz985aMTNq6lbYqBAJH-9FwOX14FDI/rs:fill:1000:1000:1:0/plain/bafkreid3vnskc6cirypszesyhmmey2fsvbsg7g2m4aqwhqrba3tdaid4oy@jpeg",
-      "viewer": { "muted": false }
+      "viewer": { "muted": false, "blockedBy": false }
     },
     {
       "did": "did:plc:mhevla4f7cl35nk3dltn4ybc",
       "handle": "tea.bsky.social",
       "displayName": "🌱t🫖",
-      "viewer": { "muted": false }
+      "viewer": { "muted": false, "blockedBy": false }
     },
     {
       "did": "did:plc:haj7w5uvakcs3gbhmkdl3ogj",
       "handle": "ted.bsky.social",
-      "viewer": { "muted": false }
+      "viewer": { "muted": false, "blockedBy": false }
     },
     {
       "did": "did:plc:wwmatdtiskrupm5gzrqmcehx",
@@ -83,6 +88,7 @@
       "avatar": "https://cdn.bsky.social/imgproxy/wiLXPL2oWCaP5gHTWpCQz2GDnh-5ne0e-C0v0n8ku5I/rs:fill:1000:1000:1:0/plain/bafkreigdcjuc7w3ngg5axhbdzxszldyi32kjhho3cnzabfj5ralllvzi5u@jpeg",
       "viewer": {
         "muted": false,
+        "blockedBy": false,
         "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jrmtz5us722d"
       }
     },
@@ -93,13 +99,14 @@
       "avatar": "https://cdn.bsky.social/imgproxy/2rQa2vPx68B5IUmvFjDJyv74dG__8CGWqm_H8DbRF5U/rs:fill:1000:1000:1:0/plain/bafkreidqdql63zd4gzxscolvac6f7z5ptjssqmr2l35mkle6rnymfwe7rm@jpeg",
       "viewer": {
         "muted": false,
+        "blockedBy": false,
         "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jriwi2n64s2o"
       }
     },
     {
       "did": "did:plc:ojark5wbvl7xjnh76nog5cw7",
       "handle": "tez.bsky.social",
-      "viewer": { "muted": false }
+      "viewer": { "muted": false, "blockedBy": false }
     },
     {
       "did": "did:plc:7bai7mqyuy3mut4ncjvvgakl",
@@ -108,6 +115,7 @@
       "avatar": "https://cdn.bsky.social/imgproxy/eGrZ0OrqapUbUCRyIg-gPD34aXvDT2kCjCCoVQjIq2U/rs:fill:1000:1000:1:0/plain/bafkreicoyyoh2ddg7uiqqphwxrvp4pqqs6vvn7o5jwtl6blhyuon65kfc4@jpeg",
       "viewer": {
         "muted": false,
+        "blockedBy": false,
         "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jrmtrxafds2n"
       }
     },
@@ -118,6 +126,7 @@
       "avatar": "https://cdn.bsky.social/imgproxy/8B4lr9xaQfcRImuogORvYnH7-J65UxUTDVA3B76nwNw/rs:fill:1000:1000:1:0/plain/bafkreiffei7dzkbrjbk4fddb5sqhjjpasrlg6jsohk3ueekwajjq3x5n2a@jpeg",
       "viewer": {
         "muted": false,
+        "blockedBy": false,
         "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jrihxgvokk2p"
       }
     },
@@ -125,7 +134,7 @@
       "did": "did:plc:qolu6t3zierhf3jph3giz2e6",
       "handle": "hiteck.bsky.social",
       "displayName": "Teck",
-      "viewer": { "muted": false }
+      "viewer": { "muted": false, "blockedBy": false }
     },
     {
       "did": "did:plc:6kbevurfve7k3zrqm56z6bhg",
@@ -134,6 +143,7 @@
       "avatar": "https://cdn.bsky.social/imgproxy/dTqq4v4vWUHpuheG4fxL4kUc1QWMkLq1kgMM9703Eq8/rs:fill:1000:1000:1:0/plain/bafkreiczqugwxdcwxfxtoqoowgt3oc53jvh5me6iqo2dy7yzbgd4rdyawe@jpeg",
       "viewer": {
         "muted": false,
+        "blockedBy": false,
         "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jrjugy3z622o",
         "followedBy": "at://did:plc:6kbevurfve7k3zrqm56z6bhg/app.bsky.graph.follow/3jrkog2koqs22"
       }
@@ -145,6 +155,7 @@
       "avatar": "https://cdn.bsky.social/imgproxy/qGnJewOldzRFVBGLb7oU59n6ZAQNC1ZxmdFPg6XwZHc/rs:fill:1000:1000:1:0/plain/bafkreiam7csw2k4bj6sgxe4fkg5nvvglun7yz4rxs2szvs6a5tbv5ydzgq@jpeg",
       "viewer": {
         "muted": false,
+        "blockedBy": false,
         "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqfgtjlf6225"
       }
     },
@@ -155,6 +166,7 @@
       "avatar": "https://cdn.bsky.social/imgproxy/K4tXuvGwrGjHx0UBg1AFV8-eK5i7IRAn4eNtxAMcrvM/rs:fill:1000:1000:1:0/plain/bafkreiautzqmp7r5fn2vunnnompttk537vrpppzllw2ymsg73akenjxkuq@jpeg",
       "viewer": {
         "muted": false,
+        "blockedBy": false,
         "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jrmr37rgak2i"
       }
     },
@@ -165,6 +177,7 @@
       "avatar": "https://cdn.bsky.social/imgproxy/yiIIG3sR74sDG6ZKQtWIwR8VvV6cEdDreAf6Dhq8OQk/rs:fill:1000:1000:1:0/plain/bafkreiatfymxulo6orzsdtbokm3gv4jbf5kq6n3oqcz76pxbobjypudo6m@jpeg",
       "viewer": {
         "muted": false,
+        "blockedBy": false,
         "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jrjk2yboak2r"
       }
     },
@@ -174,6 +187,7 @@
       "avatar": "https://cdn.bsky.social/imgproxy/bWcgj78pb8eeSQWgNFo4eApBM8h56ztkYhjKQNt7uDQ/rs:fill:1000:1000:1:0/plain/bafkreifkv2scd5o4ikzmin74pknx7acwrycaenjqj7geucqztml6so3ktm@jpeg",
       "viewer": {
         "muted": false,
+        "blockedBy": false,
         "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqdey5zcmc2j",
         "followedBy": "at://did:plc:dgt4losv3tounhugotpsnwvg/app.bsky.graph.follow/3jqdi6epkyk2j"
       }
@@ -185,6 +199,7 @@
       "avatar": "https://cdn.bsky.social/imgproxy/v3XCzf6gnM5Ebj-wqvlgfffIxu3fcLGyEkLPPESwWJw/rs:fill:1000:1000:1:0/plain/bafkreidk2dnkes3nbzxo3sb3cwcoj2zw2kzzjnm5pbl7yscsiauehnogs4@jpeg",
       "viewer": {
         "muted": false,
+        "blockedBy": false,
         "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jriwe4i3m22r",
         "followedBy": "at://did:plc:aedp4grvy2wvmuosxhife4h6/app.bsky.graph.follow/3jrkb73zdns22"
       }
@@ -196,6 +211,7 @@
       "avatar": "https://cdn.bsky.social/imgproxy/4WosYMTWtwe3jRd5VAJY19aeUuLhPsZOgkLgHfqHMB4/rs:fill:1000:1000:1:0/plain/bafkreigxqyulgf3ibolgz3q65tudkjsov4azcbtvx7rce3pogq4auyv27u@jpeg",
       "viewer": {
         "muted": false,
+        "blockedBy": false,
         "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jsaovgg6ps2r"
       }
     },
@@ -206,6 +222,7 @@
       "avatar": "https://cdn.bsky.social/imgproxy/wagfzt5ZAvWlnzxVFcawVC3A2SHEFL93BpoVL-UYwUo/rs:fill:1000:1000:1:0/plain/bafkreiadzr2gtu4kkizbydz27lrx3eauunr6npaf3n3obgtzauuugv2jda@jpeg",
       "viewer": {
         "muted": false,
+        "blockedBy": false,
         "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jrmqkd2czk2o",
         "followedBy": "at://did:plc:euq4sxfffmpk4cvchzevrlyf/app.bsky.graph.follow/3jrmtuexwvs2p"
       }
@@ -213,20 +230,21 @@
     {
       "did": "did:plc:gw7kejw2hyxniql2cpgxpqys",
       "handle": "teddy.bsky.social",
-      "viewer": { "muted": false }
+      "viewer": { "muted": false, "blockedBy": false }
     },
     {
       "did": "did:plc:ayotokym4nuckrku7cofhctw",
       "handle": "tejas.bsky.social",
       "displayName": "Tejas",
       "avatar": "https://cdn.bsky.social/imgproxy/UYPeIY3Wp7vkZjfqMGhmww3vrpV1JxQ3xGFaWASQq-8/rs:fill:1000:1000:1:0/plain/bafkreifuf2xqc4a2g5y57droq2t4mampmnvkvkrtl22yujipcdzqjgogkm@jpeg",
-      "viewer": { "muted": false }
+      "viewer": { "muted": false, "blockedBy": false }
     },
     {
       "did": "did:plc:uipdulgf6dbquznwnpu74mpy",
       "handle": "telma.bsky.social",
       "viewer": {
         "muted": false,
+        "blockedBy": false,
         "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jrkssnupms2p"
       }
     },
@@ -234,7 +252,7 @@
       "did": "did:plc:ibtf5omlhtsqlme2ztd3nag7",
       "handle": "texts.bsky.social",
       "displayName": "Texts.com",
-      "viewer": { "muted": false }
+      "viewer": { "muted": false, "blockedBy": false }
     },
     {
       "did": "did:plc:gmzfmu3idwypyo7d6ri44dra",
@@ -243,6 +261,7 @@
       "avatar": "https://cdn.bsky.social/imgproxy/9nzmniPjlqFx8PbJACQr2uu-ZIQdxkbo_61AyY637rQ/rs:fill:1000:1000:1:0/plain/bafkreifikkpzcced2sy2gsblgwhjelqxh6ezyehvgjlg5mi4mr5zxm6xdm@jpeg",
       "viewer": {
         "muted": false,
+        "blockedBy": false,
         "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jrmrbooyuk2i"
       }
     }

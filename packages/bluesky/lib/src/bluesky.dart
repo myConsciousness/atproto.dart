@@ -57,6 +57,26 @@ abstract class Bluesky {
         mockedPostClient: mockedPostClient,
       );
 
+  /// Returns the new instance of [Bluesky] as anonymous.
+  factory Bluesky.anonymous({
+    core.Protocol protocol = core.Protocol.https,
+    String service = 'bsky.social',
+    Duration timeout = const Duration(seconds: 10),
+    core.RetryConfig? retryConfig,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
+  }) =>
+      _Bluesky(
+        did: '',
+        accessJwt: '',
+        protocol: protocol,
+        service: service,
+        timeout: timeout,
+        retryConfig: retryConfig,
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
+      );
+
   /// Returns the actors service.
   ActorsService get actors;
 
@@ -83,6 +103,9 @@ abstract class Bluesky {
 
   /// Returns the moderation service.
   atp.ModerationService get moderation;
+
+  /// Returns the sync service.
+  atp.SyncService get sync;
 }
 
 class _Bluesky implements Bluesky {
@@ -144,4 +167,7 @@ class _Bluesky implements Bluesky {
 
   @override
   atp.ModerationService get moderation => _service.moderation;
+
+  @override
+  atp.SyncService get sync => _service.sync;
 }

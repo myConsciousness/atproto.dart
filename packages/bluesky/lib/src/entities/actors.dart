@@ -17,7 +17,7 @@ part 'actors.g.dart';
 class Actors with _$Actors {
   const factory Actors({
     required List<Actor> actors,
-    required String cursor,
+    String? cursor,
   }) = _Actors;
 
   factory Actors.fromJson(Map<String, Object?> json) => _$ActorsFromJson(json);

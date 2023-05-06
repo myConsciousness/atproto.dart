@@ -2,6 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: invalid_annotation_target
+
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -10,6 +12,7 @@ part 'session.g.dart';
 
 @freezed
 class Session with _$Session {
+  @JsonSerializable(includeIfNull: false)
   const factory Session({
     required String did,
     required String handle,

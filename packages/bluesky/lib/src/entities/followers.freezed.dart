@@ -22,7 +22,7 @@ Followers _$FollowersFromJson(Map<String, dynamic> json) {
 mixin _$Followers {
   Actor get subject => throw _privateConstructorUsedError;
   List<Actor> get followers => throw _privateConstructorUsedError;
-  String get cursor => throw _privateConstructorUsedError;
+  String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $FollowersCopyWith<$Res> {
   factory $FollowersCopyWith(Followers value, $Res Function(Followers) then) =
       _$FollowersCopyWithImpl<$Res, Followers>;
   @useResult
-  $Res call({Actor subject, List<Actor> followers, String cursor});
+  $Res call({Actor subject, List<Actor> followers, String? cursor});
 
   $ActorCopyWith<$Res> get subject;
 }
@@ -55,7 +55,7 @@ class _$FollowersCopyWithImpl<$Res, $Val extends Followers>
   $Res call({
     Object? subject = null,
     Object? followers = null,
-    Object? cursor = null,
+    Object? cursor = freezed,
   }) {
     return _then(_value.copyWith(
       subject: null == subject
@@ -66,10 +66,10 @@ class _$FollowersCopyWithImpl<$Res, $Val extends Followers>
           ? _value.followers
           : followers // ignore: cast_nullable_to_non_nullable
               as List<Actor>,
-      cursor: null == cursor
+      cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 
@@ -89,7 +89,7 @@ abstract class _$$_FollowersCopyWith<$Res> implements $FollowersCopyWith<$Res> {
       __$$_FollowersCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Actor subject, List<Actor> followers, String cursor});
+  $Res call({Actor subject, List<Actor> followers, String? cursor});
 
   @override
   $ActorCopyWith<$Res> get subject;
@@ -108,7 +108,7 @@ class __$$_FollowersCopyWithImpl<$Res>
   $Res call({
     Object? subject = null,
     Object? followers = null,
-    Object? cursor = null,
+    Object? cursor = freezed,
   }) {
     return _then(_$_Followers(
       subject: null == subject
@@ -119,10 +119,10 @@ class __$$_FollowersCopyWithImpl<$Res>
           ? _value._followers
           : followers // ignore: cast_nullable_to_non_nullable
               as List<Actor>,
-      cursor: null == cursor
+      cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -133,7 +133,7 @@ class _$_Followers implements _Followers {
   const _$_Followers(
       {required this.subject,
       required final List<Actor> followers,
-      required this.cursor})
+      this.cursor})
       : _followers = followers;
 
   factory _$_Followers.fromJson(Map<String, dynamic> json) =>
@@ -150,7 +150,7 @@ class _$_Followers implements _Followers {
   }
 
   @override
-  final String cursor;
+  final String? cursor;
 
   @override
   String toString() {
@@ -191,7 +191,7 @@ abstract class _Followers implements Followers {
   const factory _Followers(
       {required final Actor subject,
       required final List<Actor> followers,
-      required final String cursor}) = _$_Followers;
+      final String? cursor}) = _$_Followers;
 
   factory _Followers.fromJson(Map<String, dynamic> json) =
       _$_Followers.fromJson;
@@ -201,7 +201,7 @@ abstract class _Followers implements Followers {
   @override
   List<Actor> get followers;
   @override
-  String get cursor;
+  String? get cursor;
   @override
   @JsonKey(ignore: true)
   _$$_FollowersCopyWith<_$_Followers> get copyWith =>

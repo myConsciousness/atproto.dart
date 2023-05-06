@@ -9,6 +9,7 @@ import 'identities/identities_service.dart';
 import 'moderation/moderation_service.dart';
 import 'repositories/repositories_service.dart';
 import 'servers/servers_service.dart';
+import 'sync/sync_service.dart';
 
 abstract class ATProtoService {
   /// Returns the new instance of [ATProtoService].
@@ -40,6 +41,9 @@ abstract class ATProtoService {
 
   /// Returns the moderation service.
   ModerationService get moderation;
+
+  /// Returns the sync service.
+  SyncService get sync;
 }
 
 class _ATProtoService implements ATProtoService {
@@ -82,6 +86,14 @@ class _ATProtoService implements ATProtoService {
           context: context,
           mockedGetClient: mockedGetClient,
           mockedPostClient: mockedPostClient,
+        ),
+        sync = SyncService(
+          did: did,
+          protocol: protocol,
+          service: service,
+          context: context,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
         );
 
   @override
@@ -95,4 +107,7 @@ class _ATProtoService implements ATProtoService {
 
   @override
   final ModerationService moderation;
+
+  @override
+  final SyncService sync;
 }

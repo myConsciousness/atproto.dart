@@ -9,6 +9,8 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../atproto_base_service.dart';
 import '../entities/blob_data.dart';
 import '../entities/record.dart';
+import '../entities/record_value.dart';
+import '../entities/repo.dart';
 import '../entities/strong_ref.dart';
 
 abstract class RepositoriesService {
@@ -57,6 +59,30 @@ abstract class RepositoriesService {
     bool? validate,
     String? swapRecordCid,
     String? swapCommitCid,
+  });
+
+  /// Get a record.
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: The DID of repo.
+  ///
+  /// - [uri]: The AT URI of record.
+  ///
+  /// - [cid]: The CID of the version of the record. If not specified,
+  ///          then return the most recent version.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.getRecord
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/getRecord.json
+  Future<core.XRPCResponse<RecordValue>> findRecord({
+    required String did,
+    required core.AtUri uri,
+    String? cid,
   });
 
   /// Delete a record, or ensure it doesn't exist.
@@ -127,6 +153,23 @@ abstract class RepositoriesService {
   Future<core.XRPCResponse<BlobData>> uploadBlob(
     final File file,
   );
+
+  /// Get information about the repo, including the list of collections.
+  ///
+  /// ## Parameters
+  ///
+  /// - [identifier]: The handle or DID of the repo.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.describeRepo
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/describeRepo.json
+  Future<core.XRPCResponse<Repo>> findRepo({
+    required String identifier,
+  });
 }
 
 class _RepositoriesService extends ATProtoBaseService
@@ -160,6 +203,23 @@ class _RepositoriesService extends ATProtoBaseService
           'swapCommit': swapCommitCid
         },
         to: Record.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<RecordValue>> findRecord({
+    required String did,
+    required core.AtUri uri,
+    String? cid,
+  }) async =>
+      await super.get(
+        'getRecord',
+        parameters: {
+          'repo': did,
+          'collection': uri.collection,
+          'rkey': uri.rkey,
+          'cid': cid,
+        },
+        to: RecordValue.fromJson,
       );
 
   @override
@@ -207,5 +267,18 @@ class _RepositoriesService extends ATProtoBaseService
         super.createNSID('uploadBlob'),
         file,
         to: BlobData.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Repo>> findRepo({
+    required String identifier,
+  }) async =>
+      await super.get(
+        'describeRepo',
+        parameters: {
+          'repo': identifier,
+        },
+        to: Repo.fromJson,
+        userContext: core.UserContext.anonymousOnly,
       );
 }

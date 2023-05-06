@@ -14,7 +14,7 @@ part 'mutes.g.dart';
 class Mutes with _$Mutes {
   const factory Mutes({
     required List<Actor> mutes,
-    required String cursor,
+    String? cursor,
   }) = _Mutes;
 
   factory Mutes.fromJson(Map<String, Object?> json) => _$MutesFromJson(json);

@@ -46,6 +46,7 @@
     - [1.3.7. Identity](#137-identity)
     - [1.3.8. Repository](#138-repository)
     - [1.3.9. Moderation](#139-moderation)
+    - [1.3.10. Sync](#1310-sync)
   - [1.4. Tips 🏄](#14-tips-)
     - [1.4.1. Method Names](#141-method-names)
     - [1.4.2. Create Session](#142-create-session)
@@ -152,6 +153,12 @@ Future<void> main() async {
     await bluesky.repositories.deleteRecord(
       uri: createdRecord.data.uri,
     );
+
+    //! You can use Stream API easily.
+    final subscription = await bluesky.sync.subscribeRepoUpdates();
+    subscription.data.stream.listen((event) {
+      print(event.toJson());
+    });
   } on bsky.UnauthorizedException catch (e) {
     print(e);
   } on bsky.XRPCException catch (e) {
@@ -215,6 +222,8 @@ Future<bsky.Session> get _session async {
 | [POST app.bsky.graph.muteActor](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/muteActor.json)      | [createMute](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createMute.html)       |
 | [POST app.bsky.graph.unmuteActor](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/unmuteActor.json)  | [deleteMute](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/deleteMute.html)       |
 | [GET app.bsky.graph.getMutes](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getMutes.json)         | [findMutes](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/findMutes.html)         |
+| [GET app.bsky.graph.getBlocks](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getBlocks.json)       | [findBlocks](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/findBlocks.html)       |
+| [POST app.bsky.graph.block](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/block.json)              | [createBlock](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createBlock.html)     |
 
 ### 1.3.5. Unspecced
 
@@ -252,8 +261,10 @@ Future<bsky.Session> get _session async {
 | **Lexicon**                                                                                                                           | **Method Name**                                                                                            |
 | ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | [POST com.atproto.repo.createRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/createRecord.json) | [createRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/createRecord.html) |
+| [GET com.atproto.repo.getRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/getRecord.json)        | [findRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/findRecord.html)     |
 | [POST com.atproto.repo.deleteRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/deleteRecord.json) | [deleteRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/deleteRecord.html) |
 | [POST com.atproto.repo.uploadBlob](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/uploadBlob.json)     | [uploadBlob](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/uploadBlob.html)     |
+| [GET com.atproto.repo.describeRepo](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/describeRepo.json)  | [findRepo](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/findRepo.html)         |
 
 ### 1.3.9. Moderation
 
@@ -261,23 +272,29 @@ Future<bsky.Session> get _session async {
 | ------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | [POST com.atproto.moderation.createReport](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/moderation/createReport.json) | [createReport](https://pub.dev/documentation/atproto/latest/atproto/ModerationService/createReport.html) |
 
+### 1.3.10. Sync
+
+| **Lexicon**                                                                                                                          | **Method Name**                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| [com.atproto.sync.subscribeRepos](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/subscribeRepos.json) | [subscribeRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepos.html) |
+
 ## 1.4. Tips 🏄
 
 ### 1.4.1. Method Names
 
 **bluesky** uses the following standard prefixes depending on endpoint characteristics. So it's very easy to find the method corresponding to the endpoint you want to use!
 
-| Prefix      | Description                                                               |
-| ----------- | ------------------------------------------------------------------------- |
-| **find**    | This prefix is attached to endpoints that reference post etc.             |
-| **search**  | This prefix is attached to endpoints that perform extensive searches.     |
-| **connect** | This prefix is attached to endpoints with high-performance streaming.     |
-| **create**  | This prefix is attached to the endpoint performing the create state.      |
-| **refresh** | This prefix is attached to the endpoint performing the refresh state.     |
-| **delete**  | This prefix is attached to the endpoint performing the delete state.      |
-| **update**  | This prefix is attached to the endpoint performing the update state.      |
-| **upload**  | This prefix is attached to the endpoint performing the upload contents.   |
-| **request** | This prefix is attached to the endpoint performing the request via email. |
+| Prefix        | Description                                                               |
+| ------------- | ------------------------------------------------------------------------- |
+| **find**      | This prefix is attached to endpoints that reference post etc.             |
+| **search**    | This prefix is attached to endpoints that perform extensive searches.     |
+| **subscribe** | This prefix is attached to endpoints with high-performance streaming.     |
+| **create**    | This prefix is attached to the endpoint performing the create state.      |
+| **refresh**   | This prefix is attached to the endpoint performing the refresh state.     |
+| **delete**    | This prefix is attached to the endpoint performing the delete state.      |
+| **update**    | This prefix is attached to the endpoint performing the update state.      |
+| **upload**    | This prefix is attached to the endpoint performing the upload contents.   |
+| **request**   | This prefix is attached to the endpoint performing the request via email. |
 
 ### 1.4.2. Create Session
 

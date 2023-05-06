@@ -17,7 +17,7 @@ class RepostedBy with _$RepostedBy {
   const factory RepostedBy({
     required List<Actor> repostedBy,
     @AtUriConverter() required AtUri uri,
-    required String cursor,
+    String? cursor,
   }) = _RepostedBy;
 
   factory RepostedBy.fromJson(Map<String, Object?> json) =>

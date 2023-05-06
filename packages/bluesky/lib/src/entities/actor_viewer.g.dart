@@ -14,17 +14,20 @@ _$_ActorViewer _$$_ActorViewerFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$_ActorViewer(
           isMuted: $checkedConvert('muted', (v) => v as bool),
+          isBlockedBy: $checkedConvert('blockedBy', (v) => v as bool),
+          blocking: $checkedConvert('blocking', (v) => v as String?),
           following: $checkedConvert('following', (v) => v as String?),
           followedBy: $checkedConvert('followedBy', (v) => v as String?),
         );
         return val;
       },
-      fieldKeyMap: const {'isMuted': 'muted'},
+      fieldKeyMap: const {'isMuted': 'muted', 'isBlockedBy': 'blockedBy'},
     );
 
 Map<String, dynamic> _$$_ActorViewerToJson(_$_ActorViewer instance) {
   final val = <String, dynamic>{
     'muted': instance.isMuted,
+    'blockedBy': instance.isBlockedBy,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -33,6 +36,7 @@ Map<String, dynamic> _$$_ActorViewerToJson(_$_ActorViewer instance) {
     }
   }
 
+  writeNotNull('blocking', instance.blocking);
   writeNotNull('following', instance.following);
   writeNotNull('followedBy', instance.followedBy);
   return val;

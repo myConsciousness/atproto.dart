@@ -18,7 +18,7 @@ class EmbedExternalThumbnail with _$EmbedExternalThumbnail {
     required String uri,
     required String title,
     required String description,
-    @JsonKey(name: 'thumb') Blob? blob,
+    @BlobContextConverter() @JsonKey(name: 'thumb') BlobContext? blob,
   }) = _EmbedExternalThumbnail;
 
   factory EmbedExternalThumbnail.fromJson(Map<String, Object?> json) =>

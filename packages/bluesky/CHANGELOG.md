@@ -1,5 +1,19 @@
 # Release Note
 
+## v0.4.2
+
+- Added `includeNsfw` flag to `findPopularFeed`. ([#329](https://github.com/myConsciousness/atproto.dart/issues/329))
+- Added `SyncService` and supported stream API as `subscribeRepos` ([#318](https://github.com/myConsciousness/atproto.dart/issues/318))
+- Made `replies` to nullable in `PostThreadViewRecord`. ([#335](https://github.com/myConsciousness/atproto.dart/issues/335))
+- Added `anonymous` constructor in `Bluesky` object. ([#324](https://github.com/myConsciousness/atproto.dart/issues/324))
+
+## v0.4.1
+
+- Supported `findBlocks`. ([#320](https://github.com/myConsciousness/atproto.dart/issues/320))
+- Supported `createBlock`. ([#320](https://github.com/myConsciousness/atproto.dart/issues/320))
+- Fixed `PostThread` to union type. ([#320](https://github.com/myConsciousness/atproto.dart/issues/320))
+- Supported Blob in legacy format. Now you can use them easily with Union type `BlobContext`. ([#283](https://github.com/myConsciousness/atproto.dart/issues/283))
+
 ## v0.4.0
 
 - Refactored object names.

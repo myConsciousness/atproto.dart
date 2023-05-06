@@ -5,6 +5,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../embed_view_record_view.dart';
+import '../embed_view_record_view_blocked.dart';
 import '../embed_view_record_view_not_found.dart';
 import '../embed_view_record_view_record.dart';
 
@@ -15,20 +16,27 @@ class EmbedViewRecordViewConverter
 
   @override
   EmbedViewRecordView fromJson(Map<String, dynamic> json) {
-    if (json['type'] == 'app.bsky.embed.record#viewNotFound') {
-      return EmbedViewRecordView.viewNotFound(
+    final type = json['\$type'];
+
+    if (type == 'app.bsky.embed.record#viewNotFound') {
+      return EmbedViewRecordView.notFound(
         data: EmbedViewRecordViewNotFound.fromJson(json),
+      );
+    } else if (type == 'app.bsky.embed.record#viewBlocked') {
+      return EmbedViewRecordView.blocked(
+        data: EmbedViewRecordViewBlocked.fromJson(json),
       );
     }
 
-    return EmbedViewRecordView.viewRecord(
+    return EmbedViewRecordView.record(
       data: EmbedViewRecordViewRecord.fromJson(json),
     );
   }
 
   @override
   Map<String, dynamic> toJson(EmbedViewRecordView object) => object.when(
-        viewRecord: (data) => data.toJson(),
-        viewNotFound: (data) => data.toJson(),
+        record: (data) => data.toJson(),
+        notFound: (data) => data.toJson(),
+        blocked: (data) => data.toJson(),
       );
 }

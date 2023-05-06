@@ -57,6 +57,9 @@ abstract class BlueskyService {
 
   /// Returns the moderation service.
   atp.ModerationService get moderation;
+
+  /// Returns the sync service.
+  atp.SyncService get sync;
 }
 
 class _BlueskyService implements BlueskyService {
@@ -111,7 +114,8 @@ class _BlueskyService implements BlueskyService {
         servers = atproto.servers,
         identities = atproto.identities,
         repositories = atproto.repositories,
-        moderation = atproto.moderation;
+        moderation = atproto.moderation,
+        sync = atproto.sync;
 
   @override
   final ActorsService actors;
@@ -139,4 +143,7 @@ class _BlueskyService implements BlueskyService {
 
   @override
   final atp.ModerationService moderation;
+
+  @override
+  final atp.SyncService sync;
 }

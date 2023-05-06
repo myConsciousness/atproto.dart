@@ -6,16 +6,33 @@ export 'package:atproto/atproto.dart'
     show
         Session,
         Record,
+        RecordValue,
         DID,
         Blob,
+        LegacyBlob,
         BlobData,
+        BlobContext,
         BlobRef,
         CurrentSession,
         Account,
+        CreatedInviteCode,
+        InviteCodeUse,
         InviteCode,
         InviteCodes,
         AppPassword,
         AppPasswords,
+        Repo,
+        SubscribedRepo,
+        SubscribedRepoCommit,
+        SubscribedRepoHandle,
+        SubscribedRepoInfo,
+        SubscribedRepoMigrate,
+        SubscribedRepoTombstone,
+        RepoOp,
+        RepoAction,
+        ParsedDidDoc,
+        ParsedVerificationMethod,
+        ParsedService,
         Report,
         RepoRef,
         StrongRef,
@@ -24,13 +41,15 @@ export 'package:atproto/atproto.dart'
         ServersService,
         IdentitiesService,
         RepositoriesService,
-        ModerationService;
+        ModerationService,
+        SyncService;
 export 'package:atproto_core/atproto_core.dart'
     show
         XRPCResponse,
         XRPCRequest,
         XRPCError,
         Protocol,
+        Subscription,
         EmptyData,
         HttpMethod,
         HttpStatus,
@@ -56,6 +75,7 @@ export 'package:bluesky/src/entities/actor_profiles.dart';
 export 'package:bluesky/src/entities/actor_viewer.dart';
 export 'package:bluesky/src/entities/actors.dart';
 export 'package:bluesky/src/entities/actors_typeahead.dart';
+export 'package:bluesky/src/entities/blocks.dart';
 export 'package:bluesky/src/entities/byte_slice.dart';
 export 'package:bluesky/src/entities/count.dart';
 export 'package:bluesky/src/entities/embed.dart';
@@ -73,6 +93,7 @@ export 'package:bluesky/src/entities/embed_view_images_view.dart';
 export 'package:bluesky/src/entities/embed_view_media.dart';
 export 'package:bluesky/src/entities/embed_view_record.dart';
 export 'package:bluesky/src/entities/embed_view_record_view.dart';
+export 'package:bluesky/src/entities/embed_view_record_view_blocked.dart';
 export 'package:bluesky/src/entities/embed_view_record_view_not_found.dart';
 export 'package:bluesky/src/entities/embed_view_record_with_media.dart';
 export 'package:bluesky/src/entities/facet.dart';
@@ -94,6 +115,9 @@ export 'package:bluesky/src/entities/post_record.dart';
 export 'package:bluesky/src/entities/post_ref.dart';
 export 'package:bluesky/src/entities/post_thread.dart';
 export 'package:bluesky/src/entities/post_thread_view.dart';
+export 'package:bluesky/src/entities/post_thread_view_blocked.dart';
+export 'package:bluesky/src/entities/post_thread_view_not_found.dart';
+export 'package:bluesky/src/entities/post_thread_view_record.dart';
 export 'package:bluesky/src/entities/post_viewer.dart';
 export 'package:bluesky/src/entities/posts.dart';
 export 'package:bluesky/src/entities/reason.dart';

@@ -14,6 +14,7 @@
         "indexedAt": "2023-03-28T10:42:28.305Z",
         "viewer": {
           "muted": false,
+          "blockedBy": false,
           "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqfbh4kvdk2i",
           "followedBy": "at://did:plc:5twawjfjot3rdipflwfxygcr/app.bsky.graph.follow/3jqctk4mstk2q"
         }

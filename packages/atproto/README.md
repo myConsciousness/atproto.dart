@@ -41,6 +41,7 @@
     - [1.3.2. Identity](#132-identity)
     - [1.3.3. Repository](#133-repository)
     - [1.3.4. Moderation](#134-moderation)
+    - [1.3.5. Sync](#135-sync)
   - [1.4. Tips 🏄](#14-tips-)
     - [1.4.1. Method Names](#141-method-names)
     - [1.4.2. Null Parameter at Request](#142-null-parameter-at-request)
@@ -149,6 +150,12 @@ Future<void> main() async {
     await atproto.repositories.deleteRecord(
       uri: createdRecord.data.uri,
     );
+
+    //! You can use Stream API easily.
+    final subscription = await atproto.sync.subscribeRepoUpdates();
+    subscription.data.stream.listen((event) {
+      print(event.toJson());
+    });
   } on atp.UnauthorizedException catch (e) {
     print(e);
   } on atp.XRPCException catch (e) {
@@ -189,9 +196,11 @@ Future<void> main() async {
 | **Lexicon**                                                                                                                           | **Method Name**                                                                                            |
 | ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | [POST com.atproto.repo.createRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/createRecord.json) | [createRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/createRecord.html) |
+| [GET com.atproto.repo.getRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/getRecord.json)        | [findRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/findRecord.html)     |
 | [POST com.atproto.repo.deleteRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/deleteRecord.json) | [deleteRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/deleteRecord.html) |
 | [POST com.atproto.repo.putRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/putRecord.json)       | [updateRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/updateRecord.html) |
 | [POST com.atproto.repo.uploadBlob](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/uploadBlob.json)     | [uploadBlob](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/uploadBlob.html)     |
+| [GET com.atproto.repo.describeRepo](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/describeRepo.json)  | [findRepo](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/findRepo.html)         |
 
 ### 1.3.4. Moderation
 
@@ -199,23 +208,29 @@ Future<void> main() async {
 | ------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | [POST com.atproto.moderation.createReport](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/moderation/createReport.json) | [createReport](https://pub.dev/documentation/atproto/latest/atproto/ModerationService/createReport.html) |
 
+### 1.3.5. Sync
+
+| **Lexicon**                                                                                                                          | **Method Name**                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| [com.atproto.sync.subscribeRepos](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/subscribeRepos.json) | [subscribeRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepos.html) |
+
 ## 1.4. Tips 🏄
 
 ### 1.4.1. Method Names
 
 **atproto** uses the following standard prefixes depending on endpoint characteristics. So it's very easy to find the method corresponding to the endpoint you want to use!
 
-| Prefix      | Description                                                               |
-| ----------- | ------------------------------------------------------------------------- |
-| **find**    | This prefix is attached to endpoints that reference post etc.             |
-| **search**  | This prefix is attached to endpoints that perform extensive searches.     |
-| **connect** | This prefix is attached to endpoints with high-performance streaming.     |
-| **create**  | This prefix is attached to the endpoint performing the create state.      |
-| **refresh** | This prefix is attached to the endpoint performing the refresh state.     |
-| **delete**  | This prefix is attached to the endpoint performing the delete state.      |
-| **update**  | This prefix is attached to the endpoint performing the update state.      |
-| **upload**  | This prefix is attached to the endpoint performing the upload contents.   |
-| **request** | This prefix is attached to the endpoint performing the request via email. |
+| Prefix        | Description                                                               |
+| ------------- | ------------------------------------------------------------------------- |
+| **find**      | This prefix is attached to endpoints that reference post etc.             |
+| **search**    | This prefix is attached to endpoints that perform extensive searches.     |
+| **subscribe** | This prefix is attached to endpoints with high-performance streaming.     |
+| **create**    | This prefix is attached to the endpoint performing the create state.      |
+| **refresh**   | This prefix is attached to the endpoint performing the refresh state.     |
+| **delete**    | This prefix is attached to the endpoint performing the delete state.      |
+| **update**    | This prefix is attached to the endpoint performing the update state.      |
+| **upload**    | This prefix is attached to the endpoint performing the upload contents.   |
+| **request**   | This prefix is attached to the endpoint performing the request via email. |
 
 ### 1.4.2. Null Parameter at Request
 
