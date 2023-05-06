@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'did_document.dart';
+part of 'parsed_did_document.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,33 +14,33 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-DidDocument _$DidDocumentFromJson(Map<String, dynamic> json) {
-  return _DidDocument.fromJson(json);
+ParsedDidDocument _$ParsedDidDocumentFromJson(Map<String, dynamic> json) {
+  return _ParsedDidDocument.fromJson(json);
 }
 
 /// @nodoc
-mixin _$DidDocument {
+mixin _$ParsedDidDocument {
   @JsonKey(name: '@context')
   List<String> get context => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   List<String> get alsoKnownAs => throw _privateConstructorUsedError;
   @JsonKey(name: 'verificationMethod')
-  List<VerificationMethod> get verificationMethods =>
+  List<ParsedVerificationMethod> get verificationMethods =>
       throw _privateConstructorUsedError;
   @JsonKey(name: 'service')
-  List<Service> get services => throw _privateConstructorUsedError;
+  List<ParsedService> get services => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DidDocumentCopyWith<DidDocument> get copyWith =>
+  $ParsedDidDocumentCopyWith<ParsedDidDocument> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DidDocumentCopyWith<$Res> {
-  factory $DidDocumentCopyWith(
-          DidDocument value, $Res Function(DidDocument) then) =
-      _$DidDocumentCopyWithImpl<$Res, DidDocument>;
+abstract class $ParsedDidDocumentCopyWith<$Res> {
+  factory $ParsedDidDocumentCopyWith(
+          ParsedDidDocument value, $Res Function(ParsedDidDocument) then) =
+      _$ParsedDidDocumentCopyWithImpl<$Res, ParsedDidDocument>;
   @useResult
   $Res call(
       {@JsonKey(name: '@context')
@@ -48,15 +48,15 @@ abstract class $DidDocumentCopyWith<$Res> {
       String id,
       List<String> alsoKnownAs,
       @JsonKey(name: 'verificationMethod')
-          List<VerificationMethod> verificationMethods,
+          List<ParsedVerificationMethod> verificationMethods,
       @JsonKey(name: 'service')
-          List<Service> services});
+          List<ParsedService> services});
 }
 
 /// @nodoc
-class _$DidDocumentCopyWithImpl<$Res, $Val extends DidDocument>
-    implements $DidDocumentCopyWith<$Res> {
-  _$DidDocumentCopyWithImpl(this._value, this._then);
+class _$ParsedDidDocumentCopyWithImpl<$Res, $Val extends ParsedDidDocument>
+    implements $ParsedDidDocumentCopyWith<$Res> {
+  _$ParsedDidDocumentCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -88,21 +88,21 @@ class _$DidDocumentCopyWithImpl<$Res, $Val extends DidDocument>
       verificationMethods: null == verificationMethods
           ? _value.verificationMethods
           : verificationMethods // ignore: cast_nullable_to_non_nullable
-              as List<VerificationMethod>,
+              as List<ParsedVerificationMethod>,
       services: null == services
           ? _value.services
           : services // ignore: cast_nullable_to_non_nullable
-              as List<Service>,
+              as List<ParsedService>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_DidDocumentCopyWith<$Res>
-    implements $DidDocumentCopyWith<$Res> {
-  factory _$$_DidDocumentCopyWith(
-          _$_DidDocument value, $Res Function(_$_DidDocument) then) =
-      __$$_DidDocumentCopyWithImpl<$Res>;
+abstract class _$$_ParsedDidDocumentCopyWith<$Res>
+    implements $ParsedDidDocumentCopyWith<$Res> {
+  factory _$$_ParsedDidDocumentCopyWith(_$_ParsedDidDocument value,
+          $Res Function(_$_ParsedDidDocument) then) =
+      __$$_ParsedDidDocumentCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -111,17 +111,17 @@ abstract class _$$_DidDocumentCopyWith<$Res>
       String id,
       List<String> alsoKnownAs,
       @JsonKey(name: 'verificationMethod')
-          List<VerificationMethod> verificationMethods,
+          List<ParsedVerificationMethod> verificationMethods,
       @JsonKey(name: 'service')
-          List<Service> services});
+          List<ParsedService> services});
 }
 
 /// @nodoc
-class __$$_DidDocumentCopyWithImpl<$Res>
-    extends _$DidDocumentCopyWithImpl<$Res, _$_DidDocument>
-    implements _$$_DidDocumentCopyWith<$Res> {
-  __$$_DidDocumentCopyWithImpl(
-      _$_DidDocument _value, $Res Function(_$_DidDocument) _then)
+class __$$_ParsedDidDocumentCopyWithImpl<$Res>
+    extends _$ParsedDidDocumentCopyWithImpl<$Res, _$_ParsedDidDocument>
+    implements _$$_ParsedDidDocumentCopyWith<$Res> {
+  __$$_ParsedDidDocumentCopyWithImpl(
+      _$_ParsedDidDocument _value, $Res Function(_$_ParsedDidDocument) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -133,7 +133,7 @@ class __$$_DidDocumentCopyWithImpl<$Res>
     Object? verificationMethods = null,
     Object? services = null,
   }) {
-    return _then(_$_DidDocument(
+    return _then(_$_ParsedDidDocument(
       context: null == context
           ? _value._context
           : context // ignore: cast_nullable_to_non_nullable
@@ -149,34 +149,34 @@ class __$$_DidDocumentCopyWithImpl<$Res>
       verificationMethods: null == verificationMethods
           ? _value._verificationMethods
           : verificationMethods // ignore: cast_nullable_to_non_nullable
-              as List<VerificationMethod>,
+              as List<ParsedVerificationMethod>,
       services: null == services
           ? _value._services
           : services // ignore: cast_nullable_to_non_nullable
-              as List<Service>,
+              as List<ParsedService>,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_DidDocument implements _DidDocument {
-  const _$_DidDocument(
+class _$_ParsedDidDocument implements _ParsedDidDocument {
+  const _$_ParsedDidDocument(
       {@JsonKey(name: '@context')
           required final List<String> context,
       required this.id,
       required final List<String> alsoKnownAs,
       @JsonKey(name: 'verificationMethod')
-          required final List<VerificationMethod> verificationMethods,
+          required final List<ParsedVerificationMethod> verificationMethods,
       @JsonKey(name: 'service')
-          required final List<Service> services})
+          required final List<ParsedService> services})
       : _context = context,
         _alsoKnownAs = alsoKnownAs,
         _verificationMethods = verificationMethods,
         _services = services;
 
-  factory _$_DidDocument.fromJson(Map<String, dynamic> json) =>
-      _$$_DidDocumentFromJson(json);
+  factory _$_ParsedDidDocument.fromJson(Map<String, dynamic> json) =>
+      _$$_ParsedDidDocumentFromJson(json);
 
   final List<String> _context;
   @override
@@ -197,20 +197,20 @@ class _$_DidDocument implements _DidDocument {
     return EqualUnmodifiableListView(_alsoKnownAs);
   }
 
-  final List<VerificationMethod> _verificationMethods;
+  final List<ParsedVerificationMethod> _verificationMethods;
   @override
   @JsonKey(name: 'verificationMethod')
-  List<VerificationMethod> get verificationMethods {
+  List<ParsedVerificationMethod> get verificationMethods {
     if (_verificationMethods is EqualUnmodifiableListView)
       return _verificationMethods;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_verificationMethods);
   }
 
-  final List<Service> _services;
+  final List<ParsedService> _services;
   @override
   @JsonKey(name: 'service')
-  List<Service> get services {
+  List<ParsedService> get services {
     if (_services is EqualUnmodifiableListView) return _services;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_services);
@@ -218,14 +218,14 @@ class _$_DidDocument implements _DidDocument {
 
   @override
   String toString() {
-    return 'DidDocument(context: $context, id: $id, alsoKnownAs: $alsoKnownAs, verificationMethods: $verificationMethods, services: $services)';
+    return 'ParsedDidDocument(context: $context, id: $id, alsoKnownAs: $alsoKnownAs, verificationMethods: $verificationMethods, services: $services)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DidDocument &&
+            other is _$_ParsedDidDocument &&
             const DeepCollectionEquality().equals(other._context, _context) &&
             (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality()
@@ -248,30 +248,31 @@ class _$_DidDocument implements _DidDocument {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DidDocumentCopyWith<_$_DidDocument> get copyWith =>
-      __$$_DidDocumentCopyWithImpl<_$_DidDocument>(this, _$identity);
+  _$$_ParsedDidDocumentCopyWith<_$_ParsedDidDocument> get copyWith =>
+      __$$_ParsedDidDocumentCopyWithImpl<_$_ParsedDidDocument>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DidDocumentToJson(
+    return _$$_ParsedDidDocumentToJson(
       this,
     );
   }
 }
 
-abstract class _DidDocument implements DidDocument {
-  const factory _DidDocument(
+abstract class _ParsedDidDocument implements ParsedDidDocument {
+  const factory _ParsedDidDocument(
       {@JsonKey(name: '@context')
           required final List<String> context,
       required final String id,
       required final List<String> alsoKnownAs,
       @JsonKey(name: 'verificationMethod')
-          required final List<VerificationMethod> verificationMethods,
+          required final List<ParsedVerificationMethod> verificationMethods,
       @JsonKey(name: 'service')
-          required final List<Service> services}) = _$_DidDocument;
+          required final List<ParsedService> services}) = _$_ParsedDidDocument;
 
-  factory _DidDocument.fromJson(Map<String, dynamic> json) =
-      _$_DidDocument.fromJson;
+  factory _ParsedDidDocument.fromJson(Map<String, dynamic> json) =
+      _$_ParsedDidDocument.fromJson;
 
   @override
   @JsonKey(name: '@context')
@@ -282,12 +283,12 @@ abstract class _DidDocument implements DidDocument {
   List<String> get alsoKnownAs;
   @override
   @JsonKey(name: 'verificationMethod')
-  List<VerificationMethod> get verificationMethods;
+  List<ParsedVerificationMethod> get verificationMethods;
   @override
   @JsonKey(name: 'service')
-  List<Service> get services;
+  List<ParsedService> get services;
   @override
   @JsonKey(ignore: true)
-  _$$_DidDocumentCopyWith<_$_DidDocument> get copyWith =>
+  _$$_ParsedDidDocumentCopyWith<_$_ParsedDidDocument> get copyWith =>
       throw _privateConstructorUsedError;
 }

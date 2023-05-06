@@ -7,18 +7,18 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'verification_method.freezed.dart';
-part 'verification_method.g.dart';
+part 'parsed_verification_method.freezed.dart';
+part 'parsed_verification_method.g.dart';
 
 @freezed
-class VerificationMethod with _$VerificationMethod {
-  const factory VerificationMethod({
+class ParsedVerificationMethod with _$ParsedVerificationMethod {
+  const factory ParsedVerificationMethod({
     required String id,
     required String type,
     required String controller,
     required String publicKeyMultibase,
-  }) = _VerificationMethod;
+  }) = _ParsedVerificationMethod;
 
-  factory VerificationMethod.fromJson(Map<String, Object?> json) =>
-      _$VerificationMethodFromJson(json);
+  factory ParsedVerificationMethod.fromJson(Map<String, Object?> json) =>
+      _$ParsedVerificationMethodFromJson(json);
 }

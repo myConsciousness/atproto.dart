@@ -2,17 +2,17 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'service.dart';
+part of 'parsed_service.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Service _$$_ServiceFromJson(Map json) => $checkedCreate(
-      r'_$_Service',
+_$_ParsedService _$$_ParsedServiceFromJson(Map json) => $checkedCreate(
+      r'_$_ParsedService',
       json,
       ($checkedConvert) {
-        final val = _$_Service(
+        final val = _$_ParsedService(
           id: $checkedConvert('id', (v) => v as String),
           type: $checkedConvert('type', (v) => v as String),
           serviceEndpoint:
@@ -22,7 +22,7 @@ _$_Service _$$_ServiceFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_ServiceToJson(_$_Service instance) =>
+Map<String, dynamic> _$$_ParsedServiceToJson(_$_ParsedService instance) =>
     <String, dynamic>{
       'id': instance.id,
       'type': instance.type,
