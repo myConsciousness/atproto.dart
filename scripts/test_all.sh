@@ -18,5 +18,8 @@ dart test
 cd ../atproto || exit
 dart test
 
+cd ../bluesky_text || exit
+dart test
+
 cd ../bluesky || exit
 dart test
