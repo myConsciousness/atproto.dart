@@ -229,7 +229,7 @@ Future<void> main() async {
 
   await bluesky.feeds.createPost(
       text: text.value,
-      facets: text.entities.map((e) {
+      facets: entities.map((e) {
         switch (e.type) {
           //! For handle (mention)
           case EntityType.handle:
