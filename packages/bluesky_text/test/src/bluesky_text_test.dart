@@ -735,8 +735,6 @@ void main() {
       final text = BlueskyText('${'a' * 299} test');
       final texts = text.split();
 
-      print(texts);
-
       expect(texts.length, 2);
       expect(texts.first.isLengthLimitExceeded, isFalse);
       expect(texts.first.value, 'a' * 299);
