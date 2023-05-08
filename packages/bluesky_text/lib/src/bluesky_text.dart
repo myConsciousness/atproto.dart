@@ -14,6 +14,65 @@ import 'regex.dart';
 /// The max length of text.
 const _maxLength = 300;
 
+/// This class provides high-performance analysis of [Bluesky Social](https://blueskyweb.xyz)'s text
+/// and features related to secure posting.
+///
+/// By using the analysis feature of this class,
+/// you can get the values of all the following entities contained in the text
+/// and the Indices that can be used as is when posting using the Bluesky API.
+///
+/// The value of this Indices is counted based on the number of byte characters
+/// and can be used as is for `ByteSlice` in the `facets` parameter of
+/// `app.bsky.feed.post` in the Bluesky API.
+///
+/// It supports analysis of the following entities.
+///
+/// - **Handle** (like @shinyakato.dev)
+/// - **Link** (like https://shinyakato.dev)
+///
+/// The class also supports counting the number of characters using `grapheme`,
+/// and the length of the string that can be obtained with [length] is
+/// the one counted using grapheme. In other words, as per Bluesky Social's
+/// official specifications, **an emoji is counted as one character**.
+///
+/// ## How To Use
+///
+/// You simply pass any text to the [BlueskyText] object to create an instance
+/// like following.
+///
+/// ```dart
+/// final text = BlueskyText(
+///   'I speak 日本語 and English 🚀 @shinyakato.dev and @shinyakato.bsky.social. '
+///   'Visit 🚀 https://shinyakato.dev.',
+/// );
+/// ```
+///
+/// The length of the string passed to [BlueskyText] can be longer than
+/// 300 characters in grapheme. But, if there is a possibility that more than
+/// 300 characters of text will be passed, be sure to check if the character
+/// count is exceeded and split the BlueskyText using the [split] method as
+/// follows.
+///
+/// ```dart
+/// final text = BlueskyText(
+///   'I speak 日本語 and English 🚀 @shinyakato.dev and @shinyakato.bsky.social. '
+///   'Visit 🚀 https://shinyakato.dev.',
+/// );
+///
+/// if (text.isLengthLimitExceeded) {
+///   final texts = text.split();
+///
+///   for (final text in texts) {
+///     print(text.handles);
+///     print(text.links);
+///     print(text.entities);
+///   }
+/// } else {
+///   print(text.handles);
+///   print(text.links);
+///   print(text.entities);
+/// }
+/// ```
 abstract class BlueskyText {
   /// Returns the new instance of [BlueskyText].
   factory BlueskyText(final String text) => _BlueskyText(text);
