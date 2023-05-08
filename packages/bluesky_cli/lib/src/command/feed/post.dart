@@ -2,6 +2,10 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'dart:async';
+import 'dart:convert';
+
+import 'package:bluesky_text/bluesky_text.dart';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 import '../create_record_command.dart';
@@ -39,8 +43,70 @@ class PostCommand extends CreateRecordCommand {
       );
 
   @override
-  Map<String, dynamic> get record => {
-        'text': argResults!['text'],
-        'createdAt': argResults!['created-at'],
-      };
+  FutureOr<Map<String, dynamic>> get record async {
+    final text = BlueskyText(argResults!['text']);
+    final entities = text.entities;
+
+    final dids = await _findDIDs(entities);
+
+    return {
+      'text': text.value,
+      'facets': entities.isEmpty
+          ? null
+          : entities.map((e) {
+              switch (e.type) {
+                case EntityType.handle:
+                  return {
+                    'index': {
+                      'byteStart': e.indices.start,
+                      'byteEnd': e.indices.end,
+                    },
+                    'features': [
+                      {
+                        '\$type': 'app.bsky.richtext.facet#mention',
+                        'did': dids[e.value]!
+                      }
+                    ]
+                  };
+                case EntityType.link:
+                  return {
+                    'index': {
+                      'byteStart': e.indices.start,
+                      'byteEnd': e.indices.end,
+                    },
+                    'features': [
+                      {
+                        '\$type': 'app.bsky.richtext.facet#link',
+                        'uri': e.value,
+                      }
+                    ]
+                  };
+              }
+            }).toList(),
+      'createdAt': argResults!['created-at'],
+    };
+  }
+
+  Future<Map<String, String>> _findDIDs(final List<Entity> entities) async {
+    final dids = <String, String>{};
+
+    for (final entity in entities) {
+      if (entity.type == EntityType.handle) {
+        final did = await xrpc.query<String>(
+          xrpc.NSID.create(
+            'identity.atproto.com',
+            'resolveHandle',
+          ),
+          parameters: {
+            'handle': entity.value.substring(1),
+          },
+        );
+
+        final json = jsonDecode(did.data);
+        dids[entity.value] = json['did'];
+      }
+    }
+
+    return dids;
+  }
 }
