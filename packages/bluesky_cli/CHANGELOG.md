@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.1.2
+
+- Fixed to automatically extract `mention` and `link` from text and set `facet`. ([#291](https://github.com/myConsciousness/atproto.dart/issues/291))
+
 ## v0.1.1
 
 - Added `block` and `blocks` commands. ([#320](https://github.com/myConsciousness/atproto.dart/issues/320))
