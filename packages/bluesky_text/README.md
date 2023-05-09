@@ -122,7 +122,7 @@ void main() {
 
 ### 1.2.1. Instantiate
 
-You simply pass any text to the [BlueskyText] object to create an instance
+You simply pass any text to the [BlueskyText](https://pub.dev/documentation/bluesky_text/latest/bluesky_text/BlueskyText-class.html) object to create an instance
 like following.
 
 ```dart
@@ -132,10 +132,10 @@ final text = BlueskyText(
 );
 ```
 
-The length of the string passed to [BlueskyText] can be longer than
+The length of the string passed to [BlueskyText](https://pub.dev/documentation/bluesky_text/latest/bluesky_text/BlueskyText-class.html) can be longer than
 300 characters in grapheme. But, if there is a possibility that more than
 300 characters of text will be passed, be sure to check if the character
-count is exceeded and split the BlueskyText using the [split] method as
+count is exceeded and split the BlueskyText using the [split](https://pub.dev/documentation/bluesky_text/latest/bluesky_text/BlueskyText/split.html) method as
 follows.
 
 ```dart
@@ -217,78 +217,32 @@ import 'package:bluesky/bluesky.dart' as bsky;
 import 'package:bluesky_text/bluesky_text.dart';
 
 Future<void> main() async {
+  //! You just need to pass text to parse.
   final text = BlueskyText(
     'I speak 日本語 and English 🚀 @shinyakato.dev and @shinyakato.bsky.social. '
     'Visit 🚀 https://shinyakato.dev.',
   );
 
   final bluesky = bsky.Bluesky.fromSession(await _session);
-  final entities = text.entities;
 
-  final dids = await _findDIDs(bluesky, entities);
+  // Just use "toFacets".
+  final facets = await text.entities.toFacets();
 
   await bluesky.feeds.createPost(
-      text: text.value,
-      facets: entities.map((e) {
-        switch (e.type) {
-          //! For handle (mention)
-          case EntityType.handle:
-            return bsky.Facet(
-              index: bsky.ByteSlice(
-                byteStart: e.indices.start,
-                byteEnd: e.indices.end,
-              ),
-              features: [
-                bsky.FacetFeature.mention(
-                  data: bsky.FacetMention(did: dids[e.value]!),
-                ),
-              ],
-            );
-          //! For link
-          case EntityType.link:
-            return bsky.Facet(
-              index: bsky.ByteSlice(
-                byteStart: e.indices.start,
-                byteEnd: e.indices.end,
-              ),
-              features: [
-                bsky.FacetFeature.link(
-                  data: bsky.FacetLink(uri: e.value),
-                ),
-              ],
-            );
-        }
-      }).toList());
+    text: text.value,
+    // And convert to `bsky.Facet`.
+    facets: facets.map((e) => bsky.Facet.fromJson(e)).toList(),
+  );
 }
 
 Future<bsky.Session> get _session async {
   final session = await bsky.createSession(
-    service: 'SERVICE_NAME',
-    identifier: 'YOUR_HANDLE_OR_EMAIL',
+    service: 'SERVICE_NAME', //! The default is `bsky.social`
+    identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
     password: 'YOUR_PASSWORD',
   );
 
   return session.data;
-}
-
-Future<Map<String, String>> _findDIDs(
-  final bsky.Bluesky bluesky,
-  final List<Entity> entities,
-) async {
-  final dids = <String, String>{};
-
-  for (final entity in entities) {
-    if (entity.type == EntityType.handle) {
-      //! Remove `@`
-      final did = await bluesky.identities.findDID(
-        handle: entity.value.substring(1),
-      );
-
-      dids[entity.value] = did.data.did;
-    }
-  }
-
-  return dids;
 }
 ```
 

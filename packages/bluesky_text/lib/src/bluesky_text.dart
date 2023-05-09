@@ -8,6 +8,7 @@ import 'dart:typed_data';
 import 'package:characters/characters.dart';
 
 import 'entities/byte_indices.dart';
+import 'entities/entities.dart';
 import 'entities/entity.dart';
 import 'regex.dart';
 
@@ -93,18 +94,18 @@ abstract class BlueskyText {
   ///
   /// All Entities beginning with `@` in [value] are extracted and
   /// returned along with their start and end indices.
-  List<Entity> get handles;
+  Entities get handles;
 
   /// Returns the collection of links.
   ///
   /// All Entities beginning with `http` or `https` in [value] are extracted and
   /// returned along with their start and end indices.
-  List<Entity> get links;
+  Entities get links;
 
   /// Returns the collection of entities.
   ///
   /// It includes the response from [handles] and [links].
-  List<Entity> get entities;
+  Entities get entities;
 
   /// Splits this [value].
   ///
@@ -169,29 +170,38 @@ class _BlueskyText implements BlueskyText {
   int get length => value.characters.length;
 
   @override
-  List<Entity> get handles {
+  Entities get handles {
     _validateLength();
 
-    return _orderByIndicesStart(_getEntities(
-      EntityType.handle,
-      ['@'],
-      regexHandle,
-    ));
+    return Entities(
+      _orderByIndicesStart(_getEntities(
+        EntityType.handle,
+        ['@'],
+        regexHandle,
+      )),
+    );
   }
 
   @override
-  List<Entity> get links {
+  Entities get links {
     _validateLength();
 
-    return _orderByIndicesStart(_getEntities(
-      EntityType.link,
-      ['http:', 'https:'],
-      regexLink,
-    ));
+    return Entities(
+      _orderByIndicesStart(_getEntities(
+        EntityType.link,
+        ['http:', 'https:'],
+        regexLink,
+      )),
+    );
   }
 
   @override
-  List<Entity> get entities => _orderByIndicesStart([...handles, ...links]);
+  Entities get entities => Entities(
+        _orderByIndicesStart([
+          ...handles,
+          ...links,
+        ]),
+      );
 
   @override
   List<BlueskyText> split() {
