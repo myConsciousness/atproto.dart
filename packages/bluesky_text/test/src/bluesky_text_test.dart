@@ -397,6 +397,24 @@ void main() {
 
       expect(entities.length, 0);
     });
+
+    test('case6', () {
+      final text = BlueskyText('''
+Testing mentions and URLs in Ivory
+
+@videah.net
+
+github.com/videah/SkyBridge
+''');
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.isHandle, isTrue);
+      expect(entities.first.value, '@videah.net');
+      expect(entities.first.indices.start, 36);
+      expect(entities.first.indices.end, 47);
+    });
   });
 
   group('.hasHandle', () {

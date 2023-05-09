@@ -318,7 +318,14 @@ class _BlueskyText implements BlueskyText {
         if (matched) {
           //! Search end index.
           while (index + searchByteIndex < _bytes.length &&
-              _bytes[index + searchByteIndex] != 32) {
+              _bytes[index + searchByteIndex] != 32 && //! Space
+              _bytes[index + searchByteIndex] != 10 && //! \n
+              !(_bytes[index + searchByteIndex] == 13 && //! \r
+                  _bytes[index + searchByteIndex + 1] == 10) && //! \n
+              !(_bytes[index + searchByteIndex] == 0xE3 &&
+                  _bytes[index + searchByteIndex + 1] == 0x80 &&
+                  _bytes[index + searchByteIndex + 2] == 0x80)) //! Full-width
+          {
             //! Detect duplicate sequences.
             if (searchByteIndex > searchBytes.length) {
               final found = utf8.decode(_bytes.sublist(
