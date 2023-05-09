@@ -92,6 +92,8 @@ void main() {
 
       expect(handles.length, 1);
       expect(handles.first.type, EntityType.handle);
+      expect(handles.first.isHandle, isTrue);
+      expect(handles.first.isLink, isFalse);
       expect(handles.first.value, '@test');
       expect(handles.first.indices.start, 4);
       expect(handles.first.indices.end, 9);
@@ -220,6 +222,8 @@ void main() {
 
       expect(links.length, 1);
       expect(links.first.type, EntityType.link);
+      expect(links.first.isHandle, isFalse);
+      expect(links.first.isLink, isTrue);
       expect(links.first.value, 'https://test.com');
       expect(links.first.indices.start, 4);
       expect(links.first.indices.end, 20);

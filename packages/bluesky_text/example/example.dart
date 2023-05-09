@@ -4,9 +4,10 @@
 
 // ignore_for_file: lines_longer_than_80_chars
 
+import 'package:bluesky/bluesky.dart' as bsky;
 import 'package:bluesky_text/bluesky_text.dart';
 
-void main() {
+Future<void> main() async {
   //! You just need to pass text to parse.
   final text = BlueskyText(
     'I speak 日本語 and English 🚀 @shinyakato.dev and @shinyakato.bsky.social. '
@@ -38,5 +39,24 @@ void main() {
     // {type: handle, value: @shinyakato.bsky.social, indices: {start: 55, end: 78}},
     // {type: link, value: https://shinyakato.dev, indices: {start: 91, end: 113}}]
     print(text.entities);
+
+    //! And you can easily integrate with bluesky package!
+    final bluesky = bsky.Bluesky.fromSession(await _session);
+    final facets = await text.entities.toFacets();
+
+    await bluesky.feeds.createPost(
+      text: text.value,
+      facets: facets.map((e) => bsky.Facet.fromJson(e)).toList(),
+    );
   }
+}
+
+Future<bsky.Session> get _session async {
+  final session = await bsky.createSession(
+    service: 'SERVICE_NAME', //! The default is `bsky.social`
+    identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
+    password: 'YOUR_PASSWORD',
+  );
+
+  return session.data;
 }

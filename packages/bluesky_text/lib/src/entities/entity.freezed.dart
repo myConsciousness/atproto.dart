@@ -126,9 +126,10 @@ class __$$_EntityCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Entity implements _Entity {
+class _$_Entity extends _Entity {
   const _$_Entity(
-      {required this.type, required this.value, required this.indices});
+      {required this.type, required this.value, required this.indices})
+      : super._();
 
   factory _$_Entity.fromJson(Map<String, dynamic> json) =>
       _$$_EntityFromJson(json);
@@ -173,11 +174,12 @@ class _$_Entity implements _Entity {
   }
 }
 
-abstract class _Entity implements Entity {
+abstract class _Entity extends Entity {
   const factory _Entity(
       {required final EntityType type,
       required final String value,
       required final ByteIndices indices}) = _$_Entity;
+  const _Entity._() : super._();
 
   factory _Entity.fromJson(Map<String, dynamic> json) = _$_Entity.fromJson;
 
