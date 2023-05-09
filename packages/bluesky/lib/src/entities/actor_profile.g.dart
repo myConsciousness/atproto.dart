@@ -24,6 +24,12 @@ _$_ActorProfile _$$_ActorProfileFromJson(Map json) => $checkedCreate(
           postsCount: $checkedConvert('postsCount', (v) => v as int),
           viewer: $checkedConvert('viewer',
               (v) => ActorViewer.fromJson(Map<String, Object?>.from(v as Map))),
+          labels: $checkedConvert(
+              'labels',
+              (v) => (v as List<dynamic>)
+                  .map((e) =>
+                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  .toList()),
           indexedAt: $checkedConvert('indexedAt',
               (v) => v == null ? null : DateTime.parse(v as String)),
         );
@@ -51,6 +57,7 @@ Map<String, dynamic> _$$_ActorProfileToJson(_$_ActorProfile instance) {
   val['followersCount'] = instance.followersCount;
   val['postsCount'] = instance.postsCount;
   val['viewer'] = instance.viewer.toJson();
+  val['labels'] = instance.labels.map((e) => e.toJson()).toList();
   writeNotNull('indexedAt', instance.indexedAt?.toIso8601String());
   return val;
 }

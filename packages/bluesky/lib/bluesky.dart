@@ -36,6 +36,7 @@ export 'package:atproto/atproto.dart'
         Report,
         RepoRef,
         StrongRef,
+        Label,
         ModerationReasonType,
         ReportSubject,
         ServersService,

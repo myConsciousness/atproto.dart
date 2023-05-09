@@ -16,7 +16,8 @@
           "blockedBy": false,
           "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jriwhw4uws2d",
           "followedBy": "at://did:plc:d3zpokjdspr22chfrc427eis/app.bsky.graph.follow/3jt4vdct4s22h"
-        }
+        },
+        "labels": []
       },
       "uri": "at://did:plc:d3zpokjdspr22chfrc427eis/app.bsky.feed.post/3ju4p6u2i3a2g",
       "cid": "bafyreigsrxui256rn6lxwgzhswg3qc3e3t2vnlej3ddlq4w5ebg7fd2voq",
@@ -25,6 +26,7 @@
       "repostCount": 0,
       "likeCount": 7,
       "viewer": {},
+      "labels": [],
       "indexedAt": "2023-04-24T13:50:20.078Z"
     }
   ]

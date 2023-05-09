@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.10
+
+- Added `label.dart`. ([#346](https://github.com/myConsciousness/atproto.dart/issues/346))
+
 ## v0.2.9
 
 - Added additional fields in `InviteCode` object.  ([#326](https://github.com/myConsciousness/atproto.dart/issues/326))

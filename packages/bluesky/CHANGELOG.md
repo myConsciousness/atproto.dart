@@ -1,5 +1,13 @@
 # Release Note
 
+## v0.4.3
+
+- Added `labels` fields. ([#346](https://github.com/myConsciousness/atproto.dart/issues/346))
+  - `Post`
+  - `Actor`
+  - `ActorProfile`
+  - `Notification`
+
 ## v0.4.2
 
 - Added `includeNsfw` flag to `findPopularFeed`. ([#329](https://github.com/myConsciousness/atproto.dart/issues/329))
