@@ -7,6 +7,10 @@
   - `isLink` in `Entity`
   - `isLink` in `Entity`
   - `Entities` object, and you can easily get facet collection by using `toFacets`
+- The following characters have been added as entity terminators. ([#352](https://github.com/myConsciousness/atproto.dart/issues/352))
+  - `\n`
+  - `\n\r`
+  - full-width space
 
 ## v0.0.1
 
