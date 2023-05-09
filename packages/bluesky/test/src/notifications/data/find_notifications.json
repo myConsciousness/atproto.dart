@@ -11,7 +11,15 @@
         "avatar": "https://cdn.bsky.social/imgproxy/sH-tQ-NQUBVH_cedR_1rU8QkrVaLxApDMWY4m0e28Zw/rs:fill:1000:1000:1:0/plain/bafkreicgstip5uptfhrhk4jijc43ejocg5helrjmvkpk2ravyziaxcy4si@jpeg",
         "indexedAt": "2023-04-28T22:43:51.240Z",
         "viewer": { "muted": false, "blockedBy": false },
-        "labels": []
+        "labels": [
+          {
+            "src": "did:plc:ar7c4by46qjdydhdevvrndac",
+            "uri": "did:plc:h6rh4b2cy3z6rplm3r22if6p",
+            "val": "impersonation",
+            "neg": false,
+            "cts": "2023-04-24T07:43:17.053Z"
+          }
+        ]
       },
       "reason": "like",
       "reasonSubject": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jukdwsblqu2l",

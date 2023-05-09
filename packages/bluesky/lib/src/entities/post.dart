@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -30,6 +31,7 @@ class Post with _$Post {
     required int repostCount,
     required int likeCount,
     required PostViewer viewer,
+    required List<Label> labels,
     required DateTime indexedAt,
   }) = _Post;
 

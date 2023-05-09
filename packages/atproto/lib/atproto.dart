@@ -18,6 +18,7 @@ export 'package:atproto/src/entities/did.dart';
 export 'package:atproto/src/entities/invite_code.dart';
 export 'package:atproto/src/entities/invite_code_use.dart';
 export 'package:atproto/src/entities/invite_codes.dart';
+export 'package:atproto/src/entities/label.dart';
 export 'package:atproto/src/entities/legacy_blob.dart';
 export 'package:atproto/src/entities/parsed_did_doc.dart';
 export 'package:atproto/src/entities/parsed_service.dart';

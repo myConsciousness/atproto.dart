@@ -27,6 +27,7 @@ mixin _$Notification {
   NotificationReason get reason => throw _privateConstructorUsedError;
   String? get reasonSubject => throw _privateConstructorUsedError;
   bool get isRead => throw _privateConstructorUsedError;
+  List<Label> get labels => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -48,6 +49,7 @@ abstract class $NotificationCopyWith<$Res> {
       NotificationReason reason,
       String? reasonSubject,
       bool isRead,
+      List<Label> labels,
       DateTime indexedAt});
 
   $ActorCopyWith<$Res> get author;
@@ -72,6 +74,7 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
     Object? reason = null,
     Object? reasonSubject = freezed,
     Object? isRead = null,
+    Object? labels = null,
     Object? indexedAt = null,
   }) {
     return _then(_value.copyWith(
@@ -99,6 +102,10 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
           ? _value.isRead
           : isRead // ignore: cast_nullable_to_non_nullable
               as bool,
+      labels: null == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -130,6 +137,7 @@ abstract class _$$_NotificationCopyWith<$Res>
       NotificationReason reason,
       String? reasonSubject,
       bool isRead,
+      List<Label> labels,
       DateTime indexedAt});
 
   @override
@@ -153,6 +161,7 @@ class __$$_NotificationCopyWithImpl<$Res>
     Object? reason = null,
     Object? reasonSubject = freezed,
     Object? isRead = null,
+    Object? labels = null,
     Object? indexedAt = null,
   }) {
     return _then(_$_Notification(
@@ -180,6 +189,10 @@ class __$$_NotificationCopyWithImpl<$Res>
           ? _value.isRead
           : isRead // ignore: cast_nullable_to_non_nullable
               as bool,
+      labels: null == labels
+          ? _value._labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -199,7 +212,9 @@ class _$_Notification implements _Notification {
       required this.reason,
       this.reasonSubject,
       required this.isRead,
-      required this.indexedAt});
+      required final List<Label> labels,
+      required this.indexedAt})
+      : _labels = labels;
 
   factory _$_Notification.fromJson(Map<String, dynamic> json) =>
       _$$_NotificationFromJson(json);
@@ -217,12 +232,20 @@ class _$_Notification implements _Notification {
   final String? reasonSubject;
   @override
   final bool isRead;
+  final List<Label> _labels;
+  @override
+  List<Label> get labels {
+    if (_labels is EqualUnmodifiableListView) return _labels;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_labels);
+  }
+
   @override
   final DateTime indexedAt;
 
   @override
   String toString() {
-    return 'Notification(cid: $cid, uri: $uri, author: $author, reason: $reason, reasonSubject: $reasonSubject, isRead: $isRead, indexedAt: $indexedAt)';
+    return 'Notification(cid: $cid, uri: $uri, author: $author, reason: $reason, reasonSubject: $reasonSubject, isRead: $isRead, labels: $labels, indexedAt: $indexedAt)';
   }
 
   @override
@@ -237,6 +260,7 @@ class _$_Notification implements _Notification {
             (identical(other.reasonSubject, reasonSubject) ||
                 other.reasonSubject == reasonSubject) &&
             (identical(other.isRead, isRead) || other.isRead == isRead) &&
+            const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt));
   }
@@ -244,7 +268,15 @@ class _$_Notification implements _Notification {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, cid, uri, author, reason, reasonSubject, isRead, indexedAt);
+      runtimeType,
+      cid,
+      uri,
+      author,
+      reason,
+      reasonSubject,
+      isRead,
+      const DeepCollectionEquality().hash(_labels),
+      indexedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -268,6 +300,7 @@ abstract class _Notification implements Notification {
       required final NotificationReason reason,
       final String? reasonSubject,
       required final bool isRead,
+      required final List<Label> labels,
       required final DateTime indexedAt}) = _$_Notification;
 
   factory _Notification.fromJson(Map<String, dynamic> json) =
@@ -286,6 +319,8 @@ abstract class _Notification implements Notification {
   String? get reasonSubject;
   @override
   bool get isRead;
+  @override
+  List<Label> get labels;
   @override
   DateTime get indexedAt;
   @override

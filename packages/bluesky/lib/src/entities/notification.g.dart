@@ -22,6 +22,12 @@ _$_Notification _$$_NotificationFromJson(Map json) => $checkedCreate(
               'reason', (v) => $enumDecode(_$NotificationReasonEnumMap, v)),
           reasonSubject: $checkedConvert('reasonSubject', (v) => v as String?),
           isRead: $checkedConvert('isRead', (v) => v as bool),
+          labels: $checkedConvert(
+              'labels',
+              (v) => (v as List<dynamic>)
+                  .map((e) =>
+                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  .toList()),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
         );
@@ -45,6 +51,7 @@ Map<String, dynamic> _$$_NotificationToJson(_$_Notification instance) {
 
   writeNotNull('reasonSubject', instance.reasonSubject);
   val['isRead'] = instance.isRead;
+  val['labels'] = instance.labels.map((e) => e.toJson()).toList();
   val['indexedAt'] = instance.indexedAt.toIso8601String();
   return val;
 }

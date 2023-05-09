@@ -30,6 +30,7 @@ mixin _$ActorProfile {
   int get followersCount => throw _privateConstructorUsedError;
   int get postsCount => throw _privateConstructorUsedError;
   ActorViewer get viewer => throw _privateConstructorUsedError;
+  List<Label> get labels => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -55,6 +56,7 @@ abstract class $ActorProfileCopyWith<$Res> {
       int followersCount,
       int postsCount,
       ActorViewer viewer,
+      List<Label> labels,
       DateTime? indexedAt});
 
   $ActorViewerCopyWith<$Res> get viewer;
@@ -83,6 +85,7 @@ class _$ActorProfileCopyWithImpl<$Res, $Val extends ActorProfile>
     Object? followersCount = null,
     Object? postsCount = null,
     Object? viewer = null,
+    Object? labels = null,
     Object? indexedAt = freezed,
   }) {
     return _then(_value.copyWith(
@@ -126,6 +129,10 @@ class _$ActorProfileCopyWithImpl<$Res, $Val extends ActorProfile>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ActorViewer,
+      labels: null == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>,
       indexedAt: freezed == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -161,6 +168,7 @@ abstract class _$$_ActorProfileCopyWith<$Res>
       int followersCount,
       int postsCount,
       ActorViewer viewer,
+      List<Label> labels,
       DateTime? indexedAt});
 
   @override
@@ -188,6 +196,7 @@ class __$$_ActorProfileCopyWithImpl<$Res>
     Object? followersCount = null,
     Object? postsCount = null,
     Object? viewer = null,
+    Object? labels = null,
     Object? indexedAt = freezed,
   }) {
     return _then(_$_ActorProfile(
@@ -231,6 +240,10 @@ class __$$_ActorProfileCopyWithImpl<$Res>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ActorViewer,
+      labels: null == labels
+          ? _value._labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>,
       indexedAt: freezed == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -254,7 +267,9 @@ class _$_ActorProfile implements _ActorProfile {
       required this.followersCount,
       required this.postsCount,
       required this.viewer,
-      this.indexedAt});
+      required final List<Label> labels,
+      this.indexedAt})
+      : _labels = labels;
 
   factory _$_ActorProfile.fromJson(Map<String, dynamic> json) =>
       _$$_ActorProfileFromJson(json);
@@ -279,12 +294,20 @@ class _$_ActorProfile implements _ActorProfile {
   final int postsCount;
   @override
   final ActorViewer viewer;
+  final List<Label> _labels;
+  @override
+  List<Label> get labels {
+    if (_labels is EqualUnmodifiableListView) return _labels;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_labels);
+  }
+
   @override
   final DateTime? indexedAt;
 
   @override
   String toString() {
-    return 'ActorProfile(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, followsCount: $followsCount, followersCount: $followersCount, postsCount: $postsCount, viewer: $viewer, indexedAt: $indexedAt)';
+    return 'ActorProfile(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, followsCount: $followsCount, followersCount: $followersCount, postsCount: $postsCount, viewer: $viewer, labels: $labels, indexedAt: $indexedAt)';
   }
 
   @override
@@ -307,6 +330,7 @@ class _$_ActorProfile implements _ActorProfile {
             (identical(other.postsCount, postsCount) ||
                 other.postsCount == postsCount) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
+            const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt));
   }
@@ -325,6 +349,7 @@ class _$_ActorProfile implements _ActorProfile {
       followersCount,
       postsCount,
       viewer,
+      const DeepCollectionEquality().hash(_labels),
       indexedAt);
 
   @JsonKey(ignore: true)
@@ -353,6 +378,7 @@ abstract class _ActorProfile implements ActorProfile {
       required final int followersCount,
       required final int postsCount,
       required final ActorViewer viewer,
+      required final List<Label> labels,
       final DateTime? indexedAt}) = _$_ActorProfile;
 
   factory _ActorProfile.fromJson(Map<String, dynamic> json) =
@@ -378,6 +404,8 @@ abstract class _ActorProfile implements ActorProfile {
   int get postsCount;
   @override
   ActorViewer get viewer;
+  @override
+  List<Label> get labels;
   @override
   DateTime? get indexedAt;
   @override
