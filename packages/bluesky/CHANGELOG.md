@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.4.4
+
+- Upgraded `atproto` package.
+- Added `record` field in `Notification` object.
+
 ## v0.4.3
 
 - Added `labels` fields. ([#346](https://github.com/myConsciousness/atproto.dart/issues/346))

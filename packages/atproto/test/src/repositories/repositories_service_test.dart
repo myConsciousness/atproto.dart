@@ -306,7 +306,6 @@ void main() {
       );
 
       final response = await repositories.findRecord(
-        did: 'xxxx',
         uri: core.AtUri.parse(
           'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3juqjtr23dk2h',
         ),
@@ -333,7 +332,6 @@ void main() {
 
       atp_test.expectUnauthorizedException(
         () async => await repositories.findRecord(
-          did: 'xxxx',
           uri: core.AtUri.parse(
             'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3juqjtr23dk2h',
           ),
@@ -358,7 +356,6 @@ void main() {
 
       atp_test.expectRateLimitExceededException(
         () async => await repositories.findRecord(
-          did: 'xxxx',
           uri: core.AtUri.parse(
             'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3juqjtr23dk2h',
           ),

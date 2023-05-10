@@ -22,8 +22,9 @@ class Notification with _$Notification {
     @AtUriConverter() required AtUri uri,
     required Actor author,
     required NotificationReason reason,
-    String? reasonSubject,
+    @AtUriConverter() AtUri? reasonSubject,
     required bool isRead,
+    Map<String, dynamic>? record,
     required List<Label> labels,
     required DateTime indexedAt,
   }) = _Notification;
@@ -34,10 +35,8 @@ class Notification with _$Notification {
 
 enum NotificationReason {
   like,
-  assertion,
   repost,
   follow,
-  invite,
   mention,
   reply,
   quote,
