@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.10
+
+- The retry algorithm has been modified to retry when an InternalServerError occurs as a result of XRPC communication. ([#358](https://github.com/myConsciousness/atproto.dart/issues/358))
+
 ## v0.2.9
 
 - Upgraded `xrpc` and added `stream` method. ([#318](https://github.com/myConsciousness/atproto.dart/issues/318))
