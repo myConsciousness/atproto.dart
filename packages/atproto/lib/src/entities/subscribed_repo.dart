@@ -39,6 +39,10 @@ class SubscribedRepo with _$SubscribedRepo {
     required SubscribedRepoInfo data,
   }) = _Info;
 
+  const factory SubscribedRepo.unknown({
+    required Map<String, dynamic> data,
+  }) = _Unknown;
+
   factory SubscribedRepo.fromJson(Map<String, Object?> json) =>
       SubscribedRepoConverter().fromJson(json);
 }

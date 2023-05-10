@@ -26,4 +26,8 @@ class EmbedViewRecordView with _$EmbedViewRecordView {
   const factory EmbedViewRecordView.blocked({
     required EmbedViewRecordViewBlocked data,
   }) = _Blocked;
+
+  const factory EmbedViewRecordView.unknown({
+    required Map<String, dynamic> data,
+  }) = _Unknown;
 }

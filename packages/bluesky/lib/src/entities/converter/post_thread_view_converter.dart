@@ -31,7 +31,7 @@ class PostThreadViewConverter
       );
     }
 
-    throw UnimplementedError('Unsupported type: $type');
+    return PostThreadView.unknown(data: json);
   }
 
   @override
@@ -39,5 +39,6 @@ class PostThreadViewConverter
         record: (data) => data.toJson(),
         notFound: (data) => data.toJson(),
         blocked: (data) => data.toJson(),
+        unknown: (data) => data,
       );
 }

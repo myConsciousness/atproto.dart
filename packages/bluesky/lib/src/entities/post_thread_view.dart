@@ -25,4 +25,8 @@ class PostThreadView with _$PostThreadView {
   const factory PostThreadView.blocked({
     required PostThreadViewBlocked data,
   }) = _Blocked;
+
+  const factory PostThreadView.unknown({
+    required Map<String, dynamic> data,
+  }) = _Unknown;
 }

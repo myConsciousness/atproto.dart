@@ -41,7 +41,7 @@ class SubscribedRepoConverter
       );
     }
 
-    throw UnimplementedError('Unsupported type: $type');
+    return SubscribedRepo.unknown(data: json);
   }
 
   @override
@@ -51,5 +51,6 @@ class SubscribedRepoConverter
         migrate: (data) => data.toJson(),
         tombstone: (data) => data.toJson(),
         info: (data) => data.toJson(),
+        unknown: (data) => data,
       );
 }

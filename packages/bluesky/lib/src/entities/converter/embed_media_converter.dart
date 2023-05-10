@@ -27,12 +27,13 @@ class EmbedMediaConverter
       );
     }
 
-    throw UnimplementedError('Unsupported type: $type');
+    return EmbedMedia.unknown(data: json);
   }
 
   @override
   Map<String, dynamic> toJson(EmbedMedia object) => object.when(
         images: (data) => data.toJson(),
         external: (data) => data.toJson(),
+        unknown: (data) => data,
       );
 }

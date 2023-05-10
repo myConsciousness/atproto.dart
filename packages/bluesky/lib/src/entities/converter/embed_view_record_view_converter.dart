@@ -18,7 +18,11 @@ class EmbedViewRecordViewConverter
   EmbedViewRecordView fromJson(Map<String, dynamic> json) {
     final type = json['\$type'];
 
-    if (type == 'app.bsky.embed.record#viewNotFound') {
+    if (type == 'app.bsky.embed.record#viewRecord') {
+      return EmbedViewRecordView.record(
+        data: EmbedViewRecordViewRecord.fromJson(json),
+      );
+    } else if (type == 'app.bsky.embed.record#viewNotFound') {
       return EmbedViewRecordView.notFound(
         data: EmbedViewRecordViewNotFound.fromJson(json),
       );
@@ -28,9 +32,7 @@ class EmbedViewRecordViewConverter
       );
     }
 
-    return EmbedViewRecordView.record(
-      data: EmbedViewRecordViewRecord.fromJson(json),
-    );
+    return EmbedViewRecordView.unknown(data: json);
   }
 
   @override
@@ -38,5 +40,6 @@ class EmbedViewRecordViewConverter
         record: (data) => data.toJson(),
         notFound: (data) => data.toJson(),
         blocked: (data) => data.toJson(),
+        unknown: (data) => data,
       );
 }

@@ -23,4 +23,8 @@ class FacetFeature with _$FacetFeature {
   const factory FacetFeature.link({
     required FacetLink data,
   }) = _Link;
+
+  const factory FacetFeature.unknown({
+    required Map<String, dynamic> data,
+  }) = _Unknown;
 }

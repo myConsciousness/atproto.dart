@@ -21,18 +21,21 @@ mixin _$FacetFeature {
   TResult when<TResult extends Object?>({
     required TResult Function(FacetMention data) mention,
     required TResult Function(FacetLink data) link,
+    required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(FacetMention data)? mention,
     TResult? Function(FacetLink data)? link,
+    TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(FacetMention data)? mention,
     TResult Function(FacetLink data)? link,
+    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -40,18 +43,21 @@ mixin _$FacetFeature {
   TResult map<TResult extends Object?>({
     required TResult Function(_Mention value) mention,
     required TResult Function(_Link value) link,
+    required TResult Function(_Unknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Mention value)? mention,
     TResult? Function(_Link value)? link,
+    TResult? Function(_Unknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Mention value)? mention,
     TResult Function(_Link value)? link,
+    TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -150,6 +156,7 @@ class _$_Mention implements _Mention {
   TResult when<TResult extends Object?>({
     required TResult Function(FacetMention data) mention,
     required TResult Function(FacetLink data) link,
+    required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return mention(data);
   }
@@ -159,6 +166,7 @@ class _$_Mention implements _Mention {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(FacetMention data)? mention,
     TResult? Function(FacetLink data)? link,
+    TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return mention?.call(data);
   }
@@ -168,6 +176,7 @@ class _$_Mention implements _Mention {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(FacetMention data)? mention,
     TResult Function(FacetLink data)? link,
+    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
     if (mention != null) {
@@ -181,6 +190,7 @@ class _$_Mention implements _Mention {
   TResult map<TResult extends Object?>({
     required TResult Function(_Mention value) mention,
     required TResult Function(_Link value) link,
+    required TResult Function(_Unknown value) unknown,
   }) {
     return mention(this);
   }
@@ -190,6 +200,7 @@ class _$_Mention implements _Mention {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Mention value)? mention,
     TResult? Function(_Link value)? link,
+    TResult? Function(_Unknown value)? unknown,
   }) {
     return mention?.call(this);
   }
@@ -199,6 +210,7 @@ class _$_Mention implements _Mention {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Mention value)? mention,
     TResult Function(_Link value)? link,
+    TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) {
     if (mention != null) {
@@ -292,6 +304,7 @@ class _$_Link implements _Link {
   TResult when<TResult extends Object?>({
     required TResult Function(FacetMention data) mention,
     required TResult Function(FacetLink data) link,
+    required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return link(data);
   }
@@ -301,6 +314,7 @@ class _$_Link implements _Link {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(FacetMention data)? mention,
     TResult? Function(FacetLink data)? link,
+    TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return link?.call(data);
   }
@@ -310,6 +324,7 @@ class _$_Link implements _Link {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(FacetMention data)? mention,
     TResult Function(FacetLink data)? link,
+    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
     if (link != null) {
@@ -323,6 +338,7 @@ class _$_Link implements _Link {
   TResult map<TResult extends Object?>({
     required TResult Function(_Mention value) mention,
     required TResult Function(_Link value) link,
+    required TResult Function(_Unknown value) unknown,
   }) {
     return link(this);
   }
@@ -332,6 +348,7 @@ class _$_Link implements _Link {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Mention value)? mention,
     TResult? Function(_Link value)? link,
+    TResult? Function(_Unknown value)? unknown,
   }) {
     return link?.call(this);
   }
@@ -341,6 +358,7 @@ class _$_Link implements _Link {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Mention value)? mention,
     TResult Function(_Link value)? link,
+    TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) {
     if (link != null) {
@@ -357,4 +375,150 @@ abstract class _Link implements FacetFeature {
   FacetLink get data;
   @JsonKey(ignore: true)
   _$$_LinkCopyWith<_$_Link> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UnknownCopyWith<$Res> {
+  factory _$$_UnknownCopyWith(
+          _$_Unknown value, $Res Function(_$_Unknown) then) =
+      __$$_UnknownCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class __$$_UnknownCopyWithImpl<$Res>
+    extends _$FacetFeatureCopyWithImpl<$Res, _$_Unknown>
+    implements _$$_UnknownCopyWith<$Res> {
+  __$$_UnknownCopyWithImpl(_$_Unknown _value, $Res Function(_$_Unknown) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_Unknown(
+      data: null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Unknown implements _Unknown {
+  const _$_Unknown({required final Map<String, dynamic> data}) : _data = data;
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'FacetFeature.unknown(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Unknown &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
+      __$$_UnknownCopyWithImpl<_$_Unknown>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(FacetMention data) mention,
+    required TResult Function(FacetLink data) link,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return unknown(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FacetMention data)? mention,
+    TResult? Function(FacetLink data)? link,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return unknown?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FacetMention data)? mention,
+    TResult Function(FacetLink data)? link,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (unknown != null) {
+      return unknown(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Mention value) mention,
+    required TResult Function(_Link value) link,
+    required TResult Function(_Unknown value) unknown,
+  }) {
+    return unknown(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Mention value)? mention,
+    TResult? Function(_Link value)? link,
+    TResult? Function(_Unknown value)? unknown,
+  }) {
+    return unknown?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Mention value)? mention,
+    TResult Function(_Link value)? link,
+    TResult Function(_Unknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (unknown != null) {
+      return unknown(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Unknown implements FacetFeature {
+  const factory _Unknown({required final Map<String, dynamic> data}) =
+      _$_Unknown;
+
+  @override
+  Map<String, dynamic> get data;
+  @JsonKey(ignore: true)
+  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
+      throw _privateConstructorUsedError;
 }
