@@ -21,18 +21,21 @@ mixin _$ReportSubject {
   TResult when<TResult extends Object?>({
     required TResult Function(RepoRef data) repoRef,
     required TResult Function(StrongRef data) strongRef,
+    required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(RepoRef data)? repoRef,
     TResult? Function(StrongRef data)? strongRef,
+    TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(RepoRef data)? repoRef,
     TResult Function(StrongRef data)? strongRef,
+    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -40,18 +43,21 @@ mixin _$ReportSubject {
   TResult map<TResult extends Object?>({
     required TResult Function(_RepoRef value) repoRef,
     required TResult Function(_StrongRef value) strongRef,
+    required TResult Function(_Unknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_RepoRef value)? repoRef,
     TResult? Function(_StrongRef value)? strongRef,
+    TResult? Function(_Unknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RepoRef value)? repoRef,
     TResult Function(_StrongRef value)? strongRef,
+    TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -150,6 +156,7 @@ class _$_RepoRef extends _RepoRef {
   TResult when<TResult extends Object?>({
     required TResult Function(RepoRef data) repoRef,
     required TResult Function(StrongRef data) strongRef,
+    required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return repoRef(data);
   }
@@ -159,6 +166,7 @@ class _$_RepoRef extends _RepoRef {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(RepoRef data)? repoRef,
     TResult? Function(StrongRef data)? strongRef,
+    TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return repoRef?.call(data);
   }
@@ -168,6 +176,7 @@ class _$_RepoRef extends _RepoRef {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(RepoRef data)? repoRef,
     TResult Function(StrongRef data)? strongRef,
+    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
     if (repoRef != null) {
@@ -181,6 +190,7 @@ class _$_RepoRef extends _RepoRef {
   TResult map<TResult extends Object?>({
     required TResult Function(_RepoRef value) repoRef,
     required TResult Function(_StrongRef value) strongRef,
+    required TResult Function(_Unknown value) unknown,
   }) {
     return repoRef(this);
   }
@@ -190,6 +200,7 @@ class _$_RepoRef extends _RepoRef {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_RepoRef value)? repoRef,
     TResult? Function(_StrongRef value)? strongRef,
+    TResult? Function(_Unknown value)? unknown,
   }) {
     return repoRef?.call(this);
   }
@@ -199,6 +210,7 @@ class _$_RepoRef extends _RepoRef {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RepoRef value)? repoRef,
     TResult Function(_StrongRef value)? strongRef,
+    TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) {
     if (repoRef != null) {
@@ -295,6 +307,7 @@ class _$_StrongRef extends _StrongRef {
   TResult when<TResult extends Object?>({
     required TResult Function(RepoRef data) repoRef,
     required TResult Function(StrongRef data) strongRef,
+    required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return strongRef(data);
   }
@@ -304,6 +317,7 @@ class _$_StrongRef extends _StrongRef {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(RepoRef data)? repoRef,
     TResult? Function(StrongRef data)? strongRef,
+    TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return strongRef?.call(data);
   }
@@ -313,6 +327,7 @@ class _$_StrongRef extends _StrongRef {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(RepoRef data)? repoRef,
     TResult Function(StrongRef data)? strongRef,
+    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
     if (strongRef != null) {
@@ -326,6 +341,7 @@ class _$_StrongRef extends _StrongRef {
   TResult map<TResult extends Object?>({
     required TResult Function(_RepoRef value) repoRef,
     required TResult Function(_StrongRef value) strongRef,
+    required TResult Function(_Unknown value) unknown,
   }) {
     return strongRef(this);
   }
@@ -335,6 +351,7 @@ class _$_StrongRef extends _StrongRef {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_RepoRef value)? repoRef,
     TResult? Function(_StrongRef value)? strongRef,
+    TResult? Function(_Unknown value)? unknown,
   }) {
     return strongRef?.call(this);
   }
@@ -344,6 +361,7 @@ class _$_StrongRef extends _StrongRef {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RepoRef value)? repoRef,
     TResult Function(_StrongRef value)? strongRef,
+    TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) {
     if (strongRef != null) {
@@ -361,5 +379,154 @@ abstract class _StrongRef extends ReportSubject {
   StrongRef get data;
   @JsonKey(ignore: true)
   _$$_StrongRefCopyWith<_$_StrongRef> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UnknownCopyWith<$Res> {
+  factory _$$_UnknownCopyWith(
+          _$_Unknown value, $Res Function(_$_Unknown) then) =
+      __$$_UnknownCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class __$$_UnknownCopyWithImpl<$Res>
+    extends _$ReportSubjectCopyWithImpl<$Res, _$_Unknown>
+    implements _$$_UnknownCopyWith<$Res> {
+  __$$_UnknownCopyWithImpl(_$_Unknown _value, $Res Function(_$_Unknown) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_Unknown(
+      data: null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Unknown extends _Unknown {
+  const _$_Unknown({required final Map<String, dynamic> data})
+      : _data = data,
+        super._();
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'ReportSubject.unknown(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Unknown &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
+      __$$_UnknownCopyWithImpl<_$_Unknown>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(RepoRef data) repoRef,
+    required TResult Function(StrongRef data) strongRef,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return unknown(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(RepoRef data)? repoRef,
+    TResult? Function(StrongRef data)? strongRef,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return unknown?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(RepoRef data)? repoRef,
+    TResult Function(StrongRef data)? strongRef,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (unknown != null) {
+      return unknown(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_RepoRef value) repoRef,
+    required TResult Function(_StrongRef value) strongRef,
+    required TResult Function(_Unknown value) unknown,
+  }) {
+    return unknown(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_RepoRef value)? repoRef,
+    TResult? Function(_StrongRef value)? strongRef,
+    TResult? Function(_Unknown value)? unknown,
+  }) {
+    return unknown?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_RepoRef value)? repoRef,
+    TResult Function(_StrongRef value)? strongRef,
+    TResult Function(_Unknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (unknown != null) {
+      return unknown(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Unknown extends ReportSubject {
+  const factory _Unknown({required final Map<String, dynamic> data}) =
+      _$_Unknown;
+  const _Unknown._() : super._();
+
+  @override
+  Map<String, dynamic> get data;
+  @JsonKey(ignore: true)
+  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
       throw _privateConstructorUsedError;
 }

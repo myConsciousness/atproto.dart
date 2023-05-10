@@ -25,9 +25,14 @@ class ReportSubject with _$ReportSubject {
     required StrongRef data,
   }) = _StrongRef;
 
+  const factory ReportSubject.unknown({
+    required Map<String, dynamic> data,
+  }) = _Unknown;
+
   /// Returns the JSON representation.
   Map<String, dynamic> toJson() => when(
         repoRef: (data) => data.toJson(),
         strongRef: (data) => data.toJson(),
+        unknown: (data) => data,
       );
 }

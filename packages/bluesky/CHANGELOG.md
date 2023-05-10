@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.5
+
+- Added `unknown` fields for union types. The AT Protocol allows some endpoints to create records of types not officially supported. In such cases, the `unknown` field is used to store the raw JSON for a safe and user-choice implementation. ([#350](https://github.com/myConsciousness/atproto.dart/issues/350))
+
 ## v0.4.4
 
 - Upgraded `atproto` package.

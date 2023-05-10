@@ -36,7 +36,7 @@ class EmbedConverter implements JsonConverter<Embed, Map<String, dynamic>> {
       );
     }
 
-    throw UnimplementedError('Unsupported type: $type');
+    return Embed.unknown(data: json);
   }
 
   @override
@@ -45,5 +45,6 @@ class EmbedConverter implements JsonConverter<Embed, Map<String, dynamic>> {
         images: (data) => data.toJson(),
         external: (data) => data.toJson(),
         recordWithMedia: (data) => data.toJson(),
+        unknown: (data) => data,
       );
 }

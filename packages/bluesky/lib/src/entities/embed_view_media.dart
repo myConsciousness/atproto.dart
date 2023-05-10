@@ -21,4 +21,8 @@ class EmbedViewMedia with _$EmbedViewMedia {
   const factory EmbedViewMedia.external({
     required EmbedViewExternal data,
   }) = _External;
+
+  const factory EmbedViewMedia.unknown({
+    required Map<String, dynamic> data,
+  }) = _Unknown;
 }

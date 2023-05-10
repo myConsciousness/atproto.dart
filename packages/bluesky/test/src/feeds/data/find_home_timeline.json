@@ -176,7 +176,7 @@
                 "features": [
                   {
                     "did": "did:plc:sq6aa2wa32tiiqrbub64vcja",
-                    "$type": "app.bsky.richtext.facet#mention"
+                    "$type": "app.bsky.richtext.facet#hashtag"
                   }
                 ]
               },

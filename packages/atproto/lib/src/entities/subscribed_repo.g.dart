@@ -114,3 +114,23 @@ Map<String, dynamic> _$$_InfoToJson(_$_Info instance) => <String, dynamic>{
       'data': instance.data.toJson(),
       'runtimeType': instance.$type,
     };
+
+_$_Unknown _$$_UnknownFromJson(Map json) => $checkedCreate(
+      r'_$_Unknown',
+      json,
+      ($checkedConvert) {
+        final val = _$_Unknown(
+          data: $checkedConvert(
+              'data', (v) => Map<String, dynamic>.from(v as Map)),
+          $type: $checkedConvert('runtimeType', (v) => v as String?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {r'$type': 'runtimeType'},
+    );
+
+Map<String, dynamic> _$$_UnknownToJson(_$_Unknown instance) =>
+    <String, dynamic>{
+      'data': instance.data,
+      'runtimeType': instance.$type,
+    };

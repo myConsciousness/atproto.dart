@@ -26,6 +26,8 @@ SubscribedRepo _$SubscribedRepoFromJson(Map<String, dynamic> json) {
       return _Tombstone.fromJson(json);
     case 'info':
       return _Info.fromJson(json);
+    case 'unknown':
+      return _Unknown.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'runtimeType', 'SubscribedRepo',
@@ -43,6 +45,7 @@ mixin _$SubscribedRepo {
     required TResult Function(SubscribedRepoMigrate data) migrate,
     required TResult Function(SubscribedRepoTombstone data) tombstone,
     required TResult Function(SubscribedRepoInfo data) info,
+    required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,6 +55,7 @@ mixin _$SubscribedRepo {
     TResult? Function(SubscribedRepoMigrate data)? migrate,
     TResult? Function(SubscribedRepoTombstone data)? tombstone,
     TResult? Function(SubscribedRepoInfo data)? info,
+    TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,6 +65,7 @@ mixin _$SubscribedRepo {
     TResult Function(SubscribedRepoMigrate data)? migrate,
     TResult Function(SubscribedRepoTombstone data)? tombstone,
     TResult Function(SubscribedRepoInfo data)? info,
+    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -71,6 +76,7 @@ mixin _$SubscribedRepo {
     required TResult Function(_Migrate value) migrate,
     required TResult Function(_Tombstone value) tombstone,
     required TResult Function(_Info value) info,
+    required TResult Function(_Unknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +86,7 @@ mixin _$SubscribedRepo {
     TResult? Function(_Migrate value)? migrate,
     TResult? Function(_Tombstone value)? tombstone,
     TResult? Function(_Info value)? info,
+    TResult? Function(_Unknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -89,6 +96,7 @@ mixin _$SubscribedRepo {
     TResult Function(_Migrate value)? migrate,
     TResult Function(_Tombstone value)? tombstone,
     TResult Function(_Info value)? info,
+    TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -198,6 +206,7 @@ class _$_Commit implements _Commit {
     required TResult Function(SubscribedRepoMigrate data) migrate,
     required TResult Function(SubscribedRepoTombstone data) tombstone,
     required TResult Function(SubscribedRepoInfo data) info,
+    required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return commit(data);
   }
@@ -210,6 +219,7 @@ class _$_Commit implements _Commit {
     TResult? Function(SubscribedRepoMigrate data)? migrate,
     TResult? Function(SubscribedRepoTombstone data)? tombstone,
     TResult? Function(SubscribedRepoInfo data)? info,
+    TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return commit?.call(data);
   }
@@ -222,6 +232,7 @@ class _$_Commit implements _Commit {
     TResult Function(SubscribedRepoMigrate data)? migrate,
     TResult Function(SubscribedRepoTombstone data)? tombstone,
     TResult Function(SubscribedRepoInfo data)? info,
+    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
     if (commit != null) {
@@ -238,6 +249,7 @@ class _$_Commit implements _Commit {
     required TResult Function(_Migrate value) migrate,
     required TResult Function(_Tombstone value) tombstone,
     required TResult Function(_Info value) info,
+    required TResult Function(_Unknown value) unknown,
   }) {
     return commit(this);
   }
@@ -250,6 +262,7 @@ class _$_Commit implements _Commit {
     TResult? Function(_Migrate value)? migrate,
     TResult? Function(_Tombstone value)? tombstone,
     TResult? Function(_Info value)? info,
+    TResult? Function(_Unknown value)? unknown,
   }) {
     return commit?.call(this);
   }
@@ -262,6 +275,7 @@ class _$_Commit implements _Commit {
     TResult Function(_Migrate value)? migrate,
     TResult Function(_Tombstone value)? tombstone,
     TResult Function(_Info value)? info,
+    TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) {
     if (commit != null) {
@@ -375,6 +389,7 @@ class _$_Handle implements _Handle {
     required TResult Function(SubscribedRepoMigrate data) migrate,
     required TResult Function(SubscribedRepoTombstone data) tombstone,
     required TResult Function(SubscribedRepoInfo data) info,
+    required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return handle(data);
   }
@@ -387,6 +402,7 @@ class _$_Handle implements _Handle {
     TResult? Function(SubscribedRepoMigrate data)? migrate,
     TResult? Function(SubscribedRepoTombstone data)? tombstone,
     TResult? Function(SubscribedRepoInfo data)? info,
+    TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return handle?.call(data);
   }
@@ -399,6 +415,7 @@ class _$_Handle implements _Handle {
     TResult Function(SubscribedRepoMigrate data)? migrate,
     TResult Function(SubscribedRepoTombstone data)? tombstone,
     TResult Function(SubscribedRepoInfo data)? info,
+    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
     if (handle != null) {
@@ -415,6 +432,7 @@ class _$_Handle implements _Handle {
     required TResult Function(_Migrate value) migrate,
     required TResult Function(_Tombstone value) tombstone,
     required TResult Function(_Info value) info,
+    required TResult Function(_Unknown value) unknown,
   }) {
     return handle(this);
   }
@@ -427,6 +445,7 @@ class _$_Handle implements _Handle {
     TResult? Function(_Migrate value)? migrate,
     TResult? Function(_Tombstone value)? tombstone,
     TResult? Function(_Info value)? info,
+    TResult? Function(_Unknown value)? unknown,
   }) {
     return handle?.call(this);
   }
@@ -439,6 +458,7 @@ class _$_Handle implements _Handle {
     TResult Function(_Migrate value)? migrate,
     TResult Function(_Tombstone value)? tombstone,
     TResult Function(_Info value)? info,
+    TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) {
     if (handle != null) {
@@ -553,6 +573,7 @@ class _$_Migrate implements _Migrate {
     required TResult Function(SubscribedRepoMigrate data) migrate,
     required TResult Function(SubscribedRepoTombstone data) tombstone,
     required TResult Function(SubscribedRepoInfo data) info,
+    required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return migrate(data);
   }
@@ -565,6 +586,7 @@ class _$_Migrate implements _Migrate {
     TResult? Function(SubscribedRepoMigrate data)? migrate,
     TResult? Function(SubscribedRepoTombstone data)? tombstone,
     TResult? Function(SubscribedRepoInfo data)? info,
+    TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return migrate?.call(data);
   }
@@ -577,6 +599,7 @@ class _$_Migrate implements _Migrate {
     TResult Function(SubscribedRepoMigrate data)? migrate,
     TResult Function(SubscribedRepoTombstone data)? tombstone,
     TResult Function(SubscribedRepoInfo data)? info,
+    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
     if (migrate != null) {
@@ -593,6 +616,7 @@ class _$_Migrate implements _Migrate {
     required TResult Function(_Migrate value) migrate,
     required TResult Function(_Tombstone value) tombstone,
     required TResult Function(_Info value) info,
+    required TResult Function(_Unknown value) unknown,
   }) {
     return migrate(this);
   }
@@ -605,6 +629,7 @@ class _$_Migrate implements _Migrate {
     TResult? Function(_Migrate value)? migrate,
     TResult? Function(_Tombstone value)? tombstone,
     TResult? Function(_Info value)? info,
+    TResult? Function(_Unknown value)? unknown,
   }) {
     return migrate?.call(this);
   }
@@ -617,6 +642,7 @@ class _$_Migrate implements _Migrate {
     TResult Function(_Migrate value)? migrate,
     TResult Function(_Tombstone value)? tombstone,
     TResult Function(_Info value)? info,
+    TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) {
     if (migrate != null) {
@@ -733,6 +759,7 @@ class _$_Tombstone implements _Tombstone {
     required TResult Function(SubscribedRepoMigrate data) migrate,
     required TResult Function(SubscribedRepoTombstone data) tombstone,
     required TResult Function(SubscribedRepoInfo data) info,
+    required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return tombstone(data);
   }
@@ -745,6 +772,7 @@ class _$_Tombstone implements _Tombstone {
     TResult? Function(SubscribedRepoMigrate data)? migrate,
     TResult? Function(SubscribedRepoTombstone data)? tombstone,
     TResult? Function(SubscribedRepoInfo data)? info,
+    TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return tombstone?.call(data);
   }
@@ -757,6 +785,7 @@ class _$_Tombstone implements _Tombstone {
     TResult Function(SubscribedRepoMigrate data)? migrate,
     TResult Function(SubscribedRepoTombstone data)? tombstone,
     TResult Function(SubscribedRepoInfo data)? info,
+    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
     if (tombstone != null) {
@@ -773,6 +802,7 @@ class _$_Tombstone implements _Tombstone {
     required TResult Function(_Migrate value) migrate,
     required TResult Function(_Tombstone value) tombstone,
     required TResult Function(_Info value) info,
+    required TResult Function(_Unknown value) unknown,
   }) {
     return tombstone(this);
   }
@@ -785,6 +815,7 @@ class _$_Tombstone implements _Tombstone {
     TResult? Function(_Migrate value)? migrate,
     TResult? Function(_Tombstone value)? tombstone,
     TResult? Function(_Info value)? info,
+    TResult? Function(_Unknown value)? unknown,
   }) {
     return tombstone?.call(this);
   }
@@ -797,6 +828,7 @@ class _$_Tombstone implements _Tombstone {
     TResult Function(_Migrate value)? migrate,
     TResult Function(_Tombstone value)? tombstone,
     TResult Function(_Info value)? info,
+    TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) {
     if (tombstone != null) {
@@ -911,6 +943,7 @@ class _$_Info implements _Info {
     required TResult Function(SubscribedRepoMigrate data) migrate,
     required TResult Function(SubscribedRepoTombstone data) tombstone,
     required TResult Function(SubscribedRepoInfo data) info,
+    required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return info(data);
   }
@@ -923,6 +956,7 @@ class _$_Info implements _Info {
     TResult? Function(SubscribedRepoMigrate data)? migrate,
     TResult? Function(SubscribedRepoTombstone data)? tombstone,
     TResult? Function(SubscribedRepoInfo data)? info,
+    TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return info?.call(data);
   }
@@ -935,6 +969,7 @@ class _$_Info implements _Info {
     TResult Function(SubscribedRepoMigrate data)? migrate,
     TResult Function(SubscribedRepoTombstone data)? tombstone,
     TResult Function(SubscribedRepoInfo data)? info,
+    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
     if (info != null) {
@@ -951,6 +986,7 @@ class _$_Info implements _Info {
     required TResult Function(_Migrate value) migrate,
     required TResult Function(_Tombstone value) tombstone,
     required TResult Function(_Info value) info,
+    required TResult Function(_Unknown value) unknown,
   }) {
     return info(this);
   }
@@ -963,6 +999,7 @@ class _$_Info implements _Info {
     TResult? Function(_Migrate value)? migrate,
     TResult? Function(_Tombstone value)? tombstone,
     TResult? Function(_Info value)? info,
+    TResult? Function(_Unknown value)? unknown,
   }) {
     return info?.call(this);
   }
@@ -975,6 +1012,7 @@ class _$_Info implements _Info {
     TResult Function(_Migrate value)? migrate,
     TResult Function(_Tombstone value)? tombstone,
     TResult Function(_Info value)? info,
+    TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) {
     if (info != null) {
@@ -1000,4 +1038,187 @@ abstract class _Info implements SubscribedRepo {
   SubscribedRepoInfo get data;
   @JsonKey(ignore: true)
   _$$_InfoCopyWith<_$_Info> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UnknownCopyWith<$Res> {
+  factory _$$_UnknownCopyWith(
+          _$_Unknown value, $Res Function(_$_Unknown) then) =
+      __$$_UnknownCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class __$$_UnknownCopyWithImpl<$Res>
+    extends _$SubscribedRepoCopyWithImpl<$Res, _$_Unknown>
+    implements _$$_UnknownCopyWith<$Res> {
+  __$$_UnknownCopyWithImpl(_$_Unknown _value, $Res Function(_$_Unknown) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_Unknown(
+      data: null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Unknown implements _Unknown {
+  const _$_Unknown(
+      {required final Map<String, dynamic> data, final String? $type})
+      : _data = data,
+        $type = $type ?? 'unknown';
+
+  factory _$_Unknown.fromJson(Map<String, dynamic> json) =>
+      _$$_UnknownFromJson(json);
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'SubscribedRepo.unknown(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Unknown &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
+      __$$_UnknownCopyWithImpl<_$_Unknown>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(SubscribedRepoCommit data) commit,
+    required TResult Function(SubscribedRepoHandle data) handle,
+    required TResult Function(SubscribedRepoMigrate data) migrate,
+    required TResult Function(SubscribedRepoTombstone data) tombstone,
+    required TResult Function(SubscribedRepoInfo data) info,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return unknown(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(SubscribedRepoCommit data)? commit,
+    TResult? Function(SubscribedRepoHandle data)? handle,
+    TResult? Function(SubscribedRepoMigrate data)? migrate,
+    TResult? Function(SubscribedRepoTombstone data)? tombstone,
+    TResult? Function(SubscribedRepoInfo data)? info,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return unknown?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SubscribedRepoCommit data)? commit,
+    TResult Function(SubscribedRepoHandle data)? handle,
+    TResult Function(SubscribedRepoMigrate data)? migrate,
+    TResult Function(SubscribedRepoTombstone data)? tombstone,
+    TResult Function(SubscribedRepoInfo data)? info,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (unknown != null) {
+      return unknown(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Commit value) commit,
+    required TResult Function(_Handle value) handle,
+    required TResult Function(_Migrate value) migrate,
+    required TResult Function(_Tombstone value) tombstone,
+    required TResult Function(_Info value) info,
+    required TResult Function(_Unknown value) unknown,
+  }) {
+    return unknown(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Commit value)? commit,
+    TResult? Function(_Handle value)? handle,
+    TResult? Function(_Migrate value)? migrate,
+    TResult? Function(_Tombstone value)? tombstone,
+    TResult? Function(_Info value)? info,
+    TResult? Function(_Unknown value)? unknown,
+  }) {
+    return unknown?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Commit value)? commit,
+    TResult Function(_Handle value)? handle,
+    TResult Function(_Migrate value)? migrate,
+    TResult Function(_Tombstone value)? tombstone,
+    TResult Function(_Info value)? info,
+    TResult Function(_Unknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (unknown != null) {
+      return unknown(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_UnknownToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Unknown implements SubscribedRepo {
+  const factory _Unknown({required final Map<String, dynamic> data}) =
+      _$_Unknown;
+
+  factory _Unknown.fromJson(Map<String, dynamic> json) = _$_Unknown.fromJson;
+
+  @override
+  Map<String, dynamic> get data;
+  @JsonKey(ignore: true)
+  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
+      throw _privateConstructorUsedError;
 }
