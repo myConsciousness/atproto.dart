@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.11
+
+- Removed `did` parameter from `findRecord` in `RepositoriesService`.
+
 ## v0.2.10
 
 - Added `label.dart`. ([#346](https://github.com/myConsciousness/atproto.dart/issues/346))
