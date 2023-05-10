@@ -27,6 +27,8 @@ class Entity with _$Entity {
   factory Entity.fromJson(Map<String, Object?> json) => _$EntityFromJson(json);
 
   /// Returns the facet representation of this entity as JSON.
+  ///
+  /// Invalid handles are excluded from the results.
   Future<Map<String, dynamic>> toFacet() async {
     final facet = <String, dynamic>{
       'index': {
@@ -38,14 +40,19 @@ class Entity with _$Entity {
 
     switch (type) {
       case EntityType.handle:
-        final did = await atproto.identities.findDID(
-          handle: value.substring(1),
-        );
+        try {
+          final did = await atproto.identities.findDID(
+            handle: value.substring(1),
+          );
 
-        facet['features'].add({
-          '\$type': 'app.bsky.richtext.facet#mention',
-          'did': did.data.did,
-        });
+          facet['features'].add({
+            '\$type': 'app.bsky.richtext.facet#mention',
+            'did': did.data.did,
+          });
+        } on Exception {
+          //! Invalid handle.
+          return {};
+        }
 
         break;
       case EntityType.link:
