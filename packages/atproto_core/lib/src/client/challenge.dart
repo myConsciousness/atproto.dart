@@ -5,6 +5,7 @@
 import 'dart:async';
 
 import 'package:universal_io/io.dart';
+import 'package:xrpc/xrpc.dart' as xrpc;
 
 import 'client.dart';
 import 'retry_policy.dart';
@@ -22,16 +23,7 @@ class Challenge {
     int retryCount = 0,
   }) async {
     try {
-      final response = await action.call(client);
-      final statusCode = response.status.code;
-
-      if (statusCode == 500 || statusCode == 503) {
-        if (_retryPolicy.shouldRetry(retryCount)) {
-          return await _retry(client, action, retryCount: ++retryCount);
-        }
-      }
-
-      return response;
+      return await action.call(client);
     } on SocketException {
       if (_retryPolicy.shouldRetry(retryCount)) {
         return await _retry(client, action, retryCount: ++retryCount);
@@ -39,6 +31,12 @@ class Challenge {
 
       rethrow;
     } on TimeoutException {
+      if (_retryPolicy.shouldRetry(retryCount)) {
+        return await _retry(client, action, retryCount: ++retryCount);
+      }
+
+      rethrow;
+    } on xrpc.InternalServerErrorException {
       if (_retryPolicy.shouldRetry(retryCount)) {
         return await _retry(client, action, retryCount: ++retryCount);
       }
