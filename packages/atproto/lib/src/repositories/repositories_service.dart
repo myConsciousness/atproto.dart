@@ -186,7 +186,6 @@ abstract class RepositoriesService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json
-
   Future<core.XRPCResponse<core.EmptyData>> updateBulk({
     required List<BatchAction> actions,
     bool? validate,
