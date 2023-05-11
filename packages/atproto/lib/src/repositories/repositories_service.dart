@@ -7,6 +7,7 @@ import 'dart:io';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../atproto_base_service.dart';
+import '../entities/batch_action.dart';
 import '../entities/blob_data.dart';
 import '../entities/record.dart';
 import '../entities/record_value.dart';
@@ -167,6 +168,13 @@ abstract class RepositoriesService {
   Future<core.XRPCResponse<Repo>> findRepo({
     required String identifier,
   });
+
+  /// Apply a batch transaction of creates, updates, and deletes.
+  Future<core.XRPCResponse<core.EmptyData>> updateBulk({
+    required List<BatchAction> actions,
+    bool? validate,
+    String? swapCommitCid,
+  });
 }
 
 class _RepositoriesService extends ATProtoBaseService
@@ -276,5 +284,31 @@ class _RepositoriesService extends ATProtoBaseService
         },
         to: Repo.fromJson,
         userContext: core.UserContext.anonymousOnly,
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> updateBulk({
+    required List<BatchAction> actions,
+    bool? validate,
+    String? swapCommitCid,
+  }) async =>
+      await super.post(
+        'applyWrites',
+        body: {
+          'repo': did,
+          'writes': actions
+              .map((e) => e.when(
+                    create: (data) => data.toJson(),
+                    update: (data) => data.toJson(),
+                    delete: (data) => {
+                      '\$type': data.type,
+                      'collection': data.uri.collection,
+                      'rkey': data.uri.rkey,
+                    },
+                  ))
+              .toList(),
+          'validate': validate,
+          'swapCommit': swapCommitCid,
+        },
       );
 }

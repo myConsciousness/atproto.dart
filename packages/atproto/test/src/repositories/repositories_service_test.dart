@@ -2,10 +2,14 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'package:atproto/src/entities/batch_action.dart';
+import 'package:atproto/src/entities/create_action.dart';
+import 'package:atproto/src/entities/delete_action.dart';
 import 'package:atproto/src/entities/record.dart';
 import 'package:atproto/src/entities/record_value.dart';
 import 'package:atproto/src/entities/repo.dart';
 import 'package:atproto/src/entities/strong_ref.dart';
+import 'package:atproto/src/entities/update_action.dart';
 import 'package:atproto/src/repositories/repositories_service.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
@@ -360,6 +364,92 @@ void main() {
             'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3juqjtr23dk2h',
           ),
         ),
+      );
+    });
+  });
+
+  group('.updateBulk', () {
+    test('normal case', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/repositories/data/update_bulk.json',
+        ),
+      );
+
+      final response = await repositories.updateBulk(actions: [
+        BatchAction.create(
+          data: CreateAction(
+            collection: core.NSID.create('app.bsky.graph', 'like'),
+            value: {},
+            rkey: 'xxxxxx',
+          ),
+        ),
+        BatchAction.update(
+          data: UpdateAction(
+            collection: core.NSID.create('app.bsky.graph', 'like'),
+            value: {},
+            rkey: 'xxxxxx',
+          ),
+        ),
+        BatchAction.delete(
+          data: DeleteAction(
+            uri: core.AtUri.make(
+              'shinyakato.dev',
+              'app.bsky.graph.like',
+              'xxxxxx',
+            ),
+          ),
+        )
+      ]);
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<core.EmptyData>());
+    });
+
+    test('when unauthorized', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await repositories.updateBulk(actions: []),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await repositories.updateBulk(actions: []),
       );
     });
   });
