@@ -170,6 +170,23 @@ abstract class RepositoriesService {
   });
 
   /// Apply a batch transaction of creates, updates, and deletes.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actions]: The collection of actions to perform.
+  ///
+  /// - [validate]: Validate the record?
+  ///
+  /// - [swapCommitCid]: Compare and swap with the previous commit by cid.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.applyWrites
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json
+
   Future<core.XRPCResponse<core.EmptyData>> updateBulk({
     required List<BatchAction> actions,
     bool? validate,
