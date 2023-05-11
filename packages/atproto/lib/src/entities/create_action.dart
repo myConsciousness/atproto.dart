@@ -20,7 +20,8 @@ class CreateAction with _$CreateAction {
     @JsonKey(name: '\$type')
     @Default('com.atproto.repo.applyWrites#create')
         String type,
-    @NsidConverter() required NSID collection,
+    @NsidConverter()
+        required NSID collection,
     String? rkey,
     required Map<String, dynamic> value,
   }) = _CreateAction;

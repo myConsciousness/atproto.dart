@@ -20,7 +20,8 @@ class UpdateAction with _$UpdateAction {
     @JsonKey(name: '\$type')
     @Default('com.atproto.repo.applyWrites#update')
         String type,
-    @NsidConverter() required NSID collection,
+    @NsidConverter()
+        required NSID collection,
     String? rkey,
     required Map<String, dynamic> value,
   }) = _UpdateAction;
