@@ -103,8 +103,9 @@ class __$$_RecordCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Record implements _Record {
-  const _$_Record({required this.cid, @AtUriConverter() required this.uri});
+class _$_Record extends _Record {
+  const _$_Record({required this.cid, @AtUriConverter() required this.uri})
+      : super._();
 
   factory _$_Record.fromJson(Map<String, dynamic> json) =>
       _$$_RecordFromJson(json);
@@ -147,10 +148,11 @@ class _$_Record implements _Record {
   }
 }
 
-abstract class _Record implements Record {
+abstract class _Record extends Record {
   const factory _Record(
       {required final String cid,
       @AtUriConverter() required final AtUri uri}) = _$_Record;
+  const _Record._() : super._();
 
   factory _Record.fromJson(Map<String, dynamic> json) = _$_Record.fromJson;
 

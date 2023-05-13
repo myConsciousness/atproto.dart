@@ -34,6 +34,13 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<Feed>());
+
+      final post = response.data.feed.first.post;
+      final strongRef = post.toStrongRef();
+
+      expect(strongRef, isA<StrongRef>());
+      expect(strongRef.cid, post.cid);
+      expect(strongRef.uri, post.uri);
     });
 
     test('when unauthorized', () async {
