@@ -122,12 +122,13 @@ class __$$_RecordValueCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_RecordValue implements _RecordValue {
+class _$_RecordValue extends _RecordValue {
   const _$_RecordValue(
       {@AtUriConverter() required this.uri,
       this.cid,
       required final Map<String, dynamic> value})
-      : _value = value;
+      : _value = value,
+        super._();
 
   factory _$_RecordValue.fromJson(Map<String, dynamic> json) =>
       _$$_RecordValueFromJson(json);
@@ -179,11 +180,12 @@ class _$_RecordValue implements _RecordValue {
   }
 }
 
-abstract class _RecordValue implements RecordValue {
+abstract class _RecordValue extends RecordValue {
   const factory _RecordValue(
       {@AtUriConverter() required final AtUri uri,
       final String? cid,
       required final Map<String, dynamic> value}) = _$_RecordValue;
+  const _RecordValue._() : super._();
 
   factory _RecordValue.fromJson(Map<String, dynamic> json) =
       _$_RecordValue.fromJson;

@@ -273,8 +273,9 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$_Post implements _Post {
+
+@JsonSerializable(includeIfNull: false)
+class _$_Post extends _Post {
   const _$_Post(
       {required this.record,
       required this.author,
@@ -287,7 +288,8 @@ class _$_Post implements _Post {
       required this.viewer,
       required final List<Label> labels,
       required this.indexedAt})
-      : _labels = labels;
+      : _labels = labels,
+        super._();
 
   factory _$_Post.fromJson(Map<String, dynamic> json) => _$$_PostFromJson(json);
 
@@ -379,7 +381,7 @@ class _$_Post implements _Post {
   }
 }
 
-abstract class _Post implements Post {
+abstract class _Post extends Post {
   const factory _Post(
       {required final PostRecord record,
       required final Actor author,
@@ -392,6 +394,7 @@ abstract class _Post implements Post {
       required final PostViewer viewer,
       required final List<Label> labels,
       required final DateTime indexedAt}) = _$_Post;
+  const _Post._() : super._();
 
   factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
 

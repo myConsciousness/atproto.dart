@@ -5,6 +5,7 @@
 - Supported `com.atproto.repo.applyWrites` as `updateBulk` in `RepositoriesService`. ([#306](https://github.com/myConsciousness/atproto.dart/issues/306))
 - Added `parent` field in `PostThreadViewRecord`. ([#364](https://github.com/myConsciousness/atproto.dart/issues/364))
 - Removed `feed_algorithm` and make this parameter to `String?` in `findTimeline`.
+- Added `toStrongRef()` method in `Post`. You can easily convert `Post` object to `StrongRef` object. ([#367](https://github.com/myConsciousness/atproto.dart/issues/367))
 
 ## v0.4.5
 

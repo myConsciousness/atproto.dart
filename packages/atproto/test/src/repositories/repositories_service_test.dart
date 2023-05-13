@@ -38,6 +38,11 @@ void main() {
 
       expect(response, isA<core.XRPCResponse>());
       expect(response.data, isA<Record>());
+
+      final strongRef = response.data.toStrongRef();
+      expect(strongRef, isA<StrongRef>());
+      expect(strongRef.cid, response.data.cid);
+      expect(strongRef.uri, response.data.uri);
     });
 
     test('when unauthorized', () async {
@@ -317,6 +322,41 @@ void main() {
 
       expect(response, isA<core.XRPCResponse>());
       expect(response.data, isA<RecordValue>());
+      expect(response.data.hasStrongRef, isTrue);
+      expect(response.data.hasNotStrongRef, isFalse);
+
+      final strongRef = response.data.toStrongRef();
+      expect(strongRef, isA<StrongRef>());
+      expect(strongRef.cid, response.data.cid);
+      expect(strongRef.uri, response.data.uri);
+    });
+
+    test('without cid', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/repositories/data/find_record_without_cid.json',
+        ),
+      );
+
+      final response = await repositories.findRecord(
+        uri: core.AtUri.parse(
+          'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3juqjtr23dk2h',
+        ),
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<RecordValue>());
+      expect(response.data.hasStrongRef, isFalse);
+      expect(response.data.hasNotStrongRef, isTrue);
+
+      expect(() => response.data.toStrongRef(), throwsA(isA<StateError>()));
     });
 
     test('when unauthorized', () async {

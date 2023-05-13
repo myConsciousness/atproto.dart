@@ -3,6 +3,7 @@
 ## v0.2.13
 
 - Supported `com.atproto.repo.applyWrites` as `updateBulk` in `RepositoriesService`. ([#306](https://github.com/myConsciousness/atproto.dart/issues/306))
+- Added `toStrongRef()` method in `Record` and `RecordValue`. Be sure to check with `hasStrongRef` or `hasNotStrongRef` when you use `toStrongRef()` from `RecordValue`, because `cid` in `RecordValue` is nullable. ([#367](https://github.com/myConsciousness/atproto.dart/issues/367))
 
 ## v0.2.12
 
