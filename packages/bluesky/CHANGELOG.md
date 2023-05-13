@@ -3,6 +3,7 @@
 ## v0.4.6
 
 - Supported `com.atproto.repo.applyWrites` as `updateBulk` in `RepositoriesService`. ([#306](https://github.com/myConsciousness/atproto.dart/issues/306))
+- Added `parent` field in `PostThreadViewRecord`. ([#364](https://github.com/myConsciousness/atproto.dart/issues/364))
 
 ## v0.4.5
 
