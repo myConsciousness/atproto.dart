@@ -15,7 +15,6 @@ import '../entities/post_thread.dart';
 import '../entities/posts.dart';
 import '../entities/reply_ref.dart';
 import '../entities/reposted_by.dart';
-import 'feed_algorithm.dart';
 
 abstract class FeedsService {
   /// Returns the new instance of [FeedsService].
@@ -94,6 +93,15 @@ abstract class FeedsService {
 
   /// A view of the user's home timeline.
   ///
+  /// ## Parameters
+  ///
+  /// - [algorithm]: Custom Algorithm.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
   /// ## Lexicon
   ///
   /// - app.bsky.feed.getTimeline
@@ -102,7 +110,7 @@ abstract class FeedsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json
   Future<core.XRPCResponse<Feed>> findTimeline({
-    FeedAlgorithm? algorithm,
+    String? algorithm,
     int? limit,
     String? cursor,
   });
@@ -280,7 +288,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
 
   @override
   Future<core.XRPCResponse<Feed>> findTimeline({
-    FeedAlgorithm? algorithm,
+    String? algorithm,
     int? limit,
     String? cursor,
   }) async =>

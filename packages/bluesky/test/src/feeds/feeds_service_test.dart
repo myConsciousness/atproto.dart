@@ -27,7 +27,7 @@ void main() {
       );
 
       final response = await feeds.findTimeline(
-        algorithm: FeedAlgorithm.reverseChronological,
+        algorithm: 'custom-algorithm',
         limit: 10,
         cursor: '1234',
       );
@@ -53,7 +53,7 @@ void main() {
 
       atp_test.expectUnauthorizedException(
         () async => await feeds.findTimeline(
-          algorithm: FeedAlgorithm.reverseChronological,
+          algorithm: 'custom-algorithm',
           limit: 10,
           cursor: '1234',
         ),
@@ -77,7 +77,7 @@ void main() {
 
       atp_test.expectRateLimitExceededException(
         () async => await feeds.findTimeline(
-          algorithm: FeedAlgorithm.reverseChronological,
+          algorithm: 'custom-algorithm',
           limit: 10,
           cursor: '1234',
         ),
