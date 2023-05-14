@@ -4,7 +4,32 @@
   ],
   "imageSize": 100,
   "commit": false,
-  "contributors": [],
+  "contributors": [
+    {
+      "login": "myConsciousness",
+      "name": "Shinya Kato / 加藤 真也",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13072231?v=4",
+      "profile": "http://shinyakato.dev",
+      "contributions": [
+        "code",
+        "content",
+        "bug",
+        "doc",
+        "data",
+        "design",
+        "example",
+        "infra",
+        "maintenance",
+        "projectManagement",
+        "promotion",
+        "review",
+        "security",
+        "tool",
+        "test",
+        "tutorial"
+      ]
+    }
+  ],
   "contributorsPerLine": 5,
   "projectName": "atproto.dart",
   "projectOwner": "myConsciousness",
