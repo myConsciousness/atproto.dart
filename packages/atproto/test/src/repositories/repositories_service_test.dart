@@ -427,14 +427,14 @@ void main() {
         BatchAction.create(
           data: CreateAction(
             collection: core.NSID.create('app.bsky.graph', 'like'),
-            value: {},
+            record: {},
             rkey: 'xxxxxx',
           ),
         ),
         BatchAction.update(
           data: UpdateAction(
             collection: core.NSID.create('app.bsky.graph', 'like'),
-            value: {},
+            record: {},
             rkey: 'xxxxxx',
           ),
         ),
@@ -512,7 +512,7 @@ void main() {
       final response = await repositories.createRecords(actions: [
         CreateAction(
           collection: core.NSID.create('app.bsky.graph', 'like'),
-          value: {},
+          record: {},
           rkey: 'xxxxxx',
         ),
       ]);
@@ -580,8 +580,8 @@ void main() {
       final response = await repositories.updateRecords(actions: [
         UpdateAction(
           collection: core.NSID.create('app.bsky.graph', 'like'),
-          value: {},
           rkey: 'xxxxxx',
+          record: {},
         ),
       ]);
 
@@ -645,13 +645,21 @@ void main() {
         ),
       );
 
-      final response = await repositories.deleteRecords(actions: [
-        DeleteAction(
-          uri: core.AtUri.make(
-            'shinyakato.dev',
-            'app.bsky.graph.like',
-            'xxxxxx',
-          ),
+      final response = await repositories.deleteRecords(uris: [
+        core.AtUri.make(
+          'shinyakato.dev',
+          'app.bsky.graph.like',
+          'xxxxxx',
+        ),
+        core.AtUri.make(
+          'shinyakato.dev',
+          'app.bsky.graph.like',
+          'xxxxxx',
+        ),
+        core.AtUri.make(
+          'shinyakato.dev',
+          'app.bsky.graph.like',
+          'xxxxxx',
         ),
       ]);
 
@@ -675,7 +683,7 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await repositories.deleteRecords(actions: []),
+        () async => await repositories.deleteRecords(uris: []),
       );
     });
 
@@ -695,7 +703,7 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await repositories.deleteRecords(actions: []),
+        () async => await repositories.deleteRecords(uris: []),
       );
     });
   });

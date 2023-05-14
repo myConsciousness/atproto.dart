@@ -18,12 +18,12 @@ _$_UpdateAction _$$_UpdateActionFromJson(Map json) => $checkedCreate(
           collection: $checkedConvert(
               'collection', (v) => const NsidConverter().fromJson(v as String)),
           rkey: $checkedConvert('rkey', (v) => v as String?),
-          value: $checkedConvert(
+          record: $checkedConvert(
               'value', (v) => Map<String, dynamic>.from(v as Map)),
         );
         return val;
       },
-      fieldKeyMap: const {'type': r'$type'},
+      fieldKeyMap: const {'type': r'$type', 'record': 'value'},
     );
 
 Map<String, dynamic> _$$_UpdateActionToJson(_$_UpdateAction instance) {
@@ -39,6 +39,6 @@ Map<String, dynamic> _$$_UpdateActionToJson(_$_UpdateAction instance) {
   }
 
   writeNotNull('rkey', instance.rkey);
-  val['value'] = instance.value;
+  val['value'] = instance.record;
   return val;
 }

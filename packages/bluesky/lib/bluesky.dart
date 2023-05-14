@@ -132,5 +132,8 @@ export 'package:bluesky/src/entities/reposted_by.dart';
 export 'package:bluesky/src/feeds/feeds_service.dart';
 export 'package:bluesky/src/graphs/graphs_service.dart';
 export 'package:bluesky/src/notifications/notifications_service.dart';
+export 'package:bluesky/src/params/post_param.dart';
+export 'package:bluesky/src/params/repo_param.dart';
+export 'package:bluesky/src/params/strong_ref_param.dart';
 export 'package:bluesky/src/servers/servers_service.dart' show createSession;
 export 'package:bluesky/src/unspecced/unspecced_service.dart';

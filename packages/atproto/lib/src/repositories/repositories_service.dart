@@ -235,13 +235,13 @@ abstract class RepositoriesService {
   ///
   /// ## Parameters
   ///
-  /// - [actions]: The collection of delete actions to perform.
+  /// - [uris]: The collection of uris to be deleted.
   ///
   /// - [validate]: Validate the record?
   ///
   /// - [swapCommitCid]: Compare and swap with the previous commit by cid.
   Future<core.XRPCResponse<core.EmptyData>> deleteRecords({
-    required List<DeleteAction> actions,
+    required List<core.AtUri> uris,
     bool? validate,
     String? swapCommitCid,
   });
@@ -408,12 +408,14 @@ class _RepositoriesService extends ATProtoBaseService
 
   @override
   Future<core.XRPCResponse<core.EmptyData>> deleteRecords({
-    required List<DeleteAction> actions,
+    required List<core.AtUri> uris,
     bool? validate,
     String? swapCommitCid,
   }) async =>
       await updateBulk(
-        actions: actions.map((e) => BatchAction.delete(data: e)).toList(),
+        actions: uris
+            .map((e) => BatchAction.delete(data: DeleteAction(uri: e)))
+            .toList(),
         validate: validate,
         swapCommitCid: swapCommitCid,
       );
