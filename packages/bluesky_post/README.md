@@ -114,6 +114,9 @@ jobs:
   post:
     runs-on: ubuntu-latest
     steps:
+      # You must checkout resources
+      - uses: actions/checkout@v3
+
       - uses: myConsciousness/bluesky-post@v3
         with:
           text: "Hello, Bluesky!"
