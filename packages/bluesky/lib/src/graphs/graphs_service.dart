@@ -11,6 +11,7 @@ import '../entities/blocks.dart';
 import '../entities/followers.dart';
 import '../entities/follows.dart';
 import '../entities/mutes.dart';
+import '../params/repo_param.dart';
 
 abstract class GraphsService {
   /// Returns the new instance of [GraphsService].
@@ -51,6 +52,15 @@ abstract class GraphsService {
   Future<core.XRPCResponse<atp.Record>> createFollow({
     required String did,
     DateTime? createdAt,
+  });
+
+  /// Creates follows.
+  ///
+  /// ## Parameters
+  ///
+  /// - [params]: The collection of params from strong refs to be followed.
+  Future<core.XRPCResponse<core.EmptyData>> createFollows({
+    required List<RepoParam> params,
   });
 
   /// Returns follows of specific user.
@@ -200,6 +210,15 @@ abstract class GraphsService {
     required String did,
     DateTime? createdAt,
   });
+
+  /// Creates blocks.
+  ///
+  /// ## Parameters
+  ///
+  /// - [params]: The collection of params from strong refs to be blocked.
+  Future<core.XRPCResponse<core.EmptyData>> createBlocks({
+    required List<RepoParam> params,
+  });
 }
 
 class _GraphsService extends BlueskyBaseService implements GraphsService {
@@ -224,6 +243,25 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
           'subject': did,
           'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
         },
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> createFollows({
+    required List<RepoParam> params,
+  }) async =>
+      await atproto.repositories.createRecords(
+        actions: params
+            .map(
+              (e) => atp.CreateAction(
+                collection: createNSID('follow'),
+                record: {
+                  'subject': e.did,
+                  'createdAt':
+                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+                },
+              ),
+            )
+            .toList(),
       );
 
   @override
@@ -319,5 +357,24 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
           'subject': did,
           'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
         },
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> createBlocks({
+    required List<RepoParam> params,
+  }) async =>
+      await atproto.repositories.createRecords(
+        actions: params
+            .map(
+              (e) => atp.CreateAction(
+                collection: createNSID('block'),
+                record: {
+                  'subject': e.did,
+                  'createdAt':
+                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+                },
+              ),
+            )
+            .toList(),
       );
 }

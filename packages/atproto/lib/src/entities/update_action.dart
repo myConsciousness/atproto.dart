@@ -23,7 +23,8 @@ class UpdateAction with _$UpdateAction {
     @NsidConverter()
         required NSID collection,
     String? rkey,
-    required Map<String, dynamic> value,
+    @JsonKey(name: 'value')
+        required Map<String, dynamic> record,
   }) = _UpdateAction;
 
   factory UpdateAction.fromJson(Map<String, Object?> json) =>

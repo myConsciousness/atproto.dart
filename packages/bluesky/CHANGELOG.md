@@ -9,6 +9,12 @@
 - Added `parent` field in `PostThreadViewRecord`. ([#364](https://github.com/myConsciousness/atproto.dart/issues/364))
 - Removed `feed_algorithm` and make this parameter to `String?` in `findTimeline`.
 - Added `toStrongRef()` method in `Post`. You can easily convert `Post` object to `StrongRef` object. ([#367](https://github.com/myConsciousness/atproto.dart/issues/367))
+- Added bulk options for `FeedsService` and `GraphsService`. ([#373](https://github.com/myConsciousness/atproto.dart/issues/373))
+  - `createPosts`
+  - `createReposts`
+  - `createLikes`
+  - `createFollows`
+  - `createBlocks`
 
 ## v0.4.5
 
