@@ -28,6 +28,15 @@
         "test",
         "tutorial"
       ]
+    },
+    {
+      "login": "tacsotai",
+      "name": "tacsotai",
+      "avatar_url": "https://avatars.githubusercontent.com/u/80247372?v=4",
+      "profile": "https://github.com/tacsotai",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 5,
