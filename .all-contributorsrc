@@ -47,6 +47,16 @@
         "ideas",
         "bug"
       ]
+    },
+    {
+      "login": "aliceisjustplaying",
+      "name": "Alice",
+      "avatar_url": "https://avatars.githubusercontent.com/u/81575558?v=4",
+      "profile": "https://twitter.com/__justplaying",
+      "contributions": [
+        "ideas",
+        "platform"
+      ]
     }
   ],
   "contributorsPerLine": 5,
