@@ -13,7 +13,7 @@ This action is implemented in the Dart language and uses [bluesky](https://githu
 
 ## Workflow Usage
 
-Configure your workflow to use `myConsciousness/bluesky-post@v2`,
+Configure your workflow to use `myConsciousness/bluesky-post@v3`,
 and provide the post you want to send as the `text` input.
 
 Provide Bluesky's ATP server with `identifier` (handle or email) and `password` to create a session.
@@ -30,7 +30,7 @@ jobs:
   post:
     runs-on: ubuntu-latest
     steps:
-      - uses: myConsciousness/bluesky-post@v2
+      - uses: myConsciousness/bluesky-post@v3
         with:
           text: "Hello, Bluesky!"
           identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
@@ -64,7 +64,7 @@ jobs:
   post:
     runs-on: ubuntu-latest
     steps:
-      - uses: myConsciousness/bluesky-post@v2
+      - uses: myConsciousness/bluesky-post@v3
         with:
           text: "Hello, Bluesky!"
           identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
@@ -92,12 +92,35 @@ jobs:
   post:
     runs-on: ubuntu-latest
     steps:
-      - uses: myConsciousness/bluesky-post@v2
+      - uses: myConsciousness/bluesky-post@v3
         with:
           text: "Hello, Bluesky!"
           identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
           password: ${{ secrets.BLUESKY_PASSWORD }}
           retry-count: 5
+```
+
+## Attach Media
+
+You can also post a text with an image of a specified file path attached.
+
+```yml
+name: Send Bluesky Post
+
+on:
+    [push]
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: myConsciousness/bluesky-post@v3
+        with:
+          text: "Hello, Bluesky!"
+          media: cool_photo.png
+          media-alt: "This is a cool photo!"
+          identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
+          password: ${{ secrets.BLUESKY_PASSWORD }}
 ```
 
 ## More Information
