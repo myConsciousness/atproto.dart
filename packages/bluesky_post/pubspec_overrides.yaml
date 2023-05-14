@@ -1,3 +1,9 @@
 dependency_overrides:
+  xrpc:
+    path: ../xrpc
+  atproto:
+    path: ../atproto
+  bluesky_text:
+    path: ../bluesky_text
   bluesky:
     path: ../bluesky

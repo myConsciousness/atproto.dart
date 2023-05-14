@@ -3,6 +3,7 @@
 
 [![Powered by atproto](https://img.shields.io/badge/Powered%20by-atproto-00acee.svg)](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto)
 [![Powered by bluesky](https://img.shields.io/badge/Powered%20by-bluesky-00acee.svg)](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky)
+[![Powered by bluesky_text](https://img.shields.io/badge/Powered%20by-bluesky_text-00acee.svg)](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_text)
 
 # Send a Post to Bluesky from GitHub Actions Workflow
 
@@ -38,6 +39,12 @@ jobs:
 
 Now whenever you push something to your repository, GitHub Actions
 will post to Bluesky on your behalf.
+
+> **Note** </br>
+> In the Bluesky API, the `mention` and `link` functions will not work unless
+> the `facet` parameter is set correctly when the request is sent,
+> but this Action will automatically extract valid handle and link
+> from the text and set the facet.
 
 ## Specify Authority
 

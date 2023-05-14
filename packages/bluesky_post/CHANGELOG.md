@@ -1,5 +1,10 @@
 # Release Note
 
+## v3
+
+- Fixed to automatically extract mentions and links contained in text and set facets appropriately. ([#384](https://github.com/myConsciousness/atproto.dart/issues/384))
+- Support for uploading images from a specified file path. ([#384](https://github.com/myConsciousness/atproto.dart/issues/384))
+
 ## v2
 
 - Allows the user to specify a specific authority to post to. ([#66](https://github.com/myConsciousness/atproto.dart/issues/66))
