@@ -57,6 +57,19 @@
         "ideas",
         "platform"
       ]
+    },
+    {
+      "login": "videah",
+      "name": "videah",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4761786?v=4",
+      "profile": "https://videah.net",
+      "contributions": [
+        "ideas",
+        "bug",
+        "platform",
+        "question",
+        "userTesting"
+      ]
     }
   ],
   "contributorsPerLine": 5,
