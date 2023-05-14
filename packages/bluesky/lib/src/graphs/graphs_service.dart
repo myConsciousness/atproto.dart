@@ -6,7 +6,6 @@
 import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
-import '../../bluesky.dart';
 import '../bluesky_base_service.dart';
 import '../entities/blocks.dart';
 import '../entities/followers.dart';
@@ -253,7 +252,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       await atproto.repositories.createRecords(
         actions: params
             .map(
-              (e) => CreateAction(
+              (e) => atp.CreateAction(
                 collection: createNSID('follow'),
                 record: {
                   'subject': e.did,
@@ -367,7 +366,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       await atproto.repositories.createRecords(
         actions: params
             .map(
-              (e) => CreateAction(
+              (e) => atp.CreateAction(
                 collection: createNSID('block'),
                 record: {
                   'subject': e.did,
