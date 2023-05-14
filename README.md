@@ -38,9 +38,10 @@
     - [1.1.4. GitHub Actions](#114-github-actions)
   - [1.2. Melos Commands](#12-melos-commands)
   - [1.3. Contribution 🏆](#13-contribution-)
-  - [1.4. Support ❤️](#14-support-️)
-  - [1.5. License 🔑](#15-license-)
-  - [1.6. More Information 🧐](#16-more-information-)
+  - [1.4. Contributors ✨](#14-contributors-)
+  - [1.5. Support ❤️](#15-support-️)
+  - [1.6. License 🔑](#16-license-)
+  - [1.7. More Information 🧐](#17-more-information-)
 
 <!-- /TOC -->
 
@@ -90,7 +91,13 @@ and to contribute to the development of [AT Protocol](https://atproto.com) and [
 
 This project consists of several packages and is managed using [Melos](https://github.com/invertase/melos).
 
-The Melos commands available for this project are:
+First you need to install [Melos](https://github.com/invertase/melos) with following command.
+
+```bash
+dart pub global activate melos
+```
+
+Then, the Melos commands available for this project are:
 
 | Command            | Description                                               |
 | ------------------ | --------------------------------------------------------- |
@@ -127,7 +134,22 @@ Or you can create a [discussion](https://github.com/myConsciousness/atproto.dart
 
 **Feel free to join this development, diverse opinions make software better!**
 
-## 1.4. Support ❤️
+## 1.4. Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+## 1.5. Support ❤️
 
 The simplest way to show us your support is by **giving the project a star** at [GitHub](https://github.com/myConsciousness/atproto.dart) and [Pub.dev](https://pub.dev/packages/bluesky).
 
@@ -141,7 +163,7 @@ You can also support this project by **becoming a sponsor** on GitHub:
   </p>
 </div>
 
-## 1.5. License 🔑
+## 1.6. License 🔑
 
 The source code provided in this monorepo is is provided under the `BSD-3` license.
 
@@ -154,7 +176,7 @@ modification, are permitted provided the conditions.
 > **Note**</br>
 > License notices in the source are strictly validated based on `.github/header-checker-lint.yml`. Please check [header-checker-lint.yml](https://github.com/myConsciousness/atproto.dart/tree/main/.github/header-checker-lint.yml) for the permitted standards.
 
-## 1.6. More Information 🧐
+## 1.7. More Information 🧐
 
 All resources in **atproto.dart** is maintained by **_Shinya Kato ([@myConsciousness](https://github.com/myConsciousness))_**.
 
