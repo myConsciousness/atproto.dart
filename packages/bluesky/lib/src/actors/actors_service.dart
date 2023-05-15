@@ -11,6 +11,7 @@ import '../entities/actor_profile.dart';
 import '../entities/actor_profiles.dart';
 import '../entities/actors.dart';
 import '../entities/actors_typeahead.dart';
+import '../entities/preference.dart';
 import '../entities/preferences.dart';
 
 abstract class ActorsService {
@@ -151,7 +152,7 @@ abstract class ActorsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/profile.json
-  Future<core.XRPCResponse<atp.StrongRef>> updateProfile({
+  Future<core.XRPCResponse<atp.Record>> updateProfile({
     String? displayName,
     String? description,
     atp.Blob? avatar,
@@ -168,6 +169,23 @@ abstract class ActorsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getPreferences.json
   Future<core.XRPCResponse<Preferences>> findPreferences();
+
+  /// Sets the private preferences attached to the account.
+  ///
+  /// ## Parameters
+  ///
+  /// - [preferences]: Collection of preferences to be updated.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.actor.putPreferences
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/putPreferences.json
+  Future<core.XRPCResponse<core.EmptyData>> updatePreferences(
+    List<Preference> preferences,
+  );
 }
 
 class _ActorsService extends BlueskyBaseService implements ActorsService {
@@ -250,7 +268,7 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
       );
 
   @override
-  Future<atp.XRPCResponse<atp.StrongRef>> updateProfile({
+  Future<atp.XRPCResponse<atp.Record>> updateProfile({
     String? displayName,
     String? description,
     atp.Blob? avatar,
@@ -275,5 +293,16 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
       await super.get(
         'getPreferences',
         to: Preferences.fromJson,
+      );
+
+  @override
+  Future<atp.XRPCResponse<atp.EmptyData>> updatePreferences(
+    List<Preference> preferences,
+  ) async =>
+      await super.post(
+        'putPreferences',
+        body: {
+          'preferences': preferences.map((e) => e.toJson()).toList(),
+        },
       );
 }

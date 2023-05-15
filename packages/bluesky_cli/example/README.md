@@ -45,6 +45,7 @@ Available commands:
   preferences          Show the private preferences.
   profile              Show the profile of specific user.
   profiles             Show the profiles of specific users.
+  put-preferences      Put new preferences.
   repost               Repost a specific post.
   reposted-by          Show the actors reposted specific post.
   search-actors        Search the actors based on term.

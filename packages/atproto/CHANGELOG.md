@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.14
+
+- Fixed type from `StrongRef` to `Record` of `updateRecord` in `RepositoriesService`.
+
 ## v0.2.13
 
 - Supported `com.atproto.repo.applyWrites` as `updateBulk` in `RepositoriesService`. Also added following utilities. ([#306](https://github.com/myConsciousness/atproto.dart/issues/306))

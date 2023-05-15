@@ -181,7 +181,7 @@ void main() {
       );
 
       expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<StrongRef>());
+      expect(response.data, isA<Record>());
     });
 
     test('when unauthorized', () async {

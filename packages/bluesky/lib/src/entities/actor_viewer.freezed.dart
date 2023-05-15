@@ -24,9 +24,12 @@ mixin _$ActorViewer {
   bool get isMuted => throw _privateConstructorUsedError;
   @JsonKey(name: 'blockedBy')
   bool get isBlockedBy => throw _privateConstructorUsedError;
-  String? get blocking => throw _privateConstructorUsedError;
-  String? get following => throw _privateConstructorUsedError;
-  String? get followedBy => throw _privateConstructorUsedError;
+  @AtUriConverter()
+  AtUri? get blocking => throw _privateConstructorUsedError;
+  @AtUriConverter()
+  AtUri? get following => throw _privateConstructorUsedError;
+  @AtUriConverter()
+  AtUri? get followedBy => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,9 +46,9 @@ abstract class $ActorViewerCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'muted') bool isMuted,
       @JsonKey(name: 'blockedBy') bool isBlockedBy,
-      String? blocking,
-      String? following,
-      String? followedBy});
+      @AtUriConverter() AtUri? blocking,
+      @AtUriConverter() AtUri? following,
+      @AtUriConverter() AtUri? followedBy});
 }
 
 /// @nodoc
@@ -79,15 +82,15 @@ class _$ActorViewerCopyWithImpl<$Res, $Val extends ActorViewer>
       blocking: freezed == blocking
           ? _value.blocking
           : blocking // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as AtUri?,
       following: freezed == following
           ? _value.following
           : following // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as AtUri?,
       followedBy: freezed == followedBy
           ? _value.followedBy
           : followedBy // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as AtUri?,
     ) as $Val);
   }
 }
@@ -103,9 +106,9 @@ abstract class _$$_ActorViewerCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'muted') bool isMuted,
       @JsonKey(name: 'blockedBy') bool isBlockedBy,
-      String? blocking,
-      String? following,
-      String? followedBy});
+      @AtUriConverter() AtUri? blocking,
+      @AtUriConverter() AtUri? following,
+      @AtUriConverter() AtUri? followedBy});
 }
 
 /// @nodoc
@@ -137,15 +140,15 @@ class __$$_ActorViewerCopyWithImpl<$Res>
       blocking: freezed == blocking
           ? _value.blocking
           : blocking // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as AtUri?,
       following: freezed == following
           ? _value.following
           : following // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as AtUri?,
       followedBy: freezed == followedBy
           ? _value.followedBy
           : followedBy // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as AtUri?,
     ));
   }
 }
@@ -157,9 +160,9 @@ class _$_ActorViewer implements _ActorViewer {
   const _$_ActorViewer(
       {@JsonKey(name: 'muted') required this.isMuted,
       @JsonKey(name: 'blockedBy') required this.isBlockedBy,
-      this.blocking,
-      this.following,
-      this.followedBy});
+      @AtUriConverter() this.blocking,
+      @AtUriConverter() this.following,
+      @AtUriConverter() this.followedBy});
 
   factory _$_ActorViewer.fromJson(Map<String, dynamic> json) =>
       _$$_ActorViewerFromJson(json);
@@ -171,11 +174,14 @@ class _$_ActorViewer implements _ActorViewer {
   @JsonKey(name: 'blockedBy')
   final bool isBlockedBy;
   @override
-  final String? blocking;
+  @AtUriConverter()
+  final AtUri? blocking;
   @override
-  final String? following;
+  @AtUriConverter()
+  final AtUri? following;
   @override
-  final String? followedBy;
+  @AtUriConverter()
+  final AtUri? followedBy;
 
   @override
   String toString() {
@@ -221,9 +227,9 @@ abstract class _ActorViewer implements ActorViewer {
   const factory _ActorViewer(
       {@JsonKey(name: 'muted') required final bool isMuted,
       @JsonKey(name: 'blockedBy') required final bool isBlockedBy,
-      final String? blocking,
-      final String? following,
-      final String? followedBy}) = _$_ActorViewer;
+      @AtUriConverter() final AtUri? blocking,
+      @AtUriConverter() final AtUri? following,
+      @AtUriConverter() final AtUri? followedBy}) = _$_ActorViewer;
 
   factory _ActorViewer.fromJson(Map<String, dynamic> json) =
       _$_ActorViewer.fromJson;
@@ -235,11 +241,14 @@ abstract class _ActorViewer implements ActorViewer {
   @JsonKey(name: 'blockedBy')
   bool get isBlockedBy;
   @override
-  String? get blocking;
+  @AtUriConverter()
+  AtUri? get blocking;
   @override
-  String? get following;
+  @AtUriConverter()
+  AtUri? get following;
   @override
-  String? get followedBy;
+  @AtUriConverter()
+  AtUri? get followedBy;
   @override
   @JsonKey(ignore: true)
   _$$_ActorViewerCopyWith<_$_ActorViewer> get copyWith =>
