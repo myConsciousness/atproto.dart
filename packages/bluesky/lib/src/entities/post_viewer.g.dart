@@ -13,8 +13,14 @@ _$_PostViewer _$$_PostViewerFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_PostViewer(
-          repost: $checkedConvert('repost', (v) => v as String?),
-          like: $checkedConvert('like', (v) => v as String?),
+          repost: $checkedConvert(
+              'repost',
+              (v) => _$JsonConverterFromJson<String, AtUri>(
+                  v, const AtUriConverter().fromJson)),
+          like: $checkedConvert(
+              'like',
+              (v) => _$JsonConverterFromJson<String, AtUri>(
+                  v, const AtUriConverter().fromJson)),
         );
         return val;
       },
@@ -29,7 +35,25 @@ Map<String, dynamic> _$$_PostViewerToJson(_$_PostViewer instance) {
     }
   }
 
-  writeNotNull('repost', instance.repost);
-  writeNotNull('like', instance.like);
+  writeNotNull(
+      'repost',
+      _$JsonConverterToJson<String, AtUri>(
+          instance.repost, const AtUriConverter().toJson));
+  writeNotNull(
+      'like',
+      _$JsonConverterToJson<String, AtUri>(
+          instance.like, const AtUriConverter().toJson));
   return val;
 }
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

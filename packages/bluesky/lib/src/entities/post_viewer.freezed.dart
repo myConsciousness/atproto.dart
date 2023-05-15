@@ -20,8 +20,10 @@ PostViewer _$PostViewerFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostViewer {
-  String? get repost => throw _privateConstructorUsedError;
-  String? get like => throw _privateConstructorUsedError;
+  @AtUriConverter()
+  AtUri? get repost => throw _privateConstructorUsedError;
+  @AtUriConverter()
+  AtUri? get like => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +37,7 @@ abstract class $PostViewerCopyWith<$Res> {
           PostViewer value, $Res Function(PostViewer) then) =
       _$PostViewerCopyWithImpl<$Res, PostViewer>;
   @useResult
-  $Res call({String? repost, String? like});
+  $Res call({@AtUriConverter() AtUri? repost, @AtUriConverter() AtUri? like});
 }
 
 /// @nodoc
@@ -58,11 +60,11 @@ class _$PostViewerCopyWithImpl<$Res, $Val extends PostViewer>
       repost: freezed == repost
           ? _value.repost
           : repost // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as AtUri?,
       like: freezed == like
           ? _value.like
           : like // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as AtUri?,
     ) as $Val);
   }
 }
@@ -75,7 +77,7 @@ abstract class _$$_PostViewerCopyWith<$Res>
       __$$_PostViewerCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? repost, String? like});
+  $Res call({@AtUriConverter() AtUri? repost, @AtUriConverter() AtUri? like});
 }
 
 /// @nodoc
@@ -96,11 +98,11 @@ class __$$_PostViewerCopyWithImpl<$Res>
       repost: freezed == repost
           ? _value.repost
           : repost // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as AtUri?,
       like: freezed == like
           ? _value.like
           : like // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as AtUri?,
     ));
   }
 }
@@ -109,15 +111,18 @@ class __$$_PostViewerCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$_PostViewer implements _PostViewer {
-  const _$_PostViewer({this.repost, this.like});
+  const _$_PostViewer(
+      {@AtUriConverter() this.repost, @AtUriConverter() this.like});
 
   factory _$_PostViewer.fromJson(Map<String, dynamic> json) =>
       _$$_PostViewerFromJson(json);
 
   @override
-  final String? repost;
+  @AtUriConverter()
+  final AtUri? repost;
   @override
-  final String? like;
+  @AtUriConverter()
+  final AtUri? like;
 
   @override
   String toString() {
@@ -152,16 +157,19 @@ class _$_PostViewer implements _PostViewer {
 }
 
 abstract class _PostViewer implements PostViewer {
-  const factory _PostViewer({final String? repost, final String? like}) =
-      _$_PostViewer;
+  const factory _PostViewer(
+      {@AtUriConverter() final AtUri? repost,
+      @AtUriConverter() final AtUri? like}) = _$_PostViewer;
 
   factory _PostViewer.fromJson(Map<String, dynamic> json) =
       _$_PostViewer.fromJson;
 
   @override
-  String? get repost;
+  @AtUriConverter()
+  AtUri? get repost;
   @override
-  String? get like;
+  @AtUriConverter()
+  AtUri? get like;
   @override
   @JsonKey(ignore: true)
   _$$_PostViewerCopyWith<_$_PostViewer> get copyWith =>

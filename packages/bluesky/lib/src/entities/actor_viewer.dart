@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'actor_viewer.freezed.dart';
@@ -16,9 +17,9 @@ class ActorViewer with _$ActorViewer {
   const factory ActorViewer({
     @JsonKey(name: 'muted') required bool isMuted,
     @JsonKey(name: 'blockedBy') required bool isBlockedBy,
-    String? blocking,
-    String? following,
-    String? followedBy,
+    @AtUriConverter() AtUri? blocking,
+    @AtUriConverter() AtUri? following,
+    @AtUriConverter() AtUri? followedBy,
   }) = _ActorViewer;
 
   factory ActorViewer.fromJson(Map<String, Object?> json) =>

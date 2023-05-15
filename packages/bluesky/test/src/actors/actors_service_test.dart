@@ -393,7 +393,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<StrongRef>());
+      expect(response.data, isA<Record>());
     });
 
     test('when unauthorized', () async {
@@ -507,6 +507,80 @@ void main() {
 
       atp_test.expectRateLimitExceededException(
         () async => await actors.findPreferences(),
+      );
+    });
+  });
+
+  group('.updatePreferences', () {
+    test('normal case', () async {
+      final actors = ActorsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration(seconds: 10),
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/actors/data/update_preferences.json',
+        ),
+      );
+
+      final response = await actors.updatePreferences([]);
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<EmptyData>());
+    });
+
+    test('when unauthorized', () async {
+      final actors = ActorsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration(seconds: 10),
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await actors.updatePreferences([]),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final actors = ActorsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration(seconds: 10),
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await actors.updatePreferences([]),
       );
     });
   });

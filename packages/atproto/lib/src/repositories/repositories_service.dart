@@ -14,7 +14,6 @@ import '../entities/delete_action.dart';
 import '../entities/record.dart';
 import '../entities/record_value.dart';
 import '../entities/repo.dart';
-import '../entities/strong_ref.dart';
 import '../entities/update_action.dart';
 
 abstract class RepositoriesService {
@@ -130,7 +129,7 @@ abstract class RepositoriesService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/putRecord.json
-  Future<core.XRPCResponse<StrongRef>> updateRecord({
+  Future<core.XRPCResponse<Record>> updateRecord({
     required core.AtUri uri,
     required Map<String, dynamic> record,
     bool? validate,
@@ -314,7 +313,7 @@ class _RepositoriesService extends ATProtoBaseService
       );
 
   @override
-  Future<core.XRPCResponse<StrongRef>> updateRecord({
+  Future<core.XRPCResponse<Record>> updateRecord({
     required core.AtUri uri,
     required Map<String, dynamic> record,
     bool? validate,
@@ -332,7 +331,7 @@ class _RepositoriesService extends ATProtoBaseService
           'swapRecord': swapRecordCid,
           'swapCommit': swapCommitCid
         },
-        to: StrongRef.fromJson,
+        to: Record.fromJson,
       );
 
   @override
