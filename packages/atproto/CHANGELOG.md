@@ -1,6 +1,6 @@
 # Release Note
 
-## v0.2.14
+## v0.3.0
 
 - Fixed type from `StrongRef` to `Record` of `updateRecord` in `RepositoriesService`.
 
