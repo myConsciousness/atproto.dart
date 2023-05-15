@@ -97,6 +97,7 @@ Available commands:
   notifications        Show the notifications of authenticated user.
   popular              Show the popular contents.
   post                 Post to Bluesky Social.
+  preferences          Show the private preferences.
   profile              Show the profile of specific user.
   profiles             Show the profiles of specific users.
   repost               Repost a specific post.

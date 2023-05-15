@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.1.3
+
+- Supported `preferences` command. ([#387](https://github.com/myConsciousness/atproto.dart/issues/387))
+
 ## v0.1.2
 
 - Fixed to automatically extract `mention` and `link` from text and set `facet`. ([#291](https://github.com/myConsciousness/atproto.dart/issues/291))

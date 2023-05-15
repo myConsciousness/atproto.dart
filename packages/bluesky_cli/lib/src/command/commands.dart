@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 import 'actor/actors_typeahead.dart';
+import 'actor/preferences.dart';
 import 'actor/profile.dart';
 import 'actor/profiles.dart';
 import 'actor/search_actors.dart';
@@ -40,6 +41,7 @@ final actorCommands = <BskyCommand>[
   ProfilesCommand(),
   SuggestionsCommand(),
   ActorsTypeaheadCommand(),
+  PreferencesCommand(),
 ];
 
 final feedCommands = <BskyCommand>[
