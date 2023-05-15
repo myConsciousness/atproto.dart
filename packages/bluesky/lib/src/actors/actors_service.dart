@@ -11,6 +11,7 @@ import '../entities/actor_profile.dart';
 import '../entities/actor_profiles.dart';
 import '../entities/actors.dart';
 import '../entities/actors_typeahead.dart';
+import '../entities/preferences.dart';
 
 abstract class ActorsService {
   /// Returns the new instance of [ActorsService].
@@ -156,6 +157,17 @@ abstract class ActorsService {
     atp.Blob? avatar,
     atp.Blob? banner,
   });
+
+  /// Get private preferences attached to the account.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.actor.getPreferences
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getPreferences.json
+  Future<core.XRPCResponse<Preferences>> findPreferences();
 }
 
 class _ActorsService extends BlueskyBaseService implements ActorsService {
@@ -256,5 +268,12 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
           'avatar': avatar,
           'banner': banner,
         },
+      );
+
+  @override
+  Future<atp.XRPCResponse<Preferences>> findPreferences() async =>
+      await super.get(
+        'getPreferences',
+        to: Preferences.fromJson,
       );
 }

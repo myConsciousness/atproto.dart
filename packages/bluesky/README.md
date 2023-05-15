@@ -189,6 +189,7 @@ Future<bsky.Session> get _session async {
 | [GET app.bsky.actor.getSuggestions](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getSuggestions.json)               | [findSuggestions](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/findSuggestions.html) |
 | [GET app.bsky.actor.searchActorsTypeahead](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/searchActorsTypeahead.json) | [searchTypeahead](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/searchTypeahead.html) |
 | [POST app.bsky.actor.profile](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/profile.json)                            | [updateProfile](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/updateProfile.html)     |
+| [GET app.bsky.actor.getPreferences](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getPreferences.json)               | [findPreferences](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService/findPreferences.html) |
 
 ### 1.3.2. Feeds
 

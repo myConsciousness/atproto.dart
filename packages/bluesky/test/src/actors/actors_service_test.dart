@@ -11,6 +11,7 @@ import 'package:bluesky/src/entities/actor_profile.dart';
 import 'package:bluesky/src/entities/actor_profiles.dart';
 import 'package:bluesky/src/entities/actors.dart';
 import 'package:bluesky/src/entities/actors_typeahead.dart';
+import 'package:bluesky/src/entities/preferences.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
@@ -444,6 +445,68 @@ void main() {
         () async => await actors.updateProfile(
           displayName: 'test',
         ),
+      );
+    });
+  });
+
+  group('.findPreferences', () {
+    test('normal case', () async {
+      final actors = ActorsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/actors/data/find_preferences.json',
+        ),
+      );
+
+      final response = await actors.findPreferences();
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Preferences>());
+    });
+
+    test('when unauthorized', () async {
+      final actors = ActorsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await actors.findPreferences(),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final actors = ActorsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await actors.findPreferences(),
       );
     });
   });

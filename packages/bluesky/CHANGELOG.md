@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.7
+
+- Supported `app.bsky.actor.getPreferences` as `findPreferences` in `ActorsService`. ([#387](https://github.com/myConsciousness/atproto.dart/issues/387))
+
 ## v0.4.6
 
 - Supported `com.atproto.repo.applyWrites` as `updateBulk` in `RepositoriesService`. Also added following utilities.  ([#306](https://github.com/myConsciousness/atproto.dart/issues/306))
