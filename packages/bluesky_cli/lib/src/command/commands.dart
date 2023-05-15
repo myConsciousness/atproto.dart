@@ -8,7 +8,7 @@ import 'actor/profile.dart';
 import 'actor/profiles.dart';
 import 'actor/search_actors.dart';
 import 'actor/suggestions.dart';
-import 'actor/update_preferences.dart';
+import 'actor/put_preferences.dart';
 import 'bsky_command.dart';
 import 'common/delete.dart';
 import 'feed/feed.dart';
