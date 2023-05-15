@@ -30,8 +30,9 @@ class PreferenceConverter
   }
 
   @override
-  Map<String, dynamic> toJson(Preference object) {
-    // TODO: implement toJson
-    throw UnimplementedError();
-  }
+  Map<String, dynamic> toJson(Preference object) => object.when(
+        adultContent: (data) => data.toJson(),
+        contentLabel: (data) => data.toJson(),
+        unknown: (data) => data,
+      );
 }
