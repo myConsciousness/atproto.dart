@@ -130,6 +130,7 @@ export 'package:bluesky/src/entities/posts.dart';
 export 'package:bluesky/src/entities/preference.dart';
 export 'package:bluesky/src/entities/preferences.dart';
 export 'package:bluesky/src/entities/reason.dart';
+export 'package:bluesky/src/entities/reason_repost.dart';
 export 'package:bluesky/src/entities/reply.dart';
 export 'package:bluesky/src/entities/reply_ref.dart';
 export 'package:bluesky/src/entities/reposted_by.dart';
