@@ -147,7 +147,7 @@ class __$$_BlobCopyWithImpl<$Res> extends _$BlobCopyWithImpl<$Res, _$_Blob>
 @JsonSerializable()
 class _$_Blob implements _Blob {
   const _$_Blob(
-      {@JsonKey(name: '\$type') required this.type,
+      {@JsonKey(name: '\$type') this.type = 'blob',
       required this.mimeType,
       required this.size,
       required this.ref});
@@ -201,7 +201,7 @@ class _$_Blob implements _Blob {
 
 abstract class _Blob implements Blob {
   const factory _Blob(
-      {@JsonKey(name: '\$type') required final String type,
+      {@JsonKey(name: '\$type') final String type,
       required final String mimeType,
       required final int size,
       required final BlobRef ref}) = _$_Blob;

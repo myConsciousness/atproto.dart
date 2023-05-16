@@ -36,6 +36,7 @@ Available commands:
   follows              Show the following users.
   like                 Like a specific post.
   likes                Show the likes of specific post.
+  list                 Create a list.
   mute                 Mute an user.
   mutes                Show the muted users.
   notification-count   Show the count of notification of authenticated user.

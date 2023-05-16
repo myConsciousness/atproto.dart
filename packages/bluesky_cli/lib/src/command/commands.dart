@@ -6,9 +6,9 @@ import 'actor/actors_typeahead.dart';
 import 'actor/preferences.dart';
 import 'actor/profile.dart';
 import 'actor/profiles.dart';
+import 'actor/put_preferences.dart';
 import 'actor/search_actors.dart';
 import 'actor/suggestions.dart';
-import 'actor/put_preferences.dart';
 import 'bsky_command.dart';
 import 'common/delete.dart';
 import 'feed/feed.dart';
@@ -24,6 +24,7 @@ import 'graph/blocks.dart';
 import 'graph/follow.dart';
 import 'graph/followers.dart';
 import 'graph/follows.dart';
+import 'graph/list.dart';
 import 'graph/mute.dart';
 import 'graph/mutes.dart';
 import 'graph/unmute.dart';
@@ -72,6 +73,7 @@ final graphCommands = <BskyCommand>[
   MutesCommand(),
   BlockCommand(),
   BlocksCommand(),
+  ListCommand(),
 ];
 
 final unspeccedCommands = <BskyCommand>[

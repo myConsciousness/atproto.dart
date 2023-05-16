@@ -8,9 +8,11 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../bluesky_base_service.dart';
 import '../entities/blocks.dart';
+import '../entities/facet.dart';
 import '../entities/followers.dart';
 import '../entities/follows.dart';
 import '../entities/mutes.dart';
+import '../params/list_param.dart';
 import '../params/repo_param.dart';
 
 abstract class GraphsService {
@@ -219,6 +221,48 @@ abstract class GraphsService {
   Future<core.XRPCResponse<core.EmptyData>> createBlocks({
     required List<RepoParam> params,
   });
+
+  /// A declaration of a list of actors.
+  ///
+  /// ## Parameters
+  ///
+  /// - [name]: Name of list to be created.
+  ///
+  /// - [purpose]: Purpose of list to be created.
+  ///
+  /// - [description]: Description of list to be created.
+  ///
+  /// - [descriptionFacets]: Facet features for [description].
+  ///
+  /// - [avatar]: Avatar blob to set to list.
+  ///
+  /// - [createdAt]: Date and time the post was created.
+  ///                If omitted, defaults to the current time.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.list
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/list.json
+  Future<core.XRPCResponse<atp.Record>> createList({
+    required String name,
+    String purpose = 'app.bsky.graph.defs#modlist',
+    String? description,
+    List<Facet>? descriptionFacets,
+    atp.Blob? avatar,
+    DateTime? createdAt,
+  });
+
+  /// Creates lists.
+  ///
+  /// ## Parameters
+  ///
+  /// - [params]: The collection of list params from strong refs to be created.
+  Future<core.XRPCResponse<core.EmptyData>> createLists({
+    required List<ListParam> params,
+  });
 }
 
 class _GraphsService extends BlueskyBaseService implements GraphsService {
@@ -333,7 +377,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       );
 
   @override
-  Future<atp.XRPCResponse<Blocks>> findBlocks({
+  Future<core.XRPCResponse<Blocks>> findBlocks({
     int? limit,
     String? cursor,
   }) async =>
@@ -347,7 +391,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       );
 
   @override
-  Future<atp.XRPCResponse<atp.Record>> createBlock({
+  Future<core.XRPCResponse<atp.Record>> createBlock({
     required String did,
     DateTime? createdAt,
   }) async =>
@@ -370,6 +414,52 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
                 collection: createNSID('block'),
                 record: {
                   'subject': e.did,
+                  'createdAt':
+                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+                },
+              ),
+            )
+            .toList(),
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.Record>> createList({
+    required String name,
+    String purpose = 'app.bsky.graph.defs#modlist',
+    String? description,
+    List<Facet>? descriptionFacets,
+    atp.Blob? avatar,
+    DateTime? createdAt,
+  }) async =>
+      await atproto.repositories.createRecord(
+        collection: createNSID('list'),
+        record: {
+          'purpose': purpose,
+          'name': name,
+          'description': description,
+          'descriptionFacets':
+              descriptionFacets?.map((e) => e.toJson()).toList(),
+          'avatar': avatar,
+          'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+        },
+      );
+
+  @override
+  Future<atp.XRPCResponse<atp.EmptyData>> createLists({
+    required List<ListParam> params,
+  }) async =>
+      await atproto.repositories.createRecords(
+        actions: params
+            .map(
+              (e) => atp.CreateAction(
+                collection: createNSID('list'),
+                record: {
+                  'purpose': e.purpose,
+                  'name': e.name,
+                  'description': e.description,
+                  'descriptionFacets':
+                      e.descriptionFacets?.map((e) => e.toJson()).toList(),
+                  'avatar': e.avatar,
                   'createdAt':
                       (e.createdAt ?? DateTime.now()).toUtc().toIso8601String(),
                 },
