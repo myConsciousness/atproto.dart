@@ -92,6 +92,7 @@ Available commands:
   follows              Show the following users.
   like                 Like a specific post.
   likes                Show the likes of specific post.
+  list                 Show the list.
   lists                Show the lists.
   mute                 Mute an user.
   mutes                Show the muted users.

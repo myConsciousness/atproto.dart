@@ -25,6 +25,7 @@ import 'graph/create_list.dart';
 import 'graph/follow.dart';
 import 'graph/followers.dart';
 import 'graph/follows.dart';
+import 'graph/list.dart';
 import 'graph/lists.dart';
 import 'graph/mute.dart';
 import 'graph/mutes.dart';
@@ -76,6 +77,7 @@ final graphCommands = <BskyCommand>[
   BlocksCommand(),
   CreateListCommand(),
   ListsCommand(),
+  ListCommand(),
 ];
 
 final unspeccedCommands = <BskyCommand>[
