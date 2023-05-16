@@ -14,6 +14,7 @@ import '../entities/follows.dart';
 import '../entities/list_items.dart';
 import '../entities/lists.dart';
 import '../entities/mutes.dart';
+import '../params/list_item_param.dart';
 import '../params/list_param.dart';
 import '../params/repo_param.dart';
 
@@ -294,7 +295,7 @@ abstract class GraphsService {
   ///
   /// ## Parameters
   ///
-  /// - [uri]: The list uri.
+  /// - [list]: The list uri.
   ///
   /// - [limit]: Maximum number of search results. From 1 to 100.
   ///            The default is 50.
@@ -309,9 +310,43 @@ abstract class GraphsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getList.json
   Future<core.XRPCResponse<ListItems>> findListItems({
-    required core.AtUri uri,
+    required core.AtUri list,
     int? limit,
     String? cursor,
+  });
+
+  /// An item under a declared list of actors.
+  ///
+  /// ## Parameters
+  ///
+  /// - [subject]: The did of subject to be added.
+  ///
+  /// - [list]: The uri of list.
+  ///
+  /// - [createdAt]: Date and time the post was created.
+  ///                If omitted, defaults to the current time.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.listitem
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/listitem.json
+  Future<core.XRPCResponse<atp.Record>> createListItem({
+    required String subject,
+    required core.AtUri list,
+    DateTime? createdAt,
+  });
+
+  /// Creates list items.
+  ///
+  /// ## Parameters
+  ///
+  /// - [params]: The collection of list item params from strong refs to be
+  ///             created.
+  Future<core.XRPCResponse<core.EmptyData>> createListItems({
+    required List<ListItemParam> params,
   });
 }
 
@@ -495,7 +530,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       );
 
   @override
-  Future<atp.XRPCResponse<atp.EmptyData>> createLists({
+  Future<core.XRPCResponse<atp.EmptyData>> createLists({
     required List<ListParam> params,
   }) async =>
       await atproto.repositories.createRecords(
@@ -536,17 +571,52 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
 
   @override
   Future<atp.XRPCResponse<ListItems>> findListItems({
-    required atp.AtUri uri,
+    required core.AtUri list,
     int? limit,
     String? cursor,
   }) async =>
       await super.get(
         'getList',
         parameters: {
-          'list': uri.toString(),
+          'list': list.toString(),
           'limit': limit,
           'cursor': cursor,
         },
         to: ListItems.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.Record>> createListItem({
+    required String subject,
+    required core.AtUri list,
+    DateTime? createdAt,
+  }) async =>
+      await atproto.repositories.createRecord(
+        collection: createNSID('listitem'),
+        record: {
+          'subject': subject,
+          'list': list.toString(),
+          'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+        },
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.EmptyData>> createListItems({
+    required List<ListItemParam> params,
+  }) async =>
+      await atproto.repositories.createRecords(
+        actions: params
+            .map(
+              (e) => atp.CreateAction(
+                collection: createNSID('listitem'),
+                record: {
+                  'subject': e.subject,
+                  'list': e.list.toString(),
+                  'createdAt':
+                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+                },
+              ),
+            )
+            .toList(),
       );
 }

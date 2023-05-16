@@ -142,6 +142,7 @@ export 'package:bluesky/src/entities/reposted_by.dart';
 export 'package:bluesky/src/feeds/feeds_service.dart';
 export 'package:bluesky/src/graphs/graphs_service.dart';
 export 'package:bluesky/src/notifications/notifications_service.dart';
+export 'package:bluesky/src/params/list_item_param.dart';
 export 'package:bluesky/src/params/list_param.dart';
 export 'package:bluesky/src/params/post_param.dart';
 export 'package:bluesky/src/params/repo_param.dart';

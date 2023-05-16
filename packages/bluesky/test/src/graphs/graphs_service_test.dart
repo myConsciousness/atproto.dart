@@ -1060,7 +1060,7 @@ void main() {
       );
 
       final response = await graphs.findListItems(
-        uri: AtUri.parse(
+        list: AtUri.parse(
           'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvqbvdsijh2p',
         ),
         limit: 10,
@@ -1088,7 +1088,7 @@ void main() {
 
       atp_test.expectUnauthorizedException(
         () async => await graphs.findListItems(
-          uri: AtUri.parse(
+          list: AtUri.parse(
             'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvqbvdsijh2p',
           ),
           limit: 10,
@@ -1114,12 +1114,189 @@ void main() {
 
       atp_test.expectRateLimitExceededException(
         () async => await graphs.findListItems(
-          uri: AtUri.parse(
+          list: AtUri.parse(
             'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvqbvdsijh2p',
           ),
           limit: 10,
           cursor: '1234',
         ),
+      );
+    });
+  });
+
+  group('.createListItem', () {
+    test('normal case', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/graphs/data/create_list_item.json',
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      final response = await graphs.createListItem(
+        subject: 'xxxxxx',
+        list: AtUri.parse(
+          'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvqbvdsijh2p',
+        ),
+        createdAt: DateTime.now(),
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Record>());
+    });
+
+    test('when unauthorized', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+            statusCode: 401,
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await graphs.createListItem(
+          subject: 'xxxxxx',
+          list: AtUri.parse(
+            'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvqbvdsijh2p',
+          ),
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+            statusCode: 429,
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await graphs.createListItem(
+          subject: 'xxxxxx',
+          list: AtUri.parse(
+            'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvqbvdsijh2p',
+          ),
+        ),
+      );
+    });
+  });
+
+  group('.createLists', () {
+    test('normal case', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/graphs/data/create_list.json',
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      final response = await graphs.createListItems(params: [
+        ListItemParam(
+          subject: 'xxxxxx',
+          list: AtUri.parse(
+            'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvqbvdsijh2p',
+          ),
+        ),
+        ListItemParam(
+          subject: 'xxxxxx',
+          list: AtUri.parse(
+            'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvqbvdsijh2p',
+          ),
+        ),
+      ]);
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<EmptyData>());
+    });
+
+    test('when unauthorized', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+            statusCode: 401,
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await graphs.createListItems(params: []),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+            statusCode: 429,
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await graphs.createListItems(params: []),
       );
     });
   });

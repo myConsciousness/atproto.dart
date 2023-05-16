@@ -27,6 +27,7 @@ Global options:
 
 Available commands:
   actors-typeahead     Show the typeahead for actors.
+  add-list-item        Add an item to list.
   block                Block an user.
   blocks               Show the blocked users.
   create-list          Create a list.
