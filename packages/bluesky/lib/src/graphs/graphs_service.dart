@@ -223,6 +223,29 @@ abstract class GraphsService {
   });
 
   /// A declaration of a list of actors.
+  ///
+  /// ## Parameters
+  ///
+  /// - [name]: Name of list to be created.
+  ///
+  /// - [purpose]: Purpose of list to be created.
+  ///
+  /// - [description]: Description of list to be created.
+  ///
+  /// - [descriptionFacets]: Facet features for [description].
+  ///
+  /// - [avatar]: Avatar blob to set to list.
+  ///
+  /// - [createdAt]: Date and time the post was created.
+  ///                If omitted, defaults to the current time.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.list
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/list.json
   Future<core.XRPCResponse<atp.Record>> createList({
     required String name,
     String purpose = 'app.bsky.graph.defs#modlist',
