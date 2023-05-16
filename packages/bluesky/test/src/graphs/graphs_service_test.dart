@@ -776,4 +776,197 @@ void main() {
       );
     });
   });
+
+  group('.createList', () {
+    test('normal case', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/graphs/data/create_list.json',
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      final response = await graphs.createList(
+        name: 'test',
+        description: 'test description',
+        descriptionFacets: [
+          Facet(
+            index: ByteSlice(byteStart: 0, byteEnd: 1),
+            features: [
+              FacetFeature.mention(
+                data: FacetMention(did: 'xxxx'),
+              ),
+            ],
+          )
+        ],
+        avatar: Blob(
+          mimeType: '*/*',
+          size: 100,
+          ref: BlobRef(link: 'xxxx'),
+        ),
+        createdAt: DateTime.now(),
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Record>());
+    });
+
+    test('when unauthorized', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+            statusCode: 401,
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await graphs.createList(
+          name: 'test',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+            statusCode: 429,
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await graphs.createList(
+          name: 'test',
+        ),
+      );
+    });
+  });
+
+  group('.createLists', () {
+    test('normal case', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/graphs/data/create_list.json',
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      final response = await graphs.createLists(params: [
+        ListParam(name: 'xxxx'),
+        ListParam(
+          name: 'yyyy',
+          description: 'test description',
+          descriptionFacets: [
+            Facet(
+              index: ByteSlice(byteStart: 0, byteEnd: 1),
+              features: [
+                FacetFeature.mention(
+                  data: FacetMention(did: 'xxxx'),
+                ),
+              ],
+            )
+          ],
+          avatar: Blob(
+            mimeType: '*/*',
+            size: 100,
+            ref: BlobRef(link: 'xxxx'),
+          ),
+          createdAt: DateTime.now(),
+        ),
+      ]);
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<EmptyData>());
+    });
+
+    test('when unauthorized', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+            statusCode: 401,
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await graphs.createLists(params: []),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+            statusCode: 429,
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await graphs.createLists(params: []),
+      );
+    });
+  });
 }

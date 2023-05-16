@@ -15,7 +15,7 @@ part 'blob.g.dart';
 @freezed
 class Blob with _$Blob {
   const factory Blob({
-    @JsonKey(name: '\$type') required String type,
+    @Default('blob') @JsonKey(name: '\$type') String type,
     required String mimeType,
     required int size,
     required BlobRef ref,
