@@ -172,6 +172,116 @@ void main() {
     });
   });
 
+  group('.createThread', () {
+    test('normal case', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/feeds/data/create_post.json',
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      final response = await feeds.createThread([
+        ThreadParam(text: 'test1'),
+        ThreadParam(text: 'test2'),
+        ThreadParam(text: 'test3'),
+      ]);
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Record>());
+    });
+
+    test('when unauthorized', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+            statusCode: 401,
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await feeds.createThread([
+          ThreadParam(text: 'test1'),
+          ThreadParam(text: 'test2'),
+          ThreadParam(text: 'test3'),
+        ]),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+            statusCode: 429,
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await feeds.createThread([
+          ThreadParam(text: 'test1'),
+          ThreadParam(text: 'test2'),
+          ThreadParam(text: 'test3'),
+        ]),
+      );
+    });
+
+    test('when empty params', () {
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      expect(
+        () async => await feeds.createThread([]),
+        throwsA(isA<ArgumentError>()),
+      );
+    });
+  });
+
   group('.createPosts', () {
     test('normal case', () async {
       final feeds = FeedsService(
@@ -192,7 +302,7 @@ void main() {
       );
 
       final response = await feeds.createPosts(
-        params: [
+        [
           PostParam(text: 'test'),
           PostParam(text: 'test'),
         ],
@@ -223,7 +333,7 @@ void main() {
 
       atp_test.expectUnauthorizedException(
         () async => await feeds.createPosts(
-          params: [
+          [
             PostParam(text: 'test'),
             PostParam(text: 'test'),
           ],
@@ -252,7 +362,7 @@ void main() {
 
       atp_test.expectRateLimitExceededException(
         () async => await feeds.createPosts(
-          params: [
+          [
             PostParam(text: 'test'),
             PostParam(text: 'test'),
           ],
@@ -364,7 +474,7 @@ void main() {
         ),
       );
 
-      final response = await feeds.createReposts(params: [
+      final response = await feeds.createReposts([
         StrongRefParam(
           cid: 'xxxxx',
           uri: AtUri.parse(
@@ -397,7 +507,7 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await feeds.createReposts(params: []),
+        () async => await feeds.createReposts([]),
       );
     });
 
@@ -421,7 +531,7 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await feeds.createReposts(params: []),
+        () async => await feeds.createReposts([]),
       );
     });
   });
@@ -530,7 +640,7 @@ void main() {
       );
 
       final response = await feeds.createLikes(
-        params: [
+        [
           StrongRefParam(
             cid: 'xxxx',
             uri: AtUri.parse(
@@ -570,7 +680,7 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await feeds.createLikes(params: []),
+        () async => await feeds.createLikes([]),
       );
     });
 
@@ -594,7 +704,7 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await feeds.createLikes(params: []),
+        () async => await feeds.createLikes([]),
       );
     });
   });

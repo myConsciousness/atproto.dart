@@ -17,6 +17,7 @@ import '../entities/reply_ref.dart';
 import '../entities/reposted_by.dart';
 import '../params/post_param.dart';
 import '../params/strong_ref_param.dart';
+import '../params/thread_param.dart';
 
 abstract class FeedsService {
   /// Returns the new instance of [FeedsService].
@@ -73,9 +74,18 @@ abstract class FeedsService {
   /// ## Parameters
   ///
   /// - [params]: The collection of params to be posted.
-  Future<core.XRPCResponse<core.EmptyData>> createPosts({
-    required List<PostParam> params,
-  });
+  Future<core.XRPCResponse<core.EmptyData>> createPosts(
+    List<PostParam> params,
+  );
+
+  /// Create post thread.
+  ///
+  /// ## Parameters
+  ///
+  /// - [params]: The collection of params to be posted as thread.
+  Future<core.XRPCResponse<atp.Record>> createThread(
+    List<ThreadParam> params,
+  );
 
   /// Creates a repost.
   ///
@@ -107,9 +117,9 @@ abstract class FeedsService {
   /// ## Parameters
   ///
   /// - [params]: The collection of params from strong refs to be reposted.
-  Future<core.XRPCResponse<core.EmptyData>> createReposts({
-    required List<StrongRefParam> params,
-  });
+  Future<core.XRPCResponse<core.EmptyData>> createReposts(
+    List<StrongRefParam> params,
+  );
 
   /// A view of the user's home timeline.
   ///
@@ -165,9 +175,9 @@ abstract class FeedsService {
   /// ## Parameters
   ///
   /// - [params]: The collection of params from strong refs to be liked.
-  Future<core.XRPCResponse<core.EmptyData>> createLikes({
-    required List<StrongRefParam> params,
-  });
+  Future<core.XRPCResponse<core.EmptyData>> createLikes(
+    List<StrongRefParam> params,
+  );
 
   /// A view of an actor's feed.
   ///
@@ -316,9 +326,9 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<core.EmptyData>> createPosts({
-    required List<PostParam> params,
-  }) async =>
+  Future<core.XRPCResponse<core.EmptyData>> createPosts(
+    List<PostParam> params,
+  ) async =>
       await atproto.repositories.createRecords(
         actions: params
             .map<atp.CreateAction>(
@@ -336,6 +346,46 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
             )
             .toList(),
       );
+
+  @override
+  Future<core.XRPCResponse<atp.Record>> createThread(
+    List<ThreadParam> params,
+  ) async {
+    if (params.isEmpty) {
+      throw ArgumentError.value(
+        params,
+        'params',
+        'must not be empty',
+      );
+    }
+
+    final rootParam = params.removeAt(0);
+    final rootRecord = await createPost(
+      text: rootParam.text,
+      facets: rootParam.facets,
+      embed: rootParam.embed,
+      createdAt: rootParam.createdAt,
+    );
+
+    final rootRef = rootRecord.data.toStrongRef();
+
+    var parentRecord = rootRecord.data;
+    for (final param in params) {
+      parentRecord = (await createPost(
+        text: param.text,
+        reply: ReplyRef(
+          root: rootRef,
+          parent: parentRecord.toStrongRef(),
+        ),
+        facets: param.facets,
+        embed: param.embed,
+        createdAt: param.createdAt,
+      ))
+          .data;
+    }
+
+    return rootRecord;
+  }
 
   @override
   Future<core.XRPCResponse<Feed>> findTimeline({
@@ -371,9 +421,9 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<core.EmptyData>> createReposts({
-    required List<StrongRefParam> params,
-  }) async =>
+  Future<core.XRPCResponse<core.EmptyData>> createReposts(
+    List<StrongRefParam> params,
+  ) async =>
       await atproto.repositories.createRecords(
         actions: params
             .map(
@@ -410,9 +460,9 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<core.EmptyData>> createLikes({
-    required List<StrongRefParam> params,
-  }) async =>
+  Future<core.XRPCResponse<core.EmptyData>> createLikes(
+    List<StrongRefParam> params,
+  ) async =>
       await atproto.repositories.createRecords(
         actions: params
             .map(
