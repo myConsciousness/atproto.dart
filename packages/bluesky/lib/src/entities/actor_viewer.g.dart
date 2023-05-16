@@ -15,6 +15,12 @@ _$_ActorViewer _$$_ActorViewerFromJson(Map json) => $checkedCreate(
         final val = _$_ActorViewer(
           isMuted: $checkedConvert('muted', (v) => v as bool),
           isBlockedBy: $checkedConvert('blockedBy', (v) => v as bool),
+          mutedByList: $checkedConvert(
+              'mutedByList',
+              (v) => v == null
+                  ? null
+                  : ListViewBasic.fromJson(
+                      Map<String, Object?>.from(v as Map))),
           blocking: $checkedConvert(
               'blocking',
               (v) => _$JsonConverterFromJson<String, AtUri>(
@@ -45,6 +51,7 @@ Map<String, dynamic> _$$_ActorViewerToJson(_$_ActorViewer instance) {
     }
   }
 
+  writeNotNull('mutedByList', instance.mutedByList?.toJson());
   writeNotNull(
       'blocking',
       _$JsonConverterToJson<String, AtUri>(
