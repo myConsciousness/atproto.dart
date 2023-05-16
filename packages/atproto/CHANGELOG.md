@@ -3,6 +3,7 @@
 ## v0.3.0
 
 - Fixed type from `StrongRef` to `Record` of `updateRecord` in `RepositoriesService`.
+- Updated SDK to `">=2.17.0 <4.0.0"`. ([#406](https://github.com/myConsciousness/atproto.dart/issues/406))
 
 ## v0.2.13
 
