@@ -15,7 +15,8 @@ import '../entities/post_thread.dart';
 import '../entities/posts.dart';
 import '../entities/reply_ref.dart';
 import '../entities/reposted_by.dart';
-import 'feed_algorithm.dart';
+import '../params/post_param.dart';
+import '../params/strong_ref_param.dart';
 
 abstract class FeedsService {
   /// Returns the new instance of [FeedsService].
@@ -67,6 +68,15 @@ abstract class FeedsService {
     DateTime? createdAt,
   });
 
+  /// Creates posts.
+  ///
+  /// ## Parameters
+  ///
+  /// - [params]: The collection of params to be posted.
+  Future<core.XRPCResponse<core.EmptyData>> createPosts({
+    required List<PostParam> params,
+  });
+
   /// Creates a repost.
   ///
   /// ## Parameters
@@ -92,7 +102,25 @@ abstract class FeedsService {
     DateTime? createdAt,
   });
 
+  /// Creates reposts.
+  ///
+  /// ## Parameters
+  ///
+  /// - [params]: The collection of params from strong refs to be reposted.
+  Future<core.XRPCResponse<core.EmptyData>> createReposts({
+    required List<StrongRefParam> params,
+  });
+
   /// A view of the user's home timeline.
+  ///
+  /// ## Parameters
+  ///
+  /// - [algorithm]: Custom Algorithm.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
   ///
   /// ## Lexicon
   ///
@@ -102,7 +130,7 @@ abstract class FeedsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json
   Future<core.XRPCResponse<Feed>> findTimeline({
-    FeedAlgorithm? algorithm,
+    String? algorithm,
     int? limit,
     String? cursor,
   });
@@ -130,6 +158,15 @@ abstract class FeedsService {
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
+  });
+
+  /// Creates likes.
+  ///
+  /// ## Parameters
+  ///
+  /// - [params]: The collection of params from strong refs to be liked.
+  Future<core.XRPCResponse<core.EmptyData>> createLikes({
+    required List<StrongRefParam> params,
   });
 
   /// A view of an actor's feed.
@@ -279,8 +316,30 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
+  Future<core.XRPCResponse<core.EmptyData>> createPosts({
+    required List<PostParam> params,
+  }) async =>
+      await atproto.repositories.createRecords(
+        actions: params
+            .map<atp.CreateAction>(
+              (e) => atp.CreateAction(
+                collection: createNSID('post'),
+                record: {
+                  'text': e.text,
+                  'reply': e.reply?.toJson(),
+                  'facets': e.facets?.map((e) => e.toJson()).toList(),
+                  'embed': e.embed?.toJson(),
+                  'createdAt':
+                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+                },
+              ),
+            )
+            .toList(),
+      );
+
+  @override
   Future<core.XRPCResponse<Feed>> findTimeline({
-    FeedAlgorithm? algorithm,
+    String? algorithm,
     int? limit,
     String? cursor,
   }) async =>
@@ -312,6 +371,28 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
+  Future<core.XRPCResponse<core.EmptyData>> createReposts({
+    required List<StrongRefParam> params,
+  }) async =>
+      await atproto.repositories.createRecords(
+        actions: params
+            .map(
+              (e) => atp.CreateAction(
+                collection: createNSID('repost'),
+                record: {
+                  'subject': {
+                    'cid': e.cid,
+                    'uri': e.uri.toString(),
+                  },
+                  'createdAt':
+                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String()
+                },
+              ),
+            )
+            .toList(),
+      );
+
+  @override
   Future<core.XRPCResponse<atp.Record>> createLike({
     required String cid,
     required core.AtUri uri,
@@ -326,6 +407,28 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           },
           'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String()
         },
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> createLikes({
+    required List<StrongRefParam> params,
+  }) async =>
+      await atproto.repositories.createRecords(
+        actions: params
+            .map(
+              (e) => atp.CreateAction(
+                collection: createNSID('like'),
+                record: {
+                  'subject': {
+                    'cid': e.cid,
+                    'uri': e.uri.toString(),
+                  },
+                  'createdAt':
+                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String()
+                },
+              ),
+            )
+            .toList(),
       );
 
   @override

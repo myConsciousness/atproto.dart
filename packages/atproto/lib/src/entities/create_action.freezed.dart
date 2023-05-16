@@ -25,7 +25,8 @@ mixin _$CreateAction {
   @NsidConverter()
   NSID get collection => throw _privateConstructorUsedError;
   String? get rkey => throw _privateConstructorUsedError;
-  Map<String, dynamic> get value => throw _privateConstructorUsedError;
+  @JsonKey(name: 'value')
+  Map<String, dynamic> get record => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +44,7 @@ abstract class $CreateActionCopyWith<$Res> {
       {@JsonKey(name: '\$type') String type,
       @NsidConverter() NSID collection,
       String? rkey,
-      Map<String, dynamic> value});
+      @JsonKey(name: 'value') Map<String, dynamic> record});
 }
 
 /// @nodoc
@@ -62,7 +63,7 @@ class _$CreateActionCopyWithImpl<$Res, $Val extends CreateAction>
     Object? type = null,
     Object? collection = null,
     Object? rkey = freezed,
-    Object? value = null,
+    Object? record = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -77,9 +78,9 @@ class _$CreateActionCopyWithImpl<$Res, $Val extends CreateAction>
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
               as String?,
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
+      record: null == record
+          ? _value.record
+          : record // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
     ) as $Val);
   }
@@ -97,7 +98,7 @@ abstract class _$$_CreateActionCopyWith<$Res>
       {@JsonKey(name: '\$type') String type,
       @NsidConverter() NSID collection,
       String? rkey,
-      Map<String, dynamic> value});
+      @JsonKey(name: 'value') Map<String, dynamic> record});
 }
 
 /// @nodoc
@@ -114,7 +115,7 @@ class __$$_CreateActionCopyWithImpl<$Res>
     Object? type = null,
     Object? collection = null,
     Object? rkey = freezed,
-    Object? value = null,
+    Object? record = null,
   }) {
     return _then(_$_CreateAction(
       type: null == type
@@ -129,9 +130,9 @@ class __$$_CreateActionCopyWithImpl<$Res>
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
               as String?,
-      value: null == value
-          ? _value._value
-          : value // ignore: cast_nullable_to_non_nullable
+      record: null == record
+          ? _value._record
+          : record // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
     ));
   }
@@ -147,8 +148,9 @@ class _$_CreateAction implements _CreateAction {
       @NsidConverter()
           required this.collection,
       this.rkey,
-      required final Map<String, dynamic> value})
-      : _value = value;
+      @JsonKey(name: 'value')
+          required final Map<String, dynamic> record})
+      : _record = record;
 
   factory _$_CreateAction.fromJson(Map<String, dynamic> json) =>
       _$$_CreateActionFromJson(json);
@@ -161,17 +163,18 @@ class _$_CreateAction implements _CreateAction {
   final NSID collection;
   @override
   final String? rkey;
-  final Map<String, dynamic> _value;
+  final Map<String, dynamic> _record;
   @override
-  Map<String, dynamic> get value {
-    if (_value is EqualUnmodifiableMapView) return _value;
+  @JsonKey(name: 'value')
+  Map<String, dynamic> get record {
+    if (_record is EqualUnmodifiableMapView) return _record;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_value);
+    return EqualUnmodifiableMapView(_record);
   }
 
   @override
   String toString() {
-    return 'CreateAction(type: $type, collection: $collection, rkey: $rkey, value: $value)';
+    return 'CreateAction(type: $type, collection: $collection, rkey: $rkey, record: $record)';
   }
 
   @override
@@ -183,13 +186,13 @@ class _$_CreateAction implements _CreateAction {
             (identical(other.collection, collection) ||
                 other.collection == collection) &&
             (identical(other.rkey, rkey) || other.rkey == rkey) &&
-            const DeepCollectionEquality().equals(other._value, _value));
+            const DeepCollectionEquality().equals(other._record, _record));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, type, collection, rkey,
-      const DeepCollectionEquality().hash(_value));
+      const DeepCollectionEquality().hash(_record));
 
   @JsonKey(ignore: true)
   @override
@@ -207,10 +210,11 @@ class _$_CreateAction implements _CreateAction {
 
 abstract class _CreateAction implements CreateAction {
   const factory _CreateAction(
-      {@JsonKey(name: '\$type') final String type,
-      @NsidConverter() required final NSID collection,
-      final String? rkey,
-      required final Map<String, dynamic> value}) = _$_CreateAction;
+          {@JsonKey(name: '\$type') final String type,
+          @NsidConverter() required final NSID collection,
+          final String? rkey,
+          @JsonKey(name: 'value') required final Map<String, dynamic> record}) =
+      _$_CreateAction;
 
   factory _CreateAction.fromJson(Map<String, dynamic> json) =
       _$_CreateAction.fromJson;
@@ -224,7 +228,8 @@ abstract class _CreateAction implements CreateAction {
   @override
   String? get rkey;
   @override
-  Map<String, dynamic> get value;
+  @JsonKey(name: 'value')
+  Map<String, dynamic> get record;
   @override
   @JsonKey(ignore: true)
   _$$_CreateActionCopyWith<_$_CreateAction> get copyWith =>

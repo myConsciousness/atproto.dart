@@ -17,6 +17,11 @@ _$_PostThreadViewRecord _$$_PostThreadViewRecordFromJson(Map json) =>
           type: $checkedConvert(r'$type', (v) => v as String),
           post: $checkedConvert('post',
               (v) => Post.fromJson(Map<String, Object?>.from(v as Map))),
+          parent: $checkedConvert(
+              'parent',
+              (v) =>
+                  _$JsonConverterFromJson<Map<String, dynamic>, PostThreadView>(
+                      v, const PostThreadViewConverter().fromJson)),
           replies: $checkedConvert(
               'replies',
               (v) => (v as List<dynamic>?)
@@ -34,7 +39,21 @@ Map<String, dynamic> _$$_PostThreadViewRecordToJson(
     <String, dynamic>{
       r'$type': instance.type,
       'post': instance.post.toJson(),
+      'parent': _$JsonConverterToJson<Map<String, dynamic>, PostThreadView>(
+          instance.parent, const PostThreadViewConverter().toJson),
       'replies': instance.replies
           ?.map(const PostThreadViewConverter().toJson)
           .toList(),
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

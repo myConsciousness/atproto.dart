@@ -9,10 +9,12 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../atproto_base_service.dart';
 import '../entities/batch_action.dart';
 import '../entities/blob_data.dart';
+import '../entities/create_action.dart';
+import '../entities/delete_action.dart';
 import '../entities/record.dart';
 import '../entities/record_value.dart';
 import '../entities/repo.dart';
-import '../entities/strong_ref.dart';
+import '../entities/update_action.dart';
 
 abstract class RepositoriesService {
   /// Returns the new instance of [RepositoriesService].
@@ -127,7 +129,7 @@ abstract class RepositoriesService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/putRecord.json
-  Future<core.XRPCResponse<StrongRef>> updateRecord({
+  Future<core.XRPCResponse<Record>> updateRecord({
     required core.AtUri uri,
     required Map<String, dynamic> record,
     bool? validate,
@@ -188,6 +190,57 @@ abstract class RepositoriesService {
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json
   Future<core.XRPCResponse<core.EmptyData>> updateBulk({
     required List<BatchAction> actions,
+    bool? validate,
+    String? swapCommitCid,
+  });
+
+  /// Apply a batch transaction of creates.
+  ///
+  /// This is a method to just perform create actions by using [updateBulk].
+  ///
+  /// ## Parameters
+  ///
+  /// - [actions]: The collection of create actions to perform.
+  ///
+  /// - [validate]: Validate the record?
+  ///
+  /// - [swapCommitCid]: Compare and swap with the previous commit by cid.
+  Future<core.XRPCResponse<core.EmptyData>> createRecords({
+    required List<CreateAction> actions,
+    bool? validate,
+    String? swapCommitCid,
+  });
+
+  /// Apply a batch transaction of updates.
+  ///
+  /// This is a method to just perform update actions by using [updateBulk].
+  ///
+  /// ## Parameters
+  ///
+  /// - [actions]: The collection of create actions to perform.
+  ///
+  /// - [validate]: Validate the record?
+  ///
+  /// - [swapCommitCid]: Compare and swap with the previous commit by cid.
+  Future<core.XRPCResponse<core.EmptyData>> updateRecords({
+    required List<UpdateAction> actions,
+    bool? validate,
+    String? swapCommitCid,
+  });
+
+  /// Apply a batch transaction of deletes.
+  ///
+  /// This is a method to just perform delete actions by using [updateBulk].
+  ///
+  /// ## Parameters
+  ///
+  /// - [uris]: The collection of uris to be deleted.
+  ///
+  /// - [validate]: Validate the record?
+  ///
+  /// - [swapCommitCid]: Compare and swap with the previous commit by cid.
+  Future<core.XRPCResponse<core.EmptyData>> deleteRecords({
+    required List<core.AtUri> uris,
     bool? validate,
     String? swapCommitCid,
   });
@@ -260,7 +313,7 @@ class _RepositoriesService extends ATProtoBaseService
       );
 
   @override
-  Future<core.XRPCResponse<StrongRef>> updateRecord({
+  Future<core.XRPCResponse<Record>> updateRecord({
     required core.AtUri uri,
     required Map<String, dynamic> record,
     bool? validate,
@@ -278,7 +331,7 @@ class _RepositoriesService extends ATProtoBaseService
           'swapRecord': swapRecordCid,
           'swapCommit': swapCommitCid
         },
-        to: StrongRef.fromJson,
+        to: Record.fromJson,
       );
 
   @override
@@ -326,5 +379,43 @@ class _RepositoriesService extends ATProtoBaseService
           'validate': validate,
           'swapCommit': swapCommitCid,
         },
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> createRecords({
+    required List<CreateAction> actions,
+    bool? validate,
+    String? swapCommitCid,
+  }) async =>
+      await updateBulk(
+        actions: actions.map((e) => BatchAction.create(data: e)).toList(),
+        validate: validate,
+        swapCommitCid: swapCommitCid,
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> updateRecords({
+    required List<UpdateAction> actions,
+    bool? validate,
+    String? swapCommitCid,
+  }) async =>
+      await updateBulk(
+        actions: actions.map((e) => BatchAction.update(data: e)).toList(),
+        validate: validate,
+        swapCommitCid: swapCommitCid,
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> deleteRecords({
+    required List<core.AtUri> uris,
+    bool? validate,
+    String? swapCommitCid,
+  }) async =>
+      await updateBulk(
+        actions: uris
+            .map((e) => BatchAction.delete(data: DeleteAction(uri: e)))
+            .toList(),
+        validate: validate,
+        swapCommitCid: swapCommitCid,
       );
 }

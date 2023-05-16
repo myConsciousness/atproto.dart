@@ -14,31 +14,53 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Reason _$ReasonFromJson(Map<String, dynamic> json) {
-  return _Reason.fromJson(json);
-}
-
 /// @nodoc
 mixin _$Reason {
-  @JsonKey(name: '\$type')
-  String get type => throw _privateConstructorUsedError;
-  Actor get by => throw _privateConstructorUsedError;
-  DateTime get indexedAt => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ReasonCopyWith<Reason> get copyWith => throw _privateConstructorUsedError;
+  Object get data => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ReasonRepost data) repost,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ReasonRepost data)? repost,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ReasonRepost data)? repost,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Repost value) repost,
+    required TResult Function(_Unknown value) unknown,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Repost value)? repost,
+    TResult? Function(_Unknown value)? unknown,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Repost value)? repost,
+    TResult Function(_Unknown value)? unknown,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ReasonCopyWith<$Res> {
   factory $ReasonCopyWith(Reason value, $Res Function(Reason) then) =
       _$ReasonCopyWithImpl<$Res, Reason>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String type, Actor by, DateTime indexedAt});
-
-  $ActorCopyWith<$Res> get by;
 }
 
 /// @nodoc
@@ -50,153 +72,285 @@ class _$ReasonCopyWithImpl<$Res, $Val extends Reason>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? by = null,
-    Object? indexedAt = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      by: null == by
-          ? _value.by
-          : by // ignore: cast_nullable_to_non_nullable
-              as Actor,
-      indexedAt: null == indexedAt
-          ? _value.indexedAt
-          : indexedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ActorCopyWith<$Res> get by {
-    return $ActorCopyWith<$Res>(_value.by, (value) {
-      return _then(_value.copyWith(by: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$_ReasonCopyWith<$Res> implements $ReasonCopyWith<$Res> {
-  factory _$$_ReasonCopyWith(_$_Reason value, $Res Function(_$_Reason) then) =
-      __$$_ReasonCopyWithImpl<$Res>;
-  @override
+abstract class _$$_RepostCopyWith<$Res> {
+  factory _$$_RepostCopyWith(_$_Repost value, $Res Function(_$_Repost) then) =
+      __$$_RepostCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String type, Actor by, DateTime indexedAt});
+  $Res call({ReasonRepost data});
 
-  @override
-  $ActorCopyWith<$Res> get by;
+  $ReasonRepostCopyWith<$Res> get data;
 }
 
 /// @nodoc
-class __$$_ReasonCopyWithImpl<$Res>
-    extends _$ReasonCopyWithImpl<$Res, _$_Reason>
-    implements _$$_ReasonCopyWith<$Res> {
-  __$$_ReasonCopyWithImpl(_$_Reason _value, $Res Function(_$_Reason) _then)
+class __$$_RepostCopyWithImpl<$Res>
+    extends _$ReasonCopyWithImpl<$Res, _$_Repost>
+    implements _$$_RepostCopyWith<$Res> {
+  __$$_RepostCopyWithImpl(_$_Repost _value, $Res Function(_$_Repost) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
-    Object? by = null,
-    Object? indexedAt = null,
+    Object? data = null,
   }) {
-    return _then(_$_Reason(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      by: null == by
-          ? _value.by
-          : by // ignore: cast_nullable_to_non_nullable
-              as Actor,
-      indexedAt: null == indexedAt
-          ? _value.indexedAt
-          : indexedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+    return _then(_$_Repost(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ReasonRepost,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ReasonRepostCopyWith<$Res> get data {
+    return $ReasonRepostCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
   }
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$_Reason implements _Reason {
-  const _$_Reason(
-      {@JsonKey(name: '\$type') required this.type,
-      required this.by,
-      required this.indexedAt});
 
-  factory _$_Reason.fromJson(Map<String, dynamic> json) =>
-      _$$_ReasonFromJson(json);
+class _$_Repost implements _Repost {
+  _$_Repost({required this.data});
 
   @override
-  @JsonKey(name: '\$type')
-  final String type;
-  @override
-  final Actor by;
-  @override
-  final DateTime indexedAt;
+  final ReasonRepost data;
 
   @override
   String toString() {
-    return 'Reason(type: $type, by: $by, indexedAt: $indexedAt)';
+    return 'Reason.repost(data: $data)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Reason &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.by, by) || other.by == by) &&
-            (identical(other.indexedAt, indexedAt) ||
-                other.indexedAt == indexedAt));
+            other is _$_Repost &&
+            (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, by, indexedAt);
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ReasonCopyWith<_$_Reason> get copyWith =>
-      __$$_ReasonCopyWithImpl<_$_Reason>(this, _$identity);
+  _$$_RepostCopyWith<_$_Repost> get copyWith =>
+      __$$_RepostCopyWithImpl<_$_Repost>(this, _$identity);
 
   @override
-  Map<String, dynamic> toJson() {
-    return _$$_ReasonToJson(
-      this,
-    );
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ReasonRepost data) repost,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return repost(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ReasonRepost data)? repost,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return repost?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ReasonRepost data)? repost,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (repost != null) {
+      return repost(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Repost value) repost,
+    required TResult Function(_Unknown value) unknown,
+  }) {
+    return repost(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Repost value)? repost,
+    TResult? Function(_Unknown value)? unknown,
+  }) {
+    return repost?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Repost value)? repost,
+    TResult Function(_Unknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (repost != null) {
+      return repost(this);
+    }
+    return orElse();
   }
 }
 
-abstract class _Reason implements Reason {
-  const factory _Reason(
-      {@JsonKey(name: '\$type') required final String type,
-      required final Actor by,
-      required final DateTime indexedAt}) = _$_Reason;
-
-  factory _Reason.fromJson(Map<String, dynamic> json) = _$_Reason.fromJson;
+abstract class _Repost implements Reason {
+  factory _Repost({required final ReasonRepost data}) = _$_Repost;
 
   @override
-  @JsonKey(name: '\$type')
-  String get type;
-  @override
-  Actor get by;
-  @override
-  DateTime get indexedAt;
-  @override
+  ReasonRepost get data;
   @JsonKey(ignore: true)
-  _$$_ReasonCopyWith<_$_Reason> get copyWith =>
+  _$$_RepostCopyWith<_$_Repost> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UnknownCopyWith<$Res> {
+  factory _$$_UnknownCopyWith(
+          _$_Unknown value, $Res Function(_$_Unknown) then) =
+      __$$_UnknownCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class __$$_UnknownCopyWithImpl<$Res>
+    extends _$ReasonCopyWithImpl<$Res, _$_Unknown>
+    implements _$$_UnknownCopyWith<$Res> {
+  __$$_UnknownCopyWithImpl(_$_Unknown _value, $Res Function(_$_Unknown) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_Unknown(
+      data: null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Unknown implements _Unknown {
+  _$_Unknown({required final Map<String, dynamic> data}) : _data = data;
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'Reason.unknown(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Unknown &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
+      __$$_UnknownCopyWithImpl<_$_Unknown>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ReasonRepost data) repost,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return unknown(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ReasonRepost data)? repost,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return unknown?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ReasonRepost data)? repost,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (unknown != null) {
+      return unknown(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Repost value) repost,
+    required TResult Function(_Unknown value) unknown,
+  }) {
+    return unknown(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Repost value)? repost,
+    TResult? Function(_Unknown value)? unknown,
+  }) {
+    return unknown?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Repost value)? repost,
+    TResult Function(_Unknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (unknown != null) {
+      return unknown(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Unknown implements Reason {
+  factory _Unknown({required final Map<String, dynamic> data}) = _$_Unknown;
+
+  @override
+  Map<String, dynamic> get data;
+  @JsonKey(ignore: true)
+  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
       throw _privateConstructorUsedError;
 }

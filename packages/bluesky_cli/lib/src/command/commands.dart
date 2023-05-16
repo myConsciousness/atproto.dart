@@ -3,8 +3,10 @@
 // modification, are permitted provided the conditions.
 
 import 'actor/actors_typeahead.dart';
+import 'actor/preferences.dart';
 import 'actor/profile.dart';
 import 'actor/profiles.dart';
+import 'actor/put_preferences.dart';
 import 'actor/search_actors.dart';
 import 'actor/suggestions.dart';
 import 'bsky_command.dart';
@@ -17,14 +19,21 @@ import 'feed/repost.dart';
 import 'feed/reposted_by.dart';
 import 'feed/thread.dart';
 import 'feed/timeline.dart';
+import 'graph/add_list_item.dart';
 import 'graph/block.dart';
 import 'graph/blocks.dart';
+import 'graph/create_list.dart';
 import 'graph/follow.dart';
 import 'graph/followers.dart';
 import 'graph/follows.dart';
+import 'graph/list.dart';
+import 'graph/lists.dart';
 import 'graph/mute.dart';
+import 'graph/mute_list.dart';
 import 'graph/mutes.dart';
+import 'graph/muting_lists.dart';
 import 'graph/unmute.dart';
+import 'graph/unmute_list.dart';
 import 'notification/notification_count.dart';
 import 'notification/notifications.dart';
 import 'notification/seen_notifications.dart';
@@ -40,6 +49,8 @@ final actorCommands = <BskyCommand>[
   ProfilesCommand(),
   SuggestionsCommand(),
   ActorsTypeaheadCommand(),
+  PreferencesCommand(),
+  PutPreferences(),
 ];
 
 final feedCommands = <BskyCommand>[
@@ -68,6 +79,13 @@ final graphCommands = <BskyCommand>[
   MutesCommand(),
   BlockCommand(),
   BlocksCommand(),
+  CreateListCommand(),
+  ListsCommand(),
+  ListCommand(),
+  AddListItemCommand(),
+  MutingListsCommand(),
+  MuteListCommand(),
+  UnmuteListCommand(),
 ];
 
 final unspeccedCommands = <BskyCommand>[

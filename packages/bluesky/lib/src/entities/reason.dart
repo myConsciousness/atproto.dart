@@ -8,18 +8,17 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'actor.dart';
+import 'reason_repost.dart';
 
 part 'reason.freezed.dart';
-part 'reason.g.dart';
 
 @freezed
 class Reason with _$Reason {
-  const factory Reason({
-    @JsonKey(name: '\$type') required String type,
-    required Actor by,
-    required DateTime indexedAt,
-  }) = _Reason;
+  factory Reason.repost({
+    required ReasonRepost data,
+  }) = _Repost;
 
-  factory Reason.fromJson(Map<String, Object?> json) => _$ReasonFromJson(json);
+  factory Reason.unknown({
+    required Map<String, dynamic> data,
+  }) = _Unknown;
 }

@@ -25,7 +25,8 @@ mixin _$UpdateAction {
   @NsidConverter()
   NSID get collection => throw _privateConstructorUsedError;
   String? get rkey => throw _privateConstructorUsedError;
-  Map<String, dynamic> get value => throw _privateConstructorUsedError;
+  @JsonKey(name: 'value')
+  Map<String, dynamic> get record => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +44,7 @@ abstract class $UpdateActionCopyWith<$Res> {
       {@JsonKey(name: '\$type') String type,
       @NsidConverter() NSID collection,
       String? rkey,
-      Map<String, dynamic> value});
+      @JsonKey(name: 'value') Map<String, dynamic> record});
 }
 
 /// @nodoc
@@ -62,7 +63,7 @@ class _$UpdateActionCopyWithImpl<$Res, $Val extends UpdateAction>
     Object? type = null,
     Object? collection = null,
     Object? rkey = freezed,
-    Object? value = null,
+    Object? record = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -77,9 +78,9 @@ class _$UpdateActionCopyWithImpl<$Res, $Val extends UpdateAction>
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
               as String?,
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
+      record: null == record
+          ? _value.record
+          : record // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
     ) as $Val);
   }
@@ -97,7 +98,7 @@ abstract class _$$_UpdateActionCopyWith<$Res>
       {@JsonKey(name: '\$type') String type,
       @NsidConverter() NSID collection,
       String? rkey,
-      Map<String, dynamic> value});
+      @JsonKey(name: 'value') Map<String, dynamic> record});
 }
 
 /// @nodoc
@@ -114,7 +115,7 @@ class __$$_UpdateActionCopyWithImpl<$Res>
     Object? type = null,
     Object? collection = null,
     Object? rkey = freezed,
-    Object? value = null,
+    Object? record = null,
   }) {
     return _then(_$_UpdateAction(
       type: null == type
@@ -129,9 +130,9 @@ class __$$_UpdateActionCopyWithImpl<$Res>
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
               as String?,
-      value: null == value
-          ? _value._value
-          : value // ignore: cast_nullable_to_non_nullable
+      record: null == record
+          ? _value._record
+          : record // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
     ));
   }
@@ -147,8 +148,9 @@ class _$_UpdateAction implements _UpdateAction {
       @NsidConverter()
           required this.collection,
       this.rkey,
-      required final Map<String, dynamic> value})
-      : _value = value;
+      @JsonKey(name: 'value')
+          required final Map<String, dynamic> record})
+      : _record = record;
 
   factory _$_UpdateAction.fromJson(Map<String, dynamic> json) =>
       _$$_UpdateActionFromJson(json);
@@ -161,17 +163,18 @@ class _$_UpdateAction implements _UpdateAction {
   final NSID collection;
   @override
   final String? rkey;
-  final Map<String, dynamic> _value;
+  final Map<String, dynamic> _record;
   @override
-  Map<String, dynamic> get value {
-    if (_value is EqualUnmodifiableMapView) return _value;
+  @JsonKey(name: 'value')
+  Map<String, dynamic> get record {
+    if (_record is EqualUnmodifiableMapView) return _record;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_value);
+    return EqualUnmodifiableMapView(_record);
   }
 
   @override
   String toString() {
-    return 'UpdateAction(type: $type, collection: $collection, rkey: $rkey, value: $value)';
+    return 'UpdateAction(type: $type, collection: $collection, rkey: $rkey, record: $record)';
   }
 
   @override
@@ -183,13 +186,13 @@ class _$_UpdateAction implements _UpdateAction {
             (identical(other.collection, collection) ||
                 other.collection == collection) &&
             (identical(other.rkey, rkey) || other.rkey == rkey) &&
-            const DeepCollectionEquality().equals(other._value, _value));
+            const DeepCollectionEquality().equals(other._record, _record));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, type, collection, rkey,
-      const DeepCollectionEquality().hash(_value));
+      const DeepCollectionEquality().hash(_record));
 
   @JsonKey(ignore: true)
   @override
@@ -207,10 +210,11 @@ class _$_UpdateAction implements _UpdateAction {
 
 abstract class _UpdateAction implements UpdateAction {
   const factory _UpdateAction(
-      {@JsonKey(name: '\$type') final String type,
-      @NsidConverter() required final NSID collection,
-      final String? rkey,
-      required final Map<String, dynamic> value}) = _$_UpdateAction;
+          {@JsonKey(name: '\$type') final String type,
+          @NsidConverter() required final NSID collection,
+          final String? rkey,
+          @JsonKey(name: 'value') required final Map<String, dynamic> record}) =
+      _$_UpdateAction;
 
   factory _UpdateAction.fromJson(Map<String, dynamic> json) =
       _$_UpdateAction.fromJson;
@@ -224,7 +228,8 @@ abstract class _UpdateAction implements UpdateAction {
   @override
   String? get rkey;
   @override
-  Map<String, dynamic> get value;
+  @JsonKey(name: 'value')
+  Map<String, dynamic> get record;
   @override
   @JsonKey(ignore: true)
   _$$_UpdateActionCopyWith<_$_UpdateAction> get copyWith =>

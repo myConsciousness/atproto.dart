@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:args/command_runner.dart';
 import 'package:cli_util/cli_logging.dart';
@@ -69,4 +70,18 @@ abstract class BskyCommand extends Command<void> {
 
     return _session;
   }
+
+  Future<xrpc.XRPCResponse<String>> upload(
+    final File file,
+  ) async =>
+      await xrpc.upload<String>(
+        xrpc.NSID.create(
+          'repo.atproto.com',
+          'uploadBlob',
+        ),
+        file,
+        headers: {
+          'Authorization': 'Bearer ${await accessJwt}',
+        },
+      );
 }

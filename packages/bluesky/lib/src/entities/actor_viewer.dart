@@ -5,7 +5,10 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'list_view_basic.dart';
 
 part 'actor_viewer.freezed.dart';
 part 'actor_viewer.g.dart';
@@ -16,9 +19,10 @@ class ActorViewer with _$ActorViewer {
   const factory ActorViewer({
     @JsonKey(name: 'muted') required bool isMuted,
     @JsonKey(name: 'blockedBy') required bool isBlockedBy,
-    String? blocking,
-    String? following,
-    String? followedBy,
+    ListViewBasic? mutedByList,
+    @AtUriConverter() AtUri? blocking,
+    @AtUriConverter() AtUri? following,
+    @AtUriConverter() AtUri? followedBy,
   }) = _ActorViewer;
 
   factory ActorViewer.fromJson(Map<String, Object?> json) =>
