@@ -7,3 +7,9 @@ dependency_overrides:
     path: ../at_uri
   xrpc:
     path: ../xrpc
+  atproto_core:
+    path: ../atproto_core
+  atproto:
+    path: ../atproto
+  bluesky:
+    path: ../bluesky
