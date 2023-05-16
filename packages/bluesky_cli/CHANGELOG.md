@@ -4,7 +4,8 @@
 
 - Supported `preferences` command. ([#387](https://github.com/myConsciousness/atproto.dart/issues/387))
 - Supported `put-preferences` command. ([#388](https://github.com/myConsciousness/atproto.dart/issues/388))
-- Supported `list` command. ([#392](https://github.com/myConsciousness/atproto.dart/issues/392))
+- Supported `create-list` command. ([#392](https://github.com/myConsciousness/atproto.dart/issues/392))
+- Supported `lists` command. ([#391](https://github.com/myConsciousness/atproto.dart/issues/391))
 
 ## v0.1.2
 

@@ -969,4 +969,78 @@ void main() {
       );
     });
   });
+
+  group('.findLists', () {
+    test('normal case', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/graphs/data/find_lists.json',
+        ),
+      );
+
+      final response = await graphs.findLists(
+        actor: 'shinyakato.dev',
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Lists>());
+    });
+
+    test('when unauthorized', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await graphs.findLists(
+          actor: 'shinyakato.dev',
+          limit: 10,
+          cursor: '1234',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await graphs.findLists(
+          actor: 'shinyakato.dev',
+          limit: 10,
+          cursor: '1234',
+        ),
+      );
+    });
+  });
 }
