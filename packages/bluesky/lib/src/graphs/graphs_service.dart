@@ -386,6 +386,23 @@ abstract class GraphsService {
   Future<core.XRPCResponse<core.EmptyData>> createMuteActorList({
     required core.AtUri list,
   });
+
+  /// Unmute a list of actors.
+  ///
+  /// ## Parameters
+  ///
+  /// - [list]: AT URI of list.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.unmuteActorList
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/unmuteActorList.json
+  Future<core.XRPCResponse<core.EmptyData>> deleteMuteActorList({
+    required core.AtUri list,
+  });
 }
 
 class _GraphsService extends BlueskyBaseService implements GraphsService {
@@ -673,11 +690,22 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       );
 
   @override
-  Future<atp.XRPCResponse<core.EmptyData>> createMuteActorList({
-    required atp.AtUri list,
+  Future<core.XRPCResponse<core.EmptyData>> createMuteActorList({
+    required core.AtUri list,
   }) async =>
       await super.post(
         'muteActorList',
+        body: {
+          'list': list.toString(),
+        },
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> deleteMuteActorList({
+    required core.AtUri list,
+  }) async =>
+      await super.post(
+        'unmuteActorList',
         body: {
           'list': list.toString(),
         },

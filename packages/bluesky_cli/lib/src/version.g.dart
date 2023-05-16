@@ -1,2 +1,2 @@
 // This file is generated. Do not manually edit.
-String version = '0.1.3';
+String version = '0.2.0';

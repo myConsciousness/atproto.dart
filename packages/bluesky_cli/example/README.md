@@ -60,6 +60,7 @@ Available commands:
   thread               Show the thread of specific post.
   timeline             Show the timeline of authenticated user.
   unmute               Unmute an user.
+  unmute-list          Unmute an actor list.
 
 Run "bsky help <command>" for more information about a command.
 ```
