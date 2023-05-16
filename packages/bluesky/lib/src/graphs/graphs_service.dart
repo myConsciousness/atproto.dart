@@ -11,6 +11,7 @@ import '../entities/blocks.dart';
 import '../entities/facet.dart';
 import '../entities/followers.dart';
 import '../entities/follows.dart';
+import '../entities/list_items.dart';
 import '../entities/lists.dart';
 import '../entities/mutes.dart';
 import '../params/list_param.dart';
@@ -275,8 +276,40 @@ abstract class GraphsService {
   ///            The default is 50.
   ///
   /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getLists
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getLists.json
   Future<core.XRPCResponse<Lists>> findLists({
     required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Fetch a list of actors.
+  ///
+  /// ## Parameters
+  ///
+  /// - [uri]: The list uri.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getList
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getList.json
+  Future<core.XRPCResponse<ListItems>> findListItems({
+    required core.AtUri uri,
     int? limit,
     String? cursor,
   });
@@ -499,5 +532,21 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
           'cursor': cursor,
         },
         to: Lists.fromJson,
+      );
+
+  @override
+  Future<atp.XRPCResponse<ListItems>> findListItems({
+    required atp.AtUri uri,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await super.get(
+        'getList',
+        parameters: {
+          'list': uri.toString(),
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: ListItems.fromJson,
       );
 }
