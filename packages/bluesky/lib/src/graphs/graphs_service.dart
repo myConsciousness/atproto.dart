@@ -64,9 +64,9 @@ abstract class GraphsService {
   /// ## Parameters
   ///
   /// - [params]: The collection of params from strong refs to be followed.
-  Future<core.XRPCResponse<core.EmptyData>> createFollows({
-    required List<RepoParam> params,
-  });
+  Future<core.XRPCResponse<core.EmptyData>> createFollows(
+    List<RepoParam> params,
+  );
 
   /// Returns follows of specific user.
   ///
@@ -221,9 +221,9 @@ abstract class GraphsService {
   /// ## Parameters
   ///
   /// - [params]: The collection of params from strong refs to be blocked.
-  Future<core.XRPCResponse<core.EmptyData>> createBlocks({
-    required List<RepoParam> params,
-  });
+  Future<core.XRPCResponse<core.EmptyData>> createBlocks(
+    List<RepoParam> params,
+  );
 
   /// A declaration of a list of actors.
   ///
@@ -263,9 +263,9 @@ abstract class GraphsService {
   /// ## Parameters
   ///
   /// - [params]: The collection of list params from strong refs to be created.
-  Future<core.XRPCResponse<core.EmptyData>> createLists({
-    required List<ListParam> params,
-  });
+  Future<core.XRPCResponse<core.EmptyData>> createLists(
+    List<ListParam> params,
+  );
 
   /// Fetch a list of lists that belong to an actor.
   ///
@@ -345,9 +345,9 @@ abstract class GraphsService {
   ///
   /// - [params]: The collection of list item params from strong refs to be
   ///             created.
-  Future<core.XRPCResponse<core.EmptyData>> createListItems({
-    required List<ListItemParam> params,
-  });
+  Future<core.XRPCResponse<core.EmptyData>> createListItems(
+    List<ListItemParam> params,
+  );
 
   /// Which lists is the requester's account muting?
   ///
@@ -430,9 +430,9 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       );
 
   @override
-  Future<core.XRPCResponse<core.EmptyData>> createFollows({
-    required List<RepoParam> params,
-  }) async =>
+  Future<core.XRPCResponse<core.EmptyData>> createFollows(
+    List<RepoParam> params,
+  ) async =>
       await atproto.repositories.createRecords(
         actions: params
             .map(
@@ -544,9 +544,9 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       );
 
   @override
-  Future<core.XRPCResponse<core.EmptyData>> createBlocks({
-    required List<RepoParam> params,
-  }) async =>
+  Future<core.XRPCResponse<core.EmptyData>> createBlocks(
+    List<RepoParam> params,
+  ) async =>
       await atproto.repositories.createRecords(
         actions: params
             .map(
@@ -585,9 +585,9 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       );
 
   @override
-  Future<core.XRPCResponse<atp.EmptyData>> createLists({
-    required List<ListParam> params,
-  }) async =>
+  Future<core.XRPCResponse<atp.EmptyData>> createLists(
+    List<ListParam> params,
+  ) async =>
       await atproto.repositories.createRecords(
         actions: params
             .map(
@@ -656,9 +656,9 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       );
 
   @override
-  Future<core.XRPCResponse<atp.EmptyData>> createListItems({
-    required List<ListItemParam> params,
-  }) async =>
+  Future<core.XRPCResponse<atp.EmptyData>> createListItems(
+    List<ListItemParam> params,
+  ) async =>
       await atproto.repositories.createRecords(
         actions: params
             .map(

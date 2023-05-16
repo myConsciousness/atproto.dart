@@ -111,7 +111,7 @@ void main() {
         ),
       );
 
-      final response = await graphs.createFollows(params: [
+      final response = await graphs.createFollows([
         RepoParam(did: 'xxxxx'),
         RepoParam(did: 'yyyy'),
       ]);
@@ -140,7 +140,7 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await graphs.createFollows(params: []),
+        () async => await graphs.createFollows([]),
       );
     });
 
@@ -164,7 +164,7 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await graphs.createFollows(params: []),
+        () async => await graphs.createFollows([]),
       );
     });
   });
@@ -648,7 +648,7 @@ void main() {
         ),
       );
 
-      final response = await graphs.createBlocks(params: [
+      final response = await graphs.createBlocks([
         RepoParam(did: 'xxxx'),
         RepoParam(did: 'yyyy'),
       ]);
@@ -677,7 +677,7 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await graphs.createBlocks(params: []),
+        () async => await graphs.createBlocks([]),
       );
     });
 
@@ -701,7 +701,7 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await graphs.createBlocks(params: []),
+        () async => await graphs.createBlocks([]),
       );
     });
   });
@@ -893,7 +893,7 @@ void main() {
         ),
       );
 
-      final response = await graphs.createLists(params: [
+      final response = await graphs.createLists([
         ListParam(name: 'xxxx'),
         ListParam(
           name: 'yyyy',
@@ -941,7 +941,7 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await graphs.createLists(params: []),
+        () async => await graphs.createLists([]),
       );
     });
 
@@ -965,7 +965,7 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await graphs.createLists(params: []),
+        () async => await graphs.createLists([]),
       );
     });
   });
@@ -1233,7 +1233,7 @@ void main() {
         ),
       );
 
-      final response = await graphs.createListItems(params: [
+      final response = await graphs.createListItems([
         ListItemParam(
           subject: 'xxxxxx',
           list: AtUri.parse(
@@ -1272,7 +1272,7 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await graphs.createListItems(params: []),
+        () async => await graphs.createListItems([]),
       );
     });
 
@@ -1296,7 +1296,7 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await graphs.createListItems(params: []),
+        () async => await graphs.createListItems([]),
       );
     });
   });
