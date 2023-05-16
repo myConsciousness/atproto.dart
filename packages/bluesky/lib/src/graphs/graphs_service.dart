@@ -369,6 +369,23 @@ abstract class GraphsService {
     int? limit,
     String? cursor,
   });
+
+  /// Mute a list of actors.
+  ///
+  /// ## Parameters
+  ///
+  /// - [list]: AT URI of list.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.muteActorList
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/muteActorList.json
+  Future<core.XRPCResponse<core.EmptyData>> createMuteActorList({
+    required core.AtUri list,
+  });
 }
 
 class _GraphsService extends BlueskyBaseService implements GraphsService {
@@ -653,5 +670,16 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
           'cursor': cursor,
         },
         to: Lists.fromJson,
+      );
+
+  @override
+  Future<atp.XRPCResponse<core.EmptyData>> createMuteActorList({
+    required atp.AtUri list,
+  }) async =>
+      await super.post(
+        'muteActorList',
+        body: {
+          'list': list.toString(),
+        },
       );
 }
