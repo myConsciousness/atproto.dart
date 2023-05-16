@@ -42,6 +42,7 @@ Available commands:
   lists                Show the lists.
   mute                 Mute an user.
   mutes                Show the muted users.
+  muting-lists         Show the muting lists.
   notification-count   Show the count of notification of authenticated user.
   notifications        Show the notifications of authenticated user.
   popular              Show the popular contents.

@@ -237,6 +237,7 @@ Future<bsky.Session> get _session async {
 | [POST com.atproto.repo.getList](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/getList.json)         | [findList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/findList.html)               |
 | [POST com.atproto.repo.listitem](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/listitem.json)       | [createListItem](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createListItem.html)   |
 | [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json) | [createListItems](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createListItems.html) |
+| [GET app.bsky.graph.getListMutes](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListMutes.json)    | [findMutingLists](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/findMutingLists.html) |
 
 ### 1.3.5. Unspecced
 

@@ -30,6 +30,7 @@ import 'graph/list.dart';
 import 'graph/lists.dart';
 import 'graph/mute.dart';
 import 'graph/mutes.dart';
+import 'graph/muting_lists.dart';
 import 'graph/unmute.dart';
 import 'notification/notification_count.dart';
 import 'notification/notifications.dart';
@@ -80,6 +81,7 @@ final graphCommands = <BskyCommand>[
   ListsCommand(),
   ListCommand(),
   AddListItemCommand(),
+  MutingListsCommand(),
 ];
 
 final unspeccedCommands = <BskyCommand>[
