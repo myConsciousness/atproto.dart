@@ -348,6 +348,27 @@ abstract class GraphsService {
   Future<core.XRPCResponse<core.EmptyData>> createListItems({
     required List<ListItemParam> params,
   });
+
+  /// Which lists is the requester's account muting?
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getListMutes
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListMutes.json
+  Future<core.XRPCResponse<Lists>> findMutingLists({
+    int? limit,
+    String? cursor,
+  });
 }
 
 class _GraphsService extends BlueskyBaseService implements GraphsService {
@@ -618,5 +639,19 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
               ),
             )
             .toList(),
+      );
+
+  @override
+  Future<core.XRPCResponse<Lists>> findMutingLists({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await super.get(
+        'getListMutes',
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: Lists.fromJson,
       );
 }

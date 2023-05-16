@@ -8,6 +8,7 @@
 - Supported `lists` command. ([#391](https://github.com/myConsciousness/atproto.dart/issues/391))
 - Supported `list` command. ([#389](https://github.com/myConsciousness/atproto.dart/issues/389))
 - Supported `add-list-item` command. ([#393](https://github.com/myConsciousness/atproto.dart/issues/393))
+- Supported `muting-lists` command. ([#390](https://github.com/myConsciousness/atproto.dart/issues/390))
 
 ## v0.1.2
 
