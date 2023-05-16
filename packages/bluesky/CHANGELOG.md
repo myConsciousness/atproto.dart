@@ -8,6 +8,8 @@
 - Fixed `Reason` object to union. ([#399](https://github.com/myConsciousness/atproto.dart/issues/399))
 - Supported `app.bsky.graph.list` as `createList` in `GraphsService`. ([#392](https://github.com/myConsciousness/atproto.dart/issues/392))
 - Supported `app.bsky.graph.getLists` as `findLists` in `GraphsService`. ([#391](https://github.com/myConsciousness/atproto.dart/issues/391))
+- Supported `app.bsky.graph.getList` as `findListItems` in `GraphsService`. ([#389](https://github.com/myConsciousness/atproto.dart/issues/389))
+- Supported `app.bsky.graph.listitem` as `createListItem` in `GraphsService`. ([#393](https://github.com/myConsciousness/atproto.dart/issues/393))
 
 ## v0.4.6
 

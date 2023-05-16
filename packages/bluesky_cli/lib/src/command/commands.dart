@@ -19,6 +19,7 @@ import 'feed/repost.dart';
 import 'feed/reposted_by.dart';
 import 'feed/thread.dart';
 import 'feed/timeline.dart';
+import 'graph/add_list_item.dart';
 import 'graph/block.dart';
 import 'graph/blocks.dart';
 import 'graph/create_list.dart';
@@ -78,6 +79,7 @@ final graphCommands = <BskyCommand>[
   CreateListCommand(),
   ListsCommand(),
   ListCommand(),
+  AddListItemCommand(),
 ];
 
 final unspeccedCommands = <BskyCommand>[
