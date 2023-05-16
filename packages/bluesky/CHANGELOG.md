@@ -11,6 +11,7 @@
 - Supported `app.bsky.graph.getList` as `findListItems` in `GraphsService`. ([#389](https://github.com/myConsciousness/atproto.dart/issues/389))
 - Supported `app.bsky.graph.listitem` as `createListItem` in `GraphsService`. ([#393](https://github.com/myConsciousness/atproto.dart/issues/393))
 - Supported `app.bsky.graph.getListMutes` as `findMutingLists` in `GraphsService`. ([#390](https://github.com/myConsciousness/atproto.dart/issues/390))
+- Added `mutedByList` field in `ActorViewer` object. ([#396](https://github.com/myConsciousness/atproto.dart/issues/396))
 
 ## v0.4.6
 
