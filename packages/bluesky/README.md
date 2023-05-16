@@ -233,6 +233,8 @@ Future<bsky.Session> get _session async {
 | [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json) | [createBlocks](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createBlocks.html)   |
 | [POST com.atproto.repo.list](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/list.json)               | [createList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createList.html)       |
 | [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json) | [createLists](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createLists.html)     |
+| [POST com.atproto.repo.getLists](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/getLists.json)       | [findLists](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/findLists.html)         |
+| [POST com.atproto.repo.getList](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/getList.json)         | [findList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/findList.html)           |
 
 ### 1.3.5. Unspecced
 
