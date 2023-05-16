@@ -29,10 +29,11 @@ import 'graph/follows.dart';
 import 'graph/list.dart';
 import 'graph/lists.dart';
 import 'graph/mute.dart';
-import 'graph/mute_actor_list.dart';
+import 'graph/mute_list.dart';
 import 'graph/mutes.dart';
 import 'graph/muting_lists.dart';
 import 'graph/unmute.dart';
+import 'graph/unmute_list.dart';
 import 'notification/notification_count.dart';
 import 'notification/notifications.dart';
 import 'notification/seen_notifications.dart';
@@ -84,6 +85,7 @@ final graphCommands = <BskyCommand>[
   AddListItemCommand(),
   MutingListsCommand(),
   MuteListCommand(),
+  UnmuteListCommand(),
 ];
 
 final unspeccedCommands = <BskyCommand>[
