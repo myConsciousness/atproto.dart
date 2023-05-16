@@ -1,5 +1,9 @@
 dependency_overrides:
-  xrpc:
-    path: ../xrpc
+  at_identifier:
+    path: ../at_identifier
+  nsid:
+    path: ../nsid
   at_uri:
     path: ../at_uri
+  xrpc:
+    path: ../xrpc

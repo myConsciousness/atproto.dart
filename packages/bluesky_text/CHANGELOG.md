@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.0
+
+- Updated SDK to `">=2.17.0 <4.0.0"`. ([#406](https://github.com/myConsciousness/atproto.dart/issues/406))
+
 ## v0.1.1
 
 - Fixed `toFacet` and `toFacets` to exclude invalid handles from the result when they are called. ([#354](https://github.com/myConsciousness/atproto.dart/issues/354))

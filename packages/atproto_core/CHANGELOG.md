@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.0
+
+- Updated SDK to `">=2.17.0 <4.0.0"`. ([#406](https://github.com/myConsciousness/atproto.dart/issues/406))
+
 ## v0.2.10
 
 - The retry algorithm has been modified to retry when an InternalServerError occurs as a result of XRPC communication. ([#358](https://github.com/myConsciousness/atproto.dart/issues/358))

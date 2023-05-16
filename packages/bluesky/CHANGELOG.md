@@ -14,6 +14,7 @@
 - Added `mutedByList` field in `ActorViewer` object. ([#396](https://github.com/myConsciousness/atproto.dart/issues/396))
 - Supported `app.bsky.graph.muteActorList` as `createMuteActorList` in `GraphsService`. ([#394](https://github.com/myConsciousness/atproto.dart/issues/394))
 - Supported `app.bsky.graph.unmuteActorList` as `deleteMuteActorList` in `GraphsService`. ([#395](https://github.com/myConsciousness/atproto.dart/issues/395))
+- Updated SDK to `">=2.17.0 <4.0.0"`. ([#406](https://github.com/myConsciousness/atproto.dart/issues/406))
 
 ## v0.4.6
 
