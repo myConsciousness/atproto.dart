@@ -29,6 +29,7 @@ Available commands:
   actors-typeahead     Show the typeahead for actors.
   block                Block an user.
   blocks               Show the blocked users.
+  create-list          Create a list.
   delete               Delete a specific contents from repository.
   feed                 Show the feed of specific actor.
   follow               Follow an user.
@@ -36,7 +37,7 @@ Available commands:
   follows              Show the following users.
   like                 Like a specific post.
   likes                Show the likes of specific post.
-  list                 Create a list.
+  lists                Show the lists.
   mute                 Mute an user.
   mutes                Show the muted users.
   notification-count   Show the count of notification of authenticated user.

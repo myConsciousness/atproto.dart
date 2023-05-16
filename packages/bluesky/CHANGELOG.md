@@ -7,6 +7,7 @@
 - Supported `app.bsky.actor.putPreferences` as `updatePreferences` in `ActorsService`. ([#388](https://github.com/myConsciousness/atproto.dart/issues/388))
 - Fixed `Reason` object to union. ([#399](https://github.com/myConsciousness/atproto.dart/issues/399))
 - Supported `app.bsky.graph.list` as `createList` in `GraphsService`. ([#392](https://github.com/myConsciousness/atproto.dart/issues/392))
+- Supported `app.bsky.graph.getLists` as `findLists` in `GraphsService`. ([#391](https://github.com/myConsciousness/atproto.dart/issues/391))
 
 ## v0.4.6
 

@@ -21,10 +21,11 @@ import 'feed/thread.dart';
 import 'feed/timeline.dart';
 import 'graph/block.dart';
 import 'graph/blocks.dart';
+import 'graph/create_list.dart';
 import 'graph/follow.dart';
 import 'graph/followers.dart';
 import 'graph/follows.dart';
-import 'graph/list.dart';
+import 'graph/lists.dart';
 import 'graph/mute.dart';
 import 'graph/mutes.dart';
 import 'graph/unmute.dart';
@@ -73,7 +74,8 @@ final graphCommands = <BskyCommand>[
   MutesCommand(),
   BlockCommand(),
   BlocksCommand(),
-  ListCommand(),
+  CreateListCommand(),
+  ListsCommand(),
 ];
 
 final unspeccedCommands = <BskyCommand>[

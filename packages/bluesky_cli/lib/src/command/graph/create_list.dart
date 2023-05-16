@@ -11,9 +11,9 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 import '../create_record_command.dart';
 
 /// `app.bsky.graph.list`
-class ListCommand extends CreateRecordCommand {
-  /// Returns the new instance of [ListCommand].
-  ListCommand() {
+class CreateListCommand extends CreateRecordCommand {
+  /// Returns the new instance of [CreateListCommand].
+  CreateListCommand() {
     argParser
       ..addOption(
         'purpose',
@@ -43,14 +43,14 @@ class ListCommand extends CreateRecordCommand {
   }
 
   @override
-  String get name => 'list';
+  String get name => 'create-list';
 
   @override
   String get description => 'Create a list.';
 
   @override
   final String invocation =
-      'bsky list [purpose] [name] [description] [avatar] [created-at]';
+      'bsky create-list [purpose] [name] [description] [avatar] [created-at]';
 
   @override
   xrpc.NSID get collection => xrpc.NSID.create(

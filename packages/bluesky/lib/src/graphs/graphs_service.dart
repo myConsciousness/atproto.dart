@@ -11,6 +11,7 @@ import '../entities/blocks.dart';
 import '../entities/facet.dart';
 import '../entities/followers.dart';
 import '../entities/follows.dart';
+import '../entities/lists.dart';
 import '../entities/mutes.dart';
 import '../params/list_param.dart';
 import '../params/repo_param.dart';
@@ -263,6 +264,22 @@ abstract class GraphsService {
   Future<core.XRPCResponse<core.EmptyData>> createLists({
     required List<ListParam> params,
   });
+
+  /// Fetch a list of lists that belong to an actor.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  Future<core.XRPCResponse<Lists>> findLists({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
 }
 
 class _GraphsService extends BlueskyBaseService implements GraphsService {
@@ -466,5 +483,21 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
               ),
             )
             .toList(),
+      );
+
+  @override
+  Future<atp.XRPCResponse<Lists>> findLists({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await super.get(
+        'getLists',
+        parameters: {
+          'actor': actor,
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: Lists.fromJson,
       );
 }
