@@ -21,18 +21,21 @@ mixin _$EmbedViewMedia {
   TResult when<TResult extends Object?>({
     required TResult Function(EmbedViewImages data) images,
     required TResult Function(EmbedViewExternal data) external,
+    required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(EmbedViewImages data)? images,
     TResult? Function(EmbedViewExternal data)? external,
+    TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(EmbedViewImages data)? images,
     TResult Function(EmbedViewExternal data)? external,
+    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -40,18 +43,21 @@ mixin _$EmbedViewMedia {
   TResult map<TResult extends Object?>({
     required TResult Function(_Images value) images,
     required TResult Function(_External value) external,
+    required TResult Function(_Unknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Images value)? images,
     TResult? Function(_External value)? external,
+    TResult? Function(_Unknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Images value)? images,
     TResult Function(_External value)? external,
+    TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -149,6 +155,7 @@ class _$_Images implements _Images {
   TResult when<TResult extends Object?>({
     required TResult Function(EmbedViewImages data) images,
     required TResult Function(EmbedViewExternal data) external,
+    required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return images(data);
   }
@@ -158,6 +165,7 @@ class _$_Images implements _Images {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(EmbedViewImages data)? images,
     TResult? Function(EmbedViewExternal data)? external,
+    TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return images?.call(data);
   }
@@ -167,6 +175,7 @@ class _$_Images implements _Images {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(EmbedViewImages data)? images,
     TResult Function(EmbedViewExternal data)? external,
+    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
     if (images != null) {
@@ -180,6 +189,7 @@ class _$_Images implements _Images {
   TResult map<TResult extends Object?>({
     required TResult Function(_Images value) images,
     required TResult Function(_External value) external,
+    required TResult Function(_Unknown value) unknown,
   }) {
     return images(this);
   }
@@ -189,6 +199,7 @@ class _$_Images implements _Images {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Images value)? images,
     TResult? Function(_External value)? external,
+    TResult? Function(_Unknown value)? unknown,
   }) {
     return images?.call(this);
   }
@@ -198,6 +209,7 @@ class _$_Images implements _Images {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Images value)? images,
     TResult Function(_External value)? external,
+    TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) {
     if (images != null) {
@@ -293,6 +305,7 @@ class _$_External implements _External {
   TResult when<TResult extends Object?>({
     required TResult Function(EmbedViewImages data) images,
     required TResult Function(EmbedViewExternal data) external,
+    required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return external(data);
   }
@@ -302,6 +315,7 @@ class _$_External implements _External {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(EmbedViewImages data)? images,
     TResult? Function(EmbedViewExternal data)? external,
+    TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return external?.call(data);
   }
@@ -311,6 +325,7 @@ class _$_External implements _External {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(EmbedViewImages data)? images,
     TResult Function(EmbedViewExternal data)? external,
+    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
     if (external != null) {
@@ -324,6 +339,7 @@ class _$_External implements _External {
   TResult map<TResult extends Object?>({
     required TResult Function(_Images value) images,
     required TResult Function(_External value) external,
+    required TResult Function(_Unknown value) unknown,
   }) {
     return external(this);
   }
@@ -333,6 +349,7 @@ class _$_External implements _External {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Images value)? images,
     TResult? Function(_External value)? external,
+    TResult? Function(_Unknown value)? unknown,
   }) {
     return external?.call(this);
   }
@@ -342,6 +359,7 @@ class _$_External implements _External {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Images value)? images,
     TResult Function(_External value)? external,
+    TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) {
     if (external != null) {
@@ -359,5 +377,151 @@ abstract class _External implements EmbedViewMedia {
   EmbedViewExternal get data;
   @JsonKey(ignore: true)
   _$$_ExternalCopyWith<_$_External> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UnknownCopyWith<$Res> {
+  factory _$$_UnknownCopyWith(
+          _$_Unknown value, $Res Function(_$_Unknown) then) =
+      __$$_UnknownCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class __$$_UnknownCopyWithImpl<$Res>
+    extends _$EmbedViewMediaCopyWithImpl<$Res, _$_Unknown>
+    implements _$$_UnknownCopyWith<$Res> {
+  __$$_UnknownCopyWithImpl(_$_Unknown _value, $Res Function(_$_Unknown) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_Unknown(
+      data: null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Unknown implements _Unknown {
+  const _$_Unknown({required final Map<String, dynamic> data}) : _data = data;
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'EmbedViewMedia.unknown(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Unknown &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
+      __$$_UnknownCopyWithImpl<_$_Unknown>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(EmbedViewImages data) images,
+    required TResult Function(EmbedViewExternal data) external,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return unknown(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(EmbedViewImages data)? images,
+    TResult? Function(EmbedViewExternal data)? external,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return unknown?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(EmbedViewImages data)? images,
+    TResult Function(EmbedViewExternal data)? external,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (unknown != null) {
+      return unknown(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Images value) images,
+    required TResult Function(_External value) external,
+    required TResult Function(_Unknown value) unknown,
+  }) {
+    return unknown(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Images value)? images,
+    TResult? Function(_External value)? external,
+    TResult? Function(_Unknown value)? unknown,
+  }) {
+    return unknown?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Images value)? images,
+    TResult Function(_External value)? external,
+    TResult Function(_Unknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (unknown != null) {
+      return unknown(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Unknown implements EmbedViewMedia {
+  const factory _Unknown({required final Map<String, dynamic> data}) =
+      _$_Unknown;
+
+  @override
+  Map<String, dynamic> get data;
+  @JsonKey(ignore: true)
+  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
       throw _privateConstructorUsedError;
 }

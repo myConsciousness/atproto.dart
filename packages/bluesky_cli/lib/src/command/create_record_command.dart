@@ -16,7 +16,7 @@ abstract class CreateRecordCommand extends ProcedureCommand {
   xrpc.NSID get collection;
 
   /// Returns the creation record.
-  Map<String, dynamic> get record;
+  FutureOr<Map<String, dynamic>> get record;
 
   @override
   xrpc.NSID get methodId => xrpc.NSID.create(
@@ -28,6 +28,6 @@ abstract class CreateRecordCommand extends ProcedureCommand {
   FutureOr<Map<String, dynamic>>? get body async => {
         'repo': await did,
         'collection': collection.toString(),
-        'record': record,
+        'record': await record,
       };
 }

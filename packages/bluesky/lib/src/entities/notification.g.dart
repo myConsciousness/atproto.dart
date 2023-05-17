@@ -20,8 +20,22 @@ _$_Notification _$$_NotificationFromJson(Map json) => $checkedCreate(
               (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
           reason: $checkedConvert(
               'reason', (v) => $enumDecode(_$NotificationReasonEnumMap, v)),
-          reasonSubject: $checkedConvert('reasonSubject', (v) => v as String?),
+          reasonSubject: $checkedConvert(
+              'reasonSubject',
+              (v) => _$JsonConverterFromJson<String, AtUri>(
+                  v, const AtUriConverter().fromJson)),
           isRead: $checkedConvert('isRead', (v) => v as bool),
+          record: $checkedConvert(
+              'record',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+          labels: $checkedConvert(
+              'labels',
+              (v) => (v as List<dynamic>)
+                  .map((e) =>
+                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  .toList()),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
         );
@@ -43,19 +57,34 @@ Map<String, dynamic> _$$_NotificationToJson(_$_Notification instance) {
     }
   }
 
-  writeNotNull('reasonSubject', instance.reasonSubject);
+  writeNotNull(
+      'reasonSubject',
+      _$JsonConverterToJson<String, AtUri>(
+          instance.reasonSubject, const AtUriConverter().toJson));
   val['isRead'] = instance.isRead;
+  writeNotNull('record', instance.record);
+  val['labels'] = instance.labels.map((e) => e.toJson()).toList();
   val['indexedAt'] = instance.indexedAt.toIso8601String();
   return val;
 }
 
 const _$NotificationReasonEnumMap = {
   NotificationReason.like: 'like',
-  NotificationReason.assertion: 'assertion',
   NotificationReason.repost: 'repost',
   NotificationReason.follow: 'follow',
-  NotificationReason.invite: 'invite',
   NotificationReason.mention: 'mention',
   NotificationReason.reply: 'reply',
   NotificationReason.quote: 'quote',
 };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

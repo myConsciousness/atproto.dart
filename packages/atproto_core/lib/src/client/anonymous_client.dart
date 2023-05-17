@@ -75,4 +75,18 @@ class AnonymousClient implements Client {
         to: to,
         postClient: postClient,
       );
+
+  @override
+  xrpc.XRPCResponse<xrpc.Subscription<T>> stream<T>(
+    final xrpc.NSID methodId, {
+    final String? service,
+    final Map<String, dynamic>? parameters,
+    final xrpc.To<T>? to,
+  }) =>
+      xrpc.subscribe(
+        methodId,
+        service: service,
+        parameters: parameters,
+        to: to,
+      );
 }

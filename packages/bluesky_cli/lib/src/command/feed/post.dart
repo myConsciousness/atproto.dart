@@ -2,6 +2,9 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'dart:async';
+
+import 'package:bluesky_text/bluesky_text.dart';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 import '../create_record_command.dart';
@@ -39,8 +42,14 @@ class PostCommand extends CreateRecordCommand {
       );
 
   @override
-  Map<String, dynamic> get record => {
-        'text': argResults!['text'],
-        'createdAt': argResults!['created-at'],
-      };
+  FutureOr<Map<String, dynamic>> get record async {
+    final text = BlueskyText(argResults!['text']);
+    final entities = text.entities;
+
+    return {
+      'text': text.value,
+      'facets': await entities.toFacets(),
+      'createdAt': argResults!['created-at'],
+    };
+  }
 }

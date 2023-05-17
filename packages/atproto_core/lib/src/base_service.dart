@@ -29,12 +29,20 @@ abstract class _Service {
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final xrpc.NSID methodId,
     final File file, {
-    required UserContext userContext,
+    final UserContext userContext = UserContext.authRequired,
     final String? service,
     final Map<String, String>? headers,
     final Duration timeout = const Duration(seconds: 10),
     final xrpc.To<T>? to,
     final xrpc.PostClient? postClient,
+  });
+
+  Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
+    final xrpc.NSID methodId, {
+    final UserContext userContext = UserContext.authRequired,
+    final String? service,
+    final Map<String, dynamic>? parameters,
+    final xrpc.To<T>? to,
   });
 }
 
@@ -131,6 +139,22 @@ abstract class BaseService implements _Service {
         headers: headers,
         to: to,
         postClient: postClient,
+      );
+
+  @override
+  Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
+    final xrpc.NSID methodId, {
+    UserContext userContext = UserContext.authRequired,
+    final String? service,
+    final Map<String, dynamic>? parameters,
+    final xrpc.To<T>? to,
+  }) async =>
+      await _context.stream(
+        methodId,
+        userContext: userContext,
+        service: service,
+        parameters: parameters,
+        to: to,
       );
 
   /// Returns the NSID based on this service and [methodName].

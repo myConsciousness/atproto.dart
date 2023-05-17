@@ -29,6 +29,12 @@ _$_Post _$$_PostFromJson(Map json) => $checkedCreate(
           likeCount: $checkedConvert('likeCount', (v) => v as int),
           viewer: $checkedConvert('viewer',
               (v) => PostViewer.fromJson(Map<String, Object?>.from(v as Map))),
+          labels: $checkedConvert(
+              'labels',
+              (v) => (v as List<dynamic>)
+                  .map((e) =>
+                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  .toList()),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
         );
@@ -36,19 +42,32 @@ _$_Post _$$_PostFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_PostToJson(_$_Post instance) => <String, dynamic>{
-      'record': instance.record.toJson(),
-      'author': instance.author.toJson(),
-      'uri': const AtUriConverter().toJson(instance.uri),
-      'cid': instance.cid,
-      'embed': _$JsonConverterToJson<Map<String, dynamic>, EmbedView>(
-          instance.embed, const EmbedViewConverter().toJson),
-      'replyCount': instance.replyCount,
-      'repostCount': instance.repostCount,
-      'likeCount': instance.likeCount,
-      'viewer': instance.viewer.toJson(),
-      'indexedAt': instance.indexedAt.toIso8601String(),
-    };
+Map<String, dynamic> _$$_PostToJson(_$_Post instance) {
+  final val = <String, dynamic>{
+    'record': instance.record.toJson(),
+    'author': instance.author.toJson(),
+    'uri': const AtUriConverter().toJson(instance.uri),
+    'cid': instance.cid,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(
+      'embed',
+      _$JsonConverterToJson<Map<String, dynamic>, EmbedView>(
+          instance.embed, const EmbedViewConverter().toJson));
+  val['replyCount'] = instance.replyCount;
+  val['repostCount'] = instance.repostCount;
+  val['likeCount'] = instance.likeCount;
+  val['viewer'] = instance.viewer.toJson();
+  val['labels'] = instance.labels.map((e) => e.toJson()).toList();
+  val['indexedAt'] = instance.indexedAt.toIso8601String();
+  return val;
+}
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

@@ -52,6 +52,12 @@ Future<void> main() async {
     await atproto.repositories.deleteRecord(
       uri: createdRecord.data.uri,
     );
+
+    //! You can use Stream API easily.
+    final subscription = await atproto.sync.subscribeRepoUpdates();
+    subscription.data.stream.listen((event) {
+      print(event.toJson());
+    });
   } on atp.UnauthorizedException catch (e) {
     print(e);
   } on atp.XRPCException catch (e) {

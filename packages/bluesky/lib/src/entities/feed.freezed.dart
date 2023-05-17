@@ -21,7 +21,7 @@ Feed _$FeedFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Feed {
   List<FeedView> get feed => throw _privateConstructorUsedError;
-  String get cursor => throw _privateConstructorUsedError;
+  String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +33,7 @@ abstract class $FeedCopyWith<$Res> {
   factory $FeedCopyWith(Feed value, $Res Function(Feed) then) =
       _$FeedCopyWithImpl<$Res, Feed>;
   @useResult
-  $Res call({List<FeedView> feed, String cursor});
+  $Res call({List<FeedView> feed, String? cursor});
 }
 
 /// @nodoc
@@ -50,17 +50,17 @@ class _$FeedCopyWithImpl<$Res, $Val extends Feed>
   @override
   $Res call({
     Object? feed = null,
-    Object? cursor = null,
+    Object? cursor = freezed,
   }) {
     return _then(_value.copyWith(
       feed: null == feed
           ? _value.feed
           : feed // ignore: cast_nullable_to_non_nullable
               as List<FeedView>,
-      cursor: null == cursor
+      cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -71,7 +71,7 @@ abstract class _$$_FeedCopyWith<$Res> implements $FeedCopyWith<$Res> {
       __$$_FeedCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<FeedView> feed, String cursor});
+  $Res call({List<FeedView> feed, String? cursor});
 }
 
 /// @nodoc
@@ -84,17 +84,17 @@ class __$$_FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res, _$_Feed>
   @override
   $Res call({
     Object? feed = null,
-    Object? cursor = null,
+    Object? cursor = freezed,
   }) {
     return _then(_$_Feed(
       feed: null == feed
           ? _value._feed
           : feed // ignore: cast_nullable_to_non_nullable
               as List<FeedView>,
-      cursor: null == cursor
+      cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -102,7 +102,7 @@ class __$$_FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res, _$_Feed>
 /// @nodoc
 @JsonSerializable()
 class _$_Feed implements _Feed {
-  const _$_Feed({required final List<FeedView> feed, required this.cursor})
+  const _$_Feed({required final List<FeedView> feed, this.cursor})
       : _feed = feed;
 
   factory _$_Feed.fromJson(Map<String, dynamic> json) => _$$_FeedFromJson(json);
@@ -116,7 +116,7 @@ class _$_Feed implements _Feed {
   }
 
   @override
-  final String cursor;
+  final String? cursor;
 
   @override
   String toString() {
@@ -153,15 +153,14 @@ class _$_Feed implements _Feed {
 
 abstract class _Feed implements Feed {
   const factory _Feed(
-      {required final List<FeedView> feed,
-      required final String cursor}) = _$_Feed;
+      {required final List<FeedView> feed, final String? cursor}) = _$_Feed;
 
   factory _Feed.fromJson(Map<String, dynamic> json) = _$_Feed.fromJson;
 
   @override
   List<FeedView> get feed;
   @override
-  String get cursor;
+  String? get cursor;
   @override
   @JsonKey(ignore: true)
   _$$_FeedCopyWith<_$_Feed> get copyWith => throw _privateConstructorUsedError;

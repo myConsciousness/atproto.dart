@@ -23,11 +23,20 @@ _$_Session _$$_SessionFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_SessionToJson(_$_Session instance) =>
-    <String, dynamic>{
-      'did': instance.did,
-      'handle': instance.handle,
-      'email': instance.email,
-      'accessJwt': instance.accessJwt,
-      'refreshJwt': instance.refreshJwt,
-    };
+Map<String, dynamic> _$$_SessionToJson(_$_Session instance) {
+  final val = <String, dynamic>{
+    'did': instance.did,
+    'handle': instance.handle,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('email', instance.email);
+  val['accessJwt'] = instance.accessJwt;
+  val['refreshJwt'] = instance.refreshJwt;
+  return val;
+}

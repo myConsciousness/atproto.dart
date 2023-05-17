@@ -1,0 +1,43 @@
+{
+  "preferences": [
+    {
+      "$type": "app.bsky.actor.defs#contentLabelPref",
+      "label": "nsfw",
+      "visibility": "warn"
+    },
+    {
+      "$type": "app.bsky.actor.defs#contentLabelPref",
+      "label": "nudity",
+      "visibility": "warn"
+    },
+    {
+      "$type": "app.bsky.actor.defs#contentLabelPref",
+      "label": "suggestive",
+      "visibility": "warn"
+    },
+    {
+      "$type": "app.bsky.actor.defs#contentLabelPref",
+      "label": "gore",
+      "visibility": "warn"
+    },
+    {
+      "$type": "app.bsky.actor.defs#contentLabelPref",
+      "label": "hate",
+      "visibility": "hide"
+    },
+    {
+      "$type": "app.bsky.actor.defs#contentLabelPref",
+      "label": "spam",
+      "visibility": "show"
+    },
+    {
+      "$type": "app.bsky.actor.defs#contentLabelPref",
+      "label": "impersonation",
+      "visibility": "warn"
+    },
+    {
+      "$type": "app.bsky.actor.defs#adultContentPref",
+      "enabled": true
+    }
+  ]
+}

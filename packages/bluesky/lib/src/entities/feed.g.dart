@@ -19,7 +19,7 @@ _$_Feed _$$_FeedFromJson(Map json) => $checkedCreate(
                   .map((e) =>
                       FeedView.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
-          cursor: $checkedConvert('cursor', (v) => v as String),
+          cursor: $checkedConvert('cursor', (v) => v as String?),
         );
         return val;
       },

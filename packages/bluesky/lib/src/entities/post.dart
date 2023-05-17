@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -20,6 +21,10 @@ part 'post.g.dart';
 
 @freezed
 class Post with _$Post {
+  // ignore: unused_element
+  const Post._();
+
+  @JsonSerializable(includeIfNull: false)
   const factory Post({
     required PostRecord record,
     required Actor author,
@@ -30,8 +35,12 @@ class Post with _$Post {
     required int repostCount,
     required int likeCount,
     required PostViewer viewer,
+    required List<Label> labels,
     required DateTime indexedAt,
   }) = _Post;
 
   factory Post.fromJson(Map<String, Object?> json) => _$PostFromJson(json);
+
+  /// Returns the [StrongRef] representation of this record.
+  StrongRef toStrongRef() => StrongRef(cid: cid, uri: uri);
 }

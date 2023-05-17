@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto/atproto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -23,6 +24,7 @@ class Actor with _$Actor {
     String? description,
     String? avatar,
     required ActorViewer viewer,
+    required List<Label> labels,
     DateTime? indexedAt,
   }) = _Actor;
 

@@ -21,7 +21,7 @@ _$_RepostedBy _$$_RepostedByFromJson(Map json) => $checkedCreate(
                   .toList()),
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
-          cursor: $checkedConvert('cursor', (v) => v as String),
+          cursor: $checkedConvert('cursor', (v) => v as String?),
         );
         return val;
       },

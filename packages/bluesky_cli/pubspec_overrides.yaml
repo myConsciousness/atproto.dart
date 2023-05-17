@@ -1,5 +1,7 @@
 dependency_overrides:
-  xrpc:
-    path: ../xrpc
   at_uri:
     path: ../at_uri
+  xrpc:
+    path: ../xrpc
+  bluesky_text:
+    path: ../bluesky_text

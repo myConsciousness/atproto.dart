@@ -7,9 +7,16 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../bluesky_base_service.dart';
+import '../entities/blocks.dart';
+import '../entities/facet.dart';
 import '../entities/followers.dart';
 import '../entities/follows.dart';
+import '../entities/list_items.dart';
+import '../entities/lists.dart';
 import '../entities/mutes.dart';
+import '../params/list_item_param.dart';
+import '../params/list_param.dart';
+import '../params/repo_param.dart';
 
 abstract class GraphsService {
   /// Returns the new instance of [GraphsService].
@@ -51,6 +58,15 @@ abstract class GraphsService {
     required String did,
     DateTime? createdAt,
   });
+
+  /// Creates follows.
+  ///
+  /// ## Parameters
+  ///
+  /// - [params]: The collection of params from strong refs to be followed.
+  Future<core.XRPCResponse<core.EmptyData>> createFollows(
+    List<RepoParam> params,
+  );
 
   /// Returns follows of specific user.
   ///
@@ -156,6 +172,237 @@ abstract class GraphsService {
     int? limit,
     String? cursor,
   });
+
+  /// Who is the requester's account blocking?
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getBlocks
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getBlocks.json
+  Future<core.XRPCResponse<Blocks>> findBlocks({
+    int? limit,
+    String? cursor,
+  });
+
+  /// A block.
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: The unique user id.
+  ///
+  /// - [createdAt]: Date and time the follow was created.
+  ///                If omitted, defaults to the current time.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.createRecord
+  /// - app.bsky.graph.block
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getBlocks.json
+  Future<core.XRPCResponse<atp.Record>> createBlock({
+    required String did,
+    DateTime? createdAt,
+  });
+
+  /// Creates blocks.
+  ///
+  /// ## Parameters
+  ///
+  /// - [params]: The collection of params from strong refs to be blocked.
+  Future<core.XRPCResponse<core.EmptyData>> createBlocks(
+    List<RepoParam> params,
+  );
+
+  /// A declaration of a list of actors.
+  ///
+  /// ## Parameters
+  ///
+  /// - [name]: Name of list to be created.
+  ///
+  /// - [purpose]: Purpose of list to be created.
+  ///
+  /// - [description]: Description of list to be created.
+  ///
+  /// - [descriptionFacets]: Facet features for [description].
+  ///
+  /// - [avatar]: Avatar blob to set to list.
+  ///
+  /// - [createdAt]: Date and time the post was created.
+  ///                If omitted, defaults to the current time.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.list
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/list.json
+  Future<core.XRPCResponse<atp.Record>> createList({
+    required String name,
+    String purpose = 'app.bsky.graph.defs#modlist',
+    String? description,
+    List<Facet>? descriptionFacets,
+    atp.Blob? avatar,
+    DateTime? createdAt,
+  });
+
+  /// Creates lists.
+  ///
+  /// ## Parameters
+  ///
+  /// - [params]: The collection of list params from strong refs to be created.
+  Future<core.XRPCResponse<core.EmptyData>> createLists(
+    List<ListParam> params,
+  );
+
+  /// Fetch a list of lists that belong to an actor.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getLists
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getLists.json
+  Future<core.XRPCResponse<Lists>> findLists({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Fetch a list of actors.
+  ///
+  /// ## Parameters
+  ///
+  /// - [list]: The list uri.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getList
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getList.json
+  Future<core.XRPCResponse<ListItems>> findListItems({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  });
+
+  /// An item under a declared list of actors.
+  ///
+  /// ## Parameters
+  ///
+  /// - [subject]: The did of subject to be added.
+  ///
+  /// - [list]: The uri of list.
+  ///
+  /// - [createdAt]: Date and time the post was created.
+  ///                If omitted, defaults to the current time.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.listitem
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/listitem.json
+  Future<core.XRPCResponse<atp.Record>> createListItem({
+    required String subject,
+    required core.AtUri list,
+    DateTime? createdAt,
+  });
+
+  /// Creates list items.
+  ///
+  /// ## Parameters
+  ///
+  /// - [params]: The collection of list item params from strong refs to be
+  ///             created.
+  Future<core.XRPCResponse<core.EmptyData>> createListItems(
+    List<ListItemParam> params,
+  );
+
+  /// Which lists is the requester's account muting?
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getListMutes
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListMutes.json
+  Future<core.XRPCResponse<Lists>> findMutingLists({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Mute a list of actors.
+  ///
+  /// ## Parameters
+  ///
+  /// - [list]: AT URI of list.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.muteActorList
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/muteActorList.json
+  Future<core.XRPCResponse<core.EmptyData>> createMuteActorList({
+    required core.AtUri list,
+  });
+
+  /// Unmute a list of actors.
+  ///
+  /// ## Parameters
+  ///
+  /// - [list]: AT URI of list.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.unmuteActorList
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/unmuteActorList.json
+  Future<core.XRPCResponse<core.EmptyData>> deleteMuteActorList({
+    required core.AtUri list,
+  });
 }
 
 class _GraphsService extends BlueskyBaseService implements GraphsService {
@@ -180,6 +427,25 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
           'subject': did,
           'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
         },
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> createFollows(
+    List<RepoParam> params,
+  ) async =>
+      await atproto.repositories.createRecords(
+        actions: params
+            .map(
+              (e) => atp.CreateAction(
+                collection: createNSID('follow'),
+                record: {
+                  'subject': e.did,
+                  'createdAt':
+                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+                },
+              ),
+            )
+            .toList(),
       );
 
   @override
@@ -248,5 +514,200 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
           'cursor': cursor,
         },
         to: Mutes.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Blocks>> findBlocks({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await super.get(
+        'getBlocks',
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: Blocks.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.Record>> createBlock({
+    required String did,
+    DateTime? createdAt,
+  }) async =>
+      await atproto.repositories.createRecord(
+        collection: createNSID('block'),
+        record: {
+          'subject': did,
+          'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+        },
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> createBlocks(
+    List<RepoParam> params,
+  ) async =>
+      await atproto.repositories.createRecords(
+        actions: params
+            .map(
+              (e) => atp.CreateAction(
+                collection: createNSID('block'),
+                record: {
+                  'subject': e.did,
+                  'createdAt':
+                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+                },
+              ),
+            )
+            .toList(),
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.Record>> createList({
+    required String name,
+    String purpose = 'app.bsky.graph.defs#modlist',
+    String? description,
+    List<Facet>? descriptionFacets,
+    atp.Blob? avatar,
+    DateTime? createdAt,
+  }) async =>
+      await atproto.repositories.createRecord(
+        collection: createNSID('list'),
+        record: {
+          'purpose': purpose,
+          'name': name,
+          'description': description,
+          'descriptionFacets':
+              descriptionFacets?.map((e) => e.toJson()).toList(),
+          'avatar': avatar,
+          'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+        },
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.EmptyData>> createLists(
+    List<ListParam> params,
+  ) async =>
+      await atproto.repositories.createRecords(
+        actions: params
+            .map(
+              (e) => atp.CreateAction(
+                collection: createNSID('list'),
+                record: {
+                  'purpose': e.purpose,
+                  'name': e.name,
+                  'description': e.description,
+                  'descriptionFacets':
+                      e.descriptionFacets?.map((e) => e.toJson()).toList(),
+                  'avatar': e.avatar,
+                  'createdAt':
+                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+                },
+              ),
+            )
+            .toList(),
+      );
+
+  @override
+  Future<atp.XRPCResponse<Lists>> findLists({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await super.get(
+        'getLists',
+        parameters: {
+          'actor': actor,
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: Lists.fromJson,
+      );
+
+  @override
+  Future<atp.XRPCResponse<ListItems>> findListItems({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await super.get(
+        'getList',
+        parameters: {
+          'list': list.toString(),
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: ListItems.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.Record>> createListItem({
+    required String subject,
+    required core.AtUri list,
+    DateTime? createdAt,
+  }) async =>
+      await atproto.repositories.createRecord(
+        collection: createNSID('listitem'),
+        record: {
+          'subject': subject,
+          'list': list.toString(),
+          'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+        },
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.EmptyData>> createListItems(
+    List<ListItemParam> params,
+  ) async =>
+      await atproto.repositories.createRecords(
+        actions: params
+            .map(
+              (e) => atp.CreateAction(
+                collection: createNSID('listitem'),
+                record: {
+                  'subject': e.subject,
+                  'list': e.list.toString(),
+                  'createdAt':
+                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+                },
+              ),
+            )
+            .toList(),
+      );
+
+  @override
+  Future<core.XRPCResponse<Lists>> findMutingLists({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await super.get(
+        'getListMutes',
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: Lists.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> createMuteActorList({
+    required core.AtUri list,
+  }) async =>
+      await super.post(
+        'muteActorList',
+        body: {
+          'list': list.toString(),
+        },
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> deleteMuteActorList({
+    required core.AtUri list,
+  }) async =>
+      await super.post(
+        'unmuteActorList',
+        body: {
+          'list': list.toString(),
+        },
       );
 }

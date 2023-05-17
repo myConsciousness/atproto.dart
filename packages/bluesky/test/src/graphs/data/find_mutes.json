@@ -1,41 +1,25 @@
 {
-  "cursor": "1679794168236::did:plc:7nvpbh43v3onqkro7t3jgx2l",
+  "cursor": "1682841872832::did:plc:h6rh4b2cy3z6rplm3r22if6p",
   "mutes": [
     {
-      "did": "did:plc:3jusl67ujmuucpg4acgo5gtg",
-      "handle": "acaciodutra.bsky.social",
-      "displayName": "Acacio Dutra",
-      "description": "Aquela metamorfose ambulante ",
-      "avatar": "https://cdn.bsky.social/imgproxy/tfKXXF-N56aAAwocK1FIxHe3V4iFqX5KFREec1vE-u0/rs:fill:1000:1000:1:0/plain/bafkreictovvw23lv4il34cyiaage3emvz4ukua3uyla44h7jyzskskwtmq@jpeg",
-      "indexedAt": "2023-03-07T13:11:58.038Z",
+      "did": "did:plc:h6rh4b2cy3z6rplm3r22if6p",
+      "handle": "xxxxx.bsky.social",
+      "displayName": "xxxxx",
+      "indexedAt": "2023-04-22T01:26:08.149Z",
       "viewer": {
         "muted": true,
-        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jrmr46qox22i"
-      }
-    },
-    {
-      "did": "did:plc:hel4idsufzqtrec357rnzrr4",
-      "handle": "womarcelojr.bsky.social",
-      "displayName": "Marcelo Pinheiro ",
-      "description": "RJ | Odontologia ⚕️- Cirurgia Bucomaxilofacial e traumatologia",
-      "avatar": "https://cdn.bsky.social/imgproxy/lY93wYwQiehSiDR9csJSmpZbjORsut0JEFWiSf1ND3w/rs:fill:1000:1000:1:0/plain/bafkreieoynl74yc2h6ooyxah22ir5p7fiwp7e2s4wricdmgc63hy2fvq4e@jpeg",
-      "indexedAt": "2023-03-27T02:53:33.828Z",
-      "viewer": {
-        "muted": true,
-        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jrksszrcdk2o"
-      }
-    },
-    {
-      "did": "did:plc:7nvpbh43v3onqkro7t3jgx2l",
-      "handle": "paluccik.bsky.social",
-      "displayName": "Kaique",
-      "description": "instagram.com/paluccik\ntwitter.com/paluccik\n",
-      "avatar": "https://cdn.bsky.social/imgproxy/M7tqqeDBy4UWnJVMcsQQdB8Bydee2_cYPA_xUEtJ2TI/rs:fill:1000:1000:1:0/plain/bafkreif7o2k6poh5cdetkhwiwb4bea62wajdwgspnl77chkvwpt7544sru@jpeg",
-      "indexedAt": "2023-03-21T10:40:21.531Z",
-      "viewer": {
-        "muted": true,
-        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jriwhktkgs22"
-      }
+        "blockedBy": false,
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jtaow7wzjl2y"
+      },
+      "labels": [
+        {
+          "src": "did:plc:ar7c4by46qjdydhdevvrndac",
+          "uri": "did:plc:h6rh4b2cy3z6rplm3r22if6p",
+          "val": "impersonation",
+          "neg": false,
+          "cts": "2023-04-24T07:43:17.053Z"
+        }
+      ]
     }
   ]
 }

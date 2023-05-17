@@ -1,5 +1,13 @@
 # Release Note
 
+## v0.1.0
+
+- Updated SDK to `">=2.17.0 <4.0.0"`. ([#406](https://github.com/myConsciousness/atproto.dart/issues/406))
+
+## v0.0.14
+
+- Supported subscription function as `subscribe`. ([#318](https://github.com/myConsciousness/atproto.dart/issues/318))
+
 ## v0.0.13
 
 - Supported `protocol` options in `query`, `procedure`, `upload`. You can choose `http` as a protocol for your test locally. Defaults to `https`. ([#269](https://github.com/myConsciousness/atproto.dart/issues/269))

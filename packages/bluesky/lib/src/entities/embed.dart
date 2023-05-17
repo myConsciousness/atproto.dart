@@ -35,11 +35,16 @@ class Embed with _$Embed {
     required EmbedRecordWithMedia data,
   }) = _RecordWithMedia;
 
+  const factory Embed.unknown({
+    required Map<String, dynamic> data,
+  }) = _Unknown;
+
   /// Returns the JSON representation.
   Map<String, dynamic> toJson() => when(
         record: (data) => data.toJson(),
         images: (data) => data.toJson(),
         external: (data) => data.toJson(),
         recordWithMedia: (data) => data.toJson(),
+        unknown: (data) => data,
       );
 }

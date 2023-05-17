@@ -21,7 +21,8 @@ class EmbedRecordWithMedia with _$EmbedRecordWithMedia {
     @JsonKey(name: '\$type')
         String type,
     required EmbedRecord record,
-    @EmbedMediaConverter() required EmbedMedia media,
+    @EmbedMediaConverter()
+        required EmbedMedia media,
   }) = _EmbedRecordWithMedia;
 
   factory EmbedRecordWithMedia.fromJson(Map<String, Object?> json) =>

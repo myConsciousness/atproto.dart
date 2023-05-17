@@ -22,9 +22,8 @@ _$_FeedView _$$_FeedViewFromJson(Map json) => $checkedCreate(
                   : Reply.fromJson(Map<String, Object?>.from(v as Map))),
           reason: $checkedConvert(
               'reason',
-              (v) => v == null
-                  ? null
-                  : Reason.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, Reason>(
+                  v, const ReasonConverter().fromJson)),
         );
         return val;
       },
@@ -42,6 +41,21 @@ Map<String, dynamic> _$$_FeedViewToJson(_$_FeedView instance) {
   }
 
   writeNotNull('reply', instance.reply?.toJson());
-  writeNotNull('reason', instance.reason?.toJson());
+  writeNotNull(
+      'reason',
+      _$JsonConverterToJson<Map<String, dynamic>, Reason>(
+          instance.reason, const ReasonConverter().toJson));
   return val;
 }
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

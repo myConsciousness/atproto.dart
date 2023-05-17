@@ -22,8 +22,15 @@ ActorViewer _$ActorViewerFromJson(Map<String, dynamic> json) {
 mixin _$ActorViewer {
   @JsonKey(name: 'muted')
   bool get isMuted => throw _privateConstructorUsedError;
-  String? get following => throw _privateConstructorUsedError;
-  String? get followedBy => throw _privateConstructorUsedError;
+  @JsonKey(name: 'blockedBy')
+  bool get isBlockedBy => throw _privateConstructorUsedError;
+  ListViewBasic? get mutedByList => throw _privateConstructorUsedError;
+  @AtUriConverter()
+  AtUri? get blocking => throw _privateConstructorUsedError;
+  @AtUriConverter()
+  AtUri? get following => throw _privateConstructorUsedError;
+  @AtUriConverter()
+  AtUri? get followedBy => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,8 +46,13 @@ abstract class $ActorViewerCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'muted') bool isMuted,
-      String? following,
-      String? followedBy});
+      @JsonKey(name: 'blockedBy') bool isBlockedBy,
+      ListViewBasic? mutedByList,
+      @AtUriConverter() AtUri? blocking,
+      @AtUriConverter() AtUri? following,
+      @AtUriConverter() AtUri? followedBy});
+
+  $ListViewBasicCopyWith<$Res>? get mutedByList;
 }
 
 /// @nodoc
@@ -57,6 +69,9 @@ class _$ActorViewerCopyWithImpl<$Res, $Val extends ActorViewer>
   @override
   $Res call({
     Object? isMuted = null,
+    Object? isBlockedBy = null,
+    Object? mutedByList = freezed,
+    Object? blocking = freezed,
     Object? following = freezed,
     Object? followedBy = freezed,
   }) {
@@ -65,15 +80,39 @@ class _$ActorViewerCopyWithImpl<$Res, $Val extends ActorViewer>
           ? _value.isMuted
           : isMuted // ignore: cast_nullable_to_non_nullable
               as bool,
+      isBlockedBy: null == isBlockedBy
+          ? _value.isBlockedBy
+          : isBlockedBy // ignore: cast_nullable_to_non_nullable
+              as bool,
+      mutedByList: freezed == mutedByList
+          ? _value.mutedByList
+          : mutedByList // ignore: cast_nullable_to_non_nullable
+              as ListViewBasic?,
+      blocking: freezed == blocking
+          ? _value.blocking
+          : blocking // ignore: cast_nullable_to_non_nullable
+              as AtUri?,
       following: freezed == following
           ? _value.following
           : following // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as AtUri?,
       followedBy: freezed == followedBy
           ? _value.followedBy
           : followedBy // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as AtUri?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ListViewBasicCopyWith<$Res>? get mutedByList {
+    if (_value.mutedByList == null) {
+      return null;
+    }
+
+    return $ListViewBasicCopyWith<$Res>(_value.mutedByList!, (value) {
+      return _then(_value.copyWith(mutedByList: value) as $Val);
+    });
   }
 }
 
@@ -87,8 +126,14 @@ abstract class _$$_ActorViewerCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'muted') bool isMuted,
-      String? following,
-      String? followedBy});
+      @JsonKey(name: 'blockedBy') bool isBlockedBy,
+      ListViewBasic? mutedByList,
+      @AtUriConverter() AtUri? blocking,
+      @AtUriConverter() AtUri? following,
+      @AtUriConverter() AtUri? followedBy});
+
+  @override
+  $ListViewBasicCopyWith<$Res>? get mutedByList;
 }
 
 /// @nodoc
@@ -103,6 +148,9 @@ class __$$_ActorViewerCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isMuted = null,
+    Object? isBlockedBy = null,
+    Object? mutedByList = freezed,
+    Object? blocking = freezed,
     Object? following = freezed,
     Object? followedBy = freezed,
   }) {
@@ -111,14 +159,26 @@ class __$$_ActorViewerCopyWithImpl<$Res>
           ? _value.isMuted
           : isMuted // ignore: cast_nullable_to_non_nullable
               as bool,
+      isBlockedBy: null == isBlockedBy
+          ? _value.isBlockedBy
+          : isBlockedBy // ignore: cast_nullable_to_non_nullable
+              as bool,
+      mutedByList: freezed == mutedByList
+          ? _value.mutedByList
+          : mutedByList // ignore: cast_nullable_to_non_nullable
+              as ListViewBasic?,
+      blocking: freezed == blocking
+          ? _value.blocking
+          : blocking // ignore: cast_nullable_to_non_nullable
+              as AtUri?,
       following: freezed == following
           ? _value.following
           : following // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as AtUri?,
       followedBy: freezed == followedBy
           ? _value.followedBy
           : followedBy // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as AtUri?,
     ));
   }
 }
@@ -129,8 +189,11 @@ class __$$_ActorViewerCopyWithImpl<$Res>
 class _$_ActorViewer implements _ActorViewer {
   const _$_ActorViewer(
       {@JsonKey(name: 'muted') required this.isMuted,
-      this.following,
-      this.followedBy});
+      @JsonKey(name: 'blockedBy') required this.isBlockedBy,
+      this.mutedByList,
+      @AtUriConverter() this.blocking,
+      @AtUriConverter() this.following,
+      @AtUriConverter() this.followedBy});
 
   factory _$_ActorViewer.fromJson(Map<String, dynamic> json) =>
       _$$_ActorViewerFromJson(json);
@@ -139,13 +202,23 @@ class _$_ActorViewer implements _ActorViewer {
   @JsonKey(name: 'muted')
   final bool isMuted;
   @override
-  final String? following;
+  @JsonKey(name: 'blockedBy')
+  final bool isBlockedBy;
   @override
-  final String? followedBy;
+  final ListViewBasic? mutedByList;
+  @override
+  @AtUriConverter()
+  final AtUri? blocking;
+  @override
+  @AtUriConverter()
+  final AtUri? following;
+  @override
+  @AtUriConverter()
+  final AtUri? followedBy;
 
   @override
   String toString() {
-    return 'ActorViewer(isMuted: $isMuted, following: $following, followedBy: $followedBy)';
+    return 'ActorViewer(isMuted: $isMuted, isBlockedBy: $isBlockedBy, mutedByList: $mutedByList, blocking: $blocking, following: $following, followedBy: $followedBy)';
   }
 
   @override
@@ -154,6 +227,12 @@ class _$_ActorViewer implements _ActorViewer {
         (other.runtimeType == runtimeType &&
             other is _$_ActorViewer &&
             (identical(other.isMuted, isMuted) || other.isMuted == isMuted) &&
+            (identical(other.isBlockedBy, isBlockedBy) ||
+                other.isBlockedBy == isBlockedBy) &&
+            (identical(other.mutedByList, mutedByList) ||
+                other.mutedByList == mutedByList) &&
+            (identical(other.blocking, blocking) ||
+                other.blocking == blocking) &&
             (identical(other.following, following) ||
                 other.following == following) &&
             (identical(other.followedBy, followedBy) ||
@@ -162,7 +241,8 @@ class _$_ActorViewer implements _ActorViewer {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, isMuted, following, followedBy);
+  int get hashCode => Object.hash(runtimeType, isMuted, isBlockedBy,
+      mutedByList, blocking, following, followedBy);
 
   @JsonKey(ignore: true)
   @override
@@ -181,8 +261,11 @@ class _$_ActorViewer implements _ActorViewer {
 abstract class _ActorViewer implements ActorViewer {
   const factory _ActorViewer(
       {@JsonKey(name: 'muted') required final bool isMuted,
-      final String? following,
-      final String? followedBy}) = _$_ActorViewer;
+      @JsonKey(name: 'blockedBy') required final bool isBlockedBy,
+      final ListViewBasic? mutedByList,
+      @AtUriConverter() final AtUri? blocking,
+      @AtUriConverter() final AtUri? following,
+      @AtUriConverter() final AtUri? followedBy}) = _$_ActorViewer;
 
   factory _ActorViewer.fromJson(Map<String, dynamic> json) =
       _$_ActorViewer.fromJson;
@@ -191,9 +274,19 @@ abstract class _ActorViewer implements ActorViewer {
   @JsonKey(name: 'muted')
   bool get isMuted;
   @override
-  String? get following;
+  @JsonKey(name: 'blockedBy')
+  bool get isBlockedBy;
   @override
-  String? get followedBy;
+  ListViewBasic? get mutedByList;
+  @override
+  @AtUriConverter()
+  AtUri? get blocking;
+  @override
+  @AtUriConverter()
+  AtUri? get following;
+  @override
+  @AtUriConverter()
+  AtUri? get followedBy;
   @override
   @JsonKey(ignore: true)
   _$$_ActorViewerCopyWith<_$_ActorViewer> get copyWith =>

@@ -17,7 +17,7 @@ part 'feed.g.dart';
 class Feed with _$Feed {
   const factory Feed({
     required List<FeedView> feed,
-    required String cursor,
+    String? cursor,
   }) = _Feed;
 
   factory Feed.fromJson(Map<String, Object?> json) => _$FeedFromJson(json);

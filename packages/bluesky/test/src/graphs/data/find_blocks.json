@@ -1,0 +1,26 @@
+{
+  "blocks": [
+    {
+      "did": "did:plc:h6rh4b2cy3z6rplm3r22if6p",
+      "handle": "xxxxxx.bsky.social",
+      "displayName": "xxxxxxx",
+      "indexedAt": "2023-04-22T01:26:08.149Z",
+      "viewer": {
+        "muted": false,
+        "blockedBy": false,
+        "blocking": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.block/3jul4t2srzw2l",
+        "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jtaow7wzjl2y"
+      },
+      "labels": [
+        {
+          "src": "did:plc:ar7c4by46qjdydhdevvrndac",
+          "uri": "did:plc:h6rh4b2cy3z6rplm3r22if6p",
+          "val": "impersonation",
+          "neg": false,
+          "cts": "2023-04-24T07:43:17.053Z"
+        }
+      ]
+    }
+  ],
+  "cursor": "1682839891419::bafyreid6v7suec6nm7ldx3y4zepqkaysholsus4etzuz7kubu7j6jb7uji"
+}

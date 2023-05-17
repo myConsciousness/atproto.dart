@@ -21,7 +21,7 @@ Notifications _$NotificationsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Notifications {
   List<Notification> get notifications => throw _privateConstructorUsedError;
-  String get cursor => throw _privateConstructorUsedError;
+  String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $NotificationsCopyWith<$Res> {
           Notifications value, $Res Function(Notifications) then) =
       _$NotificationsCopyWithImpl<$Res, Notifications>;
   @useResult
-  $Res call({List<Notification> notifications, String cursor});
+  $Res call({List<Notification> notifications, String? cursor});
 }
 
 /// @nodoc
@@ -52,17 +52,17 @@ class _$NotificationsCopyWithImpl<$Res, $Val extends Notifications>
   @override
   $Res call({
     Object? notifications = null,
-    Object? cursor = null,
+    Object? cursor = freezed,
   }) {
     return _then(_value.copyWith(
       notifications: null == notifications
           ? _value.notifications
           : notifications // ignore: cast_nullable_to_non_nullable
               as List<Notification>,
-      cursor: null == cursor
+      cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -75,7 +75,7 @@ abstract class _$$_NotificationsCopyWith<$Res>
       __$$_NotificationsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Notification> notifications, String cursor});
+  $Res call({List<Notification> notifications, String? cursor});
 }
 
 /// @nodoc
@@ -90,17 +90,17 @@ class __$$_NotificationsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? notifications = null,
-    Object? cursor = null,
+    Object? cursor = freezed,
   }) {
     return _then(_$_Notifications(
       notifications: null == notifications
           ? _value._notifications
           : notifications // ignore: cast_nullable_to_non_nullable
               as List<Notification>,
-      cursor: null == cursor
+      cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -109,7 +109,7 @@ class __$$_NotificationsCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Notifications implements _Notifications {
   const _$_Notifications(
-      {required final List<Notification> notifications, required this.cursor})
+      {required final List<Notification> notifications, this.cursor})
       : _notifications = notifications;
 
   factory _$_Notifications.fromJson(Map<String, dynamic> json) =>
@@ -124,7 +124,7 @@ class _$_Notifications implements _Notifications {
   }
 
   @override
-  final String cursor;
+  final String? cursor;
 
   @override
   String toString() {
@@ -163,7 +163,7 @@ class _$_Notifications implements _Notifications {
 abstract class _Notifications implements Notifications {
   const factory _Notifications(
       {required final List<Notification> notifications,
-      required final String cursor}) = _$_Notifications;
+      final String? cursor}) = _$_Notifications;
 
   factory _Notifications.fromJson(Map<String, dynamic> json) =
       _$_Notifications.fromJson;
@@ -171,7 +171,7 @@ abstract class _Notifications implements Notifications {
   @override
   List<Notification> get notifications;
   @override
-  String get cursor;
+  String? get cursor;
   @override
   @JsonKey(ignore: true)
   _$$_NotificationsCopyWith<_$_Notifications> get copyWith =>

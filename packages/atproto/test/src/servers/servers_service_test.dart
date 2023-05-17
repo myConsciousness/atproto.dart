@@ -5,8 +5,8 @@
 import 'package:atproto/src/entities/account.dart';
 import 'package:atproto/src/entities/app_password.dart';
 import 'package:atproto/src/entities/app_passwords.dart';
+import 'package:atproto/src/entities/created_invite_code.dart';
 import 'package:atproto/src/entities/current_session.dart';
-import 'package:atproto/src/entities/invite_code.dart';
 import 'package:atproto/src/entities/invite_codes.dart';
 import 'package:atproto/src/entities/session.dart';
 import 'package:atproto/src/servers/servers_service.dart';
@@ -277,7 +277,7 @@ void main() {
       );
 
       expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<InviteCode>());
+      expect(response.data, isA<CreatedInviteCode>());
     });
 
     test('when unauthorized', () async {

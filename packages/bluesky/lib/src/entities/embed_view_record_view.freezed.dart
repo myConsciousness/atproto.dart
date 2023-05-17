@@ -19,39 +19,51 @@ mixin _$EmbedViewRecordView {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(EmbedViewRecordViewRecord data) viewRecord,
-    required TResult Function(EmbedViewRecordViewNotFound data) viewNotFound,
+    required TResult Function(EmbedViewRecordViewRecord data) record,
+    required TResult Function(EmbedViewRecordViewNotFound data) notFound,
+    required TResult Function(EmbedViewRecordViewBlocked data) blocked,
+    required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedViewRecordViewRecord data)? viewRecord,
-    TResult? Function(EmbedViewRecordViewNotFound data)? viewNotFound,
+    TResult? Function(EmbedViewRecordViewRecord data)? record,
+    TResult? Function(EmbedViewRecordViewNotFound data)? notFound,
+    TResult? Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedViewRecordViewRecord data)? viewRecord,
-    TResult Function(EmbedViewRecordViewNotFound data)? viewNotFound,
+    TResult Function(EmbedViewRecordViewRecord data)? record,
+    TResult Function(EmbedViewRecordViewNotFound data)? notFound,
+    TResult Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ViewRecord value) viewRecord,
-    required TResult Function(_ViewNotFound value) viewNotFound,
+    required TResult Function(_Record value) record,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Blocked value) blocked,
+    required TResult Function(_Unknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ViewRecord value)? viewRecord,
-    TResult? Function(_ViewNotFound value)? viewNotFound,
+    TResult? Function(_Record value)? record,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Blocked value)? blocked,
+    TResult? Function(_Unknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ViewRecord value)? viewRecord,
-    TResult Function(_ViewNotFound value)? viewNotFound,
+    TResult Function(_Record value)? record,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Blocked value)? blocked,
+    TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -76,10 +88,9 @@ class _$EmbedViewRecordViewCopyWithImpl<$Res, $Val extends EmbedViewRecordView>
 }
 
 /// @nodoc
-abstract class _$$_ViewRecordCopyWith<$Res> {
-  factory _$$_ViewRecordCopyWith(
-          _$_ViewRecord value, $Res Function(_$_ViewRecord) then) =
-      __$$_ViewRecordCopyWithImpl<$Res>;
+abstract class _$$_RecordCopyWith<$Res> {
+  factory _$$_RecordCopyWith(_$_Record value, $Res Function(_$_Record) then) =
+      __$$_RecordCopyWithImpl<$Res>;
   @useResult
   $Res call({EmbedViewRecordViewRecord data});
 
@@ -87,11 +98,10 @@ abstract class _$$_ViewRecordCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ViewRecordCopyWithImpl<$Res>
-    extends _$EmbedViewRecordViewCopyWithImpl<$Res, _$_ViewRecord>
-    implements _$$_ViewRecordCopyWith<$Res> {
-  __$$_ViewRecordCopyWithImpl(
-      _$_ViewRecord _value, $Res Function(_$_ViewRecord) _then)
+class __$$_RecordCopyWithImpl<$Res>
+    extends _$EmbedViewRecordViewCopyWithImpl<$Res, _$_Record>
+    implements _$$_RecordCopyWith<$Res> {
+  __$$_RecordCopyWithImpl(_$_Record _value, $Res Function(_$_Record) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +109,7 @@ class __$$_ViewRecordCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_ViewRecord(
+    return _then(_$_Record(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -118,22 +128,22 @@ class __$$_ViewRecordCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ViewRecord implements _ViewRecord {
-  const _$_ViewRecord({required this.data});
+class _$_Record implements _Record {
+  const _$_Record({required this.data});
 
   @override
   final EmbedViewRecordViewRecord data;
 
   @override
   String toString() {
-    return 'EmbedViewRecordView.viewRecord(data: $data)';
+    return 'EmbedViewRecordView.record(data: $data)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ViewRecord &&
+            other is _$_Record &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -143,36 +153,42 @@ class _$_ViewRecord implements _ViewRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ViewRecordCopyWith<_$_ViewRecord> get copyWith =>
-      __$$_ViewRecordCopyWithImpl<_$_ViewRecord>(this, _$identity);
+  _$$_RecordCopyWith<_$_Record> get copyWith =>
+      __$$_RecordCopyWithImpl<_$_Record>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(EmbedViewRecordViewRecord data) viewRecord,
-    required TResult Function(EmbedViewRecordViewNotFound data) viewNotFound,
+    required TResult Function(EmbedViewRecordViewRecord data) record,
+    required TResult Function(EmbedViewRecordViewNotFound data) notFound,
+    required TResult Function(EmbedViewRecordViewBlocked data) blocked,
+    required TResult Function(Map<String, dynamic> data) unknown,
   }) {
-    return viewRecord(data);
+    return record(data);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedViewRecordViewRecord data)? viewRecord,
-    TResult? Function(EmbedViewRecordViewNotFound data)? viewNotFound,
+    TResult? Function(EmbedViewRecordViewRecord data)? record,
+    TResult? Function(EmbedViewRecordViewNotFound data)? notFound,
+    TResult? Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
-    return viewRecord?.call(data);
+    return record?.call(data);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedViewRecordViewRecord data)? viewRecord,
-    TResult Function(EmbedViewRecordViewNotFound data)? viewNotFound,
+    TResult Function(EmbedViewRecordViewRecord data)? record,
+    TResult Function(EmbedViewRecordViewNotFound data)? notFound,
+    TResult Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
-    if (viewRecord != null) {
-      return viewRecord(data);
+    if (record != null) {
+      return record(data);
     }
     return orElse();
   }
@@ -180,51 +196,57 @@ class _$_ViewRecord implements _ViewRecord {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ViewRecord value) viewRecord,
-    required TResult Function(_ViewNotFound value) viewNotFound,
+    required TResult Function(_Record value) record,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Blocked value) blocked,
+    required TResult Function(_Unknown value) unknown,
   }) {
-    return viewRecord(this);
+    return record(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ViewRecord value)? viewRecord,
-    TResult? Function(_ViewNotFound value)? viewNotFound,
+    TResult? Function(_Record value)? record,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Blocked value)? blocked,
+    TResult? Function(_Unknown value)? unknown,
   }) {
-    return viewRecord?.call(this);
+    return record?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ViewRecord value)? viewRecord,
-    TResult Function(_ViewNotFound value)? viewNotFound,
+    TResult Function(_Record value)? record,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Blocked value)? blocked,
+    TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) {
-    if (viewRecord != null) {
-      return viewRecord(this);
+    if (record != null) {
+      return record(this);
     }
     return orElse();
   }
 }
 
-abstract class _ViewRecord implements EmbedViewRecordView {
-  const factory _ViewRecord({required final EmbedViewRecordViewRecord data}) =
-      _$_ViewRecord;
+abstract class _Record implements EmbedViewRecordView {
+  const factory _Record({required final EmbedViewRecordViewRecord data}) =
+      _$_Record;
 
   @override
   EmbedViewRecordViewRecord get data;
   @JsonKey(ignore: true)
-  _$$_ViewRecordCopyWith<_$_ViewRecord> get copyWith =>
+  _$$_RecordCopyWith<_$_Record> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ViewNotFoundCopyWith<$Res> {
-  factory _$$_ViewNotFoundCopyWith(
-          _$_ViewNotFound value, $Res Function(_$_ViewNotFound) then) =
-      __$$_ViewNotFoundCopyWithImpl<$Res>;
+abstract class _$$_NotFoundCopyWith<$Res> {
+  factory _$$_NotFoundCopyWith(
+          _$_NotFound value, $Res Function(_$_NotFound) then) =
+      __$$_NotFoundCopyWithImpl<$Res>;
   @useResult
   $Res call({EmbedViewRecordViewNotFound data});
 
@@ -232,11 +254,11 @@ abstract class _$$_ViewNotFoundCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ViewNotFoundCopyWithImpl<$Res>
-    extends _$EmbedViewRecordViewCopyWithImpl<$Res, _$_ViewNotFound>
-    implements _$$_ViewNotFoundCopyWith<$Res> {
-  __$$_ViewNotFoundCopyWithImpl(
-      _$_ViewNotFound _value, $Res Function(_$_ViewNotFound) _then)
+class __$$_NotFoundCopyWithImpl<$Res>
+    extends _$EmbedViewRecordViewCopyWithImpl<$Res, _$_NotFound>
+    implements _$$_NotFoundCopyWith<$Res> {
+  __$$_NotFoundCopyWithImpl(
+      _$_NotFound _value, $Res Function(_$_NotFound) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -244,7 +266,7 @@ class __$$_ViewNotFoundCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_ViewNotFound(
+    return _then(_$_NotFound(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -263,22 +285,22 @@ class __$$_ViewNotFoundCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ViewNotFound implements _ViewNotFound {
-  const _$_ViewNotFound({required this.data});
+class _$_NotFound implements _NotFound {
+  const _$_NotFound({required this.data});
 
   @override
   final EmbedViewRecordViewNotFound data;
 
   @override
   String toString() {
-    return 'EmbedViewRecordView.viewNotFound(data: $data)';
+    return 'EmbedViewRecordView.notFound(data: $data)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ViewNotFound &&
+            other is _$_NotFound &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -288,36 +310,42 @@ class _$_ViewNotFound implements _ViewNotFound {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ViewNotFoundCopyWith<_$_ViewNotFound> get copyWith =>
-      __$$_ViewNotFoundCopyWithImpl<_$_ViewNotFound>(this, _$identity);
+  _$$_NotFoundCopyWith<_$_NotFound> get copyWith =>
+      __$$_NotFoundCopyWithImpl<_$_NotFound>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(EmbedViewRecordViewRecord data) viewRecord,
-    required TResult Function(EmbedViewRecordViewNotFound data) viewNotFound,
+    required TResult Function(EmbedViewRecordViewRecord data) record,
+    required TResult Function(EmbedViewRecordViewNotFound data) notFound,
+    required TResult Function(EmbedViewRecordViewBlocked data) blocked,
+    required TResult Function(Map<String, dynamic> data) unknown,
   }) {
-    return viewNotFound(data);
+    return notFound(data);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedViewRecordViewRecord data)? viewRecord,
-    TResult? Function(EmbedViewRecordViewNotFound data)? viewNotFound,
+    TResult? Function(EmbedViewRecordViewRecord data)? record,
+    TResult? Function(EmbedViewRecordViewNotFound data)? notFound,
+    TResult? Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
-    return viewNotFound?.call(data);
+    return notFound?.call(data);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedViewRecordViewRecord data)? viewRecord,
-    TResult Function(EmbedViewRecordViewNotFound data)? viewNotFound,
+    TResult Function(EmbedViewRecordViewRecord data)? record,
+    TResult Function(EmbedViewRecordViewNotFound data)? notFound,
+    TResult Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
-    if (viewNotFound != null) {
-      return viewNotFound(data);
+    if (notFound != null) {
+      return notFound(data);
     }
     return orElse();
   }
@@ -325,42 +353,356 @@ class _$_ViewNotFound implements _ViewNotFound {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ViewRecord value) viewRecord,
-    required TResult Function(_ViewNotFound value) viewNotFound,
+    required TResult Function(_Record value) record,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Blocked value) blocked,
+    required TResult Function(_Unknown value) unknown,
   }) {
-    return viewNotFound(this);
+    return notFound(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ViewRecord value)? viewRecord,
-    TResult? Function(_ViewNotFound value)? viewNotFound,
+    TResult? Function(_Record value)? record,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Blocked value)? blocked,
+    TResult? Function(_Unknown value)? unknown,
   }) {
-    return viewNotFound?.call(this);
+    return notFound?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ViewRecord value)? viewRecord,
-    TResult Function(_ViewNotFound value)? viewNotFound,
+    TResult Function(_Record value)? record,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Blocked value)? blocked,
+    TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) {
-    if (viewNotFound != null) {
-      return viewNotFound(this);
+    if (notFound != null) {
+      return notFound(this);
     }
     return orElse();
   }
 }
 
-abstract class _ViewNotFound implements EmbedViewRecordView {
-  const factory _ViewNotFound(
-      {required final EmbedViewRecordViewNotFound data}) = _$_ViewNotFound;
+abstract class _NotFound implements EmbedViewRecordView {
+  const factory _NotFound({required final EmbedViewRecordViewNotFound data}) =
+      _$_NotFound;
 
   @override
   EmbedViewRecordViewNotFound get data;
   @JsonKey(ignore: true)
-  _$$_ViewNotFoundCopyWith<_$_ViewNotFound> get copyWith =>
+  _$$_NotFoundCopyWith<_$_NotFound> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_BlockedCopyWith<$Res> {
+  factory _$$_BlockedCopyWith(
+          _$_Blocked value, $Res Function(_$_Blocked) then) =
+      __$$_BlockedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({EmbedViewRecordViewBlocked data});
+
+  $EmbedViewRecordViewBlockedCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_BlockedCopyWithImpl<$Res>
+    extends _$EmbedViewRecordViewCopyWithImpl<$Res, _$_Blocked>
+    implements _$$_BlockedCopyWith<$Res> {
+  __$$_BlockedCopyWithImpl(_$_Blocked _value, $Res Function(_$_Blocked) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_Blocked(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as EmbedViewRecordViewBlocked,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $EmbedViewRecordViewBlockedCopyWith<$Res> get data {
+    return $EmbedViewRecordViewBlockedCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_Blocked implements _Blocked {
+  const _$_Blocked({required this.data});
+
+  @override
+  final EmbedViewRecordViewBlocked data;
+
+  @override
+  String toString() {
+    return 'EmbedViewRecordView.blocked(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Blocked &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_BlockedCopyWith<_$_Blocked> get copyWith =>
+      __$$_BlockedCopyWithImpl<_$_Blocked>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(EmbedViewRecordViewRecord data) record,
+    required TResult Function(EmbedViewRecordViewNotFound data) notFound,
+    required TResult Function(EmbedViewRecordViewBlocked data) blocked,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return blocked(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(EmbedViewRecordViewRecord data)? record,
+    TResult? Function(EmbedViewRecordViewNotFound data)? notFound,
+    TResult? Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return blocked?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(EmbedViewRecordViewRecord data)? record,
+    TResult Function(EmbedViewRecordViewNotFound data)? notFound,
+    TResult Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (blocked != null) {
+      return blocked(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Record value) record,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Blocked value) blocked,
+    required TResult Function(_Unknown value) unknown,
+  }) {
+    return blocked(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Record value)? record,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Blocked value)? blocked,
+    TResult? Function(_Unknown value)? unknown,
+  }) {
+    return blocked?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Record value)? record,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Blocked value)? blocked,
+    TResult Function(_Unknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (blocked != null) {
+      return blocked(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Blocked implements EmbedViewRecordView {
+  const factory _Blocked({required final EmbedViewRecordViewBlocked data}) =
+      _$_Blocked;
+
+  @override
+  EmbedViewRecordViewBlocked get data;
+  @JsonKey(ignore: true)
+  _$$_BlockedCopyWith<_$_Blocked> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UnknownCopyWith<$Res> {
+  factory _$$_UnknownCopyWith(
+          _$_Unknown value, $Res Function(_$_Unknown) then) =
+      __$$_UnknownCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class __$$_UnknownCopyWithImpl<$Res>
+    extends _$EmbedViewRecordViewCopyWithImpl<$Res, _$_Unknown>
+    implements _$$_UnknownCopyWith<$Res> {
+  __$$_UnknownCopyWithImpl(_$_Unknown _value, $Res Function(_$_Unknown) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_Unknown(
+      data: null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Unknown implements _Unknown {
+  const _$_Unknown({required final Map<String, dynamic> data}) : _data = data;
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'EmbedViewRecordView.unknown(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Unknown &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
+      __$$_UnknownCopyWithImpl<_$_Unknown>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(EmbedViewRecordViewRecord data) record,
+    required TResult Function(EmbedViewRecordViewNotFound data) notFound,
+    required TResult Function(EmbedViewRecordViewBlocked data) blocked,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return unknown(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(EmbedViewRecordViewRecord data)? record,
+    TResult? Function(EmbedViewRecordViewNotFound data)? notFound,
+    TResult? Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return unknown?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(EmbedViewRecordViewRecord data)? record,
+    TResult Function(EmbedViewRecordViewNotFound data)? notFound,
+    TResult Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (unknown != null) {
+      return unknown(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Record value) record,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Blocked value) blocked,
+    required TResult Function(_Unknown value) unknown,
+  }) {
+    return unknown(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Record value)? record,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Blocked value)? blocked,
+    TResult? Function(_Unknown value)? unknown,
+  }) {
+    return unknown?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Record value)? record,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Blocked value)? blocked,
+    TResult Function(_Unknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (unknown != null) {
+      return unknown(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Unknown implements EmbedViewRecordView {
+  const factory _Unknown({required final Map<String, dynamic> data}) =
+      _$_Unknown;
+
+  @override
+  Map<String, dynamic> get data;
+  @JsonKey(ignore: true)
+  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
       throw _privateConstructorUsedError;
 }

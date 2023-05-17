@@ -18,7 +18,7 @@ class Likes with _$Likes {
   const factory Likes({
     required List<Like> likes,
     @AtUriConverter() required AtUri uri,
-    required String cursor,
+    String? cursor,
   }) = _Likes;
 
   factory Likes.fromJson(Map<String, Object?> json) => _$LikesFromJson(json);

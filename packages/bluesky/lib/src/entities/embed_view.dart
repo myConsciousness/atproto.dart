@@ -31,4 +31,8 @@ class EmbedView with _$EmbedView {
   const factory EmbedView.recordWithMedia({
     required EmbedViewRecordWithMedia data,
   }) = _RecordWithMedia;
+
+  const factory EmbedView.unknown({
+    required Map<String, dynamic> data,
+  }) = _Unknown;
 }

@@ -27,6 +27,10 @@ Global options:
 
 Available commands:
   actors-typeahead     Show the typeahead for actors.
+  add-list-item        Add an item to list.
+  block                Block an user.
+  blocks               Show the blocked users.
+  create-list          Create a list.
   delete               Delete a specific contents from repository.
   feed                 Show the feed of specific actor.
   follow               Follow an user.
@@ -34,14 +38,20 @@ Available commands:
   follows              Show the following users.
   like                 Like a specific post.
   likes                Show the likes of specific post.
+  list                 Show the list.
+  lists                Show the lists.
   mute                 Mute an user.
+  mute-list            Mute an actor list.
   mutes                Show the muted users.
+  muting-lists         Show the muting lists.
   notification-count   Show the count of notification of authenticated user.
   notifications        Show the notifications of authenticated user.
   popular              Show the popular contents.
   post                 Post to Bluesky Social.
+  preferences          Show the private preferences.
   profile              Show the profile of specific user.
   profiles             Show the profiles of specific users.
+  put-preferences      Put new preferences.
   repost               Repost a specific post.
   reposted-by          Show the actors reposted specific post.
   search-actors        Search the actors based on term.
@@ -50,6 +60,7 @@ Available commands:
   thread               Show the thread of specific post.
   timeline             Show the timeline of authenticated user.
   unmute               Unmute an user.
+  unmute-list          Unmute an actor list.
 
 Run "bsky help <command>" for more information about a command.
 ```

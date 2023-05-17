@@ -38,9 +38,10 @@
     - [1.1.4. GitHub Actions](#114-github-actions)
   - [1.2. Melos Commands](#12-melos-commands)
   - [1.3. Contribution 🏆](#13-contribution-)
-  - [1.4. Support ❤️](#14-support-️)
-  - [1.5. License 🔑](#15-license-)
-  - [1.6. More Information 🧐](#16-more-information-)
+  - [1.4. Contributors ✨](#14-contributors-)
+  - [1.5. Support ❤️](#15-support-️)
+  - [1.6. License 🔑](#16-license-)
+  - [1.7. More Information 🧐](#17-more-information-)
 
 <!-- /TOC -->
 
@@ -65,6 +66,7 @@ and to contribute to the development of [AT Protocol](https://atproto.com) and [
 | [atproto_core](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_core)   |  [![pub package](https://img.shields.io/pub/v/atproto_core.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/atproto_core)  | Provide core reusable and useful functionality for wrapping AT Protocol and related services.                                                                 |
 | [lexicon](https://github.com/myConsciousness/atproto.dart/tree/main/packages/lexicon)             |       [![pub package](https://img.shields.io/pub/v/lexicon.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/lexicon)       | Provide AT Protocol standard [lexicon](https://atproto.com/specs/lexicon) objects for Dart/Flutter.                                                           |
 | [atproto](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto)             |       [![pub package](https://img.shields.io/pub/v/atproto.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/atproto)       | Provide the easiest and powerful way to use [com.atproto](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto) lexicons in Dart/Flutter. |
+| [bluesky_text](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_text)   |  [![pub package](https://img.shields.io/pub/v/bluesky_text.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky_text)  | Provides the easiest and most powerful way to analyze the text on Bluesky Social.                                                                             |
 | [bluesky](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky)             |       [![pub package](https://img.shields.io/pub/v/bluesky.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky)       | Provide the easiest and powerful way to use [app.bsky](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky) lexicons in Dart/Flutter.       |
 
 ### 1.1.2. Flutter
@@ -89,7 +91,13 @@ and to contribute to the development of [AT Protocol](https://atproto.com) and [
 
 This project consists of several packages and is managed using [Melos](https://github.com/invertase/melos).
 
-The Melos commands available for this project are:
+First you need to install [Melos](https://github.com/invertase/melos) with following command.
+
+```bash
+dart pub global activate melos
+```
+
+Then, the Melos commands available for this project are:
 
 | Command            | Description                                               |
 | ------------------ | --------------------------------------------------------- |
@@ -126,7 +134,37 @@ Or you can create a [discussion](https://github.com/myConsciousness/atproto.dart
 
 **Feel free to join this development, diverse opinions make software better!**
 
-## 1.4. Support ❤️
+## 1.4. Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="20%"><a href="http://shinyakato.dev"><img src="https://avatars.githubusercontent.com/u/13072231?v=4?s=100" width="100px;" alt="Shinya Kato / 加藤 真也"/><br /><sub><b>Shinya Kato / 加藤 真也</b></sub></a><br /><a href="https://github.com/myConsciousness/atproto.dart/commits?author=myConsciousness" title="Code">💻</a> <a href="#content-myConsciousness" title="Content">🖋</a> <a href="https://github.com/myConsciousness/atproto.dart/issues?q=author%3AmyConsciousness" title="Bug reports">🐛</a> <a href="https://github.com/myConsciousness/atproto.dart/commits?author=myConsciousness" title="Documentation">📖</a> <a href="#data-myConsciousness" title="Data">🔣</a> <a href="#design-myConsciousness" title="Design">🎨</a> <a href="#example-myConsciousness" title="Examples">💡</a> <a href="#infra-myConsciousness" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-myConsciousness" title="Maintenance">🚧</a> <a href="#projectManagement-myConsciousness" title="Project Management">📆</a> <a href="#promotion-myConsciousness" title="Promotion">📣</a> <a href="https://github.com/myConsciousness/atproto.dart/pulls?q=is%3Apr+reviewed-by%3AmyConsciousness" title="Reviewed Pull Requests">👀</a> <a href="#security-myConsciousness" title="Security">🛡️</a> <a href="#tool-myConsciousness" title="Tools">🔧</a> <a href="https://github.com/myConsciousness/atproto.dart/commits?author=myConsciousness" title="Tests">⚠️</a> <a href="#tutorial-myConsciousness" title="Tutorials">✅</a></td>
+      <td align="center" valign="top" width="20%"><a href="https://github.com/tacsotai"><img src="https://avatars.githubusercontent.com/u/80247372?v=4?s=100" width="100px;" alt="tacsotai"/><br /><sub><b>tacsotai</b></sub></a><br /><a href="#ideas-tacsotai" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center" valign="top" width="20%"><a href="http://lukepighetti.com"><img src="https://avatars.githubusercontent.com/u/666539?v=4?s=100" width="100px;" alt="Luke Pighetti"/><br /><sub><b>Luke Pighetti</b></sub></a><br /><a href="#ideas-lukepighetti" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/myConsciousness/atproto.dart/issues?q=author%3Alukepighetti" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="20%"><a href="https://twitter.com/__justplaying"><img src="https://avatars.githubusercontent.com/u/81575558?v=4?s=100" width="100px;" alt="Alice"/><br /><sub><b>Alice</b></sub></a><br /><a href="#ideas-aliceisjustplaying" title="Ideas, Planning, & Feedback">🤔</a> <a href="#platform-aliceisjustplaying" title="Packaging/porting to new platform">📦</a></td>
+      <td align="center" valign="top" width="20%"><a href="https://videah.net"><img src="https://avatars.githubusercontent.com/u/4761786?v=4?s=100" width="100px;" alt="videah"/><br /><sub><b>videah</b></sub></a><br /><a href="#ideas-videah" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/myConsciousness/atproto.dart/issues?q=author%3Avideah" title="Bug reports">🐛</a> <a href="#platform-videah" title="Packaging/porting to new platform">📦</a> <a href="#question-videah" title="Answering Questions">💬</a> <a href="#userTesting-videah" title="User Testing">📓</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="20%"><a href="https://github.com/redsolver"><img src="https://avatars.githubusercontent.com/u/30355444?v=4?s=100" width="100px;" alt="redsolver"/><br /><sub><b>redsolver</b></sub></a><br /><a href="#ideas-redsolver" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/myConsciousness/atproto.dart/issues?q=author%3Aredsolver" title="Bug reports">🐛</a> <a href="#question-redsolver" title="Answering Questions">💬</a></td>
+      <td align="center" valign="top" width="20%"><a href="http://shy.dev"><img src="https://avatars.githubusercontent.com/u/1316340?v=4?s=100" width="100px;" alt="Shy Ruparel"/><br /><sub><b>Shy Ruparel</b></sub></a><br /><a href="#ideas-Shy" title="Ideas, Planning, & Feedback">🤔</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+## 1.5. Support ❤️
 
 The simplest way to show us your support is by **giving the project a star** at [GitHub](https://github.com/myConsciousness/atproto.dart) and [Pub.dev](https://pub.dev/packages/bluesky).
 
@@ -140,7 +178,7 @@ You can also support this project by **becoming a sponsor** on GitHub:
   </p>
 </div>
 
-## 1.5. License 🔑
+## 1.6. License 🔑
 
 The source code provided in this monorepo is is provided under the `BSD-3` license.
 
@@ -153,7 +191,7 @@ modification, are permitted provided the conditions.
 > **Note**</br>
 > License notices in the source are strictly validated based on `.github/header-checker-lint.yml`. Please check [header-checker-lint.yml](https://github.com/myConsciousness/atproto.dart/tree/main/.github/header-checker-lint.yml) for the permitted standards.
 
-## 1.6. More Information 🧐
+## 1.7. More Information 🧐
 
 All resources in **atproto.dart** is maintained by **_Shinya Kato ([@myConsciousness](https://github.com/myConsciousness))_**.
 
