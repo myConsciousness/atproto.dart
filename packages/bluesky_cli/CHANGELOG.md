@@ -1,6 +1,6 @@
 # Release Note
 
-## v0.1.3
+## v0.2.0
 
 - Supported `preferences` command. ([#387](https://github.com/myConsciousness/atproto.dart/issues/387))
 - Supported `put-preferences` command. ([#388](https://github.com/myConsciousness/atproto.dart/issues/388))
