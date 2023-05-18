@@ -213,6 +213,34 @@ void main() {
 
       expect(handles.length, 0);
     });
+
+    test('case12', () {
+      expect(
+        () => BlueskyText('a' * 300).handles,
+        returnsNormally,
+      );
+    });
+
+    test('case13', () {
+      expect(
+        () => BlueskyText('a' * 301).handles,
+        throwsA(isA<StateError>()),
+      );
+    });
+
+    test('case14', () {
+      expect(
+        () => BlueskyText('😳' * 301).handles,
+        throwsA(isA<StateError>()),
+      );
+    });
+
+    test('case15', () {
+      expect(
+        () => BlueskyText('😳' * 300).handles,
+        returnsNormally,
+      );
+    });
   });
 
   group('.links', () {
@@ -343,6 +371,34 @@ void main() {
 
       expect(links.length, 0);
     });
+
+    test('case12', () {
+      expect(
+        () => BlueskyText('a' * 300).links,
+        returnsNormally,
+      );
+    });
+
+    test('case13', () {
+      expect(
+        () => BlueskyText('a' * 301).links,
+        throwsA(isA<StateError>()),
+      );
+    });
+
+    test('case14', () {
+      expect(
+        () => BlueskyText('😳' * 301).links,
+        throwsA(isA<StateError>()),
+      );
+    });
+
+    test('case15', () {
+      expect(
+        () => BlueskyText('😳' * 300).links,
+        returnsNormally,
+      );
+    });
   });
 
   group('.entities', () {
@@ -414,6 +470,134 @@ github.com/videah/SkyBridge
       expect(entities.first.value, '@videah.net');
       expect(entities.first.indices.start, 36);
       expect(entities.first.indices.end, 47);
+    });
+
+    test('case7', () {
+      expect(
+        () => BlueskyText('a' * 300).entities,
+        returnsNormally,
+      );
+    });
+
+    test('case8', () {
+      expect(
+        () => BlueskyText('a' * 301).entities,
+        throwsA(isA<StateError>()),
+      );
+    });
+
+    test('case9', () {
+      expect(
+        () => BlueskyText('😳' * 301).entities,
+        throwsA(isA<StateError>()),
+      );
+    });
+
+    test('case10', () {
+      expect(
+        () => BlueskyText('😳' * 300).entities,
+        returnsNormally,
+      );
+    });
+  });
+
+  group('.getCustomEntities', () {
+    test('case1', () {
+      final text = BlueskyText('@shinyakato.dev');
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.type, EntityType.handle);
+      expect(entities.first.value, '@shinyakato.dev');
+      expect(entities.first.indices.start, 0);
+      expect(entities.first.indices.end, 15);
+    });
+
+    test('case2', () {
+      final text = BlueskyText('@shinyakato.dev http://text.com');
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.handle);
+      expect(entities.first.value, '@shinyakato.dev');
+      expect(entities.first.indices.start, 0);
+      expect(entities.first.indices.end, 15);
+
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value, 'http://text.com');
+      expect(entities[1].indices.start, 16);
+      expect(entities[1].indices.end, 31);
+    });
+
+    test('case3', () {
+      final text = BlueskyText('shinyakato.dev http://text.com');
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.type, EntityType.link);
+      expect(entities.first.value, 'http://text.com');
+      expect(entities.first.indices.start, 15);
+      expect(entities.first.indices.end, 30);
+    });
+
+    test('case4', () {
+      final text = BlueskyText('');
+      final entities = text.entities;
+
+      expect(entities.length, 0);
+    });
+
+    test('case5', () {
+      final text = BlueskyText('   ');
+      final entities = text.entities;
+
+      expect(entities.length, 0);
+    });
+
+    test('case6', () {
+      final text = BlueskyText('''
+Testing mentions and URLs in Ivory
+
+@videah.net
+
+github.com/videah/SkyBridge
+''');
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.isHandle, isTrue);
+      expect(entities.first.value, '@videah.net');
+      expect(entities.first.indices.start, 36);
+      expect(entities.first.indices.end, 47);
+    });
+
+    test('case7', () {
+      expect(
+        () => BlueskyText('a' * 300).entities,
+        returnsNormally,
+      );
+    });
+
+    test('case8', () {
+      expect(
+        () => BlueskyText('a' * 301).entities,
+        throwsA(isA<StateError>()),
+      );
+    });
+
+    test('case9', () {
+      expect(
+        () => BlueskyText('😳' * 301).entities,
+        throwsA(isA<StateError>()),
+      );
+    });
+
+    test('case10', () {
+      expect(
+        () => BlueskyText('😳' * 300).entities,
+        returnsNormally,
+      );
     });
   });
 
@@ -795,6 +979,20 @@ github.com/videah/SkyBridge
       expect(texts.first.value, 'a' * 300);
       expect(texts[1].isLengthLimitExceeded, isFalse);
       expect(texts[1].value, 'a t');
+    });
+
+    test('case7', () {
+      final text = BlueskyText('    ');
+      final texts = text.split();
+
+      expect(texts.length, 1);
+    });
+
+    test('case8', () {
+      final text = BlueskyText('');
+      final texts = text.split();
+
+      expect(texts.length, 1);
     });
   });
 }

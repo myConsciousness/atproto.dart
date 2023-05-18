@@ -8,8 +8,12 @@ import 'dart:typed_data';
 import 'package:characters/characters.dart';
 
 import 'entities/byte_indices.dart';
+import 'entities/custom_entities.dart';
+import 'entities/custom_entity.dart';
 import 'entities/entities.dart';
 import 'entities/entity.dart';
+import 'entities/facetable.dart';
+import 'params/entity_criterion.dart';
 import 'regex.dart';
 
 /// The max length of text.
@@ -107,6 +111,10 @@ abstract class BlueskyText {
   /// It includes the response from [handles] and [links].
   Entities get entities;
 
+  CustomEntities getCustomEntities(
+    final List<EntityCriterion> criteria,
+  );
+
   /// Splits this [value].
   ///
   /// The maximum number of characters that can be posted on Bluesky Social
@@ -170,43 +178,78 @@ class _BlueskyText implements BlueskyText {
   int get length => value.characters.length;
 
   @override
-  Entities get handles {
-    _validateLength();
-
-    return Entities(
-      _orderByIndicesStart(_getEntities(
-        EntityType.handle,
-        ['@'],
-        regexHandle,
-      )),
-    );
-  }
+  Entities get handles => Entities(
+        _orderByIndicesStart(
+          _getEntities(
+            ['@'],
+            regexHandle,
+            (value, start, end) => _createEntity(
+              EntityType.handle,
+              value,
+              start,
+              end,
+            ),
+          ),
+        ),
+      );
 
   @override
-  Entities get links {
-    _validateLength();
-
-    return Entities(
-      _orderByIndicesStart(_getEntities(
-        EntityType.link,
-        ['http:', 'https:'],
-        regexLink,
-      )),
-    );
-  }
+  Entities get links => Entities(
+        _orderByIndicesStart(
+          _getEntities(
+            ['http:', 'https:'],
+            regexLink,
+            (value, start, end) => _createEntity(
+              EntityType.link,
+              value,
+              start,
+              end,
+            ),
+          ),
+        ),
+      );
 
   @override
   Entities get entities => Entities(
-        _orderByIndicesStart([
+        _orderByIndicesStart<Entity>([
           ...handles,
           ...links,
         ]),
       );
 
   @override
+  CustomEntities getCustomEntities(
+    final List<EntityCriterion> criteria,
+  ) =>
+      CustomEntities(
+        _orderByIndicesStart(criteria
+            .map(
+              (criterion) => criterion.symbols
+                  .map((symbol) => _getEntities(
+                        [symbol],
+                        criterion.format ?? RegExp(symbol),
+                        (value, start, end) => _createCustomEntity(
+                          symbol,
+                          value,
+                          start,
+                          end,
+                        ),
+                      ))
+                  .expand((e) => e)
+                  .toList(),
+            )
+            .expand((e) => e)
+            .toList()),
+      );
+
+  @override
   List<BlueskyText> split() {
     if (value.trim().isEmpty) {
-      return [];
+      return [this];
+    }
+
+    if (isNotLengthLimitExceeded) {
+      return [this];
     }
 
     final chunk = StringBuffer();
@@ -291,12 +334,14 @@ class _BlueskyText implements BlueskyText {
   @override
   bool get isNotEmpty => !isEmpty;
 
-  List<Entity> _getEntities(
-    final EntityType type,
+  List<E> _getEntities<E extends Facetable>(
     final List<String> symbols,
-    final RegExp formatRegex,
+    final RegExp format,
+    E Function(String value, int start, int end) entityBuilder,
   ) {
-    final entities = <Entity>[];
+    _ensureLength();
+
+    final entities = <E>[];
 
     for (final symbol in symbols) {
       int index = 0;
@@ -328,10 +373,13 @@ class _BlueskyText implements BlueskyText {
           {
             //! Detect duplicate sequences.
             if (searchByteIndex > searchBytes.length) {
-              final found = utf8.decode(_bytes.sublist(
-                index,
-                index + searchByteIndex,
-              ));
+              final found = utf8.decode(
+                _bytes.sublist(
+                  index,
+                  index + searchByteIndex,
+                ),
+                allowMalformed: true,
+              );
 
               if (found.endsWith(symbol)) {
                 searchByteIndex -= searchBytes.length;
@@ -358,15 +406,12 @@ class _BlueskyText implements BlueskyText {
           value = value.substring(0, valueIndex + 1);
           searchByteIndex = utf8.encode(value).length;
 
-          if (value != symbol && formatRegex.hasMatch(value)) {
-            entities.add(
-              _createEntity(
-                type,
-                value,
-                index,
-                index + searchByteIndex,
-              ),
-            );
+          if (format.hasMatch(value)) {
+            entities.add(entityBuilder.call(
+              value,
+              index,
+              index + searchByteIndex,
+            ));
           }
         }
 
@@ -393,7 +438,23 @@ class _BlueskyText implements BlueskyText {
         ),
       );
 
-  void _validateLength() {
+  /// Returns the custom entity.
+  CustomEntity _createCustomEntity(
+    final String symbol,
+    final String value,
+    final int startIndex,
+    final int endIndex,
+  ) =>
+      CustomEntity(
+        symbol: symbol,
+        value: value,
+        indices: ByteIndices(
+          start: startIndex,
+          end: endIndex,
+        ),
+      );
+
+  void _ensureLength() {
     if (isLengthLimitExceeded) {
       throw StateError(
         'The number of characters in text exceeds the limit; '
@@ -402,10 +463,11 @@ class _BlueskyText implements BlueskyText {
     }
   }
 
-  List<Entity> _orderByIndicesStart(final List<Entity> entities) => entities
-    ..sort(
-      (a, b) => a.indices.start.compareTo(b.indices.start),
-    );
+  List<E> _orderByIndicesStart<E extends Facetable>(final List<E> entities) =>
+      entities
+        ..sort(
+          (a, b) => a.indices.start.compareTo(b.indices.start),
+        );
 
   @override
   String toString() => value;
