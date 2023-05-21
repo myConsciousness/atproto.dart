@@ -16,9 +16,8 @@ class NotFoundPost with _$NotFoundPost {
   const factory NotFoundPost({
     @Default('app.bsky.feed.defs#notFoundPost')
     @JsonKey(name: '\$type')
-        String type,
-    @AtUriConverter()
-        required AtUri uri,
+    String type,
+    @AtUriConverter() required AtUri uri,
     required bool notFound,
   }) = _NotFoundPost;
 

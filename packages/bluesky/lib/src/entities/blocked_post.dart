@@ -16,9 +16,8 @@ class BlockedPost with _$BlockedPost {
   const factory BlockedPost({
     @Default('app.bsky.feed.defs#blockedPost')
     @JsonKey(name: '\$type')
-        String type,
-    @AtUriConverter()
-        required AtUri uri,
+    String type,
+    @AtUriConverter() required AtUri uri,
     required bool blocked,
   }) = _BlockedPost;
 
