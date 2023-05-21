@@ -103,6 +103,7 @@ Then, the Melos commands available for this project are:
 | ------------------ | --------------------------------------------------------- |
 | melos get          | Run `pub get` command in this project.                    |
 | melos analyze      | Run `dart analyze` in all packages.                       |
+| melos format       | Run `dart format` in all packages.                        |
 | melos test         | Run all Dart & Flutter tests in this project.             |
 | melos test:dart    | Run Dart tests for a specific package in this project.    |
 | melos test:flutter | Run Flutter tests for a specific package in this project. |
