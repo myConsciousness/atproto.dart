@@ -2,32 +2,31 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'post_thread_view_not_found.dart';
+part of 'blocked_post.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PostThreadViewNotFound _$$_PostThreadViewNotFoundFromJson(Map json) =>
-    $checkedCreate(
-      r'_$_PostThreadViewNotFound',
+_$_BlockedPost _$$_BlockedPostFromJson(Map json) => $checkedCreate(
+      r'_$_BlockedPost',
       json,
       ($checkedConvert) {
-        final val = _$_PostThreadViewNotFound(
-          type: $checkedConvert(r'$type', (v) => v as String),
+        final val = _$_BlockedPost(
+          type: $checkedConvert(r'$type',
+              (v) => v as String? ?? 'app.bsky.feed.defs#blockedPost'),
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
-          notFound: $checkedConvert('notFound', (v) => v as bool),
+          blocked: $checkedConvert('blocked', (v) => v as bool),
         );
         return val;
       },
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$_PostThreadViewNotFoundToJson(
-        _$_PostThreadViewNotFound instance) =>
+Map<String, dynamic> _$$_BlockedPostToJson(_$_BlockedPost instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'uri': const AtUriConverter().toJson(instance.uri),
-      'notFound': instance.notFound,
+      'blocked': instance.blocked,
     };

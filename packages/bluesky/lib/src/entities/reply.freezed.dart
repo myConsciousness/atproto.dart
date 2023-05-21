@@ -20,8 +20,10 @@ Reply _$ReplyFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Reply {
-  Post get root => throw _privateConstructorUsedError;
-  Post get parent => throw _privateConstructorUsedError;
+  @ReplyPostConverter()
+  ReplyPost get root => throw _privateConstructorUsedError;
+  @ReplyPostConverter()
+  ReplyPost get parent => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,10 +35,12 @@ abstract class $ReplyCopyWith<$Res> {
   factory $ReplyCopyWith(Reply value, $Res Function(Reply) then) =
       _$ReplyCopyWithImpl<$Res, Reply>;
   @useResult
-  $Res call({Post root, Post parent});
+  $Res call(
+      {@ReplyPostConverter() ReplyPost root,
+      @ReplyPostConverter() ReplyPost parent});
 
-  $PostCopyWith<$Res> get root;
-  $PostCopyWith<$Res> get parent;
+  $ReplyPostCopyWith<$Res> get root;
+  $ReplyPostCopyWith<$Res> get parent;
 }
 
 /// @nodoc
@@ -59,26 +63,26 @@ class _$ReplyCopyWithImpl<$Res, $Val extends Reply>
       root: null == root
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
-              as Post,
+              as ReplyPost,
       parent: null == parent
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
-              as Post,
+              as ReplyPost,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $PostCopyWith<$Res> get root {
-    return $PostCopyWith<$Res>(_value.root, (value) {
+  $ReplyPostCopyWith<$Res> get root {
+    return $ReplyPostCopyWith<$Res>(_value.root, (value) {
       return _then(_value.copyWith(root: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $PostCopyWith<$Res> get parent {
-    return $PostCopyWith<$Res>(_value.parent, (value) {
+  $ReplyPostCopyWith<$Res> get parent {
+    return $ReplyPostCopyWith<$Res>(_value.parent, (value) {
       return _then(_value.copyWith(parent: value) as $Val);
     });
   }
@@ -90,12 +94,14 @@ abstract class _$$_ReplyCopyWith<$Res> implements $ReplyCopyWith<$Res> {
       __$$_ReplyCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Post root, Post parent});
+  $Res call(
+      {@ReplyPostConverter() ReplyPost root,
+      @ReplyPostConverter() ReplyPost parent});
 
   @override
-  $PostCopyWith<$Res> get root;
+  $ReplyPostCopyWith<$Res> get root;
   @override
-  $PostCopyWith<$Res> get parent;
+  $ReplyPostCopyWith<$Res> get parent;
 }
 
 /// @nodoc
@@ -114,11 +120,11 @@ class __$$_ReplyCopyWithImpl<$Res> extends _$ReplyCopyWithImpl<$Res, _$_Reply>
       root: null == root
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
-              as Post,
+              as ReplyPost,
       parent: null == parent
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
-              as Post,
+              as ReplyPost,
     ));
   }
 }
@@ -126,15 +132,19 @@ class __$$_ReplyCopyWithImpl<$Res> extends _$ReplyCopyWithImpl<$Res, _$_Reply>
 /// @nodoc
 @JsonSerializable()
 class _$_Reply implements _Reply {
-  const _$_Reply({required this.root, required this.parent});
+  const _$_Reply(
+      {@ReplyPostConverter() required this.root,
+      @ReplyPostConverter() required this.parent});
 
   factory _$_Reply.fromJson(Map<String, dynamic> json) =>
       _$$_ReplyFromJson(json);
 
   @override
-  final Post root;
+  @ReplyPostConverter()
+  final ReplyPost root;
   @override
-  final Post parent;
+  @ReplyPostConverter()
+  final ReplyPost parent;
 
   @override
   String toString() {
@@ -169,15 +179,18 @@ class _$_Reply implements _Reply {
 }
 
 abstract class _Reply implements Reply {
-  const factory _Reply({required final Post root, required final Post parent}) =
-      _$_Reply;
+  const factory _Reply(
+      {@ReplyPostConverter() required final ReplyPost root,
+      @ReplyPostConverter() required final ReplyPost parent}) = _$_Reply;
 
   factory _Reply.fromJson(Map<String, dynamic> json) = _$_Reply.fromJson;
 
   @override
-  Post get root;
+  @ReplyPostConverter()
+  ReplyPost get root;
   @override
-  Post get parent;
+  @ReplyPostConverter()
+  ReplyPost get parent;
   @override
   @JsonKey(ignore: true)
   _$$_ReplyCopyWith<_$_Reply> get copyWith =>

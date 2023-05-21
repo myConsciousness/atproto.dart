@@ -26,11 +26,16 @@ class Post with _$Post {
 
   @JsonSerializable(includeIfNull: false)
   const factory Post({
+    @Default('app.bsky.feed.defs#postView')
+    @JsonKey(name: '\$type')
+        String type,
     required PostRecord record,
     required Actor author,
-    @AtUriConverter() required AtUri uri,
+    @AtUriConverter()
+        required AtUri uri,
     required String cid,
-    @EmbedViewConverter() EmbedView? embed,
+    @EmbedViewConverter()
+        EmbedView? embed,
     required int replyCount,
     required int repostCount,
     required int likeCount,

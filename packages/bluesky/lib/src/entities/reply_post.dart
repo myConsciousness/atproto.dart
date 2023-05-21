@@ -3,30 +3,29 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'blocked_post.dart';
 import 'not_found_post.dart';
-import 'post_thread_view_record.dart';
+import 'post.dart';
 
-part 'post_thread_view.freezed.dart';
+part 'reply_post.freezed.dart';
 
 @freezed
-class PostThreadView with _$PostThreadView {
-  const factory PostThreadView.record({
-    required PostThreadViewRecord data,
+class ReplyPost with _$ReplyPost {
+  const factory ReplyPost.record({
+    required Post data,
   }) = _Record;
 
-  const factory PostThreadView.notFound({
+  const factory ReplyPost.notFound({
     required NotFoundPost data,
   }) = _NotFound;
 
-  const factory PostThreadView.blocked({
+  const factory ReplyPost.blocked({
     required BlockedPost data,
   }) = _Blocked;
 
-  const factory PostThreadView.unknown({
+  const factory ReplyPost.unknown({
     required Map<String, dynamic> data,
   }) = _Unknown;
 }
