@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.2
+
+- Supported `app.bsky.feed.generator` as `createGenerator` in `FeedsService`. ([#430](https://github.com/myConsciousness/atproto.dart/issues/430))
+
 ## v0.5.1
 
 - The `Reply` object under the `Feed` object has been modified to be Union as `ReplyPost`. In addition, the following objects have been renamed to make them common objects. ([#424](https://github.com/myConsciousness/atproto.dart/issues/424))

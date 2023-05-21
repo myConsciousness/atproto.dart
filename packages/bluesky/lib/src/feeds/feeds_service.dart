@@ -15,6 +15,7 @@ import '../entities/post_thread.dart';
 import '../entities/posts.dart';
 import '../entities/reply_ref.dart';
 import '../entities/reposted_by.dart';
+import '../params/generator_param.dart';
 import '../params/post_param.dart';
 import '../params/strong_ref_param.dart';
 import '../params/thread_param.dart';
@@ -293,6 +294,48 @@ abstract class FeedsService {
   Future<core.XRPCResponse<Posts>> findPosts({
     required List<core.AtUri> uris,
   });
+
+  /// A declaration of the existence of a feed generator.
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: A string of specific DID.
+  ///
+  /// - [displayName]: Name of generator to be created.
+  ///
+  /// - [description]: Description of generator to be created.
+  ///
+  /// - [descriptionFacets]: Facet features for [description].
+  ///
+  /// - [avatar]: Avatar blob to set to generator.
+  ///
+  /// - [createdAt]: Date and time the post was created.
+  ///                If omitted, defaults to the current time.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.generator
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/generator.json
+  Future<core.XRPCResponse<atp.Record>> createGenerator({
+    required String did,
+    required String displayName,
+    String? description,
+    List<Facet>? descriptionFacets,
+    atp.Blob? avatar,
+    DateTime? createdAt,
+  });
+
+  /// Creates generators.
+  ///
+  /// ## Parameters
+  ///
+  /// - [params]: The collection of params to be created.
+  Future<core.XRPCResponse<core.EmptyData>> createGenerators(
+    List<GeneratorParam> params,
+  );
 }
 
 class _FeedsService extends BlueskyBaseService implements FeedsService {
@@ -557,5 +600,51 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'uris': uris.map((e) => e.toString()).toList(),
         },
         to: Posts.fromJson,
+      );
+
+  @override
+  Future<atp.XRPCResponse<atp.Record>> createGenerator({
+    required String did,
+    required String displayName,
+    String? description,
+    List<Facet>? descriptionFacets,
+    atp.Blob? avatar,
+    DateTime? createdAt,
+  }) async =>
+      await atproto.repositories.createRecord(
+        collection: createNSID('generator'),
+        record: {
+          'did': did,
+          'displayName': displayName,
+          'description': description,
+          'descriptionFacets':
+              descriptionFacets?.map((e) => e.toJson()).toList(),
+          'avatar': avatar?.toJson(),
+          'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+        },
+      );
+
+  @override
+  Future<atp.XRPCResponse<atp.EmptyData>> createGenerators(
+    List<GeneratorParam> params,
+  ) async =>
+      await atproto.repositories.createRecords(
+        actions: params
+            .map(
+              (e) => atp.CreateAction(
+                collection: createNSID('generator'),
+                record: {
+                  'did': e.did,
+                  'displayName': e.displayName,
+                  'description': e.description,
+                  'descriptionFacets':
+                      e.descriptionFacets?.map((e) => e.toJson()).toList(),
+                  'avatar': e.avatar?.toJson(),
+                  'createdAt':
+                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+                },
+              ),
+            )
+            .toList(),
       );
 }

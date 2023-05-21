@@ -10,69 +10,67 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 
 import '../create_record_command.dart';
 
-/// `app.bsky.graph.list`
-class CreateListCommand extends CreateRecordCommand {
-  /// Returns the new instance of [CreateListCommand].
-  CreateListCommand() {
+/// `app.bsky.feed.generator`
+class GeneratorCommand extends CreateRecordCommand {
+  /// Returns the new instance of [GeneratorCommand].
+  GeneratorCommand() {
     argParser
       ..addOption(
-        'purpose',
-        help: 'Purpose of list.',
-        defaultsTo: 'app.bsky.graph.defs#modlist',
+        'did',
+        help: 'A string of specific DID.',
       )
       ..addOption(
-        'name',
-        help: 'Name of list.',
-        defaultsTo: null,
+        'displayName',
+        help: 'Name of generator to be created.',
       )
       ..addOption(
         'description',
-        help: 'Description of list.',
+        help: 'Description of generator to be created.',
         defaultsTo: '',
       )
       ..addOption(
         'avatar',
-        help: 'File path of avatar to upload.',
+        help: 'File path of avatar to be uploaded.',
         defaultsTo: '',
       )
       ..addOption(
         'created-at',
-        help: 'Date and time the record is created in ISO 8601 format.',
+        help: 'Date and time the post is liked in ISO 8601 format.',
         defaultsTo: DateTime.now().toUtc().toIso8601String(),
       );
   }
 
   @override
-  String get name => 'create-list';
+  String get name => 'generator';
 
   @override
-  String get description => 'Create a list.';
+  String get description => 'Create a generator.';
 
   @override
   final String invocation =
-      'bsky create-list [purpose] [name] [description] [avatar] [created-at]';
+      'bsky generator [did] [displayName] [description] [avatar] [created-at]';
 
   @override
   xrpc.NSID get collection => xrpc.NSID.create(
-        'graph.bsky.app',
-        'list',
+        'feed.bsky.app',
+        'generator',
       );
 
   @override
   Future<Map<String, dynamic>> get record async {
     final record = {
-      'purpose': argResults!['purpose'],
-      'name': argResults!['name'],
+      'did': argResults!['did'],
+      'displayName': argResults!['displayName'],
       'createdAt': argResults!['created-at'],
     };
 
     final String description = argResults!['description'];
 
     if (description.isNotEmpty) {
-      final text = BlueskyText(argResults!['description']);
+      final text = BlueskyText(description);
       final facets = await text.entities.toFacets();
 
-      record['description'] = text.value;
+      record['description'] = description;
 
       if (facets.isNotEmpty) {
         record['descriptionFacets'] = facets;

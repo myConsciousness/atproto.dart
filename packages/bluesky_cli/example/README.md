@@ -36,6 +36,7 @@ Available commands:
   follow               Follow an user.
   followers            Show the followers.
   follows              Show the following users.
+  generator            Create a generator.
   like                 Like a specific post.
   likes                Show the likes of specific post.
   list                 Show the list.
