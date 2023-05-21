@@ -6,36 +6,42 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../blocked_post.dart';
 import '../not_found_post.dart';
-import '../post_thread_view.dart';
-import '../post_thread_view_record.dart';
+import '../post.dart';
+import '../reply_post.dart';
 
-class PostThreadViewConverter
-    implements JsonConverter<PostThreadView, Map<String, dynamic>> {
-  const PostThreadViewConverter();
+class ReplyPostConverter
+    implements JsonConverter<ReplyPost, Map<String, dynamic>> {
+  const ReplyPostConverter();
 
   @override
-  PostThreadView fromJson(Map<String, dynamic> json) {
+  ReplyPost fromJson(Map<String, dynamic> json) {
     final type = json['\$type'];
 
-    if (type == 'app.bsky.feed.defs#threadViewPost') {
-      return PostThreadView.record(
-        data: PostThreadViewRecord.fromJson(json),
+    if (type == 'app.bsky.feed.defs#postView') {
+      return ReplyPost.record(
+        data: Post.fromJson(json),
       );
     } else if (type == 'app.bsky.feed.defs#notFoundPost') {
-      return PostThreadView.notFound(
+      return ReplyPost.notFound(
         data: NotFoundPost.fromJson(json),
       );
     } else if (type == 'app.bsky.feed.defs#blockedPost') {
-      return PostThreadView.blocked(
+      return ReplyPost.blocked(
         data: BlockedPost.fromJson(json),
       );
     }
 
-    return PostThreadView.unknown(data: json);
+    try {
+      return ReplyPost.record(
+        data: Post.fromJson(json),
+      );
+    } on Exception {
+      return ReplyPost.unknown(data: json);
+    }
   }
 
   @override
-  Map<String, dynamic> toJson(PostThreadView object) => object.when(
+  Map<String, dynamic> toJson(ReplyPost object) => object.when(
         record: (data) => data.toJson(),
         notFound: (data) => data.toJson(),
         blocked: (data) => data.toJson(),

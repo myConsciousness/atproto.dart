@@ -1,5 +1,11 @@
 # Release Note
 
+## v0.5.1
+
+- The `Reply` object under the `Feed` object has been modified to be Union as `ReplyPost`. In addition, the following objects have been renamed to make them common objects. ([#424](https://github.com/myConsciousness/atproto.dart/issues/424))
+  - Changed named from `PostThreadViewNotFound` to `NotFoundPost`
+  - Changed name from `PostThreadViewBlocked` to `BlockedPost`
+
 ## v0.5.0
 
 - Supported `app.bsky.actor.getPreferences` as `findPreferences` in `ActorsService`. ([#387](https://github.com/myConsciousness/atproto.dart/issues/387))

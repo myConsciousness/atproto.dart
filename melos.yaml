@@ -23,6 +23,13 @@ scripts:
       Run `dart analyze` in all packages.
        - Note: you can also rely on your IDEs Dart Analysis / Issues window.
 
+  format:
+    run: |
+      melos exec -c 1 -- \
+        dart format .
+    description: |
+      Run `dart format` in all packages.
+
   test:
     run: melos run test:dart --no-select && melos run test:flutter --no-select
     description: Run all Dart & Flutter tests in this project.

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'post_thread_view_not_found.dart';
+part of 'blocked_post.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,42 +14,40 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-PostThreadViewNotFound _$PostThreadViewNotFoundFromJson(
-    Map<String, dynamic> json) {
-  return _PostThreadViewNotFound.fromJson(json);
+BlockedPost _$BlockedPostFromJson(Map<String, dynamic> json) {
+  return _BlockedPost.fromJson(json);
 }
 
 /// @nodoc
-mixin _$PostThreadViewNotFound {
+mixin _$BlockedPost {
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
-  bool get notFound => throw _privateConstructorUsedError;
+  bool get blocked => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $PostThreadViewNotFoundCopyWith<PostThreadViewNotFound> get copyWith =>
+  $BlockedPostCopyWith<BlockedPost> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PostThreadViewNotFoundCopyWith<$Res> {
-  factory $PostThreadViewNotFoundCopyWith(PostThreadViewNotFound value,
-          $Res Function(PostThreadViewNotFound) then) =
-      _$PostThreadViewNotFoundCopyWithImpl<$Res, PostThreadViewNotFound>;
+abstract class $BlockedPostCopyWith<$Res> {
+  factory $BlockedPostCopyWith(
+          BlockedPost value, $Res Function(BlockedPost) then) =
+      _$BlockedPostCopyWithImpl<$Res, BlockedPost>;
   @useResult
   $Res call(
       {@JsonKey(name: '\$type') String type,
       @AtUriConverter() AtUri uri,
-      bool notFound});
+      bool blocked});
 }
 
 /// @nodoc
-class _$PostThreadViewNotFoundCopyWithImpl<$Res,
-        $Val extends PostThreadViewNotFound>
-    implements $PostThreadViewNotFoundCopyWith<$Res> {
-  _$PostThreadViewNotFoundCopyWithImpl(this._value, this._then);
+class _$BlockedPostCopyWithImpl<$Res, $Val extends BlockedPost>
+    implements $BlockedPostCopyWith<$Res> {
+  _$BlockedPostCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -61,7 +59,7 @@ class _$PostThreadViewNotFoundCopyWithImpl<$Res,
   $Res call({
     Object? type = null,
     Object? uri = null,
-    Object? notFound = null,
+    Object? blocked = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -72,35 +70,34 @@ class _$PostThreadViewNotFoundCopyWithImpl<$Res,
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      notFound: null == notFound
-          ? _value.notFound
-          : notFound // ignore: cast_nullable_to_non_nullable
+      blocked: null == blocked
+          ? _value.blocked
+          : blocked // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_PostThreadViewNotFoundCopyWith<$Res>
-    implements $PostThreadViewNotFoundCopyWith<$Res> {
-  factory _$$_PostThreadViewNotFoundCopyWith(_$_PostThreadViewNotFound value,
-          $Res Function(_$_PostThreadViewNotFound) then) =
-      __$$_PostThreadViewNotFoundCopyWithImpl<$Res>;
+abstract class _$$_BlockedPostCopyWith<$Res>
+    implements $BlockedPostCopyWith<$Res> {
+  factory _$$_BlockedPostCopyWith(
+          _$_BlockedPost value, $Res Function(_$_BlockedPost) then) =
+      __$$_BlockedPostCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {@JsonKey(name: '\$type') String type,
       @AtUriConverter() AtUri uri,
-      bool notFound});
+      bool blocked});
 }
 
 /// @nodoc
-class __$$_PostThreadViewNotFoundCopyWithImpl<$Res>
-    extends _$PostThreadViewNotFoundCopyWithImpl<$Res,
-        _$_PostThreadViewNotFound>
-    implements _$$_PostThreadViewNotFoundCopyWith<$Res> {
-  __$$_PostThreadViewNotFoundCopyWithImpl(_$_PostThreadViewNotFound _value,
-      $Res Function(_$_PostThreadViewNotFound) _then)
+class __$$_BlockedPostCopyWithImpl<$Res>
+    extends _$BlockedPostCopyWithImpl<$Res, _$_BlockedPost>
+    implements _$$_BlockedPostCopyWith<$Res> {
+  __$$_BlockedPostCopyWithImpl(
+      _$_BlockedPost _value, $Res Function(_$_BlockedPost) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,9 +105,9 @@ class __$$_PostThreadViewNotFoundCopyWithImpl<$Res>
   $Res call({
     Object? type = null,
     Object? uri = null,
-    Object? notFound = null,
+    Object? blocked = null,
   }) {
-    return _then(_$_PostThreadViewNotFound(
+    return _then(_$_BlockedPost(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -119,9 +116,9 @@ class __$$_PostThreadViewNotFoundCopyWithImpl<$Res>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      notFound: null == notFound
-          ? _value.notFound
-          : notFound // ignore: cast_nullable_to_non_nullable
+      blocked: null == blocked
+          ? _value.blocked
+          : blocked // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -129,14 +126,14 @@ class __$$_PostThreadViewNotFoundCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PostThreadViewNotFound implements _PostThreadViewNotFound {
-  const _$_PostThreadViewNotFound(
-      {@JsonKey(name: '\$type') required this.type,
+class _$_BlockedPost implements _BlockedPost {
+  const _$_BlockedPost(
+      {@JsonKey(name: '\$type') this.type = 'app.bsky.feed.defs#blockedPost',
       @AtUriConverter() required this.uri,
-      required this.notFound});
+      required this.blocked});
 
-  factory _$_PostThreadViewNotFound.fromJson(Map<String, dynamic> json) =>
-      _$$_PostThreadViewNotFoundFromJson(json);
+  factory _$_BlockedPost.fromJson(Map<String, dynamic> json) =>
+      _$$_BlockedPostFromJson(json);
 
   @override
   @JsonKey(name: '\$type')
@@ -145,51 +142,49 @@ class _$_PostThreadViewNotFound implements _PostThreadViewNotFound {
   @AtUriConverter()
   final AtUri uri;
   @override
-  final bool notFound;
+  final bool blocked;
 
   @override
   String toString() {
-    return 'PostThreadViewNotFound(type: $type, uri: $uri, notFound: $notFound)';
+    return 'BlockedPost(type: $type, uri: $uri, blocked: $blocked)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PostThreadViewNotFound &&
+            other is _$_BlockedPost &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
-            (identical(other.notFound, notFound) ||
-                other.notFound == notFound));
+            (identical(other.blocked, blocked) || other.blocked == blocked));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, uri, notFound);
+  int get hashCode => Object.hash(runtimeType, type, uri, blocked);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PostThreadViewNotFoundCopyWith<_$_PostThreadViewNotFound> get copyWith =>
-      __$$_PostThreadViewNotFoundCopyWithImpl<_$_PostThreadViewNotFound>(
-          this, _$identity);
+  _$$_BlockedPostCopyWith<_$_BlockedPost> get copyWith =>
+      __$$_BlockedPostCopyWithImpl<_$_BlockedPost>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PostThreadViewNotFoundToJson(
+    return _$$_BlockedPostToJson(
       this,
     );
   }
 }
 
-abstract class _PostThreadViewNotFound implements PostThreadViewNotFound {
-  const factory _PostThreadViewNotFound(
-      {@JsonKey(name: '\$type') required final String type,
+abstract class _BlockedPost implements BlockedPost {
+  const factory _BlockedPost(
+      {@JsonKey(name: '\$type') final String type,
       @AtUriConverter() required final AtUri uri,
-      required final bool notFound}) = _$_PostThreadViewNotFound;
+      required final bool blocked}) = _$_BlockedPost;
 
-  factory _PostThreadViewNotFound.fromJson(Map<String, dynamic> json) =
-      _$_PostThreadViewNotFound.fromJson;
+  factory _BlockedPost.fromJson(Map<String, dynamic> json) =
+      _$_BlockedPost.fromJson;
 
   @override
   @JsonKey(name: '\$type')
@@ -198,9 +193,9 @@ abstract class _PostThreadViewNotFound implements PostThreadViewNotFound {
   @AtUriConverter()
   AtUri get uri;
   @override
-  bool get notFound;
+  bool get blocked;
   @override
   @JsonKey(ignore: true)
-  _$$_PostThreadViewNotFoundCopyWith<_$_PostThreadViewNotFound> get copyWith =>
+  _$$_BlockedPostCopyWith<_$_BlockedPost> get copyWith =>
       throw _privateConstructorUsedError;
 }

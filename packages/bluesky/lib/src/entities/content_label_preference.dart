@@ -16,7 +16,7 @@ class ContentLabelPreference with _$ContentLabelPreference {
   const factory ContentLabelPreference({
     @Default('app.bsky.actor.defs#contentLabelPref')
     @JsonKey(name: '\$type')
-        String type,
+    String type,
     required String label,
     required ContentLabelVisibility visibility,
   }) = _ContentLabelPreference;

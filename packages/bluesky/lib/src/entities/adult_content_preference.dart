@@ -16,9 +16,8 @@ class AdultContentPreference with _$AdultContentPreference {
   const factory AdultContentPreference({
     @Default('app.bsky.actor.defs#adultContentPref')
     @JsonKey(name: '\$type')
-        String type,
-    @JsonKey(name: 'enabled')
-        required bool isEnabled,
+    String type,
+    @JsonKey(name: 'enabled') required bool isEnabled,
   }) = _AdultContentPreference;
 
   factory AdultContentPreference.fromJson(Map<String, Object?> json) =>
