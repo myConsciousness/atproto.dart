@@ -295,15 +295,13 @@ abstract class FeedsService {
     required List<core.AtUri> uris,
   });
 
-  /// A declaration of the existence of a feed generator
+  /// A declaration of the existence of a feed generator.
   ///
   /// ## Parameters
   ///
   /// - [did]: A string of specific DID.
   ///
   /// - [displayName]: Name of generator to be created.
-  ///
-  /// - [purpose]: Purpose of list to be created.
   ///
   /// - [description]: Description of generator to be created.
   ///

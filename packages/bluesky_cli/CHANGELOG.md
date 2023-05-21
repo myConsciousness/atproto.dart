@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.1
+
+- Supported `generator` command. ([#430](https://github.com/myConsciousness/atproto.dart/issues/430))
+
 ## v0.2.0
 
 - Supported `preferences` command. ([#387](https://github.com/myConsciousness/atproto.dart/issues/387))
