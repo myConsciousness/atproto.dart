@@ -120,8 +120,9 @@ class __$$_AdultContentPreferenceCopyWithImpl<$Res>
 class _$_AdultContentPreference implements _AdultContentPreference {
   const _$_AdultContentPreference(
       {@JsonKey(name: '\$type')
-      this.type = 'app.bsky.actor.defs#adultContentPref',
-      @JsonKey(name: 'enabled') required this.isEnabled});
+          this.type = 'app.bsky.actor.defs#adultContentPref',
+      @JsonKey(name: 'enabled')
+          required this.isEnabled});
 
   factory _$_AdultContentPreference.fromJson(Map<String, dynamic> json) =>
       _$$_AdultContentPreferenceFromJson(json);

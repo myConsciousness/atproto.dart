@@ -132,7 +132,7 @@ class __$$_ContentLabelPreferenceCopyWithImpl<$Res>
 class _$_ContentLabelPreference implements _ContentLabelPreference {
   const _$_ContentLabelPreference(
       {@JsonKey(name: '\$type')
-      this.type = 'app.bsky.actor.defs#contentLabelPref',
+          this.type = 'app.bsky.actor.defs#contentLabelPref',
       required this.label,
       required this.visibility});
 

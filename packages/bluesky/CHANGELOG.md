@@ -1,4 +1,8 @@
-# Release Note
+# Release Not
+
+## v0.5.2
+
+- Supported `app.bsky.feed.generator` as `createGenerator` in `FeedsService`. ([#430](https://github.com/myConsciousness/atproto.dart/issues/430))
 
 ## v0.5.1
 

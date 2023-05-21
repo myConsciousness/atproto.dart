@@ -224,7 +224,7 @@ abstract class _EmbedExternalThumbnail implements EmbedExternalThumbnail {
       required final String description,
       @BlobContextConverter()
       @JsonKey(name: 'thumb')
-      final BlobContext? blob}) = _$_EmbedExternalThumbnail;
+          final BlobContext? blob}) = _$_EmbedExternalThumbnail;
 
   factory _EmbedExternalThumbnail.fromJson(Map<String, dynamic> json) =
       _$_EmbedExternalThumbnail.fromJson;

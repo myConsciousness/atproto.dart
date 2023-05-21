@@ -194,10 +194,11 @@ class _$_Facet implements _Facet {
 
 abstract class _Facet implements Facet {
   const factory _Facet(
-      {@JsonKey(name: '\$type') final String? type,
+      {@JsonKey(name: '\$type')
+          final String? type,
       required final ByteSlice index,
       @FacetFeatureConverter()
-      required final List<FacetFeature> features}) = _$_Facet;
+          required final List<FacetFeature> features}) = _$_Facet;
 
   factory _Facet.fromJson(Map<String, dynamic> json) = _$_Facet.fromJson;
 
