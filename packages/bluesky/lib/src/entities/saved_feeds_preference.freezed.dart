@@ -134,13 +134,13 @@ class __$$_SavedFeedsPreferenceCopyWithImpl<$Res>
 class _$_SavedFeedsPreference implements _SavedFeedsPreference {
   const _$_SavedFeedsPreference(
       {@JsonKey(name: '\$type')
-          this.type = 'app.bsky.actor.defs#savedFeedsPref',
+      this.type = 'app.bsky.actor.defs#savedFeedsPref',
       @JsonKey(name: 'pinned')
       @AtUriConverter()
-          required final List<AtUri> pinnedUris,
+      required final List<AtUri> pinnedUris,
       @AtUriConverter()
       @JsonKey(name: 'saved')
-          required final List<AtUri> savedUris})
+      required final List<AtUri> savedUris})
       : _pinnedUris = pinnedUris,
         _savedUris = savedUris;
 
@@ -212,14 +212,13 @@ class _$_SavedFeedsPreference implements _SavedFeedsPreference {
 
 abstract class _SavedFeedsPreference implements SavedFeedsPreference {
   const factory _SavedFeedsPreference(
-      {@JsonKey(name: '\$type')
-          final String type,
+      {@JsonKey(name: '\$type') final String type,
       @JsonKey(name: 'pinned')
       @AtUriConverter()
-          required final List<AtUri> pinnedUris,
+      required final List<AtUri> pinnedUris,
       @AtUriConverter()
       @JsonKey(name: 'saved')
-          required final List<AtUri> savedUris}) = _$_SavedFeedsPreference;
+      required final List<AtUri> savedUris}) = _$_SavedFeedsPreference;
 
   factory _SavedFeedsPreference.fromJson(Map<String, dynamic> json) =
       _$_SavedFeedsPreference.fromJson;
