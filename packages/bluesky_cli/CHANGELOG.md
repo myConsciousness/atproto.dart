@@ -7,6 +7,7 @@
 - Supported `feed-generator` command. ([#433](https://github.com/myConsciousness/atproto.dart/issues/433))
 - Supported `feed-generators` command. ([#434](https://github.com/myConsciousness/atproto.dart/issues/434))
 - Supported `custom-feed` command. ([#432](https://github.com/myConsciousness/atproto.dart/issues/432))
+- Supported `generator-info` command. ([#429](https://github.com/myConsciousness/atproto.dart/issues/429))
 
 ## v0.2.0
 
