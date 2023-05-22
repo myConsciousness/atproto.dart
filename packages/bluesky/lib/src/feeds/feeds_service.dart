@@ -18,6 +18,7 @@ import '../entities/post_thread.dart';
 import '../entities/posts.dart';
 import '../entities/reply_ref.dart';
 import '../entities/reposted_by.dart';
+import '../entities/skeleton_feed.dart';
 import '../params/generator_param.dart';
 import '../params/post_param.dart';
 import '../params/strong_ref_param.dart';
@@ -226,6 +227,30 @@ abstract class FeedsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeed.json
   Future<core.XRPCResponse<Feed>> findCustomFeed({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  });
+
+  /// A skeleton of a feed provided by a feed generator.
+  ///
+  /// ## Parameters
+  ///
+  /// - [generatorUri]: AT URI of generator to be used.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getFeedSkeleton
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedSkeleton.json
+  Future<core.XRPCResponse<SkeletonFeed>> findSkeletonFeed({
     required core.AtUri generatorUri,
     int? limit,
     String? cursor,
@@ -642,6 +667,21 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
         to: Feed.fromJson,
       );
 
+  @override
+  Future<core.XRPCResponse<SkeletonFeed>> findSkeletonFeed({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await super.get(
+        'getFeedSkeleton',
+        parameters: {
+          'feed': generatorUri.toString(),
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: SkeletonFeed.fromJson,
+      );
   @override
   Future<core.XRPCResponse<ActorFeeds>> findActorFeeds({
     required String actor,

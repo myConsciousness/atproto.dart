@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'feed.dart';
+part of 'skeleton_feed.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,32 +14,34 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Feed _$FeedFromJson(Map<String, dynamic> json) {
-  return _Feed.fromJson(json);
+SkeletonFeed _$SkeletonFeedFromJson(Map<String, dynamic> json) {
+  return _SkeletonFeed.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Feed {
-  List<FeedView> get feed => throw _privateConstructorUsedError;
+mixin _$SkeletonFeed {
+  List<SkeletonFeedView> get feed => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FeedCopyWith<Feed> get copyWith => throw _privateConstructorUsedError;
+  $SkeletonFeedCopyWith<SkeletonFeed> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FeedCopyWith<$Res> {
-  factory $FeedCopyWith(Feed value, $Res Function(Feed) then) =
-      _$FeedCopyWithImpl<$Res, Feed>;
+abstract class $SkeletonFeedCopyWith<$Res> {
+  factory $SkeletonFeedCopyWith(
+          SkeletonFeed value, $Res Function(SkeletonFeed) then) =
+      _$SkeletonFeedCopyWithImpl<$Res, SkeletonFeed>;
   @useResult
-  $Res call({List<FeedView> feed, String? cursor});
+  $Res call({List<SkeletonFeedView> feed, String? cursor});
 }
 
 /// @nodoc
-class _$FeedCopyWithImpl<$Res, $Val extends Feed>
-    implements $FeedCopyWith<$Res> {
-  _$FeedCopyWithImpl(this._value, this._then);
+class _$SkeletonFeedCopyWithImpl<$Res, $Val extends SkeletonFeed>
+    implements $SkeletonFeedCopyWith<$Res> {
+  _$SkeletonFeedCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -56,7 +58,7 @@ class _$FeedCopyWithImpl<$Res, $Val extends Feed>
       feed: null == feed
           ? _value.feed
           : feed // ignore: cast_nullable_to_non_nullable
-              as List<FeedView>,
+              as List<SkeletonFeedView>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -66,18 +68,22 @@ class _$FeedCopyWithImpl<$Res, $Val extends Feed>
 }
 
 /// @nodoc
-abstract class _$$_FeedCopyWith<$Res> implements $FeedCopyWith<$Res> {
-  factory _$$_FeedCopyWith(_$_Feed value, $Res Function(_$_Feed) then) =
-      __$$_FeedCopyWithImpl<$Res>;
+abstract class _$$_SkeletonFeedCopyWith<$Res>
+    implements $SkeletonFeedCopyWith<$Res> {
+  factory _$$_SkeletonFeedCopyWith(
+          _$_SkeletonFeed value, $Res Function(_$_SkeletonFeed) then) =
+      __$$_SkeletonFeedCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<FeedView> feed, String? cursor});
+  $Res call({List<SkeletonFeedView> feed, String? cursor});
 }
 
 /// @nodoc
-class __$$_FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res, _$_Feed>
-    implements _$$_FeedCopyWith<$Res> {
-  __$$_FeedCopyWithImpl(_$_Feed _value, $Res Function(_$_Feed) _then)
+class __$$_SkeletonFeedCopyWithImpl<$Res>
+    extends _$SkeletonFeedCopyWithImpl<$Res, _$_SkeletonFeed>
+    implements _$$_SkeletonFeedCopyWith<$Res> {
+  __$$_SkeletonFeedCopyWithImpl(
+      _$_SkeletonFeed _value, $Res Function(_$_SkeletonFeed) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -86,11 +92,11 @@ class __$$_FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res, _$_Feed>
     Object? feed = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$_Feed(
+    return _then(_$_SkeletonFeed(
       feed: null == feed
           ? _value._feed
           : feed // ignore: cast_nullable_to_non_nullable
-              as List<FeedView>,
+              as List<SkeletonFeedView>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -102,15 +108,17 @@ class __$$_FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res, _$_Feed>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_Feed implements _Feed {
-  const _$_Feed({required final List<FeedView> feed, this.cursor})
+class _$_SkeletonFeed implements _SkeletonFeed {
+  const _$_SkeletonFeed(
+      {required final List<SkeletonFeedView> feed, this.cursor})
       : _feed = feed;
 
-  factory _$_Feed.fromJson(Map<String, dynamic> json) => _$$_FeedFromJson(json);
+  factory _$_SkeletonFeed.fromJson(Map<String, dynamic> json) =>
+      _$$_SkeletonFeedFromJson(json);
 
-  final List<FeedView> _feed;
+  final List<SkeletonFeedView> _feed;
   @override
-  List<FeedView> get feed {
+  List<SkeletonFeedView> get feed {
     if (_feed is EqualUnmodifiableListView) return _feed;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_feed);
@@ -121,14 +129,14 @@ class _$_Feed implements _Feed {
 
   @override
   String toString() {
-    return 'Feed(feed: $feed, cursor: $cursor)';
+    return 'SkeletonFeed(feed: $feed, cursor: $cursor)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Feed &&
+            other is _$_SkeletonFeed &&
             const DeepCollectionEquality().equals(other._feed, _feed) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -141,28 +149,31 @@ class _$_Feed implements _Feed {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FeedCopyWith<_$_Feed> get copyWith =>
-      __$$_FeedCopyWithImpl<_$_Feed>(this, _$identity);
+  _$$_SkeletonFeedCopyWith<_$_SkeletonFeed> get copyWith =>
+      __$$_SkeletonFeedCopyWithImpl<_$_SkeletonFeed>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FeedToJson(
+    return _$$_SkeletonFeedToJson(
       this,
     );
   }
 }
 
-abstract class _Feed implements Feed {
-  const factory _Feed(
-      {required final List<FeedView> feed, final String? cursor}) = _$_Feed;
+abstract class _SkeletonFeed implements SkeletonFeed {
+  const factory _SkeletonFeed(
+      {required final List<SkeletonFeedView> feed,
+      final String? cursor}) = _$_SkeletonFeed;
 
-  factory _Feed.fromJson(Map<String, dynamic> json) = _$_Feed.fromJson;
+  factory _SkeletonFeed.fromJson(Map<String, dynamic> json) =
+      _$_SkeletonFeed.fromJson;
 
   @override
-  List<FeedView> get feed;
+  List<SkeletonFeedView> get feed;
   @override
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$_FeedCopyWith<_$_Feed> get copyWith => throw _privateConstructorUsedError;
+  _$$_SkeletonFeedCopyWith<_$_SkeletonFeed> get copyWith =>
+      throw _privateConstructorUsedError;
 }
