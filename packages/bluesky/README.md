@@ -210,6 +210,7 @@ Future<bsky.Session> get _session async {
 | [GET app.bsky.feed.getPosts](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getPosts.json)              | [findPosts](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findPosts.html)               |
 | [POST app.bsky.feed.generator](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/generator.json)           | [createGenerator](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/createGenerator.html)   |
 | [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json) | [createGenerators](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/createGenerators.html) |
+| [GET app.bsky.feed.getActorFeeds](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorFeeds.json)    | [findActorFeeds](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findActorFeeds.html)     |
 
 ### 1.3.3. Notifications
 

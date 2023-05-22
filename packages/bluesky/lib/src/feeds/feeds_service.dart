@@ -7,6 +7,7 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../bluesky_base_service.dart';
+import '../entities/actor_feeds.dart';
 import '../entities/embed.dart';
 import '../entities/facet.dart';
 import '../entities/feed.dart';
@@ -199,6 +200,30 @@ abstract class FeedsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getAuthorFeed.json
   Future<core.XRPCResponse<Feed>> findFeed({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Retrieve a list of feeds created by a given actor.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getActorFeeds
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorFeeds.json
+  Future<core.XRPCResponse<ActorFeeds>> findActorFeeds({
     required String actor,
     int? limit,
     String? cursor,
@@ -538,6 +563,22 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'cursor': cursor,
         },
         to: Feed.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<ActorFeeds>> findActorFeeds({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await super.get(
+        'getActorFeeds',
+        parameters: {
+          'actor': actor,
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: ActorFeeds.fromJson,
       );
 
   @override
