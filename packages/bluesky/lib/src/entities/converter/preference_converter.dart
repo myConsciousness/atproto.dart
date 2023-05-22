@@ -7,6 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../adult_content_preference.dart';
 import '../content_label_preference.dart';
 import '../preference.dart';
+import '../saved_feeds_preference.dart';
 
 class PreferenceConverter
     implements JsonConverter<Preference, Map<String, dynamic>> {
@@ -24,6 +25,10 @@ class PreferenceConverter
       return Preference.contentLabel(
         data: ContentLabelPreference.fromJson(json),
       );
+    } else if (type == 'app.bsky.actor.defs#savedFeedsPref') {
+      return Preference.savedFeeds(
+        data: SavedFeedsPreference.fromJson(json),
+      );
     }
 
     return Preference.unknown(data: json);
@@ -33,6 +38,7 @@ class PreferenceConverter
   Map<String, dynamic> toJson(Preference object) => object.when(
         adultContent: (data) => data.toJson(),
         contentLabel: (data) => data.toJson(),
+        savedFeeds: (data) => data.toJson(),
         unknown: (data) => data,
       );
 }

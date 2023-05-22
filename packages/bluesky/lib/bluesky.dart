@@ -141,6 +141,7 @@ export 'package:bluesky/src/entities/reply.dart';
 export 'package:bluesky/src/entities/reply_post.dart';
 export 'package:bluesky/src/entities/reply_ref.dart';
 export 'package:bluesky/src/entities/reposted_by.dart';
+export 'package:bluesky/src/entities/saved_feeds_preference.dart';
 export 'package:bluesky/src/feeds/feeds_service.dart';
 export 'package:bluesky/src/graphs/graphs_service.dart';
 export 'package:bluesky/src/notifications/notifications_service.dart';
