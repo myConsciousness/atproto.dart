@@ -3,6 +3,7 @@
 ## v0.2.1
 
 - Supported `generator` command. ([#430](https://github.com/myConsciousness/atproto.dart/issues/430))
+- Supported `actor-feeds` command. ([#431](https://github.com/myConsciousness/atproto.dart/issues/431))
 
 ## v0.2.0
 

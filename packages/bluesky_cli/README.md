@@ -81,6 +81,7 @@ Global options:
     --verbose     Enable verbose logging.
 
 Available commands:
+  actor-feeds          Show the selected feeds of specific actor.
   actors-typeahead     Show the typeahead for actors.
   add-list-item        Add an item to list.
   block                Block an user.

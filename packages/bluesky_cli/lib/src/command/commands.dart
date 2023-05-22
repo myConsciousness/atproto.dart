@@ -11,6 +11,7 @@ import 'actor/search_actors.dart';
 import 'actor/suggestions.dart';
 import 'bsky_command.dart';
 import 'common/delete.dart';
+import 'feed/actor_feeds.dart';
 import 'feed/feed.dart';
 import 'feed/generator.dart';
 import 'feed/like.dart';
@@ -64,6 +65,7 @@ final feedCommands = <BskyCommand>[
   ThreadCommand(),
   RepostedByCommand(),
   GeneratorCommand(),
+  ActorFeedsCommand(),
 ];
 
 final notificationCommands = <BskyCommand>[
