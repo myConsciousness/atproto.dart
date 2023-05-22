@@ -86,13 +86,14 @@ Available commands:
   add-list-item        Add an item to list.
   block                Block an user.
   blocks               Show the blocked users.
+  create-generator     Create a generator.
   create-list          Create a list.
   delete               Delete a specific contents from repository.
   feed                 Show the feed of specific actor.
+  feed-generator       Show the specific feed generator.
   follow               Follow an user.
   followers            Show the followers.
   follows              Show the following users.
-  generator            Create a generator.
   like                 Like a specific post.
   likes                Show the likes of specific post.
   list                 Show the list.

@@ -11,9 +11,9 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 import '../create_record_command.dart';
 
 /// `app.bsky.feed.generator`
-class GeneratorCommand extends CreateRecordCommand {
-  /// Returns the new instance of [GeneratorCommand].
-  GeneratorCommand() {
+class CreateGeneratorCommand extends CreateRecordCommand {
+  /// Returns the new instance of [CreateGeneratorCommand].
+  CreateGeneratorCommand() {
     argParser
       ..addOption(
         'did',
@@ -41,14 +41,15 @@ class GeneratorCommand extends CreateRecordCommand {
   }
 
   @override
-  String get name => 'generator';
+  String get name => 'create-generator';
 
   @override
   String get description => 'Create a generator.';
 
   @override
   final String invocation =
-      'bsky generator [did] [displayName] [description] [avatar] [created-at]';
+      'bsky create-generator [did] [displayName] [description] [avatar] '
+      '[created-at]';
 
   @override
   xrpc.NSID get collection => xrpc.NSID.create(

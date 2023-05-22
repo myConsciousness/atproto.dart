@@ -1335,4 +1335,78 @@ void main() {
       );
     });
   });
+
+  group('.findFeedGenerator', () {
+    test('normal case', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/find_feed_generator.json',
+        ),
+      );
+
+      final response = await feeds.findGenerator(
+        uri: AtUri.parse(
+          'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-gaming',
+        ),
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<FeedGenerator>());
+    });
+
+    test('when unauthorized', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await feeds.findGenerator(
+          uri: AtUri.parse(
+            'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-gaming',
+          ),
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await feeds.findGenerator(
+          uri: AtUri.parse(
+            'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-gaming',
+          ),
+        ),
+      );
+    });
+  });
 }

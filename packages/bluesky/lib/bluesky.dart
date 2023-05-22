@@ -110,6 +110,7 @@ export 'package:bluesky/src/entities/facet_feature.dart';
 export 'package:bluesky/src/entities/facet_link.dart';
 export 'package:bluesky/src/entities/facet_mention.dart';
 export 'package:bluesky/src/entities/feed.dart';
+export 'package:bluesky/src/entities/feed_generator.dart';
 export 'package:bluesky/src/entities/feed_generator_view.dart';
 export 'package:bluesky/src/entities/feed_generator_viewer.dart';
 export 'package:bluesky/src/entities/feed_view.dart';
