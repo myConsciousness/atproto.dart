@@ -12,6 +12,7 @@ import '../entities/embed.dart';
 import '../entities/facet.dart';
 import '../entities/feed.dart';
 import '../entities/feed_generator.dart';
+import '../entities/feed_generator_info.dart';
 import '../entities/feed_generators.dart';
 import '../entities/likes.dart';
 import '../entities/post_thread.dart';
@@ -447,6 +448,18 @@ abstract class FeedsService {
   Future<core.XRPCResponse<FeedGenerators>> findGenerators({
     required List<core.AtUri> uris,
   });
+
+  /// Returns information about a given feed generator including
+  /// TOS & offered feed URIs
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.describeFeedGenerator
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/describeFeedGenerator.json
+  Future<core.XRPCResponse<FeedGeneratorInfo>> findGeneratorInfo();
 }
 
 class _FeedsService extends BlueskyBaseService implements FeedsService {
@@ -682,6 +695,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
         },
         to: SkeletonFeed.fromJson,
       );
+
   @override
   Future<core.XRPCResponse<ActorFeeds>> findActorFeeds({
     required String actor,
@@ -828,5 +842,12 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'feeds': uris.map((e) => e.toString()).toList(),
         },
         to: FeedGenerators.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<FeedGeneratorInfo>> findGeneratorInfo() async =>
+      await super.get(
+        'describeFeedGenerator',
+        to: FeedGeneratorInfo.fromJson,
       );
 }
