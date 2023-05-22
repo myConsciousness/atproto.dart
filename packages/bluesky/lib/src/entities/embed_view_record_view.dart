@@ -10,6 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'embed_view_record_view_blocked.dart';
 import 'embed_view_record_view_not_found.dart';
 import 'embed_view_record_view_record.dart';
+import 'feed_generator_view.dart';
 
 part 'embed_view_record_view.freezed.dart';
 
@@ -26,6 +27,10 @@ class EmbedViewRecordView with _$EmbedViewRecordView {
   const factory EmbedViewRecordView.blocked({
     required EmbedViewRecordViewBlocked data,
   }) = _Blocked;
+
+  const factory EmbedViewRecordView.generatorView({
+    required FeedGeneratorView data,
+  }) = _GeneratorView;
 
   const factory EmbedViewRecordView.unknown({
     required Map<String, dynamic> data,

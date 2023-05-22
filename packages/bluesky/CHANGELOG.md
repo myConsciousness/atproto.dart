@@ -10,6 +10,7 @@
 - Supported `app.bsky.feed.getFeed` as `findCustomFeed` in `FeedsService`. ([#432](https://github.com/myConsciousness/atproto.dart/issues/432))
 - Supported `app.bsky.feed.getFeedSkeleton` as `findSkeletonFeed` in `FeedsService`. ([#435](https://github.com/myConsciousness/atproto.dart/issues/435))
 - Supported `app.bsky.feed.describeFeedGenerator` as `findGeneratorInfo` in `FeedsService`. ([#429](https://github.com/myConsciousness/atproto.dart/issues/429))
+- Added `generatorView` type in `EmbedViewRecordView` object. ([#428](https://github.com/myConsciousness/atproto.dart/issues/428))
 
 ## v0.5.1
 
