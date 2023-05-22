@@ -15,6 +15,7 @@ import 'feed/actor_feeds.dart';
 import 'feed/feed.dart';
 import 'feed/create_generator.dart';
 import 'feed/feed_generator.dart';
+import 'feed/feed_generators.dart';
 import 'feed/like.dart';
 import 'feed/likes.dart';
 import 'feed/post.dart';
@@ -68,6 +69,7 @@ final feedCommands = <BskyCommand>[
   CreateGeneratorCommand(),
   ActorFeedsCommand(),
   FeedGeneratorCommand(),
+  FeedGeneratorsCommand(),
 ];
 
 final notificationCommands = <BskyCommand>[
