@@ -115,9 +115,8 @@ class __$$_SkeletonReasonRepostCopyWithImpl<$Res>
 class _$_SkeletonReasonRepost implements _SkeletonReasonRepost {
   const _$_SkeletonReasonRepost(
       {@JsonKey(name: '\$type')
-          this.type = 'app.bsky.feed.defs#skeletonReasonRepost',
-      @AtUriConverter()
-          required this.repost});
+      this.type = 'app.bsky.feed.defs#skeletonReasonRepost',
+      @AtUriConverter() required this.repost});
 
   factory _$_SkeletonReasonRepost.fromJson(Map<String, dynamic> json) =>
       _$$_SkeletonReasonRepostFromJson(json);
