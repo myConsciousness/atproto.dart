@@ -422,53 +422,25 @@
           "embed": {
             "$type": "app.bsky.embed.record#view",
             "record": {
-              "$type": "app.bsky.embed.record#viewRecord",
-              "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jw6eit7huu2a",
-              "cid": "bafyreif3j4yfihixpuqb5w5moue2glldyzyopxnvg42dzjj735vqn2k5gi",
-              "author": {
-                "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
-                "handle": "shinyakato.dev",
-                "displayName": "Shinya Kato 🤯",
-                "avatar": "https://cdn.bsky.social/imgproxy/JF97YphLyIEWfq4KJNO_ZCYm9v_zNcRj7sSB8UZrRBw/rs:fill:1000:1000:1:0/plain/bafkreidqn4z6ocv5snxuqguarboozqdusam2tehccnu23yab7g2sgv64dq@jpeg",
+              "$type": "app.bsky.feed.defs#generatorView",
+              "uri": "at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-gaming",
+              "cid": "bafyreieddjqwgq6molmyogek7u5xhjihgyxrfmlu37wl6hsamb4k4pkvbu",
+              "did": "did:web:skyfeed.xyz",
+              "creator": {
+                "did": "did:plc:tenurhgjptubkk5zf5qhi3og",
+                "handle": "skyfeed.xyz",
+                "displayName": "SkyFeeds",
+                "description": "A collection of custom feeds that can be used with any Bluesky client.\n\nCreated by @redsolver.net",
+                "avatar": "https://cdn.bsky.social/imgproxy/p9Br0Nx3BNItBP63bUdb0xVEsHAleExkjFnnpReE-3c/rs:fill:1000:1000:1:0/plain/bafkreifktiihugoq3gl3kvae3tw6eb5yt7pk4wpvy7hltlnqvpubydcx64@jpeg",
+                "indexedAt": "2023-05-20T18:13:02.607Z",
                 "viewer": { "muted": false, "blockedBy": false },
                 "labels": []
               },
-              "value": {
-                "text": "Very curious about savedFeedsPref \n\nhttps://github.com/bluesky-social/atproto/blob/8059e07d8a48cebf245f0a8506ce7246d0668c42/lexicons/app/bsky/actor/defs.json#L116",
-                "$type": "app.bsky.feed.post",
-                "embed": {
-                  "$type": "app.bsky.embed.external",
-                  "external": {
-                    "uri": "https://github.com/bluesky-social/atproto/blob/8059e07d8a48cebf245f0a8506ce7246d0668c42/lexicons/app/bsky/actor/defs.json#L116",
-                    "title": "",
-                    "description": ""
-                  }
-                },
-                "facets": [
-                  {
-                    "index": { "byteEnd": 162, "byteStart": 36 },
-                    "features": [
-                      {
-                        "uri": "https://github.com/bluesky-social/atproto/blob/8059e07d8a48cebf245f0a8506ce7246d0668c42/lexicons/app/bsky/actor/defs.json#L116",
-                        "$type": "app.bsky.richtext.facet#link"
-                      }
-                    ]
-                  }
-                ],
-                "createdAt": "2023-05-20T16:34:46.102Z"
-              },
-              "labels": [],
-              "indexedAt": "2023-05-20T16:34:46.297Z",
-              "embeds": [
-                {
-                  "$type": "app.bsky.embed.external#view",
-                  "external": {
-                    "uri": "https://github.com/bluesky-social/atproto/blob/8059e07d8a48cebf245f0a8506ce7246d0668c42/lexicons/app/bsky/actor/defs.json#L116",
-                    "title": "",
-                    "description": ""
-                  }
-                }
-              ]
+              "displayName": "#gaming",
+              "description": "Posts with #gaming from the whole network",
+              "likeCount": 0,
+              "viewer": {},
+              "indexedAt": "2023-05-21T17:15:31.885Z"
             }
           },
           "replyCount": 1,
