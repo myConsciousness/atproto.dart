@@ -150,7 +150,7 @@ class _$_Preferences implements _Preferences {
 abstract class _Preferences implements Preferences {
   const factory _Preferences(
       {@PreferenceConverter()
-      required final List<Preference> preferences}) = _$_Preferences;
+          required final List<Preference> preferences}) = _$_Preferences;
 
   factory _Preferences.fromJson(Map<String, dynamic> json) =
       _$_Preferences.fromJson;
