@@ -11,6 +11,7 @@ import '../entities/actor_feeds.dart';
 import '../entities/embed.dart';
 import '../entities/facet.dart';
 import '../entities/feed.dart';
+import '../entities/feed_generator.dart';
 import '../entities/likes.dart';
 import '../entities/post_thread.dart';
 import '../entities/posts.dart';
@@ -361,6 +362,24 @@ abstract class FeedsService {
   Future<core.XRPCResponse<core.EmptyData>> createGenerators(
     List<GeneratorParam> params,
   );
+
+  /// Get information about a specific feed offered by a feed generator,
+  /// such as its online status.
+  ///
+  /// ## Parameters
+  ///
+  /// - [uri]: AT URI of generator to be retrieved.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getFeedGenerator
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedGenerator.json
+  Future<core.XRPCResponse<FeedGenerator>> findGenerator({
+    required core.AtUri uri,
+  });
 }
 
 class _FeedsService extends BlueskyBaseService implements FeedsService {
@@ -632,8 +651,8 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<atp.XRPCResponse<Posts>> findPosts({
-    required List<atp.AtUri> uris,
+  Future<core.XRPCResponse<Posts>> findPosts({
+    required List<core.AtUri> uris,
   }) async =>
       await super.get(
         'getPosts',
@@ -644,7 +663,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<atp.XRPCResponse<atp.Record>> createGenerator({
+  Future<core.XRPCResponse<atp.Record>> createGenerator({
     required String did,
     required String displayName,
     String? description,
@@ -666,7 +685,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<atp.XRPCResponse<atp.EmptyData>> createGenerators(
+  Future<core.XRPCResponse<core.EmptyData>> createGenerators(
     List<GeneratorParam> params,
   ) async =>
       await atproto.repositories.createRecords(
@@ -687,5 +706,17 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
               ),
             )
             .toList(),
+      );
+
+  @override
+  Future<core.XRPCResponse<FeedGenerator>> findGenerator({
+    required core.AtUri uri,
+  }) async =>
+      await super.get(
+        'getFeedGenerator',
+        parameters: {
+          'feed': uri.toString(),
+        },
+        to: FeedGenerator.fromJson,
       );
 }
