@@ -6,8 +6,19 @@
 import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_test/atproto_test.dart' as atp_test;
-import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/src/entities/actor_feeds.dart';
+import 'package:bluesky/src/entities/feed_generator.dart';
+import 'package:bluesky/src/entities/feed_generators.dart';
+import 'package:bluesky/src/entities/likes.dart';
+import 'package:bluesky/src/entities/post_thread.dart';
+import 'package:bluesky/src/entities/posts.dart';
+import 'package:bluesky/src/entities/reposted_by.dart';
 import 'package:bluesky/src/entities/skeleton_feed.dart';
+import 'package:bluesky/src/feeds/feeds_service.dart';
+import 'package:bluesky/src/params/generator_param.dart';
+import 'package:bluesky/src/params/post_param.dart';
+import 'package:bluesky/src/params/strong_ref_param.dart';
+import 'package:bluesky/src/params/thread_param.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
