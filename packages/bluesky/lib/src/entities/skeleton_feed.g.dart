@@ -2,22 +2,22 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'feed.dart';
+part of 'skeleton_feed.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Feed _$$_FeedFromJson(Map json) => $checkedCreate(
-      r'_$_Feed',
+_$_SkeletonFeed _$$_SkeletonFeedFromJson(Map json) => $checkedCreate(
+      r'_$_SkeletonFeed',
       json,
       ($checkedConvert) {
-        final val = _$_Feed(
+        final val = _$_SkeletonFeed(
           feed: $checkedConvert(
               'feed',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      FeedView.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => SkeletonFeedView.fromJson(
+                      Map<String, Object?>.from(e as Map)))
                   .toList()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
         );
@@ -25,7 +25,7 @@ _$_Feed _$$_FeedFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_FeedToJson(_$_Feed instance) {
+Map<String, dynamic> _$$_SkeletonFeedToJson(_$_SkeletonFeed instance) {
   final val = <String, dynamic>{
     'feed': instance.feed.map((e) => e.toJson()).toList(),
   };
