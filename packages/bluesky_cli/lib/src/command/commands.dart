@@ -12,6 +12,7 @@ import 'actor/suggestions.dart';
 import 'bsky_command.dart';
 import 'common/delete.dart';
 import 'feed/actor_feeds.dart';
+import 'feed/custom_feed.dart';
 import 'feed/feed.dart';
 import 'feed/create_generator.dart';
 import 'feed/feed_generator.dart';
@@ -70,6 +71,7 @@ final feedCommands = <BskyCommand>[
   ActorFeedsCommand(),
   FeedGeneratorCommand(),
   FeedGeneratorsCommand(),
+  CustomFeedCommand(),
 ];
 
 final notificationCommands = <BskyCommand>[

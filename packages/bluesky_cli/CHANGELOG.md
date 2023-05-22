@@ -6,6 +6,7 @@
 - Supported `actor-feeds` command. ([#431](https://github.com/myConsciousness/atproto.dart/issues/431))
 - Supported `feed-generator` command. ([#433](https://github.com/myConsciousness/atproto.dart/issues/433))
 - Supported `feed-generators` command. ([#434](https://github.com/myConsciousness/atproto.dart/issues/434))
+- Supported `custom-feed` command. ([#432](https://github.com/myConsciousness/atproto.dart/issues/432))
 
 ## v0.2.0
 
