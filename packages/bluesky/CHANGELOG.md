@@ -6,6 +6,7 @@
 - Added `app.bsky.actor.defs#savedFeedsPref` as `savedFeeds` field in `Preference` object. ([#427](https://github.com/myConsciousness/atproto.dart/issues/427))
 - Supported `app.bsky.feed.getActorFeeds` as `findActorFeeds` in `FeedsService`. ([#431](https://github.com/myConsciousness/atproto.dart/issues/431))
 - Supported `app.bsky.feed.getFeedGenerator` as `findGenerator` in `FeedsService`. ([#433](https://github.com/myConsciousness/atproto.dart/issues/433))
+- Supported `app.bsky.feed.getFeedGenerators` as `findGenerators` in `FeedsService`. ([#434](https://github.com/myConsciousness/atproto.dart/issues/434))
 
 ## v0.5.1
 

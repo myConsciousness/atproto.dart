@@ -91,6 +91,7 @@ Available commands:
   delete               Delete a specific contents from repository.
   feed                 Show the feed of specific actor.
   feed-generator       Show the specific feed generator.
+  feed-generators      Show the specific feed generators.
   follow               Follow an user.
   followers            Show the followers.
   follows              Show the following users.

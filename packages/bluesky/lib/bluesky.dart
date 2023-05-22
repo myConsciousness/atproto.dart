@@ -113,6 +113,7 @@ export 'package:bluesky/src/entities/feed.dart';
 export 'package:bluesky/src/entities/feed_generator.dart';
 export 'package:bluesky/src/entities/feed_generator_view.dart';
 export 'package:bluesky/src/entities/feed_generator_viewer.dart';
+export 'package:bluesky/src/entities/feed_generators.dart';
 export 'package:bluesky/src/entities/feed_view.dart';
 export 'package:bluesky/src/entities/followers.dart';
 export 'package:bluesky/src/entities/follows.dart';

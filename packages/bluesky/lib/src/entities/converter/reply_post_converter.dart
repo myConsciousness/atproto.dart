@@ -35,7 +35,7 @@ class ReplyPostConverter
       return ReplyPost.record(
         data: Post.fromJson(json),
       );
-    } on Exception {
+    } on UnsupportedError {
       return ReplyPost.unknown(data: json);
     }
   }

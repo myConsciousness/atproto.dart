@@ -12,6 +12,7 @@ import '../entities/embed.dart';
 import '../entities/facet.dart';
 import '../entities/feed.dart';
 import '../entities/feed_generator.dart';
+import '../entities/feed_generators.dart';
 import '../entities/likes.dart';
 import '../entities/post_thread.dart';
 import '../entities/posts.dart';
@@ -380,6 +381,23 @@ abstract class FeedsService {
   Future<core.XRPCResponse<FeedGenerator>> findGenerator({
     required core.AtUri uri,
   });
+
+  /// Get information about a list of feed generators
+  ///
+  /// ## Parameters
+  ///
+  /// - [uris]: Collection of AT URI of generators to be retrieved.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getFeedGenerators
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedGenerators.json
+  Future<core.XRPCResponse<FeedGenerators>> findGenerators({
+    required List<core.AtUri> uris,
+  });
 }
 
 class _FeedsService extends BlueskyBaseService implements FeedsService {
@@ -718,5 +736,17 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'feed': uri.toString(),
         },
         to: FeedGenerator.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<FeedGenerators>> findGenerators({
+    required List<core.AtUri> uris,
+  }) async =>
+      await super.get(
+        'getFeedGenerators',
+        parameters: {
+          'feeds': uris.map((e) => e.toString()).toList(),
+        },
+        to: FeedGenerators.fromJson,
       );
 }
