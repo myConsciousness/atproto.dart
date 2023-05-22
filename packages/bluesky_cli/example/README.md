@@ -33,6 +33,7 @@ Available commands:
   blocks               Show the blocked users.
   create-generator     Create a generator.
   create-list          Create a list.
+  custom-feed          Show the custom feed from specific generator.
   delete               Delete a specific contents from repository.
   feed                 Show the feed of specific actor.
   feed-generator       Show the specific feed generator.

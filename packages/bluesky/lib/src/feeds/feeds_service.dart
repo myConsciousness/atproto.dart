@@ -207,6 +207,30 @@ abstract class FeedsService {
     String? cursor,
   });
 
+  /// Compose and hydrate a feed from a user's selected feed generator.
+  ///
+  /// ## Parameters
+  ///
+  /// - [generatorUri]: AT URI of generator to be used.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getFeed
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeed.json
+  Future<core.XRPCResponse<Feed>> findCustomFeed({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  });
+
   /// Retrieve a list of feeds created by a given actor.
   ///
   /// ## Parameters
@@ -596,6 +620,22 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
         'getAuthorFeed',
         parameters: {
           'actor': actor,
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: Feed.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Feed>> findCustomFeed({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await super.get(
+        'getFeed',
+        parameters: {
+          'feed': generatorUri.toString(),
           'limit': limit,
           'cursor': cursor,
         },
