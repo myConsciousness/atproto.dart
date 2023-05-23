@@ -37,7 +37,7 @@ class EmbedViewConverter
       );
     }
 
-    throw UnimplementedError('Unsupported type: $type');
+    return EmbedView.unknown(data: json);
   }
 
   @override
@@ -46,5 +46,6 @@ class EmbedViewConverter
         images: (data) => data.toJson(),
         external: (data) => data.toJson(),
         recordWithMedia: (data) => data.toJson(),
+        unknown: (data) => data,
       );
 }

@@ -27,12 +27,13 @@ class ReportSubjectConverter
       );
     }
 
-    throw UnimplementedError('Unsupported type: $type');
+    return ReportSubject.unknown(data: json);
   }
 
   @override
   Map<String, dynamic> toJson(ReportSubject object) => object.when(
         repoRef: (data) => data.toJson(),
         strongRef: (data) => data.toJson(),
+        unknown: (data) => data,
       );
 }

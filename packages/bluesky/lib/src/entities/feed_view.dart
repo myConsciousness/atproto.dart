@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'converter/reason_converter.dart';
 import 'post.dart';
 import 'reason.dart';
 import 'reply.dart';
@@ -21,7 +22,7 @@ class FeedView with _$FeedView {
   const factory FeedView({
     required Post post,
     Reply? reply,
-    Reason? reason,
+    @ReasonConverter() Reason? reason,
   }) = _FeedView;
 
   factory FeedView.fromJson(Map<String, Object?> json) =>

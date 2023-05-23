@@ -4,6 +4,10 @@ author: 'Shinya Kato'
 inputs:
   text:
     description: Text to be posted to Bluesky.
+  media:
+    description: File path of the media to be attached to the Post.
+  media-alt:
+    description: Alt Text to be assigned to uploaded Media.
   identifier:
     description: >
       Handle name or email of the user who logs into Bluesky.

@@ -32,6 +32,7 @@ jobs:
           - packages/xrpc
           - packages/atproto_core
           - packages/atproto
+          - packages/bluesky_text
           - packages/bluesky
 
     steps:

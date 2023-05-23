@@ -13,16 +13,20 @@ _$_Reply _$$_ReplyFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_Reply(
-          root: $checkedConvert('root',
-              (v) => Post.fromJson(Map<String, Object?>.from(v as Map))),
-          parent: $checkedConvert('parent',
-              (v) => Post.fromJson(Map<String, Object?>.from(v as Map))),
+          root: $checkedConvert(
+              'root',
+              (v) => const ReplyPostConverter()
+                  .fromJson(v as Map<String, dynamic>)),
+          parent: $checkedConvert(
+              'parent',
+              (v) => const ReplyPostConverter()
+                  .fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$$_ReplyToJson(_$_Reply instance) => <String, dynamic>{
-      'root': instance.root.toJson(),
-      'parent': instance.parent.toJson(),
+      'root': const ReplyPostConverter().toJson(instance.root),
+      'parent': const ReplyPostConverter().toJson(instance.parent),
     };

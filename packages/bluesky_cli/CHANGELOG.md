@@ -1,5 +1,30 @@
 # Release Note
 
+## v0.2.1
+
+- Supported `create-generator` command. ([#430](https://github.com/myConsciousness/atproto.dart/issues/430))
+- Supported `actor-feeds` command. ([#431](https://github.com/myConsciousness/atproto.dart/issues/431))
+- Supported `feed-generator` command. ([#433](https://github.com/myConsciousness/atproto.dart/issues/433))
+- Supported `feed-generators` command. ([#434](https://github.com/myConsciousness/atproto.dart/issues/434))
+- Supported `custom-feed` command. ([#432](https://github.com/myConsciousness/atproto.dart/issues/432))
+- Supported `generator-info` command. ([#429](https://github.com/myConsciousness/atproto.dart/issues/429))
+
+## v0.2.0
+
+- Supported `preferences` command. ([#387](https://github.com/myConsciousness/atproto.dart/issues/387))
+- Supported `put-preferences` command. ([#388](https://github.com/myConsciousness/atproto.dart/issues/388))
+- Supported `create-list` command. ([#392](https://github.com/myConsciousness/atproto.dart/issues/392))
+- Supported `lists` command. ([#391](https://github.com/myConsciousness/atproto.dart/issues/391))
+- Supported `list` command. ([#389](https://github.com/myConsciousness/atproto.dart/issues/389))
+- Supported `add-list-item` command. ([#393](https://github.com/myConsciousness/atproto.dart/issues/393))
+- Supported `muting-lists` command. ([#390](https://github.com/myConsciousness/atproto.dart/issues/390))
+- Supported `mute-list` command. ([#394](https://github.com/myConsciousness/atproto.dart/issues/394))
+- Supported `unmute-list` command. ([#395](https://github.com/myConsciousness/atproto.dart/issues/394))
+
+## v0.1.2
+
+- Fixed to automatically extract `mention` and `link` from text and set `facet`. ([#291](https://github.com/myConsciousness/atproto.dart/issues/291))
+
 ## v0.1.1
 
 - Added `block` and `blocks` commands. ([#320](https://github.com/myConsciousness/atproto.dart/issues/320))

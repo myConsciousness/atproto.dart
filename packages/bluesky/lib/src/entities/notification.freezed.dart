@@ -25,8 +25,11 @@ mixin _$Notification {
   AtUri get uri => throw _privateConstructorUsedError;
   Actor get author => throw _privateConstructorUsedError;
   NotificationReason get reason => throw _privateConstructorUsedError;
-  String? get reasonSubject => throw _privateConstructorUsedError;
+  @AtUriConverter()
+  AtUri? get reasonSubject => throw _privateConstructorUsedError;
   bool get isRead => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get record => throw _privateConstructorUsedError;
+  List<Label> get labels => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,8 +49,10 @@ abstract class $NotificationCopyWith<$Res> {
       @AtUriConverter() AtUri uri,
       Actor author,
       NotificationReason reason,
-      String? reasonSubject,
+      @AtUriConverter() AtUri? reasonSubject,
       bool isRead,
+      Map<String, dynamic>? record,
+      List<Label> labels,
       DateTime indexedAt});
 
   $ActorCopyWith<$Res> get author;
@@ -72,6 +77,8 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
     Object? reason = null,
     Object? reasonSubject = freezed,
     Object? isRead = null,
+    Object? record = freezed,
+    Object? labels = null,
     Object? indexedAt = null,
   }) {
     return _then(_value.copyWith(
@@ -94,11 +101,19 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
       reasonSubject: freezed == reasonSubject
           ? _value.reasonSubject
           : reasonSubject // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as AtUri?,
       isRead: null == isRead
           ? _value.isRead
           : isRead // ignore: cast_nullable_to_non_nullable
               as bool,
+      record: freezed == record
+          ? _value.record
+          : record // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      labels: null == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -128,8 +143,10 @@ abstract class _$$_NotificationCopyWith<$Res>
       @AtUriConverter() AtUri uri,
       Actor author,
       NotificationReason reason,
-      String? reasonSubject,
+      @AtUriConverter() AtUri? reasonSubject,
       bool isRead,
+      Map<String, dynamic>? record,
+      List<Label> labels,
       DateTime indexedAt});
 
   @override
@@ -153,6 +170,8 @@ class __$$_NotificationCopyWithImpl<$Res>
     Object? reason = null,
     Object? reasonSubject = freezed,
     Object? isRead = null,
+    Object? record = freezed,
+    Object? labels = null,
     Object? indexedAt = null,
   }) {
     return _then(_$_Notification(
@@ -175,11 +194,19 @@ class __$$_NotificationCopyWithImpl<$Res>
       reasonSubject: freezed == reasonSubject
           ? _value.reasonSubject
           : reasonSubject // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as AtUri?,
       isRead: null == isRead
           ? _value.isRead
           : isRead // ignore: cast_nullable_to_non_nullable
               as bool,
+      record: freezed == record
+          ? _value._record
+          : record // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      labels: null == labels
+          ? _value._labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -197,9 +224,13 @@ class _$_Notification implements _Notification {
       @AtUriConverter() required this.uri,
       required this.author,
       required this.reason,
-      this.reasonSubject,
+      @AtUriConverter() this.reasonSubject,
       required this.isRead,
-      required this.indexedAt});
+      final Map<String, dynamic>? record,
+      required final List<Label> labels,
+      required this.indexedAt})
+      : _record = record,
+        _labels = labels;
 
   factory _$_Notification.fromJson(Map<String, dynamic> json) =>
       _$$_NotificationFromJson(json);
@@ -214,15 +245,34 @@ class _$_Notification implements _Notification {
   @override
   final NotificationReason reason;
   @override
-  final String? reasonSubject;
+  @AtUriConverter()
+  final AtUri? reasonSubject;
   @override
   final bool isRead;
+  final Map<String, dynamic>? _record;
+  @override
+  Map<String, dynamic>? get record {
+    final value = _record;
+    if (value == null) return null;
+    if (_record is EqualUnmodifiableMapView) return _record;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  final List<Label> _labels;
+  @override
+  List<Label> get labels {
+    if (_labels is EqualUnmodifiableListView) return _labels;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_labels);
+  }
+
   @override
   final DateTime indexedAt;
 
   @override
   String toString() {
-    return 'Notification(cid: $cid, uri: $uri, author: $author, reason: $reason, reasonSubject: $reasonSubject, isRead: $isRead, indexedAt: $indexedAt)';
+    return 'Notification(cid: $cid, uri: $uri, author: $author, reason: $reason, reasonSubject: $reasonSubject, isRead: $isRead, record: $record, labels: $labels, indexedAt: $indexedAt)';
   }
 
   @override
@@ -237,6 +287,8 @@ class _$_Notification implements _Notification {
             (identical(other.reasonSubject, reasonSubject) ||
                 other.reasonSubject == reasonSubject) &&
             (identical(other.isRead, isRead) || other.isRead == isRead) &&
+            const DeepCollectionEquality().equals(other._record, _record) &&
+            const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt));
   }
@@ -244,7 +296,16 @@ class _$_Notification implements _Notification {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, cid, uri, author, reason, reasonSubject, isRead, indexedAt);
+      runtimeType,
+      cid,
+      uri,
+      author,
+      reason,
+      reasonSubject,
+      isRead,
+      const DeepCollectionEquality().hash(_record),
+      const DeepCollectionEquality().hash(_labels),
+      indexedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -266,8 +327,10 @@ abstract class _Notification implements Notification {
       @AtUriConverter() required final AtUri uri,
       required final Actor author,
       required final NotificationReason reason,
-      final String? reasonSubject,
+      @AtUriConverter() final AtUri? reasonSubject,
       required final bool isRead,
+      final Map<String, dynamic>? record,
+      required final List<Label> labels,
       required final DateTime indexedAt}) = _$_Notification;
 
   factory _Notification.fromJson(Map<String, dynamic> json) =
@@ -283,9 +346,14 @@ abstract class _Notification implements Notification {
   @override
   NotificationReason get reason;
   @override
-  String? get reasonSubject;
+  @AtUriConverter()
+  AtUri? get reasonSubject;
   @override
   bool get isRead;
+  @override
+  Map<String, dynamic>? get record;
+  @override
+  List<Label> get labels;
   @override
   DateTime get indexedAt;
   @override

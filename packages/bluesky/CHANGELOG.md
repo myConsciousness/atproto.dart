@@ -1,5 +1,73 @@
 # Release Note
 
+## v0.5.2
+
+- Supported `app.bsky.feed.generator` as `createGenerator` in `FeedsService`. ([#430](https://github.com/myConsciousness/atproto.dart/issues/430))
+- Added `app.bsky.actor.defs#savedFeedsPref` as `savedFeeds` field in `Preference` object. ([#427](https://github.com/myConsciousness/atproto.dart/issues/427))
+- Supported `app.bsky.feed.getActorFeeds` as `findActorFeeds` in `FeedsService`. ([#431](https://github.com/myConsciousness/atproto.dart/issues/431))
+- Supported `app.bsky.feed.getFeedGenerator` as `findGenerator` in `FeedsService`. ([#433](https://github.com/myConsciousness/atproto.dart/issues/433))
+- Supported `app.bsky.feed.getFeedGenerators` as `findGenerators` in `FeedsService`. ([#434](https://github.com/myConsciousness/atproto.dart/issues/434))
+- Supported `app.bsky.feed.getFeed` as `findCustomFeed` in `FeedsService`. ([#432](https://github.com/myConsciousness/atproto.dart/issues/432))
+- Supported `app.bsky.feed.getFeedSkeleton` as `findSkeletonFeed` in `FeedsService`. ([#435](https://github.com/myConsciousness/atproto.dart/issues/435))
+- Supported `app.bsky.feed.describeFeedGenerator` as `findGeneratorInfo` in `FeedsService`. ([#429](https://github.com/myConsciousness/atproto.dart/issues/429))
+- Added `generatorView` type in `EmbedViewRecordView` object. ([#428](https://github.com/myConsciousness/atproto.dart/issues/428))
+
+## v0.5.1
+
+- The `Reply` object under the `Feed` object has been modified to be Union as `ReplyPost`. In addition, the following objects have been renamed to make them common objects. ([#424](https://github.com/myConsciousness/atproto.dart/issues/424))
+  - Changed named from `PostThreadViewNotFound` to `NotFoundPost`
+  - Changed name from `PostThreadViewBlocked` to `BlockedPost`
+
+## v0.5.0
+
+- Supported `app.bsky.actor.getPreferences` as `findPreferences` in `ActorsService`. ([#387](https://github.com/myConsciousness/atproto.dart/issues/387))
+- Fixed field type to `AtUri` from `String` in `ActorViewer` and `PostViewer`.
+- Supported `app.bsky.actor.putPreferences` as `updatePreferences` in `ActorsService`. ([#388](https://github.com/myConsciousness/atproto.dart/issues/388))
+- Fixed `Reason` object to union. ([#399](https://github.com/myConsciousness/atproto.dart/issues/399))
+- Supported `app.bsky.graph.list` as `createList` in `GraphsService`. ([#392](https://github.com/myConsciousness/atproto.dart/issues/392))
+- Supported `app.bsky.graph.getLists` as `findLists` in `GraphsService`. ([#391](https://github.com/myConsciousness/atproto.dart/issues/391))
+- Supported `app.bsky.graph.getList` as `findListItems` in `GraphsService`. ([#389](https://github.com/myConsciousness/atproto.dart/issues/389))
+- Supported `app.bsky.graph.listitem` as `createListItem` in `GraphsService`. ([#393](https://github.com/myConsciousness/atproto.dart/issues/393))
+- Supported `app.bsky.graph.getListMutes` as `findMutingLists` in `GraphsService`. ([#390](https://github.com/myConsciousness/atproto.dart/issues/390))
+- Added `mutedByList` field in `ActorViewer` object. ([#396](https://github.com/myConsciousness/atproto.dart/issues/396))
+- Supported `app.bsky.graph.muteActorList` as `createMuteActorList` in `GraphsService`. ([#394](https://github.com/myConsciousness/atproto.dart/issues/394))
+- Supported `app.bsky.graph.unmuteActorList` as `deleteMuteActorList` in `GraphsService`. ([#395](https://github.com/myConsciousness/atproto.dart/issues/395))
+- Updated SDK to `">=2.17.0 <4.0.0"`. ([#406](https://github.com/myConsciousness/atproto.dart/issues/406))
+- Added `createThread` in `FeedsService`. ([#370](https://github.com/myConsciousness/atproto.dart/issues/370))
+
+## v0.4.6
+
+- Supported `com.atproto.repo.applyWrites` as `updateBulk` in `RepositoriesService`. Also added following utilities.  ([#306](https://github.com/myConsciousness/atproto.dart/issues/306))
+  - `createRecords`
+  - `updateRecords`
+  - `deleteRecords`
+- Added `parent` field in `PostThreadViewRecord`. ([#364](https://github.com/myConsciousness/atproto.dart/issues/364))
+- Removed `feed_algorithm` and make this parameter to `String?` in `findTimeline`.
+- Added `toStrongRef()` method in `Post`. You can easily convert `Post` object to `StrongRef` object. ([#367](https://github.com/myConsciousness/atproto.dart/issues/367))
+- Added bulk options for `FeedsService` and `GraphsService`. ([#373](https://github.com/myConsciousness/atproto.dart/issues/373))
+  - `createPosts`
+  - `createReposts`
+  - `createLikes`
+  - `createFollows`
+  - `createBlocks`
+
+## v0.4.5
+
+- Added `unknown` fields for union types. The AT Protocol allows some endpoints to create records of types not officially supported. In such cases, the `unknown` field is used to store the raw JSON for a safe and user-choice implementation. ([#350](https://github.com/myConsciousness/atproto.dart/issues/350))
+
+## v0.4.4
+
+- Upgraded `atproto` package.
+- Added `record` field in `Notification` object.
+
+## v0.4.3
+
+- Added `labels` fields. ([#346](https://github.com/myConsciousness/atproto.dart/issues/346))
+  - `Post`
+  - `Actor`
+  - `ActorProfile`
+  - `Notification`
+
 ## v0.4.2
 
 - Added `includeNsfw` flag to `findPopularFeed`. ([#329](https://github.com/myConsciousness/atproto.dart/issues/329))

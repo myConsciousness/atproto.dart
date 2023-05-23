@@ -20,7 +20,7 @@ class ParsedDidDoc with _$ParsedDidDoc {
     required String id,
     required List<String> alsoKnownAs,
     @JsonKey(name: 'verificationMethod')
-        required List<ParsedVerificationMethod> verificationMethods,
+    required List<ParsedVerificationMethod> verificationMethods,
     @JsonKey(name: 'service') required List<ParsedService> services,
   }) = _ParsedDidDoc;
 

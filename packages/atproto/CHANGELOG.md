@@ -1,5 +1,30 @@
 # Release Note
 
+## v0.3.0
+
+- Fixed type from `StrongRef` to `Record` of `updateRecord` in `RepositoriesService`.
+- Updated SDK to `">=2.17.0 <4.0.0"`. ([#406](https://github.com/myConsciousness/atproto.dart/issues/406))
+
+## v0.2.13
+
+- Supported `com.atproto.repo.applyWrites` as `updateBulk` in `RepositoriesService`. Also added following utilities. ([#306](https://github.com/myConsciousness/atproto.dart/issues/306))
+  - `createRecords`
+  - `updateRecords`
+  - `deleteRecords`
+- Added `toStrongRef()` method in `Record` and `RecordValue`. Be sure to check with `hasStrongRef` or `hasNotStrongRef` when you use `toStrongRef()` from `RecordValue`, because `cid` in `RecordValue` is nullable. ([#367](https://github.com/myConsciousness/atproto.dart/issues/367))
+
+## v0.2.12
+
+- Added `unknown` fields for union types. The AT Protocol allows some endpoints to create records of types not officially supported. In such cases, the `unknown` field is used to store the raw JSON for a safe and user-choice implementation. ([#350](https://github.com/myConsciousness/atproto.dart/issues/350))
+
+## v0.2.11
+
+- Removed `did` parameter from `findRecord` in `RepositoriesService`.
+
+## v0.2.10
+
+- Added `label.dart`. ([#346](https://github.com/myConsciousness/atproto.dart/issues/346))
+
 ## v0.2.9
 
 - Added additional fields in `InviteCode` object.  ([#326](https://github.com/myConsciousness/atproto.dart/issues/326))

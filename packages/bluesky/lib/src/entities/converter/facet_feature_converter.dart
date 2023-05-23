@@ -27,12 +27,13 @@ class FacetFeatureConverter
       );
     }
 
-    throw UnsupportedError('Unsupported type: $type');
+    return FacetFeature.unknown(data: json);
   }
 
   @override
   Map<String, dynamic> toJson(FacetFeature object) => object.when(
         mention: (data) => data.toJson(),
         link: (data) => data.toJson(),
+        unknown: (data) => data,
       );
 }

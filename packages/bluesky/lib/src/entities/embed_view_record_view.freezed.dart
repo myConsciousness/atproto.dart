@@ -22,6 +22,8 @@ mixin _$EmbedViewRecordView {
     required TResult Function(EmbedViewRecordViewRecord data) record,
     required TResult Function(EmbedViewRecordViewNotFound data) notFound,
     required TResult Function(EmbedViewRecordViewBlocked data) blocked,
+    required TResult Function(FeedGeneratorView data) generatorView,
+    required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,6 +31,8 @@ mixin _$EmbedViewRecordView {
     TResult? Function(EmbedViewRecordViewRecord data)? record,
     TResult? Function(EmbedViewRecordViewNotFound data)? notFound,
     TResult? Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult? Function(FeedGeneratorView data)? generatorView,
+    TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +40,8 @@ mixin _$EmbedViewRecordView {
     TResult Function(EmbedViewRecordViewRecord data)? record,
     TResult Function(EmbedViewRecordViewNotFound data)? notFound,
     TResult Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult Function(FeedGeneratorView data)? generatorView,
+    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -44,6 +50,8 @@ mixin _$EmbedViewRecordView {
     required TResult Function(_Record value) record,
     required TResult Function(_NotFound value) notFound,
     required TResult Function(_Blocked value) blocked,
+    required TResult Function(_GeneratorView value) generatorView,
+    required TResult Function(_Unknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +59,8 @@ mixin _$EmbedViewRecordView {
     TResult? Function(_Record value)? record,
     TResult? Function(_NotFound value)? notFound,
     TResult? Function(_Blocked value)? blocked,
+    TResult? Function(_GeneratorView value)? generatorView,
+    TResult? Function(_Unknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +68,8 @@ mixin _$EmbedViewRecordView {
     TResult Function(_Record value)? record,
     TResult Function(_NotFound value)? notFound,
     TResult Function(_Blocked value)? blocked,
+    TResult Function(_GeneratorView value)? generatorView,
+    TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -156,6 +168,8 @@ class _$_Record implements _Record {
     required TResult Function(EmbedViewRecordViewRecord data) record,
     required TResult Function(EmbedViewRecordViewNotFound data) notFound,
     required TResult Function(EmbedViewRecordViewBlocked data) blocked,
+    required TResult Function(FeedGeneratorView data) generatorView,
+    required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return record(data);
   }
@@ -166,6 +180,8 @@ class _$_Record implements _Record {
     TResult? Function(EmbedViewRecordViewRecord data)? record,
     TResult? Function(EmbedViewRecordViewNotFound data)? notFound,
     TResult? Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult? Function(FeedGeneratorView data)? generatorView,
+    TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return record?.call(data);
   }
@@ -176,6 +192,8 @@ class _$_Record implements _Record {
     TResult Function(EmbedViewRecordViewRecord data)? record,
     TResult Function(EmbedViewRecordViewNotFound data)? notFound,
     TResult Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult Function(FeedGeneratorView data)? generatorView,
+    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
     if (record != null) {
@@ -190,6 +208,8 @@ class _$_Record implements _Record {
     required TResult Function(_Record value) record,
     required TResult Function(_NotFound value) notFound,
     required TResult Function(_Blocked value) blocked,
+    required TResult Function(_GeneratorView value) generatorView,
+    required TResult Function(_Unknown value) unknown,
   }) {
     return record(this);
   }
@@ -200,6 +220,8 @@ class _$_Record implements _Record {
     TResult? Function(_Record value)? record,
     TResult? Function(_NotFound value)? notFound,
     TResult? Function(_Blocked value)? blocked,
+    TResult? Function(_GeneratorView value)? generatorView,
+    TResult? Function(_Unknown value)? unknown,
   }) {
     return record?.call(this);
   }
@@ -210,6 +232,8 @@ class _$_Record implements _Record {
     TResult Function(_Record value)? record,
     TResult Function(_NotFound value)? notFound,
     TResult Function(_Blocked value)? blocked,
+    TResult Function(_GeneratorView value)? generatorView,
+    TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) {
     if (record != null) {
@@ -307,6 +331,8 @@ class _$_NotFound implements _NotFound {
     required TResult Function(EmbedViewRecordViewRecord data) record,
     required TResult Function(EmbedViewRecordViewNotFound data) notFound,
     required TResult Function(EmbedViewRecordViewBlocked data) blocked,
+    required TResult Function(FeedGeneratorView data) generatorView,
+    required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return notFound(data);
   }
@@ -317,6 +343,8 @@ class _$_NotFound implements _NotFound {
     TResult? Function(EmbedViewRecordViewRecord data)? record,
     TResult? Function(EmbedViewRecordViewNotFound data)? notFound,
     TResult? Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult? Function(FeedGeneratorView data)? generatorView,
+    TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return notFound?.call(data);
   }
@@ -327,6 +355,8 @@ class _$_NotFound implements _NotFound {
     TResult Function(EmbedViewRecordViewRecord data)? record,
     TResult Function(EmbedViewRecordViewNotFound data)? notFound,
     TResult Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult Function(FeedGeneratorView data)? generatorView,
+    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
     if (notFound != null) {
@@ -341,6 +371,8 @@ class _$_NotFound implements _NotFound {
     required TResult Function(_Record value) record,
     required TResult Function(_NotFound value) notFound,
     required TResult Function(_Blocked value) blocked,
+    required TResult Function(_GeneratorView value) generatorView,
+    required TResult Function(_Unknown value) unknown,
   }) {
     return notFound(this);
   }
@@ -351,6 +383,8 @@ class _$_NotFound implements _NotFound {
     TResult? Function(_Record value)? record,
     TResult? Function(_NotFound value)? notFound,
     TResult? Function(_Blocked value)? blocked,
+    TResult? Function(_GeneratorView value)? generatorView,
+    TResult? Function(_Unknown value)? unknown,
   }) {
     return notFound?.call(this);
   }
@@ -361,6 +395,8 @@ class _$_NotFound implements _NotFound {
     TResult Function(_Record value)? record,
     TResult Function(_NotFound value)? notFound,
     TResult Function(_Blocked value)? blocked,
+    TResult Function(_GeneratorView value)? generatorView,
+    TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) {
     if (notFound != null) {
@@ -457,6 +493,8 @@ class _$_Blocked implements _Blocked {
     required TResult Function(EmbedViewRecordViewRecord data) record,
     required TResult Function(EmbedViewRecordViewNotFound data) notFound,
     required TResult Function(EmbedViewRecordViewBlocked data) blocked,
+    required TResult Function(FeedGeneratorView data) generatorView,
+    required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return blocked(data);
   }
@@ -467,6 +505,8 @@ class _$_Blocked implements _Blocked {
     TResult? Function(EmbedViewRecordViewRecord data)? record,
     TResult? Function(EmbedViewRecordViewNotFound data)? notFound,
     TResult? Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult? Function(FeedGeneratorView data)? generatorView,
+    TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return blocked?.call(data);
   }
@@ -477,6 +517,8 @@ class _$_Blocked implements _Blocked {
     TResult Function(EmbedViewRecordViewRecord data)? record,
     TResult Function(EmbedViewRecordViewNotFound data)? notFound,
     TResult Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult Function(FeedGeneratorView data)? generatorView,
+    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
     if (blocked != null) {
@@ -491,6 +533,8 @@ class _$_Blocked implements _Blocked {
     required TResult Function(_Record value) record,
     required TResult Function(_NotFound value) notFound,
     required TResult Function(_Blocked value) blocked,
+    required TResult Function(_GeneratorView value) generatorView,
+    required TResult Function(_Unknown value) unknown,
   }) {
     return blocked(this);
   }
@@ -501,6 +545,8 @@ class _$_Blocked implements _Blocked {
     TResult? Function(_Record value)? record,
     TResult? Function(_NotFound value)? notFound,
     TResult? Function(_Blocked value)? blocked,
+    TResult? Function(_GeneratorView value)? generatorView,
+    TResult? Function(_Unknown value)? unknown,
   }) {
     return blocked?.call(this);
   }
@@ -511,6 +557,8 @@ class _$_Blocked implements _Blocked {
     TResult Function(_Record value)? record,
     TResult Function(_NotFound value)? notFound,
     TResult Function(_Blocked value)? blocked,
+    TResult Function(_GeneratorView value)? generatorView,
+    TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) {
     if (blocked != null) {
@@ -528,5 +576,326 @@ abstract class _Blocked implements EmbedViewRecordView {
   EmbedViewRecordViewBlocked get data;
   @JsonKey(ignore: true)
   _$$_BlockedCopyWith<_$_Blocked> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GeneratorViewCopyWith<$Res> {
+  factory _$$_GeneratorViewCopyWith(
+          _$_GeneratorView value, $Res Function(_$_GeneratorView) then) =
+      __$$_GeneratorViewCopyWithImpl<$Res>;
+  @useResult
+  $Res call({FeedGeneratorView data});
+
+  $FeedGeneratorViewCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_GeneratorViewCopyWithImpl<$Res>
+    extends _$EmbedViewRecordViewCopyWithImpl<$Res, _$_GeneratorView>
+    implements _$$_GeneratorViewCopyWith<$Res> {
+  __$$_GeneratorViewCopyWithImpl(
+      _$_GeneratorView _value, $Res Function(_$_GeneratorView) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_GeneratorView(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as FeedGeneratorView,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FeedGeneratorViewCopyWith<$Res> get data {
+    return $FeedGeneratorViewCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_GeneratorView implements _GeneratorView {
+  const _$_GeneratorView({required this.data});
+
+  @override
+  final FeedGeneratorView data;
+
+  @override
+  String toString() {
+    return 'EmbedViewRecordView.generatorView(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GeneratorView &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GeneratorViewCopyWith<_$_GeneratorView> get copyWith =>
+      __$$_GeneratorViewCopyWithImpl<_$_GeneratorView>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(EmbedViewRecordViewRecord data) record,
+    required TResult Function(EmbedViewRecordViewNotFound data) notFound,
+    required TResult Function(EmbedViewRecordViewBlocked data) blocked,
+    required TResult Function(FeedGeneratorView data) generatorView,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return generatorView(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(EmbedViewRecordViewRecord data)? record,
+    TResult? Function(EmbedViewRecordViewNotFound data)? notFound,
+    TResult? Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult? Function(FeedGeneratorView data)? generatorView,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return generatorView?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(EmbedViewRecordViewRecord data)? record,
+    TResult Function(EmbedViewRecordViewNotFound data)? notFound,
+    TResult Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult Function(FeedGeneratorView data)? generatorView,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (generatorView != null) {
+      return generatorView(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Record value) record,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Blocked value) blocked,
+    required TResult Function(_GeneratorView value) generatorView,
+    required TResult Function(_Unknown value) unknown,
+  }) {
+    return generatorView(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Record value)? record,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Blocked value)? blocked,
+    TResult? Function(_GeneratorView value)? generatorView,
+    TResult? Function(_Unknown value)? unknown,
+  }) {
+    return generatorView?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Record value)? record,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Blocked value)? blocked,
+    TResult Function(_GeneratorView value)? generatorView,
+    TResult Function(_Unknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (generatorView != null) {
+      return generatorView(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GeneratorView implements EmbedViewRecordView {
+  const factory _GeneratorView({required final FeedGeneratorView data}) =
+      _$_GeneratorView;
+
+  @override
+  FeedGeneratorView get data;
+  @JsonKey(ignore: true)
+  _$$_GeneratorViewCopyWith<_$_GeneratorView> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UnknownCopyWith<$Res> {
+  factory _$$_UnknownCopyWith(
+          _$_Unknown value, $Res Function(_$_Unknown) then) =
+      __$$_UnknownCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class __$$_UnknownCopyWithImpl<$Res>
+    extends _$EmbedViewRecordViewCopyWithImpl<$Res, _$_Unknown>
+    implements _$$_UnknownCopyWith<$Res> {
+  __$$_UnknownCopyWithImpl(_$_Unknown _value, $Res Function(_$_Unknown) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_Unknown(
+      data: null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Unknown implements _Unknown {
+  const _$_Unknown({required final Map<String, dynamic> data}) : _data = data;
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'EmbedViewRecordView.unknown(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Unknown &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
+      __$$_UnknownCopyWithImpl<_$_Unknown>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(EmbedViewRecordViewRecord data) record,
+    required TResult Function(EmbedViewRecordViewNotFound data) notFound,
+    required TResult Function(EmbedViewRecordViewBlocked data) blocked,
+    required TResult Function(FeedGeneratorView data) generatorView,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return unknown(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(EmbedViewRecordViewRecord data)? record,
+    TResult? Function(EmbedViewRecordViewNotFound data)? notFound,
+    TResult? Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult? Function(FeedGeneratorView data)? generatorView,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return unknown?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(EmbedViewRecordViewRecord data)? record,
+    TResult Function(EmbedViewRecordViewNotFound data)? notFound,
+    TResult Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult Function(FeedGeneratorView data)? generatorView,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (unknown != null) {
+      return unknown(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Record value) record,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Blocked value) blocked,
+    required TResult Function(_GeneratorView value) generatorView,
+    required TResult Function(_Unknown value) unknown,
+  }) {
+    return unknown(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Record value)? record,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Blocked value)? blocked,
+    TResult? Function(_GeneratorView value)? generatorView,
+    TResult? Function(_Unknown value)? unknown,
+  }) {
+    return unknown?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Record value)? record,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Blocked value)? blocked,
+    TResult Function(_GeneratorView value)? generatorView,
+    TResult Function(_Unknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (unknown != null) {
+      return unknown(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Unknown implements EmbedViewRecordView {
+  const factory _Unknown({required final Map<String, dynamic> data}) =
+      _$_Unknown;
+
+  @override
+  Map<String, dynamic> get data;
+  @JsonKey(ignore: true)
+  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
       throw _privateConstructorUsedError;
 }

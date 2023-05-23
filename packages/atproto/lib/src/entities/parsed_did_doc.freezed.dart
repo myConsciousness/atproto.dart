@@ -43,14 +43,12 @@ abstract class $ParsedDidDocCopyWith<$Res> {
       _$ParsedDidDocCopyWithImpl<$Res, ParsedDidDoc>;
   @useResult
   $Res call(
-      {@JsonKey(name: '@context')
-          List<String> context,
+      {@JsonKey(name: '@context') List<String> context,
       String id,
       List<String> alsoKnownAs,
       @JsonKey(name: 'verificationMethod')
-          List<ParsedVerificationMethod> verificationMethods,
-      @JsonKey(name: 'service')
-          List<ParsedService> services});
+      List<ParsedVerificationMethod> verificationMethods,
+      @JsonKey(name: 'service') List<ParsedService> services});
 }
 
 /// @nodoc
@@ -106,14 +104,12 @@ abstract class _$$_ParsedDidDocCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '@context')
-          List<String> context,
+      {@JsonKey(name: '@context') List<String> context,
       String id,
       List<String> alsoKnownAs,
       @JsonKey(name: 'verificationMethod')
-          List<ParsedVerificationMethod> verificationMethods,
-      @JsonKey(name: 'service')
-          List<ParsedService> services});
+      List<ParsedVerificationMethod> verificationMethods,
+      @JsonKey(name: 'service') List<ParsedService> services});
 }
 
 /// @nodoc
@@ -162,14 +158,12 @@ class __$$_ParsedDidDocCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ParsedDidDoc implements _ParsedDidDoc {
   const _$_ParsedDidDoc(
-      {@JsonKey(name: '@context')
-          required final List<String> context,
+      {@JsonKey(name: '@context') required final List<String> context,
       required this.id,
       required final List<String> alsoKnownAs,
       @JsonKey(name: 'verificationMethod')
-          required final List<ParsedVerificationMethod> verificationMethods,
-      @JsonKey(name: 'service')
-          required final List<ParsedService> services})
+      required final List<ParsedVerificationMethod> verificationMethods,
+      @JsonKey(name: 'service') required final List<ParsedService> services})
       : _context = context,
         _alsoKnownAs = alsoKnownAs,
         _verificationMethods = verificationMethods,
@@ -261,14 +255,13 @@ class _$_ParsedDidDoc implements _ParsedDidDoc {
 
 abstract class _ParsedDidDoc implements ParsedDidDoc {
   const factory _ParsedDidDoc(
-      {@JsonKey(name: '@context')
-          required final List<String> context,
+      {@JsonKey(name: '@context') required final List<String> context,
       required final String id,
       required final List<String> alsoKnownAs,
       @JsonKey(name: 'verificationMethod')
-          required final List<ParsedVerificationMethod> verificationMethods,
+      required final List<ParsedVerificationMethod> verificationMethods,
       @JsonKey(name: 'service')
-          required final List<ParsedService> services}) = _$_ParsedDidDoc;
+      required final List<ParsedService> services}) = _$_ParsedDidDoc;
 
   factory _ParsedDidDoc.fromJson(Map<String, dynamic> json) =
       _$_ParsedDidDoc.fromJson;

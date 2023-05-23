@@ -24,6 +24,8 @@ mixin _$PostThreadViewRecord {
   String get type => throw _privateConstructorUsedError;
   Post get post => throw _privateConstructorUsedError;
   @PostThreadViewConverter()
+  PostThreadView? get parent => throw _privateConstructorUsedError;
+  @PostThreadViewConverter()
   List<PostThreadView>? get replies => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,9 +43,11 @@ abstract class $PostThreadViewRecordCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: '\$type') String type,
       Post post,
+      @PostThreadViewConverter() PostThreadView? parent,
       @PostThreadViewConverter() List<PostThreadView>? replies});
 
   $PostCopyWith<$Res> get post;
+  $PostThreadViewCopyWith<$Res>? get parent;
 }
 
 /// @nodoc
@@ -62,6 +66,7 @@ class _$PostThreadViewRecordCopyWithImpl<$Res,
   $Res call({
     Object? type = null,
     Object? post = null,
+    Object? parent = freezed,
     Object? replies = freezed,
   }) {
     return _then(_value.copyWith(
@@ -73,6 +78,10 @@ class _$PostThreadViewRecordCopyWithImpl<$Res,
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
               as Post,
+      parent: freezed == parent
+          ? _value.parent
+          : parent // ignore: cast_nullable_to_non_nullable
+              as PostThreadView?,
       replies: freezed == replies
           ? _value.replies
           : replies // ignore: cast_nullable_to_non_nullable
@@ -85,6 +94,18 @@ class _$PostThreadViewRecordCopyWithImpl<$Res,
   $PostCopyWith<$Res> get post {
     return $PostCopyWith<$Res>(_value.post, (value) {
       return _then(_value.copyWith(post: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PostThreadViewCopyWith<$Res>? get parent {
+    if (_value.parent == null) {
+      return null;
+    }
+
+    return $PostThreadViewCopyWith<$Res>(_value.parent!, (value) {
+      return _then(_value.copyWith(parent: value) as $Val);
     });
   }
 }
@@ -100,10 +121,13 @@ abstract class _$$_PostThreadViewRecordCopyWith<$Res>
   $Res call(
       {@JsonKey(name: '\$type') String type,
       Post post,
+      @PostThreadViewConverter() PostThreadView? parent,
       @PostThreadViewConverter() List<PostThreadView>? replies});
 
   @override
   $PostCopyWith<$Res> get post;
+  @override
+  $PostThreadViewCopyWith<$Res>? get parent;
 }
 
 /// @nodoc
@@ -119,6 +143,7 @@ class __$$_PostThreadViewRecordCopyWithImpl<$Res>
   $Res call({
     Object? type = null,
     Object? post = null,
+    Object? parent = freezed,
     Object? replies = freezed,
   }) {
     return _then(_$_PostThreadViewRecord(
@@ -130,6 +155,10 @@ class __$$_PostThreadViewRecordCopyWithImpl<$Res>
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
               as Post,
+      parent: freezed == parent
+          ? _value.parent
+          : parent // ignore: cast_nullable_to_non_nullable
+              as PostThreadView?,
       replies: freezed == replies
           ? _value._replies
           : replies // ignore: cast_nullable_to_non_nullable
@@ -144,6 +173,7 @@ class _$_PostThreadViewRecord implements _PostThreadViewRecord {
   const _$_PostThreadViewRecord(
       {@JsonKey(name: '\$type') required this.type,
       required this.post,
+      @PostThreadViewConverter() this.parent,
       @PostThreadViewConverter() final List<PostThreadView>? replies})
       : _replies = replies;
 
@@ -155,6 +185,9 @@ class _$_PostThreadViewRecord implements _PostThreadViewRecord {
   final String type;
   @override
   final Post post;
+  @override
+  @PostThreadViewConverter()
+  final PostThreadView? parent;
   final List<PostThreadView>? _replies;
   @override
   @PostThreadViewConverter()
@@ -168,7 +201,7 @@ class _$_PostThreadViewRecord implements _PostThreadViewRecord {
 
   @override
   String toString() {
-    return 'PostThreadViewRecord(type: $type, post: $post, replies: $replies)';
+    return 'PostThreadViewRecord(type: $type, post: $post, parent: $parent, replies: $replies)';
   }
 
   @override
@@ -178,13 +211,14 @@ class _$_PostThreadViewRecord implements _PostThreadViewRecord {
             other is _$_PostThreadViewRecord &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.post, post) || other.post == post) &&
+            (identical(other.parent, parent) || other.parent == parent) &&
             const DeepCollectionEquality().equals(other._replies, _replies));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, type, post, const DeepCollectionEquality().hash(_replies));
+  int get hashCode => Object.hash(runtimeType, type, post, parent,
+      const DeepCollectionEquality().hash(_replies));
 
   @JsonKey(ignore: true)
   @override
@@ -205,6 +239,7 @@ abstract class _PostThreadViewRecord implements PostThreadViewRecord {
   const factory _PostThreadViewRecord(
           {@JsonKey(name: '\$type') required final String type,
           required final Post post,
+          @PostThreadViewConverter() final PostThreadView? parent,
           @PostThreadViewConverter() final List<PostThreadView>? replies}) =
       _$_PostThreadViewRecord;
 
@@ -216,6 +251,9 @@ abstract class _PostThreadViewRecord implements PostThreadViewRecord {
   String get type;
   @override
   Post get post;
+  @override
+  @PostThreadViewConverter()
+  PostThreadView? get parent;
   @override
   @PostThreadViewConverter()
   List<PostThreadView>? get replies;

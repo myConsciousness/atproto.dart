@@ -6,7 +6,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'post.dart';
+import 'converter/reply_post_converter.dart';
+import 'reply_post.dart';
 
 part 'reply.freezed.dart';
 part 'reply.g.dart';
@@ -14,8 +15,8 @@ part 'reply.g.dart';
 @freezed
 class Reply with _$Reply {
   const factory Reply({
-    required Post root,
-    required Post parent,
+    @ReplyPostConverter() required ReplyPost root,
+    @ReplyPostConverter() required ReplyPost parent,
   }) = _Reply;
 
   factory Reply.fromJson(Map<String, Object?> json) => _$ReplyFromJson(json);

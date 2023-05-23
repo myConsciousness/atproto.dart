@@ -8,6 +8,7 @@ import '../embed_view_record_view.dart';
 import '../embed_view_record_view_blocked.dart';
 import '../embed_view_record_view_not_found.dart';
 import '../embed_view_record_view_record.dart';
+import '../feed_generator_view.dart';
 
 class EmbedViewRecordViewConverter
     implements JsonConverter<EmbedViewRecordView, Map<String, dynamic>> {
@@ -18,7 +19,11 @@ class EmbedViewRecordViewConverter
   EmbedViewRecordView fromJson(Map<String, dynamic> json) {
     final type = json['\$type'];
 
-    if (type == 'app.bsky.embed.record#viewNotFound') {
+    if (type == 'app.bsky.embed.record#viewRecord') {
+      return EmbedViewRecordView.record(
+        data: EmbedViewRecordViewRecord.fromJson(json),
+      );
+    } else if (type == 'app.bsky.embed.record#viewNotFound') {
       return EmbedViewRecordView.notFound(
         data: EmbedViewRecordViewNotFound.fromJson(json),
       );
@@ -26,11 +31,13 @@ class EmbedViewRecordViewConverter
       return EmbedViewRecordView.blocked(
         data: EmbedViewRecordViewBlocked.fromJson(json),
       );
+    } else if (type == 'app.bsky.feed.defs#generatorView') {
+      return EmbedViewRecordView.generatorView(
+        data: FeedGeneratorView.fromJson(json),
+      );
     }
 
-    return EmbedViewRecordView.record(
-      data: EmbedViewRecordViewRecord.fromJson(json),
-    );
+    return EmbedViewRecordView.unknown(data: json);
   }
 
   @override
@@ -38,5 +45,7 @@ class EmbedViewRecordViewConverter
         record: (data) => data.toJson(),
         notFound: (data) => data.toJson(),
         blocked: (data) => data.toJson(),
+        generatorView: (data) => data.toJson(),
+        unknown: (data) => data,
       );
 }
