@@ -2,9 +2,10 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'dart:convert';
 import 'dart:typed_data';
 
-DecodingResult decodeCbor(List<int> data, int offset) =>
+DecodingResult decodeCbor(List<int> data, [int offset = 0]) =>
     _decodeCborRecursively(data, offset);
 
 class DecodingResult {
@@ -57,9 +58,8 @@ DecodingResult _decodeCborRecursively(List<int> data, int offset) {
     bytesRead += value;
     return DecodingResult(byteString, bytesRead);
   } else if (majorType == 3) {
-    // UTF-8 string
-    final String utf8String = String.fromCharCodes(
-        data.sublist(offset + bytesRead, offset + bytesRead + value));
+    final String utf8String = utf8
+        .decode(data.sublist(offset + bytesRead, offset + bytesRead + value));
     bytesRead += value;
     return DecodingResult(utf8String, bytesRead);
   } else if (majorType == 4) {
