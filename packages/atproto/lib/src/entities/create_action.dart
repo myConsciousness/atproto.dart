@@ -19,12 +19,10 @@ class CreateAction with _$CreateAction {
   const factory CreateAction({
     @JsonKey(name: '\$type')
     @Default('com.atproto.repo.applyWrites#create')
-        String type,
-    @NsidConverter()
-        required NSID collection,
+    String type,
+    @NsidConverter() required NSID collection,
     String? rkey,
-    @JsonKey(name: 'value')
-        required Map<String, dynamic> record,
+    @JsonKey(name: 'value') required Map<String, dynamic> record,
   }) = _CreateAction;
 
   factory CreateAction.fromJson(Map<String, Object?> json) =>

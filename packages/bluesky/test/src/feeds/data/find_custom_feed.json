@@ -1,0 +1,350 @@
+{
+  "feed": [
+    {
+      "post": {
+        "uri": "at://did:plc:uuapzflmtlqfioxofqjld3z2/app.bsky.feed.post/3jwawk6knxd2v",
+        "cid": "bafyreiaeljw6auusjqwppwyjind674ynvcrs2jocrcsx2qxejnrvnbnhze",
+        "author": {
+          "did": "did:plc:uuapzflmtlqfioxofqjld3z2",
+          "handle": "shehackspurple.bsky.social",
+          "displayName": "Tanya Janca ",
+          "avatar": "https://cdn.bsky.social/imgproxy/QfvjZQMCqACPrGW04QM2L1TKhEPdwyORMqAXg8StK2U/rs:fill:1000:1000:1:0/plain/bafkreig5nziilpw46pvfq5ggc5f4r2yuptovynmacmtvu4wnzjfoa4t7ky@jpeg",
+          "viewer": { "muted": false, "blockedBy": false },
+          "labels": []
+        },
+        "record": {
+          "text": "If you want all the Tanya content you can get, subscribe to my free newsletters.\n\nHttps://newsletter.shehackspurple.ca \n&\nHttps://newsletter.wehackpurple.com\n\nI'm also on #bluesky and #Mastadon (InfoSec.exchange), #YouTube, #tiktok and #instagram as @shehackspurple",
+          "$type": "app.bsky.feed.post",
+          "embed": {
+            "$type": "app.bsky.embed.images",
+            "images": [
+              {
+                "alt": "",
+                "image": {
+                  "$type": "blob",
+                  "ref": {
+                    "$link": "bafkreia6coibmarxi7yjbawe6oa2pzk2grpjoftiphgdbjv6qxyaf63tx4"
+                  },
+                  "mimeType": "image/jpeg",
+                  "size": 642109
+                }
+              }
+            ]
+          },
+          "facets": [
+            {
+              "index": { "byteEnd": 211, "byteStart": 195 },
+              "features": [
+                {
+                  "uri": "https://InfoSec.exchange",
+                  "$type": "app.bsky.richtext.facet#link"
+                }
+              ]
+            }
+          ],
+          "createdAt": "2023-05-21T17:03:00.638Z"
+        },
+        "embed": {
+          "$type": "app.bsky.embed.images#view",
+          "images": [
+            {
+              "thumb": "https://cdn.bsky.social/imgproxy/1LN8vE33f3iHiDjGOCEo9HOAAi3RlFwvAm-9weRsdzY/rs:fit:1000:1000:1:0/plain/bafkreia6coibmarxi7yjbawe6oa2pzk2grpjoftiphgdbjv6qxyaf63tx4@jpeg",
+              "fullsize": "https://cdn.bsky.social/imgproxy/drnGRxA166xYhQJLiXRV8ZPINtyrwrHygOM79o395k8/rs:fit:2000:2000:1:0/plain/bafkreia6coibmarxi7yjbawe6oa2pzk2grpjoftiphgdbjv6qxyaf63tx4@jpeg",
+              "alt": ""
+            }
+          ]
+        },
+        "replyCount": 0,
+        "repostCount": 0,
+        "likeCount": 0,
+        "indexedAt": "2023-05-21T17:02:58.577Z",
+        "viewer": {},
+        "labels": []
+      }
+    },
+    {
+      "post": {
+        "uri": "at://did:plc:zadl24hdmomeqbp7ge3bza6z/app.bsky.feed.post/3jvzzzmc7yc2l",
+        "cid": "bafyreihvzlmxklu47zcddphfx5bkzfk7boprwp7vmpcuyylazz4eam3d4i",
+        "author": {
+          "did": "did:plc:zadl24hdmomeqbp7ge3bza6z",
+          "handle": "blu.sk",
+          "displayName": "RAY.📷",
+          "avatar": "https://cdn.bsky.social/imgproxy/vnkVUZmHvz2o0tzysMl2K3Zk9q27BVK5mRiCZBemzEE/rs:fill:1000:1000:1:0/plain/bafkreiepeze6egfgu3ml7coazvx2phm4pv2f3gktsnejdn2qp7q4hbz3va@jpeg",
+          "viewer": { "muted": false, "blockedBy": false },
+          "labels": []
+        },
+        "record": {
+          "text": "Unlock the #TikTok.\n\nhttps://proxitok.pussthecat.org/",
+          "$type": "app.bsky.feed.post",
+          "facets": [
+            {
+              "index": { "byteEnd": 53, "byteStart": 21 },
+              "features": [
+                {
+                  "uri": "https://proxitok.pussthecat.org/",
+                  "$type": "app.bsky.richtext.facet#link"
+                }
+              ]
+            }
+          ],
+          "createdAt": "2023-05-18T23:16:39.283Z"
+        },
+        "replyCount": 0,
+        "repostCount": 0,
+        "likeCount": 0,
+        "indexedAt": "2023-05-18T23:16:39.392Z",
+        "viewer": {},
+        "labels": []
+      }
+    },
+    {
+      "post": {
+        "uri": "at://did:plc:myazd4xjh2sfdaq5wttlblgp/app.bsky.feed.post/3jvxgnor2z224",
+        "cid": "bafyreifh4wltewcn6myqkyiymlkbfsesejxhih5rp4mklibcs2z6sodd3u",
+        "author": {
+          "did": "did:plc:myazd4xjh2sfdaq5wttlblgp",
+          "handle": "anonopsunited.bsky.social",
+          "displayName": "AnonOps",
+          "avatar": "https://cdn.bsky.social/imgproxy/p67isgjI-y7AfSAqQZoLUW_6JMc8DQvmb_1fetdfn-4/rs:fill:1000:1000:1:0/plain/bafkreie3vqqxrklf46tkiurtzjy5bdl5hbge72ksal5tpv3sper6h42mgm@jpeg",
+          "viewer": { "muted": false, "blockedBy": false },
+          "labels": []
+        },
+        "record": {
+          "text": "Breaking: #Montana has become the first state to completely ban #TikTok one of activists greatest tools to combat misinformation \nA sad day for free speech and truth",
+          "$type": "app.bsky.feed.post",
+          "createdAt": "2023-05-17T22:24:38.615Z"
+        },
+        "replyCount": 1,
+        "repostCount": 3,
+        "likeCount": 3,
+        "indexedAt": "2023-05-17T22:24:38.715Z",
+        "viewer": {},
+        "labels": []
+      }
+    },
+    {
+      "post": {
+        "uri": "at://did:plc:rdto3kpxaicvbolr66wegygq/app.bsky.feed.post/3jvxfza4oes2g",
+        "cid": "bafyreidyf3mg63l75ylleiwcnh546igbnbykdruqeomq5hd2wjqedku5sq",
+        "author": {
+          "did": "did:plc:rdto3kpxaicvbolr66wegygq",
+          "handle": "drink2mny.bsky.social",
+          "displayName": "🍻Drink2mny🍻",
+          "avatar": "https://cdn.bsky.social/imgproxy/ttVkYOkQxdtpHfDRW5XYBj-_4ZSJi_dK9gnI5ANhWTE/rs:fill:1000:1000:1:0/plain/bafkreibocv53bykactyb4c43viykgkvypzyt6zeeopuogfpnwjsqhkqefe@jpeg",
+          "viewer": {
+            "muted": false,
+            "blockedBy": false,
+            "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jt4ivlz2y526"
+          },
+          "labels": []
+        },
+        "record": {
+          "text": "WTAF is wrong with these people? Gen-Z is not going to be happy. #tiktok https://apnews.com/article/tiktok-ban-montana-325a33578a2bbfbe53e9c251d528c5fb?utm_campaign=TrueAnthem&utm_medium=AP&utm_source=Facebook&fbclid=IwAR0ZChtusEkoq6NM-WgerpfECX0F61zb9ZUNxC549-Pmg2n1xEXkQkWwydc&mibextid=Zxz2cZ",
+          "$type": "app.bsky.feed.post",
+          "embed": {
+            "$type": "app.bsky.embed.external",
+            "external": {
+              "uri": "https://apnews.com/article/tiktok-ban-montana-325a33578a2bbfbe53e9c251d528c5fb?utm_campaign=TrueAnthem&utm_medium=AP&utm_source=Facebook&fbclid=IwAR0ZChtusEkoq6NM-WgerpfECX0F61zb9ZUNxC549-Pmg2n1xEXkQkWwydc&mibextid=Zxz2cZ",
+              "thumb": {
+                "$type": "blob",
+                "ref": {
+                  "$link": "bafkreie26t2gmpglomifq5vjg5jqxhfcasi5gvovwtpke3yxfca4fop7am"
+                },
+                "mimeType": "image/jpeg",
+                "size": 338635
+              },
+              "title": "Montana becomes 1st state to ban TikTok; law likely to be challenged",
+              "description": "Montana has become the first state to completely ban TikTok. Republican Gov. Greg Gianforte signed the legislation Wednesday. The measure is more sweeping than bans put in place in nearly half the states and by the U.S. federal government that prohibit TikTok on government devices. The law is expected to face legal challenges and become a testing ground for whether it’s possible for a TikTok-free America many national lawmakers have envisioned. TikTok has vowed to fight for Montana residents to be able to use the video-sharing app, which is owned by a Chinese tech company."
+            }
+          },
+          "facets": [
+            {
+              "index": { "byteEnd": 294, "byteStart": 73 },
+              "features": [
+                {
+                  "uri": "https://apnews.com/article/tiktok-ban-montana-325a33578a2bbfbe53e9c251d528c5fb?utm_campaign=TrueAnthem&utm_medium=AP&utm_source=Facebook&fbclid=IwAR0ZChtusEkoq6NM-WgerpfECX0F61zb9ZUNxC549-Pmg2n1xEXkQkWwydc&mibextid=Zxz2cZ",
+                  "$type": "app.bsky.richtext.facet#link"
+                }
+              ]
+            }
+          ],
+          "createdAt": "2023-05-17T22:13:12.198Z"
+        },
+        "embed": {
+          "$type": "app.bsky.embed.external#view",
+          "external": {
+            "uri": "https://apnews.com/article/tiktok-ban-montana-325a33578a2bbfbe53e9c251d528c5fb?utm_campaign=TrueAnthem&utm_medium=AP&utm_source=Facebook&fbclid=IwAR0ZChtusEkoq6NM-WgerpfECX0F61zb9ZUNxC549-Pmg2n1xEXkQkWwydc&mibextid=Zxz2cZ",
+            "title": "Montana becomes 1st state to ban TikTok; law likely to be challenged",
+            "description": "Montana has become the first state to completely ban TikTok. Republican Gov. Greg Gianforte signed the legislation Wednesday. The measure is more sweeping than bans put in place in nearly half the states and by the U.S. federal government that prohibit TikTok on government devices. The law is expected to face legal challenges and become a testing ground for whether it’s possible for a TikTok-free America many national lawmakers have envisioned. TikTok has vowed to fight for Montana residents to be able to use the video-sharing app, which is owned by a Chinese tech company.",
+            "thumb": "https://cdn.bsky.social/imgproxy/GcoawfHMGgGzo7pCOFcFn8tBtxUfVhy3Q9CFPn_c3tA/rs:fit:1000:1000:1:0/plain/bafkreie26t2gmpglomifq5vjg5jqxhfcasi5gvovwtpke3yxfca4fop7am@jpeg"
+          }
+        },
+        "replyCount": 0,
+        "repostCount": 0,
+        "likeCount": 0,
+        "indexedAt": "2023-05-17T22:13:12.274Z",
+        "viewer": {},
+        "labels": []
+      }
+    },
+    {
+      "post": {
+        "uri": "at://did:plc:zhi3tzsclqwotdmhac7x7jce/app.bsky.feed.post/3jvtyuyugc32j",
+        "cid": "bafyreibyuajzk55ycuhoz6bdk7x7cv4twavafbik4ihssd2erqn2lsqkge",
+        "author": {
+          "did": "did:plc:zhi3tzsclqwotdmhac7x7jce",
+          "handle": "informapirata.bsky.social",
+          "displayName": "Informapirata",
+          "avatar": "https://cdn.bsky.social/imgproxy/lbfs_IjwXxvkfhsCjZ8so0OFpLNv0sIwz7xxeF0aqAg/rs:fill:1000:1000:1:0/plain/bafkreiflcjxlxf5zisjy7mimygwfhhmbbpgar35csyi4tweiyqsth2opgy@jpeg",
+          "viewer": { "muted": false, "blockedBy": false },
+          "labels": []
+        },
+        "record": {
+          "text": "Yintao Yu, ex dirigente di #ByteDance ha rivelato che il governo cinese ha accesso ai dati di #TikTok, compresi i dati archiviati negli Stati Uniti.  \nDi Pierluigi Paganini su #Securityaffairs\nhttps://securityaffairs.com/146219/social-networks/tiktok-alleged-wrongful-conduct.html",
+          "$type": "app.bsky.feed.post",
+          "facets": [
+            {
+              "index": { "byteEnd": 280, "byteStart": 193 },
+              "features": [
+                {
+                  "uri": "https://securityaffairs.com/146219/social-networks/tiktok-alleged-wrongful-conduct.html",
+                  "$type": "app.bsky.richtext.facet#link"
+                }
+              ]
+            }
+          ],
+          "createdAt": "2023-05-16T13:40:13.732Z"
+        },
+        "replyCount": 0,
+        "repostCount": 0,
+        "likeCount": 0,
+        "indexedAt": "2023-05-16T13:40:12.642Z",
+        "viewer": {},
+        "labels": []
+      }
+    },
+    {
+      "post": {
+        "uri": "at://did:plc:2z6stlhmp7g3ldo2bqmmex4f/app.bsky.feed.post/3jvtu2opkd32j",
+        "cid": "bafyreifgmpl3szt4ucibodeijhocsrurjdv5zguh5kswpi5lkebldmwom4",
+        "author": {
+          "did": "did:plc:2z6stlhmp7g3ldo2bqmmex4f",
+          "handle": "jacobincambodia.bsky.social",
+          "displayName": "Jacob in Cambodia 🇺🇸 🇰🇭",
+          "avatar": "https://cdn.bsky.social/imgproxy/psqEz5cZvgtLrYhoVOdZ3E3-JMynMcnwVfqC3PG2Wvw/rs:fill:1000:1000:1:0/plain/bafkreiaygwhxfv3jirzokzqcblvsso6y6hqgsmdm2hrkecxwgbjyezmbo4@jpeg",
+          "viewer": { "muted": false, "blockedBy": false },
+          "labels": []
+        },
+        "record": {
+          "text": "Yeah, let's get your child hooked on harmful content the minute they open the app. Please take a minute and read this, especially if you are a parent. #TikTok \n\nhttps://www.wsj.com/articles/tiktok-feeds-teens-a-diet-of-darkness-8f350507?utm_source=organic+twitter&utm_medium=newsfeed",
+          "$type": "app.bsky.feed.post",
+          "embed": {
+            "$type": "app.bsky.embed.external",
+            "external": {
+              "uri": "https://www.wsj.com/articles/tiktok-feeds-teens-a-diet-of-darkness-8f350507?utm_source=organic+twitter&utm_medium=newsfeed",
+              "thumb": {
+                "$type": "blob",
+                "ref": {
+                  "$link": "bafkreifen3pn4bekq3e7xrekupyknknlftevje4zo7xreevfef3nhcqqtq"
+                },
+                "mimeType": "image/jpeg",
+                "size": 674017
+              },
+              "title": "TikTok Feeds Teens a Diet of Darkness",
+              "description": "Self-harm, sad-posting and disordered-eating videos abound on the popular app"
+            }
+          },
+          "facets": [
+            {
+              "index": { "byteEnd": 283, "byteStart": 161 },
+              "features": [
+                {
+                  "uri": "https://www.wsj.com/articles/tiktok-feeds-teens-a-diet-of-darkness-8f350507?utm_source=organic+twitter&utm_medium=newsfeed",
+                  "$type": "app.bsky.richtext.facet#link"
+                }
+              ]
+            }
+          ],
+          "createdAt": "2023-05-16T12:13:54.367Z"
+        },
+        "embed": {
+          "$type": "app.bsky.embed.external#view",
+          "external": {
+            "uri": "https://www.wsj.com/articles/tiktok-feeds-teens-a-diet-of-darkness-8f350507?utm_source=organic+twitter&utm_medium=newsfeed",
+            "title": "TikTok Feeds Teens a Diet of Darkness",
+            "description": "Self-harm, sad-posting and disordered-eating videos abound on the popular app",
+            "thumb": "https://cdn.bsky.social/imgproxy/5obPXC4ceo1f9VopE_dJJ8bY_O-9IrhySStrjw0iqO0/rs:fit:1000:1000:1:0/plain/bafkreifen3pn4bekq3e7xrekupyknknlftevje4zo7xreevfef3nhcqqtq@jpeg"
+          }
+        },
+        "replyCount": 0,
+        "repostCount": 0,
+        "likeCount": 0,
+        "indexedAt": "2023-05-16T12:13:54.571Z",
+        "viewer": {},
+        "labels": []
+      }
+    },
+    {
+      "post": {
+        "uri": "at://did:plc:2z6stlhmp7g3ldo2bqmmex4f/app.bsky.feed.post/3jvt4xc24wk2o",
+        "cid": "bafyreibmlc3oqxlpjmugqc6g73djejyh3zsglwiegja6ldfysuqtckzqqi",
+        "author": {
+          "did": "did:plc:2z6stlhmp7g3ldo2bqmmex4f",
+          "handle": "jacobincambodia.bsky.social",
+          "displayName": "Jacob in Cambodia 🇺🇸 🇰🇭",
+          "avatar": "https://cdn.bsky.social/imgproxy/psqEz5cZvgtLrYhoVOdZ3E3-JMynMcnwVfqC3PG2Wvw/rs:fill:1000:1000:1:0/plain/bafkreiaygwhxfv3jirzokzqcblvsso6y6hqgsmdm2hrkecxwgbjyezmbo4@jpeg",
+          "viewer": { "muted": false, "blockedBy": false },
+          "labels": []
+        },
+        "record": {
+          "text": "“Researchers created accounts belonging to fictitious 13-year-olds, they were quickly inundated with videos about eating disorders, body image, self-harm, and suicide.” #Parenting #TikTok\n\nhttps://on.wsj.com/41D3xY2",
+          "$type": "app.bsky.feed.post",
+          "embed": {
+            "$type": "app.bsky.embed.external",
+            "external": {
+              "uri": "https://on.wsj.com/41D3xY2",
+              "thumb": {
+                "$type": "blob",
+                "ref": {
+                  "$link": "bafkreifen3pn4bekq3e7xrekupyknknlftevje4zo7xreevfef3nhcqqtq"
+                },
+                "mimeType": "image/jpeg",
+                "size": 674017
+              },
+              "title": "TikTok Feeds Teens a Diet of Darkness",
+              "description": "Self-harm, sad-posting and disordered-eating videos abound on the popular app"
+            }
+          },
+          "facets": [
+            {
+              "index": { "byteEnd": 219, "byteStart": 193 },
+              "features": [
+                {
+                  "uri": "https://on.wsj.com/41D3xY2",
+                  "$type": "app.bsky.richtext.facet#link"
+                }
+              ]
+            }
+          ],
+          "createdAt": "2023-05-16T05:20:24.416Z"
+        },
+        "embed": {
+          "$type": "app.bsky.embed.external#view",
+          "external": {
+            "uri": "https://on.wsj.com/41D3xY2",
+            "title": "TikTok Feeds Teens a Diet of Darkness",
+            "description": "Self-harm, sad-posting and disordered-eating videos abound on the popular app",
+            "thumb": "https://cdn.bsky.social/imgproxy/5obPXC4ceo1f9VopE_dJJ8bY_O-9IrhySStrjw0iqO0/rs:fit:1000:1000:1:0/plain/bafkreifen3pn4bekq3e7xrekupyknknlftevje4zo7xreevfef3nhcqqtq@jpeg"
+          }
+        },
+        "replyCount": 0,
+        "repostCount": 0,
+        "likeCount": 0,
+        "indexedAt": "2023-05-16T05:20:24.546Z",
+        "viewer": {},
+        "labels": []
+      }
+    }
+  ]
+}

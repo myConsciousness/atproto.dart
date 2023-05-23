@@ -9,6 +9,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'adult_content_preference.dart';
 import 'content_label_preference.dart';
+import 'saved_feeds_preference.dart';
 
 part 'preference.freezed.dart';
 
@@ -25,6 +26,10 @@ class Preference with _$Preference {
     required ContentLabelPreference data,
   }) = _ContentLabel;
 
+  const factory Preference.savedFeeds({
+    required SavedFeedsPreference data,
+  }) = _SavedFeeds;
+
   const factory Preference.unknown({
     required Map<String, dynamic> data,
   }) = _Unknown;
@@ -33,6 +38,7 @@ class Preference with _$Preference {
   Map<String, dynamic> toJson() => when(
         adultContent: (data) => data.toJson(),
         contentLabel: (data) => data.toJson(),
+        savedFeeds: (data) => data.toJson(),
         unknown: (data) => data,
       );
 }

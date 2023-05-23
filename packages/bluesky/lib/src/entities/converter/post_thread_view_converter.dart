@@ -4,9 +4,9 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../blocked_post.dart';
+import '../not_found_post.dart';
 import '../post_thread_view.dart';
-import '../post_thread_view_blocked.dart';
-import '../post_thread_view_not_found.dart';
 import '../post_thread_view_record.dart';
 
 class PostThreadViewConverter
@@ -23,11 +23,11 @@ class PostThreadViewConverter
       );
     } else if (type == 'app.bsky.feed.defs#notFoundPost') {
       return PostThreadView.notFound(
-        data: PostThreadViewNotFound.fromJson(json),
+        data: NotFoundPost.fromJson(json),
       );
     } else if (type == 'app.bsky.feed.defs#blockedPost') {
       return PostThreadView.blocked(
-        data: PostThreadViewBlocked.fromJson(json),
+        data: BlockedPost.fromJson(json),
       );
     }
 

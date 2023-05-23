@@ -13,6 +13,8 @@ _$_Post _$$_PostFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_Post(
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? 'app.bsky.feed.defs#postView'),
           record: $checkedConvert('record',
               (v) => PostRecord.fromJson(Map<String, Object?>.from(v as Map))),
           author: $checkedConvert('author',
@@ -40,10 +42,12 @@ _$_Post _$$_PostFromJson(Map json) => $checkedCreate(
         );
         return val;
       },
+      fieldKeyMap: const {'type': r'$type'},
     );
 
 Map<String, dynamic> _$$_PostToJson(_$_Post instance) {
   final val = <String, dynamic>{
+    r'$type': instance.type,
     'record': instance.record.toJson(),
     'author': instance.author.toJson(),
     'uri': const AtUriConverter().toJson(instance.uri),

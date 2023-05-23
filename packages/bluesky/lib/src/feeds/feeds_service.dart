@@ -7,14 +7,20 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../bluesky_base_service.dart';
+import '../entities/actor_feeds.dart';
 import '../entities/embed.dart';
 import '../entities/facet.dart';
 import '../entities/feed.dart';
+import '../entities/feed_generator.dart';
+import '../entities/feed_generator_info.dart';
+import '../entities/feed_generators.dart';
 import '../entities/likes.dart';
 import '../entities/post_thread.dart';
 import '../entities/posts.dart';
 import '../entities/reply_ref.dart';
 import '../entities/reposted_by.dart';
+import '../entities/skeleton_feed.dart';
+import '../params/generator_param.dart';
 import '../params/post_param.dart';
 import '../params/strong_ref_param.dart';
 import '../params/thread_param.dart';
@@ -203,6 +209,78 @@ abstract class FeedsService {
     String? cursor,
   });
 
+  /// Compose and hydrate a feed from a user's selected feed generator.
+  ///
+  /// ## Parameters
+  ///
+  /// - [generatorUri]: AT URI of generator to be used.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getFeed
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeed.json
+  Future<core.XRPCResponse<Feed>> findCustomFeed({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  });
+
+  /// A skeleton of a feed provided by a feed generator.
+  ///
+  /// ## Parameters
+  ///
+  /// - [generatorUri]: AT URI of generator to be used.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getFeedSkeleton
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedSkeleton.json
+  Future<core.XRPCResponse<SkeletonFeed>> findSkeletonFeed({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Retrieve a list of feeds created by a given actor.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getActorFeeds
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorFeeds.json
+  Future<core.XRPCResponse<ActorFeeds>> findActorFeeds({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
   /// Returns likes of specific post.
   ///
   /// ## Parameters
@@ -293,6 +371,95 @@ abstract class FeedsService {
   Future<core.XRPCResponse<Posts>> findPosts({
     required List<core.AtUri> uris,
   });
+
+  /// A declaration of the existence of a feed generator.
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: A string of specific DID.
+  ///
+  /// - [displayName]: Name of generator to be created.
+  ///
+  /// - [description]: Description of generator to be created.
+  ///
+  /// - [descriptionFacets]: Facet features for [description].
+  ///
+  /// - [avatar]: Avatar blob to set to generator.
+  ///
+  /// - [createdAt]: Date and time the post was created.
+  ///                If omitted, defaults to the current time.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.generator
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/generator.json
+  Future<core.XRPCResponse<atp.Record>> createGenerator({
+    required String did,
+    required String displayName,
+    String? description,
+    List<Facet>? descriptionFacets,
+    atp.Blob? avatar,
+    DateTime? createdAt,
+  });
+
+  /// Creates generators.
+  ///
+  /// ## Parameters
+  ///
+  /// - [params]: The collection of params to be created.
+  Future<core.XRPCResponse<core.EmptyData>> createGenerators(
+    List<GeneratorParam> params,
+  );
+
+  /// Get information about a specific feed offered by a feed generator,
+  /// such as its online status.
+  ///
+  /// ## Parameters
+  ///
+  /// - [uri]: AT URI of generator to be retrieved.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getFeedGenerator
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedGenerator.json
+  Future<core.XRPCResponse<FeedGenerator>> findGenerator({
+    required core.AtUri uri,
+  });
+
+  /// Get information about a list of feed generators
+  ///
+  /// ## Parameters
+  ///
+  /// - [uris]: Collection of AT URI of generators to be retrieved.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getFeedGenerators
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedGenerators.json
+  Future<core.XRPCResponse<FeedGenerators>> findGenerators({
+    required List<core.AtUri> uris,
+  });
+
+  /// Returns information about a given feed generator including
+  /// TOS & offered feed URIs
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.describeFeedGenerator
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/describeFeedGenerator.json
+  Future<core.XRPCResponse<FeedGeneratorInfo>> findGeneratorInfo();
 }
 
 class _FeedsService extends BlueskyBaseService implements FeedsService {
@@ -498,6 +665,54 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
+  Future<core.XRPCResponse<Feed>> findCustomFeed({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await super.get(
+        'getFeed',
+        parameters: {
+          'feed': generatorUri.toString(),
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: Feed.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<SkeletonFeed>> findSkeletonFeed({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await super.get(
+        'getFeedSkeleton',
+        parameters: {
+          'feed': generatorUri.toString(),
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: SkeletonFeed.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<ActorFeeds>> findActorFeeds({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await super.get(
+        'getActorFeeds',
+        parameters: {
+          'actor': actor,
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: ActorFeeds.fromJson,
+      );
+
+  @override
   Future<core.XRPCResponse<Likes>> findLikes({
     required core.AtUri uri,
     String? cid,
@@ -548,8 +763,8 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<atp.XRPCResponse<Posts>> findPosts({
-    required List<atp.AtUri> uris,
+  Future<core.XRPCResponse<Posts>> findPosts({
+    required List<core.AtUri> uris,
   }) async =>
       await super.get(
         'getPosts',
@@ -557,5 +772,82 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'uris': uris.map((e) => e.toString()).toList(),
         },
         to: Posts.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.Record>> createGenerator({
+    required String did,
+    required String displayName,
+    String? description,
+    List<Facet>? descriptionFacets,
+    atp.Blob? avatar,
+    DateTime? createdAt,
+  }) async =>
+      await atproto.repositories.createRecord(
+        collection: createNSID('generator'),
+        record: {
+          'did': did,
+          'displayName': displayName,
+          'description': description,
+          'descriptionFacets':
+              descriptionFacets?.map((e) => e.toJson()).toList(),
+          'avatar': avatar?.toJson(),
+          'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+        },
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> createGenerators(
+    List<GeneratorParam> params,
+  ) async =>
+      await atproto.repositories.createRecords(
+        actions: params
+            .map(
+              (e) => atp.CreateAction(
+                collection: createNSID('generator'),
+                record: {
+                  'did': e.did,
+                  'displayName': e.displayName,
+                  'description': e.description,
+                  'descriptionFacets':
+                      e.descriptionFacets?.map((e) => e.toJson()).toList(),
+                  'avatar': e.avatar?.toJson(),
+                  'createdAt':
+                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+                },
+              ),
+            )
+            .toList(),
+      );
+
+  @override
+  Future<core.XRPCResponse<FeedGenerator>> findGenerator({
+    required core.AtUri uri,
+  }) async =>
+      await super.get(
+        'getFeedGenerator',
+        parameters: {
+          'feed': uri.toString(),
+        },
+        to: FeedGenerator.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<FeedGenerators>> findGenerators({
+    required List<core.AtUri> uris,
+  }) async =>
+      await super.get(
+        'getFeedGenerators',
+        parameters: {
+          'feeds': uris.map((e) => e.toString()).toList(),
+        },
+        to: FeedGenerators.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<FeedGeneratorInfo>> findGeneratorInfo() async =>
+      await super.get(
+        'describeFeedGenerator',
+        to: FeedGeneratorInfo.fromJson,
       );
 }

@@ -6,8 +6,8 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'post_thread_view_blocked.dart';
-import 'post_thread_view_not_found.dart';
+import 'blocked_post.dart';
+import 'not_found_post.dart';
 import 'post_thread_view_record.dart';
 
 part 'post_thread_view.freezed.dart';
@@ -19,11 +19,11 @@ class PostThreadView with _$PostThreadView {
   }) = _Record;
 
   const factory PostThreadView.notFound({
-    required PostThreadViewNotFound data,
+    required NotFoundPost data,
   }) = _NotFound;
 
   const factory PostThreadView.blocked({
-    required PostThreadViewBlocked data,
+    required BlockedPost data,
   }) = _Blocked;
 
   const factory PostThreadView.unknown({

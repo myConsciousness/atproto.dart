@@ -15,6 +15,7 @@ part 'feed.g.dart';
 
 @freezed
 class Feed with _$Feed {
+  @JsonSerializable(includeIfNull: false)
   const factory Feed({
     required List<FeedView> feed,
     String? cursor,

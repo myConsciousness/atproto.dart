@@ -7,7 +7,7 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 
 import '../create_record_command.dart';
 
-/// `app.bsky.feed.vote`
+/// `app.bsky.feed.like`
 class LikeCommand extends CreateRecordCommand {
   /// Returns the new instance of [LikeCommand].
   LikeCommand() {

@@ -19,12 +19,10 @@ class UpdateAction with _$UpdateAction {
   const factory UpdateAction({
     @JsonKey(name: '\$type')
     @Default('com.atproto.repo.applyWrites#update')
-        String type,
-    @NsidConverter()
-        required NSID collection,
+    String type,
+    @NsidConverter() required NSID collection,
     String? rkey,
-    @JsonKey(name: 'value')
-        required Map<String, dynamic> record,
+    @JsonKey(name: 'value') required Map<String, dynamic> record,
   }) = _UpdateAction;
 
   factory UpdateAction.fromJson(Map<String, Object?> json) =>

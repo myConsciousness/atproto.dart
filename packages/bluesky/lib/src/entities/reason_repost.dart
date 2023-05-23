@@ -18,7 +18,7 @@ class ReasonRepost with _$ReasonRepost {
   const factory ReasonRepost({
     @Default('app.bsky.feed.defs#reasonRepost')
     @JsonKey(name: '\$type')
-        String type,
+    String type,
     required Actor by,
     required DateTime indexedAt,
   }) = _ReasonRepost;

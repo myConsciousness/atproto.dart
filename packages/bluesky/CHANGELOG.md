@@ -1,5 +1,23 @@
 # Release Note
 
+## v0.5.2
+
+- Supported `app.bsky.feed.generator` as `createGenerator` in `FeedsService`. ([#430](https://github.com/myConsciousness/atproto.dart/issues/430))
+- Added `app.bsky.actor.defs#savedFeedsPref` as `savedFeeds` field in `Preference` object. ([#427](https://github.com/myConsciousness/atproto.dart/issues/427))
+- Supported `app.bsky.feed.getActorFeeds` as `findActorFeeds` in `FeedsService`. ([#431](https://github.com/myConsciousness/atproto.dart/issues/431))
+- Supported `app.bsky.feed.getFeedGenerator` as `findGenerator` in `FeedsService`. ([#433](https://github.com/myConsciousness/atproto.dart/issues/433))
+- Supported `app.bsky.feed.getFeedGenerators` as `findGenerators` in `FeedsService`. ([#434](https://github.com/myConsciousness/atproto.dart/issues/434))
+- Supported `app.bsky.feed.getFeed` as `findCustomFeed` in `FeedsService`. ([#432](https://github.com/myConsciousness/atproto.dart/issues/432))
+- Supported `app.bsky.feed.getFeedSkeleton` as `findSkeletonFeed` in `FeedsService`. ([#435](https://github.com/myConsciousness/atproto.dart/issues/435))
+- Supported `app.bsky.feed.describeFeedGenerator` as `findGeneratorInfo` in `FeedsService`. ([#429](https://github.com/myConsciousness/atproto.dart/issues/429))
+- Added `generatorView` type in `EmbedViewRecordView` object. ([#428](https://github.com/myConsciousness/atproto.dart/issues/428))
+
+## v0.5.1
+
+- The `Reply` object under the `Feed` object has been modified to be Union as `ReplyPost`. In addition, the following objects have been renamed to make them common objects. ([#424](https://github.com/myConsciousness/atproto.dart/issues/424))
+  - Changed named from `PostThreadViewNotFound` to `NotFoundPost`
+  - Changed name from `PostThreadViewBlocked` to `BlockedPost`
+
 ## v0.5.0
 
 - Supported `app.bsky.actor.getPreferences` as `findPreferences` in `ActorsService`. ([#387](https://github.com/myConsciousness/atproto.dart/issues/387))

@@ -11,7 +11,13 @@ import 'actor/search_actors.dart';
 import 'actor/suggestions.dart';
 import 'bsky_command.dart';
 import 'common/delete.dart';
+import 'feed/actor_feeds.dart';
+import 'feed/create_generator.dart';
+import 'feed/custom_feed.dart';
 import 'feed/feed.dart';
+import 'feed/feed_generator.dart';
+import 'feed/feed_generators.dart';
+import 'feed/generator_info.dart';
 import 'feed/like.dart';
 import 'feed/likes.dart';
 import 'feed/post.dart';
@@ -62,6 +68,12 @@ final feedCommands = <BskyCommand>[
   FeedCommand(),
   ThreadCommand(),
   RepostedByCommand(),
+  CreateGeneratorCommand(),
+  ActorFeedsCommand(),
+  FeedGeneratorCommand(),
+  FeedGeneratorsCommand(),
+  CustomFeedCommand(),
+  GeneratorInfoCommand(),
 ];
 
 final notificationCommands = <BskyCommand>[

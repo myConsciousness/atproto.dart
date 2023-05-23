@@ -6,7 +6,21 @@
 import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_test/atproto_test.dart' as atp_test;
-import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/src/entities/actor_feeds.dart';
+import 'package:bluesky/src/entities/feed.dart';
+import 'package:bluesky/src/entities/feed_generator.dart';
+import 'package:bluesky/src/entities/feed_generator_info.dart';
+import 'package:bluesky/src/entities/feed_generators.dart';
+import 'package:bluesky/src/entities/likes.dart';
+import 'package:bluesky/src/entities/post_thread.dart';
+import 'package:bluesky/src/entities/posts.dart';
+import 'package:bluesky/src/entities/reposted_by.dart';
+import 'package:bluesky/src/entities/skeleton_feed.dart';
+import 'package:bluesky/src/feeds/feeds_service.dart';
+import 'package:bluesky/src/params/generator_param.dart';
+import 'package:bluesky/src/params/post_param.dart';
+import 'package:bluesky/src/params/strong_ref_param.dart';
+import 'package:bluesky/src/params/thread_param.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
@@ -709,7 +723,7 @@ void main() {
     });
   });
 
-  group('.findFeeds', () {
+  group('.findFeed', () {
     test('normal case', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
@@ -779,6 +793,156 @@ void main() {
           limit: 10,
           cursor: '1234',
         ),
+      );
+    });
+  });
+
+  group('.findSkeletonFeed', () {
+    test('normal case', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/find_custom_feed.json',
+        ),
+      );
+
+      final response = await feeds.findCustomFeed(
+        generatorUri: AtUri.parse(
+          'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-privacy',
+        ),
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Feed>());
+    });
+
+    test('when unauthorized', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await feeds.findCustomFeed(
+          generatorUri: AtUri.parse(
+            'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-privacy',
+          ),
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await feeds.findCustomFeed(
+            generatorUri: AtUri.parse(
+          'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-privacy',
+        )),
+      );
+    });
+  });
+
+  group('.findCustomFeed', () {
+    test('normal case', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/find_skeleton_feed.json',
+        ),
+      );
+
+      final response = await feeds.findSkeletonFeed(
+        generatorUri: AtUri.parse(
+          'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-privacy',
+        ),
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<SkeletonFeed>());
+    });
+
+    test('when unauthorized', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await feeds.findSkeletonFeed(
+          generatorUri: AtUri.parse(
+            'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-privacy',
+          ),
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await feeds.findSkeletonFeed(
+            generatorUri: AtUri.parse(
+          'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-privacy',
+        )),
       );
     });
   });
@@ -1072,6 +1236,474 @@ void main() {
         () async => await feeds.findPosts(
           uris: [AtUri.parse('at://foo.com/com.example.foo/123')],
         ),
+      );
+    });
+  });
+
+  group('.createGenerator', () {
+    test('normal case', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/feeds/data/create_generator.json',
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      final response = await feeds.createGenerator(
+        did: 'xxxx',
+        displayName: 'test',
+        description: 'test description',
+        descriptionFacets: [],
+        avatar: Blob(
+          mimeType: '*/*',
+          size: 1000,
+          ref: BlobRef(link: 'xxxxx'),
+        ),
+        createdAt: DateTime.now(),
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Record>());
+    });
+
+    test('when unauthorized', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+            statusCode: 401,
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await feeds.createGenerator(
+          did: 'xxxx',
+          displayName: 'test',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+            statusCode: 429,
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await feeds.createGenerator(
+          did: 'xxxx',
+          displayName: 'test',
+        ),
+      );
+    });
+  });
+
+  group('.createGenerators', () {
+    test('normal case', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/feeds/data/create_generator.json',
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      final response = await feeds.createGenerators([
+        GeneratorParam(
+          did: 'xxxx',
+          displayName: 'test',
+          description: 'test description',
+          descriptionFacets: [],
+          avatar: Blob(
+            mimeType: '*/*',
+            size: 1000,
+            ref: BlobRef(link: 'xxxxx'),
+          ),
+          createdAt: DateTime.now(),
+        ),
+        GeneratorParam(
+          did: 'xxxx',
+          displayName: 'test',
+          description: 'test description',
+          descriptionFacets: [],
+          avatar: Blob(
+            mimeType: '*/*',
+            size: 1000,
+            ref: BlobRef(link: 'xxxxx'),
+          ),
+          createdAt: DateTime.now(),
+        ),
+      ]);
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<EmptyData>());
+    });
+
+    test('when unauthorized', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+            statusCode: 401,
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await feeds.createGenerators([]),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+            statusCode: 429,
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await feeds.createGenerators([]),
+      );
+    });
+  });
+
+  group('.findActorFeeds', () {
+    test('normal case', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/find_actor_feeds.json',
+        ),
+      );
+
+      final response = await feeds.findActorFeeds(
+        actor: 'shinyakato.dev',
+        limit: 10,
+        cursor: 'xxxxxx',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<ActorFeeds>());
+    });
+
+    test('when unauthorized', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await feeds.findActorFeeds(
+          actor: 'shinyakato.dev',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await feeds.findActorFeeds(
+          actor: 'shinyakato.dev',
+        ),
+      );
+    });
+  });
+
+  group('.findFeedGenerator', () {
+    test('normal case', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/find_generator.json',
+        ),
+      );
+
+      final response = await feeds.findGenerator(
+        uri: AtUri.parse(
+          'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-gaming',
+        ),
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<FeedGenerator>());
+    });
+
+    test('when unauthorized', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await feeds.findGenerator(
+          uri: AtUri.parse(
+            'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-gaming',
+          ),
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await feeds.findGenerator(
+          uri: AtUri.parse(
+            'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-gaming',
+          ),
+        ),
+      );
+    });
+  });
+
+  group('.findFeedGenerators', () {
+    test('normal case', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/find_generators.json',
+        ),
+      );
+
+      final response = await feeds.findGenerators(
+        uris: [
+          AtUri.parse(
+            'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-gaming',
+          )
+        ],
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<FeedGenerators>());
+    });
+
+    test('when unauthorized', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await feeds.findGenerators(
+          uris: [],
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await feeds.findGenerators(
+          uris: [],
+        ),
+      );
+    });
+  });
+
+  group('.findGeneratorInfo', () {
+    test('normal case', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/find_generator_info.json',
+        ),
+      );
+
+      final response = await feeds.findGeneratorInfo();
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<FeedGeneratorInfo>());
+    });
+
+    test('when unauthorized', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await feeds.findGeneratorInfo(),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await feeds.findGeneratorInfo(),
       );
     });
   });
