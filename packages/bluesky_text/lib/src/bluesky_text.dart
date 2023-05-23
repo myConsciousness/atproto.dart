@@ -111,6 +111,14 @@ abstract class BlueskyText {
   /// It includes the response from [handles] and [links].
   Entities get entities;
 
+  /// Returns the custom entities based on the given [criteria].
+  ///
+  /// This method is useful if you want to use entities not provided by
+  /// the official Lexicon in your service or app.
+  ///
+  /// The search engine for this process is the same as the one used by
+  /// [entities] and others, but you get to decide the criteria for
+  /// entity extraction.
   CustomEntities getCustomEntities(
     final List<EntityCriterion> criteria,
   );
@@ -369,7 +377,10 @@ class _BlueskyText implements BlueskyText {
                   _bytes[index + searchByteIndex + 1] == 10) && //! \n
               !(_bytes[index + searchByteIndex] == 0xE3 &&
                   _bytes[index + searchByteIndex + 1] == 0x80 &&
-                  _bytes[index + searchByteIndex + 2] == 0x80)) //! Full-width
+                  _bytes[index + searchByteIndex + 2] == 0x80) //! Full-width
+              &&
+              _bytes[index + searchByteIndex] != 39 && //! Single quote
+              _bytes[index + searchByteIndex] != 34) //! Double quote
           {
             //! Detect duplicate sequences.
             if (searchByteIndex > searchBytes.length) {
