@@ -23,7 +23,7 @@ Future<void> main(List<String> args) async {
   );
 
   for (final directory in directories) {
-    if (directory.path.toLowerCase().endsWith(_indexMarkdown)) {
+    if (directory.path.endsWith(_indexMarkdown)) {
       continue;
     }
 
