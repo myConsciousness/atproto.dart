@@ -6,6 +6,7 @@ environment:
   sdk: ^3.0.1
 
 dependencies:
+  atproto: ^0.3.0
   xrpc: ^0.1.0
 
 dev_dependencies:

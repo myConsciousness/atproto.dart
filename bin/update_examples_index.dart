@@ -64,26 +64,28 @@ Future<void> main(List<String> args) async {
 
 Future<String> _scrapeDartDoc(final File source) async {
   final lines = await source.readAsLines();
-  final dartDoc = StringBuffer();
+  final docs = <String>[];
 
   for (int i = 0; i < lines.length; i++) {
     final line = lines[i].trim();
 
     if (line.startsWith('///')) {
-      dartDoc.write('${line.replaceFirst('///', '')} ');
+      docs.add(line.replaceFirst('///', '').trim());
     } else {
-      if (dartDoc.isNotEmpty) {
-        final nextLine = lines[i].trim();
+      if (docs.isEmpty) {
+        throw UnsupportedError('Description is required');
+      }
 
-        if (nextLine.startsWith('void main()') ||
-            nextLine.startsWith('Future<void> main()')) {
-          break;
-        }
+      final nextLine = lines[i].trim();
+
+      if (nextLine.startsWith('void main()') ||
+          nextLine.startsWith('Future<void> main()')) {
+        break;
       }
     }
   }
 
-  return dartDoc.toString().trim();
+  return docs.join(' ');
 }
 
 String _getFileName(final File file) => file.path.split('/').last;
