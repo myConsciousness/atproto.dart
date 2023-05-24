@@ -8,8 +8,9 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:xrpc/xrpc.dart' as xrpc;
 
-/// A simple example on `procedure` in XRPC.
-/// A `procedure` in XRPC is the same function as a POST in HTTP.
+/// This is an example of setting up a mocked HTTP client for the `procedure`
+/// function, so that you can test the API without actually communicating
+/// with the API server by using a mocked HTTP client when testing the API.
 Future<void> main(List<String> args) async {
   // All response data returned from the xrpc package is stored in XRPCResponse.
   final response = await xrpc.procedure<String>(
