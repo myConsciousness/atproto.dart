@@ -33,7 +33,6 @@ Future<void> main(List<String> args) async {
   print(response.data);
 }
 
-/// You can implement this as you want.
 xrpc.GetClient _createMockedGetClient(
   final String resourcePath, {
   final int statusCode = 200,
@@ -42,6 +41,7 @@ xrpc.GetClient _createMockedGetClient(
     Uri url, {
     Map<String, String>? headers,
   }) async {
+    /// You can implement this as you want.
     return http.Response(
       File(resourcePath).readAsStringSync(),
       statusCode,
