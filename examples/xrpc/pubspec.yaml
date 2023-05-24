@@ -1,4 +1,4 @@
-name: bluesky_example
+name: xrpc_example
 description: A sample command-line application.
 version: 1.0.0
 
@@ -6,7 +6,7 @@ environment:
   sdk: ^3.0.1
 
 dependencies:
-  bluesky: ^0.5.2
+  xrpc: ^0.1.0
 
 dev_dependencies:
   lints: ^2.0.0

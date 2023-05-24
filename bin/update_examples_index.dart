@@ -27,7 +27,7 @@ Future<void> main(List<String> args) async {
       File('${entity.path}/pubspec.yaml').readAsStringSync(),
     );
 
-    final pubSpecName = pubSpec.name;
+    final pubSpecName = pubSpec.name!.split('_').first;
     final version = _getVersion(pubSpec.name!, pubSpec.dependencies);
 
     readme
