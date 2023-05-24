@@ -18,13 +18,17 @@ Future<void> main(List<String> args) async {
     ..writeln('# Examples')
     ..writeln();
 
-  for (final entity in Directory('examples').listSync()) {
-    if (entity.path.toLowerCase().endsWith(_indexMarkdown)) {
+  final directories = _sortByName(
+    Directory('examples').listSync(),
+  );
+
+  for (final directory in directories) {
+    if (directory.path.toLowerCase().endsWith(_indexMarkdown)) {
       continue;
     }
 
     final pubSpec = PubSpec.fromYamlString(
-      File('${entity.path}/pubspec.yaml').readAsStringSync(),
+      File('${directory.path}/pubspec.yaml').readAsStringSync(),
     );
 
     final pubSpecName = pubSpec.name!.split('_').first;
@@ -34,8 +38,9 @@ Future<void> main(List<String> args) async {
       ..writeln('## [$pubSpecName](${'$_pubDev/$pubSpecName'}) - v$version')
       ..writeln();
 
-    final examples = Directory('${entity.path}/example').listSync();
-    examples.sort((a, b) => a.path.compareTo(b.path));
+    final examples = _sortByName(
+      Directory('${directory.path}/example').listSync(),
+    );
 
     final table = _tableSkeleton;
     for (final example in examples) {
@@ -121,3 +126,6 @@ String _removeLastNewline(final StringBuffer source) {
 
   return string;
 }
+
+List _sortByName(final List collection) =>
+    collection..sort((a, b) => a.path.compareTo(b.path));
