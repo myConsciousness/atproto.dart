@@ -72,17 +72,19 @@ Future<String> _scrapeDartDoc(final File source) async {
     if (line.startsWith('///')) {
       docs.add(line.replaceFirst('///', '').trim());
     } else {
-      if (docs.isEmpty) {
-        throw UnsupportedError('Description is required');
-      }
+      if (docs.isNotEmpty) {
+        final nextLine = lines[i].trim();
 
-      final nextLine = lines[i].trim();
-
-      if (nextLine.startsWith('void main()') ||
-          nextLine.startsWith('Future<void> main()')) {
-        break;
+        if (nextLine.startsWith('void main()') ||
+            nextLine.startsWith('Future<void> main()')) {
+          break;
+        }
       }
     }
+  }
+
+  if (docs.isEmpty) {
+    throw UnsupportedError('Description is required.');
   }
 
   return docs.join(' ');
