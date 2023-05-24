@@ -36,12 +36,13 @@
     - [1.1.2. Flutter](#112-flutter)
     - [1.1.3. CLI](#113-cli)
     - [1.1.4. GitHub Actions](#114-github-actions)
-  - [1.2. Melos Commands](#12-melos-commands)
-  - [1.3. Contribution 🏆](#13-contribution-)
-  - [1.4. Contributors ✨](#14-contributors-)
-  - [1.5. Support ❤️](#15-support-️)
-  - [1.6. License 🔑](#16-license-)
-  - [1.7. More Information 🧐](#17-more-information-)
+  - [1.2. Code Examples](#12-code-examples)
+  - [1.3. Melos Commands](#13-melos-commands)
+  - [1.4. Contribution 🏆](#14-contribution-)
+  - [1.5. Contributors ✨](#15-contributors-)
+  - [1.6. Support ❤️](#16-support-️)
+  - [1.7. License 🔑](#17-license-)
+  - [1.8. More Information 🧐](#18-more-information-)
 
 <!-- /TOC -->
 
@@ -87,7 +88,18 @@ and to contribute to the development of [AT Protocol](https://atproto.com) and [
 | ----------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------ |
 | [bluesky_post](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_post) | [![bluesky-post](https://img.shields.io/static/v1?label=actions&message=myConsciousness/bluesky-post&logo=GitHub&color=00acee)](https://github.com/marketplace/actions/send-bluesky-post) | Use this action to send a post to Bluesky Social from GitHub actions workflow. |
 
-## 1.2. Melos Commands
+## 1.2. Code Examples
+
+I have developed many packages in this monorepo. But rest assured, I have many sample codes for the major packages.
+
+All sample code is managed in the `examples` folder in this repository. You can easily find the sample code
+you are looking for by looking at the automatically maintained `examples/index.md`.
+
+**Please check the following link:**
+
+- [examples/index.md](https://github.com/myConsciousness/atproto.dart/tree/main/examples/index.md)
+
+## 1.3. Melos Commands
 
 This project consists of several packages and is managed using [Melos](https://github.com/invertase/melos).
 
@@ -114,7 +126,7 @@ Then, the Melos commands available for this project are:
 > </br></br>
 > In that case, please move to the each package and execute the dart command.
 
-## 1.3. Contribution 🏆
+## 1.4. Contribution 🏆
 
 If you would like to contribute to **atproto.dart**, please create an [issue](https://github.com/myConsciousness/atproto.dart/issues) or create a Pull Request.
 
@@ -135,7 +147,7 @@ Or you can create a [discussion](https://github.com/myConsciousness/atproto.dart
 
 **Feel free to join this development, diverse opinions make software better!**
 
-## 1.4. Contributors ✨
+## 1.5. Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -165,7 +177,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
-## 1.5. Support ❤️
+## 1.6. Support ❤️
 
 The simplest way to show us your support is by **giving the project a star** at [GitHub](https://github.com/myConsciousness/atproto.dart) and [Pub.dev](https://pub.dev/packages/bluesky).
 
@@ -179,7 +191,7 @@ You can also support this project by **becoming a sponsor** on GitHub:
   </p>
 </div>
 
-## 1.6. License 🔑
+## 1.7. License 🔑
 
 The source code provided in this monorepo is is provided under the `BSD-3` license.
 
@@ -192,7 +204,7 @@ modification, are permitted provided the conditions.
 > **Note**</br>
 > License notices in the source are strictly validated based on `.github/header-checker-lint.yml`. Please check [header-checker-lint.yml](https://github.com/myConsciousness/atproto.dart/tree/main/.github/header-checker-lint.yml) for the permitted standards.
 
-## 1.7. More Information 🧐
+## 1.8. More Information 🧐
 
 All resources in **atproto.dart** is maintained by **_Shinya Kato ([@myConsciousness](https://github.com/myConsciousness))_**.
 
