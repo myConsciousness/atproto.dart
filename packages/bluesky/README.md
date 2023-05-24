@@ -69,9 +69,14 @@ This library provides the easiest way to use [Bluesky Social](https://blueskyweb
 
 **Show some ❤️ and star the repo to support the project.**
 
-`bluesky` is developed on the basis of the [atproto](https://pub.dev/packages/atproto) package. However, the [atproto](https://pub.dev/packages/atproto) package is highly integrated into this package, so you do not need to be aware of atproto when you use `bluesky`.
+`bluesky` is developed on the basis of the [atproto](https://pub.dev/packages/atproto) package.
+
+However, the [atproto](https://pub.dev/packages/atproto) package is highly integrated into this package,
+so you do not need to be aware of `atproto` when you use `bluesky`.
 
 If you want to use atproto-only features, please check [atproto](https://pub.dev/packages/atproto).
+
+Also if you need more sample codes, please check [examples](https://github.com/myConsciousness/atproto.dart/tree/main/examples/index.md).
 
 ## 1.1. Features 💎
 
