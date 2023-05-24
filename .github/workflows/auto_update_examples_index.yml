@@ -1,4 +1,4 @@
-name: Update examples index
+name: Update Examples Index
 
 on:
   pull_request:
@@ -24,7 +24,7 @@ jobs:
         run: dart pub get
 
       - name: Run update script
-        run: dart bin/update_examples_index.dart
+        run: dart bin/update_examples_document.dart
 
       - name: Commit changes
         run: |
@@ -34,6 +34,6 @@ jobs:
           if [ -z "$(git status --porcelain)" ]; then
             echo "No changes to commit"
           else
-            git commit -m "[SCHEDULED] update index" -a
+            git commit -m "[SCHEDULED] Update Document" -a
             git push
           fi

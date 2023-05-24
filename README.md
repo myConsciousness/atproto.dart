@@ -93,11 +93,11 @@ and to contribute to the development of [AT Protocol](https://atproto.com) and [
 I have developed many packages in this monorepo. But rest assured, I have many sample codes for the major packages.
 
 All sample code is managed in the `examples` folder in this repository. You can easily find the sample code
-you are looking for by looking at the automatically maintained `examples/index.md`.
+you are looking for by looking at the automatically maintained `examples/README.md`.
 
 **Please check the following link:**
 
-- [examples/index.md](https://github.com/myConsciousness/atproto.dart/tree/main/examples/index.md)
+- [examples/README.md](https://github.com/myConsciousness/atproto.dart/tree/main/examples/README.md)
 
 ## 1.3. Melos Commands
 
