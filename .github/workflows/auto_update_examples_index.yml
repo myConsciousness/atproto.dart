@@ -34,6 +34,6 @@ jobs:
           if [ -z "$(git status --porcelain)" ]; then
             echo "No changes to commit"
           else
-            git commit -m "Update examples index" -a
+            git commit -m "[SCHEDULED] update index" -a
             git push
           fi
