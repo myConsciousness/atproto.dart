@@ -28,7 +28,7 @@ Future<void> main(List<String> args) async {
     );
 
     final pubSpecName = pubSpec.name!.split('_').first;
-    final version = _getVersion(pubSpec.name!, pubSpec.dependencies);
+    final version = _getVersion(pubSpecName, pubSpec.dependencies);
 
     readme
       ..writeln('## [$pubSpecName](${'$_pubDev/$pubSpecName'}) - v$version')
