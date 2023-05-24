@@ -25,7 +25,17 @@ _$_Feed _$$_FeedFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_FeedToJson(_$_Feed instance) => <String, dynamic>{
-      'feed': instance.feed.map((e) => e.toJson()).toList(),
-      'cursor': instance.cursor,
-    };
+Map<String, dynamic> _$$_FeedToJson(_$_Feed instance) {
+  final val = <String, dynamic>{
+    'feed': instance.feed.map((e) => e.toJson()).toList(),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('cursor', instance.cursor);
+  return val;
+}

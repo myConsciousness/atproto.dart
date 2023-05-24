@@ -13,7 +13,7 @@ class RepoRef with _$RepoRef {
   const factory RepoRef({
     @Default('com.atproto.admin.defs#repoRef')
     @JsonKey(name: '\$type')
-        String type,
+    String type,
     required String did,
   }) = _RepoRef;
 

@@ -21,6 +21,7 @@ mixin _$Preference {
   TResult when<TResult extends Object?>({
     required TResult Function(AdultContentPreference data) adultContent,
     required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,6 +29,7 @@ mixin _$Preference {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AdultContentPreference data)? adultContent,
     TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -35,6 +37,7 @@ mixin _$Preference {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AdultContentPreference data)? adultContent,
     TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
@@ -43,6 +46,7 @@ mixin _$Preference {
   TResult map<TResult extends Object?>({
     required TResult Function(_AdultContent value) adultContent,
     required TResult Function(_ContentLabel value) contentLabel,
+    required TResult Function(_SavedFeeds value) savedFeeds,
     required TResult Function(_Unknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -50,6 +54,7 @@ mixin _$Preference {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AdultContent value)? adultContent,
     TResult? Function(_ContentLabel value)? contentLabel,
+    TResult? Function(_SavedFeeds value)? savedFeeds,
     TResult? Function(_Unknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -57,6 +62,7 @@ mixin _$Preference {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AdultContent value)? adultContent,
     TResult Function(_ContentLabel value)? contentLabel,
+    TResult Function(_SavedFeeds value)? savedFeeds,
     TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) =>
@@ -157,6 +163,7 @@ class _$_AdultContent extends _AdultContent {
   TResult when<TResult extends Object?>({
     required TResult Function(AdultContentPreference data) adultContent,
     required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return adultContent(data);
@@ -167,6 +174,7 @@ class _$_AdultContent extends _AdultContent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AdultContentPreference data)? adultContent,
     TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return adultContent?.call(data);
@@ -177,6 +185,7 @@ class _$_AdultContent extends _AdultContent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AdultContentPreference data)? adultContent,
     TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -191,6 +200,7 @@ class _$_AdultContent extends _AdultContent {
   TResult map<TResult extends Object?>({
     required TResult Function(_AdultContent value) adultContent,
     required TResult Function(_ContentLabel value) contentLabel,
+    required TResult Function(_SavedFeeds value) savedFeeds,
     required TResult Function(_Unknown value) unknown,
   }) {
     return adultContent(this);
@@ -201,6 +211,7 @@ class _$_AdultContent extends _AdultContent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AdultContent value)? adultContent,
     TResult? Function(_ContentLabel value)? contentLabel,
+    TResult? Function(_SavedFeeds value)? savedFeeds,
     TResult? Function(_Unknown value)? unknown,
   }) {
     return adultContent?.call(this);
@@ -211,6 +222,7 @@ class _$_AdultContent extends _AdultContent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AdultContent value)? adultContent,
     TResult Function(_ContentLabel value)? contentLabel,
+    TResult Function(_SavedFeeds value)? savedFeeds,
     TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -309,6 +321,7 @@ class _$_ContentLabel extends _ContentLabel {
   TResult when<TResult extends Object?>({
     required TResult Function(AdultContentPreference data) adultContent,
     required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return contentLabel(data);
@@ -319,6 +332,7 @@ class _$_ContentLabel extends _ContentLabel {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AdultContentPreference data)? adultContent,
     TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return contentLabel?.call(data);
@@ -329,6 +343,7 @@ class _$_ContentLabel extends _ContentLabel {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AdultContentPreference data)? adultContent,
     TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -343,6 +358,7 @@ class _$_ContentLabel extends _ContentLabel {
   TResult map<TResult extends Object?>({
     required TResult Function(_AdultContent value) adultContent,
     required TResult Function(_ContentLabel value) contentLabel,
+    required TResult Function(_SavedFeeds value) savedFeeds,
     required TResult Function(_Unknown value) unknown,
   }) {
     return contentLabel(this);
@@ -353,6 +369,7 @@ class _$_ContentLabel extends _ContentLabel {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AdultContent value)? adultContent,
     TResult? Function(_ContentLabel value)? contentLabel,
+    TResult? Function(_SavedFeeds value)? savedFeeds,
     TResult? Function(_Unknown value)? unknown,
   }) {
     return contentLabel?.call(this);
@@ -363,6 +380,7 @@ class _$_ContentLabel extends _ContentLabel {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AdultContent value)? adultContent,
     TResult Function(_ContentLabel value)? contentLabel,
+    TResult Function(_SavedFeeds value)? savedFeeds,
     TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -382,6 +400,164 @@ abstract class _ContentLabel extends Preference {
   ContentLabelPreference get data;
   @JsonKey(ignore: true)
   _$$_ContentLabelCopyWith<_$_ContentLabel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SavedFeedsCopyWith<$Res> {
+  factory _$$_SavedFeedsCopyWith(
+          _$_SavedFeeds value, $Res Function(_$_SavedFeeds) then) =
+      __$$_SavedFeedsCopyWithImpl<$Res>;
+  @useResult
+  $Res call({SavedFeedsPreference data});
+
+  $SavedFeedsPreferenceCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_SavedFeedsCopyWithImpl<$Res>
+    extends _$PreferenceCopyWithImpl<$Res, _$_SavedFeeds>
+    implements _$$_SavedFeedsCopyWith<$Res> {
+  __$$_SavedFeedsCopyWithImpl(
+      _$_SavedFeeds _value, $Res Function(_$_SavedFeeds) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_SavedFeeds(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as SavedFeedsPreference,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SavedFeedsPreferenceCopyWith<$Res> get data {
+    return $SavedFeedsPreferenceCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_SavedFeeds extends _SavedFeeds {
+  const _$_SavedFeeds({required this.data}) : super._();
+
+  @override
+  final SavedFeedsPreference data;
+
+  @override
+  String toString() {
+    return 'Preference.savedFeeds(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SavedFeeds &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SavedFeedsCopyWith<_$_SavedFeeds> get copyWith =>
+      __$$_SavedFeedsCopyWithImpl<_$_SavedFeeds>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPreference data) adultContent,
+    required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return savedFeeds(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPreference data)? adultContent,
+    TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return savedFeeds?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPreference data)? adultContent,
+    TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (savedFeeds != null) {
+      return savedFeeds(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AdultContent value) adultContent,
+    required TResult Function(_ContentLabel value) contentLabel,
+    required TResult Function(_SavedFeeds value) savedFeeds,
+    required TResult Function(_Unknown value) unknown,
+  }) {
+    return savedFeeds(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AdultContent value)? adultContent,
+    TResult? Function(_ContentLabel value)? contentLabel,
+    TResult? Function(_SavedFeeds value)? savedFeeds,
+    TResult? Function(_Unknown value)? unknown,
+  }) {
+    return savedFeeds?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AdultContent value)? adultContent,
+    TResult Function(_ContentLabel value)? contentLabel,
+    TResult Function(_SavedFeeds value)? savedFeeds,
+    TResult Function(_Unknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (savedFeeds != null) {
+      return savedFeeds(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SavedFeeds extends Preference {
+  const factory _SavedFeeds({required final SavedFeedsPreference data}) =
+      _$_SavedFeeds;
+  const _SavedFeeds._() : super._();
+
+  @override
+  SavedFeedsPreference get data;
+  @JsonKey(ignore: true)
+  _$$_SavedFeedsCopyWith<_$_SavedFeeds> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -458,6 +634,7 @@ class _$_Unknown extends _Unknown {
   TResult when<TResult extends Object?>({
     required TResult Function(AdultContentPreference data) adultContent,
     required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -468,6 +645,7 @@ class _$_Unknown extends _Unknown {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AdultContentPreference data)? adultContent,
     TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -478,6 +656,7 @@ class _$_Unknown extends _Unknown {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AdultContentPreference data)? adultContent,
     TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -492,6 +671,7 @@ class _$_Unknown extends _Unknown {
   TResult map<TResult extends Object?>({
     required TResult Function(_AdultContent value) adultContent,
     required TResult Function(_ContentLabel value) contentLabel,
+    required TResult Function(_SavedFeeds value) savedFeeds,
     required TResult Function(_Unknown value) unknown,
   }) {
     return unknown(this);
@@ -502,6 +682,7 @@ class _$_Unknown extends _Unknown {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AdultContent value)? adultContent,
     TResult? Function(_ContentLabel value)? contentLabel,
+    TResult? Function(_SavedFeeds value)? savedFeeds,
     TResult? Function(_Unknown value)? unknown,
   }) {
     return unknown?.call(this);
@@ -512,6 +693,7 @@ class _$_Unknown extends _Unknown {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AdultContent value)? adultContent,
     TResult Function(_ContentLabel value)? contentLabel,
+    TResult Function(_SavedFeeds value)? savedFeeds,
     TResult Function(_Unknown value)? unknown,
     required TResult orElse(),
   }) {

@@ -15,7 +15,7 @@ class FacetMention with _$FacetMention {
   const factory FacetMention({
     @Default('app.bsky.richtext.facet#mention')
     @JsonKey(name: '\$type')
-        String type,
+    String type,
     required String did,
   }) = _FacetMention;
 

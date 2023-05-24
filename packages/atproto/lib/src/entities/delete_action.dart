@@ -17,9 +17,8 @@ class DeleteAction with _$DeleteAction {
   const factory DeleteAction({
     @JsonKey(name: '\$type')
     @Default('com.atproto.repo.applyWrites#delete')
-        String type,
-    @AtUriConverter()
-        required AtUri uri,
+    String type,
+    @AtUriConverter() required AtUri uri,
   }) = _DeleteAction;
 
   factory DeleteAction.fromJson(Map<String, Object?> json) =>

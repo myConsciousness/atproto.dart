@@ -8,17 +8,19 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'post_thread_view_not_found.freezed.dart';
-part 'post_thread_view_not_found.g.dart';
+part 'not_found_post.freezed.dart';
+part 'not_found_post.g.dart';
 
 @freezed
-class PostThreadViewNotFound with _$PostThreadViewNotFound {
-  const factory PostThreadViewNotFound({
-    @JsonKey(name: '\$type') required String type,
+class NotFoundPost with _$NotFoundPost {
+  const factory NotFoundPost({
+    @Default('app.bsky.feed.defs#notFoundPost')
+    @JsonKey(name: '\$type')
+    String type,
     @AtUriConverter() required AtUri uri,
     required bool notFound,
-  }) = _PostThreadViewNotFound;
+  }) = _NotFoundPost;
 
-  factory PostThreadViewNotFound.fromJson(Map<String, Object?> json) =>
-      _$PostThreadViewNotFoundFromJson(json);
+  factory NotFoundPost.fromJson(Map<String, Object?> json) =>
+      _$NotFoundPostFromJson(json);
 }

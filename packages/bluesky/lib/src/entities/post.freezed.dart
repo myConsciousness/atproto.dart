@@ -20,6 +20,8 @@ Post _$PostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Post {
+  @JsonKey(name: '\$type')
+  String get type => throw _privateConstructorUsedError;
   PostRecord get record => throw _privateConstructorUsedError;
   Actor get author => throw _privateConstructorUsedError;
   @AtUriConverter()
@@ -45,7 +47,8 @@ abstract class $PostCopyWith<$Res> {
       _$PostCopyWithImpl<$Res, Post>;
   @useResult
   $Res call(
-      {PostRecord record,
+      {@JsonKey(name: '\$type') String type,
+      PostRecord record,
       Actor author,
       @AtUriConverter() AtUri uri,
       String cid,
@@ -76,6 +79,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? record = null,
     Object? author = null,
     Object? uri = null,
@@ -89,6 +93,10 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? indexedAt = null,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
@@ -180,7 +188,8 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {PostRecord record,
+      {@JsonKey(name: '\$type') String type,
+      PostRecord record,
       Actor author,
       @AtUriConverter() AtUri uri,
       String cid,
@@ -211,6 +220,7 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? record = null,
     Object? author = null,
     Object? uri = null,
@@ -224,6 +234,10 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
     Object? indexedAt = null,
   }) {
     return _then(_$_Post(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
@@ -277,7 +291,8 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
 @JsonSerializable(includeIfNull: false)
 class _$_Post extends _Post {
   const _$_Post(
-      {required this.record,
+      {@JsonKey(name: '\$type') this.type = 'app.bsky.feed.defs#postView',
+      required this.record,
       required this.author,
       @AtUriConverter() required this.uri,
       required this.cid,
@@ -293,6 +308,9 @@ class _$_Post extends _Post {
 
   factory _$_Post.fromJson(Map<String, dynamic> json) => _$$_PostFromJson(json);
 
+  @override
+  @JsonKey(name: '\$type')
+  final String type;
   @override
   final PostRecord record;
   @override
@@ -326,7 +344,7 @@ class _$_Post extends _Post {
 
   @override
   String toString() {
-    return 'Post(record: $record, author: $author, uri: $uri, cid: $cid, embed: $embed, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, viewer: $viewer, labels: $labels, indexedAt: $indexedAt)';
+    return 'Post(type: $type, record: $record, author: $author, uri: $uri, cid: $cid, embed: $embed, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, viewer: $viewer, labels: $labels, indexedAt: $indexedAt)';
   }
 
   @override
@@ -334,6 +352,7 @@ class _$_Post extends _Post {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Post &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.record, record) || other.record == record) &&
             (identical(other.author, author) || other.author == author) &&
             (identical(other.uri, uri) || other.uri == uri) &&
@@ -355,6 +374,7 @@ class _$_Post extends _Post {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      type,
       record,
       author,
       uri,
@@ -383,7 +403,8 @@ class _$_Post extends _Post {
 
 abstract class _Post extends Post {
   const factory _Post(
-      {required final PostRecord record,
+      {@JsonKey(name: '\$type') final String type,
+      required final PostRecord record,
       required final Actor author,
       @AtUriConverter() required final AtUri uri,
       required final String cid,
@@ -398,6 +419,9 @@ abstract class _Post extends Post {
 
   factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
 
+  @override
+  @JsonKey(name: '\$type')
+  String get type;
   @override
   PostRecord get record;
   @override

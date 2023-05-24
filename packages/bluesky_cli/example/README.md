@@ -26,16 +26,22 @@ Global options:
     --verbose     Enable verbose logging.
 
 Available commands:
+  actor-feeds          Show the selected feeds of specific actor.
   actors-typeahead     Show the typeahead for actors.
   add-list-item        Add an item to list.
   block                Block an user.
   blocks               Show the blocked users.
+  create-generator     Create a generator.
   create-list          Create a list.
+  custom-feed          Show the custom feed from specific generator.
   delete               Delete a specific contents from repository.
   feed                 Show the feed of specific actor.
+  feed-generator       Show the specific feed generator.
+  feed-generators      Show the specific feed generators.
   follow               Follow an user.
   followers            Show the followers.
   follows              Show the following users.
+  generator-info       Show the information of generators.
   like                 Like a specific post.
   likes                Show the likes of specific post.
   list                 Show the list.

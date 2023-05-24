@@ -8,17 +8,19 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'post_thread_view_blocked.freezed.dart';
-part 'post_thread_view_blocked.g.dart';
+part 'blocked_post.freezed.dart';
+part 'blocked_post.g.dart';
 
 @freezed
-class PostThreadViewBlocked with _$PostThreadViewBlocked {
-  const factory PostThreadViewBlocked({
-    @JsonKey(name: '\$type') required String type,
+class BlockedPost with _$BlockedPost {
+  const factory BlockedPost({
+    @Default('app.bsky.feed.defs#blockedPost')
+    @JsonKey(name: '\$type')
+    String type,
     @AtUriConverter() required AtUri uri,
     required bool blocked,
-  }) = _PostThreadViewBlocked;
+  }) = _BlockedPost;
 
-  factory PostThreadViewBlocked.fromJson(Map<String, Object?> json) =>
-      _$PostThreadViewBlockedFromJson(json);
+  factory BlockedPost.fromJson(Map<String, Object?> json) =>
+      _$BlockedPostFromJson(json);
 }

@@ -60,16 +60,27 @@ class CreateListCommand extends CreateRecordCommand {
 
   @override
   Future<Map<String, dynamic>> get record async {
-    final description = BlueskyText(argResults!['description']);
     final record = {
       'purpose': argResults!['purpose'],
       'name': argResults!['name'],
-      'description': description.value,
-      'descriptionFacets': await description.entities.toFacets(),
       'createdAt': argResults!['created-at'],
     };
 
+    final String description = argResults!['description'];
+
+    if (description.isNotEmpty) {
+      final text = BlueskyText(argResults!['description']);
+      final facets = await text.entities.toFacets();
+
+      record['description'] = text.value;
+
+      if (facets.isNotEmpty) {
+        record['descriptionFacets'] = facets;
+      }
+    }
+
     final String avatar = argResults!['avatar'];
+
     if (avatar.isNotEmpty) {
       final uploaded = await upload(File(avatar));
       final blob = jsonDecode(uploaded.data);

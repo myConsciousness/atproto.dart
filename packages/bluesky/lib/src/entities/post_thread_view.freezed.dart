@@ -20,24 +20,24 @@ mixin _$PostThreadView {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(PostThreadViewRecord data) record,
-    required TResult Function(PostThreadViewNotFound data) notFound,
-    required TResult Function(PostThreadViewBlocked data) blocked,
+    required TResult Function(NotFoundPost data) notFound,
+    required TResult Function(BlockedPost data) blocked,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PostThreadViewRecord data)? record,
-    TResult? Function(PostThreadViewNotFound data)? notFound,
-    TResult? Function(PostThreadViewBlocked data)? blocked,
+    TResult? Function(NotFoundPost data)? notFound,
+    TResult? Function(BlockedPost data)? blocked,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PostThreadViewRecord data)? record,
-    TResult Function(PostThreadViewNotFound data)? notFound,
-    TResult Function(PostThreadViewBlocked data)? blocked,
+    TResult Function(NotFoundPost data)? notFound,
+    TResult Function(BlockedPost data)? blocked,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
@@ -160,8 +160,8 @@ class _$_Record implements _Record {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(PostThreadViewRecord data) record,
-    required TResult Function(PostThreadViewNotFound data) notFound,
-    required TResult Function(PostThreadViewBlocked data) blocked,
+    required TResult Function(NotFoundPost data) notFound,
+    required TResult Function(BlockedPost data) blocked,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return record(data);
@@ -171,8 +171,8 @@ class _$_Record implements _Record {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PostThreadViewRecord data)? record,
-    TResult? Function(PostThreadViewNotFound data)? notFound,
-    TResult? Function(PostThreadViewBlocked data)? blocked,
+    TResult? Function(NotFoundPost data)? notFound,
+    TResult? Function(BlockedPost data)? blocked,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return record?.call(data);
@@ -182,8 +182,8 @@ class _$_Record implements _Record {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PostThreadViewRecord data)? record,
-    TResult Function(PostThreadViewNotFound data)? notFound,
-    TResult Function(PostThreadViewBlocked data)? blocked,
+    TResult Function(NotFoundPost data)? notFound,
+    TResult Function(BlockedPost data)? blocked,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -247,9 +247,9 @@ abstract class _$$_NotFoundCopyWith<$Res> {
           _$_NotFound value, $Res Function(_$_NotFound) then) =
       __$$_NotFoundCopyWithImpl<$Res>;
   @useResult
-  $Res call({PostThreadViewNotFound data});
+  $Res call({NotFoundPost data});
 
-  $PostThreadViewNotFoundCopyWith<$Res> get data;
+  $NotFoundPostCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -269,14 +269,14 @@ class __$$_NotFoundCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as PostThreadViewNotFound,
+              as NotFoundPost,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $PostThreadViewNotFoundCopyWith<$Res> get data {
-    return $PostThreadViewNotFoundCopyWith<$Res>(_value.data, (value) {
+  $NotFoundPostCopyWith<$Res> get data {
+    return $NotFoundPostCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -288,7 +288,7 @@ class _$_NotFound implements _NotFound {
   const _$_NotFound({required this.data});
 
   @override
-  final PostThreadViewNotFound data;
+  final NotFoundPost data;
 
   @override
   String toString() {
@@ -316,8 +316,8 @@ class _$_NotFound implements _NotFound {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(PostThreadViewRecord data) record,
-    required TResult Function(PostThreadViewNotFound data) notFound,
-    required TResult Function(PostThreadViewBlocked data) blocked,
+    required TResult Function(NotFoundPost data) notFound,
+    required TResult Function(BlockedPost data) blocked,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return notFound(data);
@@ -327,8 +327,8 @@ class _$_NotFound implements _NotFound {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PostThreadViewRecord data)? record,
-    TResult? Function(PostThreadViewNotFound data)? notFound,
-    TResult? Function(PostThreadViewBlocked data)? blocked,
+    TResult? Function(NotFoundPost data)? notFound,
+    TResult? Function(BlockedPost data)? blocked,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return notFound?.call(data);
@@ -338,8 +338,8 @@ class _$_NotFound implements _NotFound {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PostThreadViewRecord data)? record,
-    TResult Function(PostThreadViewNotFound data)? notFound,
-    TResult Function(PostThreadViewBlocked data)? blocked,
+    TResult Function(NotFoundPost data)? notFound,
+    TResult Function(BlockedPost data)? blocked,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -388,11 +388,10 @@ class _$_NotFound implements _NotFound {
 }
 
 abstract class _NotFound implements PostThreadView {
-  const factory _NotFound({required final PostThreadViewNotFound data}) =
-      _$_NotFound;
+  const factory _NotFound({required final NotFoundPost data}) = _$_NotFound;
 
   @override
-  PostThreadViewNotFound get data;
+  NotFoundPost get data;
   @JsonKey(ignore: true)
   _$$_NotFoundCopyWith<_$_NotFound> get copyWith =>
       throw _privateConstructorUsedError;
@@ -404,9 +403,9 @@ abstract class _$$_BlockedCopyWith<$Res> {
           _$_Blocked value, $Res Function(_$_Blocked) then) =
       __$$_BlockedCopyWithImpl<$Res>;
   @useResult
-  $Res call({PostThreadViewBlocked data});
+  $Res call({BlockedPost data});
 
-  $PostThreadViewBlockedCopyWith<$Res> get data;
+  $BlockedPostCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -425,14 +424,14 @@ class __$$_BlockedCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as PostThreadViewBlocked,
+              as BlockedPost,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $PostThreadViewBlockedCopyWith<$Res> get data {
-    return $PostThreadViewBlockedCopyWith<$Res>(_value.data, (value) {
+  $BlockedPostCopyWith<$Res> get data {
+    return $BlockedPostCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -444,7 +443,7 @@ class _$_Blocked implements _Blocked {
   const _$_Blocked({required this.data});
 
   @override
-  final PostThreadViewBlocked data;
+  final BlockedPost data;
 
   @override
   String toString() {
@@ -472,8 +471,8 @@ class _$_Blocked implements _Blocked {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(PostThreadViewRecord data) record,
-    required TResult Function(PostThreadViewNotFound data) notFound,
-    required TResult Function(PostThreadViewBlocked data) blocked,
+    required TResult Function(NotFoundPost data) notFound,
+    required TResult Function(BlockedPost data) blocked,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return blocked(data);
@@ -483,8 +482,8 @@ class _$_Blocked implements _Blocked {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PostThreadViewRecord data)? record,
-    TResult? Function(PostThreadViewNotFound data)? notFound,
-    TResult? Function(PostThreadViewBlocked data)? blocked,
+    TResult? Function(NotFoundPost data)? notFound,
+    TResult? Function(BlockedPost data)? blocked,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return blocked?.call(data);
@@ -494,8 +493,8 @@ class _$_Blocked implements _Blocked {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PostThreadViewRecord data)? record,
-    TResult Function(PostThreadViewNotFound data)? notFound,
-    TResult Function(PostThreadViewBlocked data)? blocked,
+    TResult Function(NotFoundPost data)? notFound,
+    TResult Function(BlockedPost data)? blocked,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -544,11 +543,10 @@ class _$_Blocked implements _Blocked {
 }
 
 abstract class _Blocked implements PostThreadView {
-  const factory _Blocked({required final PostThreadViewBlocked data}) =
-      _$_Blocked;
+  const factory _Blocked({required final BlockedPost data}) = _$_Blocked;
 
   @override
-  PostThreadViewBlocked get data;
+  BlockedPost get data;
   @JsonKey(ignore: true)
   _$$_BlockedCopyWith<_$_Blocked> get copyWith =>
       throw _privateConstructorUsedError;
@@ -624,8 +622,8 @@ class _$_Unknown implements _Unknown {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(PostThreadViewRecord data) record,
-    required TResult Function(PostThreadViewNotFound data) notFound,
-    required TResult Function(PostThreadViewBlocked data) blocked,
+    required TResult Function(NotFoundPost data) notFound,
+    required TResult Function(BlockedPost data) blocked,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -635,8 +633,8 @@ class _$_Unknown implements _Unknown {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PostThreadViewRecord data)? record,
-    TResult? Function(PostThreadViewNotFound data)? notFound,
-    TResult? Function(PostThreadViewBlocked data)? blocked,
+    TResult? Function(NotFoundPost data)? notFound,
+    TResult? Function(BlockedPost data)? blocked,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -646,8 +644,8 @@ class _$_Unknown implements _Unknown {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PostThreadViewRecord data)? record,
-    TResult Function(PostThreadViewNotFound data)? notFound,
-    TResult Function(PostThreadViewBlocked data)? blocked,
+    TResult Function(NotFoundPost data)? notFound,
+    TResult Function(BlockedPost data)? blocked,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {

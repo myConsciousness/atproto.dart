@@ -100,7 +100,8 @@ class __$$_FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res, _$_Feed>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(includeIfNull: false)
 class _$_Feed implements _Feed {
   const _$_Feed({required final List<FeedView> feed, this.cursor})
       : _feed = feed;

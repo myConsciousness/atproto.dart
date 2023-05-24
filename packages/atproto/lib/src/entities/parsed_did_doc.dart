@@ -16,14 +16,12 @@ part 'parsed_did_doc.g.dart';
 @freezed
 class ParsedDidDoc with _$ParsedDidDoc {
   const factory ParsedDidDoc({
-    @JsonKey(name: '@context')
-        required List<String> context,
+    @JsonKey(name: '@context') required List<String> context,
     required String id,
     required List<String> alsoKnownAs,
     @JsonKey(name: 'verificationMethod')
-        required List<ParsedVerificationMethod> verificationMethods,
-    @JsonKey(name: 'service')
-        required List<ParsedService> services,
+    required List<ParsedVerificationMethod> verificationMethods,
+    @JsonKey(name: 'service') required List<ParsedService> services,
   }) = _ParsedDidDoc;
 
   factory ParsedDidDoc.fromJson(Map<String, Object?> json) =>
