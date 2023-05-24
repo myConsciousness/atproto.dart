@@ -6,7 +6,7 @@ import 'dart:io';
 
 import 'package:pubspec/pubspec.dart';
 
-const _indexMarkdown = 'index.md';
+const _indexMarkdown = 'README.md';
 const _rootExamples =
     'https://github.com/myConsciousness/atproto.dart/blob/main/examples';
 const _pubDev = 'https://pub.dev/packages';
@@ -23,7 +23,7 @@ Future<void> main(List<String> args) async {
   );
 
   for (final directory in directories) {
-    if (directory.path.toLowerCase().endsWith(_indexMarkdown)) {
+    if (directory.path.endsWith(_indexMarkdown)) {
       continue;
     }
 

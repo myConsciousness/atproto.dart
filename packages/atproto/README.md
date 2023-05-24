@@ -66,7 +66,7 @@ This library provides the easiest way to use [AT Protocol](https://atproto.com/d
 This package provides the most basic features of [AT Protocol](https://atproto.com/docs). If you want to use [Bluesky](https://blueskyweb.xyz)'s API, please use [bluesky](https://pub.dev/packages/bluesky)!
 The core HTTP request portion of this package is provided in the [atproto_core](https://pub.dev/packages/atproto_core) and [xrpc](https://pub.dev/packages/xrpc) packages.
 
-Also if you need more sample codes, please check [examples](https://github.com/myConsciousness/atproto.dart/tree/main/examples/index.md).
+Also if you need more sample codes, please check [examples](https://github.com/myConsciousness/atproto.dart/tree/main/examples/README.md).
 
 ## 1.1. Features 💎
 

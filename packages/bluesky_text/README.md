@@ -55,7 +55,7 @@ Have you ever had trouble parsing mentions or links in the text you post when us
 
 **Show some ❤️ and star the repo to support the project.**
 
-Also if you need more sample codes, please check [examples](https://github.com/myConsciousness/atproto.dart/tree/main/examples/index.md).
+Also if you need more sample codes, please check [examples](https://github.com/myConsciousness/atproto.dart/tree/main/examples/README.md).
 
 ## 1.1. Getting Started ⚡
 

@@ -76,7 +76,7 @@ so you do not need to be aware of `atproto` when you use `bluesky`.
 
 If you want to use atproto-only features, please check [atproto](https://pub.dev/packages/atproto).
 
-Also if you need more sample codes, please check [examples](https://github.com/myConsciousness/atproto.dart/tree/main/examples/index.md).
+Also if you need more sample codes, please check [examples](https://github.com/myConsciousness/atproto.dart/tree/main/examples/README.md).
 
 ## 1.1. Features 💎
 
