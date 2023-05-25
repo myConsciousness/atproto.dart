@@ -136,8 +136,8 @@ class __$$_LexRefVariantCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexRefVariant implements _LexRefVariant {
-  const _$_LexRefVariant({required this.data});
+class _$_LexRefVariant extends _LexRefVariant {
+  const _$_LexRefVariant({required this.data}) : super._();
 
   @override
   final LexRefVariant data;
@@ -245,9 +245,10 @@ class _$_LexRefVariant implements _LexRefVariant {
   }
 }
 
-abstract class _LexRefVariant implements LexObjectProperty {
+abstract class _LexRefVariant extends LexObjectProperty {
   const factory _LexRefVariant({required final LexRefVariant data}) =
       _$_LexRefVariant;
+  const _LexRefVariant._() : super._();
 
   @override
   LexRefVariant get data;
@@ -298,8 +299,8 @@ class __$$_LexIpldCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexIpld implements _LexIpld {
-  const _$_LexIpld({required this.data});
+class _$_LexIpld extends _LexIpld {
+  const _$_LexIpld({required this.data}) : super._();
 
   @override
   final LexIpld data;
@@ -407,8 +408,9 @@ class _$_LexIpld implements _LexIpld {
   }
 }
 
-abstract class _LexIpld implements LexObjectProperty {
+abstract class _LexIpld extends LexObjectProperty {
   const factory _LexIpld({required final LexIpld data}) = _$_LexIpld;
+  const _LexIpld._() : super._();
 
   @override
   LexIpld get data;
@@ -460,8 +462,8 @@ class __$$_LexArrayCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexArray implements _LexArray {
-  const _$_LexArray({required this.data});
+class _$_LexArray extends _LexArray {
+  const _$_LexArray({required this.data}) : super._();
 
   @override
   final LexArray data;
@@ -569,8 +571,9 @@ class _$_LexArray implements _LexArray {
   }
 }
 
-abstract class _LexArray implements LexObjectProperty {
+abstract class _LexArray extends LexObjectProperty {
   const factory _LexArray({required final LexArray data}) = _$_LexArray;
+  const _LexArray._() : super._();
 
   @override
   LexArray get data;
@@ -621,8 +624,8 @@ class __$$_LexBlobCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexBlob implements _LexBlob {
-  const _$_LexBlob({required this.data});
+class _$_LexBlob extends _LexBlob {
+  const _$_LexBlob({required this.data}) : super._();
 
   @override
   final LexBlob data;
@@ -730,8 +733,9 @@ class _$_LexBlob implements _LexBlob {
   }
 }
 
-abstract class _LexBlob implements LexObjectProperty {
+abstract class _LexBlob extends LexObjectProperty {
   const factory _LexBlob({required final LexBlob data}) = _$_LexBlob;
+  const _LexBlob._() : super._();
 
   @override
   LexBlob get data;
@@ -783,8 +787,8 @@ class __$$_LexPrimitiveCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexPrimitive implements _LexPrimitive {
-  const _$_LexPrimitive({required this.data});
+class _$_LexPrimitive extends _LexPrimitive {
+  const _$_LexPrimitive({required this.data}) : super._();
 
   @override
   final LexPrimitive data;
@@ -892,9 +896,10 @@ class _$_LexPrimitive implements _LexPrimitive {
   }
 }
 
-abstract class _LexPrimitive implements LexObjectProperty {
+abstract class _LexPrimitive extends LexObjectProperty {
   const factory _LexPrimitive({required final LexPrimitive data}) =
       _$_LexPrimitive;
+  const _LexPrimitive._() : super._();
 
   @override
   LexPrimitive get data;

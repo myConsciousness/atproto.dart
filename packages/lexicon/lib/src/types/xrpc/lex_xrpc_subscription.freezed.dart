@@ -20,6 +20,7 @@ LexXrpcSubscription _$LexXrpcSubscriptionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LexXrpcSubscription {
+  String get type => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   LexXrpcParameters? get parameters => throw _privateConstructorUsedError;
   LexXrpcSubscriptionMessage? get message => throw _privateConstructorUsedError;
@@ -39,7 +40,8 @@ abstract class $LexXrpcSubscriptionCopyWith<$Res> {
       _$LexXrpcSubscriptionCopyWithImpl<$Res, LexXrpcSubscription>;
   @useResult
   $Res call(
-      {String? description,
+      {String type,
+      String? description,
       LexXrpcParameters? parameters,
       LexXrpcSubscriptionMessage? message,
       List<LexXrpcError>? infos,
@@ -62,6 +64,7 @@ class _$LexXrpcSubscriptionCopyWithImpl<$Res, $Val extends LexXrpcSubscription>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? description = freezed,
     Object? parameters = freezed,
     Object? message = freezed,
@@ -69,6 +72,10 @@ class _$LexXrpcSubscriptionCopyWithImpl<$Res, $Val extends LexXrpcSubscription>
     Object? errors = freezed,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -126,7 +133,8 @@ abstract class _$$_LexXrpcSubscriptionCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? description,
+      {String type,
+      String? description,
       LexXrpcParameters? parameters,
       LexXrpcSubscriptionMessage? message,
       List<LexXrpcError>? infos,
@@ -149,6 +157,7 @@ class __$$_LexXrpcSubscriptionCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? description = freezed,
     Object? parameters = freezed,
     Object? message = freezed,
@@ -156,6 +165,10 @@ class __$$_LexXrpcSubscriptionCopyWithImpl<$Res>
     Object? errors = freezed,
   }) {
     return _then(_$_LexXrpcSubscription(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -183,20 +196,23 @@ class __$$_LexXrpcSubscriptionCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexXrpcSubscription extends _LexXrpcSubscription {
+class _$_LexXrpcSubscription implements _LexXrpcSubscription {
   const _$_LexXrpcSubscription(
-      {this.description,
+      {this.type = 'subscription',
+      this.description,
       this.parameters,
       this.message,
       final List<LexXrpcError>? infos,
       final List<LexXrpcError>? errors})
       : _infos = infos,
-        _errors = errors,
-        super._();
+        _errors = errors;
 
   factory _$_LexXrpcSubscription.fromJson(Map<String, dynamic> json) =>
       _$$_LexXrpcSubscriptionFromJson(json);
 
+  @override
+  @JsonKey()
+  final String type;
   @override
   final String? description;
   @override
@@ -225,7 +241,7 @@ class _$_LexXrpcSubscription extends _LexXrpcSubscription {
 
   @override
   String toString() {
-    return 'LexXrpcSubscription(description: $description, parameters: $parameters, message: $message, infos: $infos, errors: $errors)';
+    return 'LexXrpcSubscription(type: $type, description: $description, parameters: $parameters, message: $message, infos: $infos, errors: $errors)';
   }
 
   @override
@@ -233,6 +249,7 @@ class _$_LexXrpcSubscription extends _LexXrpcSubscription {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LexXrpcSubscription &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.parameters, parameters) ||
@@ -246,6 +263,7 @@ class _$_LexXrpcSubscription extends _LexXrpcSubscription {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      type,
       description,
       parameters,
       message,
@@ -267,18 +285,20 @@ class _$_LexXrpcSubscription extends _LexXrpcSubscription {
   }
 }
 
-abstract class _LexXrpcSubscription extends LexXrpcSubscription {
+abstract class _LexXrpcSubscription implements LexXrpcSubscription {
   const factory _LexXrpcSubscription(
-      {final String? description,
+      {final String type,
+      final String? description,
       final LexXrpcParameters? parameters,
       final LexXrpcSubscriptionMessage? message,
       final List<LexXrpcError>? infos,
       final List<LexXrpcError>? errors}) = _$_LexXrpcSubscription;
-  const _LexXrpcSubscription._() : super._();
 
   factory _LexXrpcSubscription.fromJson(Map<String, dynamic> json) =
       _$_LexXrpcSubscription.fromJson;
 
+  @override
+  String get type;
   @override
   String? get description;
   @override

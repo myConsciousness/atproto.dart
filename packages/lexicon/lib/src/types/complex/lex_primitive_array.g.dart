@@ -13,6 +13,7 @@ _$_LexPrimitiveArray _$$_LexPrimitiveArrayFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_LexPrimitiveArray(
+          type: $checkedConvert('type', (v) => v as String? ?? 'array'),
           description: $checkedConvert('description', (v) => v as String?),
           items: $checkedConvert(
               'items',
@@ -29,7 +30,9 @@ _$_LexPrimitiveArray _$$_LexPrimitiveArrayFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$_LexPrimitiveArrayToJson(
     _$_LexPrimitiveArray instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'type': instance.type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {

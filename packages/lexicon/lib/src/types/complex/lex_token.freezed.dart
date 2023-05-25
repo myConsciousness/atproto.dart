@@ -20,6 +20,7 @@ LexToken _$LexTokenFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LexToken {
+  String get type => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -33,7 +34,7 @@ abstract class $LexTokenCopyWith<$Res> {
   factory $LexTokenCopyWith(LexToken value, $Res Function(LexToken) then) =
       _$LexTokenCopyWithImpl<$Res, LexToken>;
   @useResult
-  $Res call({String? description});
+  $Res call({String type, String? description});
 }
 
 /// @nodoc
@@ -49,9 +50,14 @@ class _$LexTokenCopyWithImpl<$Res, $Val extends LexToken>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? description = freezed,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -67,7 +73,7 @@ abstract class _$$_LexTokenCopyWith<$Res> implements $LexTokenCopyWith<$Res> {
       __$$_LexTokenCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? description});
+  $Res call({String type, String? description});
 }
 
 /// @nodoc
@@ -81,9 +87,14 @@ class __$$_LexTokenCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? description = freezed,
   }) {
     return _then(_$_LexToken(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -95,18 +106,21 @@ class __$$_LexTokenCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexToken extends _LexToken {
-  const _$_LexToken({this.description}) : super._();
+class _$_LexToken implements _LexToken {
+  const _$_LexToken({this.type = 'token', this.description});
 
   factory _$_LexToken.fromJson(Map<String, dynamic> json) =>
       _$$_LexTokenFromJson(json);
 
   @override
+  @JsonKey()
+  final String type;
+  @override
   final String? description;
 
   @override
   String toString() {
-    return 'LexToken(description: $description)';
+    return 'LexToken(type: $type, description: $description)';
   }
 
   @override
@@ -114,13 +128,14 @@ class _$_LexToken extends _LexToken {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LexToken &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, description);
+  int get hashCode => Object.hash(runtimeType, type, description);
 
   @JsonKey(ignore: true)
   @override
@@ -136,12 +151,14 @@ class _$_LexToken extends _LexToken {
   }
 }
 
-abstract class _LexToken extends LexToken {
-  const factory _LexToken({final String? description}) = _$_LexToken;
-  const _LexToken._() : super._();
+abstract class _LexToken implements LexToken {
+  const factory _LexToken({final String type, final String? description}) =
+      _$_LexToken;
 
   factory _LexToken.fromJson(Map<String, dynamic> json) = _$_LexToken.fromJson;
 
+  @override
+  String get type;
   @override
   String? get description;
   @override

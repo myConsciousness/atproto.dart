@@ -7,24 +7,17 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../core/lex_type.dart';
-
 part 'lex_token.freezed.dart';
 part 'lex_token.g.dart';
 
 @freezed
 class LexToken with _$LexToken {
-  // ignore: unused_element
-  const LexToken._();
-
   @JsonSerializable(includeIfNull: false)
   const factory LexToken({
+    @Default('token') String type,
     String? description,
   }) = _LexToken;
 
   factory LexToken.fromJson(Map<String, Object?> json) =>
       _$LexTokenFromJson(json);
-
-  /// Returns the type.
-  LexType get type => LexType.token;
 }

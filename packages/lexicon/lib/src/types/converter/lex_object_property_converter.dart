@@ -5,6 +5,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../complex/lex_object_property.dart';
+import '../primitives/lex_primitive.dart';
+import '../primitives/lex_string.dart';
 
 class LexObjectPropertyConverter
     implements JsonConverter<LexObjectProperty, Map<String, dynamic>> {
@@ -12,8 +14,17 @@ class LexObjectPropertyConverter
 
   @override
   LexObjectProperty fromJson(Map<String, dynamic> json) {
-    // TODO: implement fromJson
-    throw UnimplementedError();
+    final type = json['type'];
+
+    if (type == 'string') {
+      return LexObjectProperty.primitive(
+        data: LexPrimitive.string(
+          data: LexString.fromJson(json),
+        ),
+      );
+    }
+
+    throw UnsupportedError('Unsupported type [$type]');
   }
 
   @override

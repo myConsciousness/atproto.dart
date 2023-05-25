@@ -7,24 +7,17 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../core/lex_type.dart';
-
 part 'lex_cid_link.freezed.dart';
 part 'lex_cid_link.g.dart';
 
 @freezed
 class LexCidLink with _$LexCidLink {
-  // ignore: unused_element
-  const LexCidLink._();
-
   @JsonSerializable(includeIfNull: false)
   const factory LexCidLink({
+    @Default('cid-link') String type,
     String? description,
   }) = _LexCidLink;
 
   factory LexCidLink.fromJson(Map<String, Object?> json) =>
       _$LexCidLinkFromJson(json);
-
-  /// Returns the type.
-  LexType get type => LexType.cidLink;
 }

@@ -20,6 +20,7 @@ LexCidLink _$LexCidLinkFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LexCidLink {
+  String get type => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +35,7 @@ abstract class $LexCidLinkCopyWith<$Res> {
           LexCidLink value, $Res Function(LexCidLink) then) =
       _$LexCidLinkCopyWithImpl<$Res, LexCidLink>;
   @useResult
-  $Res call({String? description});
+  $Res call({String type, String? description});
 }
 
 /// @nodoc
@@ -50,9 +51,14 @@ class _$LexCidLinkCopyWithImpl<$Res, $Val extends LexCidLink>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? description = freezed,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -69,7 +75,7 @@ abstract class _$$_LexCidLinkCopyWith<$Res>
       __$$_LexCidLinkCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? description});
+  $Res call({String type, String? description});
 }
 
 /// @nodoc
@@ -83,9 +89,14 @@ class __$$_LexCidLinkCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? description = freezed,
   }) {
     return _then(_$_LexCidLink(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -97,18 +108,21 @@ class __$$_LexCidLinkCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexCidLink extends _LexCidLink {
-  const _$_LexCidLink({this.description}) : super._();
+class _$_LexCidLink implements _LexCidLink {
+  const _$_LexCidLink({this.type = 'cid-link', this.description});
 
   factory _$_LexCidLink.fromJson(Map<String, dynamic> json) =>
       _$$_LexCidLinkFromJson(json);
 
   @override
+  @JsonKey()
+  final String type;
+  @override
   final String? description;
 
   @override
   String toString() {
-    return 'LexCidLink(description: $description)';
+    return 'LexCidLink(type: $type, description: $description)';
   }
 
   @override
@@ -116,13 +130,14 @@ class _$_LexCidLink extends _LexCidLink {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LexCidLink &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, description);
+  int get hashCode => Object.hash(runtimeType, type, description);
 
   @JsonKey(ignore: true)
   @override
@@ -138,13 +153,15 @@ class _$_LexCidLink extends _LexCidLink {
   }
 }
 
-abstract class _LexCidLink extends LexCidLink {
-  const factory _LexCidLink({final String? description}) = _$_LexCidLink;
-  const _LexCidLink._() : super._();
+abstract class _LexCidLink implements LexCidLink {
+  const factory _LexCidLink({final String type, final String? description}) =
+      _$_LexCidLink;
 
   factory _LexCidLink.fromJson(Map<String, dynamic> json) =
       _$_LexCidLink.fromJson;
 
+  @override
+  String get type;
   @override
   String? get description;
   @override

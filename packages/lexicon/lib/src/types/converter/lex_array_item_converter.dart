@@ -5,11 +5,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../complex/lex_array_item.dart';
-import '../core/lex_type.dart';
-
-enum LexArrayItemType {
-  a,
-}
 
 class LexArrayItemConverter
     implements JsonConverter<LexArrayItem, Map<String, dynamic>> {

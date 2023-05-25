@@ -13,6 +13,7 @@ _$_LexBytes _$$_LexBytesFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_LexBytes(
+          type: $checkedConvert('type', (v) => v as String? ?? 'bytes'),
           description: $checkedConvert('description', (v) => v as String?),
           maxLength: $checkedConvert('maxLength', (v) => v as int?),
           minLength: $checkedConvert('minLength', (v) => v as int?),
@@ -22,7 +23,9 @@ _$_LexBytes _$$_LexBytesFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$_LexBytesToJson(_$_LexBytes instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'type': instance.type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {

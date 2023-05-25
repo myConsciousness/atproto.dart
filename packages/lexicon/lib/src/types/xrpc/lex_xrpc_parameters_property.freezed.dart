@@ -119,8 +119,8 @@ class __$$_LexPrimitiveArrayCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexPrimitiveArray implements _LexPrimitiveArray {
-  const _$_LexPrimitiveArray({required this.data});
+class _$_LexPrimitiveArray extends _LexPrimitiveArray {
+  const _$_LexPrimitiveArray({required this.data}) : super._();
 
   @override
   final LexPrimitiveArray data;
@@ -211,9 +211,10 @@ class _$_LexPrimitiveArray implements _LexPrimitiveArray {
   }
 }
 
-abstract class _LexPrimitiveArray implements LexXrpcParametersProperty {
+abstract class _LexPrimitiveArray extends LexXrpcParametersProperty {
   const factory _LexPrimitiveArray({required final LexPrimitiveArray data}) =
       _$_LexPrimitiveArray;
+  const _LexPrimitiveArray._() : super._();
 
   @override
   LexPrimitiveArray get data;
@@ -265,8 +266,8 @@ class __$$_LexPrimitiveCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexPrimitive implements _LexPrimitive {
-  const _$_LexPrimitive({required this.data});
+class _$_LexPrimitive extends _LexPrimitive {
+  const _$_LexPrimitive({required this.data}) : super._();
 
   @override
   final LexPrimitive data;
@@ -356,9 +357,10 @@ class _$_LexPrimitive implements _LexPrimitive {
   }
 }
 
-abstract class _LexPrimitive implements LexXrpcParametersProperty {
+abstract class _LexPrimitive extends LexXrpcParametersProperty {
   const factory _LexPrimitive({required final LexPrimitive data}) =
       _$_LexPrimitive;
+  const _LexPrimitive._() : super._();
 
   @override
   LexPrimitive get data;

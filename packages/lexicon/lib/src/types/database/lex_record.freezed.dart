@@ -20,6 +20,7 @@ LexRecord _$LexRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LexRecord {
+  String get type => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get key => throw _privateConstructorUsedError;
   LexObject get record => throw _privateConstructorUsedError;
@@ -35,7 +36,7 @@ abstract class $LexRecordCopyWith<$Res> {
   factory $LexRecordCopyWith(LexRecord value, $Res Function(LexRecord) then) =
       _$LexRecordCopyWithImpl<$Res, LexRecord>;
   @useResult
-  $Res call({String? description, String? key, LexObject record});
+  $Res call({String type, String? description, String? key, LexObject record});
 
   $LexObjectCopyWith<$Res> get record;
 }
@@ -53,11 +54,16 @@ class _$LexRecordCopyWithImpl<$Res, $Val extends LexRecord>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? description = freezed,
     Object? key = freezed,
     Object? record = null,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -89,7 +95,7 @@ abstract class _$$_LexRecordCopyWith<$Res> implements $LexRecordCopyWith<$Res> {
       __$$_LexRecordCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? description, String? key, LexObject record});
+  $Res call({String type, String? description, String? key, LexObject record});
 
   @override
   $LexObjectCopyWith<$Res> get record;
@@ -106,11 +112,16 @@ class __$$_LexRecordCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? description = freezed,
     Object? key = freezed,
     Object? record = null,
   }) {
     return _then(_$_LexRecord(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -129,13 +140,16 @@ class __$$_LexRecordCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LexRecord extends _LexRecord {
-  const _$_LexRecord({this.description, this.key, required this.record})
-      : super._();
+class _$_LexRecord implements _LexRecord {
+  const _$_LexRecord(
+      {this.type = 'record', this.description, this.key, required this.record});
 
   factory _$_LexRecord.fromJson(Map<String, dynamic> json) =>
       _$$_LexRecordFromJson(json);
 
+  @override
+  @JsonKey()
+  final String type;
   @override
   final String? description;
   @override
@@ -145,7 +159,7 @@ class _$_LexRecord extends _LexRecord {
 
   @override
   String toString() {
-    return 'LexRecord(description: $description, key: $key, record: $record)';
+    return 'LexRecord(type: $type, description: $description, key: $key, record: $record)';
   }
 
   @override
@@ -153,6 +167,7 @@ class _$_LexRecord extends _LexRecord {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LexRecord &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.key, key) || other.key == key) &&
@@ -161,7 +176,7 @@ class _$_LexRecord extends _LexRecord {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, description, key, record);
+  int get hashCode => Object.hash(runtimeType, type, description, key, record);
 
   @JsonKey(ignore: true)
   @override
@@ -177,16 +192,18 @@ class _$_LexRecord extends _LexRecord {
   }
 }
 
-abstract class _LexRecord extends LexRecord {
+abstract class _LexRecord implements LexRecord {
   const factory _LexRecord(
-      {final String? description,
+      {final String type,
+      final String? description,
       final String? key,
       required final LexObject record}) = _$_LexRecord;
-  const _LexRecord._() : super._();
 
   factory _LexRecord.fromJson(Map<String, dynamic> json) =
       _$_LexRecord.fromJson;
 
+  @override
+  String get type;
   @override
   String? get description;
   @override

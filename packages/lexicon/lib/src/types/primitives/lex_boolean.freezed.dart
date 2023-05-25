@@ -20,6 +20,7 @@ LexBoolean _$LexBooleanFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LexBoolean {
+  String get type => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   @JsonKey(name: 'default')
   bool? get defaultValue => throw _privateConstructorUsedError;
@@ -39,7 +40,8 @@ abstract class $LexBooleanCopyWith<$Res> {
       _$LexBooleanCopyWithImpl<$Res, LexBoolean>;
   @useResult
   $Res call(
-      {String? description,
+      {String type,
+      String? description,
       @JsonKey(name: 'default') bool? defaultValue,
       @JsonKey(name: 'const') bool? constValue});
 }
@@ -57,11 +59,16 @@ class _$LexBooleanCopyWithImpl<$Res, $Val extends LexBoolean>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? description = freezed,
     Object? defaultValue = freezed,
     Object? constValue = freezed,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -87,7 +94,8 @@ abstract class _$$_LexBooleanCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? description,
+      {String type,
+      String? description,
       @JsonKey(name: 'default') bool? defaultValue,
       @JsonKey(name: 'const') bool? constValue});
 }
@@ -103,11 +111,16 @@ class __$$_LexBooleanCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? description = freezed,
     Object? defaultValue = freezed,
     Object? constValue = freezed,
   }) {
     return _then(_$_LexBoolean(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -129,7 +142,8 @@ class __$$_LexBooleanCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_LexBoolean extends _LexBoolean {
   const _$_LexBoolean(
-      {this.description,
+      {this.type = 'boolean',
+      this.description,
       @JsonKey(name: 'default') this.defaultValue,
       @JsonKey(name: 'const') this.constValue})
       : super._();
@@ -137,6 +151,9 @@ class _$_LexBoolean extends _LexBoolean {
   factory _$_LexBoolean.fromJson(Map<String, dynamic> json) =>
       _$$_LexBooleanFromJson(json);
 
+  @override
+  @JsonKey()
+  final String type;
   @override
   final String? description;
   @override
@@ -148,7 +165,7 @@ class _$_LexBoolean extends _LexBoolean {
 
   @override
   String toString() {
-    return 'LexBoolean(description: $description, defaultValue: $defaultValue, constValue: $constValue)';
+    return 'LexBoolean(type: $type, description: $description, defaultValue: $defaultValue, constValue: $constValue)';
   }
 
   @override
@@ -156,6 +173,7 @@ class _$_LexBoolean extends _LexBoolean {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LexBoolean &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.defaultValue, defaultValue) ||
@@ -167,7 +185,7 @@ class _$_LexBoolean extends _LexBoolean {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, description, defaultValue, constValue);
+      Object.hash(runtimeType, type, description, defaultValue, constValue);
 
   @JsonKey(ignore: true)
   @override
@@ -185,7 +203,8 @@ class _$_LexBoolean extends _LexBoolean {
 
 abstract class _LexBoolean extends LexBoolean {
   const factory _LexBoolean(
-      {final String? description,
+      {final String type,
+      final String? description,
       @JsonKey(name: 'default') final bool? defaultValue,
       @JsonKey(name: 'const') final bool? constValue}) = _$_LexBoolean;
   const _LexBoolean._() : super._();
@@ -193,6 +212,8 @@ abstract class _LexBoolean extends LexBoolean {
   factory _LexBoolean.fromJson(Map<String, dynamic> json) =
       _$_LexBoolean.fromJson;
 
+  @override
+  String get type;
   @override
   String? get description;
   @override

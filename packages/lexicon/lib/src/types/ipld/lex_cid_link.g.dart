@@ -13,6 +13,7 @@ _$_LexCidLink _$$_LexCidLinkFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_LexCidLink(
+          type: $checkedConvert('type', (v) => v as String? ?? 'cid-link'),
           description: $checkedConvert('description', (v) => v as String?),
         );
         return val;
@@ -20,7 +21,9 @@ _$_LexCidLink _$$_LexCidLinkFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$_LexCidLinkToJson(_$_LexCidLink instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'type': instance.type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {

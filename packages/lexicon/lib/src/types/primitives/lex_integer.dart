@@ -7,17 +7,13 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../core/lex_type.dart';
-
 part 'lex_integer.freezed.dart';
 part 'lex_integer.g.dart';
 
 @freezed
 class LexInteger with _$LexInteger {
-  // ignore: unused_element
-  const LexInteger._();
-
   const factory LexInteger({
+    @Default('integer') String type,
     String? description,
     @JsonKey(name: 'default') bool? defaultValue,
     int? minimum,
@@ -28,7 +24,4 @@ class LexInteger with _$LexInteger {
 
   factory LexInteger.fromJson(Map<String, Object?> json) =>
       _$LexIntegerFromJson(json);
-
-  /// Returns the type.
-  LexType get type => LexType.integer;
 }

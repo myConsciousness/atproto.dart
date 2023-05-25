@@ -17,6 +17,9 @@ part 'lex_object_property.freezed.dart';
 
 @freezed
 class LexObjectProperty with _$LexObjectProperty {
+  // ignore: unused_element
+  const LexObjectProperty._();
+
   const factory LexObjectProperty.refVariant({
     required LexRefVariant data,
   }) = _LexRefVariant;
@@ -36,4 +39,23 @@ class LexObjectProperty with _$LexObjectProperty {
   const factory LexObjectProperty.primitive({
     required LexPrimitive data,
   }) = _LexPrimitive;
+
+  Map<String, dynamic> toJson() => when(
+        refVariant: (data) => data.when(
+          ref: (data) => data.toJson(),
+          refUnion: (data) => data.toJson(),
+        ),
+        ipld: (data) => data.when(
+          bytes: (data) => data.toJson(),
+          cidLink: (data) => data.toJson(),
+        ),
+        array: (data) => data.toJson(),
+        blob: (data) => data.toJson(),
+        primitive: (data) => data.when(
+          boolean: (data) => data.toJson(),
+          integer: (data) => data.toJson(),
+          string: (data) => data.toJson(),
+          unknown: (data) => data.toJson(),
+        ),
+      );
 }

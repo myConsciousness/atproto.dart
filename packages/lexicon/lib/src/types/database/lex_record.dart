@@ -8,17 +8,14 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../complex/lex_object.dart';
-import '../core/lex_type.dart';
 
 part 'lex_record.freezed.dart';
 part 'lex_record.g.dart';
 
 @freezed
 class LexRecord with _$LexRecord {
-  // ignore: unused_element
-  const LexRecord._();
-
   const factory LexRecord({
+    @Default('record') String type,
     String? description,
     String? key,
     required LexObject record,
@@ -26,7 +23,4 @@ class LexRecord with _$LexRecord {
 
   factory LexRecord.fromJson(Map<String, Object?> json) =>
       _$LexRecordFromJson(json);
-
-  /// Returns the type.
-  LexType get type => LexType.record;
 }

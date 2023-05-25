@@ -4,6 +4,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../complex/lex_object.dart';
 import '../xrpc/lex_xrpc_schema.dart';
 
 class LexXrpcSchemaConverter
@@ -12,8 +13,14 @@ class LexXrpcSchemaConverter
 
   @override
   LexXrpcSchema fromJson(Map<String, dynamic> json) {
-    // TODO: implement fromJson
-    throw UnimplementedError();
+    final type = json['type'];
+
+    switch (type) {
+      case 'object':
+        return LexXrpcSchema.object(data: LexObject.fromJson(json));
+      default:
+        throw UnsupportedError('Unsupported type [$type]');
+    }
   }
 
   @override

@@ -13,6 +13,7 @@ _$_LexRefUnion _$$_LexRefUnionFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_LexRefUnion(
+          type: $checkedConvert('type', (v) => v as String? ?? 'union'),
           description: $checkedConvert('description', (v) => v as String?),
           refs: $checkedConvert('refs',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
@@ -23,7 +24,9 @@ _$_LexRefUnion _$$_LexRefUnionFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$_LexRefUnionToJson(_$_LexRefUnion instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'type': instance.type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {

@@ -13,6 +13,7 @@ _$_LexXrpcQuery _$$_LexXrpcQueryFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_LexXrpcQuery(
+          type: $checkedConvert('type', (v) => v as String? ?? 'query'),
           description: $checkedConvert('description', (v) => v as String?),
           parameters: $checkedConvert(
               'parameters',
@@ -37,7 +38,9 @@ _$_LexXrpcQuery _$$_LexXrpcQueryFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$_LexXrpcQueryToJson(_$_LexXrpcQuery instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'type': instance.type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {

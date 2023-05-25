@@ -20,6 +20,7 @@ LexBlob _$LexBlobFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LexBlob {
+  String get type => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   List<String>? get accept => throw _privateConstructorUsedError;
   int? get maxSize => throw _privateConstructorUsedError;
@@ -34,7 +35,8 @@ abstract class $LexBlobCopyWith<$Res> {
   factory $LexBlobCopyWith(LexBlob value, $Res Function(LexBlob) then) =
       _$LexBlobCopyWithImpl<$Res, LexBlob>;
   @useResult
-  $Res call({String? description, List<String>? accept, int? maxSize});
+  $Res call(
+      {String type, String? description, List<String>? accept, int? maxSize});
 }
 
 /// @nodoc
@@ -50,11 +52,16 @@ class _$LexBlobCopyWithImpl<$Res, $Val extends LexBlob>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? description = freezed,
     Object? accept = freezed,
     Object? maxSize = freezed,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -78,7 +85,8 @@ abstract class _$$_LexBlobCopyWith<$Res> implements $LexBlobCopyWith<$Res> {
       __$$_LexBlobCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? description, List<String>? accept, int? maxSize});
+  $Res call(
+      {String type, String? description, List<String>? accept, int? maxSize});
 }
 
 /// @nodoc
@@ -91,11 +99,16 @@ class __$$_LexBlobCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? description = freezed,
     Object? accept = freezed,
     Object? maxSize = freezed,
   }) {
     return _then(_$_LexBlob(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -115,14 +128,20 @@ class __$$_LexBlobCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexBlob extends _LexBlob {
-  const _$_LexBlob({this.description, final List<String>? accept, this.maxSize})
-      : _accept = accept,
-        super._();
+class _$_LexBlob implements _LexBlob {
+  const _$_LexBlob(
+      {this.type = 'blob',
+      this.description,
+      final List<String>? accept,
+      this.maxSize})
+      : _accept = accept;
 
   factory _$_LexBlob.fromJson(Map<String, dynamic> json) =>
       _$$_LexBlobFromJson(json);
 
+  @override
+  @JsonKey()
+  final String type;
   @override
   final String? description;
   final List<String>? _accept;
@@ -140,7 +159,7 @@ class _$_LexBlob extends _LexBlob {
 
   @override
   String toString() {
-    return 'LexBlob(description: $description, accept: $accept, maxSize: $maxSize)';
+    return 'LexBlob(type: $type, description: $description, accept: $accept, maxSize: $maxSize)';
   }
 
   @override
@@ -148,6 +167,7 @@ class _$_LexBlob extends _LexBlob {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LexBlob &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             const DeepCollectionEquality().equals(other._accept, _accept) &&
@@ -156,7 +176,7 @@ class _$_LexBlob extends _LexBlob {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, description,
+  int get hashCode => Object.hash(runtimeType, type, description,
       const DeepCollectionEquality().hash(_accept), maxSize);
 
   @JsonKey(ignore: true)
@@ -173,15 +193,17 @@ class _$_LexBlob extends _LexBlob {
   }
 }
 
-abstract class _LexBlob extends LexBlob {
+abstract class _LexBlob implements LexBlob {
   const factory _LexBlob(
-      {final String? description,
+      {final String type,
+      final String? description,
       final List<String>? accept,
       final int? maxSize}) = _$_LexBlob;
-  const _LexBlob._() : super._();
 
   factory _LexBlob.fromJson(Map<String, dynamic> json) = _$_LexBlob.fromJson;
 
+  @override
+  String get type;
   @override
   String? get description;
   @override

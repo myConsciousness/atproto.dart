@@ -13,6 +13,7 @@ _$_LexString _$$_LexStringFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_LexString(
+          type: $checkedConvert('type', (v) => v as String? ?? 'string'),
           format: $checkedConvert('format',
               (v) => $enumDecodeNullable(_$LexStringFormatEnumMap, v)),
           description: $checkedConvert('description', (v) => v as String?),
@@ -37,7 +38,9 @@ _$_LexString _$$_LexStringFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$_LexStringToJson(_$_LexString instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'type': instance.type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {

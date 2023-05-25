@@ -20,6 +20,7 @@ LexXrpcQuery _$LexXrpcQueryFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LexXrpcQuery {
+  String get type => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   LexXrpcParameters? get parameters => throw _privateConstructorUsedError;
   LexXrpcBody? get output => throw _privateConstructorUsedError;
@@ -38,7 +39,8 @@ abstract class $LexXrpcQueryCopyWith<$Res> {
       _$LexXrpcQueryCopyWithImpl<$Res, LexXrpcQuery>;
   @useResult
   $Res call(
-      {String? description,
+      {String type,
+      String? description,
       LexXrpcParameters? parameters,
       LexXrpcBody? output,
       List<LexXrpcError>? errors});
@@ -60,12 +62,17 @@ class _$LexXrpcQueryCopyWithImpl<$Res, $Val extends LexXrpcQuery>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? description = freezed,
     Object? parameters = freezed,
     Object? output = freezed,
     Object? errors = freezed,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -119,7 +126,8 @@ abstract class _$$_LexXrpcQueryCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? description,
+      {String type,
+      String? description,
       LexXrpcParameters? parameters,
       LexXrpcBody? output,
       List<LexXrpcError>? errors});
@@ -141,12 +149,17 @@ class __$$_LexXrpcQueryCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? description = freezed,
     Object? parameters = freezed,
     Object? output = freezed,
     Object? errors = freezed,
   }) {
     return _then(_$_LexXrpcQuery(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -170,18 +183,21 @@ class __$$_LexXrpcQueryCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexXrpcQuery extends _LexXrpcQuery {
+class _$_LexXrpcQuery implements _LexXrpcQuery {
   const _$_LexXrpcQuery(
-      {this.description,
+      {this.type = 'query',
+      this.description,
       this.parameters,
       this.output,
       final List<LexXrpcError>? errors})
-      : _errors = errors,
-        super._();
+      : _errors = errors;
 
   factory _$_LexXrpcQuery.fromJson(Map<String, dynamic> json) =>
       _$$_LexXrpcQueryFromJson(json);
 
+  @override
+  @JsonKey()
+  final String type;
   @override
   final String? description;
   @override
@@ -200,7 +216,7 @@ class _$_LexXrpcQuery extends _LexXrpcQuery {
 
   @override
   String toString() {
-    return 'LexXrpcQuery(description: $description, parameters: $parameters, output: $output, errors: $errors)';
+    return 'LexXrpcQuery(type: $type, description: $description, parameters: $parameters, output: $output, errors: $errors)';
   }
 
   @override
@@ -208,6 +224,7 @@ class _$_LexXrpcQuery extends _LexXrpcQuery {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LexXrpcQuery &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.parameters, parameters) ||
@@ -218,8 +235,8 @@ class _$_LexXrpcQuery extends _LexXrpcQuery {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, description, parameters, output,
-      const DeepCollectionEquality().hash(_errors));
+  int get hashCode => Object.hash(runtimeType, type, description, parameters,
+      output, const DeepCollectionEquality().hash(_errors));
 
   @JsonKey(ignore: true)
   @override
@@ -235,17 +252,19 @@ class _$_LexXrpcQuery extends _LexXrpcQuery {
   }
 }
 
-abstract class _LexXrpcQuery extends LexXrpcQuery {
+abstract class _LexXrpcQuery implements LexXrpcQuery {
   const factory _LexXrpcQuery(
-      {final String? description,
+      {final String type,
+      final String? description,
       final LexXrpcParameters? parameters,
       final LexXrpcBody? output,
       final List<LexXrpcError>? errors}) = _$_LexXrpcQuery;
-  const _LexXrpcQuery._() : super._();
 
   factory _LexXrpcQuery.fromJson(Map<String, dynamic> json) =
       _$_LexXrpcQuery.fromJson;
 
+  @override
+  String get type;
   @override
   String? get description;
   @override

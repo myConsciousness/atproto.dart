@@ -14,6 +14,9 @@ part 'lex_xrpc_parameters_property.freezed.dart';
 
 @freezed
 class LexXrpcParametersProperty with _$LexXrpcParametersProperty {
+  // ignore: unused_element
+  const LexXrpcParametersProperty._();
+
   const factory LexXrpcParametersProperty.primitiveArray({
     required LexPrimitiveArray data,
   }) = _LexPrimitiveArray;
@@ -21,4 +24,14 @@ class LexXrpcParametersProperty with _$LexXrpcParametersProperty {
   const factory LexXrpcParametersProperty.primitive({
     required LexPrimitive data,
   }) = _LexPrimitive;
+
+  Map<String, dynamic> toJson() => when(
+        primitiveArray: (data) => data.toJson(),
+        primitive: (data) => data.when(
+          boolean: (data) => data.toJson(),
+          integer: (data) => data.toJson(),
+          string: (data) => data.toJson(),
+          unknown: (data) => data.toJson(),
+        ),
+      );
 }

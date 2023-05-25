@@ -7,7 +7,6 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../core/lex_type.dart';
 import 'lex_string_format.dart';
 
 part 'lex_string.freezed.dart';
@@ -15,11 +14,9 @@ part 'lex_string.g.dart';
 
 @freezed
 class LexString with _$LexString {
-  // ignore: unused_element
-  const LexString._();
-
   @JsonSerializable(includeIfNull: false)
   const factory LexString({
+    @Default('string') String type,
     LexStringFormat? format,
     String? description,
     @JsonKey(name: 'default') bool? defaultValue,
@@ -34,7 +31,4 @@ class LexString with _$LexString {
 
   factory LexString.fromJson(Map<String, Object?> json) =>
       _$LexStringFromJson(json);
-
-  /// Returns the type.
-  LexType get type => LexType.string;
 }

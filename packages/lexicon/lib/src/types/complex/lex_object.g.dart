@@ -13,6 +13,7 @@ _$_LexObject _$$_LexObjectFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_LexObject(
+          type: $checkedConvert('type', (v) => v as String? ?? 'object'),
           description: $checkedConvert('description', (v) => v as String?),
           requiredProperties: $checkedConvert('required',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
@@ -20,10 +21,9 @@ _$_LexObject _$$_LexObjectFromJson(Map json) => $checkedCreate(
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           properties: $checkedConvert(
               'properties',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => const LexObjectPropertyConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      LexObjectPropertyRecord>(
+                  v, const LexObjectPropertyRecordConverter().fromJson)),
         );
         return val;
       },
@@ -34,7 +34,9 @@ _$_LexObject _$$_LexObjectFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$_LexObjectToJson(_$_LexObject instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'type': instance.type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -47,8 +49,20 @@ Map<String, dynamic> _$$_LexObjectToJson(_$_LexObject instance) {
   writeNotNull('nullable', instance.nullableProperties);
   writeNotNull(
       'properties',
-      instance.properties
-          ?.map(const LexObjectPropertyConverter().toJson)
-          .toList());
+      _$JsonConverterToJson<Map<String, dynamic>, LexObjectPropertyRecord>(
+          instance.properties,
+          const LexObjectPropertyRecordConverter().toJson));
   return val;
 }
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

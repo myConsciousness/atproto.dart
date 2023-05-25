@@ -13,15 +13,15 @@ _$_LexXrpcParameters _$$_LexXrpcParametersFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_LexXrpcParameters(
+          type: $checkedConvert('type', (v) => v as String? ?? 'params'),
           description: $checkedConvert('description', (v) => v as String?),
           requiredProperties: $checkedConvert('required',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           properties: $checkedConvert(
               'properties',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => const LexXrpcParametersPropertyConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      LexXrpcParametersPropertyRecord>(v,
+                  const LexXrpcParametersPropertyRecordConverter().fromJson)),
         );
         return val;
       },
@@ -30,7 +30,9 @@ _$_LexXrpcParameters _$$_LexXrpcParametersFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$_LexXrpcParametersToJson(
     _$_LexXrpcParameters instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'type': instance.type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -42,8 +44,20 @@ Map<String, dynamic> _$$_LexXrpcParametersToJson(
   writeNotNull('required', instance.requiredProperties);
   writeNotNull(
       'properties',
-      instance.properties
-          ?.map(const LexXrpcParametersPropertyConverter().toJson)
-          .toList());
+      _$JsonConverterToJson<Map<String, dynamic>,
+              LexXrpcParametersPropertyRecord>(instance.properties,
+          const LexXrpcParametersPropertyRecordConverter().toJson));
   return val;
 }
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

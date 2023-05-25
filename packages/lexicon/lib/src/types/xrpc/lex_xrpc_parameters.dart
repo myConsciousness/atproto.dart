@@ -8,28 +8,24 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../converter/lex_xrpc_parameters_property_converter.dart';
-import '../core/lex_type.dart';
-import 'lex_xrpc_parameters_property.dart';
+import '../converter/lex_xrpc_parameters_property_record_converter.dart';
+import 'lex_xrpc_parameters_property_record.dart';
 
 part 'lex_xrpc_parameters.freezed.dart';
 part 'lex_xrpc_parameters.g.dart';
 
 @freezed
 class LexXrpcParameters with _$LexXrpcParameters {
-  // ignore: unused_element
-  const LexXrpcParameters._();
-
   @JsonSerializable(includeIfNull: false)
   const factory LexXrpcParameters({
+    @Default('params') String type,
     String? description,
     @JsonKey(name: 'required') List<String>? requiredProperties,
     @LexXrpcParametersPropertyConverter()
-        List<LexXrpcParametersProperty>? properties,
+    @LexXrpcParametersPropertyRecordConverter()
+    LexXrpcParametersPropertyRecord? properties,
   }) = _LexXrpcParameters;
 
   factory LexXrpcParameters.fromJson(Map<String, Object?> json) =>
       _$LexXrpcParametersFromJson(json);
-
-  /// Returns the type.
-  LexType get type => LexType.params;
 }

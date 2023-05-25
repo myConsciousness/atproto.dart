@@ -13,6 +13,7 @@ _$_LexBlob _$$_LexBlobFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_LexBlob(
+          type: $checkedConvert('type', (v) => v as String? ?? 'blob'),
           description: $checkedConvert('description', (v) => v as String?),
           accept: $checkedConvert('accept',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
@@ -23,7 +24,9 @@ _$_LexBlob _$$_LexBlobFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$_LexBlobToJson(_$_LexBlob instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'type': instance.type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {

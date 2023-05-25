@@ -7,8 +7,6 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../core/lex_type.dart';
-
 part 'lex_boolean.freezed.dart';
 part 'lex_boolean.g.dart';
 
@@ -19,6 +17,7 @@ class LexBoolean with _$LexBoolean {
 
   @JsonSerializable(includeIfNull: false)
   const factory LexBoolean({
+    @Default('boolean') String type,
     String? description,
     @JsonKey(name: 'default') bool? defaultValue,
     @JsonKey(name: 'const') bool? constValue,
@@ -26,7 +25,4 @@ class LexBoolean with _$LexBoolean {
 
   factory LexBoolean.fromJson(Map<String, Object?> json) =>
       _$LexBooleanFromJson(json);
-
-  /// Returns the type.
-  LexType get type => LexType.boolean;
 }

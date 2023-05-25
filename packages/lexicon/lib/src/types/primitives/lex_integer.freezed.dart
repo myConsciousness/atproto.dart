@@ -20,6 +20,7 @@ LexInteger _$LexIntegerFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LexInteger {
+  String get type => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   @JsonKey(name: 'default')
   bool? get defaultValue => throw _privateConstructorUsedError;
@@ -43,7 +44,8 @@ abstract class $LexIntegerCopyWith<$Res> {
       _$LexIntegerCopyWithImpl<$Res, LexInteger>;
   @useResult
   $Res call(
-      {String? description,
+      {String type,
+      String? description,
       @JsonKey(name: 'default') bool? defaultValue,
       int? minimum,
       int? maximum,
@@ -64,6 +66,7 @@ class _$LexIntegerCopyWithImpl<$Res, $Val extends LexInteger>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? description = freezed,
     Object? defaultValue = freezed,
     Object? minimum = freezed,
@@ -72,6 +75,10 @@ class _$LexIntegerCopyWithImpl<$Res, $Val extends LexInteger>
     Object? constValue = freezed,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -109,7 +116,8 @@ abstract class _$$_LexIntegerCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? description,
+      {String type,
+      String? description,
       @JsonKey(name: 'default') bool? defaultValue,
       int? minimum,
       int? maximum,
@@ -128,6 +136,7 @@ class __$$_LexIntegerCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? description = freezed,
     Object? defaultValue = freezed,
     Object? minimum = freezed,
@@ -136,6 +145,10 @@ class __$$_LexIntegerCopyWithImpl<$Res>
     Object? constValue = freezed,
   }) {
     return _then(_$_LexInteger(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -166,20 +179,23 @@ class __$$_LexIntegerCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LexInteger extends _LexInteger {
+class _$_LexInteger implements _LexInteger {
   const _$_LexInteger(
-      {this.description,
+      {this.type = 'integer',
+      this.description,
       @JsonKey(name: 'default') this.defaultValue,
       this.minimum,
       this.maximum,
       @JsonKey(name: 'enum') final List<int>? enumValues,
       @JsonKey(name: 'const') this.constValue})
-      : _enumValues = enumValues,
-        super._();
+      : _enumValues = enumValues;
 
   factory _$_LexInteger.fromJson(Map<String, dynamic> json) =>
       _$$_LexIntegerFromJson(json);
 
+  @override
+  @JsonKey()
+  final String type;
   @override
   final String? description;
   @override
@@ -206,7 +222,7 @@ class _$_LexInteger extends _LexInteger {
 
   @override
   String toString() {
-    return 'LexInteger(description: $description, defaultValue: $defaultValue, minimum: $minimum, maximum: $maximum, enumValues: $enumValues, constValue: $constValue)';
+    return 'LexInteger(type: $type, description: $description, defaultValue: $defaultValue, minimum: $minimum, maximum: $maximum, enumValues: $enumValues, constValue: $constValue)';
   }
 
   @override
@@ -214,6 +230,7 @@ class _$_LexInteger extends _LexInteger {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LexInteger &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.defaultValue, defaultValue) ||
@@ -230,6 +247,7 @@ class _$_LexInteger extends _LexInteger {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      type,
       description,
       defaultValue,
       minimum,
@@ -251,19 +269,21 @@ class _$_LexInteger extends _LexInteger {
   }
 }
 
-abstract class _LexInteger extends LexInteger {
+abstract class _LexInteger implements LexInteger {
   const factory _LexInteger(
-      {final String? description,
+      {final String type,
+      final String? description,
       @JsonKey(name: 'default') final bool? defaultValue,
       final int? minimum,
       final int? maximum,
       @JsonKey(name: 'enum') final List<int>? enumValues,
       @JsonKey(name: 'const') final bool? constValue}) = _$_LexInteger;
-  const _LexInteger._() : super._();
 
   factory _LexInteger.fromJson(Map<String, dynamic> json) =
       _$_LexInteger.fromJson;
 
+  @override
+  String get type;
   @override
   String? get description;
   @override

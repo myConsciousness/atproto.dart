@@ -4,6 +4,8 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../primitives/lex_primitive.dart';
+import '../primitives/lex_string.dart';
 import '../xrpc/lex_xrpc_parameters_property.dart';
 
 class LexXrpcParametersPropertyConverter
@@ -12,8 +14,18 @@ class LexXrpcParametersPropertyConverter
 
   @override
   LexXrpcParametersProperty fromJson(Map<String, dynamic> json) {
-    // TODO: implement fromJson
-    throw UnimplementedError();
+    final type = json['type'];
+
+    switch (type) {
+      case 'string':
+        return LexXrpcParametersProperty.primitive(
+          data: LexPrimitive.string(
+            data: LexString.fromJson(json),
+          ),
+        );
+      default:
+        throw UnimplementedError('Unsupported type [$type]');
+    }
   }
 
   @override

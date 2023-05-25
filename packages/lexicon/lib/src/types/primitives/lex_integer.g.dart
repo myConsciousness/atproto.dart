@@ -13,6 +13,7 @@ _$_LexInteger _$$_LexIntegerFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_LexInteger(
+          type: $checkedConvert('type', (v) => v as String? ?? 'integer'),
           description: $checkedConvert('description', (v) => v as String?),
           defaultValue: $checkedConvert('default', (v) => v as bool?),
           minimum: $checkedConvert('minimum', (v) => v as int?),
@@ -32,6 +33,7 @@ _$_LexInteger _$$_LexIntegerFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$_LexIntegerToJson(_$_LexInteger instance) =>
     <String, dynamic>{
+      'type': instance.type,
       'description': instance.description,
       'default': instance.defaultValue,
       'minimum': instance.minimum,

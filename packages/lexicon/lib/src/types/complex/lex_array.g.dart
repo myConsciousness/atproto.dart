@@ -13,6 +13,7 @@ _$_LexArray _$$_LexArrayFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_LexArray(
+          type: $checkedConvert('type', (v) => v as String? ?? 'array'),
           description: $checkedConvert('description', (v) => v as String?),
           items: $checkedConvert(
               'items',
@@ -28,7 +29,9 @@ _$_LexArray _$$_LexArrayFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$_LexArrayToJson(_$_LexArray instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'type': instance.type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {

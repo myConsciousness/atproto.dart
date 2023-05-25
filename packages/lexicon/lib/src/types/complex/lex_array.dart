@@ -8,7 +8,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../converter/lex_array_item_converter.dart';
-import '../core/lex_type.dart';
 import 'lex_array_item.dart';
 
 part 'lex_array.freezed.dart';
@@ -16,11 +15,9 @@ part 'lex_array.g.dart';
 
 @freezed
 class LexArray with _$LexArray {
-  // ignore: unused_element
-  const LexArray._();
-
   @JsonSerializable(includeIfNull: false)
   const factory LexArray({
+    @Default('array') String type,
     String? description,
     @LexArrayItemConverter() required List<LexArrayItem> items,
     int? minLength,
@@ -29,7 +26,4 @@ class LexArray with _$LexArray {
 
   factory LexArray.fromJson(Map<String, Object?> json) =>
       _$LexArrayFromJson(json);
-
-  /// Returns the type.
-  LexType get type => LexType.array;
 }

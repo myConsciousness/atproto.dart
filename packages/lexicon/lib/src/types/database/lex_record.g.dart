@@ -13,6 +13,7 @@ _$_LexRecord _$$_LexRecordFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_LexRecord(
+          type: $checkedConvert('type', (v) => v as String? ?? 'record'),
           description: $checkedConvert('description', (v) => v as String?),
           key: $checkedConvert('key', (v) => v as String?),
           record: $checkedConvert('record',
@@ -24,6 +25,7 @@ _$_LexRecord _$$_LexRecordFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$_LexRecordToJson(_$_LexRecord instance) =>
     <String, dynamic>{
+      'type': instance.type,
       'description': instance.description,
       'key': instance.key,
       'record': instance.record.toJson(),

@@ -26,6 +26,9 @@ part 'lex_user_type.freezed.dart';
 
 @freezed
 class LexUserType with _$LexUserType {
+  // ignore: unused_element
+  const LexUserType._();
+
   const factory LexUserType.record({
     required LexRecord data,
   }) = _LexRecord;
@@ -81,4 +84,21 @@ class LexUserType with _$LexUserType {
   const factory LexUserType.unknown({
     required LexUnknown data,
   }) = _LexUnknown;
+
+  Map<String, dynamic> toJson() => when(
+        record: (data) => data.toJson(),
+        xrpcQuery: (data) => data.toJson(),
+        xrpcProcedure: (data) => data.toJson(),
+        xrpcSubscription: (data) => data.toJson(),
+        blob: (data) => data.toJson(),
+        array: (data) => data.toJson(),
+        token: (data) => data.toJson(),
+        object: (data) => data.toJson(),
+        boolean: (data) => data.toJson(),
+        integer: (data) => data.toJson(),
+        string: (data) => data.toJson(),
+        bytes: (data) => data.toJson(),
+        cidLink: (data) => data.toJson(),
+        unknown: (data) => data.toJson(),
+      );
 }

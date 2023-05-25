@@ -20,6 +20,7 @@ LexBytes _$LexBytesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LexBytes {
+  String get type => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   int? get maxLength => throw _privateConstructorUsedError;
   int? get minLength => throw _privateConstructorUsedError;
@@ -35,7 +36,7 @@ abstract class $LexBytesCopyWith<$Res> {
   factory $LexBytesCopyWith(LexBytes value, $Res Function(LexBytes) then) =
       _$LexBytesCopyWithImpl<$Res, LexBytes>;
   @useResult
-  $Res call({String? description, int? maxLength, int? minLength});
+  $Res call({String type, String? description, int? maxLength, int? minLength});
 }
 
 /// @nodoc
@@ -51,11 +52,16 @@ class _$LexBytesCopyWithImpl<$Res, $Val extends LexBytes>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? description = freezed,
     Object? maxLength = freezed,
     Object? minLength = freezed,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -79,7 +85,7 @@ abstract class _$$_LexBytesCopyWith<$Res> implements $LexBytesCopyWith<$Res> {
       __$$_LexBytesCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? description, int? maxLength, int? minLength});
+  $Res call({String type, String? description, int? maxLength, int? minLength});
 }
 
 /// @nodoc
@@ -93,11 +99,16 @@ class __$$_LexBytesCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? description = freezed,
     Object? maxLength = freezed,
     Object? minLength = freezed,
   }) {
     return _then(_$_LexBytes(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -117,13 +128,16 @@ class __$$_LexBytesCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexBytes extends _LexBytes {
-  const _$_LexBytes({this.description, this.maxLength, this.minLength})
-      : super._();
+class _$_LexBytes implements _LexBytes {
+  const _$_LexBytes(
+      {this.type = 'bytes', this.description, this.maxLength, this.minLength});
 
   factory _$_LexBytes.fromJson(Map<String, dynamic> json) =>
       _$$_LexBytesFromJson(json);
 
+  @override
+  @JsonKey()
+  final String type;
   @override
   final String? description;
   @override
@@ -133,7 +147,7 @@ class _$_LexBytes extends _LexBytes {
 
   @override
   String toString() {
-    return 'LexBytes(description: $description, maxLength: $maxLength, minLength: $minLength)';
+    return 'LexBytes(type: $type, description: $description, maxLength: $maxLength, minLength: $minLength)';
   }
 
   @override
@@ -141,6 +155,7 @@ class _$_LexBytes extends _LexBytes {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LexBytes &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.maxLength, maxLength) ||
@@ -152,7 +167,7 @@ class _$_LexBytes extends _LexBytes {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, description, maxLength, minLength);
+      Object.hash(runtimeType, type, description, maxLength, minLength);
 
   @JsonKey(ignore: true)
   @override
@@ -168,15 +183,17 @@ class _$_LexBytes extends _LexBytes {
   }
 }
 
-abstract class _LexBytes extends LexBytes {
+abstract class _LexBytes implements LexBytes {
   const factory _LexBytes(
-      {final String? description,
+      {final String type,
+      final String? description,
       final int? maxLength,
       final int? minLength}) = _$_LexBytes;
-  const _LexBytes._() : super._();
 
   factory _LexBytes.fromJson(Map<String, dynamic> json) = _$_LexBytes.fromJson;
 
+  @override
+  String get type;
   @override
   String? get description;
   @override

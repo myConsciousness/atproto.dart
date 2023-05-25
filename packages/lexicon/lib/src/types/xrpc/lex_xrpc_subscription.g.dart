@@ -14,6 +14,7 @@ _$_LexXrpcSubscription _$$_LexXrpcSubscriptionFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$_LexXrpcSubscription(
+          type: $checkedConvert('type', (v) => v as String? ?? 'subscription'),
           description: $checkedConvert('description', (v) => v as String?),
           parameters: $checkedConvert(
               'parameters',
@@ -46,7 +47,9 @@ _$_LexXrpcSubscription _$$_LexXrpcSubscriptionFromJson(Map json) =>
 
 Map<String, dynamic> _$$_LexXrpcSubscriptionToJson(
     _$_LexXrpcSubscription instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'type': instance.type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {

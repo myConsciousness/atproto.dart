@@ -20,6 +20,7 @@ LexUnknown _$LexUnknownFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LexUnknown {
+  String get type => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +35,7 @@ abstract class $LexUnknownCopyWith<$Res> {
           LexUnknown value, $Res Function(LexUnknown) then) =
       _$LexUnknownCopyWithImpl<$Res, LexUnknown>;
   @useResult
-  $Res call({String? description});
+  $Res call({String type, String? description});
 }
 
 /// @nodoc
@@ -50,9 +51,14 @@ class _$LexUnknownCopyWithImpl<$Res, $Val extends LexUnknown>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? description = freezed,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -69,7 +75,7 @@ abstract class _$$_LexUnknownCopyWith<$Res>
       __$$_LexUnknownCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? description});
+  $Res call({String type, String? description});
 }
 
 /// @nodoc
@@ -83,9 +89,14 @@ class __$$_LexUnknownCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? description = freezed,
   }) {
     return _then(_$_LexUnknown(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -97,18 +108,21 @@ class __$$_LexUnknownCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexUnknown extends _LexUnknown {
-  const _$_LexUnknown({this.description}) : super._();
+class _$_LexUnknown implements _LexUnknown {
+  const _$_LexUnknown({this.type = 'unknown', this.description});
 
   factory _$_LexUnknown.fromJson(Map<String, dynamic> json) =>
       _$$_LexUnknownFromJson(json);
 
   @override
+  @JsonKey()
+  final String type;
+  @override
   final String? description;
 
   @override
   String toString() {
-    return 'LexUnknown(description: $description)';
+    return 'LexUnknown(type: $type, description: $description)';
   }
 
   @override
@@ -116,13 +130,14 @@ class _$_LexUnknown extends _LexUnknown {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LexUnknown &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, description);
+  int get hashCode => Object.hash(runtimeType, type, description);
 
   @JsonKey(ignore: true)
   @override
@@ -138,13 +153,15 @@ class _$_LexUnknown extends _LexUnknown {
   }
 }
 
-abstract class _LexUnknown extends LexUnknown {
-  const factory _LexUnknown({final String? description}) = _$_LexUnknown;
-  const _LexUnknown._() : super._();
+abstract class _LexUnknown implements LexUnknown {
+  const factory _LexUnknown({final String type, final String? description}) =
+      _$_LexUnknown;
 
   factory _LexUnknown.fromJson(Map<String, dynamic> json) =
       _$_LexUnknown.fromJson;
 
+  @override
+  String get type;
   @override
   String? get description;
   @override

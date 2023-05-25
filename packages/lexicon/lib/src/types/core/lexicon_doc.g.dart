@@ -15,23 +15,32 @@ _$_LexiconDoc _$$_LexiconDocFromJson(Map json) => $checkedCreate(
         final val = _$_LexiconDoc(
           lexicon: $checkedConvert('lexicon', (v) => v as int),
           id: $checkedConvert(
-              'id', (v) => const NSIDConverter().fromJson(v as String)),
+              'id', (v) => const NsidConverter().fromJson(v as String)),
           revision: $checkedConvert('revision', (v) => v as int?),
           description: $checkedConvert('description', (v) => v as String?),
           defs: $checkedConvert(
               'defs',
-              (v) => const LexUserTypeConverter()
+              (v) => const LexUserTypeRecordConverter()
                   .fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$_LexiconDocToJson(_$_LexiconDoc instance) =>
-    <String, dynamic>{
-      'lexicon': instance.lexicon,
-      'id': const NSIDConverter().toJson(instance.id),
-      'revision': instance.revision,
-      'description': instance.description,
-      'defs': const LexUserTypeConverter().toJson(instance.defs),
-    };
+Map<String, dynamic> _$$_LexiconDocToJson(_$_LexiconDoc instance) {
+  final val = <String, dynamic>{
+    'lexicon': instance.lexicon,
+    'id': const NsidConverter().toJson(instance.id),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('revision', instance.revision);
+  writeNotNull('description', instance.description);
+  val['defs'] = const LexUserTypeRecordConverter().toJson(instance.defs);
+  return val;
+}

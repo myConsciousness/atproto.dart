@@ -7,24 +7,17 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../core/lex_type.dart';
-
 part 'lex_ref.freezed.dart';
 part 'lex_ref.g.dart';
 
 @freezed
 class LexRef with _$LexRef {
-  // ignore: unused_element
-  const LexRef._();
-
   @JsonSerializable(includeIfNull: false)
   const factory LexRef({
+    @Default('ref') String type,
     String? description,
     String? ref,
   }) = _LexRef;
 
   factory LexRef.fromJson(Map<String, Object?> json) => _$LexRefFromJson(json);
-
-  /// Returns the type.
-  LexType get type => LexType.ref;
 }

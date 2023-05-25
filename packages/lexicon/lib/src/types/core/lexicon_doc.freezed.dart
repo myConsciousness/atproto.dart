@@ -21,12 +21,12 @@ LexiconDoc _$LexiconDocFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$LexiconDoc {
   int get lexicon => throw _privateConstructorUsedError;
-  @NSIDConverter()
+  @NsidConverter()
   NSID get id => throw _privateConstructorUsedError;
   int? get revision => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  @LexUserTypeConverter()
-  LexUserType get defs => throw _privateConstructorUsedError;
+  @LexUserTypeRecordConverter()
+  LexUserTypeRecord get defs => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,12 +42,12 @@ abstract class $LexiconDocCopyWith<$Res> {
   @useResult
   $Res call(
       {int lexicon,
-      @NSIDConverter() NSID id,
+      @NsidConverter() NSID id,
       int? revision,
       String? description,
-      @LexUserTypeConverter() LexUserType defs});
+      @LexUserTypeRecordConverter() LexUserTypeRecord defs});
 
-  $LexUserTypeCopyWith<$Res> get defs;
+  $LexUserTypeRecordCopyWith<$Res> get defs;
 }
 
 /// @nodoc
@@ -89,14 +89,14 @@ class _$LexiconDocCopyWithImpl<$Res, $Val extends LexiconDoc>
       defs: null == defs
           ? _value.defs
           : defs // ignore: cast_nullable_to_non_nullable
-              as LexUserType,
+              as LexUserTypeRecord,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $LexUserTypeCopyWith<$Res> get defs {
-    return $LexUserTypeCopyWith<$Res>(_value.defs, (value) {
+  $LexUserTypeRecordCopyWith<$Res> get defs {
+    return $LexUserTypeRecordCopyWith<$Res>(_value.defs, (value) {
       return _then(_value.copyWith(defs: value) as $Val);
     });
   }
@@ -112,13 +112,13 @@ abstract class _$$_LexiconDocCopyWith<$Res>
   @useResult
   $Res call(
       {int lexicon,
-      @NSIDConverter() NSID id,
+      @NsidConverter() NSID id,
       int? revision,
       String? description,
-      @LexUserTypeConverter() LexUserType defs});
+      @LexUserTypeRecordConverter() LexUserTypeRecord defs});
 
   @override
-  $LexUserTypeCopyWith<$Res> get defs;
+  $LexUserTypeRecordCopyWith<$Res> get defs;
 }
 
 /// @nodoc
@@ -158,20 +158,21 @@ class __$$_LexiconDocCopyWithImpl<$Res>
       defs: null == defs
           ? _value.defs
           : defs // ignore: cast_nullable_to_non_nullable
-              as LexUserType,
+              as LexUserTypeRecord,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(includeIfNull: false)
 class _$_LexiconDoc implements _LexiconDoc {
   const _$_LexiconDoc(
       {required this.lexicon,
-      @NSIDConverter() required this.id,
+      @NsidConverter() required this.id,
       this.revision,
       this.description,
-      @LexUserTypeConverter() required this.defs});
+      @LexUserTypeRecordConverter() required this.defs});
 
   factory _$_LexiconDoc.fromJson(Map<String, dynamic> json) =>
       _$$_LexiconDocFromJson(json);
@@ -179,15 +180,15 @@ class _$_LexiconDoc implements _LexiconDoc {
   @override
   final int lexicon;
   @override
-  @NSIDConverter()
+  @NsidConverter()
   final NSID id;
   @override
   final int? revision;
   @override
   final String? description;
   @override
-  @LexUserTypeConverter()
-  final LexUserType defs;
+  @LexUserTypeRecordConverter()
+  final LexUserTypeRecord defs;
 
   @override
   String toString() {
@@ -230,10 +231,12 @@ class _$_LexiconDoc implements _LexiconDoc {
 abstract class _LexiconDoc implements LexiconDoc {
   const factory _LexiconDoc(
       {required final int lexicon,
-      @NSIDConverter() required final NSID id,
+      @NsidConverter()
+          required final NSID id,
       final int? revision,
       final String? description,
-      @LexUserTypeConverter() required final LexUserType defs}) = _$_LexiconDoc;
+      @LexUserTypeRecordConverter()
+          required final LexUserTypeRecord defs}) = _$_LexiconDoc;
 
   factory _LexiconDoc.fromJson(Map<String, dynamic> json) =
       _$_LexiconDoc.fromJson;
@@ -241,15 +244,15 @@ abstract class _LexiconDoc implements LexiconDoc {
   @override
   int get lexicon;
   @override
-  @NSIDConverter()
+  @NsidConverter()
   NSID get id;
   @override
   int? get revision;
   @override
   String? get description;
   @override
-  @LexUserTypeConverter()
-  LexUserType get defs;
+  @LexUserTypeRecordConverter()
+  LexUserTypeRecord get defs;
   @override
   @JsonKey(ignore: true)
   _$$_LexiconDocCopyWith<_$_LexiconDoc> get copyWith =>

@@ -7,7 +7,6 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../core/lex_type.dart';
 import 'lex_xrpc_body.dart';
 import 'lex_xrpc_error.dart';
 import 'lex_xrpc_parameters.dart';
@@ -17,11 +16,9 @@ part 'lex_xrpc_query.g.dart';
 
 @freezed
 class LexXrpcQuery with _$LexXrpcQuery {
-  // ignore: unused_element
-  const LexXrpcQuery._();
-
   @JsonSerializable(includeIfNull: false)
   const factory LexXrpcQuery({
+    @Default('query') String type,
     String? description,
     LexXrpcParameters? parameters,
     LexXrpcBody? output,
@@ -30,7 +27,4 @@ class LexXrpcQuery with _$LexXrpcQuery {
 
   factory LexXrpcQuery.fromJson(Map<String, Object?> json) =>
       _$LexXrpcQueryFromJson(json);
-
-  /// Returns the type.
-  LexType get type => LexType.query;
 }

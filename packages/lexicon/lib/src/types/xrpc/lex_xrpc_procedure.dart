@@ -7,7 +7,6 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../core/lex_type.dart';
 import 'lex_xrpc_body.dart';
 import 'lex_xrpc_error.dart';
 import 'lex_xrpc_parameters.dart';
@@ -17,11 +16,9 @@ part 'lex_xrpc_procedure.g.dart';
 
 @freezed
 class LexXrpcProcedure with _$LexXrpcProcedure {
-  // ignore: unused_element
-  const LexXrpcProcedure._();
-
   @JsonSerializable(includeIfNull: false)
   const factory LexXrpcProcedure({
+    @Default('procedure') String type,
     String? description,
     LexXrpcParameters? parameters,
     LexXrpcBody? input,
@@ -31,7 +28,4 @@ class LexXrpcProcedure with _$LexXrpcProcedure {
 
   factory LexXrpcProcedure.fromJson(Map<String, Object?> json) =>
       _$LexXrpcProcedureFromJson(json);
-
-  /// Returns the type.
-  LexType get type => LexType.procedure;
 }

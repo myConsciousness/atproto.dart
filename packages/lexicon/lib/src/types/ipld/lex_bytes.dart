@@ -7,18 +7,14 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../core/lex_type.dart';
-
 part 'lex_bytes.freezed.dart';
 part 'lex_bytes.g.dart';
 
 @freezed
 class LexBytes with _$LexBytes {
-  // ignore: unused_element
-  const LexBytes._();
-
   @JsonSerializable(includeIfNull: false)
   const factory LexBytes({
+    @Default('bytes') String type,
     String? description,
     int? maxLength,
     int? minLength,
@@ -26,7 +22,4 @@ class LexBytes with _$LexBytes {
 
   factory LexBytes.fromJson(Map<String, Object?> json) =>
       _$LexBytesFromJson(json);
-
-  /// Returns the type.
-  LexType get type => LexType.bytes;
 }

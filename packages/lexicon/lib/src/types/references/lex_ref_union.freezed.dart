@@ -20,6 +20,7 @@ LexRefUnion _$LexRefUnionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LexRefUnion {
+  String get type => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   List<String>? get refs => throw _privateConstructorUsedError;
   bool? get closed => throw _privateConstructorUsedError;
@@ -36,7 +37,8 @@ abstract class $LexRefUnionCopyWith<$Res> {
           LexRefUnion value, $Res Function(LexRefUnion) then) =
       _$LexRefUnionCopyWithImpl<$Res, LexRefUnion>;
   @useResult
-  $Res call({String? description, List<String>? refs, bool? closed});
+  $Res call(
+      {String type, String? description, List<String>? refs, bool? closed});
 }
 
 /// @nodoc
@@ -52,11 +54,16 @@ class _$LexRefUnionCopyWithImpl<$Res, $Val extends LexRefUnion>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? description = freezed,
     Object? refs = freezed,
     Object? closed = freezed,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -81,7 +88,8 @@ abstract class _$$_LexRefUnionCopyWith<$Res>
       __$$_LexRefUnionCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? description, List<String>? refs, bool? closed});
+  $Res call(
+      {String type, String? description, List<String>? refs, bool? closed});
 }
 
 /// @nodoc
@@ -95,11 +103,16 @@ class __$$_LexRefUnionCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? description = freezed,
     Object? refs = freezed,
     Object? closed = freezed,
   }) {
     return _then(_$_LexRefUnion(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -119,15 +132,20 @@ class __$$_LexRefUnionCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexRefUnion extends _LexRefUnion {
+class _$_LexRefUnion implements _LexRefUnion {
   const _$_LexRefUnion(
-      {this.description, final List<String>? refs, this.closed})
-      : _refs = refs,
-        super._();
+      {this.type = 'union',
+      this.description,
+      final List<String>? refs,
+      this.closed})
+      : _refs = refs;
 
   factory _$_LexRefUnion.fromJson(Map<String, dynamic> json) =>
       _$$_LexRefUnionFromJson(json);
 
+  @override
+  @JsonKey()
+  final String type;
   @override
   final String? description;
   final List<String>? _refs;
@@ -145,7 +163,7 @@ class _$_LexRefUnion extends _LexRefUnion {
 
   @override
   String toString() {
-    return 'LexRefUnion(description: $description, refs: $refs, closed: $closed)';
+    return 'LexRefUnion(type: $type, description: $description, refs: $refs, closed: $closed)';
   }
 
   @override
@@ -153,6 +171,7 @@ class _$_LexRefUnion extends _LexRefUnion {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LexRefUnion &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             const DeepCollectionEquality().equals(other._refs, _refs) &&
@@ -161,7 +180,7 @@ class _$_LexRefUnion extends _LexRefUnion {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, description,
+  int get hashCode => Object.hash(runtimeType, type, description,
       const DeepCollectionEquality().hash(_refs), closed);
 
   @JsonKey(ignore: true)
@@ -178,16 +197,18 @@ class _$_LexRefUnion extends _LexRefUnion {
   }
 }
 
-abstract class _LexRefUnion extends LexRefUnion {
+abstract class _LexRefUnion implements LexRefUnion {
   const factory _LexRefUnion(
-      {final String? description,
+      {final String type,
+      final String? description,
       final List<String>? refs,
       final bool? closed}) = _$_LexRefUnion;
-  const _LexRefUnion._() : super._();
 
   factory _LexRefUnion.fromJson(Map<String, dynamic> json) =
       _$_LexRefUnion.fromJson;
 
+  @override
+  String get type;
   @override
   String? get description;
   @override

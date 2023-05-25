@@ -13,6 +13,7 @@ _$_LexBoolean _$$_LexBooleanFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_LexBoolean(
+          type: $checkedConvert('type', (v) => v as String? ?? 'boolean'),
           description: $checkedConvert('description', (v) => v as String?),
           defaultValue: $checkedConvert('default', (v) => v as bool?),
           constValue: $checkedConvert('const', (v) => v as bool?),
@@ -23,7 +24,9 @@ _$_LexBoolean _$$_LexBooleanFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$_LexBooleanToJson(_$_LexBoolean instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'type': instance.type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {

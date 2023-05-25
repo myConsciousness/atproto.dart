@@ -190,8 +190,8 @@ class __$$_LexRecordCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexRecord implements _LexRecord {
-  const _$_LexRecord({required this.data});
+class _$_LexRecord extends _LexRecord {
+  const _$_LexRecord({required this.data}) : super._();
 
   @override
   final LexRecord data;
@@ -353,8 +353,9 @@ class _$_LexRecord implements _LexRecord {
   }
 }
 
-abstract class _LexRecord implements LexUserType {
+abstract class _LexRecord extends LexUserType {
   const factory _LexRecord({required final LexRecord data}) = _$_LexRecord;
+  const _LexRecord._() : super._();
 
   @override
   LexRecord get data;
@@ -406,8 +407,8 @@ class __$$_LexXrpcQueryCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexXrpcQuery implements _LexXrpcQuery {
-  const _$_LexXrpcQuery({required this.data});
+class _$_LexXrpcQuery extends _LexXrpcQuery {
+  const _$_LexXrpcQuery({required this.data}) : super._();
 
   @override
   final LexXrpcQuery data;
@@ -569,9 +570,10 @@ class _$_LexXrpcQuery implements _LexXrpcQuery {
   }
 }
 
-abstract class _LexXrpcQuery implements LexUserType {
+abstract class _LexXrpcQuery extends LexUserType {
   const factory _LexXrpcQuery({required final LexXrpcQuery data}) =
       _$_LexXrpcQuery;
+  const _LexXrpcQuery._() : super._();
 
   @override
   LexXrpcQuery get data;
@@ -623,8 +625,8 @@ class __$$_LexXrpcProcedureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexXrpcProcedure implements _LexXrpcProcedure {
-  const _$_LexXrpcProcedure({required this.data});
+class _$_LexXrpcProcedure extends _LexXrpcProcedure {
+  const _$_LexXrpcProcedure({required this.data}) : super._();
 
   @override
   final LexXrpcProcedure data;
@@ -786,9 +788,10 @@ class _$_LexXrpcProcedure implements _LexXrpcProcedure {
   }
 }
 
-abstract class _LexXrpcProcedure implements LexUserType {
+abstract class _LexXrpcProcedure extends LexUserType {
   const factory _LexXrpcProcedure({required final LexXrpcProcedure data}) =
       _$_LexXrpcProcedure;
+  const _LexXrpcProcedure._() : super._();
 
   @override
   LexXrpcProcedure get data;
@@ -840,8 +843,8 @@ class __$$_LexXrpcSubscriptionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexXrpcSubscription implements _LexXrpcSubscription {
-  const _$_LexXrpcSubscription({required this.data});
+class _$_LexXrpcSubscription extends _LexXrpcSubscription {
+  const _$_LexXrpcSubscription({required this.data}) : super._();
 
   @override
   final LexXrpcSubscription data;
@@ -1004,9 +1007,10 @@ class _$_LexXrpcSubscription implements _LexXrpcSubscription {
   }
 }
 
-abstract class _LexXrpcSubscription implements LexUserType {
+abstract class _LexXrpcSubscription extends LexUserType {
   const factory _LexXrpcSubscription(
       {required final LexXrpcSubscription data}) = _$_LexXrpcSubscription;
+  const _LexXrpcSubscription._() : super._();
 
   @override
   LexXrpcSubscription get data;
@@ -1057,8 +1061,8 @@ class __$$_LexBlobCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexBlob implements _LexBlob {
-  const _$_LexBlob({required this.data});
+class _$_LexBlob extends _LexBlob {
+  const _$_LexBlob({required this.data}) : super._();
 
   @override
   final LexBlob data;
@@ -1220,8 +1224,9 @@ class _$_LexBlob implements _LexBlob {
   }
 }
 
-abstract class _LexBlob implements LexUserType {
+abstract class _LexBlob extends LexUserType {
   const factory _LexBlob({required final LexBlob data}) = _$_LexBlob;
+  const _LexBlob._() : super._();
 
   @override
   LexBlob get data;
@@ -1273,8 +1278,8 @@ class __$$_LexArrayCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexArray implements _LexArray {
-  const _$_LexArray({required this.data});
+class _$_LexArray extends _LexArray {
+  const _$_LexArray({required this.data}) : super._();
 
   @override
   final LexArray data;
@@ -1436,8 +1441,9 @@ class _$_LexArray implements _LexArray {
   }
 }
 
-abstract class _LexArray implements LexUserType {
+abstract class _LexArray extends LexUserType {
   const factory _LexArray({required final LexArray data}) = _$_LexArray;
+  const _LexArray._() : super._();
 
   @override
   LexArray get data;
@@ -1489,8 +1495,8 @@ class __$$_LexTokenCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexToken implements _LexToken {
-  const _$_LexToken({required this.data});
+class _$_LexToken extends _LexToken {
+  const _$_LexToken({required this.data}) : super._();
 
   @override
   final LexToken data;
@@ -1652,8 +1658,9 @@ class _$_LexToken implements _LexToken {
   }
 }
 
-abstract class _LexToken implements LexUserType {
+abstract class _LexToken extends LexUserType {
   const factory _LexToken({required final LexToken data}) = _$_LexToken;
+  const _LexToken._() : super._();
 
   @override
   LexToken get data;
@@ -1705,8 +1712,8 @@ class __$$_LexObjectCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexObject implements _LexObject {
-  const _$_LexObject({required this.data});
+class _$_LexObject extends _LexObject {
+  const _$_LexObject({required this.data}) : super._();
 
   @override
   final LexObject data;
@@ -1868,8 +1875,9 @@ class _$_LexObject implements _LexObject {
   }
 }
 
-abstract class _LexObject implements LexUserType {
+abstract class _LexObject extends LexUserType {
   const factory _LexObject({required final LexObject data}) = _$_LexObject;
+  const _LexObject._() : super._();
 
   @override
   LexObject get data;
@@ -1921,8 +1929,8 @@ class __$$_LexBooleanCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexBoolean implements _LexBoolean {
-  const _$_LexBoolean({required this.data});
+class _$_LexBoolean extends _LexBoolean {
+  const _$_LexBoolean({required this.data}) : super._();
 
   @override
   final LexBoolean data;
@@ -2084,8 +2092,9 @@ class _$_LexBoolean implements _LexBoolean {
   }
 }
 
-abstract class _LexBoolean implements LexUserType {
+abstract class _LexBoolean extends LexUserType {
   const factory _LexBoolean({required final LexBoolean data}) = _$_LexBoolean;
+  const _LexBoolean._() : super._();
 
   @override
   LexBoolean get data;
@@ -2137,8 +2146,8 @@ class __$$_LexIntegerCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexInteger implements _LexInteger {
-  const _$_LexInteger({required this.data});
+class _$_LexInteger extends _LexInteger {
+  const _$_LexInteger({required this.data}) : super._();
 
   @override
   final LexInteger data;
@@ -2300,8 +2309,9 @@ class _$_LexInteger implements _LexInteger {
   }
 }
 
-abstract class _LexInteger implements LexUserType {
+abstract class _LexInteger extends LexUserType {
   const factory _LexInteger({required final LexInteger data}) = _$_LexInteger;
+  const _LexInteger._() : super._();
 
   @override
   LexInteger get data;
@@ -2353,8 +2363,8 @@ class __$$_LexStringCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexString implements _LexString {
-  const _$_LexString({required this.data});
+class _$_LexString extends _LexString {
+  const _$_LexString({required this.data}) : super._();
 
   @override
   final LexString data;
@@ -2516,8 +2526,9 @@ class _$_LexString implements _LexString {
   }
 }
 
-abstract class _LexString implements LexUserType {
+abstract class _LexString extends LexUserType {
   const factory _LexString({required final LexString data}) = _$_LexString;
+  const _LexString._() : super._();
 
   @override
   LexString get data;
@@ -2569,8 +2580,8 @@ class __$$_LexBytesCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexBytes implements _LexBytes {
-  const _$_LexBytes({required this.data});
+class _$_LexBytes extends _LexBytes {
+  const _$_LexBytes({required this.data}) : super._();
 
   @override
   final LexBytes data;
@@ -2732,8 +2743,9 @@ class _$_LexBytes implements _LexBytes {
   }
 }
 
-abstract class _LexBytes implements LexUserType {
+abstract class _LexBytes extends LexUserType {
   const factory _LexBytes({required final LexBytes data}) = _$_LexBytes;
+  const _LexBytes._() : super._();
 
   @override
   LexBytes get data;
@@ -2785,8 +2797,8 @@ class __$$_LexCidLinkCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexCidLink implements _LexCidLink {
-  const _$_LexCidLink({required this.data});
+class _$_LexCidLink extends _LexCidLink {
+  const _$_LexCidLink({required this.data}) : super._();
 
   @override
   final LexCidLink data;
@@ -2948,8 +2960,9 @@ class _$_LexCidLink implements _LexCidLink {
   }
 }
 
-abstract class _LexCidLink implements LexUserType {
+abstract class _LexCidLink extends LexUserType {
   const factory _LexCidLink({required final LexCidLink data}) = _$_LexCidLink;
+  const _LexCidLink._() : super._();
 
   @override
   LexCidLink get data;
@@ -3001,8 +3014,8 @@ class __$$_LexUnknownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexUnknown implements _LexUnknown {
-  const _$_LexUnknown({required this.data});
+class _$_LexUnknown extends _LexUnknown {
+  const _$_LexUnknown({required this.data}) : super._();
 
   @override
   final LexUnknown data;
@@ -3164,8 +3177,9 @@ class _$_LexUnknown implements _LexUnknown {
   }
 }
 
-abstract class _LexUnknown implements LexUserType {
+abstract class _LexUnknown extends LexUserType {
   const factory _LexUnknown({required final LexUnknown data}) = _$_LexUnknown;
+  const _LexUnknown._() : super._();
 
   @override
   LexUnknown get data;

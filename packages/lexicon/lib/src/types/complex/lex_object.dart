@@ -7,29 +7,23 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../converter/lex_object_property_converter.dart';
-import '../core/lex_type.dart';
-import 'lex_object_property.dart';
+import '../converter/lex_object_property_record_converter.dart';
+import 'lex_object_property_record.dart';
 
 part 'lex_object.freezed.dart';
 part 'lex_object.g.dart';
 
 @freezed
 class LexObject with _$LexObject {
-  // ignore: unused_element
-  const LexObject._();
-
   @JsonSerializable(includeIfNull: false)
   const factory LexObject({
+    @Default('object') String type,
     String? description,
     @JsonKey(name: 'required') List<String>? requiredProperties,
     @JsonKey(name: 'nullable') List<String>? nullableProperties,
-    @LexObjectPropertyConverter() List<LexObjectProperty>? properties,
+    @LexObjectPropertyRecordConverter() LexObjectPropertyRecord? properties,
   }) = _LexObject;
 
   factory LexObject.fromJson(Map<String, Object?> json) =>
       _$LexObjectFromJson(json);
-
-  /// Returns the type.
-  LexType get type => LexType.object;
 }

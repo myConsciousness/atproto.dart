@@ -7,18 +7,14 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../core/lex_type.dart';
-
 part 'lex_blob.freezed.dart';
 part 'lex_blob.g.dart';
 
 @freezed
 class LexBlob with _$LexBlob {
-  // ignore: unused_element
-  const LexBlob._();
-
   @JsonSerializable(includeIfNull: false)
   const factory LexBlob({
+    @Default('blob') String type,
     String? description,
     List<String>? accept,
     int? maxSize,
@@ -26,7 +22,4 @@ class LexBlob with _$LexBlob {
 
   factory LexBlob.fromJson(Map<String, Object?> json) =>
       _$LexBlobFromJson(json);
-
-  /// Returns the type.
-  LexType get type => LexType.blob;
 }

@@ -13,6 +13,7 @@ _$_LexToken _$$_LexTokenFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_LexToken(
+          type: $checkedConvert('type', (v) => v as String? ?? 'token'),
           description: $checkedConvert('description', (v) => v as String?),
         );
         return val;
@@ -20,7 +21,9 @@ _$_LexToken _$$_LexTokenFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$_LexTokenToJson(_$_LexToken instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'type': instance.type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {

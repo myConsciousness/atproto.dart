@@ -13,6 +13,7 @@ _$_LexRef _$$_LexRefFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_LexRef(
+          type: $checkedConvert('type', (v) => v as String? ?? 'ref'),
           description: $checkedConvert('description', (v) => v as String?),
           ref: $checkedConvert('ref', (v) => v as String?),
         );
@@ -21,7 +22,9 @@ _$_LexRef _$$_LexRefFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$_LexRefToJson(_$_LexRef instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'type': instance.type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
