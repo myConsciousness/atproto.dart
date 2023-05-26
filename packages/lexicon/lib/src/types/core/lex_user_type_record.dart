@@ -18,6 +18,7 @@ part 'lex_user_type_record.g.dart';
 class LexUserTypeRecord
     with _$LexUserTypeRecord
     implements Record<LexUserType> {
+  @JsonSerializable(includeIfNull: false)
   const factory LexUserTypeRecord({
     required String key,
     @LexUserTypeConverter() required LexUserType value,

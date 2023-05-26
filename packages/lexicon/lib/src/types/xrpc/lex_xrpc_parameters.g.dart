@@ -20,7 +20,7 @@ _$_LexXrpcParameters _$$_LexXrpcParametersFromJson(Map json) => $checkedCreate(
           properties: $checkedConvert(
               'properties',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>,
-                      LexXrpcParametersPropertyRecord>(v,
+                      LexXrpcParametersPropertyRecord?>(v,
                   const LexXrpcParametersPropertyRecordConverter().fromJson)),
         );
         return val;
@@ -44,9 +44,8 @@ Map<String, dynamic> _$$_LexXrpcParametersToJson(
   writeNotNull('required', instance.requiredProperties);
   writeNotNull(
       'properties',
-      _$JsonConverterToJson<Map<String, dynamic>,
-              LexXrpcParametersPropertyRecord>(instance.properties,
-          const LexXrpcParametersPropertyRecordConverter().toJson));
+      const LexXrpcParametersPropertyRecordConverter()
+          .toJson(instance.properties));
   return val;
 }
 
@@ -55,9 +54,3 @@ Value? _$JsonConverterFromJson<Json, Value>(
   Value? Function(Json json) fromJson,
 ) =>
     json == null ? null : fromJson(json as Json);
-
-Json? _$JsonConverterToJson<Json, Value>(
-  Value? value,
-  Json? Function(Value value) toJson,
-) =>
-    value == null ? null : toJson(value);

@@ -139,7 +139,8 @@ class __$$_LexRecordCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(includeIfNull: false)
 class _$_LexRecord implements _LexRecord {
   const _$_LexRecord(
       {this.type = 'record', this.description, this.key, required this.record});

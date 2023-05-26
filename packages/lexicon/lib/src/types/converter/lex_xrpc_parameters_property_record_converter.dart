@@ -8,11 +8,15 @@ import '../xrpc/lex_xrpc_parameters_property_record.dart';
 
 class LexXrpcParametersPropertyRecordConverter
     implements
-        JsonConverter<LexXrpcParametersPropertyRecord, Map<String, dynamic>> {
+        JsonConverter<LexXrpcParametersPropertyRecord?, Map<String, dynamic>> {
   const LexXrpcParametersPropertyRecordConverter();
 
   @override
-  LexXrpcParametersPropertyRecord fromJson(Map<String, dynamic> json) {
+  LexXrpcParametersPropertyRecord? fromJson(Map<String, dynamic> json) {
+    if (json.isEmpty) {
+      return null;
+    }
+
     final records = <String, dynamic>{};
 
     json.forEach((key, value) {
@@ -24,7 +28,6 @@ class LexXrpcParametersPropertyRecordConverter
   }
 
   @override
-  Map<String, dynamic> toJson(LexXrpcParametersPropertyRecord object) => {
-        object.key: object.value.toJson(),
-      };
+  Map<String, dynamic> toJson(LexXrpcParametersPropertyRecord? object) =>
+      object == null ? {} : {object.key: object.value.toJson()};
 }

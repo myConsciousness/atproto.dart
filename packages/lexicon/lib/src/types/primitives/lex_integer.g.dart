@@ -31,13 +31,22 @@ _$_LexInteger _$$_LexIntegerFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_LexIntegerToJson(_$_LexInteger instance) =>
-    <String, dynamic>{
-      'type': instance.type,
-      'description': instance.description,
-      'default': instance.defaultValue,
-      'minimum': instance.minimum,
-      'maximum': instance.maximum,
-      'enum': instance.enumValues,
-      'const': instance.constValue,
-    };
+Map<String, dynamic> _$$_LexIntegerToJson(_$_LexInteger instance) {
+  final val = <String, dynamic>{
+    'type': instance.type,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('description', instance.description);
+  writeNotNull('default', instance.defaultValue);
+  writeNotNull('minimum', instance.minimum);
+  writeNotNull('maximum', instance.maximum);
+  writeNotNull('enum', instance.enumValues);
+  writeNotNull('const', instance.constValue);
+  return val;
+}

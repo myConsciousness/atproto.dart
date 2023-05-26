@@ -23,10 +23,19 @@ _$_LexRecord _$$_LexRecordFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_LexRecordToJson(_$_LexRecord instance) =>
-    <String, dynamic>{
-      'type': instance.type,
-      'description': instance.description,
-      'key': instance.key,
-      'record': instance.record.toJson(),
-    };
+Map<String, dynamic> _$$_LexRecordToJson(_$_LexRecord instance) {
+  final val = <String, dynamic>{
+    'type': instance.type,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('description', instance.description);
+  writeNotNull('key', instance.key);
+  val['record'] = instance.record.toJson();
+  return val;
+}

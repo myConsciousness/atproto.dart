@@ -5,6 +5,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../complex/lex_object.dart';
+import '../references/lex_ref.dart';
+import '../references/lex_ref_union.dart';
+import '../references/lex_ref_variant.dart';
 import '../xrpc/lex_xrpc_schema.dart';
 
 class LexXrpcSchemaConverter
@@ -17,7 +20,23 @@ class LexXrpcSchemaConverter
 
     switch (type) {
       case 'object':
-        return LexXrpcSchema.object(data: LexObject.fromJson(json));
+        return LexXrpcSchema.object(
+          data: LexObject.fromJson(json),
+        );
+
+      case 'ref':
+        return LexXrpcSchema.refVariant(
+          data: LexRefVariant.ref(
+            data: LexRef.fromJson(json),
+          ),
+        );
+      case 'union':
+        return LexXrpcSchema.refVariant(
+          data: LexRefVariant.refUnion(
+            data: LexRefUnion.fromJson(json),
+          ),
+        );
+
       default:
         throw UnsupportedError('Unsupported type [$type]');
     }

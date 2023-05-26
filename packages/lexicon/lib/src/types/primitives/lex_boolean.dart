@@ -12,9 +12,6 @@ part 'lex_boolean.g.dart';
 
 @freezed
 class LexBoolean with _$LexBoolean {
-  // ignore: unused_element
-  const LexBoolean._();
-
   @JsonSerializable(includeIfNull: false)
   const factory LexBoolean({
     @Default('boolean') String type,

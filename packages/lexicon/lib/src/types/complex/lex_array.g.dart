@@ -17,10 +17,8 @@ _$_LexArray _$$_LexArrayFromJson(Map json) => $checkedCreate(
           description: $checkedConvert('description', (v) => v as String?),
           items: $checkedConvert(
               'items',
-              (v) => (v as List<dynamic>)
-                  .map((e) => const LexArrayItemConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
+              (v) => const LexArrayItemsConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           minLength: $checkedConvert('minLength', (v) => v as int?),
           maxLength: $checkedConvert('maxLength', (v) => v as int?),
         );
@@ -40,8 +38,7 @@ Map<String, dynamic> _$$_LexArrayToJson(_$_LexArray instance) {
   }
 
   writeNotNull('description', instance.description);
-  val['items'] =
-      instance.items.map(const LexArrayItemConverter().toJson).toList();
+  val['items'] = const LexArrayItemsConverter().toJson(instance.items);
   writeNotNull('minLength', instance.minLength);
   writeNotNull('maxLength', instance.maxLength);
   return val;

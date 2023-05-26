@@ -12,6 +12,7 @@ part 'lex_integer.g.dart';
 
 @freezed
 class LexInteger with _$LexInteger {
+  @JsonSerializable(includeIfNull: false)
   const factory LexInteger({
     @Default('integer') String type,
     String? description,

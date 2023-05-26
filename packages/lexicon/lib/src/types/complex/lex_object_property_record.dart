@@ -18,6 +18,7 @@ part 'lex_object_property_record.g.dart';
 class LexObjectPropertyRecord
     with _$LexObjectPropertyRecord
     implements Record<LexObjectProperty> {
+  @JsonSerializable(includeIfNull: false)
   const factory LexObjectPropertyRecord({
     required String key,
     @LexObjectPropertyConverter() required LexObjectProperty value,

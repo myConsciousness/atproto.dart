@@ -18,6 +18,7 @@ part 'lex_xrpc_parameters_property_record.g.dart';
 class LexXrpcParametersPropertyRecord
     with _$LexXrpcParametersPropertyRecord
     implements Record<LexXrpcParametersProperty> {
+  @JsonSerializable(includeIfNull: false)
   const factory LexXrpcParametersPropertyRecord({
     required String key,
     @LexXrpcParametersPropertyConverter()

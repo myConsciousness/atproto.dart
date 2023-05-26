@@ -4,8 +4,12 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../complex/lex_primitive_array.dart';
+import '../primitives/lex_boolean.dart';
+import '../primitives/lex_integer.dart';
 import '../primitives/lex_primitive.dart';
 import '../primitives/lex_string.dart';
+import '../primitives/lex_unknown.dart';
 import '../xrpc/lex_xrpc_parameters_property.dart';
 
 class LexXrpcParametersPropertyConverter
@@ -22,6 +26,28 @@ class LexXrpcParametersPropertyConverter
           data: LexPrimitive.string(
             data: LexString.fromJson(json),
           ),
+        );
+      case 'integer':
+        return LexXrpcParametersProperty.primitive(
+          data: LexPrimitive.integer(
+            data: LexInteger.fromJson(json),
+          ),
+        );
+      case 'boolean':
+        return LexXrpcParametersProperty.primitive(
+          data: LexPrimitive.boolean(
+            data: LexBoolean.fromJson(json),
+          ),
+        );
+      case 'unknown':
+        return LexXrpcParametersProperty.primitive(
+          data: LexPrimitive.unknown(
+            data: LexUnknown.fromJson(json),
+          ),
+        );
+      case 'array':
+        return LexXrpcParametersProperty.primitiveArray(
+          data: LexPrimitiveArray.fromJson(json),
         );
       default:
         throw UnimplementedError('Unsupported type [$type]');

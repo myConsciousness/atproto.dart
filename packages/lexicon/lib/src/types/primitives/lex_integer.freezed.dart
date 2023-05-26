@@ -178,7 +178,8 @@ class __$$_LexIntegerCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(includeIfNull: false)
 class _$_LexInteger implements _LexInteger {
   const _$_LexInteger(
       {this.type = 'integer',

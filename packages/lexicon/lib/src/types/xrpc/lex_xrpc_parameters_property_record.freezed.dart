@@ -131,7 +131,8 @@ class __$$_LexXrpcParametersPropertyRecordCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(includeIfNull: false)
 class _$_LexXrpcParametersPropertyRecord
     implements _LexXrpcParametersPropertyRecord {
   const _$_LexXrpcParametersPropertyRecord(

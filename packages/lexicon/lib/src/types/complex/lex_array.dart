@@ -7,8 +7,8 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../converter/lex_array_item_converter.dart';
-import 'lex_array_item.dart';
+import '../converter/lex_array_items_converter.dart';
+import 'lex_array_items.dart';
 
 part 'lex_array.freezed.dart';
 part 'lex_array.g.dart';
@@ -19,7 +19,7 @@ class LexArray with _$LexArray {
   const factory LexArray({
     @Default('array') String type,
     String? description,
-    @LexArrayItemConverter() required List<LexArrayItem> items,
+    @LexArrayItemsConverter() required LexArrayItems items,
     int? minLength,
     int? maxLength,
   }) = _LexArray;

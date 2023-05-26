@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'lex_user_type_record.dart';
+part of 'lex_array_items.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,37 +14,37 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-LexUserTypeRecord _$LexUserTypeRecordFromJson(Map<String, dynamic> json) {
-  return _LexUserTypeRecord.fromJson(json);
+LexArrayItems _$LexArrayItemsFromJson(Map<String, dynamic> json) {
+  return _LexArrayItems.fromJson(json);
 }
 
 /// @nodoc
-mixin _$LexUserTypeRecord {
+mixin _$LexArrayItems {
   String get key => throw _privateConstructorUsedError;
-  @LexUserTypeConverter()
-  LexUserType get value => throw _privateConstructorUsedError;
+  @LexArrayItemConverter()
+  LexArrayItem get value => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $LexUserTypeRecordCopyWith<LexUserTypeRecord> get copyWith =>
+  $LexArrayItemsCopyWith<LexArrayItems> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LexUserTypeRecordCopyWith<$Res> {
-  factory $LexUserTypeRecordCopyWith(
-          LexUserTypeRecord value, $Res Function(LexUserTypeRecord) then) =
-      _$LexUserTypeRecordCopyWithImpl<$Res, LexUserTypeRecord>;
+abstract class $LexArrayItemsCopyWith<$Res> {
+  factory $LexArrayItemsCopyWith(
+          LexArrayItems value, $Res Function(LexArrayItems) then) =
+      _$LexArrayItemsCopyWithImpl<$Res, LexArrayItems>;
   @useResult
-  $Res call({String key, @LexUserTypeConverter() LexUserType value});
+  $Res call({String key, @LexArrayItemConverter() LexArrayItem value});
 
-  $LexUserTypeCopyWith<$Res> get value;
+  $LexArrayItemCopyWith<$Res> get value;
 }
 
 /// @nodoc
-class _$LexUserTypeRecordCopyWithImpl<$Res, $Val extends LexUserTypeRecord>
-    implements $LexUserTypeRecordCopyWith<$Res> {
-  _$LexUserTypeRecordCopyWithImpl(this._value, this._then);
+class _$LexArrayItemsCopyWithImpl<$Res, $Val extends LexArrayItems>
+    implements $LexArrayItemsCopyWith<$Res> {
+  _$LexArrayItemsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -65,39 +65,39 @@ class _$LexUserTypeRecordCopyWithImpl<$Res, $Val extends LexUserTypeRecord>
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as LexUserType,
+              as LexArrayItem,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $LexUserTypeCopyWith<$Res> get value {
-    return $LexUserTypeCopyWith<$Res>(_value.value, (value) {
+  $LexArrayItemCopyWith<$Res> get value {
+    return $LexArrayItemCopyWith<$Res>(_value.value, (value) {
       return _then(_value.copyWith(value: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_LexUserTypeRecordCopyWith<$Res>
-    implements $LexUserTypeRecordCopyWith<$Res> {
-  factory _$$_LexUserTypeRecordCopyWith(_$_LexUserTypeRecord value,
-          $Res Function(_$_LexUserTypeRecord) then) =
-      __$$_LexUserTypeRecordCopyWithImpl<$Res>;
+abstract class _$$_LexArrayItemsCopyWith<$Res>
+    implements $LexArrayItemsCopyWith<$Res> {
+  factory _$$_LexArrayItemsCopyWith(
+          _$_LexArrayItems value, $Res Function(_$_LexArrayItems) then) =
+      __$$_LexArrayItemsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String key, @LexUserTypeConverter() LexUserType value});
+  $Res call({String key, @LexArrayItemConverter() LexArrayItem value});
 
   @override
-  $LexUserTypeCopyWith<$Res> get value;
+  $LexArrayItemCopyWith<$Res> get value;
 }
 
 /// @nodoc
-class __$$_LexUserTypeRecordCopyWithImpl<$Res>
-    extends _$LexUserTypeRecordCopyWithImpl<$Res, _$_LexUserTypeRecord>
-    implements _$$_LexUserTypeRecordCopyWith<$Res> {
-  __$$_LexUserTypeRecordCopyWithImpl(
-      _$_LexUserTypeRecord _value, $Res Function(_$_LexUserTypeRecord) _then)
+class __$$_LexArrayItemsCopyWithImpl<$Res>
+    extends _$LexArrayItemsCopyWithImpl<$Res, _$_LexArrayItems>
+    implements _$$_LexArrayItemsCopyWith<$Res> {
+  __$$_LexArrayItemsCopyWithImpl(
+      _$_LexArrayItems _value, $Res Function(_$_LexArrayItems) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -106,7 +106,7 @@ class __$$_LexUserTypeRecordCopyWithImpl<$Res>
     Object? key = null,
     Object? value = null,
   }) {
-    return _then(_$_LexUserTypeRecord(
+    return _then(_$_LexArrayItems(
       key: null == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
@@ -114,7 +114,7 @@ class __$$_LexUserTypeRecordCopyWithImpl<$Res>
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as LexUserType,
+              as LexArrayItem,
     ));
   }
 }
@@ -122,29 +122,29 @@ class __$$_LexUserTypeRecordCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexUserTypeRecord implements _LexUserTypeRecord {
-  const _$_LexUserTypeRecord(
-      {required this.key, @LexUserTypeConverter() required this.value});
+class _$_LexArrayItems implements _LexArrayItems {
+  const _$_LexArrayItems(
+      {required this.key, @LexArrayItemConverter() required this.value});
 
-  factory _$_LexUserTypeRecord.fromJson(Map<String, dynamic> json) =>
-      _$$_LexUserTypeRecordFromJson(json);
+  factory _$_LexArrayItems.fromJson(Map<String, dynamic> json) =>
+      _$$_LexArrayItemsFromJson(json);
 
   @override
   final String key;
   @override
-  @LexUserTypeConverter()
-  final LexUserType value;
+  @LexArrayItemConverter()
+  final LexArrayItem value;
 
   @override
   String toString() {
-    return 'LexUserTypeRecord(key: $key, value: $value)';
+    return 'LexArrayItems(key: $key, value: $value)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexUserTypeRecord &&
+            other is _$_LexArrayItems &&
             (identical(other.key, key) || other.key == key) &&
             (identical(other.value, value) || other.value == value));
   }
@@ -156,34 +156,33 @@ class _$_LexUserTypeRecord implements _LexUserTypeRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexUserTypeRecordCopyWith<_$_LexUserTypeRecord> get copyWith =>
-      __$$_LexUserTypeRecordCopyWithImpl<_$_LexUserTypeRecord>(
-          this, _$identity);
+  _$$_LexArrayItemsCopyWith<_$_LexArrayItems> get copyWith =>
+      __$$_LexArrayItemsCopyWithImpl<_$_LexArrayItems>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LexUserTypeRecordToJson(
+    return _$$_LexArrayItemsToJson(
       this,
     );
   }
 }
 
-abstract class _LexUserTypeRecord implements LexUserTypeRecord {
-  const factory _LexUserTypeRecord(
+abstract class _LexArrayItems implements LexArrayItems {
+  const factory _LexArrayItems(
           {required final String key,
-          @LexUserTypeConverter() required final LexUserType value}) =
-      _$_LexUserTypeRecord;
+          @LexArrayItemConverter() required final LexArrayItem value}) =
+      _$_LexArrayItems;
 
-  factory _LexUserTypeRecord.fromJson(Map<String, dynamic> json) =
-      _$_LexUserTypeRecord.fromJson;
+  factory _LexArrayItems.fromJson(Map<String, dynamic> json) =
+      _$_LexArrayItems.fromJson;
 
   @override
   String get key;
   @override
-  @LexUserTypeConverter()
-  LexUserType get value;
+  @LexArrayItemConverter()
+  LexArrayItem get value;
   @override
   @JsonKey(ignore: true)
-  _$$_LexUserTypeRecordCopyWith<_$_LexUserTypeRecord> get copyWith =>
+  _$$_LexArrayItemsCopyWith<_$_LexArrayItems> get copyWith =>
       throw _privateConstructorUsedError;
 }

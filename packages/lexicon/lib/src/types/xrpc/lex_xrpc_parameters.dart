@@ -7,7 +7,6 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../converter/lex_xrpc_parameters_property_converter.dart';
 import '../converter/lex_xrpc_parameters_property_record_converter.dart';
 import 'lex_xrpc_parameters_property_record.dart';
 
@@ -21,7 +20,6 @@ class LexXrpcParameters with _$LexXrpcParameters {
     @Default('params') String type,
     String? description,
     @JsonKey(name: 'required') List<String>? requiredProperties,
-    @LexXrpcParametersPropertyConverter()
     @LexXrpcParametersPropertyRecordConverter()
     LexXrpcParametersPropertyRecord? properties,
   }) = _LexXrpcParameters;

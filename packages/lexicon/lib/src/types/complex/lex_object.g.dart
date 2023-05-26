@@ -22,7 +22,7 @@ _$_LexObject _$$_LexObjectFromJson(Map json) => $checkedCreate(
           properties: $checkedConvert(
               'properties',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>,
-                      LexObjectPropertyRecord>(
+                      LexObjectPropertyRecord?>(
                   v, const LexObjectPropertyRecordConverter().fromJson)),
         );
         return val;
@@ -47,11 +47,8 @@ Map<String, dynamic> _$$_LexObjectToJson(_$_LexObject instance) {
   writeNotNull('description', instance.description);
   writeNotNull('required', instance.requiredProperties);
   writeNotNull('nullable', instance.nullableProperties);
-  writeNotNull(
-      'properties',
-      _$JsonConverterToJson<Map<String, dynamic>, LexObjectPropertyRecord>(
-          instance.properties,
-          const LexObjectPropertyRecordConverter().toJson));
+  writeNotNull('properties',
+      const LexObjectPropertyRecordConverter().toJson(instance.properties));
   return val;
 }
 
@@ -60,9 +57,3 @@ Value? _$JsonConverterFromJson<Json, Value>(
   Value? Function(Json json) fromJson,
 ) =>
     json == null ? null : fromJson(json as Json);
-
-Json? _$JsonConverterToJson<Json, Value>(
-  Value? value,
-  Json? Function(Value value) toJson,
-) =>
-    value == null ? null : toJson(value);

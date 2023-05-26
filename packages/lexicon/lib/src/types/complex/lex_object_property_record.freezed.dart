@@ -125,7 +125,8 @@ class __$$_LexObjectPropertyRecordCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(includeIfNull: false)
 class _$_LexObjectPropertyRecord implements _LexObjectPropertyRecord {
   const _$_LexObjectPropertyRecord(
       {required this.key, @LexObjectPropertyConverter() required this.value});

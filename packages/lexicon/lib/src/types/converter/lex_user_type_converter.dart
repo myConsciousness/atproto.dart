@@ -62,10 +62,6 @@ class LexUserTypeConverter
         return LexUserType.bytes(
           data: LexBytes.fromJson(json),
         );
-      case 'unknown':
-        return LexUserType.unknown(
-          data: LexUnknown.fromJson(json),
-        );
 
       case 'token':
         return LexUserType.token(
@@ -89,6 +85,10 @@ class LexUserTypeConverter
           data: LexXrpcSubscription.fromJson(json),
         );
 
+      case 'unknown':
+        return LexUserType.unknown(
+          data: LexUnknown.fromJson(json),
+        );
       default:
         throw UnsupportedError('Unsupported type [$type]');
     }

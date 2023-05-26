@@ -140,13 +140,12 @@ class __$$_LexBooleanCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexBoolean extends _LexBoolean {
+class _$_LexBoolean implements _LexBoolean {
   const _$_LexBoolean(
       {this.type = 'boolean',
       this.description,
       @JsonKey(name: 'default') this.defaultValue,
-      @JsonKey(name: 'const') this.constValue})
-      : super._();
+      @JsonKey(name: 'const') this.constValue});
 
   factory _$_LexBoolean.fromJson(Map<String, dynamic> json) =>
       _$$_LexBooleanFromJson(json);
@@ -201,13 +200,12 @@ class _$_LexBoolean extends _LexBoolean {
   }
 }
 
-abstract class _LexBoolean extends LexBoolean {
+abstract class _LexBoolean implements LexBoolean {
   const factory _LexBoolean(
       {final String type,
       final String? description,
       @JsonKey(name: 'default') final bool? defaultValue,
       @JsonKey(name: 'const') final bool? constValue}) = _$_LexBoolean;
-  const _LexBoolean._() : super._();
 
   factory _LexBoolean.fromJson(Map<String, dynamic> json) =
       _$_LexBoolean.fromJson;

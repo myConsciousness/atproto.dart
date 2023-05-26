@@ -14,6 +14,7 @@ part 'lex_record.g.dart';
 
 @freezed
 class LexRecord with _$LexRecord {
+  @JsonSerializable(includeIfNull: false)
   const factory LexRecord({
     @Default('record') String type,
     String? description,

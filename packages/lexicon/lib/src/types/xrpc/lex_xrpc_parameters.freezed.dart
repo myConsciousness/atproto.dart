@@ -24,7 +24,6 @@ mixin _$LexXrpcParameters {
   String? get description => throw _privateConstructorUsedError;
   @JsonKey(name: 'required')
   List<String>? get requiredProperties => throw _privateConstructorUsedError;
-  @LexXrpcParametersPropertyConverter()
   @LexXrpcParametersPropertyRecordConverter()
   LexXrpcParametersPropertyRecord? get properties =>
       throw _privateConstructorUsedError;
@@ -46,7 +45,6 @@ abstract class $LexXrpcParametersCopyWith<$Res> {
       String? description,
       @JsonKey(name: 'required')
           List<String>? requiredProperties,
-      @LexXrpcParametersPropertyConverter()
       @LexXrpcParametersPropertyRecordConverter()
           LexXrpcParametersPropertyRecord? properties});
 
@@ -118,7 +116,6 @@ abstract class _$$_LexXrpcParametersCopyWith<$Res>
       String? description,
       @JsonKey(name: 'required')
           List<String>? requiredProperties,
-      @LexXrpcParametersPropertyConverter()
       @LexXrpcParametersPropertyRecordConverter()
           LexXrpcParametersPropertyRecord? properties});
 
@@ -170,11 +167,8 @@ class _$_LexXrpcParameters implements _LexXrpcParameters {
   const _$_LexXrpcParameters(
       {this.type = 'params',
       this.description,
-      @JsonKey(name: 'required')
-          final List<String>? requiredProperties,
-      @LexXrpcParametersPropertyConverter()
-      @LexXrpcParametersPropertyRecordConverter()
-          this.properties})
+      @JsonKey(name: 'required') final List<String>? requiredProperties,
+      @LexXrpcParametersPropertyRecordConverter() this.properties})
       : _requiredProperties = requiredProperties;
 
   factory _$_LexXrpcParameters.fromJson(Map<String, dynamic> json) =>
@@ -198,7 +192,6 @@ class _$_LexXrpcParameters implements _LexXrpcParameters {
   }
 
   @override
-  @LexXrpcParametersPropertyConverter()
   @LexXrpcParametersPropertyRecordConverter()
   final LexXrpcParametersPropertyRecord? properties;
 
@@ -247,7 +240,6 @@ abstract class _LexXrpcParameters implements LexXrpcParameters {
           final String? description,
           @JsonKey(name: 'required')
               final List<String>? requiredProperties,
-          @LexXrpcParametersPropertyConverter()
           @LexXrpcParametersPropertyRecordConverter()
               final LexXrpcParametersPropertyRecord? properties}) =
       _$_LexXrpcParameters;
@@ -263,7 +255,6 @@ abstract class _LexXrpcParameters implements LexXrpcParameters {
   @JsonKey(name: 'required')
   List<String>? get requiredProperties;
   @override
-  @LexXrpcParametersPropertyConverter()
   @LexXrpcParametersPropertyRecordConverter()
   LexXrpcParametersPropertyRecord? get properties;
   @override

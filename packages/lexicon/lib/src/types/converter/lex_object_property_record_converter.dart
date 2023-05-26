@@ -7,11 +7,15 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../complex/lex_object_property_record.dart';
 
 class LexObjectPropertyRecordConverter
-    implements JsonConverter<LexObjectPropertyRecord, Map<String, dynamic>> {
+    implements JsonConverter<LexObjectPropertyRecord?, Map<String, dynamic>> {
   const LexObjectPropertyRecordConverter();
 
   @override
-  LexObjectPropertyRecord fromJson(Map<String, dynamic> json) {
+  LexObjectPropertyRecord? fromJson(Map<String, dynamic> json) {
+    if (json.isEmpty) {
+      return null;
+    }
+
     final records = <String, dynamic>{};
 
     json.forEach((key, value) {
@@ -23,7 +27,6 @@ class LexObjectPropertyRecordConverter
   }
 
   @override
-  Map<String, dynamic> toJson(LexObjectPropertyRecord object) => {
-        object.key: object.value.toJson(),
-      };
+  Map<String, dynamic> toJson(LexObjectPropertyRecord? object) =>
+      object == null ? {} : {object.key: object.value.toJson()};
 }
