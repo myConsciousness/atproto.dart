@@ -1,5 +1,7 @@
 # Release Note
 
+- `handle` parameter in `findDID` is now required. ([#459](https://github.com/myConsciousness/atproto.dart/issues/459))
+
 ## v0.3.0
 
 - Fixed type from `StrongRef` to `Record` of `updateRecord` in `RepositoriesService`.
