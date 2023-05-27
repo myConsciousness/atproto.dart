@@ -887,7 +887,7 @@ void main() {
         ),
       );
 
-      final response = await feeds.findSkeletonFeed(
+      final response = await feeds.findFeedSkeleton(
         generatorUri: AtUri.parse(
           'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-privacy',
         ),
@@ -915,7 +915,7 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await feeds.findSkeletonFeed(
+        () async => await feeds.findFeedSkeleton(
           generatorUri: AtUri.parse(
             'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-privacy',
           ),
@@ -939,7 +939,7 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await feeds.findSkeletonFeed(
+        () async => await feeds.findFeedSkeleton(
             generatorUri: AtUri.parse(
           'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-privacy',
         )),
