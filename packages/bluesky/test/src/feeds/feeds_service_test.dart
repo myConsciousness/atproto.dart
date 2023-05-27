@@ -1119,6 +1119,7 @@ void main() {
       final response = await feeds.findPostThread(
         uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         depth: 5,
+        parentHeight: 6,
       );
 
       expect(response, isA<XRPCResponse>());
