@@ -31,7 +31,6 @@ abstract class IdentitiesService {
   /// ## Parameters
   ///
   /// - [handle]: The handle to resolve.
-  ///             If not supplied, will resolve the host's own handle.
   ///
   /// ## Lexicon
   ///
@@ -41,7 +40,7 @@ abstract class IdentitiesService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/identity/resolveHandle.json
   Future<core.XRPCResponse<DID>> findDID({
-    String? handle,
+    required String handle,
   });
 
   /// Updates the handle of the account.
@@ -76,7 +75,7 @@ class _IdentitiesService extends ATProtoBaseService
 
   @override
   Future<core.XRPCResponse<DID>> findDID({
-    String? handle,
+    required String handle,
   }) async =>
       await super.get(
         'resolveHandle',

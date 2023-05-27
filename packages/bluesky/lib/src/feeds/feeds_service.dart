@@ -251,7 +251,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedSkeleton.json
-  Future<core.XRPCResponse<SkeletonFeed>> findSkeletonFeed({
+  Future<core.XRPCResponse<SkeletonFeed>> findFeedSkeleton({
     required core.AtUri generatorUri,
     int? limit,
     String? cursor,
@@ -341,7 +341,10 @@ abstract class FeedsService {
   ///
   /// - [uri]: The uri of root post.
   ///
-  /// - [depth]: Depth of thread to be retrieved.
+  /// - [depth]: Depth of thread to be retrieved. Defaults to 6. From 0 to 1000.
+  ///
+  /// - [parentHeight]: Height of parent thread to be retrieved.
+  ///                   Defaults to 80. From 0 to 1000.
   ///
   /// ## Lexicon
   ///
@@ -353,6 +356,7 @@ abstract class FeedsService {
   Future<core.XRPCResponse<PostThread>> findPostThread({
     required core.AtUri uri,
     int? depth,
+    int? parentHeight,
   });
 
   /// A view of an actor's feed.
@@ -681,7 +685,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<SkeletonFeed>> findSkeletonFeed({
+  Future<core.XRPCResponse<SkeletonFeed>> findFeedSkeleton({
     required core.AtUri generatorUri,
     int? limit,
     String? cursor,
@@ -752,12 +756,14 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
   Future<core.XRPCResponse<PostThread>> findPostThread({
     required core.AtUri uri,
     int? depth,
+    int? parentHeight,
   }) async =>
       await super.get(
         'getPostThread',
         parameters: {
           'uri': uri,
           'depth': depth,
+          'parentHeight': parentHeight,
         },
         to: PostThread.fromJson,
       );

@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.2
+
+- Supported `popular-feed-generators` command. ([#458](https://github.com/myConsciousness/atproto.dart/issues/458))
+
 ## v0.2.1
 
 - Supported `create-generator` command. ([#430](https://github.com/myConsciousness/atproto.dart/issues/430))
