@@ -16,6 +16,7 @@ export 'package:xrpc/xrpc.dart'
         XRPCResponse,
         XRPCRequest,
         XRPCError,
+        $XRPCErrorCopyWith,
         Subscription,
         Protocol,
         To,
