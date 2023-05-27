@@ -3,6 +3,7 @@
 ## v0.5.3
 
 - Renamed from `findSkeletonFeed` to `findFeedSkeleton`. ([#456](https://github.com/myConsciousness/atproto.dart/issues/456))
+- Added `parentHeight` parameter to `findPostThread`. ([#457](https://github.com/myConsciousness/atproto.dart/issues/457))
 
 ## v0.5.2
 
