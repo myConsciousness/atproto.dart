@@ -69,9 +69,14 @@ This library provides the easiest way to use [Bluesky Social](https://blueskyweb
 
 **Show some ❤️ and star the repo to support the project.**
 
-`bluesky` is developed on the basis of the [atproto](https://pub.dev/packages/atproto) package. However, the [atproto](https://pub.dev/packages/atproto) package is highly integrated into this package, so you do not need to be aware of atproto when you use `bluesky`.
+`bluesky` is developed on the basis of the [atproto](https://pub.dev/packages/atproto) package.
+
+However, the [atproto](https://pub.dev/packages/atproto) package is highly integrated into this package,
+so you do not need to be aware of `atproto` when you use `bluesky`.
 
 If you want to use atproto-only features, please check [atproto](https://pub.dev/packages/atproto).
+
+Also if you need more sample codes, please check [examples](https://github.com/myConsciousness/atproto.dart/tree/main/examples/README.md).
 
 ## 1.1. Features 💎
 
@@ -214,7 +219,7 @@ Future<bsky.Session> get _session async {
 | [GET app.bsky.feed.getFeedGenerator](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedGenerator.json)           | [findGenerator](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findGenerator.html)         |
 | [GET app.bsky.feed.getFeedGenerators](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedGenerators.json)         | [findGenerators](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findGenerators.html)       |
 | [GET app.bsky.feed.getFeed](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeed.json)                             | [findCustomFeed](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findCustomFeed.html)       |
-| [GET app.bsky.feed.getFeedSkeleton](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedSkeleton.json)             | [findSkeletonFeed](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findSkeletonFeed.html)   |
+| [GET app.bsky.feed.getFeedSkeleton](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedSkeleton.json)             | [findFeedSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findFeedSkeleton.html)   |
 | [GET app.bsky.feed.describeFeedGenerator](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/describeFeedGenerator.json) | [findGeneratorInfo](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findGeneratorInfo.html) |
 
 ### 1.3.3. Notifications

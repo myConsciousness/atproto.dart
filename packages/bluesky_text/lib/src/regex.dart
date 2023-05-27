@@ -4,6 +4,8 @@
 
 final regexHandle = RegExp(r'@([A-Za-z0-9_-]+(\.[A-Za-z0-9_-]+)*)');
 
-final regexLink = RegExp(r'(https?:\/\/[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\S*)');
+final regexLink = RegExp(
+  r'(https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*))',
+);
 
 final regexPunctuation = RegExp(r'[.,;:!?\-－—―()]');
