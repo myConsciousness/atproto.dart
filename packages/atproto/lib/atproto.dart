@@ -54,6 +54,7 @@ export 'package:atproto_core/atproto_core.dart'
         XRPCResponse,
         XRPCRequest,
         XRPCError,
+        $XRPCErrorCopyWith,
         Protocol,
         EmptyData,
         HttpMethod,

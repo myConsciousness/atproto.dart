@@ -1,6 +1,9 @@
 # Release Note
 
+## v0.3.1
+
 - `handle` parameter in `findDID` is now required. ([#459](https://github.com/myConsciousness/atproto.dart/issues/459))
+- Exposed `$XRPCErrorCopyWith`. ([#463](https://github.com/myConsciousness/atproto.dart/issues/459))
 
 ## v0.3.0
 
