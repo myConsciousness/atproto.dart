@@ -7,6 +7,7 @@ import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:bluesky/src/entities/feed.dart';
+import 'package:bluesky/src/entities/feed_generators.dart';
 import 'package:bluesky/src/unspecced/unspecced_service.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
@@ -79,6 +80,68 @@ void main() {
           limit: 10,
           cursor: '1234',
         ),
+      );
+    });
+  });
+
+  group('.findPopularFeedGenerators', () {
+    test('normal case', () async {
+      final unspecced = UnspeccedService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/unspecced/data/find_popular_feed_generators.json',
+        ),
+      );
+
+      final response = await unspecced.findPopularFeedGenerators();
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<FeedGenerators>());
+    });
+
+    test('when unauthorized', () async {
+      final unspecced = UnspeccedService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await unspecced.findPopularFeedGenerators(),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final unspecced = UnspeccedService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await unspecced.findPopularFeedGenerators(),
       );
     });
   });
