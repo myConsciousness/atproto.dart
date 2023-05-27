@@ -251,7 +251,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedSkeleton.json
-  Future<core.XRPCResponse<SkeletonFeed>> findSkeletonFeed({
+  Future<core.XRPCResponse<SkeletonFeed>> findFeedSkeleton({
     required core.AtUri generatorUri,
     int? limit,
     String? cursor,
@@ -681,7 +681,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<SkeletonFeed>> findSkeletonFeed({
+  Future<core.XRPCResponse<SkeletonFeed>> findFeedSkeleton({
     required core.AtUri generatorUri,
     int? limit,
     String? cursor,

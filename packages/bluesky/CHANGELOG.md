@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.3
+
+- Renamed from `findSkeletonFeed` to `findFeedSkeleton`. ([#456](https://github.com/myConsciousness/atproto.dart/issues/456))
+
 ## v0.5.2
 
 - Supported `app.bsky.feed.generator` as `createGenerator` in `FeedsService`. ([#430](https://github.com/myConsciousness/atproto.dart/issues/430))
