@@ -43,6 +43,7 @@ abstract class _Service {
     final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
+    final xrpc.JsonConverter? converter,
   });
 }
 
@@ -148,6 +149,7 @@ abstract class BaseService implements _Service {
     final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
+    final xrpc.JsonConverter? converter,
   }) async =>
       await _context.stream(
         methodId,
@@ -155,6 +157,7 @@ abstract class BaseService implements _Service {
         service: service,
         parameters: parameters,
         to: to,
+        converter: converter,
       );
 
   /// Returns the NSID based on this service and [methodName].

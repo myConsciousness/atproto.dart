@@ -2,58 +2,97 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'dart:collection';
 import 'dart:typed_data';
 
-import 'cbor_decoder.dart';
+const _cidV1BytesLength = 36;
 
-const _cidV1BytesLen = 36;
+BlockMap decodeCar(final Uint8List bytes) {
+  final blocks = <List<int>, List<int>>{};
 
-List decodeCar(Uint8List bytes) {
-  final blocks = [];
-
-  final header = decodeReader(bytes);
+  final header = _decodeReader(bytes);
   int start = header.length + header.value;
 
-  final body = decodeReader(bytes.sublist(start));
-  start += body.length + _cidV1BytesLen;
+  while (start < bytes.length) {
+    final body = _decodeReader(bytes.sublist(start));
+    start += body.length;
 
-  final end = body.value - _cidV1BytesLen;
+    final cid = bytes.sublist(
+      start,
+      start + _cidV1BytesLength,
+    );
 
-  final block = bytes.sublist(start, start + end);
-  blocks.add(decodeCbor(block).decoded);
+    start += _cidV1BytesLength;
+    blocks[cid] = bytes.sublist(
+      start,
+      start + body.value - _cidV1BytesLength,
+    );
 
-  start += end;
+    start += body.value - _cidV1BytesLength;
+  }
 
-  return blocks;
+  return BlockMap(blocks);
 }
 
-Decoded decodeReader(Uint8List bytes) {
+class BlockMap extends UnmodifiableMapView<List<int>, List<int>> {
+  BlockMap(super.map);
+
+  /// Returns the block value associated with [cid], otherwise null.
+  List<int>? get(final List<int> cid) {
+    final hashedCid = _toHash(cid);
+
+    for (final entry in entries) {
+      if (hashedCid == _toHash(entry.key)) {
+        return entry.value;
+      }
+    }
+
+    return null;
+  }
+
+  /// Returns the hash representation of [data].
+  int _toHash(final List<int> data) {
+    int hash = 0;
+
+    for (int i = 0; i < data.length; i++) {
+      hash = (hash + data[i]) % data.length;
+    }
+
+    return hash;
+  }
+}
+
+_DecodedBlock _decodeReader(Uint8List bytes) {
   final a = <int>[];
+
   int i = 0;
   while (true) {
-    int b = bytes[i];
+    final b = bytes[i];
+
     i++;
     a.add(b);
     if ((b & 0x80) == 0) {
       break;
     }
   }
-  return Decoded(decode(a), a.length);
+
+  return _DecodedBlock(_decode(a), a.length);
 }
 
-class Decoded {
-  const Decoded(this.value, this.length);
+class _DecodedBlock {
+  const _DecodedBlock(this.value, this.length);
 
   final int value;
 
   final int length;
 }
 
-int decode(List<int> b) {
+int _decode(List<int> b) {
   int r = 0;
   for (int i = 0; i < b.length; i++) {
     int e = b[i];
     r = r + ((e & 0x7F) << (i * 7));
   }
+
   return r;
 }
