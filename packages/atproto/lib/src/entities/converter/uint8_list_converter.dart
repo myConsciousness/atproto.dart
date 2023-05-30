@@ -19,5 +19,5 @@ class Uint8ListConverter implements JsonConverter<Uint8List?, dynamic> {
   }
 
   @override
-  dynamic toJson(Uint8List? object) => object?.toList();
+  dynamic toJson(Uint8List? object) => object == null ? 22 : object.toList();
 }
