@@ -6,6 +6,11 @@
 - Added `parentHeight` parameter to `findPostThread`. ([#457](https://github.com/myConsciousness/atproto.dart/issues/457))
 - Supported `app.bsky.unspecced.getPopularFeedGenerators` as `findPopularFeedGenerators` in `UnspeccedService`. ([#458](https://github.com/myConsciousness/atproto.dart/issues/458))
 - Exposed `CopyWith` classes. ([#463](https://github.com/myConsciousness/atproto.dart/issues/463))
+- Made `labels` field to nullable.
+  - `actor.dart`
+  - `actor_profile.dart`
+  - `post.dart`
+  - `notification.dart`
 
 ## v0.5.2
 

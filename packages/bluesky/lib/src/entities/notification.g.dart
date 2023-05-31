@@ -32,8 +32,8 @@ _$_Notification _$$_NotificationFromJson(Map json) => $checkedCreate(
                   )),
           labels: $checkedConvert(
               'labels',
-              (v) => (v as List<dynamic>)
-                  .map((e) =>
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
                       Label.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           indexedAt:
@@ -63,7 +63,7 @@ Map<String, dynamic> _$$_NotificationToJson(_$_Notification instance) {
           instance.reasonSubject, const AtUriConverter().toJson));
   val['isRead'] = instance.isRead;
   writeNotNull('record', instance.record);
-  val['labels'] = instance.labels.map((e) => e.toJson()).toList();
+  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
   val['indexedAt'] = instance.indexedAt.toIso8601String();
   return val;
 }

@@ -24,7 +24,7 @@ class Actor with _$Actor {
     String? description,
     String? avatar,
     required ActorViewer viewer,
-    required List<Label> labels,
+    List<Label>? labels,
     DateTime? indexedAt,
   }) = _Actor;
 
