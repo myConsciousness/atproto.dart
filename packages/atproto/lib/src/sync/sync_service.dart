@@ -2,6 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'dart:convert';
+
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../atproto_base_service.dart';
@@ -68,5 +70,33 @@ class _SyncService extends ATProtoBaseService implements SyncService {
             },
             userContext: core.UserContext.anonymousOnly,
             to: SubscribedRepo.fromJson,
+            converter: (json) {
+              if (!_isRepoCommit(json)) {
+                return json;
+              }
+
+              final blocks = core.decodeCar(json['blocks']);
+
+              for (final op in json['ops']) {
+                op['uri'] = 'at://${json['repo']}/${op['path']}';
+
+                final cid = op['cid'];
+                if (cid == null || cid == 22) {
+                  continue;
+                }
+
+                final record = blocks.get(cid.sublist(1));
+
+                if (record != null) {
+                  op['record'] = jsonDecode(
+                    jsonEncode(core.decodeCbor(record).value),
+                  );
+                }
+              }
+
+              return json;
+            },
           );
+
+  bool _isRepoCommit(final Map<String, dynamic> json) => json['t'] == '#commit';
 }

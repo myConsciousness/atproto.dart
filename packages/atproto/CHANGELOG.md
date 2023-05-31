@@ -4,6 +4,7 @@
 
 - `handle` parameter in `findDID` is now required. ([#459](https://github.com/myConsciousness/atproto.dart/issues/459))
 - Exposed `$XRPCErrorCopyWith`. ([#463](https://github.com/myConsciousness/atproto.dart/issues/459))
+- Add a `record` field with decoded Car block in the object converted by `subscribeRepoUpdates` and also a `uri` field. ([#446](https://github.com/myConsciousness/atproto.dart/issues/446))
 
 ## v0.3.0
 

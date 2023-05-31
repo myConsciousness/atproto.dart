@@ -69,6 +69,7 @@ abstract class ClientContext {
     final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
+    final xrpc.JsonConverter? converter,
   });
 }
 
@@ -175,6 +176,7 @@ class _ClientContext implements ClientContext {
     final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
+    final xrpc.JsonConverter? converter,
   }) async =>
       await _challenge.execute(
         _clientResolver.execute(userContext),
@@ -183,6 +185,7 @@ class _ClientContext implements ClientContext {
           service: service,
           parameters: parameters,
           to: to,
+          converter: converter,
         ),
       );
 }
