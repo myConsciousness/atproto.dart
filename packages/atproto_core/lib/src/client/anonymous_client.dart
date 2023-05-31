@@ -82,11 +82,13 @@ class AnonymousClient implements Client {
     final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
+    final xrpc.JsonConverter? converter,
   }) =>
       xrpc.subscribe(
         methodId,
         service: service,
         parameters: parameters,
         to: to,
+        converter: converter,
       );
 }

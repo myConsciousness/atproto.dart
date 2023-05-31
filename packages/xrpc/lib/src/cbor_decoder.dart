@@ -2,22 +2,23 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'dart:convert';
 import 'dart:typed_data';
 
-DecodingResult decodeCbor(List<int> data, int offset) =>
+Cbor decodeCbor(List<int> data, [int offset = 0]) =>
     _decodeCborRecursively(data, offset);
 
-class DecodingResult {
-  const DecodingResult(
-    this.decoded,
+class Cbor {
+  const Cbor(
+    this.value,
     this.bytesRead,
   );
 
-  final dynamic decoded;
+  final dynamic value;
   final int bytesRead;
 }
 
-DecodingResult _decodeCborRecursively(List<int> data, int offset) {
+Cbor _decodeCborRecursively(List<int> data, int offset) {
   final int initialByte = data[offset];
   final int majorType = initialByte >> 5;
   final int additionalInfo = initialByte & 0x1F;
@@ -46,31 +47,30 @@ DecodingResult _decodeCborRecursively(List<int> data, int offset) {
 
   if (majorType == 0) {
     // Unsigned integer
-    return DecodingResult(value, bytesRead);
+    return Cbor(value, bytesRead);
   } else if (majorType == 1) {
     // Negative integer
-    return DecodingResult(-1 - value, bytesRead);
+    return Cbor(-1 - value, bytesRead);
   } else if (majorType == 2) {
     // Byte string
     final List<int> byteString =
         data.sublist(offset + bytesRead, offset + bytesRead + value);
     bytesRead += value;
-    return DecodingResult(byteString, bytesRead);
+    return Cbor(byteString, bytesRead);
   } else if (majorType == 3) {
-    // UTF-8 string
-    final String utf8String = String.fromCharCodes(
-        data.sublist(offset + bytesRead, offset + bytesRead + value));
+    final String utf8String = utf8
+        .decode(data.sublist(offset + bytesRead, offset + bytesRead + value));
     bytesRead += value;
-    return DecodingResult(utf8String, bytesRead);
+    return Cbor(utf8String, bytesRead);
   } else if (majorType == 4) {
     // Array
     List<dynamic> array = [];
     for (int i = 0; i < value; ++i) {
       final result = _decodeCborRecursively(data, offset + bytesRead);
-      array.add(result.decoded);
+      array.add(result.value);
       bytesRead += result.bytesRead;
     }
-    return DecodingResult(array, bytesRead);
+    return Cbor(array, bytesRead);
   } else if (majorType == 5) {
     // Map
     Map<dynamic, dynamic> map = {};
@@ -79,27 +79,27 @@ DecodingResult _decodeCborRecursively(List<int> data, int offset) {
       bytesRead += keyResult.bytesRead;
       final valueResult = _decodeCborRecursively(data, offset + bytesRead);
       bytesRead += valueResult.bytesRead;
-      map[keyResult.decoded] = valueResult.decoded;
+      map[keyResult.value] = valueResult.value;
     }
-    return DecodingResult(map, bytesRead);
+    return Cbor(map, bytesRead);
   } else if (majorType == 6) {
     // Tagged data
     // You can handle specific tags here or just ignore the tag and decode the
     // following data
     final dataResult = _decodeCborRecursively(data, offset + bytesRead);
     bytesRead += dataResult.bytesRead;
-    return DecodingResult(dataResult.decoded, bytesRead);
+    return Cbor(dataResult.value, bytesRead);
   } else if (majorType == 7) {
     // Simple data types, floats and special values
     if (additionalInfo == 20) {
       // Boolean false
-      return DecodingResult(false, bytesRead);
+      return Cbor(false, bytesRead);
     } else if (additionalInfo == 21) {
       // Boolean true
-      return DecodingResult(true, bytesRead);
+      return Cbor(true, bytesRead);
     } else if (additionalInfo < 32) {
       // Simple data types
-      return DecodingResult(value, bytesRead);
+      return Cbor(value, bytesRead);
     } else if (additionalInfo == 44) {
       // Float16 (half-precision float)
       // Not natively supported in Dart; you can use a library or implement
@@ -112,7 +112,7 @@ DecodingResult _decodeCborRecursively(List<int> data, int offset) {
       bytesRead += 4;
       final floatValue = ByteData.sublistView(Uint8List.fromList(floatBytes))
           .getFloat32(0, Endian.little);
-      return DecodingResult(floatValue, bytesRead);
+      return Cbor(floatValue, bytesRead);
     } else if (additionalInfo == 46) {
       // Float64 (double-precision float)
       final doubleBytes =
@@ -120,7 +120,7 @@ DecodingResult _decodeCborRecursively(List<int> data, int offset) {
       bytesRead += 8;
       final doubleValue = ByteData.sublistView(Uint8List.fromList(doubleBytes))
           .getFloat64(0, Endian.little);
-      return DecodingResult(doubleValue, bytesRead);
+      return Cbor(doubleValue, bytesRead);
     } else if (additionalInfo == 47) {
       // Float128 (quad-precision float)
       // Not natively supported in Dart; you can use a library or implement
@@ -128,10 +128,10 @@ DecodingResult _decodeCborRecursively(List<int> data, int offset) {
       throw UnsupportedError('Float128 not supported');
     } else if (additionalInfo == 31) {
       // Break marker
-      return DecodingResult(value, bytesRead);
+      return Cbor(value, bytesRead);
     } else {
       // Other special values
-      return DecodingResult(value, bytesRead);
+      return Cbor(value, bytesRead);
     }
   } else {
     throw UnsupportedError('Unsupported major type: $majorType');

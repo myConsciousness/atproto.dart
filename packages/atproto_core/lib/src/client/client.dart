@@ -46,5 +46,6 @@ abstract class Client {
     final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
+    final xrpc.JsonConverter? converter,
   });
 }

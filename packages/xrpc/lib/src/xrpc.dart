@@ -36,6 +36,10 @@ const _defaultService = 'bsky.social';
 /// to model objects.
 typedef To<T> = T Function(Map<String, Object?> json);
 
+/// Function to convert Json to an arbitrary structure.
+typedef JsonConverter = Map<String, dynamic> Function(
+    Map<String, dynamic> json);
+
 /// A function type that express factory for URI.
 typedef UriFactory = Uri Function(String authority,
     [String unencodedPath, Map<String, dynamic>? queryParameters]);
@@ -344,6 +348,7 @@ XRPCResponse<Subscription<T>> subscribe<T>(
   final String? service,
   final Map<String, dynamic>? parameters,
   final To<T>? to,
+  final JsonConverter? converter,
 }) {
   final uri = _buildWsUri(methodId, service, removeNullValues(parameters));
   final channel = WebSocketChannel.connect(uri);
@@ -358,13 +363,23 @@ XRPCResponse<Subscription<T>> subscribe<T>(
       final result = decodeCbor(event, offset);
       offset += result.bytesRead;
 
-      merged.addAll(result.decoded);
+      merged.addAll(result.value);
     }
 
     controller.sink.add(
       to != null
-          ? to.call(jsonDecode(jsonEncode(merged)))
-          : jsonEncode(merged) as T,
+          ? to.call(
+              _convertJson(
+                merged.cast<String, dynamic>(),
+                converter,
+              ),
+            )
+          : jsonEncode(
+              _convertJson(
+                merged.cast<String, dynamic>(),
+                converter,
+              ),
+            ) as T,
     );
   }, onError: (_) async {
     await channel.sink.close();
@@ -543,3 +558,9 @@ Uri _buildWsUri(
 
   return Uri.parse(buffer.toString());
 }
+
+Map<String, dynamic> _convertJson(
+  final Map<String, dynamic> json,
+  final JsonConverter? converter,
+) =>
+    converter != null ? converter.call(json) : json;
