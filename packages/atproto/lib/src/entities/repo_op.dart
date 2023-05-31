@@ -20,7 +20,8 @@ class RepoOp with _$RepoOp {
   const factory RepoOp({
     @Uint8ListConverter() Uint8List? cid,
     required RepoAction action,
-    @Deprecated('Use uri instead. Will be removed') required String path,
+    @Deprecated('Use uri instead. Will be removed in v0.6.0')
+    required String path,
     @AtUriConverter() required AtUri uri,
     Map<String, dynamic>? record,
   }) = _RepoOp;

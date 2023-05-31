@@ -23,7 +23,7 @@ mixin _$RepoOp {
   @Uint8ListConverter()
   Uint8List? get cid => throw _privateConstructorUsedError;
   RepoAction get action => throw _privateConstructorUsedError;
-  @Deprecated('Use uri instead. Will be removed')
+  @Deprecated('Use uri instead. Will be removed in v0.6.0')
   String get path => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $RepoOpCopyWith<$Res> {
   $Res call(
       {@Uint8ListConverter() Uint8List? cid,
       RepoAction action,
-      @Deprecated('Use uri instead. Will be removed') String path,
+      @Deprecated('Use uri instead. Will be removed in v0.6.0') String path,
       @AtUriConverter() AtUri uri,
       Map<String, dynamic>? record});
 }
@@ -100,7 +100,7 @@ abstract class _$$_RepoOpCopyWith<$Res> implements $RepoOpCopyWith<$Res> {
   $Res call(
       {@Uint8ListConverter() Uint8List? cid,
       RepoAction action,
-      @Deprecated('Use uri instead. Will be removed') String path,
+      @Deprecated('Use uri instead. Will be removed in v0.6.0') String path,
       @AtUriConverter() AtUri uri,
       Map<String, dynamic>? record});
 }
@@ -152,7 +152,8 @@ class _$_RepoOp implements _RepoOp {
   const _$_RepoOp(
       {@Uint8ListConverter() this.cid,
       required this.action,
-      @Deprecated('Use uri instead. Will be removed') required this.path,
+      @Deprecated('Use uri instead. Will be removed in v0.6.0')
+      required this.path,
       @AtUriConverter() required this.uri,
       final Map<String, dynamic>? record})
       : _record = record;
@@ -166,7 +167,7 @@ class _$_RepoOp implements _RepoOp {
   @override
   final RepoAction action;
   @override
-  @Deprecated('Use uri instead. Will be removed')
+  @Deprecated('Use uri instead. Will be removed in v0.6.0')
   final String path;
   @override
   @AtUriConverter()
@@ -226,7 +227,7 @@ abstract class _RepoOp implements RepoOp {
   const factory _RepoOp(
       {@Uint8ListConverter() final Uint8List? cid,
       required final RepoAction action,
-      @Deprecated('Use uri instead. Will be removed')
+      @Deprecated('Use uri instead. Will be removed in v0.6.0')
       required final String path,
       @AtUriConverter() required final AtUri uri,
       final Map<String, dynamic>? record}) = _$_RepoOp;
@@ -239,7 +240,7 @@ abstract class _RepoOp implements RepoOp {
   @override
   RepoAction get action;
   @override
-  @Deprecated('Use uri instead. Will be removed')
+  @Deprecated('Use uri instead. Will be removed in v0.6.0')
   String get path;
   @override
   @AtUriConverter()

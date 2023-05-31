@@ -2,6 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'dart:convert';
+
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../atproto_base_service.dart';
@@ -86,7 +88,9 @@ class _SyncService extends ATProtoBaseService implements SyncService {
                 final record = blocks.get(cid.sublist(1));
 
                 if (record != null) {
-                  op['record'] = core.decodeCbor(record).value;
+                  op['record'] = jsonDecode(
+                    jsonEncode(core.decodeCbor(record).value),
+                  );
                 }
               }
 
