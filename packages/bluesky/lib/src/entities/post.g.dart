@@ -33,8 +33,8 @@ _$_Post _$$_PostFromJson(Map json) => $checkedCreate(
               (v) => PostViewer.fromJson(Map<String, Object?>.from(v as Map))),
           labels: $checkedConvert(
               'labels',
-              (v) => (v as List<dynamic>)
-                  .map((e) =>
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
                       Label.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           indexedAt:
@@ -68,7 +68,7 @@ Map<String, dynamic> _$$_PostToJson(_$_Post instance) {
   val['repostCount'] = instance.repostCount;
   val['likeCount'] = instance.likeCount;
   val['viewer'] = instance.viewer.toJson();
-  val['labels'] = instance.labels.map((e) => e.toJson()).toList();
+  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
   val['indexedAt'] = instance.indexedAt.toIso8601String();
   return val;
 }

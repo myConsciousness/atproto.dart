@@ -30,7 +30,7 @@ mixin _$ActorProfile {
   int get followersCount => throw _privateConstructorUsedError;
   int get postsCount => throw _privateConstructorUsedError;
   ActorViewer get viewer => throw _privateConstructorUsedError;
-  List<Label> get labels => throw _privateConstructorUsedError;
+  List<Label>? get labels => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -56,7 +56,7 @@ abstract class $ActorProfileCopyWith<$Res> {
       int followersCount,
       int postsCount,
       ActorViewer viewer,
-      List<Label> labels,
+      List<Label>? labels,
       DateTime? indexedAt});
 
   $ActorViewerCopyWith<$Res> get viewer;
@@ -85,7 +85,7 @@ class _$ActorProfileCopyWithImpl<$Res, $Val extends ActorProfile>
     Object? followersCount = null,
     Object? postsCount = null,
     Object? viewer = null,
-    Object? labels = null,
+    Object? labels = freezed,
     Object? indexedAt = freezed,
   }) {
     return _then(_value.copyWith(
@@ -129,10 +129,10 @@ class _$ActorProfileCopyWithImpl<$Res, $Val extends ActorProfile>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ActorViewer,
-      labels: null == labels
+      labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
+              as List<Label>?,
       indexedAt: freezed == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -168,7 +168,7 @@ abstract class _$$_ActorProfileCopyWith<$Res>
       int followersCount,
       int postsCount,
       ActorViewer viewer,
-      List<Label> labels,
+      List<Label>? labels,
       DateTime? indexedAt});
 
   @override
@@ -196,7 +196,7 @@ class __$$_ActorProfileCopyWithImpl<$Res>
     Object? followersCount = null,
     Object? postsCount = null,
     Object? viewer = null,
-    Object? labels = null,
+    Object? labels = freezed,
     Object? indexedAt = freezed,
   }) {
     return _then(_$_ActorProfile(
@@ -240,10 +240,10 @@ class __$$_ActorProfileCopyWithImpl<$Res>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ActorViewer,
-      labels: null == labels
+      labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
+              as List<Label>?,
       indexedAt: freezed == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -267,7 +267,7 @@ class _$_ActorProfile implements _ActorProfile {
       required this.followersCount,
       required this.postsCount,
       required this.viewer,
-      required final List<Label> labels,
+      final List<Label>? labels,
       this.indexedAt})
       : _labels = labels;
 
@@ -294,12 +294,14 @@ class _$_ActorProfile implements _ActorProfile {
   final int postsCount;
   @override
   final ActorViewer viewer;
-  final List<Label> _labels;
+  final List<Label>? _labels;
   @override
-  List<Label> get labels {
+  List<Label>? get labels {
+    final value = _labels;
+    if (value == null) return null;
     if (_labels is EqualUnmodifiableListView) return _labels;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_labels);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -378,7 +380,7 @@ abstract class _ActorProfile implements ActorProfile {
       required final int followersCount,
       required final int postsCount,
       required final ActorViewer viewer,
-      required final List<Label> labels,
+      final List<Label>? labels,
       final DateTime? indexedAt}) = _$_ActorProfile;
 
   factory _ActorProfile.fromJson(Map<String, dynamic> json) =
@@ -405,7 +407,7 @@ abstract class _ActorProfile implements ActorProfile {
   @override
   ActorViewer get viewer;
   @override
-  List<Label> get labels;
+  List<Label>? get labels;
   @override
   DateTime? get indexedAt;
   @override

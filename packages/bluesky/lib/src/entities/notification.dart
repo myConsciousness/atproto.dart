@@ -25,7 +25,7 @@ class Notification with _$Notification {
     @AtUriConverter() AtUri? reasonSubject,
     required bool isRead,
     Map<String, dynamic>? record,
-    required List<Label> labels,
+    List<Label>? labels,
     required DateTime indexedAt,
   }) = _Notification;
 
