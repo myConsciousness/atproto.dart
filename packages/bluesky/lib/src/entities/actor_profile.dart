@@ -28,7 +28,7 @@ class ActorProfile with _$ActorProfile {
     required int followersCount,
     required int postsCount,
     required ActorViewer viewer,
-    required List<Label> labels,
+    List<Label>? labels,
     DateTime? indexedAt,
   }) = _ActorProfile;
 

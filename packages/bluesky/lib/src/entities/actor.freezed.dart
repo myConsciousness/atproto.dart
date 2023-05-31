@@ -26,7 +26,7 @@ mixin _$Actor {
   String? get description => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
   ActorViewer get viewer => throw _privateConstructorUsedError;
-  List<Label> get labels => throw _privateConstructorUsedError;
+  List<Label>? get labels => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $ActorCopyWith<$Res> {
       String? description,
       String? avatar,
       ActorViewer viewer,
-      List<Label> labels,
+      List<Label>? labels,
       DateTime? indexedAt});
 
   $ActorViewerCopyWith<$Res> get viewer;
@@ -71,7 +71,7 @@ class _$ActorCopyWithImpl<$Res, $Val extends Actor>
     Object? description = freezed,
     Object? avatar = freezed,
     Object? viewer = null,
-    Object? labels = null,
+    Object? labels = freezed,
     Object? indexedAt = freezed,
   }) {
     return _then(_value.copyWith(
@@ -99,10 +99,10 @@ class _$ActorCopyWithImpl<$Res, $Val extends Actor>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ActorViewer,
-      labels: null == labels
+      labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
+              as List<Label>?,
       indexedAt: freezed == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -132,7 +132,7 @@ abstract class _$$_ActorCopyWith<$Res> implements $ActorCopyWith<$Res> {
       String? description,
       String? avatar,
       ActorViewer viewer,
-      List<Label> labels,
+      List<Label>? labels,
       DateTime? indexedAt});
 
   @override
@@ -154,7 +154,7 @@ class __$$_ActorCopyWithImpl<$Res> extends _$ActorCopyWithImpl<$Res, _$_Actor>
     Object? description = freezed,
     Object? avatar = freezed,
     Object? viewer = null,
-    Object? labels = null,
+    Object? labels = freezed,
     Object? indexedAt = freezed,
   }) {
     return _then(_$_Actor(
@@ -182,10 +182,10 @@ class __$$_ActorCopyWithImpl<$Res> extends _$ActorCopyWithImpl<$Res, _$_Actor>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ActorViewer,
-      labels: null == labels
+      labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
+              as List<Label>?,
       indexedAt: freezed == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -205,7 +205,7 @@ class _$_Actor implements _Actor {
       this.description,
       this.avatar,
       required this.viewer,
-      required final List<Label> labels,
+      final List<Label>? labels,
       this.indexedAt})
       : _labels = labels;
 
@@ -224,12 +224,14 @@ class _$_Actor implements _Actor {
   final String? avatar;
   @override
   final ActorViewer viewer;
-  final List<Label> _labels;
+  final List<Label>? _labels;
   @override
-  List<Label> get labels {
+  List<Label>? get labels {
+    final value = _labels;
+    if (value == null) return null;
     if (_labels is EqualUnmodifiableListView) return _labels;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_labels);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -293,7 +295,7 @@ abstract class _Actor implements Actor {
       final String? description,
       final String? avatar,
       required final ActorViewer viewer,
-      required final List<Label> labels,
+      final List<Label>? labels,
       final DateTime? indexedAt}) = _$_Actor;
 
   factory _Actor.fromJson(Map<String, dynamic> json) = _$_Actor.fromJson;
@@ -311,7 +313,7 @@ abstract class _Actor implements Actor {
   @override
   ActorViewer get viewer;
   @override
-  List<Label> get labels;
+  List<Label>? get labels;
   @override
   DateTime? get indexedAt;
   @override

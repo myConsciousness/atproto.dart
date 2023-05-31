@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.1
+
+- Added `converter` parameter in `stream<T>`. ([#446](https://github.com/myConsciousness/atproto.dart/issues/446))
+
 ## v0.3.0
 
 - Updated SDK to `">=2.17.0 <4.0.0"`. ([#406](https://github.com/myConsciousness/atproto.dart/issues/406))

@@ -38,7 +38,7 @@ class Post with _$Post {
     required int repostCount,
     required int likeCount,
     required PostViewer viewer,
-    required List<Label> labels,
+    List<Label>? labels,
     required DateTime indexedAt,
   }) = _Post;
 

@@ -33,7 +33,7 @@ mixin _$Post {
   int get repostCount => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
   PostViewer get viewer => throw _privateConstructorUsedError;
-  List<Label> get labels => throw _privateConstructorUsedError;
+  List<Label>? get labels => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -57,7 +57,7 @@ abstract class $PostCopyWith<$Res> {
       int repostCount,
       int likeCount,
       PostViewer viewer,
-      List<Label> labels,
+      List<Label>? labels,
       DateTime indexedAt});
 
   $PostRecordCopyWith<$Res> get record;
@@ -89,7 +89,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? repostCount = null,
     Object? likeCount = null,
     Object? viewer = null,
-    Object? labels = null,
+    Object? labels = freezed,
     Object? indexedAt = null,
   }) {
     return _then(_value.copyWith(
@@ -133,10 +133,10 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as PostViewer,
-      labels: null == labels
+      labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
+              as List<Label>?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -198,7 +198,7 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       int repostCount,
       int likeCount,
       PostViewer viewer,
-      List<Label> labels,
+      List<Label>? labels,
       DateTime indexedAt});
 
   @override
@@ -230,7 +230,7 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
     Object? repostCount = null,
     Object? likeCount = null,
     Object? viewer = null,
-    Object? labels = null,
+    Object? labels = freezed,
     Object? indexedAt = null,
   }) {
     return _then(_$_Post(
@@ -274,10 +274,10 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as PostViewer,
-      labels: null == labels
+      labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
+              as List<Label>?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -301,7 +301,7 @@ class _$_Post extends _Post {
       required this.repostCount,
       required this.likeCount,
       required this.viewer,
-      required final List<Label> labels,
+      final List<Label>? labels,
       required this.indexedAt})
       : _labels = labels,
         super._();
@@ -331,12 +331,14 @@ class _$_Post extends _Post {
   final int likeCount;
   @override
   final PostViewer viewer;
-  final List<Label> _labels;
+  final List<Label>? _labels;
   @override
-  List<Label> get labels {
+  List<Label>? get labels {
+    final value = _labels;
+    if (value == null) return null;
     if (_labels is EqualUnmodifiableListView) return _labels;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_labels);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -413,7 +415,7 @@ abstract class _Post extends Post {
       required final int repostCount,
       required final int likeCount,
       required final PostViewer viewer,
-      required final List<Label> labels,
+      final List<Label>? labels,
       required final DateTime indexedAt}) = _$_Post;
   const _Post._() : super._();
 
@@ -443,7 +445,7 @@ abstract class _Post extends Post {
   @override
   PostViewer get viewer;
   @override
-  List<Label> get labels;
+  List<Label>? get labels;
   @override
   DateTime get indexedAt;
   @override

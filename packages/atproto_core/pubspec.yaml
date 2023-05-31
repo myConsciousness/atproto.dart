@@ -9,7 +9,7 @@ environment:
   sdk: ">=2.17.0 <4.0.0"
 
 dependencies:
-  xrpc: ^0.1.0
+  xrpc: ^0.1.1
   at_uri: ^0.1.0
   universal_io: ^2.2.0
   freezed_annotation: ^2.2.0
