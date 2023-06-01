@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.2
+
+- Upgraded `xrpc` package. ([#312](https://github.com/myConsciousness/atproto.dart/issues/312))
+
 ## v0.3.1
 
 - Added `converter` parameter in `stream<T>`. ([#446](https://github.com/myConsciousness/atproto.dart/issues/446))

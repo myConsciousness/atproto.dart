@@ -1,5 +1,7 @@
 # Release Note
 
+## v0.1.2
+
 ## v0.1.1
 
 - Added `converter` parameter in `subscribe`. ([#446](https://github.com/myConsciousness/atproto.dart/issues/446))
