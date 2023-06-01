@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.4
+
+- Refactored `subscribeRepoUpdates`. ([#472](https://github.com/myConsciousness/atproto.dart/issues/472))
+
 ## v0.5.3
 
 - Renamed from `findSkeletonFeed` to `findFeedSkeleton`. ([#456](https://github.com/myConsciousness/atproto.dart/issues/456))

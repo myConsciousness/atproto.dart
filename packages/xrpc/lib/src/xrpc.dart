@@ -12,7 +12,6 @@ import 'package:mime/mime.dart';
 import 'package:nsid/nsid.dart' as nsid;
 import 'package:web_socket_channel/web_socket_channel.dart';
 
-import 'cbor_decoder.dart';
 import 'client_types.dart';
 import 'entities/empty_data.dart';
 import 'exception/internal_server_error_exception.dart';
@@ -36,13 +35,20 @@ const _defaultService = 'bsky.social';
 /// to model objects.
 typedef To<T> = T Function(Map<String, Object?> json);
 
-/// Function to convert Json to an arbitrary structure.
+/// Function to decode response data.
+typedef Decoder = dynamic Function(dynamic data);
+
+/// Function to convert Json to an specific structure.
 typedef JsonConverter = Map<String, dynamic> Function(
-    Map<String, dynamic> json);
+  dynamic data,
+);
 
 /// A function type that express factory for URI.
-typedef UriFactory = Uri Function(String authority,
-    [String unencodedPath, Map<String, dynamic>? queryParameters]);
+typedef UriFactory = Uri Function(
+  String authority, [
+  String unencodedPath,
+  Map<String, dynamic>? queryParameters,
+]);
 
 /// Performs GET communication to the ATP server.
 ///
@@ -156,6 +162,7 @@ Future<XRPCResponse<T>> query<T>(
   final Map<String, dynamic>? parameters,
   final Duration timeout = const Duration(seconds: 10),
   final To<T>? to,
+  final JsonConverter? converter,
   final GetClient? getClient,
 }) async =>
     _buildResponse<T>(
@@ -174,6 +181,7 @@ Future<XRPCResponse<T>> query<T>(
             .timeout(timeout),
       ),
       to,
+      converter,
     );
 
 /// Performs POST communication to the ATP server.
@@ -348,6 +356,7 @@ XRPCResponse<Subscription<T>> subscribe<T>(
   final String? service,
   final Map<String, dynamic>? parameters,
   final To<T>? to,
+  final Decoder? decoder,
   final JsonConverter? converter,
 }) {
   final uri = _buildWsUri(methodId, service, removeNullValues(parameters));
@@ -356,30 +365,13 @@ XRPCResponse<Subscription<T>> subscribe<T>(
   final controller = StreamController<T>();
 
   channel.stream.listen((event) {
-    final merged = {};
-
-    int offset = 0;
-    while (offset < event.length) {
-      final result = decodeCbor(event, offset);
-      offset += result.bytesRead;
-
-      merged.addAll(result.value);
-    }
+    final data = _convertData(
+      _decodeData(event, decoder),
+      converter,
+    );
 
     controller.sink.add(
-      to != null
-          ? to.call(
-              _convertJson(
-                merged.cast<String, dynamic>(),
-                converter,
-              ),
-            )
-          : jsonEncode(
-              _convertJson(
-                merged.cast<String, dynamic>(),
-                converter,
-              ),
-            ) as T,
+      to != null ? to.call(data) : jsonEncode(data) as T,
     );
   }, onError: (_) async {
     await channel.sink.close();
@@ -494,8 +486,9 @@ Map<String, dynamic> convertParameters(final Map<String, dynamic> parameters) =>
 /// Returns the response object.
 XRPCResponse<T> _buildResponse<T>(
   final http.Response response,
-  final To<T>? to,
-) =>
+  final To<T>? to, [
+  final JsonConverter? converter,
+]) =>
     XRPCResponse(
       headers: response.headers,
       status: HttpStatus.valueOf(response.statusCode),
@@ -503,7 +496,13 @@ XRPCResponse<T> _buildResponse<T>(
         method: HttpMethod.valueOf(response.request!.method),
         url: response.request!.url,
       ),
-      data: _transformData(response.body, to),
+      data: _transformData(
+        _convertData(
+          response.body,
+          converter,
+        ),
+        to,
+      ),
     );
 
 /// Returns the error response.
@@ -559,8 +558,14 @@ Uri _buildWsUri(
   return Uri.parse(buffer.toString());
 }
 
-Map<String, dynamic> _convertJson(
-  final Map<String, dynamic> json,
+dynamic _decodeData(
+  final dynamic data,
+  final Decoder? decoder,
+) =>
+    decoder != null ? decoder.call(data) : data;
+
+dynamic _convertData(
+  final dynamic data,
   final JsonConverter? converter,
 ) =>
-    converter != null ? converter.call(json) : json;
+    converter != null ? converter.call(data) : data;

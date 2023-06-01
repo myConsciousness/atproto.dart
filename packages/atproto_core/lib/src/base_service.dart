@@ -17,6 +17,7 @@ abstract class _Service {
     final UserContext userContext = UserContext.authRequired,
     final Map<String, dynamic>? parameters,
     required final xrpc.To<T> to,
+    final xrpc.JsonConverter? converter,
   });
 
   Future<xrpc.XRPCResponse<T>> post<T>(
@@ -43,6 +44,7 @@ abstract class _Service {
     final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
+    final xrpc.Decoder? decoder,
     final xrpc.JsonConverter? converter,
   });
 }
@@ -84,6 +86,7 @@ abstract class BaseService implements _Service {
     final UserContext userContext = UserContext.authRequired,
     final Map<String, dynamic>? parameters,
     required final xrpc.To<T> to,
+    final xrpc.JsonConverter? converter,
   }) async =>
       await _context.get(
         xrpc.NSID.create(
@@ -95,6 +98,7 @@ abstract class BaseService implements _Service {
         service: _service,
         parameters: parameters,
         to: to,
+        converter: converter,
         getClient: _mockedGetClient,
       );
 
@@ -149,6 +153,7 @@ abstract class BaseService implements _Service {
     final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
+    final xrpc.Decoder? decoder,
     final xrpc.JsonConverter? converter,
   }) async =>
       await _context.stream(
@@ -157,6 +162,7 @@ abstract class BaseService implements _Service {
         service: service,
         parameters: parameters,
         to: to,
+        decoder: decoder,
         converter: converter,
       );
 

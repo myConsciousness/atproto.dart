@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.2
+
+- Added `decoder` parameter in `stream`. ([#472](https://github.com/myConsciousness/atproto.dart/issues/472))
+
 ## v0.3.1
 
 - Added `converter` parameter in `stream<T>`. ([#446](https://github.com/myConsciousness/atproto.dart/issues/446))

@@ -22,6 +22,7 @@ class AuthRequiredClient implements Client {
     required final String service,
     final Map<String, dynamic>? parameters,
     required final xrpc.To<T> to,
+    final xrpc.JsonConverter? converter,
     required final Duration timeout,
     final xrpc.GetClient? getClient,
   }) async =>
@@ -32,6 +33,7 @@ class AuthRequiredClient implements Client {
         parameters: parameters,
         headers: {'Authorization': 'Bearer $_accessJwt'},
         to: to,
+        converter: converter,
         timeout: timeout,
         getClient: getClient,
       );
@@ -92,6 +94,7 @@ class AuthRequiredClient implements Client {
     final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
+    final xrpc.Decoder? decoder,
     final xrpc.JsonConverter? converter,
   }) =>
       throw UnimplementedError();
