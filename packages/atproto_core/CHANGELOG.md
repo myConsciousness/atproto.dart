@@ -2,7 +2,7 @@
 
 ## v0.3.2
 
-- Upgraded `xrpc` package. ([#312](https://github.com/myConsciousness/atproto.dart/issues/312))
+- Added `decoder` parameter in `stream`. ([#472](https://github.com/myConsciousness/atproto.dart/issues/472))
 
 ## v0.3.1
 

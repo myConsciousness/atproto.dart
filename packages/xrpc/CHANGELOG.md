@@ -2,6 +2,8 @@
 
 ## v0.1.2
 
+- Added `decoder` parameter in `subscribe` and delegate data decoding to the responsibility of the app that uses `xrpc`. ([#472](https://github.com/myConsciousness/atproto.dart/issues/472))
+
 ## v0.1.1
 
 - Added `converter` parameter in `subscribe`. ([#446](https://github.com/myConsciousness/atproto.dart/issues/446))
