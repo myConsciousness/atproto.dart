@@ -11,6 +11,8 @@ at_uri:
 - packages/at_uri/**/*
 xrpc:
 - packages/xrpc/**/*
+cid:
+- packages/cid/**/*
 atproto_test:
 - packages/atproto_test/**/*
 atproto_core:
@@ -67,6 +69,7 @@ test:
 - packages/nsid/test/**/*.dart
 - packages/at_uri/test/**/*.dart
 - packages/xrpc/test/**/*.dart
+- packages/cid/test/**/*.dart
 - packages/atproto_test/test/**/*.dart
 - packages/atproto_core/test/**/*.dart
 - packages/atproto/test/**/*.dart
@@ -84,6 +87,8 @@ documentation:
 - packages/at_uri/README.md
 - packages/xrpc/CHANGELOG.md
 - packages/xrpc/README.md
+- packages/cid/CHANGELOG.md
+- packages/cid/README.md
 - packages/atproto_test/CHANGELOG.md
 - packages/atproto_test/README.md
 - packages/atproto_core/CHANGELOG.md
