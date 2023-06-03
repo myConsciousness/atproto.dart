@@ -46,6 +46,18 @@ const bytesCid = [
 ];
 
 void main() {
+  group('.create', () {
+    test('case1', () {
+      final cid = CID.create('hello world');
+
+      expect(
+        cid.toString(),
+        'bafkreifzjut3te2nhyekklss27nh3k72ysco7y32koao5eei66wof36n5e'
+            .toLowerCase(),
+      );
+    });
+  });
+
   group('.fromList', () {
     test('case1', () {
       final cid = CID.fromList(bytesCid);

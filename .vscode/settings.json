@@ -18,6 +18,7 @@
     "modlist",
     "Multibase",
     "multiformats",
+    "Multihash",
     "NSID",
     "pchar",
     "proto",
