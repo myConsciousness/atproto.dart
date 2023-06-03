@@ -1,7 +1,7 @@
-name: cid
-description: Provide useful CID object used by AT Protocol to Dart/Flutter.
+name: multiformats
+description: Provide useful interfaces such a CID used by AT Protocol to Dart/Flutter.
 version: 0.0.1
-repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/cid
+repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/multiformats
 issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
 funding:
   - https://github.com/sponsors/myConsciousness

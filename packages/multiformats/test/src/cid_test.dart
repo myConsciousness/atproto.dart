@@ -2,7 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:cid/src/cid.dart';
+import 'package:multiformats/src/cid.dart';
 import 'package:test/test.dart';
 
 const stringCid = 'bafkreicks4diafps5lz5hjf5lflqbxkhevgdty4k66inqtw4brjyqcr6ou';

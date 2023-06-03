@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 // Copyright 2023 Shinya Kato. All rights reserved.
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
@@ -85,5 +84,5 @@ class CID {
   }
 
   @override
-  int get hashCode => _bytes.hashCode;
+  int get hashCode => bytes.hashCode;
 }

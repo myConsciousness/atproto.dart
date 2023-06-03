@@ -6,7 +6,7 @@
 
 
 <p align="center">
-  <b>Provide Standard cid Object Supported By AT Protocol to Dart/Flutter 🎯</b>
+  <b>Provide useful interfaces such a CID used by AT Protocol to Dart/Flutter 🎯</b>
 </p>
 
 ---
@@ -14,8 +14,8 @@
 [![GitHub Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=ff69b4)](https://github.com/sponsors/myConsciousness)
 [![GitHub Sponsor](https://img.shields.io/static/v1?label=Maintainer&message=myConsciousness&logo=GitHub&color=00acee)](https://github.com/myConsciousness)
 
-[![pub package](https://img.shields.io/pub/v/cid.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/cid)
-[![Dart SDK Version](https://badgen.net/pub/sdk-version/cid)](https://pub.dev/packages/cid/)
+[![pub package](https://img.shields.io/pub/v/multiformats.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/multiformats)
+[![Dart SDK Version](https://badgen.net/pub/sdk-version/multiformats)](https://pub.dev/packages/multiformats/)
 [![Test/Analyzer](https://github.com/myConsciousness/atproto.dart/actions/workflows/cicd.yml/badge.svg)](https://github.com/myConsciousness/atproto.dart/actions/workflows/cicd.yml)
 [![codecov](https://codecov.io/gh/myConsciousness/atproto.dart/branch/main/graph/badge.svg?token=J5GT1PF9Y3)](https://codecov.io/gh/myConsciousness/atproto.dart)
 [![Issues](https://img.shields.io/github/issues/myConsciousness/atproto.dart?logo=github&logoColor=white)](https://github.com/myConsciousness/atproto.dart/issues)
@@ -44,7 +44,7 @@
 
 # 1. Guide 🌎
 
-This library provides the easiest way to use v1 [cid](https://docs.ipfs.tech/concepts/content-addressing/) in **Dart** and **Flutter** apps.
+This library provides the easiest way to use v1 [CID](https://docs.ipfs.tech/concepts/content-addressing/) and other interfaces in **Dart** and **Flutter** apps.
 
 **Show some ❤️ and star the repo to support the project.**
 
@@ -55,25 +55,25 @@ This library provides the easiest way to use v1 [cid](https://docs.ipfs.tech/con
 **With Dart:**
 
 ```bash
- dart pub add cid
+ dart pub add multiformats
 ```
 
 **Or With Flutter:**
 
 ```bash
- flutter pub add cid
+ flutter pub add multiformats
 ```
 
 ### 1.1.2. Import
 
 ```dart
-import 'package:cid/cid.dart';
+import 'package:multiformats/multiformats.dart';
 ```
 
 ### 1.1.3. Implementation
 
 ```dart
-import 'package:cid/cid.dart';
+import 'package:multiformats/multiformats.dart';
 
 import 'data.dart';
 
@@ -90,13 +90,13 @@ void main() {
   });
 
   cid3 == cid1 && cid3 == cid2; // => true
-  cid3.toJson(); // => {"link": "bafkreicks4diafps5lz5hjf5lflqbxkhevgdty4k66inqtw4brjyqcr6ou"}
+  cid3.toJson(); // => {"/": "bafkreicks4diafps5lz5hjf5lflqbxkhevgdty4k66inqtw4brjyqcr6ou"}
 }
 ```
 
 ## 1.2. Contribution 🏆
 
-If you would like to contribute to **cid**, please create an [issue](https://github.com/myConsciousness/atproto.dart/issues) or create a Pull Request.
+If you would like to contribute to **multiformats**, please create an [issue](https://github.com/myConsciousness/atproto.dart/issues) or create a Pull Request.
 
 There are many ways to contribute to the OSS. For example, the following subjects can be cocidered:
 
@@ -117,7 +117,7 @@ Or you can create a [discussion](https://github.com/myConsciousness/atproto.dart
 
 ## 1.3. Support ❤️
 
-The simplest way to show us your support is by **giving the project a star** at [GitHub](https://github.com/myConsciousness/atproto.dart) and [Pub.dev](https://pub.dev/packages/cid).
+The simplest way to show us your support is by **giving the project a star** at [GitHub](https://github.com/myConsciousness/atproto.dart) and [Pub.dev](https://pub.dev/packages/multiformats).
 
 You can also support this project by **becoming a sponsor** on GitHub:
 
@@ -129,21 +129,21 @@ You can also support this project by **becoming a sponsor** on GitHub:
   </p>
 </div>
 
-You can also show on your repository that your app is made with **cid** by using one of the following badges:
+You can also show on your repository that your app is made with **multiformats** by using one of the following badges:
 
-[![Powered by cid](https://img.shields.io/badge/Powered%20by-cid-00acee.svg)](https://github.com/myConsciousness/atproto.dart)
-[![Powered by cid](https://img.shields.io/badge/Powered%20by-cid-00acee.svg?style=flat-square)](https://github.com/myConsciousness/atproto.dart)
-[![Powered by cid](https://img.shields.io/badge/Powered%20by-cid-00acee.svg?style=for-the-badge)](https://github.com/myConsciousness/atproto.dart)
+[![Powered by multiformats](https://img.shields.io/badge/Powered%20by-multiformats-00acee.svg)](https://github.com/myConsciousness/atproto.dart)
+[![Powered by multiformats](https://img.shields.io/badge/Powered%20by-multiformats-00acee.svg?style=flat-square)](https://github.com/myConsciousness/atproto.dart)
+[![Powered by multiformats](https://img.shields.io/badge/Powered%20by-multiformats-00acee.svg?style=for-the-badge)](https://github.com/myConsciousness/atproto.dart)
 
 ```license
-[![Powered by cid](https://img.shields.io/badge/Powered%20by-cid-00acee.svg)](https://github.com/myConsciousness/atproto.dart)
-[![Powered by cid](https://img.shields.io/badge/Powered%20by-cid-00acee.svg?style=flat-square)](https://github.com/myConsciousness/atproto.dart)
-[![Powered by cid](https://img.shields.io/badge/Powered%20by-cid-00acee.svg?style=for-the-badge)](https://github.com/myConsciousness/atproto.dart)
+[![Powered by multiformats](https://img.shields.io/badge/Powered%20by-multiformats-00acee.svg)](https://github.com/myConsciousness/atproto.dart)
+[![Powered by multiformats](https://img.shields.io/badge/Powered%20by-multiformats-00acee.svg?style=flat-square)](https://github.com/myConsciousness/atproto.dart)
+[![Powered by multiformats](https://img.shields.io/badge/Powered%20by-multiformats-00acee.svg?style=for-the-badge)](https://github.com/myConsciousness/atproto.dart)
 ```
 
 ## 1.4. License 🔑
 
-All resources of **cid** is provided under the `BSD-3` license.
+All resources of **multiformats** is provided under the `BSD-3` license.
 
 ```license
 Copyright 2023 Shinya Kato. All rights reserved.
@@ -156,10 +156,10 @@ modification, are permitted provided the conditions.
 
 ## 1.5. More Information 🧐
 
-**cid** was designed and implemented by **_Shinya Kato ([@myConsciousness](https://github.com/myConsciousness))_**.
+**multiformats** was designed and implemented by **_Shinya Kato ([@myConsciousness](https://github.com/myConsciousness))_**.
 
 - [Creator Profile](https://github.com/myConsciousness)
 - [License](https://github.com/myConsciousness/atproto.dart/blob/main/LICENSE)
-- [API Document](https://pub.dev/documentation/cid/latest/cid/cid-library.html)
+- [API Document](https://pub.dev/documentation/multiformats/latest/multiformats/multiformats-library.html)
 - [Release Note](https://github.com/myConsciousness/atproto.dart/releases)
 - [Bug Report](https://github.com/myConsciousness/atproto.dart/issues)

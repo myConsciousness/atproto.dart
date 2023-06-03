@@ -4,7 +4,7 @@
 
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:cid/cid.dart';
+import 'package:multiformats/multiformats.dart';
 
 import 'data.dart';
 
@@ -21,5 +21,5 @@ void main() {
   });
 
   cid3 == cid1 && cid3 == cid2; // => true
-  cid3.toJson(); // => {"link": "bafkreicks4diafps5lz5hjf5lflqbxkhevgdty4k66inqtw4brjyqcr6ou"}
+  cid3.toJson(); // => {"/": "bafkreicks4diafps5lz5hjf5lflqbxkhevgdty4k66inqtw4brjyqcr6ou"}
 }
