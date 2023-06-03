@@ -22,4 +22,8 @@ void main() {
 
   cid3 == cid1 && cid3 == cid2; // => true
   cid3.toJson(); // => {"/": "bafkreicks4diafps5lz5hjf5lflqbxkhevgdty4k66inqtw4brjyqcr6ou"}
+
+  final cid4 = CID.create('hello world');
+
+  cid4.toString(); // => bafkreifzjut3te2nhyekklss27nh3k72ysco7y32koao5eei66wof36n5e
 }
