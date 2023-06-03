@@ -10,26 +10,30 @@ import 'package:dart_multihash/dart_multihash.dart';
 
 import 'base32.dart' as base32;
 
+/// Indicates that the passed CID could not be parsed.
+class InvalidCidError extends Error {
+  /// Returns the new instance of [InvalidCidError].
+  InvalidCidError(this.message);
+
+  /// The error message
+  final String message;
+
+  @override
+  String toString() => 'InvalidCidError: $message';
+}
+
 /// This is a simple implementation of V1 CID, or a content identifier.
 /// CID is a label used to point to material in IPFS.
 class CID {
   /// Returns the new instance of [CID].
-  CID(final Uint8List bytes) : _bytes = bytes {
-    if (_bytes.isEmpty) {
-      throw ArgumentError.value(
-        bytes,
-        'bytes',
-        'must not be empty',
-      );
-    }
-  }
+  const CID(final Uint8List bytes) : _bytes = bytes;
 
   /// Returns the CID representation of specific string [input].
   factory CID.create(final String input) =>
-      CID.fromList(_asCivV1(_toMultihash(input)));
+      CID.fromList(_toV1(_toMultihash(input)));
 
   /// Returns the new instance of [CID] based on string [cid].
-  factory CID.parse(final String cid) => CID(_decode(cid));
+  factory CID.parse(final String cid) => CID(_decode(_ensureFormat(cid)));
 
   /// Returns the new instance of [CID] based on list [bytes].
   factory CID.fromList(final List<int> bytes) => CID(Uint8List.fromList(bytes));
@@ -40,6 +44,11 @@ class CID {
 
   /// The default JSON key.
   static const _defaultJsonKey = '/';
+
+  static const _cidV1Code = 0x01;
+  static const _dagPgCode = 0x55;
+  static const _sha256Code = 0x12;
+  static const _hashLength = 0x20;
 
   /// The byte representation of this CID.
   final Uint8List _bytes;
@@ -66,10 +75,10 @@ class CID {
   }
 
   /// Returns the multihash bytes as CID v1.
-  static Uint8List _asCivV1(final Uint8List multihash) {
+  static Uint8List _toV1(final Uint8List multihash) {
     final buffer = BytesBuilder()
-      ..add(Uint8List.fromList([0x01])) //! CID v1
-      ..add(Uint8List.fromList([0x55])) //! Raw Codec
+      ..add(Uint8List.fromList([_cidV1Code]))
+      ..add(Uint8List.fromList([_dagPgCode]))
       ..add(multihash);
 
     return buffer.toBytes();
@@ -83,6 +92,40 @@ class CID {
   static Uint8List _decode(final String string) => string.startsWith('b')
       ? base32.decode(string.substring(1))
       : base32.decode(string);
+
+  static String _ensureFormat(final String cid) {
+    if (!cid.startsWith('b')) {
+      throw InvalidCidError('CID v1 should be encoded in base32 format');
+    }
+
+    final bytes = _decode(cid);
+
+    if (bytes.length < 4) {
+      throw InvalidCidError('Informal length of bytes');
+    }
+
+    if (bytes[0] != _cidV1Code) {
+      throw InvalidCidError('Should be CID v1');
+    }
+
+    if (bytes[1] != _dagPgCode) {
+      throw InvalidCidError('Should be DAG-PG format');
+    }
+
+    if (bytes[2] != _sha256Code) {
+      throw InvalidCidError('Multihash should be SHA-256');
+    }
+
+    if (bytes[3] != _hashLength) {
+      throw InvalidCidError('Length of SHA-256 hash should be 32');
+    }
+
+    if (bytes.sublist(4).length != _hashLength) {
+      throw InvalidCidError('Length of SHA-256 hash should be 32');
+    }
+
+    return cid;
+  }
 
   @override
   String toString() => _format();

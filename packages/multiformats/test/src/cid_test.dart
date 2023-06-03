@@ -70,10 +70,6 @@ void main() {
 
       expect(cid.toString(), stringCid);
     });
-
-    test('case3', () {
-      expect(() => CID.fromList([]), throwsA(isA<ArgumentError>()));
-    });
   });
 
   group('.parse', () {
@@ -88,10 +84,6 @@ void main() {
 
       expect(cid.bytes, [0, ...bytesCid]);
     });
-
-    test('case3', () {
-      expect(() => CID.parse(''), throwsA(isA<ArgumentError>()));
-    });
   });
 
   group('.fromJson', () {
@@ -100,10 +92,6 @@ void main() {
 
       expect(cid.bytes, [0, ...bytesCid]);
       expect(cid.toString(), stringCid);
-    });
-
-    test('case2', () {
-      expect(() => CID.fromJson({'/': ''}), throwsA(isA<ArgumentError>()));
     });
   });
 
@@ -142,6 +130,63 @@ void main() {
       final cid2 = CID.fromList([1, 2, ...bytesCid.sublist(2)]);
 
       expect(cid1 == cid2, isFalse);
+    });
+  });
+
+  group('invalid cases', () {
+    test('CID v1 should be encoded in base32 format', () {
+      expect(
+        () => CID.parse(
+            'afkreicks4diafps5lz5hjf5lflqbxkhevgdty4k66inqtw4brjyqcr6oub'),
+        throwsA(isA<InvalidCidError>()),
+      );
+    });
+
+    test('Informal length of bytes', () {
+      expect(
+        () => CID.parse('b'),
+        throwsA(isA<InvalidCidError>()),
+      );
+    });
+
+    test('Should be CID v1', () {
+      expect(
+        () => CID.parse(
+            'babkreifzjut3te2nhyekklss27nh3k72ysco7y32koao5eei66wof36n5e'),
+        throwsA(isA<InvalidCidError>()),
+      );
+    });
+
+    test('Should be DAG-PG format', () {
+      expect(
+        () => CID.parse(
+            'bafkbeifzjut3te2nhyekklss27nh3k72ysco7y32koao5eei66wof36n5e'),
+        throwsA(isA<InvalidCidError>()),
+      );
+    });
+
+    test('Multihash should be SHA-256', () {
+      expect(
+        () => CID.parse(
+            'bafkrgifzjut3te2nhyekklss27nh3k72ysco7y32koao5eei66wof36n5e'),
+        throwsA(isA<InvalidCidError>()),
+      );
+    });
+
+    test('Length of SHA-256 hash should be 32 case1', () {
+      expect(
+        () => CID.parse(
+            'bafkreinzjut3te2nhyekklss27nh3k72ysco7y32koao5eei66wof36n5e'),
+        throwsA(isA<InvalidCidError>()),
+      );
+    });
+
+    test('Length of SHA-256 hash should be 32 case2', () {
+      expect(
+        () => CID.parse(
+            'afkreifzjut3te2nhyekklss27nh3k72ysco7y32koao5eei66wof36n5eaq'),
+        throwsA(isA<InvalidCidError>()),
+      );
     });
   });
 }
