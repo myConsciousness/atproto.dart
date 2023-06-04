@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.1.2
+
+- Supported `dag-cbor`. ([#484](https://github.com/myConsciousness/atproto.dart/issues/484))
+
 ## v0.1.1
 
 - Fixed a bug in `CID`. ([#482](https://github.com/myConsciousness/atproto.dart/issues/482))
