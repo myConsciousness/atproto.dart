@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.1.3
+
+- Removed dependencies and moved to `atproto_core`. ([#473](https://github.com/myConsciousness/atproto.dart/issues/473))
+
 ## v0.1.2
 
 - Added `decoder` parameter in `subscribe` and delegate data decoding to the responsibility of the app that uses `xrpc`. ([#472](https://github.com/myConsciousness/atproto.dart/issues/472))

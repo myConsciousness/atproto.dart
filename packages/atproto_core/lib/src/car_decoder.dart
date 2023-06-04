@@ -5,10 +5,12 @@
 import 'dart:collection';
 import 'dart:typed_data';
 
+import 'package:multiformats/multiformats.dart';
+
 const _cidV1BytesLength = 36;
 
 BlockMap decodeCar(final Uint8List bytes) {
-  final blocks = <List<int>, List<int>>{};
+  final blocks = <CID, List<int>>{};
 
   final header = _decodeReader(bytes);
   int start = header.length + header.value;
@@ -17,10 +19,10 @@ BlockMap decodeCar(final Uint8List bytes) {
     final body = _decodeReader(bytes.sublist(start));
     start += body.length;
 
-    final cid = bytes.sublist(
+    final cid = CID.fromList(bytes.sublist(
       start,
       start + _cidV1BytesLength,
-    );
+    ));
 
     start += _cidV1BytesLength;
     blocks[cid] = bytes.sublist(
@@ -34,31 +36,18 @@ BlockMap decodeCar(final Uint8List bytes) {
   return BlockMap(blocks);
 }
 
-class BlockMap extends UnmodifiableMapView<List<int>, List<int>> {
+class BlockMap extends UnmodifiableMapView<CID, List<int>> {
   BlockMap(super.map);
 
   /// Returns the block value associated with [cid], otherwise null.
-  List<int>? get(final List<int> cid) {
-    final hashedCid = _toHash(cid);
-
+  List<int>? get(final CID cid) {
     for (final entry in entries) {
-      if (hashedCid == _toHash(entry.key)) {
+      if (cid == entry.key) {
         return entry.value;
       }
     }
 
     return null;
-  }
-
-  /// Returns the hash representation of [data].
-  int _toHash(final List<int> data) {
-    int hash = 0;
-
-    for (int i = 0; i < data.length; i++) {
-      hash = (hash + data[i]) % data.length;
-    }
-
-    return hash;
   }
 }
 

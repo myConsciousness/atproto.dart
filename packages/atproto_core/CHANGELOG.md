@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.3
+
+- Exposed `car_decoder` and `cbor`. Moved from `xrpc`. ([#473](https://github.com/myConsciousness/atproto.dart/issues/473))
+
 ## v0.3.2
 
 - Added `decoder` parameter in `stream`. ([#472](https://github.com/myConsciousness/atproto.dart/issues/472))

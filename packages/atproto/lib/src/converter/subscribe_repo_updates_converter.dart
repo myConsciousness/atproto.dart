@@ -13,7 +13,9 @@ Map<String, dynamic> convertSubscribeRepoUpdates(final dynamic data) {
   }
 
   final json = <String, dynamic>{...data[0], ...data[1]};
-  final blocks = core.decodeCar(Uint8List.fromList(json['blocks']));
+  final blocks = core.decodeCar(
+    Uint8List.fromList(json['blocks']),
+  );
 
   for (final op in json['ops']) {
     op['uri'] = 'at://${json['repo']}/${op['path']}';
@@ -23,7 +25,7 @@ Map<String, dynamic> convertSubscribeRepoUpdates(final dynamic data) {
       continue;
     }
 
-    final record = blocks.get(cid.sublist(1));
+    final record = blocks.get(core.CID.fromList(cid));
 
     if (record != null) {
       op['record'] = jsonDecode(

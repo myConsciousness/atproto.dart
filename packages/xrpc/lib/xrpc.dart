@@ -2,9 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-export 'package:cbor/simple.dart' show cbor;
 export 'package:nsid/nsid.dart' show NSID;
-export 'package:xrpc/src/car_decoder.dart';
 export 'package:xrpc/src/client_types.dart';
 export 'package:xrpc/src/entities/empty_data.dart';
 export 'package:xrpc/src/exception/internal_server_error_exception.dart';
