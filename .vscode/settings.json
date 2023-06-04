@@ -17,6 +17,7 @@
     "listitem",
     "modlist",
     "Multibase",
+    "Multicodec",
     "multiformats",
     "Multihash",
     "NSID",

@@ -1,6 +1,6 @@
 name: multiformats
 description: Provide useful interfaces such a CID used by AT Protocol to Dart/Flutter.
-version: 0.1.1
+version: 0.1.2
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/multiformats
 issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
 funding:
