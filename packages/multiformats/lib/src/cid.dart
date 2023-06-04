@@ -10,6 +10,15 @@ import 'package:dart_multihash/dart_multihash.dart';
 
 import 'base32.dart' as base32;
 
+/// Represents multicodecs types.
+///
+/// Multicodecs are self-describing protocol/encoding streams defined by
+/// multiformats, used as unique identifiers for various data types or
+/// encodings.
+///
+/// A `Multicodec` consists of an identifier `code`, which
+/// describes the data format or encoding associated with that `code`.
+///
 enum Multicodec {
   dagPb(0x55),
   dabCbor(0x71);
@@ -29,6 +38,29 @@ enum Multicodec {
 
     return false;
   }
+
+  /// Returns the specific codec based on [code].
+  static Multicodec valueOf(final int code) {
+    for (final codec in values) {
+      if (codec.code == code) {
+        return codec;
+      }
+    }
+
+    throw UnsupportedError('Unsupported code: [$code]');
+  }
+
+  /// Returns true if this codec is dag-pb, otherwise false.
+  bool get isDagPb => this == Multicodec.dagPb;
+
+  /// Returns true if this codec is not dag-pb, otherwise false.
+  bool get isNotDagPb => !isDagPb;
+
+  /// Returns true if this codec is dag-cbor, otherwise false.
+  bool get isDagCbor => this == Multicodec.dabCbor;
+
+  /// Returns true if this codec is not dag-cbor, otherwise false.
+  bool get isNotDagCbor => !isDagCbor;
 }
 
 /// Indicates that the passed CID could not be parsed.
@@ -83,6 +115,9 @@ class CID {
   /// Returns the bytes representation of this CID.
   Uint8List get bytes =>
       _bytes.first == 0 ? _bytes : Uint8List.fromList([0, ..._bytes]);
+
+  /// Returns the multicodec of this CID.
+  Multicodec get codec => Multicodec.valueOf(bytes[2]);
 
   /// Returns the JSON representation of this CID.
   Map<String, dynamic> toJson() => {
