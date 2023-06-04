@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.1.1
+
+- Fixed a bug in `CID`. ([#482](https://github.com/myConsciousness/atproto.dart/issues/482))
+
 ## v0.1.0
 
 - Added `CID.create` factory. Now you can create CID from specific text. ([#477](https://github.com/myConsciousness/atproto.dart/issues/477))

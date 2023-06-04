@@ -33,10 +33,14 @@ class CID {
       CID.fromList(_toV1(_toMultihash(input)));
 
   /// Returns the new instance of [CID] based on string [cid].
-  factory CID.parse(final String cid) => CID(_decode(_ensureFormat(cid)));
+  factory CID.parse(final String cid) => CID(
+        _decode(_ensureStringFormat(cid)),
+      );
 
   /// Returns the new instance of [CID] based on list [bytes].
-  factory CID.fromList(final List<int> bytes) => CID(Uint8List.fromList(bytes));
+  factory CID.fromList(final List<int> bytes) => CID(
+        _ensureBytesFormat(Uint8List.fromList(bytes)),
+      );
 
   /// Returns the new instance of [CID] based on [json].
   factory CID.fromJson(final Map<String, dynamic> json) =>
@@ -62,8 +66,8 @@ class CID {
         _defaultJsonKey: _format(),
       };
 
-  /// Returns the base32 encoded string representation of this [_bytes].
-  String _format() => 'b${_encode(_bytes).replaceAll('=', '').toLowerCase()}';
+  /// Returns the base32 encoded string representation of this [bytes].
+  String _format() => 'b${_encode(bytes).replaceAll('=', '').toLowerCase()}';
 
   /// Returns the multihash representation of [input].
   static Uint8List _toMultihash(final String input) {
@@ -93,38 +97,52 @@ class CID {
       ? base32.decode(string.substring(1))
       : base32.decode(string);
 
-  static String _ensureFormat(final String cid) {
+  static String _ensureStringFormat(final String cid) {
     if (!cid.startsWith('b')) {
       throw InvalidCidError('CID v1 should be encoded in base32 format');
     }
 
-    final bytes = _decode(cid);
+    _ensureBytesFormat(_decode(cid));
 
-    if (bytes.length < 4) {
+    return cid;
+  }
+
+  static Uint8List _ensureBytesFormat(final Uint8List bytes) {
+    if (bytes.isEmpty) {
+      throw InvalidCidError('Bytes must not be empty');
+    }
+
+    if ((bytes.first == 0 && bytes.length < 5) ||
+        (bytes.first != 0 && bytes.length < 4)) {
       throw InvalidCidError('Informal length of bytes');
     }
 
-    if (bytes[0] != _cidV1Code) {
+    int index = 0;
+    if (bytes.first == 0) {
+      index++;
+    }
+
+    if (bytes[index++] != _cidV1Code) {
       throw InvalidCidError('Should be CID v1');
     }
 
-    if (bytes[1] != _dagPgCode) {
+    if (bytes[index++] != _dagPgCode) {
       throw InvalidCidError('Should be DAG-PG format');
     }
 
-    if (bytes[2] != _sha256Code) {
+    if (bytes[index++] != _sha256Code) {
       throw InvalidCidError('Multihash should be SHA-256');
     }
 
-    if (bytes[3] != _hashLength) {
+    if (bytes[index++] != _hashLength) {
       throw InvalidCidError('Length of SHA-256 hash should be 32');
     }
 
-    if (bytes.sublist(4).length != _hashLength) {
+    if (bytes.sublist(index).length != _hashLength) {
       throw InvalidCidError('Length of SHA-256 hash should be 32');
     }
 
-    return cid;
+    return bytes;
   }
 
   @override
@@ -139,11 +157,7 @@ class CID {
     final thisBytes = bytes;
     final otherBytes = other.bytes;
 
-    if (thisBytes.length != otherBytes.length) {
-      return false;
-    }
-
-    for (int i = 0; i < _bytes.length; i++) {
+    for (int i = 0; i < thisBytes.length; i++) {
       if (thisBytes[i] != otherBytes[i]) {
         return false;
       }
