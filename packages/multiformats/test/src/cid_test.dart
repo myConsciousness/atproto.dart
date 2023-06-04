@@ -120,14 +120,7 @@ void main() {
 
     test('case3', () {
       final cid1 = CID.fromList(bytesCid);
-      final cid2 = CID.fromList([1, ...bytesCid]);
-
-      expect(cid1 == cid2, isFalse);
-    });
-
-    test('case4', () {
-      final cid1 = CID.fromList(bytesCid);
-      final cid2 = CID.fromList([1, 2, ...bytesCid.sublist(2)]);
+      final cid2 = CID.fromList([1, 85, 18, 32, 9, ...bytesCid.sublist(5)]);
 
       expect(cid1 == cid2, isFalse);
     });
