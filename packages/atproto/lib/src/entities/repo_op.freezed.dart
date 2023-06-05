@@ -20,13 +20,12 @@ RepoOp _$RepoOpFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RepoOp {
-  @Uint8ListConverter()
-  Uint8List? get cid => throw _privateConstructorUsedError;
   RepoAction get action => throw _privateConstructorUsedError;
   @Deprecated('Use uri instead. Will be removed in v0.6.0')
   String get path => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
+  String? get cid => throw _privateConstructorUsedError;
   Map<String, dynamic>? get record => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,10 +39,10 @@ abstract class $RepoOpCopyWith<$Res> {
       _$RepoOpCopyWithImpl<$Res, RepoOp>;
   @useResult
   $Res call(
-      {@Uint8ListConverter() Uint8List? cid,
-      RepoAction action,
+      {RepoAction action,
       @Deprecated('Use uri instead. Will be removed in v0.6.0') String path,
       @AtUriConverter() AtUri uri,
+      String? cid,
       Map<String, dynamic>? record});
 }
 
@@ -60,17 +59,13 @@ class _$RepoOpCopyWithImpl<$Res, $Val extends RepoOp>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cid = freezed,
     Object? action = null,
     Object? path = null,
     Object? uri = null,
+    Object? cid = freezed,
     Object? record = freezed,
   }) {
     return _then(_value.copyWith(
-      cid: freezed == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as Uint8List?,
       action: null == action
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
@@ -83,6 +78,10 @@ class _$RepoOpCopyWithImpl<$Res, $Val extends RepoOp>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      cid: freezed == cid
+          ? _value.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String?,
       record: freezed == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
@@ -98,10 +97,10 @@ abstract class _$$_RepoOpCopyWith<$Res> implements $RepoOpCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@Uint8ListConverter() Uint8List? cid,
-      RepoAction action,
+      {RepoAction action,
       @Deprecated('Use uri instead. Will be removed in v0.6.0') String path,
       @AtUriConverter() AtUri uri,
+      String? cid,
       Map<String, dynamic>? record});
 }
 
@@ -115,17 +114,13 @@ class __$$_RepoOpCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cid = freezed,
     Object? action = null,
     Object? path = null,
     Object? uri = null,
+    Object? cid = freezed,
     Object? record = freezed,
   }) {
     return _then(_$_RepoOp(
-      cid: freezed == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as Uint8List?,
       action: null == action
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
@@ -138,6 +133,10 @@ class __$$_RepoOpCopyWithImpl<$Res>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      cid: freezed == cid
+          ? _value.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String?,
       record: freezed == record
           ? _value._record
           : record // ignore: cast_nullable_to_non_nullable
@@ -150,20 +149,17 @@ class __$$_RepoOpCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RepoOp implements _RepoOp {
   const _$_RepoOp(
-      {@Uint8ListConverter() this.cid,
-      required this.action,
+      {required this.action,
       @Deprecated('Use uri instead. Will be removed in v0.6.0')
       required this.path,
       @AtUriConverter() required this.uri,
+      this.cid,
       final Map<String, dynamic>? record})
       : _record = record;
 
   factory _$_RepoOp.fromJson(Map<String, dynamic> json) =>
       _$$_RepoOpFromJson(json);
 
-  @override
-  @Uint8ListConverter()
-  final Uint8List? cid;
   @override
   final RepoAction action;
   @override
@@ -172,6 +168,8 @@ class _$_RepoOp implements _RepoOp {
   @override
   @AtUriConverter()
   final AtUri uri;
+  @override
+  final String? cid;
   final Map<String, dynamic>? _record;
   @override
   Map<String, dynamic>? get record {
@@ -184,7 +182,7 @@ class _$_RepoOp implements _RepoOp {
 
   @override
   String toString() {
-    return 'RepoOp(cid: $cid, action: $action, path: $path, uri: $uri, record: $record)';
+    return 'RepoOp(action: $action, path: $path, uri: $uri, cid: $cid, record: $record)';
   }
 
   @override
@@ -192,21 +190,16 @@ class _$_RepoOp implements _RepoOp {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RepoOp &&
-            const DeepCollectionEquality().equals(other.cid, cid) &&
             (identical(other.action, action) || other.action == action) &&
             (identical(other.path, path) || other.path == path) &&
             (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.cid, cid) || other.cid == cid) &&
             const DeepCollectionEquality().equals(other._record, _record));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(cid),
-      action,
-      path,
-      uri,
+  int get hashCode => Object.hash(runtimeType, action, path, uri, cid,
       const DeepCollectionEquality().hash(_record));
 
   @JsonKey(ignore: true)
@@ -225,18 +218,15 @@ class _$_RepoOp implements _RepoOp {
 
 abstract class _RepoOp implements RepoOp {
   const factory _RepoOp(
-      {@Uint8ListConverter() final Uint8List? cid,
-      required final RepoAction action,
+      {required final RepoAction action,
       @Deprecated('Use uri instead. Will be removed in v0.6.0')
       required final String path,
       @AtUriConverter() required final AtUri uri,
+      final String? cid,
       final Map<String, dynamic>? record}) = _$_RepoOp;
 
   factory _RepoOp.fromJson(Map<String, dynamic> json) = _$_RepoOp.fromJson;
 
-  @override
-  @Uint8ListConverter()
-  Uint8List? get cid;
   @override
   RepoAction get action;
   @override
@@ -245,6 +235,8 @@ abstract class _RepoOp implements RepoOp {
   @override
   @AtUriConverter()
   AtUri get uri;
+  @override
+  String? get cid;
   @override
   Map<String, dynamic>? get record;
   @override
