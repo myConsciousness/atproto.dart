@@ -6,125 +6,246 @@ import 'dart:async';
 
 import 'package:atproto/atproto.dart';
 
-import '../post.dart';
+import '../../extension/at_uri_extension.dart';
+import '../follow_record.dart';
+import '../ids/ids.dart' as ids;
+import '../like_record.dart';
 import '../post_record.dart';
-import 'repo_create_event.dart';
+import '../profile_record.dart';
+import '../repost_record.dart';
+import 'repo_commit_create.dart';
+import 'repo_commit_delete.dart';
+import 'repo_commit_update.dart';
 
-typedef RepoOnCreate = FutureOr<void> Function(RepoCreateEvent data);
-typedef RepoOnUpdate = FutureOr<void> Function(SubscribedRepoCommit data);
-typedef RepoOnDelete = FutureOr<void> Function(SubscribedRepoCommit data);
+/// Action on create records.
+typedef RepoCommitOnCreate<T> = FutureOr<void> Function(
+    RepoCommitCreate<T> data);
+
+/// Action on update records.
+typedef RepoCommitOnUpdate<T> = FutureOr<void> Function(
+    RepoCommitUpdate<T> data);
+
+/// Action on delete records.
+typedef RepoCommitOnDelete = FutureOr<void> Function(RepoCommitDelete data);
 
 class RepoCommitAdaptor {
   /// Returns the new instance of [RepoCommitAdaptor].
   const RepoCommitAdaptor({
-    this.onCreatePost,
-    this.onCreateRepost,
-    this.onCreateLike,
-    this.onCreateFollow,
-    this.onCreateUnknown,
-    this.onUpdateProfile,
-    this.onUpdateUnknown,
-    this.onDeletePost,
-    this.onDeleteRepost,
-    this.onDeleteLike,
-    this.onDeleteFollow,
-    this.onDeleteUnknown,
-  });
+    final RepoCommitOnCreate<PostRecord>? onCreatePost,
+    final RepoCommitOnCreate<RepostRecord>? onCreateRepost,
+    final RepoCommitOnCreate<LikeRecord>? onCreateLike,
+    final RepoCommitOnCreate<FollowRecord>? onCreateFollow,
+    final RepoCommitOnCreate<Map<String, dynamic>>? onCreateUnknown,
+    final RepoCommitOnUpdate<ProfileRecord>? onUpdateProfile,
+    final RepoCommitOnUpdate<Map<String, dynamic>>? onUpdateUnknown,
+    final RepoCommitOnDelete? onDeletePost,
+    final RepoCommitOnDelete? onDeleteRepost,
+    final RepoCommitOnDelete? onDeleteLike,
+    final RepoCommitOnDelete? onDeleteFollow,
+    final RepoCommitOnDelete? onDeleteUnknown,
+  })  : _onCreatePost = onCreatePost,
+        _onCreateRepost = onCreateRepost,
+        _onCreateLike = onCreateLike,
+        _onCreateFollow = onCreateFollow,
+        _onCreateUnknown = onCreateUnknown,
+        _onUpdateProfile = onUpdateProfile,
+        _onUpdateUnknown = onUpdateUnknown,
+        _onDeletePost = onDeletePost,
+        _onDeleteRepost = onDeleteRepost,
+        _onDeleteLike = onDeleteLike,
+        _onDeleteFollow = onDeleteFollow,
+        _onDeleteUnknown = onDeleteUnknown;
 
-  final RepoOnCreate? onCreatePost;
-  final RepoOnCreate? onCreateRepost;
-  final RepoOnCreate? onCreateLike;
-  final RepoOnCreate? onCreateFollow;
-  final RepoOnCreate? onCreateUnknown;
+  final RepoCommitOnCreate<PostRecord>? _onCreatePost;
+  final RepoCommitOnCreate<RepostRecord>? _onCreateRepost;
+  final RepoCommitOnCreate<LikeRecord>? _onCreateLike;
+  final RepoCommitOnCreate<FollowRecord>? _onCreateFollow;
+  final RepoCommitOnCreate<Map<String, dynamic>>? _onCreateUnknown;
 
-  final RepoOnUpdate? onUpdateProfile;
-  final RepoOnUpdate? onUpdateUnknown;
+  final RepoCommitOnUpdate<ProfileRecord>? _onUpdateProfile;
+  final RepoCommitOnUpdate<Map<String, dynamic>>? _onUpdateUnknown;
 
-  final RepoOnDelete? onDeletePost;
-  final RepoOnDelete? onDeleteRepost;
-  final RepoOnDelete? onDeleteLike;
-  final RepoOnDelete? onDeleteFollow;
-  final RepoOnDelete? onDeleteUnknown;
+  final RepoCommitOnDelete? _onDeletePost;
+  final RepoCommitOnDelete? _onDeleteRepost;
+  final RepoCommitOnDelete? _onDeleteLike;
+  final RepoCommitOnDelete? _onDeleteFollow;
+  final RepoCommitOnDelete? _onDeleteUnknown;
 
-  void execute(final SubscribedRepoCommit data) {
+  /// Performs actions based on [data].
+  FutureOr<void> execute(final SubscribedRepoCommit data) async {
     for (final op in data.ops) {
       switch (op.action) {
         case RepoAction.create:
-          if (op.uri.collection == 'app.bsky.feed.post' &&
-              op.record!['\$type'] == 'app.bsky.feed.post') {
-            onCreatePost?.call(
-              RepoCreateEvent<PostRecord>(
-                uri: op.uri,
-                cid: op.cid!,
-                record: PostRecord.fromJson(op.record!),
-                author: data.did,
-              ),
-            );
-          } else if (op.uri.collection == 'app.bsky.feed.repost' &&
-              op.record!['\$type'] == 'app.bsky.feed.repost') {
-            onCreateRepost?.call(
-              RepoCreateEvent<Post>(
-                uri: op.uri,
-                cid: op.cid!,
-                record: Post.fromJson(op.record!),
-                author: data.did,
-              ),
-            );
-          } else if (op.uri.collection == 'app.bsky.feed.like' &&
-              op.record!['\$type'] == 'app.bsky.feed.like') {
-            onCreateLike?.call(
-              RepoCreateEvent<Post>(
-                uri: op.uri,
-                cid: op.cid!,
-                record: Post.fromJson(op.record!),
-                author: data.did,
-              ),
-            );
-          } else if (op.uri.collection == 'app.bsky.graph.follow' &&
-              op.record!['\$type'] == 'app.bsky.graph.follow') {
-            onCreateFollow?.call(
-              RepoCreateEvent<Post>(
-                uri: op.uri,
-                cid: op.cid!,
-                record: Post.fromJson(op.record!),
-                author: data.did,
-              ),
-            );
-          } else {
-            onCreateUnknown?.call(
-              RepoCreateEvent<Map<String, dynamic>>(
-                uri: op.uri,
-                cid: op.cid!,
-                record: op.record!,
-                author: data.did,
-              ),
-            );
-          }
-
+          await _onCreate(data, op);
           break;
         case RepoAction.update:
-          if (op.uri.collection == 'app.bsky.actor.profile') {
-            onUpdateProfile?.call(data);
-          } else {
-            onUpdateUnknown?.call(data);
-          }
-
+          await _onUpdate(data, op);
           break;
         case RepoAction.delete:
-          if (op.uri.collection == 'app.bsky.feed.post') {
-            onDeletePost?.call(data);
-          } else if (op.uri.collection == 'app.bsky.feed.repost') {
-            onDeleteRepost?.call(data);
-          } else if (op.uri.collection == 'app.bsky.feed.like') {
-            onDeleteLike?.call(data);
-          } else if (op.uri.collection == 'app.bsky.graph.follow') {
-            onDeleteFollow?.call(data);
-          } else {
-            onDeleteUnknown?.call(data);
-          }
-
+          await _onDelete(data, op);
           break;
       }
     }
   }
+
+  /// Performs action on create.
+  Future<void> _onCreate(
+    final SubscribedRepoCommit data,
+    final RepoOp op,
+  ) async {
+    if (op.uri.isFeedPost && _isPost(op.record!)) {
+      await _onCreatePost?.call(
+        RepoCommitCreate<PostRecord>(
+          record: PostRecord.fromJson(op.record!),
+          uri: op.uri,
+          cid: op.cid!,
+          author: data.did,
+          cursor: data.cursor,
+        ),
+      );
+    } else if (op.uri.isFeedRepost && _isRepost(op.record!)) {
+      await _onCreateRepost?.call(
+        RepoCommitCreate<RepostRecord>(
+          record: RepostRecord.fromJson(
+            op.record!,
+          ),
+          uri: op.uri,
+          cid: op.cid!,
+          author: data.did,
+          cursor: data.cursor,
+        ),
+      );
+    } else if (op.uri.isFeedLike && _isLike(op.record!)) {
+      await _onCreateLike?.call(
+        RepoCommitCreate<LikeRecord>(
+          record: LikeRecord.fromJson(
+            op.record!,
+          ),
+          uri: op.uri,
+          cid: op.cid!,
+          author: data.did,
+          cursor: data.cursor,
+        ),
+      );
+    } else if (op.uri.isGraphFollow && _isFollow(op.record!)) {
+      await _onCreateFollow?.call(
+        RepoCommitCreate<FollowRecord>(
+          record: FollowRecord.fromJson(op.record!),
+          uri: op.uri,
+          cid: op.cid!,
+          author: data.did,
+          cursor: data.cursor,
+        ),
+      );
+    } else {
+      await _onCreateUnknown?.call(
+        RepoCommitCreate<Map<String, dynamic>>(
+          record: op.record!,
+          uri: op.uri,
+          cid: op.cid!,
+          author: data.did,
+          cursor: data.cursor,
+        ),
+      );
+    }
+  }
+
+  /// Performs actions on update.
+  Future<void> _onUpdate(
+    final SubscribedRepoCommit data,
+    final RepoOp op,
+  ) async {
+    if (op.uri.isActorProfile) {
+      await _onUpdateProfile?.call(
+        RepoCommitUpdate<ProfileRecord>(
+          data: ProfileRecord.fromJson(op.record!),
+          uri: op.uri,
+          cid: op.cid!,
+          author: data.did,
+          cursor: data.cursor,
+          createdAt: data.createdAt,
+        ),
+      );
+    } else {
+      await _onUpdateUnknown?.call(
+        RepoCommitUpdate<Map<String, dynamic>>(
+          data: op.record!,
+          uri: op.uri,
+          cid: op.cid!,
+          author: data.did,
+          cursor: data.cursor,
+          createdAt: data.createdAt,
+        ),
+      );
+    }
+  }
+
+  /// Performs actions on delete.
+  Future<void> _onDelete(
+    final SubscribedRepoCommit data,
+    final RepoOp op,
+  ) async {
+    if (op.uri.isFeedPost) {
+      await _onDeletePost?.call(
+        RepoCommitDelete(
+          uri: op.uri,
+          author: data.did,
+          cursor: data.cursor,
+          createdAt: data.createdAt,
+        ),
+      );
+    } else if (op.uri.isFeedRepost) {
+      await _onDeleteRepost?.call(
+        RepoCommitDelete(
+          uri: op.uri,
+          author: data.did,
+          cursor: data.cursor,
+          createdAt: data.createdAt,
+        ),
+      );
+    } else if (op.uri.isFeedLike) {
+      await _onDeleteLike?.call(
+        RepoCommitDelete(
+          uri: op.uri,
+          author: data.did,
+          cursor: data.cursor,
+          createdAt: data.createdAt,
+        ),
+      );
+    } else if (op.uri.isGraphFollow) {
+      await _onDeleteFollow?.call(
+        RepoCommitDelete(
+          uri: op.uri,
+          author: data.did,
+          cursor: data.cursor,
+          createdAt: data.createdAt,
+        ),
+      );
+    } else {
+      await _onDeleteUnknown?.call(
+        RepoCommitDelete(
+          uri: op.uri,
+          author: data.did,
+          cursor: data.cursor,
+          createdAt: data.createdAt,
+        ),
+      );
+    }
+  }
+
+  /// Returns true if [record] is feed post, otherwise false.
+  bool _isPost(final Map<String, dynamic> record) =>
+      record['\$type'] == ids.appBskyFeedPost;
+
+  /// Returns true if [record] is feed repost, otherwise false.
+  bool _isRepost(final Map<String, dynamic> record) =>
+      record['\$type'] == ids.appBskyFeedRepost;
+
+  /// Returns true if [record] is feed like, otherwise false.
+  bool _isLike(final Map<String, dynamic> record) =>
+      record['\$type'] == ids.appBskyFeedLike;
+
+  /// Returns true if [record] is graph follow, otherwise false.
+  bool _isFollow(final Map<String, dynamic> record) =>
+      record['\$type'] == ids.appBskyGraphFollow;
 }
