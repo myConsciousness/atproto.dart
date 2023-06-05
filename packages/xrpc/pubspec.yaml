@@ -24,4 +24,4 @@ dev_dependencies:
   build_runner: ^2.3.3
   json_serializable: ^6.6.1
   freezed: ^2.3.2
-  bluesky: ^0.5.3
+  atproto: ^0.3.2
