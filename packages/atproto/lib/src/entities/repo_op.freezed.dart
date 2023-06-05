@@ -151,9 +151,8 @@ class _$_RepoOp implements _RepoOp {
   const _$_RepoOp(
       {required this.action,
       @Deprecated('Use uri instead. Will be removed in v0.6.0')
-          required this.path,
-      @AtUriConverter()
-          required this.uri,
+      required this.path,
+      @AtUriConverter() required this.uri,
       this.cid,
       final Map<String, dynamic>? record})
       : _record = record;
@@ -221,9 +220,8 @@ abstract class _RepoOp implements RepoOp {
   const factory _RepoOp(
       {required final RepoAction action,
       @Deprecated('Use uri instead. Will be removed in v0.6.0')
-          required final String path,
-      @AtUriConverter()
-          required final AtUri uri,
+      required final String path,
+      @AtUriConverter() required final AtUri uri,
       final String? cid,
       final Map<String, dynamic>? record}) = _$_RepoOp;
 
