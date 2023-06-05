@@ -144,10 +144,12 @@ class __$$_UpdateActionCopyWithImpl<$Res>
 class _$_UpdateAction implements _UpdateAction {
   const _$_UpdateAction(
       {@JsonKey(name: '\$type')
-      this.type = 'com.atproto.repo.applyWrites#update',
-      @NsidConverter() required this.collection,
+          this.type = 'com.atproto.repo.applyWrites#update',
+      @NsidConverter()
+          required this.collection,
       this.rkey,
-      @JsonKey(name: 'value') required final Map<String, dynamic> record})
+      @JsonKey(name: 'value')
+          required final Map<String, dynamic> record})
       : _record = record;
 
   factory _$_UpdateAction.fromJson(Map<String, dynamic> json) =>

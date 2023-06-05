@@ -144,10 +144,12 @@ class __$$_CreateActionCopyWithImpl<$Res>
 class _$_CreateAction implements _CreateAction {
   const _$_CreateAction(
       {@JsonKey(name: '\$type')
-      this.type = 'com.atproto.repo.applyWrites#create',
-      @NsidConverter() required this.collection,
+          this.type = 'com.atproto.repo.applyWrites#create',
+      @NsidConverter()
+          required this.collection,
       this.rkey,
-      @JsonKey(name: 'value') required final Map<String, dynamic> record})
+      @JsonKey(name: 'value')
+          required final Map<String, dynamic> record})
       : _record = record;
 
   factory _$_CreateAction.fromJson(Map<String, dynamic> json) =>

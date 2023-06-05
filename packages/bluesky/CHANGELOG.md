@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.5
+
+- Upgraded `atproto` and `atproto_core`.
+
 ## v0.5.4
 
 - Refactored `subscribeRepoUpdates`. ([#472](https://github.com/myConsciousness/atproto.dart/issues/472))

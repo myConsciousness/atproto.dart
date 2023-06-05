@@ -232,7 +232,7 @@ abstract class _Repo implements Repo {
       required final ParsedDidDoc didDoc,
       required final List<String> collections,
       @JsonKey(name: 'handleIsCorrect')
-      required final bool hasCorrectHandle}) = _$_Repo;
+          required final bool hasCorrectHandle}) = _$_Repo;
 
   factory _Repo.fromJson(Map<String, dynamic> json) = _$_Repo.fromJson;
 

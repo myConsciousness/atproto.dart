@@ -4,6 +4,7 @@
 
 export 'package:at_uri/at_uri.dart' show AtUri;
 export 'package:atproto_core/src/base_service.dart';
+export 'package:atproto_core/src/car_decoder.dart';
 export 'package:atproto_core/src/client/challenge.dart';
 export 'package:atproto_core/src/client/client_context.dart';
 export 'package:atproto_core/src/client/jitter.dart';
@@ -11,6 +12,8 @@ export 'package:atproto_core/src/client/retry_event.dart';
 export 'package:atproto_core/src/client/user_context.dart';
 export 'package:atproto_core/src/config/retry_config.dart';
 export 'package:atproto_core/src/converter/at_uri_converter.dart';
+export 'package:cbor/simple.dart' show cbor;
+export 'package:multiformats/multiformats.dart';
 export 'package:xrpc/xrpc.dart'
     show
         XRPCResponse,
@@ -20,8 +23,6 @@ export 'package:xrpc/xrpc.dart'
         Subscription,
         Protocol,
         To,
-        cbor,
-        decodeCar,
         Decoder,
         JsonConverter,
         NSID,

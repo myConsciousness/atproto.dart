@@ -115,8 +115,9 @@ class __$$_DeleteActionCopyWithImpl<$Res>
 class _$_DeleteAction implements _DeleteAction {
   const _$_DeleteAction(
       {@JsonKey(name: '\$type')
-      this.type = 'com.atproto.repo.applyWrites#delete',
-      @AtUriConverter() required this.uri});
+          this.type = 'com.atproto.repo.applyWrites#delete',
+      @AtUriConverter()
+          required this.uri});
 
   factory _$_DeleteAction.fromJson(Map<String, dynamic> json) =>
       _$$_DeleteActionFromJson(json);

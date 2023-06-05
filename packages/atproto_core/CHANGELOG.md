@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.3
+
+- Fixed `subscribeRepoUpdates`.
+
 ## v0.3.2
 
 - Added `decoder` parameter in `stream`. ([#472](https://github.com/myConsciousness/atproto.dart/issues/472))
