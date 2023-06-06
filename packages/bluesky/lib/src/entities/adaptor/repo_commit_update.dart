@@ -7,21 +7,21 @@ import 'package:atproto_core/atproto_core.dart' as core;
 class RepoCommitUpdate<T> {
   /// Returns the new instance of [RepoCommitUpdate].
   const RepoCommitUpdate({
+    required this.record,
     required this.uri,
     required this.cid,
-    required this.data,
     required this.author,
     required this.cursor,
     required this.createdAt,
   });
 
   /// The created data.
-  final T data;
+  final T record;
 
-  /// The AT URI of this [data].
+  /// The AT URI of this [record].
   final core.AtUri uri;
 
-  /// CID of this [data].
+  /// CID of this [record].
   final String cid;
 
   /// The author of this event.
@@ -34,14 +34,15 @@ class RepoCommitUpdate<T> {
   final DateTime createdAt;
 
   @override
-  String toString() => 'RepoCommitUpdate(data: $data, uri: $uri, cid: $cid, '
+  String toString() =>
+      'RepoCommitUpdate(record: $record, uri: $uri, cid: $cid, '
       'author: $author, cursor: $cursor, createdAt: $createdAt)';
 
   @override
   bool operator ==(covariant RepoCommitUpdate<T> other) {
     if (identical(this, other)) return true;
 
-    return other.data == data &&
+    return other.record == record &&
         other.uri == uri &&
         other.cid == cid &&
         other.author == author &&
@@ -51,7 +52,7 @@ class RepoCommitUpdate<T> {
 
   @override
   int get hashCode =>
-      data.hashCode ^
+      record.hashCode ^
       uri.hashCode ^
       cid.hashCode ^
       author.hashCode ^

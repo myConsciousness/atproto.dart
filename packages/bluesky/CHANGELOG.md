@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.7
+
+- Renamed property from `data` to `record` in `RepoCommitUpdate`.
+
 ## v0.5.6
 
 - Added `RepoCommitAdaptor` for easy handling of RepoCommit events of `SyncService.subscribeRepoUpdate`. ([#488](https://github.com/myConsciousness/atproto.dart/issues/488))
