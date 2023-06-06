@@ -200,7 +200,7 @@ class __$$_PostRecordCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_PostRecord implements _PostRecord {
   const _$_PostRecord(
-      {@JsonKey(name: '\$type') required this.type,
+      {@JsonKey(name: '\$type') this.type = appBskyFeedPost,
       required this.text,
       this.reply,
       @EmbedConverter() this.embed,
@@ -274,7 +274,7 @@ class _$_PostRecord implements _PostRecord {
 
 abstract class _PostRecord implements PostRecord {
   const factory _PostRecord(
-      {@JsonKey(name: '\$type') required final String type,
+      {@JsonKey(name: '\$type') final String type,
       required final String text,
       final PostRef? reply,
       @EmbedConverter() final Embed? embed,

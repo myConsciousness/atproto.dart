@@ -21,7 +21,12 @@ RepoOp _$RepoOpFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$RepoOp {
   RepoAction get action => throw _privateConstructorUsedError;
+  @Deprecated('Use uri instead. Will be removed in v0.6.0')
   String get path => throw _privateConstructorUsedError;
+  @AtUriConverter()
+  AtUri get uri => throw _privateConstructorUsedError;
+  String? get cid => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get record => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +38,12 @@ abstract class $RepoOpCopyWith<$Res> {
   factory $RepoOpCopyWith(RepoOp value, $Res Function(RepoOp) then) =
       _$RepoOpCopyWithImpl<$Res, RepoOp>;
   @useResult
-  $Res call({RepoAction action, String path});
+  $Res call(
+      {RepoAction action,
+      @Deprecated('Use uri instead. Will be removed in v0.6.0') String path,
+      @AtUriConverter() AtUri uri,
+      String? cid,
+      Map<String, dynamic>? record});
 }
 
 /// @nodoc
@@ -51,6 +61,9 @@ class _$RepoOpCopyWithImpl<$Res, $Val extends RepoOp>
   $Res call({
     Object? action = null,
     Object? path = null,
+    Object? uri = null,
+    Object? cid = freezed,
+    Object? record = freezed,
   }) {
     return _then(_value.copyWith(
       action: null == action
@@ -61,6 +74,18 @@ class _$RepoOpCopyWithImpl<$Res, $Val extends RepoOp>
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
               as String,
+      uri: null == uri
+          ? _value.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+      cid: freezed == cid
+          ? _value.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      record: freezed == record
+          ? _value.record
+          : record // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -71,7 +96,12 @@ abstract class _$$_RepoOpCopyWith<$Res> implements $RepoOpCopyWith<$Res> {
       __$$_RepoOpCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({RepoAction action, String path});
+  $Res call(
+      {RepoAction action,
+      @Deprecated('Use uri instead. Will be removed in v0.6.0') String path,
+      @AtUriConverter() AtUri uri,
+      String? cid,
+      Map<String, dynamic>? record});
 }
 
 /// @nodoc
@@ -86,6 +116,9 @@ class __$$_RepoOpCopyWithImpl<$Res>
   $Res call({
     Object? action = null,
     Object? path = null,
+    Object? uri = null,
+    Object? cid = freezed,
+    Object? record = freezed,
   }) {
     return _then(_$_RepoOp(
       action: null == action
@@ -96,6 +129,18 @@ class __$$_RepoOpCopyWithImpl<$Res>
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
               as String,
+      uri: null == uri
+          ? _value.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+      cid: freezed == cid
+          ? _value.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      record: freezed == record
+          ? _value._record
+          : record // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -103,7 +148,14 @@ class __$$_RepoOpCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_RepoOp implements _RepoOp {
-  const _$_RepoOp({required this.action, required this.path});
+  const _$_RepoOp(
+      {required this.action,
+      @Deprecated('Use uri instead. Will be removed in v0.6.0')
+      required this.path,
+      @AtUriConverter() required this.uri,
+      this.cid,
+      final Map<String, dynamic>? record})
+      : _record = record;
 
   factory _$_RepoOp.fromJson(Map<String, dynamic> json) =>
       _$$_RepoOpFromJson(json);
@@ -111,11 +163,26 @@ class _$_RepoOp implements _RepoOp {
   @override
   final RepoAction action;
   @override
+  @Deprecated('Use uri instead. Will be removed in v0.6.0')
   final String path;
+  @override
+  @AtUriConverter()
+  final AtUri uri;
+  @override
+  final String? cid;
+  final Map<String, dynamic>? _record;
+  @override
+  Map<String, dynamic>? get record {
+    final value = _record;
+    if (value == null) return null;
+    if (_record is EqualUnmodifiableMapView) return _record;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'RepoOp(action: $action, path: $path)';
+    return 'RepoOp(action: $action, path: $path, uri: $uri, cid: $cid, record: $record)';
   }
 
   @override
@@ -124,12 +191,16 @@ class _$_RepoOp implements _RepoOp {
         (other.runtimeType == runtimeType &&
             other is _$_RepoOp &&
             (identical(other.action, action) || other.action == action) &&
-            (identical(other.path, path) || other.path == path));
+            (identical(other.path, path) || other.path == path) &&
+            (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.cid, cid) || other.cid == cid) &&
+            const DeepCollectionEquality().equals(other._record, _record));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, action, path);
+  int get hashCode => Object.hash(runtimeType, action, path, uri, cid,
+      const DeepCollectionEquality().hash(_record));
 
   @JsonKey(ignore: true)
   @override
@@ -148,14 +219,26 @@ class _$_RepoOp implements _RepoOp {
 abstract class _RepoOp implements RepoOp {
   const factory _RepoOp(
       {required final RepoAction action,
-      required final String path}) = _$_RepoOp;
+      @Deprecated('Use uri instead. Will be removed in v0.6.0')
+      required final String path,
+      @AtUriConverter() required final AtUri uri,
+      final String? cid,
+      final Map<String, dynamic>? record}) = _$_RepoOp;
 
   factory _RepoOp.fromJson(Map<String, dynamic> json) = _$_RepoOp.fromJson;
 
   @override
   RepoAction get action;
   @override
+  @Deprecated('Use uri instead. Will be removed in v0.6.0')
   String get path;
+  @override
+  @AtUriConverter()
+  AtUri get uri;
+  @override
+  String? get cid;
+  @override
+  Map<String, dynamic>? get record;
   @override
   @JsonKey(ignore: true)
   _$$_RepoOpCopyWith<_$_RepoOp> get copyWith =>

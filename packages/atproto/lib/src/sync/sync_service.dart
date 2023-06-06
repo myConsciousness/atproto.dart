@@ -5,6 +5,7 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../atproto_base_service.dart';
+import '../converter/subscribe_repo_updates_converter.dart';
 import '../entities/subscribed_repo.dart';
 
 abstract class SyncService {
@@ -68,5 +69,7 @@ class _SyncService extends ATProtoBaseService implements SyncService {
             },
             userContext: core.UserContext.anonymousOnly,
             to: SubscribedRepo.fromJson,
+            decoder: (data) => core.cbor.decode([0x82] + data),
+            converter: convertSubscribeRepoUpdates,
           );
 }

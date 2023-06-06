@@ -30,6 +30,7 @@ jobs:
           - packages/nsid
           - packages/at_uri
           - packages/xrpc
+          - packages/multiformats
           - packages/atproto_core
           - packages/atproto
           - packages/bluesky_text

@@ -56,7 +56,14 @@ Future<void> main() async {
     //! You can use Stream API easily.
     final subscription = await atproto.sync.subscribeRepoUpdates();
     subscription.data.stream.listen((event) {
-      print(event.toJson());
+      event.when(
+        commit: print,
+        handle: print,
+        migrate: print,
+        tombstone: print,
+        info: print,
+        unknown: print,
+      );
     });
   } on atp.UnauthorizedException catch (e) {
     print(e);

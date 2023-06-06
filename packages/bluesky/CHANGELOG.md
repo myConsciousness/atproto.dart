@@ -1,11 +1,29 @@
 # Release Note
 
+## v0.5.6
+
+- Added `RepoCommitAdaptor` for easy handling of RepoCommit events of `SyncService.subscribeRepoUpdate`. ([#488](https://github.com/myConsciousness/atproto.dart/issues/488))
+- Improved generation of `CID` hash codes, allowing CID objects to be specified as keys for Maps, etc. ([#490](https://github.com/myConsciousness/atproto.dart/issues/490))
+
+## v0.5.5
+
+- Upgraded `atproto` and `atproto_core`.
+
+## v0.5.4
+
+- Refactored `subscribeRepoUpdates`. ([#472](https://github.com/myConsciousness/atproto.dart/issues/472))
+
 ## v0.5.3
 
 - Renamed from `findSkeletonFeed` to `findFeedSkeleton`. ([#456](https://github.com/myConsciousness/atproto.dart/issues/456))
 - Added `parentHeight` parameter to `findPostThread`. ([#457](https://github.com/myConsciousness/atproto.dart/issues/457))
 - Supported `app.bsky.unspecced.getPopularFeedGenerators` as `findPopularFeedGenerators` in `UnspeccedService`. ([#458](https://github.com/myConsciousness/atproto.dart/issues/458))
 - Exposed `CopyWith` classes. ([#463](https://github.com/myConsciousness/atproto.dart/issues/463))
+- Made `labels` field to nullable.
+  - `actor.dart`
+  - `actor_profile.dart`
+  - `post.dart`
+  - `notification.dart`
 
 ## v0.5.2
 

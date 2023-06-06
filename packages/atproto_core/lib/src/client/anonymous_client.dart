@@ -19,6 +19,7 @@ class AnonymousClient implements Client {
     required final String service,
     final Map<String, dynamic>? parameters,
     required final xrpc.To<T> to,
+    final xrpc.JsonConverter? converter,
     required final Duration timeout,
     final xrpc.GetClient? getClient,
   }) async =>
@@ -28,6 +29,7 @@ class AnonymousClient implements Client {
         service: service,
         parameters: parameters,
         to: to,
+        converter: converter,
         timeout: timeout,
         getClient: getClient,
       );
@@ -82,11 +84,15 @@ class AnonymousClient implements Client {
     final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
+    final xrpc.Decoder? decoder,
+    final xrpc.JsonConverter? converter,
   }) =>
       xrpc.subscribe(
         methodId,
         service: service,
         parameters: parameters,
         to: to,
+        decoder: decoder,
+        converter: converter,
       );
 }

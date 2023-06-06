@@ -1,9 +1,19 @@
 # Release Note
 
+## v0.3.4
+
+- Improved generation of `CID` hash codes, allowing CID objects to be specified as keys for Maps, etc. ([#490](https://github.com/myConsciousness/atproto.dart/issues/490))
+- Fixed a bug in converting the results of `com.atproto.sync.subscribeRepos`. ([#487](https://github.com/myConsciousness/atproto.dart/issues/487))
+
+## v0.3.2
+
+- Refactored `subscribeRepoUpdates`. ([#472](https://github.com/myConsciousness/atproto.dart/issues/472))
+
 ## v0.3.1
 
 - `handle` parameter in `findDID` is now required. ([#459](https://github.com/myConsciousness/atproto.dart/issues/459))
 - Exposed `$XRPCErrorCopyWith`. ([#463](https://github.com/myConsciousness/atproto.dart/issues/459))
+- Add a `record` field with decoded Car block in the object converted by `subscribeRepoUpdates` and also a `uri` field. ([#446](https://github.com/myConsciousness/atproto.dart/issues/446))
 
 ## v0.3.0
 

@@ -233,6 +233,13 @@ abstract class FeedsService {
     String? cursor,
   });
 
+  @Deprecated('Use findFeedSkeleton instead. Will be removed in v0.6.0')
+  Future<core.XRPCResponse<SkeletonFeed>> findSkeletonFeed({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  });
+
   /// A skeleton of a feed provided by a feed generator.
   ///
   /// ## Parameters
@@ -682,6 +689,18 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'cursor': cursor,
         },
         to: Feed.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<SkeletonFeed>> findSkeletonFeed({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await findFeedSkeleton(
+        generatorUri: generatorUri,
+        limit: limit,
+        cursor: cursor,
       );
 
   @override
