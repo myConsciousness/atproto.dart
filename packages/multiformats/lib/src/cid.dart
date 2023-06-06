@@ -225,5 +225,12 @@ class CID {
   }
 
   @override
-  int get hashCode => bytes.hashCode;
+  int get hashCode {
+    int result = 1;
+    for (final byte in bytes) {
+      result = 31 * result + byte;
+    }
+
+    return result;
+  }
 }
