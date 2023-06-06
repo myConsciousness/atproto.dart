@@ -3,6 +3,7 @@
 ## v0.3.4
 
 - Improved generation of `CID` hash codes, allowing CID objects to be specified as keys for Maps, etc. ([#490](https://github.com/myConsciousness/atproto.dart/issues/490))
+- Fixed a bug in converting the results of `com.atproto.sync.subscribeRepos`. ([#487](https://github.com/myConsciousness/atproto.dart/issues/487))
 
 ## v0.3.2
 

@@ -9,7 +9,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 Map<String, dynamic> convertSubscribeRepoUpdates(final dynamic data) {
   if (!_isRepoCommit(data.first)) {
-    return data;
+    return <String, dynamic>{...data[0], ...data[1]};
   }
 
   final json = <String, dynamic>{...data[0], ...data[1]};
