@@ -3,6 +3,7 @@
 ## v0.5.6
 
 - Added `RepoCommitAdaptor` for easy handling of RepoCommit events of `SyncService.subscribeRepoUpdate`. ([#488](https://github.com/myConsciousness/atproto.dart/issues/488))
+- Improved generation of `CID` hash codes, allowing CID objects to be specified as keys for Maps, etc. ([#490](https://github.com/myConsciousness/atproto.dart/issues/490))
 
 ## v0.5.5
 

@@ -24,8 +24,8 @@ Map<String, dynamic> convertSubscribeRepoUpdates(final dynamic data) {
       continue;
     }
 
-    final cid = core.CID.fromList(op['cid']).toString();
-    op['cid'] = cid;
+    final cid = core.CID.fromList(op['cid']);
+    op['cid'] = cid.toString();
 
     final record = blocks[cid];
 

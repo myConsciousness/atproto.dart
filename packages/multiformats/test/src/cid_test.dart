@@ -5,84 +5,7 @@
 import 'package:multiformats/src/cid.dart';
 import 'package:test/test.dart';
 
-const stringCid = 'bafkreicks4diafps5lz5hjf5lflqbxkhevgdty4k66inqtw4brjyqcr6ou';
-const bytesCidDagPb = [
-  1,
-  85,
-  18,
-  32,
-  74,
-  151,
-  6,
-  128,
-  21,
-  242,
-  234,
-  243,
-  211,
-  164,
-  189,
-  89,
-  87,
-  0,
-  221,
-  71,
-  37,
-  76,
-  57,
-  227,
-  138,
-  247,
-  144,
-  216,
-  78,
-  220,
-  12,
-  83,
-  136,
-  10,
-  62,
-  117
-];
-
-const bytesCidDagCbor = [
-  1,
-  113,
-  18,
-  32,
-  74,
-  151,
-  6,
-  128,
-  21,
-  242,
-  234,
-  243,
-  211,
-  164,
-  189,
-  89,
-  87,
-  0,
-  221,
-  71,
-  37,
-  76,
-  57,
-  227,
-  138,
-  247,
-  144,
-  216,
-  78,
-  220,
-  12,
-  83,
-  136,
-  10,
-  62,
-  117
-];
+import 'cid_data.dart';
 
 void main() {
   group('.create', () {
@@ -290,6 +213,40 @@ void main() {
       final cid = CID.fromList(bytesCidDagCbor);
 
       expect(cid.codec.isNotDagCbor, isFalse);
+    });
+  });
+
+  group('.hashCode', () {
+    test('case1', () {
+      final cid1 = CID.fromList(bytesCidDagPb);
+      final cid2 = CID.fromList(bytesCidDagPb);
+
+      expect(cid1.hashCode == cid2.hashCode, isTrue);
+    });
+
+    test('case2', () {
+      final cid1 = CID.fromList(bytesCidDagPb);
+      final cid2 = CID.fromList(bytesCidDagCbor);
+
+      expect(cid1.hashCode == cid2.hashCode, isFalse);
+    });
+
+    test('case3', () {
+      final cid1 = CID.fromList(bytesCidDagPb);
+      final cid2 = CID.fromList(bytesCidDagCbor);
+
+      final map = {cid1: 'test1', cid2: 'test2'};
+
+      expect(map[cid2], 'test2');
+    });
+
+    test('case4', () {
+      final cid1 = CID.fromList(bytesCidDagPb);
+      final cid2 = CID.fromList(bytesCidDagCbor);
+
+      final map = {cid1: 'test1'};
+
+      expect(map[cid2], isNull);
     });
   });
 }

@@ -8,8 +8,8 @@ import 'package:multiformats/multiformats.dart';
 
 const _cidV1BytesLength = 36;
 
-Map<String, List<int>> decodeCar(final Uint8List bytes) {
-  final blocks = <String, List<int>>{};
+Map<CID, List<int>> decodeCar(final Uint8List bytes) {
+  final blocks = <CID, List<int>>{};
 
   final header = _decodeReader(bytes);
   int start = header.length + header.value;
@@ -24,7 +24,7 @@ Map<String, List<int>> decodeCar(final Uint8List bytes) {
     ));
 
     start += _cidV1BytesLength;
-    blocks[cid.toString()] = bytes.sublist(
+    blocks[cid] = bytes.sublist(
       start,
       start + body.value - _cidV1BytesLength,
     );

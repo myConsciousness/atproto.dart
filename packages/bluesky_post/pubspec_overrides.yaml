@@ -1,6 +1,10 @@
 dependency_overrides:
   xrpc:
     path: ../xrpc
+  multiformats:
+    path: ../multiformats
+  atproto_core:
+    path: ../atproto_core
   atproto:
     path: ../atproto
   bluesky_text:
