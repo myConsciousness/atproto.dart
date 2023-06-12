@@ -7,12 +7,16 @@ import 'dart:typed_data';
 
 import 'package:atproto_core/atproto_core.dart' as core;
 
-Map<String, dynamic> convertSubscribeRepoUpdates(final dynamic data) {
-  if (!_isRepoCommit(data.first)) {
-    return <String, dynamic>{...data[0], ...data[1]};
+import 'cid_links.dart';
+
+Map<String, dynamic> toSubscribedRepo(final dynamic data) {
+  final cborData = core.cbor.decode([0x82] + data) as List;
+
+  if (!_isRepoCommit(cborData.first)) {
+    return <String, dynamic>{...cborData[0], ...cborData[1]};
   }
 
-  final json = <String, dynamic>{...data[0], ...data[1]};
+  final json = <String, dynamic>{...cborData[0], ...cborData[1]};
   final blocks = core.decodeCar(Uint8List.fromList(json['blocks']));
 
   for (final op in json['ops']) {
@@ -30,7 +34,7 @@ Map<String, dynamic> convertSubscribeRepoUpdates(final dynamic data) {
     final record = blocks[cid];
 
     if (record != null) {
-      op['record'] = _convertCidRefs(
+      op['record'] = convertCidLinks(
         jsonDecode(
           jsonEncode(
             core.cbor.decode(record),
@@ -41,28 +45,6 @@ Map<String, dynamic> convertSubscribeRepoUpdates(final dynamic data) {
   }
 
   return json;
-}
-
-Map<String, dynamic> _convertCidRefs(final Map<String, dynamic> map) {
-  map.forEach((key, value) {
-    if (value is Map<String, dynamic>) {
-      _convertCidRefs(value);
-    } else if (value is List<dynamic>) {
-      if (key == 'ref' && value.every((element) => element is int)) {
-        map[key] = {
-          r'$link': core.CID.fromList(value.cast<int>()).toString(),
-        };
-      } else {
-        for (final element in value) {
-          if (element is Map<String, dynamic>) {
-            _convertCidRefs(element);
-          }
-        }
-      }
-    }
-  });
-
-  return map;
 }
 
 bool _isRepoCommit(final Map json) => json['t'] == '#commit';

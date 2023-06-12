@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.1.4
+
+- Added `ResponseAdaptor` and removed `JsonConverter` and `Decoder`. ([#495](https://github.com/myConsciousness/atproto.dart/issues/495))
+
 ## v0.1.3
 
 - Removed `cbor` dependency and `car_decoder`, moved to `atproto_core`. ([#473](https://github.com/myConsciousness/atproto.dart/issues/473))

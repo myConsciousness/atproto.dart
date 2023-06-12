@@ -37,7 +37,7 @@ abstract class ClientContext {
     required final String service,
     final Map<String, dynamic>? parameters,
     required final xrpc.To<T> to,
-    final xrpc.JsonConverter? converter,
+    final xrpc.ResponseAdaptor? adaptor,
     final xrpc.GetClient? getClient,
   });
 
@@ -70,8 +70,7 @@ abstract class ClientContext {
     final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
-    final xrpc.Decoder? decoder,
-    final xrpc.JsonConverter? converter,
+    final xrpc.ResponseAdaptor? adaptor,
   });
 }
 
@@ -105,7 +104,7 @@ class _ClientContext implements ClientContext {
     required final String service,
     final Map<String, dynamic>? parameters,
     required final xrpc.To<T> to,
-    final xrpc.JsonConverter? converter,
+    final xrpc.ResponseAdaptor? adaptor,
     final xrpc.GetClient? getClient,
   }) async =>
       await _challenge.execute(
@@ -116,7 +115,7 @@ class _ClientContext implements ClientContext {
           service: service,
           parameters: parameters,
           to: to,
-          converter: converter,
+          adaptor: adaptor,
           timeout: timeout,
           getClient: getClient,
         ),
@@ -180,8 +179,7 @@ class _ClientContext implements ClientContext {
     final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
-    final xrpc.Decoder? decoder,
-    final xrpc.JsonConverter? converter,
+    final xrpc.ResponseAdaptor? adaptor,
   }) async =>
       await _challenge.execute(
         _clientResolver.execute(userContext),
@@ -190,8 +188,7 @@ class _ClientContext implements ClientContext {
           service: service,
           parameters: parameters,
           to: to,
-          decoder: decoder,
-          converter: converter,
+          adaptor: adaptor,
         ),
       );
 }

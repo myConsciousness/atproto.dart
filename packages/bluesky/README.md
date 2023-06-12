@@ -136,7 +136,7 @@ Future<void> main() async {
         ),
       ),
 
-      //! The default timeout is 10 seconds.
+      //! The default timeout is 30 seconds.
       timeout: Duration(seconds: 20),
     );
 
@@ -327,9 +327,10 @@ Future<bsky.Session> get _session async {
 
 ### 1.3.10. Sync
 
-| **Lexicon**                                                                                                                          | **Method Name**                                                                                        |
-| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| [com.atproto.sync.subscribeRepos](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/subscribeRepos.json) | [subscribeRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepos.html) |
+| **Lexicon**                                                                                                                          | **Method Name**                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
+| [com.atproto.sync.subscribeRepos](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/subscribeRepos.json) | [subscribeRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepos.html)  |
+| [GET com.atproto.sync.getRepo](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getRepo.json)           | [findRepoCommits](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoCommit.html) |
 
 ## 1.4. Tips 🏄
 
@@ -456,7 +457,7 @@ Future<void> main() async {
     did: 'YOUR_DID',
     accessJwt: 'YOUR_TOKEN',
 
-    //! The default timeout is 10 seconds.
+    //! The default timeout is 30 seconds.
     timeout: Duration(seconds: 20),
   );
 }

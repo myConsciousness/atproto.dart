@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.5.8
+
+- Supported `com.atproto.sync.getRepo` as `findRepoCommits` in `SyncService`. ([#313](https://github.com/myConsciousness/atproto.dart/issues/313))
+- Changed default timeout from 10 seconds to 30 seconds.
+
 ## v0.5.7
 
 - Renamed property from `data` to `record` in `RepoCommitUpdate`.
