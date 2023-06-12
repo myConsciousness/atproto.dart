@@ -7,6 +7,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../adaptor/repo_commits_adaptor.dart';
 import '../adaptor/subscribe_repo_updates_adaptor.dart';
 import '../atproto_base_service.dart';
+import '../entities/repo_commit_paths.dart';
 import '../entities/repo_commits.dart';
 import '../entities/subscribed_repo.dart';
 
@@ -84,6 +85,30 @@ abstract class SyncService {
     String? latestCommitCid,
     core.ProgressStatus? progress,
   });
+
+  /// Gets the path of repo commits
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: The DID of the repo.
+  ///
+  /// - [earliestCommitCid]: The earliest commit in the commit range
+  ///                        (not inclusive).
+  ///
+  /// - [latestCommitCid]: The latest commit in the commit range (inclusive).
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.getCommitPath
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getCommitPath.json
+  Future<core.XRPCResponse<RepoCommitPaths>> findRepoCommitPaths({
+    required String did,
+    String? earliestCommitCid,
+    String? latestCommitCid,
+  });
 }
 
 class _SyncService extends ATProtoBaseService implements SyncService {
@@ -134,5 +159,22 @@ class _SyncService extends ATProtoBaseService implements SyncService {
         ),
         userContext: core.UserContext.anonymousOnly,
         to: RepoCommits.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<RepoCommitPaths>> findRepoCommitPaths({
+    required String did,
+    String? earliestCommitCid,
+    String? latestCommitCid,
+  }) async =>
+      await super.get(
+        'getCommitPath',
+        parameters: {
+          'did': did,
+          'earliest': earliestCommitCid,
+          'latest': latestCommitCid,
+        },
+        userContext: core.UserContext.anonymousOnly,
+        to: RepoCommitPaths.fromJson,
       );
 }
