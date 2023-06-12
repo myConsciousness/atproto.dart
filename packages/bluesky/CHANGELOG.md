@@ -4,6 +4,7 @@
 
 - Supported `com.atproto.sync.getRepo` as `findRepoCommits` in `SyncService`. ([#313](https://github.com/myConsciousness/atproto.dart/issues/313))
 - Changed default timeout from 10 seconds to 30 seconds.
+- Supported `com.atproto.sync.getCommitPath` as `findRepoCommitPaths` in `SyncService`. ([#310](https://github.com/myConsciousness/atproto.dart/issues/310))
 
 ## v0.5.7
 

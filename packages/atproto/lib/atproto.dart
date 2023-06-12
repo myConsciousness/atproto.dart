@@ -30,6 +30,7 @@ export 'package:atproto/src/entities/record.dart';
 export 'package:atproto/src/entities/record_value.dart';
 export 'package:atproto/src/entities/repo.dart';
 export 'package:atproto/src/entities/repo_commit.dart';
+export 'package:atproto/src/entities/repo_commit_paths.dart';
 export 'package:atproto/src/entities/repo_commits.dart';
 export 'package:atproto/src/entities/repo_op.dart';
 export 'package:atproto/src/entities/repo_ref.dart';

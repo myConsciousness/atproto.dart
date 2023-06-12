@@ -26,6 +26,8 @@ export 'package:atproto/atproto.dart'
         $CurrentSessionCopyWith,
         Account,
         $AccountCopyWith,
+        RepoCommitPaths,
+        $RepoCommitPathsCopyWith,
         CreatedInviteCode,
         $CreatedInviteCodeCopyWith,
         InviteCodeUse,
