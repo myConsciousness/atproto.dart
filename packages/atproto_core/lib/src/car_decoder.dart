@@ -6,15 +6,22 @@ import 'dart:typed_data';
 
 import 'package:multiformats/multiformats.dart';
 
+import 'progress_status.dart';
+
 const _cidV1BytesLength = 36;
 
-Map<CID, List<int>> decodeCar(final Uint8List bytes) {
+Map<CID, List<int>> decodeCar(
+  final Uint8List bytes, [
+  ProgressStatus? progress,
+]) {
   final blocks = <CID, List<int>>{};
 
+  final bytesLength = bytes.length;
   final header = _decodeReader(bytes);
+
   int start = header.length + header.value;
 
-  while (start < bytes.length) {
+  while (start < bytesLength) {
     final body = _decodeReader(bytes.sublist(start));
     start += body.length;
 
@@ -30,6 +37,11 @@ Map<CID, List<int>> decodeCar(final Uint8List bytes) {
     );
 
     start += body.value - _cidV1BytesLength;
+
+    progress?.call(ProgressStatusEvent(
+      bytesLength,
+      start,
+    ));
   }
 
   return blocks;

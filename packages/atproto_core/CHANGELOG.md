@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.3.5
+
+- Added `adaptor` parameter in `get` and `subscribe`, and removed `decoder` and `converter`. ([#495](https://github.com/myConsciousness/atproto.dart/issues/495))
+- Added `progress_status.dart`.
+
 ## v0.3.4
 
 - Improved generation of `CID` hash codes, allowing CID objects to be specified as keys for Maps, etc. ([#490](https://github.com/myConsciousness/atproto.dart/issues/490))

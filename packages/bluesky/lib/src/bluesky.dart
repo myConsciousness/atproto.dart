@@ -20,7 +20,7 @@ abstract class Bluesky {
     required String accessJwt,
     core.Protocol protocol = core.Protocol.https,
     String service = 'bsky.social',
-    Duration timeout = const Duration(seconds: 10),
+    Duration timeout = const Duration(seconds: 30),
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
@@ -41,7 +41,7 @@ abstract class Bluesky {
     final atp.Session session, {
     core.Protocol protocol = core.Protocol.https,
     String service = 'bsky.social',
-    Duration timeout = const Duration(seconds: 10),
+    Duration timeout = const Duration(seconds: 30),
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
@@ -61,7 +61,7 @@ abstract class Bluesky {
   factory Bluesky.anonymous({
     core.Protocol protocol = core.Protocol.https,
     String service = 'bsky.social',
-    Duration timeout = const Duration(seconds: 10),
+    Duration timeout = const Duration(seconds: 30),
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,

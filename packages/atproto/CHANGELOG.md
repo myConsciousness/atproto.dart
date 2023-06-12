@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.3.5
+
+- Supported `com.atproto.sync.getRepo` as `findRepoCommits` in `SyncService`. ([#313](https://github.com/myConsciousness/atproto.dart/issues/313))
+- Changed default timeout from 10 seconds to 30 seconds.
+
 ## v0.3.4
 
 - Improved generation of `CID` hash codes, allowing CID objects to be specified as keys for Maps, etc. ([#490](https://github.com/myConsciousness/atproto.dart/issues/490))
