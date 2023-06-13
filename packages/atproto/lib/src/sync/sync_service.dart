@@ -4,9 +4,11 @@
 
 import 'package:atproto_core/atproto_core.dart' as core;
 
+import '../adaptor/repo_blocks_adaptor.dart';
 import '../adaptor/repo_commits_adaptor.dart';
 import '../adaptor/subscribe_repo_updates_adaptor.dart';
 import '../atproto_base_service.dart';
+import '../entities/repo_blocks.dart';
 import '../entities/repo_commit_paths.dart';
 import '../entities/repo_commits.dart';
 import '../entities/subscribed_repo.dart';
@@ -109,6 +111,26 @@ abstract class SyncService {
     String? earliestCommitCid,
     String? latestCommitCid,
   });
+
+  /// Gets blocks from a given repo.
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: The DID of the repo.
+  ///
+  /// - [commitCids]: CID array of commits.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.getBlocks
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getBlocks.json
+  Future<core.XRPCResponse<RepoBlocks>> findRepoBlocks({
+    required String did,
+    required List<String> commitCids,
+  });
 }
 
 class _SyncService extends ATProtoBaseService implements SyncService {
@@ -176,5 +198,21 @@ class _SyncService extends ATProtoBaseService implements SyncService {
         },
         userContext: core.UserContext.anonymousOnly,
         to: RepoCommitPaths.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<RepoBlocks>> findRepoBlocks({
+    required String did,
+    required List<String> commitCids,
+  }) async =>
+      await super.get(
+        'getBlocks',
+        parameters: {
+          'did': did,
+          'cids': commitCids,
+        },
+        adaptor: toRepoBlocks,
+        userContext: core.UserContext.anonymousOnly,
+        to: RepoBlocks.fromJson,
       );
 }
