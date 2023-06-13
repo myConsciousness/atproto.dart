@@ -14,6 +14,8 @@ export 'package:atproto/atproto.dart'
         $DIDCopyWith,
         Blob,
         $BlobCopyWith,
+        RepoHead,
+        $RepoHeadCopyWith,
         LegacyBlob,
         $LegacyBlobCopyWith,
         BlobData,

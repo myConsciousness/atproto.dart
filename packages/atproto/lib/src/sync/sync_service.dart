@@ -11,6 +11,7 @@ import '../atproto_base_service.dart';
 import '../entities/repo_blocks.dart';
 import '../entities/repo_commit_paths.dart';
 import '../entities/repo_commits.dart';
+import '../entities/repo_head.dart';
 import '../entities/subscribed_repo.dart';
 
 abstract class SyncService {
@@ -163,6 +164,23 @@ abstract class SyncService {
     String? commitCid,
     core.ProgressStatus? progress,
   });
+
+  /// Gets the current HEAD CID of a repo.
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: The DID of the repo.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.getHead
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getHead.json
+  Future<core.XRPCResponse<RepoHead>> findRepoHead({
+    required String did,
+  });
 }
 
 class _SyncService extends ATProtoBaseService implements SyncService {
@@ -262,6 +280,20 @@ class _SyncService extends ATProtoBaseService implements SyncService {
           data,
           progress,
         ),
+        userContext: core.UserContext.anonymousOnly,
         to: RepoCommits.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<RepoHead>> findRepoHead({
+    required String did,
+  }) async =>
+      await super.get(
+        'getHead',
+        parameters: {
+          'did': did,
+        },
+        userContext: core.UserContext.anonymousOnly,
+        to: RepoHead.fromJson,
       );
 }
