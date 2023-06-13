@@ -5,10 +5,12 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../adaptor/repo_blocks_adaptor.dart';
+import '../adaptor/repo_commit_adaptor.dart';
 import '../adaptor/repo_commits_adaptor.dart';
 import '../adaptor/subscribe_repo_updates_adaptor.dart';
 import '../atproto_base_service.dart';
 import '../entities/repo_blocks.dart';
+import '../entities/repo_commit.dart';
 import '../entities/repo_commit_paths.dart';
 import '../entities/repo_commits.dart';
 import '../entities/repo_head.dart';
@@ -181,6 +183,26 @@ abstract class SyncService {
   Future<core.XRPCResponse<RepoHead>> findRepoHead({
     required String did,
   });
+
+  /// Gets blocks needed for existence or non-existence of record.
+  ///
+  /// ## Parameters
+  ///
+  /// - [uri]: AT URI of specific record.
+  ///
+  /// - [commitCid]: An optional past commit CID.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.getRecord
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getRecord.json
+  Future<core.XRPCResponse<RepoCommit>> findRecord({
+    required core.AtUri uri,
+    String? commitCid,
+  });
 }
 
 class _SyncService extends ATProtoBaseService implements SyncService {
@@ -295,5 +317,23 @@ class _SyncService extends ATProtoBaseService implements SyncService {
         },
         userContext: core.UserContext.anonymousOnly,
         to: RepoHead.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<RepoCommit>> findRecord({
+    required core.AtUri uri,
+    String? commitCid,
+  }) async =>
+      await super.get(
+        'getRecord',
+        parameters: {
+          'did': uri.hostname,
+          'collection': uri.collection,
+          'rkey': uri.rkey,
+          'commit': commitCid,
+        },
+        adaptor: toRepoCommit,
+        userContext: core.UserContext.anonymousOnly,
+        to: RepoCommit.fromJson,
       );
 }

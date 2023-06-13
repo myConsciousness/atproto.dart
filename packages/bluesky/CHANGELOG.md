@@ -8,6 +8,7 @@
 - Supported `com.atproto.sync.getBlocks` as `findRepoBlocks` in `SyncService`. ([#308](https://github.com/myConsciousness/atproto.dart/issues/308))
 - Supported `com.atproto.sync.getCheckout` as `findRepoCheckout` in `SyncService`. ([#309](https://github.com/myConsciousness/atproto.dart/issues/309))
 - Supported `com.atproto.sync.getHead` as `findRepoHead` in `SyncService`. ([#311](https://github.com/myConsciousness/atproto.dart/issues/311))
+- Supported `com.atproto.sync.getRecord` as `findRecord` in `SyncService`. ([#312](https://github.com/myConsciousness/atproto.dart/issues/312))
 
 ## v0.5.7
 

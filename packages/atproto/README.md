@@ -230,6 +230,7 @@ Future<void> main() async {
 | [GET com.atproto.sync.getCheckout](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getCheckout.json)     | [findRepoCheckout](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoCheckout.html)       |
 | [GET com.atproto.sync.getCommitPath](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getCommitPath.json) | [findRepoCommitPaths](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoCommitPaths.html) |
 | [GET com.atproto.sync.getBlocks](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getBlocks.json)         | [findRepoBlocks](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoBlocks.html)           |
+| [GET com.atproto.sync.getRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getRecord.json)         | [findRecord](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRecord.html)                   |
 
 ## 1.4. Tips 🏄
 
