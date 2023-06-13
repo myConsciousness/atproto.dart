@@ -29,6 +29,8 @@ export 'package:atproto/src/entities/parsed_verification_method.dart';
 export 'package:atproto/src/entities/record.dart';
 export 'package:atproto/src/entities/record_value.dart';
 export 'package:atproto/src/entities/repo.dart';
+export 'package:atproto/src/entities/repo_block.dart';
+export 'package:atproto/src/entities/repo_blocks.dart';
 export 'package:atproto/src/entities/repo_commit.dart';
 export 'package:atproto/src/entities/repo_commit_paths.dart';
 export 'package:atproto/src/entities/repo_commits.dart';
