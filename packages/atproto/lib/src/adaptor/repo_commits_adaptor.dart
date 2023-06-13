@@ -9,9 +9,9 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'cid_links.dart';
 
 Map<String, dynamic> toRepoCommits(
-  final dynamic data,
+  final dynamic data, [
   core.ProgressStatus? progress,
-) {
+]) {
   final blocks = core.decodeCar(data, progress);
   final commits = <Map<String, dynamic>>[];
 
