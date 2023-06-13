@@ -10,8 +10,6 @@ import 'cid_links.dart';
 
 Map<String, dynamic> toRepoCommits(
   final dynamic data,
-  final String? earliestCommitCid,
-  final String? latestCommitCid,
   core.ProgressStatus? progress,
 ) {
   final blocks = core.decodeCar(data, progress);
@@ -31,17 +29,7 @@ Map<String, dynamic> toRepoCommits(
     }
   });
 
-  final json = <String, dynamic>{
+  return {
     'commits': commits,
   };
-
-  if (earliestCommitCid != null) {
-    json['earliest'] = earliestCommitCid;
-  }
-
-  if (latestCommitCid != null) {
-    json['latest'] = latestCommitCid;
-  }
-
-  return json;
 }

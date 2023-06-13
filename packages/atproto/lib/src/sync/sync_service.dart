@@ -131,6 +131,38 @@ abstract class SyncService {
     required String did,
     required List<String> commitCids,
   });
+
+  /// Gets the repo state.
+  ///
+  /// This endpoint also retrieves information on all commits made by the
+  /// Repo associated with a particular DID. This means that depending on
+  /// the target Repo to be retrieved, a very data-intensive Car may need to be
+  /// decoded, and this process may take several minutes or more. At this time,
+  /// the [progress] callback can be used to check how much data has been
+  /// processed at this time.
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: The DID of the repo.
+  ///
+  /// - [commit]: The commit to get the checkout from. Defaults to current HEAD.
+  ///
+  /// - [progress]: When the amount of data to be processed is large,
+  ///               this callback can be used to check the progress of
+  ///               processing.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.getCheckout
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getCheckout.json
+  Future<core.XRPCResponse<RepoCommits>> findRepoCheckout({
+    required String did,
+    String? commitCid,
+    core.ProgressStatus? progress,
+  });
 }
 
 class _SyncService extends ATProtoBaseService implements SyncService {
@@ -175,8 +207,6 @@ class _SyncService extends ATProtoBaseService implements SyncService {
         },
         adaptor: (data) => toRepoCommits(
           data,
-          earliestCommitCid,
-          latestCommitCid,
           progress,
         ),
         userContext: core.UserContext.anonymousOnly,
@@ -214,5 +244,24 @@ class _SyncService extends ATProtoBaseService implements SyncService {
         adaptor: toRepoBlocks,
         userContext: core.UserContext.anonymousOnly,
         to: RepoBlocks.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<RepoCommits>> findRepoCheckout({
+    required String did,
+    String? commitCid,
+    core.ProgressStatus? progress,
+  }) async =>
+      await super.get(
+        'getCheckout',
+        parameters: {
+          'did': did,
+          'commit': commitCid,
+        },
+        adaptor: (data) => toRepoCommits(
+          data,
+          progress,
+        ),
+        to: RepoCommits.fromJson,
       );
 }
