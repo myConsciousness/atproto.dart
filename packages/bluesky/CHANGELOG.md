@@ -24,6 +24,7 @@
   - `createList`
   - `createListItem`
   - `updateProfile`
+- Removed `BlobContext` and `LegacyBlob`. Blobs in the old format were modified to be converted to the new format. ([#514](https://github.com/myConsciousness/atproto.dart/issues/514))
 
 ## v0.5.7
 
