@@ -36,7 +36,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Record>());
+      expect(response.data, isA<StrongRef>());
     });
 
     test('when unauthorized', () async {
@@ -573,7 +573,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Record>());
+      expect(response.data, isA<StrongRef>());
     });
 
     test('when unauthorized', () async {
@@ -818,7 +818,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Record>());
+      expect(response.data, isA<StrongRef>());
     });
 
     test('when unauthorized', () async {
@@ -1152,7 +1152,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Record>());
+      expect(response.data, isA<StrongRef>());
     });
 
     test('when unauthorized', () async {

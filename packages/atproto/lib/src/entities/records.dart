@@ -4,7 +4,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'record_value.dart';
+import 'record.dart';
 
 part 'records.freezed.dart';
 part 'records.g.dart';
@@ -12,7 +12,7 @@ part 'records.g.dart';
 @freezed
 class Records with _$Records {
   const factory Records({
-    required List<RecordValue> records,
+    required List<Record> records,
   }) = _Records;
 
   factory Records.fromJson(Map<String, Object?> json) =>

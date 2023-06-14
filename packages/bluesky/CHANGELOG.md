@@ -1,6 +1,6 @@
 # Release Note
 
-## v0.5.8
+## v0.6.0
 
 - Supported `com.atproto.sync.getRepo` as `findRepoCommits` in `SyncService`. ([#313](https://github.com/myConsciousness/atproto.dart/issues/313))
 - Changed default timeout from 10 seconds to 30 seconds.
@@ -13,6 +13,17 @@
 - Supported `com.atproto.repo.rebaseRepo` as `rebaseRepo` in `RepositoriesService`. ([#509](https://github.com/myConsciousness/atproto.dart/issues/509))
 - Supported `com.atproto.sync.listRepos` as `findRepos` in `SyncService`. ([#315](https://github.com/myConsciousness/atproto.dart/issues/315))
 - Renamed object from `Repo` to `RepoInfo` returned from `findRepoInfo` in `RepositoriesService`.
+- Renamed `RecordValue` to `Record`. And now `createRecord` and `updateRecord` and following methods returns `StrongRef`. ([#511](https://github.com/myConsciousness/atproto.dart/issues/511))
+  - `createPost`
+  - `createThread`
+  - `createRepost`
+  - `createLike`
+  - `createGenerator`
+  - `createFollow`
+  - `createBlock`
+  - `createList`
+  - `createListItem`
+  - `updateProfile`
 
 ## v0.5.7
 

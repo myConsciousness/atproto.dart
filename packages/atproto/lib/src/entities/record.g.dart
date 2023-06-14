@@ -13,15 +13,28 @@ _$_Record _$$_RecordFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_Record(
-          cid: $checkedConvert('cid', (v) => v as String),
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
+          cid: $checkedConvert('cid', (v) => v as String?),
+          value: $checkedConvert(
+              'value', (v) => Map<String, dynamic>.from(v as Map)),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$_RecordToJson(_$_Record instance) => <String, dynamic>{
-      'cid': instance.cid,
-      'uri': const AtUriConverter().toJson(instance.uri),
-    };
+Map<String, dynamic> _$$_RecordToJson(_$_Record instance) {
+  final val = <String, dynamic>{
+    'uri': const AtUriConverter().toJson(instance.uri),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('cid', instance.cid);
+  val['value'] = instance.value;
+  return val;
+}

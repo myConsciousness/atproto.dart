@@ -12,9 +12,9 @@ import '../entities/blob_data.dart';
 import '../entities/create_action.dart';
 import '../entities/delete_action.dart';
 import '../entities/record.dart';
-import '../entities/record_value.dart';
 import '../entities/records.dart';
 import '../entities/repo_info.dart';
+import '../entities/strong_ref.dart';
 import '../entities/update_action.dart';
 
 abstract class RepositoriesService {
@@ -57,7 +57,7 @@ abstract class RepositoriesService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/createRecord.json
-  Future<core.XRPCResponse<Record>> createRecord({
+  Future<core.XRPCResponse<StrongRef>> createRecord({
     required core.NSID collection,
     required Map<String, dynamic> record,
     bool? validate,
@@ -81,7 +81,7 @@ abstract class RepositoriesService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/getRecord.json
-  Future<core.XRPCResponse<RecordValue>> findRecord({
+  Future<core.XRPCResponse<Record>> findRecord({
     required core.AtUri uri,
     String? cid,
   });
@@ -166,7 +166,7 @@ abstract class RepositoriesService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/putRecord.json
-  Future<core.XRPCResponse<Record>> updateRecord({
+  Future<core.XRPCResponse<StrongRef>> updateRecord({
     required core.AtUri uri,
     required Map<String, dynamic> record,
     bool? validate,
@@ -316,7 +316,7 @@ class _RepositoriesService extends ATProtoBaseService
   }) : super(methodAuthority: 'repo.atproto.com');
 
   @override
-  Future<core.XRPCResponse<Record>> createRecord({
+  Future<core.XRPCResponse<StrongRef>> createRecord({
     required core.NSID collection,
     required Map<String, dynamic> record,
     bool? validate,
@@ -333,11 +333,11 @@ class _RepositoriesService extends ATProtoBaseService
           'swapRecord': swapRecordCid,
           'swapCommit': swapCommitCid
         },
-        to: Record.fromJson,
+        to: StrongRef.fromJson,
       );
 
   @override
-  Future<core.XRPCResponse<RecordValue>> findRecord({
+  Future<core.XRPCResponse<Record>> findRecord({
     required core.AtUri uri,
     String? cid,
   }) async =>
@@ -349,7 +349,7 @@ class _RepositoriesService extends ATProtoBaseService
           'rkey': uri.rkey,
           'cid': cid,
         },
-        to: RecordValue.fromJson,
+        to: Record.fromJson,
       );
 
   @override
@@ -394,7 +394,7 @@ class _RepositoriesService extends ATProtoBaseService
       );
 
   @override
-  Future<core.XRPCResponse<Record>> updateRecord({
+  Future<core.XRPCResponse<StrongRef>> updateRecord({
     required core.AtUri uri,
     required Map<String, dynamic> record,
     bool? validate,
@@ -412,7 +412,7 @@ class _RepositoriesService extends ATProtoBaseService
           'swapRecord': swapRecordCid,
           'swapCommit': swapCommitCid
         },
-        to: Record.fromJson,
+        to: StrongRef.fromJson,
       );
 
   @override
