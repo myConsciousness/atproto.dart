@@ -183,3 +183,4 @@ So `atproto` uses the following standard prefixes depending on endpoint characte
 | **update**    | This prefix is attached to the endpoint performing the update state.      |
 | **upload**    | This prefix is attached to the endpoint performing the upload contents.   |
 | **request**   | This prefix is attached to the endpoint performing the request via email. |
+| **rebase**    | This prefix is attached to the endpoint performing the rebase repo.       |

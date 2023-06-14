@@ -214,6 +214,7 @@ Future<void> main() async {
 | [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)   | [createRecords](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/createRecords.html) |
 | [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)   | [updateRecords](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/updateRecords.html) |
 | [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)   | [deleteRecords](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/deleteRecords.html) |
+| [POST com.atproto.repo.rebaseRepo](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/rebaseRepo.json)     | [rebaseRepo](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/rebaseRepo.html)       |
 
 ### 1.3.4. Moderation
 
@@ -250,6 +251,7 @@ Future<void> main() async {
 | **update**    | This prefix is attached to the endpoint performing the update state.      |
 | **upload**    | This prefix is attached to the endpoint performing the upload contents.   |
 | **request**   | This prefix is attached to the endpoint performing the request via email. |
+| **rebase**    | This prefix is attached to the endpoint performing the rebase repo.       |
 
 ### 1.4.2. Null Parameter at Request
 
