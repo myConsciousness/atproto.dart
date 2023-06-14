@@ -21,10 +21,6 @@ RepoCommits _$RepoCommitsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$RepoCommits {
   List<RepoCommit> get commits => throw _privateConstructorUsedError;
-  @JsonKey(name: 'earliest')
-  String? get earliestCommitCid => throw _privateConstructorUsedError;
-  @JsonKey(name: 'latest')
-  String? get latestCommitCid => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,10 +34,7 @@ abstract class $RepoCommitsCopyWith<$Res> {
           RepoCommits value, $Res Function(RepoCommits) then) =
       _$RepoCommitsCopyWithImpl<$Res, RepoCommits>;
   @useResult
-  $Res call(
-      {List<RepoCommit> commits,
-      @JsonKey(name: 'earliest') String? earliestCommitCid,
-      @JsonKey(name: 'latest') String? latestCommitCid});
+  $Res call({List<RepoCommit> commits});
 }
 
 /// @nodoc
@@ -58,22 +51,12 @@ class _$RepoCommitsCopyWithImpl<$Res, $Val extends RepoCommits>
   @override
   $Res call({
     Object? commits = null,
-    Object? earliestCommitCid = freezed,
-    Object? latestCommitCid = freezed,
   }) {
     return _then(_value.copyWith(
       commits: null == commits
           ? _value.commits
           : commits // ignore: cast_nullable_to_non_nullable
               as List<RepoCommit>,
-      earliestCommitCid: freezed == earliestCommitCid
-          ? _value.earliestCommitCid
-          : earliestCommitCid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      latestCommitCid: freezed == latestCommitCid
-          ? _value.latestCommitCid
-          : latestCommitCid // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 }
@@ -86,10 +69,7 @@ abstract class _$$_RepoCommitsCopyWith<$Res>
       __$$_RepoCommitsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {List<RepoCommit> commits,
-      @JsonKey(name: 'earliest') String? earliestCommitCid,
-      @JsonKey(name: 'latest') String? latestCommitCid});
+  $Res call({List<RepoCommit> commits});
 }
 
 /// @nodoc
@@ -104,22 +84,12 @@ class __$$_RepoCommitsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? commits = null,
-    Object? earliestCommitCid = freezed,
-    Object? latestCommitCid = freezed,
   }) {
     return _then(_$_RepoCommits(
       commits: null == commits
           ? _value._commits
           : commits // ignore: cast_nullable_to_non_nullable
               as List<RepoCommit>,
-      earliestCommitCid: freezed == earliestCommitCid
-          ? _value.earliestCommitCid
-          : earliestCommitCid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      latestCommitCid: freezed == latestCommitCid
-          ? _value.latestCommitCid
-          : latestCommitCid // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -128,10 +98,7 @@ class __$$_RepoCommitsCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$_RepoCommits implements _RepoCommits {
-  const _$_RepoCommits(
-      {required final List<RepoCommit> commits,
-      @JsonKey(name: 'earliest') this.earliestCommitCid,
-      @JsonKey(name: 'latest') this.latestCommitCid})
+  const _$_RepoCommits({required final List<RepoCommit> commits})
       : _commits = commits;
 
   factory _$_RepoCommits.fromJson(Map<String, dynamic> json) =>
@@ -146,15 +113,8 @@ class _$_RepoCommits implements _RepoCommits {
   }
 
   @override
-  @JsonKey(name: 'earliest')
-  final String? earliestCommitCid;
-  @override
-  @JsonKey(name: 'latest')
-  final String? latestCommitCid;
-
-  @override
   String toString() {
-    return 'RepoCommits(commits: $commits, earliestCommitCid: $earliestCommitCid, latestCommitCid: $latestCommitCid)';
+    return 'RepoCommits(commits: $commits)';
   }
 
   @override
@@ -162,20 +122,13 @@ class _$_RepoCommits implements _RepoCommits {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RepoCommits &&
-            const DeepCollectionEquality().equals(other._commits, _commits) &&
-            (identical(other.earliestCommitCid, earliestCommitCid) ||
-                other.earliestCommitCid == earliestCommitCid) &&
-            (identical(other.latestCommitCid, latestCommitCid) ||
-                other.latestCommitCid == latestCommitCid));
+            const DeepCollectionEquality().equals(other._commits, _commits));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_commits),
-      earliestCommitCid,
-      latestCommitCid);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_commits));
 
   @JsonKey(ignore: true)
   @override
@@ -192,22 +145,14 @@ class _$_RepoCommits implements _RepoCommits {
 }
 
 abstract class _RepoCommits implements RepoCommits {
-  const factory _RepoCommits(
-      {required final List<RepoCommit> commits,
-      @JsonKey(name: 'earliest') final String? earliestCommitCid,
-      @JsonKey(name: 'latest') final String? latestCommitCid}) = _$_RepoCommits;
+  const factory _RepoCommits({required final List<RepoCommit> commits}) =
+      _$_RepoCommits;
 
   factory _RepoCommits.fromJson(Map<String, dynamic> json) =
       _$_RepoCommits.fromJson;
 
   @override
   List<RepoCommit> get commits;
-  @override
-  @JsonKey(name: 'earliest')
-  String? get earliestCommitCid;
-  @override
-  @JsonKey(name: 'latest')
-  String? get latestCommitCid;
   @override
   @JsonKey(ignore: true)
   _$$_RepoCommitsCopyWith<_$_RepoCommits> get copyWith =>

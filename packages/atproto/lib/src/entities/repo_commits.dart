@@ -17,8 +17,6 @@ class RepoCommits with _$RepoCommits {
   @JsonSerializable(includeIfNull: false)
   const factory RepoCommits({
     required List<RepoCommit> commits,
-    @JsonKey(name: 'earliest') String? earliestCommitCid,
-    @JsonKey(name: 'latest') String? latestCommitCid,
   }) = _RepoCommits;
 
   factory RepoCommits.fromJson(Map<String, Object?> json) =>

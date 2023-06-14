@@ -20,12 +20,9 @@ Repo _$RepoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Repo {
-  String get handle => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
-  ParsedDidDoc get didDoc => throw _privateConstructorUsedError;
-  List<String> get collections => throw _privateConstructorUsedError;
-  @JsonKey(name: 'handleIsCorrect')
-  bool get hasCorrectHandle => throw _privateConstructorUsedError;
+  @JsonKey(name: 'head')
+  String get headCid => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,14 +34,7 @@ abstract class $RepoCopyWith<$Res> {
   factory $RepoCopyWith(Repo value, $Res Function(Repo) then) =
       _$RepoCopyWithImpl<$Res, Repo>;
   @useResult
-  $Res call(
-      {String handle,
-      String did,
-      ParsedDidDoc didDoc,
-      List<String> collections,
-      @JsonKey(name: 'handleIsCorrect') bool hasCorrectHandle});
-
-  $ParsedDidDocCopyWith<$Res> get didDoc;
+  $Res call({String did, @JsonKey(name: 'head') String headCid});
 }
 
 /// @nodoc
@@ -60,42 +50,19 @@ class _$RepoCopyWithImpl<$Res, $Val extends Repo>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? handle = null,
     Object? did = null,
-    Object? didDoc = null,
-    Object? collections = null,
-    Object? hasCorrectHandle = null,
+    Object? headCid = null,
   }) {
     return _then(_value.copyWith(
-      handle: null == handle
-          ? _value.handle
-          : handle // ignore: cast_nullable_to_non_nullable
-              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
-      didDoc: null == didDoc
-          ? _value.didDoc
-          : didDoc // ignore: cast_nullable_to_non_nullable
-              as ParsedDidDoc,
-      collections: null == collections
-          ? _value.collections
-          : collections // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      hasCorrectHandle: null == hasCorrectHandle
-          ? _value.hasCorrectHandle
-          : hasCorrectHandle // ignore: cast_nullable_to_non_nullable
-              as bool,
+      headCid: null == headCid
+          ? _value.headCid
+          : headCid // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ParsedDidDocCopyWith<$Res> get didDoc {
-    return $ParsedDidDocCopyWith<$Res>(_value.didDoc, (value) {
-      return _then(_value.copyWith(didDoc: value) as $Val);
-    });
   }
 }
 
@@ -105,15 +72,7 @@ abstract class _$$_RepoCopyWith<$Res> implements $RepoCopyWith<$Res> {
       __$$_RepoCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String handle,
-      String did,
-      ParsedDidDoc didDoc,
-      List<String> collections,
-      @JsonKey(name: 'handleIsCorrect') bool hasCorrectHandle});
-
-  @override
-  $ParsedDidDocCopyWith<$Res> get didDoc;
+  $Res call({String did, @JsonKey(name: 'head') String headCid});
 }
 
 /// @nodoc
@@ -125,33 +84,18 @@ class __$$_RepoCopyWithImpl<$Res> extends _$RepoCopyWithImpl<$Res, _$_Repo>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? handle = null,
     Object? did = null,
-    Object? didDoc = null,
-    Object? collections = null,
-    Object? hasCorrectHandle = null,
+    Object? headCid = null,
   }) {
     return _then(_$_Repo(
-      handle: null == handle
-          ? _value.handle
-          : handle // ignore: cast_nullable_to_non_nullable
-              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
-      didDoc: null == didDoc
-          ? _value.didDoc
-          : didDoc // ignore: cast_nullable_to_non_nullable
-              as ParsedDidDoc,
-      collections: null == collections
-          ? _value._collections
-          : collections // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      hasCorrectHandle: null == hasCorrectHandle
-          ? _value.hasCorrectHandle
-          : hasCorrectHandle // ignore: cast_nullable_to_non_nullable
-              as bool,
+      headCid: null == headCid
+          ? _value.headCid
+          : headCid // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -160,36 +104,19 @@ class __$$_RepoCopyWithImpl<$Res> extends _$RepoCopyWithImpl<$Res, _$_Repo>
 @JsonSerializable()
 class _$_Repo implements _Repo {
   const _$_Repo(
-      {required this.handle,
-      required this.did,
-      required this.didDoc,
-      required final List<String> collections,
-      @JsonKey(name: 'handleIsCorrect') required this.hasCorrectHandle})
-      : _collections = collections;
+      {required this.did, @JsonKey(name: 'head') required this.headCid});
 
   factory _$_Repo.fromJson(Map<String, dynamic> json) => _$$_RepoFromJson(json);
 
   @override
-  final String handle;
-  @override
   final String did;
   @override
-  final ParsedDidDoc didDoc;
-  final List<String> _collections;
-  @override
-  List<String> get collections {
-    if (_collections is EqualUnmodifiableListView) return _collections;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_collections);
-  }
-
-  @override
-  @JsonKey(name: 'handleIsCorrect')
-  final bool hasCorrectHandle;
+  @JsonKey(name: 'head')
+  final String headCid;
 
   @override
   String toString() {
-    return 'Repo(handle: $handle, did: $did, didDoc: $didDoc, collections: $collections, hasCorrectHandle: $hasCorrectHandle)';
+    return 'Repo(did: $did, headCid: $headCid)';
   }
 
   @override
@@ -197,19 +124,13 @@ class _$_Repo implements _Repo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Repo &&
-            (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.did, did) || other.did == did) &&
-            (identical(other.didDoc, didDoc) || other.didDoc == didDoc) &&
-            const DeepCollectionEquality()
-                .equals(other._collections, _collections) &&
-            (identical(other.hasCorrectHandle, hasCorrectHandle) ||
-                other.hasCorrectHandle == hasCorrectHandle));
+            (identical(other.headCid, headCid) || other.headCid == headCid));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, handle, did, didDoc,
-      const DeepCollectionEquality().hash(_collections), hasCorrectHandle);
+  int get hashCode => Object.hash(runtimeType, did, headCid);
 
   @JsonKey(ignore: true)
   @override
@@ -227,26 +148,16 @@ class _$_Repo implements _Repo {
 
 abstract class _Repo implements Repo {
   const factory _Repo(
-      {required final String handle,
-      required final String did,
-      required final ParsedDidDoc didDoc,
-      required final List<String> collections,
-      @JsonKey(name: 'handleIsCorrect')
-      required final bool hasCorrectHandle}) = _$_Repo;
+      {required final String did,
+      @JsonKey(name: 'head') required final String headCid}) = _$_Repo;
 
   factory _Repo.fromJson(Map<String, dynamic> json) = _$_Repo.fromJson;
 
   @override
-  String get handle;
-  @override
   String get did;
   @override
-  ParsedDidDoc get didDoc;
-  @override
-  List<String> get collections;
-  @override
-  @JsonKey(name: 'handleIsCorrect')
-  bool get hasCorrectHandle;
+  @JsonKey(name: 'head')
+  String get headCid;
   @override
   @JsonKey(ignore: true)
   _$$_RepoCopyWith<_$_Repo> get copyWith => throw _privateConstructorUsedError;

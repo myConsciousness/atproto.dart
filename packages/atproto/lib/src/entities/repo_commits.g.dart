@@ -19,29 +19,12 @@ _$_RepoCommits _$$_RepoCommitsFromJson(Map json) => $checkedCreate(
                   .map((e) =>
                       RepoCommit.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
-          earliestCommitCid: $checkedConvert('earliest', (v) => v as String?),
-          latestCommitCid: $checkedConvert('latest', (v) => v as String?),
         );
         return val;
       },
-      fieldKeyMap: const {
-        'earliestCommitCid': 'earliest',
-        'latestCommitCid': 'latest'
-      },
     );
 
-Map<String, dynamic> _$$_RepoCommitsToJson(_$_RepoCommits instance) {
-  final val = <String, dynamic>{
-    'commits': instance.commits.map((e) => e.toJson()).toList(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('earliest', instance.earliestCommitCid);
-  writeNotNull('latest', instance.latestCommitCid);
-  return val;
-}
+Map<String, dynamic> _$$_RepoCommitsToJson(_$_RepoCommits instance) =>
+    <String, dynamic>{
+      'commits': instance.commits.map((e) => e.toJson()).toList(),
+    };
