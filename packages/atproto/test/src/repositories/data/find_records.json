@@ -1,0 +1,1086 @@
+{
+  "records": [
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxzbtxkj4k2n",
+      "cid": "bafyreidx5gcctnul767s3pzcd44fcacysmygplm7ybi2gghwfptjfmmtoa",
+      "value": {
+        "text": "Ty marina 🙏",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreidhdctn4oyo45vv6vfizvk5jtdp3gnfq3w2abw634pootiz6q534y",
+            "uri": "at://did:plc:rripmnmsyo2vb4c6hccja3my/app.bsky.feed.post/3jxyztkasnk2n"
+          },
+          "parent": {
+            "cid": "bafyreidhdctn4oyo45vv6vfizvk5jtdp3gnfq3w2abw634pootiz6q534y",
+            "uri": "at://did:plc:rripmnmsyo2vb4c6hccja3my/app.bsky.feed.post/3jxyztkasnk2n"
+          }
+        },
+        "createdAt": "2023-06-13T02:54:23.387Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxz4wwp6xs2l",
+      "cid": "bafyreibzzqfbjeyehoffom2qusy3tovzvuebnodmw66iv4q6n5hutgjt4i",
+      "value": {
+        "text": "???",
+        "$type": "app.bsky.feed.post",
+        "embed": {
+          "$type": "app.bsky.embed.images",
+          "images": [
+            {
+              "alt": "",
+              "image": {
+                "$type": "blob",
+                "ref": {
+                  "$link": "bafkreidodplgbqvdhtfrsarw5bz7iuryeg57imqzp4ggcyrclcsxf46mgi"
+                },
+                "mimeType": "image/jpeg",
+                "size": 439516
+              }
+            }
+          ]
+        },
+        "reply": {
+          "root": {
+            "cid": "bafyreib6hgqslmouqdpc7yopk5h42fsdhkxxupfw7ql62gskhp6mzerbqe",
+            "uri": "at://did:plc:nrfz4rgtvueerov3luefwjja/app.bsky.feed.post/3jxz4v7qmji2s"
+          },
+          "parent": {
+            "cid": "bafyreib6hgqslmouqdpc7yopk5h42fsdhkxxupfw7ql62gskhp6mzerbqe",
+            "uri": "at://did:plc:nrfz4rgtvueerov3luefwjja/app.bsky.feed.post/3jxz4v7qmji2s"
+          }
+        },
+        "createdAt": "2023-06-13T01:26:34.588Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxz2waunzr25",
+      "cid": "bafyreicgbnepu4maoupmbdc3xzw4it6las465ac37hvobw54cthmr736ha",
+      "value": {
+        "text": "the only way i would invite a cop here would be if someone first started an account like this 👇",
+        "$type": "app.bsky.feed.post",
+        "embed": {
+          "$type": "app.bsky.embed.recordWithMedia",
+          "media": {
+            "$type": "app.bsky.embed.images",
+            "images": [
+              {
+                "alt": "",
+                "image": {
+                  "$type": "blob",
+                  "ref": {
+                    "$link": "bafkreihakvsaacqucrtls42c3j3uumvdemvx6musqxsc3qokqxpx456wga"
+                  },
+                  "mimeType": "image/jpeg",
+                  "size": 578032
+                }
+              }
+            ]
+          },
+          "record": {
+            "$type": "app.bsky.embed.record",
+            "record": {
+              "cid": "bafyreiguwensoxlwikuy66cpcoly5cbuprvfscx7ot6yojyf7k65jblrzm",
+              "uri": "at://did:plc:5shzbeszmcw47rqzmse7kwry/app.bsky.feed.post/3jxyp3uqsb32j"
+            }
+          }
+        },
+        "createdAt": "2023-06-13T00:50:24.172Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxz2rf4tpa2e",
+      "cid": "bafyreic257ywkjnpp6p4oypojfhfcgg4lcqms47skmbbmo2hld2ch7eenm",
+      "value": {
+        "text": "it is and that's why he had to quit actually he didn't win in his local election last month 😭",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreig7rq2oxytnoqp5fdqqhlmxzlgd7sltkeinf6nr2pmi2gds4dw5qi",
+            "uri": "at://did:plc:5shzbeszmcw47rqzmse7kwry/app.bsky.feed.post/3jxz2orh74y2e"
+          },
+          "parent": {
+            "cid": "bafyreig7rq2oxytnoqp5fdqqhlmxzlgd7sltkeinf6nr2pmi2gds4dw5qi",
+            "uri": "at://did:plc:5shzbeszmcw47rqzmse7kwry/app.bsky.feed.post/3jxz2orh74y2e"
+          }
+        },
+        "createdAt": "2023-06-13T00:47:40.753Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxz2jvoaja2u",
+      "cid": "bafyreief2ikn3y2aqkocsih5tg45mvimrvc7fm25sas5rx3saizipbvwli",
+      "value": {
+        "text": "i will tell you after i get exactly 1 new follower",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreiclioalm2xnfuwjjph3k55rdi6zownho2uz3gixcijkfcni3otpye",
+            "uri": "at://did:plc:ssswl2yqnc4snqvsdu5u7jiq/app.bsky.feed.post/3jxyzz5sqqz25"
+          },
+          "parent": {
+            "cid": "bafyreiclioalm2xnfuwjjph3k55rdi6zownho2uz3gixcijkfcni3otpye",
+            "uri": "at://did:plc:ssswl2yqnc4snqvsdu5u7jiq/app.bsky.feed.post/3jxyzz5sqqz25"
+          }
+        },
+        "createdAt": "2023-06-13T00:43:29.680Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxz2div4cu2r",
+      "cid": "bafyreihpucquu65g23h2i3ukplkqwk2q2flaf4th2ri4pfqdlfmyg7e2cm",
+      "value": {
+        "text": "🙌🙌🙌",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreigui3ortylxt3wqr24hbecr27rk2zmqw27k4epkrnry43vszgkbpe",
+            "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyx4hfu652e"
+          },
+          "parent": {
+            "cid": "bafyreievzifb3j2q4die42mixfvddjqdat5arn24jcdrtezpjqvry6zmay",
+            "uri": "at://did:plc:q5sahncn5htqnz6o5siubiar/app.bsky.feed.post/3jxz222rh2j25"
+          }
+        },
+        "createdAt": "2023-06-13T00:39:54.963Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyzgti6gf2p",
+      "cid": "bafyreihuyyfzqupguyvkfnitqwwidfqe6tjbtv5ttlwqcwxbofhtked5cy",
+      "value": {
+        "text": "Holy fuck I've heard that song hundreds of times but never paid attention to that lyric lmfao",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreibtbm3sq2jtdiavbvbbujxmudsouxbotrds4s242hjz5q3ffs3jum",
+            "uri": "at://did:plc:7bvv3ainziugdwtm5ztvna7y/app.bsky.feed.post/3jxx7tqwyws2p"
+          },
+          "parent": {
+            "cid": "bafyreibtbm3sq2jtdiavbvbbujxmudsouxbotrds4s242hjz5q3ffs3jum",
+            "uri": "at://did:plc:7bvv3ainziugdwtm5ztvna7y/app.bsky.feed.post/3jxx7tqwyws2p"
+          }
+        },
+        "createdAt": "2023-06-13T00:23:53.070Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyzdsswzk2n",
+      "cid": "bafyreif4nuk5rfezfnlnlfhuve3h66ddsps7unib443ueq7qenh3yfnhke",
+      "value": {
+        "text": "kylie monogue ofc ofc",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreig4wicdllvfzg3czbrgfvl4gbfe5gtr5rtekqhdhiw23e3dgcj7zy",
+            "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyykojdir25"
+          },
+          "parent": {
+            "cid": "bafyreiekklygxyvfysvwattmura3iipnxfj2vkrkxwko3p4owzhr6uggsu",
+            "uri": "at://did:plc:uraielgolztbeqrrv5c7qbce/app.bsky.feed.post/3jxyzbvqpvt2j"
+          }
+        },
+        "createdAt": "2023-06-13T00:22:11.688Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyyxhpgcr2w",
+      "cid": "bafyreianbtzlgpu76fxmg63mf3w3vcjsskncswbtkdb5gfb4jmra2qnw6q",
+      "value": {
+        "text": "(not debating obviously i like thinking about these things, even if we disagree with the methods or merits of socialism v anarchy etc etc) ❤️",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreihv3esfrokwo63yxow7eryl7jc2j5pbcbgpkxg7ku3b457i5ci7s4",
+            "uri": "at://did:plc:ekdz2q23xcbesqmrwmnv32kr/app.bsky.feed.post/3jxyyqd5cin2p"
+          },
+          "parent": {
+            "cid": "bafyreied6afvwq32mp7vaijtfcjg3furt36gqk5lnk27krlgk2hyaiuyxm",
+            "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyyvo74m22n"
+          }
+        },
+        "createdAt": "2023-06-13T00:15:17.410Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyyvo74m22n",
+      "cid": "bafyreied6afvwq32mp7vaijtfcjg3furt36gqk5lnk27krlgk2hyaiuyxm",
+      "value": {
+        "text": "i hear you on \"maximize ownness\" but i think, within the imperial core, that looks no different than the bourgeois individualism we see currently.\n\nespecially concerning, to me at least, when it comes to the biggest threat the world is facing w the climate.",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreihv3esfrokwo63yxow7eryl7jc2j5pbcbgpkxg7ku3b457i5ci7s4",
+            "uri": "at://did:plc:ekdz2q23xcbesqmrwmnv32kr/app.bsky.feed.post/3jxyyqd5cin2p"
+          },
+          "parent": {
+            "cid": "bafyreihv3esfrokwo63yxow7eryl7jc2j5pbcbgpkxg7ku3b457i5ci7s4",
+            "uri": "at://did:plc:ekdz2q23xcbesqmrwmnv32kr/app.bsky.feed.post/3jxyyqd5cin2p"
+          }
+        },
+        "createdAt": "2023-06-13T00:14:17.094Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyynyexsk2n",
+      "cid": "bafyreicnwuaynvb6wnrnu4v5bp365eq3iiuwjzmagwyw6rmc5y6zyr2kxi",
+      "value": {
+        "text": "PLEASE no one ask his opinions on the Romani population, biggest mistake of my life",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreiby4v44qxir7xipm6qurvnescwkb2lczsuwaxd2epltc635l7w7vm",
+            "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyyfht47g2h"
+          },
+          "parent": {
+            "cid": "bafyreiausorcfby73uh44gus4qpdm7oe36djcz7d27olxgf3wterj5v5xu",
+            "uri": "at://did:plc:wd5apfecmktjop2gdnqk5fuj/app.bsky.feed.post/3jxyykph5mx2u"
+          }
+        },
+        "createdAt": "2023-06-13T00:09:59.290Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyyml2omu2n",
+      "cid": "bafyreiakdnixlndjsrsgr5sxbs7oyvg64ow5t2g5bqodthgjedv2resv3u",
+      "value": {
+        "text": "im gonna answer for him, yes",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreigui3ortylxt3wqr24hbecr27rk2zmqw27k4epkrnry43vszgkbpe",
+            "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyx4hfu652e"
+          },
+          "parent": {
+            "cid": "bafyreibezj2rhndvjgrhbthxfg7jqz7xm2sxwkyrm7ozdh7q32pbdp43t4",
+            "uri": "at://did:plc:q5sahncn5htqnz6o5siubiar/app.bsky.feed.post/3jxyykop43c2n"
+          }
+        },
+        "createdAt": "2023-06-13T00:09:11.726Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyykojdir25",
+      "cid": "bafyreig4wicdllvfzg3czbrgfvl4gbfe5gtr5rtekqhdhiw23e3dgcj7zy",
+      "value": {
+        "text": "no bro people think you're hilarious bro the other users just haven't refreshed the feed bro they'll be liking it in no time no doubt",
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2023-06-13T00:08:08.291Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyyfht47g2h",
+      "cid": "bafyreiby4v44qxir7xipm6qurvnescwkb2lczsuwaxd2epltc635l7w7vm",
+      "value": {
+        "text": "damn don't tell Daniel what books were being burned by the Weimar Republic. Also 👇",
+        "$type": "app.bsky.feed.post",
+        "embed": {
+          "$type": "app.bsky.embed.recordWithMedia",
+          "media": {
+            "$type": "app.bsky.embed.images",
+            "images": [
+              {
+                "alt": "",
+                "image": {
+                  "$type": "blob",
+                  "ref": {
+                    "$link": "bafkreidhz4ahexegry6b4k4wqiep2cvehz6m32z52dye3mw4objpmcfgjm"
+                  },
+                  "mimeType": "image/jpeg",
+                  "size": 186474
+                }
+              }
+            ]
+          },
+          "record": {
+            "$type": "app.bsky.embed.record",
+            "record": {
+              "cid": "bafyreiaprq5nacc37l3swv4uamnwzzxm57wl2nrburhiylp745re3jb5sa",
+              "uri": "at://did:plc:3l72ugq3tsp5ff4ru2opgpax/app.bsky.feed.post/3jxytpcqors2l"
+            }
+          }
+        },
+        "createdAt": "2023-06-13T00:05:13.554Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyy4ltbnk2n",
+      "cid": "bafyreie4u6pobqvsrems67bhfhsflcjd4to573zvfavpkw34toyfcnjf74",
+      "value": {
+        "text": "Taliban now it's more like I, SIS 😔",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreihxvelr2t2s6lo4r6kzr2uxm72pn2geuysxdgeo6b3wk2lqfwkigm",
+            "uri": "at://did:plc:l56kxkgx572sdg2mquq3rw5f/app.bsky.feed.post/3jxyxdzgk7k2l"
+          },
+          "parent": {
+            "cid": "bafyreihxvelr2t2s6lo4r6kzr2uxm72pn2geuysxdgeo6b3wk2lqfwkigm",
+            "uri": "at://did:plc:l56kxkgx572sdg2mquq3rw5f/app.bsky.feed.post/3jxyxdzgk7k2l"
+          }
+        },
+        "createdAt": "2023-06-13T00:00:15.660Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyxcy3zcz2w",
+      "cid": "bafyreidqjivrjg5u7ivybrhljzlhyuqcqidmn5hs5nnckzj7aoifgvjae4",
+      "value": {
+        "text": "not enough nba fans here i don't think",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreihksqutdpzwbdez4wb4gqa6l6wxl7m7hqsvfk7zauew6ajyen5osm",
+            "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyx5yi56v2e"
+          },
+          "parent": {
+            "cid": "bafyreihksqutdpzwbdez4wb4gqa6l6wxl7m7hqsvfk7zauew6ajyen5osm",
+            "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyx5yi56v2e"
+          }
+        },
+        "createdAt": "2023-06-12T23:45:56.119Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyx5yi56v2e",
+      "cid": "bafyreihksqutdpzwbdez4wb4gqa6l6wxl7m7hqsvfk7zauew6ajyen5osm",
+      "value": {
+        "text": "",
+        "$type": "app.bsky.feed.post",
+        "embed": {
+          "$type": "app.bsky.embed.recordWithMedia",
+          "media": {
+            "$type": "app.bsky.embed.images",
+            "images": [
+              {
+                "alt": "",
+                "image": {
+                  "$type": "blob",
+                  "ref": {
+                    "$link": "bafkreiayaqbywlhbdev7mg6sxfsd45sg6w72jeuhsrtqmwl2ahygwnubda"
+                  },
+                  "mimeType": "image/jpeg",
+                  "size": 40000
+                }
+              }
+            ]
+          },
+          "record": {
+            "$type": "app.bsky.embed.record",
+            "record": {
+              "cid": "bafyreicgnknqr7pfovw6cb6tboc6myoef4g5dtaosvfz6s7yrosblo7dee",
+              "uri": "at://did:plc:hnqysb66l4oj52nqwkgfok7n/app.bsky.feed.post/3jxywfksy7x2s"
+            }
+          }
+        },
+        "createdAt": "2023-06-12T23:43:08.885Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyx4hfu652e",
+      "cid": "bafyreigui3ortylxt3wqr24hbecr27rk2zmqw27k4epkrnry43vszgkbpe",
+      "value": {
+        "text": "2 spots left who will put eric out on his ass!",
+        "$type": "app.bsky.feed.post",
+        "embed": {
+          "$type": "app.bsky.embed.record",
+          "record": {
+            "cid": "bafyreibjd7flyz2ntkr45twlgmmopzcqwlymvbfe4pvwt5k2n4kntlbwo4",
+            "uri": "at://did:plc:qnefi6jk7bt65c6pnaj7rejq/app.bsky.feed.post/3jxy7ovfbjn2w"
+          }
+        },
+        "createdAt": "2023-06-12T23:42:17.323Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxywumt4jz2w",
+      "cid": "bafyreiftpdwfbmr3ytkmbzhqhtok4udmcoeebikwz3mcgjfjxtovxj5o7a",
+      "value": {
+        "text": "parody accounts suck, actually",
+        "$type": "app.bsky.feed.post",
+        "embed": {
+          "$type": "app.bsky.embed.images",
+          "images": [
+            {
+              "alt": "",
+              "image": {
+                "$type": "blob",
+                "ref": {
+                  "$link": "bafkreihdi5bk6lddkrmskvwea2alz4hq4cbrpbn247ukrqvfbne7n7jbxa"
+                },
+                "mimeType": "image/jpeg",
+                "size": 281801
+              }
+            }
+          ]
+        },
+        "reply": {
+          "root": {
+            "cid": "bafyreifm5shefylityzxgnr37azsl2wqdi22i7pm5zrhuf2dgtagi2pzfm",
+            "uri": "at://did:plc:5n6dooi7you6yzr7u5vggwpc/app.bsky.feed.post/3jxyskqd64n2e"
+          },
+          "parent": {
+            "cid": "bafyreifm5shefylityzxgnr37azsl2wqdi22i7pm5zrhuf2dgtagi2pzfm",
+            "uri": "at://did:plc:5n6dooi7you6yzr7u5vggwpc/app.bsky.feed.post/3jxyskqd64n2e"
+          }
+        },
+        "createdAt": "2023-06-12T23:37:54.589Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxywrytjls2l",
+      "cid": "bafyreiejdrep4rxz7wkgp4fulwgmbef2xxe6daezhttvg32ogotcxzpyru",
+      "value": {
+        "text": "if you use your invite to create a parody account instead of inviting real people everyone should be plastering this in your replies",
+        "$type": "app.bsky.feed.post",
+        "embed": {
+          "$type": "app.bsky.embed.images",
+          "images": [
+            {
+              "alt": "",
+              "image": {
+                "$type": "blob",
+                "ref": {
+                  "$link": "bafkreihdi5bk6lddkrmskvwea2alz4hq4cbrpbn247ukrqvfbne7n7jbxa"
+                },
+                "mimeType": "image/jpeg",
+                "size": 281801
+              }
+            }
+          ]
+        },
+        "reply": {
+          "root": {
+            "cid": "bafyreid6ig6snfcnyhm75m5xyvkr534mnrmor4fhpztm3qbguvamnkpnue",
+            "uri": "at://did:plc:64mdicpo7sq4k5bx2z3m2jo6/app.bsky.feed.post/3jxywjutkbr25"
+          },
+          "parent": {
+            "cid": "bafyreid6ig6snfcnyhm75m5xyvkr534mnrmor4fhpztm3qbguvamnkpnue",
+            "uri": "at://did:plc:64mdicpo7sq4k5bx2z3m2jo6/app.bsky.feed.post/3jxywjutkbr25"
+          }
+        },
+        "createdAt": "2023-06-12T23:36:26.510Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxywlkidsp2u",
+      "cid": "bafyreif6eva4unyjkbla5krpcwsec6u6zxdsvf3g2gvagzz643g4xgs7x4",
+      "value": {
+        "text": "i had a recruiter totally bail on me a couple of years ago, found another and got a pretty good gig, and one full year later called me back asking if i was still interested lmfao",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreifvwzxfyniqq6jtjqj7qetj6ch5xewvulutaxyps7dzqcmb7i5i2a",
+            "uri": "at://did:plc:xy6tjlsgcxht6wvubvmg6nop/app.bsky.feed.post/3jxyvgyovof2p"
+          },
+          "parent": {
+            "cid": "bafyreifvwzxfyniqq6jtjqj7qetj6ch5xewvulutaxyps7dzqcmb7i5i2a",
+            "uri": "at://did:plc:xy6tjlsgcxht6wvubvmg6nop/app.bsky.feed.post/3jxyvgyovof2p"
+          }
+        },
+        "createdAt": "2023-06-12T23:32:50.086Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxywhlbp2o2h",
+      "cid": "bafyreigjgjhi5sp6r3g2wxg77wm2hrnjsypk4ao4x4ez5xcgkdjneuwmoq",
+      "value": {
+        "text": "he's only surprised because it looks like all the clocks he draws",
+        "$type": "app.bsky.feed.post",
+        "embed": {
+          "$type": "app.bsky.embed.images",
+          "images": [
+            {
+              "alt": "",
+              "image": {
+                "$type": "blob",
+                "ref": {
+                  "$link": "bafkreiem4a5zfkw2aywubielft3fbsgp6tk4rbkqewt5aw6lzzhx72esra"
+                },
+                "mimeType": "image/jpeg",
+                "size": 789244
+              }
+            }
+          ]
+        },
+        "createdAt": "2023-06-12T23:30:36.802Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxywf5ymeh2t",
+      "cid": "bafyreihya75nmcjzxvhis7v6aqln7b62bvpmzgpvqsbdz2htsp7e437vei",
+      "value": {
+        "text": "it's the perfect picture",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreieozzdt774zp67dw66aqfidcidmormjikjvet3seum3u4smba55bq",
+            "uri": "at://did:plc:ssswl2yqnc4snqvsdu5u7jiq/app.bsky.feed.post/3jxyvmfruqw2e"
+          },
+          "parent": {
+            "cid": "bafyreid42czos3x3i4qbr3ythbps6wkuhksshcdzedtttrwc3fkbgymg3m",
+            "uri": "at://did:plc:ovd4yosoobsdxwmay46wzhwx/app.bsky.feed.post/3jxyw2v47562e"
+          }
+        },
+        "createdAt": "2023-06-12T23:29:15.713Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxywb22kvu2n",
+      "cid": "bafyreieqvxyx3xgdelse2y2lwrlrrvf2ocvdey7yog6gjjpl4kpbi6eaqe",
+      "value": {
+        "text": "and frankly, moving to a per week invite release in the mean time",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreigbd3ghmqzgiqc2o7avcyazzkl7qr4ekvxw7y3zqa6l4m6cv5j5qu",
+            "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyw4642mb25"
+          },
+          "parent": {
+            "cid": "bafyreigbd3ghmqzgiqc2o7avcyazzkl7qr4ekvxw7y3zqa6l4m6cv5j5qu",
+            "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyw4642mb25"
+          }
+        },
+        "createdAt": "2023-06-12T23:26:57.351Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyw4642mb25",
+      "cid": "bafyreigbd3ghmqzgiqc2o7avcyazzkl7qr4ekvxw7y3zqa6l4m6cv5j5qu",
+      "value": {
+        "text": "I'm sure there's a lot that goes implementing a safe and secure DM system for Bluesky but it cannot come soon enough.",
+        "$type": "app.bsky.feed.post",
+        "embed": {
+          "$type": "app.bsky.embed.images",
+          "images": [
+            {
+              "alt": "",
+              "image": {
+                "$type": "blob",
+                "ref": {
+                  "$link": "bafkreifppmg4d45bf3kwr3x45n3koweh5rd5iv7otbbjo2dfkrhr47klnm"
+                },
+                "mimeType": "image/jpeg",
+                "size": 401150
+              }
+            }
+          ]
+        },
+        "createdAt": "2023-06-12T23:24:13.873Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyudm4vl32j",
+      "cid": "bafyreiazvbpsbvdymn2xqkoymnmic46vt6fihcdxqwyu3z54eon7zajw5i",
+      "value": {
+        "text": "they said automation wouldn't kill my job at the dick sucking factory but here you are cheering it on smdh",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreicsmjxux6qnxn3xqq36zdimhdfxkhrsth5ny6557uznhu7qdnkoza",
+            "uri": "at://did:plc:3xsewtol7to2o3mlohqundyn/app.bsky.feed.post/3jxyfdauzbt2n"
+          },
+          "parent": {
+            "cid": "bafyreicsmjxux6qnxn3xqq36zdimhdfxkhrsth5ny6557uznhu7qdnkoza",
+            "uri": "at://did:plc:3xsewtol7to2o3mlohqundyn/app.bsky.feed.post/3jxyfdauzbt2n"
+          }
+        },
+        "createdAt": "2023-06-12T22:52:35.891Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyu5espxr2n",
+      "cid": "bafyreigeigevrkrn536g23rrltrz5ejvx4anbx4qivc3waob6jkl4kllwm",
+      "value": {
+        "text": "can't figure out trying to convert pounds to kilograms call it mass confusion",
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2023-06-12T22:49:06.934Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxytxqhlb22l",
+      "cid": "bafyreidguzrjbta6za7ixwp7elv5slz3div66qma6ymqziyyeogyoztshq",
+      "value": {
+        "text": "i put my hand up on your hip, when i dip you dip ouija dip",
+        "$type": "app.bsky.feed.post",
+        "embed": {
+          "$type": "app.bsky.embed.images",
+          "images": [
+            {
+              "alt": "",
+              "image": {
+                "$type": "blob",
+                "ref": {
+                  "$link": "bafkreibzizr2rwnxpwn4vgfhlnknp3xwgd7grjppt3ypkljrpqeqwslas4"
+                },
+                "mimeType": "image/jpeg",
+                "size": 345681
+              }
+            }
+          ]
+        },
+        "createdAt": "2023-06-12T22:45:57.920Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxytfkp7mr2l",
+      "cid": "bafyreibrmah3iaouf7rkrshqqmufyoflfwvo7hpxgs7baz2gvlyvh2hj2i",
+      "value": {
+        "text": "ok ya consolidat it that's smart",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreiasnnmvljuraqfiwgjlxkztso2qbqem4chean2jnsliuaxeakasbe",
+            "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyta3p5gt2e"
+          },
+          "parent": {
+            "cid": "bafyreihapapfz7zw75d2svbouyllwqkmgqgog4rsr3wtwa6begexnjrfmq",
+            "uri": "at://did:plc:cklskfrciopldpy2ldjh4pat/app.bsky.feed.post/3jxytencutn2e"
+          }
+        },
+        "createdAt": "2023-06-12T22:35:47.787Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyte3tbk42e",
+      "cid": "bafyreigy4vgdibar5fbcb4v2mzxppafkmjmgyeomshrxvf22qoxcftxpqi",
+      "value": {
+        "text": "then there'd still be cat shit?! or am i missing something?!?",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreiasnnmvljuraqfiwgjlxkztso2qbqem4chean2jnsliuaxeakasbe",
+            "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyta3p5gt2e"
+          },
+          "parent": {
+            "cid": "bafyreidobtoybi7ne7u5aemwutuauytbbar6acdmhr2h4ipiaw5qhrd42m",
+            "uri": "at://did:plc:cklskfrciopldpy2ldjh4pat/app.bsky.feed.post/3jxytcdc5xz2l"
+          }
+        },
+        "createdAt": "2023-06-12T22:34:58.663Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyta3p5gt2e",
+      "cid": "bafyreiasnnmvljuraqfiwgjlxkztso2qbqem4chean2jnsliuaxeakasbe",
+      "value": {
+        "text": "how can i stop the outdoor neighborhood cats from shitting in my yard, my dog can't help but go nuts for it 😔",
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2023-06-12T22:32:44.221Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxysn7s5zl2e",
+      "cid": "bafyreieihj4nsaoqah4fatfn7eq4kproln63nzhkg6i5frhn3sqdnmjw7q",
+      "value": {
+        "text": "idk why you need to pack that many clothes for a trip but im happy for you 🫂",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreibopybnawn4s2igjzqhuekhe7oswykwq2wubvb6q3n2nwdg5r4wka",
+            "uri": "at://did:plc:5j4pcz5scisofl4yfoeurags/app.bsky.feed.post/3jxys6ed46m2p"
+          },
+          "parent": {
+            "cid": "bafyreibopybnawn4s2igjzqhuekhe7oswykwq2wubvb6q3n2nwdg5r4wka",
+            "uri": "at://did:plc:5j4pcz5scisofl4yfoeurags/app.bsky.feed.post/3jxys6ed46m2p"
+          }
+        },
+        "createdAt": "2023-06-12T22:22:11.044Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyoanu4f42r",
+      "cid": "bafyreifn526f3thphpuidugt6pzgt5bbdoznkaimikwa57d63vuqcllwce",
+      "value": {
+        "text": "*me everytime i walk out of a walmart with 4 12-packs of monster energy drink*",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreia7yq3dhjqdjqnslkpwnd7cg7fatwrr6e462rbe24c4svc3yhxfpe",
+            "uri": "at://did:plc:uraielgolztbeqrrv5c7qbce/app.bsky.feed.post/3jxynkmb4zm2n"
+          },
+          "parent": {
+            "cid": "bafyreihuttajpukf7fsmne3f6wowwoifulyfqdcipn6bimjfufmmg6mq7i",
+            "uri": "at://did:plc:uraielgolztbeqrrv5c7qbce/app.bsky.feed.post/3jxyo6itkkc2e"
+          }
+        },
+        "createdAt": "2023-06-12T21:03:34.592Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyo7hq5cm2n",
+      "cid": "bafyreihddexxzee4rem6g23ktimtmktciss6vmkmqrtcvlqdw733z3qq5e",
+      "value": {
+        "text": "",
+        "$type": "app.bsky.feed.post",
+        "embed": {
+          "$type": "app.bsky.embed.recordWithMedia",
+          "media": {
+            "$type": "app.bsky.embed.images",
+            "images": [
+              {
+                "alt": "",
+                "image": {
+                  "$type": "blob",
+                  "ref": {
+                    "$link": "bafkreieuantvh7trhiyd6x3rskonv5wgfd5t7jaspjguwbtm22j2bu6cay"
+                  },
+                  "mimeType": "image/jpeg",
+                  "size": 276520
+                }
+              },
+              {
+                "alt": "",
+                "image": {
+                  "$type": "blob",
+                  "ref": {
+                    "$link": "bafkreief4qbgkvynm77pk6c75nduyc7dwrnwlfrxfrpwnhg7cxbqdhcwe4"
+                  },
+                  "mimeType": "image/jpeg",
+                  "size": 274641
+                }
+              }
+            ]
+          },
+          "record": {
+            "$type": "app.bsky.embed.record",
+            "record": {
+              "cid": "bafyreia7yq3dhjqdjqnslkpwnd7cg7fatwrr6e462rbe24c4svc3yhxfpe",
+              "uri": "at://did:plc:uraielgolztbeqrrv5c7qbce/app.bsky.feed.post/3jxynkmb4zm2n"
+            }
+          }
+        },
+        "createdAt": "2023-06-12T21:02:54.609Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyo4a2sz22p",
+      "cid": "bafyreihhxvca2o5toevo2waupv7aon276ullrdsadq2tuyr657ekmfy7pa",
+      "value": {
+        "text": "🫡",
+        "$type": "app.bsky.feed.post",
+        "embed": {
+          "$type": "app.bsky.embed.images",
+          "images": [
+            {
+              "alt": "",
+              "image": {
+                "$type": "blob",
+                "ref": {
+                  "$link": "bafkreiapw7exteh5c52adzji4m42wllivdgmqwui37w75vcdvro3h7wtye"
+                },
+                "mimeType": "image/jpeg",
+                "size": 24590
+              }
+            }
+          ]
+        },
+        "reply": {
+          "root": {
+            "cid": "bafyreia7yq3dhjqdjqnslkpwnd7cg7fatwrr6e462rbe24c4svc3yhxfpe",
+            "uri": "at://did:plc:uraielgolztbeqrrv5c7qbce/app.bsky.feed.post/3jxynkmb4zm2n"
+          },
+          "parent": {
+            "cid": "bafyreia7yq3dhjqdjqnslkpwnd7cg7fatwrr6e462rbe24c4svc3yhxfpe",
+            "uri": "at://did:plc:uraielgolztbeqrrv5c7qbce/app.bsky.feed.post/3jxynkmb4zm2n"
+          }
+        },
+        "createdAt": "2023-06-12T21:01:06.003Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxynz7v2rd2j",
+      "cid": "bafyreife6omlk6zytjpqnip6x2wqf62evrsncpbfveqsa7a4ip2z7atstu",
+      "value": {
+        "text": "",
+        "$type": "app.bsky.feed.post",
+        "embed": {
+          "$type": "app.bsky.embed.recordWithMedia",
+          "media": {
+            "$type": "app.bsky.embed.images",
+            "images": [
+              {
+                "alt": "",
+                "image": {
+                  "$type": "blob",
+                  "ref": {
+                    "$link": "bafkreibf6pnakydznunobycp4427a5u4u327yft3byuks5pmuxqc3p2pmi"
+                  },
+                  "mimeType": "image/jpeg",
+                  "size": 37050
+                }
+              }
+            ]
+          },
+          "record": {
+            "$type": "app.bsky.embed.record",
+            "record": {
+              "cid": "bafyreihs62xfbdmd35wxcubv4jmmehfgxg52mqt6ubsjpbwqn5pe6y27xu",
+              "uri": "at://did:plc:ssswl2yqnc4snqvsdu5u7jiq/app.bsky.feed.post/3jxym27bmus2e"
+            }
+          }
+        },
+        "createdAt": "2023-06-12T20:59:25.194Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyny3iqym2e",
+      "cid": "bafyreig2msm25xhqkvboolx5oblsoxdh7ovjkqab6ymlc2yu4iymt57zzy",
+      "value": {
+        "text": "no, north tx though. buddies were from stillwater",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreib6xwssm323e3x5nift4gtt32ysjrcpient6k22gcxheb6dn6egy4",
+            "uri": "at://did:plc:itmpwirfkflfklzxfbkhknne/app.bsky.feed.post/3jxygymv2jl2e"
+          },
+          "parent": {
+            "cid": "bafyreie4uhk5ddlkdyr37nmyke7purg5hl4vm7omw57kxue2jrfqyval4a",
+            "uri": "at://did:plc:itmpwirfkflfklzxfbkhknne/app.bsky.feed.post/3jxym3pcnhe2r"
+          }
+        },
+        "createdAt": "2023-06-12T20:58:46.934Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxym2vbvzc2j",
+      "cid": "bafyreiewg3kx7woaerwuubbiruw7aw4t7yj2djvd6gk3qqel3pptqkkyma",
+      "value": {
+        "text": "oh shit i knew a guy who went to HS w/ members of that band 👀",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreib6xwssm323e3x5nift4gtt32ysjrcpient6k22gcxheb6dn6egy4",
+            "uri": "at://did:plc:itmpwirfkflfklzxfbkhknne/app.bsky.feed.post/3jxygymv2jl2e"
+          },
+          "parent": {
+            "cid": "bafyreig2gcrwdlxhg6ballbziolyfrhkpcea4qvefwfun4tbae6ccsadny",
+            "uri": "at://did:plc:itmpwirfkflfklzxfbkhknne/app.bsky.feed.post/3jxylon6lfu2e"
+          }
+        },
+        "createdAt": "2023-06-12T20:24:33.642Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxylzrtcfk2j",
+      "cid": "bafyreihxbxvetscwd3goy5fmxa6jgjg7m5tm7ui2sjxjenqtt7mp7ux5yi",
+      "value": {
+        "text": "technically, The Offspring",
+        "$type": "app.bsky.feed.post",
+        "embed": {
+          "$type": "app.bsky.embed.record",
+          "record": {
+            "cid": "bafyreib6xwssm323e3x5nift4gtt32ysjrcpient6k22gcxheb6dn6egy4",
+            "uri": "at://did:plc:itmpwirfkflfklzxfbkhknne/app.bsky.feed.post/3jxygymv2jl2e"
+          }
+        },
+        "createdAt": "2023-06-12T20:23:56.472Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyisplg5d2e",
+      "cid": "bafyreierpje7j433knfk4npk2utslgpdxg7gou7elj6lcv77qqqiwnkur4",
+      "value": {
+        "text": "when ur being mean to me online this is who youre being mean to",
+        "$type": "app.bsky.feed.post",
+        "embed": {
+          "$type": "app.bsky.embed.images",
+          "images": [
+            {
+              "alt": "",
+              "image": {
+                "$type": "blob",
+                "ref": {
+                  "$link": "bafkreia6udo5i62vj533x3i6j7wnfmnybrdpcdmjpv5ybuqawl3bcx6iny"
+                },
+                "mimeType": "image/jpeg",
+                "size": 158745
+              }
+            }
+          ]
+        },
+        "createdAt": "2023-06-12T19:26:17.688Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyhqtux4t2n",
+      "cid": "bafyreib7jacgcf2isan7vzzhquxyujueza47tjzpszudraugvjvl553wvu",
+      "value": {
+        "text": "she let me hit it bc im Daffy coded",
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2023-06-12T19:07:21.636Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxy7yhtaic2n",
+      "cid": "bafyreiblnq546vn3snbphghpd6qgyaejo6afrbyl5iuxmpfqcxurtotsny",
+      "value": {
+        "text": "this is how you first post 👌👌",
+        "$type": "app.bsky.feed.post",
+        "embed": {
+          "$type": "app.bsky.embed.record",
+          "record": {
+            "cid": "bafyreiapofmkoylz6l2wg6xyy56555e6s6pnx7tesieobdjdckteuochia",
+            "uri": "at://did:plc:5nxqfqhb7ke4jwfchklxs2v6/app.bsky.feed.post/3jxy5onav3s2p"
+          }
+        },
+        "createdAt": "2023-06-12T16:48:26.673Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxy6kuhwkk2p",
+      "cid": "bafyreicomhb7iv5m5vfgcnefo5hx77b4r4ep45oxqlwtnhgpfduptn7j5i",
+      "value": {
+        "text": "i s2g every time i need something like this the post is 6 years old and the fix has been patched out 😭",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreifnmfrlq7ziimj2lxxpc2h7lg53dv5pwgria3g2c6nsewmkkrzpeq",
+            "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxy5lgfoqc2n"
+          },
+          "parent": {
+            "cid": "bafyreiavcizk3nvgwpcczn6jltraoxiqbqzx5kr2swlyp2uxlp5nxbehxm",
+            "uri": "at://did:plc:r2ckdiqy6hrhvxww5kcrgkkb/app.bsky.feed.post/3jxy6a5yr6r25"
+          }
+        },
+        "createdAt": "2023-06-12T16:22:56.570Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxy6jvy4xs2p",
+      "cid": "bafyreifyirt654xkilqstjdx36guchwzlgwtefqcd2ad6eftfcoast6z3q",
+      "value": {
+        "text": "okay those two subs can stay",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreifnmfrlq7ziimj2lxxpc2h7lg53dv5pwgria3g2c6nsewmkkrzpeq",
+            "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxy5lgfoqc2n"
+          },
+          "parent": {
+            "cid": "bafyreibkbrm4zr3dfkyotg3jy2v6f7ukmmruqtjzp77n6uwrsad57vy6ei",
+            "uri": "at://did:plc:wli3qpfcun2bcidet7uzjb44/app.bsky.feed.post/3jxy64uulxd2e"
+          }
+        },
+        "createdAt": "2023-06-12T16:22:24.591Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxy6j3g7qk2j",
+      "cid": "bafyreia3htj6r26mvnftlbi46llmstwxmniyitojahvv26cybdejxmf7hm",
+      "value": {
+        "text": "i couldn't find one either. saved the image a few days ago because it made me laugh",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreiaysxlh2udtixqzwqaypth7ewjuqgzdubxuo2jjuf65vg5wxwocvm",
+            "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxwk2gt4rf2t"
+          },
+          "parent": {
+            "cid": "bafyreihhxmbvs2gh4tpkr4y2x4je77uns6vmmtf3fvstaf4mjxyoq5b7gm",
+            "uri": "at://did:plc:y3xh7mpecajdnfstv3s6ap6a/app.bsky.feed.post/3jxy6dfq5vk2n"
+          }
+        },
+        "createdAt": "2023-06-12T16:21:56.744Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxy5lgfoqc2n",
+      "cid": "bafyreifnmfrlq7ziimj2lxxpc2h7lg53dv5pwgria3g2c6nsewmkkrzpeq",
+      "value": {
+        "text": "society if reddit stayed shut down forever",
+        "$type": "app.bsky.feed.post",
+        "embed": {
+          "$type": "app.bsky.embed.images",
+          "images": [
+            {
+              "alt": "",
+              "image": {
+                "$type": "blob",
+                "ref": {
+                  "$link": "bafkreie5u4redc3usceh4qvircebnbigssfwmcuos2fye57dryoike4v74"
+                },
+                "mimeType": "image/jpeg",
+                "size": 319346
+              }
+            }
+          ]
+        },
+        "createdAt": "2023-06-12T16:05:21.615Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxy5jnatcj2e",
+      "cid": "bafyreihkwjk2tu7xnnra34kpbzrh4k3d6jjxnywb4oqyqvvfq6euoovwgm",
+      "value": {
+        "text": "telling my therapist i got 100 reskeets on a post to see if she'll give me a discount",
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2023-06-12T16:04:21.594Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxy5f7ewz32e",
+      "cid": "bafyreiedejhqslj7jdwnf4q5aanxw4ehbztaklht4awd3zlzn5zh5mp2s4",
+      "value": {
+        "text": "learning some more c# today. getting code pilled, in My Camel Case Era, becoming a variable-cel",
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2023-06-12T16:01:52.740Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxxzq4kvmh2t",
+      "cid": "bafyreic5e76tryuhhookeip72gdmmqvsffi5iesdc46enygpkvccamlnhi",
+      "value": {
+        "text": "",
+        "$type": "app.bsky.feed.post",
+        "embed": {
+          "$type": "app.bsky.embed.images",
+          "images": [
+            {
+              "alt": "willie beamen",
+              "image": {
+                "$type": "blob",
+                "ref": {
+                  "$link": "bafkreife5du2iznnelj3llyrhv2mqjuye2bdceco3gznsz4wr3fkh6hkee"
+                },
+                "mimeType": "image/jpeg",
+                "size": 53755
+              }
+            }
+          ]
+        },
+        "reply": {
+          "root": {
+            "cid": "bafyreidypn4vjyuez6jdmtf7or3yspm2wywowhekyxmhmx6xyzbmklbshi",
+            "uri": "at://did:plc:e6666w43nycctqshj27fl56a/app.bsky.feed.post/3jxxzmvxs2u2r"
+          },
+          "parent": {
+            "cid": "bafyreidypn4vjyuez6jdmtf7or3yspm2wywowhekyxmhmx6xyzbmklbshi",
+            "uri": "at://did:plc:e6666w43nycctqshj27fl56a/app.bsky.feed.post/3jxxzmvxs2u2r"
+          }
+        },
+        "createdAt": "2023-06-12T14:56:24.819Z"
+      }
+    },
+    {
+      "uri": "at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxxzo5nh232e",
+      "cid": "bafyreicdmnhql5rzkgass34e2mx5nxfgqhy2xysxprqpcrpipxbzirk4uy",
+      "value": {
+        "text": "bloo skie feels like the best option here",
+        "$type": "app.bsky.feed.post",
+        "reply": {
+          "root": {
+            "cid": "bafyreidyavi3wxjr5gl72eiiiqsrw2jps7srx535j6fupyjzpcwll4iode",
+            "uri": "at://did:plc:x7i2lewpds2ch3gxsibardwp/app.bsky.feed.post/3jxxzldlwxm2r"
+          },
+          "parent": {
+            "cid": "bafyreidyavi3wxjr5gl72eiiiqsrw2jps7srx535j6fupyjzpcwll4iode",
+            "uri": "at://did:plc:x7i2lewpds2ch3gxsibardwp/app.bsky.feed.post/3jxxzldlwxm2r"
+          }
+        },
+        "createdAt": "2023-06-12T14:55:18.834Z"
+      }
+    }
+  ]
+}

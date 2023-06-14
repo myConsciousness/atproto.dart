@@ -7,6 +7,7 @@ import 'package:atproto/src/entities/create_action.dart';
 import 'package:atproto/src/entities/delete_action.dart';
 import 'package:atproto/src/entities/record.dart';
 import 'package:atproto/src/entities/record_value.dart';
+import 'package:atproto/src/entities/records.dart';
 import 'package:atproto/src/entities/repo.dart';
 import 'package:atproto/src/entities/strong_ref.dart';
 import 'package:atproto/src/entities/update_action.dart';
@@ -403,6 +404,77 @@ void main() {
           uri: core.AtUri.parse(
             'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3juqjtr23dk2h',
           ),
+        ),
+      );
+    });
+  });
+
+  group('.findRecords', () {
+    test('normal case', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/repositories/data/find_records.json',
+        ),
+      );
+
+      final response = await repositories.findRecords(
+        repo: 'did:plc:iijrtk7ocored6zuziwmqq3c',
+        collection: core.NSID.parse('app.bsky.feed.post'),
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<Records>());
+    });
+
+    test('when unauthorized', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await repositories.findRecords(
+          repo: 'did:plc:iijrtk7ocored6zuziwmqq3c',
+          collection: core.NSID.parse('app.bsky.feed.post'),
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await repositories.findRecords(
+          repo: 'did:plc:iijrtk7ocored6zuziwmqq3c',
+          collection: core.NSID.parse('app.bsky.feed.post'),
         ),
       );
     });
