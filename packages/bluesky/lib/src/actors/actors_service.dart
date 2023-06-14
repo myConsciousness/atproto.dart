@@ -152,7 +152,7 @@ abstract class ActorsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/profile.json
-  Future<core.XRPCResponse<atp.Record>> updateProfile({
+  Future<core.XRPCResponse<atp.StrongRef>> updateProfile({
     String? displayName,
     String? description,
     atp.Blob? avatar,
@@ -268,7 +268,7 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
       );
 
   @override
-  Future<atp.XRPCResponse<atp.Record>> updateProfile({
+  Future<atp.XRPCResponse<atp.StrongRef>> updateProfile({
     String? displayName,
     String? description,
     atp.Blob? avatar,

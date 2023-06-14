@@ -20,7 +20,7 @@ Records _$RecordsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Records {
-  List<RecordValue> get records => throw _privateConstructorUsedError;
+  List<Record> get records => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -32,7 +32,7 @@ abstract class $RecordsCopyWith<$Res> {
   factory $RecordsCopyWith(Records value, $Res Function(Records) then) =
       _$RecordsCopyWithImpl<$Res, Records>;
   @useResult
-  $Res call({List<RecordValue> records});
+  $Res call({List<Record> records});
 }
 
 /// @nodoc
@@ -54,7 +54,7 @@ class _$RecordsCopyWithImpl<$Res, $Val extends Records>
       records: null == records
           ? _value.records
           : records // ignore: cast_nullable_to_non_nullable
-              as List<RecordValue>,
+              as List<Record>,
     ) as $Val);
   }
 }
@@ -66,7 +66,7 @@ abstract class _$$_RecordsCopyWith<$Res> implements $RecordsCopyWith<$Res> {
       __$$_RecordsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<RecordValue> records});
+  $Res call({List<Record> records});
 }
 
 /// @nodoc
@@ -85,7 +85,7 @@ class __$$_RecordsCopyWithImpl<$Res>
       records: null == records
           ? _value._records
           : records // ignore: cast_nullable_to_non_nullable
-              as List<RecordValue>,
+              as List<Record>,
     ));
   }
 }
@@ -93,15 +93,14 @@ class __$$_RecordsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Records implements _Records {
-  const _$_Records({required final List<RecordValue> records})
-      : _records = records;
+  const _$_Records({required final List<Record> records}) : _records = records;
 
   factory _$_Records.fromJson(Map<String, dynamic> json) =>
       _$$_RecordsFromJson(json);
 
-  final List<RecordValue> _records;
+  final List<Record> _records;
   @override
-  List<RecordValue> get records {
+  List<Record> get records {
     if (_records is EqualUnmodifiableListView) return _records;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_records);
@@ -140,13 +139,12 @@ class _$_Records implements _Records {
 }
 
 abstract class _Records implements Records {
-  const factory _Records({required final List<RecordValue> records}) =
-      _$_Records;
+  const factory _Records({required final List<Record> records}) = _$_Records;
 
   factory _Records.fromJson(Map<String, dynamic> json) = _$_Records.fromJson;
 
   @override
-  List<RecordValue> get records;
+  List<Record> get records;
   @override
   @JsonKey(ignore: true)
   _$$_RecordsCopyWith<_$_Records> get copyWith =>

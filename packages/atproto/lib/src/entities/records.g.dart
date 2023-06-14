@@ -17,7 +17,7 @@ _$_Records _$$_RecordsFromJson(Map json) => $checkedCreate(
               'records',
               (v) => (v as List<dynamic>)
                   .map((e) =>
-                      RecordValue.fromJson(Map<String, Object?>.from(e as Map)))
+                      Record.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
         );
         return val;

@@ -54,7 +54,7 @@ abstract class GraphsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/follow.json
-  Future<core.XRPCResponse<atp.Record>> createFollow({
+  Future<core.XRPCResponse<atp.StrongRef>> createFollow({
     required String did,
     DateTime? createdAt,
   });
@@ -211,7 +211,7 @@ abstract class GraphsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getBlocks.json
-  Future<core.XRPCResponse<atp.Record>> createBlock({
+  Future<core.XRPCResponse<atp.StrongRef>> createBlock({
     required String did,
     DateTime? createdAt,
   });
@@ -249,7 +249,7 @@ abstract class GraphsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/list.json
-  Future<core.XRPCResponse<atp.Record>> createList({
+  Future<core.XRPCResponse<atp.StrongRef>> createList({
     required String name,
     String purpose = 'app.bsky.graph.defs#modlist',
     String? description,
@@ -333,7 +333,7 @@ abstract class GraphsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/listitem.json
-  Future<core.XRPCResponse<atp.Record>> createListItem({
+  Future<core.XRPCResponse<atp.StrongRef>> createListItem({
     required String subject,
     required core.AtUri list,
     DateTime? createdAt,
@@ -417,7 +417,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
   }) : super(methodAuthority: 'graph.bsky.app');
 
   @override
-  Future<core.XRPCResponse<atp.Record>> createFollow({
+  Future<core.XRPCResponse<atp.StrongRef>> createFollow({
     required String did,
     DateTime? createdAt,
   }) async =>
@@ -531,7 +531,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       );
 
   @override
-  Future<core.XRPCResponse<atp.Record>> createBlock({
+  Future<core.XRPCResponse<atp.StrongRef>> createBlock({
     required String did,
     DateTime? createdAt,
   }) async =>
@@ -563,7 +563,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       );
 
   @override
-  Future<core.XRPCResponse<atp.Record>> createList({
+  Future<core.XRPCResponse<atp.StrongRef>> createList({
     required String name,
     String purpose = 'app.bsky.graph.defs#modlist',
     String? description,
@@ -641,7 +641,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       );
 
   @override
-  Future<core.XRPCResponse<atp.Record>> createListItem({
+  Future<core.XRPCResponse<atp.StrongRef>> createListItem({
     required String subject,
     required core.AtUri list,
     DateTime? createdAt,

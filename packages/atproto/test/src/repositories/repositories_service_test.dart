@@ -6,7 +6,6 @@ import 'package:atproto/src/entities/batch_action.dart';
 import 'package:atproto/src/entities/create_action.dart';
 import 'package:atproto/src/entities/delete_action.dart';
 import 'package:atproto/src/entities/record.dart';
-import 'package:atproto/src/entities/record_value.dart';
 import 'package:atproto/src/entities/records.dart';
 import 'package:atproto/src/entities/repo_info.dart';
 import 'package:atproto/src/entities/strong_ref.dart';
@@ -38,12 +37,7 @@ void main() {
       );
 
       expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<Record>());
-
-      final strongRef = response.data.toStrongRef();
-      expect(strongRef, isA<StrongRef>());
-      expect(strongRef.cid, response.data.cid);
-      expect(strongRef.uri, response.data.uri);
+      expect(response.data, isA<StrongRef>());
     });
 
     test('when unauthorized', () async {
@@ -182,7 +176,7 @@ void main() {
       );
 
       expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<Record>());
+      expect(response.data, isA<StrongRef>());
     });
 
     test('when unauthorized', () async {
@@ -322,7 +316,7 @@ void main() {
       );
 
       expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<RecordValue>());
+      expect(response.data, isA<Record>());
       expect(response.data.hasStrongRef, isTrue);
       expect(response.data.hasNotStrongRef, isFalse);
 
@@ -353,7 +347,7 @@ void main() {
       );
 
       expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<RecordValue>());
+      expect(response.data, isA<Record>());
       expect(response.data.hasStrongRef, isFalse);
       expect(response.data.hasNotStrongRef, isTrue);
 

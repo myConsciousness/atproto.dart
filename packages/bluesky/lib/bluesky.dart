@@ -10,8 +10,6 @@ export 'package:atproto/atproto.dart'
         $RecordCopyWith,
         Records,
         $RecordsCopyWith,
-        RecordValue,
-        $RecordValueCopyWith,
         DID,
         $DIDCopyWith,
         Blob,
