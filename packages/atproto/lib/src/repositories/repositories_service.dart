@@ -13,6 +13,7 @@ import '../entities/create_action.dart';
 import '../entities/delete_action.dart';
 import '../entities/record.dart';
 import '../entities/record_value.dart';
+import '../entities/records.dart';
 import '../entities/repo.dart';
 import '../entities/update_action.dart';
 
@@ -83,6 +84,42 @@ abstract class RepositoriesService {
   Future<core.XRPCResponse<RecordValue>> findRecord({
     required core.AtUri uri,
     String? cid,
+  });
+
+  /// List a range of records in a collection.
+  ///
+  /// ## Parameters
+  ///
+  /// - [repo]: The handle or DID of the repo.
+  ///
+  /// - [collection]: The NSID of the record type.
+  ///
+  /// - [limit]: The number of records to return.
+  ///            From 1 to 100. The default is 50.
+  ///
+  /// - [cursor]: Pagination cursor.
+  ///
+  /// - [rkeyStart]: The lowest sort-ordered rkey to start from (exclusive).
+  ///
+  /// - [rkeyEnd]: The highest sort-ordered rkey to stop at (exclusive).
+  ///
+  /// - [reverse]: Reverse the order of the returned records?
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.listRecords
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/listRecords.json
+  Future<core.XRPCResponse<Records>> findRecords({
+    required String repo,
+    required core.NSID collection,
+    int? limit,
+    bool? reverse,
+    String? rkeyStart,
+    String? rkeyEnd,
+    String? cursor,
   });
 
   /// Delete a record, or ensure it doesn't exist.
@@ -293,6 +330,30 @@ class _RepositoriesService extends ATProtoBaseService
           'cid': cid,
         },
         to: RecordValue.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Records>> findRecords({
+    required String repo,
+    required core.NSID collection,
+    int? limit,
+    bool? reverse,
+    String? rkeyStart,
+    String? rkeyEnd,
+    String? cursor,
+  }) async =>
+      await super.get(
+        'listRecords',
+        parameters: {
+          'repo': repo,
+          'collection': collection,
+          'limit': limit,
+          'reverse': reverse,
+          'rkeyStart': rkeyStart,
+          'rkeyEnd': rkeyEnd,
+          'cursor': cursor,
+        },
+        to: Records.fromJson,
       );
 
   @override

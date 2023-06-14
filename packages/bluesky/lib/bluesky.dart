@@ -8,6 +8,8 @@ export 'package:atproto/atproto.dart'
         $SessionCopyWith,
         Record,
         $RecordCopyWith,
+        Records,
+        $RecordsCopyWith,
         RecordValue,
         $RecordValueCopyWith,
         DID,
