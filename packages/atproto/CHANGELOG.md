@@ -14,6 +14,7 @@
 - Supported `com.atproto.sync.listRepos` as `findRepos` in `SyncService`. ([#315](https://github.com/myConsciousness/atproto.dart/issues/315))
 - Renamed object from `Repo` to `RepoInfo` returned from `findRepoInfo` in `RepositoriesService`.
 - Renamed `RecordValue` to `Record`. And now `createRecord` and `updateRecord` returns `StrongRef`. ([#511](https://github.com/myConsciousness/atproto.dart/issues/511))
+- Removed `BlobContext` and `LegacyBlob`. Blobs in the old format were modified to be converted to the new format. ([#514](https://github.com/myConsciousness/atproto.dart/issues/514))
 
 ## v0.3.4
 
