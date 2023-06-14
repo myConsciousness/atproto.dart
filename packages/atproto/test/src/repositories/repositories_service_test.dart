@@ -8,7 +8,7 @@ import 'package:atproto/src/entities/delete_action.dart';
 import 'package:atproto/src/entities/record.dart';
 import 'package:atproto/src/entities/record_value.dart';
 import 'package:atproto/src/entities/records.dart';
-import 'package:atproto/src/entities/repo.dart';
+import 'package:atproto/src/entities/repo_info.dart';
 import 'package:atproto/src/entities/strong_ref.dart';
 import 'package:atproto/src/entities/update_action.dart';
 import 'package:atproto/src/repositories/repositories_service.dart';
@@ -232,7 +232,7 @@ void main() {
     });
   });
 
-  group('.findRepo', () {
+  group('.findRepoInfo', () {
     test('normal case', () async {
       final repositories = RepositoriesService(
         did: 'test',
@@ -243,16 +243,16 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/repositories/data/find_repo.json',
+          'test/src/repositories/data/find_repo_info.json',
         ),
       );
 
-      final response = await repositories.findRepo(
-        identifier: 'shinyakato.dev',
+      final response = await repositories.findRepoInfo(
+        repo: 'shinyakato.dev',
       );
 
       expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<Repo>());
+      expect(response.data, isA<RepoInfo>());
     });
 
     test('when unauthorized', () async {
@@ -271,8 +271,8 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await repositories.findRepo(
-          identifier: 'shinyakato.dev',
+        () async => await repositories.findRepoInfo(
+          repo: 'shinyakato.dev',
         ),
       );
     });
@@ -293,8 +293,8 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await repositories.findRepo(
-          identifier: 'shinyakato.dev',
+        () async => await repositories.findRepoInfo(
+          repo: 'shinyakato.dev',
         ),
       );
     });

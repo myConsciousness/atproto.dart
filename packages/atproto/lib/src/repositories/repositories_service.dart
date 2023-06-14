@@ -14,7 +14,7 @@ import '../entities/delete_action.dart';
 import '../entities/record.dart';
 import '../entities/record_value.dart';
 import '../entities/records.dart';
-import '../entities/repo.dart';
+import '../entities/repo_info.dart';
 import '../entities/update_action.dart';
 
 abstract class RepositoriesService {
@@ -195,7 +195,7 @@ abstract class RepositoriesService {
   ///
   /// ## Parameters
   ///
-  /// - [identifier]: The handle or DID of the repo.
+  /// - [repo]: The handle or DID of the repo.
   ///
   /// ## Lexicon
   ///
@@ -204,8 +204,8 @@ abstract class RepositoriesService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/describeRepo.json
-  Future<core.XRPCResponse<Repo>> findRepo({
-    required String identifier,
+  Future<core.XRPCResponse<RepoInfo>> findRepoInfo({
+    required String repo,
   });
 
   /// Simple rebase of repo that deletes history.
@@ -424,15 +424,15 @@ class _RepositoriesService extends ATProtoBaseService
       );
 
   @override
-  Future<core.XRPCResponse<Repo>> findRepo({
-    required String identifier,
+  Future<core.XRPCResponse<RepoInfo>> findRepoInfo({
+    required String repo,
   }) async =>
       await super.get(
         'describeRepo',
         parameters: {
-          'repo': identifier,
+          'repo': repo,
         },
-        to: Repo.fromJson,
+        to: RepoInfo.fromJson,
         userContext: core.UserContext.anonymousOnly,
       );
 

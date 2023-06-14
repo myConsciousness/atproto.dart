@@ -14,6 +14,7 @@ import '../entities/repo_commit.dart';
 import '../entities/repo_commit_paths.dart';
 import '../entities/repo_commits.dart';
 import '../entities/repo_head.dart';
+import '../entities/repos.dart';
 import '../entities/subscribed_repo.dart';
 
 abstract class SyncService {
@@ -203,6 +204,27 @@ abstract class SyncService {
     required core.AtUri uri,
     String? commitCid,
   });
+
+  /// List dids and root cids of hosted repos.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: The size of repos to be fetched.
+  ///            Defaults to 500. From 1 to 1000.
+  ///
+  /// - [cursor]: The paginate cursor.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.listRepos
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listRepos.json
+  Future<core.XRPCResponse<Repos>> findRepos({
+    int? limit,
+    String? cursor,
+  });
 }
 
 class _SyncService extends ATProtoBaseService implements SyncService {
@@ -335,5 +357,20 @@ class _SyncService extends ATProtoBaseService implements SyncService {
         adaptor: toRepoCommit,
         userContext: core.UserContext.anonymousOnly,
         to: RepoCommit.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Repos>> findRepos({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await super.get(
+        'listRepos',
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
+        userContext: core.UserContext.anonymousOnly,
+        to: Repos.fromJson,
       );
 }

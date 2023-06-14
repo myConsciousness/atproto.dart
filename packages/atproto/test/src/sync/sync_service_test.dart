@@ -7,6 +7,7 @@ import 'package:atproto/src/entities/repo_commit.dart';
 import 'package:atproto/src/entities/repo_commit_paths.dart';
 import 'package:atproto/src/entities/repo_commits.dart';
 import 'package:atproto/src/entities/repo_head.dart';
+import 'package:atproto/src/entities/repos.dart';
 import 'package:atproto/src/sync/sync_service.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
@@ -447,6 +448,68 @@ void main() {
             'at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyyfht47g2h',
           ),
         ),
+      );
+    });
+  });
+
+  group('.findRepos', () {
+    test('normal case', () async {
+      final sync = SyncService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/sync/data/find_repos.json',
+        ),
+      );
+
+      final response = await sync.findRepos();
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<Repos>());
+    });
+
+    test('when unauthorized', () async {
+      final sync = SyncService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await sync.findRepos(),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final sync = SyncService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await sync.findRepos(),
       );
     });
   });
