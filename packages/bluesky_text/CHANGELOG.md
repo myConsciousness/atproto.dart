@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.2
+
+- Upgraded dependencies.
+
 ## v0.2.1
 
 - Added `getCustomEntities` method. You can easily generate original facets, etc. by extracting entities from the text that are not officially provided. ([#419](https://github.com/myConsciousness/atproto.dart/issues/419))
