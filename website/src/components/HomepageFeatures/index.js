@@ -1,43 +1,62 @@
-import React from 'react';
-import clsx from 'clsx';
-import styles from './styles.module.css';
+import React from "react";
+import clsx from "clsx";
+import styles from "./styles.module.css";
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: "Very Powerful and Easy",
+    Svg: require("@site/static/img/developer.svg").default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        All packages in <code>atproto.dart</code> are very powerful and very
+        easy to use. In particular, <code>atproto</code> and{" "}
+        <code>bluesky</code>, wrapping the AT Protocol and Bluesky APIs, support
+        all major endpoints and incorporate advanced retry algorithms for
+        temporary network failures and etc.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: "100% Null Safety",
+    Svg: require("@site/static/img/null_safety.svg").default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        All packages in <code>atproto.dart</code> is developed using the Dart
+        language, which provides strong support for Null Safety. Because of
+        this, <code>NullPointerException</code> will never occur in all packages
+        of <code>atproto.dart</code>. You do not need to worry about this
+        exception in your Dart or Flutter apps.{" "}
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: "Well Documented with Snippets",
+    Svg: require("@site/static/img/document.svg").default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        All packages in <code>atproto.dart</code> are very well documented.
+        Extensive documentation and sample snippets are available, including how
+        to install each package and how to implement it in Dart and Flutter
+        apps.
+      </>
+    ),
+  },
+  {
+    title: "Well Tested and Stable",
+    Svg: require("@site/static/img/secure.svg").default,
+    description: (
+      <>
+        All packages in <code>atproto.dart</code> have numerous test codes to
+        ensure that the program works reliably, safely and stable above all.
+        Testing is automated as CI/CD, with a highly sustainable test design.
       </>
     ),
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({ Svg, title, description }) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx("col col--6")}>
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>
