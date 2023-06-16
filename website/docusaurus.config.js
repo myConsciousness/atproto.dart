@@ -7,8 +7,10 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "atproto.dart",
-  tagline: "Dinosaurs are cool",
+  tagline: "AT Protocol and Bluesky Social Things for Dart and Flutter",
   favicon: "img/favicon.ico",
+
+  plugins: ["docusaurus-plugin-sass"],
 
   // Set the production url of your site here
   url: "https://atproto.shinyakato.dev",
@@ -52,7 +54,7 @@ const config = {
             "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: require.resolve("./src/scss/main.scss"),
         },
       }),
     ],
@@ -67,7 +69,7 @@ const config = {
         title: "atproto.dart",
         logo: {
           alt: "atproto.dart logo",
-          src: "img/logo.svg",
+          src: "img/logo.png",
         },
         items: [
           {
@@ -86,6 +88,10 @@ const config = {
       },
       footer: {
         style: "dark",
+        logo: {
+          alt: "atproto.dart",
+          src: "img/full_logo.png",
+        },
         links: [
           {
             title: "Docs",
@@ -97,15 +103,23 @@ const config = {
             ],
           },
           {
-            title: "Contact",
+            title: "Community",
             items: [
+              {
+                label: "Bluesky Social",
+                href: "https://bsky.app/profile/shinyakato.dev",
+              },
               {
                 label: "GitHub",
                 href: "https://github.com/myConsciousness/atproto.dart",
               },
               {
-                label: "Bluesky Social",
-                href: "https://staging.bsky.app/profile/shinyakato.dev",
+                label: "Discord",
+                href: "https://discordapp.com/users/919043517974720514",
+              },
+              {
+                label: "Code of Conduct",
+                href: "https://github.com/myConsciousness/atproto.dart/blob/main/CODE_OF_CONDUCT.md",
               },
             ],
           },
@@ -113,8 +127,9 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Shinya Kato. Built with Docusaurus.`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        defaultLanguage: "dart",
+        additionalLanguages: ["dart", "yaml"],
+        darkTheme: require("prism-react-renderer/themes/dracula"),
       },
       colorMode: {
         defaultMode: "dark",
