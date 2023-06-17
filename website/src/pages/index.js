@@ -10,8 +10,8 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={siteConfig.title}
-      description="A boilerplate-free and safe way to share state"
+      title={siteConfig.tagline}
+      description="Powerful suite of AT Protocol and Bluesky-related packages for Dart/Flutter"
     >
       <Banner />
 

@@ -17,8 +17,8 @@
     height: 100%;
     background: var(--ifm-color-emphasis-100) url('/img/banner.jpg') no-repeat center top;
     z-index: -1;
-    filter: blur(10px); /* Adjust blur strength */
-    opacity: 0.3; /* Adjust transparency */
+    filter: blur(20px); /* Adjust blur strength */
+    opacity: 0.2; /* Adjust transparency */
   }
 
   @include min-width(lg) {
@@ -54,6 +54,10 @@
     font-size: 48px;
   }
 
+  &__ctaWrapper {
+    display: flex;
+  }
+
   &__cta {
     display: inline-block;
     margin-top: 10px;
@@ -69,5 +73,15 @@
       color: white;
       text-decoration: none;
     }
+  }
+
+  &__indexCtasGitHubButtonWrapper {
+    display: flex;
+    align-self: center;
+    margin-left: 40px;
+  }
+
+  &__indexCtasGitHubButton {
+    overflow: hidden;
   }
 }

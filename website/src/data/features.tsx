@@ -11,7 +11,7 @@ export const features: IFeatureProps[] = [
     snippet: SnippetAtprotoAndBluesky,
     title: translate({
       id: "home.atproto_and_bluesky",
-      message: "Type Safe and Very Easy to Use API Wrappers",
+      message: "Type Safe API Wrappers",
     }),
     description: (
       <Translate
@@ -46,7 +46,7 @@ export const features: IFeatureProps[] = [
     snippet: SnippetFirehoseApi,
     title: translate({
       id: "home.shared_state_title",
-      message: "Supports Powerful Firehose API",
+      message: "Powerful Firehose API",
     }),
 
     description: (
@@ -75,7 +75,7 @@ export const features: IFeatureProps[] = [
     snippet: SnippetRetry,
     title: translate({
       id: "home.retry",
-      message: "Powerful Retry Feature",
+      message: "Advanced Retry Feature",
     }),
 
     description: (

@@ -76,9 +76,14 @@ const config = {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
             position: "left",
-            label: "Tutorial",
+            label: "Docs",
           },
           { to: "/blog", label: "Blog", position: "left" },
+          {
+            to: "/docs/category/packages",
+            label: "Packages",
+            position: "left",
+          },
           {
             href: "https://github.com/myConsciousness/atproto.dart",
             label: "GitHub",
@@ -94,11 +99,15 @@ const config = {
         },
         links: [
           {
-            title: "Docs",
+            title: "Learn",
             items: [
               {
-                label: "Tutorial",
-                to: "/docs/intro",
+                label: "Introduction",
+                to: "/docs/introduction/intro",
+              },
+              {
+                label: "Installation",
+                to: "/docs/introduction/installation",
               },
             ],
           },
@@ -106,20 +115,62 @@ const config = {
             title: "Community",
             items: [
               {
+                label: "Repository",
+                href: "https://github.com/myConsciousness/atproto.dart",
+              },
+              {
+                label: "Bluesky API Touchers",
+                href: "https://discord.gg/zWed6y3V",
+              },
+              {
+                label: "Issues",
+                href: "https://github.com/myConsciousness/atproto.dart/issues",
+              },
+              {
+                label: "Discussions",
+                href: "https://github.com/myConsciousness/atproto.dart/discussions",
+              },
+              {
+                label: "Code of Conduct",
+                href: "https://github.com/myConsciousness/atproto.dart/blob/main/CODE_OF_CONDUCT.md",
+              },
+            ],
+          },
+          {
+            title: "Contact",
+            items: [
+              {
                 label: "Bluesky Social",
                 href: "https://bsky.app/profile/shinyakato.dev",
               },
               {
                 label: "GitHub",
-                href: "https://github.com/myConsciousness/atproto.dart",
+                href: "https://github.com/myConsciousness",
               },
               {
                 label: "Discord",
                 href: "https://discordapp.com/users/919043517974720514",
               },
               {
-                label: "Code of Conduct",
-                href: "https://github.com/myConsciousness/atproto.dart/blob/main/CODE_OF_CONDUCT.md",
+                label: "contact@shinyakato.dev",
+                href: "mailto:contact@shinyakato.dev",
+              },
+            ],
+          },
+          {
+            title: "More",
+            items: [
+              {
+                label: "Official AT Protocol",
+                href: "https://atproto.com",
+              },
+              {
+                label: "Official Bluesky Social",
+                href: "https://blueskyweb.xyz",
+              },
+              {
+                label: "Shinya Kato Official",
+                href: "https://shinyakato.dev",
               },
             ],
           },

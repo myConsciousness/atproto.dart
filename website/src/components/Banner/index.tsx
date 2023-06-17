@@ -18,10 +18,19 @@ export const Banner: React.FC = () => {
           </Translate>
         </h1>
 
-        <div>
+        <div className="banner__ctaWrapper">
           <Link className="banner__cta" to={useBaseUrl("docs/intro")}>
-            <Translate id="home.get_started">Getting Started</Translate>
+            <Translate id="home.get_started">Get Started</Translate>
           </Link>
+          <span className="banner__indexCtasGitHubButtonWrapper">
+            <iframe
+              className="banner__indexCtasGitHubButton"
+              src="https://ghbtns.com/github-btn.html?user=myConsciousness&amp;repo=atproto.dart&amp;type=star&amp;count=true&amp;size=large"
+              width={160}
+              height={30}
+              title="GitHub Stars"
+            />
+          </span>
         </div>
       </div>
       <div className="banner__content">
