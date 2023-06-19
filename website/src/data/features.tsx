@@ -75,7 +75,7 @@ export const features: IFeatureProps[] = [
     snippet: SnippetRetry,
     title: translate({
       id: "home.retry",
-      message: "Advanced Retry Feature",
+      message: "Advanced Built-In Retry",
     }),
 
     description: (

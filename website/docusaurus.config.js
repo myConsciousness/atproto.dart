@@ -10,7 +10,20 @@ const config = {
   tagline: "AT Protocol and Bluesky Social Things for Dart and Flutter",
   favicon: "img/favicon.ico",
 
-  plugins: ["docusaurus-plugin-sass"],
+  plugins: [
+    "docusaurus-plugin-sass",
+    // [
+    //   "@docusaurus/plugin-ideal-image",
+    //   {
+    //     quality: 100,
+    //     max: 1030,
+    //     min: 640,
+    //     steps: 2,
+    //     // Use false to debug, but it incurs huge perf costs
+    //     disableInDev: false,
+    //   },
+    // ],
+  ],
 
   // Set the production url of your site here
   url: "https://atproto.shinyakato.dev",
@@ -65,6 +78,10 @@ const config = {
     ({
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
+      announcementBar: {
+        id: "announcementBar-2", // Increment on change
+        content: `⭐️ If you like atproto.dart, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/myConsciousness/atproto.dart">GitHub</a> and follow <a target="_blank" rel="noopener noreferrer" href="https://bsky.app/profile/shinyakato.devs">author on Bluesky</a> ⭐️`,
+      },
       navbar: {
         title: "atproto.dart",
         logo: {
@@ -73,17 +90,21 @@ const config = {
         },
         items: [
           {
-            type: "docSidebar",
-            sidebarId: "tutorialSidebar",
-            position: "left",
+            to: "/docs/intro",
             label: "Docs",
+            position: "left",
           },
-          { to: "/blog", label: "Blog", position: "left" },
           {
-            to: "/docs/category/packages",
+            to: "/docs/packages/overview",
             label: "Packages",
             position: "left",
           },
+          {
+            to: "/docs/api_support_matrix",
+            label: "API",
+            position: "left",
+          },
+          { to: "/blog", label: "Blog", position: "left" },
           {
             href: "https://github.com/myConsciousness/atproto.dart",
             label: "GitHub",
@@ -103,11 +124,11 @@ const config = {
             items: [
               {
                 label: "Introduction",
-                to: "/docs/introduction/intro",
+                to: "/docs/intro",
               },
               {
                 label: "Installation",
-                to: "/docs/introduction/installation",
+                to: "/docs/getting_started/installation",
               },
             ],
           },
@@ -188,6 +209,10 @@ const config = {
         respectPrefersColorScheme: false,
       },
     }),
+  markdown: {
+    mermaid: true,
+  },
+  themes: ["@docusaurus/theme-mermaid"],
 };
 
 module.exports = config;
