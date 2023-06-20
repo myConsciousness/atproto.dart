@@ -12,21 +12,21 @@ const config = {
 
   plugins: [
     "docusaurus-plugin-sass",
-    // [
-    //   "@docusaurus/plugin-ideal-image",
-    //   {
-    //     quality: 100,
-    //     max: 1030,
-    //     min: 640,
-    //     steps: 2,
-    //     // Use false to debug, but it incurs huge perf costs
-    //     disableInDev: false,
-    //   },
-    // ],
+    [
+      "@docusaurus/plugin-ideal-image",
+      {
+        quality: 100,
+        max: 1030,
+        min: 640,
+        steps: 2,
+        // Use false to debug, but it incurs huge perf costs
+        disableInDev: true,
+      },
+    ],
   ],
 
   // Set the production url of your site here
-  url: "https://atproto.shinyakato.dev",
+  url: "https://atprotodart.com",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
@@ -54,17 +54,13 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/myConsciousness/atproto.dart/blob/main/website",
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/myConsciousness/atproto.dart/blob/main/website",
         },
         theme: {
           customCss: require.resolve("./src/scss/main.scss"),
@@ -80,7 +76,7 @@ const config = {
       image: "img/docusaurus-social-card.jpg",
       announcementBar: {
         id: "announcementBar-2", // Increment on change
-        content: `⭐️ If you like atproto.dart, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/myConsciousness/atproto.dart">GitHub</a> and follow <a target="_blank" rel="noopener noreferrer" href="https://bsky.app/profile/shinyakato.devs">author on Bluesky</a> ⭐️`,
+        content: `⭐️ If you like atproto.dart, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/myConsciousness/atproto.dart">GitHub</a> and follow <a target="_blank" rel="noopener noreferrer" href="https://bsky.app/profile/shinyakato.devs">Shinya Kato on Bluesky</a> ⭐️`,
       },
       navbar: {
         title: "atproto.dart",
@@ -96,15 +92,16 @@ const config = {
           },
           {
             to: "/docs/packages/overview",
-            label: "Packages",
+            label: "Packages & Tools",
             position: "left",
           },
           {
             to: "/docs/api_support_matrix",
-            label: "API",
+            label: "API Support",
             position: "left",
           },
-          { to: "/blog", label: "Blog", position: "left" },
+          { to: "showcase", label: "Showcase", position: "left" },
+          // { to: "/blog", label: "Blog", position: "left" },
           {
             href: "https://github.com/myConsciousness/atproto.dart",
             label: "GitHub",
@@ -128,7 +125,11 @@ const config = {
               },
               {
                 label: "Installation",
-                to: "/docs/getting_started/installation",
+                to: "/docs/category/getting-started",
+              },
+              {
+                label: "Showcase",
+                to: "showcase",
               },
             ],
           },
@@ -192,6 +193,10 @@ const config = {
               {
                 label: "Shinya Kato Official",
                 href: "https://shinyakato.dev",
+              },
+              {
+                label: "DEV.to Articles",
+                to: "https://dev.to/shinyakato",
               },
             ],
           },

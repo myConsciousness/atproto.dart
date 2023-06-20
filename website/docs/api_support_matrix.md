@@ -4,12 +4,12 @@ sidebar_position: 4
 
 # API Support Matrix
 
-## **[bluesky](https://pub.dev/packages/bluesky)**
+## **[atproto](https://pub.dev/packages/atproto)**
 
-**[bluesky](https://pub.dev/packages/bluesky)** supports the endpoints defined in Lexicon at [`com.atproto.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto).
+**[atproto](https://pub.dev/packages/atproto)** supports the endpoints defined in Lexicon at [`com.atproto.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto).
 
 :::tip
-See more details about **[bluesky](https://pub.dev/packages/bluesky)** in **[Packages](./packages/atproto.md)** section.
+See more details about **[atproto](https://pub.dev/packages/atproto)** in **[Packages](./packages/atproto.md)** section.
 :::
 
 ### [Servers Service](https://pub.dev/documentation/atproto/latest/atproto/ServersService-class.html)
@@ -76,7 +76,7 @@ See more details about **[bluesky](https://pub.dev/packages/bluesky)** in **[Pac
 
 **[bluesky](https://pub.dev/packages/bluesky)** supports the endpoints defined in Lexicon at [`app.bsky.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky).
 
-**[bluesky](https://pub.dev/packages/bluesky)** can use all endpoints supported by **[bluesky](https://pub.dev/packages/bluesky)** because it is built on **[bluesky](https://pub.dev/packages/bluesky)**.
+**[bluesky](https://pub.dev/packages/bluesky)** can use all endpoints supported by **[atproto](https://pub.dev/packages/atproto)** because it is built on **[atproto](https://pub.dev/packages/atproto)**.
 
 :::tip
 See more details about **[bluesky](https://pub.dev/packages/bluesky)** in **[Packages](./packages/bluesky.md)** section.

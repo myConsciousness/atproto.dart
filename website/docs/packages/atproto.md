@@ -114,13 +114,13 @@ Future<void> main() async {
 
 **[atproto](https://pub.dev/packages/atproto)** supports following services.
 
-| Property                                                                                       | Class                                                                                                      | Lexicon                                                                                                           |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| [servers](https://pub.dev/documentation/atproto/latest/atproto/ATProto/servers.html)           | [ServersService](https://pub.dev/documentation/atproto/latest/atproto/ServersService-class.html)           | [`com.atproto.server.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/server)         |
-| [identities](https://pub.dev/documentation/atproto/latest/atproto/ATProto/identities.html)     | [IdentitiesService](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService-class.html)     | [`com.atproto.identity.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/identity)     |
-| [repositories](https://pub.dev/documentation/atproto/latest/atproto/ATProto/repositories.html) | [RepositoriesService](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService-class.html) | [`com.atproto.repo.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/repo)             |
-| [moderation](https://pub.dev/documentation/atproto/latest/atproto/ATProto/moderation.html)     | [ModerationService](https://pub.dev/documentation/atproto/latest/atproto/ModerationService-class.html)     | [`com.atproto.moderation.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/moderation) |
-| [sync](https://pub.dev/documentation/atproto/latest/atproto/ATProto/sync.html)                 | [SyncService](https://pub.dev/documentation/atproto/latest/atproto/SyncService-class.html)                 | [`com.atproto.sync.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/sync)             |
+| Property                                                                                           | Class                                                                                                      | Lexicon                                                                                                           |
+| -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **[servers](https://pub.dev/documentation/atproto/latest/atproto/ATProto/servers.html)**           | [ServersService](https://pub.dev/documentation/atproto/latest/atproto/ServersService-class.html)           | [`com.atproto.server.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/server)         |
+| **[identities](https://pub.dev/documentation/atproto/latest/atproto/ATProto/identities.html)**     | [IdentitiesService](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService-class.html)     | [`com.atproto.identity.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/identity)     |
+| **[repositories](https://pub.dev/documentation/atproto/latest/atproto/ATProto/repositories.html)** | [RepositoriesService](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService-class.html) | [`com.atproto.repo.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/repo)             |
+| **[moderation](https://pub.dev/documentation/atproto/latest/atproto/ATProto/moderation.html)**     | [ModerationService](https://pub.dev/documentation/atproto/latest/atproto/ModerationService-class.html)     | [`com.atproto.moderation.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/moderation) |
+| **[sync](https://pub.dev/documentation/atproto/latest/atproto/ATProto/sync.html)**                 | [SyncService](https://pub.dev/documentation/atproto/latest/atproto/SyncService-class.html)                 | [`com.atproto.sync.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/sync)             |
 
 Once an instance of the **[ATProto](https://pub.dev/documentation/atproto/latest/atproto/ATProto-class.html)** object has been created, service endpoints can be used by accessing the `property` corresponding to each service as follows.
 
@@ -273,10 +273,9 @@ Exceptions with `Retriable` set to ✅ are subject to **[automatic retry](#advan
 
 Since AT Protocol's Lexicon supports the Union type, there are several endpoints where multiple JSONs of different structures are returned at once. However, since Dart does not currently support Union as a language specification, there have been difficulties in marshaling JSON for this Union structure.
 
-**[atproto](https://pub.dev/packages/atproto)** solves this problem neatly by using [freezed](https://pub.dev/packages/freezed) to represent a pseudo-Union type. Besides it's type safe. And all the Union types provided by these atprotoes are `.when(...)` methods to handle them cleanly.
+**[atproto](https://pub.dev/packages/atproto)** solves this problem neatly by using [freezed](https://pub.dev/packages/freezed) to represent a pseudo-Union type. Besides it's type safe. And all the Union types provided by these **[atproto](https://pub.dev/packages/atproto)** are `.when(...)` methods to handle them cleanly.
 
 See, for example, **[Firehose API](#firehose-api)** in the next section.
-
 
 :::tip
 All Union types provided by **[atproto](https://pub.dev/packages/atproto)** always have the property **`unknown`**. This is because Union types not supported by **[atproto](https://pub.dev/packages/atproto)** **cannot be converted** to specific model objects when returned from a particular endpoint.
@@ -341,7 +340,7 @@ Future<void> main() async {
 }
 ```
 
-The above example may seem a bit difficult, but the **[SubscribedRepo](https://pub.dev/documentation/atproto/latest/atproto/SubscribedRepo-class.html)** that can be retrieved in real-time from the Stream is of type **[Union](#union-type)**, so `.when(...)` method can be used to easily handle each event.
+The above example may seem a bit difficult, but the **[SubscribedRepo](https://pub.dev/documentation/atproto/latest/atproto/SubscribedRepo-class.html)** that can be retrieved in real-time from the Stream is of type **[Union](#union-types)**, so `.when(...)` method can be used to easily handle each event.
 
 :::info
 For more details about `Firehose API`,  you can check **[this article](https://dev.to/shinyakato/easily-use-firehose-api-on-bluesky-social-with-dart-and-flutter-mdk)**.
