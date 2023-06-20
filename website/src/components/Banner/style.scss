@@ -15,7 +15,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--ifm-color-emphasis-100) url('/img/banner.jpg') no-repeat center top;
+    background: var(--ifm-color-emphasis-100) url('../data/banner/banner.jpg') no-repeat center top;
     z-index: -1;
     filter: blur(20px); /* Adjust blur strength */
     opacity: 0.2; /* Adjust transparency */
