@@ -25,7 +25,7 @@ export const Banner: React.FC = () => {
           <Link className="banner__cta" to={useBaseUrl("showcase")}>
             <Translate id="home.get_started">See Showcase</Translate>
           </Link>
-          <span className="banner__indexCtasGitHubButtonWrapper">
+          {/* <span className="banner__indexCtasGitHubButtonWrapper">
             <iframe
               className="banner__indexCtasGitHubButton"
               src="https://ghbtns.com/github-btn.html?user=myConsciousness&amp;repo=atproto.dart&amp;type=star&amp;count=true&amp;size=large"
@@ -33,7 +33,7 @@ export const Banner: React.FC = () => {
               height={30}
               title="GitHub Stars"
             />
-          </span>
+          </span> */}
         </div>
       </div>
       <div className="banner__content">
