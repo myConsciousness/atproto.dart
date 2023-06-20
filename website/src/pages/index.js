@@ -13,9 +13,8 @@ export default function Home() {
       title={siteConfig.tagline}
       description="Powerful suite of AT Protocol and Bluesky-related packages for Dart/Flutter"
     >
-      <Banner />
-
       <main>
+        <Banner />
         <HomepageFeatures />
 
         <section>

@@ -10,10 +10,23 @@ const config = {
   tagline: "AT Protocol and Bluesky Social Things for Dart and Flutter",
   favicon: "img/favicon.ico",
 
-  plugins: ["docusaurus-plugin-sass"],
+  plugins: [
+    "docusaurus-plugin-sass",
+    [
+      "@docusaurus/plugin-ideal-image",
+      {
+        quality: 100,
+        max: 1030,
+        min: 640,
+        steps: 2,
+        // Use false to debug, but it incurs huge perf costs
+        disableInDev: true,
+      },
+    ],
+  ],
 
   // Set the production url of your site here
-  url: "https://atproto.shinyakato.dev",
+  url: "https://atprotodart.com",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
@@ -41,17 +54,13 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/myConsciousness/atproto.dart/blob/main/website",
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/myConsciousness/atproto.dart/blob/main/website",
         },
         theme: {
           customCss: require.resolve("./src/scss/main.scss"),
@@ -65,6 +74,10 @@ const config = {
     ({
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
+      announcementBar: {
+        id: "announcementBar-2", // Increment on change
+        content: `⭐️ If you like atproto.dart, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/myConsciousness/atproto.dart">GitHub</a> and follow <a target="_blank" rel="noopener noreferrer" href="https://bsky.app/profile/shinyakato.devs">Shinya Kato on Bluesky</a> ⭐️`,
+      },
       navbar: {
         title: "atproto.dart",
         logo: {
@@ -73,17 +86,22 @@ const config = {
         },
         items: [
           {
-            type: "docSidebar",
-            sidebarId: "tutorialSidebar",
-            position: "left",
+            to: "/docs/intro",
             label: "Docs",
-          },
-          { to: "/blog", label: "Blog", position: "left" },
-          {
-            to: "/docs/category/packages",
-            label: "Packages",
             position: "left",
           },
+          {
+            to: "/docs/packages/overview",
+            label: "Packages & Tools",
+            position: "left",
+          },
+          {
+            to: "/docs/api_support_matrix",
+            label: "API Support",
+            position: "left",
+          },
+          { to: "showcase", label: "Showcase", position: "left" },
+          // { to: "/blog", label: "Blog", position: "left" },
           {
             href: "https://github.com/myConsciousness/atproto.dart",
             label: "GitHub",
@@ -103,11 +121,15 @@ const config = {
             items: [
               {
                 label: "Introduction",
-                to: "/docs/introduction/intro",
+                to: "/docs/intro",
               },
               {
                 label: "Installation",
-                to: "/docs/introduction/installation",
+                to: "/docs/category/getting-started",
+              },
+              {
+                label: "Showcase",
+                to: "showcase",
               },
             ],
           },
@@ -172,6 +194,10 @@ const config = {
                 label: "Shinya Kato Official",
                 href: "https://shinyakato.dev",
               },
+              {
+                label: "DEV.to Articles",
+                to: "https://dev.to/shinyakato",
+              },
             ],
           },
         ],
@@ -188,6 +214,10 @@ const config = {
         respectPrefersColorScheme: false,
       },
     }),
+  markdown: {
+    mermaid: true,
+  },
+  themes: ["@docusaurus/theme-mermaid"],
 };
 
 module.exports = config;

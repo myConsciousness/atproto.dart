@@ -1,3 +1,7 @@
+---
+sidebar_position: 6
+---
+
 # License
 
 ## Source Code
@@ -8,7 +12,7 @@ The license of **[atproto.dart](https://github.com/myConsciousness/atproto.dart)
 
 - [atproto.dart/LICENSE](https://github.com/myConsciousness/atproto.dart/blob/main/LICENSE)
 
-```
+```txt title="LICENSE"
 BSD 3-Clause License
 
 Copyright (c) 2023, Shinya Kato
