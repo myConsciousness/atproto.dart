@@ -2,12 +2,10 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:test/test.dart';
+abstract class Record<V> {
+  /// Returns the record key.
+  String get key;
 
-void main() {
-  group('A group of tests', () {
-    test('First Test', () {
-      //
-    });
-  });
+  /// Returns the record value.
+  V get value;
 }
