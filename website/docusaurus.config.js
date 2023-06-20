@@ -75,7 +75,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: "img/docusaurus-social-card.jpg",
+      image: "img/social_card.png",
       announcementBar: {
         id: "announcementBar-2", // Increment on change
         content: `⭐️ If you like atproto.dart, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/myConsciousness/atproto.dart">GitHub</a> and follow <a target="_blank" rel="noopener noreferrer" href="https://bsky.app/profile/shinyakato.dev">Shinya Kato on Bluesky</a> ⭐️`,
