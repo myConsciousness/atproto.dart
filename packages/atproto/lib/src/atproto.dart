@@ -20,7 +20,7 @@ abstract class ATProto {
     required String accessJwt,
     core.Protocol protocol = core.Protocol.https,
     String service = 'bsky.social',
-    Duration timeout = const Duration(seconds: 10),
+    Duration timeout = const Duration(seconds: 30),
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
@@ -41,7 +41,7 @@ abstract class ATProto {
     final Session session, {
     core.Protocol protocol = core.Protocol.https,
     String service = 'bsky.social',
-    Duration timeout = const Duration(seconds: 10),
+    Duration timeout = const Duration(seconds: 30),
     core.RetryConfig? retryConfig,
   }) =>
       _ATProto(
@@ -57,7 +57,7 @@ abstract class ATProto {
   factory ATProto.anonymous({
     core.Protocol protocol = core.Protocol.https,
     String service = 'bsky.social',
-    Duration timeout = const Duration(seconds: 10),
+    Duration timeout = const Duration(seconds: 30),
     core.RetryConfig? retryConfig,
   }) =>
       _ATProto(

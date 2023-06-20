@@ -5,44 +5,93 @@
 export 'package:atproto/atproto.dart'
     show
         Session,
+        $SessionCopyWith,
         Record,
-        RecordValue,
+        $RecordCopyWith,
+        Records,
+        $RecordsCopyWith,
         DID,
+        $DIDCopyWith,
         Blob,
-        LegacyBlob,
+        $BlobCopyWith,
+        RepoHead,
+        $RepoHeadCopyWith,
         BlobData,
-        BlobContext,
+        $BlobDataCopyWith,
         BlobRef,
+        $BlobRefCopyWith,
         CurrentSession,
+        $CurrentSessionCopyWith,
         Account,
+        $AccountCopyWith,
+        RepoCommitPaths,
+        $RepoCommitPathsCopyWith,
         CreatedInviteCode,
+        $CreatedInviteCodeCopyWith,
+        RepoBlocks,
+        $RepoBlocksCopyWith,
+        RepoBlock,
+        $RepoBlockCopyWith,
         InviteCodeUse,
+        $InviteCodeUseCopyWith,
         InviteCode,
+        $InviteCodeCopyWith,
         InviteCodes,
+        $InviteCodesCopyWith,
         AppPassword,
+        $AppPasswordCopyWith,
         AppPasswords,
+        $AppPasswordsCopyWith,
+        RepoInfo,
+        $RepoInfoCopyWith,
         Repo,
+        $RepoCopyWith,
+        Repos,
+        $ReposCopyWith,
         BatchAction,
+        $BatchActionCopyWith,
         CreateAction,
+        $CreateActionCopyWith,
         UpdateAction,
+        $UpdateActionCopyWith,
+        RepoCommits,
+        $RepoCommitsCopyWith,
+        RepoCommit,
+        $RepoCommitCopyWith,
         DeleteAction,
+        $DeleteActionCopyWith,
         SubscribedRepo,
+        $SubscribedRepoCopyWith,
         SubscribedRepoCommit,
+        $SubscribedRepoCommitCopyWith,
         SubscribedRepoHandle,
+        $SubscribedRepoHandleCopyWith,
         SubscribedRepoInfo,
+        $SubscribedRepoInfoCopyWith,
         SubscribedRepoMigrate,
+        $SubscribedRepoMigrateCopyWith,
         SubscribedRepoTombstone,
+        $SubscribedRepoTombstoneCopyWith,
         RepoOp,
+        $RepoOpCopyWith,
         RepoAction,
         ParsedDidDoc,
+        $ParsedDidDocCopyWith,
         ParsedVerificationMethod,
+        $ParsedVerificationMethodCopyWith,
         ParsedService,
+        $ParsedServiceCopyWith,
         Report,
+        $ReportCopyWith,
         RepoRef,
+        $RepoRefCopyWith,
         StrongRef,
+        $StrongRefCopyWith,
         Label,
+        $LabelCopyWith,
         ModerationReasonType,
         ReportSubject,
+        $ReportSubjectCopyWith,
         ServersService,
         IdentitiesService,
         RepositoriesService,
@@ -53,6 +102,7 @@ export 'package:atproto_core/atproto_core.dart'
         XRPCResponse,
         XRPCRequest,
         XRPCError,
+        $XRPCErrorCopyWith,
         Protocol,
         Subscription,
         EmptyData,
@@ -60,6 +110,11 @@ export 'package:atproto_core/atproto_core.dart'
         HttpStatus,
         Serializable,
         AtUri,
+        CID,
+        ProgressStatus,
+        ProgressStatusEvent,
+        InvalidCidError,
+        Multicodec,
         XRPCException,
         InternalServerErrorException,
         InvalidRequestException,
@@ -81,6 +136,10 @@ export 'package:bluesky/src/entities/actor_profiles.dart';
 export 'package:bluesky/src/entities/actor_viewer.dart';
 export 'package:bluesky/src/entities/actors.dart';
 export 'package:bluesky/src/entities/actors_typeahead.dart';
+export 'package:bluesky/src/entities/adaptor/repo_commit_adaptor.dart';
+export 'package:bluesky/src/entities/adaptor/repo_commit_create.dart';
+export 'package:bluesky/src/entities/adaptor/repo_commit_delete.dart';
+export 'package:bluesky/src/entities/adaptor/repo_commit_update.dart';
 export 'package:bluesky/src/entities/adult_content_preference.dart';
 export 'package:bluesky/src/entities/blocked_post.dart';
 export 'package:bluesky/src/entities/blocks.dart';
@@ -116,12 +175,14 @@ export 'package:bluesky/src/entities/feed_generator_view.dart';
 export 'package:bluesky/src/entities/feed_generator_viewer.dart';
 export 'package:bluesky/src/entities/feed_generators.dart';
 export 'package:bluesky/src/entities/feed_view.dart';
+export 'package:bluesky/src/entities/follow_record.dart';
 export 'package:bluesky/src/entities/followers.dart';
 export 'package:bluesky/src/entities/follows.dart';
 export 'package:bluesky/src/entities/generator_feed.dart';
 export 'package:bluesky/src/entities/generator_links.dart';
 export 'package:bluesky/src/entities/image.dart';
 export 'package:bluesky/src/entities/like.dart';
+export 'package:bluesky/src/entities/like_record.dart';
 export 'package:bluesky/src/entities/likes.dart';
 export 'package:bluesky/src/entities/list_item.dart';
 export 'package:bluesky/src/entities/list_items.dart';
@@ -135,7 +196,6 @@ export 'package:bluesky/src/entities/notification.dart';
 export 'package:bluesky/src/entities/notifications.dart';
 export 'package:bluesky/src/entities/post.dart';
 export 'package:bluesky/src/entities/post_record.dart';
-export 'package:bluesky/src/entities/post_ref.dart';
 export 'package:bluesky/src/entities/post_thread.dart';
 export 'package:bluesky/src/entities/post_thread_view.dart';
 export 'package:bluesky/src/entities/post_thread_view_record.dart';
@@ -143,17 +203,20 @@ export 'package:bluesky/src/entities/post_viewer.dart';
 export 'package:bluesky/src/entities/posts.dart';
 export 'package:bluesky/src/entities/preference.dart';
 export 'package:bluesky/src/entities/preferences.dart';
+export 'package:bluesky/src/entities/profile_record.dart';
 export 'package:bluesky/src/entities/reason.dart';
 export 'package:bluesky/src/entities/reason_repost.dart';
 export 'package:bluesky/src/entities/reply.dart';
 export 'package:bluesky/src/entities/reply_post.dart';
 export 'package:bluesky/src/entities/reply_ref.dart';
+export 'package:bluesky/src/entities/repost_record.dart';
 export 'package:bluesky/src/entities/reposted_by.dart';
 export 'package:bluesky/src/entities/saved_feeds_preference.dart';
 export 'package:bluesky/src/entities/skeleton_feed.dart';
 export 'package:bluesky/src/entities/skeleton_feed_view.dart';
 export 'package:bluesky/src/entities/skeleton_reason.dart';
 export 'package:bluesky/src/entities/skeleton_reason_repost.dart';
+export 'package:bluesky/src/extension/at_uri_extension.dart';
 export 'package:bluesky/src/feeds/feeds_service.dart';
 export 'package:bluesky/src/graphs/graphs_service.dart';
 export 'package:bluesky/src/notifications/notifications_service.dart';

@@ -136,7 +136,7 @@ Future<void> main() async {
         ),
       ),
 
-      //! The default timeout is 10 seconds.
+      //! The default timeout is 30 seconds.
       timeout: Duration(seconds: 20),
     );
 
@@ -161,8 +161,28 @@ Future<void> main() async {
 
     //! You can use Stream API easily.
     final subscription = await bluesky.sync.subscribeRepoUpdates();
+
     subscription.data.stream.listen((event) {
-      print(event.toJson());
+      event.when(
+        //! You can handle commit events very easily
+        //! with RepoCommitAdaptor.
+        commit: bsky.RepoCommitAdaptor(
+          //! Create events.
+          onCreatePost: (data) => data.record,
+          onCreateLike: print,
+
+          //! Update events.
+          onUpdateProfile: print,
+
+          //! Delete events.
+          onDeletePost: print,
+        ).execute,
+        handle: print,
+        migrate: print,
+        tombstone: print,
+        info: print,
+        unknown: print,
+      );
     });
   } on bsky.UnauthorizedException catch (e) {
     print(e);
@@ -219,7 +239,7 @@ Future<bsky.Session> get _session async {
 | [GET app.bsky.feed.getFeedGenerator](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedGenerator.json)           | [findGenerator](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findGenerator.html)         |
 | [GET app.bsky.feed.getFeedGenerators](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedGenerators.json)         | [findGenerators](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findGenerators.html)       |
 | [GET app.bsky.feed.getFeed](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeed.json)                             | [findCustomFeed](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findCustomFeed.html)       |
-| [GET app.bsky.feed.getFeedSkeleton](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedSkeleton.json)             | [findSkeletonFeed](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findSkeletonFeed.html)   |
+| [GET app.bsky.feed.getFeedSkeleton](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedSkeleton.json)             | [findFeedSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findFeedSkeleton.html)   |
 | [GET app.bsky.feed.describeFeedGenerator](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/describeFeedGenerator.json) | [findGeneratorInfo](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findGeneratorInfo.html) |
 
 ### 1.3.3. Notifications
@@ -291,13 +311,15 @@ Future<bsky.Session> get _session async {
 | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | [POST com.atproto.repo.createRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/createRecord.json) | [createRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/createRecord.html)   |
 | [GET com.atproto.repo.getRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/getRecord.json)        | [findRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/findRecord.html)       |
+| [GET com.atproto.repo.listRecords](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/listRecords.json)    | [findRecords](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/findRecords.html)     |
 | [POST com.atproto.repo.deleteRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/deleteRecord.json) | [deleteRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/deleteRecord.html)   |
 | [POST com.atproto.repo.uploadBlob](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/uploadBlob.json)     | [uploadBlob](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/uploadBlob.html)       |
-| [GET com.atproto.repo.describeRepo](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/describeRepo.json)  | [findRepo](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/findRepo.html)           |
+| [GET com.atproto.repo.describeRepo](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/describeRepo.json)  | [findRepoInfo](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/findRepoInfo.html)   |
 | [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)   | [updateBulk](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/updateBulk.html)       |
 | [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)   | [createRecords](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/createRecords.html) |
 | [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)   | [updateRecords](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/updateRecords.html) |
 | [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)   | [deleteRecords](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/deleteRecords.html) |
+| [POST com.atproto.repo.rebaseRepo](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/rebaseRepo.json)     | [rebaseRepo](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/rebaseRepo.html)       |
 
 ### 1.3.9. Moderation
 
@@ -307,9 +329,16 @@ Future<bsky.Session> get _session async {
 
 ### 1.3.10. Sync
 
-| **Lexicon**                                                                                                                          | **Method Name**                                                                                        |
-| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| [com.atproto.sync.subscribeRepos](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/subscribeRepos.json) | [subscribeRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepos.html) |
+| **Lexicon**                                                                                                                            | **Method Name**                                                                                                  |
+| -------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| [com.atproto.sync.subscribeRepos](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/subscribeRepos.json)   | [subscribeRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepos.html)           |
+| [GET com.atproto.sync.getHead](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getHead.json)             | [findRepoHead](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepohead.html)               |
+| [GET com.atproto.sync.getRepo](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getRepo.json)             | [findRepoCommits](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoCommit.html)          |
+| [GET com.atproto.sync.getCheckout](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getCheckout.json)     | [findRepoCheckout](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoCheckout.html)       |
+| [GET com.atproto.sync.getCommitPath](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getCommitPath.json) | [findRepoCommitPaths](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoCommitPaths.html) |
+| [GET com.atproto.sync.getBlocks](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getBlocks.json)         | [findRepoBlocks](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoBlocks.html)           |
+| [GET com.atproto.sync.getRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getRecord.json)         | [findRecord](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRecord.html)                   |
+| [GET com.atproto.sync.listRepos](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listRepos.json)         | [findRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepos.html)                     |
 
 ## 1.4. Tips 🏄
 
@@ -328,6 +357,7 @@ Future<bsky.Session> get _session async {
 | **update**    | This prefix is attached to the endpoint performing the update state.      |
 | **upload**    | This prefix is attached to the endpoint performing the upload contents.   |
 | **request**   | This prefix is attached to the endpoint performing the request via email. |
+| **rebase**    | This prefix is attached to the endpoint performing the rebase repo.       |
 
 ### 1.4.2. Create Session
 
@@ -436,7 +466,7 @@ Future<void> main() async {
     did: 'YOUR_DID',
     accessJwt: 'YOUR_TOKEN',
 
-    //! The default timeout is 10 seconds.
+    //! The default timeout is 30 seconds.
     timeout: Duration(seconds: 20),
   );
 }

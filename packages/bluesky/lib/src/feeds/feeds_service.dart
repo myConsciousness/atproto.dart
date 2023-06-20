@@ -67,7 +67,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json
-  Future<core.XRPCResponse<atp.Record>> createPost({
+  Future<core.XRPCResponse<atp.StrongRef>> createPost({
     required String text,
     ReplyRef? reply,
     List<Facet>? facets,
@@ -89,7 +89,7 @@ abstract class FeedsService {
   /// ## Parameters
   ///
   /// - [params]: The collection of params to be posted as thread.
-  Future<core.XRPCResponse<atp.Record>> createThread(
+  Future<core.XRPCResponse<atp.StrongRef>> createThread(
     List<ThreadParam> params,
   );
 
@@ -112,7 +112,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json
-  Future<core.XRPCResponse<atp.Record>> createRepost({
+  Future<core.XRPCResponse<atp.StrongRef>> createRepost({
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
@@ -170,7 +170,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/vote.json
-  Future<core.XRPCResponse<atp.Record>> createLike({
+  Future<core.XRPCResponse<atp.StrongRef>> createLike({
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
@@ -233,6 +233,13 @@ abstract class FeedsService {
     String? cursor,
   });
 
+  @Deprecated('Use findFeedSkeleton instead. Will be removed in v0.6.0')
+  Future<core.XRPCResponse<SkeletonFeed>> findSkeletonFeed({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  });
+
   /// A skeleton of a feed provided by a feed generator.
   ///
   /// ## Parameters
@@ -251,7 +258,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedSkeleton.json
-  Future<core.XRPCResponse<SkeletonFeed>> findSkeletonFeed({
+  Future<core.XRPCResponse<SkeletonFeed>> findFeedSkeleton({
     required core.AtUri generatorUri,
     int? limit,
     String? cursor,
@@ -341,7 +348,10 @@ abstract class FeedsService {
   ///
   /// - [uri]: The uri of root post.
   ///
-  /// - [depth]: Depth of thread to be retrieved.
+  /// - [depth]: Depth of thread to be retrieved. Defaults to 6. From 0 to 1000.
+  ///
+  /// - [parentHeight]: Height of parent thread to be retrieved.
+  ///                   Defaults to 80. From 0 to 1000.
   ///
   /// ## Lexicon
   ///
@@ -353,6 +363,7 @@ abstract class FeedsService {
   Future<core.XRPCResponse<PostThread>> findPostThread({
     required core.AtUri uri,
     int? depth,
+    int? parentHeight,
   });
 
   /// A view of an actor's feed.
@@ -396,7 +407,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/generator.json
-  Future<core.XRPCResponse<atp.Record>> createGenerator({
+  Future<core.XRPCResponse<atp.StrongRef>> createGenerator({
     required String did,
     required String displayName,
     String? description,
@@ -474,7 +485,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
   }) : super(methodAuthority: 'feed.bsky.app');
 
   @override
-  Future<core.XRPCResponse<atp.Record>> createPost({
+  Future<core.XRPCResponse<atp.StrongRef>> createPost({
     required String text,
     ReplyRef? reply,
     List<Facet>? facets,
@@ -515,7 +526,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<atp.Record>> createThread(
+  Future<core.XRPCResponse<atp.StrongRef>> createThread(
     List<ThreadParam> params,
   ) async {
     if (params.isEmpty) {
@@ -534,15 +545,15 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       createdAt: rootParam.createdAt,
     );
 
-    final rootRef = rootRecord.data.toStrongRef();
+    final rootRef = rootRecord.data;
 
-    var parentRecord = rootRecord.data;
+    var parentRef = rootRecord.data;
     for (final param in params) {
-      parentRecord = (await createPost(
+      parentRef = (await createPost(
         text: param.text,
         reply: ReplyRef(
           root: rootRef,
-          parent: parentRecord.toStrongRef(),
+          parent: parentRef,
         ),
         facets: param.facets,
         embed: param.embed,
@@ -571,7 +582,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<atp.Record>> createRepost({
+  Future<core.XRPCResponse<atp.StrongRef>> createRepost({
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
@@ -610,7 +621,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<atp.Record>> createLike({
+  Future<core.XRPCResponse<atp.StrongRef>> createLike({
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
@@ -686,6 +697,18 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     int? limit,
     String? cursor,
   }) async =>
+      await findFeedSkeleton(
+        generatorUri: generatorUri,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<SkeletonFeed>> findFeedSkeleton({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  }) async =>
       await super.get(
         'getFeedSkeleton',
         parameters: {
@@ -752,12 +775,14 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
   Future<core.XRPCResponse<PostThread>> findPostThread({
     required core.AtUri uri,
     int? depth,
+    int? parentHeight,
   }) async =>
       await super.get(
         'getPostThread',
         parameters: {
           'uri': uri,
           'depth': depth,
+          'parentHeight': parentHeight,
         },
         to: PostThread.fromJson,
       );
@@ -775,7 +800,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<atp.Record>> createGenerator({
+  Future<core.XRPCResponse<atp.StrongRef>> createGenerator({
     required String did,
     required String displayName,
     String? description,

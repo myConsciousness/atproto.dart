@@ -7,3 +7,5 @@ dependency_overrides:
     path: ../at_uri
   xrpc:
     path: ../xrpc
+  multiformats:
+    path: ../multiformats

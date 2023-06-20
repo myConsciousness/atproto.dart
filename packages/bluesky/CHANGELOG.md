@@ -1,5 +1,60 @@
 # Release Note
 
+## v0.6.0
+
+- Supported `com.atproto.sync.getRepo` as `findRepoCommits` in `SyncService`. ([#313](https://github.com/myConsciousness/atproto.dart/issues/313))
+- Changed default timeout from 10 seconds to 30 seconds.
+- Supported `com.atproto.sync.getCommitPath` as `findRepoCommitPaths` in `SyncService`. ([#310](https://github.com/myConsciousness/atproto.dart/issues/310))
+- Supported `com.atproto.sync.getBlocks` as `findRepoBlocks` in `SyncService`. ([#308](https://github.com/myConsciousness/atproto.dart/issues/308))
+- Supported `com.atproto.sync.getCheckout` as `findRepoCheckout` in `SyncService`. ([#309](https://github.com/myConsciousness/atproto.dart/issues/309))
+- Supported `com.atproto.sync.getHead` as `findRepoHead` in `SyncService`. ([#311](https://github.com/myConsciousness/atproto.dart/issues/311))
+- Supported `com.atproto.sync.getRecord` as `findRecord` in `SyncService`. ([#312](https://github.com/myConsciousness/atproto.dart/issues/312))
+- Supported `com.atproto.repo.listRecords` as `findRecords` in `RepositoriesService`. ([#305](https://github.com/myConsciousness/atproto.dart/issues/305))
+- Supported `com.atproto.repo.rebaseRepo` as `rebaseRepo` in `RepositoriesService`. ([#509](https://github.com/myConsciousness/atproto.dart/issues/509))
+- Supported `com.atproto.sync.listRepos` as `findRepos` in `SyncService`. ([#315](https://github.com/myConsciousness/atproto.dart/issues/315))
+- Renamed object from `Repo` to `RepoInfo` returned from `findRepoInfo` in `RepositoriesService`.
+- Renamed `RecordValue` to `Record`. And now `createRecord` and `updateRecord` and following methods returns `StrongRef`. ([#511](https://github.com/myConsciousness/atproto.dart/issues/511))
+  - `createPost`
+  - `createThread`
+  - `createRepost`
+  - `createLike`
+  - `createGenerator`
+  - `createFollow`
+  - `createBlock`
+  - `createList`
+  - `createListItem`
+  - `updateProfile`
+- Removed `BlobContext` and `LegacyBlob`. Blobs in the old format were modified to be converted to the new format. ([#514](https://github.com/myConsciousness/atproto.dart/issues/514))
+
+## v0.5.7
+
+- Renamed property from `data` to `record` in `RepoCommitUpdate`.
+
+## v0.5.6
+
+- Added `RepoCommitAdaptor` for easy handling of RepoCommit events of `SyncService.subscribeRepoUpdate`. ([#488](https://github.com/myConsciousness/atproto.dart/issues/488))
+- Improved generation of `CID` hash codes, allowing CID objects to be specified as keys for Maps, etc. ([#490](https://github.com/myConsciousness/atproto.dart/issues/490))
+
+## v0.5.5
+
+- Upgraded `atproto` and `atproto_core`.
+
+## v0.5.4
+
+- Refactored `subscribeRepoUpdates`. ([#472](https://github.com/myConsciousness/atproto.dart/issues/472))
+
+## v0.5.3
+
+- Renamed from `findSkeletonFeed` to `findFeedSkeleton`. ([#456](https://github.com/myConsciousness/atproto.dart/issues/456))
+- Added `parentHeight` parameter to `findPostThread`. ([#457](https://github.com/myConsciousness/atproto.dart/issues/457))
+- Supported `app.bsky.unspecced.getPopularFeedGenerators` as `findPopularFeedGenerators` in `UnspeccedService`. ([#458](https://github.com/myConsciousness/atproto.dart/issues/458))
+- Exposed `CopyWith` classes. ([#463](https://github.com/myConsciousness/atproto.dart/issues/463))
+- Made `labels` field to nullable.
+  - `actor.dart`
+  - `actor_profile.dart`
+  - `post.dart`
+  - `notification.dart`
+
 ## v0.5.2
 
 - Supported `app.bsky.feed.generator` as `createGenerator` in `FeedsService`. ([#430](https://github.com/myConsciousness/atproto.dart/issues/430))

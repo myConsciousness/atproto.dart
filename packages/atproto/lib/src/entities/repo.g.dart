@@ -13,26 +13,15 @@ _$_Repo _$$_RepoFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_Repo(
-          handle: $checkedConvert('handle', (v) => v as String),
           did: $checkedConvert('did', (v) => v as String),
-          didDoc: $checkedConvert(
-              'didDoc',
-              (v) =>
-                  ParsedDidDoc.fromJson(Map<String, Object?>.from(v as Map))),
-          collections: $checkedConvert('collections',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
-          hasCorrectHandle:
-              $checkedConvert('handleIsCorrect', (v) => v as bool),
+          headCid: $checkedConvert('head', (v) => v as String),
         );
         return val;
       },
-      fieldKeyMap: const {'hasCorrectHandle': 'handleIsCorrect'},
+      fieldKeyMap: const {'headCid': 'head'},
     );
 
 Map<String, dynamic> _$$_RepoToJson(_$_Repo instance) => <String, dynamic>{
-      'handle': instance.handle,
       'did': instance.did,
-      'didDoc': instance.didDoc.toJson(),
-      'collections': instance.collections,
-      'handleIsCorrect': instance.hasCorrectHandle,
+      'head': instance.headCid,
     };

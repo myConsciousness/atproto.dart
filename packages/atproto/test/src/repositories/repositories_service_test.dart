@@ -6,8 +6,8 @@ import 'package:atproto/src/entities/batch_action.dart';
 import 'package:atproto/src/entities/create_action.dart';
 import 'package:atproto/src/entities/delete_action.dart';
 import 'package:atproto/src/entities/record.dart';
-import 'package:atproto/src/entities/record_value.dart';
-import 'package:atproto/src/entities/repo.dart';
+import 'package:atproto/src/entities/records.dart';
+import 'package:atproto/src/entities/repo_info.dart';
 import 'package:atproto/src/entities/strong_ref.dart';
 import 'package:atproto/src/entities/update_action.dart';
 import 'package:atproto/src/repositories/repositories_service.dart';
@@ -37,12 +37,7 @@ void main() {
       );
 
       expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<Record>());
-
-      final strongRef = response.data.toStrongRef();
-      expect(strongRef, isA<StrongRef>());
-      expect(strongRef.cid, response.data.cid);
-      expect(strongRef.uri, response.data.uri);
+      expect(response.data, isA<StrongRef>());
     });
 
     test('when unauthorized', () async {
@@ -181,7 +176,7 @@ void main() {
       );
 
       expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<Record>());
+      expect(response.data, isA<StrongRef>());
     });
 
     test('when unauthorized', () async {
@@ -231,7 +226,7 @@ void main() {
     });
   });
 
-  group('.findRepo', () {
+  group('.findRepoInfo', () {
     test('normal case', () async {
       final repositories = RepositoriesService(
         did: 'test',
@@ -242,16 +237,16 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/repositories/data/find_repo.json',
+          'test/src/repositories/data/find_repo_info.json',
         ),
       );
 
-      final response = await repositories.findRepo(
-        identifier: 'shinyakato.dev',
+      final response = await repositories.findRepoInfo(
+        repo: 'shinyakato.dev',
       );
 
       expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<Repo>());
+      expect(response.data, isA<RepoInfo>());
     });
 
     test('when unauthorized', () async {
@@ -270,8 +265,8 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await repositories.findRepo(
-          identifier: 'shinyakato.dev',
+        () async => await repositories.findRepoInfo(
+          repo: 'shinyakato.dev',
         ),
       );
     });
@@ -292,8 +287,8 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await repositories.findRepo(
-          identifier: 'shinyakato.dev',
+        () async => await repositories.findRepoInfo(
+          repo: 'shinyakato.dev',
         ),
       );
     });
@@ -321,7 +316,7 @@ void main() {
       );
 
       expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<RecordValue>());
+      expect(response.data, isA<Record>());
       expect(response.data.hasStrongRef, isTrue);
       expect(response.data.hasNotStrongRef, isFalse);
 
@@ -352,7 +347,7 @@ void main() {
       );
 
       expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<RecordValue>());
+      expect(response.data, isA<Record>());
       expect(response.data.hasStrongRef, isFalse);
       expect(response.data.hasNotStrongRef, isTrue);
 
@@ -403,6 +398,77 @@ void main() {
           uri: core.AtUri.parse(
             'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3juqjtr23dk2h',
           ),
+        ),
+      );
+    });
+  });
+
+  group('.findRecords', () {
+    test('normal case', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/repositories/data/find_records.json',
+        ),
+      );
+
+      final response = await repositories.findRecords(
+        repo: 'did:plc:iijrtk7ocored6zuziwmqq3c',
+        collection: core.NSID.parse('app.bsky.feed.post'),
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<Records>());
+    });
+
+    test('when unauthorized', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await repositories.findRecords(
+          repo: 'did:plc:iijrtk7ocored6zuziwmqq3c',
+          collection: core.NSID.parse('app.bsky.feed.post'),
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await repositories.findRecords(
+          repo: 'did:plc:iijrtk7ocored6zuziwmqq3c',
+          collection: core.NSID.parse('app.bsky.feed.post'),
         ),
       );
     });
@@ -704,6 +770,74 @@ void main() {
 
       atp_test.expectRateLimitExceededException(
         () async => await repositories.deleteRecords(uris: []),
+      );
+    });
+  });
+
+  group('.rebaseRepo', () {
+    test('normal case', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/repositories/data/rebase_repo.json',
+        ),
+      );
+
+      final response = await repositories.rebaseRepo(
+        repo: 'did:plc:iijrtk7ocored6zuziwmqq3c',
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<core.EmptyData>());
+    });
+
+    test('when unauthorized', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await repositories.rebaseRepo(
+          repo: 'did:plc:iijrtk7ocored6zuziwmqq3c',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await repositories.rebaseRepo(
+          repo: 'did:plc:iijrtk7ocored6zuziwmqq3c',
+        ),
       );
     });
   });

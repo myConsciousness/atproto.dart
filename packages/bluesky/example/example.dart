@@ -27,7 +27,7 @@ Future<void> main() async {
         ),
       ),
 
-      //! The default timeout is 10 seconds.
+      //! The default timeout is 30 seconds.
       timeout: Duration(seconds: 20),
     );
 
@@ -52,8 +52,28 @@ Future<void> main() async {
 
     //! You can use Stream API easily.
     final subscription = await bluesky.sync.subscribeRepoUpdates();
+
     subscription.data.stream.listen((event) {
-      print(event.toJson());
+      event.when(
+        //! You can handle commit events very easily
+        //! with RepoCommitAdaptor.
+        commit: bsky.RepoCommitAdaptor(
+          //! Create events.
+          onCreatePost: (data) => data.record,
+          onCreateLike: print,
+
+          //! Update events.
+          onUpdateProfile: print,
+
+          //! Delete events.
+          onDeletePost: print,
+        ).execute,
+        handle: print,
+        migrate: print,
+        tombstone: print,
+        info: print,
+        unknown: print,
+      );
     });
   } on bsky.UnauthorizedException catch (e) {
     print(e);

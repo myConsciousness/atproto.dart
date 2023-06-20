@@ -130,7 +130,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Record>());
+      expect(response.data, isA<StrongRef>());
     });
 
     test('when unauthorized', () async {
@@ -212,7 +212,7 @@ void main() {
       ]);
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Record>());
+      expect(response.data, isA<StrongRef>());
     });
 
     test('when unauthorized', () async {
@@ -411,7 +411,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Record>());
+      expect(response.data, isA<StrongRef>());
     });
 
     test('when unauthorized', () async {
@@ -576,7 +576,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Record>());
+      expect(response.data, isA<StrongRef>());
     });
 
     test('when unauthorized', () async {
@@ -887,7 +887,7 @@ void main() {
         ),
       );
 
-      final response = await feeds.findSkeletonFeed(
+      final response = await feeds.findFeedSkeleton(
         generatorUri: AtUri.parse(
           'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-privacy',
         ),
@@ -915,7 +915,7 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await feeds.findSkeletonFeed(
+        () async => await feeds.findFeedSkeleton(
           generatorUri: AtUri.parse(
             'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-privacy',
           ),
@@ -939,7 +939,7 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await feeds.findSkeletonFeed(
+        () async => await feeds.findFeedSkeleton(
             generatorUri: AtUri.parse(
           'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-privacy',
         )),
@@ -1119,6 +1119,7 @@ void main() {
       final response = await feeds.findPostThread(
         uri: AtUri.parse('at://foo.com/com.example.foo/123'),
         depth: 5,
+        parentHeight: 6,
       );
 
       expect(response, isA<XRPCResponse>());
@@ -1273,7 +1274,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Record>());
+      expect(response.data, isA<StrongRef>());
     });
 
     test('when unauthorized', () async {

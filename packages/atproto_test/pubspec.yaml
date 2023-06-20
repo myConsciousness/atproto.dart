@@ -1,6 +1,6 @@
 name: atproto_test
 description: This package provides core reusable and useful functionality for testing atproto based packages.
-version: 0.1.0
+version: 0.1.1
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_test
 issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
 funding:

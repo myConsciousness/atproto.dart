@@ -11,6 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'converter/embed_converter.dart';
 import 'embed.dart';
 import 'facet.dart';
+import 'ids/ids.dart';
 import 'post_ref.dart';
 
 part 'post_record.freezed.dart';
@@ -20,7 +21,7 @@ part 'post_record.g.dart';
 class PostRecord with _$PostRecord {
   @JsonSerializable(includeIfNull: false)
   const factory PostRecord({
-    @JsonKey(name: '\$type') required String type,
+    @Default(appBskyFeedPost) @JsonKey(name: '\$type') String type,
     required String text,
     PostRef? reply,
     @EmbedConverter() Embed? embed,

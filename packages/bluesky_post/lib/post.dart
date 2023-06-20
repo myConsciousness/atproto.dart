@@ -33,9 +33,7 @@ Future<void> post() async {
                     name: 'media-alt',
                     options: core.InputOptions(trimWhitespace: true),
                   ),
-                  image: bsky.BlobContext.blob(
-                    data: uploaded.blob,
-                  ),
+                  image: uploaded.blob,
                 )
               ],
             ),

@@ -1,5 +1,26 @@
 # Release Note
 
+## v0.3.5
+
+- Added `adaptor` parameter in `get` and `subscribe`, and removed `decoder` and `converter`. ([#495](https://github.com/myConsciousness/atproto.dart/issues/495))
+- Added `progress_status.dart`.
+
+## v0.3.4
+
+- Improved generation of `CID` hash codes, allowing CID objects to be specified as keys for Maps, etc. ([#490](https://github.com/myConsciousness/atproto.dart/issues/490))
+
+## v0.3.3
+
+- Fixed `subscribeRepoUpdates`.
+
+## v0.3.2
+
+- Added `decoder` parameter in `stream`. ([#472](https://github.com/myConsciousness/atproto.dart/issues/472))
+
+## v0.3.1
+
+- Added `converter` parameter in `stream<T>`. ([#446](https://github.com/myConsciousness/atproto.dart/issues/446))
+
 ## v0.3.0
 
 - Updated SDK to `">=2.17.0 <4.0.0"`. ([#406](https://github.com/myConsciousness/atproto.dart/issues/406))

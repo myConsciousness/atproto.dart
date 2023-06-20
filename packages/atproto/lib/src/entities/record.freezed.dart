@@ -20,9 +20,10 @@ Record _$RecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Record {
-  String get cid => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
+  String? get cid => throw _privateConstructorUsedError;
+  Map<String, dynamic> get value => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,8 @@ abstract class $RecordCopyWith<$Res> {
   factory $RecordCopyWith(Record value, $Res Function(Record) then) =
       _$RecordCopyWithImpl<$Res, Record>;
   @useResult
-  $Res call({String cid, @AtUriConverter() AtUri uri});
+  $Res call(
+      {@AtUriConverter() AtUri uri, String? cid, Map<String, dynamic> value});
 }
 
 /// @nodoc
@@ -50,18 +52,23 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cid = null,
     Object? uri = null,
+    Object? cid = freezed,
+    Object? value = null,
   }) {
     return _then(_value.copyWith(
-      cid: null == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      cid: freezed == cid
+          ? _value.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      value: null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -72,7 +79,8 @@ abstract class _$$_RecordCopyWith<$Res> implements $RecordCopyWith<$Res> {
       __$$_RecordCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String cid, @AtUriConverter() AtUri uri});
+  $Res call(
+      {@AtUriConverter() AtUri uri, String? cid, Map<String, dynamic> value});
 }
 
 /// @nodoc
@@ -85,40 +93,57 @@ class __$$_RecordCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cid = null,
     Object? uri = null,
+    Object? cid = freezed,
+    Object? value = null,
   }) {
     return _then(_$_Record(
-      cid: null == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      cid: freezed == cid
+          ? _value.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      value: null == value
+          ? _value._value
+          : value // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(includeIfNull: false)
 class _$_Record extends _Record {
-  const _$_Record({required this.cid, @AtUriConverter() required this.uri})
-      : super._();
+  const _$_Record(
+      {@AtUriConverter() required this.uri,
+      this.cid,
+      required final Map<String, dynamic> value})
+      : _value = value,
+        super._();
 
   factory _$_Record.fromJson(Map<String, dynamic> json) =>
       _$$_RecordFromJson(json);
 
   @override
-  final String cid;
-  @override
   @AtUriConverter()
   final AtUri uri;
+  @override
+  final String? cid;
+  final Map<String, dynamic> _value;
+  @override
+  Map<String, dynamic> get value {
+    if (_value is EqualUnmodifiableMapView) return _value;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_value);
+  }
 
   @override
   String toString() {
-    return 'Record(cid: $cid, uri: $uri)';
+    return 'Record(uri: $uri, cid: $cid, value: $value)';
   }
 
   @override
@@ -126,13 +151,15 @@ class _$_Record extends _Record {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Record &&
+            (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
-            (identical(other.uri, uri) || other.uri == uri));
+            const DeepCollectionEquality().equals(other._value, _value));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, cid, uri);
+  int get hashCode => Object.hash(
+      runtimeType, uri, cid, const DeepCollectionEquality().hash(_value));
 
   @JsonKey(ignore: true)
   @override
@@ -150,17 +177,20 @@ class _$_Record extends _Record {
 
 abstract class _Record extends Record {
   const factory _Record(
-      {required final String cid,
-      @AtUriConverter() required final AtUri uri}) = _$_Record;
+      {@AtUriConverter() required final AtUri uri,
+      final String? cid,
+      required final Map<String, dynamic> value}) = _$_Record;
   const _Record._() : super._();
 
   factory _Record.fromJson(Map<String, dynamic> json) = _$_Record.fromJson;
 
   @override
-  String get cid;
-  @override
   @AtUriConverter()
   AtUri get uri;
+  @override
+  String? get cid;
+  @override
+  Map<String, dynamic> get value;
   @override
   @JsonKey(ignore: true)
   _$$_RecordCopyWith<_$_Record> get copyWith =>

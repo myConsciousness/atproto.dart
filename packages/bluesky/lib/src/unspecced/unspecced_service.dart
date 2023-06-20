@@ -8,6 +8,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../bluesky_base_service.dart';
 import '../entities/feed.dart';
+import '../entities/feed_generators.dart';
 
 abstract class UnspeccedService {
   /// Returns the new instance of [UnspeccedService].
@@ -52,6 +53,17 @@ abstract class UnspeccedService {
     int? limit,
     String? cursor,
   });
+
+  /// An unspecced view of globally popular feed generators
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.unspecced.getPopularFeedGenerators
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopularFeedGenerators.json
+  Future<core.XRPCResponse<FeedGenerators>> findPopularFeedGenerators();
 }
 
 class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
@@ -79,5 +91,12 @@ class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
           'cursor': cursor,
         },
         to: Feed.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<FeedGenerators>> findPopularFeedGenerators() async =>
+      await super.get(
+        'getPopularFeedGenerators',
+        to: FeedGenerators.fromJson,
       );
 }

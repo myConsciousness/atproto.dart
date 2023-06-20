@@ -44,6 +44,7 @@ import 'notification/notification_count.dart';
 import 'notification/notifications.dart';
 import 'notification/seen_notifications.dart';
 import 'unspecced/popular.dart';
+import 'unspecced/popular_generators.dart';
 
 final commonCommands = <BskyCommand>[
   DeleteCommand(),
@@ -102,4 +103,5 @@ final graphCommands = <BskyCommand>[
 
 final unspeccedCommands = <BskyCommand>[
   PopularCommand(),
+  PopularFeedGeneratorsCommand(),
 ];

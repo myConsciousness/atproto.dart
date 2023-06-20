@@ -29,7 +29,7 @@ mixin _$Notification {
   AtUri? get reasonSubject => throw _privateConstructorUsedError;
   bool get isRead => throw _privateConstructorUsedError;
   Map<String, dynamic>? get record => throw _privateConstructorUsedError;
-  List<Label> get labels => throw _privateConstructorUsedError;
+  List<Label>? get labels => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -52,7 +52,7 @@ abstract class $NotificationCopyWith<$Res> {
       @AtUriConverter() AtUri? reasonSubject,
       bool isRead,
       Map<String, dynamic>? record,
-      List<Label> labels,
+      List<Label>? labels,
       DateTime indexedAt});
 
   $ActorCopyWith<$Res> get author;
@@ -78,7 +78,7 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
     Object? reasonSubject = freezed,
     Object? isRead = null,
     Object? record = freezed,
-    Object? labels = null,
+    Object? labels = freezed,
     Object? indexedAt = null,
   }) {
     return _then(_value.copyWith(
@@ -110,10 +110,10 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      labels: null == labels
+      labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
+              as List<Label>?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -146,7 +146,7 @@ abstract class _$$_NotificationCopyWith<$Res>
       @AtUriConverter() AtUri? reasonSubject,
       bool isRead,
       Map<String, dynamic>? record,
-      List<Label> labels,
+      List<Label>? labels,
       DateTime indexedAt});
 
   @override
@@ -171,7 +171,7 @@ class __$$_NotificationCopyWithImpl<$Res>
     Object? reasonSubject = freezed,
     Object? isRead = null,
     Object? record = freezed,
-    Object? labels = null,
+    Object? labels = freezed,
     Object? indexedAt = null,
   }) {
     return _then(_$_Notification(
@@ -203,10 +203,10 @@ class __$$_NotificationCopyWithImpl<$Res>
           ? _value._record
           : record // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      labels: null == labels
+      labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
+              as List<Label>?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -227,7 +227,7 @@ class _$_Notification implements _Notification {
       @AtUriConverter() this.reasonSubject,
       required this.isRead,
       final Map<String, dynamic>? record,
-      required final List<Label> labels,
+      final List<Label>? labels,
       required this.indexedAt})
       : _record = record,
         _labels = labels;
@@ -259,12 +259,14 @@ class _$_Notification implements _Notification {
     return EqualUnmodifiableMapView(value);
   }
 
-  final List<Label> _labels;
+  final List<Label>? _labels;
   @override
-  List<Label> get labels {
+  List<Label>? get labels {
+    final value = _labels;
+    if (value == null) return null;
     if (_labels is EqualUnmodifiableListView) return _labels;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_labels);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -330,7 +332,7 @@ abstract class _Notification implements Notification {
       @AtUriConverter() final AtUri? reasonSubject,
       required final bool isRead,
       final Map<String, dynamic>? record,
-      required final List<Label> labels,
+      final List<Label>? labels,
       required final DateTime indexedAt}) = _$_Notification;
 
   factory _Notification.fromJson(Map<String, dynamic> json) =
@@ -353,7 +355,7 @@ abstract class _Notification implements Notification {
   @override
   Map<String, dynamic>? get record;
   @override
-  List<Label> get labels;
+  List<Label>? get labels;
   @override
   DateTime get indexedAt;
   @override

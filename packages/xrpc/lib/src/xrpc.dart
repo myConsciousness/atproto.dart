@@ -12,7 +12,6 @@ import 'package:mime/mime.dart';
 import 'package:nsid/nsid.dart' as nsid;
 import 'package:web_socket_channel/web_socket_channel.dart';
 
-import 'cbor_decoder.dart';
 import 'client_types.dart';
 import 'entities/empty_data.dart';
 import 'exception/internal_server_error_exception.dart';
@@ -36,9 +35,17 @@ const _defaultService = 'bsky.social';
 /// to model objects.
 typedef To<T> = T Function(Map<String, Object?> json);
 
+/// Function to convert response data to an specific structure.
+typedef ResponseAdaptor = Map<String, dynamic> Function(
+  dynamic data,
+);
+
 /// A function type that express factory for URI.
-typedef UriFactory = Uri Function(String authority,
-    [String unencodedPath, Map<String, dynamic>? queryParameters]);
+typedef UriFactory = Uri Function(
+  String authority, [
+  String unencodedPath,
+  Map<String, dynamic>? queryParameters,
+]);
 
 /// Performs GET communication to the ATP server.
 ///
@@ -152,6 +159,7 @@ Future<XRPCResponse<T>> query<T>(
   final Map<String, dynamic>? parameters,
   final Duration timeout = const Duration(seconds: 10),
   final To<T>? to,
+  final ResponseAdaptor? adaptor,
   final GetClient? getClient,
 }) async =>
     _buildResponse<T>(
@@ -170,6 +178,7 @@ Future<XRPCResponse<T>> query<T>(
             .timeout(timeout),
       ),
       to,
+      adaptor,
     );
 
 /// Performs POST communication to the ATP server.
@@ -344,6 +353,7 @@ XRPCResponse<Subscription<T>> subscribe<T>(
   final String? service,
   final Map<String, dynamic>? parameters,
   final To<T>? to,
+  final ResponseAdaptor? adaptor,
 }) {
   final uri = _buildWsUri(methodId, service, removeNullValues(parameters));
   final channel = WebSocketChannel.connect(uri);
@@ -351,20 +361,10 @@ XRPCResponse<Subscription<T>> subscribe<T>(
   final controller = StreamController<T>();
 
   channel.stream.listen((event) {
-    final merged = {};
-
-    int offset = 0;
-    while (offset < event.length) {
-      final result = decodeCbor(event, offset);
-      offset += result.bytesRead;
-
-      merged.addAll(result.decoded);
-    }
+    final data = adaptor != null ? adaptor.call(event) : event;
 
     controller.sink.add(
-      to != null
-          ? to.call(jsonDecode(jsonEncode(merged)))
-          : jsonEncode(merged) as T,
+      to != null ? to.call(data) : jsonEncode(data) as T,
     );
   }, onError: (_) async {
     await channel.sink.close();
@@ -479,8 +479,9 @@ Map<String, dynamic> convertParameters(final Map<String, dynamic> parameters) =>
 /// Returns the response object.
 XRPCResponse<T> _buildResponse<T>(
   final http.Response response,
-  final To<T>? to,
-) =>
+  final To<T>? to, [
+  final ResponseAdaptor? adaptor,
+]) =>
     XRPCResponse(
       headers: response.headers,
       status: HttpStatus.valueOf(response.statusCode),
@@ -488,7 +489,12 @@ XRPCResponse<T> _buildResponse<T>(
         method: HttpMethod.valueOf(response.request!.method),
         url: response.request!.url,
       ),
-      data: _transformData(response.body, to),
+      data: _transformData(
+        adaptor != null
+            ? jsonEncode(adaptor.call(response.bodyBytes))
+            : response.body,
+        to,
+      ),
     );
 
 /// Returns the error response.

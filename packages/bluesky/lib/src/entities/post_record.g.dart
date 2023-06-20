@@ -13,7 +13,8 @@ _$_PostRecord _$$_PostRecordFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_PostRecord(
-          type: $checkedConvert(r'$type', (v) => v as String),
+          type:
+              $checkedConvert(r'$type', (v) => v as String? ?? appBskyFeedPost),
           text: $checkedConvert('text', (v) => v as String),
           reply: $checkedConvert(
               'reply',
