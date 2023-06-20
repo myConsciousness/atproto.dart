@@ -10,6 +10,8 @@ const config = {
   tagline: "AT Protocol and Bluesky Social Things for Dart and Flutter",
   favicon: "img/favicon.ico",
 
+  staticDirectories: ["public", "static"],
+
   plugins: [
     "docusaurus-plugin-sass",
     [
@@ -76,7 +78,7 @@ const config = {
       image: "img/docusaurus-social-card.jpg",
       announcementBar: {
         id: "announcementBar-2", // Increment on change
-        content: `⭐️ If you like atproto.dart, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/myConsciousness/atproto.dart">GitHub</a> and follow <a target="_blank" rel="noopener noreferrer" href="https://bsky.app/profile/shinyakato.devs">Shinya Kato on Bluesky</a> ⭐️`,
+        content: `⭐️ If you like atproto.dart, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/myConsciousness/atproto.dart">GitHub</a> and follow <a target="_blank" rel="noopener noreferrer" href="https://bsky.app/profile/shinyakato.dev">Shinya Kato on Bluesky</a> ⭐️`,
       },
       navbar: {
         title: "atproto.dart",
