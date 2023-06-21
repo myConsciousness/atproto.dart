@@ -37,6 +37,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_riverpod: ^2.3.6
   bluesky: ^0.5.4
+  url_launcher: ^6.1.11
+  font_awesome_flutter: ^10.4.0
+  drop_down_list: ^0.0.5
 
 dev_dependencies:
   flutter_test:
@@ -59,6 +62,11 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  fonts:
+    - family: FiraCode
+      fonts:
+        - asset: assets/fonts/fira-code/FiraCode-Retina.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:
