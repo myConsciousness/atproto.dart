@@ -21,6 +21,7 @@ class ListView with _$ListView {
   const factory ListView({
     @Default('app.bsky.graph.defs#modlist') String purpose,
     @AtUriConverter() required AtUri uri,
+    required String cid,
     required String name,
     String? description,
     List<Facet>? descriptionFacets,

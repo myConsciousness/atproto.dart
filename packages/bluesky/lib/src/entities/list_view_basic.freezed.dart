@@ -23,6 +23,7 @@ mixin _$ListViewBasic {
   String get purpose => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
+  String get cid => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
   ListViewer get viewer => throw _privateConstructorUsedError;
@@ -43,6 +44,7 @@ abstract class $ListViewBasicCopyWith<$Res> {
   $Res call(
       {String purpose,
       @AtUriConverter() AtUri uri,
+      String cid,
       String name,
       String? avatar,
       ListViewer viewer,
@@ -66,6 +68,7 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
   $Res call({
     Object? purpose = null,
     Object? uri = null,
+    Object? cid = null,
     Object? name = null,
     Object? avatar = freezed,
     Object? viewer = null,
@@ -80,6 +83,10 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      cid: null == cid
+          ? _value.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -119,6 +126,7 @@ abstract class _$$_ListViewBasicCopyWith<$Res>
   $Res call(
       {String purpose,
       @AtUriConverter() AtUri uri,
+      String cid,
       String name,
       String? avatar,
       ListViewer viewer,
@@ -141,6 +149,7 @@ class __$$_ListViewBasicCopyWithImpl<$Res>
   $Res call({
     Object? purpose = null,
     Object? uri = null,
+    Object? cid = null,
     Object? name = null,
     Object? avatar = freezed,
     Object? viewer = null,
@@ -155,6 +164,10 @@ class __$$_ListViewBasicCopyWithImpl<$Res>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      cid: null == cid
+          ? _value.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -182,6 +195,7 @@ class _$_ListViewBasic implements _ListViewBasic {
   const _$_ListViewBasic(
       {this.purpose = 'app.bsky.graph.defs#modlist',
       @AtUriConverter() required this.uri,
+      required this.cid,
       required this.name,
       this.avatar,
       required this.viewer,
@@ -197,6 +211,8 @@ class _$_ListViewBasic implements _ListViewBasic {
   @AtUriConverter()
   final AtUri uri;
   @override
+  final String cid;
+  @override
   final String name;
   @override
   final String? avatar;
@@ -207,7 +223,7 @@ class _$_ListViewBasic implements _ListViewBasic {
 
   @override
   String toString() {
-    return 'ListViewBasic(purpose: $purpose, uri: $uri, name: $name, avatar: $avatar, viewer: $viewer, indexedAt: $indexedAt)';
+    return 'ListViewBasic(purpose: $purpose, uri: $uri, cid: $cid, name: $name, avatar: $avatar, viewer: $viewer, indexedAt: $indexedAt)';
   }
 
   @override
@@ -217,6 +233,7 @@ class _$_ListViewBasic implements _ListViewBasic {
             other is _$_ListViewBasic &&
             (identical(other.purpose, purpose) || other.purpose == purpose) &&
             (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
@@ -226,8 +243,8 @@ class _$_ListViewBasic implements _ListViewBasic {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, purpose, uri, name, avatar, viewer, indexedAt);
+  int get hashCode => Object.hash(
+      runtimeType, purpose, uri, cid, name, avatar, viewer, indexedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -247,6 +264,7 @@ abstract class _ListViewBasic implements ListViewBasic {
   const factory _ListViewBasic(
       {final String purpose,
       @AtUriConverter() required final AtUri uri,
+      required final String cid,
       required final String name,
       final String? avatar,
       required final ListViewer viewer,
@@ -260,6 +278,8 @@ abstract class _ListViewBasic implements ListViewBasic {
   @override
   @AtUriConverter()
   AtUri get uri;
+  @override
+  String get cid;
   @override
   String get name;
   @override

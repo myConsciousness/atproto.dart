@@ -17,6 +17,7 @@ _$_ListViewBasic _$$_ListViewBasicFromJson(Map json) => $checkedCreate(
               'purpose', (v) => v as String? ?? 'app.bsky.graph.defs#modlist'),
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
+          cid: $checkedConvert('cid', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
           avatar: $checkedConvert('avatar', (v) => v as String?),
           viewer: $checkedConvert('viewer',
@@ -32,6 +33,7 @@ Map<String, dynamic> _$$_ListViewBasicToJson(_$_ListViewBasic instance) {
   final val = <String, dynamic>{
     'purpose': instance.purpose,
     'uri': const AtUriConverter().toJson(instance.uri),
+    'cid': instance.cid,
     'name': instance.name,
   };
 
