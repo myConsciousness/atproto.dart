@@ -9,6 +9,7 @@ import '../embed_view_record_view_blocked.dart';
 import '../embed_view_record_view_not_found.dart';
 import '../embed_view_record_view_record.dart';
 import '../feed_generator_view.dart';
+import '../list_view.dart';
 
 class EmbedViewRecordViewConverter
     implements JsonConverter<EmbedViewRecordView, Map<String, dynamic>> {
@@ -35,6 +36,10 @@ class EmbedViewRecordViewConverter
       return EmbedViewRecordView.generatorView(
         data: FeedGeneratorView.fromJson(json),
       );
+    } else if (type == 'app.bsky.graph.defs#listView') {
+      return EmbedViewRecordView.listView(
+        data: ListView.fromJson(json),
+      );
     }
 
     return EmbedViewRecordView.unknown(data: json);
@@ -46,6 +51,7 @@ class EmbedViewRecordViewConverter
         notFound: (data) => data.toJson(),
         blocked: (data) => data.toJson(),
         generatorView: (data) => data.toJson(),
+        listView: (data) => data.toJson(),
         unknown: (data) => data,
       );
 }
