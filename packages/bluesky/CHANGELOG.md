@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.6.1
+
+- Added `languageTags` parameter for `createPost`, `createPosts` and `createThread`. Now you can specify well-formatted BCP 47 language tags to your post. ([#538](https://github.com/myConsciousness/atproto.dart/issues/538))
+
 ## v0.6.0
 
 - Supported `com.atproto.sync.getRepo` as `findRepoCommits` in `SyncService`. ([#313](https://github.com/myConsciousness/atproto.dart/issues/313))

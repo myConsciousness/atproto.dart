@@ -21,6 +21,7 @@ class ThreadParam with _$ThreadParam {
     required String text,
     List<Facet>? facets,
     @EmbedConverter() Embed? embed,
+    List<String>? languageTags,
     DateTime? createdAt,
   }) = _ThreadParam;
 
