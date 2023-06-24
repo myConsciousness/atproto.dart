@@ -36,15 +36,9 @@ class PlaygroundScaffold extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) => Scaffold(
-        appBar: AppBar(
-          title: Text('Bluesky API Playground'),
-        ),
         drawer: drawer != null ? Drawer(child: drawer) : null,
         floatingActionButton: floatingActionButton,
-        body: Padding(
-          padding: const EdgeInsets.all(20),
-          child: body,
-        ),
+        body: body,
         bottomNavigationBar: navigationBarItems != null
             ? BottomNavigationBar(
                 items: navigationBarItems!,

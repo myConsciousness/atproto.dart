@@ -36,10 +36,19 @@ Future<void> main(List<String> args) async {
 
     for (final endpoint in service.endpoints) {
       final lexicon = jsonDecode(File(endpoint.filePath).readAsStringSync());
-      final httpMethod = _getHttpMethod(lexicon['defs']['main']['type']);
+      final lexiconType = lexicon['defs']['main']['type'];
+
+      if (lexiconType != 'query') {
+        continue;
+      }
+
+      final description = _getLexiconDescription(lexicon);
+      final httpMethod = _getHttpMethod(lexiconType);
+      final properties = _getProperties(lexicon, lexiconType);
 
       endpointBuffer.writeln(
-        "  ${endpoint.name}('${endpoint.nsid}', '$httpMethod'),",
+        "  ${endpoint.name}('${endpoint.nsid}', $description, '$httpMethod', "
+        "[$properties]),",
       );
     }
   }
@@ -48,6 +57,66 @@ Future<void> main(List<String> args) async {
 
   _writeService(thisYear, serviceBuffer);
   _writeEndpoint(thisYear, endpointBuffer);
+}
+
+String? _getLexiconDescription(final Map<String, dynamic> lexicon) {
+  final description = lexicon['defs']['main']['description'];
+
+  return description != null ? '"$description"' : null;
+}
+
+String _getProperties(
+  final Map<String, dynamic> lexicon,
+  final String lexiconType,
+) {
+  final propertiesBuffer = StringBuffer();
+
+  final Map<String, dynamic> main = lexicon['defs']['main'];
+
+  switch (lexiconType) {
+    case 'query':
+      final parameters = main['parameters'];
+
+      if (parameters == null) {
+        return '';
+      }
+
+      final List? requiredList = parameters['required'];
+      final Map<String, dynamic> properties = parameters['properties'];
+
+      properties.forEach((name, value) {
+        final type = value['type'];
+        final description =
+            value['description'] != null ? "'${value['description']}'" : null;
+        final format = value['format'] != null ? "'${value['format']}'" : null;
+        final isRequired = _isRequiredParameter(requiredList, name);
+
+        propertiesBuffer.write(
+          "Property('$name', '$type', $description, $format, $isRequired),",
+        );
+      });
+
+      break;
+    case 'procedure':
+      break;
+    case 'record':
+      break;
+    default:
+      throw UnsupportedError('Unsupported lexicon type: [$lexiconType]');
+  }
+
+  return propertiesBuffer.toString();
+}
+
+bool _isRequiredParameter(
+  final List? requiredList,
+  final String parameterName,
+) {
+  if (requiredList == null) {
+    return false;
+  }
+
+  return requiredList.contains(parameterName);
 }
 
 List<Service> get _services {
@@ -186,15 +255,43 @@ ${buffer.toString().trimRight()}
   ;
 
   final String value;
+  final String? description;
   final String method;
+  final List<Property> properties;
 
-  const Endpoint(this.value, this.method);
+  const Endpoint(this.value, this.description, this.method, this.properties);
 
   static Iterable<Endpoint> of(final Service service) =>
       values.where((element) => element.value.startsWith(service.value));
 
   static Endpoint valueOf(final String value) =>
       values.where((element) => element.value == value).first;
+
+  static bool hasService(final Service service) {
+    for (final endpoint in values) {
+      if (endpoint.value.startsWith(service.value)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+}
+
+class Property {
+  const Property(
+    this.name,
+    this.type,
+    this.description,
+    this.format,
+    this.isRequired,
+  );
+
+  final String name;
+  final String type;
+  final String? description;
+  final String? format;
+  final bool isRequired;
 }
 ''',
   );

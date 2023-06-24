@@ -13,7 +13,7 @@ import 'package:url_launcher/url_launcher.dart';
 // 🌎 Project imports:
 import '../../core/api/endpoint.g.dart';
 import '../../core/api/service.g.dart';
-import '../../core/theme/brightness.dart';
+import '../components/logo.dart';
 
 class PlaygroundDrawer extends ConsumerWidget {
   const PlaygroundDrawer({super.key});
@@ -22,66 +22,19 @@ class PlaygroundDrawer extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) => Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 20, bottom: 10),
-            child: Text('Services'),
+            padding: EdgeInsets.only(top: 20, bottom: 10),
+            child: const Logo(),
           ),
-          const Divider(),
+          const SizedBox(height: 10),
           Expanded(
             child: ListView(
               children: _buildDrawerItems(context, ref),
             ),
           ),
-          const Divider(),
+          const Divider(height: 1.0),
           Padding(
-            padding: const EdgeInsets.all(20),
-            child: Row(
-              children: [
-                IconButton(
-                  tooltip: ref.watch(brightnessStateProvider) == Brightness.dark
-                      ? 'Light Mode'
-                      : 'Dark Mode',
-                  icon: ref.watch(brightnessStateProvider) == Brightness.dark
-                      ? const Icon(Icons.light_mode)
-                      : const Icon(Icons.dark_mode),
-                  onPressed: () {
-                    final brightness = ref.watch(brightnessStateProvider);
-                    final brightnessNotifier =
-                        ref.read(brightnessStateProvider.notifier);
-
-                    brightness == Brightness.dark
-                        ? brightnessNotifier.toLightMode()
-                        : brightnessNotifier.toDarkMode();
-                  },
-                ),
-                IconButton(
-                  tooltip: 'Contact @shinyakato.dev',
-                  onPressed: () => launchUrl(
-                    Uri.https(
-                      'bsky.app',
-                      '/profile/shinyakato.dev',
-                    ),
-                  ),
-                  icon: const Icon(FontAwesomeIcons.at),
-                ),
-                IconButton(
-                  tooltip: 'Contact @myConsciousness',
-                  onPressed: () => launchUrl(
-                    Uri.https(
-                      'github.com',
-                      '/myConsciousness',
-                    ),
-                  ),
-                  icon: const Icon(FontAwesomeIcons.github),
-                ),
-                IconButton(
-                  tooltip: 'License',
-                  icon: const Icon(Icons.info),
-                  onPressed: () {
-                    showLicensePage(context: context);
-                  },
-                ),
-              ],
-            ),
+            padding: EdgeInsets.all(15),
+            child: _buildLinks(context),
           ),
         ],
       );
@@ -93,6 +46,10 @@ class PlaygroundDrawer extends ConsumerWidget {
     final menuItems = <Widget>[];
 
     for (final service in Service.values) {
+      if (!Endpoint.hasService(service)) {
+        continue;
+      }
+
       menuItems.add(
         Padding(
           padding: const EdgeInsets.all(5),
@@ -112,16 +69,13 @@ class PlaygroundDrawer extends ConsumerWidget {
 
               final snackBar = SnackBar(
                 content: Text(
-                  'Changed to `${service.value}`.',
+                  'Switched to `${service.value}`.',
                   style: const TextStyle(fontSize: 17),
                 ),
                 showCloseIcon: true,
               );
 
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
-
-              //! Close drawer.
-              Navigator.pop(context);
             },
           ),
         ),
@@ -130,4 +84,50 @@ class PlaygroundDrawer extends ConsumerWidget {
 
     return menuItems;
   }
+
+  Widget _buildLinks(final BuildContext context) => Row(
+        children: [
+          _buildIconButton(
+            tooltip: 'Contact @shinyakato.dev',
+            icon: const Icon(FontAwesomeIcons.at),
+            onPressed: () => launchUrl(
+              Uri.https(
+                'bsky.app',
+                '/profile/shinyakato.dev',
+              ),
+            ),
+          ),
+          _buildIconButton(
+            tooltip: 'Source Code',
+            icon: const Icon(FontAwesomeIcons.github),
+            onPressed: () => launchUrl(
+              Uri.https(
+                'github.com',
+                '/myConsciousness/atproto.dart',
+              ),
+            ),
+          ),
+          _buildIconButton(
+            tooltip: 'License',
+            icon: const Icon(Icons.info),
+            onPressed: () {
+              showLicensePage(context: context);
+            },
+          ),
+        ],
+      );
+
+  Widget _buildIconButton({
+    required String tooltip,
+    required Icon icon,
+    required void Function() onPressed,
+  }) =>
+      Padding(
+        padding: const EdgeInsets.all(5),
+        child: IconButton(
+          tooltip: tooltip,
+          icon: icon,
+          onPressed: onPressed,
+        ),
+      );
 }

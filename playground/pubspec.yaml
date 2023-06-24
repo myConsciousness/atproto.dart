@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.5 <4.0.0'
+  sdk: '>=2.18.6 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -31,15 +31,20 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_riverpod: ^2.3.6
-  bluesky: ^0.5.4
   url_launcher: ^6.1.11
   font_awesome_flutter: ^10.4.0
   drop_down_list: ^0.0.5
+  xrpc: ^0.1.4
+  multi_select_flutter: ^4.1.3
+  flutter_code_editor: ^0.3.0
+  highlight: ^0.7.0
+
+dependency_overrides:
+  collection: ^1.17.2
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +72,9 @@ flutter:
     - family: FiraCode
       fonts:
         - asset: assets/fonts/fira-code/FiraCode-Retina.ttf
+
+  assets:
+    - assets/images/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
