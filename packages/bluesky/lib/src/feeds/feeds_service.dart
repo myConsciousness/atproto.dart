@@ -56,6 +56,8 @@ abstract class FeedsService {
   ///
   /// - [embed]: Embed contents of this post.
   ///
+  /// - [languageTags]: The collection of well-formatted BCP47 language tags.
+  ///
   /// - [createdAt]: Date and time the post was created.
   ///                If omitted, defaults to the current time.
   ///
@@ -72,6 +74,7 @@ abstract class FeedsService {
     ReplyRef? reply,
     List<Facet>? facets,
     Embed? embed,
+    List<String>? languageTags,
     DateTime? createdAt,
   });
 
@@ -490,6 +493,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     ReplyRef? reply,
     List<Facet>? facets,
     Embed? embed,
+    List<String>? languageTags,
     DateTime? createdAt,
   }) async =>
       await atproto.repositories.createRecord(
@@ -499,6 +503,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'reply': reply?.toJson(),
           'facets': facets?.map((e) => e.toJson()).toList(),
           'embed': embed?.toJson(),
+          'langs': languageTags,
           'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
         },
       );
@@ -517,6 +522,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
                   'reply': e.reply?.toJson(),
                   'facets': e.facets?.map((e) => e.toJson()).toList(),
                   'embed': e.embed?.toJson(),
+                  'langs': e.languageTags,
                   'createdAt':
                       (e.createdAt ?? DateTime.now()).toUtc().toIso8601String(),
                 },
@@ -542,6 +548,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       text: rootParam.text,
       facets: rootParam.facets,
       embed: rootParam.embed,
+      languageTags: rootParam.languageTags,
       createdAt: rootParam.createdAt,
     );
 
@@ -557,6 +564,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
         ),
         facets: param.facets,
         embed: param.embed,
+        languageTags: param.languageTags,
         createdAt: param.createdAt,
       ))
           .data;

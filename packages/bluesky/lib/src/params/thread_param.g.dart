@@ -24,6 +24,8 @@ _$_ThreadParam _$$_ThreadParamFromJson(Map json) => $checkedCreate(
               'embed',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, Embed>(
                   v, const EmbedConverter().fromJson)),
+          languageTags: $checkedConvert('languageTags',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           createdAt: $checkedConvert('createdAt',
               (v) => v == null ? null : DateTime.parse(v as String)),
         );
@@ -47,6 +49,7 @@ Map<String, dynamic> _$$_ThreadParamToJson(_$_ThreadParam instance) {
       'embed',
       _$JsonConverterToJson<Map<String, dynamic>, Embed>(
           instance.embed, const EmbedConverter().toJson));
+  writeNotNull('languageTags', instance.languageTags);
   writeNotNull('createdAt', instance.createdAt?.toIso8601String());
   return val;
 }

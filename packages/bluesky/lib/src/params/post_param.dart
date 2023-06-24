@@ -23,6 +23,7 @@ class PostParam with _$PostParam {
     ReplyRef? reply,
     List<Facet>? facets,
     @EmbedConverter() Embed? embed,
+    List<String>? languageTags,
     DateTime? createdAt,
   }) = _PostParam;
 
