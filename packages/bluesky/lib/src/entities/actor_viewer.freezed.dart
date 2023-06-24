@@ -186,14 +186,15 @@ class __$$_ActorViewerCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_ActorViewer implements _ActorViewer {
+class _$_ActorViewer extends _ActorViewer {
   const _$_ActorViewer(
       {@JsonKey(name: 'muted') required this.isMuted,
       @JsonKey(name: 'blockedBy') required this.isBlockedBy,
       this.mutedByList,
       @AtUriConverter() this.blocking,
       @AtUriConverter() this.following,
-      @AtUriConverter() this.followedBy});
+      @AtUriConverter() this.followedBy})
+      : super._();
 
   factory _$_ActorViewer.fromJson(Map<String, dynamic> json) =>
       _$$_ActorViewerFromJson(json);
@@ -258,7 +259,7 @@ class _$_ActorViewer implements _ActorViewer {
   }
 }
 
-abstract class _ActorViewer implements ActorViewer {
+abstract class _ActorViewer extends ActorViewer {
   const factory _ActorViewer(
       {@JsonKey(name: 'muted') required final bool isMuted,
       @JsonKey(name: 'blockedBy') required final bool isBlockedBy,
@@ -266,6 +267,7 @@ abstract class _ActorViewer implements ActorViewer {
       @AtUriConverter() final AtUri? blocking,
       @AtUriConverter() final AtUri? following,
       @AtUriConverter() final AtUri? followedBy}) = _$_ActorViewer;
+  const _ActorViewer._() : super._();
 
   factory _ActorViewer.fromJson(Map<String, dynamic> json) =
       _$_ActorViewer.fromJson;

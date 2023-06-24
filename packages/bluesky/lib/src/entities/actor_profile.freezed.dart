@@ -255,7 +255,7 @@ class __$$_ActorProfileCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_ActorProfile implements _ActorProfile {
+class _$_ActorProfile extends _ActorProfile {
   const _$_ActorProfile(
       {required this.did,
       required this.handle,
@@ -269,7 +269,8 @@ class _$_ActorProfile implements _ActorProfile {
       required this.viewer,
       final List<Label>? labels,
       this.indexedAt})
-      : _labels = labels;
+      : _labels = labels,
+        super._();
 
   factory _$_ActorProfile.fromJson(Map<String, dynamic> json) =>
       _$$_ActorProfileFromJson(json);
@@ -368,7 +369,7 @@ class _$_ActorProfile implements _ActorProfile {
   }
 }
 
-abstract class _ActorProfile implements ActorProfile {
+abstract class _ActorProfile extends ActorProfile {
   const factory _ActorProfile(
       {required final String did,
       required final String handle,
@@ -382,6 +383,7 @@ abstract class _ActorProfile implements ActorProfile {
       required final ActorViewer viewer,
       final List<Label>? labels,
       final DateTime? indexedAt}) = _$_ActorProfile;
+  const _ActorProfile._() : super._();
 
   factory _ActorProfile.fromJson(Map<String, dynamic> json) =
       _$_ActorProfile.fromJson;

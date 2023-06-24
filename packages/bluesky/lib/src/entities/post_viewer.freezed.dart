@@ -110,9 +110,10 @@ class __$$_PostViewerCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_PostViewer implements _PostViewer {
+class _$_PostViewer extends _PostViewer {
   const _$_PostViewer(
-      {@AtUriConverter() this.repost, @AtUriConverter() this.like});
+      {@AtUriConverter() this.repost, @AtUriConverter() this.like})
+      : super._();
 
   factory _$_PostViewer.fromJson(Map<String, dynamic> json) =>
       _$$_PostViewerFromJson(json);
@@ -156,10 +157,11 @@ class _$_PostViewer implements _PostViewer {
   }
 }
 
-abstract class _PostViewer implements PostViewer {
+abstract class _PostViewer extends PostViewer {
   const factory _PostViewer(
       {@AtUriConverter() final AtUri? repost,
       @AtUriConverter() final AtUri? like}) = _$_PostViewer;
+  const _PostViewer._() : super._();
 
   factory _PostViewer.fromJson(Map<String, dynamic> json) =
       _$_PostViewer.fromJson;

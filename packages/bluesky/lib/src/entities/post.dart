@@ -46,4 +46,20 @@ class Post with _$Post {
 
   /// Returns the [StrongRef] representation of this record.
   StrongRef toStrongRef() => StrongRef(cid: cid, uri: uri);
+
+  /// Returns true if authenticated user has already reposted this record,
+  /// otherwise false.
+  bool get isReposted => viewer.isReposted;
+
+  /// Returns true if authenticated user has not reposted yet this record,
+  /// otherwise false.
+  bool get isNotReposted => !isReposted;
+
+  /// Returns true if authenticated user has already liked this record,
+  /// otherwise false.
+  bool get isLiked => viewer.isLiked;
+
+  /// Returns true if authenticated user has not liked yet this record,
+  /// otherwise false.
+  bool get isNotLiked => !isLiked;
 }
