@@ -3,6 +3,7 @@
 ## v0.6.1
 
 - Added `languageTags` parameter for `createPost`, `createPosts` and `createThread`. Now you can specify well-formatted BCP 47 language tags to your post. ([#538](https://github.com/myConsciousness/atproto.dart/issues/538))
+- Added `cid` field to `ListView` and `ListViewBasic` objects. ([#539](https://github.com/myConsciousness/atproto.dart/issues/539))
 
 ## v0.6.0
 

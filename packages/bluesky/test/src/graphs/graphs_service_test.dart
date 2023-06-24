@@ -1044,7 +1044,7 @@ void main() {
     });
   });
 
-  group('.findList', () {
+  group('.findListItems', () {
     test('normal case', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),

@@ -19,6 +19,7 @@ class ListViewBasic with _$ListViewBasic {
   const factory ListViewBasic({
     @Default('app.bsky.graph.defs#modlist') String purpose,
     @AtUriConverter() required AtUri uri,
+    required String cid,
     required String name,
     String? avatar,
     required ListViewer viewer,

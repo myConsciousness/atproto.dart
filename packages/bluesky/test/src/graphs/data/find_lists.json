@@ -2,6 +2,7 @@
   "lists": [
     {
       "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvsv3d3h7d2o",
+      "cid": "bafyreid6pnaxbeqpxtos7wa7vfwg5ehpjlqcozerz5ycy7f6e2esqxiphq",
       "creator": {
         "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
         "handle": "shinyakato.dev",
@@ -32,6 +33,7 @@
     },
     {
       "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvsrfaad622u",
+      "cid": "bafyreid6pnaxbeqpxtos7wa7vfwg5ehpjlqcozerz5ycy7f6e2esqxiphq",
       "creator": {
         "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
         "handle": "shinyakato.dev",
@@ -62,6 +64,7 @@
     },
     {
       "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvspzvk7t42q",
+      "cid": "bafyreid6pnaxbeqpxtos7wa7vfwg5ehpjlqcozerz5ycy7f6e2esqxiphq",
       "creator": {
         "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
         "handle": "shinyakato.dev",
@@ -100,6 +103,7 @@
     },
     {
       "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvspnuhbp32k",
+      "cid": "bafyreid6pnaxbeqpxtos7wa7vfwg5ehpjlqcozerz5ycy7f6e2esqxiphq",
       "creator": {
         "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
         "handle": "shinyakato.dev",
@@ -117,6 +121,7 @@
     },
     {
       "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvqbvdsijh2p",
+      "cid": "bafyreid6pnaxbeqpxtos7wa7vfwg5ehpjlqcozerz5ycy7f6e2esqxiphq",
       "creator": {
         "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
         "handle": "shinyakato.dev",
