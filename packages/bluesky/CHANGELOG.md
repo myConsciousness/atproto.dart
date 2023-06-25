@@ -20,6 +20,11 @@
     - `isNotFollowing`
     - `isFollowedBy`
     - `isNotFollowedBy`
+- Exposed following objects from `universal_io`. ([#541](https://github.com/myConsciousness/atproto.dart/issues/541))
+  - `File`
+  - `Directory`
+  - `FileSystemEntity`
+  - `SocketException`
 
 ## v0.6.0
 

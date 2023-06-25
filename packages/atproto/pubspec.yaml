@@ -1,6 +1,6 @@
 name: atproto
 description: The easiest and powerful Dart/Flutter library for AT Protocol.
-version: 0.4.0
+version: 0.4.1
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto
 issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
 funding:
@@ -9,14 +9,14 @@ environment:
   sdk: ">=2.17.0 <4.0.0"
 
 dependencies:
-  atproto_core: ^0.3.5
+  atproto_core: ^0.3.6
   freezed_annotation: ^2.2.0
   json_annotation: ^4.8.0
 
 dev_dependencies:
   lints: ^2.0.1
   test: ^1.23.1
-  atproto_test: ^0.1.1
+  atproto_test: ^0.1.2
   build_runner: ^2.3.3
   json_serializable: ^6.6.1
   freezed: ^2.3.2

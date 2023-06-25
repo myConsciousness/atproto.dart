@@ -57,6 +57,10 @@ export 'package:atproto/src/servers/servers_service.dart';
 export 'package:atproto/src/sync/sync_service.dart';
 export 'package:atproto_core/atproto_core.dart'
     show
+        File,
+        Directory,
+        FileSystemEntity,
+        SocketException,
         XRPCResponse,
         XRPCRequest,
         XRPCError,

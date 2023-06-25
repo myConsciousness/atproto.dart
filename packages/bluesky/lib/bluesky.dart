@@ -99,6 +99,10 @@ export 'package:atproto/atproto.dart'
         SyncService;
 export 'package:atproto_core/atproto_core.dart'
     show
+        File,
+        Directory,
+        FileSystemEntity,
+        SocketException,
         XRPCResponse,
         XRPCRequest,
         XRPCError,
