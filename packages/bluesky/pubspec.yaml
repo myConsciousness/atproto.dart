@@ -1,6 +1,7 @@
 name: bluesky
 description: The easiest and powerful Dart/Flutter library for Bluesky Social.
 version: 0.6.1
+homepage: https://atprotodart.com
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky
 issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
 funding:
