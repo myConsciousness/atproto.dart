@@ -1,5 +1,13 @@
 # Release Note
 
+## v0.3.6
+
+- Exposed following objects from `universal_io`. ([#541](https://github.com/myConsciousness/atproto.dart/issues/541))
+  - `File`
+  - `Directory`
+  - `FileSystemEntity`
+  - `SocketException`
+
 ## v0.3.5
 
 - Added `adaptor` parameter in `get` and `subscribe`, and removed `decoder` and `converter`. ([#495](https://github.com/myConsciousness/atproto.dart/issues/495))

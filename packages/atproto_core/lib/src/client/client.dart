@@ -4,7 +4,6 @@
 
 // 🎯 Dart imports:
 import 'dart:async';
-import 'dart:io';
 
 import 'package:xrpc/xrpc.dart' as xrpc;
 
@@ -33,7 +32,7 @@ abstract class Client {
 
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final xrpc.NSID methodId,
-    final File file, {
+    final xrpc.File file, {
     final xrpc.Protocol? protocol,
     final String? service,
     final Map<String, String>? headers,

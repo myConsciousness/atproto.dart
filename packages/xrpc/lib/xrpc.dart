@@ -3,6 +3,8 @@
 // modification, are permitted provided the conditions.
 
 export 'package:nsid/nsid.dart' show NSID;
+export 'package:universal_io/io.dart'
+    show File, Directory, FileSystemEntity, SocketException;
 export 'package:xrpc/src/client_types.dart';
 export 'package:xrpc/src/entities/empty_data.dart';
 export 'package:xrpc/src/exception/internal_server_error_exception.dart';

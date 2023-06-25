@@ -2,8 +2,6 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'dart:io';
-
 import 'package:atproto_core/atproto_core.dart' as core;
 
 import '../atproto_base_service.dart';
@@ -188,7 +186,7 @@ abstract class RepositoriesService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/uploadBlob.json
   Future<core.XRPCResponse<BlobData>> uploadBlob(
-    final File file,
+    final core.File file,
   );
 
   /// Get information about the repo, including the list of collections.
@@ -416,7 +414,7 @@ class _RepositoriesService extends ATProtoBaseService
       );
 
   @override
-  Future<core.XRPCResponse<BlobData>> uploadBlob(final File file) async =>
+  Future<core.XRPCResponse<BlobData>> uploadBlob(final core.File file) async =>
       await super.upload(
         super.createNSID('uploadBlob'),
         file,

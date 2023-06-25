@@ -4,7 +4,6 @@
 
 import 'dart:async';
 
-import 'package:universal_io/io.dart';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 import 'client.dart';
@@ -24,7 +23,7 @@ class Challenge {
   }) async {
     try {
       return await action.call(client);
-    } on SocketException {
+    } on xrpc.SocketException {
       if (_retryPolicy.shouldRetry(retryCount)) {
         return await _retry(client, action, retryCount: ++retryCount);
       }

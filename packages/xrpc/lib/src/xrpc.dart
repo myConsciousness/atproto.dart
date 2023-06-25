@@ -4,12 +4,12 @@
 
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 import 'package:mime/mime.dart';
 import 'package:nsid/nsid.dart' as nsid;
+import 'package:universal_io/io.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 import 'client_types.dart';
