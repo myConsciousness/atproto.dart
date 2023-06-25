@@ -45,7 +45,7 @@ class BlueskyCards extends StatelessWidget {
                 return const CircularProgressIndicator();
               }
 
-              final List<bsky.Feed> feed = snapshot.data.data.feed;
+              final List<bsky.FeedView> feed = snapshot.data.data.feed;
 
               return ListView.builder(
                 itemCount: feed.length,

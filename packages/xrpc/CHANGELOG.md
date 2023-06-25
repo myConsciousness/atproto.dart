@@ -7,6 +7,7 @@
   - `Directory`
   - `FileSystemEntity`
   - `SocketException`
+- Added `homepage` in `pubspec.yaml`. ([#549](https://github.com/myConsciousness/atproto.dart/issues/549))
 
 ## v0.1.4
 
