@@ -2,6 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'package:universal_io/io.dart';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 import 'client.dart';
@@ -64,7 +65,7 @@ class AuthRequiredClient implements Client {
   @override
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final xrpc.NSID methodId,
-    final xrpc.File file, {
+    final File file, {
     final xrpc.Protocol? protocol,
     final String? service,
     final Map<String, String>? headers,

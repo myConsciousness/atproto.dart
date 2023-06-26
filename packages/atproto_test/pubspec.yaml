@@ -12,7 +12,8 @@ environment:
 dependencies:
   test: ^1.21.0
   xrpc: ^0.1.5
-  http: ^1.0.0
+  http: ^0.13.6
+  universal_io: ^2.2.2
 
 dev_dependencies:
   lints: ^2.0.0

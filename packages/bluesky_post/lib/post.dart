@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 import 'dart:async';
+import 'dart:io';
 
 import 'package:actions_toolkit_dart/core.dart' as core;
 import 'package:bluesky/bluesky.dart' as bsky;
@@ -105,7 +106,7 @@ Future<bsky.BlobData?> _uploadMedia(final bsky.Bluesky bluesky) async {
   }
 
   final uploaded = await bluesky.repositories.uploadBlob(
-    bsky.File(mediaPath),
+    File(mediaPath),
   );
 
   return uploaded.data;

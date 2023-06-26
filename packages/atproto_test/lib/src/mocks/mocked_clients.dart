@@ -5,6 +5,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:universal_io/io.dart';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 /// Returns the mocked [xrpc.GetClient]
@@ -14,7 +15,7 @@ xrpc.GetClient createMockedGetClient(
   final int statusCode = 200,
 }) =>
     createMockedGetClientFromBytes(
-      xrpc.File(resourcePath).readAsBytesSync(),
+      File(resourcePath).readAsBytesSync(),
       statusCode: statusCode,
     );
 
@@ -55,7 +56,7 @@ xrpc.PostClient createMockedPostClient(
     Encoding? encoding,
   }) async {
     return http.Response.bytes(
-      xrpc.File(resourcePath).readAsBytesSync(),
+      File(resourcePath).readAsBytesSync(),
       statusCode,
       headers: {'content-type': 'application/json; charset=utf-8'},
       request: http.Request(

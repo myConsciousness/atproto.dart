@@ -18,10 +18,6 @@ export 'package:cbor/simple.dart' show cbor;
 export 'package:multiformats/multiformats.dart';
 export 'package:xrpc/xrpc.dart'
     show
-        File,
-        Directory,
-        FileSystemEntity,
-        SocketException,
         XRPCResponse,
         XRPCRequest,
         XRPCError,
