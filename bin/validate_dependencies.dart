@@ -79,6 +79,8 @@ void _checkDevelopingPackages(
   });
 }
 
+/// For third-party packages in atproto.dart, verify that all versions used
+/// in a particular pubspec.yaml are equal.
 void _checkThirdPartyPackages(
   final Map<Package, List<Dependency>> graph,
 ) {
