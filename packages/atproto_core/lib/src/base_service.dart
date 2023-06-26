@@ -5,6 +5,7 @@
 // 🎯 Dart imports:
 import 'dart:async';
 
+import 'package:universal_io/io.dart';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 import 'client/client_context.dart';
@@ -28,7 +29,7 @@ abstract class _Service {
 
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final xrpc.NSID methodId,
-    final xrpc.File file, {
+    final File file, {
     final UserContext userContext = UserContext.authRequired,
     final String? service,
     final Map<String, String>? headers,
@@ -125,7 +126,7 @@ abstract class BaseService implements _Service {
   @override
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final xrpc.NSID methodId,
-    final xrpc.File file, {
+    final File file, {
     UserContext userContext = UserContext.authRequired,
     final String? service,
     final Map<String, String>? headers,

@@ -13,6 +13,7 @@ dependencies:
   atproto_core: ^0.3.6
   freezed_annotation: ^2.2.0
   json_annotation: ^4.8.0
+  universal_io: ^2.2.2
 
 dev_dependencies:
   lints: ^2.0.1

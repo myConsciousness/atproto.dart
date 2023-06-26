@@ -11,7 +11,7 @@ environment:
   sdk: ">=2.17.0 <4.0.0"
 
 dependencies:
-  http: ^1.0.0
+  http: ^0.13.6
   meta: ^1.8.0
   nsid: ^0.1.1
   freezed_annotation: ^2.2.0
