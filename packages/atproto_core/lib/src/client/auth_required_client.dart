@@ -66,7 +66,7 @@ class AuthRequiredClient implements Client {
   @override
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final xrpc.NSID methodId,
-    final Uint8List bytes,{
+    final Uint8List bytes, {
     final xrpc.Protocol? protocol,
     final String? service,
     final Map<String, String>? headers,
