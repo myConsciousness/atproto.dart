@@ -17,6 +17,7 @@ const _packages = [
   'atproto_core',
   'atproto',
   'bluesky',
+  'bluesky_cli',
   'bluesky_text',
   'bluesky_cards',
 ];
