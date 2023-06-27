@@ -4,12 +4,12 @@
 
 import 'dart:async';
 import 'dart:convert';
+import 'dart:typed_data';
 
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 import 'package:mime/mime.dart';
 import 'package:nsid/nsid.dart' as nsid;
-import 'package:universal_io/io.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 import 'client_types.dart';
@@ -323,7 +323,7 @@ Future<XRPCResponse<T>> procedure<T>(
 /// Uploads blob.
 Future<XRPCResponse<T>> upload<T>(
   final nsid.NSID methodId,
-  final File file, {
+  final Uint8List bytes, {
   final Protocol protocol = Protocol.https,
   final String? service,
   final Map<String, String>? headers,
@@ -339,9 +339,9 @@ Future<XRPCResponse<T>> upload<T>(
             '/xrpc/${methodId.toString()}',
           ),
           headers: {
-            'Content-Type': lookupMimeType(file.path)!,
+            'Content-Type': lookupMimeType('', headerBytes: bytes) ?? '*/*',
           }..addAll(headers ?? {}),
-          body: file.readAsBytesSync(),
+          body: bytes,
         ),
       ),
       to,

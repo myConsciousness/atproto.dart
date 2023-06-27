@@ -4,9 +4,9 @@
 
 // 🎯 Dart imports:
 import 'dart:async';
+import 'dart:typed_data';
 
 // 🌎 Project imports:
-import 'package:universal_io/io.dart';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 import '../config/retry_config.dart';
@@ -54,7 +54,7 @@ abstract class ClientContext {
 
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final xrpc.NSID methodId,
-    final File file, {
+    final Uint8List bytes, {
     required UserContext userContext,
     final xrpc.Protocol? protocol,
     final String? service,
@@ -149,7 +149,7 @@ class _ClientContext implements ClientContext {
   @override
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final xrpc.NSID methodId,
-    final File file, {
+    final Uint8List bytes, {
     required UserContext userContext,
     final xrpc.Protocol? protocol,
     final String? service,
@@ -162,7 +162,7 @@ class _ClientContext implements ClientContext {
         _clientResolver.execute(userContext),
         (client) async => await client.upload(
           methodId,
-          file,
+          bytes,
           protocol: protocol,
           service: service,
           headers: headers,

@@ -106,7 +106,7 @@ Future<bsky.BlobData?> _uploadMedia(final bsky.Bluesky bluesky) async {
   }
 
   final uploaded = await bluesky.repositories.uploadBlob(
-    File(mediaPath),
+    File(mediaPath).readAsBytesSync(),
   );
 
   return uploaded.data;

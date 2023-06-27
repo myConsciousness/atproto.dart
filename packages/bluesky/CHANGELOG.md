@@ -1,6 +1,6 @@
 # Release Note
 
-## v0.6.1
+## v0.7.0
 
 - Added `languageTags` parameter for `createPost`, `createPosts` and `createThread`. Now you can specify well-formatted BCP 47 language tags to your post. ([#538](https://github.com/myConsciousness/atproto.dart/issues/538))
 - Added `cid` field to `ListView` and `ListViewBasic` objects. ([#539](https://github.com/myConsciousness/atproto.dart/issues/539))
@@ -20,12 +20,8 @@
     - `isNotFollowing`
     - `isFollowedBy`
     - `isNotFollowedBy`
-- Exposed following objects from `universal_io`. ([#541](https://github.com/myConsciousness/atproto.dart/issues/541))
-  - `File`
-  - `Directory`
-  - `FileSystemEntity`
-  - `SocketException`
 - Added `homepage` in `pubspec.yaml`. ([#549](https://github.com/myConsciousness/atproto.dart/issues/549))
+- Changed the argument of the `uploadBlob` method to byte data instead of a File object. This change allows uploads to be used without being affected by platform differences. ([#556](https://github.com/myConsciousness/atproto.dart/issues/556))
 
 ## v0.6.0
 

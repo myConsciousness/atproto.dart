@@ -1,13 +1,9 @@
 # Release Note
 
-## v0.1.5
+## v0.2.0
 
-- Exposed following objects from `universal_io`. ([#541](https://github.com/myConsciousness/atproto.dart/issues/541))
-  - `File`
-  - `Directory`
-  - `FileSystemEntity`
-  - `SocketException`
 - Added `homepage` in `pubspec.yaml`. ([#549](https://github.com/myConsciousness/atproto.dart/issues/549))
+- Changed the argument of the `upload` function to byte data instead of a File object. This change allows uploads to be used without being affected by platform differences. ([#556](https://github.com/myConsciousness/atproto.dart/issues/556))
 
 ## v0.1.4
 

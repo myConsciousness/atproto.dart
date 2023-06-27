@@ -79,7 +79,7 @@ abstract class BskyCommand extends Command<void> {
           'repo.atproto.com',
           'uploadBlob',
         ),
-        file,
+        file.readAsBytesSync(),
         headers: {
           'Authorization': 'Bearer ${await accessJwt}',
         },
