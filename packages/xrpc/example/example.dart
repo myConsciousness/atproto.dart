@@ -2,11 +2,12 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:atproto/atproto.dart' as atproto;
+import 'dart:convert';
+
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 Future<void> main() async {
-  final response = await xrpc.procedure(
+  final response = await xrpc.procedure<String>(
     xrpc.NSID.create(
       'server.atproto.com',
       'createSession',
@@ -15,17 +16,17 @@ Future<void> main() async {
       'identifier': 'HANDLE_OR_EMAIL',
       'password': 'PASSWORD',
     },
-    to: atproto.Session.fromJson,
   );
 
-  final session = await xrpc.query(
+  final session = jsonDecode(response.data);
+
+  final currentSession = await xrpc.query<String>(
     xrpc.NSID.create(
       'server.atproto.com',
       'getSession',
     ),
-    headers: {'Authorization': 'Bearer ${response.data.accessJwt}'},
-    to: atproto.CurrentSession.fromJson,
+    headers: {'Authorization': 'Bearer ${session['accessJwt']}'},
   );
 
-  print(session);
+  print(currentSession);
 }
