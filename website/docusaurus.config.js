@@ -185,7 +185,7 @@ const config = {
             title: "More",
             items: [
               {
-                label: "AT Protocol Official ",
+                label: "AT Protocol Official",
                 href: "https://atproto.com",
               },
               {
