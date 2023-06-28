@@ -139,7 +139,7 @@ const config = {
             title: "Community",
             items: [
               {
-                label: "Repository",
+                label: "Dev Repository",
                 href: "https://github.com/myConsciousness/atproto.dart",
               },
               {
@@ -185,11 +185,11 @@ const config = {
             title: "More",
             items: [
               {
-                label: "Official AT Protocol",
+                label: "AT Protocol Official ",
                 href: "https://atproto.com",
               },
               {
-                label: "Official Bluesky Social",
+                label: "Bluesky Social Official",
                 href: "https://blueskyweb.xyz",
               },
               {

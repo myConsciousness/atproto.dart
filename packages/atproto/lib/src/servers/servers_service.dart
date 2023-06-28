@@ -12,6 +12,7 @@ import '../entities/app_passwords.dart';
 import '../entities/created_invite_code.dart';
 import '../entities/current_session.dart';
 import '../entities/invite_codes.dart';
+import '../entities/server_info.dart';
 import '../entities/session.dart';
 
 /// Create an authentication session.
@@ -315,6 +316,17 @@ abstract class ServersService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/listAppPasswords.json
   Future<core.XRPCResponse<AppPasswords>> findAppPasswords();
+
+  /// Get a document describing the service's accounts configuration.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.describeServer
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/describeServer.json
+  Future<core.XRPCResponse<ServerInfo>> findServerInfo();
 }
 
 class _ServersService extends ATProtoBaseService implements ServersService {
@@ -467,5 +479,13 @@ class _ServersService extends ATProtoBaseService implements ServersService {
       await super.get(
         'listAppPasswords',
         to: AppPasswords.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<ServerInfo>> findServerInfo() async =>
+      await super.get(
+        'describeServer',
+        userContext: core.UserContext.anonymousOnly,
+        to: ServerInfo.fromJson,
       );
 }
