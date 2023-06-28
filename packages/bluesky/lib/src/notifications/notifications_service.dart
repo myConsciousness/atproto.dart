@@ -119,7 +119,7 @@ class _NotificationsService extends BlueskyBaseService
       await super.post<core.EmptyData>(
         'updateSeen',
         body: {
-          'seenAt': (seenAt ?? DateTime.now()).toUtc().toIso8601String(),
+          'seenAt': toUtcIso8601String(seenAt),
         },
       );
 }

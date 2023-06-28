@@ -504,7 +504,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'facets': facets?.map((e) => e.toJson()).toList(),
           'embed': embed?.toJson(),
           'langs': languageTags,
-          'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+          'createdAt': toUtcIso8601String(createdAt),
         },
       );
 
@@ -523,8 +523,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
                   'facets': e.facets?.map((e) => e.toJson()).toList(),
                   'embed': e.embed?.toJson(),
                   'langs': e.languageTags,
-                  'createdAt':
-                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+                  'createdAt': toUtcIso8601String(e.createdAt),
                 },
               ),
             )
@@ -602,7 +601,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
             'cid': cid,
             'uri': uri.toString(),
           },
-          'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String()
+          'createdAt': toUtcIso8601String(createdAt)
         },
       );
 
@@ -620,8 +619,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
                     'cid': e.cid,
                     'uri': e.uri.toString(),
                   },
-                  'createdAt':
-                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String()
+                  'createdAt': toUtcIso8601String(e.createdAt)
                 },
               ),
             )
@@ -641,7 +639,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
             'cid': cid,
             'uri': uri.toString(),
           },
-          'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String()
+          'createdAt': toUtcIso8601String(createdAt)
         },
       );
 
@@ -659,8 +657,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
                     'cid': e.cid,
                     'uri': e.uri.toString(),
                   },
-                  'createdAt':
-                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String()
+                  'createdAt': toUtcIso8601String(e.createdAt)
                 },
               ),
             )
@@ -825,7 +822,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'descriptionFacets':
               descriptionFacets?.map((e) => e.toJson()).toList(),
           'avatar': avatar?.toJson(),
-          'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+          'createdAt': toUtcIso8601String(createdAt),
         },
       );
 
@@ -845,8 +842,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
                   'descriptionFacets':
                       e.descriptionFacets?.map((e) => e.toJson()).toList(),
                   'avatar': e.avatar?.toJson(),
-                  'createdAt':
-                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+                  'createdAt': toUtcIso8601String(e.createdAt),
                 },
               ),
             )

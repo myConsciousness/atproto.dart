@@ -127,6 +127,7 @@ void main() {
 
       final response = await feeds.createPost(
         text: 'test',
+        createdAt: DateTime.now(),
       );
 
       expect(response, isA<XRPCResponse>());

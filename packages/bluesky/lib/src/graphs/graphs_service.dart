@@ -425,7 +425,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
         collection: createNSID('follow'),
         record: {
           'subject': did,
-          'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+          'createdAt': toUtcIso8601String(createdAt),
         },
       );
 
@@ -440,8 +440,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
                 collection: createNSID('follow'),
                 record: {
                   'subject': e.did,
-                  'createdAt':
-                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+                  'createdAt': toUtcIso8601String(e.createdAt),
                 },
               ),
             )
@@ -539,7 +538,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
         collection: createNSID('block'),
         record: {
           'subject': did,
-          'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+          'createdAt': toUtcIso8601String(createdAt),
         },
       );
 
@@ -554,8 +553,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
                 collection: createNSID('block'),
                 record: {
                   'subject': e.did,
-                  'createdAt':
-                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+                  'createdAt': toUtcIso8601String(e.createdAt),
                 },
               ),
             )
@@ -580,7 +578,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
           'descriptionFacets':
               descriptionFacets?.map((e) => e.toJson()).toList(),
           'avatar': avatar,
-          'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+          'createdAt': toUtcIso8601String(createdAt),
         },
       );
 
@@ -600,8 +598,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
                   'descriptionFacets':
                       e.descriptionFacets?.map((e) => e.toJson()).toList(),
                   'avatar': e.avatar,
-                  'createdAt':
-                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+                  'createdAt': toUtcIso8601String(e.createdAt),
                 },
               ),
             )
@@ -651,7 +648,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
         record: {
           'subject': subject,
           'list': list.toString(),
-          'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+          'createdAt': toUtcIso8601String(createdAt),
         },
       );
 
@@ -667,8 +664,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
                 record: {
                   'subject': e.subject,
                   'list': e.list.toString(),
-                  'createdAt':
-                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+                  'createdAt': toUtcIso8601String(e.createdAt),
                 },
               ),
             )

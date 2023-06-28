@@ -20,4 +20,8 @@ abstract class BlueskyBaseService extends core.BaseService {
 
   /// The client of AT Protocol.
   final atp.ATProto atproto;
+
+  /// Returns the [dateTime] in UTC time zone and ISO8601 format.
+  String toUtcIso8601String(final DateTime? dateTime) =>
+      (dateTime ?? DateTime.now()).toUtc().toIso8601String();
 }
