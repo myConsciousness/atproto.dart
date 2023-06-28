@@ -3,6 +3,7 @@
 ## v0.7.1
 
 - Supported `com.atproto.server.describeServer` as `findServerInfo` in `ServersService`. ([#260](https://github.com/myConsciousness/atproto.dart/issues/260))
+- Supported `com.atproto.server.createInviteCodes` as `createInviteCodes` in `ServersService`. ([#258](https://github.com/myConsciousness/atproto.dart/issues/258))
 
 ## v0.7.0
 

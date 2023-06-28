@@ -10,6 +10,7 @@ import '../entities/account.dart';
 import '../entities/app_password.dart';
 import '../entities/app_passwords.dart';
 import '../entities/created_invite_code.dart';
+import '../entities/created_invite_codes.dart';
 import '../entities/current_session.dart';
 import '../entities/invite_codes.dart';
 import '../entities/server_info.dart';
@@ -213,6 +214,29 @@ abstract class ServersService {
     String? forAccount,
   });
 
+  /// Create invite codes.
+  ///
+  /// ## Parameter
+  ///
+  /// - [codeCount]: The count of codes.
+  ///
+  /// - [useCount]: The count of use.
+  ///
+  /// - [forAccount]: The account to send a created code.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.createInviteCodes
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createInviteCodes.json
+  Future<core.XRPCResponse<CreatedInviteCodes>> createInviteCodes({
+    required int codeCount,
+    required int useCount,
+    List<String>? forAccounts,
+  });
+
   /// Get all invite codes for a given account.
   ///
   /// ## Parameters
@@ -411,6 +435,22 @@ class _ServersService extends ATProtoBaseService implements ServersService {
           'forAccount': forAccount,
         },
         to: CreatedInviteCode.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<CreatedInviteCodes>> createInviteCodes({
+    required int codeCount,
+    required int useCount,
+    List<String>? forAccounts,
+  }) async =>
+      await super.post(
+        'createInviteCodes',
+        body: {
+          'codeCount': codeCount,
+          'useCount': useCount,
+          'forAccounts': forAccounts,
+        },
+        to: CreatedInviteCodes.fromJson,
       );
 
   @override
