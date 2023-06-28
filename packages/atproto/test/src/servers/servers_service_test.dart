@@ -6,6 +6,7 @@ import 'package:atproto/src/entities/account.dart';
 import 'package:atproto/src/entities/app_password.dart';
 import 'package:atproto/src/entities/app_passwords.dart';
 import 'package:atproto/src/entities/created_invite_code.dart';
+import 'package:atproto/src/entities/created_invite_codes.dart';
 import 'package:atproto/src/entities/current_session.dart';
 import 'package:atproto/src/entities/invite_codes.dart';
 import 'package:atproto/src/entities/server_info.dart';
@@ -326,6 +327,7 @@ void main() {
         ),
       );
     });
+
     group('.deleteAccount', () {
       test('normal case', () async {
         final servers = ServersService(
@@ -395,6 +397,151 @@ void main() {
           ),
         );
       });
+    });
+  });
+
+  group('.createInviteCodes', () {
+    test('normal case', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/servers/data/create_invite_codes.json',
+        ),
+      );
+
+      final response = await servers.createInviteCodes(
+        codeCount: 5,
+        useCount: 5,
+        forAccounts: ['xxxxxxxx'],
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<CreatedInviteCodes>());
+    });
+
+    test('when unauthorized', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await servers.createInviteCodes(
+          codeCount: 5,
+          useCount: 5,
+          forAccounts: ['xxxxxxxx'],
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await servers.createInviteCodes(
+          codeCount: 5,
+          useCount: 5,
+          forAccounts: ['xxxxxxxx'],
+        ),
+      );
+    });
+  });
+
+  group('.deleteAccount', () {
+    test('normal case', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/servers/data/delete_account.json',
+        ),
+      );
+
+      final response = await servers.deleteAccount(
+        password: 'yyyyyyy',
+        token: 'zzzzzzzzz',
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<core.EmptyData>());
+    });
+
+    test('when unauthorized', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await servers.deleteAccount(
+          password: 'yyyyyyy',
+          token: 'zzzzzzzzz',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await servers.deleteAccount(
+          password: 'yyyyyyy',
+          token: 'zzzzzzzzz',
+        ),
+      );
     });
   });
 

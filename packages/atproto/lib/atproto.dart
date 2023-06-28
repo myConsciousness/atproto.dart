@@ -5,6 +5,7 @@
 export 'package:atproto/src/atproto.dart';
 export 'package:atproto/src/atproto_service.dart';
 export 'package:atproto/src/entities/account.dart';
+export 'package:atproto/src/entities/account_codes.dart';
 export 'package:atproto/src/entities/app_password.dart';
 export 'package:atproto/src/entities/app_passwords.dart';
 export 'package:atproto/src/entities/batch_action.dart';
@@ -14,6 +15,7 @@ export 'package:atproto/src/entities/blob_ref.dart';
 export 'package:atproto/src/entities/converter/blob_converter.dart';
 export 'package:atproto/src/entities/create_action.dart';
 export 'package:atproto/src/entities/created_invite_code.dart';
+export 'package:atproto/src/entities/created_invite_codes.dart';
 export 'package:atproto/src/entities/current_session.dart';
 export 'package:atproto/src/entities/delete_action.dart';
 export 'package:atproto/src/entities/did.dart';
