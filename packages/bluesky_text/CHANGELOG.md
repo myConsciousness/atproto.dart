@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.4
+
+- Upgraded `atproto`. ([#260](https://github.com/myConsciousness/atproto.dart/issues/260))
+
 ## v0.2.3
 
 - Added `homepage` in `pubspec.yaml`. ([#549](https://github.com/myConsciousness/atproto.dart/issues/549))

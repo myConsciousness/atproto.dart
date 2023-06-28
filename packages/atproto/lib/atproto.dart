@@ -40,6 +40,8 @@ export 'package:atproto/src/entities/report.dart';
 export 'package:atproto/src/entities/report_subject.dart';
 export 'package:atproto/src/entities/repos.dart';
 export 'package:atproto/src/entities/sealed_app_password.dart';
+export 'package:atproto/src/entities/server_info.dart';
+export 'package:atproto/src/entities/server_info_links.dart';
 export 'package:atproto/src/entities/session.dart';
 export 'package:atproto/src/entities/strong_ref.dart';
 export 'package:atproto/src/entities/subscribed_repo.dart';

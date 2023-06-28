@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.1
+
+- Supported `com.atproto.server.describeServer` as `findServerInfo` in `ServersService`. ([#260](https://github.com/myConsciousness/atproto.dart/issues/260))
+
 ## v0.5.0
 
 - Added `homepage` in `pubspec.yaml`. ([#549](https://github.com/myConsciousness/atproto.dart/issues/549))

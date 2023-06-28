@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.3
+
+- Upgraded `bluesky_text`. ([#260](https://github.com/myConsciousness/atproto.dart/issues/260))
+
 ## v0.2.2
 
 - Supported `popular-feed-generators` command. ([#458](https://github.com/myConsciousness/atproto.dart/issues/458))
