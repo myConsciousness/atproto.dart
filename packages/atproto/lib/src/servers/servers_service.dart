@@ -34,7 +34,7 @@ import '../entities/session.dart';
 Future<core.XRPCResponse<Session>> createSession({
   core.Protocol protocol = core.Protocol.https,
   String service = 'bsky.social',
-  String? identifier,
+  required String identifier,
   required String password,
   core.RetryConfig? retryConfig,
   final core.PostClient? mockedPostClient,
@@ -70,8 +70,7 @@ class _$ServersService extends ATProtoBaseService {
         );
 
   Future<core.XRPCResponse<Session>> createSession({
-    String service = 'bsky.social',
-    String? identifier,
+    required String identifier,
     required String password,
   }) async =>
       await super.post(
