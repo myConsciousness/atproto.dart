@@ -13,13 +13,16 @@ import 'repositories/repositories_service.dart';
 import 'servers/servers_service.dart';
 import 'sync/sync_service.dart';
 
+/// The default service to access.
+const _defaultService = 'bsky.social';
+
 abstract class ATProto {
   /// Returns the new instance of [ATProto].
   factory ATProto({
     required String did,
     required String accessJwt,
     core.Protocol protocol = core.Protocol.https,
-    String service = 'bsky.social',
+    String service = _defaultService,
     Duration timeout = const Duration(seconds: 30),
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
@@ -40,7 +43,7 @@ abstract class ATProto {
   factory ATProto.fromSession(
     final Session session, {
     core.Protocol protocol = core.Protocol.https,
-    String service = 'bsky.social',
+    String service = _defaultService,
     Duration timeout = const Duration(seconds: 30),
     core.RetryConfig? retryConfig,
   }) =>
@@ -56,7 +59,7 @@ abstract class ATProto {
   /// Returns the new instance of [ATProto] as anonymous.
   factory ATProto.anonymous({
     core.Protocol protocol = core.Protocol.https,
-    String service = 'bsky.social',
+    String service = _defaultService,
     Duration timeout = const Duration(seconds: 30),
     core.RetryConfig? retryConfig,
   }) =>

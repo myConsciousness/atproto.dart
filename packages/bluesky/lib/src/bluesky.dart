@@ -13,13 +13,16 @@ import 'graphs/graphs_service.dart';
 import 'notifications/notifications_service.dart';
 import 'unspecced/unspecced_service.dart';
 
+/// The default service to access.
+const _defaultService = 'bsky.social';
+
 abstract class Bluesky {
   /// Returns the new instance of [Bluesky].
   factory Bluesky({
     required String did,
     required String accessJwt,
     core.Protocol protocol = core.Protocol.https,
-    String service = 'bsky.social',
+    String service = _defaultService,
     Duration timeout = const Duration(seconds: 30),
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
@@ -40,7 +43,7 @@ abstract class Bluesky {
   factory Bluesky.fromSession(
     final atp.Session session, {
     core.Protocol protocol = core.Protocol.https,
-    String service = 'bsky.social',
+    String service = _defaultService,
     Duration timeout = const Duration(seconds: 30),
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
@@ -60,7 +63,7 @@ abstract class Bluesky {
   /// Returns the new instance of [Bluesky] as anonymous.
   factory Bluesky.anonymous({
     core.Protocol protocol = core.Protocol.https,
-    String service = 'bsky.social',
+    String service = _defaultService,
     Duration timeout = const Duration(seconds: 30),
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
