@@ -13,17 +13,23 @@ import 'repositories/repositories_service.dart';
 import 'servers/servers_service.dart';
 import 'sync/sync_service.dart';
 
+/// The default HTTP protocol.
+const _defaultProtocol = core.Protocol.https;
+
 /// The default service to access.
 const _defaultService = 'bsky.social';
+
+/// The default timeout duration.
+const _defaultTimeout = Duration(seconds: 30);
 
 abstract class ATProto {
   /// Returns the new instance of [ATProto].
   factory ATProto({
     required String did,
     required String accessJwt,
-    core.Protocol protocol = core.Protocol.https,
+    core.Protocol protocol = _defaultProtocol,
     String service = _defaultService,
-    Duration timeout = const Duration(seconds: 30),
+    Duration timeout = _defaultTimeout,
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
@@ -42,9 +48,9 @@ abstract class ATProto {
   /// Returns the new instance of [ATProto].
   factory ATProto.fromSession(
     final Session session, {
-    core.Protocol protocol = core.Protocol.https,
+    core.Protocol protocol = _defaultProtocol,
     String service = _defaultService,
-    Duration timeout = const Duration(seconds: 30),
+    Duration timeout = _defaultTimeout,
     core.RetryConfig? retryConfig,
   }) =>
       _ATProto(
@@ -58,9 +64,9 @@ abstract class ATProto {
 
   /// Returns the new instance of [ATProto] as anonymous.
   factory ATProto.anonymous({
-    core.Protocol protocol = core.Protocol.https,
+    core.Protocol protocol = _defaultProtocol,
     String service = _defaultService,
-    Duration timeout = const Duration(seconds: 30),
+    Duration timeout = _defaultTimeout,
     core.RetryConfig? retryConfig,
   }) =>
       _ATProto(
