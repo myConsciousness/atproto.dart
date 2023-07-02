@@ -379,8 +379,8 @@ class _ServersService extends ATProtoBaseService implements ServersService {
         headers: {
           'Authorization': 'Bearer $refreshJwt',
         },
-        to: Session.fromJson,
         userContext: core.UserContext.anonymousOnly,
+        to: Session.fromJson,
       );
 
   @override
@@ -393,7 +393,6 @@ class _ServersService extends ATProtoBaseService implements ServersService {
   }) async =>
       await super.post(
         'createAccount',
-        userContext: core.UserContext.anonymousOnly,
         body: {
           'handle': handle,
           'email': email,
@@ -401,6 +400,7 @@ class _ServersService extends ATProtoBaseService implements ServersService {
           'inviteCode': inviteCode,
           'recoveryKey': recoveryKey,
         },
+        userContext: core.UserContext.anonymousOnly,
         to: Account.fromJson,
       );
 
@@ -475,6 +475,7 @@ class _ServersService extends ATProtoBaseService implements ServersService {
         body: {
           'email': email,
         },
+        userContext: core.UserContext.anonymousOnly,
       );
 
   @override
@@ -488,6 +489,7 @@ class _ServersService extends ATProtoBaseService implements ServersService {
           'password': password,
           'token': token,
         },
+        userContext: core.UserContext.anonymousOnly,
       );
 
   @override
