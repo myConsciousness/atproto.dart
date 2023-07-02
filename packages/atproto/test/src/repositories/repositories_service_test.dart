@@ -2,7 +2,10 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'dart:io';
+
 import 'package:atproto/src/entities/batch_action.dart';
+import 'package:atproto/src/entities/blob_data.dart';
 import 'package:atproto/src/entities/create_action.dart';
 import 'package:atproto/src/entities/delete_action.dart';
 import 'package:atproto/src/entities/record.dart';
@@ -837,6 +840,74 @@ void main() {
       atp_test.expectRateLimitExceededException(
         () async => await repositories.rebaseRepo(
           repo: 'did:plc:iijrtk7ocored6zuziwmqq3c',
+        ),
+      );
+    });
+  });
+
+  group('.uploadBlob', () {
+    test('normal case', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/repositories/data/upload_blob.json',
+        ),
+      );
+
+      final response = await repositories.uploadBlob(
+        File('./test/src/repositories/data/dash.png').readAsBytesSync(),
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<BlobData>());
+    });
+
+    test('when unauthorized', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await repositories.uploadBlob(
+          File('./test/src/repositories/data/dash.png').readAsBytesSync(),
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await repositories.uploadBlob(
+          File('./test/src/repositories/data/dash.png').readAsBytesSync(),
         ),
       );
     });

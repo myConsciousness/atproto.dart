@@ -310,7 +310,7 @@ void main() {
     test('simple case', () async {
       final response = await upload<EmptyData>(
         NSID.create('test.com', 'get'),
-        File('./test/src/images/dash.png').readAsBytesSync(),
+        File('./test/src/data/dash.png').readAsBytesSync(),
         postClient: (url, {body, encoding, headers}) async => Response(
           '{}',
           200,
@@ -325,7 +325,7 @@ void main() {
     test('with "to" parameter', () async {
       final response = await upload(
         NSID.create('test.com', 'get'),
-        File('./test/src/images/dash.png').readAsBytesSync(),
+        File('./test/src/data/dash.png').readAsBytesSync(),
         to: EmptyData.fromJson,
         postClient: (url, {body, encoding, headers}) async => Response(
           '{}',
@@ -341,7 +341,7 @@ void main() {
     test('T is String', () async {
       final response = await upload<String>(
         NSID.create('test.com', 'get'),
-        File('./test/src/images/dash.png').readAsBytesSync(),
+        File('./test/src/data/dash.png').readAsBytesSync(),
         postClient: (url, {body, encoding, headers}) async => Response(
           '{"test": "test"}',
           200,
