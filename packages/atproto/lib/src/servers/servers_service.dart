@@ -34,7 +34,7 @@ import '../entities/session.dart';
 Future<core.XRPCResponse<Session>> createSession({
   core.Protocol protocol = core.Protocol.https,
   String service = 'bsky.social',
-  String? identifier,
+  required String identifier,
   required String password,
   core.RetryConfig? retryConfig,
   final core.PostClient? mockedPostClient,
@@ -70,8 +70,7 @@ class _$ServersService extends ATProtoBaseService {
         );
 
   Future<core.XRPCResponse<Session>> createSession({
-    String service = 'bsky.social',
-    String? identifier,
+    required String identifier,
     required String password,
   }) async =>
       await super.post(
@@ -380,8 +379,8 @@ class _ServersService extends ATProtoBaseService implements ServersService {
         headers: {
           'Authorization': 'Bearer $refreshJwt',
         },
-        to: Session.fromJson,
         userContext: core.UserContext.anonymousOnly,
+        to: Session.fromJson,
       );
 
   @override
@@ -394,7 +393,6 @@ class _ServersService extends ATProtoBaseService implements ServersService {
   }) async =>
       await super.post(
         'createAccount',
-        userContext: core.UserContext.anonymousOnly,
         body: {
           'handle': handle,
           'email': email,
@@ -402,6 +400,7 @@ class _ServersService extends ATProtoBaseService implements ServersService {
           'inviteCode': inviteCode,
           'recoveryKey': recoveryKey,
         },
+        userContext: core.UserContext.anonymousOnly,
         to: Account.fromJson,
       );
 
@@ -476,6 +475,7 @@ class _ServersService extends ATProtoBaseService implements ServersService {
         body: {
           'email': email,
         },
+        userContext: core.UserContext.anonymousOnly,
       );
 
   @override
@@ -489,6 +489,7 @@ class _ServersService extends ATProtoBaseService implements ServersService {
           'password': password,
           'token': token,
         },
+        userContext: core.UserContext.anonymousOnly,
       );
 
   @override
