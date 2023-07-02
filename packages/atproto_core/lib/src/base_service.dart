@@ -35,7 +35,6 @@ abstract class _Service {
     final Map<String, String>? headers,
     final Duration timeout = const Duration(seconds: 10),
     final xrpc.To<T>? to,
-    final xrpc.PostClient? postClient,
   });
 
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
@@ -132,7 +131,6 @@ abstract class BaseService implements _Service {
     final Map<String, String>? headers,
     final Duration timeout = const Duration(seconds: 10),
     final xrpc.To<T>? to,
-    final xrpc.PostClient? postClient,
   }) async =>
       await _context.upload(
         methodId,
@@ -142,7 +140,7 @@ abstract class BaseService implements _Service {
         service: _service,
         headers: headers,
         to: to,
-        postClient: postClient,
+        postClient: _mockedPostClient,
       );
 
   @override
