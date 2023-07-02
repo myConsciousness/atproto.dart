@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
+import '../../atproto_core.dart';
 import 'anonymous_client.dart';
 import 'auth_required_client.dart';
 import 'client.dart';
@@ -10,14 +11,7 @@ import 'user_context.dart';
 
 abstract class ClientResolver {
   /// Returns the new instance of [ClientResolver].
-  factory ClientResolver(
-    final AnonymousClient anonymousClient,
-    final AuthRequiredClient authRequiredClient,
-  ) =>
-      _ClientResolver(
-        anonymousClient,
-        authRequiredClient,
-      );
+  factory ClientResolver(final String accessJwt) => _ClientResolver(accessJwt);
 
   /// Returns the resolved client.
   Client execute(final UserContext userContext);
@@ -25,17 +19,24 @@ abstract class ClientResolver {
 
 class _ClientResolver implements ClientResolver {
   /// Returns the new instance of [_ClientResolver].
-  const _ClientResolver(this.anonymousClient, this.authRequiredClient);
+  const _ClientResolver(this.accessJwt);
 
-  /// The anonymous client.
-  final AnonymousClient anonymousClient;
-
-  /// The auth required client.
-  final AuthRequiredClient authRequiredClient;
+  /// The access token.
+  final String accessJwt;
 
   @override
-  Client execute(final UserContext userContext) =>
-      userContext == UserContext.anonymousOnly
-          ? anonymousClient
-          : authRequiredClient;
+  Client execute(final UserContext userContext) {
+    switch (userContext) {
+      case UserContext.anonymousOnly:
+        return AnonymousClient();
+      case UserContext.authRequired:
+        if (accessJwt.isEmpty) {
+          throw UnsupportedError(
+            'Authentication token is required for this endpoint.',
+          );
+        }
+
+        return AuthRequiredClient(accessJwt);
+    }
+  }
 }
