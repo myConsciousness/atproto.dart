@@ -4,6 +4,7 @@
 
 export 'package:atproto/atproto.dart'
     show
+        createSession,
         Session,
         $SessionCopyWith,
         Record,
@@ -235,5 +236,4 @@ export 'package:bluesky/src/params/post_param.dart';
 export 'package:bluesky/src/params/repo_param.dart';
 export 'package:bluesky/src/params/strong_ref_param.dart';
 export 'package:bluesky/src/params/thread_param.dart';
-export 'package:bluesky/src/servers/servers_service.dart' show createSession;
 export 'package:bluesky/src/unspecced/unspecced_service.dart';
