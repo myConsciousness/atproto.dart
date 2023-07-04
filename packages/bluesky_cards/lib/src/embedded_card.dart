@@ -24,19 +24,18 @@ class EmbeddedCard extends StatelessWidget {
     required this.replyCount,
     required this.repostCount,
     required this.likeCount,
-    String service = 'staging.bsky.app',
+    this.service = 'bsky.app',
     required bsky.AtUri postUri,
     required this.createdAt,
     this.reason,
     this.backgroundColor,
     this.darkMode = false,
   })  : userLink = 'https://$service/profile/$handle',
-        postLink = 'https://$service/$handle/post/${postUri.rkey}',
-        repostedUserLink = 'https://$service/profile/${reason?.by.handle}';
+        postLink = 'https://$service/$handle/post/${postUri.rkey}';
 
   factory EmbeddedCard.fromFeed(
-    final bsky.Feed feed, {
-    String service = 'staging.bsky.app',
+    final bsky.FeedView feed, {
+    String service = 'bsky.app',
     Color? backgroundColor,
     bool darkMode = false,
   }) =>
@@ -56,6 +55,7 @@ class EmbeddedCard extends StatelessWidget {
         darkMode: darkMode,
       );
 
+  final String service;
   final String text;
   final String handle;
   final String displayName;
@@ -64,7 +64,6 @@ class EmbeddedCard extends StatelessWidget {
   final int repostCount;
   final int likeCount;
   final String userLink;
-  final String repostedUserLink;
   final String postLink;
   final DateTime createdAt;
 
@@ -110,14 +109,8 @@ class EmbeddedCard extends StatelessWidget {
                                 Padding(
                                   padding: EdgeInsets.only(left: 28),
                                   child: Visibility(
-                                    visible: reason != null &&
-                                        reason!.type.endsWith('reasonRepost'),
-                                    child: RepostedBy(
-                                      handle: reason?.by.handle ?? '',
-                                      displayName: reason?.by.displayName ?? '',
-                                      userLink: repostedUserLink,
-                                      style: defaultEmbeddedRepostedByStyle,
-                                    ),
+                                    visible: _isReasonRepost,
+                                    child: _buildRepostedBy(),
                                   ),
                                 ),
                                 Row(
@@ -285,6 +278,31 @@ class EmbeddedCard extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+
+  bool get _isReasonRepost => reason != null
+      ? reason!.when(
+          repost: (data) => true,
+          unknown: (data) => false,
+        )
+      : false;
+
+  bsky.Actor? get _repostedBy => reason != null
+      ? reason!.when(
+          repost: (data) => data.by,
+          unknown: (data) => null,
+        )
+      : null;
+
+  RepostedBy _buildRepostedBy() {
+    final repostedActor = _repostedBy;
+
+    return RepostedBy(
+      handle: repostedActor?.handle ?? '',
+      displayName: repostedActor?.displayName ?? '',
+      userLink: 'https://$service/profile/${repostedActor?.handle}',
+      style: defaultEmbeddedRepostedByStyle,
     );
   }
 }

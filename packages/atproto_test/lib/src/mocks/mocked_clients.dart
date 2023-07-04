@@ -3,9 +3,9 @@
 // modification, are permitted provided the conditions.
 
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:http/http.dart' as http;
+import 'package:universal_io/io.dart';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 /// Returns the mocked [xrpc.GetClient]
@@ -13,13 +13,24 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 xrpc.GetClient createMockedGetClient(
   final String resourcePath, {
   final int statusCode = 200,
+}) =>
+    createMockedGetClientFromBytes(
+      File(resourcePath).readAsBytesSync(),
+      statusCode: statusCode,
+    );
+
+/// Returns the mocked [xrpc.GetClient]
+/// based on [bytes] and [statusCode].
+xrpc.GetClient createMockedGetClientFromBytes(
+  final List<int> bytes, {
+  final int statusCode = 200,
 }) {
   mockedClient(
     Uri url, {
     Map<String, String>? headers,
   }) async {
-    return http.Response(
-      File(resourcePath).readAsStringSync(),
+    return http.Response.bytes(
+      bytes,
       statusCode,
       headers: {'content-type': 'application/json; charset=utf-8'},
       request: http.Request(
@@ -44,8 +55,8 @@ xrpc.PostClient createMockedPostClient(
     Object? body,
     Encoding? encoding,
   }) async {
-    return http.Response(
-      File(resourcePath).readAsStringSync(),
+    return http.Response.bytes(
+      File(resourcePath).readAsBytesSync(),
       statusCode,
       headers: {'content-type': 'application/json; charset=utf-8'},
       request: http.Request(

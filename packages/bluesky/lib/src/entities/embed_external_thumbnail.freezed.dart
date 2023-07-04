@@ -24,9 +24,9 @@ mixin _$EmbedExternalThumbnail {
   String get uri => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  @BlobContextConverter()
+  @BlobConverter()
   @JsonKey(name: 'thumb')
-  BlobContext? get blob => throw _privateConstructorUsedError;
+  Blob? get blob => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,9 +44,9 @@ abstract class $EmbedExternalThumbnailCopyWith<$Res> {
       {String uri,
       String title,
       String description,
-      @BlobContextConverter() @JsonKey(name: 'thumb') BlobContext? blob});
+      @BlobConverter() @JsonKey(name: 'thumb') Blob? blob});
 
-  $BlobContextCopyWith<$Res>? get blob;
+  $BlobCopyWith<$Res>? get blob;
 }
 
 /// @nodoc
@@ -84,18 +84,18 @@ class _$EmbedExternalThumbnailCopyWithImpl<$Res,
       blob: freezed == blob
           ? _value.blob
           : blob // ignore: cast_nullable_to_non_nullable
-              as BlobContext?,
+              as Blob?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $BlobContextCopyWith<$Res>? get blob {
+  $BlobCopyWith<$Res>? get blob {
     if (_value.blob == null) {
       return null;
     }
 
-    return $BlobContextCopyWith<$Res>(_value.blob!, (value) {
+    return $BlobCopyWith<$Res>(_value.blob!, (value) {
       return _then(_value.copyWith(blob: value) as $Val);
     });
   }
@@ -113,10 +113,10 @@ abstract class _$$_EmbedExternalThumbnailCopyWith<$Res>
       {String uri,
       String title,
       String description,
-      @BlobContextConverter() @JsonKey(name: 'thumb') BlobContext? blob});
+      @BlobConverter() @JsonKey(name: 'thumb') Blob? blob});
 
   @override
-  $BlobContextCopyWith<$Res>? get blob;
+  $BlobCopyWith<$Res>? get blob;
 }
 
 /// @nodoc
@@ -152,7 +152,7 @@ class __$$_EmbedExternalThumbnailCopyWithImpl<$Res>
       blob: freezed == blob
           ? _value.blob
           : blob // ignore: cast_nullable_to_non_nullable
-              as BlobContext?,
+              as Blob?,
     ));
   }
 }
@@ -165,7 +165,7 @@ class _$_EmbedExternalThumbnail implements _EmbedExternalThumbnail {
       {required this.uri,
       required this.title,
       required this.description,
-      @BlobContextConverter() @JsonKey(name: 'thumb') this.blob});
+      @BlobConverter() @JsonKey(name: 'thumb') this.blob});
 
   factory _$_EmbedExternalThumbnail.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedExternalThumbnailFromJson(json);
@@ -177,9 +177,9 @@ class _$_EmbedExternalThumbnail implements _EmbedExternalThumbnail {
   @override
   final String description;
   @override
-  @BlobContextConverter()
+  @BlobConverter()
   @JsonKey(name: 'thumb')
-  final BlobContext? blob;
+  final Blob? blob;
 
   @override
   String toString() {
@@ -219,12 +219,11 @@ class _$_EmbedExternalThumbnail implements _EmbedExternalThumbnail {
 
 abstract class _EmbedExternalThumbnail implements EmbedExternalThumbnail {
   const factory _EmbedExternalThumbnail(
-      {required final String uri,
-      required final String title,
-      required final String description,
-      @BlobContextConverter()
-      @JsonKey(name: 'thumb')
-      final BlobContext? blob}) = _$_EmbedExternalThumbnail;
+          {required final String uri,
+          required final String title,
+          required final String description,
+          @BlobConverter() @JsonKey(name: 'thumb') final Blob? blob}) =
+      _$_EmbedExternalThumbnail;
 
   factory _EmbedExternalThumbnail.fromJson(Map<String, dynamic> json) =
       _$_EmbedExternalThumbnail.fromJson;
@@ -236,9 +235,9 @@ abstract class _EmbedExternalThumbnail implements EmbedExternalThumbnail {
   @override
   String get description;
   @override
-  @BlobContextConverter()
+  @BlobConverter()
   @JsonKey(name: 'thumb')
-  BlobContext? get blob;
+  Blob? get blob;
   @override
   @JsonKey(ignore: true)
   _$$_EmbedExternalThumbnailCopyWith<_$_EmbedExternalThumbnail> get copyWith =>

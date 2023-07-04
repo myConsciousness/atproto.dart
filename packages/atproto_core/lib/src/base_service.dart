@@ -4,7 +4,7 @@
 
 // 🎯 Dart imports:
 import 'dart:async';
-import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:xrpc/xrpc.dart' as xrpc;
 
@@ -17,7 +17,7 @@ abstract class _Service {
     final UserContext userContext = UserContext.authRequired,
     final Map<String, dynamic>? parameters,
     required final xrpc.To<T> to,
-    final xrpc.JsonConverter? converter,
+    final xrpc.ResponseAdaptor? adaptor,
   });
 
   Future<xrpc.XRPCResponse<T>> post<T>(
@@ -29,13 +29,12 @@ abstract class _Service {
 
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final xrpc.NSID methodId,
-    final File file, {
+    final Uint8List bytes, {
     final UserContext userContext = UserContext.authRequired,
     final String? service,
     final Map<String, String>? headers,
     final Duration timeout = const Duration(seconds: 10),
     final xrpc.To<T>? to,
-    final xrpc.PostClient? postClient,
   });
 
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
@@ -44,8 +43,7 @@ abstract class _Service {
     final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
-    final xrpc.Decoder? decoder,
-    final xrpc.JsonConverter? converter,
+    final xrpc.ResponseAdaptor? adaptor,
   });
 }
 
@@ -86,7 +84,7 @@ abstract class BaseService implements _Service {
     final UserContext userContext = UserContext.authRequired,
     final Map<String, dynamic>? parameters,
     required final xrpc.To<T> to,
-    final xrpc.JsonConverter? converter,
+    final xrpc.ResponseAdaptor? adaptor,
   }) async =>
       await _context.get(
         xrpc.NSID.create(
@@ -98,7 +96,7 @@ abstract class BaseService implements _Service {
         service: _service,
         parameters: parameters,
         to: to,
-        converter: converter,
+        adaptor: adaptor,
         getClient: _mockedGetClient,
       );
 
@@ -127,23 +125,22 @@ abstract class BaseService implements _Service {
   @override
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final xrpc.NSID methodId,
-    final File file, {
+    final Uint8List bytes, {
     UserContext userContext = UserContext.authRequired,
     final String? service,
     final Map<String, String>? headers,
     final Duration timeout = const Duration(seconds: 10),
     final xrpc.To<T>? to,
-    final xrpc.PostClient? postClient,
   }) async =>
       await _context.upload(
         methodId,
-        file,
+        bytes,
         userContext: userContext,
         protocol: _protocol,
         service: _service,
         headers: headers,
         to: to,
-        postClient: postClient,
+        postClient: _mockedPostClient,
       );
 
   @override
@@ -153,8 +150,7 @@ abstract class BaseService implements _Service {
     final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
-    final xrpc.Decoder? decoder,
-    final xrpc.JsonConverter? converter,
+    final xrpc.ResponseAdaptor? adaptor,
   }) async =>
       await _context.stream(
         methodId,
@@ -162,8 +158,7 @@ abstract class BaseService implements _Service {
         service: service,
         parameters: parameters,
         to: to,
-        decoder: decoder,
-        converter: converter,
+        adaptor: adaptor,
       );
 
   /// Returns the NSID based on this service and [methodName].

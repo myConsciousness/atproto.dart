@@ -1,6 +1,7 @@
 name: atproto_core
 description: This package provides core reusable and useful functionality for wrapping At Protocol and related services.
-version: 0.3.4
+version: 0.4.1
+homepage: https://atprotodart.com
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_core
 issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
 funding:
@@ -9,12 +10,12 @@ environment:
   sdk: ">=2.17.0 <4.0.0"
 
 dependencies:
-  xrpc: ^0.1.3
-  at_uri: ^0.1.0
-  universal_io: ^2.2.0
+  xrpc: ^0.2.0
+  at_uri: ^0.1.1
   freezed_annotation: ^2.2.0
   cbor: ^6.0.0
-  multiformats: ^0.1.3
+  multiformats: ^0.1.4
+  universal_io: ^2.2.2
 
 dev_dependencies:
   lints: ^2.0.0

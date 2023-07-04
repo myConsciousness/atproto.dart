@@ -15,7 +15,7 @@ part 'image.g.dart';
 class Image with _$Image {
   const factory Image({
     required String alt,
-    @BlobContextConverter() required BlobContext image,
+    @BlobConverter() required Blob image,
   }) = _Image;
 
   factory Image.fromJson(Map<String, Object?> json) => _$ImageFromJson(json);

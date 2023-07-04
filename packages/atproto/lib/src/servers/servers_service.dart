@@ -10,8 +10,10 @@ import '../entities/account.dart';
 import '../entities/app_password.dart';
 import '../entities/app_passwords.dart';
 import '../entities/created_invite_code.dart';
+import '../entities/created_invite_codes.dart';
 import '../entities/current_session.dart';
 import '../entities/invite_codes.dart';
+import '../entities/server_info.dart';
 import '../entities/session.dart';
 
 /// Create an authentication session.
@@ -32,7 +34,7 @@ import '../entities/session.dart';
 Future<core.XRPCResponse<Session>> createSession({
   core.Protocol protocol = core.Protocol.https,
   String service = 'bsky.social',
-  String? identifier,
+  required String identifier,
   required String password,
   core.RetryConfig? retryConfig,
   final core.PostClient? mockedPostClient,
@@ -68,8 +70,7 @@ class _$ServersService extends ATProtoBaseService {
         );
 
   Future<core.XRPCResponse<Session>> createSession({
-    String service = 'bsky.social',
-    String? identifier,
+    required String identifier,
     required String password,
   }) async =>
       await super.post(
@@ -212,6 +213,29 @@ abstract class ServersService {
     String? forAccount,
   });
 
+  /// Create invite codes.
+  ///
+  /// ## Parameter
+  ///
+  /// - [codeCount]: The count of codes.
+  ///
+  /// - [useCount]: The count of use.
+  ///
+  /// - [forAccount]: The account to send a created code.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.createInviteCodes
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createInviteCodes.json
+  Future<core.XRPCResponse<CreatedInviteCodes>> createInviteCodes({
+    required int codeCount,
+    required int useCount,
+    List<String>? forAccounts,
+  });
+
   /// Get all invite codes for a given account.
   ///
   /// ## Parameters
@@ -315,6 +339,17 @@ abstract class ServersService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/listAppPasswords.json
   Future<core.XRPCResponse<AppPasswords>> findAppPasswords();
+
+  /// Get a document describing the service's accounts configuration.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.describeServer
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/describeServer.json
+  Future<core.XRPCResponse<ServerInfo>> findServerInfo();
 }
 
 class _ServersService extends ATProtoBaseService implements ServersService {
@@ -344,8 +379,8 @@ class _ServersService extends ATProtoBaseService implements ServersService {
         headers: {
           'Authorization': 'Bearer $refreshJwt',
         },
-        to: Session.fromJson,
         userContext: core.UserContext.anonymousOnly,
+        to: Session.fromJson,
       );
 
   @override
@@ -358,7 +393,6 @@ class _ServersService extends ATProtoBaseService implements ServersService {
   }) async =>
       await super.post(
         'createAccount',
-        userContext: core.UserContext.anonymousOnly,
         body: {
           'handle': handle,
           'email': email,
@@ -366,6 +400,7 @@ class _ServersService extends ATProtoBaseService implements ServersService {
           'inviteCode': inviteCode,
           'recoveryKey': recoveryKey,
         },
+        userContext: core.UserContext.anonymousOnly,
         to: Account.fromJson,
       );
 
@@ -402,6 +437,22 @@ class _ServersService extends ATProtoBaseService implements ServersService {
       );
 
   @override
+  Future<core.XRPCResponse<CreatedInviteCodes>> createInviteCodes({
+    required int codeCount,
+    required int useCount,
+    List<String>? forAccounts,
+  }) async =>
+      await super.post(
+        'createInviteCodes',
+        body: {
+          'codeCount': codeCount,
+          'useCount': useCount,
+          'forAccounts': forAccounts,
+        },
+        to: CreatedInviteCodes.fromJson,
+      );
+
+  @override
   Future<core.XRPCResponse<InviteCodes>> findInviteCodes({
     bool? includeUsed,
     bool? createAvailable,
@@ -424,6 +475,7 @@ class _ServersService extends ATProtoBaseService implements ServersService {
         body: {
           'email': email,
         },
+        userContext: core.UserContext.anonymousOnly,
       );
 
   @override
@@ -437,6 +489,7 @@ class _ServersService extends ATProtoBaseService implements ServersService {
           'password': password,
           'token': token,
         },
+        userContext: core.UserContext.anonymousOnly,
       );
 
   @override
@@ -467,5 +520,13 @@ class _ServersService extends ATProtoBaseService implements ServersService {
       await super.get(
         'listAppPasswords',
         to: AppPasswords.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<ServerInfo>> findServerInfo() async =>
+      await super.get(
+        'describeServer',
+        userContext: core.UserContext.anonymousOnly,
+        to: ServerInfo.fromJson,
       );
 }

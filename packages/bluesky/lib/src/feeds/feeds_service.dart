@@ -56,6 +56,8 @@ abstract class FeedsService {
   ///
   /// - [embed]: Embed contents of this post.
   ///
+  /// - [languageTags]: The collection of well-formatted BCP47 language tags.
+  ///
   /// - [createdAt]: Date and time the post was created.
   ///                If omitted, defaults to the current time.
   ///
@@ -67,11 +69,12 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json
-  Future<core.XRPCResponse<atp.Record>> createPost({
+  Future<core.XRPCResponse<atp.StrongRef>> createPost({
     required String text,
     ReplyRef? reply,
     List<Facet>? facets,
     Embed? embed,
+    List<String>? languageTags,
     DateTime? createdAt,
   });
 
@@ -89,7 +92,7 @@ abstract class FeedsService {
   /// ## Parameters
   ///
   /// - [params]: The collection of params to be posted as thread.
-  Future<core.XRPCResponse<atp.Record>> createThread(
+  Future<core.XRPCResponse<atp.StrongRef>> createThread(
     List<ThreadParam> params,
   );
 
@@ -112,7 +115,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json
-  Future<core.XRPCResponse<atp.Record>> createRepost({
+  Future<core.XRPCResponse<atp.StrongRef>> createRepost({
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
@@ -170,7 +173,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/vote.json
-  Future<core.XRPCResponse<atp.Record>> createLike({
+  Future<core.XRPCResponse<atp.StrongRef>> createLike({
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
@@ -407,7 +410,7 @@ abstract class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/generator.json
-  Future<core.XRPCResponse<atp.Record>> createGenerator({
+  Future<core.XRPCResponse<atp.StrongRef>> createGenerator({
     required String did,
     required String displayName,
     String? description,
@@ -485,11 +488,12 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
   }) : super(methodAuthority: 'feed.bsky.app');
 
   @override
-  Future<core.XRPCResponse<atp.Record>> createPost({
+  Future<core.XRPCResponse<atp.StrongRef>> createPost({
     required String text,
     ReplyRef? reply,
     List<Facet>? facets,
     Embed? embed,
+    List<String>? languageTags,
     DateTime? createdAt,
   }) async =>
       await atproto.repositories.createRecord(
@@ -499,7 +503,8 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'reply': reply?.toJson(),
           'facets': facets?.map((e) => e.toJson()).toList(),
           'embed': embed?.toJson(),
-          'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+          'langs': languageTags,
+          'createdAt': toUtcIso8601String(createdAt),
         },
       );
 
@@ -517,8 +522,8 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
                   'reply': e.reply?.toJson(),
                   'facets': e.facets?.map((e) => e.toJson()).toList(),
                   'embed': e.embed?.toJson(),
-                  'createdAt':
-                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+                  'langs': e.languageTags,
+                  'createdAt': toUtcIso8601String(e.createdAt),
                 },
               ),
             )
@@ -526,7 +531,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<atp.Record>> createThread(
+  Future<core.XRPCResponse<atp.StrongRef>> createThread(
     List<ThreadParam> params,
   ) async {
     if (params.isEmpty) {
@@ -542,21 +547,23 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       text: rootParam.text,
       facets: rootParam.facets,
       embed: rootParam.embed,
+      languageTags: rootParam.languageTags,
       createdAt: rootParam.createdAt,
     );
 
-    final rootRef = rootRecord.data.toStrongRef();
+    final rootRef = rootRecord.data;
 
-    var parentRecord = rootRecord.data;
+    var parentRef = rootRecord.data;
     for (final param in params) {
-      parentRecord = (await createPost(
+      parentRef = (await createPost(
         text: param.text,
         reply: ReplyRef(
           root: rootRef,
-          parent: parentRecord.toStrongRef(),
+          parent: parentRef,
         ),
         facets: param.facets,
         embed: param.embed,
+        languageTags: param.languageTags,
         createdAt: param.createdAt,
       ))
           .data;
@@ -582,7 +589,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<atp.Record>> createRepost({
+  Future<core.XRPCResponse<atp.StrongRef>> createRepost({
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
@@ -594,7 +601,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
             'cid': cid,
             'uri': uri.toString(),
           },
-          'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String()
+          'createdAt': toUtcIso8601String(createdAt)
         },
       );
 
@@ -612,8 +619,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
                     'cid': e.cid,
                     'uri': e.uri.toString(),
                   },
-                  'createdAt':
-                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String()
+                  'createdAt': toUtcIso8601String(e.createdAt)
                 },
               ),
             )
@@ -621,7 +627,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<atp.Record>> createLike({
+  Future<core.XRPCResponse<atp.StrongRef>> createLike({
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
@@ -633,7 +639,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
             'cid': cid,
             'uri': uri.toString(),
           },
-          'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String()
+          'createdAt': toUtcIso8601String(createdAt)
         },
       );
 
@@ -651,8 +657,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
                     'cid': e.cid,
                     'uri': e.uri.toString(),
                   },
-                  'createdAt':
-                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String()
+                  'createdAt': toUtcIso8601String(e.createdAt)
                 },
               ),
             )
@@ -800,7 +805,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<atp.Record>> createGenerator({
+  Future<core.XRPCResponse<atp.StrongRef>> createGenerator({
     required String did,
     required String displayName,
     String? description,
@@ -817,7 +822,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'descriptionFacets':
               descriptionFacets?.map((e) => e.toJson()).toList(),
           'avatar': avatar?.toJson(),
-          'createdAt': (createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+          'createdAt': toUtcIso8601String(createdAt),
         },
       );
 
@@ -837,8 +842,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
                   'descriptionFacets':
                       e.descriptionFacets?.map((e) => e.toJson()).toList(),
                   'avatar': e.avatar?.toJson(),
-                  'createdAt':
-                      (e.createdAt ?? DateTime.now()).toUtc().toIso8601String(),
+                  'createdAt': toUtcIso8601String(e.createdAt),
                 },
               ),
             )

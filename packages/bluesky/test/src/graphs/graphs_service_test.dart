@@ -36,7 +36,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Record>());
+      expect(response.data, isA<StrongRef>());
     });
 
     test('when unauthorized', () async {
@@ -573,7 +573,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Record>());
+      expect(response.data, isA<StrongRef>());
     });
 
     test('when unauthorized', () async {
@@ -818,7 +818,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Record>());
+      expect(response.data, isA<StrongRef>());
     });
 
     test('when unauthorized', () async {
@@ -1044,7 +1044,7 @@ void main() {
     });
   });
 
-  group('.findList', () {
+  group('.findListItems', () {
     test('normal case', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
@@ -1152,7 +1152,7 @@ void main() {
       );
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Record>());
+      expect(response.data, isA<StrongRef>());
     });
 
     test('when unauthorized', () async {

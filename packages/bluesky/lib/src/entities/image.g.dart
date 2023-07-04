@@ -14,10 +14,8 @@ _$_Image _$$_ImageFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$_Image(
           alt: $checkedConvert('alt', (v) => v as String),
-          image: $checkedConvert(
-              'image',
-              (v) => const BlobContextConverter()
-                  .fromJson(v as Map<String, dynamic>)),
+          image: $checkedConvert('image',
+              (v) => const BlobConverter().fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -25,5 +23,5 @@ _$_Image _$$_ImageFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$_ImageToJson(_$_Image instance) => <String, dynamic>{
       'alt': instance.alt,
-      'image': const BlobContextConverter().toJson(instance.image),
+      'image': const BlobConverter().toJson(instance.image),
     };

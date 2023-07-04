@@ -4,14 +4,12 @@
 
 // 🎯 Dart imports:
 import 'dart:async';
-import 'dart:io';
+import 'dart:typed_data';
 
 // 🌎 Project imports:
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 import '../config/retry_config.dart';
-import 'anonymous_client.dart';
-import 'auth_required_client.dart';
 import 'challenge.dart';
 import 'client_resolver.dart';
 import 'retry_policy.dart';
@@ -37,7 +35,7 @@ abstract class ClientContext {
     required final String service,
     final Map<String, dynamic>? parameters,
     required final xrpc.To<T> to,
-    final xrpc.JsonConverter? converter,
+    final xrpc.ResponseAdaptor? adaptor,
     final xrpc.GetClient? getClient,
   });
 
@@ -54,7 +52,7 @@ abstract class ClientContext {
 
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final xrpc.NSID methodId,
-    final File file, {
+    final Uint8List bytes, {
     required UserContext userContext,
     final xrpc.Protocol? protocol,
     final String? service,
@@ -70,8 +68,7 @@ abstract class ClientContext {
     final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
-    final xrpc.Decoder? decoder,
-    final xrpc.JsonConverter? converter,
+    final xrpc.ResponseAdaptor? adaptor,
   });
 }
 
@@ -80,10 +77,7 @@ class _ClientContext implements ClientContext {
     required String accessJwt,
     required this.timeout,
     RetryConfig? retryConfig,
-  })  : _clientResolver = ClientResolver(
-          AnonymousClient(),
-          AuthRequiredClient(accessJwt),
-        ),
+  })  : _clientResolver = ClientResolver(accessJwt),
         _challenge = Challenge(
           RetryPolicy(retryConfig),
         );
@@ -105,7 +99,7 @@ class _ClientContext implements ClientContext {
     required final String service,
     final Map<String, dynamic>? parameters,
     required final xrpc.To<T> to,
-    final xrpc.JsonConverter? converter,
+    final xrpc.ResponseAdaptor? adaptor,
     final xrpc.GetClient? getClient,
   }) async =>
       await _challenge.execute(
@@ -116,7 +110,7 @@ class _ClientContext implements ClientContext {
           service: service,
           parameters: parameters,
           to: to,
-          converter: converter,
+          adaptor: adaptor,
           timeout: timeout,
           getClient: getClient,
         ),
@@ -150,7 +144,7 @@ class _ClientContext implements ClientContext {
   @override
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final xrpc.NSID methodId,
-    final File file, {
+    final Uint8List bytes, {
     required UserContext userContext,
     final xrpc.Protocol? protocol,
     final String? service,
@@ -163,7 +157,7 @@ class _ClientContext implements ClientContext {
         _clientResolver.execute(userContext),
         (client) async => await client.upload(
           methodId,
-          file,
+          bytes,
           protocol: protocol,
           service: service,
           headers: headers,
@@ -180,8 +174,7 @@ class _ClientContext implements ClientContext {
     final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
-    final xrpc.Decoder? decoder,
-    final xrpc.JsonConverter? converter,
+    final xrpc.ResponseAdaptor? adaptor,
   }) async =>
       await _challenge.execute(
         _clientResolver.execute(userContext),
@@ -190,8 +183,7 @@ class _ClientContext implements ClientContext {
           service: service,
           parameters: parameters,
           to: to,
-          decoder: decoder,
-          converter: converter,
+          adaptor: adaptor,
         ),
       );
 }

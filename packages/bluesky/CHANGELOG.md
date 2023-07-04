@@ -1,5 +1,64 @@
 # Release Note
 
+## v0.7.1
+
+- Supported `com.atproto.server.describeServer` as `findServerInfo` in `ServersService`. ([#260](https://github.com/myConsciousness/atproto.dart/issues/260))
+- Supported `com.atproto.server.createInviteCodes` as `createInviteCodes` in `ServersService`. ([#258](https://github.com/myConsciousness/atproto.dart/issues/258))
+- Fixed to throw `UnsupportedError` when an anonymous user tries to access an endpoint that requires authentication. ([#564](https://github.com/myConsciousness/atproto.dart/issues/564))
+
+## v0.7.0
+
+- Added `languageTags` parameter for `createPost`, `createPosts` and `createThread`. Now you can specify well-formatted BCP 47 language tags to your post. ([#538](https://github.com/myConsciousness/atproto.dart/issues/538))
+- Added `cid` field to `ListView` and `ListViewBasic` objects. ([#539](https://github.com/myConsciousness/atproto.dart/issues/539))
+- Added union field `listView` for `EmbedViewRecordView`. ([#540](https://github.com/myConsciousness/atproto.dart/issues/540))
+- Added following useful methods. ([#546](https://github.com/myConsciousness/atproto.dart/issues/546))
+  - `PostViewer` and `Post` objects
+    - `isReposted`
+    - `isNotReposted`
+    - `isLiked`
+    - `isNotLiked`
+  - `ActorViewer`, `Actor` and `ActorProfile` objects
+    - `isMutedByList`
+    - `isNotMutedByList`
+    - `isBlocking`
+    - `isNotBlocking`
+    - `isFollowing`
+    - `isNotFollowing`
+    - `isFollowedBy`
+    - `isNotFollowedBy`
+- Added `homepage` in `pubspec.yaml`. ([#549](https://github.com/myConsciousness/atproto.dart/issues/549))
+- Changed the argument of the `uploadBlob` method to byte data instead of a File object. This change allows uploads to be used without being affected by platform differences. ([#556](https://github.com/myConsciousness/atproto.dart/issues/556))
+
+## v0.6.0
+
+- Supported `com.atproto.sync.getRepo` as `findRepoCommits` in `SyncService`. ([#313](https://github.com/myConsciousness/atproto.dart/issues/313))
+- Changed default timeout from 10 seconds to 30 seconds.
+- Supported `com.atproto.sync.getCommitPath` as `findRepoCommitPaths` in `SyncService`. ([#310](https://github.com/myConsciousness/atproto.dart/issues/310))
+- Supported `com.atproto.sync.getBlocks` as `findRepoBlocks` in `SyncService`. ([#308](https://github.com/myConsciousness/atproto.dart/issues/308))
+- Supported `com.atproto.sync.getCheckout` as `findRepoCheckout` in `SyncService`. ([#309](https://github.com/myConsciousness/atproto.dart/issues/309))
+- Supported `com.atproto.sync.getHead` as `findRepoHead` in `SyncService`. ([#311](https://github.com/myConsciousness/atproto.dart/issues/311))
+- Supported `com.atproto.sync.getRecord` as `findRecord` in `SyncService`. ([#312](https://github.com/myConsciousness/atproto.dart/issues/312))
+- Supported `com.atproto.repo.listRecords` as `findRecords` in `RepositoriesService`. ([#305](https://github.com/myConsciousness/atproto.dart/issues/305))
+- Supported `com.atproto.repo.rebaseRepo` as `rebaseRepo` in `RepositoriesService`. ([#509](https://github.com/myConsciousness/atproto.dart/issues/509))
+- Supported `com.atproto.sync.listRepos` as `findRepos` in `SyncService`. ([#315](https://github.com/myConsciousness/atproto.dart/issues/315))
+- Renamed object from `Repo` to `RepoInfo` returned from `findRepoInfo` in `RepositoriesService`.
+- Renamed `RecordValue` to `Record`. And now `createRecord` and `updateRecord` and following methods returns `StrongRef`. ([#511](https://github.com/myConsciousness/atproto.dart/issues/511))
+  - `createPost`
+  - `createThread`
+  - `createRepost`
+  - `createLike`
+  - `createGenerator`
+  - `createFollow`
+  - `createBlock`
+  - `createList`
+  - `createListItem`
+  - `updateProfile`
+- Removed `BlobContext` and `LegacyBlob`. Blobs in the old format were modified to be converted to the new format. ([#514](https://github.com/myConsciousness/atproto.dart/issues/514))
+
+## v0.5.7
+
+- Renamed property from `data` to `record` in `RepoCommitUpdate`.
+
 ## v0.5.6
 
 - Added `RepoCommitAdaptor` for easy handling of RepoCommit events of `SyncService.subscribeRepoUpdate`. ([#488](https://github.com/myConsciousness/atproto.dart/issues/488))

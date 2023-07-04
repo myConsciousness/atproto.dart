@@ -158,7 +158,7 @@ class RepoCommitAdaptor {
     if (op.uri.isActorProfile) {
       await _onUpdateProfile?.call(
         RepoCommitUpdate<ProfileRecord>(
-          data: ProfileRecord.fromJson(op.record!),
+          record: ProfileRecord.fromJson(op.record!),
           uri: op.uri,
           cid: op.cid!,
           author: data.did,
@@ -169,7 +169,7 @@ class RepoCommitAdaptor {
     } else {
       await _onUpdateUnknown?.call(
         RepoCommitUpdate<Map<String, dynamic>>(
-          data: op.record!,
+          record: op.record!,
           uri: op.uri,
           cid: op.cid!,
           author: data.did,

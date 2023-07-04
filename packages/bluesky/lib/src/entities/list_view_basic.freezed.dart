@@ -20,9 +20,12 @@ ListViewBasic _$ListViewBasicFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListViewBasic {
+  @JsonKey(name: '\$type')
+  String get type => throw _privateConstructorUsedError;
   String get purpose => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
+  String get cid => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
   ListViewer get viewer => throw _privateConstructorUsedError;
@@ -41,8 +44,10 @@ abstract class $ListViewBasicCopyWith<$Res> {
       _$ListViewBasicCopyWithImpl<$Res, ListViewBasic>;
   @useResult
   $Res call(
-      {String purpose,
+      {@JsonKey(name: '\$type') String type,
+      String purpose,
       @AtUriConverter() AtUri uri,
+      String cid,
       String name,
       String? avatar,
       ListViewer viewer,
@@ -64,14 +69,20 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? purpose = null,
     Object? uri = null,
+    Object? cid = null,
     Object? name = null,
     Object? avatar = freezed,
     Object? viewer = null,
     Object? indexedAt = null,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       purpose: null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
@@ -80,6 +91,10 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      cid: null == cid
+          ? _value.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -117,8 +132,10 @@ abstract class _$$_ListViewBasicCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String purpose,
+      {@JsonKey(name: '\$type') String type,
+      String purpose,
       @AtUriConverter() AtUri uri,
+      String cid,
       String name,
       String? avatar,
       ListViewer viewer,
@@ -139,14 +156,20 @@ class __$$_ListViewBasicCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? purpose = null,
     Object? uri = null,
+    Object? cid = null,
     Object? name = null,
     Object? avatar = freezed,
     Object? viewer = null,
     Object? indexedAt = null,
   }) {
     return _then(_$_ListViewBasic(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       purpose: null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
@@ -155,6 +178,10 @@ class __$$_ListViewBasicCopyWithImpl<$Res>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      cid: null == cid
+          ? _value.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -180,8 +207,10 @@ class __$$_ListViewBasicCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_ListViewBasic implements _ListViewBasic {
   const _$_ListViewBasic(
-      {this.purpose = 'app.bsky.graph.defs#modlist',
+      {@JsonKey(name: '\$type') this.type = 'app.bsky.graph.defs#listViewBasic',
+      this.purpose = 'app.bsky.graph.defs#modlist',
       @AtUriConverter() required this.uri,
+      required this.cid,
       required this.name,
       this.avatar,
       required this.viewer,
@@ -191,11 +220,16 @@ class _$_ListViewBasic implements _ListViewBasic {
       _$$_ListViewBasicFromJson(json);
 
   @override
+  @JsonKey(name: '\$type')
+  final String type;
+  @override
   @JsonKey()
   final String purpose;
   @override
   @AtUriConverter()
   final AtUri uri;
+  @override
+  final String cid;
   @override
   final String name;
   @override
@@ -207,7 +241,7 @@ class _$_ListViewBasic implements _ListViewBasic {
 
   @override
   String toString() {
-    return 'ListViewBasic(purpose: $purpose, uri: $uri, name: $name, avatar: $avatar, viewer: $viewer, indexedAt: $indexedAt)';
+    return 'ListViewBasic(type: $type, purpose: $purpose, uri: $uri, cid: $cid, name: $name, avatar: $avatar, viewer: $viewer, indexedAt: $indexedAt)';
   }
 
   @override
@@ -215,8 +249,10 @@ class _$_ListViewBasic implements _ListViewBasic {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ListViewBasic &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.purpose, purpose) || other.purpose == purpose) &&
             (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
@@ -226,8 +262,8 @@ class _$_ListViewBasic implements _ListViewBasic {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, purpose, uri, name, avatar, viewer, indexedAt);
+  int get hashCode => Object.hash(
+      runtimeType, type, purpose, uri, cid, name, avatar, viewer, indexedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -245,8 +281,10 @@ class _$_ListViewBasic implements _ListViewBasic {
 
 abstract class _ListViewBasic implements ListViewBasic {
   const factory _ListViewBasic(
-      {final String purpose,
+      {@JsonKey(name: '\$type') final String type,
+      final String purpose,
       @AtUriConverter() required final AtUri uri,
+      required final String cid,
       required final String name,
       final String? avatar,
       required final ListViewer viewer,
@@ -256,10 +294,15 @@ abstract class _ListViewBasic implements ListViewBasic {
       _$_ListViewBasic.fromJson;
 
   @override
+  @JsonKey(name: '\$type')
+  String get type;
+  @override
   String get purpose;
   @override
   @AtUriConverter()
   AtUri get uri;
+  @override
+  String get cid;
   @override
   String get name;
   @override

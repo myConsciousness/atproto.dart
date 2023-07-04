@@ -12,6 +12,8 @@ export 'package:atproto_core/src/client/retry_event.dart';
 export 'package:atproto_core/src/client/user_context.dart';
 export 'package:atproto_core/src/config/retry_config.dart';
 export 'package:atproto_core/src/converter/at_uri_converter.dart';
+export 'package:atproto_core/src/progress_status.dart'
+    show ProgressStatus, ProgressStatusEvent;
 export 'package:cbor/simple.dart' show cbor;
 export 'package:multiformats/multiformats.dart';
 export 'package:xrpc/xrpc.dart'
@@ -23,8 +25,6 @@ export 'package:xrpc/xrpc.dart'
         Subscription,
         Protocol,
         To,
-        Decoder,
-        JsonConverter,
         NSID,
         EmptyData,
         HttpMethod,

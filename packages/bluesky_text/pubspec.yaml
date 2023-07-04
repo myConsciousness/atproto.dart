@@ -1,6 +1,7 @@
 name: bluesky_text
 description: Provides the easiest and most powerful way to analyze the text on Bluesky Social.
-version: 0.2.1
+version: 0.2.4
+homepage: https://atprotodart.com
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_text
 issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
 funding:
@@ -10,7 +11,7 @@ environment:
   sdk: ">=2.17.0 <4.0.0"
 
 dependencies:
-  atproto: ^0.3.0
+  atproto: ^0.5.1
   characters: ^1.3.0
   freezed_annotation: ^2.2.0
   json_annotation: ^4.8.0
@@ -22,7 +23,7 @@ dev_dependencies:
   json_serializable: ^6.6.1
   freezed: ^2.3.2
   import_sorter: ^4.6.0
-  bluesky: ^0.5.0
+  bluesky: ^0.6.1
 
 import_sorter:
   emojis: true

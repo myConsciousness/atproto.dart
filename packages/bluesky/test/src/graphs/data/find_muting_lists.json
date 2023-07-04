@@ -3,6 +3,7 @@
     {
       "purpose": "app.bsky.graph.defs#modlist",
       "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvqbvdsijh2p",
+      "cid": "bafyreid6pnaxbeqpxtos7wa7vfwg5ehpjlqcozerz5ycy7f6e2esqxiphq",
       "name": "Test",
       "description": "Just for testing",
       "creator": {
@@ -18,9 +19,9 @@
       "viewer": { "muted": true },
       "indexedAt": "2023-05-15T02:10:48.837Z"
     },
-
     {
       "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvqbvdsijh2p",
+      "cid": "bafyreid6pnaxbeqpxtos7wa7vfwg5ehpjlqcozerz5ycy7f6e2esqxiphq",
       "creator": {
         "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
         "handle": "shinyakato.dev",
@@ -32,6 +33,7 @@
           "muted": true,
           "mutedByList": {
             "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvqbvdsijh2p",
+            "cid": "bafyreid6pnaxbeqpxtos7wa7vfwg5ehpjlqcozerz5ycy7f6e2esqxiphq",
             "name": "Test",
             "purpose": "app.bsky.graph.defs#modlist",
             "viewer": { "muted": true },

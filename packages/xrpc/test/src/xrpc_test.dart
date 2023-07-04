@@ -2,6 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'dart:io';
+
 import 'package:http/http.dart';
 import 'package:nsid/nsid.dart';
 import 'package:test/test.dart';
@@ -291,6 +293,55 @@ void main() {
     test('T is String', () async {
       final response = await procedure<String>(
         NSID.create('test.com', 'get'),
+        postClient: (url, {body, encoding, headers}) async => Response(
+          '{"test": "test"}',
+          200,
+          request: Request('POST', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response, isA<XRPCResponse<String>>());
+      expect(response.data, isA<String>());
+      expect(response.data, '{"test": "test"}');
+    });
+  });
+
+  group('.upload', () {
+    test('simple case', () async {
+      final response = await upload<EmptyData>(
+        NSID.create('test.com', 'get'),
+        File('./test/src/data/dash.png').readAsBytesSync(),
+        postClient: (url, {body, encoding, headers}) async => Response(
+          '{}',
+          200,
+          request: Request('POST', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response, isA<XRPCResponse<EmptyData>>());
+      expect(response.data, isA<EmptyData>());
+    });
+
+    test('with "to" parameter', () async {
+      final response = await upload(
+        NSID.create('test.com', 'get'),
+        File('./test/src/data/dash.png').readAsBytesSync(),
+        to: EmptyData.fromJson,
+        postClient: (url, {body, encoding, headers}) async => Response(
+          '{}',
+          200,
+          request: Request('POST', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response, isA<XRPCResponse<EmptyData>>());
+      expect(response.data, isA<EmptyData>());
+    });
+
+    test('T is String', () async {
+      final response = await upload<String>(
+        NSID.create('test.com', 'get'),
+        File('./test/src/data/dash.png').readAsBytesSync(),
         postClient: (url, {body, encoding, headers}) async => Response(
           '{"test": "test"}',
           200,

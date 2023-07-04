@@ -33,9 +33,7 @@ Future<void> post() async {
                     name: 'media-alt',
                     options: core.InputOptions(trimWhitespace: true),
                   ),
-                  image: bsky.BlobContext.blob(
-                    data: uploaded.blob,
-                  ),
+                  image: uploaded.blob,
                 )
               ],
             ),
@@ -108,7 +106,7 @@ Future<bsky.BlobData?> _uploadMedia(final bsky.Bluesky bluesky) async {
   }
 
   final uploaded = await bluesky.repositories.uploadBlob(
-    File(mediaPath),
+    File(mediaPath).readAsBytesSync(),
   );
 
   return uploaded.data;

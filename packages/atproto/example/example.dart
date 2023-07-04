@@ -32,7 +32,7 @@ Future<void> main() async {
         ),
       ),
 
-      //! The default timeout is 10 seconds.
+      //! The default timeout is 30 seconds.
       timeout: Duration(seconds: 20),
     );
 

@@ -7,11 +7,28 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "atproto.dart",
-  tagline: "Dinosaurs are cool",
+  tagline: "AT Protocol and Bluesky Social Things for Dart and Flutter",
   favicon: "img/favicon.ico",
 
+  staticDirectories: ["public", "static"],
+
+  plugins: [
+    "docusaurus-plugin-sass",
+    [
+      "@docusaurus/plugin-ideal-image",
+      {
+        quality: 100,
+        max: 1030,
+        min: 640,
+        steps: 2,
+        // Use false to debug, but it incurs huge perf costs
+        disableInDev: true,
+      },
+    ],
+  ],
+
   // Set the production url of your site here
-  url: "https://atproto.shinyakato.dev",
+  url: "https://atprotodart.com",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
@@ -39,20 +56,16 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/myConsciousness/atproto.dart/blob/main/website",
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/myConsciousness/atproto.dart/blob/main/website",
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: require.resolve("./src/scss/main.scss"),
         },
       }),
     ],
@@ -62,21 +75,35 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: "img/docusaurus-social-card.jpg",
+      image: "img/social_card.png",
+      announcementBar: {
+        id: "announcementBar-2", // Increment on change
+        content: `⭐️ If you like atproto.dart, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/myConsciousness/atproto.dart">GitHub</a> and follow <a target="_blank" rel="noopener noreferrer" href="https://bsky.app/profile/shinyakato.dev">Shinya Kato on Bluesky</a> ⭐️`,
+      },
       navbar: {
         title: "atproto.dart",
         logo: {
           alt: "atproto.dart logo",
-          src: "img/logo.svg",
+          src: "img/logo.png",
         },
         items: [
           {
-            type: "docSidebar",
-            sidebarId: "tutorialSidebar",
+            to: "/docs/intro",
+            label: "Docs",
             position: "left",
-            label: "Tutorial",
           },
-          { to: "/blog", label: "Blog", position: "left" },
+          {
+            to: "/docs/packages/overview",
+            label: "Packages & Tools",
+            position: "left",
+          },
+          {
+            to: "/docs/api_support_matrix",
+            label: "API Support",
+            position: "left",
+          },
+          { to: "showcase", label: "Showcase", position: "left" },
+          // { to: "/blog", label: "Blog", position: "left" },
           {
             href: "https://github.com/myConsciousness/atproto.dart",
             label: "GitHub",
@@ -86,13 +113,50 @@ const config = {
       },
       footer: {
         style: "dark",
+        logo: {
+          alt: "atproto.dart",
+          src: "img/full_logo.png",
+        },
         links: [
           {
-            title: "Docs",
+            title: "Learn",
             items: [
               {
-                label: "Tutorial",
+                label: "Introduction",
                 to: "/docs/intro",
+              },
+              {
+                label: "Installation",
+                to: "/docs/category/getting-started",
+              },
+              {
+                label: "Showcase",
+                to: "showcase",
+              },
+            ],
+          },
+          {
+            title: "Community",
+            items: [
+              {
+                label: "Dev Repository",
+                href: "https://github.com/myConsciousness/atproto.dart",
+              },
+              {
+                label: "Bluesky API Touchers",
+                href: "https://discord.gg/zWed6y3V",
+              },
+              {
+                label: "Issues",
+                href: "https://github.com/myConsciousness/atproto.dart/issues",
+              },
+              {
+                label: "Discussions",
+                href: "https://github.com/myConsciousness/atproto.dart/discussions",
+              },
+              {
+                label: "Code of Conduct",
+                href: "https://github.com/myConsciousness/atproto.dart/blob/main/CODE_OF_CONDUCT.md",
               },
             ],
           },
@@ -100,12 +164,41 @@ const config = {
             title: "Contact",
             items: [
               {
-                label: "GitHub",
-                href: "https://github.com/myConsciousness/atproto.dart",
+                label: "Bluesky Social",
+                href: "https://bsky.app/profile/shinyakato.dev",
               },
               {
-                label: "Bluesky Social",
-                href: "https://staging.bsky.app/profile/shinyakato.dev",
+                label: "GitHub",
+                href: "https://github.com/myConsciousness",
+              },
+              {
+                label: "Discord",
+                href: "https://discordapp.com/users/919043517974720514",
+              },
+              {
+                label: "contact@shinyakato.dev",
+                href: "mailto:contact@shinyakato.dev",
+              },
+            ],
+          },
+          {
+            title: "More",
+            items: [
+              {
+                label: "AT Protocol Official",
+                href: "https://atproto.com",
+              },
+              {
+                label: "Bluesky Social Official",
+                href: "https://blueskyweb.xyz",
+              },
+              {
+                label: "Shinya Kato Official",
+                href: "https://shinyakato.dev",
+              },
+              {
+                label: "DEV.to Articles",
+                to: "https://dev.to/shinyakato",
               },
             ],
           },
@@ -113,8 +206,9 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Shinya Kato. Built with Docusaurus.`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        defaultLanguage: "dart",
+        additionalLanguages: ["dart", "yaml"],
+        darkTheme: require("prism-react-renderer/themes/dracula"),
       },
       colorMode: {
         defaultMode: "dark",
@@ -122,6 +216,10 @@ const config = {
         respectPrefersColorScheme: false,
       },
     }),
+  markdown: {
+    mermaid: true,
+  },
+  themes: ["@docusaurus/theme-mermaid"],
 };
 
 module.exports = config;

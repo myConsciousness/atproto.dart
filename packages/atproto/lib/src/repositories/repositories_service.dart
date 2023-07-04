@@ -2,7 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:atproto_core/atproto_core.dart' as core;
 
@@ -12,8 +12,9 @@ import '../entities/blob_data.dart';
 import '../entities/create_action.dart';
 import '../entities/delete_action.dart';
 import '../entities/record.dart';
-import '../entities/record_value.dart';
-import '../entities/repo.dart';
+import '../entities/records.dart';
+import '../entities/repo_info.dart';
+import '../entities/strong_ref.dart';
 import '../entities/update_action.dart';
 
 abstract class RepositoriesService {
@@ -56,7 +57,7 @@ abstract class RepositoriesService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/createRecord.json
-  Future<core.XRPCResponse<Record>> createRecord({
+  Future<core.XRPCResponse<StrongRef>> createRecord({
     required core.NSID collection,
     required Map<String, dynamic> record,
     bool? validate,
@@ -80,9 +81,45 @@ abstract class RepositoriesService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/getRecord.json
-  Future<core.XRPCResponse<RecordValue>> findRecord({
+  Future<core.XRPCResponse<Record>> findRecord({
     required core.AtUri uri,
     String? cid,
+  });
+
+  /// List a range of records in a collection.
+  ///
+  /// ## Parameters
+  ///
+  /// - [repo]: The handle or DID of the repo.
+  ///
+  /// - [collection]: The NSID of the record type.
+  ///
+  /// - [limit]: The number of records to return.
+  ///            From 1 to 100. The default is 50.
+  ///
+  /// - [cursor]: Pagination cursor.
+  ///
+  /// - [rkeyStart]: The lowest sort-ordered rkey to start from (exclusive).
+  ///
+  /// - [rkeyEnd]: The highest sort-ordered rkey to stop at (exclusive).
+  ///
+  /// - [reverse]: Reverse the order of the returned records?
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.listRecords
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/listRecords.json
+  Future<core.XRPCResponse<Records>> findRecords({
+    required String repo,
+    required core.NSID collection,
+    int? limit,
+    bool? reverse,
+    String? rkeyStart,
+    String? rkeyEnd,
+    String? cursor,
   });
 
   /// Delete a record, or ensure it doesn't exist.
@@ -129,7 +166,7 @@ abstract class RepositoriesService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/putRecord.json
-  Future<core.XRPCResponse<Record>> updateRecord({
+  Future<core.XRPCResponse<StrongRef>> updateRecord({
     required core.AtUri uri,
     required Map<String, dynamic> record,
     bool? validate,
@@ -141,7 +178,7 @@ abstract class RepositoriesService {
   ///
   /// ## Parameters
   ///
-  /// - [file]: The file object to be uploaded.
+  /// - [bytes]: The bytes to be uploaded.
   ///
   /// ## Lexicon
   ///
@@ -151,14 +188,14 @@ abstract class RepositoriesService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/uploadBlob.json
   Future<core.XRPCResponse<BlobData>> uploadBlob(
-    final File file,
+    final Uint8List bytes,
   );
 
   /// Get information about the repo, including the list of collections.
   ///
   /// ## Parameters
   ///
-  /// - [identifier]: The handle or DID of the repo.
+  /// - [repo]: The handle or DID of the repo.
   ///
   /// ## Lexicon
   ///
@@ -167,8 +204,28 @@ abstract class RepositoriesService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/describeRepo.json
-  Future<core.XRPCResponse<Repo>> findRepo({
-    required String identifier,
+  Future<core.XRPCResponse<RepoInfo>> findRepoInfo({
+    required String repo,
+  });
+
+  /// Simple rebase of repo that deletes history.
+  ///
+  /// ## Parameters
+  ///
+  /// - [repo]: The handle or DID of the repo.
+  ///
+  /// - [swapCommitCid]: Compare and swap with the previous commit by cid.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.rebaseRepo
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/rebaseRepo.json
+  Future<core.XRPCResponse<core.EmptyData>> rebaseRepo({
+    required String repo,
+    String? swapCommitCid,
   });
 
   /// Apply a batch transaction of creates, updates, and deletes.
@@ -259,7 +316,7 @@ class _RepositoriesService extends ATProtoBaseService
   }) : super(methodAuthority: 'repo.atproto.com');
 
   @override
-  Future<core.XRPCResponse<Record>> createRecord({
+  Future<core.XRPCResponse<StrongRef>> createRecord({
     required core.NSID collection,
     required Map<String, dynamic> record,
     bool? validate,
@@ -276,11 +333,11 @@ class _RepositoriesService extends ATProtoBaseService
           'swapRecord': swapRecordCid,
           'swapCommit': swapCommitCid
         },
-        to: Record.fromJson,
+        to: StrongRef.fromJson,
       );
 
   @override
-  Future<core.XRPCResponse<RecordValue>> findRecord({
+  Future<core.XRPCResponse<Record>> findRecord({
     required core.AtUri uri,
     String? cid,
   }) async =>
@@ -292,7 +349,31 @@ class _RepositoriesService extends ATProtoBaseService
           'rkey': uri.rkey,
           'cid': cid,
         },
-        to: RecordValue.fromJson,
+        to: Record.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Records>> findRecords({
+    required String repo,
+    required core.NSID collection,
+    int? limit,
+    bool? reverse,
+    String? rkeyStart,
+    String? rkeyEnd,
+    String? cursor,
+  }) async =>
+      await super.get(
+        'listRecords',
+        parameters: {
+          'repo': repo,
+          'collection': collection,
+          'limit': limit,
+          'reverse': reverse,
+          'rkeyStart': rkeyStart,
+          'rkeyEnd': rkeyEnd,
+          'cursor': cursor,
+        },
+        to: Records.fromJson,
       );
 
   @override
@@ -313,7 +394,7 @@ class _RepositoriesService extends ATProtoBaseService
       );
 
   @override
-  Future<core.XRPCResponse<Record>> updateRecord({
+  Future<core.XRPCResponse<StrongRef>> updateRecord({
     required core.AtUri uri,
     required Map<String, dynamic> record,
     bool? validate,
@@ -331,27 +412,27 @@ class _RepositoriesService extends ATProtoBaseService
           'swapRecord': swapRecordCid,
           'swapCommit': swapCommitCid
         },
-        to: Record.fromJson,
+        to: StrongRef.fromJson,
       );
 
   @override
-  Future<core.XRPCResponse<BlobData>> uploadBlob(final File file) async =>
+  Future<core.XRPCResponse<BlobData>> uploadBlob(final Uint8List bytes) async =>
       await super.upload(
         super.createNSID('uploadBlob'),
-        file,
+        bytes,
         to: BlobData.fromJson,
       );
 
   @override
-  Future<core.XRPCResponse<Repo>> findRepo({
-    required String identifier,
+  Future<core.XRPCResponse<RepoInfo>> findRepoInfo({
+    required String repo,
   }) async =>
       await super.get(
         'describeRepo',
         parameters: {
-          'repo': identifier,
+          'repo': repo,
         },
-        to: Repo.fromJson,
+        to: RepoInfo.fromJson,
         userContext: core.UserContext.anonymousOnly,
       );
 
@@ -417,5 +498,18 @@ class _RepositoriesService extends ATProtoBaseService
             .toList(),
         validate: validate,
         swapCommitCid: swapCommitCid,
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> rebaseRepo({
+    required String repo,
+    String? swapCommitCid,
+  }) async =>
+      await super.post<core.EmptyData>(
+        'rebaseRepo',
+        body: {
+          'repo': repo,
+          'swapCommit': swapCommitCid,
+        },
       );
 }

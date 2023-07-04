@@ -4,7 +4,7 @@
 
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
@@ -35,11 +35,8 @@ const _defaultService = 'bsky.social';
 /// to model objects.
 typedef To<T> = T Function(Map<String, Object?> json);
 
-/// Function to decode response data.
-typedef Decoder = dynamic Function(dynamic data);
-
-/// Function to convert Json to an specific structure.
-typedef JsonConverter = Map<String, dynamic> Function(
+/// Function to convert response data to an specific structure.
+typedef ResponseAdaptor = Map<String, dynamic> Function(
   dynamic data,
 );
 
@@ -162,7 +159,7 @@ Future<XRPCResponse<T>> query<T>(
   final Map<String, dynamic>? parameters,
   final Duration timeout = const Duration(seconds: 10),
   final To<T>? to,
-  final JsonConverter? converter,
+  final ResponseAdaptor? adaptor,
   final GetClient? getClient,
 }) async =>
     _buildResponse<T>(
@@ -181,7 +178,7 @@ Future<XRPCResponse<T>> query<T>(
             .timeout(timeout),
       ),
       to,
-      converter,
+      adaptor,
     );
 
 /// Performs POST communication to the ATP server.
@@ -326,7 +323,7 @@ Future<XRPCResponse<T>> procedure<T>(
 /// Uploads blob.
 Future<XRPCResponse<T>> upload<T>(
   final nsid.NSID methodId,
-  final File file, {
+  final Uint8List bytes, {
   final Protocol protocol = Protocol.https,
   final String? service,
   final Map<String, String>? headers,
@@ -342,9 +339,9 @@ Future<XRPCResponse<T>> upload<T>(
             '/xrpc/${methodId.toString()}',
           ),
           headers: {
-            'Content-Type': lookupMimeType(file.path)!,
+            'Content-Type': lookupMimeType('', headerBytes: bytes) ?? '*/*',
           }..addAll(headers ?? {}),
-          body: file.readAsBytesSync(),
+          body: bytes,
         ),
       ),
       to,
@@ -356,8 +353,7 @@ XRPCResponse<Subscription<T>> subscribe<T>(
   final String? service,
   final Map<String, dynamic>? parameters,
   final To<T>? to,
-  final Decoder? decoder,
-  final JsonConverter? converter,
+  final ResponseAdaptor? adaptor,
 }) {
   final uri = _buildWsUri(methodId, service, removeNullValues(parameters));
   final channel = WebSocketChannel.connect(uri);
@@ -365,10 +361,7 @@ XRPCResponse<Subscription<T>> subscribe<T>(
   final controller = StreamController<T>();
 
   channel.stream.listen((event) {
-    final data = _convertData(
-      _decodeData(event, decoder),
-      converter,
-    );
+    final data = adaptor != null ? adaptor.call(event) : event;
 
     controller.sink.add(
       to != null ? to.call(data) : jsonEncode(data) as T,
@@ -487,7 +480,7 @@ Map<String, dynamic> convertParameters(final Map<String, dynamic> parameters) =>
 XRPCResponse<T> _buildResponse<T>(
   final http.Response response,
   final To<T>? to, [
-  final JsonConverter? converter,
+  final ResponseAdaptor? adaptor,
 ]) =>
     XRPCResponse(
       headers: response.headers,
@@ -497,10 +490,9 @@ XRPCResponse<T> _buildResponse<T>(
         url: response.request!.url,
       ),
       data: _transformData(
-        _convertData(
-          response.body,
-          converter,
-        ),
+        adaptor != null
+            ? jsonEncode(adaptor.call(response.bodyBytes))
+            : response.body,
         to,
       ),
     );
@@ -557,15 +549,3 @@ Uri _buildWsUri(
 
   return Uri.parse(buffer.toString());
 }
-
-dynamic _decodeData(
-  final dynamic data,
-  final Decoder? decoder,
-) =>
-    decoder != null ? decoder.call(data) : data;
-
-dynamic _convertData(
-  final dynamic data,
-  final JsonConverter? converter,
-) =>
-    converter != null ? converter.call(data) : data;

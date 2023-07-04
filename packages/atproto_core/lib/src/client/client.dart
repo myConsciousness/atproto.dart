@@ -4,7 +4,7 @@
 
 // 🎯 Dart imports:
 import 'dart:async';
-import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:xrpc/xrpc.dart' as xrpc;
 
@@ -15,7 +15,7 @@ abstract class Client {
     required final String service,
     final Map<String, dynamic>? parameters,
     required final xrpc.To<T> to,
-    final xrpc.JsonConverter? converter,
+    final xrpc.ResponseAdaptor? adaptor,
     required final Duration timeout,
     final xrpc.GetClient? getClient,
   });
@@ -33,7 +33,7 @@ abstract class Client {
 
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final xrpc.NSID methodId,
-    final File file, {
+    final Uint8List bytes, {
     final xrpc.Protocol? protocol,
     final String? service,
     final Map<String, String>? headers,
@@ -47,7 +47,6 @@ abstract class Client {
     final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
-    final xrpc.Decoder? decoder,
-    final xrpc.JsonConverter? converter,
+    final xrpc.ResponseAdaptor? adaptor,
   });
 }

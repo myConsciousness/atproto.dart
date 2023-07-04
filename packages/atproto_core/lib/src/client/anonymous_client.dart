@@ -2,7 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:xrpc/xrpc.dart' as xrpc;
 
@@ -19,7 +19,7 @@ class AnonymousClient implements Client {
     required final String service,
     final Map<String, dynamic>? parameters,
     required final xrpc.To<T> to,
-    final xrpc.JsonConverter? converter,
+    final xrpc.ResponseAdaptor? adaptor,
     required final Duration timeout,
     final xrpc.GetClient? getClient,
   }) async =>
@@ -29,7 +29,7 @@ class AnonymousClient implements Client {
         service: service,
         parameters: parameters,
         to: to,
-        converter: converter,
+        adaptor: adaptor,
         timeout: timeout,
         getClient: getClient,
       );
@@ -59,7 +59,7 @@ class AnonymousClient implements Client {
   @override
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final xrpc.NSID methodId,
-    final File file, {
+    final Uint8List bytes, {
     final xrpc.Protocol? protocol,
     final String? service,
     final Map<String, String>? headers,
@@ -69,7 +69,7 @@ class AnonymousClient implements Client {
   }) async =>
       await xrpc.upload(
         methodId,
-        file,
+        bytes,
         protocol: protocol ?? xrpc.Protocol.https,
         service: service,
         headers: headers,
@@ -84,15 +84,13 @@ class AnonymousClient implements Client {
     final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
-    final xrpc.Decoder? decoder,
-    final xrpc.JsonConverter? converter,
+    final xrpc.ResponseAdaptor? adaptor,
   }) =>
       xrpc.subscribe(
         methodId,
         service: service,
         parameters: parameters,
         to: to,
-        decoder: decoder,
-        converter: converter,
+        adaptor: adaptor,
       );
 }

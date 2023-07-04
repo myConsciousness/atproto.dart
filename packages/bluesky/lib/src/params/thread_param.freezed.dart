@@ -24,6 +24,7 @@ mixin _$ThreadParam {
   List<Facet>? get facets => throw _privateConstructorUsedError;
   @EmbedConverter()
   Embed? get embed => throw _privateConstructorUsedError;
+  List<String>? get languageTags => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,6 +43,7 @@ abstract class $ThreadParamCopyWith<$Res> {
       {String text,
       List<Facet>? facets,
       @EmbedConverter() Embed? embed,
+      List<String>? languageTags,
       DateTime? createdAt});
 
   $EmbedCopyWith<$Res>? get embed;
@@ -63,6 +65,7 @@ class _$ThreadParamCopyWithImpl<$Res, $Val extends ThreadParam>
     Object? text = null,
     Object? facets = freezed,
     Object? embed = freezed,
+    Object? languageTags = freezed,
     Object? createdAt = freezed,
   }) {
     return _then(_value.copyWith(
@@ -78,6 +81,10 @@ class _$ThreadParamCopyWithImpl<$Res, $Val extends ThreadParam>
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
               as Embed?,
+      languageTags: freezed == languageTags
+          ? _value.languageTags
+          : languageTags // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -110,6 +117,7 @@ abstract class _$$_ThreadParamCopyWith<$Res>
       {String text,
       List<Facet>? facets,
       @EmbedConverter() Embed? embed,
+      List<String>? languageTags,
       DateTime? createdAt});
 
   @override
@@ -130,6 +138,7 @@ class __$$_ThreadParamCopyWithImpl<$Res>
     Object? text = null,
     Object? facets = freezed,
     Object? embed = freezed,
+    Object? languageTags = freezed,
     Object? createdAt = freezed,
   }) {
     return _then(_$_ThreadParam(
@@ -145,6 +154,10 @@ class __$$_ThreadParamCopyWithImpl<$Res>
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
               as Embed?,
+      languageTags: freezed == languageTags
+          ? _value._languageTags
+          : languageTags // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -161,8 +174,10 @@ class _$_ThreadParam implements _ThreadParam {
       {required this.text,
       final List<Facet>? facets,
       @EmbedConverter() this.embed,
+      final List<String>? languageTags,
       this.createdAt})
-      : _facets = facets;
+      : _facets = facets,
+        _languageTags = languageTags;
 
   factory _$_ThreadParam.fromJson(Map<String, dynamic> json) =>
       _$$_ThreadParamFromJson(json);
@@ -182,12 +197,22 @@ class _$_ThreadParam implements _ThreadParam {
   @override
   @EmbedConverter()
   final Embed? embed;
+  final List<String>? _languageTags;
+  @override
+  List<String>? get languageTags {
+    final value = _languageTags;
+    if (value == null) return null;
+    if (_languageTags is EqualUnmodifiableListView) return _languageTags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final DateTime? createdAt;
 
   @override
   String toString() {
-    return 'ThreadParam(text: $text, facets: $facets, embed: $embed, createdAt: $createdAt)';
+    return 'ThreadParam(text: $text, facets: $facets, embed: $embed, languageTags: $languageTags, createdAt: $createdAt)';
   }
 
   @override
@@ -198,14 +223,21 @@ class _$_ThreadParam implements _ThreadParam {
             (identical(other.text, text) || other.text == text) &&
             const DeepCollectionEquality().equals(other._facets, _facets) &&
             (identical(other.embed, embed) || other.embed == embed) &&
+            const DeepCollectionEquality()
+                .equals(other._languageTags, _languageTags) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, text,
-      const DeepCollectionEquality().hash(_facets), embed, createdAt);
+  int get hashCode => Object.hash(
+      runtimeType,
+      text,
+      const DeepCollectionEquality().hash(_facets),
+      embed,
+      const DeepCollectionEquality().hash(_languageTags),
+      createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -226,6 +258,7 @@ abstract class _ThreadParam implements ThreadParam {
       {required final String text,
       final List<Facet>? facets,
       @EmbedConverter() final Embed? embed,
+      final List<String>? languageTags,
       final DateTime? createdAt}) = _$_ThreadParam;
 
   factory _ThreadParam.fromJson(Map<String, dynamic> json) =
@@ -238,6 +271,8 @@ abstract class _ThreadParam implements ThreadParam {
   @override
   @EmbedConverter()
   Embed? get embed;
+  @override
+  List<String>? get languageTags;
   @override
   DateTime? get createdAt;
   @override

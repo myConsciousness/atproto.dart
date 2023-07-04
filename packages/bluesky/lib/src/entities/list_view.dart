@@ -19,8 +19,12 @@ part 'list_view.g.dart';
 class ListView with _$ListView {
   @JsonSerializable(includeIfNull: false)
   const factory ListView({
+    @Default('app.bsky.graph.defs#listView')
+    @JsonKey(name: '\$type')
+    String type,
     @Default('app.bsky.graph.defs#modlist') String purpose,
     @AtUriConverter() required AtUri uri,
+    required String cid,
     required String name,
     String? description,
     List<Facet>? descriptionFacets,

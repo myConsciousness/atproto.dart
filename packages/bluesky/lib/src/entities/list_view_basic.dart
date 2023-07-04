@@ -17,8 +17,12 @@ part 'list_view_basic.g.dart';
 class ListViewBasic with _$ListViewBasic {
   @JsonSerializable(includeIfNull: false)
   const factory ListViewBasic({
+    @Default('app.bsky.graph.defs#listViewBasic')
+    @JsonKey(name: '\$type')
+    String type,
     @Default('app.bsky.graph.defs#modlist') String purpose,
     @AtUriConverter() required AtUri uri,
+    required String cid,
     required String name,
     String? avatar,
     required ListViewer viewer,

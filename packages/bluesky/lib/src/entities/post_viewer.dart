@@ -13,6 +13,9 @@ part 'post_viewer.g.dart';
 
 @freezed
 class PostViewer with _$PostViewer {
+  // ignore: unused_element
+  const PostViewer._();
+
   @JsonSerializable(includeIfNull: false)
   const factory PostViewer({
     @AtUriConverter() AtUri? repost,
@@ -21,4 +24,20 @@ class PostViewer with _$PostViewer {
 
   factory PostViewer.fromJson(Map<String, Object?> json) =>
       _$PostViewerFromJson(json);
+
+  /// Returns true if authenticated user has already reposted this record,
+  /// otherwise false.
+  bool get isReposted => repost != null;
+
+  /// Returns true if authenticated user has not reposted yet this record,
+  /// otherwise false.
+  bool get isNotReposted => !isReposted;
+
+  /// Returns true if authenticated user has already liked this record,
+  /// otherwise false.
+  bool get isLiked => like != null;
+
+  /// Returns true if authenticated user has not liked yet this record,
+  /// otherwise false.
+  bool get isNotLiked => !isLiked;
 }
