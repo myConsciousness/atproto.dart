@@ -6,23 +6,18 @@ import 'dart:io';
 
 import 'package:pubspec/pubspec.dart';
 
-const _root = './packages';
+import 'utils.dart';
 
-const _packages = [
-  'at_identifier',
-  'nsid',
-  'at_uri',
-  'xrpc',
-  'multiformats',
-  'atproto_core',
-  'atproto',
-  'bluesky',
-  'bluesky_cli',
-  'bluesky_text',
-  'bluesky_cards',
+const _excludePackages = [
+  'atproto_test',
+  'bluesky_post',
 ];
 
 void main(List<String> args) {
+  validateDependencies();
+}
+
+void validateDependencies() {
   final graph = _getDependencyGraph();
 
   _checkDevelopingPackages(graph);
@@ -34,9 +29,13 @@ void main(List<String> args) {
 Map<Package, List<Dependency>> _getDependencyGraph() {
   final dependencyGraph = <Package, List<Dependency>>{};
 
-  for (final package in _packages) {
+  for (final packageName in packageNames) {
+    if (_excludePackages.contains(packageName)) {
+      continue;
+    }
+
     final pubspec = PubSpec.fromYamlString(
-      File('$_root/$package/pubspec.yaml').readAsStringSync(),
+      File('$packagesPath/$packageName/$pubspecFileName').readAsStringSync(),
     );
 
     final dependencies = <Dependency>[];
