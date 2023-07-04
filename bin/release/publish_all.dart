@@ -14,17 +14,8 @@ Future<void> main() async {
   final packages = await publishOrders;
   _printPublishTable(packages);
 
-  for (final package in packages) {
-    print('Releasing package: $package');
-
-    final succeeded = await _publishPackage(package, dryRun: true);
-
-    if (succeeded) {
-      print('Successfully released package: $package');
-    } else {
-      print('Failed to release package: $package');
-    }
-  }
+  await _publishPackages(packages, dryRun: true);
+  await _publishPackages(packages);
 }
 
 void _printPublishTable(final List<String> packages) {
@@ -69,4 +60,21 @@ Future<bool> _publishPackage(
   }
 
   return true;
+}
+
+Future<void> _publishPackages(
+  final List<String> packages, {
+  bool dryRun = false,
+}) async {
+  for (final package in packages) {
+    print('Releasing package: $package');
+
+    final succeeded = await _publishPackage(package, dryRun: dryRun);
+
+    if (succeeded) {
+      print('Successfully released package: $package');
+    } else {
+      print('Failed to release package: $package');
+    }
+  }
 }
