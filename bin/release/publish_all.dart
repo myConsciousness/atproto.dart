@@ -11,10 +11,13 @@ import 'publish_orders.dart';
 Future<void> main() async {
   validateDependencies();
 
-  for (final package in await publishOrders) {
+  final packages = await publishOrders;
+  _printPublishTable(packages);
+
+  for (final package in packages) {
     print('Releasing package: $package');
 
-    final succeeded = await _publishPackage(package);
+    final succeeded = await _publishPackage(package, dryRun: true);
 
     if (succeeded) {
       print('Successfully released package: $package');
@@ -24,31 +27,46 @@ Future<void> main() async {
   }
 }
 
-Future<bool> _publishPackage(final String package) async {
+void _printPublishTable(final List<String> packages) {
+  final longestPackage = packages.reduce(
+    (value, element) => value.length > element.length ? value : element,
+  );
+
+  print(
+    '| No. | Package Name '
+    '${' ' * (longestPackage.length - 'Package Name'.length)}|',
+  );
+
+  print(
+    '| --- | ------------'
+    '${'-' * (longestPackage.length - '------------'.length)} |',
+  );
+
+  for (int i = 0; i < packages.length; i++) {
+    print('| ${i + 1}   | ${packages[i].padRight(longestPackage.length)} |');
+  }
+}
+
+Future<bool> _publishPackage(
+  final String package, {
+  bool dryRun = false,
+}) async {
+  final params = ['pub', 'publish'];
+
+  if (dryRun) {
+    params.add('--dry-run');
+  }
+
   final result = await Process.run(
     'dart',
-    ['pub', 'publish', '--dry-run'],
+    params,
     workingDirectory: '$packagesPath/$package',
   );
 
   if (result.exitCode != 0) {
-    print('Dry run failed: ${result.stderr}');
+    print('Failed: ${result.stderr}');
     return false;
   }
-
-  print('Dry run successful, proceeding to publish...');
-
-  // var apiKey =
-  //     Platform.environment['PUB_API_KEY']; // Ensure this is securely set
-
-  // var pubResult = await Process.run('dart',
-  //     ['pub', 'publish', '--force', '--server', 'https://pub.dev', '-n', ''],
-  //     workingDirectory: workingDirectory);
-
-  // if (pubResult.exitCode != 0) {
-  //   print('Failed to publish package: ${pubResult.stderr}');
-  //   return false;
-  // }
 
   return true;
 }
