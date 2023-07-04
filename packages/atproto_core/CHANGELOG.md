@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.1
+
+- Fixed to throw `UnsupportedError` when an anonymous user tries to access an endpoint that requires authentication. ([#564](https://github.com/myConsciousness/atproto.dart/issues/564))
+
 ## v0.4.0
 
 - Added `homepage` in `pubspec.yaml`. ([#549](https://github.com/myConsciousness/atproto.dart/issues/549))

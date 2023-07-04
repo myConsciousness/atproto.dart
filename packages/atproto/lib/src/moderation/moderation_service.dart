@@ -72,7 +72,7 @@ class _ModerationService extends ATProtoBaseService
     ModerationReasonType reasonType = ModerationReasonType.spam,
     String? reason,
   }) async =>
-      super.post(
+      await super.post(
         'createReport',
         body: {
           'subject': subject.toJson(),

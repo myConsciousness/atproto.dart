@@ -10,8 +10,6 @@ import 'dart:typed_data';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 import '../config/retry_config.dart';
-import 'anonymous_client.dart';
-import 'auth_required_client.dart';
 import 'challenge.dart';
 import 'client_resolver.dart';
 import 'retry_policy.dart';
@@ -79,10 +77,7 @@ class _ClientContext implements ClientContext {
     required String accessJwt,
     required this.timeout,
     RetryConfig? retryConfig,
-  })  : _clientResolver = ClientResolver(
-          AnonymousClient(),
-          AuthRequiredClient(accessJwt),
-        ),
+  })  : _clientResolver = ClientResolver(accessJwt),
         _challenge = Challenge(
           RetryPolicy(retryConfig),
         );

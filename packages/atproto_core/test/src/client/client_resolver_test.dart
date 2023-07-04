@@ -11,10 +11,7 @@ import 'package:test/test.dart';
 void main() {
   group('.execute', () {
     test('auth required client', () {
-      final resolver = ClientResolver(
-        AnonymousClient(),
-        AuthRequiredClient(''),
-      );
+      final resolver = ClientResolver('aaaaa');
 
       expect(
         resolver.execute(UserContext.authRequired),
@@ -23,14 +20,20 @@ void main() {
     });
 
     test('anonymous client', () {
-      final resolver = ClientResolver(
-        AnonymousClient(),
-        AuthRequiredClient(''),
-      );
+      final resolver = ClientResolver('');
 
       expect(
         resolver.execute(UserContext.anonymousOnly),
         isA<AnonymousClient>(),
+      );
+    });
+
+    test('auth required client without token', () {
+      final resolver = ClientResolver('');
+
+      expect(
+        () => resolver.execute(UserContext.authRequired),
+        throwsA(isA<UnsupportedError>()),
       );
     });
   });
