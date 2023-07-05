@@ -79,6 +79,26 @@ void main() {
       expect(response.data, isA<CurrentSession>());
     });
 
+    test('as JSON', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/servers/data/find_current_session.json',
+        ),
+      );
+
+      final response = await servers.findCurrentSessionAsJson();
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
     test('when unauthorized', () async {
       final servers = ServersService(
         did: 'test',
@@ -891,6 +911,26 @@ void main() {
       expect(response.data, isA<AppPasswords>());
     });
 
+    test('as JSON', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/servers/data/find_app_passwords.json',
+        ),
+      );
+
+      final response = await servers.findAppPasswordsAsJson();
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
     test('when unauthorized', () async {
       final servers = ServersService(
         did: 'test',
@@ -956,6 +996,29 @@ void main() {
       expect(response.data, isA<InviteCodes>());
     });
 
+    test('as JSON', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/servers/data/find_invite_codes.json',
+        ),
+      );
+
+      final response = await servers.findInviteCodesAsJson(
+        includeUsed: false,
+        createAvailable: false,
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
     test('when unauthorized', () async {
       final servers = ServersService(
         did: 'test',
@@ -1016,6 +1079,26 @@ void main() {
 
       expect(response, isA<core.XRPCResponse>());
       expect(response.data, isA<ServerInfo>());
+    });
+
+    test('as JSON', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/servers/data/find_server_info.json',
+        ),
+      );
+
+      final response = await servers.findServerInfoAsJson();
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {

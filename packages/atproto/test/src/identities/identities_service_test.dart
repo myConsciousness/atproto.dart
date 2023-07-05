@@ -32,6 +32,28 @@ void main() {
       expect(response.data, isA<DID>());
     });
 
+    test('as JSON', () async {
+      final identities = IdentitiesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/identities/data/find_did.json',
+        ),
+      );
+
+      final response = await identities.findDIDAsJson(
+        handle: 'shinyakato.dev',
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
     test('when unauthorized', () async {
       final identities = IdentitiesService(
         protocol: core.Protocol.https,

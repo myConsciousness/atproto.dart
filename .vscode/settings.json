@@ -45,5 +45,7 @@
   ],
   "[markdown]": {
     "editor.wordWrap": "off"
-  }
+  },
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
 }

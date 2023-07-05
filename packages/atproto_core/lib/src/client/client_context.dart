@@ -34,7 +34,7 @@ abstract class ClientContext {
     final xrpc.Protocol? protocol,
     required final String service,
     final Map<String, dynamic>? parameters,
-    required final xrpc.To<T> to,
+    final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
     final xrpc.GetClient? getClient,
   });
@@ -98,7 +98,7 @@ class _ClientContext implements ClientContext {
     final xrpc.Protocol? protocol,
     required final String service,
     final Map<String, dynamic>? parameters,
-    required final xrpc.To<T> to,
+    final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
     final xrpc.GetClient? getClient,
   }) async =>

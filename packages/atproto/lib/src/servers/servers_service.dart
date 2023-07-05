@@ -114,6 +114,23 @@ abstract class ServersService {
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/getSession.json
   Future<core.XRPCResponse<CurrentSession>> findCurrentSession();
 
+  /// Get information about the current session in JSON representation.
+  ///
+  /// This method does not convert response data into a [CurrentSession] object,
+  /// so this may improve runtime performance.
+  ///
+  /// If you want to get it as a [CurrentSession] object,
+  /// use [findCurrentSession].
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.getSession
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/getSession.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findCurrentSessionAsJson();
+
   /// Refresh an authentication session.
   ///
   /// ## Parameters
@@ -256,6 +273,32 @@ abstract class ServersService {
     bool? createAvailable,
   });
 
+  /// Get all invite codes for a given account in JSON representation.
+  ///
+  /// This method does not convert response data into a [InviteCodes] object,
+  /// so this may improve runtime performance.
+  ///
+  /// If you want to get it as a [InviteCodes] object,
+  /// use [findInviteCodes].
+  ///
+  /// ## Parameters
+  ///
+  /// - [includeUsed]: Whether to include used codes.
+  ///
+  /// - [createAvailable]: Whether to generate new code.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.getAccountInviteCodes
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/getAccountInviteCodes.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findInviteCodesAsJson({
+    bool? includeUsed,
+    bool? createAvailable,
+  });
+
   /// Initiate a user account password reset via email.
   ///
   /// ## Parameters
@@ -340,6 +383,23 @@ abstract class ServersService {
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/listAppPasswords.json
   Future<core.XRPCResponse<AppPasswords>> findAppPasswords();
 
+  /// List all app-specific passwords in JSON representation.
+  ///
+  /// This method does not convert response data into a [AppPasswords] object,
+  /// so this may improve runtime performance.
+  ///
+  /// If you want to get it as a [AppPasswords] object,
+  /// use [findAppPasswords].
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.listAppPasswords
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/listAppPasswords.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findAppPasswordsAsJson();
+
   /// Get a document describing the service's accounts configuration.
   ///
   /// ## Lexicon
@@ -350,6 +410,24 @@ abstract class ServersService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/describeServer.json
   Future<core.XRPCResponse<ServerInfo>> findServerInfo();
+
+  /// Get a document describing the service's accounts configuration in
+  /// JSON representation.
+  ///
+  /// This method does not convert response data into a [ServerInfo] object, so
+  /// this may improve runtime performance.
+  ///
+  /// If you want to get it as a [ServerInfo] object,
+  /// use [findServerInfo].
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.describeServer
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/describeServer.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findServerInfoAsJson();
 }
 
 class _ServersService extends ATProtoBaseService implements ServersService {
@@ -365,10 +443,11 @@ class _ServersService extends ATProtoBaseService implements ServersService {
 
   @override
   Future<core.XRPCResponse<CurrentSession>> findCurrentSession() async =>
-      await super.get(
-        'getSession',
-        to: CurrentSession.fromJson,
-      );
+      await _findCurrentSession(to: CurrentSession.fromJson);
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>>
+      findCurrentSessionAsJson() async => await _findCurrentSession();
 
   @override
   Future<core.XRPCResponse<Session>> refreshSession({
@@ -457,13 +536,20 @@ class _ServersService extends ATProtoBaseService implements ServersService {
     bool? includeUsed,
     bool? createAvailable,
   }) async =>
-      await super.get(
-        'getAccountInviteCodes',
-        parameters: {
-          'includeUsed': includeUsed,
-          'createAvailable': createAvailable,
-        },
+      await _findInviteCodes(
+        includeUsed: includeUsed,
+        createAvailable: createAvailable,
         to: InviteCodes.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findInviteCodesAsJson({
+    bool? includeUsed,
+    bool? createAvailable,
+  }) async =>
+      await _findInviteCodes(
+        includeUsed: includeUsed,
+        createAvailable: createAvailable,
       );
 
   @override
@@ -517,16 +603,56 @@ class _ServersService extends ATProtoBaseService implements ServersService {
 
   @override
   Future<core.XRPCResponse<AppPasswords>> findAppPasswords() async =>
-      await super.get(
-        'listAppPasswords',
-        to: AppPasswords.fromJson,
-      );
+      await _findAppPasswords(to: AppPasswords.fromJson);
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>>
+      findAppPasswordsAsJson() async => await _findAppPasswords();
 
   @override
   Future<core.XRPCResponse<ServerInfo>> findServerInfo() async =>
+      await _findServerInfo(to: ServerInfo.fromJson);
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>>
+      findServerInfoAsJson() async => await _findServerInfo();
+
+  Future<core.XRPCResponse<T>> _findCurrentSession<T>({
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getSession',
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findInviteCodes<T>({
+    required bool? includeUsed,
+    required bool? createAvailable,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getAccountInviteCodes',
+        parameters: {
+          'includeUsed': includeUsed,
+          'createAvailable': createAvailable,
+        },
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findAppPasswords<T>({
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'listAppPasswords',
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findServerInfo<T>({
+    core.To<T>? to,
+  }) async =>
       await super.get(
         'describeServer',
         userContext: core.UserContext.anonymousOnly,
-        to: ServerInfo.fromJson,
+        to: to,
       );
 }
