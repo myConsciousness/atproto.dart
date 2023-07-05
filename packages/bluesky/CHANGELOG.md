@@ -1,5 +1,62 @@
 # Release Note
 
+## v0.7.2
+
+- A method to retrieve response data as JSON from endpoints that perform GET communication has been added. These processes do not convert to a specific model object, thus improving performance. ([#563](https://github.com/myConsciousness/atproto.dart/issues/563))
+  - `IdentitiesService`
+    - `findDIDAsJson`
+  - `RepositoriesService`
+    - `findRecordAsJson`
+    - `findRecordsAsJson`
+    - `findRepoInfoAsJson`
+  - `ServersService`
+    - `findCurrentSessionAsJson`
+    - `findInviteCodesAsJson`
+    - `findAppPasswordsAsJson`
+    - `findServerInfoAsJson`
+  - `SyncService`
+    - `findRepoCommitsAsJson`
+    - `findRepoCommitPathsAsJson`
+    - `findRepoBlocksAsJson`
+    - `findRepoCheckoutAsJson`
+    - `findRepoHeadAsJson`
+    - `findRecordAsJson`
+    - `findReposAsJson`
+  - `ActorsService`
+    - `searchActorsAsJson`
+    - `findProfileAsJson`
+    - `findProfilesAsJson`
+    - `findSuggestionsAsJson`
+    - `searchTypeaheadAsJson`
+    - `findPreferencesAsJson`
+  - `FeedsService`
+    - `findTimelineAsJson`
+    - `findFeedAsJson`
+    - `findCustomFeedAsJson`
+    - `findFeedSkeletonAsJson`
+    - `findActorFeedsAsJson`
+    - `findLikesAsJson`
+    - `findRepostedByAsJson`
+    - `findPostThreadAsJson`
+    - `findPostsAsJson`
+    - `findGeneratorAsJson`
+    - `findGeneratorsAsJson`
+    - `findGeneratorInfoAsJson`
+  - `GraphsService`
+    - `findFollowsAsJson`
+    - `findFollowersAsJson`
+    - `findMutesAsJson`
+    - `findBlocksAsJson`
+    - `findListsAsJson`
+    - `findListItemsAsJson`
+    - `findMutingListsAsJson`
+  - `NotificationsService`
+    - `findNotificationsAsJson`
+    - `findUnreadCountAsJson`
+  - `UnspeccedService`
+    - `findPopularFeedAsJson`
+    - `findPopularFeedGeneratorsAsJson`
+
 ## v0.7.1
 
 - Supported `com.atproto.server.describeServer` as `findServerInfo` in `ServersService`. ([#260](https://github.com/myConsciousness/atproto.dart/issues/260))

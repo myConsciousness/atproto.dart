@@ -37,6 +37,29 @@ void main() {
       expect(response.data, isA<Feed>());
     });
 
+    test('as JSON', () async {
+      final unspecced = UnspeccedService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/unspecced/data/find_popular_feeds.json',
+        ),
+      );
+
+      final response = await unspecced.findPopularFeedAsJson(
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
     test('when unauthorized', () async {
       final unspecced = UnspeccedService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
@@ -103,6 +126,26 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<FeedGenerators>());
+    });
+
+    test('as JSON', () async {
+      final unspecced = UnspeccedService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/unspecced/data/find_popular_feed_generators.json',
+        ),
+      );
+
+      final response = await unspecced.findPopularFeedGeneratorsAsJson();
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {

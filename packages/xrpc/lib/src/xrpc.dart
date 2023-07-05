@@ -519,6 +519,10 @@ T _transformData<T>(
     return body as T;
   }
 
+  if (T == Map<String, dynamic>) {
+    return jsonDecode(body) as T;
+  }
+
   return const EmptyData() as T;
 }
 

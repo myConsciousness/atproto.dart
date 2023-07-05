@@ -18,7 +18,7 @@ class AnonymousClient implements Client {
     final xrpc.Protocol? protocol,
     required final String service,
     final Map<String, dynamic>? parameters,
-    required final xrpc.To<T> to,
+    final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
     required final Duration timeout,
     final xrpc.GetClient? getClient,

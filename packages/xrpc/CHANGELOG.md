@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.1
+
+- Allows `Map<String, dynamic>` to be specified for generics, allowing response data to be retrieved as JSON. ([#563](https://github.com/myConsciousness/atproto.dart/issues/563))
+
 ## v0.2.0
 
 - Added `homepage` in `pubspec.yaml`. ([#549](https://github.com/myConsciousness/atproto.dart/issues/549))

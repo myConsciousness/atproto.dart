@@ -154,6 +154,36 @@ abstract class FeedsService {
     String? cursor,
   });
 
+  /// A view of the user's home timeline in JSON representation.
+  ///
+  /// This method does not convert response data into a [Feed] object, so this
+  /// may improve runtime performance.
+  ///
+  /// If you want to get it as a [Feed] object,
+  /// use [findTimeline].
+  ///
+  /// ## Parameters
+  ///
+  /// - [algorithm]: Custom Algorithm.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getTimeline
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findTimelineAsJson({
+    String? algorithm,
+    int? limit,
+    String? cursor,
+  });
+
   /// Creates a vote.
   ///
   /// ## Parameters
@@ -212,6 +242,36 @@ abstract class FeedsService {
     String? cursor,
   });
 
+  /// A view of an actor's feed in JSON representation.
+  ///
+  /// This method does not convert response data into a [Feed] object, so this
+  /// may improve runtime performance.
+  ///
+  /// If you want to get it as a [Feed] object,
+  /// use [findFeed].
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getAuthorFeed
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getAuthorFeed.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findFeedAsJson({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
   /// Compose and hydrate a feed from a user's selected feed generator.
   ///
   /// ## Parameters
@@ -236,8 +296,32 @@ abstract class FeedsService {
     String? cursor,
   });
 
-  @Deprecated('Use findFeedSkeleton instead. Will be removed in v0.6.0')
-  Future<core.XRPCResponse<SkeletonFeed>> findSkeletonFeed({
+  /// Compose and hydrate a feed from a user's selected feed generator
+  /// in JSON representation.
+  ///
+  /// This method does not convert response data into a [Feed] object, so this
+  /// may improve runtime performance.
+  ///
+  /// If you want to get it as a [Feed] object,
+  /// use [findCustomFeed].
+  ///
+  /// ## Parameters
+  ///
+  /// - [generatorUri]: AT URI of generator to be used.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getFeed
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeed.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findCustomFeedAsJson({
     required core.AtUri generatorUri,
     int? limit,
     String? cursor,
@@ -267,6 +351,36 @@ abstract class FeedsService {
     String? cursor,
   });
 
+  /// A skeleton of a feed provided by a feed generator in JSON representation.
+  ///
+  /// This method does not convert response data into a [SkeletonFeed] object,
+  /// so this may improve runtime performance.
+  ///
+  /// If you want to get it as a [SkeletonFeed] object,
+  /// use [findFeedSkeleton].
+  ///
+  /// ## Parameters
+  ///
+  /// - [generatorUri]: AT URI of generator to be used.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getFeedSkeleton
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedSkeleton.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findFeedSkeletonAsJson({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  });
+
   /// Retrieve a list of feeds created by a given actor.
   ///
   /// ## Parameters
@@ -286,6 +400,36 @@ abstract class FeedsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorFeeds.json
   Future<core.XRPCResponse<ActorFeeds>> findActorFeeds({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Retrieve a list of feeds created by a given actor in JSON representation.
+  ///
+  /// This method does not convert response data into a [ActorFeeds] object,
+  /// so this may improve runtime performance.
+  ///
+  /// If you want to get it as a [ActorFeeds] object,
+  /// use [findActorFeeds].
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getActorFeeds
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorFeeds.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findActorFeedsAsJson({
     required String actor,
     int? limit,
     String? cursor,
@@ -312,6 +456,39 @@ abstract class FeedsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getLikes.json
   Future<core.XRPCResponse<Likes>> findLikes({
+    required core.AtUri uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns likes of specific post in JSON representation.
+  ///
+  /// This method does not convert response data into a [Likes] object, so this
+  /// may improve runtime performance.
+  ///
+  /// If you want to get it as a [Likes] object,
+  /// use [findLikes].
+  ///
+  /// ## Parameters
+  ///
+  /// - [uri]: The post uri.
+  ///
+  /// - [cid]: The content id.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getLikes
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getLikes.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findLikesAsJson({
     required core.AtUri uri,
     String? cid,
     int? limit,
@@ -345,6 +522,40 @@ abstract class FeedsService {
     String? cursor,
   });
 
+  /// Return the Actor who Reposted the Post of a specific [uri] in
+  /// JSON representation.
+  ///
+  /// This method does not convert response data into a [RepostedBy] object,
+  /// so this may improve runtime performance.
+  ///
+  /// If you want to get it as a [RepostedBy] object,
+  /// use [findRepostedBy].
+  ///
+  /// ## Parameters
+  ///
+  /// - [uri]: The post uri.
+  ///
+  /// - [cid]: The content id.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getRepostedBy
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getRepostedBy.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findRepostedByAsJson({
+    required core.AtUri uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+  });
+
   /// Returns a thread in specific post.
   ///
   /// ## Parameters
@@ -369,6 +580,36 @@ abstract class FeedsService {
     int? parentHeight,
   });
 
+  /// Returns a thread in specific post in JSON representation.
+  ///
+  /// This method does not convert response data into a [PostThread] object,
+  /// so this may improve runtime performance.
+  ///
+  /// If you want to get it as a [PostThread] object,
+  /// use [findPostThread].
+  ///
+  /// ## Parameters
+  ///
+  /// - [uri]: The uri of root post.
+  ///
+  /// - [depth]: Depth of thread to be retrieved. Defaults to 6. From 0 to 1000.
+  ///
+  /// - [parentHeight]: Height of parent thread to be retrieved.
+  ///                   Defaults to 80. From 0 to 1000.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getPostThread
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getPostThread.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findPostThreadAsJson({
+    required core.AtUri uri,
+    int? depth,
+    int? parentHeight,
+  });
+
   /// A view of an actor's feed.
   ///
   /// ## Parameters
@@ -383,6 +624,29 @@ abstract class FeedsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getPosts.json
   Future<core.XRPCResponse<Posts>> findPosts({
+    required List<core.AtUri> uris,
+  });
+
+  /// A view of an actor's feed in JSON representation.
+  ///
+  /// This method does not convert response data into a [Posts] object, so this
+  /// may improve runtime performance.
+  ///
+  /// If you want to get it as a [Posts] object,
+  /// use [findPosts].
+  ///
+  /// ## Parameters
+  ///
+  /// - [uris]: The AT URIs to be retrieved.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getPosts
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getPosts.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findPostsAsJson({
     required List<core.AtUri> uris,
   });
 
@@ -446,7 +710,31 @@ abstract class FeedsService {
     required core.AtUri uri,
   });
 
-  /// Get information about a list of feed generators
+  /// Get information about a specific feed offered by a feed generator,
+  /// such as its online status in JSON representation.
+  ///
+  /// This method does not convert response data into a [FeedGenerator] object,
+  /// so this may improve runtime performance.
+  ///
+  /// If you want to get it as a [FeedGenerator] object,
+  /// use [findGenerator].
+  ///
+  /// ## Parameters
+  ///
+  /// - [uri]: AT URI of generator to be retrieved.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getFeedGenerator
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedGenerator.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findGeneratorAsJson({
+    required core.AtUri uri,
+  });
+
+  /// Get information about a list of feed generators.
   ///
   /// ## Parameters
   ///
@@ -463,8 +751,31 @@ abstract class FeedsService {
     required List<core.AtUri> uris,
   });
 
+  /// Get information about a list of feed generators in JSON representation.
+  ///
+  /// This method does not convert response data into a [FeedGenerators]
+  /// object, so this may improve runtime performance.
+  ///
+  /// If you want to get it as a [FeedGenerators] object,
+  /// use [findGenerators].
+  ///
+  /// ## Parameters
+  ///
+  /// - [uris]: Collection of AT URI of generators to be retrieved.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getFeedGenerators
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedGenerators.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findGeneratorsAsJson({
+    required List<core.AtUri> uris,
+  });
+
   /// Returns information about a given feed generator including
-  /// TOS & offered feed URIs
+  /// TOS & offered feed URIs.
   ///
   /// ## Lexicon
   ///
@@ -474,6 +785,24 @@ abstract class FeedsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/describeFeedGenerator.json
   Future<core.XRPCResponse<FeedGeneratorInfo>> findGeneratorInfo();
+
+  /// Returns information about a given feed generator including
+  /// TOS & offered feed URIs in JSON representation.
+  ///
+  /// This method does not convert response data into a [FeedGeneratorInfo]
+  /// object, so this may improve runtime performance.
+  ///
+  /// If you want to get it as a [FeedGeneratorInfo] object,
+  /// use [findGeneratorInfo].
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.describeFeedGenerator
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/describeFeedGenerator.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findGeneratorInfoAsJson();
 }
 
 class _FeedsService extends BlueskyBaseService implements FeedsService {
@@ -578,14 +907,23 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     int? limit,
     String? cursor,
   }) async =>
-      await super.get(
-        'getTimeline',
-        parameters: {
-          'algorithm': algorithm,
-          'limit': limit,
-          'cursor': cursor,
-        },
+      await _findTimeline(
+        algorithm: algorithm,
+        limit: limit,
+        cursor: cursor,
         to: Feed.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findTimelineAsJson({
+    String? algorithm,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findTimeline(
+        algorithm: algorithm,
+        limit: limit,
+        cursor: cursor,
       );
 
   @override
@@ -670,14 +1008,23 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     int? limit,
     String? cursor,
   }) async =>
-      await super.get(
-        'getAuthorFeed',
-        parameters: {
-          'actor': actor,
-          'limit': limit,
-          'cursor': cursor,
-        },
+      await _findFeed(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
         to: Feed.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findFeedAsJson({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findFeed(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
       );
 
   @override
@@ -686,23 +1033,20 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     int? limit,
     String? cursor,
   }) async =>
-      await super.get(
-        'getFeed',
-        parameters: {
-          'feed': generatorUri.toString(),
-          'limit': limit,
-          'cursor': cursor,
-        },
+      await _findCustomFeed(
+        generatorUri: generatorUri,
+        limit: limit,
+        cursor: cursor,
         to: Feed.fromJson,
       );
 
   @override
-  Future<core.XRPCResponse<SkeletonFeed>> findSkeletonFeed({
+  Future<core.XRPCResponse<Map<String, dynamic>>> findCustomFeedAsJson({
     required core.AtUri generatorUri,
     int? limit,
     String? cursor,
   }) async =>
-      await findFeedSkeleton(
+      await _findCustomFeed(
         generatorUri: generatorUri,
         limit: limit,
         cursor: cursor,
@@ -714,14 +1058,23 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     int? limit,
     String? cursor,
   }) async =>
-      await super.get(
-        'getFeedSkeleton',
-        parameters: {
-          'feed': generatorUri.toString(),
-          'limit': limit,
-          'cursor': cursor,
-        },
+      await _findFeedSkeleton(
+        generatorUri: generatorUri,
+        limit: limit,
+        cursor: cursor,
         to: SkeletonFeed.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findFeedSkeletonAsJson({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findFeedSkeleton(
+        generatorUri: generatorUri,
+        limit: limit,
+        cursor: cursor,
       );
 
   @override
@@ -730,14 +1083,23 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     int? limit,
     String? cursor,
   }) async =>
-      await super.get(
-        'getActorFeeds',
-        parameters: {
-          'actor': actor,
-          'limit': limit,
-          'cursor': cursor,
-        },
+      await _findActorFeeds(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
         to: ActorFeeds.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findActorFeedsAsJson({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findActorFeeds(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
       );
 
   @override
@@ -747,15 +1109,26 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     int? limit,
     String? cursor,
   }) async =>
-      await super.get(
-        'getLikes',
-        parameters: {
-          'uri': uri,
-          'cid': cid,
-          'limit': limit,
-          'cursor': cursor,
-        },
+      await _findLikes(
+        uri: uri,
+        cid: cid,
+        limit: limit,
+        cursor: cursor,
         to: Likes.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findLikesAsJson({
+    required core.AtUri uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findLikes(
+        uri: uri,
+        cid: cid,
+        limit: limit,
+        cursor: cursor,
       );
 
   @override
@@ -765,15 +1138,26 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     int? limit,
     String? cursor,
   }) async =>
-      await super.get(
-        'getRepostedBy',
-        parameters: {
-          'uri': uri,
-          'cid': cid,
-          'limit': limit,
-          'cursor': cursor,
-        },
+      await _findRepostedBy(
+        uri: uri,
+        cid: cid,
+        limit: limit,
+        cursor: cursor,
         to: RepostedBy.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findRepostedByAsJson({
+    required core.AtUri uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findRepostedBy(
+        uri: uri,
+        cid: cid,
+        limit: limit,
+        cursor: cursor,
       );
 
   @override
@@ -782,27 +1166,39 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     int? depth,
     int? parentHeight,
   }) async =>
-      await super.get(
-        'getPostThread',
-        parameters: {
-          'uri': uri,
-          'depth': depth,
-          'parentHeight': parentHeight,
-        },
+      await _findPostThread(
+        uri: uri,
+        depth: depth,
+        parentHeight: parentHeight,
         to: PostThread.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findPostThreadAsJson({
+    required core.AtUri uri,
+    int? depth,
+    int? parentHeight,
+  }) async =>
+      await _findPostThread(
+        uri: uri,
+        depth: depth,
+        parentHeight: parentHeight,
       );
 
   @override
   Future<core.XRPCResponse<Posts>> findPosts({
     required List<core.AtUri> uris,
   }) async =>
-      await super.get(
-        'getPosts',
-        parameters: {
-          'uris': uris.map((e) => e.toString()).toList(),
-        },
+      await _findPosts(
+        uris: uris,
         to: Posts.fromJson,
       );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findPostsAsJson({
+    required List<core.AtUri> uris,
+  }) async =>
+      await _findPosts(uris: uris);
 
   @override
   Future<core.XRPCResponse<atp.StrongRef>> createGenerator({
@@ -853,30 +1249,215 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
   Future<core.XRPCResponse<FeedGenerator>> findGenerator({
     required core.AtUri uri,
   }) async =>
+      await _findGenerator(
+        uri: uri,
+        to: FeedGenerator.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findGeneratorAsJson({
+    required core.AtUri uri,
+  }) async =>
+      await _findGenerator(uri: uri);
+
+  @override
+  Future<core.XRPCResponse<FeedGenerators>> findGenerators({
+    required List<core.AtUri> uris,
+  }) async =>
+      await _findGenerators(
+        uris: uris,
+        to: FeedGenerators.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findGeneratorsAsJson({
+    required List<core.AtUri> uris,
+  }) async =>
+      await _findGenerators(
+        uris: uris,
+      );
+
+  @override
+  Future<core.XRPCResponse<FeedGeneratorInfo>> findGeneratorInfo() async =>
+      await _findGeneratorInfo(to: FeedGeneratorInfo.fromJson);
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>>
+      findGeneratorInfoAsJson() async => await _findGeneratorInfo();
+
+  Future<core.XRPCResponse<T>> _findTimeline<T>({
+    required String? algorithm,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getTimeline',
+        parameters: {
+          'algorithm': algorithm,
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findFeed<T>({
+    required String actor,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getAuthorFeed',
+        parameters: {
+          'actor': actor,
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findCustomFeed<T>({
+    required core.AtUri generatorUri,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getFeed',
+        parameters: {
+          'feed': generatorUri.toString(),
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findFeedSkeleton<T>({
+    required core.AtUri generatorUri,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getFeedSkeleton',
+        parameters: {
+          'feed': generatorUri.toString(),
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findActorFeeds<T>({
+    required String actor,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getActorFeeds',
+        parameters: {
+          'actor': actor,
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findLikes<T>({
+    required core.AtUri uri,
+    required String? cid,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getLikes',
+        parameters: {
+          'uri': uri,
+          'cid': cid,
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findRepostedBy<T>({
+    required core.AtUri uri,
+    required String? cid,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getRepostedBy',
+        parameters: {
+          'uri': uri,
+          'cid': cid,
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findPostThread<T>({
+    required core.AtUri uri,
+    required int? depth,
+    required int? parentHeight,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getPostThread',
+        parameters: {
+          'uri': uri,
+          'depth': depth,
+          'parentHeight': parentHeight,
+        },
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findPosts<T>({
+    required List<core.AtUri> uris,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getPosts',
+        parameters: {
+          'uris': uris.map((e) => e.toString()).toList(),
+        },
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findGenerator<T>({
+    required core.AtUri uri,
+    core.To<T>? to,
+  }) async =>
       await super.get(
         'getFeedGenerator',
         parameters: {
           'feed': uri.toString(),
         },
-        to: FeedGenerator.fromJson,
+        to: to,
       );
 
-  @override
-  Future<core.XRPCResponse<FeedGenerators>> findGenerators({
+  Future<core.XRPCResponse<T>> _findGenerators<T>({
     required List<core.AtUri> uris,
+    core.To<T>? to,
   }) async =>
       await super.get(
         'getFeedGenerators',
         parameters: {
           'feeds': uris.map((e) => e.toString()).toList(),
         },
-        to: FeedGenerators.fromJson,
+        to: to,
       );
 
-  @override
-  Future<core.XRPCResponse<FeedGeneratorInfo>> findGeneratorInfo() async =>
+  Future<core.XRPCResponse<T>> _findGeneratorInfo<T>({
+    core.To<T>? to,
+  }) async =>
       await super.get(
         'describeFeedGenerator',
-        to: FeedGeneratorInfo.fromJson,
+        to: to,
       );
 }
