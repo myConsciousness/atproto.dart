@@ -1,9 +1,12 @@
 # Release Note
 
+## v0.0.4
+
+- Upgraded `bluesky`.
+
 ## v0.0.3
 
-- Upgraded dependency.
-  - `bluesky`
+- Upgraded `bluesky`.
 
 ## v0.0.2
 

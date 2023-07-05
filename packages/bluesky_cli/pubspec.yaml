@@ -20,7 +20,7 @@ dependencies:
   args: ^2.0.0
   cli_launcher: ^0.3.0
   cli_util: ^0.3.0
-  bluesky_text: ^0.2.4
+  bluesky_text: ^0.2.5
 
 dev_dependencies:
   lints: ^2.0.0
