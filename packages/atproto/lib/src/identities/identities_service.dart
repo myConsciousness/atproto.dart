@@ -125,7 +125,7 @@ class _IdentitiesService extends ATProtoBaseService
     required String handle,
     core.To<T>? to,
   }) async =>
-      await super.get<T>(
+      await super.get(
         'resolveHandle',
         parameters: {
           'handle': handle,
