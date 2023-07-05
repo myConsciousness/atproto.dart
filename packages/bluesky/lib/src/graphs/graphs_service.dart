@@ -93,6 +93,37 @@ abstract class GraphsService {
     String? cursor,
   });
 
+  /// Returns follows of specific user in JSON representation.
+  ///
+  /// This method does not convert response data into a [Follows] object,
+  /// so this may improve runtime performance.
+  ///
+  /// If you want to get it as a [Follows] object,
+  /// use [findFollows].
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.deleteRecord
+  /// - app.bsky.graph.getFollows
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollows.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findFollowsAsJson({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
   /// Returns followers of specific user.
   ///
   /// ## Parameters
@@ -113,6 +144,37 @@ abstract class GraphsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollowers.json
   Future<core.XRPCResponse<Followers>> findFollowers({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns followers of specific user in JSON representation.
+  ///
+  /// This method does not convert response data into a [Followers] object,
+  /// so this may improve runtime performance.
+  ///
+  /// If you want to get it as a [Followers] object,
+  /// use [findFollowers].
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.deleteRecord
+  /// - app.bsky.graph.getFollowers
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollowers.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findFollowersAsJson({
     required String actor,
     int? limit,
     String? cursor,
@@ -173,6 +235,33 @@ abstract class GraphsService {
     String? cursor,
   });
 
+  /// Who does the viewer mute in JSON representation.
+  ///
+  /// This method does not convert response data into a [Mutes] object, so this
+  /// may improve runtime performance.
+  ///
+  /// If you want to get it as a [Mutes] object,
+  /// use [findMutes].
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getMutes
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getMutes.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findMutesAsJson({
+    int? limit,
+    String? cursor,
+  });
+
   /// Who is the requester's account blocking?
   ///
   /// ## Parameters
@@ -190,6 +279,33 @@ abstract class GraphsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getBlocks.json
   Future<core.XRPCResponse<Blocks>> findBlocks({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Who is the requester's account blocking in JSON representation.
+  ///
+  /// This method does not convert response data into a [Blocks] object, so this
+  /// may improve runtime performance.
+  ///
+  /// If you want to get it as a [Blocks] object,
+  /// use [findBlocks].
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getBlocks
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getBlocks.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findBlocksAsJson({
     int? limit,
     String? cursor,
   });
@@ -291,6 +407,36 @@ abstract class GraphsService {
     String? cursor,
   });
 
+  /// Fetch a list of lists that belong to an actor in JSON representation.
+  ///
+  /// This method does not convert response data into a [Lists] object, so this
+  /// may improve runtime performance.
+  ///
+  /// If you want to get it as a [Lists] object,
+  /// use [findLists].
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getLists
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getLists.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findListsAsJson({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
   /// Fetch a list of actors.
   ///
   /// ## Parameters
@@ -310,6 +456,36 @@ abstract class GraphsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getList.json
   Future<core.XRPCResponse<ListItems>> findListItems({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Fetch a list of actors in JSON representation.
+  ///
+  /// This method does not convert response data into a [ListItems] object,
+  /// so this may improve runtime performance.
+  ///
+  /// If you want to get it as a [ListItems] object,
+  /// use [findListItems].
+  ///
+  /// ## Parameters
+  ///
+  /// - [list]: The list uri.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getList
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getList.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findListItemsAsJson({
     required core.AtUri list,
     int? limit,
     String? cursor,
@@ -366,6 +542,33 @@ abstract class GraphsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListMutes.json
   Future<core.XRPCResponse<Lists>> findMutingLists({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Which lists is the requester's account muting in JSON representation.
+  ///
+  /// This method does not convert response data into a [Lists] object, so this
+  /// may improve runtime performance.
+  ///
+  /// If you want to get it as a [Lists] object,
+  /// use [findMutingLists].
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getListMutes
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListMutes.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findMutingListsAsJson({
     int? limit,
     String? cursor,
   });
@@ -453,14 +656,23 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
     int? limit,
     String? cursor,
   }) async =>
-      await super.get(
-        'getFollows',
-        parameters: {
-          'actor': actor,
-          'limit': limit,
-          'cursor': cursor,
-        },
+      await _findFollows(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
         to: Follows.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findFollowsAsJson({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findFollows(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
       );
 
   @override
@@ -469,14 +681,23 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
     int? limit,
     String? cursor,
   }) async =>
-      await super.get(
-        'getFollowers',
-        parameters: {
-          'actor': actor,
-          'limit': limit,
-          'cursor': cursor,
-        },
+      await _findFollowers(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
         to: Followers.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findFollowersAsJson({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findFollowers(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
       );
 
   @override
@@ -506,13 +727,20 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
     int? limit,
     String? cursor,
   }) async =>
-      await super.get(
-        'getMutes',
-        parameters: {
-          'limit': limit,
-          'cursor': cursor,
-        },
+      await _findMutes(
+        limit: limit,
+        cursor: cursor,
         to: Mutes.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findMutesAsJson({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findMutes(
+        limit: limit,
+        cursor: cursor,
       );
 
   @override
@@ -520,13 +748,20 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
     int? limit,
     String? cursor,
   }) async =>
-      await super.get(
-        'getBlocks',
-        parameters: {
-          'limit': limit,
-          'cursor': cursor,
-        },
+      await _findBlocks(
+        limit: limit,
+        cursor: cursor,
         to: Blocks.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findBlocksAsJson({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findBlocks(
+        limit: limit,
+        cursor: cursor,
       );
 
   @override
@@ -606,35 +841,53 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       );
 
   @override
-  Future<atp.XRPCResponse<Lists>> findLists({
+  Future<core.XRPCResponse<Lists>> findLists({
     required String actor,
     int? limit,
     String? cursor,
   }) async =>
-      await super.get(
-        'getLists',
-        parameters: {
-          'actor': actor,
-          'limit': limit,
-          'cursor': cursor,
-        },
+      await _findLists(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
         to: Lists.fromJson,
       );
 
   @override
-  Future<atp.XRPCResponse<ListItems>> findListItems({
+  Future<core.XRPCResponse<Map<String, dynamic>>> findListsAsJson({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findLists(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<ListItems>> findListItems({
     required core.AtUri list,
     int? limit,
     String? cursor,
   }) async =>
-      await super.get(
-        'getList',
-        parameters: {
-          'list': list.toString(),
-          'limit': limit,
-          'cursor': cursor,
-        },
+      await _findListItems(
+        list: list,
+        limit: limit,
+        cursor: cursor,
         to: ListItems.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findListItemsAsJson({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findListItems(
+        list: list,
+        limit: limit,
+        cursor: cursor,
       );
 
   @override
@@ -676,13 +929,20 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
     int? limit,
     String? cursor,
   }) async =>
-      await super.get(
-        'getListMutes',
-        parameters: {
-          'limit': limit,
-          'cursor': cursor,
-        },
+      await _findMutingLists(
+        limit: limit,
+        cursor: cursor,
         to: Lists.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findMutingListsAsJson({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findMutingLists(
+        limit: limit,
+        cursor: cursor,
       );
 
   @override
@@ -705,5 +965,111 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
         body: {
           'list': list.toString(),
         },
+      );
+
+  Future<core.XRPCResponse<T>> _findFollows<T>({
+    required String actor,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getFollows',
+        parameters: {
+          'actor': actor,
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findFollowers<T>({
+    required String actor,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getFollowers',
+        parameters: {
+          'actor': actor,
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findMutes<T>({
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getMutes',
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findBlocks<T>({
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getBlocks',
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findLists<T>({
+    required String actor,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getLists',
+        parameters: {
+          'actor': actor,
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findListItems<T>({
+    required core.AtUri list,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getList',
+        parameters: {
+          'list': list.toString(),
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findMutingLists<T>({
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getListMutes',
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: to,
       );
 }

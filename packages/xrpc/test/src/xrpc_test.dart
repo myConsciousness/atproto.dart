@@ -2,6 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:http/http.dart';
@@ -258,6 +259,25 @@ void main() {
       expect(response.data, isA<String>());
       expect(response.data, '{"test": "test"}');
     });
+
+    test('T is Map<String, dynamic>', () async {
+      final response = await query<Map<String, dynamic>>(
+        NSID.create('test.com', 'get'),
+        parameters: {
+          'test': 'test',
+          'test2': 10,
+        },
+        getClient: (url, {headers}) async => Response(
+          '{"test": "test"}',
+          200,
+          request: Request('GET', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response, isA<XRPCResponse<Map<String, dynamic>>>());
+      expect(response.data, isA<Map<String, dynamic>>());
+      expect(response.data, jsonDecode('{"test": "test"}'));
+    });
   });
 
   group('.procedure', () {
@@ -303,6 +323,21 @@ void main() {
       expect(response, isA<XRPCResponse<String>>());
       expect(response.data, isA<String>());
       expect(response.data, '{"test": "test"}');
+    });
+
+    test('T is Map<String, dynamic>', () async {
+      final response = await procedure<Map<String, dynamic>>(
+        NSID.create('test.com', 'get'),
+        postClient: (url, {body, encoding, headers}) async => Response(
+          '{"test": "test"}',
+          200,
+          request: Request('POST', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response, isA<XRPCResponse<Map<String, dynamic>>>());
+      expect(response.data, isA<Map<String, dynamic>>());
+      expect(response.data, jsonDecode('{"test": "test"}'));
     });
   });
 
@@ -352,6 +387,22 @@ void main() {
       expect(response, isA<XRPCResponse<String>>());
       expect(response.data, isA<String>());
       expect(response.data, '{"test": "test"}');
+    });
+
+    test('T is Map<String, dynamic>', () async {
+      final response = await upload<Map<String, dynamic>>(
+        NSID.create('test.com', 'get'),
+        File('./test/src/data/dash.png').readAsBytesSync(),
+        postClient: (url, {body, encoding, headers}) async => Response(
+          '{"test": "test"}',
+          200,
+          request: Request('POST', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response, isA<XRPCResponse<Map<String, dynamic>>>());
+      expect(response.data, isA<Map<String, dynamic>>());
+      expect(response.data, jsonDecode('{"test": "test"}'));
     });
   });
 }

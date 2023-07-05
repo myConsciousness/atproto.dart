@@ -16,7 +16,7 @@ abstract class _Service {
     final String methodName, {
     final UserContext userContext = UserContext.authRequired,
     final Map<String, dynamic>? parameters,
-    required final xrpc.To<T> to,
+    final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
   });
 
@@ -83,7 +83,7 @@ abstract class BaseService implements _Service {
     final String methodName, {
     final UserContext userContext = UserContext.authRequired,
     final Map<String, dynamic>? parameters,
-    required final xrpc.To<T> to,
+    final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
   }) async =>
       await _context.get(

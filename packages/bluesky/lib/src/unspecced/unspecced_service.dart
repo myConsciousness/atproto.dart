@@ -54,7 +54,38 @@ abstract class UnspeccedService {
     String? cursor,
   });
 
-  /// An unspecced view of globally popular feed generators
+  /// An unspecced view of globally popular items in JSON representation.
+  ///
+  /// This method does not convert response data into a [Feed] object, so this
+  /// may improve runtime performance.
+  ///
+  /// If you want to get it as a [Feed] object,
+  /// use [findPopularFeed].
+  ///
+  /// ## Parameters
+  ///
+  /// - [includeNsfw]: Include NSFW content in the results?
+  ///                  Defaults to false.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.unspecced.getPopular
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopular.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findPopularFeedAsJson({
+    bool? includeNsfw,
+    int? limit,
+    String? cursor,
+  });
+
+  /// An unspecced view of globally popular feed generators.
   ///
   /// ## Lexicon
   ///
@@ -64,6 +95,25 @@ abstract class UnspeccedService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopularFeedGenerators.json
   Future<core.XRPCResponse<FeedGenerators>> findPopularFeedGenerators();
+
+  /// An unspecced view of globally popular feed generators in JSON
+  /// representation.
+  ///
+  /// This method does not convert response data into a [FeedGenerators]
+  /// object, so this may improve runtime performance.
+  ///
+  /// If you want to get it as a [FeedGenerators] object,
+  /// use [findPopularFeedGenerators].
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.unspecced.getPopularFeedGenerators
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopularFeedGenerators.json
+  Future<core.XRPCResponse<Map<String, dynamic>>>
+      findPopularFeedGeneratorsAsJson();
 }
 
 class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
@@ -78,10 +128,44 @@ class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
   }) : super(methodAuthority: 'unspecced.bsky.app');
 
   @override
-  Future<atp.XRPCResponse<Feed>> findPopularFeed({
+  Future<core.XRPCResponse<Feed>> findPopularFeed({
     bool? includeNsfw,
     int? limit,
     String? cursor,
+  }) async =>
+      await _findPopularFeed(
+        includeNsfw: includeNsfw,
+        limit: limit,
+        cursor: cursor,
+        to: Feed.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findPopularFeedAsJson({
+    bool? includeNsfw,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findPopularFeed(
+        includeNsfw: includeNsfw,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<FeedGenerators>> findPopularFeedGenerators() async =>
+      await _findPopularFeedGenerators(to: FeedGenerators.fromJson);
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>>
+      findPopularFeedGeneratorsAsJson() async =>
+          await _findPopularFeedGenerators();
+
+  Future<core.XRPCResponse<T>> _findPopularFeed<T>({
+    required bool? includeNsfw,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
   }) async =>
       await super.get(
         'getPopular',
@@ -90,13 +174,14 @@ class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
           'limit': limit,
           'cursor': cursor,
         },
-        to: Feed.fromJson,
+        to: to,
       );
 
-  @override
-  Future<core.XRPCResponse<FeedGenerators>> findPopularFeedGenerators() async =>
+  Future<core.XRPCResponse<T>> _findPopularFeedGenerators<T>({
+    core.To<T>? to,
+  }) async =>
       await super.get(
         'getPopularFeedGenerators',
-        to: FeedGenerators.fromJson,
+        to: to,
       );
 }

@@ -86,6 +86,32 @@ abstract class RepositoriesService {
     String? cid,
   });
 
+  /// Get a record in JSON representation.
+  ///
+  /// This method does not convert response data into a [Record] object, so this
+  /// may improve runtime performance.
+  ///
+  /// If you want to get it as a [Record] object, use [findRecord].
+  ///
+  /// ## Parameters
+  ///
+  /// - [uri]: The AT URI of record.
+  ///
+  /// - [cid]: The CID of the version of the record. If not specified,
+  ///          then return the most recent version.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.getRecord
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/getRecord.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findRecordAsJson({
+    required core.AtUri uri,
+    String? cid,
+  });
+
   /// List a range of records in a collection.
   ///
   /// ## Parameters
@@ -113,6 +139,47 @@ abstract class RepositoriesService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/listRecords.json
   Future<core.XRPCResponse<Records>> findRecords({
+    required String repo,
+    required core.NSID collection,
+    int? limit,
+    bool? reverse,
+    String? rkeyStart,
+    String? rkeyEnd,
+    String? cursor,
+  });
+
+  /// List a range of records in a collection in JSON representation.
+  ///
+  /// This method does not convert response data into a [Records] object, so
+  /// this may improve runtime performance.
+  ///
+  /// If you want to get it as a [Records] object, use [findRecords].
+  ///
+  /// ## Parameters
+  ///
+  /// - [repo]: The handle or DID of the repo.
+  ///
+  /// - [collection]: The NSID of the record type.
+  ///
+  /// - [limit]: The number of records to return.
+  ///            From 1 to 100. The default is 50.
+  ///
+  /// - [cursor]: Pagination cursor.
+  ///
+  /// - [rkeyStart]: The lowest sort-ordered rkey to start from (exclusive).
+  ///
+  /// - [rkeyEnd]: The highest sort-ordered rkey to stop at (exclusive).
+  ///
+  /// - [reverse]: Reverse the order of the returned records?
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.listRecords
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/listRecords.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findRecordsAsJson({
     required String repo,
     required core.NSID collection,
     int? limit,
@@ -205,6 +272,29 @@ abstract class RepositoriesService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/describeRepo.json
   Future<core.XRPCResponse<RepoInfo>> findRepoInfo({
+    required String repo,
+  });
+
+  /// Get information about the repo, including the list of collections in
+  /// JSON representation.
+  ///
+  /// This method does not convert response data into a [RepoInfo] object, so
+  /// this may improve runtime performance.
+  ///
+  /// If you want to get it as a [RepoInfo] object, use [findRepoInfo].
+  ///
+  /// ## Parameters
+  ///
+  /// - [repo]: The handle or DID of the repo.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.describeRepo
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/describeRepo.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findRepoInfoAsJson({
     required String repo,
   });
 
@@ -341,15 +431,20 @@ class _RepositoriesService extends ATProtoBaseService
     required core.AtUri uri,
     String? cid,
   }) async =>
-      await super.get(
-        'getRecord',
-        parameters: {
-          'repo': uri.hostname,
-          'collection': uri.collection,
-          'rkey': uri.rkey,
-          'cid': cid,
-        },
+      await _findRecord(
+        uri: uri,
+        cid: cid,
         to: Record.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findRecordAsJson({
+    required core.AtUri uri,
+    String? cid,
+  }) async =>
+      await _findRecord(
+        uri: uri,
+        cid: cid,
       );
 
   @override
@@ -362,18 +457,35 @@ class _RepositoriesService extends ATProtoBaseService
     String? rkeyEnd,
     String? cursor,
   }) async =>
-      await super.get(
-        'listRecords',
-        parameters: {
-          'repo': repo,
-          'collection': collection,
-          'limit': limit,
-          'reverse': reverse,
-          'rkeyStart': rkeyStart,
-          'rkeyEnd': rkeyEnd,
-          'cursor': cursor,
-        },
+      await _findRecords(
+        repo: repo,
+        collection: collection,
+        limit: limit,
+        reverse: reverse,
+        rkeyStart: rkeyStart,
+        rkeyEnd: rkeyEnd,
+        cursor: cursor,
         to: Records.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findRecordsAsJson({
+    required String repo,
+    required core.NSID collection,
+    int? limit,
+    bool? reverse,
+    String? rkeyStart,
+    String? rkeyEnd,
+    String? cursor,
+  }) async =>
+      await _findRecords(
+        repo: repo,
+        collection: collection,
+        limit: limit,
+        reverse: reverse,
+        rkeyStart: rkeyStart,
+        rkeyEnd: rkeyEnd,
+        cursor: cursor,
       );
 
   @override
@@ -427,14 +539,16 @@ class _RepositoriesService extends ATProtoBaseService
   Future<core.XRPCResponse<RepoInfo>> findRepoInfo({
     required String repo,
   }) async =>
-      await super.get(
-        'describeRepo',
-        parameters: {
-          'repo': repo,
-        },
+      await _findRepoInfo(
+        repo: repo,
         to: RepoInfo.fromJson,
-        userContext: core.UserContext.anonymousOnly,
       );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findRepoInfoAsJson({
+    required String repo,
+  }) async =>
+      await _findRepoInfo(repo: repo);
 
   @override
   Future<core.XRPCResponse<core.EmptyData>> updateBulk({
@@ -511,5 +625,58 @@ class _RepositoriesService extends ATProtoBaseService
           'repo': repo,
           'swapCommit': swapCommitCid,
         },
+      );
+
+  Future<core.XRPCResponse<T>> _findRecord<T>({
+    required core.AtUri uri,
+    required String? cid,
+    core.To<T>? to,
+  }) async =>
+      await super.get<T>(
+        'getRecord',
+        parameters: {
+          'repo': uri.hostname,
+          'collection': uri.collection,
+          'rkey': uri.rkey,
+          'cid': cid,
+        },
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findRecords<T>({
+    required String repo,
+    required core.NSID collection,
+    required int? limit,
+    required bool? reverse,
+    required String? rkeyStart,
+    required String? rkeyEnd,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'listRecords',
+        parameters: {
+          'repo': repo,
+          'collection': collection,
+          'limit': limit,
+          'reverse': reverse,
+          'rkeyStart': rkeyStart,
+          'rkeyEnd': rkeyEnd,
+          'cursor': cursor,
+        },
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findRepoInfo<T>({
+    required String repo,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'describeRepo',
+        parameters: {
+          'repo': repo,
+        },
+        userContext: core.UserContext.anonymousOnly,
+        to: to,
       );
 }
