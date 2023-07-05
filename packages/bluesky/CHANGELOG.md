@@ -22,6 +22,40 @@
     - `findRepoHeadAsJson`
     - `findRecordAsJson`
     - `findReposAsJson`
+  - `ActorsService`
+    - `searchActorsAsJson`
+    - `findProfileAsJson`
+    - `findProfilesAsJson`
+    - `findSuggestionsAsJson`
+    - `searchTypeaheadAsJson`
+    - `findPreferencesAsJson`
+  - `FeedsService`
+    - `findTimelineAsJson`
+    - `findFeedAsJson`
+    - `findCustomFeedAsJson`
+    - `findFeedSkeletonAsJson`
+    - `findActorFeedsAsJson`
+    - `findLikesAsJson`
+    - `findRepostedByAsJson`
+    - `findPostThreadAsJson`
+    - `findPostsAsJson`
+    - `findGeneratorAsJson`
+    - `findGeneratorsAsJson`
+    - `findGeneratorInfoAsJson`
+  - `GraphsService`
+    - `findFollowsAsJson`
+    - `findFollowersAsJson`
+    - `findMutesAsJson`
+    - `findBlocksAsJson`
+    - `findListsAsJson`
+    - `findListItemsAsJson`
+    - `findMutingListsAsJson`
+  - `NotificationsService`
+    - `findNotificationsAsJson`
+    - `findUnreadCountAsJson`
+  - `UnspeccedService`
+    - `findPopularFeedAsJson`
+    - `findPopularFeedGeneratorsAsJson`
 
 ## v0.7.1
 

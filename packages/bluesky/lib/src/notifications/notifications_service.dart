@@ -50,6 +50,33 @@ abstract class NotificationsService {
     String? cursor,
   });
 
+  /// Returns notifications authenticated user received in JSON representation.
+  ///
+  /// This method does not convert response data into a [Notifications] object,
+  /// so this may improve runtime performance.
+  ///
+  /// If you want to get it as a [Notifications] object,
+  /// use [findNotifications].
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.notification.listNotifications
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/listNotifications.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findNotificationsAsJson({
+    int? limit,
+    String? cursor,
+  });
+
   /// Returns unread notifications count.
   ///
   /// ## Lexicon
@@ -60,6 +87,23 @@ abstract class NotificationsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/getUnreadCount.json
   Future<core.XRPCResponse<Count>> findUnreadCount();
+
+  /// Returns unread notifications count in JSON representation.
+  ///
+  /// This method does not convert response data into a [Count] object, so this
+  /// may improve runtime performance.
+  ///
+  /// If you want to get it as a [Count] object,
+  /// use [findUnreadCount].
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.notification.getUnreadCount
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/getUnreadCount.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findUnreadCountAsJson();
 
   /// Notify server that the user has seen notifications.
   ///
@@ -97,20 +141,29 @@ class _NotificationsService extends BlueskyBaseService
     int? limit,
     String? cursor,
   }) async =>
-      await super.get(
-        'listNotifications',
-        parameters: {
-          'limit': limit,
-          'cursor': cursor,
-        },
+      await _findNotifications(
+        limit: limit,
+        cursor: cursor,
         to: Notifications.fromJson,
       );
 
   @override
-  Future<core.XRPCResponse<Count>> findUnreadCount() async => await super.get(
-        'getUnreadCount',
-        to: Count.fromJson,
+  Future<core.XRPCResponse<Map<String, dynamic>>> findNotificationsAsJson({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findNotifications(
+        limit: limit,
+        cursor: cursor,
       );
+
+  @override
+  Future<core.XRPCResponse<Count>> findUnreadCount() async =>
+      await _findUnreadCount(to: Count.fromJson);
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>>
+      findUnreadCountAsJson() async => await _findUnreadCount();
 
   @override
   Future<core.XRPCResponse<core.EmptyData>> updateNotificationsAsRead({
@@ -121,5 +174,27 @@ class _NotificationsService extends BlueskyBaseService
         body: {
           'seenAt': toUtcIso8601String(seenAt),
         },
+      );
+
+  Future<core.XRPCResponse<T>> _findNotifications<T>({
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'listNotifications',
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findUnreadCount<T>({
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getUnreadCount',
+        to: to,
       );
 }

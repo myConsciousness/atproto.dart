@@ -25,7 +25,7 @@ import 'package:bluesky/src/params/thread_param.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('.findHomeTimeline', () {
+  group('.findTimeline', () {
     test('normal case', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
@@ -55,6 +55,30 @@ void main() {
       expect(strongRef, isA<StrongRef>());
       expect(strongRef.cid, post.cid);
       expect(strongRef.uri, post.uri);
+    });
+
+    test('as JSON', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/find_home_timeline.json',
+        ),
+      );
+
+      final response = await feeds.findTimelineAsJson(
+        algorithm: 'custom-algorithm',
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {
@@ -749,6 +773,30 @@ void main() {
       expect(response.data, isA<Feed>());
     });
 
+    test('as JSON', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/find_feeds.json',
+        ),
+      );
+
+      final response = await feeds.findFeedAsJson(
+        actor: 'shinyakato.dev',
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
     test('when unauthorized', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
@@ -798,7 +846,7 @@ void main() {
     });
   });
 
-  group('.findSkeletonFeed', () {
+  group('.findCustomFeed', () {
     test('normal case', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
@@ -823,6 +871,32 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<Feed>());
+    });
+
+    test('as JSON', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/find_custom_feed.json',
+        ),
+      );
+
+      final response = await feeds.findCustomFeedAsJson(
+        generatorUri: AtUri.parse(
+          'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-privacy',
+        ),
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {
@@ -873,7 +947,7 @@ void main() {
     });
   });
 
-  group('.findCustomFeed', () {
+  group('.findFeedSkeleton', () {
     test('normal case', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
@@ -898,6 +972,32 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<SkeletonFeed>());
+    });
+
+    test('normal case', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/find_skeleton_feed.json',
+        ),
+      );
+
+      final response = await feeds.findFeedSkeletonAsJson(
+        generatorUri: AtUri.parse(
+          'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-privacy',
+        ),
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {
@@ -972,6 +1072,31 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<Likes>());
+    });
+
+    test('as JSON', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/find_likes.json',
+        ),
+      );
+
+      final response = await feeds.findLikesAsJson(
+        uri: AtUri.parse('at://foo.com/com.example.foo/123'),
+        cid: 'test',
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {
@@ -1051,6 +1176,31 @@ void main() {
       expect(response.data, isA<RepostedBy>());
     });
 
+    test('as JSON', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/find_reposted_by.json',
+        ),
+      );
+
+      final response = await feeds.findRepostedByAsJson(
+        uri: AtUri.parse('at://foo.com/com.example.foo/123'),
+        cid: 'test',
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
     test('when unauthorized', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
@@ -1127,6 +1277,30 @@ void main() {
       expect(response.data, isA<PostThread>());
     });
 
+    test('as JSON', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/find_post_thread.json',
+        ),
+      );
+
+      final response = await feeds.findPostThreadAsJson(
+        uri: AtUri.parse('at://foo.com/com.example.foo/123'),
+        depth: 5,
+        parentHeight: 6,
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
     test('when unauthorized', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
@@ -1195,6 +1369,28 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<Posts>());
+    });
+
+    test('as JSON', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/find_posts.json',
+        ),
+      );
+
+      final response = await feeds.findPostsAsJson(
+        uris: [AtUri.parse('at://foo.com/com.example.foo/123')],
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {
@@ -1457,6 +1653,30 @@ void main() {
       expect(response.data, isA<ActorFeeds>());
     });
 
+    test('as JSON', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/find_actor_feeds.json',
+        ),
+      );
+
+      final response = await feeds.findActorFeedsAsJson(
+        actor: 'shinyakato.dev',
+        limit: 10,
+        cursor: 'xxxxxx',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
     test('when unauthorized', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
@@ -1525,6 +1745,30 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<FeedGenerator>());
+    });
+
+    test('as JSON', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/find_generator.json',
+        ),
+      );
+
+      final response = await feeds.findGeneratorAsJson(
+        uri: AtUri.parse(
+          'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-gaming',
+        ),
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {
@@ -1603,6 +1847,32 @@ void main() {
       expect(response.data, isA<FeedGenerators>());
     });
 
+    test('as JSON', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/find_generators.json',
+        ),
+      );
+
+      final response = await feeds.findGeneratorsAsJson(
+        uris: [
+          AtUri.parse(
+            'at://did:plc:tenurhgjptubkk5zf5qhi3og/app.bsky.feed.generator/h-gaming',
+          )
+        ],
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
     test('when unauthorized', () async {
       final feeds = FeedsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
@@ -1667,6 +1937,26 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<FeedGeneratorInfo>());
+    });
+
+    test('as JSON', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/find_generator_info.json',
+        ),
+      );
+
+      final response = await feeds.findGeneratorInfoAsJson();
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {
