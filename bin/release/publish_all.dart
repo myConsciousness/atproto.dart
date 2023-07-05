@@ -8,13 +8,24 @@ import '../utils.dart';
 import '../validate_dependencies.dart';
 import 'publish_orders.dart';
 
+const _line = '---------------------------------------------------';
+
 Future<void> main() async {
   validateDependencies();
 
   final packages = await publishOrders;
   _printPublishTable(packages);
 
+  print(_line);
+  print('START DRY RUN');
+  print(_line);
+
   await _publishPackages(packages, dryRun: true);
+
+  print(_line);
+  print('START PUBLISH');
+  print(_line);
+
   await _publishPackages(packages);
 }
 
@@ -46,6 +57,8 @@ Future<bool> _publishPackage(
 
   if (dryRun) {
     params.add('--dry-run');
+  } else {
+    params.add('--force');
   }
 
   final result = await Process.run(
