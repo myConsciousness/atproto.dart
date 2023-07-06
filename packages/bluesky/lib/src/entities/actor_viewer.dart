@@ -31,6 +31,14 @@ class ActorViewer with _$ActorViewer {
   factory ActorViewer.fromJson(Map<String, Object?> json) =>
       _$ActorViewerFromJson(json);
 
+  /// Returns true if authenticated user has not muted yet this actor,
+  /// otherwise false.
+  bool get isNotMuted => !isMuted;
+
+  /// Returns true if authenticated user has not blocked yet by this actor,
+  /// otherwise false.
+  bool get isNotBlockedBy => !isBlockedBy;
+
   /// Returns true if authenticated user has already muted this actor by list,
   /// otherwise false.
   bool get isMutedByList => mutedByList != null;

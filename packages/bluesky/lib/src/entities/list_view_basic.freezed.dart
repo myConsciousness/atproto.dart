@@ -205,7 +205,7 @@ class __$$_ListViewBasicCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_ListViewBasic implements _ListViewBasic {
+class _$_ListViewBasic extends _ListViewBasic {
   const _$_ListViewBasic(
       {@JsonKey(name: '\$type') this.type = 'app.bsky.graph.defs#listViewBasic',
       this.purpose = 'app.bsky.graph.defs#modlist',
@@ -214,7 +214,8 @@ class _$_ListViewBasic implements _ListViewBasic {
       required this.name,
       this.avatar,
       required this.viewer,
-      required this.indexedAt});
+      required this.indexedAt})
+      : super._();
 
   factory _$_ListViewBasic.fromJson(Map<String, dynamic> json) =>
       _$$_ListViewBasicFromJson(json);
@@ -279,7 +280,7 @@ class _$_ListViewBasic implements _ListViewBasic {
   }
 }
 
-abstract class _ListViewBasic implements ListViewBasic {
+abstract class _ListViewBasic extends ListViewBasic {
   const factory _ListViewBasic(
       {@JsonKey(name: '\$type') final String type,
       final String purpose,
@@ -289,6 +290,7 @@ abstract class _ListViewBasic implements ListViewBasic {
       final String? avatar,
       required final ListViewer viewer,
       required final DateTime indexedAt}) = _$_ListViewBasic;
+  const _ListViewBasic._() : super._();
 
   factory _ListViewBasic.fromJson(Map<String, dynamic> json) =
       _$_ListViewBasic.fromJson;

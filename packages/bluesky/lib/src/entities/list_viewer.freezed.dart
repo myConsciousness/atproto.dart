@@ -98,8 +98,9 @@ class __$$_ListViewerCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_ListViewer implements _ListViewer {
-  const _$_ListViewer({@JsonKey(name: 'muted') required this.isMuted});
+class _$_ListViewer extends _ListViewer {
+  const _$_ListViewer({@JsonKey(name: 'muted') required this.isMuted})
+      : super._();
 
   factory _$_ListViewer.fromJson(Map<String, dynamic> json) =>
       _$$_ListViewerFromJson(json);
@@ -139,9 +140,10 @@ class _$_ListViewer implements _ListViewer {
   }
 }
 
-abstract class _ListViewer implements ListViewer {
+abstract class _ListViewer extends ListViewer {
   const factory _ListViewer(
       {@JsonKey(name: 'muted') required final bool isMuted}) = _$_ListViewer;
+  const _ListViewer._() : super._();
 
   factory _ListViewer.fromJson(Map<String, dynamic> json) =
       _$_ListViewer.fromJson;
