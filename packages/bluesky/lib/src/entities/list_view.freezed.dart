@@ -254,7 +254,7 @@ class __$$_ListViewCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_ListView implements _ListView {
+class _$_ListView extends _ListView {
   const _$_ListView(
       {@JsonKey(name: '\$type') this.type = 'app.bsky.graph.defs#listView',
       this.purpose = 'app.bsky.graph.defs#modlist',
@@ -267,7 +267,8 @@ class _$_ListView implements _ListView {
       @JsonKey(name: 'creator') required this.createdBy,
       required this.viewer,
       required this.indexedAt})
-      : _descriptionFacets = descriptionFacets;
+      : _descriptionFacets = descriptionFacets,
+        super._();
 
   factory _$_ListView.fromJson(Map<String, dynamic> json) =>
       _$$_ListViewFromJson(json);
@@ -365,7 +366,7 @@ class _$_ListView implements _ListView {
   }
 }
 
-abstract class _ListView implements ListView {
+abstract class _ListView extends ListView {
   const factory _ListView(
       {@JsonKey(name: '\$type') final String type,
       final String purpose,
@@ -378,6 +379,7 @@ abstract class _ListView implements ListView {
       @JsonKey(name: 'creator') required final Actor createdBy,
       required final ListViewer viewer,
       required final DateTime indexedAt}) = _$_ListView;
+  const _ListView._() : super._();
 
   factory _ListView.fromJson(Map<String, dynamic> json) = _$_ListView.fromJson;
 

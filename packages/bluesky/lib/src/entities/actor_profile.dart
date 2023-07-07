@@ -38,6 +38,14 @@ class ActorProfile with _$ActorProfile {
   factory ActorProfile.fromJson(Map<String, Object?> json) =>
       _$ActorProfileFromJson(json);
 
+  /// Returns true if authenticated user has not muted yet this actor,
+  /// otherwise false.
+  bool get isNotMuted => viewer.isNotMuted;
+
+  /// Returns true if authenticated user has not blocked yet by this actor,
+  /// otherwise false.
+  bool get isNotBlockedBy => viewer.isNotBlockedBy;
+
   /// Returns true if authenticated user has already muted this actor by list,
   /// otherwise false.
   bool get isMutedByList => viewer.isMutedByList;

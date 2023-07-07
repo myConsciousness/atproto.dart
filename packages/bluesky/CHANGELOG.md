@@ -56,6 +56,12 @@
   - `UnspeccedService`
     - `findPopularFeedAsJson`
     - `findPopularFeedGeneratorsAsJson`
+- Added Viewer utilities. ([#576](https://github.com/myConsciousness/atproto.dart/issues/576))
+  - `ActorProfile`, `Actor`, `ActorViewer`
+    - `isNotMuted`
+    - `isNotBlockedBy`
+  - `ListView`, `ListViewBasic`, `ListViewer`
+    - `isNotMuted`
 
 ## v0.7.1
 

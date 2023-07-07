@@ -17,6 +17,9 @@ part 'list_view.g.dart';
 
 @freezed
 class ListView with _$ListView {
+  // ignore: unused_element
+  const ListView._();
+
   @JsonSerializable(includeIfNull: false)
   const factory ListView({
     @Default('app.bsky.graph.defs#listView')
@@ -36,4 +39,8 @@ class ListView with _$ListView {
 
   factory ListView.fromJson(Map<String, Object?> json) =>
       _$ListViewFromJson(json);
+
+  /// Returns true if authenticated user has not muted yet this actor,
+  /// otherwise false.
+  bool get isNotMuted => viewer.isNotMuted;
 }
