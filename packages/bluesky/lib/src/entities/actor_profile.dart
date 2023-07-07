@@ -44,7 +44,7 @@ class ActorProfile with _$ActorProfile {
 
   /// Returns true if authenticated user has not blocked yet by this actor,
   /// otherwise false.
-  bool get isNotBlockedBy => !viewer.isNotBlockedBy;
+  bool get isNotBlockedBy => viewer.isNotBlockedBy;
 
   /// Returns true if authenticated user has already muted this actor by list,
   /// otherwise false.
