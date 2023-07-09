@@ -17,6 +17,7 @@ class FeedGenerators with _$FeedGenerators {
   @JsonSerializable(includeIfNull: false)
   const factory FeedGenerators({
     required List<FeedGeneratorView> feeds,
+    String? cursor,
   }) = _FeedGenerators;
 
   factory FeedGenerators.fromJson(Map<String, Object?> json) =>

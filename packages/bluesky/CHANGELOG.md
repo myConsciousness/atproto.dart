@@ -62,6 +62,9 @@
     - `isNotBlockedBy`
   - `ListView`, `ListViewBasic`, `ListViewer`
     - `isNotMuted`
+- Added input and output of `findPopularFeedGenerators` in `UnspeccedService`. ([#581](https://github.com/myConsciousness/atproto.dart/issues/581))
+  - `limit` and `cursor`
+  - `cursor` in `FeedGenerators`
 
 ## v0.7.1
 

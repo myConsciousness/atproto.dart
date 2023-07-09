@@ -21,6 +21,7 @@ FeedGenerators _$FeedGeneratorsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$FeedGenerators {
   List<FeedGeneratorView> get feeds => throw _privateConstructorUsedError;
+  String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,7 @@ abstract class $FeedGeneratorsCopyWith<$Res> {
           FeedGenerators value, $Res Function(FeedGenerators) then) =
       _$FeedGeneratorsCopyWithImpl<$Res, FeedGenerators>;
   @useResult
-  $Res call({List<FeedGeneratorView> feeds});
+  $Res call({List<FeedGeneratorView> feeds, String? cursor});
 }
 
 /// @nodoc
@@ -51,12 +52,17 @@ class _$FeedGeneratorsCopyWithImpl<$Res, $Val extends FeedGenerators>
   @override
   $Res call({
     Object? feeds = null,
+    Object? cursor = freezed,
   }) {
     return _then(_value.copyWith(
       feeds: null == feeds
           ? _value.feeds
           : feeds // ignore: cast_nullable_to_non_nullable
               as List<FeedGeneratorView>,
+      cursor: freezed == cursor
+          ? _value.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -69,7 +75,7 @@ abstract class _$$_FeedGeneratorsCopyWith<$Res>
       __$$_FeedGeneratorsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<FeedGeneratorView> feeds});
+  $Res call({List<FeedGeneratorView> feeds, String? cursor});
 }
 
 /// @nodoc
@@ -84,12 +90,17 @@ class __$$_FeedGeneratorsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? feeds = null,
+    Object? cursor = freezed,
   }) {
     return _then(_$_FeedGenerators(
       feeds: null == feeds
           ? _value._feeds
           : feeds // ignore: cast_nullable_to_non_nullable
               as List<FeedGeneratorView>,
+      cursor: freezed == cursor
+          ? _value.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -98,7 +109,8 @@ class __$$_FeedGeneratorsCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$_FeedGenerators implements _FeedGenerators {
-  const _$_FeedGenerators({required final List<FeedGeneratorView> feeds})
+  const _$_FeedGenerators(
+      {required final List<FeedGeneratorView> feeds, this.cursor})
       : _feeds = feeds;
 
   factory _$_FeedGenerators.fromJson(Map<String, dynamic> json) =>
@@ -113,8 +125,11 @@ class _$_FeedGenerators implements _FeedGenerators {
   }
 
   @override
+  final String? cursor;
+
+  @override
   String toString() {
-    return 'FeedGenerators(feeds: $feeds)';
+    return 'FeedGenerators(feeds: $feeds, cursor: $cursor)';
   }
 
   @override
@@ -122,13 +137,14 @@ class _$_FeedGenerators implements _FeedGenerators {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FeedGenerators &&
-            const DeepCollectionEquality().equals(other._feeds, _feeds));
+            const DeepCollectionEquality().equals(other._feeds, _feeds) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_feeds));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_feeds), cursor);
 
   @JsonKey(ignore: true)
   @override
@@ -146,13 +162,16 @@ class _$_FeedGenerators implements _FeedGenerators {
 
 abstract class _FeedGenerators implements FeedGenerators {
   const factory _FeedGenerators(
-      {required final List<FeedGeneratorView> feeds}) = _$_FeedGenerators;
+      {required final List<FeedGeneratorView> feeds,
+      final String? cursor}) = _$_FeedGenerators;
 
   factory _FeedGenerators.fromJson(Map<String, dynamic> json) =
       _$_FeedGenerators.fromJson;
 
   @override
   List<FeedGeneratorView> get feeds;
+  @override
+  String? get cursor;
   @override
   @JsonKey(ignore: true)
   _$$_FeedGeneratorsCopyWith<_$_FeedGenerators> get copyWith =>
