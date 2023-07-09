@@ -1,6 +1,7 @@
 name: bluesky_post
 description: A server app using the shelf package and Docker.
 version: 4.0.0
+publish_to: none
 environment:
   sdk: '>=2.19.2 <3.0.0'
 
