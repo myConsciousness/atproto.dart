@@ -87,6 +87,13 @@ abstract class UnspeccedService {
 
   /// An unspecced view of globally popular feed generators.
   ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
   /// ## Lexicon
   ///
   /// - app.bsky.unspecced.getPopularFeedGenerators
@@ -94,7 +101,10 @@ abstract class UnspeccedService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopularFeedGenerators.json
-  Future<core.XRPCResponse<FeedGenerators>> findPopularFeedGenerators();
+  Future<core.XRPCResponse<FeedGenerators>> findPopularFeedGenerators({
+    int? limit,
+    String? cursor,
+  });
 
   /// An unspecced view of globally popular feed generators in JSON
   /// representation.
@@ -105,6 +115,13 @@ abstract class UnspeccedService {
   /// If you want to get it as a [FeedGenerators] object,
   /// use [findPopularFeedGenerators].
   ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
   /// ## Lexicon
   ///
   /// - app.bsky.unspecced.getPopularFeedGenerators
@@ -113,7 +130,10 @@ abstract class UnspeccedService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopularFeedGenerators.json
   Future<core.XRPCResponse<Map<String, dynamic>>>
-      findPopularFeedGeneratorsAsJson();
+      findPopularFeedGeneratorsAsJson({
+    int? limit,
+    String? cursor,
+  });
 }
 
 class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
@@ -153,13 +173,26 @@ class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
       );
 
   @override
-  Future<core.XRPCResponse<FeedGenerators>> findPopularFeedGenerators() async =>
-      await _findPopularFeedGenerators(to: FeedGenerators.fromJson);
+  Future<core.XRPCResponse<FeedGenerators>> findPopularFeedGenerators({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findPopularFeedGenerators(
+        limit: limit,
+        cursor: cursor,
+        to: FeedGenerators.fromJson,
+      );
 
   @override
   Future<core.XRPCResponse<Map<String, dynamic>>>
-      findPopularFeedGeneratorsAsJson() async =>
-          await _findPopularFeedGenerators();
+      findPopularFeedGeneratorsAsJson({
+    int? limit,
+    String? cursor,
+  }) async =>
+          await _findPopularFeedGenerators(
+            limit: limit,
+            cursor: cursor,
+          );
 
   Future<core.XRPCResponse<T>> _findPopularFeed<T>({
     required bool? includeNsfw,
@@ -178,10 +211,16 @@ class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
       );
 
   Future<core.XRPCResponse<T>> _findPopularFeedGenerators<T>({
+    required int? limit,
+    required String? cursor,
     core.To<T>? to,
   }) async =>
       await super.get(
         'getPopularFeedGenerators',
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: to,
       );
 }
