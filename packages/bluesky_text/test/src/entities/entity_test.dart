@@ -5,6 +5,7 @@
 import 'package:bluesky_text/src/entities/byte_indices.dart';
 import 'package:bluesky_text/src/entities/entity.dart';
 import 'package:test/test.dart';
+import 'package:xrpc/xrpc.dart';
 
 void main() {
   group('.toFacet', () {
@@ -38,6 +39,39 @@ void main() {
       final facet = await entity.toFacet();
 
       expect(facet, {});
+    });
+
+    test('case3', () async {
+      final entity = Entity(
+        type: EntityType.handle,
+        value: '@a.bsky.social',
+        indices: ByteIndices(start: 0, end: 0),
+      );
+
+      expect(
+        () async => await entity.toFacet(ignoreInvalidHandle: false),
+        throwsA(isA<InvalidRequestException>()),
+      );
+    });
+
+    test('case4', () async {
+      final entity = Entity(
+        type: EntityType.link,
+        value: 'https://shinyakato.dev',
+        indices: ByteIndices(start: 0, end: 0),
+      );
+
+      final facet = await entity.toFacet();
+
+      expect(facet, {
+        'index': {'byteStart': 0, 'byteEnd': 0},
+        'features': [
+          {
+            '\$type': 'app.bsky.richtext.facet#link',
+            'uri': 'https://shinyakato.dev'
+          }
+        ]
+      });
     });
   });
 }
