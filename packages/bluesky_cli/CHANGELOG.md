@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.5
+
+- Upgraded `bluesky_text`. ([#574](https://github.com/myConsciousness/atproto.dart/issues/574))
+
 ## v0.2.4
 
 - Upgraded `xrpc` and `bluesky_text`. ([#563](https://github.com/myConsciousness/atproto.dart/issues/563))
