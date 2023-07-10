@@ -2,12 +2,21 @@
 
 ## v0.7.3
 
-- Added callbacks in `RepoCommitAdaptor` and properties in `AtUriExtension`.
+- Added callbacks in `RepoCommitAdaptor` and properties in `AtUriExtension`. ([#586](https://github.com/myConsciousness/atproto.dart/issues/586))
   - `AtUriExtension`
     - `isFeedGenerator`, `isNotFeedGenerator`
     - `isGraphBlock`, `isNotGraphBlock`
     - `isGraphList`, `isNotGraphList`
     - `isGraphListItem`, `isNotGraphListItem`
+  - Added callbacks in `RepoCommitAdaptor`
+    - `onCreateGenerator`
+    - `onCreateBlock`
+    - `onCreateList`
+    - `onCreateListItem`
+    - `onDeleteGenerator`
+    - `onDeleteBlock`
+    - `onDeleteList`
+    - `onDeleteListItem`
 
 ## v0.7.2
 

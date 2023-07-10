@@ -7,9 +7,13 @@ import 'dart:async';
 import 'package:atproto/atproto.dart';
 
 import '../../extension/at_uri_extension.dart';
+import '../block_record.dart';
 import '../follow_record.dart';
+import '../generator_record.dart';
 import '../ids/ids.dart' as ids;
 import '../like_record.dart';
+import '../list_item_record.dart';
+import '../list_record.dart';
 import '../post_record.dart';
 import '../profile_record.dart';
 import '../repost_record.dart';
@@ -34,32 +38,52 @@ class RepoCommitAdaptor {
     final RepoCommitOnCreate<PostRecord>? onCreatePost,
     final RepoCommitOnCreate<RepostRecord>? onCreateRepost,
     final RepoCommitOnCreate<LikeRecord>? onCreateLike,
+    final RepoCommitOnCreate<GeneratorRecord>? onCreateGenerator,
     final RepoCommitOnCreate<FollowRecord>? onCreateFollow,
+    final RepoCommitOnCreate<BlockRecord>? onCreateBlock,
+    final RepoCommitOnCreate<ListRecord>? onCreateList,
+    final RepoCommitOnCreate<ListItemRecord>? onCreateListItem,
     final RepoCommitOnCreate<Map<String, dynamic>>? onCreateUnknown,
     final RepoCommitOnUpdate<ProfileRecord>? onUpdateProfile,
     final RepoCommitOnUpdate<Map<String, dynamic>>? onUpdateUnknown,
     final RepoCommitOnDelete? onDeletePost,
     final RepoCommitOnDelete? onDeleteRepost,
     final RepoCommitOnDelete? onDeleteLike,
+    final RepoCommitOnDelete? onDeleteGenerator,
     final RepoCommitOnDelete? onDeleteFollow,
+    final RepoCommitOnDelete? onDeleteBlock,
+    final RepoCommitOnDelete? onDeleteList,
+    final RepoCommitOnDelete? onDeleteListItem,
     final RepoCommitOnDelete? onDeleteUnknown,
   })  : _onCreatePost = onCreatePost,
         _onCreateRepost = onCreateRepost,
         _onCreateLike = onCreateLike,
+        _onCreateGenerator = onCreateGenerator,
         _onCreateFollow = onCreateFollow,
+        _onCreateBlock = onCreateBlock,
+        _onCreateList = onCreateList,
+        _onCreateListItem = onCreateListItem,
         _onCreateUnknown = onCreateUnknown,
         _onUpdateProfile = onUpdateProfile,
         _onUpdateUnknown = onUpdateUnknown,
         _onDeletePost = onDeletePost,
         _onDeleteRepost = onDeleteRepost,
         _onDeleteLike = onDeleteLike,
+        _onDeleteGenerator = onDeleteGenerator,
         _onDeleteFollow = onDeleteFollow,
+        _onDeleteBlock = onDeleteBlock,
+        _onDeleteList = onDeleteList,
+        _onDeleteListItem = onDeleteListItem,
         _onDeleteUnknown = onDeleteUnknown;
 
   final RepoCommitOnCreate<PostRecord>? _onCreatePost;
   final RepoCommitOnCreate<RepostRecord>? _onCreateRepost;
   final RepoCommitOnCreate<LikeRecord>? _onCreateLike;
+  final RepoCommitOnCreate<GeneratorRecord>? _onCreateGenerator;
   final RepoCommitOnCreate<FollowRecord>? _onCreateFollow;
+  final RepoCommitOnCreate<BlockRecord>? _onCreateBlock;
+  final RepoCommitOnCreate<ListRecord>? _onCreateList;
+  final RepoCommitOnCreate<ListItemRecord>? _onCreateListItem;
   final RepoCommitOnCreate<Map<String, dynamic>>? _onCreateUnknown;
 
   final RepoCommitOnUpdate<ProfileRecord>? _onUpdateProfile;
@@ -68,7 +92,11 @@ class RepoCommitAdaptor {
   final RepoCommitOnDelete? _onDeletePost;
   final RepoCommitOnDelete? _onDeleteRepost;
   final RepoCommitOnDelete? _onDeleteLike;
+  final RepoCommitOnDelete? _onDeleteGenerator;
   final RepoCommitOnDelete? _onDeleteFollow;
+  final RepoCommitOnDelete? _onDeleteBlock;
+  final RepoCommitOnDelete? _onDeleteList;
+  final RepoCommitOnDelete? _onDeleteListItem;
   final RepoCommitOnDelete? _onDeleteUnknown;
 
   /// Performs actions based on [data].
@@ -96,7 +124,9 @@ class RepoCommitAdaptor {
     if (op.uri.isFeedPost && _isPost(op.record!)) {
       await _onCreatePost?.call(
         RepoCommitCreate<PostRecord>(
-          record: PostRecord.fromJson(op.record!),
+          record: PostRecord.fromJson(
+            op.record!,
+          ),
           uri: op.uri,
           cid: op.cid!,
           author: data.did,
@@ -127,10 +157,58 @@ class RepoCommitAdaptor {
           cursor: data.cursor,
         ),
       );
+    } else if (op.uri.isFeedGenerator && _isGenerator(op.record!)) {
+      await _onCreateGenerator?.call(
+        RepoCommitCreate<GeneratorRecord>(
+          record: GeneratorRecord.fromJson(
+            op.record!,
+          ),
+          uri: op.uri,
+          cid: op.cid!,
+          author: data.did,
+          cursor: data.cursor,
+        ),
+      );
     } else if (op.uri.isGraphFollow && _isFollow(op.record!)) {
       await _onCreateFollow?.call(
         RepoCommitCreate<FollowRecord>(
           record: FollowRecord.fromJson(op.record!),
+          uri: op.uri,
+          cid: op.cid!,
+          author: data.did,
+          cursor: data.cursor,
+        ),
+      );
+    } else if (op.uri.isGraphBlock && _isBlock(op.record!)) {
+      await _onCreateBlock?.call(
+        RepoCommitCreate<BlockRecord>(
+          record: BlockRecord.fromJson(
+            op.record!,
+          ),
+          uri: op.uri,
+          cid: op.cid!,
+          author: data.did,
+          cursor: data.cursor,
+        ),
+      );
+    } else if (op.uri.isGraphList && _isList(op.record!)) {
+      await _onCreateList?.call(
+        RepoCommitCreate<ListRecord>(
+          record: ListRecord.fromJson(
+            op.record!,
+          ),
+          uri: op.uri,
+          cid: op.cid!,
+          author: data.did,
+          cursor: data.cursor,
+        ),
+      );
+    } else if (op.uri.isGraphListItem && _isListItem(op.record!)) {
+      await _onCreateListItem?.call(
+        RepoCommitCreate<ListItemRecord>(
+          record: ListItemRecord.fromJson(
+            op.record!,
+          ),
           uri: op.uri,
           cid: op.cid!,
           author: data.did,
@@ -212,8 +290,44 @@ class RepoCommitAdaptor {
           createdAt: data.createdAt,
         ),
       );
+    } else if (op.uri.isFeedGenerator) {
+      await _onDeleteGenerator?.call(
+        RepoCommitDelete(
+          uri: op.uri,
+          author: data.did,
+          cursor: data.cursor,
+          createdAt: data.createdAt,
+        ),
+      );
     } else if (op.uri.isGraphFollow) {
       await _onDeleteFollow?.call(
+        RepoCommitDelete(
+          uri: op.uri,
+          author: data.did,
+          cursor: data.cursor,
+          createdAt: data.createdAt,
+        ),
+      );
+    } else if (op.uri.isGraphBlock) {
+      await _onDeleteBlock?.call(
+        RepoCommitDelete(
+          uri: op.uri,
+          author: data.did,
+          cursor: data.cursor,
+          createdAt: data.createdAt,
+        ),
+      );
+    } else if (op.uri.isGraphList) {
+      await _onDeleteList?.call(
+        RepoCommitDelete(
+          uri: op.uri,
+          author: data.did,
+          cursor: data.cursor,
+          createdAt: data.createdAt,
+        ),
+      );
+    } else if (op.uri.isGraphListItem) {
+      await _onDeleteListItem?.call(
         RepoCommitDelete(
           uri: op.uri,
           author: data.did,
@@ -245,7 +359,23 @@ class RepoCommitAdaptor {
   bool _isLike(final Map<String, dynamic> record) =>
       record['\$type'] == ids.appBskyFeedLike;
 
+  /// Returns true if [record] is feed generator, otherwise false.
+  bool _isGenerator(final Map<String, dynamic> record) =>
+      record['\$type'] == ids.appBskyFeedGenerator;
+
   /// Returns true if [record] is graph follow, otherwise false.
   bool _isFollow(final Map<String, dynamic> record) =>
       record['\$type'] == ids.appBskyGraphFollow;
+
+  /// Returns true if [record] is graph block, otherwise false.
+  bool _isBlock(final Map<String, dynamic> record) =>
+      record['\$type'] == ids.appBskyGraphBlock;
+
+  /// Returns true if [record] is graph list, otherwise false.
+  bool _isList(final Map<String, dynamic> record) =>
+      record['\$type'] == ids.appBskyGraphList;
+
+  /// Returns true if [record] is graph list item, otherwise false.
+  bool _isListItem(final Map<String, dynamic> record) =>
+      record['\$type'] == ids.appBskyGraphListItem;
 }
