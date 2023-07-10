@@ -73,7 +73,7 @@ flowchart TD
 
     bluesky --> bluesky_post
 
-    atproto --> bluesky_text
+    xrpc --> bluesky_text
 
     xrpc --> bluesky_cli
 

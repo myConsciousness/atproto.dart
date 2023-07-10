@@ -4,8 +4,9 @@
 
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:xrpc/xrpc.dart';
 
-import '../atproto.dart';
+import '../api/find_did.dart' as api;
 import 'byte_indices.dart';
 import 'facetable.dart';
 
@@ -40,17 +41,20 @@ class Entity with _$Entity implements Facetable {
     switch (type) {
       case EntityType.handle:
         try {
-          final did = await atproto.identities.findDID(
+          final did = await api.findDID(
             handle: value.substring(1),
           );
 
           facet['features'].add({
             '\$type': 'app.bsky.richtext.facet#mention',
-            'did': did.data.did,
+            'did': did.data['did'],
           });
-        } on Exception {
+        } on InvalidRequestException {
           //! Invalid handle.
           return {};
+        } on Exception {
+          //! Network error or server error.
+          rethrow;
         }
 
         break;

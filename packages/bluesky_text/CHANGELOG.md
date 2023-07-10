@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.6
+
+- Changed the dependency of the communication process from `atproto` to `xrpc`. ([#574](https://github.com/myConsciousness/atproto.dart/issues/574))
+
 ## v0.2.5
 
 - Upgraded `atproto`. ([#563](https://github.com/myConsciousness/atproto.dart/issues/563))
