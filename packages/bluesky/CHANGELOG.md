@@ -1,5 +1,14 @@
 # Release Note
 
+## v0.7.3
+
+- Added callbacks in `RepoCommitAdaptor` and properties in `AtUriExtension`.
+  - `AtUriExtension`
+    - `isFeedGenerator`, `isNotFeedGenerator`
+    - `isGraphBlock`, `isNotGraphBlock`
+    - `isGraphList`, `isNotGraphList`
+    - `isGraphListItem`, `isNotGraphListItem`
+
 ## v0.7.2
 
 - A method to retrieve response data as JSON from endpoints that perform GET communication has been added. These processes do not convert to a specific model object, thus improving performance. ([#563](https://github.com/myConsciousness/atproto.dart/issues/563))
