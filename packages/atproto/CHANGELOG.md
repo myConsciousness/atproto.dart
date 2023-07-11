@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.3
+
+- Removed deprecated properties. This is a property that was planned to be turned off in `v0.6.0`, so there are no breaking changes.
+
 ## v0.5.2
 
 - A method to retrieve response data as JSON from endpoints that perform GET communication has been added. These processes do not convert to a specific model object, thus improving performance. ([#563](https://github.com/myConsciousness/atproto.dart/issues/563))
