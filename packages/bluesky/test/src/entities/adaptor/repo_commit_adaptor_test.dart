@@ -475,23 +475,3 @@ RepoOp _buildCreateRepoOp(
       cid: 'aaaa',
       record: record,
     );
-
-RepoOp _buildUpdateRepoOp(
-  final String uri,
-  final Map<String, dynamic> record,
-) =>
-    RepoOp(
-      action: RepoAction.update,
-      uri: AtUri.parse(uri),
-      cid: 'aaaa',
-      record: record,
-    );
-
-RepoOp _buildDeleteRepoOp(
-  final String uri,
-  final Map<String, dynamic> record,
-) =>
-    RepoOp(
-      action: RepoAction.delete,
-      uri: AtUri.parse(uri),
-    );
