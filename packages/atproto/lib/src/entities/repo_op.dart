@@ -15,8 +15,6 @@ part 'repo_op.g.dart';
 class RepoOp with _$RepoOp {
   const factory RepoOp({
     required RepoAction action,
-    @Deprecated('Use uri instead. Will be removed in v0.6.0')
-    required String path,
     @AtUriConverter() required AtUri uri,
     String? cid,
     Map<String, dynamic>? record,
