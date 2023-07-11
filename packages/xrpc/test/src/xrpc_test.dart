@@ -15,6 +15,7 @@ import 'package:xrpc/src/exception/rate_limit_exceeded_exception.dart';
 import 'package:xrpc/src/exception/unauthorized_exception.dart';
 import 'package:xrpc/src/exception/xrpc_not_supported_exception.dart';
 import 'package:xrpc/src/serializable.dart';
+import 'package:xrpc/src/subscription.dart';
 import 'package:xrpc/src/xrpc.dart';
 import 'package:xrpc/src/xrpc_response.dart';
 
@@ -404,6 +405,30 @@ void main() {
       expect(response.data, isA<Map<String, dynamic>>());
       expect(response.data, jsonDecode('{"test": "test"}'));
     });
+  });
+
+  group('.subscribe', () {
+    test('connect 1 minute', () async {
+      final subscription = subscribe(
+        NSID.create(
+          'sync.atproto.com',
+          'subscribeRepos',
+        ),
+      );
+
+      expect(subscription, isA<XRPCResponse<Subscription>>());
+      expect(subscription.data, isA<Subscription>());
+
+      final oneMinuteLater = DateTime.now().add(Duration(minutes: 1));
+
+      await for (final _ in subscription.data.stream) {
+        if (DateTime.now().isAfter(oneMinuteLater)) {
+          await subscription.data.close();
+
+          break;
+        }
+      }
+    }, timeout: Timeout(Duration(minutes: 2)));
   });
 }
 
