@@ -676,4 +676,30 @@ void main() {
       );
     });
   });
+
+  group('.subscribeRepoUpdates', () {
+    test('connect 1 minute', () async {
+      final sync = SyncService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'bsky.social',
+        context: core.ClientContext(
+          accessJwt: '',
+          timeout: Duration.zero,
+        ),
+      );
+
+      final subscription = await sync.subscribeRepoUpdates();
+
+      final oneMinuteLater = DateTime.now().add(Duration(minutes: 1));
+
+      await for (final _ in subscription.data.stream) {
+        if (DateTime.now().isAfter(oneMinuteLater)) {
+          await subscription.data.close();
+
+          break;
+        }
+      }
+    }, timeout: Timeout(Duration(minutes: 2)));
+  });
 }
