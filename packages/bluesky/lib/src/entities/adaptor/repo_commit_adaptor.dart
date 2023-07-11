@@ -121,7 +121,7 @@ class RepoCommitAdaptor {
     final SubscribedRepoCommit data,
     final RepoOp op,
   ) async {
-    if (op.uri.isFeedPost && _isPost(op.record!)) {
+    if (op.uri.isFeedPost && _isFeedPost(op.record!)) {
       await _onCreatePost?.call(
         RepoCommitCreate<PostRecord>(
           record: PostRecord.fromJson(
@@ -133,7 +133,7 @@ class RepoCommitAdaptor {
           cursor: data.cursor,
         ),
       );
-    } else if (op.uri.isFeedRepost && _isRepost(op.record!)) {
+    } else if (op.uri.isFeedRepost && _isFeedRepost(op.record!)) {
       await _onCreateRepost?.call(
         RepoCommitCreate<RepostRecord>(
           record: RepostRecord.fromJson(
@@ -145,7 +145,7 @@ class RepoCommitAdaptor {
           cursor: data.cursor,
         ),
       );
-    } else if (op.uri.isFeedLike && _isLike(op.record!)) {
+    } else if (op.uri.isFeedLike && _isFeedLike(op.record!)) {
       await _onCreateLike?.call(
         RepoCommitCreate<LikeRecord>(
           record: LikeRecord.fromJson(
@@ -157,7 +157,7 @@ class RepoCommitAdaptor {
           cursor: data.cursor,
         ),
       );
-    } else if (op.uri.isFeedGenerator && _isGenerator(op.record!)) {
+    } else if (op.uri.isFeedGenerator && _isFeedGenerator(op.record!)) {
       await _onCreateGenerator?.call(
         RepoCommitCreate<GeneratorRecord>(
           record: GeneratorRecord.fromJson(
@@ -169,7 +169,7 @@ class RepoCommitAdaptor {
           cursor: data.cursor,
         ),
       );
-    } else if (op.uri.isGraphFollow && _isFollow(op.record!)) {
+    } else if (op.uri.isGraphFollow && _isGraphFollow(op.record!)) {
       await _onCreateFollow?.call(
         RepoCommitCreate<FollowRecord>(
           record: FollowRecord.fromJson(op.record!),
@@ -179,7 +179,7 @@ class RepoCommitAdaptor {
           cursor: data.cursor,
         ),
       );
-    } else if (op.uri.isGraphBlock && _isBlock(op.record!)) {
+    } else if (op.uri.isGraphBlock && _isGraphBlock(op.record!)) {
       await _onCreateBlock?.call(
         RepoCommitCreate<BlockRecord>(
           record: BlockRecord.fromJson(
@@ -191,7 +191,7 @@ class RepoCommitAdaptor {
           cursor: data.cursor,
         ),
       );
-    } else if (op.uri.isGraphList && _isList(op.record!)) {
+    } else if (op.uri.isGraphList && _isGraphList(op.record!)) {
       await _onCreateList?.call(
         RepoCommitCreate<ListRecord>(
           record: ListRecord.fromJson(
@@ -203,7 +203,7 @@ class RepoCommitAdaptor {
           cursor: data.cursor,
         ),
       );
-    } else if (op.uri.isGraphListItem && _isListItem(op.record!)) {
+    } else if (op.uri.isGraphListItem && _isGraphListItem(op.record!)) {
       await _onCreateListItem?.call(
         RepoCommitCreate<ListItemRecord>(
           record: ListItemRecord.fromJson(
@@ -233,7 +233,7 @@ class RepoCommitAdaptor {
     final SubscribedRepoCommit data,
     final RepoOp op,
   ) async {
-    if (op.uri.isActorProfile) {
+    if (op.uri.isActorProfile && _isActorProfile(op.record!)) {
       await _onUpdateProfile?.call(
         RepoCommitUpdate<ProfileRecord>(
           record: ProfileRecord.fromJson(op.record!),
@@ -347,35 +347,39 @@ class RepoCommitAdaptor {
     }
   }
 
+  /// Returns true if [record] is actor profile, otherwise false.
+  bool _isActorProfile(final Map<String, dynamic> record) =>
+      record['\$type'] == ids.appBskyActorProfile;
+
   /// Returns true if [record] is feed post, otherwise false.
-  bool _isPost(final Map<String, dynamic> record) =>
+  bool _isFeedPost(final Map<String, dynamic> record) =>
       record['\$type'] == ids.appBskyFeedPost;
 
   /// Returns true if [record] is feed repost, otherwise false.
-  bool _isRepost(final Map<String, dynamic> record) =>
+  bool _isFeedRepost(final Map<String, dynamic> record) =>
       record['\$type'] == ids.appBskyFeedRepost;
 
   /// Returns true if [record] is feed like, otherwise false.
-  bool _isLike(final Map<String, dynamic> record) =>
+  bool _isFeedLike(final Map<String, dynamic> record) =>
       record['\$type'] == ids.appBskyFeedLike;
 
   /// Returns true if [record] is feed generator, otherwise false.
-  bool _isGenerator(final Map<String, dynamic> record) =>
+  bool _isFeedGenerator(final Map<String, dynamic> record) =>
       record['\$type'] == ids.appBskyFeedGenerator;
 
   /// Returns true if [record] is graph follow, otherwise false.
-  bool _isFollow(final Map<String, dynamic> record) =>
+  bool _isGraphFollow(final Map<String, dynamic> record) =>
       record['\$type'] == ids.appBskyGraphFollow;
 
   /// Returns true if [record] is graph block, otherwise false.
-  bool _isBlock(final Map<String, dynamic> record) =>
+  bool _isGraphBlock(final Map<String, dynamic> record) =>
       record['\$type'] == ids.appBskyGraphBlock;
 
   /// Returns true if [record] is graph list, otherwise false.
-  bool _isList(final Map<String, dynamic> record) =>
+  bool _isGraphList(final Map<String, dynamic> record) =>
       record['\$type'] == ids.appBskyGraphList;
 
   /// Returns true if [record] is graph list item, otherwise false.
-  bool _isListItem(final Map<String, dynamic> record) =>
+  bool _isGraphListItem(final Map<String, dynamic> record) =>
       record['\$type'] == ids.appBskyGraphListItem;
 }
