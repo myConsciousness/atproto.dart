@@ -28,7 +28,7 @@ abstract class _Service {
   });
 
   Future<xrpc.XRPCResponse<T>> upload<T>(
-    final xrpc.NSID methodId,
+    final String methodName,
     final Uint8List bytes, {
     final UserContext userContext = UserContext.authRequired,
     final String? service,
@@ -38,7 +38,7 @@ abstract class _Service {
   });
 
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
-    final xrpc.NSID methodId, {
+    final String methodName, {
     final UserContext userContext = UserContext.authRequired,
     final String? service,
     final Map<String, dynamic>? parameters,
@@ -124,7 +124,7 @@ abstract class BaseService implements _Service {
 
   @override
   Future<xrpc.XRPCResponse<T>> upload<T>(
-    final xrpc.NSID methodId,
+    final String methodName,
     final Uint8List bytes, {
     UserContext userContext = UserContext.authRequired,
     final String? service,
@@ -133,7 +133,10 @@ abstract class BaseService implements _Service {
     final xrpc.To<T>? to,
   }) async =>
       await _context.upload(
-        methodId,
+        xrpc.NSID.create(
+          _methodAuthority,
+          methodName,
+        ),
         bytes,
         userContext: userContext,
         protocol: _protocol,
@@ -145,7 +148,7 @@ abstract class BaseService implements _Service {
 
   @override
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
-    final xrpc.NSID methodId, {
+    final String methodName, {
     UserContext userContext = UserContext.authRequired,
     final String? service,
     final Map<String, dynamic>? parameters,
@@ -153,7 +156,10 @@ abstract class BaseService implements _Service {
     final xrpc.ResponseAdaptor? adaptor,
   }) async =>
       await _context.stream(
-        methodId,
+        xrpc.NSID.create(
+          _methodAuthority,
+          methodName,
+        ),
         userContext: userContext,
         service: service,
         parameters: parameters,

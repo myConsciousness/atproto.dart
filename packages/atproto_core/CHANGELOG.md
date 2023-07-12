@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.3
+
+- Fixed parameter type of `upload` and `subscribe` in `BaseService` from `NSID` to `String`.
+
 ## v0.4.2
 
 - Upgraded `xrpc`. ([#563](https://github.com/myConsciousness/atproto.dart/issues/563))

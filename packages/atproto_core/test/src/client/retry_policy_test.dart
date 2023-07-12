@@ -130,4 +130,23 @@ void main() {
       }
     });
   });
+
+  test('retry event', () async {
+    bool executed = false;
+
+    final policy = RetryPolicy(
+      RetryConfig(
+        maxAttempts: 10,
+        onExecute: (event) {
+          expect(event.retryCount, 1);
+
+          executed = true;
+        },
+      ),
+    );
+
+    await policy.wait(1);
+
+    expect(executed, isTrue);
+  });
 }

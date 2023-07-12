@@ -67,16 +67,7 @@ class AnonymousClient implements Client {
     final xrpc.To<T>? to,
     final xrpc.PostClient? postClient,
   }) async =>
-      await xrpc.upload(
-        methodId,
-        bytes,
-        protocol: protocol ?? xrpc.Protocol.https,
-        service: service,
-        headers: headers,
-        timeout: timeout,
-        to: to,
-        postClient: postClient,
-      );
+      throw UnimplementedError();
 
   @override
   xrpc.XRPCResponse<xrpc.Subscription<T>> stream<T>(
