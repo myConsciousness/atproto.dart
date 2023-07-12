@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.4
+
+- Upgraded `atproto_core`. Fixed minor things.
+
 ## v0.5.3
 
 - Removed deprecated properties. This is a property that was planned to be turned off in `v0.6.0`, so there are no breaking changes.

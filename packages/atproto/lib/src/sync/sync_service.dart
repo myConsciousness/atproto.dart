@@ -461,7 +461,7 @@ class _SyncService extends ATProtoBaseService implements SyncService {
     int? cursor,
   }) async =>
           await super.stream(
-            createNSID('subscribeRepos'),
+            'subscribeRepos',
             parameters: {
               'cursor': cursor,
             },

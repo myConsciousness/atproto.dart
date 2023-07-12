@@ -530,7 +530,7 @@ class _RepositoriesService extends ATProtoBaseService
   @override
   Future<core.XRPCResponse<BlobData>> uploadBlob(final Uint8List bytes) async =>
       await super.upload(
-        super.createNSID('uploadBlob'),
+        'uploadBlob',
         bytes,
         to: BlobData.fromJson,
       );

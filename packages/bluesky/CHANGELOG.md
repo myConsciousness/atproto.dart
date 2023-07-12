@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.7.4
+
+- Upgraded `atproto_core`. Fixed minor things.
+
 ## v0.7.3
 
 - Added callbacks in `RepoCommitAdaptor` and properties in `AtUriExtension`. ([#586](https://github.com/myConsciousness/atproto.dart/issues/586))
