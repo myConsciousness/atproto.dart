@@ -74,23 +74,24 @@ void main() {
   group('.post', () {
     test('anonymous', () async {
       final service = TestService(
-        methodAuthority: 'unknown.atproto.com',
+        methodAuthority: 'account.atproto.com',
         context: ClientContext(
-          accessJwt: '',
+          accessJwt: 'aaaa',
           timeout: Duration(minutes: 1),
         ),
+        mockedPostClient: createMockedPostClientFromJson({'key': 'value'}),
       );
 
-      expect(
-        () async => await service.post<Map<String, dynamic>>(
-          'something',
-          userContext: UserContext.anonymousOnly,
-          body: {
-            'something': 'test',
-          },
-        ),
-        throwsA(isA<UnimplementedError>()),
+      final response = await service.post<Map<String, dynamic>>(
+        'createAccount',
+        userContext: UserContext.anonymousOnly,
+        body: {
+          'something': 'test',
+        },
       );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, {'key': 'value'});
     });
 
     test('auth required', () async {
