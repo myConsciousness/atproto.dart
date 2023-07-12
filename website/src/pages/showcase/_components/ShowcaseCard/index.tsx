@@ -82,15 +82,25 @@ function ShowcaseCard({user}: {user: User}) {
             </Link>
           </Heading>
           {user.source && (
-            <Link
-              href={user.source}
-              className={clsx(
-                'button button--secondary button--sm',
-                styles.showcaseCardSrcBtn,
-              )}>
-              <Translate id="showcase.card.sourceLink">source</Translate>
-            </Link>
-          )}
+              <Link
+                href={user.source}
+                className={clsx(
+                  'button button--secondary button--sm',
+                  styles.showcaseCardSrcBtn,
+                )}>
+                <Translate id="showcase.card.sourceLink">source</Translate>
+              </Link>
+            )}
+            {user.author && (
+              <Link
+                href={'https://bsky.app/profile/' + user.author}
+                className={clsx(
+                  'button button--secondary button--sm',
+                  styles.showcaseCardSrcBtn,
+                )}>
+                <Translate id="showcase.card.sourceLink">{'@' + user.author}</Translate>
+              </Link>
+            )}
         </div>
         <p className={styles.showcaseCardBody}>{user.description}</p>
       </div>
