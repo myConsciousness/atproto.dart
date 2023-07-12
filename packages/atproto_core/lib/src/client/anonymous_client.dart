@@ -45,16 +45,7 @@ class AnonymousClient implements Client {
     required final Duration timeout,
     final xrpc.PostClient? postClient,
   }) async =>
-      await xrpc.procedure(
-        methodId,
-        protocol: protocol ?? xrpc.Protocol.https,
-        service: service,
-        headers: headers,
-        body: body,
-        to: to,
-        timeout: timeout,
-        postClient: postClient,
-      );
+      throw UnimplementedError();
 
   @override
   Future<xrpc.XRPCResponse<T>> upload<T>(
@@ -67,16 +58,7 @@ class AnonymousClient implements Client {
     final xrpc.To<T>? to,
     final xrpc.PostClient? postClient,
   }) async =>
-      await xrpc.upload(
-        methodId,
-        bytes,
-        protocol: protocol ?? xrpc.Protocol.https,
-        service: service,
-        headers: headers,
-        timeout: timeout,
-        to: to,
-        postClient: postClient,
-      );
+      throw UnimplementedError();
 
   @override
   xrpc.XRPCResponse<xrpc.Subscription<T>> stream<T>(
