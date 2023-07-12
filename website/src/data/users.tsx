@@ -53,6 +53,7 @@ export type TagType =
 const Users: User[] = [
   {
     title: 'SkyBridge',
+    author: 'videah.net',
     description: 'The bridge/proxy that allows you to use Mastodon apps with Bluesky.',
     preview: require('./showcase/SkyBridge.png'),
     website: 'https://github.com/videah/SkyBridge',
@@ -61,6 +62,7 @@ const Users: User[] = [
   },
   {
     title: 'SkyFeed',
+    author: 'redsolver.net',
     description: 'The real-time client for Bluesky Social. Hashtags are supported and advanced features related to custom feeds are implemented.',
     preview: require('./showcase/SkyFeed.png'),
     website: 'https://skyfeed.app',
@@ -68,12 +70,40 @@ const Users: User[] = [
     tags: ['opensource', 'web'],
   },
   {
+    title: 'Shy Party BOT',
+    author: 'shy.party',
+    description: 'This BOT uses bluesky_post to post hilarious greeting images from GitHub Actions.',
+    preview: require('./showcase/ShyParty.png'),
+    website: 'https://github.com/Shy/party',
+    source: 'https://github.com/Shy/party',
+    tags: ['opensource','bot'],
+  },
+  {
+    title: 'Penumbra PR BOT',
+    author: 'penumbra.zone',
+    description: 'This BOT uses bluesky_post to post that a pull request has been merged from GitHub Actions.',
+    preview: require('./showcase/Penumbra.png'),
+    website: 'https://github.com/penumbra-zone/penumbra',
+    source: 'https://github.com/penumbra-zone/penumbra',
+    tags: ['opensource','bot'],
+  },
+  {
     title: 'APOD BOT',
+    author: 'shinyakato.dev',
     description: 'Unofficial APOD BOT that uses the NASA API to post APOD images to Bluesky at scheduled times.',
     preview: require('./showcase/APOD_BOT.png'),
     website: 'https://bsky.app/profile/apod.shinyakato.dev',
     source: 'https://github.com/myConsciousness/bluesky-apod-bot',
     tags: ['opensource', 'bot'],
+  },
+  {
+    title: 'Starry Night',
+    author: 'starrynight.bsky.social',
+    description: 'Yet another Bluesky client for iOS. Currently in alpha - has A LOT of missing features. The public road map will be coming out soon.',
+    preview: require('./showcase/StarryNight.png'),
+    website: 'https://testflight.apple.com/join/RhoFwdem',
+    source: null,
+    tags: ['mobile'],
   },
 
   /*
@@ -84,6 +114,7 @@ const Users: User[] = [
 
 export type User = {
   title: string;
+  author: string;
   description: string;
   preview: string | null; // null = use our serverless screenshot service
   website: string;
