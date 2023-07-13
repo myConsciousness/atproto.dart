@@ -20,6 +20,7 @@ RepoHead _$RepoHeadFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RepoHead {
+  /// The root Content Identifier (CID) of the repository.
   @JsonKey(name: 'root')
   String get rootCid => throw _privateConstructorUsedError;
 
@@ -101,6 +102,7 @@ class _$_RepoHead implements _RepoHead {
   factory _$_RepoHead.fromJson(Map<String, dynamic> json) =>
       _$$_RepoHeadFromJson(json);
 
+  /// The root Content Identifier (CID) of the repository.
   @override
   @JsonKey(name: 'root')
   final String rootCid;
@@ -143,6 +145,8 @@ abstract class _RepoHead implements RepoHead {
   factory _RepoHead.fromJson(Map<String, dynamic> json) = _$_RepoHead.fromJson;
 
   @override
+
+  /// The root Content Identifier (CID) of the repository.
   @JsonKey(name: 'root')
   String get rootCid;
   @override

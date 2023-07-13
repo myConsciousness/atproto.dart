@@ -20,9 +20,14 @@ StrongRef _$StrongRefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$StrongRef {
+  /// Type of the reference, defaults to `com.atproto.repo.strongRef`.
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
+
+  /// Content Identifier of the reference.
   String get cid => throw _privateConstructorUsedError;
+
+  /// Uri of the reference.
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
 
@@ -133,11 +138,16 @@ class _$_StrongRef implements _StrongRef {
   factory _$_StrongRef.fromJson(Map<String, dynamic> json) =>
       _$$_StrongRefFromJson(json);
 
+  /// Type of the reference, defaults to `com.atproto.repo.strongRef`.
   @override
   @JsonKey(name: '\$type')
   final String type;
+
+  /// Content Identifier of the reference.
   @override
   final String cid;
+
+  /// Uri of the reference.
   @override
   @AtUriConverter()
   final AtUri uri;
@@ -185,11 +195,17 @@ abstract class _StrongRef implements StrongRef {
       _$_StrongRef.fromJson;
 
   @override
+
+  /// Type of the reference, defaults to `com.atproto.repo.strongRef`.
   @JsonKey(name: '\$type')
   String get type;
   @override
+
+  /// Content Identifier of the reference.
   String get cid;
   @override
+
+  /// Uri of the reference.
   @AtUriConverter()
   AtUri get uri;
   @override

@@ -20,6 +20,7 @@ BlobData _$BlobDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BlobData {
+  /// The blob data.
   Blob get blob => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -113,6 +114,7 @@ class _$_BlobData implements _BlobData {
   factory _$_BlobData.fromJson(Map<String, dynamic> json) =>
       _$$_BlobDataFromJson(json);
 
+  /// The blob data.
   @override
   final Blob blob;
 
@@ -153,6 +155,8 @@ abstract class _BlobData implements BlobData {
   factory _BlobData.fromJson(Map<String, dynamic> json) = _$_BlobData.fromJson;
 
   @override
+
+  /// The blob data.
   Blob get blob;
   @override
   @JsonKey(ignore: true)

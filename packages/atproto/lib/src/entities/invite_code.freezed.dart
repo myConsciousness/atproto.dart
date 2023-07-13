@@ -20,14 +20,27 @@ InviteCode _$InviteCodeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$InviteCode {
+  /// The invitation code.
   String get code => throw _privateConstructorUsedError;
+
+  /// The number of times the code can still be used.
   @JsonKey(name: 'available')
   int get availableCount => throw _privateConstructorUsedError;
+
+  /// Whether the invitation code is disabled or not.
   @JsonKey(name: 'disabled')
   bool get isDisabled => throw _privateConstructorUsedError;
+
+  /// The account for which the code is intended.
   String get forAccount => throw _privateConstructorUsedError;
+
+  /// The usage history of the code.
   List<InviteCodeUse> get uses => throw _privateConstructorUsedError;
+
+  /// Who created the code.
   String get createdBy => throw _privateConstructorUsedError;
+
+  /// When the code was created.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -192,17 +205,28 @@ class _$_InviteCode implements _InviteCode {
   factory _$_InviteCode.fromJson(Map<String, dynamic> json) =>
       _$$_InviteCodeFromJson(json);
 
+  /// The invitation code.
   @override
   final String code;
+
+  /// The number of times the code can still be used.
   @override
   @JsonKey(name: 'available')
   final int availableCount;
+
+  /// Whether the invitation code is disabled or not.
   @override
   @JsonKey(name: 'disabled')
   final bool isDisabled;
+
+  /// The account for which the code is intended.
   @override
   final String forAccount;
+
+  /// The usage history of the code.
   final List<InviteCodeUse> _uses;
+
+  /// The usage history of the code.
   @override
   List<InviteCodeUse> get uses {
     if (_uses is EqualUnmodifiableListView) return _uses;
@@ -210,8 +234,11 @@ class _$_InviteCode implements _InviteCode {
     return EqualUnmodifiableListView(_uses);
   }
 
+  /// Who created the code.
   @override
   final String createdBy;
+
+  /// When the code was created.
   @override
   final DateTime createdAt;
 
@@ -279,20 +306,34 @@ abstract class _InviteCode implements InviteCode {
       _$_InviteCode.fromJson;
 
   @override
+
+  /// The invitation code.
   String get code;
   @override
+
+  /// The number of times the code can still be used.
   @JsonKey(name: 'available')
   int get availableCount;
   @override
+
+  /// Whether the invitation code is disabled or not.
   @JsonKey(name: 'disabled')
   bool get isDisabled;
   @override
+
+  /// The account for which the code is intended.
   String get forAccount;
   @override
+
+  /// The usage history of the code.
   List<InviteCodeUse> get uses;
   @override
+
+  /// Who created the code.
   String get createdBy;
   @override
+
+  /// When the code was created.
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)

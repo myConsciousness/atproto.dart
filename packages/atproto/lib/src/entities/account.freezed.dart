@@ -20,9 +20,16 @@ Account _$AccountFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Account {
+  /// A JSON Web Token used for accessing user-specific data.
   String get accessJwt => throw _privateConstructorUsedError;
+
+  /// A JSON Web Token used for obtaining a new access JWT.
   String get refreshJwt => throw _privateConstructorUsedError;
+
+  /// A unique handle for the user.
   String get handle => throw _privateConstructorUsedError;
+
+  /// The decentralized identifier for the user.
   String get did => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -135,12 +142,19 @@ class _$_Account implements _Account {
   factory _$_Account.fromJson(Map<String, dynamic> json) =>
       _$$_AccountFromJson(json);
 
+  /// A JSON Web Token used for accessing user-specific data.
   @override
   final String accessJwt;
+
+  /// A JSON Web Token used for obtaining a new access JWT.
   @override
   final String refreshJwt;
+
+  /// A unique handle for the user.
   @override
   final String handle;
+
+  /// The decentralized identifier for the user.
   @override
   final String did;
 
@@ -191,12 +205,20 @@ abstract class _Account implements Account {
   factory _Account.fromJson(Map<String, dynamic> json) = _$_Account.fromJson;
 
   @override
+
+  /// A JSON Web Token used for accessing user-specific data.
   String get accessJwt;
   @override
+
+  /// A JSON Web Token used for obtaining a new access JWT.
   String get refreshJwt;
   @override
+
+  /// A unique handle for the user.
   String get handle;
   @override
+
+  /// The decentralized identifier for the user.
   String get did;
   @override
   @JsonKey(ignore: true)

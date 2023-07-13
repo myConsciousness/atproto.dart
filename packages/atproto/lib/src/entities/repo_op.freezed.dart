@@ -20,10 +20,18 @@ RepoOp _$RepoOpFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RepoOp {
+  /// The action to be performed on the repository.
   RepoAction get action => throw _privateConstructorUsedError;
+
+  /// The URI of the repository on which the action is to be performed.
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
+
+  /// The CID of the record. It's optional and can be null.
   String? get cid => throw _privateConstructorUsedError;
+
+  /// The record as a map of string keys and dynamic values.
+  /// It's optional and can be null.
   Map<String, dynamic>? get record => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -144,14 +152,25 @@ class _$_RepoOp implements _RepoOp {
   factory _$_RepoOp.fromJson(Map<String, dynamic> json) =>
       _$$_RepoOpFromJson(json);
 
+  /// The action to be performed on the repository.
   @override
   final RepoAction action;
+
+  /// The URI of the repository on which the action is to be performed.
   @override
   @AtUriConverter()
   final AtUri uri;
+
+  /// The CID of the record. It's optional and can be null.
   @override
   final String? cid;
+
+  /// The record as a map of string keys and dynamic values.
+  /// It's optional and can be null.
   final Map<String, dynamic>? _record;
+
+  /// The record as a map of string keys and dynamic values.
+  /// It's optional and can be null.
   @override
   Map<String, dynamic>? get record {
     final value = _record;
@@ -206,13 +225,22 @@ abstract class _RepoOp implements RepoOp {
   factory _RepoOp.fromJson(Map<String, dynamic> json) = _$_RepoOp.fromJson;
 
   @override
+
+  /// The action to be performed on the repository.
   RepoAction get action;
   @override
+
+  /// The URI of the repository on which the action is to be performed.
   @AtUriConverter()
   AtUri get uri;
   @override
+
+  /// The CID of the record. It's optional and can be null.
   String? get cid;
   @override
+
+  /// The record as a map of string keys and dynamic values.
+  /// It's optional and can be null.
   Map<String, dynamic>? get record;
   @override
   @JsonKey(ignore: true)

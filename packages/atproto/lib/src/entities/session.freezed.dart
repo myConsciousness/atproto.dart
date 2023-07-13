@@ -20,10 +20,19 @@ Session _$SessionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Session {
+  /// Decentralized Identifier for the user.
   String get did => throw _privateConstructorUsedError;
+
+  /// User handle.
   String get handle => throw _privateConstructorUsedError;
+
+  /// User's email address.
   String? get email => throw _privateConstructorUsedError;
+
+  /// Access JSON Web Token.
   String get accessJwt => throw _privateConstructorUsedError;
+
+  /// Refresh JSON Web Token.
   String get refreshJwt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -158,14 +167,23 @@ class _$_Session implements _Session {
   factory _$_Session.fromJson(Map<String, dynamic> json) =>
       _$$_SessionFromJson(json);
 
+  /// Decentralized Identifier for the user.
   @override
   final String did;
+
+  /// User handle.
   @override
   final String handle;
+
+  /// User's email address.
   @override
   final String? email;
+
+  /// Access JSON Web Token.
   @override
   final String accessJwt;
+
+  /// Refresh JSON Web Token.
   @override
   final String refreshJwt;
 
@@ -218,14 +236,24 @@ abstract class _Session implements Session {
   factory _Session.fromJson(Map<String, dynamic> json) = _$_Session.fromJson;
 
   @override
+
+  /// Decentralized Identifier for the user.
   String get did;
   @override
+
+  /// User handle.
   String get handle;
   @override
+
+  /// User's email address.
   String? get email;
   @override
+
+  /// Access JSON Web Token.
   String get accessJwt;
   @override
+
+  /// Refresh JSON Web Token.
   String get refreshJwt;
   @override
   @JsonKey(ignore: true)

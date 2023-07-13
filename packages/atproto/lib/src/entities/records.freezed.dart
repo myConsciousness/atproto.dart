@@ -20,6 +20,7 @@ Records _$RecordsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Records {
+  /// The list of [Record] objects.
   List<Record> get records => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -98,7 +99,10 @@ class _$_Records implements _Records {
   factory _$_Records.fromJson(Map<String, dynamic> json) =>
       _$$_RecordsFromJson(json);
 
+  /// The list of [Record] objects.
   final List<Record> _records;
+
+  /// The list of [Record] objects.
   @override
   List<Record> get records {
     if (_records is EqualUnmodifiableListView) return _records;
@@ -144,6 +148,8 @@ abstract class _Records implements Records {
   factory _Records.fromJson(Map<String, dynamic> json) = _$_Records.fromJson;
 
   @override
+
+  /// The list of [Record] objects.
   List<Record> get records;
   @override
   @JsonKey(ignore: true)

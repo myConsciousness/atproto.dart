@@ -20,10 +20,19 @@ RepoInfo _$RepoInfoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RepoInfo {
+  /// The handle identifier of the repository.
   String get handle => throw _privateConstructorUsedError;
+
+  /// The DID (Decentralized Identifier) of the repository.
   String get did => throw _privateConstructorUsedError;
+
+  /// The parsed DID document.
   ParsedDidDoc get didDoc => throw _privateConstructorUsedError;
+
+  /// A list of collections included in the repository.
   List<String> get collections => throw _privateConstructorUsedError;
+
+  /// A boolean value indicating if the handle is correct.
   @JsonKey(name: 'handleIsCorrect')
   bool get hasCorrectHandle => throw _privateConstructorUsedError;
 
@@ -174,13 +183,22 @@ class _$_RepoInfo implements _RepoInfo {
   factory _$_RepoInfo.fromJson(Map<String, dynamic> json) =>
       _$$_RepoInfoFromJson(json);
 
+  /// The handle identifier of the repository.
   @override
   final String handle;
+
+  /// The DID (Decentralized Identifier) of the repository.
   @override
   final String did;
+
+  /// The parsed DID document.
   @override
   final ParsedDidDoc didDoc;
+
+  /// A list of collections included in the repository.
   final List<String> _collections;
+
+  /// A list of collections included in the repository.
   @override
   List<String> get collections {
     if (_collections is EqualUnmodifiableListView) return _collections;
@@ -188,6 +206,7 @@ class _$_RepoInfo implements _RepoInfo {
     return EqualUnmodifiableListView(_collections);
   }
 
+  /// A boolean value indicating if the handle is correct.
   @override
   @JsonKey(name: 'handleIsCorrect')
   final bool hasCorrectHandle;
@@ -242,14 +261,24 @@ abstract class _RepoInfo implements RepoInfo {
   factory _RepoInfo.fromJson(Map<String, dynamic> json) = _$_RepoInfo.fromJson;
 
   @override
+
+  /// The handle identifier of the repository.
   String get handle;
   @override
+
+  /// The DID (Decentralized Identifier) of the repository.
   String get did;
   @override
+
+  /// The parsed DID document.
   ParsedDidDoc get didDoc;
   @override
+
+  /// A list of collections included in the repository.
   List<String> get collections;
   @override
+
+  /// A boolean value indicating if the handle is correct.
   @JsonKey(name: 'handleIsCorrect')
   bool get hasCorrectHandle;
   @override

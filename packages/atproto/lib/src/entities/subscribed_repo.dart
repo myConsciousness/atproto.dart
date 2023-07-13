@@ -17,32 +17,49 @@ import 'subscribed_repo_tombstone.dart';
 part 'subscribed_repo.freezed.dart';
 part 'subscribed_repo.g.dart';
 
+/// Represents a repository to which a user is subscribed.
+///
+/// This class uses the Freezed package for data classes in Flutter, which
+/// provides a mechanism for creating sealed hierarchies.
+///
+/// This allows for representing different types of repositories through
+/// different constructors.
 @freezed
 class SubscribedRepo with _$SubscribedRepo {
+  /// Creates a new instance of [SubscribedRepo] as a commit.
   const factory SubscribedRepo.commit({
     required SubscribedRepoCommit data,
   }) = _Commit;
 
+  /// Creates a new instance of [SubscribedRepo] as a handle.
   const factory SubscribedRepo.handle({
     required SubscribedRepoHandle data,
   }) = _Handle;
 
+  /// Creates a new instance of [SubscribedRepo] as a migration.
   const factory SubscribedRepo.migrate({
     required SubscribedRepoMigrate data,
   }) = _Migrate;
 
+  /// Creates a new instance of [SubscribedRepo] as a tombstone.
   const factory SubscribedRepo.tombstone({
     required SubscribedRepoTombstone data,
   }) = _Tombstone;
 
+  /// Creates a new instance of [SubscribedRepo] as an info.
   const factory SubscribedRepo.info({
     required SubscribedRepoInfo data,
   }) = _Info;
 
+  /// Creates a new instance of [SubscribedRepo] as unknown type.
   const factory SubscribedRepo.unknown({
     required Map<String, dynamic> data,
   }) = _Unknown;
 
+  /// Creates a new instance of [SubscribedRepo] from a JSON object.
+  ///
+  /// The [json] parameter must be a map with keys and values that can be used
+  /// to populate an instance of [SubscribedRepo].
   factory SubscribedRepo.fromJson(Map<String, Object?> json) =>
-      SubscribedRepoConverter().fromJson(json);
+      const SubscribedRepoConverter().fromJson(json);
 }

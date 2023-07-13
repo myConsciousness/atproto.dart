@@ -21,10 +21,17 @@ SubscribedRepoMigrate _$SubscribedRepoMigrateFromJson(
 
 /// @nodoc
 mixin _$SubscribedRepoMigrate {
+  /// The identifier of the subscribed repository.
   String get did => throw _privateConstructorUsedError;
+
+  /// The optional target to migrate to.
   String? get migrateTo => throw _privateConstructorUsedError;
+
+  /// A cursor representing the migration position.
   @JsonKey(name: 'seq')
   int get cursor => throw _privateConstructorUsedError;
+
+  /// The time at which the migration operation was created.
   @JsonKey(name: 'time')
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -152,13 +159,20 @@ class _$_SubscribedRepoMigrate implements _SubscribedRepoMigrate {
   factory _$_SubscribedRepoMigrate.fromJson(Map<String, dynamic> json) =>
       _$$_SubscribedRepoMigrateFromJson(json);
 
+  /// The identifier of the subscribed repository.
   @override
   final String did;
+
+  /// The optional target to migrate to.
   @override
   final String? migrateTo;
+
+  /// A cursor representing the migration position.
   @override
   @JsonKey(name: 'seq')
   final int cursor;
+
+  /// The time at which the migration operation was created.
   @override
   @JsonKey(name: 'time')
   final DateTime createdAt;
@@ -213,13 +227,21 @@ abstract class _SubscribedRepoMigrate implements SubscribedRepoMigrate {
       _$_SubscribedRepoMigrate.fromJson;
 
   @override
+
+  /// The identifier of the subscribed repository.
   String get did;
   @override
+
+  /// The optional target to migrate to.
   String? get migrateTo;
   @override
+
+  /// A cursor representing the migration position.
   @JsonKey(name: 'seq')
   int get cursor;
   @override
+
+  /// The time at which the migration operation was created.
   @JsonKey(name: 'time')
   DateTime get createdAt;
   @override

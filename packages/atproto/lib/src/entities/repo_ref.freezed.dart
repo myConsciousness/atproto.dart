@@ -20,8 +20,12 @@ RepoRef _$RepoRefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RepoRef {
+  /// The type of the repository reference.
+  /// It defaults to `com.atproto.admin.defs#repoRef`.
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
+
+  /// The DID of the repository.
   String get did => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -112,9 +116,13 @@ class _$_RepoRef implements _RepoRef {
   factory _$_RepoRef.fromJson(Map<String, dynamic> json) =>
       _$$_RepoRefFromJson(json);
 
+  /// The type of the repository reference.
+  /// It defaults to `com.atproto.admin.defs#repoRef`.
   @override
   @JsonKey(name: '\$type')
   final String type;
+
+  /// The DID of the repository.
   @override
   final String did;
 
@@ -158,9 +166,14 @@ abstract class _RepoRef implements RepoRef {
   factory _RepoRef.fromJson(Map<String, dynamic> json) = _$_RepoRef.fromJson;
 
   @override
+
+  /// The type of the repository reference.
+  /// It defaults to `com.atproto.admin.defs#repoRef`.
   @JsonKey(name: '\$type')
   String get type;
   @override
+
+  /// The DID of the repository.
   String get did;
   @override
   @JsonKey(ignore: true)
