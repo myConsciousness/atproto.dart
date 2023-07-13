@@ -39,6 +39,7 @@
     - [1.1.4. GitHub Actions](#114-github-actions)
   - [1.2. Code Examples](#12-code-examples)
   - [1.3. Melos Commands](#13-melos-commands)
+    - [1.3.1. Publish](#131-publish)
   - [1.4. Contribution 🏆](#14-contribution-)
   - [1.5. Contributors ✨](#15-contributors-)
   - [1.6. Support ❤️](#16-support-️)
@@ -126,6 +127,21 @@ Then, the Melos commands available for this project are:
 > due to unresolved dependencies of packages that have not yet been released.
 > </br></br>
 > In that case, please move to the each package and execute the dart command.
+
+### 1.3.1. Publish
+
+Publish safely with following commands:
+
+```bash
+melos publish
+melos publish --no-dry-run --git-tag-version
+```
+
+And push tags.
+
+```bash
+git push origin --tags
+```
 
 ## 1.4. Contribution 🏆
 
