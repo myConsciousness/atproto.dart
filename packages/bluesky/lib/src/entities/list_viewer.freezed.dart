@@ -20,6 +20,7 @@ ListViewer _$ListViewerFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListViewer {
+  /// Represents whether the viewer has muted the list.
   @JsonKey(name: 'muted')
   bool get isMuted => throw _privateConstructorUsedError;
 
@@ -105,6 +106,7 @@ class _$_ListViewer extends _ListViewer {
   factory _$_ListViewer.fromJson(Map<String, dynamic> json) =>
       _$$_ListViewerFromJson(json);
 
+  /// Represents whether the viewer has muted the list.
   @override
   @JsonKey(name: 'muted')
   final bool isMuted;
@@ -149,6 +151,8 @@ abstract class _ListViewer extends ListViewer {
       _$_ListViewer.fromJson;
 
   @override
+
+  /// Represents whether the viewer has muted the list.
   @JsonKey(name: 'muted')
   bool get isMuted;
   @override

@@ -20,10 +20,16 @@ NotFoundPost _$NotFoundPostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$NotFoundPost {
+  /// The type of this [NotFoundPost]. Defaults to
+  /// `app.bsky.feed.defs#notFoundPost`.
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
+
+  /// The unique identifier of the post.
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
+
+  /// Indicates whether the post was found or not.
   bool get notFound => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -135,12 +141,18 @@ class _$_NotFoundPost implements _NotFoundPost {
   factory _$_NotFoundPost.fromJson(Map<String, dynamic> json) =>
       _$$_NotFoundPostFromJson(json);
 
+  /// The type of this [NotFoundPost]. Defaults to
+  /// `app.bsky.feed.defs#notFoundPost`.
   @override
   @JsonKey(name: '\$type')
   final String type;
+
+  /// The unique identifier of the post.
   @override
   @AtUriConverter()
   final AtUri uri;
+
+  /// Indicates whether the post was found or not.
   @override
   final bool notFound;
 
@@ -188,12 +200,19 @@ abstract class _NotFoundPost implements NotFoundPost {
       _$_NotFoundPost.fromJson;
 
   @override
+
+  /// The type of this [NotFoundPost]. Defaults to
+  /// `app.bsky.feed.defs#notFoundPost`.
   @JsonKey(name: '\$type')
   String get type;
   @override
+
+  /// The unique identifier of the post.
   @AtUriConverter()
   AtUri get uri;
   @override
+
+  /// Indicates whether the post was found or not.
   bool get notFound;
   @override
   @JsonKey(ignore: true)

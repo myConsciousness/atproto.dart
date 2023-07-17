@@ -20,10 +20,16 @@ BlockedPost _$BlockedPostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BlockedPost {
+  /// The type of the record.
+  /// By default, it is `app.bsky.feed.defs#blockedPost`.
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
+
+  /// The URI of the post that has been blocked.
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
+
+  /// Whether the post has been blocked.
   bool get blocked => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -135,12 +141,18 @@ class _$_BlockedPost implements _BlockedPost {
   factory _$_BlockedPost.fromJson(Map<String, dynamic> json) =>
       _$$_BlockedPostFromJson(json);
 
+  /// The type of the record.
+  /// By default, it is `app.bsky.feed.defs#blockedPost`.
   @override
   @JsonKey(name: '\$type')
   final String type;
+
+  /// The URI of the post that has been blocked.
   @override
   @AtUriConverter()
   final AtUri uri;
+
+  /// Whether the post has been blocked.
   @override
   final bool blocked;
 
@@ -187,12 +199,19 @@ abstract class _BlockedPost implements BlockedPost {
       _$_BlockedPost.fromJson;
 
   @override
+
+  /// The type of the record.
+  /// By default, it is `app.bsky.feed.defs#blockedPost`.
   @JsonKey(name: '\$type')
   String get type;
   @override
+
+  /// The URI of the post that has been blocked.
   @AtUriConverter()
   AtUri get uri;
   @override
+
+  /// Whether the post has been blocked.
   bool get blocked;
   @override
   @JsonKey(ignore: true)

@@ -20,9 +20,14 @@ RepostedBy _$RepostedByFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RepostedBy {
+  /// A list of actors who have reposted a post.
   List<Actor> get repostedBy => throw _privateConstructorUsedError;
+
+  /// The URI for accessing the list of reposting actors.
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
+
+  /// A cursor string that can be used to fetch more reposting actors.
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -131,7 +136,10 @@ class _$_RepostedBy implements _RepostedBy {
   factory _$_RepostedBy.fromJson(Map<String, dynamic> json) =>
       _$$_RepostedByFromJson(json);
 
+  /// A list of actors who have reposted a post.
   final List<Actor> _repostedBy;
+
+  /// A list of actors who have reposted a post.
   @override
   List<Actor> get repostedBy {
     if (_repostedBy is EqualUnmodifiableListView) return _repostedBy;
@@ -139,9 +147,12 @@ class _$_RepostedBy implements _RepostedBy {
     return EqualUnmodifiableListView(_repostedBy);
   }
 
+  /// The URI for accessing the list of reposting actors.
   @override
   @AtUriConverter()
   final AtUri uri;
+
+  /// A cursor string that can be used to fetch more reposting actors.
   @override
   final String? cursor;
 
@@ -190,11 +201,17 @@ abstract class _RepostedBy implements RepostedBy {
       _$_RepostedBy.fromJson;
 
   @override
+
+  /// A list of actors who have reposted a post.
   List<Actor> get repostedBy;
   @override
+
+  /// The URI for accessing the list of reposting actors.
   @AtUriConverter()
   AtUri get uri;
   @override
+
+  /// A cursor string that can be used to fetch more reposting actors.
   String? get cursor;
   @override
   @JsonKey(ignore: true)

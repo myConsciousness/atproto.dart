@@ -20,10 +20,16 @@ BlockRecord _$BlockRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BlockRecord {
+  /// The type of the record.
+  /// By default, it is `appBskyGraphBlock`.
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
+
+  /// The Decentralized Identifier (DID) of the user who has been blocked.
   @JsonKey(name: 'subject')
   String get did => throw _privateConstructorUsedError;
+
+  /// The timestamp when the blocking action was taken.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -136,12 +142,18 @@ class _$_BlockRecord implements _BlockRecord {
   factory _$_BlockRecord.fromJson(Map<String, dynamic> json) =>
       _$$_BlockRecordFromJson(json);
 
+  /// The type of the record.
+  /// By default, it is `appBskyGraphBlock`.
   @override
   @JsonKey(name: '\$type')
   final String type;
+
+  /// The Decentralized Identifier (DID) of the user who has been blocked.
   @override
   @JsonKey(name: 'subject')
   final String did;
+
+  /// The timestamp when the blocking action was taken.
   @override
   final DateTime createdAt;
 
@@ -189,12 +201,19 @@ abstract class _BlockRecord implements BlockRecord {
       _$_BlockRecord.fromJson;
 
   @override
+
+  /// The type of the record.
+  /// By default, it is `appBskyGraphBlock`.
   @JsonKey(name: '\$type')
   String get type;
   @override
+
+  /// The Decentralized Identifier (DID) of the user who has been blocked.
   @JsonKey(name: 'subject')
   String get did;
   @override
+
+  /// The timestamp when the blocking action was taken.
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)

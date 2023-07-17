@@ -20,10 +20,15 @@ FollowRecord _$FollowRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FollowRecord {
+  /// Type of the record. Defaults to `appBskyGraphFollow`.
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
+
+  /// DID of the subject being followed.
   @JsonKey(name: 'subject')
   String get did => throw _privateConstructorUsedError;
+
+  /// Time when the follow action was created.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -136,12 +141,17 @@ class _$_FollowRecord implements _FollowRecord {
   factory _$_FollowRecord.fromJson(Map<String, dynamic> json) =>
       _$$_FollowRecordFromJson(json);
 
+  /// Type of the record. Defaults to `appBskyGraphFollow`.
   @override
   @JsonKey(name: '\$type')
   final String type;
+
+  /// DID of the subject being followed.
   @override
   @JsonKey(name: 'subject')
   final String did;
+
+  /// Time when the follow action was created.
   @override
   final DateTime createdAt;
 
@@ -189,12 +199,18 @@ abstract class _FollowRecord implements FollowRecord {
       _$_FollowRecord.fromJson;
 
   @override
+
+  /// Type of the record. Defaults to `appBskyGraphFollow`.
   @JsonKey(name: '\$type')
   String get type;
   @override
+
+  /// DID of the subject being followed.
   @JsonKey(name: 'subject')
   String get did;
   @override
+
+  /// Time when the follow action was created.
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)

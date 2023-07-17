@@ -21,15 +21,28 @@ EmbedViewRecordViewRecord _$EmbedViewRecordViewRecordFromJson(
 
 /// @nodoc
 mixin _$EmbedViewRecordViewRecord {
+  /// The type of the embedded view record view.
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
+
+  /// The URI of the embedded view record view.
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
+
+  /// The content ID (CID) of the embedded view record view.
   String get cid => throw _privateConstructorUsedError;
+
+  /// The author of the embedded view record view.
   Actor get author => throw _privateConstructorUsedError;
+
+  /// The post value of the embedded view record view.
   PostRecord get value => throw _privateConstructorUsedError;
+
+  /// The list of embedded views within the record (optional).
   @EmbedViewConverter()
   List<EmbedView>? get embeds => throw _privateConstructorUsedError;
+
+  /// The date and time the record was indexed.
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -222,19 +235,32 @@ class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
   factory _$_EmbedViewRecordViewRecord.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedViewRecordViewRecordFromJson(json);
 
+  /// The type of the embedded view record view.
   @override
   @JsonKey(name: '\$type')
   final String type;
+
+  /// The URI of the embedded view record view.
   @override
   @AtUriConverter()
   final AtUri uri;
+
+  /// The content ID (CID) of the embedded view record view.
   @override
   final String cid;
+
+  /// The author of the embedded view record view.
   @override
   final Actor author;
+
+  /// The post value of the embedded view record view.
   @override
   final PostRecord value;
+
+  /// The list of embedded views within the record (optional).
   final List<EmbedView>? _embeds;
+
+  /// The list of embedded views within the record (optional).
   @override
   @EmbedViewConverter()
   List<EmbedView>? get embeds {
@@ -245,6 +271,7 @@ class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
     return EqualUnmodifiableListView(value);
   }
 
+  /// The date and time the record was indexed.
   @override
   final DateTime indexedAt;
 
@@ -302,21 +329,35 @@ abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
       _$_EmbedViewRecordViewRecord.fromJson;
 
   @override
+
+  /// The type of the embedded view record view.
   @JsonKey(name: '\$type')
   String get type;
   @override
+
+  /// The URI of the embedded view record view.
   @AtUriConverter()
   AtUri get uri;
   @override
+
+  /// The content ID (CID) of the embedded view record view.
   String get cid;
   @override
+
+  /// The author of the embedded view record view.
   Actor get author;
   @override
+
+  /// The post value of the embedded view record view.
   PostRecord get value;
   @override
+
+  /// The list of embedded views within the record (optional).
   @EmbedViewConverter()
   List<EmbedView>? get embeds;
   @override
+
+  /// The date and time the record was indexed.
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)

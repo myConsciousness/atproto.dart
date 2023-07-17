@@ -21,8 +21,12 @@ EmbedViewRecordViewBlocked _$EmbedViewRecordViewBlockedFromJson(
 
 /// @nodoc
 mixin _$EmbedViewRecordViewBlocked {
+  /// A string that represents the type of the blocked record view.
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
+
+  /// An `AtUri` instance that contains the unique resource identifier (URI)
+  /// of the blocked record.
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
 
@@ -125,9 +129,13 @@ class _$_EmbedViewRecordViewBlocked implements _EmbedViewRecordViewBlocked {
   factory _$_EmbedViewRecordViewBlocked.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedViewRecordViewBlockedFromJson(json);
 
+  /// A string that represents the type of the blocked record view.
   @override
   @JsonKey(name: '\$type')
   final String type;
+
+  /// An `AtUri` instance that contains the unique resource identifier (URI)
+  /// of the blocked record.
   @override
   @AtUriConverter()
   final AtUri uri;
@@ -176,9 +184,14 @@ abstract class _EmbedViewRecordViewBlocked
       _$_EmbedViewRecordViewBlocked.fromJson;
 
   @override
+
+  /// A string that represents the type of the blocked record view.
   @JsonKey(name: '\$type')
   String get type;
   @override
+
+  /// An `AtUri` instance that contains the unique resource identifier (URI)
+  /// of the blocked record.
   @AtUriConverter()
   AtUri get uri;
   @override

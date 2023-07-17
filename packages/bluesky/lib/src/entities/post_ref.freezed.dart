@@ -20,7 +20,10 @@ PostRef _$PostRefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostRef {
+  /// Represents the root post in the thread.
   StrongRef get root => throw _privateConstructorUsedError;
+
+  /// Represents the immediate parent of the referenced post.
   StrongRef get parent => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -133,8 +136,11 @@ class _$_PostRef implements _PostRef {
   factory _$_PostRef.fromJson(Map<String, dynamic> json) =>
       _$$_PostRefFromJson(json);
 
+  /// Represents the root post in the thread.
   @override
   final StrongRef root;
+
+  /// Represents the immediate parent of the referenced post.
   @override
   final StrongRef parent;
 
@@ -178,8 +184,12 @@ abstract class _PostRef implements PostRef {
   factory _PostRef.fromJson(Map<String, dynamic> json) = _$_PostRef.fromJson;
 
   @override
+
+  /// Represents the root post in the thread.
   StrongRef get root;
   @override
+
+  /// Represents the immediate parent of the referenced post.
   StrongRef get parent;
   @override
   @JsonKey(ignore: true)

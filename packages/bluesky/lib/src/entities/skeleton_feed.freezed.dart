@@ -20,7 +20,12 @@ SkeletonFeed _$SkeletonFeedFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SkeletonFeed {
+  /// A list of [SkeletonFeedView] objects, each representing a
+  /// reference to a post in the skeleton feed.
   List<SkeletonFeedView> get feed => throw _privateConstructorUsedError;
+
+  /// An optional cursor for pagination. If present, it indicates that
+  /// there are more items in the feed that could be retrieved.
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -116,7 +121,12 @@ class _$_SkeletonFeed implements _SkeletonFeed {
   factory _$_SkeletonFeed.fromJson(Map<String, dynamic> json) =>
       _$$_SkeletonFeedFromJson(json);
 
+  /// A list of [SkeletonFeedView] objects, each representing a
+  /// reference to a post in the skeleton feed.
   final List<SkeletonFeedView> _feed;
+
+  /// A list of [SkeletonFeedView] objects, each representing a
+  /// reference to a post in the skeleton feed.
   @override
   List<SkeletonFeedView> get feed {
     if (_feed is EqualUnmodifiableListView) return _feed;
@@ -124,6 +134,8 @@ class _$_SkeletonFeed implements _SkeletonFeed {
     return EqualUnmodifiableListView(_feed);
   }
 
+  /// An optional cursor for pagination. If present, it indicates that
+  /// there are more items in the feed that could be retrieved.
   @override
   final String? cursor;
 
@@ -169,8 +181,14 @@ abstract class _SkeletonFeed implements SkeletonFeed {
       _$_SkeletonFeed.fromJson;
 
   @override
+
+  /// A list of [SkeletonFeedView] objects, each representing a
+  /// reference to a post in the skeleton feed.
   List<SkeletonFeedView> get feed;
   @override
+
+  /// An optional cursor for pagination. If present, it indicates that
+  /// there are more items in the feed that could be retrieved.
   String? get cursor;
   @override
   @JsonKey(ignore: true)

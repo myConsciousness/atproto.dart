@@ -20,8 +20,12 @@ EmbedViewExternal _$EmbedViewExternalFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmbedViewExternal {
+  /// A string that describes the type of the embed view external.
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
+
+  /// An instance of `EmbedViewExternalView` that contains the information
+  /// of the external view.
   EmbedViewExternalView get external => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -130,9 +134,13 @@ class _$_EmbedViewExternal implements _EmbedViewExternal {
   factory _$_EmbedViewExternal.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedViewExternalFromJson(json);
 
+  /// A string that describes the type of the embed view external.
   @override
   @JsonKey(name: '\$type')
   final String type;
+
+  /// An instance of `EmbedViewExternalView` that contains the information
+  /// of the external view.
   @override
   final EmbedViewExternalView external;
 
@@ -179,9 +187,14 @@ abstract class _EmbedViewExternal implements EmbedViewExternal {
       _$_EmbedViewExternal.fromJson;
 
   @override
+
+  /// A string that describes the type of the embed view external.
   @JsonKey(name: '\$type')
   String get type;
   @override
+
+  /// An instance of `EmbedViewExternalView` that contains the information
+  /// of the external view.
   EmbedViewExternalView get external;
   @override
   @JsonKey(ignore: true)

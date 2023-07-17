@@ -20,9 +20,14 @@ Likes _$LikesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Likes {
+  /// The list of 'like' actions.
   List<Like> get likes => throw _privateConstructorUsedError;
+
+  /// The URI of the likes collection.
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
+
+  /// The cursor used for pagination.
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -123,7 +128,10 @@ class _$_Likes implements _Likes {
   factory _$_Likes.fromJson(Map<String, dynamic> json) =>
       _$$_LikesFromJson(json);
 
+  /// The list of 'like' actions.
   final List<Like> _likes;
+
+  /// The list of 'like' actions.
   @override
   List<Like> get likes {
     if (_likes is EqualUnmodifiableListView) return _likes;
@@ -131,9 +139,12 @@ class _$_Likes implements _Likes {
     return EqualUnmodifiableListView(_likes);
   }
 
+  /// The URI of the likes collection.
   @override
   @AtUriConverter()
   final AtUri uri;
+
+  /// The cursor used for pagination.
   @override
   final String? cursor;
 
@@ -180,11 +191,17 @@ abstract class _Likes implements Likes {
   factory _Likes.fromJson(Map<String, dynamic> json) = _$_Likes.fromJson;
 
   @override
+
+  /// The list of 'like' actions.
   List<Like> get likes;
   @override
+
+  /// The URI of the likes collection.
   @AtUriConverter()
   AtUri get uri;
   @override
+
+  /// The cursor used for pagination.
   String? get cursor;
   @override
   @JsonKey(ignore: true)

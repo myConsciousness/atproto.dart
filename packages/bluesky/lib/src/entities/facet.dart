@@ -14,14 +14,33 @@ import 'facet_feature.dart';
 part 'facet.freezed.dart';
 part 'facet.g.dart';
 
+/// [Facet] represents a facet in the application.
+///
+/// This class is generated using the Freezed package. Each facet is
+/// represented by an [index] and a list of [features].
+///
+/// The facet type is optional.
 @freezed
 class Facet with _$Facet {
+  /// Creates an instance of [Facet].
+  ///
+  /// Requires [index] which is the byte slice index of the facet and
+  /// [features] which is a list of facet features. The [type] is optional.
   @JsonSerializable(includeIfNull: false)
   const factory Facet({
+    /// Specifies the type of facet. Optional.
     @JsonKey(name: '\$type') String? type,
+
+    /// Represents the byte slice index of the facet.
     required ByteSlice index,
+
+    /// Represents the list of facet features.
     @FacetFeatureConverter() required List<FacetFeature> features,
   }) = _Facet;
 
+  /// Creates an instance of [Facet] from a map [json].
+  ///
+  /// This map [json] should contain all the fields necessary to instantiate
+  /// the class.
   factory Facet.fromJson(Map<String, Object?> json) => _$FacetFromJson(json);
 }

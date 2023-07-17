@@ -21,8 +21,13 @@ AdultContentPreference _$AdultContentPreferenceFromJson(
 
 /// @nodoc
 mixin _$AdultContentPreference {
+  /// The type of the preference.
+  /// By default, it is `app.bsky.actor.defs#adultContentPref`.
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
+
+  /// A boolean value indicating whether the user has enabled the
+  /// viewing of adult content.
   @JsonKey(name: 'enabled')
   bool get isEnabled => throw _privateConstructorUsedError;
 
@@ -126,9 +131,14 @@ class _$_AdultContentPreference implements _AdultContentPreference {
   factory _$_AdultContentPreference.fromJson(Map<String, dynamic> json) =>
       _$$_AdultContentPreferenceFromJson(json);
 
+  /// The type of the preference.
+  /// By default, it is `app.bsky.actor.defs#adultContentPref`.
   @override
   @JsonKey(name: '\$type')
   final String type;
+
+  /// A boolean value indicating whether the user has enabled the
+  /// viewing of adult content.
   @override
   @JsonKey(name: 'enabled')
   final bool isEnabled;
@@ -177,9 +187,15 @@ abstract class _AdultContentPreference implements AdultContentPreference {
       _$_AdultContentPreference.fromJson;
 
   @override
+
+  /// The type of the preference.
+  /// By default, it is `app.bsky.actor.defs#adultContentPref`.
   @JsonKey(name: '\$type')
   String get type;
   @override
+
+  /// A boolean value indicating whether the user has enabled the
+  /// viewing of adult content.
   @JsonKey(name: 'enabled')
   bool get isEnabled;
   @override

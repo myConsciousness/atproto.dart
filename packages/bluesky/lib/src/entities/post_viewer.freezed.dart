@@ -20,8 +20,11 @@ PostViewer _$PostViewerFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostViewer {
+  /// May contain the URI of the repost by the authenticated user.
   @AtUriConverter()
   AtUri? get repost => throw _privateConstructorUsedError;
+
+  /// May contain the URI of the like by the authenticated user.
   @AtUriConverter()
   AtUri? get like => throw _privateConstructorUsedError;
 
@@ -118,9 +121,12 @@ class _$_PostViewer extends _PostViewer {
   factory _$_PostViewer.fromJson(Map<String, dynamic> json) =>
       _$$_PostViewerFromJson(json);
 
+  /// May contain the URI of the repost by the authenticated user.
   @override
   @AtUriConverter()
   final AtUri? repost;
+
+  /// May contain the URI of the like by the authenticated user.
   @override
   @AtUriConverter()
   final AtUri? like;
@@ -167,9 +173,13 @@ abstract class _PostViewer extends PostViewer {
       _$_PostViewer.fromJson;
 
   @override
+
+  /// May contain the URI of the repost by the authenticated user.
   @AtUriConverter()
   AtUri? get repost;
   @override
+
+  /// May contain the URI of the like by the authenticated user.
   @AtUriConverter()
   AtUri? get like;
   @override

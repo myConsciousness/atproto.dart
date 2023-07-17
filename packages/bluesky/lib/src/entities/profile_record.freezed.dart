@@ -20,11 +20,22 @@ ProfileRecord _$ProfileRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ProfileRecord {
+  /// Represents the type of the record.
+  ///
+  /// By default, the type is [appBskyActorProfile].
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
+
+  /// Represents the display name of the actor.
   String? get displayName => throw _privateConstructorUsedError;
+
+  /// Represents the description or biography of the actor.
   String? get description => throw _privateConstructorUsedError;
+
+  /// Represents the avatar image of the actor.
   Blob? get avatar => throw _privateConstructorUsedError;
+
+  /// Represents the banner image of the actor.
   Blob? get banner => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -195,15 +206,26 @@ class _$_ProfileRecord implements _ProfileRecord {
   factory _$_ProfileRecord.fromJson(Map<String, dynamic> json) =>
       _$$_ProfileRecordFromJson(json);
 
+  /// Represents the type of the record.
+  ///
+  /// By default, the type is [appBskyActorProfile].
   @override
   @JsonKey(name: '\$type')
   final String type;
+
+  /// Represents the display name of the actor.
   @override
   final String? displayName;
+
+  /// Represents the description or biography of the actor.
   @override
   final String? description;
+
+  /// Represents the avatar image of the actor.
   @override
   final Blob? avatar;
+
+  /// Represents the banner image of the actor.
   @override
   final Blob? banner;
 
@@ -257,15 +279,27 @@ abstract class _ProfileRecord implements ProfileRecord {
       _$_ProfileRecord.fromJson;
 
   @override
+
+  /// Represents the type of the record.
+  ///
+  /// By default, the type is [appBskyActorProfile].
   @JsonKey(name: '\$type')
   String get type;
   @override
+
+  /// Represents the display name of the actor.
   String? get displayName;
   @override
+
+  /// Represents the description or biography of the actor.
   String? get description;
   @override
+
+  /// Represents the avatar image of the actor.
   Blob? get avatar;
   @override
+
+  /// Represents the banner image of the actor.
   Blob? get banner;
   @override
   @JsonKey(ignore: true)

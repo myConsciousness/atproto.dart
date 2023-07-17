@@ -20,7 +20,10 @@ Image _$ImageFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Image {
+  /// The alternative text for the image.
   String get alt => throw _privateConstructorUsedError;
+
+  /// The actual image data represented as a Blob.
   @BlobConverter()
   Blob get image => throw _privateConstructorUsedError;
 
@@ -121,8 +124,11 @@ class _$_Image implements _Image {
   factory _$_Image.fromJson(Map<String, dynamic> json) =>
       _$$_ImageFromJson(json);
 
+  /// The alternative text for the image.
   @override
   final String alt;
+
+  /// The actual image data represented as a Blob.
   @override
   @BlobConverter()
   final Blob image;
@@ -167,8 +173,12 @@ abstract class _Image implements Image {
   factory _Image.fromJson(Map<String, dynamic> json) = _$_Image.fromJson;
 
   @override
+
+  /// The alternative text for the image.
   String get alt;
   @override
+
+  /// The actual image data represented as a Blob.
   @BlobConverter()
   Blob get image;
   @override

@@ -20,9 +20,15 @@ EmbedViewImagesView _$EmbedViewImagesViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmbedViewImagesView {
+  /// A string that represents the URL of the thumbnail-sized version of
+  /// the image.
   @JsonKey(name: 'thumb')
   String get thumbnail => throw _privateConstructorUsedError;
+
+  /// A string that represents the URL of the full-sized version of the image.
   String get fullsize => throw _privateConstructorUsedError;
+
+  /// A string that serves as alternative text for the image.
   String get alt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -130,11 +136,17 @@ class _$_EmbedViewImagesView implements _EmbedViewImagesView {
   factory _$_EmbedViewImagesView.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedViewImagesViewFromJson(json);
 
+  /// A string that represents the URL of the thumbnail-sized version of
+  /// the image.
   @override
   @JsonKey(name: 'thumb')
   final String thumbnail;
+
+  /// A string that represents the URL of the full-sized version of the image.
   @override
   final String fullsize;
+
+  /// A string that serves as alternative text for the image.
   @override
   final String alt;
 
@@ -184,11 +196,18 @@ abstract class _EmbedViewImagesView implements EmbedViewImagesView {
       _$_EmbedViewImagesView.fromJson;
 
   @override
+
+  /// A string that represents the URL of the thumbnail-sized version of
+  /// the image.
   @JsonKey(name: 'thumb')
   String get thumbnail;
   @override
+
+  /// A string that represents the URL of the full-sized version of the image.
   String get fullsize;
   @override
+
+  /// A string that serves as alternative text for the image.
   String get alt;
   @override
   @JsonKey(ignore: true)

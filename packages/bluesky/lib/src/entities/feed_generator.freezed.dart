@@ -20,8 +20,13 @@ FeedGenerator _$FeedGeneratorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeedGenerator {
+  /// Represents the view of the feed generator.
   FeedGeneratorView get view => throw _privateConstructorUsedError;
+
+  /// Indicates whether the feed generator is currently online.
   bool get isOnline => throw _privateConstructorUsedError;
+
+  /// Indicates whether the feed generator is valid.
   bool get isValid => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -139,10 +144,15 @@ class _$_FeedGenerator implements _FeedGenerator {
   factory _$_FeedGenerator.fromJson(Map<String, dynamic> json) =>
       _$$_FeedGeneratorFromJson(json);
 
+  /// Represents the view of the feed generator.
   @override
   final FeedGeneratorView view;
+
+  /// Indicates whether the feed generator is currently online.
   @override
   final bool isOnline;
+
+  /// Indicates whether the feed generator is valid.
   @override
   final bool isValid;
 
@@ -190,10 +200,16 @@ abstract class _FeedGenerator implements FeedGenerator {
       _$_FeedGenerator.fromJson;
 
   @override
+
+  /// Represents the view of the feed generator.
   FeedGeneratorView get view;
   @override
+
+  /// Indicates whether the feed generator is currently online.
   bool get isOnline;
   @override
+
+  /// Indicates whether the feed generator is valid.
   bool get isValid;
   @override
   @JsonKey(ignore: true)

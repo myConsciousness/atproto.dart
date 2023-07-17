@@ -20,6 +20,7 @@ GeneratorFeed _$GeneratorFeedFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GeneratorFeed {
+  /// The URI of the feed.
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
 
@@ -104,6 +105,7 @@ class _$_GeneratorFeed implements _GeneratorFeed {
   factory _$_GeneratorFeed.fromJson(Map<String, dynamic> json) =>
       _$$_GeneratorFeedFromJson(json);
 
+  /// The URI of the feed.
   @override
   @AtUriConverter()
   final AtUri uri;
@@ -147,6 +149,8 @@ abstract class _GeneratorFeed implements GeneratorFeed {
       _$_GeneratorFeed.fromJson;
 
   @override
+
+  /// The URI of the feed.
   @AtUriConverter()
   AtUri get uri;
   @override

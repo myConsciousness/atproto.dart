@@ -20,13 +20,29 @@ Actor _$ActorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Actor {
+  /// The decentralized identifier of the actor.
   String get did => throw _privateConstructorUsedError;
+
+  /// The handle or username of the actor.
   String get handle => throw _privateConstructorUsedError;
+
+  /// The name that is displayed for the actor.
   String? get displayName => throw _privateConstructorUsedError;
+
+  /// A short description of the actor.
   String? get description => throw _privateConstructorUsedError;
+
+  /// The avatar image of the actor.
   String? get avatar => throw _privateConstructorUsedError;
+
+  /// The [ActorViewer] instance representing the authenticated user's
+  /// relationship with the actor.
   ActorViewer get viewer => throw _privateConstructorUsedError;
+
+  /// A list of labels associated with the actor.
   List<Label>? get labels => throw _privateConstructorUsedError;
+
+  /// The timestamp when the actor was last indexed.
   DateTime? get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -213,19 +229,35 @@ class _$_Actor extends _Actor {
   factory _$_Actor.fromJson(Map<String, dynamic> json) =>
       _$$_ActorFromJson(json);
 
+  /// The decentralized identifier of the actor.
   @override
   final String did;
+
+  /// The handle or username of the actor.
   @override
   final String handle;
+
+  /// The name that is displayed for the actor.
   @override
   final String? displayName;
+
+  /// A short description of the actor.
   @override
   final String? description;
+
+  /// The avatar image of the actor.
   @override
   final String? avatar;
+
+  /// The [ActorViewer] instance representing the authenticated user's
+  /// relationship with the actor.
   @override
   final ActorViewer viewer;
+
+  /// A list of labels associated with the actor.
   final List<Label>? _labels;
+
+  /// A list of labels associated with the actor.
   @override
   List<Label>? get labels {
     final value = _labels;
@@ -235,6 +267,7 @@ class _$_Actor extends _Actor {
     return EqualUnmodifiableListView(value);
   }
 
+  /// The timestamp when the actor was last indexed.
   @override
   final DateTime? indexedAt;
 
@@ -303,20 +336,37 @@ abstract class _Actor extends Actor {
   factory _Actor.fromJson(Map<String, dynamic> json) = _$_Actor.fromJson;
 
   @override
+
+  /// The decentralized identifier of the actor.
   String get did;
   @override
+
+  /// The handle or username of the actor.
   String get handle;
   @override
+
+  /// The name that is displayed for the actor.
   String? get displayName;
   @override
+
+  /// A short description of the actor.
   String? get description;
   @override
+
+  /// The avatar image of the actor.
   String? get avatar;
   @override
+
+  /// The [ActorViewer] instance representing the authenticated user's
+  /// relationship with the actor.
   ActorViewer get viewer;
   @override
+
+  /// A list of labels associated with the actor.
   List<Label>? get labels;
   @override
+
+  /// The timestamp when the actor was last indexed.
   DateTime? get indexedAt;
   @override
   @JsonKey(ignore: true)

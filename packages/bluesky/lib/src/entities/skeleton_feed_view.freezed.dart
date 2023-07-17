@@ -20,8 +20,12 @@ SkeletonFeedView _$SkeletonFeedViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SkeletonFeedView {
+  /// The URI of the post represented as an [AtUri] object.
   @AtUriConverter()
   AtUri get post => throw _privateConstructorUsedError;
+
+  /// The reason for the skeleton feed view presence. This is optional and
+  /// represented as a [SkeletonReason] object. It is null by default.
   @SkeletonReasonConverter()
   SkeletonReason? get reason => throw _privateConstructorUsedError;
 
@@ -139,9 +143,13 @@ class _$_SkeletonFeedView implements _SkeletonFeedView {
   factory _$_SkeletonFeedView.fromJson(Map<String, dynamic> json) =>
       _$$_SkeletonFeedViewFromJson(json);
 
+  /// The URI of the post represented as an [AtUri] object.
   @override
   @AtUriConverter()
   final AtUri post;
+
+  /// The reason for the skeleton feed view presence. This is optional and
+  /// represented as a [SkeletonReason] object. It is null by default.
   @override
   @SkeletonReasonConverter()
   final SkeletonReason? reason;
@@ -188,9 +196,14 @@ abstract class _SkeletonFeedView implements SkeletonFeedView {
       _$_SkeletonFeedView.fromJson;
 
   @override
+
+  /// The URI of the post represented as an [AtUri] object.
   @AtUriConverter()
   AtUri get post;
   @override
+
+  /// The reason for the skeleton feed view presence. This is optional and
+  /// represented as a [SkeletonReason] object. It is null by default.
   @SkeletonReasonConverter()
   SkeletonReason? get reason;
   @override

@@ -20,6 +20,7 @@ Preferences _$PreferencesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Preferences {
+  /// The list of user [Preference] instances.
   @PreferenceConverter()
   List<Preference> get preferences => throw _privateConstructorUsedError;
 
@@ -105,7 +106,10 @@ class _$_Preferences implements _Preferences {
   factory _$_Preferences.fromJson(Map<String, dynamic> json) =>
       _$$_PreferencesFromJson(json);
 
+  /// The list of user [Preference] instances.
   final List<Preference> _preferences;
+
+  /// The list of user [Preference] instances.
   @override
   @PreferenceConverter()
   List<Preference> get preferences {
@@ -156,6 +160,8 @@ abstract class _Preferences implements Preferences {
       _$_Preferences.fromJson;
 
   @override
+
+  /// The list of user [Preference] instances.
   @PreferenceConverter()
   List<Preference> get preferences;
   @override

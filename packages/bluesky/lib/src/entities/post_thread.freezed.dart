@@ -20,6 +20,7 @@ PostThread _$PostThreadFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostThread {
+  /// Represents the entire post thread.
   @PostThreadViewConverter()
   PostThreadView get thread => throw _privateConstructorUsedError;
 
@@ -116,6 +117,7 @@ class _$_PostThread implements _PostThread {
   factory _$_PostThread.fromJson(Map<String, dynamic> json) =>
       _$$_PostThreadFromJson(json);
 
+  /// Represents the entire post thread.
   @override
   @PostThreadViewConverter()
   final PostThreadView thread;
@@ -160,6 +162,8 @@ abstract class _PostThread implements PostThread {
       _$_PostThread.fromJson;
 
   @override
+
+  /// Represents the entire post thread.
   @PostThreadViewConverter()
   PostThreadView get thread;
   @override
