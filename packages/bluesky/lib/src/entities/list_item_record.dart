@@ -16,7 +16,8 @@ part 'list_item_record.g.dart';
 /// [ListItemRecord] class represents a single item within a list in Bluesky.
 ///
 /// This class includes information about the type of item, the list it
-/// belongs to, the decentralized identifier (DID) of the item and the creation date.
+/// belongs to, the decentralized identifier (DID) of the item and the creation
+/// date.
 @freezed
 class ListItemRecord with _$ListItemRecord {
   /// Creates an instance of [ListItemRecord].

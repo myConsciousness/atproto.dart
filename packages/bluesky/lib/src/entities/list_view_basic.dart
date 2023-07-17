@@ -13,11 +13,11 @@ import 'list_viewer.dart';
 part 'list_view_basic.freezed.dart';
 part 'list_view_basic.g.dart';
 
-/// A [ListViewBasic] class represents a basic view of a list in the application.
+/// A [ListViewBasic] class represents a basic view of a list in Bluesky.
 ///
-/// Each instance of [ListViewBasic] contains several attributes including type, purpose,
-/// URI of the list, CID of the list, name, optional avatar, the viewer of the list,
-/// and the date of indexing.
+/// Each instance of [ListViewBasic] contains several attributes including
+/// type, purpose, URI of the list, CID of the list, name, optional avatar,
+/// the viewer of the list, and the date of indexing.
 @freezed
 class ListViewBasic with _$ListViewBasic {
   // ignore: unused_element

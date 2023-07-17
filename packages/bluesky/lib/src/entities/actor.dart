@@ -14,11 +14,12 @@ import 'actor_viewer.dart';
 part 'actor.freezed.dart';
 part 'actor.g.dart';
 
-/// [Actor] represents an individual or organization within the system.
+/// [Actor] represents an individual or organization in Bluesky.
 ///
-/// The class holds information about the actor, such as their identifier (did), handle,
-/// display name, description, and avatar. It also includes the actor's status from
-/// the perspective of the authenticated user, represented by an [ActorViewer] instance.
+/// The class holds information about the actor, such as their identifier
+/// (did), handle, display name, description, and avatar. It also includes
+/// the actor's status from the perspective of the authenticated user,
+/// represented by an [ActorViewer] instance.
 @freezed
 class Actor with _$Actor {
   // ignore: unused_element
