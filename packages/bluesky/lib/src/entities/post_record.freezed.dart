@@ -20,13 +20,24 @@ PostRecord _$PostRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostRecord {
+  /// The type of the post record, defaulting to 'appBskyFeedPost'.
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
+
+  /// The text content of the post.
   String get text => throw _privateConstructorUsedError;
+
+  /// Might be a reference to a post that this post is replying to.
   PostRef? get reply => throw _privateConstructorUsedError;
+
+  /// May include embed details for the post.
   @EmbedConverter()
   Embed? get embed => throw _privateConstructorUsedError;
+
+  /// Might include any associated facets.
   List<Facet>? get facets => throw _privateConstructorUsedError;
+
+  /// The timestamp indicating when the post was created.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -211,17 +222,28 @@ class _$_PostRecord implements _PostRecord {
   factory _$_PostRecord.fromJson(Map<String, dynamic> json) =>
       _$$_PostRecordFromJson(json);
 
+  /// The type of the post record, defaulting to 'appBskyFeedPost'.
   @override
   @JsonKey(name: '\$type')
   final String type;
+
+  /// The text content of the post.
   @override
   final String text;
+
+  /// Might be a reference to a post that this post is replying to.
   @override
   final PostRef? reply;
+
+  /// May include embed details for the post.
   @override
   @EmbedConverter()
   final Embed? embed;
+
+  /// Might include any associated facets.
   final List<Facet>? _facets;
+
+  /// Might include any associated facets.
   @override
   List<Facet>? get facets {
     final value = _facets;
@@ -231,6 +253,7 @@ class _$_PostRecord implements _PostRecord {
     return EqualUnmodifiableListView(value);
   }
 
+  /// The timestamp indicating when the post was created.
   @override
   final DateTime createdAt;
 
@@ -285,18 +308,30 @@ abstract class _PostRecord implements PostRecord {
       _$_PostRecord.fromJson;
 
   @override
+
+  /// The type of the post record, defaulting to 'appBskyFeedPost'.
   @JsonKey(name: '\$type')
   String get type;
   @override
+
+  /// The text content of the post.
   String get text;
   @override
+
+  /// Might be a reference to a post that this post is replying to.
   PostRef? get reply;
   @override
+
+  /// May include embed details for the post.
   @EmbedConverter()
   Embed? get embed;
   @override
+
+  /// Might include any associated facets.
   List<Facet>? get facets;
   @override
+
+  /// The timestamp indicating when the post was created.
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)

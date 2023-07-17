@@ -20,6 +20,7 @@ DID _$DIDFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DID {
+  /// The Decentralized Identifier.
   String get did => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -94,6 +95,7 @@ class _$_DID implements _DID {
 
   factory _$_DID.fromJson(Map<String, dynamic> json) => _$$_DIDFromJson(json);
 
+  /// The Decentralized Identifier.
   @override
   final String did;
 
@@ -134,6 +136,8 @@ abstract class _DID implements DID {
   factory _DID.fromJson(Map<String, dynamic> json) = _$_DID.fromJson;
 
   @override
+
+  /// The Decentralized Identifier.
   String get did;
   @override
   @JsonKey(ignore: true)

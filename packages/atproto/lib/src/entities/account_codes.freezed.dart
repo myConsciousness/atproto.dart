@@ -20,7 +20,10 @@ AccountCodes _$AccountCodesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AccountCodes {
+  /// A unique identifier for a user.
   String get account => throw _privateConstructorUsedError;
+
+  /// A list of codes associated with the user's account.
   List<String> get codes => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -115,9 +118,14 @@ class _$_AccountCodes implements _AccountCodes {
   factory _$_AccountCodes.fromJson(Map<String, dynamic> json) =>
       _$$_AccountCodesFromJson(json);
 
+  /// A unique identifier for a user.
   @override
   final String account;
+
+  /// A list of codes associated with the user's account.
   final List<String> _codes;
+
+  /// A list of codes associated with the user's account.
   @override
   List<String> get codes {
     if (_codes is EqualUnmodifiableListView) return _codes;
@@ -167,8 +175,12 @@ abstract class _AccountCodes implements AccountCodes {
       _$_AccountCodes.fromJson;
 
   @override
+
+  /// A unique identifier for a user.
   String get account;
   @override
+
+  /// A list of codes associated with the user's account.
   List<String> get codes;
   @override
   @JsonKey(ignore: true)

@@ -20,6 +20,7 @@ ListItem _$ListItemFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListItem {
+  /// An [Actor] object which represents the subject of the list item.
   Actor get subject => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -113,6 +114,7 @@ class _$_ListItem implements _ListItem {
   factory _$_ListItem.fromJson(Map<String, dynamic> json) =>
       _$$_ListItemFromJson(json);
 
+  /// An [Actor] object which represents the subject of the list item.
   @override
   final Actor subject;
 
@@ -153,6 +155,8 @@ abstract class _ListItem implements ListItem {
   factory _ListItem.fromJson(Map<String, dynamic> json) = _$_ListItem.fromJson;
 
   @override
+
+  /// An [Actor] object which represents the subject of the list item.
   Actor get subject;
   @override
   @JsonKey(ignore: true)

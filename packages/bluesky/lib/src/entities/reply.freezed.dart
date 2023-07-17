@@ -20,8 +20,11 @@ Reply _$ReplyFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Reply {
+  /// The root post of the reply.
   @ReplyPostConverter()
   ReplyPost get root => throw _privateConstructorUsedError;
+
+  /// The parent post of the reply.
   @ReplyPostConverter()
   ReplyPost get parent => throw _privateConstructorUsedError;
 
@@ -139,9 +142,12 @@ class _$_Reply implements _Reply {
   factory _$_Reply.fromJson(Map<String, dynamic> json) =>
       _$$_ReplyFromJson(json);
 
+  /// The root post of the reply.
   @override
   @ReplyPostConverter()
   final ReplyPost root;
+
+  /// The parent post of the reply.
   @override
   @ReplyPostConverter()
   final ReplyPost parent;
@@ -186,9 +192,13 @@ abstract class _Reply implements Reply {
   factory _Reply.fromJson(Map<String, dynamic> json) = _$_Reply.fromJson;
 
   @override
+
+  /// The root post of the reply.
   @ReplyPostConverter()
   ReplyPost get root;
   @override
+
+  /// The parent post of the reply.
   @ReplyPostConverter()
   ReplyPost get parent;
   @override

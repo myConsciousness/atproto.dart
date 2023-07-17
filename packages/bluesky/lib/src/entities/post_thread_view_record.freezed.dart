@@ -20,11 +20,18 @@ PostThreadViewRecord _$PostThreadViewRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostThreadViewRecord {
+  /// Represents the type of the thread view record.
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
+
+  /// Represents the post for which the thread view record is being created.
   Post get post => throw _privateConstructorUsedError;
+
+  /// May contain the parent post thread view of the [post].
   @PostThreadViewConverter()
   PostThreadView? get parent => throw _privateConstructorUsedError;
+
+  /// May contain a list of post thread views that are replies to the [post].
   @PostThreadViewConverter()
   List<PostThreadView>? get replies => throw _privateConstructorUsedError;
 
@@ -180,15 +187,24 @@ class _$_PostThreadViewRecord implements _PostThreadViewRecord {
   factory _$_PostThreadViewRecord.fromJson(Map<String, dynamic> json) =>
       _$$_PostThreadViewRecordFromJson(json);
 
+  /// Represents the type of the thread view record.
   @override
   @JsonKey(name: '\$type')
   final String type;
+
+  /// Represents the post for which the thread view record is being created.
   @override
   final Post post;
+
+  /// May contain the parent post thread view of the [post].
   @override
   @PostThreadViewConverter()
   final PostThreadView? parent;
+
+  /// May contain a list of post thread views that are replies to the [post].
   final List<PostThreadView>? _replies;
+
+  /// May contain a list of post thread views that are replies to the [post].
   @override
   @PostThreadViewConverter()
   List<PostThreadView>? get replies {
@@ -247,14 +263,22 @@ abstract class _PostThreadViewRecord implements PostThreadViewRecord {
       _$_PostThreadViewRecord.fromJson;
 
   @override
+
+  /// Represents the type of the thread view record.
   @JsonKey(name: '\$type')
   String get type;
   @override
+
+  /// Represents the post for which the thread view record is being created.
   Post get post;
   @override
+
+  /// May contain the parent post thread view of the [post].
   @PostThreadViewConverter()
   PostThreadView? get parent;
   @override
+
+  /// May contain a list of post thread views that are replies to the [post].
   @PostThreadViewConverter()
   List<PostThreadView>? get replies;
   @override

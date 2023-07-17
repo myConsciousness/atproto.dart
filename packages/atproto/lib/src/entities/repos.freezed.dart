@@ -20,6 +20,7 @@ Repos _$ReposFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Repos {
+  /// The list of repositories, represented as [Repo] instances.
   List<Repo> get repos => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -96,7 +97,10 @@ class _$_Repos implements _Repos {
   factory _$_Repos.fromJson(Map<String, dynamic> json) =>
       _$$_ReposFromJson(json);
 
+  /// The list of repositories, represented as [Repo] instances.
   final List<Repo> _repos;
+
+  /// The list of repositories, represented as [Repo] instances.
   @override
   List<Repo> get repos {
     if (_repos is EqualUnmodifiableListView) return _repos;
@@ -142,6 +146,8 @@ abstract class _Repos implements Repos {
   factory _Repos.fromJson(Map<String, dynamic> json) = _$_Repos.fromJson;
 
   @override
+
+  /// The list of repositories, represented as [Repo] instances.
   List<Repo> get repos;
   @override
   @JsonKey(ignore: true)

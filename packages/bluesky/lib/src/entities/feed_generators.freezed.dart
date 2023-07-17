@@ -20,7 +20,10 @@ FeedGenerators _$FeedGeneratorsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeedGenerators {
+  /// List of feed generator views.
   List<FeedGeneratorView> get feeds => throw _privateConstructorUsedError;
+
+  /// A cursor string for pagination.
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -116,7 +119,10 @@ class _$_FeedGenerators implements _FeedGenerators {
   factory _$_FeedGenerators.fromJson(Map<String, dynamic> json) =>
       _$$_FeedGeneratorsFromJson(json);
 
+  /// List of feed generator views.
   final List<FeedGeneratorView> _feeds;
+
+  /// List of feed generator views.
   @override
   List<FeedGeneratorView> get feeds {
     if (_feeds is EqualUnmodifiableListView) return _feeds;
@@ -124,6 +130,7 @@ class _$_FeedGenerators implements _FeedGenerators {
     return EqualUnmodifiableListView(_feeds);
   }
 
+  /// A cursor string for pagination.
   @override
   final String? cursor;
 
@@ -169,8 +176,12 @@ abstract class _FeedGenerators implements FeedGenerators {
       _$_FeedGenerators.fromJson;
 
   @override
+
+  /// List of feed generator views.
   List<FeedGeneratorView> get feeds;
   @override
+
+  /// A cursor string for pagination.
   String? get cursor;
   @override
   @JsonKey(ignore: true)

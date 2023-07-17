@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.5
+
+- Added documentations to model objects. ([#595](https://github.com/myConsciousness/atproto.dart/issues/595))
+
 ## v0.5.4
 
 - Upgraded `atproto_core`. Fixed minor things.

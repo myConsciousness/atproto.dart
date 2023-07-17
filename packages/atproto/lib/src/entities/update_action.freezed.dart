@@ -20,11 +20,19 @@ UpdateAction _$UpdateActionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UpdateAction {
+  /// The type of action. It defaults to
+  /// `com.atproto.repo.applyWrites#update`.
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
+
+  /// The collection to which the record belongs.
   @NsidConverter()
   NSID get collection => throw _privateConstructorUsedError;
+
+  /// The key of the record to be updated.
   String? get rkey => throw _privateConstructorUsedError;
+
+  /// The new values of the record.
   @JsonKey(name: 'value')
   Map<String, dynamic> get record => throw _privateConstructorUsedError;
 
@@ -153,15 +161,25 @@ class _$_UpdateAction implements _UpdateAction {
   factory _$_UpdateAction.fromJson(Map<String, dynamic> json) =>
       _$$_UpdateActionFromJson(json);
 
+  /// The type of action. It defaults to
+  /// `com.atproto.repo.applyWrites#update`.
   @override
   @JsonKey(name: '\$type')
   final String type;
+
+  /// The collection to which the record belongs.
   @override
   @NsidConverter()
   final NSID collection;
+
+  /// The key of the record to be updated.
   @override
   final String? rkey;
+
+  /// The new values of the record.
   final Map<String, dynamic> _record;
+
+  /// The new values of the record.
   @override
   @JsonKey(name: 'value')
   Map<String, dynamic> get record {
@@ -218,14 +236,23 @@ abstract class _UpdateAction implements UpdateAction {
       _$_UpdateAction.fromJson;
 
   @override
+
+  /// The type of action. It defaults to
+  /// `com.atproto.repo.applyWrites#update`.
   @JsonKey(name: '\$type')
   String get type;
   @override
+
+  /// The collection to which the record belongs.
   @NsidConverter()
   NSID get collection;
   @override
+
+  /// The key of the record to be updated.
   String? get rkey;
   @override
+
+  /// The new values of the record.
   @JsonKey(name: 'value')
   Map<String, dynamic> get record;
   @override

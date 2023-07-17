@@ -13,15 +13,26 @@ import 'ids/ids.dart';
 part 'repost_record.freezed.dart';
 part 'repost_record.g.dart';
 
+/// Represents a repost record in a feed.
 @freezed
 class RepostRecord with _$RepostRecord {
+  /// Creates a new instance of [RepostRecord].
   @JsonSerializable(includeIfNull: false)
   const factory RepostRecord({
+    /// The type of the repost record.
     @Default(appBskyFeedRepost) @JsonKey(name: '\$type') String type,
+
+    /// The reference to the subject of the repost.
     @JsonKey(name: 'subject') required StrongRef ref,
+
+    /// The timestamp of when the repost was created.
     required DateTime createdAt,
   }) = _RepostRecord;
 
+  /// Creates a new instance of [RepostRecord] from a map of [json] data.
+  ///
+  /// The [json] data must correspond to the structure of [RepostRecord]
+  /// to properly convert.
   factory RepostRecord.fromJson(Map<String, Object?> json) =>
       _$RepostRecordFromJson(json);
 }

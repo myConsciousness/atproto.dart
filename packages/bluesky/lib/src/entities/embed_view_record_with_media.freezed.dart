@@ -21,9 +21,14 @@ EmbedViewRecordWithMedia _$EmbedViewRecordWithMediaFromJson(
 
 /// @nodoc
 mixin _$EmbedViewRecordWithMedia {
+  /// Specifies the type of record.
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
+
+  /// Represents the record of the embedded view.
   EmbedViewRecord get record => throw _privateConstructorUsedError;
+
+  /// Represents the media attached to the view.
   @EmbedViewMediaConverter()
   EmbedViewMedia get media => throw _privateConstructorUsedError;
 
@@ -163,11 +168,16 @@ class _$_EmbedViewRecordWithMedia implements _EmbedViewRecordWithMedia {
   factory _$_EmbedViewRecordWithMedia.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedViewRecordWithMediaFromJson(json);
 
+  /// Specifies the type of record.
   @override
   @JsonKey(name: '\$type')
   final String type;
+
+  /// Represents the record of the embedded view.
   @override
   final EmbedViewRecord record;
+
+  /// Represents the media attached to the view.
   @override
   @EmbedViewMediaConverter()
   final EmbedViewMedia media;
@@ -217,11 +227,17 @@ abstract class _EmbedViewRecordWithMedia implements EmbedViewRecordWithMedia {
       _$_EmbedViewRecordWithMedia.fromJson;
 
   @override
+
+  /// Specifies the type of record.
   @JsonKey(name: '\$type')
   String get type;
   @override
+
+  /// Represents the record of the embedded view.
   EmbedViewRecord get record;
   @override
+
+  /// Represents the media attached to the view.
   @EmbedViewMediaConverter()
   EmbedViewMedia get media;
   @override

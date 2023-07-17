@@ -20,7 +20,10 @@ Mutes _$MutesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Mutes {
+  /// A required list of muted [Actor] objects.
   List<Actor> get mutes => throw _privateConstructorUsedError;
+
+  /// An optional string that can be used for pagination purposes.
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -108,7 +111,10 @@ class _$_Mutes implements _Mutes {
   factory _$_Mutes.fromJson(Map<String, dynamic> json) =>
       _$$_MutesFromJson(json);
 
+  /// A required list of muted [Actor] objects.
   final List<Actor> _mutes;
+
+  /// A required list of muted [Actor] objects.
   @override
   List<Actor> get mutes {
     if (_mutes is EqualUnmodifiableListView) return _mutes;
@@ -116,6 +122,7 @@ class _$_Mutes implements _Mutes {
     return EqualUnmodifiableListView(_mutes);
   }
 
+  /// An optional string that can be used for pagination purposes.
   @override
   final String? cursor;
 
@@ -159,8 +166,12 @@ abstract class _Mutes implements Mutes {
   factory _Mutes.fromJson(Map<String, dynamic> json) = _$_Mutes.fromJson;
 
   @override
+
+  /// A required list of muted [Actor] objects.
   List<Actor> get mutes;
   @override
+
+  /// An optional string that can be used for pagination purposes.
   String? get cursor;
   @override
   @JsonKey(ignore: true)

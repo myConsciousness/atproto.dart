@@ -21,8 +21,12 @@ EmbedViewRecordViewNotFound _$EmbedViewRecordViewNotFoundFromJson(
 
 /// @nodoc
 mixin _$EmbedViewRecordViewNotFound {
+  /// A string that represents the type of the record view not found.
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
+
+  /// An `AtUri` instance that contains the unique resource identifier (URI)
+  /// of the record.
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
 
@@ -126,9 +130,13 @@ class _$_EmbedViewRecordViewNotFound implements _EmbedViewRecordViewNotFound {
   factory _$_EmbedViewRecordViewNotFound.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedViewRecordViewNotFoundFromJson(json);
 
+  /// A string that represents the type of the record view not found.
   @override
   @JsonKey(name: '\$type')
   final String type;
+
+  /// An `AtUri` instance that contains the unique resource identifier (URI)
+  /// of the record.
   @override
   @AtUriConverter()
   final AtUri uri;
@@ -177,9 +185,14 @@ abstract class _EmbedViewRecordViewNotFound
       _$_EmbedViewRecordViewNotFound.fromJson;
 
   @override
+
+  /// A string that represents the type of the record view not found.
   @JsonKey(name: '\$type')
   String get type;
   @override
+
+  /// An `AtUri` instance that contains the unique resource identifier (URI)
+  /// of the record.
   @AtUriConverter()
   AtUri get uri;
   @override

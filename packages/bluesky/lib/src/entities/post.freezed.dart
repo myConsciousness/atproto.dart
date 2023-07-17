@@ -20,20 +20,43 @@ Post _$PostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Post {
+  /// The type of the post.
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
+
+  /// The record containing the content of the post.
   PostRecord get record => throw _privateConstructorUsedError;
+
+  /// The author who created the post.
   Actor get author => throw _privateConstructorUsedError;
+
+  /// The URI of the post.
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
+
+  /// The unique identifier of the post.
   String get cid => throw _privateConstructorUsedError;
+
+  /// The embeddable content associated with the post, if any.
   @EmbedViewConverter()
   EmbedView? get embed => throw _privateConstructorUsedError;
+
+  /// The count of replies to the post.
   int get replyCount => throw _privateConstructorUsedError;
+
+  /// The count of reposts of the post.
   int get repostCount => throw _privateConstructorUsedError;
+
+  /// The count of likes of the post.
   int get likeCount => throw _privateConstructorUsedError;
+
+  /// The interaction details of the viewer with the post.
   PostViewer get viewer => throw _privateConstructorUsedError;
+
+  /// The labels associated with the post, if any.
   List<Label>? get labels => throw _privateConstructorUsedError;
+
+  /// The date and time the post was indexed.
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -308,30 +331,53 @@ class _$_Post extends _Post {
 
   factory _$_Post.fromJson(Map<String, dynamic> json) => _$$_PostFromJson(json);
 
+  /// The type of the post.
   @override
   @JsonKey(name: '\$type')
   final String type;
+
+  /// The record containing the content of the post.
   @override
   final PostRecord record;
+
+  /// The author who created the post.
   @override
   final Actor author;
+
+  /// The URI of the post.
   @override
   @AtUriConverter()
   final AtUri uri;
+
+  /// The unique identifier of the post.
   @override
   final String cid;
+
+  /// The embeddable content associated with the post, if any.
   @override
   @EmbedViewConverter()
   final EmbedView? embed;
+
+  /// The count of replies to the post.
   @override
   final int replyCount;
+
+  /// The count of reposts of the post.
   @override
   final int repostCount;
+
+  /// The count of likes of the post.
   @override
   final int likeCount;
+
+  /// The interaction details of the viewer with the post.
   @override
   final PostViewer viewer;
+
+  /// The labels associated with the post, if any.
   final List<Label>? _labels;
+
+  /// The labels associated with the post, if any.
   @override
   List<Label>? get labels {
     final value = _labels;
@@ -341,6 +387,7 @@ class _$_Post extends _Post {
     return EqualUnmodifiableListView(value);
   }
 
+  /// The date and time the post was indexed.
   @override
   final DateTime indexedAt;
 
@@ -422,31 +469,55 @@ abstract class _Post extends Post {
   factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
 
   @override
+
+  /// The type of the post.
   @JsonKey(name: '\$type')
   String get type;
   @override
+
+  /// The record containing the content of the post.
   PostRecord get record;
   @override
+
+  /// The author who created the post.
   Actor get author;
   @override
+
+  /// The URI of the post.
   @AtUriConverter()
   AtUri get uri;
   @override
+
+  /// The unique identifier of the post.
   String get cid;
   @override
+
+  /// The embeddable content associated with the post, if any.
   @EmbedViewConverter()
   EmbedView? get embed;
   @override
+
+  /// The count of replies to the post.
   int get replyCount;
   @override
+
+  /// The count of reposts of the post.
   int get repostCount;
   @override
+
+  /// The count of likes of the post.
   int get likeCount;
   @override
+
+  /// The interaction details of the viewer with the post.
   PostViewer get viewer;
   @override
+
+  /// The labels associated with the post, if any.
   List<Label>? get labels;
   @override
+
+  /// The date and time the post was indexed.
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)

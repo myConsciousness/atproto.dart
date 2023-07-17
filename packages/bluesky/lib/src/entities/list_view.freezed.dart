@@ -20,19 +20,40 @@ ListView _$ListViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListView {
+  /// The type of the list, by default it is `app.bsky.graph.defs#listView`.
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
+
+  /// The purpose of the list, by default it is `app.bsky.graph.defs#modlist`.
   String get purpose => throw _privateConstructorUsedError;
+
+  /// The URI of the list.
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
+
+  /// The CID of the list.
   String get cid => throw _privateConstructorUsedError;
+
+  /// The name of the list.
   String get name => throw _privateConstructorUsedError;
+
+  /// An optional description for the list.
   String? get description => throw _privateConstructorUsedError;
+
+  /// An optional list of facets for the description of the list.
   List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
+
+  /// An optional avatar for the list.
   String? get avatar => throw _privateConstructorUsedError;
+
+  /// The actor who created the list.
   @JsonKey(name: 'creator')
   Actor get createdBy => throw _privateConstructorUsedError;
+
+  /// The viewer of the list.
   ListViewer get viewer => throw _privateConstructorUsedError;
+
+  /// The date of the indexing of the list.
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -273,22 +294,37 @@ class _$_ListView extends _ListView {
   factory _$_ListView.fromJson(Map<String, dynamic> json) =>
       _$$_ListViewFromJson(json);
 
+  /// The type of the list, by default it is `app.bsky.graph.defs#listView`.
   @override
   @JsonKey(name: '\$type')
   final String type;
+
+  /// The purpose of the list, by default it is `app.bsky.graph.defs#modlist`.
   @override
   @JsonKey()
   final String purpose;
+
+  /// The URI of the list.
   @override
   @AtUriConverter()
   final AtUri uri;
+
+  /// The CID of the list.
   @override
   final String cid;
+
+  /// The name of the list.
   @override
   final String name;
+
+  /// An optional description for the list.
   @override
   final String? description;
+
+  /// An optional list of facets for the description of the list.
   final List<Facet>? _descriptionFacets;
+
+  /// An optional list of facets for the description of the list.
   @override
   List<Facet>? get descriptionFacets {
     final value = _descriptionFacets;
@@ -299,13 +335,20 @@ class _$_ListView extends _ListView {
     return EqualUnmodifiableListView(value);
   }
 
+  /// An optional avatar for the list.
   @override
   final String? avatar;
+
+  /// The actor who created the list.
   @override
   @JsonKey(name: 'creator')
   final Actor createdBy;
+
+  /// The viewer of the list.
   @override
   final ListViewer viewer;
+
+  /// The date of the indexing of the list.
   @override
   final DateTime indexedAt;
 
@@ -384,29 +427,51 @@ abstract class _ListView extends ListView {
   factory _ListView.fromJson(Map<String, dynamic> json) = _$_ListView.fromJson;
 
   @override
+
+  /// The type of the list, by default it is `app.bsky.graph.defs#listView`.
   @JsonKey(name: '\$type')
   String get type;
   @override
+
+  /// The purpose of the list, by default it is `app.bsky.graph.defs#modlist`.
   String get purpose;
   @override
+
+  /// The URI of the list.
   @AtUriConverter()
   AtUri get uri;
   @override
+
+  /// The CID of the list.
   String get cid;
   @override
+
+  /// The name of the list.
   String get name;
   @override
+
+  /// An optional description for the list.
   String? get description;
   @override
+
+  /// An optional list of facets for the description of the list.
   List<Facet>? get descriptionFacets;
   @override
+
+  /// An optional avatar for the list.
   String? get avatar;
   @override
+
+  /// The actor who created the list.
   @JsonKey(name: 'creator')
   Actor get createdBy;
   @override
+
+  /// The viewer of the list.
   ListViewer get viewer;
   @override
+
+  /// The date of the indexing of the list.
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)

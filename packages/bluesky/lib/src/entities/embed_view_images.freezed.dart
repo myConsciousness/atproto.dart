@@ -20,8 +20,11 @@ EmbedViewImages _$EmbedViewImagesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmbedViewImages {
+  /// An optional string that represents the type of the embedded images view.
   @JsonKey(name: '\$type')
   String? get type => throw _privateConstructorUsedError;
+
+  /// A list of `EmbedViewImagesView` instances.
   List<EmbedViewImagesView> get images => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -121,10 +124,15 @@ class _$_EmbedViewImages implements _EmbedViewImages {
   factory _$_EmbedViewImages.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedViewImagesFromJson(json);
 
+  /// An optional string that represents the type of the embedded images view.
   @override
   @JsonKey(name: '\$type')
   final String? type;
+
+  /// A list of `EmbedViewImagesView` instances.
   final List<EmbedViewImagesView> _images;
+
+  /// A list of `EmbedViewImagesView` instances.
   @override
   List<EmbedViewImagesView> get images {
     if (_images is EqualUnmodifiableListView) return _images;
@@ -174,9 +182,13 @@ abstract class _EmbedViewImages implements EmbedViewImages {
       _$_EmbedViewImages.fromJson;
 
   @override
+
+  /// An optional string that represents the type of the embedded images view.
   @JsonKey(name: '\$type')
   String? get type;
   @override
+
+  /// A list of `EmbedViewImagesView` instances.
   List<EmbedViewImagesView> get images;
   @override
   @JsonKey(ignore: true)

@@ -20,9 +20,14 @@ Facet _$FacetFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Facet {
+  /// Specifies the type of facet. Optional.
   @JsonKey(name: '\$type')
   String? get type => throw _privateConstructorUsedError;
+
+  /// Represents the byte slice index of the facet.
   ByteSlice get index => throw _privateConstructorUsedError;
+
+  /// Represents the list of facet features.
   @FacetFeatureConverter()
   List<FacetFeature> get features => throw _privateConstructorUsedError;
 
@@ -144,12 +149,19 @@ class _$_Facet implements _Facet {
   factory _$_Facet.fromJson(Map<String, dynamic> json) =>
       _$$_FacetFromJson(json);
 
+  /// Specifies the type of facet. Optional.
   @override
   @JsonKey(name: '\$type')
   final String? type;
+
+  /// Represents the byte slice index of the facet.
   @override
   final ByteSlice index;
+
+  /// Represents the list of facet features.
   final List<FacetFeature> _features;
+
+  /// Represents the list of facet features.
   @override
   @FacetFeatureConverter()
   List<FacetFeature> get features {
@@ -202,11 +214,17 @@ abstract class _Facet implements Facet {
   factory _Facet.fromJson(Map<String, dynamic> json) = _$_Facet.fromJson;
 
   @override
+
+  /// Specifies the type of facet. Optional.
   @JsonKey(name: '\$type')
   String? get type;
   @override
+
+  /// Represents the byte slice index of the facet.
   ByteSlice get index;
   @override
+
+  /// Represents the list of facet features.
   @FacetFeatureConverter()
   List<FacetFeature> get features;
   @override

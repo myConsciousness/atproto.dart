@@ -20,8 +20,13 @@ EmbedExternal _$EmbedExternalFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmbedExternal {
+  /// The type of the embedded content, defaulted to
+  /// `app.bsky.embed.external`.
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
+
+  /// The [EmbedExternalThumbnail] that contains the details of the
+  /// external resource.
   EmbedExternalThumbnail get external => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -131,9 +136,14 @@ class _$_EmbedExternal implements _EmbedExternal {
   factory _$_EmbedExternal.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedExternalFromJson(json);
 
+  /// The type of the embedded content, defaulted to
+  /// `app.bsky.embed.external`.
   @override
   @JsonKey(name: '\$type')
   final String type;
+
+  /// The [EmbedExternalThumbnail] that contains the details of the
+  /// external resource.
   @override
   final EmbedExternalThumbnail external;
 
@@ -179,9 +189,15 @@ abstract class _EmbedExternal implements EmbedExternal {
       _$_EmbedExternal.fromJson;
 
   @override
+
+  /// The type of the embedded content, defaulted to
+  /// `app.bsky.embed.external`.
   @JsonKey(name: '\$type')
   String get type;
   @override
+
+  /// The [EmbedExternalThumbnail] that contains the details of the
+  /// external resource.
   EmbedExternalThumbnail get external;
   @override
   @JsonKey(ignore: true)

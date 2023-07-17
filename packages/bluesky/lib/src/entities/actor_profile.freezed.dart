@@ -20,17 +20,40 @@ ActorProfile _$ActorProfileFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ActorProfile {
+  /// The unique identifier of the actor.
   String get did => throw _privateConstructorUsedError;
+
+  /// The actor's handle.
   String get handle => throw _privateConstructorUsedError;
+
+  /// The display name of the actor.
   String? get displayName => throw _privateConstructorUsedError;
+
+  /// The description about the actor.
   String? get description => throw _privateConstructorUsedError;
+
+  /// The avatar image URL of the actor.
   String? get avatar => throw _privateConstructorUsedError;
+
+  /// The banner image URL of the actor.
   String? get banner => throw _privateConstructorUsedError;
+
+  /// The number of actors this actor is following.
   int get followsCount => throw _privateConstructorUsedError;
+
+  /// The number of followers this actor has.
   int get followersCount => throw _privateConstructorUsedError;
+
+  /// The number of posts this actor has made.
   int get postsCount => throw _privateConstructorUsedError;
+
+  /// The viewer's (authenticated user's) relationship to this actor.
   ActorViewer get viewer => throw _privateConstructorUsedError;
+
+  /// The labels assigned to this actor.
   List<Label>? get labels => throw _privateConstructorUsedError;
+
+  /// The date time when the actor profile was last indexed.
   DateTime? get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -275,27 +298,50 @@ class _$_ActorProfile extends _ActorProfile {
   factory _$_ActorProfile.fromJson(Map<String, dynamic> json) =>
       _$$_ActorProfileFromJson(json);
 
+  /// The unique identifier of the actor.
   @override
   final String did;
+
+  /// The actor's handle.
   @override
   final String handle;
+
+  /// The display name of the actor.
   @override
   final String? displayName;
+
+  /// The description about the actor.
   @override
   final String? description;
+
+  /// The avatar image URL of the actor.
   @override
   final String? avatar;
+
+  /// The banner image URL of the actor.
   @override
   final String? banner;
+
+  /// The number of actors this actor is following.
   @override
   final int followsCount;
+
+  /// The number of followers this actor has.
   @override
   final int followersCount;
+
+  /// The number of posts this actor has made.
   @override
   final int postsCount;
+
+  /// The viewer's (authenticated user's) relationship to this actor.
   @override
   final ActorViewer viewer;
+
+  /// The labels assigned to this actor.
   final List<Label>? _labels;
+
+  /// The labels assigned to this actor.
   @override
   List<Label>? get labels {
     final value = _labels;
@@ -305,6 +351,7 @@ class _$_ActorProfile extends _ActorProfile {
     return EqualUnmodifiableListView(value);
   }
 
+  /// The date time when the actor profile was last indexed.
   @override
   final DateTime? indexedAt;
 
@@ -389,28 +436,52 @@ abstract class _ActorProfile extends ActorProfile {
       _$_ActorProfile.fromJson;
 
   @override
+
+  /// The unique identifier of the actor.
   String get did;
   @override
+
+  /// The actor's handle.
   String get handle;
   @override
+
+  /// The display name of the actor.
   String? get displayName;
   @override
+
+  /// The description about the actor.
   String? get description;
   @override
+
+  /// The avatar image URL of the actor.
   String? get avatar;
   @override
+
+  /// The banner image URL of the actor.
   String? get banner;
   @override
+
+  /// The number of actors this actor is following.
   int get followsCount;
   @override
+
+  /// The number of followers this actor has.
   int get followersCount;
   @override
+
+  /// The number of posts this actor has made.
   int get postsCount;
   @override
+
+  /// The viewer's (authenticated user's) relationship to this actor.
   ActorViewer get viewer;
   @override
+
+  /// The labels assigned to this actor.
   List<Label>? get labels;
   @override
+
+  /// The date time when the actor profile was last indexed.
   DateTime? get indexedAt;
   @override
   @JsonKey(ignore: true)

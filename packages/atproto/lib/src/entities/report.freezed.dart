@@ -20,11 +20,20 @@ Report _$ReportFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Report {
+  /// The unique ID of the report.
   int get id => throw _privateConstructorUsedError;
+
+  /// The type of reason for this report.
   ModerationReasonType get reasonType => throw _privateConstructorUsedError;
+
+  /// The subject of the report, represented as a [ReportSubject].
   @ReportSubjectConverter()
   ReportSubject get subject => throw _privateConstructorUsedError;
+
+  /// The username of the user who reported.
   String get reportedBy => throw _privateConstructorUsedError;
+
+  /// The date and time at which the report was created.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -170,15 +179,24 @@ class _$_Report implements _Report {
   factory _$_Report.fromJson(Map<String, dynamic> json) =>
       _$$_ReportFromJson(json);
 
+  /// The unique ID of the report.
   @override
   final int id;
+
+  /// The type of reason for this report.
   @override
   final ModerationReasonType reasonType;
+
+  /// The subject of the report, represented as a [ReportSubject].
   @override
   @ReportSubjectConverter()
   final ReportSubject subject;
+
+  /// The username of the user who reported.
   @override
   final String reportedBy;
+
+  /// The date and time at which the report was created.
   @override
   final DateTime createdAt;
 
@@ -232,15 +250,25 @@ abstract class _Report implements Report {
   factory _Report.fromJson(Map<String, dynamic> json) = _$_Report.fromJson;
 
   @override
+
+  /// The unique ID of the report.
   int get id;
   @override
+
+  /// The type of reason for this report.
   ModerationReasonType get reasonType;
   @override
+
+  /// The subject of the report, represented as a [ReportSubject].
   @ReportSubjectConverter()
   ReportSubject get subject;
   @override
+
+  /// The username of the user who reported.
   String get reportedBy;
   @override
+
+  /// The date and time at which the report was created.
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)

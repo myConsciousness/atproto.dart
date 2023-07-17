@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.0.7
+
+- Upgraded `bluesky`.
+
 ## v0.0.6
 
 - Upgraded `bluesky`.

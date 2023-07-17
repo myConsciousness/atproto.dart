@@ -20,8 +20,11 @@ EmbedViewRecord _$EmbedViewRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmbedViewRecord {
+  /// Specifies the type of record. Optional.
   @JsonKey(name: '\$type')
   String? get type => throw _privateConstructorUsedError;
+
+  /// Represents the view of the record.
   @EmbedViewRecordViewConverter()
   EmbedViewRecordView get record => throw _privateConstructorUsedError;
 
@@ -134,9 +137,12 @@ class _$_EmbedViewRecord implements _EmbedViewRecord {
   factory _$_EmbedViewRecord.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedViewRecordFromJson(json);
 
+  /// Specifies the type of record. Optional.
   @override
   @JsonKey(name: '\$type')
   final String? type;
+
+  /// Represents the view of the record.
   @override
   @EmbedViewRecordViewConverter()
   final EmbedViewRecordView record;
@@ -183,9 +189,13 @@ abstract class _EmbedViewRecord implements EmbedViewRecord {
       _$_EmbedViewRecord.fromJson;
 
   @override
+
+  /// Specifies the type of record. Optional.
   @JsonKey(name: '\$type')
   String? get type;
   @override
+
+  /// Represents the view of the record.
   @EmbedViewRecordViewConverter()
   EmbedViewRecordView get record;
   @override

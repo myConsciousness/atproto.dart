@@ -20,8 +20,13 @@ CurrentSession _$CurrentSessionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CurrentSession {
+  /// The decentralized identifier (DID) for the user in the current session.
   String get did => throw _privateConstructorUsedError;
+
+  /// The handle (username) for the user in the current session.
   String get handle => throw _privateConstructorUsedError;
+
+  /// The email address of the user in the current session.
   String get email => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -125,10 +130,15 @@ class _$_CurrentSession implements _CurrentSession {
   factory _$_CurrentSession.fromJson(Map<String, dynamic> json) =>
       _$$_CurrentSessionFromJson(json);
 
+  /// The decentralized identifier (DID) for the user in the current session.
   @override
   final String did;
+
+  /// The handle (username) for the user in the current session.
   @override
   final String handle;
+
+  /// The email address of the user in the current session.
   @override
   final String email;
 
@@ -175,10 +185,16 @@ abstract class _CurrentSession implements CurrentSession {
       _$_CurrentSession.fromJson;
 
   @override
+
+  /// The decentralized identifier (DID) for the user in the current session.
   String get did;
   @override
+
+  /// The handle (username) for the user in the current session.
   String get handle;
   @override
+
+  /// The email address of the user in the current session.
   String get email;
   @override
   @JsonKey(ignore: true)

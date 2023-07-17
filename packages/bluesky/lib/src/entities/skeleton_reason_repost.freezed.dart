@@ -20,8 +20,13 @@ SkeletonReasonRepost _$SkeletonReasonRepostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SkeletonReasonRepost {
+  /// The type identifier for this class, always
+  /// `app.bsky.feed.defs#skeletonReasonRepost` for [SkeletonReasonRepost].
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
+
+  /// The repost that is the reason for the post's inclusion in the skeleton
+  /// feed.
   @AtUriConverter()
   AtUri get repost => throw _privateConstructorUsedError;
 
@@ -121,9 +126,14 @@ class _$_SkeletonReasonRepost implements _SkeletonReasonRepost {
   factory _$_SkeletonReasonRepost.fromJson(Map<String, dynamic> json) =>
       _$$_SkeletonReasonRepostFromJson(json);
 
+  /// The type identifier for this class, always
+  /// `app.bsky.feed.defs#skeletonReasonRepost` for [SkeletonReasonRepost].
   @override
   @JsonKey(name: '\$type')
   final String type;
+
+  /// The repost that is the reason for the post's inclusion in the skeleton
+  /// feed.
   @override
   @AtUriConverter()
   final AtUri repost;
@@ -170,9 +180,15 @@ abstract class _SkeletonReasonRepost implements SkeletonReasonRepost {
       _$_SkeletonReasonRepost.fromJson;
 
   @override
+
+  /// The type identifier for this class, always
+  /// `app.bsky.feed.defs#skeletonReasonRepost` for [SkeletonReasonRepost].
   @JsonKey(name: '\$type')
   String get type;
   @override
+
+  /// The repost that is the reason for the post's inclusion in the skeleton
+  /// feed.
   @AtUriConverter()
   AtUri get repost;
   @override

@@ -9,14 +9,31 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'strong_ref.freezed.dart';
 part 'strong_ref.g.dart';
 
+/// Represents a strong reference in the repository.
+///
+/// A strong reference is characterized by its CID (Content Identifier) and
+/// AT URI.
 @freezed
 class StrongRef with _$StrongRef {
+  /// Creates a new instance of [StrongRef].
+  ///
+  /// The [cid] and [uri] parameters are required, while
+  /// [type] is optional with a default value of `com.atproto.repo.strongRef`.
   const factory StrongRef({
+    /// Type of the reference, defaults to `com.atproto.repo.strongRef`.
     @Default('com.atproto.repo.strongRef') @JsonKey(name: '\$type') String type,
+
+    /// Content Identifier of the reference.
     required String cid,
+
+    /// Uri of the reference.
     @AtUriConverter() required AtUri uri,
   }) = _StrongRef;
 
+  /// Creates a new instance of [StrongRef] from a JSON object.
+  ///
+  /// The [json] parameter must be a map with keys and values that can be used
+  /// to populate an instance of [StrongRef].
   factory StrongRef.fromJson(Map<String, Object?> json) =>
       _$StrongRefFromJson(json);
 }

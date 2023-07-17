@@ -20,11 +20,17 @@ SavedFeedsPreference _$SavedFeedsPreferenceFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SavedFeedsPreference {
+  /// A string that represents the type of the object.
+  /// By default, it is `app.bsky.actor.defs#savedFeedsPref`.
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
+
+  /// A list of pinned URIs represented as [AtUri] objects.
   @JsonKey(name: 'pinned')
   @AtUriConverter()
   List<AtUri> get pinnedUris => throw _privateConstructorUsedError;
+
+  /// A list of saved URIs represented as [AtUri] objects.
   @AtUriConverter()
   @JsonKey(name: 'saved')
   List<AtUri> get savedUris => throw _privateConstructorUsedError;
@@ -147,10 +153,16 @@ class _$_SavedFeedsPreference implements _SavedFeedsPreference {
   factory _$_SavedFeedsPreference.fromJson(Map<String, dynamic> json) =>
       _$$_SavedFeedsPreferenceFromJson(json);
 
+  /// A string that represents the type of the object.
+  /// By default, it is `app.bsky.actor.defs#savedFeedsPref`.
   @override
   @JsonKey(name: '\$type')
   final String type;
+
+  /// A list of pinned URIs represented as [AtUri] objects.
   final List<AtUri> _pinnedUris;
+
+  /// A list of pinned URIs represented as [AtUri] objects.
   @override
   @JsonKey(name: 'pinned')
   @AtUriConverter()
@@ -160,7 +172,10 @@ class _$_SavedFeedsPreference implements _SavedFeedsPreference {
     return EqualUnmodifiableListView(_pinnedUris);
   }
 
+  /// A list of saved URIs represented as [AtUri] objects.
   final List<AtUri> _savedUris;
+
+  /// A list of saved URIs represented as [AtUri] objects.
   @override
   @AtUriConverter()
   @JsonKey(name: 'saved')
@@ -224,13 +239,20 @@ abstract class _SavedFeedsPreference implements SavedFeedsPreference {
       _$_SavedFeedsPreference.fromJson;
 
   @override
+
+  /// A string that represents the type of the object.
+  /// By default, it is `app.bsky.actor.defs#savedFeedsPref`.
   @JsonKey(name: '\$type')
   String get type;
   @override
+
+  /// A list of pinned URIs represented as [AtUri] objects.
   @JsonKey(name: 'pinned')
   @AtUriConverter()
   List<AtUri> get pinnedUris;
   @override
+
+  /// A list of saved URIs represented as [AtUri] objects.
   @AtUriConverter()
   @JsonKey(name: 'saved')
   List<AtUri> get savedUris;

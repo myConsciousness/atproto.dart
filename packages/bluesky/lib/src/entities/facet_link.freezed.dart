@@ -20,8 +20,11 @@ FacetLink _$FacetLinkFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FacetLink {
+  /// Specifies the type of facet. Defaults to `app.bsky.richtext.facet#link`.
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
+
+  /// Represents the URI of the link facet.
   String get uri => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -114,9 +117,12 @@ class _$_FacetLink implements _FacetLink {
   factory _$_FacetLink.fromJson(Map<String, dynamic> json) =>
       _$$_FacetLinkFromJson(json);
 
+  /// Specifies the type of facet. Defaults to `app.bsky.richtext.facet#link`.
   @override
   @JsonKey(name: '\$type')
   final String type;
+
+  /// Represents the URI of the link facet.
   @override
   final String uri;
 
@@ -161,9 +167,13 @@ abstract class _FacetLink implements FacetLink {
       _$_FacetLink.fromJson;
 
   @override
+
+  /// Specifies the type of facet. Defaults to `app.bsky.richtext.facet#link`.
   @JsonKey(name: '\$type')
   String get type;
   @override
+
+  /// Represents the URI of the link facet.
   String get uri;
   @override
   @JsonKey(ignore: true)

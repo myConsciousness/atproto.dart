@@ -21,9 +21,18 @@ EmbedViewExternalView _$EmbedViewExternalViewFromJson(
 
 /// @nodoc
 mixin _$EmbedViewExternalView {
+  /// A string that represents the Uniform Resource Identifier (URI) of
+  /// the external content.
   String get uri => throw _privateConstructorUsedError;
+
+  /// A string that represents the title of the external content.
   String get title => throw _privateConstructorUsedError;
+
+  /// A string that represents the description of the external content.
   String get description => throw _privateConstructorUsedError;
+
+  /// An optional string representing a thumbnail image for the external
+  /// content. May be null.
   @JsonKey(name: 'thumb')
   String? get thumbnail => throw _privateConstructorUsedError;
 
@@ -151,12 +160,21 @@ class _$_EmbedViewExternalView implements _EmbedViewExternalView {
   factory _$_EmbedViewExternalView.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedViewExternalViewFromJson(json);
 
+  /// A string that represents the Uniform Resource Identifier (URI) of
+  /// the external content.
   @override
   final String uri;
+
+  /// A string that represents the title of the external content.
   @override
   final String title;
+
+  /// A string that represents the description of the external content.
   @override
   final String description;
+
+  /// An optional string representing a thumbnail image for the external
+  /// content. May be null.
   @override
   @JsonKey(name: 'thumb')
   final String? thumbnail;
@@ -211,12 +229,22 @@ abstract class _EmbedViewExternalView implements EmbedViewExternalView {
       _$_EmbedViewExternalView.fromJson;
 
   @override
+
+  /// A string that represents the Uniform Resource Identifier (URI) of
+  /// the external content.
   String get uri;
   @override
+
+  /// A string that represents the title of the external content.
   String get title;
   @override
+
+  /// A string that represents the description of the external content.
   String get description;
   @override
+
+  /// An optional string representing a thumbnail image for the external
+  /// content. May be null.
   @JsonKey(name: 'thumb')
   String? get thumbnail;
   @override
