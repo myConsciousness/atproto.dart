@@ -18,6 +18,7 @@ extension BlobExtension on Blob {
         image: this,
       );
 
+  /// Returns the single [Embed] image representation of this blob.
   Embed toEmbedImage({
     required String alt,
   }) =>
