@@ -1,5 +1,12 @@
 # Release Note
 
+## v0.7.5
+
+- Added documentations to model objects. ([#595](https://github.com/myConsciousness/atproto.dart/issues/595))
+- Added utilities to convert `Blob` to `Image` and `EmbedImages`.
+  - `toImage`
+  - `toEmbedImage`
+
 ## v0.7.4
 
 - Upgraded `atproto_core`. Fixed minor things.
