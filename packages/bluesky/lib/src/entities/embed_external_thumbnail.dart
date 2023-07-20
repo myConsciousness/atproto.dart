@@ -46,7 +46,7 @@ class EmbedExternalThumbnail with _$EmbedExternalThumbnail {
 
     /// The thumbnail of the external resource, represented as a `Blob`
     /// instance.
-    @BlobConverter() @JsonKey(name: 'thumb') Blob? blob,
+    @blobConverter @JsonKey(name: 'thumb') Blob? blob,
   }) = _EmbedExternalThumbnail;
 
   /// Creates an instance of [EmbedExternalThumbnail] from a map of
