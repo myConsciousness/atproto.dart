@@ -27,7 +27,7 @@ mixin _$SkeletonReasonRepost {
 
   /// The repost that is the reason for the post's inclusion in the skeleton
   /// feed.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get repost => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,7 +43,7 @@ abstract class $SkeletonReasonRepostCopyWith<$Res> {
       _$SkeletonReasonRepostCopyWithImpl<$Res, SkeletonReasonRepost>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type, @AtUriConverter() AtUri repost});
+      {@JsonKey(name: '\$type') String type, @atUriConverter AtUri repost});
 }
 
 /// @nodoc
@@ -85,7 +85,7 @@ abstract class _$$_SkeletonReasonRepostCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type, @AtUriConverter() AtUri repost});
+      {@JsonKey(name: '\$type') String type, @atUriConverter AtUri repost});
 }
 
 /// @nodoc
@@ -121,7 +121,7 @@ class _$_SkeletonReasonRepost implements _SkeletonReasonRepost {
   const _$_SkeletonReasonRepost(
       {@JsonKey(name: '\$type')
       this.type = 'app.bsky.feed.defs#skeletonReasonRepost',
-      @AtUriConverter() required this.repost});
+      @atUriConverter required this.repost});
 
   factory _$_SkeletonReasonRepost.fromJson(Map<String, dynamic> json) =>
       _$$_SkeletonReasonRepostFromJson(json);
@@ -135,7 +135,7 @@ class _$_SkeletonReasonRepost implements _SkeletonReasonRepost {
   /// The repost that is the reason for the post's inclusion in the skeleton
   /// feed.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri repost;
 
   @override
@@ -174,7 +174,7 @@ class _$_SkeletonReasonRepost implements _SkeletonReasonRepost {
 abstract class _SkeletonReasonRepost implements SkeletonReasonRepost {
   const factory _SkeletonReasonRepost(
       {@JsonKey(name: '\$type') final String type,
-      @AtUriConverter() required final AtUri repost}) = _$_SkeletonReasonRepost;
+      @atUriConverter required final AtUri repost}) = _$_SkeletonReasonRepost;
 
   factory _SkeletonReasonRepost.fromJson(Map<String, dynamic> json) =
       _$_SkeletonReasonRepost.fromJson;
@@ -189,7 +189,7 @@ abstract class _SkeletonReasonRepost implements SkeletonReasonRepost {
 
   /// The repost that is the reason for the post's inclusion in the skeleton
   /// feed.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get repost;
   @override
   @JsonKey(ignore: true)

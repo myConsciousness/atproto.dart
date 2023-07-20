@@ -31,7 +31,7 @@ class EmbedViewRecordViewBlocked with _$EmbedViewRecordViewBlocked {
 
     /// An `AtUri` instance that contains the unique resource identifier (URI)
     /// of the blocked record.
-    @AtUriConverter() required AtUri uri,
+    @atUriConverter required AtUri uri,
   }) = _EmbedViewRecordViewBlocked;
 
   /// Creates an instance of [EmbedViewRecordViewBlocked] from a map of

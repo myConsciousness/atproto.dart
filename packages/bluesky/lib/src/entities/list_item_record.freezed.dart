@@ -25,7 +25,7 @@ mixin _$ListItemRecord {
   String get type => throw _privateConstructorUsedError;
 
   /// The URI of the list to which the item belongs.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get list => throw _privateConstructorUsedError;
 
   /// The decentralized identifier (DID) of the item.
@@ -49,7 +49,7 @@ abstract class $ListItemRecordCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: '\$type') String type,
-      @AtUriConverter() AtUri list,
+      @atUriConverter AtUri list,
       @JsonKey(name: 'subject') String did,
       DateTime createdAt});
 }
@@ -103,7 +103,7 @@ abstract class _$$_ListItemRecordCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: '\$type') String type,
-      @AtUriConverter() AtUri list,
+      @atUriConverter AtUri list,
       @JsonKey(name: 'subject') String did,
       DateTime createdAt});
 }
@@ -151,7 +151,7 @@ class __$$_ListItemRecordCopyWithImpl<$Res>
 class _$_ListItemRecord implements _ListItemRecord {
   const _$_ListItemRecord(
       {@JsonKey(name: '\$type') this.type = appBskyGraphListItem,
-      @AtUriConverter() required this.list,
+      @atUriConverter required this.list,
       @JsonKey(name: 'subject') required this.did,
       required this.createdAt});
 
@@ -165,7 +165,7 @@ class _$_ListItemRecord implements _ListItemRecord {
 
   /// The URI of the list to which the item belongs.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri list;
 
   /// The decentralized identifier (DID) of the item.
@@ -215,7 +215,7 @@ class _$_ListItemRecord implements _ListItemRecord {
 abstract class _ListItemRecord implements ListItemRecord {
   const factory _ListItemRecord(
       {@JsonKey(name: '\$type') final String type,
-      @AtUriConverter() required final AtUri list,
+      @atUriConverter required final AtUri list,
       @JsonKey(name: 'subject') required final String did,
       required final DateTime createdAt}) = _$_ListItemRecord;
 
@@ -230,7 +230,7 @@ abstract class _ListItemRecord implements ListItemRecord {
   @override
 
   /// The URI of the list to which the item belongs.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get list;
   @override
 

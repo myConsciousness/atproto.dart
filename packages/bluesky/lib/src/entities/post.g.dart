@@ -20,7 +20,7 @@ _$_Post _$$_PostFromJson(Map json) => $checkedCreate(
           author: $checkedConvert('author',
               (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
           uri: $checkedConvert(
-              'uri', (v) => const AtUriConverter().fromJson(v as String)),
+              'uri', (v) => atUriConverter.fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
           embed: $checkedConvert(
               'embed',
@@ -50,7 +50,7 @@ Map<String, dynamic> _$$_PostToJson(_$_Post instance) {
     r'$type': instance.type,
     'record': instance.record.toJson(),
     'author': instance.author.toJson(),
-    'uri': const AtUriConverter().toJson(instance.uri),
+    'uri': atUriConverter.toJson(instance.uri),
     'cid': instance.cid,
   };
 

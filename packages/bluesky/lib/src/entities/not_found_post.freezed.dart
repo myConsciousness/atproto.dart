@@ -26,7 +26,7 @@ mixin _$NotFoundPost {
   String get type => throw _privateConstructorUsedError;
 
   /// The unique identifier of the post.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
 
   /// Indicates whether the post was found or not.
@@ -46,7 +46,7 @@ abstract class $NotFoundPostCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: '\$type') String type,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       bool notFound});
 }
 
@@ -94,7 +94,7 @@ abstract class _$$_NotFoundPostCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: '\$type') String type,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       bool notFound});
 }
 
@@ -135,7 +135,7 @@ class __$$_NotFoundPostCopyWithImpl<$Res>
 class _$_NotFoundPost implements _NotFoundPost {
   const _$_NotFoundPost(
       {@JsonKey(name: '\$type') this.type = 'app.bsky.feed.defs#notFoundPost',
-      @AtUriConverter() required this.uri,
+      @atUriConverter required this.uri,
       required this.notFound});
 
   factory _$_NotFoundPost.fromJson(Map<String, dynamic> json) =>
@@ -149,7 +149,7 @@ class _$_NotFoundPost implements _NotFoundPost {
 
   /// The unique identifier of the post.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
 
   /// Indicates whether the post was found or not.
@@ -193,7 +193,7 @@ class _$_NotFoundPost implements _NotFoundPost {
 abstract class _NotFoundPost implements NotFoundPost {
   const factory _NotFoundPost(
       {@JsonKey(name: '\$type') final String type,
-      @AtUriConverter() required final AtUri uri,
+      @atUriConverter required final AtUri uri,
       required final bool notFound}) = _$_NotFoundPost;
 
   factory _NotFoundPost.fromJson(Map<String, dynamic> json) =
@@ -208,7 +208,7 @@ abstract class _NotFoundPost implements NotFoundPost {
   @override
 
   /// The unique identifier of the post.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri;
   @override
 

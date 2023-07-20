@@ -21,7 +21,7 @@ Record _$RecordFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Record {
   /// The uri of the record.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
 
   /// The CID (Content Identifier) associated with the record.
@@ -41,7 +41,7 @@ abstract class $RecordCopyWith<$Res> {
       _$RecordCopyWithImpl<$Res, Record>;
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri uri, String? cid, Map<String, dynamic> value});
+      {@atUriConverter AtUri uri, String? cid, Map<String, dynamic> value});
 }
 
 /// @nodoc
@@ -85,7 +85,7 @@ abstract class _$$_RecordCopyWith<$Res> implements $RecordCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri uri, String? cid, Map<String, dynamic> value});
+      {@atUriConverter AtUri uri, String? cid, Map<String, dynamic> value});
 }
 
 /// @nodoc
@@ -124,7 +124,7 @@ class __$$_RecordCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_Record extends _Record {
   const _$_Record(
-      {@AtUriConverter() required this.uri,
+      {@atUriConverter required this.uri,
       this.cid,
       required final Map<String, dynamic> value})
       : _value = value,
@@ -135,7 +135,7 @@ class _$_Record extends _Record {
 
   /// The uri of the record.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
 
   /// The CID (Content Identifier) associated with the record.
@@ -189,7 +189,7 @@ class _$_Record extends _Record {
 
 abstract class _Record extends Record {
   const factory _Record(
-      {@AtUriConverter() required final AtUri uri,
+      {@atUriConverter required final AtUri uri,
       final String? cid,
       required final Map<String, dynamic> value}) = _$_Record;
   const _Record._() : super._();
@@ -199,7 +199,7 @@ abstract class _Record extends Record {
   @override
 
   /// The uri of the record.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri;
   @override
 

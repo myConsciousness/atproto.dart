@@ -31,7 +31,7 @@ mixin _$Post {
   Actor get author => throw _privateConstructorUsedError;
 
   /// The URI of the post.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
 
   /// The unique identifier of the post.
@@ -73,7 +73,7 @@ abstract class $PostCopyWith<$Res> {
       {@JsonKey(name: '\$type') String type,
       PostRecord record,
       Actor author,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       String cid,
       @EmbedViewConverter() EmbedView? embed,
       int replyCount,
@@ -214,7 +214,7 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       {@JsonKey(name: '\$type') String type,
       PostRecord record,
       Actor author,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       String cid,
       @EmbedViewConverter() EmbedView? embed,
       int replyCount,
@@ -317,7 +317,7 @@ class _$_Post extends _Post {
       {@JsonKey(name: '\$type') this.type = 'app.bsky.feed.defs#postView',
       required this.record,
       required this.author,
-      @AtUriConverter() required this.uri,
+      @atUriConverter required this.uri,
       required this.cid,
       @EmbedViewConverter() this.embed,
       required this.replyCount,
@@ -346,7 +346,7 @@ class _$_Post extends _Post {
 
   /// The URI of the post.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
 
   /// The unique identifier of the post.
@@ -455,7 +455,7 @@ abstract class _Post extends Post {
       {@JsonKey(name: '\$type') final String type,
       required final PostRecord record,
       required final Actor author,
-      @AtUriConverter() required final AtUri uri,
+      @atUriConverter required final AtUri uri,
       required final String cid,
       @EmbedViewConverter() final EmbedView? embed,
       required final int replyCount,
@@ -484,7 +484,7 @@ abstract class _Post extends Post {
   @override
 
   /// The URI of the post.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri;
   @override
 

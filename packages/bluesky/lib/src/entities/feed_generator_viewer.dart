@@ -29,7 +29,7 @@ class FeedGeneratorViewer with _$FeedGeneratorViewer {
   const factory FeedGeneratorViewer({
     /// Represents the URI of the 'like' action performed by the viewer.
     /// Optional.
-    @AtUriConverter() AtUri? like,
+    @atUriConverter AtUri? like,
   }) = _FeedGeneratorViewer;
 
   /// Creates an instance of [FeedGeneratorViewer] from a map [json].

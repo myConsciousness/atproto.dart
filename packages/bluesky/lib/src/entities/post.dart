@@ -49,7 +49,7 @@ class Post with _$Post {
     required Actor author,
 
     /// The URI of the post.
-    @AtUriConverter() required AtUri uri,
+    @atUriConverter required AtUri uri,
 
     /// The unique identifier of the post.
     required String cid,

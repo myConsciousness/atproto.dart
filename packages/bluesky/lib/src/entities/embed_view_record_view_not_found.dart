@@ -31,7 +31,7 @@ class EmbedViewRecordViewNotFound with _$EmbedViewRecordViewNotFound {
 
     /// An `AtUri` instance that contains the unique resource identifier (URI)
     /// of the record.
-    @AtUriConverter() required AtUri uri,
+    @atUriConverter required AtUri uri,
   }) = _EmbedViewRecordViewNotFound;
 
   /// Creates an instance of [EmbedViewRecordViewNotFound] from a map of

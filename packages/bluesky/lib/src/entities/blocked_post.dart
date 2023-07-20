@@ -32,7 +32,7 @@ class BlockedPost with _$BlockedPost {
     String type,
 
     /// The URI of the post that has been blocked.
-    @AtUriConverter() required AtUri uri,
+    @atUriConverter required AtUri uri,
 
     /// Whether the post has been blocked.
     required bool blocked,

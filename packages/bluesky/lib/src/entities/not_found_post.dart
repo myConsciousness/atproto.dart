@@ -32,7 +32,7 @@ class NotFoundPost with _$NotFoundPost {
     String type,
 
     /// The unique identifier of the post.
-    @AtUriConverter() required AtUri uri,
+    @atUriConverter required AtUri uri,
 
     /// Indicates whether the post was found or not.
     required bool notFound,

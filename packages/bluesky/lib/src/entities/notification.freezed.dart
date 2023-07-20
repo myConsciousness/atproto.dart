@@ -24,7 +24,7 @@ mixin _$Notification {
   String get cid => throw _privateConstructorUsedError;
 
   /// The unique URI for the notification.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
 
   /// The actor causing the notification.
@@ -34,7 +34,7 @@ mixin _$Notification {
   NotificationReason get reason => throw _privateConstructorUsedError;
 
   /// Optionally, represents the subject of the reason for the notification.
-  @AtUriConverter()
+  @atUriConverter
   AtUri? get reasonSubject => throw _privateConstructorUsedError;
 
   /// Indicates whether the notification has been read or not.
@@ -63,10 +63,10 @@ abstract class $NotificationCopyWith<$Res> {
   @useResult
   $Res call(
       {String cid,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       Actor author,
       NotificationReason reason,
-      @AtUriConverter() AtUri? reasonSubject,
+      @atUriConverter AtUri? reasonSubject,
       bool isRead,
       Map<String, dynamic>? record,
       List<Label>? labels,
@@ -157,10 +157,10 @@ abstract class _$$_NotificationCopyWith<$Res>
   @useResult
   $Res call(
       {String cid,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       Actor author,
       NotificationReason reason,
-      @AtUriConverter() AtUri? reasonSubject,
+      @atUriConverter AtUri? reasonSubject,
       bool isRead,
       Map<String, dynamic>? record,
       List<Label>? labels,
@@ -238,10 +238,10 @@ class __$$_NotificationCopyWithImpl<$Res>
 class _$_Notification implements _Notification {
   const _$_Notification(
       {required this.cid,
-      @AtUriConverter() required this.uri,
+      @atUriConverter required this.uri,
       required this.author,
       required this.reason,
-      @AtUriConverter() this.reasonSubject,
+      @atUriConverter this.reasonSubject,
       required this.isRead,
       final Map<String, dynamic>? record,
       final List<Label>? labels,
@@ -258,7 +258,7 @@ class _$_Notification implements _Notification {
 
   /// The unique URI for the notification.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
 
   /// The actor causing the notification.
@@ -271,7 +271,7 @@ class _$_Notification implements _Notification {
 
   /// Optionally, represents the subject of the reason for the notification.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri? reasonSubject;
 
   /// Indicates whether the notification has been read or not.
@@ -362,10 +362,10 @@ class _$_Notification implements _Notification {
 abstract class _Notification implements Notification {
   const factory _Notification(
       {required final String cid,
-      @AtUriConverter() required final AtUri uri,
+      @atUriConverter required final AtUri uri,
       required final Actor author,
       required final NotificationReason reason,
-      @AtUriConverter() final AtUri? reasonSubject,
+      @atUriConverter final AtUri? reasonSubject,
       required final bool isRead,
       final Map<String, dynamic>? record,
       final List<Label>? labels,
@@ -381,7 +381,7 @@ abstract class _Notification implements Notification {
   @override
 
   /// The unique URI for the notification.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri;
   @override
 
@@ -394,7 +394,7 @@ abstract class _Notification implements Notification {
   @override
 
   /// Optionally, represents the subject of the reason for the notification.
-  @AtUriConverter()
+  @atUriConverter
   AtUri? get reasonSubject;
   @override
 

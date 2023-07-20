@@ -14,7 +14,7 @@ _$_SkeletonFeedView _$$_SkeletonFeedViewFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$_SkeletonFeedView(
           post: $checkedConvert(
-              'post', (v) => const AtUriConverter().fromJson(v as String)),
+              'post', (v) => atUriConverter.fromJson(v as String)),
           reason: $checkedConvert(
               'reason',
               (v) =>
@@ -27,7 +27,7 @@ _$_SkeletonFeedView _$$_SkeletonFeedViewFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$_SkeletonFeedViewToJson(_$_SkeletonFeedView instance) {
   final val = <String, dynamic>{
-    'post': const AtUriConverter().toJson(instance.post),
+    'post': atUriConverter.toJson(instance.post),
   };
 
   void writeNotNull(String key, dynamic value) {

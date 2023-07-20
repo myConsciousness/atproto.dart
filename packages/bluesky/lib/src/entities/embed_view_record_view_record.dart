@@ -43,7 +43,7 @@ class EmbedViewRecordViewRecord with _$EmbedViewRecordViewRecord {
     @JsonKey(name: '\$type') required String type,
 
     /// The URI of the embedded view record view.
-    @AtUriConverter() required AtUri uri,
+    @atUriConverter required AtUri uri,
 
     /// The content ID (CID) of the embedded view record view.
     required String cid,

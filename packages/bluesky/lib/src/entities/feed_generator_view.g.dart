@@ -16,7 +16,7 @@ _$_FeedGeneratorView _$$_FeedGeneratorViewFromJson(Map json) => $checkedCreate(
           type: $checkedConvert(r'$type',
               (v) => v as String? ?? 'app.bsky.feed.defs#generatorView'),
           uri: $checkedConvert(
-              'uri', (v) => const AtUriConverter().fromJson(v as String)),
+              'uri', (v) => atUriConverter.fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
           did: $checkedConvert('did', (v) => v as String?),
           createdBy: $checkedConvert('creator',
@@ -47,7 +47,7 @@ Map<String, dynamic> _$$_FeedGeneratorViewToJson(
     _$_FeedGeneratorView instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
-    'uri': const AtUriConverter().toJson(instance.uri),
+    'uri': atUriConverter.toJson(instance.uri),
     'cid': instance.cid,
   };
 

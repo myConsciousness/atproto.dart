@@ -33,7 +33,7 @@ class DeleteAction with _$DeleteAction {
     String type,
 
     /// The URI of the resource to be deleted.
-    @AtUriConverter() required AtUri uri,
+    @atUriConverter required AtUri uri,
   }) = _DeleteAction;
 
   /// A factory method that creates a [DeleteAction] instance from a JSON map.

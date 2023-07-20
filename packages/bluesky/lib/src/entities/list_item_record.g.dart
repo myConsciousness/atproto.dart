@@ -16,7 +16,7 @@ _$_ListItemRecord _$$_ListItemRecordFromJson(Map json) => $checkedCreate(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyGraphListItem),
           list: $checkedConvert(
-              'list', (v) => const AtUriConverter().fromJson(v as String)),
+              'list', (v) => atUriConverter.fromJson(v as String)),
           did: $checkedConvert('subject', (v) => v as String),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
@@ -29,7 +29,7 @@ _$_ListItemRecord _$$_ListItemRecordFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$_ListItemRecordToJson(_$_ListItemRecord instance) =>
     <String, dynamic>{
       r'$type': instance.type,
-      'list': const AtUriConverter().toJson(instance.list),
+      'list': atUriConverter.toJson(instance.list),
       'subject': instance.did,
       'createdAt': instance.createdAt.toIso8601String(),
     };

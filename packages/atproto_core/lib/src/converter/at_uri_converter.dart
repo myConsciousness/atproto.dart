@@ -5,9 +5,11 @@
 import 'package:at_uri/at_uri.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-class AtUriConverter implements JsonConverter<AtUri, String> {
-  /// Returns the new instance of [AtUriConverter].
-  const AtUriConverter();
+const atUriConverter = _AtUriConverter();
+
+class _AtUriConverter implements JsonConverter<AtUri, String> {
+  /// Returns the new instance of [_AtUriConverter].
+  const _AtUriConverter();
 
   @override
   AtUri fromJson(String json) => AtUri.parse(json);

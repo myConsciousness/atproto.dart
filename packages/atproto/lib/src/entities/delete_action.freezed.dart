@@ -25,7 +25,7 @@ mixin _$DeleteAction {
   String get type => throw _privateConstructorUsedError;
 
   /// The URI of the resource to be deleted.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,8 +40,7 @@ abstract class $DeleteActionCopyWith<$Res> {
           DeleteAction value, $Res Function(DeleteAction) then) =
       _$DeleteActionCopyWithImpl<$Res, DeleteAction>;
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String type, @AtUriConverter() AtUri uri});
+  $Res call({@JsonKey(name: '\$type') String type, @atUriConverter AtUri uri});
 }
 
 /// @nodoc
@@ -81,8 +80,7 @@ abstract class _$$_DeleteActionCopyWith<$Res>
       __$$_DeleteActionCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String type, @AtUriConverter() AtUri uri});
+  $Res call({@JsonKey(name: '\$type') String type, @atUriConverter AtUri uri});
 }
 
 /// @nodoc
@@ -119,7 +117,7 @@ class _$_DeleteAction implements _DeleteAction {
   const _$_DeleteAction(
       {@JsonKey(name: '\$type')
       this.type = 'com.atproto.repo.applyWrites#delete',
-      @AtUriConverter() required this.uri});
+      @atUriConverter required this.uri});
 
   factory _$_DeleteAction.fromJson(Map<String, dynamic> json) =>
       _$$_DeleteActionFromJson(json);
@@ -131,7 +129,7 @@ class _$_DeleteAction implements _DeleteAction {
 
   /// The URI of the resource to be deleted.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
 
   @override
@@ -169,7 +167,7 @@ class _$_DeleteAction implements _DeleteAction {
 abstract class _DeleteAction implements DeleteAction {
   const factory _DeleteAction(
       {@JsonKey(name: '\$type') final String type,
-      @AtUriConverter() required final AtUri uri}) = _$_DeleteAction;
+      @atUriConverter required final AtUri uri}) = _$_DeleteAction;
 
   factory _DeleteAction.fromJson(Map<String, dynamic> json) =
       _$_DeleteAction.fromJson;
@@ -182,7 +180,7 @@ abstract class _DeleteAction implements DeleteAction {
   @override
 
   /// The URI of the resource to be deleted.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri;
   @override
   @JsonKey(ignore: true)

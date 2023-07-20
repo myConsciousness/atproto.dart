@@ -25,10 +25,10 @@ class SavedFeedsPreference with _$SavedFeedsPreference {
     String type,
 
     /// A list of pinned URIs represented as [AtUri] objects.
-    @JsonKey(name: 'pinned') @AtUriConverter() required List<AtUri> pinnedUris,
+    @JsonKey(name: 'pinned') @atUriConverter required List<AtUri> pinnedUris,
 
     /// A list of saved URIs represented as [AtUri] objects.
-    @AtUriConverter() @JsonKey(name: 'saved') required List<AtUri> savedUris,
+    @atUriConverter @JsonKey(name: 'saved') required List<AtUri> savedUris,
   }) = _SavedFeedsPreference;
 
   /// Creates a [SavedFeedsPreference] object from a map ([json]).

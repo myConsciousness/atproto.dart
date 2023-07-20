@@ -39,7 +39,7 @@ class ListViewBasic with _$ListViewBasic {
     @Default('app.bsky.graph.defs#modlist') String purpose,
 
     /// The URI of the list.
-    @AtUriConverter() required AtUri uri,
+    @atUriConverter required AtUri uri,
 
     /// The CID of the list.
     required String cid,

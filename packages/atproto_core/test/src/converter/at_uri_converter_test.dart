@@ -11,7 +11,7 @@ const _value =
 
 void main() {
   test('.fromJson', () {
-    final converter = AtUriConverter();
+    final converter = atUriConverter;
     final uri = converter.fromJson(_value);
 
     expect(uri, isA<AtUri>());
@@ -19,7 +19,7 @@ void main() {
   });
 
   test('.toJson', () {
-    final converter = AtUriConverter();
+    final converter = atUriConverter;
     final uri = converter.toJson(AtUri.parse(_value));
 
     expect(uri, isA<String>());

@@ -40,7 +40,7 @@ class Notification with _$Notification {
     required String cid,
 
     /// The unique URI for the notification.
-    @AtUriConverter() required AtUri uri,
+    @atUriConverter required AtUri uri,
 
     /// The actor causing the notification.
     required Actor author,
@@ -49,7 +49,7 @@ class Notification with _$Notification {
     required NotificationReason reason,
 
     /// Optionally, represents the subject of the reason for the notification.
-    @AtUriConverter() AtUri? reasonSubject,
+    @atUriConverter AtUri? reasonSubject,
 
     /// Indicates whether the notification has been read or not.
     required bool isRead,

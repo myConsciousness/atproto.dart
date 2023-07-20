@@ -29,7 +29,7 @@ class ListItemRecord with _$ListItemRecord {
     @Default(appBskyGraphListItem) @JsonKey(name: '\$type') String type,
 
     /// The URI of the list to which the item belongs.
-    @AtUriConverter() required AtUri list,
+    @atUriConverter required AtUri list,
 
     /// The decentralized identifier (DID) of the item.
     @JsonKey(name: 'subject') required String did,

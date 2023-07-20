@@ -28,7 +28,7 @@ class Likes with _$Likes {
     required List<Like> likes,
 
     /// The URI of the likes collection.
-    @AtUriConverter() required AtUri uri,
+    @atUriConverter required AtUri uri,
 
     /// The cursor used for pagination.
     String? cursor,

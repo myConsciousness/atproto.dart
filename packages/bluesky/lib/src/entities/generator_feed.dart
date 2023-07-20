@@ -23,7 +23,7 @@ class GeneratorFeed with _$GeneratorFeed {
   @JsonSerializable(includeIfNull: false)
   const factory GeneratorFeed({
     /// The URI of the feed.
-    @AtUriConverter() required AtUri uri,
+    @atUriConverter required AtUri uri,
   }) = _GeneratorFeed;
 
   /// Creates an instance of [GeneratorFeed] from a map [json].

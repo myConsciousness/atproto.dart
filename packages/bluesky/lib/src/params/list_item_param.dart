@@ -16,7 +16,7 @@ class ListItemParam with _$ListItemParam {
   @JsonSerializable(includeIfNull: false)
   const factory ListItemParam({
     required String subject,
-    @AtUriConverter() required AtUri list,
+    @atUriConverter required AtUri list,
     DateTime? createdAt,
   }) = _ListItemParam;
 

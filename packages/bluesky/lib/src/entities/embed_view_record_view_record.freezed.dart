@@ -26,7 +26,7 @@ mixin _$EmbedViewRecordViewRecord {
   String get type => throw _privateConstructorUsedError;
 
   /// The URI of the embedded view record view.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
 
   /// The content ID (CID) of the embedded view record view.
@@ -59,7 +59,7 @@ abstract class $EmbedViewRecordViewRecordCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: '\$type') String type,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       String cid,
       Actor author,
       PostRecord value,
@@ -152,7 +152,7 @@ abstract class _$$_EmbedViewRecordViewRecordCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: '\$type') String type,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       String cid,
       Actor author,
       PostRecord value,
@@ -224,7 +224,7 @@ class __$$_EmbedViewRecordViewRecordCopyWithImpl<$Res>
 class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
   const _$_EmbedViewRecordViewRecord(
       {@JsonKey(name: '\$type') required this.type,
-      @AtUriConverter() required this.uri,
+      @atUriConverter required this.uri,
       required this.cid,
       required this.author,
       required this.value,
@@ -242,7 +242,7 @@ class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
 
   /// The URI of the embedded view record view.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
 
   /// The content ID (CID) of the embedded view record view.
@@ -318,7 +318,7 @@ class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
 abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
   const factory _EmbedViewRecordViewRecord(
       {@JsonKey(name: '\$type') required final String type,
-      @AtUriConverter() required final AtUri uri,
+      @atUriConverter required final AtUri uri,
       required final String cid,
       required final Actor author,
       required final PostRecord value,
@@ -336,7 +336,7 @@ abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
   @override
 
   /// The URI of the embedded view record view.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri;
   @override
 

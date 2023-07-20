@@ -24,7 +24,7 @@ mixin _$RepostedBy {
   List<Actor> get repostedBy => throw _privateConstructorUsedError;
 
   /// The URI for accessing the list of reposting actors.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
 
   /// A cursor string that can be used to fetch more reposting actors.
@@ -43,7 +43,7 @@ abstract class $RepostedByCopyWith<$Res> {
       _$RepostedByCopyWithImpl<$Res, RepostedBy>;
   @useResult
   $Res call(
-      {List<Actor> repostedBy, @AtUriConverter() AtUri uri, String? cursor});
+      {List<Actor> repostedBy, @atUriConverter AtUri uri, String? cursor});
 }
 
 /// @nodoc
@@ -89,7 +89,7 @@ abstract class _$$_RepostedByCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<Actor> repostedBy, @AtUriConverter() AtUri uri, String? cursor});
+      {List<Actor> repostedBy, @atUriConverter AtUri uri, String? cursor});
 }
 
 /// @nodoc
@@ -129,7 +129,7 @@ class __$$_RepostedByCopyWithImpl<$Res>
 class _$_RepostedBy implements _RepostedBy {
   const _$_RepostedBy(
       {required final List<Actor> repostedBy,
-      @AtUriConverter() required this.uri,
+      @atUriConverter required this.uri,
       this.cursor})
       : _repostedBy = repostedBy;
 
@@ -149,7 +149,7 @@ class _$_RepostedBy implements _RepostedBy {
 
   /// The URI for accessing the list of reposting actors.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
 
   /// A cursor string that can be used to fetch more reposting actors.
@@ -194,7 +194,7 @@ class _$_RepostedBy implements _RepostedBy {
 abstract class _RepostedBy implements RepostedBy {
   const factory _RepostedBy(
       {required final List<Actor> repostedBy,
-      @AtUriConverter() required final AtUri uri,
+      @atUriConverter required final AtUri uri,
       final String? cursor}) = _$_RepostedBy;
 
   factory _RepostedBy.fromJson(Map<String, dynamic> json) =
@@ -207,7 +207,7 @@ abstract class _RepostedBy implements RepostedBy {
   @override
 
   /// The URI for accessing the list of reposting actors.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri;
   @override
 

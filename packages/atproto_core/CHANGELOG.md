@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.4
+
+- Export `atUriConverter` as const. ([#605](https://github.com/myConsciousness/atproto.dart/issues/605))
+
 ## v0.4.3
 
 - Fixed parameter type of `upload` and `subscribe` in `BaseService` from `NSID` to `String`.

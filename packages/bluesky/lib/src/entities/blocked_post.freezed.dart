@@ -26,7 +26,7 @@ mixin _$BlockedPost {
   String get type => throw _privateConstructorUsedError;
 
   /// The URI of the post that has been blocked.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
 
   /// Whether the post has been blocked.
@@ -46,7 +46,7 @@ abstract class $BlockedPostCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: '\$type') String type,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       bool blocked});
 }
 
@@ -94,7 +94,7 @@ abstract class _$$_BlockedPostCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: '\$type') String type,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       bool blocked});
 }
 
@@ -135,7 +135,7 @@ class __$$_BlockedPostCopyWithImpl<$Res>
 class _$_BlockedPost implements _BlockedPost {
   const _$_BlockedPost(
       {@JsonKey(name: '\$type') this.type = 'app.bsky.feed.defs#blockedPost',
-      @AtUriConverter() required this.uri,
+      @atUriConverter required this.uri,
       required this.blocked});
 
   factory _$_BlockedPost.fromJson(Map<String, dynamic> json) =>
@@ -149,7 +149,7 @@ class _$_BlockedPost implements _BlockedPost {
 
   /// The URI of the post that has been blocked.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
 
   /// Whether the post has been blocked.
@@ -192,7 +192,7 @@ class _$_BlockedPost implements _BlockedPost {
 abstract class _BlockedPost implements BlockedPost {
   const factory _BlockedPost(
       {@JsonKey(name: '\$type') final String type,
-      @AtUriConverter() required final AtUri uri,
+      @atUriConverter required final AtUri uri,
       required final bool blocked}) = _$_BlockedPost;
 
   factory _BlockedPost.fromJson(Map<String, dynamic> json) =
@@ -207,7 +207,7 @@ abstract class _BlockedPost implements BlockedPost {
   @override
 
   /// The URI of the post that has been blocked.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri;
   @override
 

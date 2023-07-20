@@ -24,7 +24,7 @@ class RepostedBy with _$RepostedBy {
     required List<Actor> repostedBy,
 
     /// The URI for accessing the list of reposting actors.
-    @AtUriConverter() required AtUri uri,
+    @atUriConverter required AtUri uri,
 
     /// A cursor string that can be used to fetch more reposting actors.
     String? cursor,

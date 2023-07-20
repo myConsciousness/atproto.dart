@@ -16,7 +16,7 @@ _$_EmbedViewRecordViewRecord _$$_EmbedViewRecordViewRecordFromJson(Map json) =>
         final val = _$_EmbedViewRecordViewRecord(
           type: $checkedConvert(r'$type', (v) => v as String),
           uri: $checkedConvert(
-              'uri', (v) => const AtUriConverter().fromJson(v as String)),
+              'uri', (v) => atUriConverter.fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
           author: $checkedConvert('author',
               (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
@@ -40,7 +40,7 @@ Map<String, dynamic> _$$_EmbedViewRecordViewRecordToJson(
         _$_EmbedViewRecordViewRecord instance) =>
     <String, dynamic>{
       r'$type': instance.type,
-      'uri': const AtUriConverter().toJson(instance.uri),
+      'uri': atUriConverter.toJson(instance.uri),
       'cid': instance.cid,
       'author': instance.author.toJson(),
       'value': instance.value.toJson(),
