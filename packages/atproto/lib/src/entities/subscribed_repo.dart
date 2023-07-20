@@ -61,5 +61,5 @@ class SubscribedRepo with _$SubscribedRepo {
   /// The [json] parameter must be a map with keys and values that can be used
   /// to populate an instance of [SubscribedRepo].
   factory SubscribedRepo.fromJson(Map<String, Object?> json) =>
-      const SubscribedRepoConverter().fromJson(json);
+      subscribedRepoConverter.fromJson(json);
 }
