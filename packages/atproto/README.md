@@ -37,11 +37,11 @@
     - [1.2.2. Import](#122-import)
     - [1.2.3. Implementation](#123-implementation)
   - [1.3. Supported Lexicons 👀](#13-supported-lexicons-)
-    - [1.3.1. Servers](#131-servers)
-    - [1.3.2. Identity](#132-identity)
-    - [1.3.3. Repository](#133-repository)
-    - [1.3.4. Moderation](#134-moderation)
-    - [1.3.5. Sync](#135-sync)
+    - [1.3.1. Servers Service](#131-servers-service)
+    - [1.3.2. Identity Service](#132-identity-service)
+    - [1.3.3. Repository Service](#133-repository-service)
+    - [1.3.4. Moderation Service](#134-moderation-service)
+    - [1.3.5. Sync Service](#135-sync-service)
   - [1.4. Tips 🏄](#14-tips-)
     - [1.4.1. Method Names](#141-method-names)
     - [1.4.2. Null Parameter at Request](#142-null-parameter-at-request)
@@ -66,15 +66,17 @@ This library provides the easiest way to use [AT Protocol](https://atproto.com/d
 This package provides the most basic features of [AT Protocol](https://atproto.com/docs). If you want to use [Bluesky](https://blueskyweb.xyz)'s API, please use [bluesky](https://pub.dev/packages/bluesky)!
 The core HTTP request portion of this package is provided in the [atproto_core](https://pub.dev/packages/atproto_core) and [xrpc](https://pub.dev/packages/xrpc) packages.
 
-Also if you need more sample codes, please check [examples](https://github.com/myConsciousness/atproto.dart/tree/main/examples/README.md).
+Check [official page](https://atprotodart.com/docs/packages/atproto) too!
 
 ## 1.1. Features 💎
 
-✅ The **wrapper library** for **[AT Protocol](https://atproto.com/docs)**. </br>
-✅ **Easily integrates** with the **Dart** & **Flutter** apps. </br>
-✅ Provides response objects with a **guaranteed safe types.** </br>
-✅ **Well documented** and **well tested**.</br>
-✅ Supports the powerful **automatic retry**.</br>
+- ✅ **Zero Dependency**
+- ✅ Supports **Powerful Built-In Retry** using **[Exponential BackOff And Jitter](https://aws.amazon.com/jp/blogs/architecture/exponential-backoff-and-jitter/)**
+- ✅ Supports **All Major Endpoints** for [`com.atproto.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto)
+- ✅ **Well Documented** and **Well Tested**
+- ✅ Supports **Powerful Firehose API**
+- ✅ **100% Null Safety**
+- ✅ **Applicable to services other than Bluesky**
 
 ## 1.2. Getting Started ⚡
 
@@ -174,68 +176,67 @@ Future<void> main() async {
 
 ## 1.3. Supported Lexicons 👀
 
-### 1.3.1. Servers
+### 1.3.1. [Servers Service](https://pub.dev/documentation/atproto/latest/atproto/ServersService-class.html)
 
-| **Lexicon**                                                                                                                                                | **Method Name**                                                                                                       |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| [POST com.atproto.server.createSession](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createSession.json)                | [createSession](https://pub.dev/documentation/atproto/latest/atproto/createSession.html)                              |
-| [POST com.atproto.server.refreshSession](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/refreshSession.json)              | [refreshSession](https://pub.dev/documentation/atproto/latest/atproto/ServersService/refreshSession.html)             |
-| [GET com.atproto.server.getSession](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/getSession.json)                       | [findCurrentSession](https://pub.dev/documentation/atproto/latest/atproto/ServersService/findCurrentSession.html)     |
-| [POST com.atproto.server.createAccount](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createAccount.json)                | [createAccount](https://pub.dev/documentation/atproto/latest/atproto/ServersService/createAccount.html)               |
-| [POST com.atproto.server.requestDeleteAccount](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/requestDeleteAccount.json)  | [requestDeleteAccount](https://pub.dev/documentation/atproto/latest/atproto/ServersService/requestDeleteAccount.html) |
-| [POST com.atproto.server.deleteAccount](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/deleteAccount.json)                | [deleteAccount](https://pub.dev/documentation/atproto/latest/atproto/ServersService/deleteAccount.html)               |
-| [POST com.atproto.server.createInviteCode](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createInviteCode.json)          | [createInviteCode](https://pub.dev/documentation/atproto/latest/atproto/ServersService/createInviteCode.html)         |
-| [POST com.atproto.server.createInviteCodes](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createInviteCodes.json)        | [createInviteCodes](https://pub.dev/documentation/atproto/latest/atproto/ServersService/createInviteCodes.html)       |
-| [GET com.atproto.server.getAccountInviteCodes](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/getAccountInviteCodes.json) | [findInviteCodes](https://pub.dev/documentation/atproto/latest/atproto/ServersService/findInviteCodes.html)           |
-| [POST com.atproto.server.requestPasswordReset](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/requestPasswordReset.json)  | [requestPasswordReset](https://pub.dev/documentation/atproto/latest/atproto/ServersService/requestPasswordReset.html) |
-| [POST com.atproto.server.resetPassword](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/resetPassword.json)                | [updatePassword](https://pub.dev/documentation/atproto/latest/atproto/ServersService/updatePassword.html)             |
-| [POST com.atproto.server.createAppPassword](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createAppPassword.json)        | [createAppPassword](https://pub.dev/documentation/atproto/latest/atproto/ServersService/createAppPassword.html)       |
-| [POST com.atproto.server.revokeAppPassword](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/revokeAppPassword.json)        | [deleteAppPassword](https://pub.dev/documentation/atproto/latest/atproto/ServersService/deleteAppPassword.html)       |
-| [GET com.atproto.server.listAppPasswords](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/listAppPasswords.json)           | [findAppPasswords](https://pub.dev/documentation/atproto/latest/atproto/ServersService/findAppPasswords.html)         |
-| [GET com.atproto.server.describeServer](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/describeServer.json)               | [findServerInfo](https://pub.dev/documentation/atproto/latest/atproto/ServersService/findServerInfo.html)             |
+| **Lexicon**                                                                                                                                                | **Method Name**                                                                                                       | Auth Required |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | :-----------: |
+| [POST com.atproto.server.createSession](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createSession.json)                | [createSession](https://pub.dev/documentation/atproto/latest/atproto/createSession.html)                              |       ✅       |
+| [POST com.atproto.server.refreshSession](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/refreshSession.json)              | [refreshSession](https://pub.dev/documentation/atproto/latest/atproto/ServersService/refreshSession.html)             |       ❌       |
+| [GET com.atproto.server.getSession](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/getSession.json)                       | [findCurrentSession](https://pub.dev/documentation/atproto/latest/atproto/ServersService/findCurrentSession.html)     |       ✅       |
+| [POST com.atproto.server.createAccount](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createAccount.json)                | [createAccount](https://pub.dev/documentation/atproto/latest/atproto/ServersService/createAccount.html)               |       ❌       |
+| [POST com.atproto.server.requestDeleteAccount](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/requestDeleteAccount.json)  | [requestDeleteAccount](https://pub.dev/documentation/atproto/latest/atproto/ServersService/requestDeleteAccount.html) |       ✅       |
+| [POST com.atproto.server.deleteAccount](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/deleteAccount.json)                | [deleteAccount](https://pub.dev/documentation/atproto/latest/atproto/ServersService/deleteAccount.html)               |       ✅       |
+| [POST com.atproto.server.createInviteCode](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createInviteCode.json)          | [createInviteCode](https://pub.dev/documentation/atproto/latest/atproto/ServersService/createInviteCode.html)         |       ✅       |
+| [POST com.atproto.server.createInviteCodes](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createInviteCodes.json)        | [createInviteCodes](https://pub.dev/documentation/atproto/latest/atproto/ServersService/createInviteCodes.html)       |       ✅       |
+| [GET com.atproto.server.getAccountInviteCodes](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/getAccountInviteCodes.json) | [findInviteCodes](https://pub.dev/documentation/atproto/latest/atproto/ServersService/findInviteCodes.html)           |       ✅       |
+| [POST com.atproto.server.requestPasswordReset](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/requestPasswordReset.json)  | [requestPasswordReset](https://pub.dev/documentation/atproto/latest/atproto/ServersService/requestPasswordReset.html) |       ✅       |
+| [POST com.atproto.server.resetPassword](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/resetPassword.json)                | [updatePassword](https://pub.dev/documentation/atproto/latest/atproto/ServersService/updatePassword.html)             |       ✅       |
+| [POST com.atproto.server.createAppPassword](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createAppPassword.json)        | [createAppPassword](https://pub.dev/documentation/atproto/latest/atproto/ServersService/createAppPassword.html)       |       ✅       |
+| [POST com.atproto.server.revokeAppPassword](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/revokeAppPassword.json)        | [deleteAppPassword](https://pub.dev/documentation/atproto/latest/atproto/ServersService/deleteAppPassword.html)       |       ✅       |
+| [GET com.atproto.server.listAppPasswords](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/listAppPasswords.json)           | [findAppPasswords](https://pub.dev/documentation/atproto/latest/atproto/ServersService/findAppPasswords.html)         |       ✅       |
+| [GET com.atproto.server.describeServer](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/describeServer.json)               | [findServerInfo](https://pub.dev/documentation/atproto/latest/atproto/ServersService/findServerInfo.html)             |       ❌       |
 
-### 1.3.2. Identity
+### 1.3.2. [Identity Service](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService-class.html)
 
-| **Lexicon**                                                                                                                                    | **Method Name**                                                                                          |
-| ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| [GET com.atproto.identity.resolveHandle](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/identity/resolveHandle.json) | [findDID](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService/findDID.html)           |
-| [POST com.atproto.identity.updateHandle](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/identity/updateHandle.json)  | [updateHandle](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService/updateHandle.html) |
+| **Lexicon**                                                                                                                                    | **Method Name**                                                                                          | Auth Required |
+| ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | :-----------: |
+| [GET com.atproto.identity.resolveHandle](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/identity/resolveHandle.json) | [findDID](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService/findDID.html)           |       ❌       |
+| [POST com.atproto.identity.updateHandle](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/identity/updateHandle.json)  | [updateHandle](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService/updateHandle.html) |       ✅       |
 
-### 1.3.3. Repository
+### 1.3.3. [Repository Service](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService-class.html)
 
-| **Lexicon**                                                                                                                           | **Method Name**                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| [POST com.atproto.repo.createRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/createRecord.json) | [createRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/createRecord.html)   |
-| [GET com.atproto.repo.getRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/getRecord.json)        | [findRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/findRecord.html)       |
-| [GET com.atproto.repo.listRecords](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/listRecords.json)    | [findRecords](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/findRecords.html)     |
-| [POST com.atproto.repo.deleteRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/deleteRecord.json) | [deleteRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/deleteRecord.html)   |
-| [POST com.atproto.repo.putRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/putRecord.json)       | [updateRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/updateRecord.html)   |
-| [POST com.atproto.repo.uploadBlob](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/uploadBlob.json)     | [uploadBlob](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/uploadBlob.html)       |
-| [GET com.atproto.repo.describeRepo](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/describeRepo.json)  | [findRepoInfo](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/findRepoInfo.html)   |
-| [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)   | [updateBulk](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/updateBulk.html)       |
-| [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)   | [createRecords](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/createRecords.html) |
-| [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)   | [updateRecords](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/updateRecords.html) |
-| [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)   | [deleteRecords](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/deleteRecords.html) |
-| [POST com.atproto.repo.rebaseRepo](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/rebaseRepo.json)     | [rebaseRepo](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/rebaseRepo.html)       |
+| **Lexicon**                                                                                                                           | **Method Name**                                                                                              | Auth Required |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | :-----------: |
+| [POST com.atproto.repo.createRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/createRecord.json) | [createRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/createRecord.html)   |       ✅       |
+| [GET com.atproto.repo.getRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/getRecord.json)        | [findRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/findRecord.html)       |       ✅       |
+| [GET com.atproto.repo.listRecords](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/listRecords.json)    | [findRecords](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/findRecords.html)     |       ✅       |
+| [POST com.atproto.repo.deleteRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/deleteRecord.json) | [deleteRecord](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/deleteRecord.html)   |       ✅       |
+| [POST com.atproto.repo.uploadBlob](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/uploadBlob.json)     | [uploadBlob](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/uploadBlob.html)       |       ✅       |
+| [GET com.atproto.repo.describeRepo](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/describeRepo.json)  | [findRepoInfo](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/findRepoInfo.html)   |       ❌       |
+| [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)   | [updateBulk](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/updateBulk.html)       |       ✅       |
+| [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)   | [createRecords](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/createRecords.html) |       ✅       |
+| [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)   | [updateRecords](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/updateRecords.html) |       ✅       |
+| [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)   | [deleteRecords](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/deleteRecords.html) |       ✅       |
+| [POST com.atproto.repo.rebaseRepo](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/rebaseRepo.json)     | [rebaseRepo](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/rebaseRepo.html)       |       ✅       |
 
-### 1.3.4. Moderation
+### 1.3.4. [Moderation Service](https://pub.dev/documentation/atproto/latest/atproto/ModerationService-class.html)
 
-| **Lexicon**                                                                                                                                       | **Method Name**                                                                                          |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| [POST com.atproto.moderation.createReport](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/moderation/createReport.json) | [createReport](https://pub.dev/documentation/atproto/latest/atproto/ModerationService/createReport.html) |
+| **Lexicon**                                                                                                                                       | **Method Name**                                                                                          | Auth Required |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | :-----------: |
+| [POST com.atproto.moderation.createReport](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/moderation/createReport.json) | [createReport](https://pub.dev/documentation/atproto/latest/atproto/ModerationService/createReport.html) |       ✅       |
 
-### 1.3.5. Sync
+### 1.3.5. [Sync Service](https://pub.dev/documentation/atproto/latest/atproto/SyncService-class.html)
 
-| **Lexicon**                                                                                                                            | **Method Name**                                                                                                  |
-| -------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| [com.atproto.sync.subscribeRepos](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/subscribeRepos.json)   | [subscribeRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepos.html)           |
-| [GET com.atproto.sync.getHead](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getHead.json)             | [findRepoHead](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepohead.html)               |
-| [GET com.atproto.sync.getRepo](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getRepo.json)             | [findRepoCommits](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoCommits.html)         |
-| [GET com.atproto.sync.getCheckout](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getCheckout.json)     | [findRepoCheckout](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoCheckout.html)       |
-| [GET com.atproto.sync.getCommitPath](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getCommitPath.json) | [findRepoCommitPaths](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoCommitPaths.html) |
-| [GET com.atproto.sync.getBlocks](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getBlocks.json)         | [findRepoBlocks](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoBlocks.html)           |
-| [GET com.atproto.sync.getRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getRecord.json)         | [findRecord](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRecord.html)                   |
-| [GET com.atproto.sync.listRepos](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listRepos.json)         | [findRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepos.html)                     |
+| **Lexicon**                                                                                                                            | **Method Name**                                                                                                  | Auth Required |
+| -------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | :-----------: |
+| [com.atproto.sync.subscribeRepos](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/subscribeRepos.json)   | [subscribeRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepos.html)           |       ❌       |
+| [GET com.atproto.sync.getHead](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getHead.json)             | [findRepoHead](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoHead.html)               |       ❌       |
+| [GET com.atproto.sync.getRepo](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getRepo.json)             | [findRepoCommits](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoCommit.html)          |       ❌       |
+| [GET com.atproto.sync.getCheckout](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getCheckout.json)     | [findRepoCheckout](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoCheckout.html)       |       ❌       |
+| [GET com.atproto.sync.getCommitPath](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getCommitPath.json) | [findRepoCommitPaths](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoCommitPaths.html) |       ❌       |
+| [GET com.atproto.sync.getBlocks](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getBlocks.json)         | [findRepoBlocks](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoBlocks.html)           |       ❌       |
+| [GET com.atproto.sync.getRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getRecord.json)         | [findRecord](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRecord.html)                   |       ❌       |
+| [GET com.atproto.sync.listRepos](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listRepos.json)         | [findRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepos.html)                     |       ❌       |
 
 ## 1.4. Tips 🏄
 
