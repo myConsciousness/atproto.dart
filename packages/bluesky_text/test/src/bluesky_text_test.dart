@@ -2,10 +2,13 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
+import 'package:test/test.dart';
+
+// 🌎 Project imports:
 import 'package:bluesky_text/src/bluesky_text.dart';
 import 'package:bluesky_text/src/entities/entity.dart';
 import 'package:bluesky_text/src/params/entity_criterion.dart';
-import 'package:test/test.dart';
 
 void main() {
   test('.value', () {

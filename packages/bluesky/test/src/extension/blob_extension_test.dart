@@ -2,11 +2,14 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:test/test.dart';
+
+// 🌎 Project imports:
 import 'package:bluesky/src/entities/embed.dart';
 import 'package:bluesky/src/entities/image.dart';
 import 'package:bluesky/src/extension/blob_extension.dart';
-import 'package:test/test.dart';
 
 void main() {
   test('.toImage', () {

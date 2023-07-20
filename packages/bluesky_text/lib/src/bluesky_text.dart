@@ -2,11 +2,14 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
 import 'dart:convert';
 import 'dart:typed_data';
 
+// 📦 Package imports:
 import 'package:characters/characters.dart';
 
+// 🌎 Project imports:
 import 'entities/byte_indices.dart';
 import 'entities/custom_entities.dart';
 import 'entities/custom_entity.dart';

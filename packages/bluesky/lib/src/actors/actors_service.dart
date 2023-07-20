@@ -2,10 +2,11 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🌎 Project imports:
+// 📦 Package imports:
 import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
+// 🌎 Project imports:
 import '../bluesky_base_service.dart';
 import '../entities/actor_profile.dart';
 import '../entities/actor_profiles.dart';

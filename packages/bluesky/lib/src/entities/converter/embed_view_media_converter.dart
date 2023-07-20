@@ -2,8 +2,10 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import '../embed_view_external.dart';
 import '../embed_view_images.dart';
 import '../embed_view_media.dart';

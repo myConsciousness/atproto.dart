@@ -5,6 +5,7 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import 'invite_code.dart';
 
 part 'invite_codes.freezed.dart';

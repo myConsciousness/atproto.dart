@@ -2,10 +2,13 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:bluesky_text/src/entities/byte_indices.dart';
-import 'package:bluesky_text/src/entities/entity.dart';
+// 📦 Package imports:
 import 'package:test/test.dart';
 import 'package:xrpc/xrpc.dart';
+
+// 🌎 Project imports:
+import 'package:bluesky_text/src/entities/byte_indices.dart';
+import 'package:bluesky_text/src/entities/entity.dart';
 
 void main() {
   group('.toFacet', () {

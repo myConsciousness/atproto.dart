@@ -2,14 +2,18 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
 import 'dart:typed_data';
 
-import 'package:atproto_core/src/base_service.dart';
-import 'package:atproto_core/src/client/client_context.dart';
-import 'package:atproto_core/src/client/user_context.dart';
+// 📦 Package imports:
 import 'package:atproto_test/atproto_test.dart';
 import 'package:test/test.dart';
 import 'package:xrpc/xrpc.dart';
+
+// 🌎 Project imports:
+import 'package:atproto_core/src/base_service.dart';
+import 'package:atproto_core/src/client/client_context.dart';
+import 'package:atproto_core/src/client/user_context.dart';
 
 void main() {
   test('.createNSID', () {

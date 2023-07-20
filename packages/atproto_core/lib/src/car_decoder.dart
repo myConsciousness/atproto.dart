@@ -2,10 +2,13 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
 import 'dart:typed_data';
 
+// 📦 Package imports:
 import 'package:multiformats/multiformats.dart';
 
+// 🌎 Project imports:
 import 'progress_status.dart';
 
 const _cidV1BytesLength = 36;

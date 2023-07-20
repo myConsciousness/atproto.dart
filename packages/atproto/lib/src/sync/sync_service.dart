@@ -2,8 +2,10 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 
+// 🌎 Project imports:
 import '../adaptor/repo_blocks_adaptor.dart';
 import '../adaptor/repo_commit_adaptor.dart';
 import '../adaptor/repo_commits_adaptor.dart';

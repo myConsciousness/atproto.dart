@@ -2,11 +2,12 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
+import 'package:test/test.dart';
+
 // 🌎 Project imports:
 import 'package:atproto_core/src/client/retry_policy.dart';
 import 'package:atproto_core/src/config/retry_config.dart';
-// 📦 Package imports:
-import 'package:test/test.dart';
 
 void main() {
   group('.shouldRetry', () {

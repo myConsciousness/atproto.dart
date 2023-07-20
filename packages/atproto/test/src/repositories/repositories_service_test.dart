@@ -2,8 +2,15 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
 import 'dart:io';
 
+// 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart' as core;
+import 'package:atproto_test/atproto_test.dart' as atp_test;
+import 'package:test/test.dart';
+
+// 🌎 Project imports:
 import 'package:atproto/src/entities/batch_action.dart';
 import 'package:atproto/src/entities/blob_data.dart';
 import 'package:atproto/src/entities/create_action.dart';
@@ -14,9 +21,6 @@ import 'package:atproto/src/entities/repo_info.dart';
 import 'package:atproto/src/entities/strong_ref.dart';
 import 'package:atproto/src/entities/update_action.dart';
 import 'package:atproto/src/repositories/repositories_service.dart';
-import 'package:atproto_core/atproto_core.dart' as core;
-import 'package:atproto_test/atproto_test.dart' as atp_test;
-import 'package:test/test.dart';
 
 void main() {
   group('.createRecord', () {

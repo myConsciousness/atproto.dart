@@ -2,7 +2,11 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:test/test.dart';
+
+// 🌎 Project imports:
 import 'package:bluesky/src/entities/adaptor/repo_commit_adaptor.dart';
 import 'package:bluesky/src/entities/adaptor/repo_commit_create.dart';
 import 'package:bluesky/src/entities/adaptor/repo_commit_delete.dart';
@@ -16,7 +20,6 @@ import 'package:bluesky/src/entities/list_record.dart';
 import 'package:bluesky/src/entities/post_record.dart';
 import 'package:bluesky/src/entities/profile_record.dart';
 import 'package:bluesky/src/entities/repost_record.dart';
-import 'package:test/test.dart';
 
 void main() {
   group('.onCreatePost', () {

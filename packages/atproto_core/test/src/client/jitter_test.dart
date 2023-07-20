@@ -2,10 +2,11 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🌎 Project imports:
-import 'package:atproto_core/src/client/jitter.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
+
+// 🌎 Project imports:
+import 'package:atproto_core/src/client/jitter.dart';
 
 void main() {
   test('normal case', () {

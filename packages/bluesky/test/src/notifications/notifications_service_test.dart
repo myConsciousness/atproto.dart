@@ -2,15 +2,16 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🌎 Project imports:
+// 📦 Package imports:
 import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_test/atproto_test.dart' as atp_test;
+import 'package:test/test.dart';
+
+// 🌎 Project imports:
 import 'package:bluesky/src/entities/count.dart';
 import 'package:bluesky/src/entities/notifications.dart';
 import 'package:bluesky/src/notifications/notifications_service.dart';
-// 📦 Package imports:
-import 'package:test/test.dart';
 
 void main() {
   group('.findNotifications', () {

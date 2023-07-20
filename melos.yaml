@@ -30,6 +30,13 @@ scripts:
     description: |
       Run `dart format` in all packages.
 
+  import_sorter:
+    run: |
+      melos exec -c 1 -- \
+        dart pub run import_sorter:main
+    description: |
+      Run `dart format` in all packages.
+
   test:
     run: melos run test:dart --no-select && melos run test:flutter --no-select
     description: Run all Dart & Flutter tests in this project.

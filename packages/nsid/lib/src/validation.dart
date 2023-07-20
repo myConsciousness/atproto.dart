@@ -2,6 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🌎 Project imports:
 import 'invalid_nsid_error.dart';
 
 void ensureValidNsid(final String nsid) {

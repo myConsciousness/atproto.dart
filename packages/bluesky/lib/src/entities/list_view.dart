@@ -4,9 +4,11 @@
 
 // ignore_for_file: invalid_annotation_target
 
+// 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import 'actor.dart';
 import 'facet.dart';
 import 'list_viewer.dart';

@@ -2,8 +2,11 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:atproto_core/src/client/user_context.dart';
+// 📦 Package imports:
 import 'package:test/test.dart';
+
+// 🌎 Project imports:
+import 'package:atproto_core/src/client/user_context.dart';
 
 void main() {
   test('.name', () {

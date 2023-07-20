@@ -5,6 +5,7 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import 'actor_profile.dart';
 
 part 'actor_profiles.freezed.dart';

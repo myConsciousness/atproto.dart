@@ -2,13 +2,16 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart';
+import 'package:test/test.dart';
+
+// 🌎 Project imports:
 import 'package:bluesky/src/entities/actor.dart';
 import 'package:bluesky/src/entities/actor_viewer.dart';
 import 'package:bluesky/src/entities/post.dart';
 import 'package:bluesky/src/entities/post_record.dart';
 import 'package:bluesky/src/entities/post_viewer.dart';
-import 'package:test/test.dart';
 
 void main() {
   group('.isReposted', () {

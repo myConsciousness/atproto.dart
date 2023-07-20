@@ -2,10 +2,13 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:test/test.dart';
+
+// 🌎 Project imports:
 import 'package:bluesky/src/entities/embed_record.dart';
 import 'package:bluesky/src/extension/strong_ref_extension.dart';
-import 'package:test/test.dart';
 
 void main() {
   test('.toEmbedRecord', () {

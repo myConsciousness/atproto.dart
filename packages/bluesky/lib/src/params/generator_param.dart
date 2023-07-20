@@ -8,6 +8,7 @@
 import 'package:atproto/atproto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import '../entities/facet.dart';
 
 part 'generator_param.freezed.dart';

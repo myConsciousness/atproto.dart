@@ -2,10 +2,13 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
 import 'dart:async';
 
+// 📦 Package imports:
 import 'package:atproto/atproto.dart';
 
+// 🌎 Project imports:
 import '../../extension/at_uri_extension.dart';
 import '../block_record.dart';
 import '../follow_record.dart';

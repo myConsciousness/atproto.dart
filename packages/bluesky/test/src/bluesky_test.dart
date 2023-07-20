@@ -2,14 +2,17 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:test/test.dart';
+
+// 🌎 Project imports:
 import 'package:bluesky/src/actors/actors_service.dart';
 import 'package:bluesky/src/bluesky.dart';
 import 'package:bluesky/src/feeds/feeds_service.dart';
 import 'package:bluesky/src/graphs/graphs_service.dart';
 import 'package:bluesky/src/notifications/notifications_service.dart';
 import 'package:bluesky/src/unspecced/unspecced_service.dart';
-import 'package:test/test.dart';
 
 void main() {
   test('.actors', () {

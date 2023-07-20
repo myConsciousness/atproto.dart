@@ -2,8 +2,10 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
 import 'dart:async';
 
+// 📦 Package imports:
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class Subscription<T> {

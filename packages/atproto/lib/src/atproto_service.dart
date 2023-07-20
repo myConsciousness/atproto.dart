@@ -2,9 +2,10 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🌎 Project imports:
+// 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 
+// 🌎 Project imports:
 import 'identities/identities_service.dart';
 import 'moderation/moderation_service.dart';
 import 'repositories/repositories_service.dart';

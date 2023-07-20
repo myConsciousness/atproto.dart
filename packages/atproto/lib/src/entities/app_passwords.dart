@@ -7,6 +7,7 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import 'sealed_app_password.dart';
 
 part 'app_passwords.freezed.dart';
