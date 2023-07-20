@@ -3,6 +3,7 @@
 ## v0.5.5
 
 - Added documentations to model objects. ([#595](https://github.com/myConsciousness/atproto.dart/issues/595))
+- Made annotations const. ([#605](https://github.com/myConsciousness/atproto.dart/issues/605))
 
 ## v0.5.4
 

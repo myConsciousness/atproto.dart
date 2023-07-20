@@ -8,6 +8,7 @@
   - `toEmbedImage`
 - Added utilities to convert `StrongRef` to `Embed.record`.
   - `toEmbedRecord`
+- Made annotations const. ([#605](https://github.com/myConsciousness/atproto.dart/issues/605))
 
 ## v0.7.4
 
