@@ -38,7 +38,7 @@ mixin _$Post {
   String get cid => throw _privateConstructorUsedError;
 
   /// The embeddable content associated with the post, if any.
-  @EmbedViewConverter()
+  @embedViewConverter
   EmbedView? get embed => throw _privateConstructorUsedError;
 
   /// The count of replies to the post.
@@ -75,7 +75,7 @@ abstract class $PostCopyWith<$Res> {
       Actor author,
       @atUriConverter AtUri uri,
       String cid,
-      @EmbedViewConverter() EmbedView? embed,
+      @embedViewConverter EmbedView? embed,
       int replyCount,
       int repostCount,
       int likeCount,
@@ -216,7 +216,7 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       Actor author,
       @atUriConverter AtUri uri,
       String cid,
-      @EmbedViewConverter() EmbedView? embed,
+      @embedViewConverter EmbedView? embed,
       int replyCount,
       int repostCount,
       int likeCount,
@@ -319,7 +319,7 @@ class _$_Post extends _Post {
       required this.author,
       @atUriConverter required this.uri,
       required this.cid,
-      @EmbedViewConverter() this.embed,
+      @embedViewConverter this.embed,
       required this.replyCount,
       required this.repostCount,
       required this.likeCount,
@@ -355,7 +355,7 @@ class _$_Post extends _Post {
 
   /// The embeddable content associated with the post, if any.
   @override
-  @EmbedViewConverter()
+  @embedViewConverter
   final EmbedView? embed;
 
   /// The count of replies to the post.
@@ -457,7 +457,7 @@ abstract class _Post extends Post {
       required final Actor author,
       @atUriConverter required final AtUri uri,
       required final String cid,
-      @EmbedViewConverter() final EmbedView? embed,
+      @embedViewConverter final EmbedView? embed,
       required final int replyCount,
       required final int repostCount,
       required final int likeCount,
@@ -493,7 +493,7 @@ abstract class _Post extends Post {
   @override
 
   /// The embeddable content associated with the post, if any.
-  @EmbedViewConverter()
+  @embedViewConverter
   EmbedView? get embed;
   @override
 

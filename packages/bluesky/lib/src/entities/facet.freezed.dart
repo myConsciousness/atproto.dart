@@ -28,7 +28,7 @@ mixin _$Facet {
   ByteSlice get index => throw _privateConstructorUsedError;
 
   /// Represents the list of facet features.
-  @FacetFeatureConverter()
+  @facetFeatureConverter
   List<FacetFeature> get features => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $FacetCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: '\$type') String? type,
       ByteSlice index,
-      @FacetFeatureConverter() List<FacetFeature> features});
+      @facetFeatureConverter List<FacetFeature> features});
 
   $ByteSliceCopyWith<$Res> get index;
 }
@@ -100,7 +100,7 @@ abstract class _$$_FacetCopyWith<$Res> implements $FacetCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: '\$type') String? type,
       ByteSlice index,
-      @FacetFeatureConverter() List<FacetFeature> features});
+      @facetFeatureConverter List<FacetFeature> features});
 
   @override
   $ByteSliceCopyWith<$Res> get index;
@@ -143,7 +143,7 @@ class _$_Facet implements _Facet {
   const _$_Facet(
       {@JsonKey(name: '\$type') this.type,
       required this.index,
-      @FacetFeatureConverter() required final List<FacetFeature> features})
+      @facetFeatureConverter required final List<FacetFeature> features})
       : _features = features;
 
   factory _$_Facet.fromJson(Map<String, dynamic> json) =>
@@ -163,7 +163,7 @@ class _$_Facet implements _Facet {
 
   /// Represents the list of facet features.
   @override
-  @FacetFeatureConverter()
+  @facetFeatureConverter
   List<FacetFeature> get features {
     if (_features is EqualUnmodifiableListView) return _features;
     // ignore: implicit_dynamic_type
@@ -206,10 +206,10 @@ class _$_Facet implements _Facet {
 
 abstract class _Facet implements Facet {
   const factory _Facet(
-      {@JsonKey(name: '\$type') final String? type,
-      required final ByteSlice index,
-      @FacetFeatureConverter()
-      required final List<FacetFeature> features}) = _$_Facet;
+          {@JsonKey(name: '\$type') final String? type,
+          required final ByteSlice index,
+          @facetFeatureConverter required final List<FacetFeature> features}) =
+      _$_Facet;
 
   factory _Facet.fromJson(Map<String, dynamic> json) = _$_Facet.fromJson;
 
@@ -225,7 +225,7 @@ abstract class _Facet implements Facet {
   @override
 
   /// Represents the list of facet features.
-  @FacetFeatureConverter()
+  @facetFeatureConverter
   List<FacetFeature> get features;
   @override
   @JsonKey(ignore: true)

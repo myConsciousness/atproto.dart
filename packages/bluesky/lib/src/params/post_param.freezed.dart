@@ -23,7 +23,7 @@ mixin _$PostParam {
   String get text => throw _privateConstructorUsedError;
   ReplyRef? get reply => throw _privateConstructorUsedError;
   List<Facet>? get facets => throw _privateConstructorUsedError;
-  @EmbedConverter()
+  @embedConverter
   Embed? get embed => throw _privateConstructorUsedError;
   List<String>? get languageTags => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
@@ -43,7 +43,7 @@ abstract class $PostParamCopyWith<$Res> {
       {String text,
       ReplyRef? reply,
       List<Facet>? facets,
-      @EmbedConverter() Embed? embed,
+      @embedConverter Embed? embed,
       List<String>? languageTags,
       DateTime? createdAt});
 
@@ -135,7 +135,7 @@ abstract class _$$_PostParamCopyWith<$Res> implements $PostParamCopyWith<$Res> {
       {String text,
       ReplyRef? reply,
       List<Facet>? facets,
-      @EmbedConverter() Embed? embed,
+      @embedConverter Embed? embed,
       List<String>? languageTags,
       DateTime? createdAt});
 
@@ -200,7 +200,7 @@ class _$_PostParam implements _PostParam {
       {required this.text,
       this.reply,
       final List<Facet>? facets,
-      @EmbedConverter() this.embed,
+      @embedConverter this.embed,
       final List<String>? languageTags,
       this.createdAt})
       : _facets = facets,
@@ -224,7 +224,7 @@ class _$_PostParam implements _PostParam {
   }
 
   @override
-  @EmbedConverter()
+  @embedConverter
   final Embed? embed;
   final List<String>? _languageTags;
   @override
@@ -289,7 +289,7 @@ abstract class _PostParam implements PostParam {
       {required final String text,
       final ReplyRef? reply,
       final List<Facet>? facets,
-      @EmbedConverter() final Embed? embed,
+      @embedConverter final Embed? embed,
       final List<String>? languageTags,
       final DateTime? createdAt}) = _$_PostParam;
 
@@ -303,7 +303,7 @@ abstract class _PostParam implements PostParam {
   @override
   List<Facet>? get facets;
   @override
-  @EmbedConverter()
+  @embedConverter
   Embed? get embed;
   @override
   List<String>? get languageTags;

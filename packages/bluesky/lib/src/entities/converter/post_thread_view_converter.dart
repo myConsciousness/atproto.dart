@@ -9,9 +9,11 @@ import '../not_found_post.dart';
 import '../post_thread_view.dart';
 import '../post_thread_view_record.dart';
 
-class PostThreadViewConverter
+const postThreadViewConverter = _PostThreadViewConverter();
+
+class _PostThreadViewConverter
     implements JsonConverter<PostThreadView, Map<String, dynamic>> {
-  const PostThreadViewConverter();
+  const _PostThreadViewConverter();
 
   @override
   PostThreadView fromJson(Map<String, dynamic> json) {

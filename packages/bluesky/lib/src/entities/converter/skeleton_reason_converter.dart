@@ -7,9 +7,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../skeleton_reason.dart';
 import '../skeleton_reason_repost.dart';
 
-class SkeletonReasonConverter
+const skeletonReasonConverter = _SkeletonReasonConverter();
+
+class _SkeletonReasonConverter
     implements JsonConverter<SkeletonReason, Map<String, dynamic>> {
-  const SkeletonReasonConverter();
+  const _SkeletonReasonConverter();
 
   @override
   SkeletonReason fromJson(Map<String, dynamic> json) {

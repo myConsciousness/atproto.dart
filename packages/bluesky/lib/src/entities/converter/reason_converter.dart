@@ -7,8 +7,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../reason.dart';
 import '../reason_repost.dart';
 
-class ReasonConverter implements JsonConverter<Reason, Map<String, dynamic>> {
-  const ReasonConverter();
+const reasonConverter = _ReasonConverter();
+
+class _ReasonConverter implements JsonConverter<Reason, Map<String, dynamic>> {
+  const _ReasonConverter();
 
   @override
   Reason fromJson(Map<String, dynamic> json) {

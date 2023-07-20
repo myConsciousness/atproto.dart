@@ -31,7 +31,7 @@ mixin _$PostRecord {
   PostRef? get reply => throw _privateConstructorUsedError;
 
   /// May include embed details for the post.
-  @EmbedConverter()
+  @embedConverter
   Embed? get embed => throw _privateConstructorUsedError;
 
   /// Might include any associated facets.
@@ -56,7 +56,7 @@ abstract class $PostRecordCopyWith<$Res> {
       {@JsonKey(name: '\$type') String type,
       String text,
       PostRef? reply,
-      @EmbedConverter() Embed? embed,
+      @embedConverter Embed? embed,
       List<Facet>? facets,
       DateTime createdAt});
 
@@ -149,7 +149,7 @@ abstract class _$$_PostRecordCopyWith<$Res>
       {@JsonKey(name: '\$type') String type,
       String text,
       PostRef? reply,
-      @EmbedConverter() Embed? embed,
+      @embedConverter Embed? embed,
       List<Facet>? facets,
       DateTime createdAt});
 
@@ -214,7 +214,7 @@ class _$_PostRecord implements _PostRecord {
       {@JsonKey(name: '\$type') this.type = appBskyFeedPost,
       required this.text,
       this.reply,
-      @EmbedConverter() this.embed,
+      @embedConverter this.embed,
       final List<Facet>? facets,
       required this.createdAt})
       : _facets = facets;
@@ -237,7 +237,7 @@ class _$_PostRecord implements _PostRecord {
 
   /// May include embed details for the post.
   @override
-  @EmbedConverter()
+  @embedConverter
   final Embed? embed;
 
   /// Might include any associated facets.
@@ -300,7 +300,7 @@ abstract class _PostRecord implements PostRecord {
       {@JsonKey(name: '\$type') final String type,
       required final String text,
       final PostRef? reply,
-      @EmbedConverter() final Embed? embed,
+      @embedConverter final Embed? embed,
       final List<Facet>? facets,
       required final DateTime createdAt}) = _$_PostRecord;
 
@@ -323,7 +323,7 @@ abstract class _PostRecord implements PostRecord {
   @override
 
   /// May include embed details for the post.
-  @EmbedConverter()
+  @embedConverter
   Embed? get embed;
   @override
 

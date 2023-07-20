@@ -25,7 +25,7 @@ mixin _$EmbedViewRecord {
   String? get type => throw _privateConstructorUsedError;
 
   /// Represents the view of the record.
-  @EmbedViewRecordViewConverter()
+  @embedViewRecordViewConverter
   EmbedViewRecordView get record => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $EmbedViewRecordCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: '\$type') String? type,
-      @EmbedViewRecordViewConverter() EmbedViewRecordView record});
+      @embedViewRecordViewConverter EmbedViewRecordView record});
 
   $EmbedViewRecordViewCopyWith<$Res> get record;
 }
@@ -94,7 +94,7 @@ abstract class _$$_EmbedViewRecordCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: '\$type') String? type,
-      @EmbedViewRecordViewConverter() EmbedViewRecordView record});
+      @embedViewRecordViewConverter EmbedViewRecordView record});
 
   @override
   $EmbedViewRecordViewCopyWith<$Res> get record;
@@ -132,7 +132,7 @@ class __$$_EmbedViewRecordCopyWithImpl<$Res>
 class _$_EmbedViewRecord implements _EmbedViewRecord {
   const _$_EmbedViewRecord(
       {@JsonKey(name: '\$type') this.type,
-      @EmbedViewRecordViewConverter() required this.record});
+      @embedViewRecordViewConverter required this.record});
 
   factory _$_EmbedViewRecord.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedViewRecordFromJson(json);
@@ -144,7 +144,7 @@ class _$_EmbedViewRecord implements _EmbedViewRecord {
 
   /// Represents the view of the record.
   @override
-  @EmbedViewRecordViewConverter()
+  @embedViewRecordViewConverter
   final EmbedViewRecordView record;
 
   @override
@@ -182,7 +182,7 @@ class _$_EmbedViewRecord implements _EmbedViewRecord {
 abstract class _EmbedViewRecord implements EmbedViewRecord {
   const factory _EmbedViewRecord(
       {@JsonKey(name: '\$type') final String? type,
-      @EmbedViewRecordViewConverter()
+      @embedViewRecordViewConverter
       required final EmbedViewRecordView record}) = _$_EmbedViewRecord;
 
   factory _EmbedViewRecord.fromJson(Map<String, dynamic> json) =
@@ -196,7 +196,7 @@ abstract class _EmbedViewRecord implements EmbedViewRecord {
   @override
 
   /// Represents the view of the record.
-  @EmbedViewRecordViewConverter()
+  @embedViewRecordViewConverter
   EmbedViewRecordView get record;
   @override
   @JsonKey(ignore: true)

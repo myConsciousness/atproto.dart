@@ -47,7 +47,7 @@ class PostRecord with _$PostRecord {
     PostRef? reply,
 
     /// May include embed details for the post.
-    @EmbedConverter() Embed? embed,
+    @embedConverter Embed? embed,
 
     /// Might include any associated facets.
     List<Facet>? facets,

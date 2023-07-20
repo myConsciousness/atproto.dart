@@ -39,7 +39,7 @@ mixin _$EmbedViewRecordViewRecord {
   PostRecord get value => throw _privateConstructorUsedError;
 
   /// The list of embedded views within the record (optional).
-  @EmbedViewConverter()
+  @embedViewConverter
   List<EmbedView>? get embeds => throw _privateConstructorUsedError;
 
   /// The date and time the record was indexed.
@@ -63,7 +63,7 @@ abstract class $EmbedViewRecordViewRecordCopyWith<$Res> {
       String cid,
       Actor author,
       PostRecord value,
-      @EmbedViewConverter() List<EmbedView>? embeds,
+      @embedViewConverter List<EmbedView>? embeds,
       DateTime indexedAt});
 
   $ActorCopyWith<$Res> get author;
@@ -156,7 +156,7 @@ abstract class _$$_EmbedViewRecordViewRecordCopyWith<$Res>
       String cid,
       Actor author,
       PostRecord value,
-      @EmbedViewConverter() List<EmbedView>? embeds,
+      @embedViewConverter List<EmbedView>? embeds,
       DateTime indexedAt});
 
   @override
@@ -228,7 +228,7 @@ class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
       required this.cid,
       required this.author,
       required this.value,
-      @EmbedViewConverter() final List<EmbedView>? embeds,
+      @embedViewConverter final List<EmbedView>? embeds,
       required this.indexedAt})
       : _embeds = embeds;
 
@@ -262,7 +262,7 @@ class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
 
   /// The list of embedded views within the record (optional).
   @override
-  @EmbedViewConverter()
+  @embedViewConverter
   List<EmbedView>? get embeds {
     final value = _embeds;
     if (value == null) return null;
@@ -322,7 +322,7 @@ abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
       required final String cid,
       required final Actor author,
       required final PostRecord value,
-      @EmbedViewConverter() final List<EmbedView>? embeds,
+      @embedViewConverter final List<EmbedView>? embeds,
       required final DateTime indexedAt}) = _$_EmbedViewRecordViewRecord;
 
   factory _EmbedViewRecordViewRecord.fromJson(Map<String, dynamic> json) =
@@ -353,7 +353,7 @@ abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
   @override
 
   /// The list of embedded views within the record (optional).
-  @EmbedViewConverter()
+  @embedViewConverter
   List<EmbedView>? get embeds;
   @override
 

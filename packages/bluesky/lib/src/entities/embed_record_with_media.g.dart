@@ -18,10 +18,8 @@ _$_EmbedRecordWithMedia _$$_EmbedRecordWithMediaFromJson(Map json) =>
               (v) => v as String? ?? 'app.bsky.embed.recordWithMedia'),
           record: $checkedConvert('record',
               (v) => EmbedRecord.fromJson(Map<String, Object?>.from(v as Map))),
-          media: $checkedConvert(
-              'media',
-              (v) => const EmbedMediaConverter()
-                  .fromJson(v as Map<String, dynamic>)),
+          media: $checkedConvert('media',
+              (v) => embedMediaConverter.fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -33,5 +31,5 @@ Map<String, dynamic> _$$_EmbedRecordWithMediaToJson(
     <String, dynamic>{
       r'$type': instance.type,
       'record': instance.record.toJson(),
-      'media': const EmbedMediaConverter().toJson(instance.media),
+      'media': embedMediaConverter.toJson(instance.media),
     };

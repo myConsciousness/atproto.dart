@@ -25,7 +25,7 @@ _$_Post _$$_PostFromJson(Map json) => $checkedCreate(
           embed: $checkedConvert(
               'embed',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, EmbedView>(
-                  v, const EmbedViewConverter().fromJson)),
+                  v, embedViewConverter.fromJson)),
           replyCount: $checkedConvert('replyCount', (v) => v as int),
           repostCount: $checkedConvert('repostCount', (v) => v as int),
           likeCount: $checkedConvert('likeCount', (v) => v as int),
@@ -63,7 +63,7 @@ Map<String, dynamic> _$$_PostToJson(_$_Post instance) {
   writeNotNull(
       'embed',
       _$JsonConverterToJson<Map<String, dynamic>, EmbedView>(
-          instance.embed, const EmbedViewConverter().toJson));
+          instance.embed, embedViewConverter.toJson));
   val['replyCount'] = instance.replyCount;
   val['repostCount'] = instance.repostCount;
   val['likeCount'] = instance.likeCount;

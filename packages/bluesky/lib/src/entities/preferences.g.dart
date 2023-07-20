@@ -16,8 +16,8 @@ _$_Preferences _$$_PreferencesFromJson(Map json) => $checkedCreate(
           preferences: $checkedConvert(
               'preferences',
               (v) => (v as List<dynamic>)
-                  .map((e) => const PreferenceConverter()
-                      .fromJson(e as Map<String, dynamic>))
+                  .map((e) =>
+                      preferenceConverter.fromJson(e as Map<String, dynamic>))
                   .toList()),
         );
         return val;
@@ -27,5 +27,5 @@ _$_Preferences _$$_PreferencesFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$_PreferencesToJson(_$_Preferences instance) =>
     <String, dynamic>{
       'preferences':
-          instance.preferences.map(const PreferenceConverter().toJson).toList(),
+          instance.preferences.map(preferenceConverter.toJson).toList(),
     };

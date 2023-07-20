@@ -25,8 +25,8 @@ _$_EmbedViewRecordViewRecord _$$_EmbedViewRecordViewRecordFromJson(Map json) =>
           embeds: $checkedConvert(
               'embeds',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) => const EmbedViewConverter()
-                      .fromJson(e as Map<String, dynamic>))
+                  ?.map((e) =>
+                      embedViewConverter.fromJson(e as Map<String, dynamic>))
                   .toList()),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
@@ -44,7 +44,6 @@ Map<String, dynamic> _$$_EmbedViewRecordViewRecordToJson(
       'cid': instance.cid,
       'author': instance.author.toJson(),
       'value': instance.value.toJson(),
-      'embeds':
-          instance.embeds?.map(const EmbedViewConverter().toJson).toList(),
+      'embeds': instance.embeds?.map(embedViewConverter.toJson).toList(),
       'indexedAt': instance.indexedAt.toIso8601String(),
     };

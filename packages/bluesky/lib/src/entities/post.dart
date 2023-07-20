@@ -55,7 +55,7 @@ class Post with _$Post {
     required String cid,
 
     /// The embeddable content associated with the post, if any.
-    @EmbedViewConverter() EmbedView? embed,
+    @embedViewConverter EmbedView? embed,
 
     /// The count of replies to the post.
     required int replyCount,

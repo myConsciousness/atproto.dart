@@ -34,7 +34,7 @@ class EmbedViewRecordWithMedia with _$EmbedViewRecordWithMedia {
     required EmbedViewRecord record,
 
     /// Represents the media attached to the view.
-    @EmbedViewMediaConverter() required EmbedViewMedia media,
+    @embedViewMediaConverter required EmbedViewMedia media,
   }) = _EmbedViewRecordWithMedia;
 
   /// Creates an instance of [EmbedViewRecordWithMedia] from a map [json].

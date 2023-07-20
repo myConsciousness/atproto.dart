@@ -8,10 +8,12 @@ import '../embed_view_external.dart';
 import '../embed_view_images.dart';
 import '../embed_view_media.dart';
 
-class EmbedViewMediaConverter
+const embedViewMediaConverter = _EmbedViewMediaConverter();
+
+class _EmbedViewMediaConverter
     implements JsonConverter<EmbedViewMedia, Map<String, dynamic>> {
-  /// Returns the new instance of [EmbedViewMediaConverter].
-  const EmbedViewMediaConverter();
+  /// Returns the new instance of [_EmbedViewMediaConverter].
+  const _EmbedViewMediaConverter();
 
   @override
   EmbedViewMedia fromJson(Map<String, dynamic> json) {
