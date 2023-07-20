@@ -36,7 +36,7 @@ class CreateAction with _$CreateAction {
     String type,
 
     /// The collection in which the record should be created.
-    @NsidConverter() required NSID collection,
+    @nsidConverter required NSID collection,
 
     /// The optional record key.
     String? rkey,

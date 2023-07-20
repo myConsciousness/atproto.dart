@@ -26,7 +26,7 @@ mixin _$UpdateAction {
   String get type => throw _privateConstructorUsedError;
 
   /// The collection to which the record belongs.
-  @NsidConverter()
+  @nsidConverter
   NSID get collection => throw _privateConstructorUsedError;
 
   /// The key of the record to be updated.
@@ -50,7 +50,7 @@ abstract class $UpdateActionCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: '\$type') String type,
-      @NsidConverter() NSID collection,
+      @nsidConverter NSID collection,
       String? rkey,
       @JsonKey(name: 'value') Map<String, dynamic> record});
 }
@@ -104,7 +104,7 @@ abstract class _$$_UpdateActionCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: '\$type') String type,
-      @NsidConverter() NSID collection,
+      @nsidConverter NSID collection,
       String? rkey,
       @JsonKey(name: 'value') Map<String, dynamic> record});
 }
@@ -153,7 +153,7 @@ class _$_UpdateAction implements _UpdateAction {
   const _$_UpdateAction(
       {@JsonKey(name: '\$type')
       this.type = 'com.atproto.repo.applyWrites#update',
-      @NsidConverter() required this.collection,
+      @nsidConverter required this.collection,
       this.rkey,
       @JsonKey(name: 'value') required final Map<String, dynamic> record})
       : _record = record;
@@ -169,7 +169,7 @@ class _$_UpdateAction implements _UpdateAction {
 
   /// The collection to which the record belongs.
   @override
-  @NsidConverter()
+  @nsidConverter
   final NSID collection;
 
   /// The key of the record to be updated.
@@ -227,7 +227,7 @@ class _$_UpdateAction implements _UpdateAction {
 abstract class _UpdateAction implements UpdateAction {
   const factory _UpdateAction(
           {@JsonKey(name: '\$type') final String type,
-          @NsidConverter() required final NSID collection,
+          @nsidConverter required final NSID collection,
           final String? rkey,
           @JsonKey(name: 'value') required final Map<String, dynamic> record}) =
       _$_UpdateAction;
@@ -244,7 +244,7 @@ abstract class _UpdateAction implements UpdateAction {
   @override
 
   /// The collection to which the record belongs.
-  @NsidConverter()
+  @nsidConverter
   NSID get collection;
   @override
 
