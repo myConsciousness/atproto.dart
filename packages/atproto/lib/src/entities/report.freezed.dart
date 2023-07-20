@@ -27,7 +27,7 @@ mixin _$Report {
   ModerationReasonType get reasonType => throw _privateConstructorUsedError;
 
   /// The subject of the report, represented as a [ReportSubject].
-  @ReportSubjectConverter()
+  @reportSubjectConverter
   ReportSubject get subject => throw _privateConstructorUsedError;
 
   /// The username of the user who reported.
@@ -49,7 +49,7 @@ abstract class $ReportCopyWith<$Res> {
   $Res call(
       {int id,
       ModerationReasonType reasonType,
-      @ReportSubjectConverter() ReportSubject subject,
+      @reportSubjectConverter ReportSubject subject,
       String reportedBy,
       DateTime createdAt});
 
@@ -117,7 +117,7 @@ abstract class _$$_ReportCopyWith<$Res> implements $ReportCopyWith<$Res> {
   $Res call(
       {int id,
       ModerationReasonType reasonType,
-      @ReportSubjectConverter() ReportSubject subject,
+      @reportSubjectConverter ReportSubject subject,
       String reportedBy,
       DateTime createdAt});
 
@@ -172,7 +172,7 @@ class _$_Report implements _Report {
   const _$_Report(
       {required this.id,
       required this.reasonType,
-      @ReportSubjectConverter() required this.subject,
+      @reportSubjectConverter required this.subject,
       required this.reportedBy,
       required this.createdAt});
 
@@ -189,7 +189,7 @@ class _$_Report implements _Report {
 
   /// The subject of the report, represented as a [ReportSubject].
   @override
-  @ReportSubjectConverter()
+  @reportSubjectConverter
   final ReportSubject subject;
 
   /// The username of the user who reported.
@@ -243,7 +243,7 @@ abstract class _Report implements Report {
   const factory _Report(
       {required final int id,
       required final ModerationReasonType reasonType,
-      @ReportSubjectConverter() required final ReportSubject subject,
+      @reportSubjectConverter required final ReportSubject subject,
       required final String reportedBy,
       required final DateTime createdAt}) = _$_Report;
 
@@ -260,7 +260,7 @@ abstract class _Report implements Report {
   @override
 
   /// The subject of the report, represented as a [ReportSubject].
-  @ReportSubjectConverter()
+  @reportSubjectConverter
   ReportSubject get subject;
   @override
 

@@ -8,10 +8,12 @@ import '../repo_ref.dart';
 import '../report_subject.dart';
 import '../strong_ref.dart';
 
-class ReportSubjectConverter
+const reportSubjectConverter = _ReportSubjectConverter();
+
+class _ReportSubjectConverter
     implements JsonConverter<ReportSubject, Map<String, dynamic>> {
-  /// Returns the new instance of [ReportSubjectConverter].
-  const ReportSubjectConverter();
+  /// Returns the new instance of [_ReportSubjectConverter].
+  const _ReportSubjectConverter();
 
   @override
   ReportSubject fromJson(Map<String, dynamic> json) {

@@ -26,7 +26,7 @@ class Report with _$Report {
     required ModerationReasonType reasonType,
 
     /// The subject of the report, represented as a [ReportSubject].
-    @ReportSubjectConverter() required ReportSubject subject,
+    @reportSubjectConverter required ReportSubject subject,
 
     /// The username of the user who reported.
     required String reportedBy,
