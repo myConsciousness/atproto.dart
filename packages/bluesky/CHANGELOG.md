@@ -3,9 +3,11 @@
 ## v0.7.5
 
 - Added documentations to model objects. ([#595](https://github.com/myConsciousness/atproto.dart/issues/595))
-- Added utilities to convert `Blob` to `Image` and `EmbedImages`.
+- Added utilities to convert `Blob` to `Image` and `Embed.images`.
   - `toImage`
   - `toEmbedImage`
+- Added utilities to convert `StrongRef` to `Embed.record`.
+  - `toEmbedRecord`
 
 ## v0.7.4
 
