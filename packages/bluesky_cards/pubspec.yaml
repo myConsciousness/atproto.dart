@@ -6,9 +6,15 @@ repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/b
 issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
 funding:
   - https://github.com/sponsors/myConsciousness
+
 environment:
   sdk: '>=2.19.2 <4.0.0'
   flutter: ">=1.17.0"
+
+topics:
+  - atproto
+  - bluesky
+  - widget
 
 dependencies:
   flutter:
