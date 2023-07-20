@@ -26,7 +26,7 @@ mixin _$EmbedViewRecordViewRecord {
   String get type => throw _privateConstructorUsedError;
 
   /// The URI of the embedded view record view.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
 
   /// The content ID (CID) of the embedded view record view.
@@ -39,7 +39,7 @@ mixin _$EmbedViewRecordViewRecord {
   PostRecord get value => throw _privateConstructorUsedError;
 
   /// The list of embedded views within the record (optional).
-  @EmbedViewConverter()
+  @embedViewConverter
   List<EmbedView>? get embeds => throw _privateConstructorUsedError;
 
   /// The date and time the record was indexed.
@@ -59,11 +59,11 @@ abstract class $EmbedViewRecordViewRecordCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: '\$type') String type,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       String cid,
       Actor author,
       PostRecord value,
-      @EmbedViewConverter() List<EmbedView>? embeds,
+      @embedViewConverter List<EmbedView>? embeds,
       DateTime indexedAt});
 
   $ActorCopyWith<$Res> get author;
@@ -152,11 +152,11 @@ abstract class _$$_EmbedViewRecordViewRecordCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: '\$type') String type,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       String cid,
       Actor author,
       PostRecord value,
-      @EmbedViewConverter() List<EmbedView>? embeds,
+      @embedViewConverter List<EmbedView>? embeds,
       DateTime indexedAt});
 
   @override
@@ -224,11 +224,11 @@ class __$$_EmbedViewRecordViewRecordCopyWithImpl<$Res>
 class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
   const _$_EmbedViewRecordViewRecord(
       {@JsonKey(name: '\$type') required this.type,
-      @AtUriConverter() required this.uri,
+      @atUriConverter required this.uri,
       required this.cid,
       required this.author,
       required this.value,
-      @EmbedViewConverter() final List<EmbedView>? embeds,
+      @embedViewConverter final List<EmbedView>? embeds,
       required this.indexedAt})
       : _embeds = embeds;
 
@@ -242,7 +242,7 @@ class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
 
   /// The URI of the embedded view record view.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
 
   /// The content ID (CID) of the embedded view record view.
@@ -262,7 +262,7 @@ class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
 
   /// The list of embedded views within the record (optional).
   @override
-  @EmbedViewConverter()
+  @embedViewConverter
   List<EmbedView>? get embeds {
     final value = _embeds;
     if (value == null) return null;
@@ -318,11 +318,11 @@ class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
 abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
   const factory _EmbedViewRecordViewRecord(
       {@JsonKey(name: '\$type') required final String type,
-      @AtUriConverter() required final AtUri uri,
+      @atUriConverter required final AtUri uri,
       required final String cid,
       required final Actor author,
       required final PostRecord value,
-      @EmbedViewConverter() final List<EmbedView>? embeds,
+      @embedViewConverter final List<EmbedView>? embeds,
       required final DateTime indexedAt}) = _$_EmbedViewRecordViewRecord;
 
   factory _EmbedViewRecordViewRecord.fromJson(Map<String, dynamic> json) =
@@ -336,7 +336,7 @@ abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
   @override
 
   /// The URI of the embedded view record view.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri;
   @override
 
@@ -353,7 +353,7 @@ abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
   @override
 
   /// The list of embedded views within the record (optional).
-  @EmbedViewConverter()
+  @embedViewConverter
   List<EmbedView>? get embeds;
   @override
 

@@ -22,11 +22,11 @@ class SkeletonFeedView with _$SkeletonFeedView {
   @JsonSerializable(includeIfNull: false)
   const factory SkeletonFeedView({
     /// The URI of the post represented as an [AtUri] object.
-    @AtUriConverter() required AtUri post,
+    @atUriConverter required AtUri post,
 
     /// The reason for the skeleton feed view presence. This is optional and
     /// represented as a [SkeletonReason] object. It is null by default.
-    @SkeletonReasonConverter() SkeletonReason? reason,
+    @skeletonReasonConverter SkeletonReason? reason,
   }) = _SkeletonFeedView;
 
   /// Creates a [SkeletonFeedView] object from a map ([json]).

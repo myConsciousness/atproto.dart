@@ -21,7 +21,7 @@ PostThread _$PostThreadFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PostThread {
   /// Represents the entire post thread.
-  @PostThreadViewConverter()
+  @postThreadViewConverter
   PostThreadView get thread => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ abstract class $PostThreadCopyWith<$Res> {
           PostThread value, $Res Function(PostThread) then) =
       _$PostThreadCopyWithImpl<$Res, PostThread>;
   @useResult
-  $Res call({@PostThreadViewConverter() PostThreadView thread});
+  $Res call({@postThreadViewConverter PostThreadView thread});
 
   $PostThreadViewCopyWith<$Res> get thread;
 }
@@ -81,7 +81,7 @@ abstract class _$$_PostThreadCopyWith<$Res>
       __$$_PostThreadCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@PostThreadViewConverter() PostThreadView thread});
+  $Res call({@postThreadViewConverter PostThreadView thread});
 
   @override
   $PostThreadViewCopyWith<$Res> get thread;
@@ -112,14 +112,14 @@ class __$$_PostThreadCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PostThread implements _PostThread {
-  const _$_PostThread({@PostThreadViewConverter() required this.thread});
+  const _$_PostThread({@postThreadViewConverter required this.thread});
 
   factory _$_PostThread.fromJson(Map<String, dynamic> json) =>
       _$$_PostThreadFromJson(json);
 
   /// Represents the entire post thread.
   @override
-  @PostThreadViewConverter()
+  @postThreadViewConverter
   final PostThreadView thread;
 
   @override
@@ -155,7 +155,7 @@ class _$_PostThread implements _PostThread {
 
 abstract class _PostThread implements PostThread {
   const factory _PostThread(
-          {@PostThreadViewConverter() required final PostThreadView thread}) =
+          {@postThreadViewConverter required final PostThreadView thread}) =
       _$_PostThread;
 
   factory _PostThread.fromJson(Map<String, dynamic> json) =
@@ -164,7 +164,7 @@ abstract class _PostThread implements PostThread {
   @override
 
   /// Represents the entire post thread.
-  @PostThreadViewConverter()
+  @postThreadViewConverter
   PostThreadView get thread;
   @override
   @JsonKey(ignore: true)

@@ -49,13 +49,13 @@ class Post with _$Post {
     required Actor author,
 
     /// The URI of the post.
-    @AtUriConverter() required AtUri uri,
+    @atUriConverter required AtUri uri,
 
     /// The unique identifier of the post.
     required String cid,
 
     /// The embeddable content associated with the post, if any.
-    @EmbedViewConverter() EmbedView? embed,
+    @embedViewConverter EmbedView? embed,
 
     /// The count of replies to the post.
     required int replyCount,

@@ -8,10 +8,12 @@ import '../facet_feature.dart';
 import '../facet_link.dart';
 import '../facet_mention.dart';
 
-class FacetFeatureConverter
+const facetFeatureConverter = _FacetFeatureConverter();
+
+class _FacetFeatureConverter
     implements JsonConverter<FacetFeature, Map<String, dynamic>> {
-  /// Returns the new instance of [FacetFeatureConverter].
-  const FacetFeatureConverter();
+  /// Returns the new instance of [_FacetFeatureConverter].
+  const _FacetFeatureConverter();
 
   @override
   FacetFeature fromJson(Map<String, dynamic> json) {

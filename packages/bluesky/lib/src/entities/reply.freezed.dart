@@ -21,11 +21,11 @@ Reply _$ReplyFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Reply {
   /// The root post of the reply.
-  @ReplyPostConverter()
+  @replyPostConverter
   ReplyPost get root => throw _privateConstructorUsedError;
 
   /// The parent post of the reply.
-  @ReplyPostConverter()
+  @replyPostConverter
   ReplyPost get parent => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,8 +39,8 @@ abstract class $ReplyCopyWith<$Res> {
       _$ReplyCopyWithImpl<$Res, Reply>;
   @useResult
   $Res call(
-      {@ReplyPostConverter() ReplyPost root,
-      @ReplyPostConverter() ReplyPost parent});
+      {@replyPostConverter ReplyPost root,
+      @replyPostConverter ReplyPost parent});
 
   $ReplyPostCopyWith<$Res> get root;
   $ReplyPostCopyWith<$Res> get parent;
@@ -98,8 +98,8 @@ abstract class _$$_ReplyCopyWith<$Res> implements $ReplyCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@ReplyPostConverter() ReplyPost root,
-      @ReplyPostConverter() ReplyPost parent});
+      {@replyPostConverter ReplyPost root,
+      @replyPostConverter ReplyPost parent});
 
   @override
   $ReplyPostCopyWith<$Res> get root;
@@ -136,20 +136,20 @@ class __$$_ReplyCopyWithImpl<$Res> extends _$ReplyCopyWithImpl<$Res, _$_Reply>
 @JsonSerializable()
 class _$_Reply implements _Reply {
   const _$_Reply(
-      {@ReplyPostConverter() required this.root,
-      @ReplyPostConverter() required this.parent});
+      {@replyPostConverter required this.root,
+      @replyPostConverter required this.parent});
 
   factory _$_Reply.fromJson(Map<String, dynamic> json) =>
       _$$_ReplyFromJson(json);
 
   /// The root post of the reply.
   @override
-  @ReplyPostConverter()
+  @replyPostConverter
   final ReplyPost root;
 
   /// The parent post of the reply.
   @override
-  @ReplyPostConverter()
+  @replyPostConverter
   final ReplyPost parent;
 
   @override
@@ -186,20 +186,20 @@ class _$_Reply implements _Reply {
 
 abstract class _Reply implements Reply {
   const factory _Reply(
-      {@ReplyPostConverter() required final ReplyPost root,
-      @ReplyPostConverter() required final ReplyPost parent}) = _$_Reply;
+      {@replyPostConverter required final ReplyPost root,
+      @replyPostConverter required final ReplyPost parent}) = _$_Reply;
 
   factory _Reply.fromJson(Map<String, dynamic> json) = _$_Reply.fromJson;
 
   @override
 
   /// The root post of the reply.
-  @ReplyPostConverter()
+  @replyPostConverter
   ReplyPost get root;
   @override
 
   /// The parent post of the reply.
-  @ReplyPostConverter()
+  @replyPostConverter
   ReplyPost get parent;
   @override
   @JsonKey(ignore: true)

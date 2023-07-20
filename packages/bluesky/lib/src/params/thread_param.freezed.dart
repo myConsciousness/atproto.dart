@@ -22,7 +22,7 @@ ThreadParam _$ThreadParamFromJson(Map<String, dynamic> json) {
 mixin _$ThreadParam {
   String get text => throw _privateConstructorUsedError;
   List<Facet>? get facets => throw _privateConstructorUsedError;
-  @EmbedConverter()
+  @embedConverter
   Embed? get embed => throw _privateConstructorUsedError;
   List<String>? get languageTags => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $ThreadParamCopyWith<$Res> {
   $Res call(
       {String text,
       List<Facet>? facets,
-      @EmbedConverter() Embed? embed,
+      @embedConverter Embed? embed,
       List<String>? languageTags,
       DateTime? createdAt});
 
@@ -116,7 +116,7 @@ abstract class _$$_ThreadParamCopyWith<$Res>
   $Res call(
       {String text,
       List<Facet>? facets,
-      @EmbedConverter() Embed? embed,
+      @embedConverter Embed? embed,
       List<String>? languageTags,
       DateTime? createdAt});
 
@@ -173,7 +173,7 @@ class _$_ThreadParam implements _ThreadParam {
   const _$_ThreadParam(
       {required this.text,
       final List<Facet>? facets,
-      @EmbedConverter() this.embed,
+      @embedConverter this.embed,
       final List<String>? languageTags,
       this.createdAt})
       : _facets = facets,
@@ -195,7 +195,7 @@ class _$_ThreadParam implements _ThreadParam {
   }
 
   @override
-  @EmbedConverter()
+  @embedConverter
   final Embed? embed;
   final List<String>? _languageTags;
   @override
@@ -257,7 +257,7 @@ abstract class _ThreadParam implements ThreadParam {
   const factory _ThreadParam(
       {required final String text,
       final List<Facet>? facets,
-      @EmbedConverter() final Embed? embed,
+      @embedConverter final Embed? embed,
       final List<String>? languageTags,
       final DateTime? createdAt}) = _$_ThreadParam;
 
@@ -269,7 +269,7 @@ abstract class _ThreadParam implements ThreadParam {
   @override
   List<Facet>? get facets;
   @override
-  @EmbedConverter()
+  @embedConverter
   Embed? get embed;
   @override
   List<String>? get languageTags;

@@ -26,7 +26,7 @@ mixin _$CreateAction {
   String get type => throw _privateConstructorUsedError;
 
   /// The collection in which the record should be created.
-  @NsidConverter()
+  @nsidConverter
   NSID get collection => throw _privateConstructorUsedError;
 
   /// The optional record key.
@@ -50,7 +50,7 @@ abstract class $CreateActionCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: '\$type') String type,
-      @NsidConverter() NSID collection,
+      @nsidConverter NSID collection,
       String? rkey,
       @JsonKey(name: 'value') Map<String, dynamic> record});
 }
@@ -104,7 +104,7 @@ abstract class _$$_CreateActionCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: '\$type') String type,
-      @NsidConverter() NSID collection,
+      @nsidConverter NSID collection,
       String? rkey,
       @JsonKey(name: 'value') Map<String, dynamic> record});
 }
@@ -153,7 +153,7 @@ class _$_CreateAction implements _CreateAction {
   const _$_CreateAction(
       {@JsonKey(name: '\$type')
       this.type = 'com.atproto.repo.applyWrites#create',
-      @NsidConverter() required this.collection,
+      @nsidConverter required this.collection,
       this.rkey,
       @JsonKey(name: 'value') required final Map<String, dynamic> record})
       : _record = record;
@@ -169,7 +169,7 @@ class _$_CreateAction implements _CreateAction {
 
   /// The collection in which the record should be created.
   @override
-  @NsidConverter()
+  @nsidConverter
   final NSID collection;
 
   /// The optional record key.
@@ -227,7 +227,7 @@ class _$_CreateAction implements _CreateAction {
 abstract class _CreateAction implements CreateAction {
   const factory _CreateAction(
           {@JsonKey(name: '\$type') final String type,
-          @NsidConverter() required final NSID collection,
+          @nsidConverter required final NSID collection,
           final String? rkey,
           @JsonKey(name: 'value') required final Map<String, dynamic> record}) =
       _$_CreateAction;
@@ -244,7 +244,7 @@ abstract class _CreateAction implements CreateAction {
   @override
 
   /// The collection in which the record should be created.
-  @NsidConverter()
+  @nsidConverter
   NSID get collection;
   @override
 

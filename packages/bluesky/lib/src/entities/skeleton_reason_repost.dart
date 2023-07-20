@@ -29,7 +29,7 @@ class SkeletonReasonRepost with _$SkeletonReasonRepost {
 
     /// The repost that is the reason for the post's inclusion in the skeleton
     /// feed.
-    @AtUriConverter() required AtUri repost,
+    @atUriConverter required AtUri repost,
   }) = _SkeletonReasonRepost;
 
   /// Creates a [SkeletonReasonRepost] object from a map ([json]).

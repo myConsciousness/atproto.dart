@@ -16,7 +16,7 @@ _$_EmbedViewRecord _$$_EmbedViewRecordFromJson(Map json) => $checkedCreate(
           type: $checkedConvert(r'$type', (v) => v as String?),
           record: $checkedConvert(
               'record',
-              (v) => const EmbedViewRecordViewConverter()
+              (v) => embedViewRecordViewConverter
                   .fromJson(v as Map<String, dynamic>)),
         );
         return val;
@@ -27,5 +27,5 @@ _$_EmbedViewRecord _$$_EmbedViewRecordFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$_EmbedViewRecordToJson(_$_EmbedViewRecord instance) =>
     <String, dynamic>{
       r'$type': instance.type,
-      'record': const EmbedViewRecordViewConverter().toJson(instance.record),
+      'record': embedViewRecordViewConverter.toJson(instance.record),
     };

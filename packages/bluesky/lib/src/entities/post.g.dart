@@ -20,12 +20,12 @@ _$_Post _$$_PostFromJson(Map json) => $checkedCreate(
           author: $checkedConvert('author',
               (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
           uri: $checkedConvert(
-              'uri', (v) => const AtUriConverter().fromJson(v as String)),
+              'uri', (v) => atUriConverter.fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
           embed: $checkedConvert(
               'embed',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, EmbedView>(
-                  v, const EmbedViewConverter().fromJson)),
+                  v, embedViewConverter.fromJson)),
           replyCount: $checkedConvert('replyCount', (v) => v as int),
           repostCount: $checkedConvert('repostCount', (v) => v as int),
           likeCount: $checkedConvert('likeCount', (v) => v as int),
@@ -50,7 +50,7 @@ Map<String, dynamic> _$$_PostToJson(_$_Post instance) {
     r'$type': instance.type,
     'record': instance.record.toJson(),
     'author': instance.author.toJson(),
-    'uri': const AtUriConverter().toJson(instance.uri),
+    'uri': atUriConverter.toJson(instance.uri),
     'cid': instance.cid,
   };
 
@@ -63,7 +63,7 @@ Map<String, dynamic> _$$_PostToJson(_$_Post instance) {
   writeNotNull(
       'embed',
       _$JsonConverterToJson<Map<String, dynamic>, EmbedView>(
-          instance.embed, const EmbedViewConverter().toJson));
+          instance.embed, embedViewConverter.toJson));
   val['replyCount'] = instance.replyCount;
   val['repostCount'] = instance.repostCount;
   val['likeCount'] = instance.likeCount;

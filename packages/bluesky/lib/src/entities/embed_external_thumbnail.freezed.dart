@@ -32,7 +32,7 @@ mixin _$EmbedExternalThumbnail {
 
   /// The thumbnail of the external resource, represented as a `Blob`
   /// instance.
-  @BlobConverter()
+  @blobConverter
   @JsonKey(name: 'thumb')
   Blob? get blob => throw _privateConstructorUsedError;
 
@@ -52,7 +52,7 @@ abstract class $EmbedExternalThumbnailCopyWith<$Res> {
       {String uri,
       String title,
       String description,
-      @BlobConverter() @JsonKey(name: 'thumb') Blob? blob});
+      @blobConverter @JsonKey(name: 'thumb') Blob? blob});
 
   $BlobCopyWith<$Res>? get blob;
 }
@@ -121,7 +121,7 @@ abstract class _$$_EmbedExternalThumbnailCopyWith<$Res>
       {String uri,
       String title,
       String description,
-      @BlobConverter() @JsonKey(name: 'thumb') Blob? blob});
+      @blobConverter @JsonKey(name: 'thumb') Blob? blob});
 
   @override
   $BlobCopyWith<$Res>? get blob;
@@ -173,7 +173,7 @@ class _$_EmbedExternalThumbnail implements _EmbedExternalThumbnail {
       {required this.uri,
       required this.title,
       required this.description,
-      @BlobConverter() @JsonKey(name: 'thumb') this.blob});
+      @blobConverter @JsonKey(name: 'thumb') this.blob});
 
   factory _$_EmbedExternalThumbnail.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedExternalThumbnailFromJson(json);
@@ -193,7 +193,7 @@ class _$_EmbedExternalThumbnail implements _EmbedExternalThumbnail {
   /// The thumbnail of the external resource, represented as a `Blob`
   /// instance.
   @override
-  @BlobConverter()
+  @blobConverter
   @JsonKey(name: 'thumb')
   final Blob? blob;
 
@@ -238,7 +238,7 @@ abstract class _EmbedExternalThumbnail implements EmbedExternalThumbnail {
           {required final String uri,
           required final String title,
           required final String description,
-          @BlobConverter() @JsonKey(name: 'thumb') final Blob? blob}) =
+          @blobConverter @JsonKey(name: 'thumb') final Blob? blob}) =
       _$_EmbedExternalThumbnail;
 
   factory _EmbedExternalThumbnail.fromJson(Map<String, dynamic> json) =
@@ -260,7 +260,7 @@ abstract class _EmbedExternalThumbnail implements EmbedExternalThumbnail {
 
   /// The thumbnail of the external resource, represented as a `Blob`
   /// instance.
-  @BlobConverter()
+  @blobConverter
   @JsonKey(name: 'thumb')
   Blob? get blob;
   @override

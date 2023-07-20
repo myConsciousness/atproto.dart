@@ -9,9 +9,11 @@ import '../content_label_preference.dart';
 import '../preference.dart';
 import '../saved_feeds_preference.dart';
 
-class PreferenceConverter
+const preferenceConverter = _PreferenceConverter();
+
+class _PreferenceConverter
     implements JsonConverter<Preference, Map<String, dynamic>> {
-  const PreferenceConverter();
+  const _PreferenceConverter();
 
   @override
   Preference fromJson(Map<String, dynamic> json) {

@@ -35,7 +35,7 @@ class Facet with _$Facet {
     required ByteSlice index,
 
     /// Represents the list of facet features.
-    @FacetFeatureConverter() required List<FacetFeature> features,
+    @facetFeatureConverter required List<FacetFeature> features,
   }) = _Facet;
 
   /// Creates an instance of [Facet] from a map [json].

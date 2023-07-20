@@ -36,7 +36,7 @@ class FeedView with _$FeedView {
     Reply? reply,
 
     /// A reason for the post. This is optional.
-    @ReasonConverter() Reason? reason,
+    @reasonConverter Reason? reason,
   }) = _FeedView;
 
   /// Creates an instance of [FeedView] from a map [json].

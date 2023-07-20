@@ -27,7 +27,7 @@ class StrongRef with _$StrongRef {
     required String cid,
 
     /// Uri of the reference.
-    @AtUriConverter() required AtUri uri,
+    @atUriConverter required AtUri uri,
   }) = _StrongRef;
 
   /// Creates a new instance of [StrongRef] from a JSON object.

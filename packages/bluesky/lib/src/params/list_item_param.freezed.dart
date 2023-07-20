@@ -21,7 +21,7 @@ ListItemParam _$ListItemParamFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ListItemParam {
   String get subject => throw _privateConstructorUsedError;
-  @AtUriConverter()
+  @atUriConverter
   AtUri get list => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
 
@@ -37,8 +37,7 @@ abstract class $ListItemParamCopyWith<$Res> {
           ListItemParam value, $Res Function(ListItemParam) then) =
       _$ListItemParamCopyWithImpl<$Res, ListItemParam>;
   @useResult
-  $Res call(
-      {String subject, @AtUriConverter() AtUri list, DateTime? createdAt});
+  $Res call({String subject, @atUriConverter AtUri list, DateTime? createdAt});
 }
 
 /// @nodoc
@@ -83,8 +82,7 @@ abstract class _$$_ListItemParamCopyWith<$Res>
       __$$_ListItemParamCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String subject, @AtUriConverter() AtUri list, DateTime? createdAt});
+  $Res call({String subject, @atUriConverter AtUri list, DateTime? createdAt});
 }
 
 /// @nodoc
@@ -125,7 +123,7 @@ class __$$_ListItemParamCopyWithImpl<$Res>
 class _$_ListItemParam implements _ListItemParam {
   const _$_ListItemParam(
       {required this.subject,
-      @AtUriConverter() required this.list,
+      @atUriConverter required this.list,
       this.createdAt});
 
   factory _$_ListItemParam.fromJson(Map<String, dynamic> json) =>
@@ -134,7 +132,7 @@ class _$_ListItemParam implements _ListItemParam {
   @override
   final String subject;
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri list;
   @override
   final DateTime? createdAt;
@@ -176,7 +174,7 @@ class _$_ListItemParam implements _ListItemParam {
 abstract class _ListItemParam implements ListItemParam {
   const factory _ListItemParam(
       {required final String subject,
-      @AtUriConverter() required final AtUri list,
+      @atUriConverter required final AtUri list,
       final DateTime? createdAt}) = _$_ListItemParam;
 
   factory _ListItemParam.fromJson(Map<String, dynamic> json) =
@@ -185,7 +183,7 @@ abstract class _ListItemParam implements ListItemParam {
   @override
   String get subject;
   @override
-  @AtUriConverter()
+  @atUriConverter
   AtUri get list;
   @override
   DateTime? get createdAt;

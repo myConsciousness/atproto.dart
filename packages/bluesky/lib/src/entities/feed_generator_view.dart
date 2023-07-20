@@ -37,7 +37,7 @@ class FeedGeneratorView with _$FeedGeneratorView {
     String type,
 
     /// Represents the URI of the feed generator.
-    @AtUriConverter() required AtUri uri,
+    @atUriConverter required AtUri uri,
 
     /// Represents the CID of the feed generator.
     required String cid,

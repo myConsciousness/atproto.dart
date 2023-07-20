@@ -18,10 +18,10 @@ class Reply with _$Reply {
   /// Creates a new instance of [Reply].
   const factory Reply({
     /// The root post of the reply.
-    @ReplyPostConverter() required ReplyPost root,
+    @replyPostConverter required ReplyPost root,
 
     /// The parent post of the reply.
-    @ReplyPostConverter() required ReplyPost parent,
+    @replyPostConverter required ReplyPost parent,
   }) = _Reply;
 
   /// Creates a new instance of [Reply] from a map of [json] data.

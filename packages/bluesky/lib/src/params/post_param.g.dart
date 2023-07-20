@@ -28,7 +28,7 @@ _$_PostParam _$$_PostParamFromJson(Map json) => $checkedCreate(
           embed: $checkedConvert(
               'embed',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, Embed>(
-                  v, const EmbedConverter().fromJson)),
+                  v, embedConverter.fromJson)),
           languageTags: $checkedConvert('languageTags',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           createdAt: $checkedConvert('createdAt',
@@ -54,7 +54,7 @@ Map<String, dynamic> _$$_PostParamToJson(_$_PostParam instance) {
   writeNotNull(
       'embed',
       _$JsonConverterToJson<Map<String, dynamic>, Embed>(
-          instance.embed, const EmbedConverter().toJson));
+          instance.embed, embedConverter.toJson));
   writeNotNull('languageTags', instance.languageTags);
   writeNotNull('createdAt', instance.createdAt?.toIso8601String());
   return val;

@@ -17,7 +17,7 @@ _$_EmbedViewRecordViewNotFound _$$_EmbedViewRecordViewNotFoundFromJson(
         final val = _$_EmbedViewRecordViewNotFound(
           type: $checkedConvert(r'$type', (v) => v as String),
           uri: $checkedConvert(
-              'uri', (v) => const AtUriConverter().fromJson(v as String)),
+              'uri', (v) => atUriConverter.fromJson(v as String)),
         );
         return val;
       },
@@ -28,5 +28,5 @@ Map<String, dynamic> _$$_EmbedViewRecordViewNotFoundToJson(
         _$_EmbedViewRecordViewNotFound instance) =>
     <String, dynamic>{
       r'$type': instance.type,
-      'uri': const AtUriConverter().toJson(instance.uri),
+      'uri': atUriConverter.toJson(instance.uri),
     };

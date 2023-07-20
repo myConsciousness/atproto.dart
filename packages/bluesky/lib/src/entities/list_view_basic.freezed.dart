@@ -29,7 +29,7 @@ mixin _$ListViewBasic {
   String get purpose => throw _privateConstructorUsedError;
 
   /// The URI of the list.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
 
   /// The CID of the list.
@@ -62,7 +62,7 @@ abstract class $ListViewBasicCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: '\$type') String type,
       String purpose,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       String cid,
       String name,
       String? avatar,
@@ -150,7 +150,7 @@ abstract class _$$_ListViewBasicCopyWith<$Res>
   $Res call(
       {@JsonKey(name: '\$type') String type,
       String purpose,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       String cid,
       String name,
       String? avatar,
@@ -225,7 +225,7 @@ class _$_ListViewBasic extends _ListViewBasic {
   const _$_ListViewBasic(
       {@JsonKey(name: '\$type') this.type = 'app.bsky.graph.defs#listViewBasic',
       this.purpose = 'app.bsky.graph.defs#modlist',
-      @AtUriConverter() required this.uri,
+      @atUriConverter required this.uri,
       required this.cid,
       required this.name,
       this.avatar,
@@ -249,7 +249,7 @@ class _$_ListViewBasic extends _ListViewBasic {
 
   /// The URI of the list.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
 
   /// The CID of the list.
@@ -316,7 +316,7 @@ abstract class _ListViewBasic extends ListViewBasic {
   const factory _ListViewBasic(
       {@JsonKey(name: '\$type') final String type,
       final String purpose,
-      @AtUriConverter() required final AtUri uri,
+      @atUriConverter required final AtUri uri,
       required final String cid,
       required final String name,
       final String? avatar,
@@ -340,7 +340,7 @@ abstract class _ListViewBasic extends ListViewBasic {
   @override
 
   /// The URI of the list.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri;
   @override
 

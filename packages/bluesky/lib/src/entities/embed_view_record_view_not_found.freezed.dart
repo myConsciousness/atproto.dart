@@ -27,7 +27,7 @@ mixin _$EmbedViewRecordViewNotFound {
 
   /// An `AtUri` instance that contains the unique resource identifier (URI)
   /// of the record.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,8 +44,7 @@ abstract class $EmbedViewRecordViewNotFoundCopyWith<$Res> {
       _$EmbedViewRecordViewNotFoundCopyWithImpl<$Res,
           EmbedViewRecordViewNotFound>;
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String type, @AtUriConverter() AtUri uri});
+  $Res call({@JsonKey(name: '\$type') String type, @atUriConverter AtUri uri});
 }
 
 /// @nodoc
@@ -87,8 +86,7 @@ abstract class _$$_EmbedViewRecordViewNotFoundCopyWith<$Res>
       __$$_EmbedViewRecordViewNotFoundCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String type, @AtUriConverter() AtUri uri});
+  $Res call({@JsonKey(name: '\$type') String type, @atUriConverter AtUri uri});
 }
 
 /// @nodoc
@@ -125,7 +123,7 @@ class __$$_EmbedViewRecordViewNotFoundCopyWithImpl<$Res>
 class _$_EmbedViewRecordViewNotFound implements _EmbedViewRecordViewNotFound {
   const _$_EmbedViewRecordViewNotFound(
       {@JsonKey(name: '\$type') required this.type,
-      @AtUriConverter() required this.uri});
+      @atUriConverter required this.uri});
 
   factory _$_EmbedViewRecordViewNotFound.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedViewRecordViewNotFoundFromJson(json);
@@ -138,7 +136,7 @@ class _$_EmbedViewRecordViewNotFound implements _EmbedViewRecordViewNotFound {
   /// An `AtUri` instance that contains the unique resource identifier (URI)
   /// of the record.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
 
   @override
@@ -178,7 +176,7 @@ abstract class _EmbedViewRecordViewNotFound
     implements EmbedViewRecordViewNotFound {
   const factory _EmbedViewRecordViewNotFound(
           {@JsonKey(name: '\$type') required final String type,
-          @AtUriConverter() required final AtUri uri}) =
+          @atUriConverter required final AtUri uri}) =
       _$_EmbedViewRecordViewNotFound;
 
   factory _EmbedViewRecordViewNotFound.fromJson(Map<String, dynamic> json) =
@@ -193,7 +191,7 @@ abstract class _EmbedViewRecordViewNotFound
 
   /// An `AtUri` instance that contains the unique resource identifier (URI)
   /// of the record.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri;
   @override
   @JsonKey(ignore: true)

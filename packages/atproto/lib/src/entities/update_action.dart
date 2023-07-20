@@ -31,7 +31,7 @@ class UpdateAction with _$UpdateAction {
     String type,
 
     /// The collection to which the record belongs.
-    @NsidConverter() required NSID collection,
+    @nsidConverter required NSID collection,
 
     /// The key of the record to be updated.
     String? rkey,

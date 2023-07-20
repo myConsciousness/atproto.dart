@@ -22,7 +22,7 @@ FeedGeneratorViewer _$FeedGeneratorViewerFromJson(Map<String, dynamic> json) {
 mixin _$FeedGeneratorViewer {
   /// Represents the URI of the 'like' action performed by the viewer.
   /// Optional.
-  @AtUriConverter()
+  @atUriConverter
   AtUri? get like => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $FeedGeneratorViewerCopyWith<$Res> {
           FeedGeneratorViewer value, $Res Function(FeedGeneratorViewer) then) =
       _$FeedGeneratorViewerCopyWithImpl<$Res, FeedGeneratorViewer>;
   @useResult
-  $Res call({@AtUriConverter() AtUri? like});
+  $Res call({@atUriConverter AtUri? like});
 }
 
 /// @nodoc
@@ -72,7 +72,7 @@ abstract class _$$_FeedGeneratorViewerCopyWith<$Res>
       __$$_FeedGeneratorViewerCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@AtUriConverter() AtUri? like});
+  $Res call({@atUriConverter AtUri? like});
 }
 
 /// @nodoc
@@ -101,7 +101,7 @@ class __$$_FeedGeneratorViewerCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$_FeedGeneratorViewer implements _FeedGeneratorViewer {
-  const _$_FeedGeneratorViewer({@AtUriConverter() this.like});
+  const _$_FeedGeneratorViewer({@atUriConverter this.like});
 
   factory _$_FeedGeneratorViewer.fromJson(Map<String, dynamic> json) =>
       _$$_FeedGeneratorViewerFromJson(json);
@@ -109,7 +109,7 @@ class _$_FeedGeneratorViewer implements _FeedGeneratorViewer {
   /// Represents the URI of the 'like' action performed by the viewer.
   /// Optional.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri? like;
 
   @override
@@ -145,7 +145,7 @@ class _$_FeedGeneratorViewer implements _FeedGeneratorViewer {
 }
 
 abstract class _FeedGeneratorViewer implements FeedGeneratorViewer {
-  const factory _FeedGeneratorViewer({@AtUriConverter() final AtUri? like}) =
+  const factory _FeedGeneratorViewer({@atUriConverter final AtUri? like}) =
       _$_FeedGeneratorViewer;
 
   factory _FeedGeneratorViewer.fromJson(Map<String, dynamic> json) =
@@ -155,7 +155,7 @@ abstract class _FeedGeneratorViewer implements FeedGeneratorViewer {
 
   /// Represents the URI of the 'like' action performed by the viewer.
   /// Optional.
-  @AtUriConverter()
+  @atUriConverter
   AtUri? get like;
   @override
   @JsonKey(ignore: true)

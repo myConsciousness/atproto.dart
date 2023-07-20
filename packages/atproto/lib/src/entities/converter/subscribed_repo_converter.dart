@@ -11,9 +11,11 @@ import '../subscribed_repo_info.dart';
 import '../subscribed_repo_migrate.dart';
 import '../subscribed_repo_tombstone.dart';
 
-class SubscribedRepoConverter
+const subscribedRepoConverter = _SubscribedRepoConverter();
+
+class _SubscribedRepoConverter
     implements JsonConverter<SubscribedRepo, Map<String, dynamic>> {
-  const SubscribedRepoConverter();
+  const _SubscribedRepoConverter();
 
   @override
   SubscribedRepo fromJson(Map<String, dynamic> json) {

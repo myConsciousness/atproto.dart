@@ -29,7 +29,7 @@ mixin _$EmbedRecordWithMedia {
   EmbedRecord get record => throw _privateConstructorUsedError;
 
   /// An [EmbedMedia] object that represents the media to be embedded.
-  @EmbedMediaConverter()
+  @embedMediaConverter
   EmbedMedia get media => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -47,7 +47,7 @@ abstract class $EmbedRecordWithMediaCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: '\$type') String type,
       EmbedRecord record,
-      @EmbedMediaConverter() EmbedMedia media});
+      @embedMediaConverter EmbedMedia media});
 
   $EmbedRecordCopyWith<$Res> get record;
   $EmbedMediaCopyWith<$Res> get media;
@@ -115,7 +115,7 @@ abstract class _$$_EmbedRecordWithMediaCopyWith<$Res>
   $Res call(
       {@JsonKey(name: '\$type') String type,
       EmbedRecord record,
-      @EmbedMediaConverter() EmbedMedia media});
+      @embedMediaConverter EmbedMedia media});
 
   @override
   $EmbedRecordCopyWith<$Res> get record;
@@ -161,7 +161,7 @@ class _$_EmbedRecordWithMedia implements _EmbedRecordWithMedia {
   const _$_EmbedRecordWithMedia(
       {@JsonKey(name: '\$type') this.type = 'app.bsky.embed.recordWithMedia',
       required this.record,
-      @EmbedMediaConverter() required this.media});
+      @embedMediaConverter required this.media});
 
   factory _$_EmbedRecordWithMedia.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedRecordWithMediaFromJson(json);
@@ -178,7 +178,7 @@ class _$_EmbedRecordWithMedia implements _EmbedRecordWithMedia {
 
   /// An [EmbedMedia] object that represents the media to be embedded.
   @override
-  @EmbedMediaConverter()
+  @embedMediaConverter
   final EmbedMedia media;
 
   @override
@@ -219,7 +219,7 @@ abstract class _EmbedRecordWithMedia implements EmbedRecordWithMedia {
   const factory _EmbedRecordWithMedia(
           {@JsonKey(name: '\$type') final String type,
           required final EmbedRecord record,
-          @EmbedMediaConverter() required final EmbedMedia media}) =
+          @embedMediaConverter required final EmbedMedia media}) =
       _$_EmbedRecordWithMedia;
 
   factory _EmbedRecordWithMedia.fromJson(Map<String, dynamic> json) =
@@ -238,7 +238,7 @@ abstract class _EmbedRecordWithMedia implements EmbedRecordWithMedia {
   @override
 
   /// An [EmbedMedia] object that represents the media to be embedded.
-  @EmbedMediaConverter()
+  @embedMediaConverter
   EmbedMedia get media;
   @override
   @JsonKey(ignore: true)

@@ -40,10 +40,10 @@ class PostThreadViewRecord with _$PostThreadViewRecord {
     required Post post,
 
     /// May contain the parent post thread view of the [post].
-    @PostThreadViewConverter() PostThreadView? parent,
+    @postThreadViewConverter PostThreadView? parent,
 
     /// May contain a list of post thread views that are replies to the [post].
-    @PostThreadViewConverter() List<PostThreadView>? replies,
+    @postThreadViewConverter List<PostThreadView>? replies,
   }) = _PostThreadViewRecord;
 
   /// Creates a new instance of [PostThreadViewRecord] from a map of

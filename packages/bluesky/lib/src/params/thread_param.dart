@@ -20,7 +20,7 @@ class ThreadParam with _$ThreadParam {
   const factory ThreadParam({
     required String text,
     List<Facet>? facets,
-    @EmbedConverter() Embed? embed,
+    @embedConverter Embed? embed,
     List<String>? languageTags,
     DateTime? createdAt,
   }) = _ThreadParam;

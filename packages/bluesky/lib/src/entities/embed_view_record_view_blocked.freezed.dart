@@ -27,7 +27,7 @@ mixin _$EmbedViewRecordViewBlocked {
 
   /// An `AtUri` instance that contains the unique resource identifier (URI)
   /// of the blocked record.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,8 +43,7 @@ abstract class $EmbedViewRecordViewBlockedCopyWith<$Res> {
       _$EmbedViewRecordViewBlockedCopyWithImpl<$Res,
           EmbedViewRecordViewBlocked>;
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String type, @AtUriConverter() AtUri uri});
+  $Res call({@JsonKey(name: '\$type') String type, @atUriConverter AtUri uri});
 }
 
 /// @nodoc
@@ -86,8 +85,7 @@ abstract class _$$_EmbedViewRecordViewBlockedCopyWith<$Res>
       __$$_EmbedViewRecordViewBlockedCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String type, @AtUriConverter() AtUri uri});
+  $Res call({@JsonKey(name: '\$type') String type, @atUriConverter AtUri uri});
 }
 
 /// @nodoc
@@ -124,7 +122,7 @@ class __$$_EmbedViewRecordViewBlockedCopyWithImpl<$Res>
 class _$_EmbedViewRecordViewBlocked implements _EmbedViewRecordViewBlocked {
   const _$_EmbedViewRecordViewBlocked(
       {@JsonKey(name: '\$type') required this.type,
-      @AtUriConverter() required this.uri});
+      @atUriConverter required this.uri});
 
   factory _$_EmbedViewRecordViewBlocked.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedViewRecordViewBlockedFromJson(json);
@@ -137,7 +135,7 @@ class _$_EmbedViewRecordViewBlocked implements _EmbedViewRecordViewBlocked {
   /// An `AtUri` instance that contains the unique resource identifier (URI)
   /// of the blocked record.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
 
   @override
@@ -177,7 +175,7 @@ abstract class _EmbedViewRecordViewBlocked
     implements EmbedViewRecordViewBlocked {
   const factory _EmbedViewRecordViewBlocked(
           {@JsonKey(name: '\$type') required final String type,
-          @AtUriConverter() required final AtUri uri}) =
+          @atUriConverter required final AtUri uri}) =
       _$_EmbedViewRecordViewBlocked;
 
   factory _EmbedViewRecordViewBlocked.fromJson(Map<String, dynamic> json) =
@@ -192,7 +190,7 @@ abstract class _EmbedViewRecordViewBlocked
 
   /// An `AtUri` instance that contains the unique resource identifier (URI)
   /// of the blocked record.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri;
   @override
   @JsonKey(ignore: true)

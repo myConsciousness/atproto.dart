@@ -23,7 +23,7 @@ class RepoOp with _$RepoOp {
     required RepoAction action,
 
     /// The URI of the repository on which the action is to be performed.
-    @AtUriConverter() required AtUri uri,
+    @atUriConverter required AtUri uri,
 
     /// The CID of the record. It's optional and can be null.
     String? cid,

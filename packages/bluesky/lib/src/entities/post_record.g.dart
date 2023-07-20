@@ -24,7 +24,7 @@ _$_PostRecord _$$_PostRecordFromJson(Map json) => $checkedCreate(
           embed: $checkedConvert(
               'embed',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, Embed>(
-                  v, const EmbedConverter().fromJson)),
+                  v, embedConverter.fromJson)),
           facets: $checkedConvert(
               'facets',
               (v) => (v as List<dynamic>?)
@@ -55,7 +55,7 @@ Map<String, dynamic> _$$_PostRecordToJson(_$_PostRecord instance) {
   writeNotNull(
       'embed',
       _$JsonConverterToJson<Map<String, dynamic>, Embed>(
-          instance.embed, const EmbedConverter().toJson));
+          instance.embed, embedConverter.toJson));
   writeNotNull('facets', instance.facets?.map((e) => e.toJson()).toList());
   val['createdAt'] = instance.createdAt.toIso8601String();
   return val;

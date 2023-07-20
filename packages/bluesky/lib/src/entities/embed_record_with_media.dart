@@ -44,7 +44,7 @@ class EmbedRecordWithMedia with _$EmbedRecordWithMedia {
     required EmbedRecord record,
 
     /// An [EmbedMedia] object that represents the media to be embedded.
-    @EmbedMediaConverter() required EmbedMedia media,
+    @embedMediaConverter required EmbedMedia media,
   }) = _EmbedRecordWithMedia;
 
   /// Creates an instance of [EmbedRecordWithMedia] from a map of

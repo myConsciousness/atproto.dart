@@ -31,14 +31,14 @@ mixin _$Post {
   Actor get author => throw _privateConstructorUsedError;
 
   /// The URI of the post.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
 
   /// The unique identifier of the post.
   String get cid => throw _privateConstructorUsedError;
 
   /// The embeddable content associated with the post, if any.
-  @EmbedViewConverter()
+  @embedViewConverter
   EmbedView? get embed => throw _privateConstructorUsedError;
 
   /// The count of replies to the post.
@@ -73,9 +73,9 @@ abstract class $PostCopyWith<$Res> {
       {@JsonKey(name: '\$type') String type,
       PostRecord record,
       Actor author,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       String cid,
-      @EmbedViewConverter() EmbedView? embed,
+      @embedViewConverter EmbedView? embed,
       int replyCount,
       int repostCount,
       int likeCount,
@@ -214,9 +214,9 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       {@JsonKey(name: '\$type') String type,
       PostRecord record,
       Actor author,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       String cid,
-      @EmbedViewConverter() EmbedView? embed,
+      @embedViewConverter EmbedView? embed,
       int replyCount,
       int repostCount,
       int likeCount,
@@ -317,9 +317,9 @@ class _$_Post extends _Post {
       {@JsonKey(name: '\$type') this.type = 'app.bsky.feed.defs#postView',
       required this.record,
       required this.author,
-      @AtUriConverter() required this.uri,
+      @atUriConverter required this.uri,
       required this.cid,
-      @EmbedViewConverter() this.embed,
+      @embedViewConverter this.embed,
       required this.replyCount,
       required this.repostCount,
       required this.likeCount,
@@ -346,7 +346,7 @@ class _$_Post extends _Post {
 
   /// The URI of the post.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
 
   /// The unique identifier of the post.
@@ -355,7 +355,7 @@ class _$_Post extends _Post {
 
   /// The embeddable content associated with the post, if any.
   @override
-  @EmbedViewConverter()
+  @embedViewConverter
   final EmbedView? embed;
 
   /// The count of replies to the post.
@@ -455,9 +455,9 @@ abstract class _Post extends Post {
       {@JsonKey(name: '\$type') final String type,
       required final PostRecord record,
       required final Actor author,
-      @AtUriConverter() required final AtUri uri,
+      @atUriConverter required final AtUri uri,
       required final String cid,
-      @EmbedViewConverter() final EmbedView? embed,
+      @embedViewConverter final EmbedView? embed,
       required final int replyCount,
       required final int repostCount,
       required final int likeCount,
@@ -484,7 +484,7 @@ abstract class _Post extends Post {
   @override
 
   /// The URI of the post.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri;
   @override
 
@@ -493,7 +493,7 @@ abstract class _Post extends Post {
   @override
 
   /// The embeddable content associated with the post, if any.
-  @EmbedViewConverter()
+  @embedViewConverter
   EmbedView? get embed;
   @override
 

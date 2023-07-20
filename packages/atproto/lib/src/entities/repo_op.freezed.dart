@@ -24,7 +24,7 @@ mixin _$RepoOp {
   RepoAction get action => throw _privateConstructorUsedError;
 
   /// The URI of the repository on which the action is to be performed.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
 
   /// The CID of the record. It's optional and can be null.
@@ -46,7 +46,7 @@ abstract class $RepoOpCopyWith<$Res> {
   @useResult
   $Res call(
       {RepoAction action,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       String? cid,
       Map<String, dynamic>? record});
 }
@@ -98,7 +98,7 @@ abstract class _$$_RepoOpCopyWith<$Res> implements $RepoOpCopyWith<$Res> {
   @useResult
   $Res call(
       {RepoAction action,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       String? cid,
       Map<String, dynamic>? record});
 }
@@ -144,7 +144,7 @@ class __$$_RepoOpCopyWithImpl<$Res>
 class _$_RepoOp implements _RepoOp {
   const _$_RepoOp(
       {required this.action,
-      @AtUriConverter() required this.uri,
+      @atUriConverter required this.uri,
       this.cid,
       final Map<String, dynamic>? record})
       : _record = record;
@@ -158,7 +158,7 @@ class _$_RepoOp implements _RepoOp {
 
   /// The URI of the repository on which the action is to be performed.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
 
   /// The CID of the record. It's optional and can be null.
@@ -218,7 +218,7 @@ class _$_RepoOp implements _RepoOp {
 abstract class _RepoOp implements RepoOp {
   const factory _RepoOp(
       {required final RepoAction action,
-      @AtUriConverter() required final AtUri uri,
+      @atUriConverter required final AtUri uri,
       final String? cid,
       final Map<String, dynamic>? record}) = _$_RepoOp;
 
@@ -231,7 +231,7 @@ abstract class _RepoOp implements RepoOp {
   @override
 
   /// The URI of the repository on which the action is to be performed.
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri;
   @override
 

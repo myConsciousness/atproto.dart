@@ -10,9 +10,11 @@ import '../embed_images.dart';
 import '../embed_record.dart';
 import '../embed_record_with_media.dart';
 
-class EmbedConverter implements JsonConverter<Embed, Map<String, dynamic>> {
-  /// Returns the new instance of [EmbedConverter].
-  const EmbedConverter();
+const embedConverter = _EmbedConverter();
+
+class _EmbedConverter implements JsonConverter<Embed, Map<String, dynamic>> {
+  /// Returns the new instance of [_EmbedConverter].
+  const _EmbedConverter();
 
   @override
   Embed fromJson(Map<String, dynamic> json) {

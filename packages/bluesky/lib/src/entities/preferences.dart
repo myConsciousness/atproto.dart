@@ -22,7 +22,7 @@ class Preferences with _$Preferences {
   /// Takes a required list of [Preference] instances.
   const factory Preferences({
     /// The list of user [Preference] instances.
-    @PreferenceConverter() required List<Preference> preferences,
+    @preferenceConverter required List<Preference> preferences,
   }) = _Preferences;
 
   /// Creates a new instance of [Preferences] from a map of [json] data.

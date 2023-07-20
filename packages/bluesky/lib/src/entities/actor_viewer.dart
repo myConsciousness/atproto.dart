@@ -46,13 +46,13 @@ class ActorViewer with _$ActorViewer {
     ListViewBasic? mutedByList,
 
     /// The URI of the actor that the user is blocking.
-    @AtUriConverter() AtUri? blocking,
+    @atUriConverter AtUri? blocking,
 
     /// The URI of the actor that the user is following.
-    @AtUriConverter() AtUri? following,
+    @atUriConverter AtUri? following,
 
     /// The URI of the actor that is following the user.
-    @AtUriConverter() AtUri? followedBy,
+    @atUriConverter AtUri? followedBy,
   }) = _ActorViewer;
 
   /// Creates an instance of [ActorViewer] from a map of [String, Object?].

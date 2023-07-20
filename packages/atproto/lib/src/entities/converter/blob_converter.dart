@@ -7,8 +7,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../adaptor/blob_adaptor.dart';
 import '../blob.dart';
 
-class BlobConverter implements JsonConverter<Blob, Map<String, dynamic>> {
-  const BlobConverter();
+const blobConverter = _BlobConverter();
+
+class _BlobConverter implements JsonConverter<Blob, Map<String, dynamic>> {
+  const _BlobConverter();
 
   static const adaptor = BlobAdaptor();
 

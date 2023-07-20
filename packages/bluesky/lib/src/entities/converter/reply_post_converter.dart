@@ -9,9 +9,11 @@ import '../not_found_post.dart';
 import '../post.dart';
 import '../reply_post.dart';
 
-class ReplyPostConverter
+const replyPostConverter = _ReplyPostConverter();
+
+class _ReplyPostConverter
     implements JsonConverter<ReplyPost, Map<String, dynamic>> {
-  const ReplyPostConverter();
+  const _ReplyPostConverter();
 
   @override
   ReplyPost fromJson(Map<String, dynamic> json) {

@@ -28,7 +28,7 @@ class EmbedViewRecord with _$EmbedViewRecord {
     @JsonKey(name: '\$type') String? type,
 
     /// Represents the view of the record.
-    @EmbedViewRecordViewConverter() required EmbedViewRecordView record,
+    @embedViewRecordViewConverter required EmbedViewRecordView record,
   }) = _EmbedViewRecord;
 
   /// Creates an instance of [EmbedViewRecord] from a map [json].

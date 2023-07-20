@@ -29,10 +29,10 @@ class PostViewer with _$PostViewer {
   @JsonSerializable(includeIfNull: false)
   const factory PostViewer({
     /// May contain the URI of the repost by the authenticated user.
-    @AtUriConverter() AtUri? repost,
+    @atUriConverter AtUri? repost,
 
     /// May contain the URI of the like by the authenticated user.
-    @AtUriConverter() AtUri? like,
+    @atUriConverter AtUri? like,
   }) = _PostViewer;
 
   /// Creates a new instance of [PostViewer] from a map of [json] data.

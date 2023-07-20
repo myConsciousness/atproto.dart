@@ -26,7 +26,7 @@ class PostThread with _$PostThread {
   /// The [thread] parameter represents the entire post thread.
   const factory PostThread({
     /// Represents the entire post thread.
-    @PostThreadViewConverter() required PostThreadView thread,
+    @postThreadViewConverter required PostThreadView thread,
   }) = _PostThread;
 
   /// Creates a new instance of [PostThread] from a map of [json] data.

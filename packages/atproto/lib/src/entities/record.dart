@@ -28,7 +28,7 @@ class Record with _$Record {
   /// is optional.
   const factory Record({
     /// The uri of the record.
-    @AtUriConverter() required AtUri uri,
+    @atUriConverter required AtUri uri,
 
     /// The CID (Content Identifier) associated with the record.
     String? cid,

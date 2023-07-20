@@ -11,10 +11,12 @@ import '../embed_view_record_view_record.dart';
 import '../feed_generator_view.dart';
 import '../list_view.dart';
 
-class EmbedViewRecordViewConverter
+const embedViewRecordViewConverter = _EmbedViewRecordViewConverter();
+
+class _EmbedViewRecordViewConverter
     implements JsonConverter<EmbedViewRecordView, Map<String, dynamic>> {
-  /// Returns the new instance of [EmbedViewRecordViewConverter].
-  const EmbedViewRecordViewConverter();
+  /// Returns the new instance of [_EmbedViewRecordViewConverter].
+  const _EmbedViewRecordViewConverter();
 
   @override
   EmbedViewRecordView fromJson(Map<String, dynamic> json) {

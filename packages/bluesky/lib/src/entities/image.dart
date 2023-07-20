@@ -25,7 +25,7 @@ class Image with _$Image {
     required String alt,
 
     /// The actual image data represented as a Blob.
-    @BlobConverter() required Blob image,
+    @blobConverter required Blob image,
   }) = _Image;
 
   /// Creates an instance of [Image] from a map [json].

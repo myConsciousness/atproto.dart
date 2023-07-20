@@ -5,8 +5,10 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-class NsidConverter implements JsonConverter<core.NSID, String> {
-  const NsidConverter();
+const nsidConverter = _NsidConverter();
+
+class _NsidConverter implements JsonConverter<core.NSID, String> {
+  const _NsidConverter();
 
   @override
   core.NSID fromJson(String json) => core.NSID.parse(json);

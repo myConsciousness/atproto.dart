@@ -21,7 +21,7 @@ StrongRefParam _$StrongRefParamFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$StrongRefParam {
   String get cid => throw _privateConstructorUsedError;
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
 
@@ -37,7 +37,7 @@ abstract class $StrongRefParamCopyWith<$Res> {
           StrongRefParam value, $Res Function(StrongRefParam) then) =
       _$StrongRefParamCopyWithImpl<$Res, StrongRefParam>;
   @useResult
-  $Res call({String cid, @AtUriConverter() AtUri uri, DateTime? createdAt});
+  $Res call({String cid, @atUriConverter AtUri uri, DateTime? createdAt});
 }
 
 /// @nodoc
@@ -82,7 +82,7 @@ abstract class _$$_StrongRefParamCopyWith<$Res>
       __$$_StrongRefParamCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String cid, @AtUriConverter() AtUri uri, DateTime? createdAt});
+  $Res call({String cid, @atUriConverter AtUri uri, DateTime? createdAt});
 }
 
 /// @nodoc
@@ -122,7 +122,7 @@ class __$$_StrongRefParamCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_StrongRefParam implements _StrongRefParam {
   const _$_StrongRefParam(
-      {required this.cid, @AtUriConverter() required this.uri, this.createdAt});
+      {required this.cid, @atUriConverter required this.uri, this.createdAt});
 
   factory _$_StrongRefParam.fromJson(Map<String, dynamic> json) =>
       _$$_StrongRefParamFromJson(json);
@@ -130,7 +130,7 @@ class _$_StrongRefParam implements _StrongRefParam {
   @override
   final String cid;
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
   @override
   final DateTime? createdAt;
@@ -172,7 +172,7 @@ class _$_StrongRefParam implements _StrongRefParam {
 abstract class _StrongRefParam implements StrongRefParam {
   const factory _StrongRefParam(
       {required final String cid,
-      @AtUriConverter() required final AtUri uri,
+      @atUriConverter required final AtUri uri,
       final DateTime? createdAt}) = _$_StrongRefParam;
 
   factory _StrongRefParam.fromJson(Map<String, dynamic> json) =
@@ -181,7 +181,7 @@ abstract class _StrongRefParam implements StrongRefParam {
   @override
   String get cid;
   @override
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri;
   @override
   DateTime? get createdAt;

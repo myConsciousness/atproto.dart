@@ -27,7 +27,7 @@ mixin _$FeedView {
   Reply? get reply => throw _privateConstructorUsedError;
 
   /// A reason for the post. This is optional.
-  @ReasonConverter()
+  @reasonConverter
   Reason? get reason => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,7 +41,7 @@ abstract class $FeedViewCopyWith<$Res> {
   factory $FeedViewCopyWith(FeedView value, $Res Function(FeedView) then) =
       _$FeedViewCopyWithImpl<$Res, FeedView>;
   @useResult
-  $Res call({Post post, Reply? reply, @ReasonConverter() Reason? reason});
+  $Res call({Post post, Reply? reply, @reasonConverter Reason? reason});
 
   $PostCopyWith<$Res> get post;
   $ReplyCopyWith<$Res>? get reply;
@@ -121,7 +121,7 @@ abstract class _$$_FeedViewCopyWith<$Res> implements $FeedViewCopyWith<$Res> {
       __$$_FeedViewCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Post post, Reply? reply, @ReasonConverter() Reason? reason});
+  $Res call({Post post, Reply? reply, @reasonConverter Reason? reason});
 
   @override
   $PostCopyWith<$Res> get post;
@@ -168,7 +168,7 @@ class __$$_FeedViewCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_FeedView implements _FeedView {
   const _$_FeedView(
-      {required this.post, this.reply, @ReasonConverter() this.reason});
+      {required this.post, this.reply, @reasonConverter this.reason});
 
   factory _$_FeedView.fromJson(Map<String, dynamic> json) =>
       _$$_FeedViewFromJson(json);
@@ -183,7 +183,7 @@ class _$_FeedView implements _FeedView {
 
   /// A reason for the post. This is optional.
   @override
-  @ReasonConverter()
+  @reasonConverter
   final Reason? reason;
 
   @override
@@ -223,7 +223,7 @@ abstract class _FeedView implements FeedView {
   const factory _FeedView(
       {required final Post post,
       final Reply? reply,
-      @ReasonConverter() final Reason? reason}) = _$_FeedView;
+      @reasonConverter final Reason? reason}) = _$_FeedView;
 
   factory _FeedView.fromJson(Map<String, dynamic> json) = _$_FeedView.fromJson;
 
@@ -238,7 +238,7 @@ abstract class _FeedView implements FeedView {
   @override
 
   /// A reason for the post. This is optional.
-  @ReasonConverter()
+  @reasonConverter
   Reason? get reason;
   @override
   @JsonKey(ignore: true)
