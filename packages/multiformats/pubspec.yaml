@@ -10,6 +10,12 @@ funding:
 environment:
   sdk: ">=2.17.0 <4.0.0"
 
+topics:
+  - ipfs
+  - atproto
+  - bluesky
+  - cid
+
 dependencies:
   base_codecs: ^1.0.1
   crypto: ^3.0.3

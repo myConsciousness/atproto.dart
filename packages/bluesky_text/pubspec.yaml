@@ -10,6 +10,11 @@ funding:
 environment:
   sdk: ">=2.17.0 <4.0.0"
 
+topics:
+  - atproto
+  - bluesky
+  - util
+
 dependencies:
   xrpc: ^0.2.1
   characters: ^1.3.0

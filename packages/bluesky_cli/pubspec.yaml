@@ -13,6 +13,12 @@ environment:
 executables:
   bsky:
 
+topics:
+  - atproto
+  - bluesky
+  - api
+  - cli
+
 dependencies:
   xrpc: ^0.2.1
   at_uri: ^0.1.1

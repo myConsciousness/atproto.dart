@@ -10,6 +10,12 @@ funding:
 environment:
   sdk: ">=2.17.0 <4.0.0"
 
+topics:
+  - atproto
+  - bluesky
+  - uri
+  - util
+
 dependencies:
   at_identifier: ^0.1.1
   nsid: ^0.1.1
