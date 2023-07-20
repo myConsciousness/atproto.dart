@@ -231,6 +231,7 @@ export 'package:bluesky/src/entities/skeleton_reason.dart';
 export 'package:bluesky/src/entities/skeleton_reason_repost.dart';
 export 'package:bluesky/src/extension/at_uri_extension.dart';
 export 'package:bluesky/src/extension/blob_extension.dart';
+export 'package:bluesky/src/extension/strong_ref_extension.dart';
 export 'package:bluesky/src/feeds/feeds_service.dart';
 export 'package:bluesky/src/graphs/graphs_service.dart';
 export 'package:bluesky/src/notifications/notifications_service.dart';
