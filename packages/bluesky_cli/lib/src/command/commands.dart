@@ -2,6 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🌎 Project imports:
 import 'actor/actors_typeahead.dart';
 import 'actor/preferences.dart';
 import 'actor/profile.dart';

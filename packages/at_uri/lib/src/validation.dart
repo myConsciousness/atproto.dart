@@ -2,9 +2,11 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:at_identifier/at_identifier.dart' as id;
 import 'package:nsid/nsid.dart' as nsid;
 
+// 🌎 Project imports:
 import 'invalid_at_uri_error.dart';
 
 void ensureValidAtUri(String uri) {

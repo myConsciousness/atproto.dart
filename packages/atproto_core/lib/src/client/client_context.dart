@@ -6,9 +6,10 @@
 import 'dart:async';
 import 'dart:typed_data';
 
-// 🌎 Project imports:
+// 📦 Package imports:
 import 'package:xrpc/xrpc.dart' as xrpc;
 
+// 🌎 Project imports:
 import '../config/retry_config.dart';
 import 'challenge.dart';
 import 'client_resolver.dart';

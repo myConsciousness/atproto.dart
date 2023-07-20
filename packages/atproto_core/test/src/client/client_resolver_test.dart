@@ -2,11 +2,14 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
+import 'package:test/test.dart';
+
+// 🌎 Project imports:
 import 'package:atproto_core/src/client/anonymous_client.dart';
 import 'package:atproto_core/src/client/auth_required_client.dart';
 import 'package:atproto_core/src/client/client_resolver.dart';
 import 'package:atproto_core/src/client/user_context.dart';
-import 'package:test/test.dart';
 
 void main() {
   group('.execute', () {

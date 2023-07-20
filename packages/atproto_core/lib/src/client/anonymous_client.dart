@@ -2,10 +2,13 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
 import 'dart:typed_data';
 
+// 📦 Package imports:
 import 'package:xrpc/xrpc.dart' as xrpc;
 
+// 🌎 Project imports:
 import 'client.dart';
 
 class AnonymousClient implements Client {

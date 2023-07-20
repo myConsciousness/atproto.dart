@@ -2,6 +2,12 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart' as core;
+import 'package:atproto_test/atproto_test.dart' as atp_test;
+import 'package:test/test.dart';
+
+// 🌎 Project imports:
 import 'package:atproto/src/entities/repo_blocks.dart';
 import 'package:atproto/src/entities/repo_commit.dart';
 import 'package:atproto/src/entities/repo_commit_paths.dart';
@@ -9,10 +15,6 @@ import 'package:atproto/src/entities/repo_commits.dart';
 import 'package:atproto/src/entities/repo_head.dart';
 import 'package:atproto/src/entities/repos.dart';
 import 'package:atproto/src/sync/sync_service.dart';
-import 'package:atproto_core/atproto_core.dart' as core;
-import 'package:atproto_test/atproto_test.dart' as atp_test;
-import 'package:test/test.dart';
-
 import 'data/find_record.dart';
 import 'data/find_repo_blocks.dart';
 import 'data/find_repo_checkout.dart';

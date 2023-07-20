@@ -2,12 +2,15 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
 import 'dart:convert';
 import 'dart:io';
 
+// 📦 Package imports:
 import 'package:bluesky_text/bluesky_text.dart';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
+// 🌎 Project imports:
 import '../create_record_command.dart';
 
 /// `app.bsky.feed.generator`

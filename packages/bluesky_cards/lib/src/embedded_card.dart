@@ -2,9 +2,13 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:bluesky/bluesky.dart' as bsky;
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
 
+// 📦 Package imports:
+import 'package:bluesky/bluesky.dart' as bsky;
+
+// 🌎 Project imports:
 import 'author.dart';
 import 'avatar_image.dart';
 import 'bluesky_brand.dart';

@@ -2,11 +2,14 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:atproto/src/entities/did.dart';
-import 'package:atproto/src/identities/identities_service.dart';
+// 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
+
+// 🌎 Project imports:
+import 'package:atproto/src/entities/did.dart';
+import 'package:atproto/src/identities/identities_service.dart';
 
 void main() {
   group('.findDID', () {

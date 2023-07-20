@@ -5,6 +5,7 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import 'blocked_post.dart';
 import 'not_found_post.dart';
 import 'post.dart';

@@ -7,6 +7,7 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import 'byte_slice.dart';
 import 'converter/facet_feature_converter.dart';
 import 'facet_feature.dart';

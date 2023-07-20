@@ -2,10 +2,13 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🌎 Project imports:
+// 📦 Package imports:
 import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_test/atproto_test.dart' as atp_test;
+import 'package:test/test.dart';
+
+// 🌎 Project imports:
 import 'package:bluesky/src/entities/actor_feeds.dart';
 import 'package:bluesky/src/entities/feed.dart';
 import 'package:bluesky/src/entities/feed_generator.dart';
@@ -21,8 +24,6 @@ import 'package:bluesky/src/params/generator_param.dart';
 import 'package:bluesky/src/params/post_param.dart';
 import 'package:bluesky/src/params/strong_ref_param.dart';
 import 'package:bluesky/src/params/thread_param.dart';
-// 📦 Package imports:
-import 'package:test/test.dart';
 
 void main() {
   group('.findTimeline', () {

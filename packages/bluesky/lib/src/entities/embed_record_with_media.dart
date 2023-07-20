@@ -7,6 +7,7 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import 'converter/embed_media_converter.dart';
 import 'embed_media.dart';
 import 'embed_record.dart';

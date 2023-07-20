@@ -30,7 +30,6 @@ linter:
     - comment_references
     - constant_identifier_names
     - control_flow_in_finally
-    - directives_ordering
     - empty_statements
     - hash_and_equals
     - implementation_imports

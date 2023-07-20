@@ -2,14 +2,17 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
 import 'dart:async';
 import 'dart:io';
 
+// 📦 Package imports:
 import 'package:args/args.dart';
 import 'package:args/command_runner.dart';
 import 'package:cli_launcher/cli_launcher.dart';
 import 'package:cli_util/cli_logging.dart';
 
+// 🌎 Project imports:
 import './version.g.dart';
 import 'command/commands.dart';
 import 'logger.dart';

@@ -2,12 +2,15 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
 import 'dart:convert';
 import 'dart:typed_data';
 
+// 📦 Package imports:
 import 'package:crypto/crypto.dart';
 import 'package:dart_multihash/dart_multihash.dart';
 
+// 🌎 Project imports:
 import 'base32.dart' as base32;
 
 /// Represents multicodecs types.
