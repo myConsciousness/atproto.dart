@@ -95,6 +95,8 @@ abstract class UnspeccedService {
   ///
   /// - [cursor]: Cursor string returned from the last search.
   ///
+  /// - [query]: Search words.
+  ///
   /// ## Lexicon
   ///
   /// - app.bsky.unspecced.getPopularFeedGenerators
@@ -105,6 +107,7 @@ abstract class UnspeccedService {
   Future<core.XRPCResponse<FeedGenerators>> findPopularFeedGenerators({
     int? limit,
     String? cursor,
+    String? query,
   });
 
   /// An unspecced view of globally popular feed generators in JSON
@@ -123,6 +126,8 @@ abstract class UnspeccedService {
   ///
   /// - [cursor]: Cursor string returned from the last search.
   ///
+  /// - [query]: Search words.
+  ///
   /// ## Lexicon
   ///
   /// - app.bsky.unspecced.getPopularFeedGenerators
@@ -134,6 +139,7 @@ abstract class UnspeccedService {
       findPopularFeedGeneratorsAsJson({
     int? limit,
     String? cursor,
+    String? query,
   });
 }
 
@@ -177,10 +183,12 @@ class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
   Future<core.XRPCResponse<FeedGenerators>> findPopularFeedGenerators({
     int? limit,
     String? cursor,
+    String? query,
   }) async =>
       await _findPopularFeedGenerators(
         limit: limit,
         cursor: cursor,
+        query: query,
         to: FeedGenerators.fromJson,
       );
 
@@ -189,10 +197,12 @@ class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
       findPopularFeedGeneratorsAsJson({
     int? limit,
     String? cursor,
+    String? query,
   }) async =>
           await _findPopularFeedGenerators(
             limit: limit,
             cursor: cursor,
+            query: query,
           );
 
   Future<core.XRPCResponse<T>> _findPopularFeed<T>({
@@ -214,6 +224,7 @@ class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
   Future<core.XRPCResponse<T>> _findPopularFeedGenerators<T>({
     required int? limit,
     required String? cursor,
+    required String? query,
     core.To<T>? to,
   }) async =>
       await super.get(
@@ -221,6 +232,7 @@ class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
         parameters: {
           'limit': limit,
           'cursor': cursor,
+          'query': query,
         },
         to: to,
       );

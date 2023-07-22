@@ -123,7 +123,9 @@ void main() {
         ),
       );
 
-      final response = await unspecced.findPopularFeedGenerators();
+      final response = await unspecced.findPopularFeedGenerators(
+        query: 'flower',
+      );
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<FeedGenerators>());
