@@ -825,6 +825,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     Embed? embed,
     List<String>? languageTags,
     DateTime? createdAt,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       await atproto.repositories.createRecord(
         collection: createNSID('post'),
@@ -835,6 +836,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'embed': embed?.toJson(),
           'langs': languageTags,
           'createdAt': toUtcIso8601String(createdAt),
+          ...unknown,
         },
       );
 

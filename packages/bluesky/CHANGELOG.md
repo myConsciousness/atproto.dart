@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.7.6
+
+- Added `query` parameters to `findPopularFeedGenerators` and `findPopularFeedGeneratorsAsJson` in `UnspeccedService`. ([#615](https://github.com/myConsciousness/atproto.dart/issues/615))
+
 ## v0.7.5
 
 - Added documentations to model objects. ([#595](https://github.com/myConsciousness/atproto.dart/issues/595))
