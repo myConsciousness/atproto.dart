@@ -21,7 +21,7 @@ Facet _$FacetFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Facet {
   /// Specifies the type of facet. Optional.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String? get type => throw _privateConstructorUsedError;
 
   /// Represents the byte slice index of the facet.
@@ -42,7 +42,7 @@ abstract class $FacetCopyWith<$Res> {
       _$FacetCopyWithImpl<$Res, Facet>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String? type,
+      {@JsonKey(name: objectType) String? type,
       ByteSlice index,
       @facetFeatureConverter List<FacetFeature> features});
 
@@ -98,7 +98,7 @@ abstract class _$$_FacetCopyWith<$Res> implements $FacetCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String? type,
+      {@JsonKey(name: objectType) String? type,
       ByteSlice index,
       @facetFeatureConverter List<FacetFeature> features});
 
@@ -141,7 +141,7 @@ class __$$_FacetCopyWithImpl<$Res> extends _$FacetCopyWithImpl<$Res, _$_Facet>
 @JsonSerializable(includeIfNull: false)
 class _$_Facet implements _Facet {
   const _$_Facet(
-      {@JsonKey(name: '\$type') this.type,
+      {@JsonKey(name: objectType) this.type,
       required this.index,
       @facetFeatureConverter required final List<FacetFeature> features})
       : _features = features;
@@ -151,7 +151,7 @@ class _$_Facet implements _Facet {
 
   /// Specifies the type of facet. Optional.
   @override
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   final String? type;
 
   /// Represents the byte slice index of the facet.
@@ -206,7 +206,7 @@ class _$_Facet implements _Facet {
 
 abstract class _Facet implements Facet {
   const factory _Facet(
-          {@JsonKey(name: '\$type') final String? type,
+          {@JsonKey(name: objectType) final String? type,
           required final ByteSlice index,
           @facetFeatureConverter required final List<FacetFeature> features}) =
       _$_Facet;
@@ -216,7 +216,7 @@ abstract class _Facet implements Facet {
   @override
 
   /// Specifies the type of facet. Optional.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String? get type;
   @override
 

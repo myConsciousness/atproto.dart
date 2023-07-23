@@ -27,7 +27,7 @@ class ListItemRecord with _$ListItemRecord {
   @JsonSerializable(includeIfNull: false)
   const factory ListItemRecord({
     /// The type of the item. Default is [appBskyGraphListitem].
-    @Default(appBskyGraphListitem) @JsonKey(name: '\$type') String type,
+    @Default(appBskyGraphListitem) @JsonKey(name: objectType) String type,
 
     /// The URI of the list to which the item belongs.
     @atUriConverter required AtUri list,

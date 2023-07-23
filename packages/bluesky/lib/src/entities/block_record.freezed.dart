@@ -22,7 +22,7 @@ BlockRecord _$BlockRecordFromJson(Map<String, dynamic> json) {
 mixin _$BlockRecord {
   /// The type of the record.
   /// By default, it is `appBskyGraphBlock`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
   /// The Decentralized Identifier (DID) of the user who has been blocked.
@@ -45,7 +45,7 @@ abstract class $BlockRecordCopyWith<$Res> {
       _$BlockRecordCopyWithImpl<$Res, BlockRecord>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       @JsonKey(name: 'subject') String did,
       DateTime createdAt});
 }
@@ -93,7 +93,7 @@ abstract class _$$_BlockRecordCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       @JsonKey(name: 'subject') String did,
       DateTime createdAt});
 }
@@ -135,7 +135,7 @@ class __$$_BlockRecordCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_BlockRecord implements _BlockRecord {
   const _$_BlockRecord(
-      {@JsonKey(name: '\$type') this.type = appBskyGraphBlock,
+      {@JsonKey(name: objectType) this.type = appBskyGraphBlock,
       @JsonKey(name: 'subject') required this.did,
       required this.createdAt});
 
@@ -145,7 +145,7 @@ class _$_BlockRecord implements _BlockRecord {
   /// The type of the record.
   /// By default, it is `appBskyGraphBlock`.
   @override
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   final String type;
 
   /// The Decentralized Identifier (DID) of the user who has been blocked.
@@ -193,7 +193,7 @@ class _$_BlockRecord implements _BlockRecord {
 
 abstract class _BlockRecord implements BlockRecord {
   const factory _BlockRecord(
-      {@JsonKey(name: '\$type') final String type,
+      {@JsonKey(name: objectType) final String type,
       @JsonKey(name: 'subject') required final String did,
       required final DateTime createdAt}) = _$_BlockRecord;
 
@@ -204,7 +204,7 @@ abstract class _BlockRecord implements BlockRecord {
 
   /// The type of the record.
   /// By default, it is `appBskyGraphBlock`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type;
   @override
 

@@ -11,6 +11,7 @@ import '../embed_view_external.dart';
 import '../embed_view_images.dart';
 import '../embed_view_record.dart';
 import '../embed_view_record_with_media.dart';
+import '../ids/ids.g.dart' as ids;
 
 const embedViewConverter = _EmbedViewConverter();
 
@@ -21,7 +22,7 @@ class _EmbedViewConverter
 
   @override
   EmbedView fromJson(Map<String, dynamic> json) {
-    final type = json['\$type'];
+    final type = json[ids.objectType];
 
     if (type == 'app.bsky.embed.record#view') {
       return EmbedView.record(

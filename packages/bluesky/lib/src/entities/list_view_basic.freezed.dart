@@ -22,7 +22,7 @@ ListViewBasic _$ListViewBasicFromJson(Map<String, dynamic> json) {
 mixin _$ListViewBasic {
   /// The type of the list, by default it is
   /// `app.bsky.graph.defs#listViewBasic`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
   /// The purpose of the list, by default it is `app.bsky.graph.defs#modlist`.
@@ -60,7 +60,7 @@ abstract class $ListViewBasicCopyWith<$Res> {
       _$ListViewBasicCopyWithImpl<$Res, ListViewBasic>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       String purpose,
       @atUriConverter AtUri uri,
       String cid,
@@ -148,7 +148,7 @@ abstract class _$$_ListViewBasicCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       String purpose,
       @atUriConverter AtUri uri,
       String cid,
@@ -223,7 +223,8 @@ class __$$_ListViewBasicCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_ListViewBasic extends _ListViewBasic {
   const _$_ListViewBasic(
-      {@JsonKey(name: '\$type') this.type = 'app.bsky.graph.defs#listViewBasic',
+      {@JsonKey(name: objectType)
+      this.type = 'app.bsky.graph.defs#listViewBasic',
       this.purpose = 'app.bsky.graph.defs#modlist',
       @atUriConverter required this.uri,
       required this.cid,
@@ -239,7 +240,7 @@ class _$_ListViewBasic extends _ListViewBasic {
   /// The type of the list, by default it is
   /// `app.bsky.graph.defs#listViewBasic`.
   @override
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   final String type;
 
   /// The purpose of the list, by default it is `app.bsky.graph.defs#modlist`.
@@ -314,7 +315,7 @@ class _$_ListViewBasic extends _ListViewBasic {
 
 abstract class _ListViewBasic extends ListViewBasic {
   const factory _ListViewBasic(
-      {@JsonKey(name: '\$type') final String type,
+      {@JsonKey(name: objectType) final String type,
       final String purpose,
       @atUriConverter required final AtUri uri,
       required final String cid,
@@ -331,7 +332,7 @@ abstract class _ListViewBasic extends ListViewBasic {
 
   /// The type of the list, by default it is
   /// `app.bsky.graph.defs#listViewBasic`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type;
   @override
 

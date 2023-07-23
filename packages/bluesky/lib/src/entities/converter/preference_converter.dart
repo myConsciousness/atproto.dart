@@ -8,6 +8,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../adult_content_preference.dart';
 import '../content_label_preference.dart';
+import '../ids/ids.g.dart' as ids;
 import '../preference.dart';
 import '../saved_feeds_preference.dart';
 
@@ -19,7 +20,7 @@ class _PreferenceConverter
 
   @override
   Preference fromJson(Map<String, dynamic> json) {
-    final type = json['\$type'];
+    final type = json[ids.objectType];
 
     if (type == 'app.bsky.actor.defs#adultContentPref') {
       return Preference.adultContent(

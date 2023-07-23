@@ -8,6 +8,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'ids/ids.g.dart';
+
 part 'not_found_post.freezed.dart';
 part 'not_found_post.g.dart';
 
@@ -28,7 +31,7 @@ class NotFoundPost with _$NotFoundPost {
     /// The type of this [NotFoundPost]. Defaults to
     /// `app.bsky.feed.defs#notFoundPost`.
     @Default('app.bsky.feed.defs#notFoundPost')
-    @JsonKey(name: '\$type')
+    @JsonKey(name: objectType)
     String type,
 
     /// The unique identifier of the post.

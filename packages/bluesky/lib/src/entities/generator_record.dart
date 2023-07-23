@@ -29,7 +29,7 @@ class GeneratorRecord with _$GeneratorRecord {
   @JsonSerializable(includeIfNull: false)
   const factory GeneratorRecord({
     /// The type of the generator. Defaults to [appBskyFeedGenerator].
-    @Default(appBskyFeedGenerator) @JsonKey(name: '\$type') String type,
+    @Default(appBskyFeedGenerator) @JsonKey(name: objectType) String type,
 
     /// The unique ID of the generator.
     required String did,

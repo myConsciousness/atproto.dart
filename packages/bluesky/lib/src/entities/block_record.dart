@@ -35,7 +35,7 @@ class BlockRecord with _$BlockRecord {
   const factory BlockRecord({
     /// The type of the record.
     /// By default, it is `appBskyGraphBlock`.
-    @Default(appBskyGraphBlock) @JsonKey(name: '\$type') String type,
+    @Default(appBskyGraphBlock) @JsonKey(name: objectType) String type,
 
     /// The Decentralized Identifier (DID) of the user who has been blocked.
     @JsonKey(name: 'subject') required String did,

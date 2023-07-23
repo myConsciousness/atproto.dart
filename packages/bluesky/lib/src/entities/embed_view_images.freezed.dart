@@ -21,7 +21,7 @@ EmbedViewImages _$EmbedViewImagesFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$EmbedViewImages {
   /// An optional string that represents the type of the embedded images view.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String? get type => throw _privateConstructorUsedError;
 
   /// A list of `EmbedViewImagesView` instances.
@@ -40,7 +40,7 @@ abstract class $EmbedViewImagesCopyWith<$Res> {
       _$EmbedViewImagesCopyWithImpl<$Res, EmbedViewImages>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String? type,
+      {@JsonKey(name: objectType) String? type,
       List<EmbedViewImagesView> images});
 }
 
@@ -82,7 +82,7 @@ abstract class _$$_EmbedViewImagesCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String? type,
+      {@JsonKey(name: objectType) String? type,
       List<EmbedViewImagesView> images});
 }
 
@@ -117,7 +117,7 @@ class __$$_EmbedViewImagesCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedViewImages implements _EmbedViewImages {
   const _$_EmbedViewImages(
-      {@JsonKey(name: '\$type') this.type,
+      {@JsonKey(name: objectType) this.type,
       required final List<EmbedViewImagesView> images})
       : _images = images;
 
@@ -126,7 +126,7 @@ class _$_EmbedViewImages implements _EmbedViewImages {
 
   /// An optional string that represents the type of the embedded images view.
   @override
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   final String? type;
 
   /// A list of `EmbedViewImagesView` instances.
@@ -175,7 +175,7 @@ class _$_EmbedViewImages implements _EmbedViewImages {
 
 abstract class _EmbedViewImages implements EmbedViewImages {
   const factory _EmbedViewImages(
-      {@JsonKey(name: '\$type') final String? type,
+      {@JsonKey(name: objectType) final String? type,
       required final List<EmbedViewImagesView> images}) = _$_EmbedViewImages;
 
   factory _EmbedViewImages.fromJson(Map<String, dynamic> json) =
@@ -184,7 +184,7 @@ abstract class _EmbedViewImages implements EmbedViewImages {
   @override
 
   /// An optional string that represents the type of the embedded images view.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String? get type;
   @override
 

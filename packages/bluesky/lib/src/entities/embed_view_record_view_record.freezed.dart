@@ -22,7 +22,7 @@ EmbedViewRecordViewRecord _$EmbedViewRecordViewRecordFromJson(
 /// @nodoc
 mixin _$EmbedViewRecordViewRecord {
   /// The type of the embedded view record view.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
   /// The URI of the embedded view record view.
@@ -58,7 +58,7 @@ abstract class $EmbedViewRecordViewRecordCopyWith<$Res> {
       _$EmbedViewRecordViewRecordCopyWithImpl<$Res, EmbedViewRecordViewRecord>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       @atUriConverter AtUri uri,
       String cid,
       Actor author,
@@ -151,7 +151,7 @@ abstract class _$$_EmbedViewRecordViewRecordCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       @atUriConverter AtUri uri,
       String cid,
       Actor author,
@@ -223,7 +223,7 @@ class __$$_EmbedViewRecordViewRecordCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
   const _$_EmbedViewRecordViewRecord(
-      {@JsonKey(name: '\$type') required this.type,
+      {@JsonKey(name: objectType) required this.type,
       @atUriConverter required this.uri,
       required this.cid,
       required this.author,
@@ -237,7 +237,7 @@ class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
 
   /// The type of the embedded view record view.
   @override
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   final String type;
 
   /// The URI of the embedded view record view.
@@ -317,7 +317,7 @@ class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
 
 abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
   const factory _EmbedViewRecordViewRecord(
-      {@JsonKey(name: '\$type') required final String type,
+      {@JsonKey(name: objectType) required final String type,
       @atUriConverter required final AtUri uri,
       required final String cid,
       required final Actor author,
@@ -331,7 +331,7 @@ abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
   @override
 
   /// The type of the embedded view record view.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type;
   @override
 

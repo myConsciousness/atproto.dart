@@ -8,6 +8,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'ids/ids.g.dart';
+
 part 'embed_view_record_view_not_found.freezed.dart';
 part 'embed_view_record_view_not_found.g.dart';
 
@@ -27,7 +30,7 @@ class EmbedViewRecordViewNotFound with _$EmbedViewRecordViewNotFound {
   /// identifier (URI) of the record.
   const factory EmbedViewRecordViewNotFound({
     /// A string that represents the type of the record view not found.
-    @JsonKey(name: '\$type') required String type,
+    @JsonKey(name: objectType) required String type,
 
     /// An `AtUri` instance that contains the unique resource identifier (URI)
     /// of the record.

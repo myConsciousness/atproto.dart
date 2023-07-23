@@ -352,37 +352,37 @@ class RepoCommitAdaptor {
 
   /// Returns true if [record] is actor profile, otherwise false.
   bool _isActorProfile(final Map<String, dynamic> record) =>
-      record['\$type'] == ids.appBskyActorProfile;
+      record[ids.objectType] == ids.appBskyActorProfile;
 
   /// Returns true if [record] is feed post, otherwise false.
   bool _isFeedPost(final Map<String, dynamic> record) =>
-      record['\$type'] == ids.appBskyFeedPost;
+      record[ids.objectType] == ids.appBskyFeedPost;
 
   /// Returns true if [record] is feed repost, otherwise false.
   bool _isFeedRepost(final Map<String, dynamic> record) =>
-      record['\$type'] == ids.appBskyFeedRepost;
+      record[ids.objectType] == ids.appBskyFeedRepost;
 
   /// Returns true if [record] is feed like, otherwise false.
   bool _isFeedLike(final Map<String, dynamic> record) =>
-      record['\$type'] == ids.appBskyFeedLike;
+      record[ids.objectType] == ids.appBskyFeedLike;
 
   /// Returns true if [record] is feed generator, otherwise false.
   bool _isFeedGenerator(final Map<String, dynamic> record) =>
-      record['\$type'] == ids.appBskyFeedGenerator;
+      record[ids.objectType] == ids.appBskyFeedGenerator;
 
   /// Returns true if [record] is graph follow, otherwise false.
   bool _isGraphFollow(final Map<String, dynamic> record) =>
-      record['\$type'] == ids.appBskyGraphFollow;
+      record[ids.objectType] == ids.appBskyGraphFollow;
 
   /// Returns true if [record] is graph block, otherwise false.
   bool _isGraphBlock(final Map<String, dynamic> record) =>
-      record['\$type'] == ids.appBskyGraphBlock;
+      record[ids.objectType] == ids.appBskyGraphBlock;
 
   /// Returns true if [record] is graph list, otherwise false.
   bool _isGraphList(final Map<String, dynamic> record) =>
-      record['\$type'] == ids.appBskyGraphList;
+      record[ids.objectType] == ids.appBskyGraphList;
 
   /// Returns true if [record] is graph list item, otherwise false.
   bool _isGraphListItem(final Map<String, dynamic> record) =>
-      record['\$type'] == ids.appBskyGraphListitem;
+      record[ids.objectType] == ids.appBskyGraphListitem;
 }

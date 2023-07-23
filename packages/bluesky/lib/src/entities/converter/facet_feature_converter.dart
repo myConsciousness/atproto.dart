@@ -9,6 +9,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../facet_feature.dart';
 import '../facet_link.dart';
 import '../facet_mention.dart';
+import '../ids/ids.g.dart' as ids;
 
 const facetFeatureConverter = _FacetFeatureConverter();
 
@@ -19,7 +20,7 @@ class _FacetFeatureConverter
 
   @override
   FacetFeature fromJson(Map<String, dynamic> json) {
-    final type = json['\$type'];
+    final type = json[ids.objectType];
 
     if (type == 'app.bsky.richtext.facet#link') {
       return FacetFeature.link(

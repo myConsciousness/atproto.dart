@@ -11,6 +11,7 @@ import '../embed_view_record_view_blocked.dart';
 import '../embed_view_record_view_not_found.dart';
 import '../embed_view_record_view_record.dart';
 import '../feed_generator_view.dart';
+import '../ids/ids.g.dart' as ids;
 import '../list_view.dart';
 
 const embedViewRecordViewConverter = _EmbedViewRecordViewConverter();
@@ -22,7 +23,7 @@ class _EmbedViewRecordViewConverter
 
   @override
   EmbedViewRecordView fromJson(Map<String, dynamic> json) {
-    final type = json['\$type'];
+    final type = json[ids.objectType];
 
     if (type == 'app.bsky.embed.record#viewRecord') {
       return EmbedViewRecordView.record(

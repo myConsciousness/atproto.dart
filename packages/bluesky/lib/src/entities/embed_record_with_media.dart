@@ -11,6 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'converter/embed_media_converter.dart';
 import 'embed_media.dart';
 import 'embed_record.dart';
+import 'ids/ids.g.dart';
 
 part 'embed_record_with_media.freezed.dart';
 part 'embed_record_with_media.g.dart';
@@ -38,7 +39,7 @@ class EmbedRecordWithMedia with _$EmbedRecordWithMedia {
     /// The type of the embedded content, defaulted to
     /// `app.bsky.embed.recordWithMedia`.
     @Default('app.bsky.embed.recordWithMedia')
-    @JsonKey(name: '\$type')
+    @JsonKey(name: objectType)
     String type,
 
     /// An [EmbedRecord] object that represents the record to be embedded.

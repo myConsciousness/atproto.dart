@@ -11,6 +11,7 @@ import '../embed_external.dart';
 import '../embed_images.dart';
 import '../embed_record.dart';
 import '../embed_record_with_media.dart';
+import '../ids/ids.g.dart' as ids;
 
 const embedConverter = _EmbedConverter();
 
@@ -20,7 +21,7 @@ class _EmbedConverter implements JsonConverter<Embed, Map<String, dynamic>> {
 
   @override
   Embed fromJson(Map<String, dynamic> json) {
-    final type = json['\$type'];
+    final type = json[ids.objectType];
 
     if (type == 'app.bsky.embed.record') {
       return Embed.record(

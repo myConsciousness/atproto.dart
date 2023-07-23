@@ -21,7 +21,7 @@ FollowRecord _$FollowRecordFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$FollowRecord {
   /// Type of the record. Defaults to `appBskyGraphFollow`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
   /// DID of the subject being followed.
@@ -44,7 +44,7 @@ abstract class $FollowRecordCopyWith<$Res> {
       _$FollowRecordCopyWithImpl<$Res, FollowRecord>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       @JsonKey(name: 'subject') String did,
       DateTime createdAt});
 }
@@ -92,7 +92,7 @@ abstract class _$$_FollowRecordCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       @JsonKey(name: 'subject') String did,
       DateTime createdAt});
 }
@@ -134,7 +134,7 @@ class __$$_FollowRecordCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_FollowRecord implements _FollowRecord {
   const _$_FollowRecord(
-      {@JsonKey(name: '\$type') this.type = appBskyGraphFollow,
+      {@JsonKey(name: objectType) this.type = appBskyGraphFollow,
       @JsonKey(name: 'subject') required this.did,
       required this.createdAt});
 
@@ -143,7 +143,7 @@ class _$_FollowRecord implements _FollowRecord {
 
   /// Type of the record. Defaults to `appBskyGraphFollow`.
   @override
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   final String type;
 
   /// DID of the subject being followed.
@@ -191,7 +191,7 @@ class _$_FollowRecord implements _FollowRecord {
 
 abstract class _FollowRecord implements FollowRecord {
   const factory _FollowRecord(
-      {@JsonKey(name: '\$type') final String type,
+      {@JsonKey(name: objectType) final String type,
       @JsonKey(name: 'subject') required final String did,
       required final DateTime createdAt}) = _$_FollowRecord;
 
@@ -201,7 +201,7 @@ abstract class _FollowRecord implements FollowRecord {
   @override
 
   /// Type of the record. Defaults to `appBskyGraphFollow`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type;
   @override
 

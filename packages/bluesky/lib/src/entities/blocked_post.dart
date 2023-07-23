@@ -8,6 +8,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'ids/ids.g.dart';
+
 part 'blocked_post.freezed.dart';
 part 'blocked_post.g.dart';
 
@@ -28,7 +31,7 @@ class BlockedPost with _$BlockedPost {
     /// The type of the record.
     /// By default, it is `app.bsky.feed.defs#blockedPost`.
     @Default('app.bsky.feed.defs#blockedPost')
-    @JsonKey(name: '\$type')
+    @JsonKey(name: objectType)
     String type,
 
     /// The URI of the post that has been blocked.

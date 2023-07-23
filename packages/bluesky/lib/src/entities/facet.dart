@@ -11,6 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'byte_slice.dart';
 import 'converter/facet_feature_converter.dart';
 import 'facet_feature.dart';
+import 'ids/ids.g.dart';
 
 part 'facet.freezed.dart';
 part 'facet.g.dart';
@@ -30,7 +31,7 @@ class Facet with _$Facet {
   @JsonSerializable(includeIfNull: false)
   const factory Facet({
     /// Specifies the type of facet. Optional.
-    @JsonKey(name: '\$type') String? type,
+    @JsonKey(name: objectType) String? type,
 
     /// Represents the byte slice index of the facet.
     required ByteSlice index,

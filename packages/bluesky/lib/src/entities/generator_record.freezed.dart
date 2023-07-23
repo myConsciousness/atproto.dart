@@ -21,7 +21,7 @@ GeneratorRecord _$GeneratorRecordFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GeneratorRecord {
   /// The type of the generator. Defaults to [appBskyFeedGenerator].
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
   /// The unique ID of the generator.
@@ -55,7 +55,7 @@ abstract class $GeneratorRecordCopyWith<$Res> {
       _$GeneratorRecordCopyWithImpl<$Res, GeneratorRecord>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       String did,
       String displayName,
       String? description,
@@ -141,7 +141,7 @@ abstract class _$$_GeneratorRecordCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       String did,
       String displayName,
       String? description,
@@ -210,7 +210,7 @@ class __$$_GeneratorRecordCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_GeneratorRecord implements _GeneratorRecord {
   const _$_GeneratorRecord(
-      {@JsonKey(name: '\$type') this.type = appBskyFeedGenerator,
+      {@JsonKey(name: objectType) this.type = appBskyFeedGenerator,
       required this.did,
       required this.displayName,
       this.description,
@@ -224,7 +224,7 @@ class _$_GeneratorRecord implements _GeneratorRecord {
 
   /// The type of the generator. Defaults to [appBskyFeedGenerator].
   @override
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   final String type;
 
   /// The unique ID of the generator.
@@ -312,7 +312,7 @@ class _$_GeneratorRecord implements _GeneratorRecord {
 
 abstract class _GeneratorRecord implements GeneratorRecord {
   const factory _GeneratorRecord(
-      {@JsonKey(name: '\$type') final String type,
+      {@JsonKey(name: objectType) final String type,
       required final String did,
       required final String displayName,
       final String? description,
@@ -326,7 +326,7 @@ abstract class _GeneratorRecord implements GeneratorRecord {
   @override
 
   /// The type of the generator. Defaults to [appBskyFeedGenerator].
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type;
   @override
 

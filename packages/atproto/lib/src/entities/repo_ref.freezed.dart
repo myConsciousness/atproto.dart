@@ -22,7 +22,7 @@ RepoRef _$RepoRefFromJson(Map<String, dynamic> json) {
 mixin _$RepoRef {
   /// The type of the repository reference.
   /// It defaults to `com.atproto.admin.defs#repoRef`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
   /// The DID of the repository.
@@ -38,7 +38,7 @@ abstract class $RepoRefCopyWith<$Res> {
   factory $RepoRefCopyWith(RepoRef value, $Res Function(RepoRef) then) =
       _$RepoRefCopyWithImpl<$Res, RepoRef>;
   @useResult
-  $Res call({@JsonKey(name: '\$type') String type, String did});
+  $Res call({@JsonKey(name: objectType) String type, String did});
 }
 
 /// @nodoc
@@ -77,7 +77,7 @@ abstract class _$$_RepoRefCopyWith<$Res> implements $RepoRefCopyWith<$Res> {
       __$$_RepoRefCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: '\$type') String type, String did});
+  $Res call({@JsonKey(name: objectType) String type, String did});
 }
 
 /// @nodoc
@@ -110,7 +110,7 @@ class __$$_RepoRefCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RepoRef implements _RepoRef {
   const _$_RepoRef(
-      {@JsonKey(name: '\$type') this.type = 'com.atproto.admin.defs#repoRef',
+      {@JsonKey(name: objectType) this.type = 'com.atproto.admin.defs#repoRef',
       required this.did});
 
   factory _$_RepoRef.fromJson(Map<String, dynamic> json) =>
@@ -119,7 +119,7 @@ class _$_RepoRef implements _RepoRef {
   /// The type of the repository reference.
   /// It defaults to `com.atproto.admin.defs#repoRef`.
   @override
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   final String type;
 
   /// The DID of the repository.
@@ -160,7 +160,7 @@ class _$_RepoRef implements _RepoRef {
 
 abstract class _RepoRef implements RepoRef {
   const factory _RepoRef(
-      {@JsonKey(name: '\$type') final String type,
+      {@JsonKey(name: objectType) final String type,
       required final String did}) = _$_RepoRef;
 
   factory _RepoRef.fromJson(Map<String, dynamic> json) = _$_RepoRef.fromJson;
@@ -169,7 +169,7 @@ abstract class _RepoRef implements RepoRef {
 
   /// The type of the repository reference.
   /// It defaults to `com.atproto.admin.defs#repoRef`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type;
   @override
 

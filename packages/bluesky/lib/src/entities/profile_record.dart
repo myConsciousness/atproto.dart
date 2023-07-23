@@ -25,7 +25,7 @@ class ProfileRecord with _$ProfileRecord {
     /// Represents the type of the record.
     ///
     /// By default, the type is [appBskyActorProfile].
-    @Default(appBskyActorProfile) @JsonKey(name: '\$type') String type,
+    @Default(appBskyActorProfile) @JsonKey(name: objectType) String type,
 
     /// Represents the display name of the actor.
     String? displayName,

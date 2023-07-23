@@ -11,6 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'converter/embed_view_media_converter.dart';
 import 'embed_view_media.dart';
 import 'embed_view_record.dart';
+import 'ids/ids.g.dart';
 
 part 'embed_view_record_with_media.freezed.dart';
 part 'embed_view_record_with_media.g.dart';
@@ -29,7 +30,7 @@ class EmbedViewRecordWithMedia with _$EmbedViewRecordWithMedia {
   /// embedded view record and [media] which is the media attached to the view.
   const factory EmbedViewRecordWithMedia({
     /// Specifies the type of record.
-    @JsonKey(name: '\$type') required String type,
+    @JsonKey(name: objectType) required String type,
 
     /// Represents the record of the embedded view.
     required EmbedViewRecord record,

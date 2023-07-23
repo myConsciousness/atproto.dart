@@ -21,7 +21,7 @@ ListRecord _$ListRecordFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ListRecord {
   /// The type of the list, by default it is [appBskyGraphList].
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
   /// The name of the list.
@@ -55,7 +55,7 @@ abstract class $ListRecordCopyWith<$Res> {
       _$ListRecordCopyWithImpl<$Res, ListRecord>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       String name,
       String purpose,
       String? description,
@@ -141,7 +141,7 @@ abstract class _$$_ListRecordCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       String name,
       String purpose,
       String? description,
@@ -210,7 +210,7 @@ class __$$_ListRecordCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_ListRecord implements _ListRecord {
   const _$_ListRecord(
-      {@JsonKey(name: '\$type') this.type = appBskyGraphList,
+      {@JsonKey(name: objectType) this.type = appBskyGraphList,
       required this.name,
       required this.purpose,
       this.description,
@@ -224,7 +224,7 @@ class _$_ListRecord implements _ListRecord {
 
   /// The type of the list, by default it is [appBskyGraphList].
   @override
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   final String type;
 
   /// The name of the list.
@@ -311,7 +311,7 @@ class _$_ListRecord implements _ListRecord {
 
 abstract class _ListRecord implements ListRecord {
   const factory _ListRecord(
-      {@JsonKey(name: '\$type') final String type,
+      {@JsonKey(name: objectType) final String type,
       required final String name,
       required final String purpose,
       final String? description,
@@ -325,7 +325,7 @@ abstract class _ListRecord implements ListRecord {
   @override
 
   /// The type of the list, by default it is [appBskyGraphList].
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type;
   @override
 

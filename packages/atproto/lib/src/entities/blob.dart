@@ -9,6 +9,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'blob_ref.dart';
+import 'ids/ids.g.dart';
 
 part 'blob.freezed.dart';
 part 'blob.g.dart';
@@ -27,7 +28,7 @@ class Blob with _$Blob {
   /// and [ref] is a reference to the blob data.
   const factory Blob({
     /// The type of the blob. Default is `blob`.
-    @Default('blob') @JsonKey(name: '\$type') String type,
+    @Default('blob') @JsonKey(name: objectType) String type,
 
     /// The MIME type of the blob.
     required String mimeType,

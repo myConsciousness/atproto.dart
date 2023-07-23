@@ -22,7 +22,7 @@ EmbedRecordWithMedia _$EmbedRecordWithMediaFromJson(Map<String, dynamic> json) {
 mixin _$EmbedRecordWithMedia {
   /// The type of the embedded content, defaulted to
   /// `app.bsky.embed.recordWithMedia`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
   /// An [EmbedRecord] object that represents the record to be embedded.
@@ -45,7 +45,7 @@ abstract class $EmbedRecordWithMediaCopyWith<$Res> {
       _$EmbedRecordWithMediaCopyWithImpl<$Res, EmbedRecordWithMedia>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       EmbedRecord record,
       @embedMediaConverter EmbedMedia media});
 
@@ -113,7 +113,7 @@ abstract class _$$_EmbedRecordWithMediaCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       EmbedRecord record,
       @embedMediaConverter EmbedMedia media});
 
@@ -159,7 +159,7 @@ class __$$_EmbedRecordWithMediaCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedRecordWithMedia implements _EmbedRecordWithMedia {
   const _$_EmbedRecordWithMedia(
-      {@JsonKey(name: '\$type') this.type = 'app.bsky.embed.recordWithMedia',
+      {@JsonKey(name: objectType) this.type = 'app.bsky.embed.recordWithMedia',
       required this.record,
       @embedMediaConverter required this.media});
 
@@ -169,7 +169,7 @@ class _$_EmbedRecordWithMedia implements _EmbedRecordWithMedia {
   /// The type of the embedded content, defaulted to
   /// `app.bsky.embed.recordWithMedia`.
   @override
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   final String type;
 
   /// An [EmbedRecord] object that represents the record to be embedded.
@@ -217,7 +217,7 @@ class _$_EmbedRecordWithMedia implements _EmbedRecordWithMedia {
 
 abstract class _EmbedRecordWithMedia implements EmbedRecordWithMedia {
   const factory _EmbedRecordWithMedia(
-          {@JsonKey(name: '\$type') final String type,
+          {@JsonKey(name: objectType) final String type,
           required final EmbedRecord record,
           @embedMediaConverter required final EmbedMedia media}) =
       _$_EmbedRecordWithMedia;
@@ -229,7 +229,7 @@ abstract class _EmbedRecordWithMedia implements EmbedRecordWithMedia {
 
   /// The type of the embedded content, defaulted to
   /// `app.bsky.embed.recordWithMedia`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type;
   @override
 

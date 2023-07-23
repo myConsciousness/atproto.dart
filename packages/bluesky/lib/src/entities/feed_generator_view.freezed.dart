@@ -22,7 +22,7 @@ FeedGeneratorView _$FeedGeneratorViewFromJson(Map<String, dynamic> json) {
 mixin _$FeedGeneratorView {
   /// Represents the type of the feed generator view. Defaults to
   /// `app.bsky.feed.defs#generatorView`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
   /// Represents the URI of the feed generator.
@@ -75,7 +75,7 @@ abstract class $FeedGeneratorViewCopyWith<$Res> {
       _$FeedGeneratorViewCopyWithImpl<$Res, FeedGeneratorView>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       @atUriConverter AtUri uri,
       String cid,
       String? did,
@@ -196,7 +196,7 @@ abstract class _$$_FeedGeneratorViewCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       @atUriConverter AtUri uri,
       String cid,
       String? did,
@@ -297,7 +297,8 @@ class __$$_FeedGeneratorViewCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_FeedGeneratorView implements _FeedGeneratorView {
   const _$_FeedGeneratorView(
-      {@JsonKey(name: '\$type') this.type = 'app.bsky.feed.defs#generatorView',
+      {@JsonKey(name: objectType)
+      this.type = 'app.bsky.feed.defs#generatorView',
       @atUriConverter required this.uri,
       required this.cid,
       this.did,
@@ -317,7 +318,7 @@ class _$_FeedGeneratorView implements _FeedGeneratorView {
   /// Represents the type of the feed generator view. Defaults to
   /// `app.bsky.feed.defs#generatorView`.
   @override
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   final String type;
 
   /// Represents the URI of the feed generator.
@@ -443,7 +444,7 @@ class _$_FeedGeneratorView implements _FeedGeneratorView {
 
 abstract class _FeedGeneratorView implements FeedGeneratorView {
   const factory _FeedGeneratorView(
-      {@JsonKey(name: '\$type') final String type,
+      {@JsonKey(name: objectType) final String type,
       @atUriConverter required final AtUri uri,
       required final String cid,
       final String? did,
@@ -463,7 +464,7 @@ abstract class _FeedGeneratorView implements FeedGeneratorView {
 
   /// Represents the type of the feed generator view. Defaults to
   /// `app.bsky.feed.defs#generatorView`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type;
   @override
 

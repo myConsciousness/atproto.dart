@@ -7,6 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../blocked_post.dart';
+import '../ids/ids.g.dart' as ids;
 import '../not_found_post.dart';
 import '../post_thread_view.dart';
 import '../post_thread_view_record.dart';
@@ -19,7 +20,7 @@ class _PostThreadViewConverter
 
   @override
   PostThreadView fromJson(Map<String, dynamic> json) {
-    final type = json['\$type'];
+    final type = json[ids.objectType];
 
     if (type == 'app.bsky.feed.defs#threadViewPost') {
       return PostThreadView.record(

@@ -9,6 +9,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'ids/ids.g.dart';
 import 'list_viewer.dart';
 
 part 'list_view_basic.freezed.dart';
@@ -33,7 +34,7 @@ class ListViewBasic with _$ListViewBasic {
     /// The type of the list, by default it is
     /// `app.bsky.graph.defs#listViewBasic`.
     @Default('app.bsky.graph.defs#listViewBasic')
-    @JsonKey(name: '\$type')
+    @JsonKey(name: objectType)
     String type,
 
     /// The purpose of the list, by default it is `app.bsky.graph.defs#modlist`.

@@ -14,16 +14,15 @@ _$_FacetLink _$$_FacetLinkFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$_FacetLink(
           type: $checkedConvert(
-              r'$type', (v) => v as String? ?? 'app.bsky.richtext.facet#link'),
+              'type', (v) => v as String? ?? 'app.bsky.richtext.facet#link'),
           uri: $checkedConvert('uri', (v) => v as String),
         );
         return val;
       },
-      fieldKeyMap: const {'type': r'$type'},
     );
 
 Map<String, dynamic> _$$_FacetLinkToJson(_$_FacetLink instance) =>
     <String, dynamic>{
-      r'$type': instance.type,
+      'type': instance.type,
       'uri': instance.uri,
     };

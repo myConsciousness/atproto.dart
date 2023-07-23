@@ -28,7 +28,7 @@ class LikeRecord with _$LikeRecord {
   @JsonSerializable(includeIfNull: false)
   const factory LikeRecord({
     /// Type of the record, defaults to [appBskyFeedLike].
-    @Default(appBskyFeedLike) @JsonKey(name: '\$type') String type,
+    @Default(appBskyFeedLike) @JsonKey(name: objectType) String type,
 
     /// The subject of the 'like'. It's usually a reference to the content that
     /// was liked.

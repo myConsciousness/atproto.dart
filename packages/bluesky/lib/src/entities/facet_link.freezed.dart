@@ -21,7 +21,7 @@ FacetLink _$FacetLinkFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$FacetLink {
   /// Specifies the type of facet. Defaults to `app.bsky.richtext.facet#link`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
   /// Represents the URI of the link facet.
@@ -38,7 +38,7 @@ abstract class $FacetLinkCopyWith<$Res> {
   factory $FacetLinkCopyWith(FacetLink value, $Res Function(FacetLink) then) =
       _$FacetLinkCopyWithImpl<$Res, FacetLink>;
   @useResult
-  $Res call({@JsonKey(name: '\$type') String type, String uri});
+  $Res call({@JsonKey(name: objectType) String type, String uri});
 }
 
 /// @nodoc
@@ -77,7 +77,7 @@ abstract class _$$_FacetLinkCopyWith<$Res> implements $FacetLinkCopyWith<$Res> {
       __$$_FacetLinkCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: '\$type') String type, String uri});
+  $Res call({@JsonKey(name: objectType) String type, String uri});
 }
 
 /// @nodoc
@@ -111,7 +111,7 @@ class __$$_FacetLinkCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_FacetLink implements _FacetLink {
   const _$_FacetLink(
-      {@JsonKey(name: '\$type') this.type = 'app.bsky.richtext.facet#link',
+      {@JsonKey(name: objectType) this.type = 'app.bsky.richtext.facet#link',
       required this.uri});
 
   factory _$_FacetLink.fromJson(Map<String, dynamic> json) =>
@@ -119,7 +119,7 @@ class _$_FacetLink implements _FacetLink {
 
   /// Specifies the type of facet. Defaults to `app.bsky.richtext.facet#link`.
   @override
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   final String type;
 
   /// Represents the URI of the link facet.
@@ -160,7 +160,7 @@ class _$_FacetLink implements _FacetLink {
 
 abstract class _FacetLink implements FacetLink {
   const factory _FacetLink(
-      {@JsonKey(name: '\$type') final String type,
+      {@JsonKey(name: objectType) final String type,
       required final String uri}) = _$_FacetLink;
 
   factory _FacetLink.fromJson(Map<String, dynamic> json) =
@@ -169,7 +169,7 @@ abstract class _FacetLink implements FacetLink {
   @override
 
   /// Specifies the type of facet. Defaults to `app.bsky.richtext.facet#link`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type;
   @override
 

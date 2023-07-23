@@ -21,7 +21,7 @@ RepostRecord _$RepostRecordFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$RepostRecord {
   /// The type of the repost record.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
   /// The reference to the subject of the repost.
@@ -44,7 +44,7 @@ abstract class $RepostRecordCopyWith<$Res> {
       _$RepostRecordCopyWithImpl<$Res, RepostRecord>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       @JsonKey(name: 'subject') StrongRef ref,
       DateTime createdAt});
 
@@ -102,7 +102,7 @@ abstract class _$$_RepostRecordCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       @JsonKey(name: 'subject') StrongRef ref,
       DateTime createdAt});
 
@@ -147,7 +147,7 @@ class __$$_RepostRecordCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_RepostRecord implements _RepostRecord {
   const _$_RepostRecord(
-      {@JsonKey(name: '\$type') this.type = appBskyFeedRepost,
+      {@JsonKey(name: objectType) this.type = appBskyFeedRepost,
       @JsonKey(name: 'subject') required this.ref,
       required this.createdAt});
 
@@ -156,7 +156,7 @@ class _$_RepostRecord implements _RepostRecord {
 
   /// The type of the repost record.
   @override
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   final String type;
 
   /// The reference to the subject of the repost.
@@ -204,7 +204,7 @@ class _$_RepostRecord implements _RepostRecord {
 
 abstract class _RepostRecord implements RepostRecord {
   const factory _RepostRecord(
-      {@JsonKey(name: '\$type') final String type,
+      {@JsonKey(name: objectType) final String type,
       @JsonKey(name: 'subject') required final StrongRef ref,
       required final DateTime createdAt}) = _$_RepostRecord;
 
@@ -214,7 +214,7 @@ abstract class _RepostRecord implements RepostRecord {
   @override
 
   /// The type of the repost record.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type;
   @override
 

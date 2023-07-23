@@ -23,7 +23,7 @@ AdultContentPreference _$AdultContentPreferenceFromJson(
 mixin _$AdultContentPreference {
   /// The type of the preference.
   /// By default, it is `app.bsky.actor.defs#adultContentPref`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
   /// A boolean value indicating whether the user has enabled the
@@ -44,7 +44,7 @@ abstract class $AdultContentPreferenceCopyWith<$Res> {
       _$AdultContentPreferenceCopyWithImpl<$Res, AdultContentPreference>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       @JsonKey(name: 'enabled') bool isEnabled});
 }
 
@@ -87,7 +87,7 @@ abstract class _$$_AdultContentPreferenceCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       @JsonKey(name: 'enabled') bool isEnabled});
 }
 
@@ -124,7 +124,7 @@ class __$$_AdultContentPreferenceCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_AdultContentPreference implements _AdultContentPreference {
   const _$_AdultContentPreference(
-      {@JsonKey(name: '\$type')
+      {@JsonKey(name: objectType)
       this.type = 'app.bsky.actor.defs#adultContentPref',
       @JsonKey(name: 'enabled') required this.isEnabled});
 
@@ -134,7 +134,7 @@ class _$_AdultContentPreference implements _AdultContentPreference {
   /// The type of the preference.
   /// By default, it is `app.bsky.actor.defs#adultContentPref`.
   @override
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   final String type;
 
   /// A boolean value indicating whether the user has enabled the
@@ -179,7 +179,7 @@ class _$_AdultContentPreference implements _AdultContentPreference {
 
 abstract class _AdultContentPreference implements AdultContentPreference {
   const factory _AdultContentPreference(
-          {@JsonKey(name: '\$type') final String type,
+          {@JsonKey(name: objectType) final String type,
           @JsonKey(name: 'enabled') required final bool isEnabled}) =
       _$_AdultContentPreference;
 
@@ -190,7 +190,7 @@ abstract class _AdultContentPreference implements AdultContentPreference {
 
   /// The type of the preference.
   /// By default, it is `app.bsky.actor.defs#adultContentPref`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type;
   @override
 

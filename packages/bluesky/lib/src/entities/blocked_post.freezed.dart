@@ -22,7 +22,7 @@ BlockedPost _$BlockedPostFromJson(Map<String, dynamic> json) {
 mixin _$BlockedPost {
   /// The type of the record.
   /// By default, it is `app.bsky.feed.defs#blockedPost`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
   /// The URI of the post that has been blocked.
@@ -45,7 +45,7 @@ abstract class $BlockedPostCopyWith<$Res> {
       _$BlockedPostCopyWithImpl<$Res, BlockedPost>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       @atUriConverter AtUri uri,
       bool blocked});
 }
@@ -93,7 +93,7 @@ abstract class _$$_BlockedPostCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       @atUriConverter AtUri uri,
       bool blocked});
 }
@@ -134,7 +134,7 @@ class __$$_BlockedPostCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_BlockedPost implements _BlockedPost {
   const _$_BlockedPost(
-      {@JsonKey(name: '\$type') this.type = 'app.bsky.feed.defs#blockedPost',
+      {@JsonKey(name: objectType) this.type = 'app.bsky.feed.defs#blockedPost',
       @atUriConverter required this.uri,
       required this.blocked});
 
@@ -144,7 +144,7 @@ class _$_BlockedPost implements _BlockedPost {
   /// The type of the record.
   /// By default, it is `app.bsky.feed.defs#blockedPost`.
   @override
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   final String type;
 
   /// The URI of the post that has been blocked.
@@ -191,7 +191,7 @@ class _$_BlockedPost implements _BlockedPost {
 
 abstract class _BlockedPost implements BlockedPost {
   const factory _BlockedPost(
-      {@JsonKey(name: '\$type') final String type,
+      {@JsonKey(name: objectType) final String type,
       @atUriConverter required final AtUri uri,
       required final bool blocked}) = _$_BlockedPost;
 
@@ -202,7 +202,7 @@ abstract class _BlockedPost implements BlockedPost {
 
   /// The type of the record.
   /// By default, it is `app.bsky.feed.defs#blockedPost`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type;
   @override
 

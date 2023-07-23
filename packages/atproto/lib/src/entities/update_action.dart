@@ -8,6 +8,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'converter/nsid_converter.dart';
+import 'ids/ids.g.dart';
 
 part 'update_action.freezed.dart';
 part 'update_action.g.dart';
@@ -27,7 +28,7 @@ class UpdateAction with _$UpdateAction {
   const factory UpdateAction({
     /// The type of action. It defaults to
     /// `com.atproto.repo.applyWrites#update`.
-    @JsonKey(name: '\$type')
+    @JsonKey(name: objectType)
     @Default('com.atproto.repo.applyWrites#update')
     String type,
 

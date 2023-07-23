@@ -5,6 +5,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'package:atproto/src/entities/ids/ids.g.dart';
+
 part 'repo_ref.freezed.dart';
 part 'repo_ref.g.dart';
 
@@ -19,7 +22,7 @@ class RepoRef with _$RepoRef {
     /// The type of the repository reference.
     /// It defaults to `com.atproto.admin.defs#repoRef`.
     @Default('com.atproto.admin.defs#repoRef')
-    @JsonKey(name: '\$type')
+    @JsonKey(name: objectType)
     String type,
 
     /// The DID of the repository.

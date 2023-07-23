@@ -10,6 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'converter/nsid_converter.dart';
+import 'ids/ids.g.dart';
 
 part 'create_action.freezed.dart';
 part 'create_action.g.dart';
@@ -32,7 +33,7 @@ class CreateAction with _$CreateAction {
   const factory CreateAction({
     /// The type of the action. Default is
     /// `com.atproto.repo.applyWrites#create`.
-    @JsonKey(name: '\$type')
+    @JsonKey(name: objectType)
     @Default('com.atproto.repo.applyWrites#create')
     String type,
 

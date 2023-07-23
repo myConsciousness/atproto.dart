@@ -38,7 +38,7 @@ class PostRecord with _$PostRecord {
   @JsonSerializable(includeIfNull: false)
   const factory PostRecord({
     /// The type of the post record, defaulting to 'appBskyFeedPost'.
-    @Default(appBskyFeedPost) @JsonKey(name: '\$type') String type,
+    @Default(appBskyFeedPost) @JsonKey(name: objectType) String type,
 
     /// The text content of the post.
     required String text,

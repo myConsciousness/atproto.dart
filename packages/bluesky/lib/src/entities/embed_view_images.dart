@@ -9,6 +9,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'embed_view_images_view.dart';
+import 'ids/ids.g.dart';
 
 part 'embed_view_images.freezed.dart';
 part 'embed_view_images.g.dart';
@@ -30,7 +31,7 @@ class EmbedViewImages with _$EmbedViewImages {
   /// and a `images` list that includes instances of [EmbedViewImagesView].
   const factory EmbedViewImages({
     /// An optional string that represents the type of the embedded images view.
-    @JsonKey(name: '\$type') String? type,
+    @JsonKey(name: objectType) String? type,
 
     /// A list of `EmbedViewImagesView` instances.
     required List<EmbedViewImagesView> images,

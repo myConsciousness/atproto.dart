@@ -6,6 +6,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../ids/ids.g.dart' as ids;
 import '../skeleton_reason.dart';
 import '../skeleton_reason_repost.dart';
 
@@ -17,7 +18,7 @@ class _SkeletonReasonConverter
 
   @override
   SkeletonReason fromJson(Map<String, dynamic> json) {
-    final type = json['\$type'];
+    final type = json[ids.objectType];
 
     if (type == 'app.bsky.feed.defs#skeletonReasonRepost') {
       return SkeletonReason.repost(

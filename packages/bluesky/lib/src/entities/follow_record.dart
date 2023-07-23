@@ -27,7 +27,7 @@ class FollowRecord with _$FollowRecord {
   @JsonSerializable(includeIfNull: false)
   const factory FollowRecord({
     /// Type of the record. Defaults to `appBskyGraphFollow`.
-    @Default(appBskyGraphFollow) @JsonKey(name: '\$type') String type,
+    @Default(appBskyGraphFollow) @JsonKey(name: objectType) String type,
 
     /// DID of the subject being followed.
     @JsonKey(name: 'subject') required String did,

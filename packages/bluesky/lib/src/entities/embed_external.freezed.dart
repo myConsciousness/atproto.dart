@@ -22,7 +22,7 @@ EmbedExternal _$EmbedExternalFromJson(Map<String, dynamic> json) {
 mixin _$EmbedExternal {
   /// The type of the embedded content, defaulted to
   /// `app.bsky.embed.external`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
   /// The [EmbedExternalThumbnail] that contains the details of the
@@ -42,7 +42,8 @@ abstract class $EmbedExternalCopyWith<$Res> {
       _$EmbedExternalCopyWithImpl<$Res, EmbedExternal>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type, EmbedExternalThumbnail external});
+      {@JsonKey(name: objectType) String type,
+      EmbedExternalThumbnail external});
 
   $EmbedExternalThumbnailCopyWith<$Res> get external;
 }
@@ -93,7 +94,8 @@ abstract class _$$_EmbedExternalCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type, EmbedExternalThumbnail external});
+      {@JsonKey(name: objectType) String type,
+      EmbedExternalThumbnail external});
 
   @override
   $EmbedExternalThumbnailCopyWith<$Res> get external;
@@ -130,7 +132,7 @@ class __$$_EmbedExternalCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedExternal implements _EmbedExternal {
   const _$_EmbedExternal(
-      {@JsonKey(name: '\$type') this.type = 'app.bsky.embed.external',
+      {@JsonKey(name: objectType) this.type = 'app.bsky.embed.external',
       required this.external});
 
   factory _$_EmbedExternal.fromJson(Map<String, dynamic> json) =>
@@ -139,7 +141,7 @@ class _$_EmbedExternal implements _EmbedExternal {
   /// The type of the embedded content, defaulted to
   /// `app.bsky.embed.external`.
   @override
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   final String type;
 
   /// The [EmbedExternalThumbnail] that contains the details of the
@@ -182,7 +184,7 @@ class _$_EmbedExternal implements _EmbedExternal {
 
 abstract class _EmbedExternal implements EmbedExternal {
   const factory _EmbedExternal(
-      {@JsonKey(name: '\$type') final String type,
+      {@JsonKey(name: objectType) final String type,
       required final EmbedExternalThumbnail external}) = _$_EmbedExternal;
 
   factory _EmbedExternal.fromJson(Map<String, dynamic> json) =
@@ -192,7 +194,7 @@ abstract class _EmbedExternal implements EmbedExternal {
 
   /// The type of the embedded content, defaulted to
   /// `app.bsky.embed.external`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type;
   @override
 

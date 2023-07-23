@@ -7,6 +7,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'ids/ids.g.dart';
+
 part 'content_label_preference.freezed.dart';
 part 'content_label_preference.g.dart';
 
@@ -26,7 +29,7 @@ class ContentLabelPreference with _$ContentLabelPreference {
   const factory ContentLabelPreference({
     /// The content label.
     @Default('app.bsky.actor.defs#contentLabelPref')
-    @JsonKey(name: '\$type')
+    @JsonKey(name: objectType)
     String type,
 
     /// The content label.

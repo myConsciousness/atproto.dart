@@ -8,6 +8,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'ids/ids.g.dart';
+
 part 'delete_action.freezed.dart';
 part 'delete_action.g.dart';
 
@@ -28,7 +31,7 @@ class DeleteAction with _$DeleteAction {
   @JsonSerializable(includeIfNull: false)
   const factory DeleteAction({
     /// The type of the action.
-    @JsonKey(name: '\$type')
+    @JsonKey(name: objectType)
     @Default('com.atproto.repo.applyWrites#delete')
     String type,
 

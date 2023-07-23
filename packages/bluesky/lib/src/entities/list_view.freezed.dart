@@ -21,7 +21,7 @@ ListView _$ListViewFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ListView {
   /// The type of the list, by default it is `app.bsky.graph.defs#listView`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
   /// The purpose of the list, by default it is `app.bsky.graph.defs#modlist`.
@@ -68,7 +68,7 @@ abstract class $ListViewCopyWith<$Res> {
       _$ListViewCopyWithImpl<$Res, ListView>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       String purpose,
       @atUriConverter AtUri uri,
       String cid,
@@ -182,7 +182,7 @@ abstract class _$$_ListViewCopyWith<$Res> implements $ListViewCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       String purpose,
       @atUriConverter AtUri uri,
       String cid,
@@ -277,7 +277,7 @@ class __$$_ListViewCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_ListView extends _ListView {
   const _$_ListView(
-      {@JsonKey(name: '\$type') this.type = 'app.bsky.graph.defs#listView',
+      {@JsonKey(name: objectType) this.type = 'app.bsky.graph.defs#listView',
       this.purpose = 'app.bsky.graph.defs#modlist',
       @atUriConverter required this.uri,
       required this.cid,
@@ -296,7 +296,7 @@ class _$_ListView extends _ListView {
 
   /// The type of the list, by default it is `app.bsky.graph.defs#listView`.
   @override
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   final String type;
 
   /// The purpose of the list, by default it is `app.bsky.graph.defs#modlist`.
@@ -411,7 +411,7 @@ class _$_ListView extends _ListView {
 
 abstract class _ListView extends ListView {
   const factory _ListView(
-      {@JsonKey(name: '\$type') final String type,
+      {@JsonKey(name: objectType) final String type,
       final String purpose,
       @atUriConverter required final AtUri uri,
       required final String cid,
@@ -429,7 +429,7 @@ abstract class _ListView extends ListView {
   @override
 
   /// The type of the list, by default it is `app.bsky.graph.defs#listView`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type;
   @override
 

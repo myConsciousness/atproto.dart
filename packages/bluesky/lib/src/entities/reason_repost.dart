@@ -9,6 +9,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'actor.dart';
+import 'ids/ids.g.dart';
 
 part 'reason_repost.freezed.dart';
 part 'reason_repost.g.dart';
@@ -24,7 +25,7 @@ class ReasonRepost with _$ReasonRepost {
     ///
     /// By default, the type is `app.bsky.feed.defs#reasonRepost`.
     @Default('app.bsky.feed.defs#reasonRepost')
-    @JsonKey(name: '\$type')
+    @JsonKey(name: objectType)
     String type,
 
     /// Represents the actor who reposted.

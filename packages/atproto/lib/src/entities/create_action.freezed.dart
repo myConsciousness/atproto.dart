@@ -22,7 +22,7 @@ CreateAction _$CreateActionFromJson(Map<String, dynamic> json) {
 mixin _$CreateAction {
   /// The type of the action. Default is
   /// `com.atproto.repo.applyWrites#create`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
   /// The collection in which the record should be created.
@@ -49,7 +49,7 @@ abstract class $CreateActionCopyWith<$Res> {
       _$CreateActionCopyWithImpl<$Res, CreateAction>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       @nsidConverter NSID collection,
       String? rkey,
       @JsonKey(name: 'value') Map<String, dynamic> record});
@@ -103,7 +103,7 @@ abstract class _$$_CreateActionCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@JsonKey(name: objectType) String type,
       @nsidConverter NSID collection,
       String? rkey,
       @JsonKey(name: 'value') Map<String, dynamic> record});
@@ -151,7 +151,7 @@ class __$$_CreateActionCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_CreateAction implements _CreateAction {
   const _$_CreateAction(
-      {@JsonKey(name: '\$type')
+      {@JsonKey(name: objectType)
       this.type = 'com.atproto.repo.applyWrites#create',
       @nsidConverter required this.collection,
       this.rkey,
@@ -164,7 +164,7 @@ class _$_CreateAction implements _CreateAction {
   /// The type of the action. Default is
   /// `com.atproto.repo.applyWrites#create`.
   @override
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   final String type;
 
   /// The collection in which the record should be created.
@@ -226,7 +226,7 @@ class _$_CreateAction implements _CreateAction {
 
 abstract class _CreateAction implements CreateAction {
   const factory _CreateAction(
-          {@JsonKey(name: '\$type') final String type,
+          {@JsonKey(name: objectType) final String type,
           @nsidConverter required final NSID collection,
           final String? rkey,
           @JsonKey(name: 'value') required final Map<String, dynamic> record}) =
@@ -239,7 +239,7 @@ abstract class _CreateAction implements CreateAction {
 
   /// The type of the action. Default is
   /// `com.atproto.repo.applyWrites#create`.
-  @JsonKey(name: '\$type')
+  @JsonKey(name: objectType)
   String get type;
   @override
 

@@ -8,6 +8,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'ids/ids.g.dart';
+
 part 'saved_feeds_preference.freezed.dart';
 part 'saved_feeds_preference.g.dart';
 
@@ -21,7 +24,7 @@ class SavedFeedsPreference with _$SavedFeedsPreference {
     /// A string that represents the type of the object.
     /// By default, it is `app.bsky.actor.defs#savedFeedsPref`.
     @Default('app.bsky.actor.defs#savedFeedsPref')
-    @JsonKey(name: '\$type')
+    @JsonKey(name: objectType)
     String type,
 
     /// A list of pinned URIs represented as [AtUri] objects.

@@ -8,6 +8,9 @@
 import 'package:atproto/atproto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'ids/ids.g.dart';
+
 part 'embed_record.freezed.dart';
 part 'embed_record.g.dart';
 
@@ -29,7 +32,7 @@ class EmbedRecord with _$EmbedRecord {
   /// reference to the record.
   const factory EmbedRecord({
     /// The type of the embedded content, defaulted to `app.bsky.embed.record`.
-    @Default('app.bsky.embed.record') @JsonKey(name: '\$type') String type,
+    @Default('app.bsky.embed.record') @JsonKey(name: objectType) String type,
 
     /// A [StrongRef] object that represents a strong reference to the record.
     @JsonKey(name: 'record') required StrongRef ref,

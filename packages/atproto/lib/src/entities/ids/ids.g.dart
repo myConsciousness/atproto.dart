@@ -12,6 +12,9 @@
 /// `$type`
 const objectType = '\$type';
 
+/// `blob`
+const blob = 'blob';
+
 /// `com.atproto.identity.updateHandle`
 const comAtprotoIdentityUpdateHandle = 'com.atproto.identity.updateHandle';
 

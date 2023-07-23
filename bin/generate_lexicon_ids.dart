@@ -17,8 +17,10 @@ void main() {
 
   for (final package in packages) {
     final buffer = StringBuffer();
+
     for (final field in fields) {
-      if (package == 'atproto' && field.value.startsWith('app.bsky')) {
+      if (field.value != 'blob' &&
+          !field.value.contains(_toServiceName(package))) {
         continue;
       }
 
@@ -52,6 +54,7 @@ ${ids.substring(0, ids.length - 1)}''');
 
 List<Field> _getFields() {
   final fields = <Field>[];
+  fields.add(Field('blob', 'blob'));
 
   for (final root in lexiconsRoot) {
     final directory = Directory('$lexiconsPath/$root');
@@ -106,4 +109,12 @@ class Field {
 
   @override
   String toString() => 'Field(name: $name, value: $value);';
+}
+
+String _toServiceName(final String package) {
+  if (package == 'bluesky') {
+    return 'bsky';
+  }
+
+  return 'atproto';
 }

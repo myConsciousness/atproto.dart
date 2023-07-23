@@ -11,6 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import 'actor.dart';
 import 'facet.dart';
+import 'ids/ids.g.dart';
 import 'list_viewer.dart';
 
 part 'list_view.freezed.dart';
@@ -36,7 +37,7 @@ class ListView with _$ListView {
   const factory ListView({
     /// The type of the list, by default it is `app.bsky.graph.defs#listView`.
     @Default('app.bsky.graph.defs#listView')
-    @JsonKey(name: '\$type')
+    @JsonKey(name: objectType)
     String type,
 
     /// The purpose of the list, by default it is `app.bsky.graph.defs#modlist`.

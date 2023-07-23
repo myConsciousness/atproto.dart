@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'actor.dart';
 import 'converter/embed_view_converter.dart';
 import 'embed_view.dart';
+import 'ids/ids.g.dart';
 import 'post_record.dart';
 import 'post_viewer.dart';
 
@@ -39,7 +40,7 @@ class Post with _$Post {
   const factory Post({
     /// The type of the post.
     @Default('app.bsky.feed.defs#postView')
-    @JsonKey(name: '\$type')
+    @JsonKey(name: objectType)
     String type,
 
     /// The record containing the content of the post.

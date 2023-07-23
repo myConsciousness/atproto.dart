@@ -6,6 +6,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../ids/ids.g.dart' as ids;
 import '../reason.dart';
 import '../reason_repost.dart';
 
@@ -16,7 +17,7 @@ class _ReasonConverter implements JsonConverter<Reason, Map<String, dynamic>> {
 
   @override
   Reason fromJson(Map<String, dynamic> json) {
-    final type = json['\$type'];
+    final type = json[ids.objectType];
 
     if (type == 'app.bsky.feed.defs#reasonRepost') {
       return Reason.repost(

@@ -6,6 +6,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../ids/ids.g.dart' as ids;
 import '../repo_ref.dart';
 import '../report_subject.dart';
 import '../strong_ref.dart';
@@ -19,7 +20,7 @@ class _ReportSubjectConverter
 
   @override
   ReportSubject fromJson(Map<String, dynamic> json) {
-    final type = json['\$type'];
+    final type = json[ids.objectType];
 
     if (type == 'com.atproto.admin.defs#repoRef') {
       return ReportSubject.repoRef(

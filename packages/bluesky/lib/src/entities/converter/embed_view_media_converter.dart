@@ -9,6 +9,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../embed_view_external.dart';
 import '../embed_view_images.dart';
 import '../embed_view_media.dart';
+import '../ids/ids.g.dart' as ids;
 
 const embedViewMediaConverter = _EmbedViewMediaConverter();
 
@@ -19,7 +20,7 @@ class _EmbedViewMediaConverter
 
   @override
   EmbedViewMedia fromJson(Map<String, dynamic> json) {
-    final type = json['\$type'];
+    final type = json[ids.objectType];
 
     if (type == 'app.bsky.embed.images#view') {
       return EmbedViewMedia.images(
