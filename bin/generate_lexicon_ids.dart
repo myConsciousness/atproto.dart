@@ -44,7 +44,7 @@ const ${field.name} = '${field.value}';""")
 // **************************************************************************
 
 /// `\$type`
-const type = '\\\$type';
+const objectType = '\\\$type';
 
 ${ids.substring(0, ids.length - 1)}''');
   }

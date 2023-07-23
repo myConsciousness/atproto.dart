@@ -10,7 +10,7 @@
 // **************************************************************************
 
 /// `$type`
-const type = '\$type';
+const objectType = '\$type';
 
 /// `com.atproto.identity.updateHandle`
 const comAtprotoIdentityUpdateHandle = 'com.atproto.identity.updateHandle';
@@ -37,12 +37,10 @@ const comAtprotoServerDefs = 'com.atproto.server.defs';
 const comAtprotoServerDefsInviteCode = 'com.atproto.server.defs#inviteCode';
 
 /// `com.atproto.server.defs#inviteCodeUse`
-const comAtprotoServerDefsInviteCodeUse =
-    'com.atproto.server.defs#inviteCodeUse';
+const comAtprotoServerDefsInviteCodeUse = 'com.atproto.server.defs#inviteCodeUse';
 
 /// `com.atproto.server.getAccountInviteCodes`
-const comAtprotoServerGetAccountInviteCodes =
-    'com.atproto.server.getAccountInviteCodes';
+const comAtprotoServerGetAccountInviteCodes = 'com.atproto.server.getAccountInviteCodes';
 
 /// `com.atproto.server.createSession`
 const comAtprotoServerCreateSession = 'com.atproto.server.createSession';
@@ -51,19 +49,16 @@ const comAtprotoServerCreateSession = 'com.atproto.server.createSession';
 const comAtprotoServerListAppPasswords = 'com.atproto.server.listAppPasswords';
 
 /// `com.atproto.server.createInviteCodes`
-const comAtprotoServerCreateInviteCodes =
-    'com.atproto.server.createInviteCodes';
+const comAtprotoServerCreateInviteCodes = 'com.atproto.server.createInviteCodes';
 
 /// `com.atproto.server.deleteSession`
 const comAtprotoServerDeleteSession = 'com.atproto.server.deleteSession';
 
 /// `com.atproto.server.revokeAppPassword`
-const comAtprotoServerRevokeAppPassword =
-    'com.atproto.server.revokeAppPassword';
+const comAtprotoServerRevokeAppPassword = 'com.atproto.server.revokeAppPassword';
 
 /// `com.atproto.server.createAppPassword`
-const comAtprotoServerCreateAppPassword =
-    'com.atproto.server.createAppPassword';
+const comAtprotoServerCreateAppPassword = 'com.atproto.server.createAppPassword';
 
 /// `com.atproto.server.describeServer`
 const comAtprotoServerDescribeServer = 'com.atproto.server.describeServer';
@@ -78,12 +73,10 @@ const comAtprotoServerRefreshSession = 'com.atproto.server.refreshSession';
 const comAtprotoServerResetPassword = 'com.atproto.server.resetPassword';
 
 /// `com.atproto.server.requestPasswordReset`
-const comAtprotoServerRequestPasswordReset =
-    'com.atproto.server.requestPasswordReset';
+const comAtprotoServerRequestPasswordReset = 'com.atproto.server.requestPasswordReset';
 
 /// `com.atproto.server.requestAccountDelete`
-const comAtprotoServerRequestAccountDelete =
-    'com.atproto.server.requestAccountDelete';
+const comAtprotoServerRequestAccountDelete = 'com.atproto.server.requestAccountDelete';
 
 /// `com.atproto.server.createAccount`
 const comAtprotoServerCreateAccount = 'com.atproto.server.createAccount';
@@ -164,32 +157,25 @@ const comAtprotoRepoListRecords = 'com.atproto.repo.listRecords';
 const comAtprotoModerationDefs = 'com.atproto.moderation.defs';
 
 /// `com.atproto.moderation.defs#reasonType`
-const comAtprotoModerationDefsReasonType =
-    'com.atproto.moderation.defs#reasonType';
+const comAtprotoModerationDefsReasonType = 'com.atproto.moderation.defs#reasonType';
 
 /// `com.atproto.moderation.defs#reasonSpam`
-const comAtprotoModerationDefsReasonSpam =
-    'com.atproto.moderation.defs#reasonSpam';
+const comAtprotoModerationDefsReasonSpam = 'com.atproto.moderation.defs#reasonSpam';
 
 /// `com.atproto.moderation.defs#reasonViolation`
-const comAtprotoModerationDefsReasonViolation =
-    'com.atproto.moderation.defs#reasonViolation';
+const comAtprotoModerationDefsReasonViolation = 'com.atproto.moderation.defs#reasonViolation';
 
 /// `com.atproto.moderation.defs#reasonMisleading`
-const comAtprotoModerationDefsReasonMisleading =
-    'com.atproto.moderation.defs#reasonMisleading';
+const comAtprotoModerationDefsReasonMisleading = 'com.atproto.moderation.defs#reasonMisleading';
 
 /// `com.atproto.moderation.defs#reasonSexual`
-const comAtprotoModerationDefsReasonSexual =
-    'com.atproto.moderation.defs#reasonSexual';
+const comAtprotoModerationDefsReasonSexual = 'com.atproto.moderation.defs#reasonSexual';
 
 /// `com.atproto.moderation.defs#reasonRude`
-const comAtprotoModerationDefsReasonRude =
-    'com.atproto.moderation.defs#reasonRude';
+const comAtprotoModerationDefsReasonRude = 'com.atproto.moderation.defs#reasonRude';
 
 /// `com.atproto.moderation.defs#reasonOther`
-const comAtprotoModerationDefsReasonOther =
-    'com.atproto.moderation.defs#reasonOther';
+const comAtprotoModerationDefsReasonOther = 'com.atproto.moderation.defs#reasonOther';
 
 /// `com.atproto.moderation.createReport`
 const comAtprotoModerationCreateReport = 'com.atproto.moderation.createReport';
