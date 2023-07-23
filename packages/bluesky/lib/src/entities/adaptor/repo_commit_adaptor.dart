@@ -13,7 +13,7 @@ import '../../extension/at_uri_extension.dart';
 import '../block_record.dart';
 import '../follow_record.dart';
 import '../generator_record.dart';
-import '../ids/ids.dart' as ids;
+import '../ids/ids.g.dart' as ids;
 import '../like_record.dart';
 import '../list_item_record.dart';
 import '../list_record.dart';
@@ -384,5 +384,5 @@ class RepoCommitAdaptor {
 
   /// Returns true if [record] is graph list item, otherwise false.
   bool _isGraphListItem(final Map<String, dynamic> record) =>
-      record['\$type'] == ids.appBskyGraphListItem;
+      record['\$type'] == ids.appBskyGraphListitem;
 }

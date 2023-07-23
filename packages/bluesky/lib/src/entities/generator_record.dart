@@ -10,7 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'facet.dart';
-import 'ids/ids.dart';
+import 'ids/ids.g.dart';
 
 part 'generator_record.freezed.dart';
 part 'generator_record.g.dart';

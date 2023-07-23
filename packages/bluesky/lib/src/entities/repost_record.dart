@@ -9,7 +9,7 @@ import 'package:atproto/atproto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'ids/ids.dart';
+import 'ids/ids.g.dart';
 
 part 'repost_record.freezed.dart';
 part 'repost_record.g.dart';

@@ -7,10 +7,7 @@ import 'dart:io';
 import 'package:github/github.dart';
 import 'package:http/http.dart' as http;
 
-const _lexiconPaths = [
-  'com/atproto',
-  'app/bsky',
-];
+import 'utils.dart';
 
 final _repositorySlug = RepositorySlug(
   'bluesky-social',
@@ -18,9 +15,9 @@ final _repositorySlug = RepositorySlug(
 );
 
 Future<void> main(List<String> args) async {
-  for (final lexiconPath in _lexiconPaths) {
+  for (final root in lexiconsRoot) {
     //! Refresh every time.
-    Directory('lexicons/$lexiconPath')
+    Directory('lexicons/$root')
       ..deleteSync(recursive: true)
       ..createSync();
 
@@ -32,7 +29,7 @@ Future<void> main(List<String> args) async {
 
     final lexiconDirectories = await github.repositories.getContents(
       _repositorySlug,
-      'lexicons/$lexiconPath',
+      'lexicons/$root',
     );
 
     for (final lexiconDirectory in lexiconDirectories.tree!) {
@@ -47,7 +44,7 @@ Future<void> main(List<String> args) async {
         final response = await http.get(Uri.parse(lexiconFile.downloadUrl!));
         final fileName = lexiconFile.name;
 
-        File('lexicons/$lexiconPath/$directoryName/$fileName')
+        File('lexicons/$root/$directoryName/$fileName')
           ..createSync(recursive: true)
           ..writeAsBytesSync(response.bodyBytes);
       }

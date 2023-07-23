@@ -6,7 +6,7 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../entities/ids/ids.dart' as ids;
+import '../entities/ids/ids.g.dart' as ids;
 
 /// AT URI extension for Bluesky services.
 extension AtUriExtension on core.AtUri {
@@ -35,7 +35,7 @@ extension AtUriExtension on core.AtUri {
   bool get isGraphList => collection == ids.appBskyGraphList;
 
   /// Returns true if this [collection] is graph block, otherwise false.
-  bool get isGraphListItem => collection == ids.appBskyGraphListItem;
+  bool get isGraphListItem => collection == ids.appBskyGraphListitem;
 
   /// Returns true if this [collection] is not actor profile, otherwise false.
   bool get isNotActorProfile => !isActorProfile;

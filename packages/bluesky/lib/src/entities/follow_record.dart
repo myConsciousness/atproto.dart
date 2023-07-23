@@ -8,7 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'ids/ids.dart';
+import 'ids/ids.g.dart';
 
 part 'follow_record.freezed.dart';
 part 'follow_record.g.dart';

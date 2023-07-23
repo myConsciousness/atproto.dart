@@ -11,7 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'converter/embed_converter.dart';
 import 'embed.dart';
 import 'facet.dart';
-import 'ids/ids.dart';
+import 'ids/ids.g.dart';
 import 'post_ref.dart';
 
 part 'post_record.freezed.dart';
