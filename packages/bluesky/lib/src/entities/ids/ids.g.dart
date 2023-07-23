@@ -32,19 +32,23 @@ const appBskyEmbedExternal = 'app.bsky.embed.external';
 const appBskyNotificationUpdateSeen = 'app.bsky.notification.updateSeen';
 
 /// `app.bsky.notification.listNotifications`
-const appBskyNotificationListNotifications = 'app.bsky.notification.listNotifications';
+const appBskyNotificationListNotifications =
+    'app.bsky.notification.listNotifications';
 
 /// `app.bsky.notification.getUnreadCount`
-const appBskyNotificationGetUnreadCount = 'app.bsky.notification.getUnreadCount';
+const appBskyNotificationGetUnreadCount =
+    'app.bsky.notification.getUnreadCount';
 
 /// `app.bsky.unspecced.getPopular`
 const appBskyUnspeccedGetPopular = 'app.bsky.unspecced.getPopular';
 
 /// `app.bsky.unspecced.getPopularFeedGenerators`
-const appBskyUnspeccedGetPopularFeedGenerators = 'app.bsky.unspecced.getPopularFeedGenerators';
+const appBskyUnspeccedGetPopularFeedGenerators =
+    'app.bsky.unspecced.getPopularFeedGenerators';
 
 /// `app.bsky.unspecced.getTimelineSkeleton`
-const appBskyUnspeccedGetTimelineSkeleton = 'app.bsky.unspecced.getTimelineSkeleton';
+const appBskyUnspeccedGetTimelineSkeleton =
+    'app.bsky.unspecced.getTimelineSkeleton';
 
 /// `app.bsky.graph.block`
 const appBskyGraphBlock = 'app.bsky.graph.block';
@@ -146,13 +150,15 @@ const appBskyFeedDefsBlockedPost = 'app.bsky.feed.defs#blockedPost';
 const appBskyFeedDefsGeneratorView = 'app.bsky.feed.defs#generatorView';
 
 /// `app.bsky.feed.defs#generatorViewerState`
-const appBskyFeedDefsGeneratorViewerState = 'app.bsky.feed.defs#generatorViewerState';
+const appBskyFeedDefsGeneratorViewerState =
+    'app.bsky.feed.defs#generatorViewerState';
 
 /// `app.bsky.feed.defs#skeletonFeedPost`
 const appBskyFeedDefsSkeletonFeedPost = 'app.bsky.feed.defs#skeletonFeedPost';
 
 /// `app.bsky.feed.defs#skeletonReasonRepost`
-const appBskyFeedDefsSkeletonReasonRepost = 'app.bsky.feed.defs#skeletonReasonRepost';
+const appBskyFeedDefsSkeletonReasonRepost =
+    'app.bsky.feed.defs#skeletonReasonRepost';
 
 /// `app.bsky.feed.getFeedGenerators`
 const appBskyFeedGetFeedGenerators = 'app.bsky.feed.getFeedGenerators';
@@ -203,7 +209,8 @@ const appBskyFeedPost = 'app.bsky.feed.post';
 const appBskyRichtextFacet = 'app.bsky.richtext.facet';
 
 /// `app.bsky.actor.searchActorsTypeahead`
-const appBskyActorSearchActorsTypeahead = 'app.bsky.actor.searchActorsTypeahead';
+const appBskyActorSearchActorsTypeahead =
+    'app.bsky.actor.searchActorsTypeahead';
 
 /// `app.bsky.actor.defs`
 const appBskyActorDefs = 'app.bsky.actor.defs';
@@ -215,7 +222,8 @@ const appBskyActorDefsProfileViewBasic = 'app.bsky.actor.defs#profileViewBasic';
 const appBskyActorDefsProfileView = 'app.bsky.actor.defs#profileView';
 
 /// `app.bsky.actor.defs#profileViewDetailed`
-const appBskyActorDefsProfileViewDetailed = 'app.bsky.actor.defs#profileViewDetailed';
+const appBskyActorDefsProfileViewDetailed =
+    'app.bsky.actor.defs#profileViewDetailed';
 
 /// `app.bsky.actor.defs#viewerState`
 const appBskyActorDefsViewerState = 'app.bsky.actor.defs#viewerState';

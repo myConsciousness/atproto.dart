@@ -6,7 +6,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'package:atproto/src/entities/ids/ids.g.dart';
+import 'ids/ids.g.dart';
 
 part 'repo_ref.freezed.dart';
 part 'repo_ref.g.dart';

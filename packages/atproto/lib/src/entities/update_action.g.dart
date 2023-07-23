@@ -13,7 +13,7 @@ _$_UpdateAction _$$_UpdateActionFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_UpdateAction(
-          type: $checkedConvert('type',
+          type: $checkedConvert(r'$type',
               (v) => v as String? ?? 'com.atproto.repo.applyWrites#update'),
           collection: $checkedConvert(
               'collection', (v) => nsidConverter.fromJson(v as String)),
@@ -23,12 +23,12 @@ _$_UpdateAction _$$_UpdateActionFromJson(Map json) => $checkedCreate(
         );
         return val;
       },
-      fieldKeyMap: const {'record': 'value'},
+      fieldKeyMap: const {'type': r'$type', 'record': 'value'},
     );
 
 Map<String, dynamic> _$$_UpdateActionToJson(_$_UpdateAction instance) {
   final val = <String, dynamic>{
-    'type': instance.type,
+    r'$type': instance.type,
     'collection': nsidConverter.toJson(instance.collection),
   };
 
