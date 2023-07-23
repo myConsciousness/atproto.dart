@@ -20,7 +20,7 @@ ListItemRecord _$ListItemRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListItemRecord {
-  /// The type of the item. Default is [appBskyGraphListItem].
+  /// The type of the item. Default is [appBskyGraphListitem].
   @JsonKey(name: '\$type')
   String get type => throw _privateConstructorUsedError;
 
@@ -150,7 +150,7 @@ class __$$_ListItemRecordCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_ListItemRecord implements _ListItemRecord {
   const _$_ListItemRecord(
-      {@JsonKey(name: '\$type') this.type = appBskyGraphListItem,
+      {@JsonKey(name: '\$type') this.type = appBskyGraphListitem,
       @atUriConverter required this.list,
       @JsonKey(name: 'subject') required this.did,
       required this.createdAt});
@@ -158,7 +158,7 @@ class _$_ListItemRecord implements _ListItemRecord {
   factory _$_ListItemRecord.fromJson(Map<String, dynamic> json) =>
       _$$_ListItemRecordFromJson(json);
 
-  /// The type of the item. Default is [appBskyGraphListItem].
+  /// The type of the item. Default is [appBskyGraphListitem].
   @override
   @JsonKey(name: '\$type')
   final String type;
@@ -224,7 +224,7 @@ abstract class _ListItemRecord implements ListItemRecord {
 
   @override
 
-  /// The type of the item. Default is [appBskyGraphListItem].
+  /// The type of the item. Default is [appBskyGraphListitem].
   @JsonKey(name: '\$type')
   String get type;
   @override
