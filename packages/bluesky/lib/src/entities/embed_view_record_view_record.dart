@@ -39,6 +39,7 @@ class EmbedViewRecordViewRecord with _$EmbedViewRecordViewRecord {
   /// record (optional).
   /// The [indexedAt] parameter represents the date and time the record was
   /// indexed.
+  @jsonSerializable
   const factory EmbedViewRecordViewRecord({
     /// The type of the embedded view record view.
     @typeKey required String type,

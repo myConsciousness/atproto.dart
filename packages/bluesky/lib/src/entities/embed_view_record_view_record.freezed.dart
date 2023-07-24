@@ -220,7 +220,8 @@ class __$$_EmbedViewRecordViewRecordCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@jsonSerializable
 class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
   const _$_EmbedViewRecordViewRecord(
       {@typeKey required this.type,
