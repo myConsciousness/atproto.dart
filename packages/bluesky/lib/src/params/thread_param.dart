@@ -25,6 +25,7 @@ class ThreadParam with _$ThreadParam {
     @embedConverter Embed? embed,
     List<String>? languageTags,
     DateTime? createdAt,
+    @Default(emptyJson) Map<String, dynamic> unspecced,
   }) = _ThreadParam;
 
   factory ThreadParam.fromJson(Map<String, Object?> json) =>

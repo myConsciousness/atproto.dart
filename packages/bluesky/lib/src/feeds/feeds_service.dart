@@ -62,6 +62,9 @@ abstract class FeedsService {
   /// - [createdAt]: Date and time the post was created.
   ///                If omitted, defaults to the current time.
   ///
+  /// - [unspecced]: You can set record fields that are not supported
+  ///                by `app.bsky.feed.post` as JSON.
+  ///
   /// ## Lexicon
   ///
   /// - com.atproto.repo.createRecord
@@ -77,6 +80,7 @@ abstract class FeedsService {
     Embed? embed,
     List<String>? languageTags,
     DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
   });
 
   /// Creates posts.
@@ -108,6 +112,9 @@ abstract class FeedsService {
   /// - [createdAt]: Date and time the repost was created.
   ///                If omitted, defaults to the current time.
   ///
+  /// - [unspecced]: You can set record fields that are not supported
+  ///                by `app.bsky.feed.repost` as JSON.
+  ///
   /// ## Lexicon
   ///
   /// - com.atproto.repo.createRecord
@@ -120,6 +127,7 @@ abstract class FeedsService {
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
   });
 
   /// Creates reposts.
@@ -196,6 +204,9 @@ abstract class FeedsService {
   /// - [createdAt]: Date and time the like was created.
   ///                If omitted, defaults to the current time.
   ///
+  /// - [unspecced]: You can set record fields that are not supported
+  ///                by `app.bsky.feed.like` as JSON.
+  ///
   /// ## Lexicon
   ///
   /// - com.atproto.repo.createRecord
@@ -208,6 +219,7 @@ abstract class FeedsService {
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
   });
 
   /// Creates likes.
@@ -668,6 +680,9 @@ abstract class FeedsService {
   /// - [createdAt]: Date and time the post was created.
   ///                If omitted, defaults to the current time.
   ///
+  /// - [unspecced]: You can set record fields that are not supported
+  ///                by `app.bsky.feed.generator` as JSON.
+  ///
   /// ## Lexicon
   ///
   /// - app.bsky.feed.generator
@@ -682,6 +697,7 @@ abstract class FeedsService {
     List<Facet>? descriptionFacets,
     atp.Blob? avatar,
     DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
   });
 
   /// Creates generators.
@@ -825,6 +841,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     Embed? embed,
     List<String>? languageTags,
     DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
       await atproto.repositories.createRecord(
         collection: createNSID('post'),
@@ -835,6 +852,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'embed': embed?.toJson(),
           'langs': languageTags,
           'createdAt': toUtcIso8601String(createdAt),
+          ...unspecced,
         },
       );
 
@@ -854,6 +872,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
                   'embed': e.embed?.toJson(),
                   'langs': e.languageTags,
                   'createdAt': toUtcIso8601String(e.createdAt),
+                  ...e.unspecced,
                 },
               ),
             )
@@ -879,6 +898,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       embed: rootParam.embed,
       languageTags: rootParam.languageTags,
       createdAt: rootParam.createdAt,
+      unspecced: rootParam.unspecced,
     );
 
     final rootRef = rootRecord.data;
@@ -895,6 +915,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
         embed: param.embed,
         languageTags: param.languageTags,
         createdAt: param.createdAt,
+        unspecced: param.unspecced,
       ))
           .data;
     }
@@ -932,6 +953,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
       await atproto.repositories.createRecord(
         collection: createNSID('repost'),
@@ -940,7 +962,8 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
             'cid': cid,
             'uri': uri.toString(),
           },
-          'createdAt': toUtcIso8601String(createdAt)
+          'createdAt': toUtcIso8601String(createdAt),
+          ...unspecced,
         },
       );
 
@@ -958,7 +981,8 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
                     'cid': e.cid,
                     'uri': e.uri.toString(),
                   },
-                  'createdAt': toUtcIso8601String(e.createdAt)
+                  'createdAt': toUtcIso8601String(e.createdAt),
+                  ...e.unspecced,
                 },
               ),
             )
@@ -970,6 +994,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
       await atproto.repositories.createRecord(
         collection: createNSID('like'),
@@ -978,7 +1003,8 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
             'cid': cid,
             'uri': uri.toString(),
           },
-          'createdAt': toUtcIso8601String(createdAt)
+          'createdAt': toUtcIso8601String(createdAt),
+          ...unspecced,
         },
       );
 
@@ -996,7 +1022,8 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
                     'cid': e.cid,
                     'uri': e.uri.toString(),
                   },
-                  'createdAt': toUtcIso8601String(e.createdAt)
+                  'createdAt': toUtcIso8601String(e.createdAt),
+                  ...e.unspecced,
                 },
               ),
             )
@@ -1209,6 +1236,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     List<Facet>? descriptionFacets,
     atp.Blob? avatar,
     DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
       await atproto.repositories.createRecord(
         collection: createNSID('generator'),
@@ -1220,6 +1248,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
               descriptionFacets?.map((e) => e.toJson()).toList(),
           'avatar': avatar?.toJson(),
           'createdAt': toUtcIso8601String(createdAt),
+          ...unspecced,
         },
       );
 
@@ -1240,6 +1269,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
                       e.descriptionFacets?.map((e) => e.toJson()).toList(),
                   'avatar': e.avatar?.toJson(),
                   'createdAt': toUtcIso8601String(e.createdAt),
+                  ...e.unspecced,
                 },
               ),
             )

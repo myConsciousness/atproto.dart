@@ -26,6 +26,7 @@ class ListParam with _$ListParam {
     List<Facet>? descriptionFacets,
     Blob? avatar,
     DateTime? createdAt,
+    @Default(emptyJson) Map<String, dynamic> unspecced,
   }) = _ListParam;
 
   factory ListParam.fromJson(Map<String, Object?> json) =>

@@ -4,6 +4,25 @@
 
 - Added `query` parameters to `findPopularFeedGenerators` and `findPopularFeedGeneratorsAsJson` in `UnspeccedService`. ([#615](https://github.com/myConsciousness/atproto.dart/issues/615))
 - Optimized internal processing. ([#606](https://github.com/myConsciousness/atproto.dart/issues/606))
+- Added `unspecced` parameter. Fields not supported by the official Lexicon can be added when creating a record. ([#612](https://github.com/myConsciousness/atproto.dart/issues/612))
+  - `FeedsService`
+    - `createPost`
+    - `createPosts`
+    - `createRepost`
+    - `createReposts`
+    - `createLike`
+    - `createLikes`
+    - `createGenerator`
+    - `createGenerators`
+  - `GraphsService`
+    - `createFollow`
+    - `createFollows`
+    - `createBlock`
+    - `createBlocks`
+    - `createList`
+    - `createLists`
+    - `createListItem`
+    - `createListItems`
 
 ## v0.7.5
 
