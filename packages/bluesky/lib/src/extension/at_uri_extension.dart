@@ -6,7 +6,7 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../entities/ids/ids.g.dart' as ids;
+import '../entities/keys/ids.g.dart' as ids;
 
 /// AT URI extension for Bluesky services.
 extension AtUriExtension on core.AtUri {
