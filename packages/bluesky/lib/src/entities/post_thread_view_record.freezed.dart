@@ -21,7 +21,7 @@ PostThreadViewRecord _$PostThreadViewRecordFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PostThreadViewRecord {
   /// Represents the type of the thread view record.
-  @JsonKey(name: '\$type')
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// Represents the post for which the thread view record is being created.
@@ -48,7 +48,7 @@ abstract class $PostThreadViewRecordCopyWith<$Res> {
       _$PostThreadViewRecordCopyWithImpl<$Res, PostThreadViewRecord>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       Post post,
       @postThreadViewConverter PostThreadView? parent,
       @postThreadViewConverter List<PostThreadView>? replies});
@@ -126,7 +126,7 @@ abstract class _$$_PostThreadViewRecordCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       Post post,
       @postThreadViewConverter PostThreadView? parent,
       @postThreadViewConverter List<PostThreadView>? replies});
@@ -178,7 +178,7 @@ class __$$_PostThreadViewRecordCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_PostThreadViewRecord implements _PostThreadViewRecord {
   const _$_PostThreadViewRecord(
-      {@JsonKey(name: '\$type') required this.type,
+      {@typeKey required this.type,
       required this.post,
       @postThreadViewConverter this.parent,
       @postThreadViewConverter final List<PostThreadView>? replies})
@@ -189,7 +189,7 @@ class _$_PostThreadViewRecord implements _PostThreadViewRecord {
 
   /// Represents the type of the thread view record.
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
 
   /// Represents the post for which the thread view record is being created.
@@ -253,7 +253,7 @@ class _$_PostThreadViewRecord implements _PostThreadViewRecord {
 
 abstract class _PostThreadViewRecord implements PostThreadViewRecord {
   const factory _PostThreadViewRecord(
-          {@JsonKey(name: '\$type') required final String type,
+          {@typeKey required final String type,
           required final Post post,
           @postThreadViewConverter final PostThreadView? parent,
           @postThreadViewConverter final List<PostThreadView>? replies}) =
@@ -265,7 +265,7 @@ abstract class _PostThreadViewRecord implements PostThreadViewRecord {
   @override
 
   /// Represents the type of the thread view record.
-  @JsonKey(name: '\$type')
+  @typeKey
   String get type;
   @override
 

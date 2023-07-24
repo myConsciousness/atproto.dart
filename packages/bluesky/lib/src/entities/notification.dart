@@ -35,7 +35,7 @@ class Notification with _$Notification {
   /// notification.
   /// - [indexedAt] parameter indicates the timestamp at which the
   /// notification was indexed.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory Notification({
     /// Unique identifier of the notification.
     required String cid,

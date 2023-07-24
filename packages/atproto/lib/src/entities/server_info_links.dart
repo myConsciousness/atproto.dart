@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'server_info_links.freezed.dart';
@@ -18,7 +19,7 @@ class ServerInfoLinks with _$ServerInfoLinks {
   /// Creates a new instance of [ServerInfoLinks].
   ///
   /// Both parameters are optional.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ServerInfoLinks({
     /// The URL to the privacy policy, if available.
     String? privacyPolicy,

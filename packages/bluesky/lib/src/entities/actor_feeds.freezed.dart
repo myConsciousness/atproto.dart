@@ -111,7 +111,7 @@ class __$$_ActorFeedsCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_ActorFeeds implements _ActorFeeds {
   const _$_ActorFeeds(
       {required final List<FeedGeneratorView> feeds, this.cursor})

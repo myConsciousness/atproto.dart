@@ -21,7 +21,7 @@ FollowRecord _$FollowRecordFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$FollowRecord {
   /// Type of the record. Defaults to `appBskyGraphFollow`.
-  @JsonKey(name: '\$type')
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// DID of the subject being followed.
@@ -44,7 +44,7 @@ abstract class $FollowRecordCopyWith<$Res> {
       _$FollowRecordCopyWithImpl<$Res, FollowRecord>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       @JsonKey(name: 'subject') String did,
       DateTime createdAt});
 }
@@ -92,7 +92,7 @@ abstract class _$$_FollowRecordCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       @JsonKey(name: 'subject') String did,
       DateTime createdAt});
 }
@@ -131,10 +131,10 @@ class __$$_FollowRecordCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_FollowRecord implements _FollowRecord {
   const _$_FollowRecord(
-      {@JsonKey(name: '\$type') this.type = appBskyGraphFollow,
+      {@typeKey this.type = appBskyGraphFollow,
       @JsonKey(name: 'subject') required this.did,
       required this.createdAt});
 
@@ -143,7 +143,7 @@ class _$_FollowRecord implements _FollowRecord {
 
   /// Type of the record. Defaults to `appBskyGraphFollow`.
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
 
   /// DID of the subject being followed.
@@ -191,7 +191,7 @@ class _$_FollowRecord implements _FollowRecord {
 
 abstract class _FollowRecord implements FollowRecord {
   const factory _FollowRecord(
-      {@JsonKey(name: '\$type') final String type,
+      {@typeKey final String type,
       @JsonKey(name: 'subject') required final String did,
       required final DateTime createdAt}) = _$_FollowRecord;
 
@@ -201,7 +201,7 @@ abstract class _FollowRecord implements FollowRecord {
   @override
 
   /// Type of the record. Defaults to `appBskyGraphFollow`.
-  @JsonKey(name: '\$type')
+  @typeKey
   String get type;
   @override
 

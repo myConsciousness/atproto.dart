@@ -13,7 +13,7 @@ part 'list_item_param.g.dart';
 
 @freezed
 class ListItemParam with _$ListItemParam {
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ListItemParam({
     required String subject,
     @atUriConverter required AtUri list,

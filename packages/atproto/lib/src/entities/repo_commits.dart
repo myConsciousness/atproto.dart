@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -20,7 +21,7 @@ class RepoCommits with _$RepoCommits {
   ///
   /// The [commits] parameter is required and should be a list of
   /// [RepoCommit] objects.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory RepoCommits({
     /// The list of [RepoCommit] objects.
     required List<RepoCommit> commits,

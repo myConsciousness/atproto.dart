@@ -15,7 +15,7 @@ _$_SkeletonReasonRepost _$$_SkeletonReasonRepostFromJson(Map json) =>
       ($checkedConvert) {
         final val = _$_SkeletonReasonRepost(
           type: $checkedConvert(r'$type',
-              (v) => v as String? ?? 'app.bsky.feed.defs#skeletonReasonRepost'),
+              (v) => v as String? ?? appBskyFeedDefsSkeletonReasonRepost),
           repost: $checkedConvert(
               'repost', (v) => atUriConverter.fromJson(v as String)),
         );

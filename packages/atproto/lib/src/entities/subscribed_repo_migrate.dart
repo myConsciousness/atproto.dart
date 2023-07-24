@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'subscribed_repo_migrate.freezed.dart';
@@ -18,7 +19,7 @@ class SubscribedRepoMigrate with _$SubscribedRepoMigrate {
   ///
   /// The [did], [cursor], and [createdAt] parameters are required,
   /// and the [migrateTo] parameter is optional.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory SubscribedRepoMigrate({
     /// The identifier of the subscribed repository.
     required String did,

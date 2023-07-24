@@ -121,7 +121,7 @@ class __$$_RecordCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_Record extends _Record {
   const _$_Record(
       {@atUriConverter required this.uri,

@@ -8,6 +8,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'keys/ids.g.dart';
+
 part 'saved_feeds_preference.freezed.dart';
 part 'saved_feeds_preference.g.dart';
 
@@ -16,13 +19,11 @@ part 'saved_feeds_preference.g.dart';
 @freezed
 class SavedFeedsPreference with _$SavedFeedsPreference {
   /// Default constructor for [SavedFeedsPreference].
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory SavedFeedsPreference({
     /// A string that represents the type of the object.
-    /// By default, it is `app.bsky.actor.defs#savedFeedsPref`.
-    @Default('app.bsky.actor.defs#savedFeedsPref')
-    @JsonKey(name: '\$type')
-    String type,
+    /// By default, it is [appBskyActorDefsSavedFeedsPref].
+    @typeKey @Default(appBskyActorDefsSavedFeedsPref) String type,
 
     /// A list of pinned URIs represented as [AtUri] objects.
     @JsonKey(name: 'pinned') @atUriConverter required List<AtUri> pinnedUris,

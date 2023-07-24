@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -35,7 +36,7 @@ class PostThreadViewRecord with _$PostThreadViewRecord {
   /// replies to the [post].
   const factory PostThreadViewRecord({
     /// Represents the type of the thread view record.
-    @JsonKey(name: '\$type') required String type,
+    @typeKey required String type,
 
     /// Represents the post for which the thread view record is being created.
     required Post post,

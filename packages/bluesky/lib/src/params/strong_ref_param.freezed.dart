@@ -119,7 +119,7 @@ class __$$_StrongRefParamCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_StrongRefParam implements _StrongRefParam {
   const _$_StrongRefParam(
       {required this.cid, @atUriConverter required this.uri, this.createdAt});

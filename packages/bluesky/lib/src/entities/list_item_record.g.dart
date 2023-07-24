@@ -14,7 +14,7 @@ _$_ListItemRecord _$$_ListItemRecordFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$_ListItemRecord(
           type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyGraphListItem),
+              r'$type', (v) => v as String? ?? appBskyGraphListitem),
           list: $checkedConvert(
               'list', (v) => atUriConverter.fromJson(v as String)),
           did: $checkedConvert('subject', (v) => v as String),

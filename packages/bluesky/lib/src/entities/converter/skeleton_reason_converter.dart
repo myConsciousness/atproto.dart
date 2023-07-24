@@ -3,9 +3,11 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../keys/ids.g.dart' as ids;
 import '../skeleton_reason.dart';
 import '../skeleton_reason_repost.dart';
 
@@ -17,9 +19,9 @@ class _SkeletonReasonConverter
 
   @override
   SkeletonReason fromJson(Map<String, dynamic> json) {
-    final type = json['\$type'];
+    final type = json[core.objectType];
 
-    if (type == 'app.bsky.feed.defs#skeletonReasonRepost') {
+    if (type == ids.appBskyFeedDefsSkeletonReasonRepost) {
       return SkeletonReason.repost(
         data: SkeletonReasonRepost.fromJson(json),
       );

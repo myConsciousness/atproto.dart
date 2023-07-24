@@ -134,7 +134,7 @@ class __$$_SkeletonFeedViewCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_SkeletonFeedView implements _SkeletonFeedView {
   const _$_SkeletonFeedView(
       {@atUriConverter required this.post,

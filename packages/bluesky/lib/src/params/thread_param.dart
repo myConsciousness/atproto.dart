@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -17,7 +18,7 @@ part 'thread_param.g.dart';
 
 @freezed
 class ThreadParam with _$ThreadParam {
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ThreadParam({
     required String text,
     List<Facet>? facets,

@@ -5,7 +5,11 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import 'keys/ids.g.dart';
 
 part 'adult_content_preference.freezed.dart';
 part 'adult_content_preference.g.dart';
@@ -22,16 +26,14 @@ class AdultContentPreference with _$AdultContentPreference {
   /// Creates an instance of [AdultContentPreference].
   ///
   /// - `type`: The type of the preference. By default, it is
-  /// `app.bsky.actor.defs#adultContentPref`.
+  /// [appBskyActorDefsAdultContentPref].
   /// - `isEnabled`: A boolean value indicating whether the user has enabled
   /// the viewing of adult content.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory AdultContentPreference({
     /// The type of the preference.
-    /// By default, it is `app.bsky.actor.defs#adultContentPref`.
-    @Default('app.bsky.actor.defs#adultContentPref')
-    @JsonKey(name: '\$type')
-    String type,
+    /// By default, it is [appBskyActorDefsAdultContentPref].
+    @typeKey @Default(appBskyActorDefsAdultContentPref) String type,
 
     /// A boolean value indicating whether the user has enabled the
     /// viewing of adult content.

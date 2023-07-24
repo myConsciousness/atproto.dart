@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'embed_view_external_view.freezed.dart';
@@ -29,7 +30,7 @@ class EmbedViewExternalView with _$EmbedViewExternalView {
   /// external content.
   ///
   /// An optional `thumbnail` can also be provided.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory EmbedViewExternalView({
     /// A string that represents the Uniform Resource Identifier (URI) of
     /// the external content.

@@ -5,7 +5,11 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import 'keys/ids.g.dart';
 
 part 'content_label_preference.freezed.dart';
 part 'content_label_preference.g.dart';
@@ -22,12 +26,10 @@ class ContentLabelPreference with _$ContentLabelPreference {
   /// The `label` property represents the content label. The `visibility`
   /// property represents the user's preference for visibility of
   /// content with this label.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ContentLabelPreference({
     /// The content label.
-    @Default('app.bsky.actor.defs#contentLabelPref')
-    @JsonKey(name: '\$type')
-    String type,
+    @typeKey @Default(appBskyActorDefsContentLabelPref) String type,
 
     /// The content label.
     required String label,

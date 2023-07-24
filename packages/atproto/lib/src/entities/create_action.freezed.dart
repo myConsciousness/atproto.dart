@@ -21,8 +21,8 @@ CreateAction _$CreateActionFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CreateAction {
   /// The type of the action. Default is
-  /// `com.atproto.repo.applyWrites#create`.
-  @JsonKey(name: '\$type')
+  /// [comAtprotoRepoApplyWritesCreate].
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// The collection in which the record should be created.
@@ -49,7 +49,7 @@ abstract class $CreateActionCopyWith<$Res> {
       _$CreateActionCopyWithImpl<$Res, CreateAction>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       @nsidConverter NSID collection,
       String? rkey,
       @JsonKey(name: 'value') Map<String, dynamic> record});
@@ -103,7 +103,7 @@ abstract class _$$_CreateActionCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       @nsidConverter NSID collection,
       String? rkey,
       @JsonKey(name: 'value') Map<String, dynamic> record});
@@ -148,11 +148,10 @@ class __$$_CreateActionCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_CreateAction implements _CreateAction {
   const _$_CreateAction(
-      {@JsonKey(name: '\$type')
-      this.type = 'com.atproto.repo.applyWrites#create',
+      {@typeKey this.type = comAtprotoRepoApplyWritesCreate,
       @nsidConverter required this.collection,
       this.rkey,
       @JsonKey(name: 'value') required final Map<String, dynamic> record})
@@ -162,9 +161,9 @@ class _$_CreateAction implements _CreateAction {
       _$$_CreateActionFromJson(json);
 
   /// The type of the action. Default is
-  /// `com.atproto.repo.applyWrites#create`.
+  /// [comAtprotoRepoApplyWritesCreate].
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
 
   /// The collection in which the record should be created.
@@ -226,7 +225,7 @@ class _$_CreateAction implements _CreateAction {
 
 abstract class _CreateAction implements CreateAction {
   const factory _CreateAction(
-          {@JsonKey(name: '\$type') final String type,
+          {@typeKey final String type,
           @nsidConverter required final NSID collection,
           final String? rkey,
           @JsonKey(name: 'value') required final Map<String, dynamic> record}) =
@@ -238,8 +237,8 @@ abstract class _CreateAction implements CreateAction {
   @override
 
   /// The type of the action. Default is
-  /// `com.atproto.repo.applyWrites#create`.
-  @JsonKey(name: '\$type')
+  /// [comAtprotoRepoApplyWritesCreate].
+  @typeKey
   String get type;
   @override
 

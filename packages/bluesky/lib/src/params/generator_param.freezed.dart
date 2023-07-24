@@ -180,7 +180,7 @@ class __$$_GeneratorParamCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_GeneratorParam implements _GeneratorParam {
   const _$_GeneratorParam(
       {required this.did,

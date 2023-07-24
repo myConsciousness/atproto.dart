@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -27,10 +28,10 @@ class Facet with _$Facet {
   ///
   /// Requires [index] which is the byte slice index of the facet and
   /// [features] which is a list of facet features. The [type] is optional.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory Facet({
     /// Specifies the type of facet. Optional.
-    @JsonKey(name: '\$type') String? type,
+    @typeKey String? type,
 
     /// Represents the byte slice index of the facet.
     required ByteSlice index,

@@ -25,7 +25,7 @@ class FeedGeneratorViewer with _$FeedGeneratorViewer {
   /// 'like' action performed by the viewer on the feed generator.
   ///
   /// If the viewer has not liked the feed generator, this value can be null.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory FeedGeneratorViewer({
     /// Represents the URI of the 'like' action performed by the viewer.
     /// Optional.

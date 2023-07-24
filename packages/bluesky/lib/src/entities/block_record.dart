@@ -5,10 +5,11 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'ids/ids.dart';
+import 'keys/ids.g.dart';
 
 part 'block_record.freezed.dart';
 part 'block_record.g.dart';
@@ -31,11 +32,11 @@ class BlockRecord with _$BlockRecord {
   /// - `did`: The Decentralized Identifier (DID) of the user who has been
   /// blocked.
   /// - `createdAt`: The timestamp when the blocking action was taken.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory BlockRecord({
     /// The type of the record.
     /// By default, it is `appBskyGraphBlock`.
-    @Default(appBskyGraphBlock) @JsonKey(name: '\$type') String type,
+    @typeKey @Default(appBskyGraphBlock) String type,
 
     /// The Decentralized Identifier (DID) of the user who has been blocked.
     @JsonKey(name: 'subject') required String did,

@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'generator_links.freezed.dart';
@@ -20,7 +21,7 @@ class GeneratorLinks with _$GeneratorLinks {
   ///
   /// Optionally, it can include a privacy policy link and a terms of
   /// service link.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory GeneratorLinks({
     /// The link to the privacy policy of the generator.
     String? privacyPolicy,

@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -29,7 +30,7 @@ class EmbedViewRecordWithMedia with _$EmbedViewRecordWithMedia {
   /// embedded view record and [media] which is the media attached to the view.
   const factory EmbedViewRecordWithMedia({
     /// Specifies the type of record.
-    @JsonKey(name: '\$type') required String type,
+    @typeKey required String type,
 
     /// Represents the record of the embedded view.
     required EmbedViewRecord record,

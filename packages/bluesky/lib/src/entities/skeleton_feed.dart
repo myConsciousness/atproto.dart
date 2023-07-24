@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -19,7 +20,7 @@ part 'skeleton_feed.g.dart';
 @freezed
 class SkeletonFeed with _$SkeletonFeed {
   /// Default constructor for [SkeletonFeed].
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory SkeletonFeed({
     /// A list of [SkeletonFeedView] objects, each representing a
     /// reference to a post in the skeleton feed.

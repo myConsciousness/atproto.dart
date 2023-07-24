@@ -165,7 +165,7 @@ class __$$_FeedViewCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_FeedView implements _FeedView {
   const _$_FeedView(
       {required this.post, this.reply, @reasonConverter this.reason});

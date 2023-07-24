@@ -212,7 +212,7 @@ class __$$_ActorCopyWithImpl<$Res> extends _$ActorCopyWithImpl<$Res, _$_Actor>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_Actor extends _Actor {
   const _$_Actor(
       {required this.did,

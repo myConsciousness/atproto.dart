@@ -98,7 +98,7 @@ class __$$_GeneratorFeedCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_GeneratorFeed implements _GeneratorFeed {
   const _$_GeneratorFeed({@atUriConverter required this.uri});
 

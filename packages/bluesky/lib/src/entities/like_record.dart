@@ -6,10 +6,11 @@
 
 // 📦 Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'ids/ids.dart';
+import 'keys/ids.g.dart';
 
 part 'like_record.freezed.dart';
 part 'like_record.g.dart';
@@ -25,10 +26,10 @@ class LikeRecord with _$LikeRecord {
   ///
   /// Both [ref] and [createdAt] are required. [type] defaults to
   /// [appBskyFeedLike].
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory LikeRecord({
     /// Type of the record, defaults to [appBskyFeedLike].
-    @Default(appBskyFeedLike) @JsonKey(name: '\$type') String type,
+    @typeKey @Default(appBskyFeedLike) String type,
 
     /// The subject of the 'like'. It's usually a reference to the content that
     /// was liked.

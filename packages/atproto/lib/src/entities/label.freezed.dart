@@ -173,7 +173,7 @@ class __$$_LabelCopyWithImpl<$Res> extends _$LabelCopyWithImpl<$Res, _$_Label>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_Label implements _Label {
   const _$_Label(
       {required this.src,

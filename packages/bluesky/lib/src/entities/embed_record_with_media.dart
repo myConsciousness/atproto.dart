@@ -5,12 +5,14 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'converter/embed_media_converter.dart';
 import 'embed_media.dart';
 import 'embed_record.dart';
+import 'keys/ids.g.dart';
 
 part 'embed_record_with_media.freezed.dart';
 part 'embed_record_with_media.g.dart';
@@ -23,7 +25,7 @@ part 'embed_record_with_media.g.dart';
 ///
 /// This class has the following properties:
 /// - `type`: A string that represents the type of the embedded content,
-/// defaulted to `'app.bsky.embed.recordWithMedia'`.
+/// defaulted to [appBskyEmbedRecordWithMedia].
 /// - `record`: An [EmbedRecord] object that represents the record to be
 /// embedded.
 /// - `media`: An [EmbedMedia] object that represents the media to be embedded.
@@ -36,10 +38,8 @@ class EmbedRecordWithMedia with _$EmbedRecordWithMedia {
   /// the media to be embedded.
   const factory EmbedRecordWithMedia({
     /// The type of the embedded content, defaulted to
-    /// `app.bsky.embed.recordWithMedia`.
-    @Default('app.bsky.embed.recordWithMedia')
-    @JsonKey(name: '\$type')
-    String type,
+    /// [appBskyEmbedRecordWithMedia].
+    @typeKey @Default(appBskyEmbedRecordWithMedia) String type,
 
     /// An [EmbedRecord] object that represents the record to be embedded.
     required EmbedRecord record,

@@ -21,7 +21,7 @@ EmbedViewImages _$EmbedViewImagesFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$EmbedViewImages {
   /// An optional string that represents the type of the embedded images view.
-  @JsonKey(name: '\$type')
+  @typeKey
   String? get type => throw _privateConstructorUsedError;
 
   /// A list of `EmbedViewImagesView` instances.
@@ -39,9 +39,7 @@ abstract class $EmbedViewImagesCopyWith<$Res> {
           EmbedViewImages value, $Res Function(EmbedViewImages) then) =
       _$EmbedViewImagesCopyWithImpl<$Res, EmbedViewImages>;
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String? type,
-      List<EmbedViewImagesView> images});
+  $Res call({@typeKey String? type, List<EmbedViewImagesView> images});
 }
 
 /// @nodoc
@@ -81,9 +79,7 @@ abstract class _$$_EmbedViewImagesCopyWith<$Res>
       __$$_EmbedViewImagesCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String? type,
-      List<EmbedViewImagesView> images});
+  $Res call({@typeKey String? type, List<EmbedViewImagesView> images});
 }
 
 /// @nodoc
@@ -117,8 +113,7 @@ class __$$_EmbedViewImagesCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedViewImages implements _EmbedViewImages {
   const _$_EmbedViewImages(
-      {@JsonKey(name: '\$type') this.type,
-      required final List<EmbedViewImagesView> images})
+      {@typeKey this.type, required final List<EmbedViewImagesView> images})
       : _images = images;
 
   factory _$_EmbedViewImages.fromJson(Map<String, dynamic> json) =>
@@ -126,7 +121,7 @@ class _$_EmbedViewImages implements _EmbedViewImages {
 
   /// An optional string that represents the type of the embedded images view.
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String? type;
 
   /// A list of `EmbedViewImagesView` instances.
@@ -175,7 +170,7 @@ class _$_EmbedViewImages implements _EmbedViewImages {
 
 abstract class _EmbedViewImages implements EmbedViewImages {
   const factory _EmbedViewImages(
-      {@JsonKey(name: '\$type') final String? type,
+      {@typeKey final String? type,
       required final List<EmbedViewImagesView> images}) = _$_EmbedViewImages;
 
   factory _EmbedViewImages.fromJson(Map<String, dynamic> json) =
@@ -184,7 +179,7 @@ abstract class _EmbedViewImages implements EmbedViewImages {
   @override
 
   /// An optional string that represents the type of the embedded images view.
-  @JsonKey(name: '\$type')
+  @typeKey
   String? get type;
   @override
 

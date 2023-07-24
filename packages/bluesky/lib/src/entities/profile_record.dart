@@ -6,10 +6,11 @@
 
 // 📦 Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'ids/ids.dart';
+import 'keys/ids.g.dart';
 
 part 'profile_record.freezed.dart';
 part 'profile_record.g.dart';
@@ -20,12 +21,12 @@ class ProfileRecord with _$ProfileRecord {
   /// Creates a new instance of [ProfileRecord].
   ///
   /// The [type] default value is [appBskyActorProfile].
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ProfileRecord({
     /// Represents the type of the record.
     ///
     /// By default, the type is [appBskyActorProfile].
-    @Default(appBskyActorProfile) @JsonKey(name: '\$type') String type,
+    @typeKey @Default(appBskyActorProfile) String type,
 
     /// Represents the display name of the actor.
     String? displayName,

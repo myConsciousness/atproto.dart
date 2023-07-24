@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -26,7 +27,7 @@ class EmbedViewRecord with _$EmbedViewRecord {
   /// the type of record is optional.
   const factory EmbedViewRecord({
     /// Specifies the type of record. Optional.
-    @JsonKey(name: '\$type') String? type,
+    @typeKey String? type,
 
     /// Represents the view of the record.
     @embedViewRecordViewConverter required EmbedViewRecordView record,

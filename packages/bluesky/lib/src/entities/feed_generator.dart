@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -25,7 +26,7 @@ class FeedGenerator with _$FeedGenerator {
   /// Requires a [FeedGeneratorView] object, [isOnline] indicating whether
   /// the feed generator is currently online, and [isValid] indicating whether
   /// the feed generator is valid.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory FeedGenerator({
     /// Represents the view of the feed generator.
     required FeedGeneratorView view,

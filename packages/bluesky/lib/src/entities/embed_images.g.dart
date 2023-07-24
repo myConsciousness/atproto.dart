@@ -14,7 +14,7 @@ _$_EmbedImages _$$_EmbedImagesFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$_EmbedImages(
           type: $checkedConvert(
-              r'$type', (v) => v as String? ?? 'app.bsky.embed.images'),
+              r'$type', (v) => v as String? ?? appBskyEmbedImages),
           images: $checkedConvert(
               'images',
               (v) => (v as List<dynamic>)

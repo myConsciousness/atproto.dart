@@ -13,8 +13,8 @@ _$_RepoRef _$$_RepoRefFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_RepoRef(
-          type: $checkedConvert(r'$type',
-              (v) => v as String? ?? 'com.atproto.admin.defs#repoRef'),
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? comAtprotoAdminDefsRepoRef),
           did: $checkedConvert('did', (v) => v as String),
         );
         return val;

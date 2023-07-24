@@ -110,7 +110,7 @@ class __$$_ServerInfoLinksCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_ServerInfoLinks implements _ServerInfoLinks {
   const _$_ServerInfoLinks({this.privacyPolicy, this.termsOfService});
 

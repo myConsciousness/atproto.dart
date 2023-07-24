@@ -8,6 +8,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'converter/nsid_converter.dart';
+import 'keys/ids.g.dart';
 
 part 'update_action.freezed.dart';
 part 'update_action.g.dart';
@@ -22,14 +23,12 @@ class UpdateAction with _$UpdateAction {
   ///
   /// The [collection] and [record] parameters are required. The
   /// [type] parameter has a default value of
-  /// `com.atproto.repo.applyWrites#update`, and [rkey] is optional.
-  @JsonSerializable(includeIfNull: false)
+  /// [comAtprotoRepoApplyWritesUpdate], and [rkey] is optional.
+  @jsonSerializable
   const factory UpdateAction({
     /// The type of action. It defaults to
-    /// `com.atproto.repo.applyWrites#update`.
-    @JsonKey(name: '\$type')
-    @Default('com.atproto.repo.applyWrites#update')
-    String type,
+    /// [comAtprotoRepoApplyWritesUpdate].
+    @typeKey @Default(comAtprotoRepoApplyWritesUpdate) String type,
 
     /// The collection to which the record belongs.
     @nsidConverter required NSID collection,

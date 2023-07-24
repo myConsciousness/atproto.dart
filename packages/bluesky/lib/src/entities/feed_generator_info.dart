@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -26,7 +27,7 @@ class FeedGeneratorInfo with _$FeedGeneratorInfo {
   /// Requires [did] which is the decentralized identifier (DID) of the feed
   /// generator and [feeds] which is a list of generator feeds. [links] is
   /// optional.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory FeedGeneratorInfo({
     /// Represents the decentralized identifier (DID) of the feed generator.
     required String did,

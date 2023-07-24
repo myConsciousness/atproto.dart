@@ -11,6 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import 'actor.dart';
 import 'facet.dart';
+import 'keys/ids.g.dart';
 import 'list_viewer.dart';
 
 part 'list_view.freezed.dart';
@@ -32,15 +33,13 @@ class ListView with _$ListView {
   /// The fields [type], [purpose], [uri], [cid], [name], [createdBy],
   /// [viewer], and [indexedAt] are required. The fields [description],
   /// [descriptionFacets], and [avatar] are optional.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ListView({
-    /// The type of the list, by default it is `app.bsky.graph.defs#listView`.
-    @Default('app.bsky.graph.defs#listView')
-    @JsonKey(name: '\$type')
-    String type,
+    /// The type of the list, by default it is [appBskyGraphDefsListView].
+    @typeKey @Default(appBskyGraphDefsListView) String type,
 
-    /// The purpose of the list, by default it is `app.bsky.graph.defs#modlist`.
-    @Default('app.bsky.graph.defs#modlist') String purpose,
+    /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
+    @Default(appBskyGraphDefsModlist) String purpose,
 
     /// The URI of the list.
     @atUriConverter required AtUri uri,

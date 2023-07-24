@@ -119,7 +119,7 @@ class __$$_ListItemParamCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_ListItemParam implements _ListItemParam {
   const _$_ListItemParam(
       {required this.subject,

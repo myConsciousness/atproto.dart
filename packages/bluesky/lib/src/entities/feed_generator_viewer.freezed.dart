@@ -99,7 +99,7 @@ class __$$_FeedGeneratorViewerCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_FeedGeneratorViewer implements _FeedGeneratorViewer {
   const _$_FeedGeneratorViewer({@atUriConverter this.like});
 

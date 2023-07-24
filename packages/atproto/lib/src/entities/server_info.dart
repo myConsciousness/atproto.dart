@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -22,7 +23,7 @@ class ServerInfo with _$ServerInfo {
   ///
   /// The [availableUserDomains] and [isInviteCodeRequired] parameters
   /// are required, while [links] is optional.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ServerInfo({
     /// List of user domains available in the server.
     required List<String> availableUserDomains,

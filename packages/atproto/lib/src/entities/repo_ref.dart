@@ -3,7 +3,11 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import 'keys/ids.g.dart';
 
 part 'repo_ref.freezed.dart';
 part 'repo_ref.g.dart';
@@ -14,13 +18,11 @@ class RepoRef with _$RepoRef {
   /// Creates a new instance of [RepoRef].
   ///
   /// The [did] parameter is required. The [type] parameter is optional,
-  /// with a default value of `com.atproto.admin.defs#repoRef`.
+  /// with a default value of [comAtprotoAdminDefsRepoRef].
   const factory RepoRef({
     /// The type of the repository reference.
-    /// It defaults to `com.atproto.admin.defs#repoRef`.
-    @Default('com.atproto.admin.defs#repoRef')
-    @JsonKey(name: '\$type')
-    String type,
+    /// It defaults to [comAtprotoAdminDefsRepoRef].
+    @typeKey @Default(comAtprotoAdminDefsRepoRef) String type,
 
     /// The DID of the repository.
     required String did,

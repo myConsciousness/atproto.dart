@@ -8,6 +8,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'keys/ids.g.dart';
+
 part 'skeleton_reason_repost.freezed.dart';
 part 'skeleton_reason_repost.g.dart';
 
@@ -22,10 +25,8 @@ class SkeletonReasonRepost with _$SkeletonReasonRepost {
   /// Default constructor for [SkeletonReasonRepost].
   const factory SkeletonReasonRepost({
     /// The type identifier for this class, always
-    /// `app.bsky.feed.defs#skeletonReasonRepost` for [SkeletonReasonRepost].
-    @Default('app.bsky.feed.defs#skeletonReasonRepost')
-    @JsonKey(name: '\$type')
-    String type,
+    /// [app.bsky.feed.defs#skeletonReasonRepost] for [SkeletonReasonRepost].
+    @typeKey @Default(appBskyFeedDefsSkeletonReasonRepost) String type,
 
     /// The repost that is the reason for the post's inclusion in the skeleton
     /// feed.

@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -29,7 +30,7 @@ class EmbedViewExternal with _$EmbedViewExternal {
   /// `EmbedViewExternalView` containing the information of the external view.
   const factory EmbedViewExternal({
     /// A string that describes the type of the embed view external.
-    @JsonKey(name: '\$type') required String type,
+    @typeKey required String type,
 
     /// An instance of `EmbedViewExternalView` that contains the information
     /// of the external view.

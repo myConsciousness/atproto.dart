@@ -148,7 +148,7 @@ class __$$_SubscribedRepoMigrateCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_SubscribedRepoMigrate implements _SubscribedRepoMigrate {
   const _$_SubscribedRepoMigrate(
       {required this.did,

@@ -6,11 +6,12 @@
 
 // 📦 Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'facet.dart';
-import 'ids/ids.dart';
+import 'keys/ids.g.dart';
 
 part 'list_record.freezed.dart';
 part 'list_record.g.dart';
@@ -26,10 +27,10 @@ class ListRecord with _$ListRecord {
   /// The fields [type], [name], [purpose], and [createdAt] are required.
   ///
   /// The fields [description], [descriptionFacets], and [avatar] are optional.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ListRecord({
     /// The type of the list, by default it is [appBskyGraphList].
-    @Default(appBskyGraphList) @JsonKey(name: '\$type') String type,
+    @typeKey @Default(appBskyGraphList) String type,
 
     /// The name of the list.
     required String name,

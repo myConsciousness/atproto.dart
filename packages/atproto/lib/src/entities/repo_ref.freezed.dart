@@ -21,8 +21,8 @@ RepoRef _$RepoRefFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$RepoRef {
   /// The type of the repository reference.
-  /// It defaults to `com.atproto.admin.defs#repoRef`.
-  @JsonKey(name: '\$type')
+  /// It defaults to [comAtprotoAdminDefsRepoRef].
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// The DID of the repository.
@@ -38,7 +38,7 @@ abstract class $RepoRefCopyWith<$Res> {
   factory $RepoRefCopyWith(RepoRef value, $Res Function(RepoRef) then) =
       _$RepoRefCopyWithImpl<$Res, RepoRef>;
   @useResult
-  $Res call({@JsonKey(name: '\$type') String type, String did});
+  $Res call({@typeKey String type, String did});
 }
 
 /// @nodoc
@@ -77,7 +77,7 @@ abstract class _$$_RepoRefCopyWith<$Res> implements $RepoRefCopyWith<$Res> {
       __$$_RepoRefCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: '\$type') String type, String did});
+  $Res call({@typeKey String type, String did});
 }
 
 /// @nodoc
@@ -110,16 +110,15 @@ class __$$_RepoRefCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RepoRef implements _RepoRef {
   const _$_RepoRef(
-      {@JsonKey(name: '\$type') this.type = 'com.atproto.admin.defs#repoRef',
-      required this.did});
+      {@typeKey this.type = comAtprotoAdminDefsRepoRef, required this.did});
 
   factory _$_RepoRef.fromJson(Map<String, dynamic> json) =>
       _$$_RepoRefFromJson(json);
 
   /// The type of the repository reference.
-  /// It defaults to `com.atproto.admin.defs#repoRef`.
+  /// It defaults to [comAtprotoAdminDefsRepoRef].
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
 
   /// The DID of the repository.
@@ -160,16 +159,15 @@ class _$_RepoRef implements _RepoRef {
 
 abstract class _RepoRef implements RepoRef {
   const factory _RepoRef(
-      {@JsonKey(name: '\$type') final String type,
-      required final String did}) = _$_RepoRef;
+      {@typeKey final String type, required final String did}) = _$_RepoRef;
 
   factory _RepoRef.fromJson(Map<String, dynamic> json) = _$_RepoRef.fromJson;
 
   @override
 
   /// The type of the repository reference.
-  /// It defaults to `com.atproto.admin.defs#repoRef`.
-  @JsonKey(name: '\$type')
+  /// It defaults to [comAtprotoAdminDefsRepoRef].
+  @typeKey
   String get type;
   @override
 

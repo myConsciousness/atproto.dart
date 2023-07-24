@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -21,7 +22,7 @@ class Lists with _$Lists {
   /// - [lists] argument must not be null and should contain a list of
   /// [ListView] objects.
   /// - [cursor] argument is optional and can be used for pagination purposes.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory Lists({
     /// A required list of [ListView] objects.
     required List<ListView> lists,

@@ -234,7 +234,7 @@ class __$$_NotificationCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_Notification implements _Notification {
   const _$_Notification(
       {required this.cid,

@@ -20,7 +20,7 @@ part 'skeleton_feed_view.g.dart';
 @freezed
 class SkeletonFeedView with _$SkeletonFeedView {
   /// Default constructor for [SkeletonFeedView].
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory SkeletonFeedView({
     /// The URI of the post represented as an [AtUri] object.
     @atUriConverter required AtUri post,

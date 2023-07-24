@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'actor.dart';
 import 'converter/embed_view_converter.dart';
 import 'embed_view.dart';
+import 'keys/ids.g.dart';
 import 'post_record.dart';
 import 'post_viewer.dart';
 
@@ -35,12 +36,10 @@ class Post with _$Post {
   /// [embed] if any embeddable content is associated, [replyCount],
   /// [repostCount], [likeCount] showing user interactions, and the
   /// [viewer] interaction details.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory Post({
     /// The type of the post.
-    @Default('app.bsky.feed.defs#postView')
-    @JsonKey(name: '\$type')
-    String type,
+    @typeKey @Default(appBskyFeedDefsPostView) String type,
 
     /// The record containing the content of the post.
     required PostRecord record,

@@ -35,7 +35,7 @@ class ActorViewer with _$ActorViewer {
   /// - `blocking`: The URI of the actor that the user is blocking.
   /// - `following`: The URI of the actor that the user is following.
   /// - `followedBy`: The URI of the actor that is following the user.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ActorViewer({
     /// Indicates if the authenticated user has muted the actor.
     @JsonKey(name: 'muted') required bool isMuted,

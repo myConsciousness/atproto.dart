@@ -21,7 +21,7 @@ Facet _$FacetFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Facet {
   /// Specifies the type of facet. Optional.
-  @JsonKey(name: '\$type')
+  @typeKey
   String? get type => throw _privateConstructorUsedError;
 
   /// Represents the byte slice index of the facet.
@@ -42,7 +42,7 @@ abstract class $FacetCopyWith<$Res> {
       _$FacetCopyWithImpl<$Res, Facet>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String? type,
+      {@typeKey String? type,
       ByteSlice index,
       @facetFeatureConverter List<FacetFeature> features});
 
@@ -98,7 +98,7 @@ abstract class _$$_FacetCopyWith<$Res> implements $FacetCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String? type,
+      {@typeKey String? type,
       ByteSlice index,
       @facetFeatureConverter List<FacetFeature> features});
 
@@ -138,10 +138,10 @@ class __$$_FacetCopyWithImpl<$Res> extends _$FacetCopyWithImpl<$Res, _$_Facet>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_Facet implements _Facet {
   const _$_Facet(
-      {@JsonKey(name: '\$type') this.type,
+      {@typeKey this.type,
       required this.index,
       @facetFeatureConverter required final List<FacetFeature> features})
       : _features = features;
@@ -151,7 +151,7 @@ class _$_Facet implements _Facet {
 
   /// Specifies the type of facet. Optional.
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String? type;
 
   /// Represents the byte slice index of the facet.
@@ -206,7 +206,7 @@ class _$_Facet implements _Facet {
 
 abstract class _Facet implements Facet {
   const factory _Facet(
-          {@JsonKey(name: '\$type') final String? type,
+          {@typeKey final String? type,
           required final ByteSlice index,
           @facetFeatureConverter required final List<FacetFeature> features}) =
       _$_Facet;
@@ -216,7 +216,7 @@ abstract class _Facet implements Facet {
   @override
 
   /// Specifies the type of facet. Optional.
-  @JsonKey(name: '\$type')
+  @typeKey
   String? get type;
   @override
 

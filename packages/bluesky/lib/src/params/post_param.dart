@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -18,7 +19,7 @@ part 'post_param.g.dart';
 
 @freezed
 class PostParam with _$PostParam {
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory PostParam({
     required String text,
     ReplyRef? reply,

@@ -20,7 +20,7 @@ class GeneratorFeed with _$GeneratorFeed {
   /// Creates an instance of [GeneratorFeed].
   ///
   /// Requires a URI that represents the feed.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory GeneratorFeed({
     /// The URI of the feed.
     @atUriConverter required AtUri uri,

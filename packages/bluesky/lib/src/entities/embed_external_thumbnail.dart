@@ -6,6 +6,7 @@
 
 // 📦 Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'embed_external_thumbnail.freezed.dart';
@@ -33,7 +34,7 @@ class EmbedExternalThumbnail with _$EmbedExternalThumbnail {
   ///
   /// It also optionally takes a `blob` parameter, which is a `Blob` instance
   /// that represents the thumbnail of the external resource.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory EmbedExternalThumbnail({
     /// The Uniform Resource Identifier (URI) of the external resource.
     required String uri,

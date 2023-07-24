@@ -23,7 +23,7 @@ mixin _$ProfileRecord {
   /// Represents the type of the record.
   ///
   /// By default, the type is [appBskyActorProfile].
-  @JsonKey(name: '\$type')
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// Represents the display name of the actor.
@@ -51,7 +51,7 @@ abstract class $ProfileRecordCopyWith<$Res> {
       _$ProfileRecordCopyWithImpl<$Res, ProfileRecord>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       String? displayName,
       String? description,
       Blob? avatar,
@@ -138,7 +138,7 @@ abstract class _$$_ProfileRecordCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       String? displayName,
       String? description,
       Blob? avatar,
@@ -194,10 +194,10 @@ class __$$_ProfileRecordCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_ProfileRecord implements _ProfileRecord {
   const _$_ProfileRecord(
-      {@JsonKey(name: '\$type') this.type = appBskyActorProfile,
+      {@typeKey this.type = appBskyActorProfile,
       this.displayName,
       this.description,
       this.avatar,
@@ -210,7 +210,7 @@ class _$_ProfileRecord implements _ProfileRecord {
   ///
   /// By default, the type is [appBskyActorProfile].
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
 
   /// Represents the display name of the actor.
@@ -269,7 +269,7 @@ class _$_ProfileRecord implements _ProfileRecord {
 
 abstract class _ProfileRecord implements ProfileRecord {
   const factory _ProfileRecord(
-      {@JsonKey(name: '\$type') final String type,
+      {@typeKey final String type,
       final String? displayName,
       final String? description,
       final Blob? avatar,
@@ -283,7 +283,7 @@ abstract class _ProfileRecord implements ProfileRecord {
   /// Represents the type of the record.
   ///
   /// By default, the type is [appBskyActorProfile].
-  @JsonKey(name: '\$type')
+  @typeKey
   String get type;
   @override
 

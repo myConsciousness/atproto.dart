@@ -27,7 +27,7 @@ class EmbedViewRecordViewBlocked with _$EmbedViewRecordViewBlocked {
   /// identifier (URI) of the blocked record.
   const factory EmbedViewRecordViewBlocked({
     /// A string that represents the type of the blocked record view.
-    @JsonKey(name: '\$type') required String type,
+    @typeKey required String type,
 
     /// An `AtUri` instance that contains the unique resource identifier (URI)
     /// of the blocked record.

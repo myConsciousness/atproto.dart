@@ -5,10 +5,12 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'actor.dart';
+import 'keys/ids.g.dart';
 
 part 'reason_repost.freezed.dart';
 part 'reason_repost.g.dart';
@@ -18,14 +20,12 @@ part 'reason_repost.g.dart';
 class ReasonRepost with _$ReasonRepost {
   /// Creates a new instance of [ReasonRepost].
   ///
-  /// The [type] default value is `app.bsky.feed.defs#reasonRepost`.
+  /// The [type] default value is [appBskyFeedDefsReasonRepost].
   const factory ReasonRepost({
     /// Represents the type of the reason.
     ///
-    /// By default, the type is `app.bsky.feed.defs#reasonRepost`.
-    @Default('app.bsky.feed.defs#reasonRepost')
-    @JsonKey(name: '\$type')
-    String type,
+    /// By default, the type is [appBskyFeedDefsReasonRepost].
+    @typeKey @Default(appBskyFeedDefsReasonRepost) String type,
 
     /// Represents the actor who reposted.
     required Actor by,

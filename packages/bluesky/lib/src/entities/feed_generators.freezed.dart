@@ -110,7 +110,7 @@ class __$$_FeedGeneratorsCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_FeedGenerators implements _FeedGenerators {
   const _$_FeedGenerators(
       {required final List<FeedGeneratorView> feeds, this.cursor})

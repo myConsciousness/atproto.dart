@@ -12,6 +12,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'actor.dart';
 import 'facet.dart';
 import 'feed_generator_viewer.dart';
+import 'keys/ids.g.dart';
 
 part 'feed_generator_view.freezed.dart';
 part 'feed_generator_view.g.dart';
@@ -29,13 +30,11 @@ class FeedGeneratorView with _$FeedGeneratorView {
   /// [displayName], [likeCount], [viewer] and [indexedAt]. Other parameters
   /// such as [type], [did], [description], [descriptionFacets] and [avatar]
   /// are optional.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory FeedGeneratorView({
     /// Represents the type of the feed generator view. Defaults to
-    /// `app.bsky.feed.defs#generatorView`.
-    @Default('app.bsky.feed.defs#generatorView')
-    @JsonKey(name: '\$type')
-    String type,
+    /// [appBskyFeedDefsGeneratorView].
+    @typeKey @Default(appBskyFeedDefsGeneratorView) String type,
 
     /// Represents the URI of the feed generator.
     @atUriConverter required AtUri uri,

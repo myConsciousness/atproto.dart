@@ -3,6 +3,7 @@
 ## v0.7.6
 
 - Added `query` parameters to `findPopularFeedGenerators` and `findPopularFeedGeneratorsAsJson` in `UnspeccedService`. ([#615](https://github.com/myConsciousness/atproto.dart/issues/615))
+- Optimized internal processing. ([#606](https://github.com/myConsciousness/atproto.dart/issues/606))
 
 ## v0.7.5
 

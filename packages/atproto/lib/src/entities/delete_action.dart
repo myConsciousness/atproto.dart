@@ -8,6 +8,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'keys/ids.g.dart';
+
 part 'delete_action.freezed.dart';
 part 'delete_action.g.dart';
 
@@ -21,16 +24,14 @@ class DeleteAction with _$DeleteAction {
   /// Constructs a [DeleteAction] instance.
   ///
   /// [type] is the type of the action, default to
-  /// `com.atproto.repo.applyWrites#delete`.
+  /// [comAtprotoRepoApplyWritesDelete].
   ///
   /// [uri] is a required parameter representing the URI of the resource to be
   /// deleted.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory DeleteAction({
     /// The type of the action.
-    @JsonKey(name: '\$type')
-    @Default('com.atproto.repo.applyWrites#delete')
-    String type,
+    @typeKey @Default(comAtprotoRepoApplyWritesDelete) String type,
 
     /// The URI of the resource to be deleted.
     @atUriConverter required AtUri uri,

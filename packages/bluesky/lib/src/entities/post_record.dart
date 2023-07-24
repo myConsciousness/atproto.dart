@@ -5,13 +5,14 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'converter/embed_converter.dart';
 import 'embed.dart';
 import 'facet.dart';
-import 'ids/ids.dart';
+import 'keys/ids.g.dart';
 import 'post_ref.dart';
 
 part 'post_record.freezed.dart';
@@ -35,10 +36,10 @@ class PostRecord with _$PostRecord {
   /// - [facets] parameter might include any associated facets.
   /// - [createdAt] parameter is the timestamp indicating when the post was
   /// created.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory PostRecord({
     /// The type of the post record, defaulting to 'appBskyFeedPost'.
-    @Default(appBskyFeedPost) @JsonKey(name: '\$type') String type,
+    @typeKey @Default(appBskyFeedPost) String type,
 
     /// The text content of the post.
     required String text,

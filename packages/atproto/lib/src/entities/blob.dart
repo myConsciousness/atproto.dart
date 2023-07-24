@@ -5,10 +5,12 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'blob_ref.dart';
+import 'keys/ids.g.dart';
 
 part 'blob.freezed.dart';
 part 'blob.g.dart';
@@ -21,13 +23,13 @@ part 'blob.g.dart';
 class Blob with _$Blob {
   /// Creates an instance of [Blob] using a factory constructor.
   ///
-  /// [type] represents the type of the blob (defaults to 'blob'),
+  /// [type] represents the type of the blob (defaults to [blob]),
   /// [mimeType] is the blob's MIME type,
   /// [size] is the blob's size in bytes,
   /// and [ref] is a reference to the blob data.
   const factory Blob({
-    /// The type of the blob. Default is `blob`.
-    @Default('blob') @JsonKey(name: '\$type') String type,
+    /// The type of the blob. Default is [blob].
+    @typeKey @Default(blob) String type,
 
     /// The MIME type of the blob.
     required String mimeType,

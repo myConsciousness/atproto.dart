@@ -136,7 +136,7 @@ class __$$_FeedGeneratorCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_FeedGenerator implements _FeedGenerator {
   const _$_FeedGenerator(
       {required this.view, required this.isOnline, required this.isValid});

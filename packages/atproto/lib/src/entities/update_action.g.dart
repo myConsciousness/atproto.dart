@@ -13,8 +13,8 @@ _$_UpdateAction _$$_UpdateActionFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_UpdateAction(
-          type: $checkedConvert(r'$type',
-              (v) => v as String? ?? 'com.atproto.repo.applyWrites#update'),
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? comAtprotoRepoApplyWritesUpdate),
           collection: $checkedConvert(
               'collection', (v) => nsidConverter.fromJson(v as String)),
           rkey: $checkedConvert('rkey', (v) => v as String?),

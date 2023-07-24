@@ -13,8 +13,8 @@ _$_DeleteAction _$$_DeleteActionFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_DeleteAction(
-          type: $checkedConvert(r'$type',
-              (v) => v as String? ?? 'com.atproto.repo.applyWrites#delete'),
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? comAtprotoRepoApplyWritesDelete),
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),
         );

@@ -5,10 +5,11 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'ids/ids.dart';
+import 'keys/ids.g.dart';
 
 part 'follow_record.freezed.dart';
 part 'follow_record.g.dart';
@@ -24,10 +25,10 @@ class FollowRecord with _$FollowRecord {
   ///
   /// Requires a DID of the subject being followed and the creation time of the
   /// follow action.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory FollowRecord({
     /// Type of the record. Defaults to `appBskyGraphFollow`.
-    @Default(appBskyGraphFollow) @JsonKey(name: '\$type') String type,
+    @typeKey @Default(appBskyGraphFollow) String type,
 
     /// DID of the subject being followed.
     @JsonKey(name: 'subject') required String did,

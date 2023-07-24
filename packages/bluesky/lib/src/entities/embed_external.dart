@@ -5,10 +5,12 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'embed_external_thumbnail.dart';
+import 'keys/ids.g.dart';
 
 part 'embed_external.freezed.dart';
 part 'embed_external.g.dart';
@@ -21,7 +23,7 @@ part 'embed_external.g.dart';
 ///
 /// This class has the following properties:
 /// - `type`: A string that represents the type of the embedded content,
-/// defaulted to `app.bsky.embed.external`.
+/// defaulted to [appBskyEmbedExternal].
 /// - `external`: An instance of [EmbedExternalThumbnail] that contains the
 /// details of the external resource.
 @freezed
@@ -32,8 +34,8 @@ class EmbedExternal with _$EmbedExternal {
   /// representing the external resource.
   const factory EmbedExternal({
     /// The type of the embedded content, defaulted to
-    /// `app.bsky.embed.external`.
-    @Default('app.bsky.embed.external') @JsonKey(name: '\$type') String type,
+    /// [appBskyEmbedExternal].
+    @typeKey @Default(appBskyEmbedExternal) String type,
 
     /// The [EmbedExternalThumbnail] that contains the details of the
     /// external resource.

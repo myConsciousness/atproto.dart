@@ -178,11 +178,11 @@ class __$$_ListParamCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_ListParam implements _ListParam {
   const _$_ListParam(
       {required this.name,
-      this.purpose = 'app.bsky.graph.defs#modlist',
+      this.purpose = appBskyGraphDefsModlist,
       this.description,
       final List<Facet>? descriptionFacets,
       this.avatar,

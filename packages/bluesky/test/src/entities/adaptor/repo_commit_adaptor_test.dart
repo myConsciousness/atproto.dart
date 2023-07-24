@@ -4,6 +4,7 @@
 
 // 📦 Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
@@ -40,7 +41,7 @@ void main() {
           _buildCreateRepoOp(
             'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.feed.post/3k27u2pzoly2q',
             {
-              '\$type': 'app.bsky.feed.post',
+              objectType: 'app.bsky.feed.post',
               'text': 'test',
               'createdAt': DateTime.now().toIso8601String(),
             },
@@ -91,7 +92,7 @@ void main() {
           _buildCreateRepoOp(
             'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.feed.repost/3k27u2pzoly2q',
             {
-              '\$type': 'app.bsky.feed.repost',
+              objectType: 'app.bsky.feed.repost',
               'subject': {
                 'cid': '1111',
                 'uri':
@@ -146,7 +147,7 @@ void main() {
           _buildCreateRepoOp(
             'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.feed.like/3k27u2pzoly2q',
             {
-              '\$type': 'app.bsky.feed.like',
+              objectType: 'app.bsky.feed.like',
               'subject': {
                 'cid': '1111',
                 'uri':
@@ -201,7 +202,7 @@ void main() {
           _buildCreateRepoOp(
             'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.feed.generator/3k27u2pzoly2q',
             {
-              '\$type': 'app.bsky.feed.generator',
+              objectType: 'app.bsky.feed.generator',
               'did': 'aaaaaa',
               'displayName': 'test',
               'createdAt': DateTime.now().toIso8601String(),
@@ -253,7 +254,7 @@ void main() {
           _buildCreateRepoOp(
             'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.graph.follow/3k27u2pzoly2q',
             {
-              '\$type': 'app.bsky.graph.follow',
+              objectType: 'app.bsky.graph.follow',
               'subject': 'aaaaaa',
               'createdAt': DateTime.now().toIso8601String(),
             },
@@ -304,7 +305,7 @@ void main() {
           _buildCreateRepoOp(
             'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.graph.block/3k27u2pzoly2q',
             {
-              '\$type': 'app.bsky.graph.block',
+              objectType: 'app.bsky.graph.block',
               'subject': 'aaaaaa',
               'createdAt': DateTime.now().toIso8601String(),
             },
@@ -355,7 +356,7 @@ void main() {
           _buildCreateRepoOp(
             'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.graph.list/3k27u2pzoly2q',
             {
-              '\$type': 'app.bsky.graph.list',
+              objectType: 'app.bsky.graph.list',
               'name': 'aaaaaa',
               'purpose': 'aaaaaaa',
               'createdAt': DateTime.now().toIso8601String(),
@@ -407,7 +408,7 @@ void main() {
           _buildCreateRepoOp(
             'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.graph.listitem/3k27u2pzoly2q',
             {
-              '\$type': 'app.bsky.graph.listitem',
+              objectType: 'app.bsky.graph.listitem',
               'list':
                   'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.graph.list/3k27u2pzoly2q',
               'subject': 'aaaaaaa',
@@ -482,7 +483,7 @@ void main() {
         _buildCreateRepoOp(
           'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.graph.listitem/3k27u2pzoly2q',
           {
-            '\$type': 'app.bsky.graph.listitem',
+            objectType: 'app.bsky.graph.listitem',
             'list':
                 'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.graph.list/3k27u2pzoly2q',
             'subject': 'aaaaaaa',
@@ -513,7 +514,7 @@ void main() {
           _buildUpdateRepoOp(
             'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.actor.profile/3k27u2pzoly2q',
             {
-              '\$type': 'app.bsky.actor.profile',
+              objectType: 'app.bsky.actor.profile',
             },
           ),
         ),
@@ -583,7 +584,7 @@ void main() {
           _buildUpdateRepoOp(
             'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.actor.profile/3k27u2pzoly2q',
             {
-              '\$type': 'app.bsky.actor.profile',
+              objectType: 'app.bsky.actor.profile',
             },
           ),
         ),

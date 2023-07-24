@@ -20,11 +20,11 @@ ListView _$ListViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListView {
-  /// The type of the list, by default it is `app.bsky.graph.defs#listView`.
-  @JsonKey(name: '\$type')
+  /// The type of the list, by default it is [appBskyGraphDefsListView].
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
-  /// The purpose of the list, by default it is `app.bsky.graph.defs#modlist`.
+  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
   String get purpose => throw _privateConstructorUsedError;
 
   /// The URI of the list.
@@ -68,7 +68,7 @@ abstract class $ListViewCopyWith<$Res> {
       _$ListViewCopyWithImpl<$Res, ListView>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       String purpose,
       @atUriConverter AtUri uri,
       String cid,
@@ -182,7 +182,7 @@ abstract class _$$_ListViewCopyWith<$Res> implements $ListViewCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       String purpose,
       @atUriConverter AtUri uri,
       String cid,
@@ -274,11 +274,11 @@ class __$$_ListViewCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_ListView extends _ListView {
   const _$_ListView(
-      {@JsonKey(name: '\$type') this.type = 'app.bsky.graph.defs#listView',
-      this.purpose = 'app.bsky.graph.defs#modlist',
+      {@typeKey this.type = appBskyGraphDefsListView,
+      this.purpose = appBskyGraphDefsModlist,
       @atUriConverter required this.uri,
       required this.cid,
       required this.name,
@@ -294,12 +294,12 @@ class _$_ListView extends _ListView {
   factory _$_ListView.fromJson(Map<String, dynamic> json) =>
       _$$_ListViewFromJson(json);
 
-  /// The type of the list, by default it is `app.bsky.graph.defs#listView`.
+  /// The type of the list, by default it is [appBskyGraphDefsListView].
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
 
-  /// The purpose of the list, by default it is `app.bsky.graph.defs#modlist`.
+  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
   @override
   @JsonKey()
   final String purpose;
@@ -411,7 +411,7 @@ class _$_ListView extends _ListView {
 
 abstract class _ListView extends ListView {
   const factory _ListView(
-      {@JsonKey(name: '\$type') final String type,
+      {@typeKey final String type,
       final String purpose,
       @atUriConverter required final AtUri uri,
       required final String cid,
@@ -428,12 +428,12 @@ abstract class _ListView extends ListView {
 
   @override
 
-  /// The type of the list, by default it is `app.bsky.graph.defs#listView`.
-  @JsonKey(name: '\$type')
+  /// The type of the list, by default it is [appBskyGraphDefsListView].
+  @typeKey
   String get type;
   @override
 
-  /// The purpose of the list, by default it is `app.bsky.graph.defs#modlist`.
+  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
   String get purpose;
   @override
 

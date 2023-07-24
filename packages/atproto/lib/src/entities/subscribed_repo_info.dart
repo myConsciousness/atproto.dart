@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'subscribed_repo_info.freezed.dart';
@@ -17,7 +18,7 @@ class SubscribedRepoInfo with _$SubscribedRepoInfo {
   /// Creates a new instance of [SubscribedRepoInfo].
   ///
   /// The [name] parameter is required, and the [message] parameter is optional.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory SubscribedRepoInfo({
     /// The name of the subscribed repository.
     required String name,

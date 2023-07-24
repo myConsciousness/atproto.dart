@@ -13,8 +13,8 @@ _$_BlockedPost _$$_BlockedPostFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_BlockedPost(
-          type: $checkedConvert(r'$type',
-              (v) => v as String? ?? 'app.bsky.feed.defs#blockedPost'),
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyFeedDefsBlockedPost),
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),
           blocked: $checkedConvert('blocked', (v) => v as bool),

@@ -21,8 +21,8 @@ FacetMention _$FacetMentionFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$FacetMention {
   /// Specifies the type of facet. Defaults to
-  /// `app.bsky.richtext.facet#mention`.
-  @JsonKey(name: '\$type')
+  /// [appBskyRichtextFacetMention].
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// Represents the decentralized identifier (DID) of the mention facet.
@@ -40,7 +40,7 @@ abstract class $FacetMentionCopyWith<$Res> {
           FacetMention value, $Res Function(FacetMention) then) =
       _$FacetMentionCopyWithImpl<$Res, FacetMention>;
   @useResult
-  $Res call({@JsonKey(name: '\$type') String type, String did});
+  $Res call({@typeKey String type, String did});
 }
 
 /// @nodoc
@@ -80,7 +80,7 @@ abstract class _$$_FacetMentionCopyWith<$Res>
       __$$_FacetMentionCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: '\$type') String type, String did});
+  $Res call({@typeKey String type, String did});
 }
 
 /// @nodoc
@@ -114,16 +114,15 @@ class __$$_FacetMentionCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_FacetMention implements _FacetMention {
   const _$_FacetMention(
-      {@JsonKey(name: '\$type') this.type = 'app.bsky.richtext.facet#mention',
-      required this.did});
+      {@typeKey this.type = appBskyRichtextFacetMention, required this.did});
 
   factory _$_FacetMention.fromJson(Map<String, dynamic> json) =>
       _$$_FacetMentionFromJson(json);
 
   /// Specifies the type of facet. Defaults to
-  /// `app.bsky.richtext.facet#mention`.
+  /// [appBskyRichtextFacetMention].
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
 
   /// Represents the decentralized identifier (DID) of the mention facet.
@@ -164,7 +163,7 @@ class _$_FacetMention implements _FacetMention {
 
 abstract class _FacetMention implements FacetMention {
   const factory _FacetMention(
-      {@JsonKey(name: '\$type') final String type,
+      {@typeKey final String type,
       required final String did}) = _$_FacetMention;
 
   factory _FacetMention.fromJson(Map<String, dynamic> json) =
@@ -173,8 +172,8 @@ abstract class _FacetMention implements FacetMention {
   @override
 
   /// Specifies the type of facet. Defaults to
-  /// `app.bsky.richtext.facet#mention`.
-  @JsonKey(name: '\$type')
+  /// [appBskyRichtextFacetMention].
+  @typeKey
   String get type;
   @override
 

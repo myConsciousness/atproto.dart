@@ -15,7 +15,7 @@ _$_AdultContentPreference _$$_AdultContentPreferenceFromJson(Map json) =>
       ($checkedConvert) {
         final val = _$_AdultContentPreference(
           type: $checkedConvert(r'$type',
-              (v) => v as String? ?? 'app.bsky.actor.defs#adultContentPref'),
+              (v) => v as String? ?? appBskyActorDefsAdultContentPref),
           isEnabled: $checkedConvert('enabled', (v) => v as bool),
         );
         return val;

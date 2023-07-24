@@ -105,7 +105,7 @@ class __$$_RepoParamCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_RepoParam implements _RepoParam {
   const _$_RepoParam({required this.did, this.createdAt});
 

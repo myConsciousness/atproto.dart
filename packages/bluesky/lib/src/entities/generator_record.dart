@@ -6,11 +6,12 @@
 
 // 📦 Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'facet.dart';
-import 'ids/ids.dart';
+import 'keys/ids.g.dart';
 
 part 'generator_record.freezed.dart';
 part 'generator_record.g.dart';
@@ -26,10 +27,10 @@ class GeneratorRecord with _$GeneratorRecord {
   ///
   /// All fields are required except [description], [descriptionFacets]
   /// and [avatar].
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory GeneratorRecord({
     /// The type of the generator. Defaults to [appBskyFeedGenerator].
-    @Default(appBskyFeedGenerator) @JsonKey(name: '\$type') String type,
+    @typeKey @Default(appBskyFeedGenerator) String type,
 
     /// The unique ID of the generator.
     required String did,

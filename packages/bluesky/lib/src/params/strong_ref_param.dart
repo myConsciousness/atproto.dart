@@ -14,7 +14,7 @@ part 'strong_ref_param.g.dart';
 
 @freezed
 class StrongRefParam with _$StrongRefParam {
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory StrongRefParam({
     required String cid,
     @atUriConverter required AtUri uri,

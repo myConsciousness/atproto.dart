@@ -20,8 +20,8 @@ ListItemRecord _$ListItemRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListItemRecord {
-  /// The type of the item. Default is [appBskyGraphListItem].
-  @JsonKey(name: '\$type')
+  /// The type of the item. Default is [appBskyGraphListitem].
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// The URI of the list to which the item belongs.
@@ -48,7 +48,7 @@ abstract class $ListItemRecordCopyWith<$Res> {
       _$ListItemRecordCopyWithImpl<$Res, ListItemRecord>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       @atUriConverter AtUri list,
       @JsonKey(name: 'subject') String did,
       DateTime createdAt});
@@ -102,7 +102,7 @@ abstract class _$$_ListItemRecordCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       @atUriConverter AtUri list,
       @JsonKey(name: 'subject') String did,
       DateTime createdAt});
@@ -147,10 +147,10 @@ class __$$_ListItemRecordCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_ListItemRecord implements _ListItemRecord {
   const _$_ListItemRecord(
-      {@JsonKey(name: '\$type') this.type = appBskyGraphListItem,
+      {@typeKey this.type = appBskyGraphListitem,
       @atUriConverter required this.list,
       @JsonKey(name: 'subject') required this.did,
       required this.createdAt});
@@ -158,9 +158,9 @@ class _$_ListItemRecord implements _ListItemRecord {
   factory _$_ListItemRecord.fromJson(Map<String, dynamic> json) =>
       _$$_ListItemRecordFromJson(json);
 
-  /// The type of the item. Default is [appBskyGraphListItem].
+  /// The type of the item. Default is [appBskyGraphListitem].
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
 
   /// The URI of the list to which the item belongs.
@@ -214,7 +214,7 @@ class _$_ListItemRecord implements _ListItemRecord {
 
 abstract class _ListItemRecord implements ListItemRecord {
   const factory _ListItemRecord(
-      {@JsonKey(name: '\$type') final String type,
+      {@typeKey final String type,
       @atUriConverter required final AtUri list,
       @JsonKey(name: 'subject') required final String did,
       required final DateTime createdAt}) = _$_ListItemRecord;
@@ -224,8 +224,8 @@ abstract class _ListItemRecord implements ListItemRecord {
 
   @override
 
-  /// The type of the item. Default is [appBskyGraphListItem].
-  @JsonKey(name: '\$type')
+  /// The type of the item. Default is [appBskyGraphListitem].
+  @typeKey
   String get type;
   @override
 

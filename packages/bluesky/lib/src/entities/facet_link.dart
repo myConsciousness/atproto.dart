@@ -5,7 +5,11 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import 'keys/ids.g.dart';
 
 part 'facet_link.freezed.dart';
 part 'facet_link.g.dart';
@@ -14,19 +18,17 @@ part 'facet_link.g.dart';
 ///
 /// This class is generated using the Freezed package. The link facet is
 /// represented by a URI. It also has a default type
-/// `app.bsky.richtext.facet#link`.
+/// [appBskyRichtextFacetLink].
 @freezed
 class FacetLink with _$FacetLink {
   /// Creates an instance of [FacetLink].
   ///
   /// Requires [uri] which is the URI of the link facet.
   ///
-  /// The [type] has a default value of `app.bsky.richtext.facet#link`.
+  /// The [type] has a default value of [appBskyRichtextFacetLink].
   const factory FacetLink({
-    /// Specifies the type of facet. Defaults to `app.bsky.richtext.facet#link`.
-    @Default('app.bsky.richtext.facet#link')
-    @JsonKey(name: '\$type')
-    String type,
+    /// Specifies the type of facet. Defaults to [appBskyRichtextFacetLink].
+    @typeKey @Default(appBskyRichtextFacetLink) String type,
 
     /// Represents the URI of the link facet.
     required String uri,

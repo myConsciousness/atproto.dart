@@ -20,8 +20,8 @@ EmbedRecord _$EmbedRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmbedRecord {
-  /// The type of the embedded content, defaulted to `app.bsky.embed.record`.
-  @JsonKey(name: '\$type')
+  /// The type of the embedded content, defaulted to [appBskyEmbedRecord].
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// A [StrongRef] object that represents a strong reference to the record.
@@ -40,9 +40,7 @@ abstract class $EmbedRecordCopyWith<$Res> {
           EmbedRecord value, $Res Function(EmbedRecord) then) =
       _$EmbedRecordCopyWithImpl<$Res, EmbedRecord>;
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String type,
-      @JsonKey(name: 'record') StrongRef ref});
+  $Res call({@typeKey String type, @JsonKey(name: 'record') StrongRef ref});
 
   $StrongRefCopyWith<$Res> get ref;
 }
@@ -92,9 +90,7 @@ abstract class _$$_EmbedRecordCopyWith<$Res>
       __$$_EmbedRecordCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String type,
-      @JsonKey(name: 'record') StrongRef ref});
+  $Res call({@typeKey String type, @JsonKey(name: 'record') StrongRef ref});
 
   @override
   $StrongRefCopyWith<$Res> get ref;
@@ -131,15 +127,15 @@ class __$$_EmbedRecordCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedRecord implements _EmbedRecord {
   const _$_EmbedRecord(
-      {@JsonKey(name: '\$type') this.type = 'app.bsky.embed.record',
+      {@typeKey this.type = appBskyEmbedRecord,
       @JsonKey(name: 'record') required this.ref});
 
   factory _$_EmbedRecord.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedRecordFromJson(json);
 
-  /// The type of the embedded content, defaulted to `app.bsky.embed.record`.
+  /// The type of the embedded content, defaulted to [appBskyEmbedRecord].
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
 
   /// A [StrongRef] object that represents a strong reference to the record.
@@ -181,7 +177,7 @@ class _$_EmbedRecord implements _EmbedRecord {
 
 abstract class _EmbedRecord implements EmbedRecord {
   const factory _EmbedRecord(
-      {@JsonKey(name: '\$type') final String type,
+      {@typeKey final String type,
       @JsonKey(name: 'record') required final StrongRef ref}) = _$_EmbedRecord;
 
   factory _EmbedRecord.fromJson(Map<String, dynamic> json) =
@@ -189,8 +185,8 @@ abstract class _EmbedRecord implements EmbedRecord {
 
   @override
 
-  /// The type of the embedded content, defaulted to `app.bsky.embed.record`.
-  @JsonKey(name: '\$type')
+  /// The type of the embedded content, defaulted to [appBskyEmbedRecord].
+  @typeKey
   String get type;
   @override
 

@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -30,7 +31,7 @@ class EmbedViewImages with _$EmbedViewImages {
   /// and a `images` list that includes instances of [EmbedViewImagesView].
   const factory EmbedViewImages({
     /// An optional string that represents the type of the embedded images view.
-    @JsonKey(name: '\$type') String? type,
+    @typeKey String? type,
 
     /// A list of `EmbedViewImagesView` instances.
     required List<EmbedViewImagesView> images,

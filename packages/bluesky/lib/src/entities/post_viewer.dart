@@ -26,7 +26,7 @@ class PostViewer with _$PostViewer {
   /// authenticated user.
   /// - [like] parameter may contain the URI of the like by the
   /// authenticated user.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory PostViewer({
     /// May contain the URI of the repost by the authenticated user.
     @atUriConverter AtUri? repost,

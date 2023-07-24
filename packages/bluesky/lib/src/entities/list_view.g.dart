@@ -14,9 +14,9 @@ _$_ListView _$$_ListViewFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$_ListView(
           type: $checkedConvert(
-              r'$type', (v) => v as String? ?? 'app.bsky.graph.defs#listView'),
+              r'$type', (v) => v as String? ?? appBskyGraphDefsListView),
           purpose: $checkedConvert(
-              'purpose', (v) => v as String? ?? 'app.bsky.graph.defs#modlist'),
+              'purpose', (v) => v as String? ?? appBskyGraphDefsModlist),
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),

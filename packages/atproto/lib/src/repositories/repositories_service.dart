@@ -568,7 +568,7 @@ class _RepositoriesService extends ATProtoBaseService
                     create: (data) => data.toJson(),
                     update: (data) => data.toJson(),
                     delete: (data) => {
-                      '\$type': data.type,
+                      core.objectType: data.type,
                       'collection': data.uri.collection,
                       'rkey': data.uri.rkey,
                     },
