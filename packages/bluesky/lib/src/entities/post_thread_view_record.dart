@@ -8,8 +8,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'converter/post_thread_view_converter.dart';
-import 'ids/ids.g.dart';
 import 'post.dart';
 import 'post_thread_view.dart';
 
@@ -36,7 +36,7 @@ class PostThreadViewRecord with _$PostThreadViewRecord {
   /// replies to the [post].
   const factory PostThreadViewRecord({
     /// Represents the type of the thread view record.
-    @JsonKey(name: objectType) required String type,
+    @typeKey required String type,
 
     /// Represents the post for which the thread view record is being created.
     required Post post,

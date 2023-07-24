@@ -7,6 +7,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'ids/ids.g.dart';
 
 part 'strong_ref.freezed.dart';
@@ -24,7 +25,7 @@ class StrongRef with _$StrongRef {
   /// [type] is optional with a default value of [comAtprotoRepoStrongRef].
   const factory StrongRef({
     /// Type of the reference, defaults to [comAtprotoRepoStrongRef].
-    @JsonKey(name: objectType) @Default(comAtprotoRepoStrongRef) String type,
+    @typeKey @Default(comAtprotoRepoStrongRef) String type,
 
     /// Content Identifier of the reference.
     required String cid,

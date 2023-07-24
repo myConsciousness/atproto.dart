@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'ids/ids.g.dart';
 
 part 'adult_content_preference.freezed.dart';
@@ -32,9 +33,7 @@ class AdultContentPreference with _$AdultContentPreference {
   const factory AdultContentPreference({
     /// The type of the preference.
     /// By default, it is [appBskyActorDefsAdultContentPref].
-    @JsonKey(name: objectType)
-    @Default(appBskyActorDefsAdultContentPref)
-    String type,
+    @typeKey @Default(appBskyActorDefsAdultContentPref) String type,
 
     /// A boolean value indicating whether the user has enabled the
     /// viewing of adult content.

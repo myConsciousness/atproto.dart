@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'ids/ids.g.dart';
 import 'image.dart';
 
@@ -32,7 +33,7 @@ class EmbedImages with _$EmbedImages {
   const factory EmbedImages({
     /// The type of the embedded content, defaulted to
     /// [appBskyEmbedImages].
-    @JsonKey(name: objectType) @Default(appBskyEmbedImages) String type,
+    @typeKey @Default(appBskyEmbedImages) String type,
 
     /// A list of [Image] objects that represent the images to be embedded.
     required List<Image> images,

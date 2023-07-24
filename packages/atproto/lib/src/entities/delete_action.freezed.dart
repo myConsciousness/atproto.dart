@@ -21,7 +21,7 @@ DeleteAction _$DeleteActionFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$DeleteAction {
   /// The type of the action.
-  @JsonKey(name: objectType)
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// The URI of the resource to be deleted.
@@ -40,8 +40,7 @@ abstract class $DeleteActionCopyWith<$Res> {
           DeleteAction value, $Res Function(DeleteAction) then) =
       _$DeleteActionCopyWithImpl<$Res, DeleteAction>;
   @useResult
-  $Res call(
-      {@JsonKey(name: objectType) String type, @atUriConverter AtUri uri});
+  $Res call({@typeKey String type, @atUriConverter AtUri uri});
 }
 
 /// @nodoc
@@ -81,8 +80,7 @@ abstract class _$$_DeleteActionCopyWith<$Res>
       __$$_DeleteActionCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: objectType) String type, @atUriConverter AtUri uri});
+  $Res call({@typeKey String type, @atUriConverter AtUri uri});
 }
 
 /// @nodoc
@@ -117,7 +115,7 @@ class __$$_DeleteActionCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_DeleteAction implements _DeleteAction {
   const _$_DeleteAction(
-      {@JsonKey(name: objectType) this.type = comAtprotoRepoApplyWritesDelete,
+      {@typeKey this.type = comAtprotoRepoApplyWritesDelete,
       @atUriConverter required this.uri});
 
   factory _$_DeleteAction.fromJson(Map<String, dynamic> json) =>
@@ -125,7 +123,7 @@ class _$_DeleteAction implements _DeleteAction {
 
   /// The type of the action.
   @override
-  @JsonKey(name: objectType)
+  @typeKey
   final String type;
 
   /// The URI of the resource to be deleted.
@@ -167,7 +165,7 @@ class _$_DeleteAction implements _DeleteAction {
 
 abstract class _DeleteAction implements DeleteAction {
   const factory _DeleteAction(
-      {@JsonKey(name: objectType) final String type,
+      {@typeKey final String type,
       @atUriConverter required final AtUri uri}) = _$_DeleteAction;
 
   factory _DeleteAction.fromJson(Map<String, dynamic> json) =
@@ -176,7 +174,7 @@ abstract class _DeleteAction implements DeleteAction {
   @override
 
   /// The type of the action.
-  @JsonKey(name: objectType)
+  @typeKey
   String get type;
   @override
 

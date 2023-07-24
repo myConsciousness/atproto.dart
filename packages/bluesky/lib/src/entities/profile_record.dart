@@ -9,6 +9,7 @@ import 'package:atproto/atproto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'ids/ids.g.dart';
 
 part 'profile_record.freezed.dart';
@@ -25,7 +26,7 @@ class ProfileRecord with _$ProfileRecord {
     /// Represents the type of the record.
     ///
     /// By default, the type is [appBskyActorProfile].
-    @Default(appBskyActorProfile) @JsonKey(name: objectType) String type,
+    @typeKey @Default(appBskyActorProfile) String type,
 
     /// Represents the display name of the actor.
     String? displayName,

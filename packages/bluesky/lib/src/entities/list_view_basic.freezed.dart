@@ -22,7 +22,7 @@ ListViewBasic _$ListViewBasicFromJson(Map<String, dynamic> json) {
 mixin _$ListViewBasic {
   /// The type of the list, by default it is
   /// [appBskyGraphDefsListViewBasic].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
@@ -60,7 +60,7 @@ abstract class $ListViewBasicCopyWith<$Res> {
       _$ListViewBasicCopyWithImpl<$Res, ListViewBasic>;
   @useResult
   $Res call(
-      {@JsonKey(name: objectType) String type,
+      {@typeKey String type,
       String purpose,
       @atUriConverter AtUri uri,
       String cid,
@@ -148,7 +148,7 @@ abstract class _$$_ListViewBasicCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: objectType) String type,
+      {@typeKey String type,
       String purpose,
       @atUriConverter AtUri uri,
       String cid,
@@ -223,7 +223,7 @@ class __$$_ListViewBasicCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_ListViewBasic extends _ListViewBasic {
   const _$_ListViewBasic(
-      {@JsonKey(name: objectType) this.type = appBskyGraphDefsListViewBasic,
+      {@typeKey this.type = appBskyGraphDefsListViewBasic,
       this.purpose = appBskyGraphDefsModlist,
       @atUriConverter required this.uri,
       required this.cid,
@@ -239,7 +239,7 @@ class _$_ListViewBasic extends _ListViewBasic {
   /// The type of the list, by default it is
   /// [appBskyGraphDefsListViewBasic].
   @override
-  @JsonKey(name: objectType)
+  @typeKey
   final String type;
 
   /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
@@ -314,7 +314,7 @@ class _$_ListViewBasic extends _ListViewBasic {
 
 abstract class _ListViewBasic extends ListViewBasic {
   const factory _ListViewBasic(
-      {@JsonKey(name: objectType) final String type,
+      {@typeKey final String type,
       final String purpose,
       @atUriConverter required final AtUri uri,
       required final String cid,
@@ -331,7 +331,7 @@ abstract class _ListViewBasic extends ListViewBasic {
 
   /// The type of the list, by default it is
   /// [appBskyGraphDefsListViewBasic].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type;
   @override
 

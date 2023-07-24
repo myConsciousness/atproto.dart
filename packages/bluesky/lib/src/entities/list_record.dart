@@ -9,6 +9,7 @@ import 'package:atproto/atproto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'facet.dart';
 import 'ids/ids.g.dart';
 
@@ -29,7 +30,7 @@ class ListRecord with _$ListRecord {
   @JsonSerializable(includeIfNull: false)
   const factory ListRecord({
     /// The type of the list, by default it is [appBskyGraphList].
-    @Default(appBskyGraphList) @JsonKey(name: objectType) String type,
+    @typeKey @Default(appBskyGraphList) String type,
 
     /// The name of the list.
     required String name,

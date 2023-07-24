@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'ids/ids.g.dart';
 
 part 'facet_mention.freezed.dart';
@@ -30,9 +31,7 @@ class FacetMention with _$FacetMention {
   const factory FacetMention({
     /// Specifies the type of facet. Defaults to
     /// [appBskyRichtextFacetMention].
-    @JsonKey(name: objectType)
-    @Default(appBskyRichtextFacetMention)
-    String type,
+    @typeKey @Default(appBskyRichtextFacetMention) String type,
 
     /// Represents the decentralized identifier (DID) of the mention facet.
     required String did,

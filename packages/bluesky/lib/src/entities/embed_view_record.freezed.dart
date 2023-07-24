@@ -21,7 +21,7 @@ EmbedViewRecord _$EmbedViewRecordFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$EmbedViewRecord {
   /// Specifies the type of record. Optional.
-  @JsonKey(name: objectType)
+  @typeKey
   String? get type => throw _privateConstructorUsedError;
 
   /// Represents the view of the record.
@@ -41,7 +41,7 @@ abstract class $EmbedViewRecordCopyWith<$Res> {
       _$EmbedViewRecordCopyWithImpl<$Res, EmbedViewRecord>;
   @useResult
   $Res call(
-      {@JsonKey(name: objectType) String? type,
+      {@typeKey String? type,
       @embedViewRecordViewConverter EmbedViewRecordView record});
 
   $EmbedViewRecordViewCopyWith<$Res> get record;
@@ -93,7 +93,7 @@ abstract class _$$_EmbedViewRecordCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: objectType) String? type,
+      {@typeKey String? type,
       @embedViewRecordViewConverter EmbedViewRecordView record});
 
   @override
@@ -131,15 +131,14 @@ class __$$_EmbedViewRecordCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedViewRecord implements _EmbedViewRecord {
   const _$_EmbedViewRecord(
-      {@JsonKey(name: objectType) this.type,
-      @embedViewRecordViewConverter required this.record});
+      {@typeKey this.type, @embedViewRecordViewConverter required this.record});
 
   factory _$_EmbedViewRecord.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedViewRecordFromJson(json);
 
   /// Specifies the type of record. Optional.
   @override
-  @JsonKey(name: objectType)
+  @typeKey
   final String? type;
 
   /// Represents the view of the record.
@@ -181,7 +180,7 @@ class _$_EmbedViewRecord implements _EmbedViewRecord {
 
 abstract class _EmbedViewRecord implements EmbedViewRecord {
   const factory _EmbedViewRecord(
-      {@JsonKey(name: objectType) final String? type,
+      {@typeKey final String? type,
       @embedViewRecordViewConverter
       required final EmbedViewRecordView record}) = _$_EmbedViewRecord;
 
@@ -191,7 +190,7 @@ abstract class _EmbedViewRecord implements EmbedViewRecord {
   @override
 
   /// Specifies the type of record. Optional.
-  @JsonKey(name: objectType)
+  @typeKey
   String? get type;
   @override
 

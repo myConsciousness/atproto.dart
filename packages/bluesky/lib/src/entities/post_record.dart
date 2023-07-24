@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'converter/embed_converter.dart';
 import 'embed.dart';
 import 'facet.dart';
@@ -38,7 +39,7 @@ class PostRecord with _$PostRecord {
   @JsonSerializable(includeIfNull: false)
   const factory PostRecord({
     /// The type of the post record, defaulting to 'appBskyFeedPost'.
-    @Default(appBskyFeedPost) @JsonKey(name: objectType) String type,
+    @typeKey @Default(appBskyFeedPost) String type,
 
     /// The text content of the post.
     required String text,

@@ -21,7 +21,7 @@ StrongRef _$StrongRefFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$StrongRef {
   /// Type of the reference, defaults to [comAtprotoRepoStrongRef].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// Content Identifier of the reference.
@@ -42,10 +42,7 @@ abstract class $StrongRefCopyWith<$Res> {
   factory $StrongRefCopyWith(StrongRef value, $Res Function(StrongRef) then) =
       _$StrongRefCopyWithImpl<$Res, StrongRef>;
   @useResult
-  $Res call(
-      {@JsonKey(name: objectType) String type,
-      String cid,
-      @atUriConverter AtUri uri});
+  $Res call({@typeKey String type, String cid, @atUriConverter AtUri uri});
 }
 
 /// @nodoc
@@ -89,10 +86,7 @@ abstract class _$$_StrongRefCopyWith<$Res> implements $StrongRefCopyWith<$Res> {
       __$$_StrongRefCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: objectType) String type,
-      String cid,
-      @atUriConverter AtUri uri});
+  $Res call({@typeKey String type, String cid, @atUriConverter AtUri uri});
 }
 
 /// @nodoc
@@ -131,7 +125,7 @@ class __$$_StrongRefCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_StrongRef implements _StrongRef {
   const _$_StrongRef(
-      {@JsonKey(name: objectType) this.type = comAtprotoRepoStrongRef,
+      {@typeKey this.type = comAtprotoRepoStrongRef,
       required this.cid,
       @atUriConverter required this.uri});
 
@@ -140,7 +134,7 @@ class _$_StrongRef implements _StrongRef {
 
   /// Type of the reference, defaults to [comAtprotoRepoStrongRef].
   @override
-  @JsonKey(name: objectType)
+  @typeKey
   final String type;
 
   /// Content Identifier of the reference.
@@ -187,7 +181,7 @@ class _$_StrongRef implements _StrongRef {
 
 abstract class _StrongRef implements StrongRef {
   const factory _StrongRef(
-      {@JsonKey(name: objectType) final String type,
+      {@typeKey final String type,
       required final String cid,
       @atUriConverter required final AtUri uri}) = _$_StrongRef;
 
@@ -197,7 +191,7 @@ abstract class _StrongRef implements StrongRef {
   @override
 
   /// Type of the reference, defaults to [comAtprotoRepoStrongRef].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type;
   @override
 

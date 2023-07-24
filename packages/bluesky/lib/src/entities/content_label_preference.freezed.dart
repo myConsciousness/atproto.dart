@@ -22,7 +22,7 @@ ContentLabelPreference _$ContentLabelPreferenceFromJson(
 /// @nodoc
 mixin _$ContentLabelPreference {
   /// The content label.
-  @JsonKey(name: objectType)
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// The content label.
@@ -44,9 +44,7 @@ abstract class $ContentLabelPreferenceCopyWith<$Res> {
       _$ContentLabelPreferenceCopyWithImpl<$Res, ContentLabelPreference>;
   @useResult
   $Res call(
-      {@JsonKey(name: objectType) String type,
-      String label,
-      ContentLabelVisibility visibility});
+      {@typeKey String type, String label, ContentLabelVisibility visibility});
 }
 
 /// @nodoc
@@ -93,9 +91,7 @@ abstract class _$$_ContentLabelPreferenceCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: objectType) String type,
-      String label,
-      ContentLabelVisibility visibility});
+      {@typeKey String type, String label, ContentLabelVisibility visibility});
 }
 
 /// @nodoc
@@ -136,7 +132,7 @@ class __$$_ContentLabelPreferenceCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_ContentLabelPreference implements _ContentLabelPreference {
   const _$_ContentLabelPreference(
-      {@JsonKey(name: objectType) this.type = appBskyActorDefsContentLabelPref,
+      {@typeKey this.type = appBskyActorDefsContentLabelPref,
       required this.label,
       required this.visibility});
 
@@ -145,7 +141,7 @@ class _$_ContentLabelPreference implements _ContentLabelPreference {
 
   /// The content label.
   @override
-  @JsonKey(name: objectType)
+  @typeKey
   final String type;
 
   /// The content label.
@@ -193,7 +189,7 @@ class _$_ContentLabelPreference implements _ContentLabelPreference {
 
 abstract class _ContentLabelPreference implements ContentLabelPreference {
   const factory _ContentLabelPreference(
-          {@JsonKey(name: objectType) final String type,
+          {@typeKey final String type,
           required final String label,
           required final ContentLabelVisibility visibility}) =
       _$_ContentLabelPreference;
@@ -204,7 +200,7 @@ abstract class _ContentLabelPreference implements ContentLabelPreference {
   @override
 
   /// The content label.
-  @JsonKey(name: objectType)
+  @typeKey
   String get type;
   @override
 

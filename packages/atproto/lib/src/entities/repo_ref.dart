@@ -6,6 +6,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'ids/ids.g.dart';
 
 part 'repo_ref.freezed.dart';
@@ -21,7 +22,7 @@ class RepoRef with _$RepoRef {
   const factory RepoRef({
     /// The type of the repository reference.
     /// It defaults to [comAtprotoAdminDefsRepoRef].
-    @JsonKey(name: objectType) @Default(comAtprotoAdminDefsRepoRef) String type,
+    @typeKey @Default(comAtprotoAdminDefsRepoRef) String type,
 
     /// The DID of the repository.
     required String did,

@@ -22,7 +22,7 @@ EmbedViewRecordViewBlocked _$EmbedViewRecordViewBlockedFromJson(
 /// @nodoc
 mixin _$EmbedViewRecordViewBlocked {
   /// A string that represents the type of the blocked record view.
-  @JsonKey(name: objectType)
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// An `AtUri` instance that contains the unique resource identifier (URI)
@@ -43,8 +43,7 @@ abstract class $EmbedViewRecordViewBlockedCopyWith<$Res> {
       _$EmbedViewRecordViewBlockedCopyWithImpl<$Res,
           EmbedViewRecordViewBlocked>;
   @useResult
-  $Res call(
-      {@JsonKey(name: objectType) String type, @atUriConverter AtUri uri});
+  $Res call({@typeKey String type, @atUriConverter AtUri uri});
 }
 
 /// @nodoc
@@ -86,8 +85,7 @@ abstract class _$$_EmbedViewRecordViewBlockedCopyWith<$Res>
       __$$_EmbedViewRecordViewBlockedCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: objectType) String type, @atUriConverter AtUri uri});
+  $Res call({@typeKey String type, @atUriConverter AtUri uri});
 }
 
 /// @nodoc
@@ -123,15 +121,14 @@ class __$$_EmbedViewRecordViewBlockedCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedViewRecordViewBlocked implements _EmbedViewRecordViewBlocked {
   const _$_EmbedViewRecordViewBlocked(
-      {@JsonKey(name: objectType) required this.type,
-      @atUriConverter required this.uri});
+      {@typeKey required this.type, @atUriConverter required this.uri});
 
   factory _$_EmbedViewRecordViewBlocked.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedViewRecordViewBlockedFromJson(json);
 
   /// A string that represents the type of the blocked record view.
   @override
-  @JsonKey(name: objectType)
+  @typeKey
   final String type;
 
   /// An `AtUri` instance that contains the unique resource identifier (URI)
@@ -176,7 +173,7 @@ class _$_EmbedViewRecordViewBlocked implements _EmbedViewRecordViewBlocked {
 abstract class _EmbedViewRecordViewBlocked
     implements EmbedViewRecordViewBlocked {
   const factory _EmbedViewRecordViewBlocked(
-          {@JsonKey(name: objectType) required final String type,
+          {@typeKey required final String type,
           @atUriConverter required final AtUri uri}) =
       _$_EmbedViewRecordViewBlocked;
 
@@ -186,7 +183,7 @@ abstract class _EmbedViewRecordViewBlocked
   @override
 
   /// A string that represents the type of the blocked record view.
-  @JsonKey(name: objectType)
+  @typeKey
   String get type;
   @override
 

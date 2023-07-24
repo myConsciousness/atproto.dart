@@ -10,6 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'actor.dart';
+import 'annotations/annotations.dart';
 import 'facet.dart';
 import 'feed_generator_viewer.dart';
 import 'ids/ids.g.dart';
@@ -34,9 +35,7 @@ class FeedGeneratorView with _$FeedGeneratorView {
   const factory FeedGeneratorView({
     /// Represents the type of the feed generator view. Defaults to
     /// [appBskyFeedDefsGeneratorView].
-    @JsonKey(name: objectType)
-    @Default(appBskyFeedDefsGeneratorView)
-    String type,
+    @typeKey @Default(appBskyFeedDefsGeneratorView) String type,
 
     /// Represents the URI of the feed generator.
     @atUriConverter required AtUri uri,

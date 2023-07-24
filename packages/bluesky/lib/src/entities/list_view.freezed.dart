@@ -21,7 +21,7 @@ ListView _$ListViewFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ListView {
   /// The type of the list, by default it is [appBskyGraphDefsListView].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
@@ -68,7 +68,7 @@ abstract class $ListViewCopyWith<$Res> {
       _$ListViewCopyWithImpl<$Res, ListView>;
   @useResult
   $Res call(
-      {@JsonKey(name: objectType) String type,
+      {@typeKey String type,
       String purpose,
       @atUriConverter AtUri uri,
       String cid,
@@ -182,7 +182,7 @@ abstract class _$$_ListViewCopyWith<$Res> implements $ListViewCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: objectType) String type,
+      {@typeKey String type,
       String purpose,
       @atUriConverter AtUri uri,
       String cid,
@@ -277,7 +277,7 @@ class __$$_ListViewCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_ListView extends _ListView {
   const _$_ListView(
-      {@JsonKey(name: objectType) this.type = appBskyGraphDefsListView,
+      {@typeKey this.type = appBskyGraphDefsListView,
       this.purpose = appBskyGraphDefsModlist,
       @atUriConverter required this.uri,
       required this.cid,
@@ -296,7 +296,7 @@ class _$_ListView extends _ListView {
 
   /// The type of the list, by default it is [appBskyGraphDefsListView].
   @override
-  @JsonKey(name: objectType)
+  @typeKey
   final String type;
 
   /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
@@ -411,7 +411,7 @@ class _$_ListView extends _ListView {
 
 abstract class _ListView extends ListView {
   const factory _ListView(
-      {@JsonKey(name: objectType) final String type,
+      {@typeKey final String type,
       final String purpose,
       @atUriConverter required final AtUri uri,
       required final String cid,
@@ -429,7 +429,7 @@ abstract class _ListView extends ListView {
   @override
 
   /// The type of the list, by default it is [appBskyGraphDefsListView].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type;
   @override
 

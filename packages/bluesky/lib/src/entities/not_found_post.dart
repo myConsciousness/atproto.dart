@@ -9,6 +9,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'ids/ids.g.dart';
 
 part 'not_found_post.freezed.dart';
@@ -30,9 +31,7 @@ class NotFoundPost with _$NotFoundPost {
   const factory NotFoundPost({
     /// The type of this [NotFoundPost]. Defaults to
     /// [app.bsky.feed.defs#notFoundPost].
-    @JsonKey(name: objectType)
-    @Default(appBskyFeedDefsNotFoundPost)
-    String type,
+    @typeKey @Default(appBskyFeedDefsNotFoundPost) String type,
 
     /// The unique identifier of the post.
     @atUriConverter required AtUri uri,

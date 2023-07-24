@@ -22,7 +22,7 @@ SavedFeedsPreference _$SavedFeedsPreferenceFromJson(Map<String, dynamic> json) {
 mixin _$SavedFeedsPreference {
   /// A string that represents the type of the object.
   /// By default, it is [appBskyActorDefsSavedFeedsPref].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// A list of pinned URIs represented as [AtUri] objects.
@@ -48,7 +48,7 @@ abstract class $SavedFeedsPreferenceCopyWith<$Res> {
       _$SavedFeedsPreferenceCopyWithImpl<$Res, SavedFeedsPreference>;
   @useResult
   $Res call(
-      {@JsonKey(name: objectType) String type,
+      {@typeKey String type,
       @JsonKey(name: 'pinned') @atUriConverter List<AtUri> pinnedUris,
       @atUriConverter @JsonKey(name: 'saved') List<AtUri> savedUris});
 }
@@ -97,7 +97,7 @@ abstract class _$$_SavedFeedsPreferenceCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: objectType) String type,
+      {@typeKey String type,
       @JsonKey(name: 'pinned') @atUriConverter List<AtUri> pinnedUris,
       @atUriConverter @JsonKey(name: 'saved') List<AtUri> savedUris});
 }
@@ -139,7 +139,7 @@ class __$$_SavedFeedsPreferenceCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_SavedFeedsPreference implements _SavedFeedsPreference {
   const _$_SavedFeedsPreference(
-      {@JsonKey(name: objectType) this.type = appBskyActorDefsSavedFeedsPref,
+      {@typeKey this.type = appBskyActorDefsSavedFeedsPref,
       @JsonKey(name: 'pinned')
       @atUriConverter
       required final List<AtUri> pinnedUris,
@@ -155,7 +155,7 @@ class _$_SavedFeedsPreference implements _SavedFeedsPreference {
   /// A string that represents the type of the object.
   /// By default, it is [appBskyActorDefsSavedFeedsPref].
   @override
-  @JsonKey(name: objectType)
+  @typeKey
   final String type;
 
   /// A list of pinned URIs represented as [AtUri] objects.
@@ -226,7 +226,7 @@ class _$_SavedFeedsPreference implements _SavedFeedsPreference {
 
 abstract class _SavedFeedsPreference implements SavedFeedsPreference {
   const factory _SavedFeedsPreference(
-      {@JsonKey(name: objectType) final String type,
+      {@typeKey final String type,
       @JsonKey(name: 'pinned')
       @atUriConverter
       required final List<AtUri> pinnedUris,
@@ -241,7 +241,7 @@ abstract class _SavedFeedsPreference implements SavedFeedsPreference {
 
   /// A string that represents the type of the object.
   /// By default, it is [appBskyActorDefsSavedFeedsPref].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type;
   @override
 

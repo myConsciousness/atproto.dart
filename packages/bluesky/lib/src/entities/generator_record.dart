@@ -9,6 +9,7 @@ import 'package:atproto/atproto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'facet.dart';
 import 'ids/ids.g.dart';
 
@@ -29,7 +30,7 @@ class GeneratorRecord with _$GeneratorRecord {
   @JsonSerializable(includeIfNull: false)
   const factory GeneratorRecord({
     /// The type of the generator. Defaults to [appBskyFeedGenerator].
-    @Default(appBskyFeedGenerator) @JsonKey(name: objectType) String type,
+    @typeKey @Default(appBskyFeedGenerator) String type,
 
     /// The unique ID of the generator.
     required String did,

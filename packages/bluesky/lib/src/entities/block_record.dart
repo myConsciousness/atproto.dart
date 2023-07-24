@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'ids/ids.g.dart';
 
 part 'block_record.freezed.dart';
@@ -35,7 +36,7 @@ class BlockRecord with _$BlockRecord {
   const factory BlockRecord({
     /// The type of the record.
     /// By default, it is `appBskyGraphBlock`.
-    @Default(appBskyGraphBlock) @JsonKey(name: objectType) String type,
+    @typeKey @Default(appBskyGraphBlock) String type,
 
     /// The Decentralized Identifier (DID) of the user who has been blocked.
     @JsonKey(name: 'subject') required String did,

@@ -8,8 +8,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'embed_view_external_view.dart';
-import 'ids/ids.g.dart';
 
 part 'embed_view_external.freezed.dart';
 part 'embed_view_external.g.dart';
@@ -30,7 +30,7 @@ class EmbedViewExternal with _$EmbedViewExternal {
   /// `EmbedViewExternalView` containing the information of the external view.
   const factory EmbedViewExternal({
     /// A string that describes the type of the embed view external.
-    @JsonKey(name: objectType) required String type,
+    @typeKey required String type,
 
     /// An instance of `EmbedViewExternalView` that contains the information
     /// of the external view.

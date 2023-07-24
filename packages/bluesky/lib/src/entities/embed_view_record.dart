@@ -8,9 +8,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'converter/embed_view_record_view_converter.dart';
 import 'embed_view_record_view.dart';
-import 'ids/ids.g.dart';
 
 part 'embed_view_record.freezed.dart';
 part 'embed_view_record.g.dart';
@@ -27,7 +27,7 @@ class EmbedViewRecord with _$EmbedViewRecord {
   /// the type of record is optional.
   const factory EmbedViewRecord({
     /// Specifies the type of record. Optional.
-    @JsonKey(name: objectType) String? type,
+    @typeKey String? type,
 
     /// Represents the view of the record.
     @embedViewRecordViewConverter required EmbedViewRecordView record,

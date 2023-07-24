@@ -9,7 +9,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'ids/ids.g.dart';
+import 'annotations/annotations.dart';
 
 part 'embed_view_record_view_blocked.freezed.dart';
 part 'embed_view_record_view_blocked.g.dart';
@@ -30,7 +30,7 @@ class EmbedViewRecordViewBlocked with _$EmbedViewRecordViewBlocked {
   /// identifier (URI) of the blocked record.
   const factory EmbedViewRecordViewBlocked({
     /// A string that represents the type of the blocked record view.
-    @JsonKey(name: objectType) required String type,
+    @typeKey required String type,
 
     /// An `AtUri` instance that contains the unique resource identifier (URI)
     /// of the blocked record.

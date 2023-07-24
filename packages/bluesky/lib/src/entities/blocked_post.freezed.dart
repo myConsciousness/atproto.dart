@@ -22,7 +22,7 @@ BlockedPost _$BlockedPostFromJson(Map<String, dynamic> json) {
 mixin _$BlockedPost {
   /// The type of the record.
   /// By default, it is [appBskyFeedDefsBlockedPost].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// The URI of the post that has been blocked.
@@ -44,10 +44,7 @@ abstract class $BlockedPostCopyWith<$Res> {
           BlockedPost value, $Res Function(BlockedPost) then) =
       _$BlockedPostCopyWithImpl<$Res, BlockedPost>;
   @useResult
-  $Res call(
-      {@JsonKey(name: objectType) String type,
-      @atUriConverter AtUri uri,
-      bool blocked});
+  $Res call({@typeKey String type, @atUriConverter AtUri uri, bool blocked});
 }
 
 /// @nodoc
@@ -92,10 +89,7 @@ abstract class _$$_BlockedPostCopyWith<$Res>
       __$$_BlockedPostCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: objectType) String type,
-      @atUriConverter AtUri uri,
-      bool blocked});
+  $Res call({@typeKey String type, @atUriConverter AtUri uri, bool blocked});
 }
 
 /// @nodoc
@@ -134,7 +128,7 @@ class __$$_BlockedPostCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_BlockedPost implements _BlockedPost {
   const _$_BlockedPost(
-      {@JsonKey(name: objectType) this.type = appBskyFeedDefsBlockedPost,
+      {@typeKey this.type = appBskyFeedDefsBlockedPost,
       @atUriConverter required this.uri,
       required this.blocked});
 
@@ -144,7 +138,7 @@ class _$_BlockedPost implements _BlockedPost {
   /// The type of the record.
   /// By default, it is [appBskyFeedDefsBlockedPost].
   @override
-  @JsonKey(name: objectType)
+  @typeKey
   final String type;
 
   /// The URI of the post that has been blocked.
@@ -191,7 +185,7 @@ class _$_BlockedPost implements _BlockedPost {
 
 abstract class _BlockedPost implements BlockedPost {
   const factory _BlockedPost(
-      {@JsonKey(name: objectType) final String type,
+      {@typeKey final String type,
       @atUriConverter required final AtUri uri,
       required final bool blocked}) = _$_BlockedPost;
 
@@ -202,7 +196,7 @@ abstract class _BlockedPost implements BlockedPost {
 
   /// The type of the record.
   /// By default, it is [appBskyFeedDefsBlockedPost].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type;
   @override
 

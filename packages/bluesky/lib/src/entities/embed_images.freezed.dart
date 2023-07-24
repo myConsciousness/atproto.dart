@@ -22,7 +22,7 @@ EmbedImages _$EmbedImagesFromJson(Map<String, dynamic> json) {
 mixin _$EmbedImages {
   /// The type of the embedded content, defaulted to
   /// [appBskyEmbedImages].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// A list of [Image] objects that represent the images to be embedded.
@@ -40,7 +40,7 @@ abstract class $EmbedImagesCopyWith<$Res> {
           EmbedImages value, $Res Function(EmbedImages) then) =
       _$EmbedImagesCopyWithImpl<$Res, EmbedImages>;
   @useResult
-  $Res call({@JsonKey(name: objectType) String type, List<Image> images});
+  $Res call({@typeKey String type, List<Image> images});
 }
 
 /// @nodoc
@@ -80,7 +80,7 @@ abstract class _$$_EmbedImagesCopyWith<$Res>
       __$$_EmbedImagesCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: objectType) String type, List<Image> images});
+  $Res call({@typeKey String type, List<Image> images});
 }
 
 /// @nodoc
@@ -114,7 +114,7 @@ class __$$_EmbedImagesCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedImages implements _EmbedImages {
   const _$_EmbedImages(
-      {@JsonKey(name: objectType) this.type = appBskyEmbedImages,
+      {@typeKey this.type = appBskyEmbedImages,
       required final List<Image> images})
       : _images = images;
 
@@ -124,7 +124,7 @@ class _$_EmbedImages implements _EmbedImages {
   /// The type of the embedded content, defaulted to
   /// [appBskyEmbedImages].
   @override
-  @JsonKey(name: objectType)
+  @typeKey
   final String type;
 
   /// A list of [Image] objects that represent the images to be embedded.
@@ -173,7 +173,7 @@ class _$_EmbedImages implements _EmbedImages {
 
 abstract class _EmbedImages implements EmbedImages {
   const factory _EmbedImages(
-      {@JsonKey(name: objectType) final String type,
+      {@typeKey final String type,
       required final List<Image> images}) = _$_EmbedImages;
 
   factory _EmbedImages.fromJson(Map<String, dynamic> json) =
@@ -183,7 +183,7 @@ abstract class _EmbedImages implements EmbedImages {
 
   /// The type of the embedded content, defaulted to
   /// [appBskyEmbedImages].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type;
   @override
 

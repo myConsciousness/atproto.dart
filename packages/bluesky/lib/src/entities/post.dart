@@ -11,6 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'actor.dart';
+import 'annotations/annotations.dart';
 import 'converter/embed_view_converter.dart';
 import 'embed_view.dart';
 import 'ids/ids.g.dart';
@@ -39,7 +40,7 @@ class Post with _$Post {
   @JsonSerializable(includeIfNull: false)
   const factory Post({
     /// The type of the post.
-    @JsonKey(name: objectType) @Default(appBskyFeedDefsPostView) String type,
+    @typeKey @Default(appBskyFeedDefsPostView) String type,
 
     /// The record containing the content of the post.
     required PostRecord record,

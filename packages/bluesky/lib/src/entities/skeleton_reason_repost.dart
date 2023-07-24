@@ -9,6 +9,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'ids/ids.g.dart';
 
 part 'skeleton_reason_repost.freezed.dart';
@@ -26,9 +27,7 @@ class SkeletonReasonRepost with _$SkeletonReasonRepost {
   const factory SkeletonReasonRepost({
     /// The type identifier for this class, always
     /// [app.bsky.feed.defs#skeletonReasonRepost] for [SkeletonReasonRepost].
-    @Default(appBskyFeedDefsSkeletonReasonRepost)
-    @JsonKey(name: objectType)
-    String type,
+    @typeKey @Default(appBskyFeedDefsSkeletonReasonRepost) String type,
 
     /// The repost that is the reason for the post's inclusion in the skeleton
     /// feed.

@@ -21,7 +21,7 @@ Post _$PostFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Post {
   /// The type of the post.
-  @JsonKey(name: objectType)
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// The record containing the content of the post.
@@ -70,7 +70,7 @@ abstract class $PostCopyWith<$Res> {
       _$PostCopyWithImpl<$Res, Post>;
   @useResult
   $Res call(
-      {@JsonKey(name: objectType) String type,
+      {@typeKey String type,
       PostRecord record,
       Actor author,
       @atUriConverter AtUri uri,
@@ -211,7 +211,7 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: objectType) String type,
+      {@typeKey String type,
       PostRecord record,
       Actor author,
       @atUriConverter AtUri uri,
@@ -314,7 +314,7 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
 @JsonSerializable(includeIfNull: false)
 class _$_Post extends _Post {
   const _$_Post(
-      {@JsonKey(name: objectType) this.type = appBskyFeedDefsPostView,
+      {@typeKey this.type = appBskyFeedDefsPostView,
       required this.record,
       required this.author,
       @atUriConverter required this.uri,
@@ -333,7 +333,7 @@ class _$_Post extends _Post {
 
   /// The type of the post.
   @override
-  @JsonKey(name: objectType)
+  @typeKey
   final String type;
 
   /// The record containing the content of the post.
@@ -452,7 +452,7 @@ class _$_Post extends _Post {
 
 abstract class _Post extends Post {
   const factory _Post(
-      {@JsonKey(name: objectType) final String type,
+      {@typeKey final String type,
       required final PostRecord record,
       required final Actor author,
       @atUriConverter required final AtUri uri,
@@ -471,7 +471,7 @@ abstract class _Post extends Post {
   @override
 
   /// The type of the post.
-  @JsonKey(name: objectType)
+  @typeKey
   String get type;
   @override
 

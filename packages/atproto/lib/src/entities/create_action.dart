@@ -9,6 +9,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'converter/nsid_converter.dart';
 import 'ids/ids.g.dart';
 
@@ -33,9 +34,7 @@ class CreateAction with _$CreateAction {
   const factory CreateAction({
     /// The type of the action. Default is
     /// [comAtprotoRepoApplyWritesCreate].
-    @JsonKey(name: objectType)
-    @Default(comAtprotoRepoApplyWritesCreate)
-    String type,
+    @typeKey @Default(comAtprotoRepoApplyWritesCreate) String type,
 
     /// The collection in which the record should be created.
     @nsidConverter required NSID collection,

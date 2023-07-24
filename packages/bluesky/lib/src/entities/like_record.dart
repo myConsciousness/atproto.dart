@@ -9,6 +9,7 @@ import 'package:atproto/atproto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'ids/ids.g.dart';
 
 part 'like_record.freezed.dart';
@@ -28,7 +29,7 @@ class LikeRecord with _$LikeRecord {
   @JsonSerializable(includeIfNull: false)
   const factory LikeRecord({
     /// Type of the record, defaults to [appBskyFeedLike].
-    @Default(appBskyFeedLike) @JsonKey(name: objectType) String type,
+    @typeKey @Default(appBskyFeedLike) String type,
 
     /// The subject of the 'like'. It's usually a reference to the content that
     /// was liked.

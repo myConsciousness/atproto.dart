@@ -22,7 +22,7 @@ EmbedViewRecordViewNotFound _$EmbedViewRecordViewNotFoundFromJson(
 /// @nodoc
 mixin _$EmbedViewRecordViewNotFound {
   /// A string that represents the type of the record view not found.
-  @JsonKey(name: objectType)
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// An `AtUri` instance that contains the unique resource identifier (URI)
@@ -44,8 +44,7 @@ abstract class $EmbedViewRecordViewNotFoundCopyWith<$Res> {
       _$EmbedViewRecordViewNotFoundCopyWithImpl<$Res,
           EmbedViewRecordViewNotFound>;
   @useResult
-  $Res call(
-      {@JsonKey(name: objectType) String type, @atUriConverter AtUri uri});
+  $Res call({@typeKey String type, @atUriConverter AtUri uri});
 }
 
 /// @nodoc
@@ -87,8 +86,7 @@ abstract class _$$_EmbedViewRecordViewNotFoundCopyWith<$Res>
       __$$_EmbedViewRecordViewNotFoundCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: objectType) String type, @atUriConverter AtUri uri});
+  $Res call({@typeKey String type, @atUriConverter AtUri uri});
 }
 
 /// @nodoc
@@ -124,15 +122,14 @@ class __$$_EmbedViewRecordViewNotFoundCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedViewRecordViewNotFound implements _EmbedViewRecordViewNotFound {
   const _$_EmbedViewRecordViewNotFound(
-      {@JsonKey(name: objectType) required this.type,
-      @atUriConverter required this.uri});
+      {@typeKey required this.type, @atUriConverter required this.uri});
 
   factory _$_EmbedViewRecordViewNotFound.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedViewRecordViewNotFoundFromJson(json);
 
   /// A string that represents the type of the record view not found.
   @override
-  @JsonKey(name: objectType)
+  @typeKey
   final String type;
 
   /// An `AtUri` instance that contains the unique resource identifier (URI)
@@ -177,7 +174,7 @@ class _$_EmbedViewRecordViewNotFound implements _EmbedViewRecordViewNotFound {
 abstract class _EmbedViewRecordViewNotFound
     implements EmbedViewRecordViewNotFound {
   const factory _EmbedViewRecordViewNotFound(
-          {@JsonKey(name: objectType) required final String type,
+          {@typeKey required final String type,
           @atUriConverter required final AtUri uri}) =
       _$_EmbedViewRecordViewNotFound;
 
@@ -187,7 +184,7 @@ abstract class _EmbedViewRecordViewNotFound
   @override
 
   /// A string that represents the type of the record view not found.
-  @JsonKey(name: objectType)
+  @typeKey
   String get type;
   @override
 

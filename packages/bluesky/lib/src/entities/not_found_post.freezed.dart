@@ -22,7 +22,7 @@ NotFoundPost _$NotFoundPostFromJson(Map<String, dynamic> json) {
 mixin _$NotFoundPost {
   /// The type of this [NotFoundPost]. Defaults to
   /// [app.bsky.feed.defs#notFoundPost].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// The unique identifier of the post.
@@ -44,10 +44,7 @@ abstract class $NotFoundPostCopyWith<$Res> {
           NotFoundPost value, $Res Function(NotFoundPost) then) =
       _$NotFoundPostCopyWithImpl<$Res, NotFoundPost>;
   @useResult
-  $Res call(
-      {@JsonKey(name: objectType) String type,
-      @atUriConverter AtUri uri,
-      bool notFound});
+  $Res call({@typeKey String type, @atUriConverter AtUri uri, bool notFound});
 }
 
 /// @nodoc
@@ -92,10 +89,7 @@ abstract class _$$_NotFoundPostCopyWith<$Res>
       __$$_NotFoundPostCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: objectType) String type,
-      @atUriConverter AtUri uri,
-      bool notFound});
+  $Res call({@typeKey String type, @atUriConverter AtUri uri, bool notFound});
 }
 
 /// @nodoc
@@ -134,7 +128,7 @@ class __$$_NotFoundPostCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_NotFoundPost implements _NotFoundPost {
   const _$_NotFoundPost(
-      {@JsonKey(name: objectType) this.type = appBskyFeedDefsNotFoundPost,
+      {@typeKey this.type = appBskyFeedDefsNotFoundPost,
       @atUriConverter required this.uri,
       required this.notFound});
 
@@ -144,7 +138,7 @@ class _$_NotFoundPost implements _NotFoundPost {
   /// The type of this [NotFoundPost]. Defaults to
   /// [app.bsky.feed.defs#notFoundPost].
   @override
-  @JsonKey(name: objectType)
+  @typeKey
   final String type;
 
   /// The unique identifier of the post.
@@ -192,7 +186,7 @@ class _$_NotFoundPost implements _NotFoundPost {
 
 abstract class _NotFoundPost implements NotFoundPost {
   const factory _NotFoundPost(
-      {@JsonKey(name: objectType) final String type,
+      {@typeKey final String type,
       @atUriConverter required final AtUri uri,
       required final bool notFound}) = _$_NotFoundPost;
 
@@ -203,7 +197,7 @@ abstract class _NotFoundPost implements NotFoundPost {
 
   /// The type of this [NotFoundPost]. Defaults to
   /// [app.bsky.feed.defs#notFoundPost].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type;
   @override
 

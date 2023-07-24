@@ -23,7 +23,7 @@ mixin _$ReasonRepost {
   /// Represents the type of the reason.
   ///
   /// By default, the type is [appBskyFeedDefsReasonRepost].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// Represents the actor who reposted.
@@ -44,8 +44,7 @@ abstract class $ReasonRepostCopyWith<$Res> {
           ReasonRepost value, $Res Function(ReasonRepost) then) =
       _$ReasonRepostCopyWithImpl<$Res, ReasonRepost>;
   @useResult
-  $Res call(
-      {@JsonKey(name: objectType) String type, Actor by, DateTime indexedAt});
+  $Res call({@typeKey String type, Actor by, DateTime indexedAt});
 
   $ActorCopyWith<$Res> get by;
 }
@@ -100,8 +99,7 @@ abstract class _$$_ReasonRepostCopyWith<$Res>
       __$$_ReasonRepostCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: objectType) String type, Actor by, DateTime indexedAt});
+  $Res call({@typeKey String type, Actor by, DateTime indexedAt});
 
   @override
   $ActorCopyWith<$Res> get by;
@@ -143,7 +141,7 @@ class __$$_ReasonRepostCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ReasonRepost implements _ReasonRepost {
   const _$_ReasonRepost(
-      {@JsonKey(name: objectType) this.type = appBskyFeedDefsReasonRepost,
+      {@typeKey this.type = appBskyFeedDefsReasonRepost,
       required this.by,
       required this.indexedAt});
 
@@ -154,7 +152,7 @@ class _$_ReasonRepost implements _ReasonRepost {
   ///
   /// By default, the type is [appBskyFeedDefsReasonRepost].
   @override
-  @JsonKey(name: objectType)
+  @typeKey
   final String type;
 
   /// Represents the actor who reposted.
@@ -201,7 +199,7 @@ class _$_ReasonRepost implements _ReasonRepost {
 
 abstract class _ReasonRepost implements ReasonRepost {
   const factory _ReasonRepost(
-      {@JsonKey(name: objectType) final String type,
+      {@typeKey final String type,
       required final Actor by,
       required final DateTime indexedAt}) = _$_ReasonRepost;
 
@@ -213,7 +211,7 @@ abstract class _ReasonRepost implements ReasonRepost {
   /// Represents the type of the reason.
   ///
   /// By default, the type is [appBskyFeedDefsReasonRepost].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type;
   @override
 

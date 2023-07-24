@@ -22,7 +22,7 @@ EmbedViewRecordWithMedia _$EmbedViewRecordWithMediaFromJson(
 /// @nodoc
 mixin _$EmbedViewRecordWithMedia {
   /// Specifies the type of record.
-  @JsonKey(name: objectType)
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// Represents the record of the embedded view.
@@ -45,7 +45,7 @@ abstract class $EmbedViewRecordWithMediaCopyWith<$Res> {
       _$EmbedViewRecordWithMediaCopyWithImpl<$Res, EmbedViewRecordWithMedia>;
   @useResult
   $Res call(
-      {@JsonKey(name: objectType) String type,
+      {@typeKey String type,
       EmbedViewRecord record,
       @embedViewMediaConverter EmbedViewMedia media});
 
@@ -114,7 +114,7 @@ abstract class _$$_EmbedViewRecordWithMediaCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: objectType) String type,
+      {@typeKey String type,
       EmbedViewRecord record,
       @embedViewMediaConverter EmbedViewMedia media});
 
@@ -161,7 +161,7 @@ class __$$_EmbedViewRecordWithMediaCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedViewRecordWithMedia implements _EmbedViewRecordWithMedia {
   const _$_EmbedViewRecordWithMedia(
-      {@JsonKey(name: objectType) required this.type,
+      {@typeKey required this.type,
       required this.record,
       @embedViewMediaConverter required this.media});
 
@@ -170,7 +170,7 @@ class _$_EmbedViewRecordWithMedia implements _EmbedViewRecordWithMedia {
 
   /// Specifies the type of record.
   @override
-  @JsonKey(name: objectType)
+  @typeKey
   final String type;
 
   /// Represents the record of the embedded view.
@@ -218,7 +218,7 @@ class _$_EmbedViewRecordWithMedia implements _EmbedViewRecordWithMedia {
 
 abstract class _EmbedViewRecordWithMedia implements EmbedViewRecordWithMedia {
   const factory _EmbedViewRecordWithMedia(
-          {@JsonKey(name: objectType) required final String type,
+          {@typeKey required final String type,
           required final EmbedViewRecord record,
           @embedViewMediaConverter required final EmbedViewMedia media}) =
       _$_EmbedViewRecordWithMedia;
@@ -229,7 +229,7 @@ abstract class _EmbedViewRecordWithMedia implements EmbedViewRecordWithMedia {
   @override
 
   /// Specifies the type of record.
-  @JsonKey(name: objectType)
+  @typeKey
   String get type;
   @override
 

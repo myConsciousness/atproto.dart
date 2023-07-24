@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'converter/embed_media_converter.dart';
 import 'embed_media.dart';
 import 'embed_record.dart';
@@ -38,9 +39,7 @@ class EmbedRecordWithMedia with _$EmbedRecordWithMedia {
   const factory EmbedRecordWithMedia({
     /// The type of the embedded content, defaulted to
     /// [appBskyEmbedRecordWithMedia].
-    @JsonKey(name: objectType)
-    @Default(appBskyEmbedRecordWithMedia)
-    String type,
+    @typeKey @Default(appBskyEmbedRecordWithMedia) String type,
 
     /// An [EmbedRecord] object that represents the record to be embedded.
     required EmbedRecord record,

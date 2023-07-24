@@ -10,6 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'actor.dart';
+import 'annotations/annotations.dart';
 import 'facet.dart';
 import 'ids/ids.g.dart';
 import 'list_viewer.dart';
@@ -36,7 +37,7 @@ class ListView with _$ListView {
   @JsonSerializable(includeIfNull: false)
   const factory ListView({
     /// The type of the list, by default it is [appBskyGraphDefsListView].
-    @JsonKey(name: objectType) @Default(appBskyGraphDefsListView) String type,
+    @typeKey @Default(appBskyGraphDefsListView) String type,
 
     /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
     @Default(appBskyGraphDefsModlist) String purpose,

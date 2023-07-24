@@ -9,6 +9,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'ids/ids.g.dart';
 
 part 'list_item_record.freezed.dart';
@@ -27,7 +28,7 @@ class ListItemRecord with _$ListItemRecord {
   @JsonSerializable(includeIfNull: false)
   const factory ListItemRecord({
     /// The type of the item. Default is [appBskyGraphListitem].
-    @Default(appBskyGraphListitem) @JsonKey(name: objectType) String type,
+    @typeKey @Default(appBskyGraphListitem) String type,
 
     /// The URI of the list to which the item belongs.
     @atUriConverter required AtUri list,

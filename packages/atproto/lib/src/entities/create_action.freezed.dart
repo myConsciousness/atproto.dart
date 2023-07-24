@@ -22,7 +22,7 @@ CreateAction _$CreateActionFromJson(Map<String, dynamic> json) {
 mixin _$CreateAction {
   /// The type of the action. Default is
   /// [comAtprotoRepoApplyWritesCreate].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// The collection in which the record should be created.
@@ -49,7 +49,7 @@ abstract class $CreateActionCopyWith<$Res> {
       _$CreateActionCopyWithImpl<$Res, CreateAction>;
   @useResult
   $Res call(
-      {@JsonKey(name: objectType) String type,
+      {@typeKey String type,
       @nsidConverter NSID collection,
       String? rkey,
       @JsonKey(name: 'value') Map<String, dynamic> record});
@@ -103,7 +103,7 @@ abstract class _$$_CreateActionCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: objectType) String type,
+      {@typeKey String type,
       @nsidConverter NSID collection,
       String? rkey,
       @JsonKey(name: 'value') Map<String, dynamic> record});
@@ -151,7 +151,7 @@ class __$$_CreateActionCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_CreateAction implements _CreateAction {
   const _$_CreateAction(
-      {@JsonKey(name: objectType) this.type = comAtprotoRepoApplyWritesCreate,
+      {@typeKey this.type = comAtprotoRepoApplyWritesCreate,
       @nsidConverter required this.collection,
       this.rkey,
       @JsonKey(name: 'value') required final Map<String, dynamic> record})
@@ -163,7 +163,7 @@ class _$_CreateAction implements _CreateAction {
   /// The type of the action. Default is
   /// [comAtprotoRepoApplyWritesCreate].
   @override
-  @JsonKey(name: objectType)
+  @typeKey
   final String type;
 
   /// The collection in which the record should be created.
@@ -225,7 +225,7 @@ class _$_CreateAction implements _CreateAction {
 
 abstract class _CreateAction implements CreateAction {
   const factory _CreateAction(
-          {@JsonKey(name: objectType) final String type,
+          {@typeKey final String type,
           @nsidConverter required final NSID collection,
           final String? rkey,
           @JsonKey(name: 'value') required final Map<String, dynamic> record}) =
@@ -238,7 +238,7 @@ abstract class _CreateAction implements CreateAction {
 
   /// The type of the action. Default is
   /// [comAtprotoRepoApplyWritesCreate].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type;
   @override
 

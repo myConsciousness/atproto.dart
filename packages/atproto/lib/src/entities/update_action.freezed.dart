@@ -22,7 +22,7 @@ UpdateAction _$UpdateActionFromJson(Map<String, dynamic> json) {
 mixin _$UpdateAction {
   /// The type of action. It defaults to
   /// [comAtprotoRepoApplyWritesUpdate].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// The collection to which the record belongs.
@@ -49,7 +49,7 @@ abstract class $UpdateActionCopyWith<$Res> {
       _$UpdateActionCopyWithImpl<$Res, UpdateAction>;
   @useResult
   $Res call(
-      {@JsonKey(name: objectType) String type,
+      {@typeKey String type,
       @nsidConverter NSID collection,
       String? rkey,
       @JsonKey(name: 'value') Map<String, dynamic> record});
@@ -103,7 +103,7 @@ abstract class _$$_UpdateActionCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: objectType) String type,
+      {@typeKey String type,
       @nsidConverter NSID collection,
       String? rkey,
       @JsonKey(name: 'value') Map<String, dynamic> record});
@@ -151,7 +151,7 @@ class __$$_UpdateActionCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_UpdateAction implements _UpdateAction {
   const _$_UpdateAction(
-      {@JsonKey(name: objectType) this.type = comAtprotoRepoApplyWritesUpdate,
+      {@typeKey this.type = comAtprotoRepoApplyWritesUpdate,
       @nsidConverter required this.collection,
       this.rkey,
       @JsonKey(name: 'value') required final Map<String, dynamic> record})
@@ -163,7 +163,7 @@ class _$_UpdateAction implements _UpdateAction {
   /// The type of action. It defaults to
   /// [comAtprotoRepoApplyWritesUpdate].
   @override
-  @JsonKey(name: objectType)
+  @typeKey
   final String type;
 
   /// The collection to which the record belongs.
@@ -225,7 +225,7 @@ class _$_UpdateAction implements _UpdateAction {
 
 abstract class _UpdateAction implements UpdateAction {
   const factory _UpdateAction(
-          {@JsonKey(name: objectType) final String type,
+          {@typeKey final String type,
           @nsidConverter required final NSID collection,
           final String? rkey,
           @JsonKey(name: 'value') required final Map<String, dynamic> record}) =
@@ -238,7 +238,7 @@ abstract class _UpdateAction implements UpdateAction {
 
   /// The type of action. It defaults to
   /// [comAtprotoRepoApplyWritesUpdate].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type;
   @override
 

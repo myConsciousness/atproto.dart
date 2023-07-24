@@ -10,9 +10,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'actor.dart';
+import 'annotations/annotations.dart';
 import 'converter/embed_view_converter.dart';
 import 'embed_view.dart';
-import 'ids/ids.g.dart';
 import 'post_record.dart';
 
 part 'embed_view_record_view_record.freezed.dart';
@@ -42,7 +42,7 @@ class EmbedViewRecordViewRecord with _$EmbedViewRecordViewRecord {
   /// indexed.
   const factory EmbedViewRecordViewRecord({
     /// The type of the embedded view record view.
-    @JsonKey(name: objectType) required String type,
+    @typeKey required String type,
 
     /// The URI of the embedded view record view.
     @atUriConverter required AtUri uri,

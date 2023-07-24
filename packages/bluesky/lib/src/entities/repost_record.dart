@@ -9,6 +9,7 @@ import 'package:atproto/atproto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'ids/ids.g.dart';
 
 part 'repost_record.freezed.dart';
@@ -21,7 +22,7 @@ class RepostRecord with _$RepostRecord {
   @JsonSerializable(includeIfNull: false)
   const factory RepostRecord({
     /// The type of the repost record.
-    @Default(appBskyFeedRepost) @JsonKey(name: objectType) String type,
+    @typeKey @Default(appBskyFeedRepost) String type,
 
     /// The reference to the subject of the repost.
     @JsonKey(name: 'subject') required StrongRef ref,

@@ -21,7 +21,7 @@ PostRecord _$PostRecordFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PostRecord {
   /// The type of the post record, defaulting to 'appBskyFeedPost'.
-  @JsonKey(name: objectType)
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// The text content of the post.
@@ -53,7 +53,7 @@ abstract class $PostRecordCopyWith<$Res> {
       _$PostRecordCopyWithImpl<$Res, PostRecord>;
   @useResult
   $Res call(
-      {@JsonKey(name: objectType) String type,
+      {@typeKey String type,
       String text,
       PostRef? reply,
       @embedConverter Embed? embed,
@@ -146,7 +146,7 @@ abstract class _$$_PostRecordCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: objectType) String type,
+      {@typeKey String type,
       String text,
       PostRef? reply,
       @embedConverter Embed? embed,
@@ -211,7 +211,7 @@ class __$$_PostRecordCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_PostRecord implements _PostRecord {
   const _$_PostRecord(
-      {@JsonKey(name: objectType) this.type = appBskyFeedPost,
+      {@typeKey this.type = appBskyFeedPost,
       required this.text,
       this.reply,
       @embedConverter this.embed,
@@ -224,7 +224,7 @@ class _$_PostRecord implements _PostRecord {
 
   /// The type of the post record, defaulting to 'appBskyFeedPost'.
   @override
-  @JsonKey(name: objectType)
+  @typeKey
   final String type;
 
   /// The text content of the post.
@@ -297,7 +297,7 @@ class _$_PostRecord implements _PostRecord {
 
 abstract class _PostRecord implements PostRecord {
   const factory _PostRecord(
-      {@JsonKey(name: objectType) final String type,
+      {@typeKey final String type,
       required final String text,
       final PostRef? reply,
       @embedConverter final Embed? embed,
@@ -310,7 +310,7 @@ abstract class _PostRecord implements PostRecord {
   @override
 
   /// The type of the post record, defaulting to 'appBskyFeedPost'.
-  @JsonKey(name: objectType)
+  @typeKey
   String get type;
   @override
 

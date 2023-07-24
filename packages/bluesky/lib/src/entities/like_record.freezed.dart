@@ -21,7 +21,7 @@ LikeRecord _$LikeRecordFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$LikeRecord {
   /// Type of the record, defaults to [appBskyFeedLike].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// The subject of the 'like'. It's usually a reference to the content that
@@ -45,7 +45,7 @@ abstract class $LikeRecordCopyWith<$Res> {
       _$LikeRecordCopyWithImpl<$Res, LikeRecord>;
   @useResult
   $Res call(
-      {@JsonKey(name: objectType) String type,
+      {@typeKey String type,
       @JsonKey(name: 'subject') StrongRef ref,
       DateTime createdAt});
 
@@ -103,7 +103,7 @@ abstract class _$$_LikeRecordCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: objectType) String type,
+      {@typeKey String type,
       @JsonKey(name: 'subject') StrongRef ref,
       DateTime createdAt});
 
@@ -148,7 +148,7 @@ class __$$_LikeRecordCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_LikeRecord implements _LikeRecord {
   const _$_LikeRecord(
-      {@JsonKey(name: objectType) this.type = appBskyFeedLike,
+      {@typeKey this.type = appBskyFeedLike,
       @JsonKey(name: 'subject') required this.ref,
       required this.createdAt});
 
@@ -157,7 +157,7 @@ class _$_LikeRecord implements _LikeRecord {
 
   /// Type of the record, defaults to [appBskyFeedLike].
   @override
-  @JsonKey(name: objectType)
+  @typeKey
   final String type;
 
   /// The subject of the 'like'. It's usually a reference to the content that
@@ -206,7 +206,7 @@ class _$_LikeRecord implements _LikeRecord {
 
 abstract class _LikeRecord implements LikeRecord {
   const factory _LikeRecord(
-      {@JsonKey(name: objectType) final String type,
+      {@typeKey final String type,
       @JsonKey(name: 'subject') required final StrongRef ref,
       required final DateTime createdAt}) = _$_LikeRecord;
 
@@ -216,7 +216,7 @@ abstract class _LikeRecord implements LikeRecord {
   @override
 
   /// Type of the record, defaults to [appBskyFeedLike].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type;
   @override
 

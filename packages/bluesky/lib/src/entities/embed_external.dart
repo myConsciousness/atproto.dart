@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'embed_external_thumbnail.dart';
 import 'ids/ids.g.dart';
 
@@ -34,7 +35,7 @@ class EmbedExternal with _$EmbedExternal {
   const factory EmbedExternal({
     /// The type of the embedded content, defaulted to
     /// [appBskyEmbedExternal].
-    @JsonKey(name: objectType) @Default(appBskyEmbedExternal) String type,
+    @typeKey @Default(appBskyEmbedExternal) String type,
 
     /// The [EmbedExternalThumbnail] that contains the details of the
     /// external resource.

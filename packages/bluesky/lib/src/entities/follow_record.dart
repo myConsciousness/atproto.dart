@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'ids/ids.g.dart';
 
 part 'follow_record.freezed.dart';
@@ -27,7 +28,7 @@ class FollowRecord with _$FollowRecord {
   @JsonSerializable(includeIfNull: false)
   const factory FollowRecord({
     /// Type of the record. Defaults to `appBskyGraphFollow`.
-    @Default(appBskyGraphFollow) @JsonKey(name: objectType) String type,
+    @typeKey @Default(appBskyGraphFollow) String type,
 
     /// DID of the subject being followed.
     @JsonKey(name: 'subject') required String did,

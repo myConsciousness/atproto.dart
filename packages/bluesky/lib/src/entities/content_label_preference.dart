@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'ids/ids.g.dart';
 
 part 'content_label_preference.freezed.dart';
@@ -28,9 +29,7 @@ class ContentLabelPreference with _$ContentLabelPreference {
   @JsonSerializable(includeIfNull: false)
   const factory ContentLabelPreference({
     /// The content label.
-    @JsonKey(name: objectType)
-    @Default(appBskyActorDefsContentLabelPref)
-    String type,
+    @typeKey @Default(appBskyActorDefsContentLabelPref) String type,
 
     /// The content label.
     required String label,

@@ -7,6 +7,8 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'ids/ids.g.dart';
 
 part 'facet_link.freezed.dart';
@@ -26,7 +28,7 @@ class FacetLink with _$FacetLink {
   /// The [type] has a default value of [appBskyRichtextFacetLink].
   const factory FacetLink({
     /// Specifies the type of facet. Defaults to [appBskyRichtextFacetLink].
-    @JsonKey(name: objectType) @Default(appBskyRichtextFacetLink) String type,
+    @typeKey @Default(appBskyRichtextFacetLink) String type,
 
     /// Represents the URI of the link facet.
     required String uri,

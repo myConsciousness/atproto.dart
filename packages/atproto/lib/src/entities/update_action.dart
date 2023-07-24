@@ -7,6 +7,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'converter/nsid_converter.dart';
 import 'ids/ids.g.dart';
 
@@ -28,9 +29,7 @@ class UpdateAction with _$UpdateAction {
   const factory UpdateAction({
     /// The type of action. It defaults to
     /// [comAtprotoRepoApplyWritesUpdate].
-    @JsonKey(name: objectType)
-    @Default(comAtprotoRepoApplyWritesUpdate)
-    String type,
+    @typeKey @Default(comAtprotoRepoApplyWritesUpdate) String type,
 
     /// The collection to which the record belongs.
     @nsidConverter required NSID collection,

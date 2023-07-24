@@ -22,7 +22,7 @@ SkeletonReasonRepost _$SkeletonReasonRepostFromJson(Map<String, dynamic> json) {
 mixin _$SkeletonReasonRepost {
   /// The type identifier for this class, always
   /// [app.bsky.feed.defs#skeletonReasonRepost] for [SkeletonReasonRepost].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   /// The repost that is the reason for the post's inclusion in the skeleton
@@ -42,8 +42,7 @@ abstract class $SkeletonReasonRepostCopyWith<$Res> {
           $Res Function(SkeletonReasonRepost) then) =
       _$SkeletonReasonRepostCopyWithImpl<$Res, SkeletonReasonRepost>;
   @useResult
-  $Res call(
-      {@JsonKey(name: objectType) String type, @atUriConverter AtUri repost});
+  $Res call({@typeKey String type, @atUriConverter AtUri repost});
 }
 
 /// @nodoc
@@ -84,8 +83,7 @@ abstract class _$$_SkeletonReasonRepostCopyWith<$Res>
       __$$_SkeletonReasonRepostCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: objectType) String type, @atUriConverter AtUri repost});
+  $Res call({@typeKey String type, @atUriConverter AtUri repost});
 }
 
 /// @nodoc
@@ -119,8 +117,7 @@ class __$$_SkeletonReasonRepostCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SkeletonReasonRepost implements _SkeletonReasonRepost {
   const _$_SkeletonReasonRepost(
-      {@JsonKey(name: objectType)
-      this.type = appBskyFeedDefsSkeletonReasonRepost,
+      {@typeKey this.type = appBskyFeedDefsSkeletonReasonRepost,
       @atUriConverter required this.repost});
 
   factory _$_SkeletonReasonRepost.fromJson(Map<String, dynamic> json) =>
@@ -129,7 +126,7 @@ class _$_SkeletonReasonRepost implements _SkeletonReasonRepost {
   /// The type identifier for this class, always
   /// [app.bsky.feed.defs#skeletonReasonRepost] for [SkeletonReasonRepost].
   @override
-  @JsonKey(name: objectType)
+  @typeKey
   final String type;
 
   /// The repost that is the reason for the post's inclusion in the skeleton
@@ -173,7 +170,7 @@ class _$_SkeletonReasonRepost implements _SkeletonReasonRepost {
 
 abstract class _SkeletonReasonRepost implements SkeletonReasonRepost {
   const factory _SkeletonReasonRepost(
-      {@JsonKey(name: objectType) final String type,
+      {@typeKey final String type,
       @atUriConverter required final AtUri repost}) = _$_SkeletonReasonRepost;
 
   factory _SkeletonReasonRepost.fromJson(Map<String, dynamic> json) =
@@ -183,7 +180,7 @@ abstract class _SkeletonReasonRepost implements SkeletonReasonRepost {
 
   /// The type identifier for this class, always
   /// [app.bsky.feed.defs#skeletonReasonRepost] for [SkeletonReasonRepost].
-  @JsonKey(name: objectType)
+  @typeKey
   String get type;
   @override
 
