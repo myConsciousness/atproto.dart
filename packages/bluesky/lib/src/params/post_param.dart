@@ -27,6 +27,7 @@ class PostParam with _$PostParam {
     @embedConverter Embed? embed,
     List<String>? languageTags,
     DateTime? createdAt,
+    @Default(emptyJson) Map<String, dynamic> unspecced,
   }) = _PostParam;
 
   factory PostParam.fromJson(Map<String, Object?> json) =>

@@ -27,6 +27,7 @@ mixin _$PostParam {
   Embed? get embed => throw _privateConstructorUsedError;
   List<String>? get languageTags => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
+  Map<String, dynamic> get unspecced => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,7 +46,8 @@ abstract class $PostParamCopyWith<$Res> {
       List<Facet>? facets,
       @embedConverter Embed? embed,
       List<String>? languageTags,
-      DateTime? createdAt});
+      DateTime? createdAt,
+      Map<String, dynamic> unspecced});
 
   $ReplyRefCopyWith<$Res>? get reply;
   $EmbedCopyWith<$Res>? get embed;
@@ -70,6 +72,7 @@ class _$PostParamCopyWithImpl<$Res, $Val extends PostParam>
     Object? embed = freezed,
     Object? languageTags = freezed,
     Object? createdAt = freezed,
+    Object? unspecced = null,
   }) {
     return _then(_value.copyWith(
       text: null == text
@@ -96,6 +99,10 @@ class _$PostParamCopyWithImpl<$Res, $Val extends PostParam>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      unspecced: null == unspecced
+          ? _value.unspecced
+          : unspecced // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -137,7 +144,8 @@ abstract class _$$_PostParamCopyWith<$Res> implements $PostParamCopyWith<$Res> {
       List<Facet>? facets,
       @embedConverter Embed? embed,
       List<String>? languageTags,
-      DateTime? createdAt});
+      DateTime? createdAt,
+      Map<String, dynamic> unspecced});
 
   @override
   $ReplyRefCopyWith<$Res>? get reply;
@@ -162,6 +170,7 @@ class __$$_PostParamCopyWithImpl<$Res>
     Object? embed = freezed,
     Object? languageTags = freezed,
     Object? createdAt = freezed,
+    Object? unspecced = null,
   }) {
     return _then(_$_PostParam(
       text: null == text
@@ -188,6 +197,10 @@ class __$$_PostParamCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      unspecced: null == unspecced
+          ? _value._unspecced
+          : unspecced // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -202,9 +215,11 @@ class _$_PostParam implements _PostParam {
       final List<Facet>? facets,
       @embedConverter this.embed,
       final List<String>? languageTags,
-      this.createdAt})
+      this.createdAt,
+      final Map<String, dynamic> unspecced = emptyJson})
       : _facets = facets,
-        _languageTags = languageTags;
+        _languageTags = languageTags,
+        _unspecced = unspecced;
 
   factory _$_PostParam.fromJson(Map<String, dynamic> json) =>
       _$$_PostParamFromJson(json);
@@ -238,10 +253,18 @@ class _$_PostParam implements _PostParam {
 
   @override
   final DateTime? createdAt;
+  final Map<String, dynamic> _unspecced;
+  @override
+  @JsonKey()
+  Map<String, dynamic> get unspecced {
+    if (_unspecced is EqualUnmodifiableMapView) return _unspecced;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_unspecced);
+  }
 
   @override
   String toString() {
-    return 'PostParam(text: $text, reply: $reply, facets: $facets, embed: $embed, languageTags: $languageTags, createdAt: $createdAt)';
+    return 'PostParam(text: $text, reply: $reply, facets: $facets, embed: $embed, languageTags: $languageTags, createdAt: $createdAt, unspecced: $unspecced)';
   }
 
   @override
@@ -256,7 +279,9 @@ class _$_PostParam implements _PostParam {
             const DeepCollectionEquality()
                 .equals(other._languageTags, _languageTags) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality()
+                .equals(other._unspecced, _unspecced));
   }
 
   @JsonKey(ignore: true)
@@ -268,7 +293,8 @@ class _$_PostParam implements _PostParam {
       const DeepCollectionEquality().hash(_facets),
       embed,
       const DeepCollectionEquality().hash(_languageTags),
-      createdAt);
+      createdAt,
+      const DeepCollectionEquality().hash(_unspecced));
 
   @JsonKey(ignore: true)
   @override
@@ -291,7 +317,8 @@ abstract class _PostParam implements PostParam {
       final List<Facet>? facets,
       @embedConverter final Embed? embed,
       final List<String>? languageTags,
-      final DateTime? createdAt}) = _$_PostParam;
+      final DateTime? createdAt,
+      final Map<String, dynamic> unspecced}) = _$_PostParam;
 
   factory _PostParam.fromJson(Map<String, dynamic> json) =
       _$_PostParam.fromJson;
@@ -309,6 +336,8 @@ abstract class _PostParam implements PostParam {
   List<String>? get languageTags;
   @override
   DateTime? get createdAt;
+  @override
+  Map<String, dynamic> get unspecced;
   @override
   @JsonKey(ignore: true)
   _$$_PostParamCopyWith<_$_PostParam> get copyWith =>

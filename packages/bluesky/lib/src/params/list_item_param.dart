@@ -18,6 +18,7 @@ class ListItemParam with _$ListItemParam {
     required String subject,
     @atUriConverter required AtUri list,
     DateTime? createdAt,
+    @Default(emptyJson) Map<String, dynamic> unspecced,
   }) = _ListItemParam;
 
   factory ListItemParam.fromJson(Map<String, Object?> json) =>

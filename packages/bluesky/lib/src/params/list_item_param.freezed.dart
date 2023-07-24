@@ -24,6 +24,7 @@ mixin _$ListItemParam {
   @atUriConverter
   AtUri get list => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
+  Map<String, dynamic> get unspecced => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +38,11 @@ abstract class $ListItemParamCopyWith<$Res> {
           ListItemParam value, $Res Function(ListItemParam) then) =
       _$ListItemParamCopyWithImpl<$Res, ListItemParam>;
   @useResult
-  $Res call({String subject, @atUriConverter AtUri list, DateTime? createdAt});
+  $Res call(
+      {String subject,
+      @atUriConverter AtUri list,
+      DateTime? createdAt,
+      Map<String, dynamic> unspecced});
 }
 
 /// @nodoc
@@ -56,6 +61,7 @@ class _$ListItemParamCopyWithImpl<$Res, $Val extends ListItemParam>
     Object? subject = null,
     Object? list = null,
     Object? createdAt = freezed,
+    Object? unspecced = null,
   }) {
     return _then(_value.copyWith(
       subject: null == subject
@@ -70,6 +76,10 @@ class _$ListItemParamCopyWithImpl<$Res, $Val extends ListItemParam>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      unspecced: null == unspecced
+          ? _value.unspecced
+          : unspecced // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -82,7 +92,11 @@ abstract class _$$_ListItemParamCopyWith<$Res>
       __$$_ListItemParamCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String subject, @atUriConverter AtUri list, DateTime? createdAt});
+  $Res call(
+      {String subject,
+      @atUriConverter AtUri list,
+      DateTime? createdAt,
+      Map<String, dynamic> unspecced});
 }
 
 /// @nodoc
@@ -99,6 +113,7 @@ class __$$_ListItemParamCopyWithImpl<$Res>
     Object? subject = null,
     Object? list = null,
     Object? createdAt = freezed,
+    Object? unspecced = null,
   }) {
     return _then(_$_ListItemParam(
       subject: null == subject
@@ -113,6 +128,10 @@ class __$$_ListItemParamCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      unspecced: null == unspecced
+          ? _value._unspecced
+          : unspecced // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -124,7 +143,9 @@ class _$_ListItemParam implements _ListItemParam {
   const _$_ListItemParam(
       {required this.subject,
       @atUriConverter required this.list,
-      this.createdAt});
+      this.createdAt,
+      final Map<String, dynamic> unspecced = emptyJson})
+      : _unspecced = unspecced;
 
   factory _$_ListItemParam.fromJson(Map<String, dynamic> json) =>
       _$$_ListItemParamFromJson(json);
@@ -136,10 +157,18 @@ class _$_ListItemParam implements _ListItemParam {
   final AtUri list;
   @override
   final DateTime? createdAt;
+  final Map<String, dynamic> _unspecced;
+  @override
+  @JsonKey()
+  Map<String, dynamic> get unspecced {
+    if (_unspecced is EqualUnmodifiableMapView) return _unspecced;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_unspecced);
+  }
 
   @override
   String toString() {
-    return 'ListItemParam(subject: $subject, list: $list, createdAt: $createdAt)';
+    return 'ListItemParam(subject: $subject, list: $list, createdAt: $createdAt, unspecced: $unspecced)';
   }
 
   @override
@@ -150,12 +179,15 @@ class _$_ListItemParam implements _ListItemParam {
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.list, list) || other.list == list) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality()
+                .equals(other._unspecced, _unspecced));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, subject, list, createdAt);
+  int get hashCode => Object.hash(runtimeType, subject, list, createdAt,
+      const DeepCollectionEquality().hash(_unspecced));
 
   @JsonKey(ignore: true)
   @override
@@ -175,7 +207,8 @@ abstract class _ListItemParam implements ListItemParam {
   const factory _ListItemParam(
       {required final String subject,
       @atUriConverter required final AtUri list,
-      final DateTime? createdAt}) = _$_ListItemParam;
+      final DateTime? createdAt,
+      final Map<String, dynamic> unspecced}) = _$_ListItemParam;
 
   factory _ListItemParam.fromJson(Map<String, dynamic> json) =
       _$_ListItemParam.fromJson;
@@ -187,6 +220,8 @@ abstract class _ListItemParam implements ListItemParam {
   AtUri get list;
   @override
   DateTime? get createdAt;
+  @override
+  Map<String, dynamic> get unspecced;
   @override
   @JsonKey(ignore: true)
   _$$_ListItemParamCopyWith<_$_ListItemParam> get copyWith =>

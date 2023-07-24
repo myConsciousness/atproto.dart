@@ -17,6 +17,7 @@ class RepoParam with _$RepoParam {
   const factory RepoParam({
     required String did,
     DateTime? createdAt,
+    @Default(emptyJson) Map<String, dynamic> unspecced,
   }) = _RepoParam;
 
   factory RepoParam.fromJson(Map<String, Object?> json) =>

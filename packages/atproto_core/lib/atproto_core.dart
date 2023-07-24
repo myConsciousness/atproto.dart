@@ -11,6 +11,7 @@ export 'package:atproto_core/src/client/jitter.dart';
 export 'package:atproto_core/src/client/retry_event.dart';
 export 'package:atproto_core/src/client/user_context.dart';
 export 'package:atproto_core/src/keys/ids.dart';
+export 'package:atproto_core/src/const.dart';
 export 'package:atproto_core/src/keys/annotations.dart';
 export 'package:atproto_core/src/config/retry_config.dart';
 export 'package:atproto_core/src/converter/at_uri_converter.dart'
