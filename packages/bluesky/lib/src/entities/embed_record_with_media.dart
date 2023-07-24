@@ -24,7 +24,7 @@ part 'embed_record_with_media.g.dart';
 ///
 /// This class has the following properties:
 /// - `type`: A string that represents the type of the embedded content,
-/// defaulted to `'app.bsky.embed.recordWithMedia'`.
+/// defaulted to [appBskyEmbedRecordWithMedia].
 /// - `record`: An [EmbedRecord] object that represents the record to be
 /// embedded.
 /// - `media`: An [EmbedMedia] object that represents the media to be embedded.
@@ -37,9 +37,9 @@ class EmbedRecordWithMedia with _$EmbedRecordWithMedia {
   /// the media to be embedded.
   const factory EmbedRecordWithMedia({
     /// The type of the embedded content, defaulted to
-    /// `app.bsky.embed.recordWithMedia`.
-    @Default('app.bsky.embed.recordWithMedia')
+    /// [appBskyEmbedRecordWithMedia].
     @JsonKey(name: objectType)
+    @Default(appBskyEmbedRecordWithMedia)
     String type,
 
     /// An [EmbedRecord] object that represents the record to be embedded.

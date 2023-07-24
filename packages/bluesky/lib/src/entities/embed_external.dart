@@ -22,7 +22,7 @@ part 'embed_external.g.dart';
 ///
 /// This class has the following properties:
 /// - `type`: A string that represents the type of the embedded content,
-/// defaulted to `app.bsky.embed.external`.
+/// defaulted to [appBskyEmbedExternal].
 /// - `external`: An instance of [EmbedExternalThumbnail] that contains the
 /// details of the external resource.
 @freezed
@@ -33,8 +33,8 @@ class EmbedExternal with _$EmbedExternal {
   /// representing the external resource.
   const factory EmbedExternal({
     /// The type of the embedded content, defaulted to
-    /// `app.bsky.embed.external`.
-    @Default('app.bsky.embed.external') @JsonKey(name: objectType) String type,
+    /// [appBskyEmbedExternal].
+    @JsonKey(name: objectType) @Default(appBskyEmbedExternal) String type,
 
     /// The [EmbedExternalThumbnail] that contains the details of the
     /// external resource.

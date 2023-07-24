@@ -21,7 +21,7 @@ EmbedImages _$EmbedImagesFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$EmbedImages {
   /// The type of the embedded content, defaulted to
-  /// `app.bsky.embed.images`.
+  /// [appBskyEmbedImages].
   @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
@@ -114,7 +114,7 @@ class __$$_EmbedImagesCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedImages implements _EmbedImages {
   const _$_EmbedImages(
-      {@JsonKey(name: objectType) this.type = 'app.bsky.embed.images',
+      {@JsonKey(name: objectType) this.type = appBskyEmbedImages,
       required final List<Image> images})
       : _images = images;
 
@@ -122,7 +122,7 @@ class _$_EmbedImages implements _EmbedImages {
       _$$_EmbedImagesFromJson(json);
 
   /// The type of the embedded content, defaulted to
-  /// `app.bsky.embed.images`.
+  /// [appBskyEmbedImages].
   @override
   @JsonKey(name: objectType)
   final String type;
@@ -182,7 +182,7 @@ abstract class _EmbedImages implements EmbedImages {
   @override
 
   /// The type of the embedded content, defaulted to
-  /// `app.bsky.embed.images`.
+  /// [appBskyEmbedImages].
   @JsonKey(name: objectType)
   String get type;
   @override

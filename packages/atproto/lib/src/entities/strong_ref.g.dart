@@ -14,7 +14,7 @@ _$_StrongRef _$$_StrongRefFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$_StrongRef(
           type: $checkedConvert(
-              r'$type', (v) => v as String? ?? 'com.atproto.repo.strongRef'),
+              r'$type', (v) => v as String? ?? comAtprotoRepoStrongRef),
           cid: $checkedConvert('cid', (v) => v as String),
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),

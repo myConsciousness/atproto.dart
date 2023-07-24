@@ -20,7 +20,7 @@ Blob _$BlobFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Blob {
-  /// The type of the blob. Default is `blob`.
+  /// The type of the blob. Default is [blob].
   @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
@@ -154,14 +154,14 @@ class __$$_BlobCopyWithImpl<$Res> extends _$BlobCopyWithImpl<$Res, _$_Blob>
 @JsonSerializable()
 class _$_Blob implements _Blob {
   const _$_Blob(
-      {@JsonKey(name: objectType) this.type = 'blob',
+      {@JsonKey(name: objectType) this.type = blob,
       required this.mimeType,
       required this.size,
       required this.ref});
 
   factory _$_Blob.fromJson(Map<String, dynamic> json) => _$$_BlobFromJson(json);
 
-  /// The type of the blob. Default is `blob`.
+  /// The type of the blob. Default is [blob].
   @override
   @JsonKey(name: objectType)
   final String type;
@@ -224,7 +224,7 @@ abstract class _Blob implements Blob {
 
   @override
 
-  /// The type of the blob. Default is `blob`.
+  /// The type of the blob. Default is [blob].
   @JsonKey(name: objectType)
   String get type;
   @override

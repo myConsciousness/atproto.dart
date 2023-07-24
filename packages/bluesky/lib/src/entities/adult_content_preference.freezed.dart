@@ -22,7 +22,7 @@ AdultContentPreference _$AdultContentPreferenceFromJson(
 /// @nodoc
 mixin _$AdultContentPreference {
   /// The type of the preference.
-  /// By default, it is `app.bsky.actor.defs#adultContentPref`.
+  /// By default, it is [appBskyActorDefsAdultContentPref].
   @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
@@ -124,15 +124,14 @@ class __$$_AdultContentPreferenceCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_AdultContentPreference implements _AdultContentPreference {
   const _$_AdultContentPreference(
-      {@JsonKey(name: objectType)
-      this.type = 'app.bsky.actor.defs#adultContentPref',
+      {@JsonKey(name: objectType) this.type = appBskyActorDefsAdultContentPref,
       @JsonKey(name: 'enabled') required this.isEnabled});
 
   factory _$_AdultContentPreference.fromJson(Map<String, dynamic> json) =>
       _$$_AdultContentPreferenceFromJson(json);
 
   /// The type of the preference.
-  /// By default, it is `app.bsky.actor.defs#adultContentPref`.
+  /// By default, it is [appBskyActorDefsAdultContentPref].
   @override
   @JsonKey(name: objectType)
   final String type;
@@ -189,7 +188,7 @@ abstract class _AdultContentPreference implements AdultContentPreference {
   @override
 
   /// The type of the preference.
-  /// By default, it is `app.bsky.actor.defs#adultContentPref`.
+  /// By default, it is [appBskyActorDefsAdultContentPref].
   @JsonKey(name: objectType)
   String get type;
   @override

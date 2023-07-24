@@ -24,7 +24,7 @@ class DeleteAction with _$DeleteAction {
   /// Constructs a [DeleteAction] instance.
   ///
   /// [type] is the type of the action, default to
-  /// `com.atproto.repo.applyWrites#delete`.
+  /// [comAtprotoRepoApplyWritesDelete].
   ///
   /// [uri] is a required parameter representing the URI of the resource to be
   /// deleted.
@@ -32,7 +32,7 @@ class DeleteAction with _$DeleteAction {
   const factory DeleteAction({
     /// The type of the action.
     @JsonKey(name: objectType)
-    @Default('com.atproto.repo.applyWrites#delete')
+    @Default(comAtprotoRepoApplyWritesDelete)
     String type,
 
     /// The URI of the resource to be deleted.

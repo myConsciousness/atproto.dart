@@ -19,13 +19,13 @@ part 'reason_repost.g.dart';
 class ReasonRepost with _$ReasonRepost {
   /// Creates a new instance of [ReasonRepost].
   ///
-  /// The [type] default value is `app.bsky.feed.defs#reasonRepost`.
+  /// The [type] default value is [appBskyFeedDefsReasonRepost].
   const factory ReasonRepost({
     /// Represents the type of the reason.
     ///
-    /// By default, the type is `app.bsky.feed.defs#reasonRepost`.
-    @Default('app.bsky.feed.defs#reasonRepost')
+    /// By default, the type is [appBskyFeedDefsReasonRepost].
     @JsonKey(name: objectType)
+    @Default(appBskyFeedDefsReasonRepost)
     String type,
 
     /// Represents the actor who reposted.

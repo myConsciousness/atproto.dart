@@ -25,15 +25,15 @@ class AdultContentPreference with _$AdultContentPreference {
   /// Creates an instance of [AdultContentPreference].
   ///
   /// - `type`: The type of the preference. By default, it is
-  /// `app.bsky.actor.defs#adultContentPref`.
+  /// [appBskyActorDefsAdultContentPref].
   /// - `isEnabled`: A boolean value indicating whether the user has enabled
   /// the viewing of adult content.
   @JsonSerializable(includeIfNull: false)
   const factory AdultContentPreference({
     /// The type of the preference.
-    /// By default, it is `app.bsky.actor.defs#adultContentPref`.
-    @Default('app.bsky.actor.defs#adultContentPref')
+    /// By default, it is [appBskyActorDefsAdultContentPref].
     @JsonKey(name: objectType)
+    @Default(appBskyActorDefsAdultContentPref)
     String type,
 
     /// A boolean value indicating whether the user has enabled the

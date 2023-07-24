@@ -21,7 +21,7 @@ NotFoundPost _$NotFoundPostFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$NotFoundPost {
   /// The type of this [NotFoundPost]. Defaults to
-  /// `app.bsky.feed.defs#notFoundPost`.
+  /// [app.bsky.feed.defs#notFoundPost].
   @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
@@ -134,7 +134,7 @@ class __$$_NotFoundPostCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_NotFoundPost implements _NotFoundPost {
   const _$_NotFoundPost(
-      {@JsonKey(name: objectType) this.type = 'app.bsky.feed.defs#notFoundPost',
+      {@JsonKey(name: objectType) this.type = appBskyFeedDefsNotFoundPost,
       @atUriConverter required this.uri,
       required this.notFound});
 
@@ -142,7 +142,7 @@ class _$_NotFoundPost implements _NotFoundPost {
       _$$_NotFoundPostFromJson(json);
 
   /// The type of this [NotFoundPost]. Defaults to
-  /// `app.bsky.feed.defs#notFoundPost`.
+  /// [app.bsky.feed.defs#notFoundPost].
   @override
   @JsonKey(name: objectType)
   final String type;
@@ -202,7 +202,7 @@ abstract class _NotFoundPost implements NotFoundPost {
   @override
 
   /// The type of this [NotFoundPost]. Defaults to
-  /// `app.bsky.feed.defs#notFoundPost`.
+  /// [app.bsky.feed.defs#notFoundPost].
   @JsonKey(name: objectType)
   String get type;
   @override

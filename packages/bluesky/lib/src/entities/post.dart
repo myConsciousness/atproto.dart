@@ -39,9 +39,7 @@ class Post with _$Post {
   @JsonSerializable(includeIfNull: false)
   const factory Post({
     /// The type of the post.
-    @Default('app.bsky.feed.defs#postView')
-    @JsonKey(name: objectType)
-    String type,
+    @JsonKey(name: objectType) @Default(appBskyFeedDefsPostView) String type,
 
     /// The record containing the content of the post.
     required PostRecord record,

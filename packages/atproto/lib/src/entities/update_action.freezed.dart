@@ -21,7 +21,7 @@ UpdateAction _$UpdateActionFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$UpdateAction {
   /// The type of action. It defaults to
-  /// `com.atproto.repo.applyWrites#update`.
+  /// [comAtprotoRepoApplyWritesUpdate].
   @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
@@ -151,8 +151,7 @@ class __$$_UpdateActionCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_UpdateAction implements _UpdateAction {
   const _$_UpdateAction(
-      {@JsonKey(name: objectType)
-      this.type = 'com.atproto.repo.applyWrites#update',
+      {@JsonKey(name: objectType) this.type = comAtprotoRepoApplyWritesUpdate,
       @nsidConverter required this.collection,
       this.rkey,
       @JsonKey(name: 'value') required final Map<String, dynamic> record})
@@ -162,7 +161,7 @@ class _$_UpdateAction implements _UpdateAction {
       _$$_UpdateActionFromJson(json);
 
   /// The type of action. It defaults to
-  /// `com.atproto.repo.applyWrites#update`.
+  /// [comAtprotoRepoApplyWritesUpdate].
   @override
   @JsonKey(name: objectType)
   final String type;
@@ -238,7 +237,7 @@ abstract class _UpdateAction implements UpdateAction {
   @override
 
   /// The type of action. It defaults to
-  /// `com.atproto.repo.applyWrites#update`.
+  /// [comAtprotoRepoApplyWritesUpdate].
   @JsonKey(name: objectType)
   String get type;
   @override

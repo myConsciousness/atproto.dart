@@ -22,9 +22,9 @@ class SavedFeedsPreference with _$SavedFeedsPreference {
   @JsonSerializable(includeIfNull: false)
   const factory SavedFeedsPreference({
     /// A string that represents the type of the object.
-    /// By default, it is `app.bsky.actor.defs#savedFeedsPref`.
-    @Default('app.bsky.actor.defs#savedFeedsPref')
+    /// By default, it is [appBskyActorDefsSavedFeedsPref].
     @JsonKey(name: objectType)
+    @Default(appBskyActorDefsSavedFeedsPref)
     String type,
 
     /// A list of pinned URIs represented as [AtUri] objects.

@@ -61,10 +61,6 @@ List<Field> _getFields() {
     final directory = Directory('$lexiconsPath/$root');
 
     for (final lexiconPath in directory.listSync()) {
-      if (lexiconPath.path.endsWith('admin')) {
-        continue;
-      }
-
       for (final lexicon in Directory(lexiconPath.path).listSync()) {
         final lexiconFile = File(lexicon.path);
         final json = jsonDecode(lexiconFile.readAsStringSync());
@@ -74,18 +70,18 @@ List<Field> _getFields() {
 
         fields.add(Field(fieldName, id));
 
-        if (id.endsWith('defs')) {
-          final Map<String, dynamic> defs = json['defs'];
+        final Map<String, dynamic> defs = json['defs'];
 
-          defs.forEach((key, _) {
+        defs.forEach((key, _) {
+          if (key != 'main') {
             fields.add(
               Field(
                 '$fieldName${_toFirstUpperCase(key)}',
                 '$id#$key',
               ),
             );
-          });
-        }
+          }
+        });
       }
     }
   }

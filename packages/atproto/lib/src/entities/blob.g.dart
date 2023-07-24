@@ -13,7 +13,7 @@ _$_Blob _$$_BlobFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_Blob(
-          type: $checkedConvert(r'$type', (v) => v as String? ?? 'blob'),
+          type: $checkedConvert(r'$type', (v) => v as String? ?? blob),
           mimeType: $checkedConvert('mimeType', (v) => v as String),
           size: $checkedConvert('size', (v) => v as int),
           ref: $checkedConvert('ref',

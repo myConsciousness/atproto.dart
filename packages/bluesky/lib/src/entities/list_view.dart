@@ -35,13 +35,11 @@ class ListView with _$ListView {
   /// [descriptionFacets], and [avatar] are optional.
   @JsonSerializable(includeIfNull: false)
   const factory ListView({
-    /// The type of the list, by default it is `app.bsky.graph.defs#listView`.
-    @Default('app.bsky.graph.defs#listView')
-    @JsonKey(name: objectType)
-    String type,
+    /// The type of the list, by default it is [appBskyGraphDefsListView].
+    @JsonKey(name: objectType) @Default(appBskyGraphDefsListView) String type,
 
-    /// The purpose of the list, by default it is `app.bsky.graph.defs#modlist`.
-    @Default('app.bsky.graph.defs#modlist') String purpose,
+    /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
+    @Default(appBskyGraphDefsModlist) String purpose,
 
     /// The URI of the list.
     @atUriConverter required AtUri uri,

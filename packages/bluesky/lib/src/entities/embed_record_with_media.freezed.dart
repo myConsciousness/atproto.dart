@@ -21,7 +21,7 @@ EmbedRecordWithMedia _$EmbedRecordWithMediaFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$EmbedRecordWithMedia {
   /// The type of the embedded content, defaulted to
-  /// `app.bsky.embed.recordWithMedia`.
+  /// [appBskyEmbedRecordWithMedia].
   @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
@@ -159,7 +159,7 @@ class __$$_EmbedRecordWithMediaCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedRecordWithMedia implements _EmbedRecordWithMedia {
   const _$_EmbedRecordWithMedia(
-      {@JsonKey(name: objectType) this.type = 'app.bsky.embed.recordWithMedia',
+      {@JsonKey(name: objectType) this.type = appBskyEmbedRecordWithMedia,
       required this.record,
       @embedMediaConverter required this.media});
 
@@ -167,7 +167,7 @@ class _$_EmbedRecordWithMedia implements _EmbedRecordWithMedia {
       _$$_EmbedRecordWithMediaFromJson(json);
 
   /// The type of the embedded content, defaulted to
-  /// `app.bsky.embed.recordWithMedia`.
+  /// [appBskyEmbedRecordWithMedia].
   @override
   @JsonKey(name: objectType)
   final String type;
@@ -228,7 +228,7 @@ abstract class _EmbedRecordWithMedia implements EmbedRecordWithMedia {
   @override
 
   /// The type of the embedded content, defaulted to
-  /// `app.bsky.embed.recordWithMedia`.
+  /// [appBskyEmbedRecordWithMedia].
   @JsonKey(name: objectType)
   String get type;
   @override

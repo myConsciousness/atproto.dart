@@ -18,7 +18,7 @@ part 'facet_mention.g.dart';
 /// This class is generated using the Freezed package. The mention facet is
 /// represented by a decentralized identifier (DID).
 ///
-/// It also has a default type `app.bsky.richtext.facet#mention`.
+/// It also has a default type [appBskyRichtextFacetMention].
 @freezed
 class FacetMention with _$FacetMention {
   /// Creates an instance of [FacetMention].
@@ -26,12 +26,12 @@ class FacetMention with _$FacetMention {
   /// Requires [did] which is the decentralized identifier (DID) of the
   /// mention facet.
   ///
-  /// The [type] has a default value of `app.bsky.richtext.facet#mention`.
+  /// The [type] has a default value of [appBskyRichtextFacetMention].
   const factory FacetMention({
     /// Specifies the type of facet. Defaults to
-    /// `app.bsky.richtext.facet#mention`.
-    @Default('app.bsky.richtext.facet#mention')
+    /// [appBskyRichtextFacetMention].
     @JsonKey(name: objectType)
+    @Default(appBskyRichtextFacetMention)
     String type,
 
     /// Represents the decentralized identifier (DID) of the mention facet.

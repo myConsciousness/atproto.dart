@@ -21,12 +21,10 @@ class StrongRef with _$StrongRef {
   /// Creates a new instance of [StrongRef].
   ///
   /// The [cid] and [uri] parameters are required, while
-  /// [type] is optional with a default value of `com.atproto.repo.strongRef`.
+  /// [type] is optional with a default value of [comAtprotoRepoStrongRef].
   const factory StrongRef({
-    /// Type of the reference, defaults to `com.atproto.repo.strongRef`.
-    @Default('com.atproto.repo.strongRef')
-    @JsonKey(name: objectType)
-    String type,
+    /// Type of the reference, defaults to [comAtprotoRepoStrongRef].
+    @JsonKey(name: objectType) @Default(comAtprotoRepoStrongRef) String type,
 
     /// Content Identifier of the reference.
     required String cid,

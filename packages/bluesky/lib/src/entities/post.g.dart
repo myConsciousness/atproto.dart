@@ -14,7 +14,7 @@ _$_Post _$$_PostFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$_Post(
           type: $checkedConvert(
-              r'$type', (v) => v as String? ?? 'app.bsky.feed.defs#postView'),
+              r'$type', (v) => v as String? ?? appBskyFeedDefsPostView),
           record: $checkedConvert('record',
               (v) => PostRecord.fromJson(Map<String, Object?>.from(v as Map))),
           author: $checkedConvert('author',

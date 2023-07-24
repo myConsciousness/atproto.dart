@@ -15,7 +15,7 @@ _$_ListParam _$$_ListParamFromJson(Map json) => $checkedCreate(
         final val = _$_ListParam(
           name: $checkedConvert('name', (v) => v as String),
           purpose: $checkedConvert(
-              'purpose', (v) => v as String? ?? 'app.bsky.graph.defs#modlist'),
+              'purpose', (v) => v as String? ?? appBskyGraphDefsModlist),
           description: $checkedConvert('description', (v) => v as String?),
           descriptionFacets: $checkedConvert(
               'descriptionFacets',

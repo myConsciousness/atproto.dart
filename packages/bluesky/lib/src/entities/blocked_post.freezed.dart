@@ -21,7 +21,7 @@ BlockedPost _$BlockedPostFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$BlockedPost {
   /// The type of the record.
-  /// By default, it is `app.bsky.feed.defs#blockedPost`.
+  /// By default, it is [appBskyFeedDefsBlockedPost].
   @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
@@ -134,7 +134,7 @@ class __$$_BlockedPostCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_BlockedPost implements _BlockedPost {
   const _$_BlockedPost(
-      {@JsonKey(name: objectType) this.type = 'app.bsky.feed.defs#blockedPost',
+      {@JsonKey(name: objectType) this.type = appBskyFeedDefsBlockedPost,
       @atUriConverter required this.uri,
       required this.blocked});
 
@@ -142,7 +142,7 @@ class _$_BlockedPost implements _BlockedPost {
       _$$_BlockedPostFromJson(json);
 
   /// The type of the record.
-  /// By default, it is `app.bsky.feed.defs#blockedPost`.
+  /// By default, it is [appBskyFeedDefsBlockedPost].
   @override
   @JsonKey(name: objectType)
   final String type;
@@ -201,7 +201,7 @@ abstract class _BlockedPost implements BlockedPost {
   @override
 
   /// The type of the record.
-  /// By default, it is `app.bsky.feed.defs#blockedPost`.
+  /// By default, it is [appBskyFeedDefsBlockedPost].
   @JsonKey(name: objectType)
   String get type;
   @override

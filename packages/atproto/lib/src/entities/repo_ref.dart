@@ -17,13 +17,11 @@ class RepoRef with _$RepoRef {
   /// Creates a new instance of [RepoRef].
   ///
   /// The [did] parameter is required. The [type] parameter is optional,
-  /// with a default value of `com.atproto.admin.defs#repoRef`.
+  /// with a default value of [comAtprotoAdminDefsRepoRef].
   const factory RepoRef({
     /// The type of the repository reference.
-    /// It defaults to `com.atproto.admin.defs#repoRef`.
-    @Default('com.atproto.admin.defs#repoRef')
-    @JsonKey(name: objectType)
-    String type,
+    /// It defaults to [comAtprotoAdminDefsRepoRef].
+    @JsonKey(name: objectType) @Default(comAtprotoAdminDefsRepoRef) String type,
 
     /// The DID of the repository.
     required String did,

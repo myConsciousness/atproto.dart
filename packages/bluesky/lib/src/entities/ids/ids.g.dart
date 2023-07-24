@@ -19,14 +19,47 @@ const blob = 'blob';
 /// `app.bsky.embed.record`
 const appBskyEmbedRecord = 'app.bsky.embed.record';
 
+/// `app.bsky.embed.record#view`
+const appBskyEmbedRecordView = 'app.bsky.embed.record#view';
+
+/// `app.bsky.embed.record#viewRecord`
+const appBskyEmbedRecordViewRecord = 'app.bsky.embed.record#viewRecord';
+
+/// `app.bsky.embed.record#viewNotFound`
+const appBskyEmbedRecordViewNotFound = 'app.bsky.embed.record#viewNotFound';
+
+/// `app.bsky.embed.record#viewBlocked`
+const appBskyEmbedRecordViewBlocked = 'app.bsky.embed.record#viewBlocked';
+
 /// `app.bsky.embed.images`
 const appBskyEmbedImages = 'app.bsky.embed.images';
+
+/// `app.bsky.embed.images#image`
+const appBskyEmbedImagesImage = 'app.bsky.embed.images#image';
+
+/// `app.bsky.embed.images#view`
+const appBskyEmbedImagesView = 'app.bsky.embed.images#view';
+
+/// `app.bsky.embed.images#viewImage`
+const appBskyEmbedImagesViewImage = 'app.bsky.embed.images#viewImage';
 
 /// `app.bsky.embed.recordWithMedia`
 const appBskyEmbedRecordWithMedia = 'app.bsky.embed.recordWithMedia';
 
+/// `app.bsky.embed.recordWithMedia#view`
+const appBskyEmbedRecordWithMediaView = 'app.bsky.embed.recordWithMedia#view';
+
 /// `app.bsky.embed.external`
 const appBskyEmbedExternal = 'app.bsky.embed.external';
+
+/// `app.bsky.embed.external#external`
+const appBskyEmbedExternalExternal = 'app.bsky.embed.external#external';
+
+/// `app.bsky.embed.external#view`
+const appBskyEmbedExternalView = 'app.bsky.embed.external#view';
+
+/// `app.bsky.embed.external#viewExternal`
+const appBskyEmbedExternalViewExternal = 'app.bsky.embed.external#viewExternal';
 
 /// `app.bsky.notification.updateSeen`
 const appBskyNotificationUpdateSeen = 'app.bsky.notification.updateSeen';
@@ -34,6 +67,10 @@ const appBskyNotificationUpdateSeen = 'app.bsky.notification.updateSeen';
 /// `app.bsky.notification.listNotifications`
 const appBskyNotificationListNotifications =
     'app.bsky.notification.listNotifications';
+
+/// `app.bsky.notification.listNotifications#notification`
+const appBskyNotificationListNotificationsNotification =
+    'app.bsky.notification.listNotifications#notification';
 
 /// `app.bsky.notification.getUnreadCount`
 const appBskyNotificationGetUnreadCount =
@@ -175,6 +212,9 @@ const appBskyFeedGetAuthorFeed = 'app.bsky.feed.getAuthorFeed';
 /// `app.bsky.feed.getLikes`
 const appBskyFeedGetLikes = 'app.bsky.feed.getLikes';
 
+/// `app.bsky.feed.getLikes#like`
+const appBskyFeedGetLikesLike = 'app.bsky.feed.getLikes#like';
+
 /// `app.bsky.feed.getPostThread`
 const appBskyFeedGetPostThread = 'app.bsky.feed.getPostThread';
 
@@ -189,6 +229,14 @@ const appBskyFeedRepost = 'app.bsky.feed.repost';
 
 /// `app.bsky.feed.describeFeedGenerator`
 const appBskyFeedDescribeFeedGenerator = 'app.bsky.feed.describeFeedGenerator';
+
+/// `app.bsky.feed.describeFeedGenerator#feed`
+const appBskyFeedDescribeFeedGeneratorFeed =
+    'app.bsky.feed.describeFeedGenerator#feed';
+
+/// `app.bsky.feed.describeFeedGenerator#links`
+const appBskyFeedDescribeFeedGeneratorLinks =
+    'app.bsky.feed.describeFeedGenerator#links';
 
 /// `app.bsky.feed.getPosts`
 const appBskyFeedGetPosts = 'app.bsky.feed.getPosts';
@@ -205,8 +253,26 @@ const appBskyFeedGetActorFeeds = 'app.bsky.feed.getActorFeeds';
 /// `app.bsky.feed.post`
 const appBskyFeedPost = 'app.bsky.feed.post';
 
+/// `app.bsky.feed.post#replyRef`
+const appBskyFeedPostReplyRef = 'app.bsky.feed.post#replyRef';
+
+/// `app.bsky.feed.post#entity`
+const appBskyFeedPostEntity = 'app.bsky.feed.post#entity';
+
+/// `app.bsky.feed.post#textSlice`
+const appBskyFeedPostTextSlice = 'app.bsky.feed.post#textSlice';
+
 /// `app.bsky.richtext.facet`
 const appBskyRichtextFacet = 'app.bsky.richtext.facet';
+
+/// `app.bsky.richtext.facet#mention`
+const appBskyRichtextFacetMention = 'app.bsky.richtext.facet#mention';
+
+/// `app.bsky.richtext.facet#link`
+const appBskyRichtextFacetLink = 'app.bsky.richtext.facet#link';
+
+/// `app.bsky.richtext.facet#byteSlice`
+const appBskyRichtextFacetByteSlice = 'app.bsky.richtext.facet#byteSlice';
 
 /// `app.bsky.actor.searchActorsTypeahead`
 const appBskyActorSearchActorsTypeahead =

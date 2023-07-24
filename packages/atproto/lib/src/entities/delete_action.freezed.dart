@@ -117,8 +117,7 @@ class __$$_DeleteActionCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_DeleteAction implements _DeleteAction {
   const _$_DeleteAction(
-      {@JsonKey(name: objectType)
-      this.type = 'com.atproto.repo.applyWrites#delete',
+      {@JsonKey(name: objectType) this.type = comAtprotoRepoApplyWritesDelete,
       @atUriConverter required this.uri});
 
   factory _$_DeleteAction.fromJson(Map<String, dynamic> json) =>

@@ -20,7 +20,7 @@ StrongRef _$StrongRefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$StrongRef {
-  /// Type of the reference, defaults to `com.atproto.repo.strongRef`.
+  /// Type of the reference, defaults to [comAtprotoRepoStrongRef].
   @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
@@ -131,14 +131,14 @@ class __$$_StrongRefCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_StrongRef implements _StrongRef {
   const _$_StrongRef(
-      {@JsonKey(name: objectType) this.type = 'com.atproto.repo.strongRef',
+      {@JsonKey(name: objectType) this.type = comAtprotoRepoStrongRef,
       required this.cid,
       @atUriConverter required this.uri});
 
   factory _$_StrongRef.fromJson(Map<String, dynamic> json) =>
       _$$_StrongRefFromJson(json);
 
-  /// Type of the reference, defaults to `com.atproto.repo.strongRef`.
+  /// Type of the reference, defaults to [comAtprotoRepoStrongRef].
   @override
   @JsonKey(name: objectType)
   final String type;
@@ -196,7 +196,7 @@ abstract class _StrongRef implements StrongRef {
 
   @override
 
-  /// Type of the reference, defaults to `com.atproto.repo.strongRef`.
+  /// Type of the reference, defaults to [comAtprotoRepoStrongRef].
   @JsonKey(name: objectType)
   String get type;
   @override

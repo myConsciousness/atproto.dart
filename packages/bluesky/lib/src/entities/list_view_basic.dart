@@ -32,13 +32,13 @@ class ListViewBasic with _$ListViewBasic {
   @JsonSerializable(includeIfNull: false)
   const factory ListViewBasic({
     /// The type of the list, by default it is
-    /// `app.bsky.graph.defs#listViewBasic`.
-    @Default('app.bsky.graph.defs#listViewBasic')
+    /// [appBskyGraphDefsListViewBasic].
     @JsonKey(name: objectType)
+    @Default(appBskyGraphDefsListViewBasic)
     String type,
 
-    /// The purpose of the list, by default it is `app.bsky.graph.defs#modlist`.
-    @Default('app.bsky.graph.defs#modlist') String purpose,
+    /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
+    @Default(appBskyGraphDefsModlist) String purpose,
 
     /// The URI of the list.
     @atUriConverter required AtUri uri,

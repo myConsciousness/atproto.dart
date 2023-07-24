@@ -21,7 +21,7 @@ SkeletonReasonRepost _$SkeletonReasonRepostFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SkeletonReasonRepost {
   /// The type identifier for this class, always
-  /// `app.bsky.feed.defs#skeletonReasonRepost` for [SkeletonReasonRepost].
+  /// [app.bsky.feed.defs#skeletonReasonRepost] for [SkeletonReasonRepost].
   @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
@@ -120,14 +120,14 @@ class __$$_SkeletonReasonRepostCopyWithImpl<$Res>
 class _$_SkeletonReasonRepost implements _SkeletonReasonRepost {
   const _$_SkeletonReasonRepost(
       {@JsonKey(name: objectType)
-      this.type = 'app.bsky.feed.defs#skeletonReasonRepost',
+      this.type = appBskyFeedDefsSkeletonReasonRepost,
       @atUriConverter required this.repost});
 
   factory _$_SkeletonReasonRepost.fromJson(Map<String, dynamic> json) =>
       _$$_SkeletonReasonRepostFromJson(json);
 
   /// The type identifier for this class, always
-  /// `app.bsky.feed.defs#skeletonReasonRepost` for [SkeletonReasonRepost].
+  /// [app.bsky.feed.defs#skeletonReasonRepost] for [SkeletonReasonRepost].
   @override
   @JsonKey(name: objectType)
   final String type;
@@ -182,7 +182,7 @@ abstract class _SkeletonReasonRepost implements SkeletonReasonRepost {
   @override
 
   /// The type identifier for this class, always
-  /// `app.bsky.feed.defs#skeletonReasonRepost` for [SkeletonReasonRepost].
+  /// [app.bsky.feed.defs#skeletonReasonRepost] for [SkeletonReasonRepost].
   @JsonKey(name: objectType)
   String get type;
   @override

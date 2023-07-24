@@ -13,8 +13,8 @@ _$_FeedGeneratorView _$$_FeedGeneratorViewFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_FeedGeneratorView(
-          type: $checkedConvert(r'$type',
-              (v) => v as String? ?? 'app.bsky.feed.defs#generatorView'),
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyFeedDefsGeneratorView),
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),

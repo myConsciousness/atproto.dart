@@ -20,7 +20,7 @@ part 'embed_images.g.dart';
 /// Each image is represented by an instance of the [Image] class.
 /// This class has the following properties:
 /// - `type`: A string that represents the type of the embedded content,
-/// defaulted to `app.bsky.embed.images`.
+/// defaulted to [appBskyEmbedImages].
 /// - `images`: A list of [Image] objects that represent the images to be
 /// embedded.
 @freezed
@@ -31,8 +31,8 @@ class EmbedImages with _$EmbedImages {
   /// images to be embedded.
   const factory EmbedImages({
     /// The type of the embedded content, defaulted to
-    /// `app.bsky.embed.images`.
-    @Default('app.bsky.embed.images') @JsonKey(name: objectType) String type,
+    /// [appBskyEmbedImages].
+    @JsonKey(name: objectType) @Default(appBskyEmbedImages) String type,
 
     /// A list of [Image] objects that represent the images to be embedded.
     required List<Image> images,

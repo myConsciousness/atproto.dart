@@ -25,8 +25,8 @@ class SkeletonReasonRepost with _$SkeletonReasonRepost {
   /// Default constructor for [SkeletonReasonRepost].
   const factory SkeletonReasonRepost({
     /// The type identifier for this class, always
-    /// `app.bsky.feed.defs#skeletonReasonRepost` for [SkeletonReasonRepost].
-    @Default('app.bsky.feed.defs#skeletonReasonRepost')
+    /// [app.bsky.feed.defs#skeletonReasonRepost] for [SkeletonReasonRepost].
+    @Default(appBskyFeedDefsSkeletonReasonRepost)
     @JsonKey(name: objectType)
     String type,
 

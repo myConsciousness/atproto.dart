@@ -20,7 +20,7 @@ FacetLink _$FacetLinkFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FacetLink {
-  /// Specifies the type of facet. Defaults to `app.bsky.richtext.facet#link`.
+  /// Specifies the type of facet. Defaults to [appBskyRichtextFacetLink].
   @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
@@ -111,13 +111,13 @@ class __$$_FacetLinkCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_FacetLink implements _FacetLink {
   const _$_FacetLink(
-      {@JsonKey(name: objectType) this.type = 'app.bsky.richtext.facet#link',
+      {@JsonKey(name: objectType) this.type = appBskyRichtextFacetLink,
       required this.uri});
 
   factory _$_FacetLink.fromJson(Map<String, dynamic> json) =>
       _$$_FacetLinkFromJson(json);
 
-  /// Specifies the type of facet. Defaults to `app.bsky.richtext.facet#link`.
+  /// Specifies the type of facet. Defaults to [appBskyRichtextFacetLink].
   @override
   @JsonKey(name: objectType)
   final String type;
@@ -168,7 +168,7 @@ abstract class _FacetLink implements FacetLink {
 
   @override
 
-  /// Specifies the type of facet. Defaults to `app.bsky.richtext.facet#link`.
+  /// Specifies the type of facet. Defaults to [appBskyRichtextFacetLink].
   @JsonKey(name: objectType)
   String get type;
   @override

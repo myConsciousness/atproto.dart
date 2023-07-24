@@ -21,7 +21,7 @@ SavedFeedsPreference _$SavedFeedsPreferenceFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SavedFeedsPreference {
   /// A string that represents the type of the object.
-  /// By default, it is `app.bsky.actor.defs#savedFeedsPref`.
+  /// By default, it is [appBskyActorDefsSavedFeedsPref].
   @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
@@ -139,8 +139,7 @@ class __$$_SavedFeedsPreferenceCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_SavedFeedsPreference implements _SavedFeedsPreference {
   const _$_SavedFeedsPreference(
-      {@JsonKey(name: objectType)
-      this.type = 'app.bsky.actor.defs#savedFeedsPref',
+      {@JsonKey(name: objectType) this.type = appBskyActorDefsSavedFeedsPref,
       @JsonKey(name: 'pinned')
       @atUriConverter
       required final List<AtUri> pinnedUris,
@@ -154,7 +153,7 @@ class _$_SavedFeedsPreference implements _SavedFeedsPreference {
       _$$_SavedFeedsPreferenceFromJson(json);
 
   /// A string that represents the type of the object.
-  /// By default, it is `app.bsky.actor.defs#savedFeedsPref`.
+  /// By default, it is [appBskyActorDefsSavedFeedsPref].
   @override
   @JsonKey(name: objectType)
   final String type;
@@ -241,7 +240,7 @@ abstract class _SavedFeedsPreference implements SavedFeedsPreference {
   @override
 
   /// A string that represents the type of the object.
-  /// By default, it is `app.bsky.actor.defs#savedFeedsPref`.
+  /// By default, it is [appBskyActorDefsSavedFeedsPref].
   @JsonKey(name: objectType)
   String get type;
   @override

@@ -28,8 +28,8 @@ class ContentLabelPreference with _$ContentLabelPreference {
   @JsonSerializable(includeIfNull: false)
   const factory ContentLabelPreference({
     /// The content label.
-    @Default('app.bsky.actor.defs#contentLabelPref')
     @JsonKey(name: objectType)
+    @Default(appBskyActorDefsContentLabelPref)
     String type,
 
     /// The content label.

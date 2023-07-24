@@ -21,7 +21,7 @@ FacetMention _$FacetMentionFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$FacetMention {
   /// Specifies the type of facet. Defaults to
-  /// `app.bsky.richtext.facet#mention`.
+  /// [appBskyRichtextFacetMention].
   @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
@@ -114,14 +114,14 @@ class __$$_FacetMentionCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_FacetMention implements _FacetMention {
   const _$_FacetMention(
-      {@JsonKey(name: objectType) this.type = 'app.bsky.richtext.facet#mention',
+      {@JsonKey(name: objectType) this.type = appBskyRichtextFacetMention,
       required this.did});
 
   factory _$_FacetMention.fromJson(Map<String, dynamic> json) =>
       _$$_FacetMentionFromJson(json);
 
   /// Specifies the type of facet. Defaults to
-  /// `app.bsky.richtext.facet#mention`.
+  /// [appBskyRichtextFacetMention].
   @override
   @JsonKey(name: objectType)
   final String type;
@@ -173,7 +173,7 @@ abstract class _FacetMention implements FacetMention {
   @override
 
   /// Specifies the type of facet. Defaults to
-  /// `app.bsky.richtext.facet#mention`.
+  /// [appBskyRichtextFacetMention].
   @JsonKey(name: objectType)
   String get type;
   @override

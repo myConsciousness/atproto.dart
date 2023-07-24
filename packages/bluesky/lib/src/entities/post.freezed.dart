@@ -314,7 +314,7 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
 @JsonSerializable(includeIfNull: false)
 class _$_Post extends _Post {
   const _$_Post(
-      {@JsonKey(name: objectType) this.type = 'app.bsky.feed.defs#postView',
+      {@JsonKey(name: objectType) this.type = appBskyFeedDefsPostView,
       required this.record,
       required this.author,
       @atUriConverter required this.uri,

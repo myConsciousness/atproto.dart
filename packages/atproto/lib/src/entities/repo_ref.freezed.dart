@@ -21,7 +21,7 @@ RepoRef _$RepoRefFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$RepoRef {
   /// The type of the repository reference.
-  /// It defaults to `com.atproto.admin.defs#repoRef`.
+  /// It defaults to [comAtprotoAdminDefsRepoRef].
   @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
@@ -110,14 +110,14 @@ class __$$_RepoRefCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RepoRef implements _RepoRef {
   const _$_RepoRef(
-      {@JsonKey(name: objectType) this.type = 'com.atproto.admin.defs#repoRef',
+      {@JsonKey(name: objectType) this.type = comAtprotoAdminDefsRepoRef,
       required this.did});
 
   factory _$_RepoRef.fromJson(Map<String, dynamic> json) =>
       _$$_RepoRefFromJson(json);
 
   /// The type of the repository reference.
-  /// It defaults to `com.atproto.admin.defs#repoRef`.
+  /// It defaults to [comAtprotoAdminDefsRepoRef].
   @override
   @JsonKey(name: objectType)
   final String type;
@@ -168,7 +168,7 @@ abstract class _RepoRef implements RepoRef {
   @override
 
   /// The type of the repository reference.
-  /// It defaults to `com.atproto.admin.defs#repoRef`.
+  /// It defaults to [comAtprotoAdminDefsRepoRef].
   @JsonKey(name: objectType)
   String get type;
   @override

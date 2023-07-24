@@ -22,7 +22,7 @@ ReasonRepost _$ReasonRepostFromJson(Map<String, dynamic> json) {
 mixin _$ReasonRepost {
   /// Represents the type of the reason.
   ///
-  /// By default, the type is `app.bsky.feed.defs#reasonRepost`.
+  /// By default, the type is [appBskyFeedDefsReasonRepost].
   @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
@@ -143,7 +143,7 @@ class __$$_ReasonRepostCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ReasonRepost implements _ReasonRepost {
   const _$_ReasonRepost(
-      {@JsonKey(name: objectType) this.type = 'app.bsky.feed.defs#reasonRepost',
+      {@JsonKey(name: objectType) this.type = appBskyFeedDefsReasonRepost,
       required this.by,
       required this.indexedAt});
 
@@ -152,7 +152,7 @@ class _$_ReasonRepost implements _ReasonRepost {
 
   /// Represents the type of the reason.
   ///
-  /// By default, the type is `app.bsky.feed.defs#reasonRepost`.
+  /// By default, the type is [appBskyFeedDefsReasonRepost].
   @override
   @JsonKey(name: objectType)
   final String type;
@@ -212,7 +212,7 @@ abstract class _ReasonRepost implements ReasonRepost {
 
   /// Represents the type of the reason.
   ///
-  /// By default, the type is `app.bsky.feed.defs#reasonRepost`.
+  /// By default, the type is [appBskyFeedDefsReasonRepost].
   @JsonKey(name: objectType)
   String get type;
   @override

@@ -13,8 +13,8 @@ _$_ReasonRepost _$$_ReasonRepostFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_ReasonRepost(
-          type: $checkedConvert(r'$type',
-              (v) => v as String? ?? 'app.bsky.feed.defs#reasonRepost'),
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyFeedDefsReasonRepost),
           by: $checkedConvert(
               'by', (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
           indexedAt:

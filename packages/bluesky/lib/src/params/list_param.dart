@@ -10,6 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../entities/facet.dart';
+import '../entities/ids/ids.g.dart';
 
 part 'list_param.freezed.dart';
 part 'list_param.g.dart';
@@ -19,7 +20,7 @@ class ListParam with _$ListParam {
   @JsonSerializable(includeIfNull: false)
   const factory ListParam({
     required String name,
-    @Default('app.bsky.graph.defs#modlist') String purpose,
+    @Default(appBskyGraphDefsModlist) String purpose,
     String? description,
     List<Facet>? descriptionFacets,
     Blob? avatar,

@@ -20,7 +20,7 @@ EmbedRecord _$EmbedRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmbedRecord {
-  /// The type of the embedded content, defaulted to `app.bsky.embed.record`.
+  /// The type of the embedded content, defaulted to [appBskyEmbedRecord].
   @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
@@ -131,13 +131,13 @@ class __$$_EmbedRecordCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedRecord implements _EmbedRecord {
   const _$_EmbedRecord(
-      {@JsonKey(name: objectType) this.type = 'app.bsky.embed.record',
+      {@JsonKey(name: objectType) this.type = appBskyEmbedRecord,
       @JsonKey(name: 'record') required this.ref});
 
   factory _$_EmbedRecord.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedRecordFromJson(json);
 
-  /// The type of the embedded content, defaulted to `app.bsky.embed.record`.
+  /// The type of the embedded content, defaulted to [appBskyEmbedRecord].
   @override
   @JsonKey(name: objectType)
   final String type;
@@ -189,7 +189,7 @@ abstract class _EmbedRecord implements EmbedRecord {
 
   @override
 
-  /// The type of the embedded content, defaulted to `app.bsky.embed.record`.
+  /// The type of the embedded content, defaulted to [appBskyEmbedRecord].
   @JsonKey(name: objectType)
   String get type;
   @override

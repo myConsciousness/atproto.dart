@@ -25,16 +25,16 @@ class CreateAction with _$CreateAction {
   /// Creates an instance of [CreateAction] using a factory constructor.
   ///
   /// [type] represents the type of the action
-  /// (defaults to `com.atproto.repo.applyWrites#create`),
+  /// (defaults to [comAtprotoRepoApplyWritesCreate]),
   /// [collection] is the collection in which the record should be created,
   /// [rkey] is the optional record key,
   /// and [record] is the map of data that defines the record.
   @JsonSerializable(includeIfNull: false)
   const factory CreateAction({
     /// The type of the action. Default is
-    /// `com.atproto.repo.applyWrites#create`.
+    /// [comAtprotoRepoApplyWritesCreate].
     @JsonKey(name: objectType)
-    @Default('com.atproto.repo.applyWrites#create')
+    @Default(comAtprotoRepoApplyWritesCreate)
     String type,
 
     /// The collection in which the record should be created.

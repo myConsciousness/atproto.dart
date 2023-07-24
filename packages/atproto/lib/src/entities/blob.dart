@@ -22,13 +22,13 @@ part 'blob.g.dart';
 class Blob with _$Blob {
   /// Creates an instance of [Blob] using a factory constructor.
   ///
-  /// [type] represents the type of the blob (defaults to 'blob'),
+  /// [type] represents the type of the blob (defaults to [blob]),
   /// [mimeType] is the blob's MIME type,
   /// [size] is the blob's size in bytes,
   /// and [ref] is a reference to the blob data.
   const factory Blob({
-    /// The type of the blob. Default is `blob`.
-    @Default('blob') @JsonKey(name: objectType) String type,
+    /// The type of the blob. Default is [blob].
+    @JsonKey(name: objectType) @Default(blob) String type,
 
     /// The MIME type of the blob.
     required String mimeType,

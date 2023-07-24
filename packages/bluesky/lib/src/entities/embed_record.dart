@@ -21,7 +21,7 @@ part 'embed_record.g.dart';
 ///
 /// It has the following properties:
 /// - `type`: A string that represents the type of the embedded content.
-/// By default, it is set to `app.bsky.embed.record`.
+/// By default, it is set to [appBskyEmbedRecord].
 /// - `ref`: A [StrongRef] object that represents a strong reference to
 /// the record.
 @freezed
@@ -31,8 +31,8 @@ class EmbedRecord with _$EmbedRecord {
   /// This constructor takes a [StrongRef] object that represents a strong
   /// reference to the record.
   const factory EmbedRecord({
-    /// The type of the embedded content, defaulted to `app.bsky.embed.record`.
-    @Default('app.bsky.embed.record') @JsonKey(name: objectType) String type,
+    /// The type of the embedded content, defaulted to [appBskyEmbedRecord].
+    @JsonKey(name: objectType) @Default(appBskyEmbedRecord) String type,
 
     /// A [StrongRef] object that represents a strong reference to the record.
     @JsonKey(name: 'record') required StrongRef ref,

@@ -33,9 +33,9 @@ class FeedGeneratorView with _$FeedGeneratorView {
   @JsonSerializable(includeIfNull: false)
   const factory FeedGeneratorView({
     /// Represents the type of the feed generator view. Defaults to
-    /// `app.bsky.feed.defs#generatorView`.
-    @Default('app.bsky.feed.defs#generatorView')
+    /// [appBskyFeedDefsGeneratorView].
     @JsonKey(name: objectType)
+    @Default(appBskyFeedDefsGeneratorView)
     String type,
 
     /// Represents the URI of the feed generator.

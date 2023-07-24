@@ -20,11 +20,11 @@ ListView _$ListViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListView {
-  /// The type of the list, by default it is `app.bsky.graph.defs#listView`.
+  /// The type of the list, by default it is [appBskyGraphDefsListView].
   @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
-  /// The purpose of the list, by default it is `app.bsky.graph.defs#modlist`.
+  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
   String get purpose => throw _privateConstructorUsedError;
 
   /// The URI of the list.
@@ -277,8 +277,8 @@ class __$$_ListViewCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_ListView extends _ListView {
   const _$_ListView(
-      {@JsonKey(name: objectType) this.type = 'app.bsky.graph.defs#listView',
-      this.purpose = 'app.bsky.graph.defs#modlist',
+      {@JsonKey(name: objectType) this.type = appBskyGraphDefsListView,
+      this.purpose = appBskyGraphDefsModlist,
       @atUriConverter required this.uri,
       required this.cid,
       required this.name,
@@ -294,12 +294,12 @@ class _$_ListView extends _ListView {
   factory _$_ListView.fromJson(Map<String, dynamic> json) =>
       _$$_ListViewFromJson(json);
 
-  /// The type of the list, by default it is `app.bsky.graph.defs#listView`.
+  /// The type of the list, by default it is [appBskyGraphDefsListView].
   @override
   @JsonKey(name: objectType)
   final String type;
 
-  /// The purpose of the list, by default it is `app.bsky.graph.defs#modlist`.
+  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
   @override
   @JsonKey()
   final String purpose;
@@ -428,12 +428,12 @@ abstract class _ListView extends ListView {
 
   @override
 
-  /// The type of the list, by default it is `app.bsky.graph.defs#listView`.
+  /// The type of the list, by default it is [appBskyGraphDefsListView].
   @JsonKey(name: objectType)
   String get type;
   @override
 
-  /// The purpose of the list, by default it is `app.bsky.graph.defs#modlist`.
+  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
   String get purpose;
   @override
 

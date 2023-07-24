@@ -13,10 +13,10 @@ _$_ListViewBasic _$$_ListViewBasicFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_ListViewBasic(
-          type: $checkedConvert(r'$type',
-              (v) => v as String? ?? 'app.bsky.graph.defs#listViewBasic'),
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyGraphDefsListViewBasic),
           purpose: $checkedConvert(
-              'purpose', (v) => v as String? ?? 'app.bsky.graph.defs#modlist'),
+              'purpose', (v) => v as String? ?? appBskyGraphDefsModlist),
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),

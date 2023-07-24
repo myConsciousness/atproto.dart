@@ -21,7 +21,7 @@ EmbedExternal _$EmbedExternalFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$EmbedExternal {
   /// The type of the embedded content, defaulted to
-  /// `app.bsky.embed.external`.
+  /// [appBskyEmbedExternal].
   @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
@@ -132,14 +132,14 @@ class __$$_EmbedExternalCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedExternal implements _EmbedExternal {
   const _$_EmbedExternal(
-      {@JsonKey(name: objectType) this.type = 'app.bsky.embed.external',
+      {@JsonKey(name: objectType) this.type = appBskyEmbedExternal,
       required this.external});
 
   factory _$_EmbedExternal.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedExternalFromJson(json);
 
   /// The type of the embedded content, defaulted to
-  /// `app.bsky.embed.external`.
+  /// [appBskyEmbedExternal].
   @override
   @JsonKey(name: objectType)
   final String type;
@@ -193,7 +193,7 @@ abstract class _EmbedExternal implements EmbedExternal {
   @override
 
   /// The type of the embedded content, defaulted to
-  /// `app.bsky.embed.external`.
+  /// [appBskyEmbedExternal].
   @JsonKey(name: objectType)
   String get type;
   @override

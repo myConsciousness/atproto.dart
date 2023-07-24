@@ -14,8 +14,8 @@ _$_SavedFeedsPreference _$$_SavedFeedsPreferenceFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$_SavedFeedsPreference(
-          type: $checkedConvert(r'$type',
-              (v) => v as String? ?? 'app.bsky.actor.defs#savedFeedsPref'),
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyActorDefsSavedFeedsPref),
           pinnedUris: $checkedConvert(
               'pinned',
               (v) => (v as List<dynamic>)

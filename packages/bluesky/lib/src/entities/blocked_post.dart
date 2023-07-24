@@ -24,15 +24,13 @@ class BlockedPost with _$BlockedPost {
   /// Creates an instance of [BlockedPost].
   ///
   /// - `type`: The type of the record. By default, it is
-  /// `app.bsky.feed.defs#blockedPost`.
+  /// [appBskyFeedDefsBlockedPost].
   /// - `uri`: The URI of the post that has been blocked.
   /// - `blocked`: Whether the post has been blocked.
   const factory BlockedPost({
     /// The type of the record.
-    /// By default, it is `app.bsky.feed.defs#blockedPost`.
-    @Default('app.bsky.feed.defs#blockedPost')
-    @JsonKey(name: objectType)
-    String type,
+    /// By default, it is [appBskyFeedDefsBlockedPost].
+    @JsonKey(name: objectType) @Default(appBskyFeedDefsBlockedPost) String type,
 
     /// The URI of the post that has been blocked.
     @atUriConverter required AtUri uri,

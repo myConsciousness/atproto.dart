@@ -21,7 +21,7 @@ FeedGeneratorView _$FeedGeneratorViewFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$FeedGeneratorView {
   /// Represents the type of the feed generator view. Defaults to
-  /// `app.bsky.feed.defs#generatorView`.
+  /// [appBskyFeedDefsGeneratorView].
   @JsonKey(name: objectType)
   String get type => throw _privateConstructorUsedError;
 
@@ -297,8 +297,7 @@ class __$$_FeedGeneratorViewCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_FeedGeneratorView implements _FeedGeneratorView {
   const _$_FeedGeneratorView(
-      {@JsonKey(name: objectType)
-      this.type = 'app.bsky.feed.defs#generatorView',
+      {@JsonKey(name: objectType) this.type = appBskyFeedDefsGeneratorView,
       @atUriConverter required this.uri,
       required this.cid,
       this.did,
@@ -316,7 +315,7 @@ class _$_FeedGeneratorView implements _FeedGeneratorView {
       _$$_FeedGeneratorViewFromJson(json);
 
   /// Represents the type of the feed generator view. Defaults to
-  /// `app.bsky.feed.defs#generatorView`.
+  /// [appBskyFeedDefsGeneratorView].
   @override
   @JsonKey(name: objectType)
   final String type;
@@ -463,7 +462,7 @@ abstract class _FeedGeneratorView implements FeedGeneratorView {
   @override
 
   /// Represents the type of the feed generator view. Defaults to
-  /// `app.bsky.feed.defs#generatorView`.
+  /// [appBskyFeedDefsGeneratorView].
   @JsonKey(name: objectType)
   String get type;
   @override

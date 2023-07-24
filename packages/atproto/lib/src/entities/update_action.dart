@@ -23,13 +23,13 @@ class UpdateAction with _$UpdateAction {
   ///
   /// The [collection] and [record] parameters are required. The
   /// [type] parameter has a default value of
-  /// `com.atproto.repo.applyWrites#update`, and [rkey] is optional.
+  /// [comAtprotoRepoApplyWritesUpdate], and [rkey] is optional.
   @JsonSerializable(includeIfNull: false)
   const factory UpdateAction({
     /// The type of action. It defaults to
-    /// `com.atproto.repo.applyWrites#update`.
+    /// [comAtprotoRepoApplyWritesUpdate].
     @JsonKey(name: objectType)
-    @Default('com.atproto.repo.applyWrites#update')
+    @Default(comAtprotoRepoApplyWritesUpdate)
     String type,
 
     /// The collection to which the record belongs.
