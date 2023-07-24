@@ -30,7 +30,7 @@ class CreateAction with _$CreateAction {
   /// [collection] is the collection in which the record should be created,
   /// [rkey] is the optional record key,
   /// and [record] is the map of data that defines the record.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory CreateAction({
     /// The type of the action. Default is
     /// [comAtprotoRepoApplyWritesCreate].

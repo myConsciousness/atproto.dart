@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'feed_generator_view.dart';
 
 part 'feed_generators.freezed.dart';
@@ -24,7 +25,7 @@ class FeedGenerators with _$FeedGenerators {
   ///
   /// Requires a list of [FeedGeneratorView] objects. Optionally, a cursor
   /// string can be provided for pagination purposes.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory FeedGenerators({
     /// List of feed generator views.
     required List<FeedGeneratorView> feeds,

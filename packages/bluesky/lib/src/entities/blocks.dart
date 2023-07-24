@@ -9,6 +9,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'actor.dart';
+import 'annotations/annotations.dart';
 
 part 'blocks.freezed.dart';
 part 'blocks.g.dart';
@@ -23,7 +24,7 @@ class Blocks with _$Blocks {
   ///
   /// - `blocks`: The list of blocked actors.
   /// - `cursor`: The pagination cursor.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory Blocks({
     /// The list of blocked actors.
     required List<Actor> blocks,

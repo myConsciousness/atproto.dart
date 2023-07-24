@@ -31,7 +31,7 @@ class FeedGeneratorView with _$FeedGeneratorView {
   /// [displayName], [likeCount], [viewer] and [indexedAt]. Other parameters
   /// such as [type], [did], [description], [descriptionFacets] and [avatar]
   /// are optional.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory FeedGeneratorView({
     /// Represents the type of the feed generator view. Defaults to
     /// [appBskyFeedDefsGeneratorView].

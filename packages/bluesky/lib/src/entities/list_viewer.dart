@@ -7,6 +7,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'annotations/annotations.dart';
+
 part 'list_viewer.freezed.dart';
 part 'list_viewer.g.dart';
 
@@ -23,7 +26,7 @@ class ListViewer with _$ListViewer {
   ///
   /// The field [isMuted] is required and represents whether the viewer has
   /// muted the list.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ListViewer({
     /// Represents whether the viewer has muted the list.
     @JsonKey(name: 'muted') required bool isMuted,

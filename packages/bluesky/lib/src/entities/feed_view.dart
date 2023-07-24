@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'converter/reason_converter.dart';
 import 'post.dart';
 import 'reason.dart';
@@ -27,7 +28,7 @@ class FeedView with _$FeedView {
   ///
   /// Requires a [Post] object. Optionally, a [Reply] object and a [Reason]
   /// object can be provided.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory FeedView({
     /// A post in the feed.
     required Post post,

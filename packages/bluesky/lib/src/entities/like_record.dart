@@ -26,7 +26,7 @@ class LikeRecord with _$LikeRecord {
   ///
   /// Both [ref] and [createdAt] are required. [type] defaults to
   /// [appBskyFeedLike].
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory LikeRecord({
     /// Type of the record, defaults to [appBskyFeedLike].
     @typeKey @Default(appBskyFeedLike) String type,

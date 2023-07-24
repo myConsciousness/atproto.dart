@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../entities/annotations/annotations.dart';
 import '../entities/converter/embed_converter.dart';
 import '../entities/embed.dart';
 import '../entities/facet.dart';
@@ -17,7 +18,7 @@ part 'thread_param.g.dart';
 
 @freezed
 class ThreadParam with _$ThreadParam {
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ThreadParam({
     required String text,
     List<Facet>? facets,

@@ -7,6 +7,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'annotations/annotations.dart';
+
 part 'label.freezed.dart';
 part 'label.g.dart';
 
@@ -28,7 +31,7 @@ class Label with _$Label {
   /// [isNegate] indicates whether this is a negation label, overwriting
   /// a previous label.
   /// [createdAt] is the timestamp when this label was created.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory Label({
     /// DID of the actor who created this label.
     required String src,

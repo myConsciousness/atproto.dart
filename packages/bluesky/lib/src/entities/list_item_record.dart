@@ -25,7 +25,7 @@ class ListItemRecord with _$ListItemRecord {
   /// Creates an instance of [ListItemRecord].
   ///
   /// The [type], [list], [did] and [createdAt] fields are required.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ListItemRecord({
     /// The type of the item. Default is [appBskyGraphListitem].
     @typeKey @Default(appBskyGraphListitem) String type,

@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../entities/annotations/annotations.dart';
 import '../entities/converter/embed_converter.dart';
 import '../entities/embed.dart';
 import '../entities/facet.dart';
@@ -18,7 +19,7 @@ part 'post_param.g.dart';
 
 @freezed
 class PostParam with _$PostParam {
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory PostParam({
     required String text,
     ReplyRef? reply,

@@ -8,12 +8,15 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../entities/annotations/annotations.dart';
+
 part 'list_item_param.freezed.dart';
 part 'list_item_param.g.dart';
 
 @freezed
 class ListItemParam with _$ListItemParam {
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ListItemParam({
     required String subject,
     @atUriConverter required AtUri list,

@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'feed_view.dart';
 
 part 'feed.freezed.dart';
@@ -23,7 +24,7 @@ class Feed with _$Feed {
   ///
   /// Requires a list of [FeedView] objects. Optionally, a string cursor can
   /// be provided.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory Feed({
     /// List of feed view objects.
     required List<FeedView> feed,

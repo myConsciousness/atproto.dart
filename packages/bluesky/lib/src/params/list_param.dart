@@ -9,6 +9,7 @@ import 'package:atproto/atproto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../entities/annotations/annotations.dart';
 import '../entities/facet.dart';
 import '../entities/ids/ids.g.dart';
 
@@ -17,7 +18,7 @@ part 'list_param.g.dart';
 
 @freezed
 class ListParam with _$ListParam {
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ListParam({
     required String name,
     @Default(appBskyGraphDefsModlist) String purpose,

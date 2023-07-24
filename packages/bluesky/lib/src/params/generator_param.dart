@@ -9,6 +9,7 @@ import 'package:atproto/atproto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../entities/annotations/annotations.dart';
 import '../entities/facet.dart';
 
 part 'generator_param.freezed.dart';
@@ -16,7 +17,7 @@ part 'generator_param.g.dart';
 
 @freezed
 class GeneratorParam with _$GeneratorParam {
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory GeneratorParam({
     required String did,
     required String displayName,

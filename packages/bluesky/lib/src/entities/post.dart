@@ -37,7 +37,7 @@ class Post with _$Post {
   /// [embed] if any embeddable content is associated, [replyCount],
   /// [repostCount], [likeCount] showing user interactions, and the
   /// [viewer] interaction details.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory Post({
     /// The type of the post.
     @typeKey @Default(appBskyFeedDefsPostView) String type,

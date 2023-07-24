@@ -25,7 +25,7 @@ class UpdateAction with _$UpdateAction {
   /// The [collection] and [record] parameters are required. The
   /// [type] parameter has a default value of
   /// [comAtprotoRepoApplyWritesUpdate], and [rkey] is optional.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory UpdateAction({
     /// The type of action. It defaults to
     /// [comAtprotoRepoApplyWritesUpdate].

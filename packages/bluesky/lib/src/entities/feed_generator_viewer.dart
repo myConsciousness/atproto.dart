@@ -8,6 +8,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'annotations/annotations.dart';
+
 part 'feed_generator_viewer.freezed.dart';
 part 'feed_generator_viewer.g.dart';
 
@@ -25,7 +28,7 @@ class FeedGeneratorViewer with _$FeedGeneratorViewer {
   /// 'like' action performed by the viewer on the feed generator.
   ///
   /// If the viewer has not liked the feed generator, this value can be null.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory FeedGeneratorViewer({
     /// Represents the URI of the 'like' action performed by the viewer.
     /// Optional.

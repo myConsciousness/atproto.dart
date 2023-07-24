@@ -9,6 +9,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'converter/skeleton_reason_converter.dart';
 import 'skeleton_reason.dart';
 
@@ -20,7 +21,7 @@ part 'skeleton_feed_view.g.dart';
 @freezed
 class SkeletonFeedView with _$SkeletonFeedView {
   /// Default constructor for [SkeletonFeedView].
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory SkeletonFeedView({
     /// The URI of the post represented as an [AtUri] object.
     @atUriConverter required AtUri post,

@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'repo_commit.dart';
 
 part 'repo_commits.freezed.dart';
@@ -20,7 +21,7 @@ class RepoCommits with _$RepoCommits {
   ///
   /// The [commits] parameter is required and should be a list of
   /// [RepoCommit] objects.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory RepoCommits({
     /// The list of [RepoCommit] objects.
     required List<RepoCommit> commits,

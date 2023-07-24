@@ -10,6 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'actor_viewer.dart';
+import 'annotations/annotations.dart';
 
 part 'actor_profile.freezed.dart';
 part 'actor_profile.g.dart';
@@ -42,7 +43,7 @@ class ActorProfile with _$ActorProfile {
   /// actor.
   /// - `labels`: The labels assigned to this actor.
   /// - `indexedAt`: The date time when the actor profile was last indexed.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ActorProfile({
     /// The unique identifier of the actor.
     required String did,

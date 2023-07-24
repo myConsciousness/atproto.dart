@@ -34,7 +34,7 @@ class ListView with _$ListView {
   /// The fields [type], [purpose], [uri], [cid], [name], [createdBy],
   /// [viewer], and [indexedAt] are required. The fields [description],
   /// [descriptionFacets], and [avatar] are optional.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ListView({
     /// The type of the list, by default it is [appBskyGraphDefsListView].
     @typeKey @Default(appBskyGraphDefsListView) String type,

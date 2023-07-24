@@ -8,6 +8,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'annotations/annotations.dart';
+
 part 'generator_feed.freezed.dart';
 part 'generator_feed.g.dart';
 
@@ -20,7 +23,7 @@ class GeneratorFeed with _$GeneratorFeed {
   /// Creates an instance of [GeneratorFeed].
   ///
   /// Requires a URI that represents the feed.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory GeneratorFeed({
     /// The URI of the feed.
     @atUriConverter required AtUri uri,

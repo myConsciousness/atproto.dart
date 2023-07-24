@@ -5,6 +5,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'annotations/annotations.dart';
+
 part 'session.freezed.dart';
 part 'session.g.dart';
 
@@ -18,7 +21,7 @@ class Session with _$Session {
   ///
   /// The [did], [handle], [accessJwt], and [refreshJwt] parameters are
   /// required, while [email] is optional.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory Session({
     /// Decentralized Identifier for the user.
     required String did,

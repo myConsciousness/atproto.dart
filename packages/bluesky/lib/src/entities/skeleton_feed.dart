@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'skeleton_feed_view.dart';
 
 part 'skeleton_feed.freezed.dart';
@@ -19,7 +20,7 @@ part 'skeleton_feed.g.dart';
 @freezed
 class SkeletonFeed with _$SkeletonFeed {
   /// Default constructor for [SkeletonFeed].
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory SkeletonFeed({
     /// A list of [SkeletonFeedView] objects, each representing a
     /// reference to a post in the skeleton feed.

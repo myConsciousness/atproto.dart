@@ -26,7 +26,7 @@ class ContentLabelPreference with _$ContentLabelPreference {
   /// The `label` property represents the content label. The `visibility`
   /// property represents the user's preference for visibility of
   /// content with this label.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ContentLabelPreference({
     /// The content label.
     @typeKey @Default(appBskyActorDefsContentLabelPref) String type,

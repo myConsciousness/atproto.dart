@@ -28,7 +28,7 @@ class Facet with _$Facet {
   ///
   /// Requires [index] which is the byte slice index of the facet and
   /// [features] which is a list of facet features. The [type] is optional.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory Facet({
     /// Specifies the type of facet. Optional.
     @typeKey String? type,

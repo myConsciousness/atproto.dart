@@ -11,6 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'actor.dart';
+import 'annotations/annotations.dart';
 
 part 'notification.freezed.dart';
 part 'notification.g.dart';
@@ -35,7 +36,7 @@ class Notification with _$Notification {
   /// notification.
   /// - [indexedAt] parameter indicates the timestamp at which the
   /// notification was indexed.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory Notification({
     /// Unique identifier of the notification.
     required String cid,

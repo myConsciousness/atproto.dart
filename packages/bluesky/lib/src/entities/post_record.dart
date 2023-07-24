@@ -36,7 +36,7 @@ class PostRecord with _$PostRecord {
   /// - [facets] parameter might include any associated facets.
   /// - [createdAt] parameter is the timestamp indicating when the post was
   /// created.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory PostRecord({
     /// The type of the post record, defaulting to 'appBskyFeedPost'.
     @typeKey @Default(appBskyFeedPost) String type,

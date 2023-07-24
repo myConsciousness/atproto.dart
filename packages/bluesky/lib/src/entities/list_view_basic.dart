@@ -30,7 +30,7 @@ class ListViewBasic with _$ListViewBasic {
   ///
   /// The fields [type], [purpose], [uri], [cid], [name], [viewer], and
   /// [indexedAt] are required. The field [avatar] is optional.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ListViewBasic({
     /// The type of the list, by default it is
     /// [appBskyGraphDefsListViewBasic].

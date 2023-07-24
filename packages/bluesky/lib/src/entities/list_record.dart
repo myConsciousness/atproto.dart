@@ -27,7 +27,7 @@ class ListRecord with _$ListRecord {
   /// The fields [type], [name], [purpose], and [createdAt] are required.
   ///
   /// The fields [description], [descriptionFacets], and [avatar] are optional.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ListRecord({
     /// The type of the list, by default it is [appBskyGraphList].
     @typeKey @Default(appBskyGraphList) String type,

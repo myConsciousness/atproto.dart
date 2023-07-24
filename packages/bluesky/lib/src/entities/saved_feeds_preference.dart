@@ -20,7 +20,7 @@ part 'saved_feeds_preference.g.dart';
 @freezed
 class SavedFeedsPreference with _$SavedFeedsPreference {
   /// Default constructor for [SavedFeedsPreference].
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory SavedFeedsPreference({
     /// A string that represents the type of the object.
     /// By default, it is [appBskyActorDefsSavedFeedsPref].

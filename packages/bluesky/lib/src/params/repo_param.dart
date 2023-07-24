@@ -7,12 +7,15 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../entities/annotations/annotations.dart';
+
 part 'repo_param.freezed.dart';
 part 'repo_param.g.dart';
 
 @freezed
 class RepoParam with _$RepoParam {
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory RepoParam({
     required String did,
     DateTime? createdAt,

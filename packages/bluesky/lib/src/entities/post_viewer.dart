@@ -8,6 +8,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'annotations/annotations.dart';
+
 part 'post_viewer.freezed.dart';
 part 'post_viewer.g.dart';
 
@@ -26,7 +29,7 @@ class PostViewer with _$PostViewer {
   /// authenticated user.
   /// - [like] parameter may contain the URI of the like by the
   /// authenticated user.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory PostViewer({
     /// May contain the URI of the repost by the authenticated user.
     @atUriConverter AtUri? repost,

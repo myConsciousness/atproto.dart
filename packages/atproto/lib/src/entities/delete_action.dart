@@ -29,7 +29,7 @@ class DeleteAction with _$DeleteAction {
   ///
   /// [uri] is a required parameter representing the URI of the resource to be
   /// deleted.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory DeleteAction({
     /// The type of the action.
     @typeKey @Default(comAtprotoRepoApplyWritesDelete) String type,

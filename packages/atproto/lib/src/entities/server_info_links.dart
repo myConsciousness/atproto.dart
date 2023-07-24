@@ -5,6 +5,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'annotations/annotations.dart';
+
 part 'server_info_links.freezed.dart';
 part 'server_info_links.g.dart';
 
@@ -18,7 +21,7 @@ class ServerInfoLinks with _$ServerInfoLinks {
   /// Creates a new instance of [ServerInfoLinks].
   ///
   /// Both parameters are optional.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ServerInfoLinks({
     /// The URL to the privacy policy, if available.
     String? privacyPolicy,

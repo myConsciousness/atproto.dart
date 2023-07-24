@@ -9,12 +9,15 @@ import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../entities/annotations/annotations.dart';
+
 part 'strong_ref_param.freezed.dart';
 part 'strong_ref_param.g.dart';
 
 @freezed
 class StrongRefParam with _$StrongRefParam {
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory StrongRefParam({
     required String cid,
     @atUriConverter required AtUri uri,

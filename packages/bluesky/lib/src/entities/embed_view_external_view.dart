@@ -7,6 +7,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'annotations/annotations.dart';
+
 part 'embed_view_external_view.freezed.dart';
 part 'embed_view_external_view.g.dart';
 
@@ -29,7 +32,7 @@ class EmbedViewExternalView with _$EmbedViewExternalView {
   /// external content.
   ///
   /// An optional `thumbnail` can also be provided.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory EmbedViewExternalView({
     /// A string that represents the Uniform Resource Identifier (URI) of
     /// the external content.

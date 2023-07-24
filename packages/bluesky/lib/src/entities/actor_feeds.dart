@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'annotations/annotations.dart';
 import 'feed_generator_view.dart';
 
 part 'actor_feeds.freezed.dart';
@@ -27,7 +28,7 @@ class ActorFeeds with _$ActorFeeds {
   /// - `cursor`: A string representing the current position in the list of
   /// feeds. It can be used for pagination. If no more feeds are available,
   /// this will be `null`.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ActorFeeds({
     /// The list of feed generator views representing the actor's feeds.
     required List<FeedGeneratorView> feeds,

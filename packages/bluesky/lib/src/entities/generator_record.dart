@@ -27,7 +27,7 @@ class GeneratorRecord with _$GeneratorRecord {
   ///
   /// All fields are required except [description], [descriptionFacets]
   /// and [avatar].
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory GeneratorRecord({
     /// The type of the generator. Defaults to [appBskyFeedGenerator].
     @typeKey @Default(appBskyFeedGenerator) String type,

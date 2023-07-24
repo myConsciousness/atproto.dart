@@ -25,7 +25,7 @@ class FollowRecord with _$FollowRecord {
   ///
   /// Requires a DID of the subject being followed and the creation time of the
   /// follow action.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory FollowRecord({
     /// Type of the record. Defaults to `appBskyGraphFollow`.
     @typeKey @Default(appBskyGraphFollow) String type,

@@ -29,7 +29,7 @@ class AdultContentPreference with _$AdultContentPreference {
   /// [appBskyActorDefsAdultContentPref].
   /// - `isEnabled`: A boolean value indicating whether the user has enabled
   /// the viewing of adult content.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory AdultContentPreference({
     /// The type of the preference.
     /// By default, it is [appBskyActorDefsAdultContentPref].

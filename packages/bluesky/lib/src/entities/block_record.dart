@@ -32,7 +32,7 @@ class BlockRecord with _$BlockRecord {
   /// - `did`: The Decentralized Identifier (DID) of the user who has been
   /// blocked.
   /// - `createdAt`: The timestamp when the blocking action was taken.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory BlockRecord({
     /// The type of the record.
     /// By default, it is `appBskyGraphBlock`.

@@ -10,6 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'actor_viewer.dart';
+import 'annotations/annotations.dart';
 
 part 'actor.freezed.dart';
 part 'actor.g.dart';
@@ -36,7 +37,7 @@ class Actor with _$Actor {
   /// authenticated user's relationship with the actor.
   /// - `labels`: A list of labels associated with the actor.
   /// - `indexedAt`: The timestamp when the actor was last indexed.
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory Actor({
     /// The decentralized identifier of the actor.
     required String did,

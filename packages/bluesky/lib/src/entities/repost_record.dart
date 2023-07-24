@@ -19,7 +19,7 @@ part 'repost_record.g.dart';
 @freezed
 class RepostRecord with _$RepostRecord {
   /// Creates a new instance of [RepostRecord].
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory RepostRecord({
     /// The type of the repost record.
     @typeKey @Default(appBskyFeedRepost) String type,
