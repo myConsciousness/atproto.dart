@@ -19,6 +19,7 @@ class StrongRefParam with _$StrongRefParam {
     required String cid,
     @atUriConverter required AtUri uri,
     DateTime? createdAt,
+    @Default(emptyJson) Map<String, dynamic> unspecced,
   }) = _StrongRefParam;
 
   factory StrongRefParam.fromJson(Map<String, Object?> json) =>
@@ -27,10 +28,12 @@ class StrongRefParam with _$StrongRefParam {
   factory StrongRefParam.fromStrongRef(
     StrongRef strongRef, {
     DateTime? createdAt,
+    Map<String, dynamic> unspecced = emptyJson,
   }) =>
       StrongRefParam(
         cid: strongRef.cid,
         uri: strongRef.uri,
         createdAt: createdAt ?? DateTime.now(),
+        unspecced: unspecced,
       );
 }

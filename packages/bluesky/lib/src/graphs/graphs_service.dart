@@ -12,6 +12,7 @@ import '../entities/blocks.dart';
 import '../entities/facet.dart';
 import '../entities/followers.dart';
 import '../entities/follows.dart';
+import '../entities/keys/ids.g.dart' as ids;
 import '../entities/list_items.dart';
 import '../entities/lists.dart';
 import '../entities/mutes.dart';
@@ -47,6 +48,9 @@ abstract class GraphsService {
   /// - [createdAt]: Date and time the follow was created.
   ///                If omitted, defaults to the current time.
   ///
+  /// - [unspecced]: You can set record fields that are not supported
+  ///                by `app.bsky.graph.follow` as JSON.
+  ///
   /// ## Lexicon
   ///
   /// - com.atproto.repo.createRecord
@@ -58,6 +62,7 @@ abstract class GraphsService {
   Future<core.XRPCResponse<atp.StrongRef>> createFollow({
     required String did,
     DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
   });
 
   /// Creates follows.
@@ -320,6 +325,9 @@ abstract class GraphsService {
   /// - [createdAt]: Date and time the follow was created.
   ///                If omitted, defaults to the current time.
   ///
+  /// - [unspecced]: You can set record fields that are not supported
+  ///                by `app.bsky.graph.block` as JSON.
+  ///
   /// ## Lexicon
   ///
   /// - com.atproto.repo.createRecord
@@ -331,6 +339,7 @@ abstract class GraphsService {
   Future<core.XRPCResponse<atp.StrongRef>> createBlock({
     required String did,
     DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
   });
 
   /// Creates blocks.
@@ -359,6 +368,9 @@ abstract class GraphsService {
   /// - [createdAt]: Date and time the post was created.
   ///                If omitted, defaults to the current time.
   ///
+  /// - [unspecced]: You can set record fields that are not supported
+  ///                by `app.bsky.graph.list` as JSON.
+  ///
   /// ## Lexicon
   ///
   /// - app.bsky.graph.list
@@ -368,11 +380,12 @@ abstract class GraphsService {
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/list.json
   Future<core.XRPCResponse<atp.StrongRef>> createList({
     required String name,
-    String purpose = 'app.bsky.graph.defs#modlist',
+    String purpose = ids.appBskyGraphDefsModlist,
     String? description,
     List<Facet>? descriptionFacets,
     atp.Blob? avatar,
     DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
   });
 
   /// Creates lists.
@@ -503,6 +516,9 @@ abstract class GraphsService {
   /// - [createdAt]: Date and time the post was created.
   ///                If omitted, defaults to the current time.
   ///
+  /// - [unspecced]: You can set record fields that are not supported
+  ///                by `app.bsky.graph.listitem` as JSON.
+  ///
   /// ## Lexicon
   ///
   /// - app.bsky.graph.listitem
@@ -514,6 +530,7 @@ abstract class GraphsService {
     required String subject,
     required core.AtUri list,
     DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
   });
 
   /// Creates list items.
@@ -624,12 +641,14 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
   Future<core.XRPCResponse<atp.StrongRef>> createFollow({
     required String did,
     DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
       await atproto.repositories.createRecord(
         collection: createNSID('follow'),
         record: {
           'subject': did,
           'createdAt': toUtcIso8601String(createdAt),
+          ...unspecced,
         },
       );
 
@@ -645,6 +664,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
                 record: {
                   'subject': e.did,
                   'createdAt': toUtcIso8601String(e.createdAt),
+                  ...e.unspecced,
                 },
               ),
             )
@@ -769,12 +789,14 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
   Future<core.XRPCResponse<atp.StrongRef>> createBlock({
     required String did,
     DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
       await atproto.repositories.createRecord(
         collection: createNSID('block'),
         record: {
           'subject': did,
           'createdAt': toUtcIso8601String(createdAt),
+          ...unspecced,
         },
       );
 
@@ -790,6 +812,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
                 record: {
                   'subject': e.did,
                   'createdAt': toUtcIso8601String(e.createdAt),
+                  ...e.unspecced,
                 },
               ),
             )
@@ -804,6 +827,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
     List<Facet>? descriptionFacets,
     atp.Blob? avatar,
     DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
       await atproto.repositories.createRecord(
         collection: createNSID('list'),
@@ -815,6 +839,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
               descriptionFacets?.map((e) => e.toJson()).toList(),
           'avatar': avatar,
           'createdAt': toUtcIso8601String(createdAt),
+          ...unspecced,
         },
       );
 
@@ -835,6 +860,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
                       e.descriptionFacets?.map((e) => e.toJson()).toList(),
                   'avatar': e.avatar,
                   'createdAt': toUtcIso8601String(e.createdAt),
+                  ...e.unspecced,
                 },
               ),
             )
@@ -896,6 +922,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
     required String subject,
     required core.AtUri list,
     DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
       await atproto.repositories.createRecord(
         collection: createNSID('listitem'),
@@ -903,6 +930,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
           'subject': subject,
           'list': list.toString(),
           'createdAt': toUtcIso8601String(createdAt),
+          ...unspecced,
         },
       );
 
@@ -919,6 +947,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
                   'subject': e.subject,
                   'list': e.list.toString(),
                   'createdAt': toUtcIso8601String(e.createdAt),
+                  ...e.unspecced
                 },
               ),
             )

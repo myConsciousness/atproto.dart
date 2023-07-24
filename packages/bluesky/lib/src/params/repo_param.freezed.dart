@@ -22,6 +22,7 @@ RepoParam _$RepoParamFromJson(Map<String, dynamic> json) {
 mixin _$RepoParam {
   String get did => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
+  Map<String, dynamic> get unspecced => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,7 @@ abstract class $RepoParamCopyWith<$Res> {
   factory $RepoParamCopyWith(RepoParam value, $Res Function(RepoParam) then) =
       _$RepoParamCopyWithImpl<$Res, RepoParam>;
   @useResult
-  $Res call({String did, DateTime? createdAt});
+  $Res call({String did, DateTime? createdAt, Map<String, dynamic> unspecced});
 }
 
 /// @nodoc
@@ -52,6 +53,7 @@ class _$RepoParamCopyWithImpl<$Res, $Val extends RepoParam>
   $Res call({
     Object? did = null,
     Object? createdAt = freezed,
+    Object? unspecced = null,
   }) {
     return _then(_value.copyWith(
       did: null == did
@@ -62,6 +64,10 @@ class _$RepoParamCopyWithImpl<$Res, $Val extends RepoParam>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      unspecced: null == unspecced
+          ? _value.unspecced
+          : unspecced // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -73,7 +79,7 @@ abstract class _$$_RepoParamCopyWith<$Res> implements $RepoParamCopyWith<$Res> {
       __$$_RepoParamCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String did, DateTime? createdAt});
+  $Res call({String did, DateTime? createdAt, Map<String, dynamic> unspecced});
 }
 
 /// @nodoc
@@ -89,6 +95,7 @@ class __$$_RepoParamCopyWithImpl<$Res>
   $Res call({
     Object? did = null,
     Object? createdAt = freezed,
+    Object? unspecced = null,
   }) {
     return _then(_$_RepoParam(
       did: null == did
@@ -99,6 +106,10 @@ class __$$_RepoParamCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      unspecced: null == unspecced
+          ? _value._unspecced
+          : unspecced // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -107,7 +118,11 @@ class __$$_RepoParamCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$_RepoParam implements _RepoParam {
-  const _$_RepoParam({required this.did, this.createdAt});
+  const _$_RepoParam(
+      {required this.did,
+      this.createdAt,
+      final Map<String, dynamic> unspecced = emptyJson})
+      : _unspecced = unspecced;
 
   factory _$_RepoParam.fromJson(Map<String, dynamic> json) =>
       _$$_RepoParamFromJson(json);
@@ -116,10 +131,18 @@ class _$_RepoParam implements _RepoParam {
   final String did;
   @override
   final DateTime? createdAt;
+  final Map<String, dynamic> _unspecced;
+  @override
+  @JsonKey()
+  Map<String, dynamic> get unspecced {
+    if (_unspecced is EqualUnmodifiableMapView) return _unspecced;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_unspecced);
+  }
 
   @override
   String toString() {
-    return 'RepoParam(did: $did, createdAt: $createdAt)';
+    return 'RepoParam(did: $did, createdAt: $createdAt, unspecced: $unspecced)';
   }
 
   @override
@@ -129,12 +152,15 @@ class _$_RepoParam implements _RepoParam {
             other is _$_RepoParam &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality()
+                .equals(other._unspecced, _unspecced));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, did, createdAt);
+  int get hashCode => Object.hash(runtimeType, did, createdAt,
+      const DeepCollectionEquality().hash(_unspecced));
 
   @JsonKey(ignore: true)
   @override
@@ -152,7 +178,9 @@ class _$_RepoParam implements _RepoParam {
 
 abstract class _RepoParam implements RepoParam {
   const factory _RepoParam(
-      {required final String did, final DateTime? createdAt}) = _$_RepoParam;
+      {required final String did,
+      final DateTime? createdAt,
+      final Map<String, dynamic> unspecced}) = _$_RepoParam;
 
   factory _RepoParam.fromJson(Map<String, dynamic> json) =
       _$_RepoParam.fromJson;
@@ -161,6 +189,8 @@ abstract class _RepoParam implements RepoParam {
   String get did;
   @override
   DateTime? get createdAt;
+  @override
+  Map<String, dynamic> get unspecced;
   @override
   @JsonKey(ignore: true)
   _$$_RepoParamCopyWith<_$_RepoParam> get copyWith =>

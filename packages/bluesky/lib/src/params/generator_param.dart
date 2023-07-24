@@ -25,6 +25,7 @@ class GeneratorParam with _$GeneratorParam {
     List<Facet>? descriptionFacets,
     Blob? avatar,
     DateTime? createdAt,
+    @Default(emptyJson) Map<String, dynamic> unspecced,
   }) = _GeneratorParam;
 
   factory GeneratorParam.fromJson(Map<String, Object?> json) =>

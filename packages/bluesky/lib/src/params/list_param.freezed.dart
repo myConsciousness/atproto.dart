@@ -26,6 +26,7 @@ mixin _$ListParam {
   List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   Blob? get avatar => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
+  Map<String, dynamic> get unspecced => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,7 +45,8 @@ abstract class $ListParamCopyWith<$Res> {
       String? description,
       List<Facet>? descriptionFacets,
       Blob? avatar,
-      DateTime? createdAt});
+      DateTime? createdAt,
+      Map<String, dynamic> unspecced});
 
   $BlobCopyWith<$Res>? get avatar;
 }
@@ -68,6 +70,7 @@ class _$ListParamCopyWithImpl<$Res, $Val extends ListParam>
     Object? descriptionFacets = freezed,
     Object? avatar = freezed,
     Object? createdAt = freezed,
+    Object? unspecced = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -94,6 +97,10 @@ class _$ListParamCopyWithImpl<$Res, $Val extends ListParam>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      unspecced: null == unspecced
+          ? _value.unspecced
+          : unspecced // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -123,7 +130,8 @@ abstract class _$$_ListParamCopyWith<$Res> implements $ListParamCopyWith<$Res> {
       String? description,
       List<Facet>? descriptionFacets,
       Blob? avatar,
-      DateTime? createdAt});
+      DateTime? createdAt,
+      Map<String, dynamic> unspecced});
 
   @override
   $BlobCopyWith<$Res>? get avatar;
@@ -146,6 +154,7 @@ class __$$_ListParamCopyWithImpl<$Res>
     Object? descriptionFacets = freezed,
     Object? avatar = freezed,
     Object? createdAt = freezed,
+    Object? unspecced = null,
   }) {
     return _then(_$_ListParam(
       name: null == name
@@ -172,6 +181,10 @@ class __$$_ListParamCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      unspecced: null == unspecced
+          ? _value._unspecced
+          : unspecced // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -186,8 +199,10 @@ class _$_ListParam implements _ListParam {
       this.description,
       final List<Facet>? descriptionFacets,
       this.avatar,
-      this.createdAt})
-      : _descriptionFacets = descriptionFacets;
+      this.createdAt,
+      final Map<String, dynamic> unspecced = emptyJson})
+      : _descriptionFacets = descriptionFacets,
+        _unspecced = unspecced;
 
   factory _$_ListParam.fromJson(Map<String, dynamic> json) =>
       _$$_ListParamFromJson(json);
@@ -214,10 +229,18 @@ class _$_ListParam implements _ListParam {
   final Blob? avatar;
   @override
   final DateTime? createdAt;
+  final Map<String, dynamic> _unspecced;
+  @override
+  @JsonKey()
+  Map<String, dynamic> get unspecced {
+    if (_unspecced is EqualUnmodifiableMapView) return _unspecced;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_unspecced);
+  }
 
   @override
   String toString() {
-    return 'ListParam(name: $name, purpose: $purpose, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, createdAt: $createdAt)';
+    return 'ListParam(name: $name, purpose: $purpose, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, createdAt: $createdAt, unspecced: $unspecced)';
   }
 
   @override
@@ -233,7 +256,9 @@ class _$_ListParam implements _ListParam {
                 .equals(other._descriptionFacets, _descriptionFacets) &&
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality()
+                .equals(other._unspecced, _unspecced));
   }
 
   @JsonKey(ignore: true)
@@ -245,7 +270,8 @@ class _$_ListParam implements _ListParam {
       description,
       const DeepCollectionEquality().hash(_descriptionFacets),
       avatar,
-      createdAt);
+      createdAt,
+      const DeepCollectionEquality().hash(_unspecced));
 
   @JsonKey(ignore: true)
   @override
@@ -268,7 +294,8 @@ abstract class _ListParam implements ListParam {
       final String? description,
       final List<Facet>? descriptionFacets,
       final Blob? avatar,
-      final DateTime? createdAt}) = _$_ListParam;
+      final DateTime? createdAt,
+      final Map<String, dynamic> unspecced}) = _$_ListParam;
 
   factory _ListParam.fromJson(Map<String, dynamic> json) =
       _$_ListParam.fromJson;
@@ -285,6 +312,8 @@ abstract class _ListParam implements ListParam {
   Blob? get avatar;
   @override
   DateTime? get createdAt;
+  @override
+  Map<String, dynamic> get unspecced;
   @override
   @JsonKey(ignore: true)
   _$$_ListParamCopyWith<_$_ListParam> get copyWith =>

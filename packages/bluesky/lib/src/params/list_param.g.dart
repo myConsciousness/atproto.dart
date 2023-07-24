@@ -30,6 +30,13 @@ _$_ListParam _$$_ListParamFromJson(Map json) => $checkedCreate(
                   : Blob.fromJson(Map<String, Object?>.from(v as Map))),
           createdAt: $checkedConvert('createdAt',
               (v) => v == null ? null : DateTime.parse(v as String)),
+          unspecced: $checkedConvert(
+              'unspecced',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  emptyJson),
         );
         return val;
       },
@@ -52,5 +59,6 @@ Map<String, dynamic> _$$_ListParamToJson(_$_ListParam instance) {
       instance.descriptionFacets?.map((e) => e.toJson()).toList());
   writeNotNull('avatar', instance.avatar?.toJson());
   writeNotNull('createdAt', instance.createdAt?.toIso8601String());
+  val['unspecced'] = instance.unspecced;
   return val;
 }
