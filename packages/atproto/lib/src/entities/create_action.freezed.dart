@@ -148,7 +148,7 @@ class __$$_CreateActionCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_CreateAction implements _CreateAction {
   const _$_CreateAction(
       {@typeKey this.type = comAtprotoRepoApplyWritesCreate,

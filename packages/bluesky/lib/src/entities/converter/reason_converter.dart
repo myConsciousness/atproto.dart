@@ -3,10 +3,11 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../ids/ids.g.dart' as ids;
+import '../keys/ids.g.dart' as ids;
 import '../reason.dart';
 import '../reason_repost.dart';
 
@@ -17,9 +18,9 @@ class _ReasonConverter implements JsonConverter<Reason, Map<String, dynamic>> {
 
   @override
   Reason fromJson(Map<String, dynamic> json) {
-    final type = json[ids.objectType];
+    final type = json[core.objectType];
 
-    if (type == 'app.bsky.feed.defs#reasonRepost') {
+    if (type == ids.appBskyFeedDefsReasonRepost) {
       return Reason.repost(
         data: ReasonRepost.fromJson(json),
       );

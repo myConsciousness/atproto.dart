@@ -144,7 +144,7 @@ class __$$_RepostRecordCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_RepostRecord implements _RepostRecord {
   const _$_RepostRecord(
       {@typeKey this.type = appBskyFeedRepost,

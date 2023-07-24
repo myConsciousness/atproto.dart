@@ -3,13 +3,14 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../embed_external.dart';
 import '../embed_images.dart';
 import '../embed_media.dart';
-import '../ids/ids.g.dart' as ids;
+import '../keys/ids.g.dart' as ids;
 
 const embedMediaConverter = _EmbedMediaConverter();
 
@@ -20,13 +21,13 @@ class _EmbedMediaConverter
 
   @override
   EmbedMedia fromJson(Map<String, dynamic> json) {
-    final type = json[ids.objectType];
+    final type = json[core.objectType];
 
-    if (type == 'app.bsky.embed.images') {
+    if (type == ids.appBskyEmbedImages) {
       return EmbedMedia.images(
         data: EmbedImages.fromJson(json),
       );
-    } else if (type == 'app.bsky.embed.external') {
+    } else if (type == ids.appBskyEmbedExternal) {
       return EmbedMedia.external(
         data: EmbedExternal.fromJson(json),
       );

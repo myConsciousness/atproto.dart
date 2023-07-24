@@ -196,7 +196,7 @@ class __$$_ActorViewerCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_ActorViewer extends _ActorViewer {
   const _$_ActorViewer(
       {@JsonKey(name: 'muted') required this.isMuted,

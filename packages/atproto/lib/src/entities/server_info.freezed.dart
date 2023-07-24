@@ -147,7 +147,7 @@ class __$$_ServerInfoCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_ServerInfo implements _ServerInfo {
   const _$_ServerInfo(
       {required final List<String> availableUserDomains,

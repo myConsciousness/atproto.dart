@@ -4,6 +4,7 @@
 
 // 📦 Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
@@ -14,7 +15,6 @@ import 'package:bluesky/src/entities/adaptor/repo_commit_update.dart';
 import 'package:bluesky/src/entities/block_record.dart';
 import 'package:bluesky/src/entities/follow_record.dart';
 import 'package:bluesky/src/entities/generator_record.dart';
-import 'package:bluesky/src/entities/ids/ids.g.dart';
 import 'package:bluesky/src/entities/like_record.dart';
 import 'package:bluesky/src/entities/list_item_record.dart';
 import 'package:bluesky/src/entities/list_record.dart';

@@ -3,11 +3,12 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../blocked_post.dart';
-import '../ids/ids.g.dart' as ids;
+import '../keys/ids.g.dart' as ids;
 import '../not_found_post.dart';
 import '../post_thread_view.dart';
 import '../post_thread_view_record.dart';
@@ -20,17 +21,17 @@ class _PostThreadViewConverter
 
   @override
   PostThreadView fromJson(Map<String, dynamic> json) {
-    final type = json[ids.objectType];
+    final type = json[core.objectType];
 
-    if (type == 'app.bsky.feed.defs#threadViewPost') {
+    if (type == ids.appBskyFeedDefsThreadViewPost) {
       return PostThreadView.record(
         data: PostThreadViewRecord.fromJson(json),
       );
-    } else if (type == 'app.bsky.feed.defs#notFoundPost') {
+    } else if (type == ids.appBskyFeedDefsNotFoundPost) {
       return PostThreadView.notFound(
         data: NotFoundPost.fromJson(json),
       );
-    } else if (type == 'app.bsky.feed.defs#blockedPost') {
+    } else if (type == ids.appBskyFeedDefsBlockedPost) {
       return PostThreadView.blocked(
         data: BlockedPost.fromJson(json),
       );

@@ -8,9 +8,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../entities/annotations/annotations.dart';
-
 part 'list_item_param.freezed.dart';
 part 'list_item_param.g.dart';
 

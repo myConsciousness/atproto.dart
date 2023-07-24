@@ -3,12 +3,13 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../adult_content_preference.dart';
 import '../content_label_preference.dart';
-import '../ids/ids.g.dart' as ids;
+import '../keys/ids.g.dart' as ids;
 import '../preference.dart';
 import '../saved_feeds_preference.dart';
 
@@ -20,17 +21,17 @@ class _PreferenceConverter
 
   @override
   Preference fromJson(Map<String, dynamic> json) {
-    final type = json[ids.objectType];
+    final type = json[core.objectType];
 
-    if (type == 'app.bsky.actor.defs#adultContentPref') {
+    if (type == ids.appBskyActorDefsAdultContentPref) {
       return Preference.adultContent(
         data: AdultContentPreference.fromJson(json),
       );
-    } else if (type == 'app.bsky.actor.defs#contentLabelPref') {
+    } else if (type == ids.appBskyActorDefsContentLabelPref) {
       return Preference.contentLabel(
         data: ContentLabelPreference.fromJson(json),
       );
-    } else if (type == 'app.bsky.actor.defs#savedFeedsPref') {
+    } else if (type == ids.appBskyActorDefsSavedFeedsPref) {
       return Preference.savedFeeds(
         data: SavedFeedsPreference.fromJson(json),
       );

@@ -131,7 +131,7 @@ class __$$_FollowRecordCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_FollowRecord implements _FollowRecord {
   const _$_FollowRecord(
       {@typeKey this.type = appBskyGraphFollow,

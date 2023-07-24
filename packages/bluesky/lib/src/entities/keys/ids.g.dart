@@ -10,9 +10,6 @@
 // Lexicon IDs Generator
 // **************************************************************************
 
-/// `$type`
-const objectType = '\$type';
-
 /// `blob`
 const blob = 'blob';
 

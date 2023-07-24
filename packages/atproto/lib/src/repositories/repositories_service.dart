@@ -14,7 +14,6 @@ import '../entities/batch_action.dart';
 import '../entities/blob_data.dart';
 import '../entities/create_action.dart';
 import '../entities/delete_action.dart';
-import '../entities/ids/ids.g.dart' as ids;
 import '../entities/record.dart';
 import '../entities/records.dart';
 import '../entities/repo_info.dart';
@@ -569,7 +568,7 @@ class _RepositoriesService extends ATProtoBaseService
                     create: (data) => data.toJson(),
                     update: (data) => data.toJson(),
                     delete: (data) => {
-                      ids.objectType: data.type,
+                      core.objectType: data.type,
                       'collection': data.uri.collection,
                       'rkey': data.uri.rkey,
                     },

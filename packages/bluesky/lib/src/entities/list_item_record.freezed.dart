@@ -147,7 +147,7 @@ class __$$_ListItemRecordCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_ListItemRecord implements _ListItemRecord {
   const _$_ListItemRecord(
       {@typeKey this.type = appBskyGraphListitem,

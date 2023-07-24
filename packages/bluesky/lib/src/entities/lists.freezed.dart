@@ -104,7 +104,7 @@ class __$$_ListsCopyWithImpl<$Res> extends _$ListsCopyWithImpl<$Res, _$_Lists>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_Lists implements _Lists {
   const _$_Lists({required final List<ListView> lists, this.cursor})
       : _lists = lists;

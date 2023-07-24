@@ -145,7 +145,7 @@ class __$$_LikeRecordCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_LikeRecord implements _LikeRecord {
   const _$_LikeRecord(
       {@typeKey this.type = appBskyFeedLike,

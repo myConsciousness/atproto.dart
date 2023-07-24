@@ -10,10 +10,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'actor.dart';
-import 'annotations/annotations.dart';
 import 'facet.dart';
 import 'feed_generator_viewer.dart';
-import 'ids/ids.g.dart';
+import 'keys/ids.g.dart';
 
 part 'feed_generator_view.freezed.dart';
 part 'feed_generator_view.g.dart';

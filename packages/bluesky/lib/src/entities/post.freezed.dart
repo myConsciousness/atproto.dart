@@ -311,7 +311,7 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_Post extends _Post {
   const _$_Post(
       {@typeKey this.type = appBskyFeedDefsPostView,

@@ -9,7 +9,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'annotations/annotations.dart';
 import 'strong_ref.dart';
 
 part 'record.freezed.dart';

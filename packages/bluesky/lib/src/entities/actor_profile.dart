@@ -6,11 +6,11 @@
 
 // 📦 Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'actor_viewer.dart';
-import 'annotations/annotations.dart';
 
 part 'actor_profile.freezed.dart';
 part 'actor_profile.g.dart';

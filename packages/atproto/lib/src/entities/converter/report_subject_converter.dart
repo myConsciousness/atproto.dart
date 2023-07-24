@@ -3,10 +3,11 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../ids/ids.g.dart' as ids;
+import '../keys/ids.g.dart' as ids;
 import '../repo_ref.dart';
 import '../report_subject.dart';
 import '../strong_ref.dart';
@@ -20,13 +21,13 @@ class _ReportSubjectConverter
 
   @override
   ReportSubject fromJson(Map<String, dynamic> json) {
-    final type = json[ids.objectType];
+    final type = json[core.objectType];
 
-    if (type == 'com.atproto.admin.defs#repoRef') {
+    if (type == ids.comAtprotoAdminDefsRepoRef) {
       return ReportSubject.repoRef(
         data: RepoRef.fromJson(json),
       );
-    } else if (type == 'com.atproto.repo.strongRef') {
+    } else if (type == ids.comAtprotoRepoStrongRef) {
       return ReportSubject.strongRef(
         data: StrongRef.fromJson(json),
       );

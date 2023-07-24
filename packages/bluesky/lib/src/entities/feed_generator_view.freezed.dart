@@ -294,7 +294,7 @@ class __$$_FeedGeneratorViewCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_FeedGeneratorView implements _FeedGeneratorView {
   const _$_FeedGeneratorView(
       {@typeKey this.type = appBskyFeedDefsGeneratorView,

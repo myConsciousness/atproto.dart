@@ -168,7 +168,7 @@ class __$$_ThreadParamCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_ThreadParam implements _ThreadParam {
   const _$_ThreadParam(
       {required this.text,

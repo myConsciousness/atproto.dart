@@ -208,7 +208,7 @@ class __$$_PostRecordCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_PostRecord implements _PostRecord {
   const _$_PostRecord(
       {@typeKey this.type = appBskyFeedPost,

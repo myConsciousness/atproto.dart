@@ -117,7 +117,7 @@ class __$$_AdultContentPreferenceCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_AdultContentPreference implements _AdultContentPreference {
   const _$_AdultContentPreference(
       {@typeKey this.type = appBskyActorDefsAdultContentPref,

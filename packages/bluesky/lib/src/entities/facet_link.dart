@@ -5,11 +5,11 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'annotations/annotations.dart';
-import 'ids/ids.g.dart';
+import 'keys/ids.g.dart';
 
 part 'facet_link.freezed.dart';
 part 'facet_link.g.dart';

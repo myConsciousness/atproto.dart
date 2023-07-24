@@ -138,7 +138,7 @@ class __$$_FacetCopyWithImpl<$Res> extends _$FacetCopyWithImpl<$Res, _$_Facet>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_Facet implements _Facet {
   const _$_Facet(
       {@typeKey this.type,

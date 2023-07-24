@@ -110,7 +110,7 @@ class __$$_SubscribedRepoInfoCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_SubscribedRepoInfo implements _SubscribedRepoInfo {
   const _$_SubscribedRepoInfo({required this.name, this.message});
 

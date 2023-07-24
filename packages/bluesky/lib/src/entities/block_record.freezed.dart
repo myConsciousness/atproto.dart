@@ -132,7 +132,7 @@ class __$$_BlockRecordCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_BlockRecord implements _BlockRecord {
   const _$_BlockRecord(
       {@typeKey this.type = appBskyGraphBlock,

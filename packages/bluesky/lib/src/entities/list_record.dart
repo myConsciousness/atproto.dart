@@ -6,12 +6,12 @@
 
 // 📦 Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'annotations/annotations.dart';
 import 'facet.dart';
-import 'ids/ids.g.dart';
+import 'keys/ids.g.dart';
 
 part 'list_record.freezed.dart';
 part 'list_record.g.dart';

@@ -98,7 +98,7 @@ class __$$_ListViewerCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_ListViewer extends _ListViewer {
   const _$_ListViewer({@JsonKey(name: 'muted') required this.isMuted})
       : super._();

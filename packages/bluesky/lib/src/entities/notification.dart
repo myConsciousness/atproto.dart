@@ -11,7 +11,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'actor.dart';
-import 'annotations/annotations.dart';
 
 part 'notification.freezed.dart';
 part 'notification.g.dart';

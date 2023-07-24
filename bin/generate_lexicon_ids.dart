@@ -32,7 +32,7 @@ const ${field.name} = '${field.value}';""")
 
     final ids = buffer.toString();
 
-    File('./packages/$package/lib/src/entities/ids/ids.g.dart')
+    File('./packages/$package/lib/src/entities/keys/ids.g.dart')
         .writeAsStringSync(
             '''// Copyright 2023 Shinya Kato. All rights reserved.
 // Redistribution and use in source and binary forms, with or without
@@ -45,9 +45,6 @@ const ${field.name} = '${field.value}';""")
 // **************************************************************************
 // Lexicon IDs Generator
 // **************************************************************************
-
-/// `\$type`
-const objectType = '\\\$type';
 
 ${ids.substring(0, ids.length - 1)}''');
   }

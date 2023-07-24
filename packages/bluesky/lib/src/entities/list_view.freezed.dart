@@ -274,7 +274,7 @@ class __$$_ListViewCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_ListView extends _ListView {
   const _$_ListView(
       {@typeKey this.type = appBskyGraphDefsListView,

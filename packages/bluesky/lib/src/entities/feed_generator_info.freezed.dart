@@ -140,7 +140,7 @@ class __$$_FeedGeneratorInfoCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_FeedGeneratorInfo implements _FeedGeneratorInfo {
   const _$_FeedGeneratorInfo(
       {required this.did, required final List<GeneratorFeed> feeds, this.links})

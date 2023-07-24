@@ -167,7 +167,7 @@ class __$$_EmbedExternalThumbnailCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_EmbedExternalThumbnail implements _EmbedExternalThumbnail {
   const _$_EmbedExternalThumbnail(
       {required this.uri,

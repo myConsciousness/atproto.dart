@@ -148,7 +148,7 @@ class __$$_UpdateActionCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_UpdateAction implements _UpdateAction {
   const _$_UpdateAction(
       {@typeKey this.type = comAtprotoRepoApplyWritesUpdate,

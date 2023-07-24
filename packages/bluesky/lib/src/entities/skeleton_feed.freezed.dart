@@ -112,7 +112,7 @@ class __$$_SkeletonFeedCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_SkeletonFeed implements _SkeletonFeed {
   const _$_SkeletonFeed(
       {required final List<SkeletonFeedView> feed, this.cursor})

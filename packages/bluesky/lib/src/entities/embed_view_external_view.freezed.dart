@@ -149,7 +149,7 @@ class __$$_EmbedViewExternalViewCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_EmbedViewExternalView implements _EmbedViewExternalView {
   const _$_EmbedViewExternalView(
       {required this.uri,

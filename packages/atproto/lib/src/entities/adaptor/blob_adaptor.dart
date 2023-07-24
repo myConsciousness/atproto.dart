@@ -2,22 +2,25 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart' as core;
+
 // 🌎 Project imports:
-import '../ids/ids.g.dart' as ids;
+import '../keys/ids.g.dart' as ids;
 
 class BlobAdaptor {
   /// Returns the new instance of [BlobAdaptor].
   const BlobAdaptor();
 
   Map<String, dynamic> execute(final Map<String, dynamic> blob) {
-    final type = blob[ids.objectType];
+    final type = blob[core.objectType];
 
-    if (type == 'blob') {
+    if (type == ids.blob) {
       return blob;
     }
 
     return {
-      ids.objectType: 'blob',
+      core.objectType: ids.blob,
       'size': -1,
       'mimeType': blob['mimeType'],
       'ref': {

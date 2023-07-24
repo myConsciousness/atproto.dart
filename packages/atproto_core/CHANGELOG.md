@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.5
+
+- Export useful `ids`  and `annotations` as const. ([#606](https://github.com/myConsciousness/atproto.dart/issues/606))
+
 ## v0.4.4
 
 - Export `atUriConverter` as const. ([#605](https://github.com/myConsciousness/atproto.dart/issues/605))

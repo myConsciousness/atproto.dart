@@ -10,7 +10,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'actor.dart';
-import 'annotations/annotations.dart';
 import 'converter/embed_view_converter.dart';
 import 'embed_view.dart';
 import 'post_record.dart';

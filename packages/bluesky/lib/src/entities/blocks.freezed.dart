@@ -105,7 +105,7 @@ class __$$_BlocksCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_Blocks implements _Blocks {
   const _$_Blocks({required final List<Actor> blocks, this.cursor})
       : _blocks = blocks;

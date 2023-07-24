@@ -194,7 +194,7 @@ class __$$_PostParamCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_PostParam implements _PostParam {
   const _$_PostParam(
       {required this.text,

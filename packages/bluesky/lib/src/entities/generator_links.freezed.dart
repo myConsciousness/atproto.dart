@@ -110,7 +110,7 @@ class __$$_GeneratorLinksCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_GeneratorLinks implements _GeneratorLinks {
   const _$_GeneratorLinks({this.privacyPolicy, this.termsOfService});
 

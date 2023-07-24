@@ -11,10 +11,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'actor.dart';
-import 'annotations/annotations.dart';
 import 'converter/embed_view_converter.dart';
 import 'embed_view.dart';
-import 'ids/ids.g.dart';
+import 'keys/ids.g.dart';
 import 'post_record.dart';
 import 'post_viewer.dart';
 

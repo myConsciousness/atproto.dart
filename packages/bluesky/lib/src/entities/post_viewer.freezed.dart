@@ -112,7 +112,7 @@ class __$$_PostViewerCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_PostViewer extends _PostViewer {
   const _$_PostViewer({@atUriConverter this.repost, @atUriConverter this.like})
       : super._();

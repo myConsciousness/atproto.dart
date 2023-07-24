@@ -194,7 +194,7 @@ class __$$_ProfileRecordCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_ProfileRecord implements _ProfileRecord {
   const _$_ProfileRecord(
       {@typeKey this.type = appBskyActorProfile,

@@ -112,7 +112,7 @@ class __$$_DeleteActionCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_DeleteAction implements _DeleteAction {
   const _$_DeleteAction(
       {@typeKey this.type = comAtprotoRepoApplyWritesDelete,

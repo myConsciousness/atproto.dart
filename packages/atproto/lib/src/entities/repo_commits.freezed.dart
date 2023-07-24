@@ -97,7 +97,7 @@ class __$$_RepoCommitsCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_RepoCommits implements _RepoCommits {
   const _$_RepoCommits({required final List<RepoCommit> commits})
       : _commits = commits;

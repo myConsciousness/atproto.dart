@@ -207,7 +207,7 @@ class __$$_GeneratorRecordCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_GeneratorRecord implements _GeneratorRecord {
   const _$_GeneratorRecord(
       {@typeKey this.type = appBskyFeedGenerator,

@@ -5,10 +5,10 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../entities/annotations/annotations.dart';
 import '../entities/converter/embed_converter.dart';
 import '../entities/embed.dart';
 import '../entities/facet.dart';

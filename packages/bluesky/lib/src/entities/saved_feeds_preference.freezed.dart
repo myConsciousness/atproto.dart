@@ -136,7 +136,7 @@ class __$$_SavedFeedsPreferenceCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_SavedFeedsPreference implements _SavedFeedsPreference {
   const _$_SavedFeedsPreference(
       {@typeKey this.type = appBskyActorDefsSavedFeedsPref,

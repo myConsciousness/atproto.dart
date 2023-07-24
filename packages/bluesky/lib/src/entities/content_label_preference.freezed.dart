@@ -129,7 +129,7 @@ class __$$_ContentLabelPreferenceCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_ContentLabelPreference implements _ContentLabelPreference {
   const _$_ContentLabelPreference(
       {@typeKey this.type = appBskyActorDefsContentLabelPref,
