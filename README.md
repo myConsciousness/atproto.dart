@@ -6,7 +6,7 @@
 
 
 <p align="center">
-  <b>Provide Packages/Tools Make It Easy To Use AT Protocol and Bluesky With Dart/Flutter 🎯</b>
+  <b>AT Protocol and Bluesky Social Things for Dart/Flutter 🎯</b>
 </p>
 
 ---
@@ -37,9 +37,7 @@
     - [1.1.2. Flutter](#112-flutter)
     - [1.1.3. CLI](#113-cli)
     - [1.1.4. GitHub Actions](#114-github-actions)
-  - [1.2. Code Examples](#12-code-examples)
   - [1.3. Melos Commands](#13-melos-commands)
-    - [1.3.1. Publish](#131-publish)
   - [1.4. Contribution 🏆](#14-contribution-)
   - [1.5. Contributors ✨](#15-contributors-)
   - [1.6. Support ❤️](#16-support-️)
@@ -90,17 +88,6 @@ and to contribute to the development of [AT Protocol](https://atproto.com) and [
 | ----------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------ |
 | [bluesky_post](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_post) | [![bluesky-post](https://img.shields.io/static/v1?label=actions&message=myConsciousness/bluesky-post&logo=GitHub&color=00acee)](https://github.com/marketplace/actions/send-bluesky-post) | Use this action to send a post to Bluesky Social from GitHub actions workflow. |
 
-## 1.2. Code Examples
-
-I have developed many packages in this monorepo. But rest assured, I have many sample codes for the major packages.
-
-All sample code is managed in the `examples` folder in this repository. You can easily find the sample code
-you are looking for by looking at the automatically maintained `examples/README.md`.
-
-**Please check the following link:**
-
-- [examples/README.md](https://github.com/myConsciousness/atproto.dart/tree/main/examples/README.md)
-
 ## 1.3. Melos Commands
 
 This project consists of several packages and is managed using [Melos](https://github.com/invertase/melos).
@@ -113,29 +100,16 @@ dart pub global activate melos
 
 Then, the Melos commands available for this project are:
 
-| Command            | Description                                               |
-| ------------------ | --------------------------------------------------------- |
-| melos get          | Run `pub get` command in this project.                    |
-| melos analyze      | Run `dart analyze` in all packages.                       |
-| melos format       | Run `dart format` in all packages.                        |
-| melos test         | Run all Dart & Flutter tests in this project.             |
-| melos test:dart    | Run Dart tests for a specific package in this project.    |
-| melos test:flutter | Run Flutter tests for a specific package in this project. |
-
-### 1.3.1. Publish
-
-Publish safely with following commands:
-
-```bash
-melos publish
-melos publish --no-dry-run --git-tag-version
-```
-
-And push tags.
-
-```bash
-git push origin --tags
-```
+| Command            | Description                                                           |
+| ------------------ | --------------------------------------------------------------------- |
+| melos get          | Run `pub get` command in this project.                                |
+| melos analyze      | Run `dart analyze` in all packages.                                   |
+| melos format       | Run `dart format` in all packages.                                    |
+| melos format       | Run `dart run import_sorter:main` in all packages.                    |
+| melos test         | Run all Dart & Flutter tests in this project.                         |
+| melos test:dart    | Run Dart tests for a specific package in this project.                |
+| melos test:flutter | Run Flutter tests for a specific package in this project.             |
+| melos publish_all  | Run publish for all packages, create a git tag and push it to origin. |
 
 ## 1.4. Contribution 🏆
 

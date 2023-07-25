@@ -35,7 +35,7 @@ scripts:
       melos exec -c 1 -- \
         dart pub run import_sorter:main
     description: |
-      Run `dart format` in all packages.
+      Run `dart run import_sorter:main` in all packages.
 
   test:
     run: melos run test:dart --no-select && melos run test:flutter --no-select
@@ -54,3 +54,10 @@ scripts:
     select-package:
       flutter: true
       dir-exists: test
+
+  publish_all:
+    run: |
+      melos publish
+      melos publish --no-dry-run --git-tag-version
+      git push origin --tags
+    description: Publish all packages, create git tags and push them to origin.
