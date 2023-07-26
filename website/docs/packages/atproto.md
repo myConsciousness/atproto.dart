@@ -415,3 +415,24 @@ Future<void> main() async {
 - When the status code of the response returned from ATP server is **`5xx`**
 - When the network is temporarily lost and a **`SocketException`** is thrown
 - When communication times out temporarily and a **`TimeoutException`** is thrown
+
+### Lexicon/Object IDs
+
+Some objects returned from AT Protocol's API are identified by IDs defined in Lexicon. The ID defined in Lexicon is also very important when sending a request to the API server.
+
+**[atproto](https://pub.dev/packages/atproto)** provides all the IDs defined in Lexicon for `com.atproto.*` as constants, and it can be easily used from `package:atproto/ids.dart` as follows.
+
+```dart
+import 'package:atproto/ids.dart' as ids;
+
+void main() {
+  // `blob`
+  ids.blob;
+  // `com.atproto.sync.subscribeRepos#commit`
+  ids.comAtprotoSyncSubscribeReposCommit;
+}
+```
+
+:::note
+These ID constants are automatically maintained when a new Lexicon is officially added. [See script](https://github.com/myConsciousness/atproto.dart/blob/main/bin/generate_lexicon_ids.dart).
+:::
