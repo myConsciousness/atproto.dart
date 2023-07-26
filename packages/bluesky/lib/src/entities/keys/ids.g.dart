@@ -29,7 +29,8 @@ const appBskyActorDefsProfileView = 'app.bsky.actor.defs#profileView';
 const appBskyActorDefsProfileViewBasic = 'app.bsky.actor.defs#profileViewBasic';
 
 /// `app.bsky.actor.defs#profileViewDetailed`
-const appBskyActorDefsProfileViewDetailed = 'app.bsky.actor.defs#profileViewDetailed';
+const appBskyActorDefsProfileViewDetailed =
+    'app.bsky.actor.defs#profileViewDetailed';
 
 /// `app.bsky.actor.defs#savedFeedsPref`
 const appBskyActorDefsSavedFeedsPref = 'app.bsky.actor.defs#savedFeedsPref';
@@ -59,7 +60,8 @@ const appBskyActorPutPreferences = 'app.bsky.actor.putPreferences';
 const appBskyActorSearchActors = 'app.bsky.actor.searchActors';
 
 /// `app.bsky.actor.searchActorsTypeahead`
-const appBskyActorSearchActorsTypeahead = 'app.bsky.actor.searchActorsTypeahead';
+const appBskyActorSearchActorsTypeahead =
+    'app.bsky.actor.searchActorsTypeahead';
 
 /// `app.bsky.embed.external`
 const appBskyEmbedExternal = 'app.bsky.embed.external';
@@ -119,7 +121,8 @@ const appBskyFeedDefsFeedViewPost = 'app.bsky.feed.defs#feedViewPost';
 const appBskyFeedDefsGeneratorView = 'app.bsky.feed.defs#generatorView';
 
 /// `app.bsky.feed.defs#generatorViewerState`
-const appBskyFeedDefsGeneratorViewerState = 'app.bsky.feed.defs#generatorViewerState';
+const appBskyFeedDefsGeneratorViewerState =
+    'app.bsky.feed.defs#generatorViewerState';
 
 /// `app.bsky.feed.defs#notFoundPost`
 const appBskyFeedDefsNotFoundPost = 'app.bsky.feed.defs#notFoundPost';
@@ -137,7 +140,8 @@ const appBskyFeedDefsReplyRef = 'app.bsky.feed.defs#replyRef';
 const appBskyFeedDefsSkeletonFeedPost = 'app.bsky.feed.defs#skeletonFeedPost';
 
 /// `app.bsky.feed.defs#skeletonReasonRepost`
-const appBskyFeedDefsSkeletonReasonRepost = 'app.bsky.feed.defs#skeletonReasonRepost';
+const appBskyFeedDefsSkeletonReasonRepost =
+    'app.bsky.feed.defs#skeletonReasonRepost';
 
 /// `app.bsky.feed.defs#threadViewPost`
 const appBskyFeedDefsThreadViewPost = 'app.bsky.feed.defs#threadViewPost';
@@ -149,10 +153,12 @@ const appBskyFeedDefsViewerState = 'app.bsky.feed.defs#viewerState';
 const appBskyFeedDescribeFeedGenerator = 'app.bsky.feed.describeFeedGenerator';
 
 /// `app.bsky.feed.describeFeedGenerator#feed`
-const appBskyFeedDescribeFeedGeneratorFeed = 'app.bsky.feed.describeFeedGenerator#feed';
+const appBskyFeedDescribeFeedGeneratorFeed =
+    'app.bsky.feed.describeFeedGenerator#feed';
 
 /// `app.bsky.feed.describeFeedGenerator#links`
-const appBskyFeedDescribeFeedGeneratorLinks = 'app.bsky.feed.describeFeedGenerator#links';
+const appBskyFeedDescribeFeedGeneratorLinks =
+    'app.bsky.feed.describeFeedGenerator#links';
 
 /// `app.bsky.feed.generator`
 const appBskyFeedGenerator = 'app.bsky.feed.generator';
@@ -278,13 +284,16 @@ const appBskyGraphUnmuteActor = 'app.bsky.graph.unmuteActor';
 const appBskyGraphUnmuteActorList = 'app.bsky.graph.unmuteActorList';
 
 /// `app.bsky.notification.getUnreadCount`
-const appBskyNotificationGetUnreadCount = 'app.bsky.notification.getUnreadCount';
+const appBskyNotificationGetUnreadCount =
+    'app.bsky.notification.getUnreadCount';
 
 /// `app.bsky.notification.listNotifications`
-const appBskyNotificationListNotifications = 'app.bsky.notification.listNotifications';
+const appBskyNotificationListNotifications =
+    'app.bsky.notification.listNotifications';
 
 /// `app.bsky.notification.listNotifications#notification`
-const appBskyNotificationListNotificationsNotification = 'app.bsky.notification.listNotifications#notification';
+const appBskyNotificationListNotificationsNotification =
+    'app.bsky.notification.listNotifications#notification';
 
 /// `app.bsky.notification.updateSeen`
 const appBskyNotificationUpdateSeen = 'app.bsky.notification.updateSeen';
@@ -305,7 +314,9 @@ const appBskyRichtextFacetMention = 'app.bsky.richtext.facet#mention';
 const appBskyUnspeccedGetPopular = 'app.bsky.unspecced.getPopular';
 
 /// `app.bsky.unspecced.getPopularFeedGenerators`
-const appBskyUnspeccedGetPopularFeedGenerators = 'app.bsky.unspecced.getPopularFeedGenerators';
+const appBskyUnspeccedGetPopularFeedGenerators =
+    'app.bsky.unspecced.getPopularFeedGenerators';
 
 /// `app.bsky.unspecced.getTimelineSkeleton`
-const appBskyUnspeccedGetTimelineSkeleton = 'app.bsky.unspecced.getTimelineSkeleton';
+const appBskyUnspeccedGetTimelineSkeleton =
+    'app.bsky.unspecced.getTimelineSkeleton';
