@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.7
+
+- Exposed lexicon ids from `com.atproto` as `ids.dart`. ([#623](https://github.com/myConsciousness/atproto.dart/issues/623))
+
 ## v0.5.6
 
 - Optimized internal processing. ([#606](https://github.com/myConsciousness/atproto.dart/issues/606))
