@@ -19,14 +19,20 @@ void main() {
     final buffer = StringBuffer();
 
     for (final field in fields) {
-      if (field.value != 'blob' &&
-          !field.value.contains(_toServiceName(package))) {
+      if (!field.value.contains(_toServiceName(package))) {
         continue;
       }
 
       buffer
         ..writeln("""/// `${field.value}`
 const ${field.name} = '${field.value}';""")
+        ..writeln();
+    }
+
+    if (package == 'atproto') {
+      buffer
+        ..writeln("""/// `blob`
+const blob = 'blob';""")
         ..writeln();
     }
 
@@ -52,7 +58,6 @@ ${ids.substring(0, ids.length - 1)}''');
 
 List<Field> _getFields() {
   final fields = <Field>[];
-  fields.add(Field('blob', 'blob'));
 
   for (final root in lexiconsRoot) {
     final directory = Directory('$lexiconsPath/$root');
@@ -82,6 +87,8 @@ List<Field> _getFields() {
       }
     }
   }
+
+  fields.sort((a, b) => a.name.compareTo(b.name));
 
   return fields;
 }
