@@ -210,9 +210,9 @@ Future<void> main() async {
 }
 ```
 
-### Marshall / Unmarshall
+### De/Serialize
 
-All objects representing JSON objects returned from the API provided by **[atproto](https://pub.dev/packages/atproto)** are generated using [freezed](https://pub.dev/packages/freezed) and [json_serializable](https://pub.dev/packages/json_serializable). So, it allows for easy JSON-based marshalling and unmarshalling of these model objects based on the common contract between the `fromJson` and `toJson` methods.
+All objects representing JSON objects returned from the API provided by **[atproto](https://pub.dev/packages/atproto)** are generated using [freezed](https://pub.dev/packages/freezed) and [json_serializable](https://pub.dev/packages/json_serializable). So, it allows for easy JSON-based de/serialize of these model objects based on the common contract between the `fromJson` and `toJson` methods.
 
 For example, if you have the following code:
 
@@ -229,18 +229,18 @@ Future<void> main() async {
 }
 ```
 
-Then you can unmarshall `did` object as JSON with `toJson` as follows:
+Then you can deserialize `DID` object as JSON with `toJson` as follows:
 
 ```dart
 print(did.toJson()); // => {did: did:plc:iijrtk7ocored6zuziwmqq3c}
 ```
 
-And you can marshall JSON as `DID` object with `fromJson` as follows:
+And you can serialize JSON as `DID` object with `fromJson` as follows:
 
 ```dart
 final json = did.toJson();
 
-final marshalledDID = DID.fromJson(json);
+final serializedDID = DID.fromJson(json);
 ```
 
 ### Thrown Exceptions
