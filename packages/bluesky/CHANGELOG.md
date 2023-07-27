@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.7.8
+
+- Added `cursor` to `Repos` object. ([#627](https://github.com/myConsciousness/atproto.dart/issues/627))
+
 ## v0.7.7
 
 - Exposed lexicon ids from `com.atproto` and `app.bsky` as `ids.dart`. ([#623](https://github.com/myConsciousness/atproto.dart/issues/623))

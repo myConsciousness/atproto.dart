@@ -23,6 +23,9 @@ mixin _$Repos {
   /// The list of repositories, represented as [Repo] instances.
   List<Repo> get repos => throw _privateConstructorUsedError;
 
+  /// The pagination cursor.
+  String? get cursor => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ReposCopyWith<Repos> get copyWith => throw _privateConstructorUsedError;
@@ -33,7 +36,7 @@ abstract class $ReposCopyWith<$Res> {
   factory $ReposCopyWith(Repos value, $Res Function(Repos) then) =
       _$ReposCopyWithImpl<$Res, Repos>;
   @useResult
-  $Res call({List<Repo> repos});
+  $Res call({List<Repo> repos, String? cursor});
 }
 
 /// @nodoc
@@ -50,12 +53,17 @@ class _$ReposCopyWithImpl<$Res, $Val extends Repos>
   @override
   $Res call({
     Object? repos = null,
+    Object? cursor = freezed,
   }) {
     return _then(_value.copyWith(
       repos: null == repos
           ? _value.repos
           : repos // ignore: cast_nullable_to_non_nullable
               as List<Repo>,
+      cursor: freezed == cursor
+          ? _value.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -66,7 +74,7 @@ abstract class _$$_ReposCopyWith<$Res> implements $ReposCopyWith<$Res> {
       __$$_ReposCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Repo> repos});
+  $Res call({List<Repo> repos, String? cursor});
 }
 
 /// @nodoc
@@ -79,12 +87,17 @@ class __$$_ReposCopyWithImpl<$Res> extends _$ReposCopyWithImpl<$Res, _$_Repos>
   @override
   $Res call({
     Object? repos = null,
+    Object? cursor = freezed,
   }) {
     return _then(_$_Repos(
       repos: null == repos
           ? _value._repos
           : repos // ignore: cast_nullable_to_non_nullable
               as List<Repo>,
+      cursor: freezed == cursor
+          ? _value.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -92,7 +105,8 @@ class __$$_ReposCopyWithImpl<$Res> extends _$ReposCopyWithImpl<$Res, _$_Repos>
 /// @nodoc
 @JsonSerializable()
 class _$_Repos implements _Repos {
-  const _$_Repos({required final List<Repo> repos}) : _repos = repos;
+  const _$_Repos({required final List<Repo> repos, this.cursor})
+      : _repos = repos;
 
   factory _$_Repos.fromJson(Map<String, dynamic> json) =>
       _$$_ReposFromJson(json);
@@ -108,9 +122,13 @@ class _$_Repos implements _Repos {
     return EqualUnmodifiableListView(_repos);
   }
 
+  /// The pagination cursor.
+  @override
+  final String? cursor;
+
   @override
   String toString() {
-    return 'Repos(repos: $repos)';
+    return 'Repos(repos: $repos, cursor: $cursor)';
   }
 
   @override
@@ -118,13 +136,14 @@ class _$_Repos implements _Repos {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Repos &&
-            const DeepCollectionEquality().equals(other._repos, _repos));
+            const DeepCollectionEquality().equals(other._repos, _repos) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_repos));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_repos), cursor);
 
   @JsonKey(ignore: true)
   @override
@@ -141,7 +160,8 @@ class _$_Repos implements _Repos {
 }
 
 abstract class _Repos implements Repos {
-  const factory _Repos({required final List<Repo> repos}) = _$_Repos;
+  const factory _Repos(
+      {required final List<Repo> repos, final String? cursor}) = _$_Repos;
 
   factory _Repos.fromJson(Map<String, dynamic> json) = _$_Repos.fromJson;
 
@@ -149,6 +169,10 @@ abstract class _Repos implements Repos {
 
   /// The list of repositories, represented as [Repo] instances.
   List<Repo> get repos;
+  @override
+
+  /// The pagination cursor.
+  String? get cursor;
   @override
   @JsonKey(ignore: true)
   _$$_ReposCopyWith<_$_Repos> get copyWith =>
