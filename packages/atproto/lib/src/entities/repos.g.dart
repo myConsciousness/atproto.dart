@@ -19,6 +19,7 @@ _$_Repos _$$_ReposFromJson(Map json) => $checkedCreate(
                   .map(
                       (e) => Repo.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
+          cursor: $checkedConvert('cursor', (v) => v as String?),
         );
         return val;
       },
@@ -26,4 +27,5 @@ _$_Repos _$$_ReposFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$_ReposToJson(_$_Repos instance) => <String, dynamic>{
       'repos': instance.repos.map((e) => e.toJson()).toList(),
+      'cursor': instance.cursor,
     };

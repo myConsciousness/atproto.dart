@@ -20,6 +20,9 @@ class Repos with _$Repos {
   const factory Repos({
     /// The list of repositories, represented as [Repo] instances.
     required List<Repo> repos,
+
+    /// The pagination cursor.
+    String? cursor,
   }) = _Repos;
 
   /// Creates a new instance of [Repos] from a JSON object.
