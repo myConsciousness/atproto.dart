@@ -493,3 +493,53 @@ void main() {
 :::note
 These ID constants are automatically maintained when a new Lexicon is officially added. [See script](https://github.com/myConsciousness/atproto.dart/blob/main/bin/generate_lexicon_ids.dart).
 :::
+
+### Pagination
+
+Pagination in the AT Protocol is designed to be performed using `cursor`. `cursor` is a string indicating the beginning of the next page, and is returned by the ATP server if the next page exists.
+
+:::note
+For more details about design of pagination and `cursor` in the AT Protocol, [see official](https://atproto.com/specs/xrpc#cursors-and-pagination).
+:::
+
+**[bluesky](https://pub.dev/packages/bluesky)** also follows the common design of AT Protocol and allows paging by using `cursor`. It can be easily implemented as in the following example.
+
+```dart
+import 'package:bluesky/bluesky.dart' as bsky;
+
+Future<void> main() async {
+  final bluesky = bsky.Bluesky.fromSession(await _session);
+
+  // Pagination is performed on a per-cursor basis.
+  String? nextCursor;
+
+  do {
+    final likes = await bluesky.actors.searchActors(
+      term: 'alf',
+      cursor: nextCursor, // If null, it is ignored.
+    );
+
+    for (final actor in likes.data.actors) {
+      print(actor);
+    }
+
+    // Update pagination cursor.
+    nextCursor = likes.data.cursor;
+  } while (nextCursor != null); // If there is no next page, it ends.
+}
+```
+
+:::tip
+Endpoints that can be paged can be seen in [this matrix](https://atprotodart.com/docs/api_support_matrix/#bluesky).
+:::
+
+This example is a very simple implementation, but it allows us to see pagination using **[bluesky](https://pub.dev/packages/bluesky)**.
+
+Whenever a method corresponding to a pagination-enabled endpoint is executed, the `cursor` is always present in the root of the response data, like `likes.data.cursor` above.
+If the next page does not exist, `cursor` is basically `null`.
+
+:::danger
+However, depending on the pagination endpoint, an invalid `cursor` may be returned even though the next page does not exist.
+In such a case, an exit condition that only looks at the state of the `cursor` as in the previous example may lead to an infinite loop.
+Implement appropriate termination conditions for each application.
+:::
