@@ -514,17 +514,17 @@ Future<void> main() async {
   String? nextCursor;
 
   do {
-    final likes = await bluesky.actors.searchActors(
+    final actors = await bluesky.actors.searchActors(
       term: 'alf',
       cursor: nextCursor, // If null, it is ignored.
     );
 
-    for (final actor in likes.data.actors) {
+    for (final actor in actors.data.actors) {
       print(actor);
     }
 
     // Update pagination cursor.
-    nextCursor = likes.data.cursor;
+    nextCursor = actors.data.cursor;
   } while (nextCursor != null); // If there is no next page, it ends.
 }
 ```
@@ -535,7 +535,7 @@ Endpoints that can be paged can be seen in [this matrix](https://atprotodart.com
 
 This example is a very simple implementation, but it allows us to see pagination using **[bluesky](https://pub.dev/packages/bluesky)**.
 
-Whenever a method corresponding to a pagination-enabled endpoint is executed, the `cursor` is always present in the root of the response data, like `likes.data.cursor` above.
+Whenever a method corresponding to a pagination-enabled endpoint is executed, the `cursor` is always present in the root of the response data, like `actors.data.cursor` above.
 If the next page does not exist, `cursor` is basically `null`.
 
 :::danger
