@@ -25,6 +25,7 @@
     "multiformats",
     "Multihash",
     "NSID",
+    "Pageable",
     "pchar",
     "proto",
     "pubspec",
