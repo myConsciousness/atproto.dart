@@ -6,14 +6,14 @@ description: Utility for Bluesky's RichText.
 
 # bluesky_text [![pub package](https://img.shields.io/pub/v/bluesky_text.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky_text) [![Dart SDK Version](https://badgen.net/pub/sdk-version/bluesky_text)](https://pub.dev/packages/bluesky_text/)
 
-[bluesky_text](https://pub.dartlang.org/packages/bluesky_text) is a package that elegantly resolves `RichText` called `Facet` in Bluesky API.
+**[bluesky_text](https://pub.dartlang.org/packages/bluesky_text)** is a package that elegantly resolves `RichText` called `Facet` in Bluesky API.
 
 This package automatically extracts basic entities from text, such as `handles (@)` and `links (http|https)`, and generates facets that conform to the Bluesky API specification.
 
 In addition, `hashtags (#)` and `cashtags ($)`, which are not implemented in Bluesky Social, can be extracted as **Custom Entity** with any regular expression of the user's choice.
 This feature allows you to implement a post function specific to your app.
 
-In [bluesky_text](https://pub.dartlang.org/packages/bluesky_text), text elements are counted as **Unicode Grapheme Clusters**.
+In **[bluesky_text](https://pub.dartlang.org/packages/bluesky_text)**, text elements are counted as **Unicode Grapheme Clusters**.
 In other words, multibyte characters includes emojis are also counted as a single character.
 
 - **[GitHub](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_text)**
@@ -449,3 +449,7 @@ The result of this process is converted as JSON to better understand the structu
   }
 ]
 ```
+
+:::tip
+Read [this section](#use-with-blueskyblueskymd) to learn how to integrate with the **[bluesky](https://pub.dev/packages/bluesky)** package and generate Facet objects.
+:::
