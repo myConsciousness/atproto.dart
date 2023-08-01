@@ -451,5 +451,5 @@ The result of this process is converted as JSON to better understand the structu
 ```
 
 :::tip
-Read [this section](#use-with-blueskyblueskymd) to learn how to integrate with the **[bluesky](https://pub.dev/packages/bluesky)** package and generate Facet objects.
+Read **[this section](#use-with-bluesky)** to learn how to integrate with the **[bluesky](https://pub.dev/packages/bluesky)** package and generate Facet objects.
 :::
