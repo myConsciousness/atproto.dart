@@ -13,7 +13,7 @@ description: API wrapper for Bluesky things.
 - **[GitHub](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky)**
 
 :::info
-You can see more details about **[atproto section](./atproto.md)**.
+If you are having trouble implementing **RichText** in the Bluesky API, check out **[bluesky_text](./bluesky_text.md)**!
 :::
 
 ## Features ⭐
@@ -60,7 +60,7 @@ flutter pub get
 
 ### Import
 
-Just by writing following one-line import, you can use all the features provided by **[bluesky](https://pub.dev/packages/bluesky)**.
+Just by writing following one-line import, you can use all endpoints provided by **[bluesky](https://pub.dev/packages/bluesky)**.
 
 ```dart
 import 'package:bluesky/bluesky.dart';
@@ -530,12 +530,12 @@ Future<void> main() async {
 ```
 
 :::tip
-Endpoints that can be paged can be seen in [this matrix](https://atprotodart.com/docs/api_support_matrix/#bluesky).
+Endpoints that can be paged can be seen in [this matrix](../api_support_matrix.md#bluesky).
 :::
 
 This example is a very simple implementation, but it allows us to see pagination using **[bluesky](https://pub.dev/packages/bluesky)**.
 
-Whenever a method corresponding to a pagination-enabled endpoint is executed, the `cursor` is always present in the root of the response data, like `actors.data.cursor` above.
+Whenever a method corresponding to a pagination-available endpoint is executed, the `cursor` is always present in the root of the response data, like `actors.data.cursor` above.
 If the next page does not exist, `cursor` is basically `null`.
 
 :::danger
