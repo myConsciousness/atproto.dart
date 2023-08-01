@@ -12,6 +12,10 @@ description: API wrapper for AT Protocol things.
 
 - **[GitHub](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto)**
 
+:::info
+If you want to use Bluesky APIs, see **[bluesky](./bluesky.md)**!
+:::
+
 ## Features ⭐
 
 - ✅ **Zero Dependency**
@@ -56,7 +60,7 @@ flutter pub get
 
 ### Import
 
-Just by writing following one-line import, you can use all the features provided by **[atproto](https://pub.dev/packages/atproto)**.
+Just by writing following one-line import, you can use all endpoints provided by **[atproto](https://pub.dev/packages/atproto)**.
 
 ```dart
 import 'package:atproto/atproto.dart';

@@ -13,7 +13,7 @@ description: API wrapper for Bluesky things.
 - **[GitHub](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky)**
 
 :::info
-You can see more details about **[atproto section](./atproto.md)**.
+If you are having trouble implementing **RichText** in the Bluesky API, check out **[bluesky_text](./bluesky_text.md)**!
 :::
 
 ## Features ⭐
@@ -60,7 +60,7 @@ flutter pub get
 
 ### Import
 
-Just by writing following one-line import, you can use all the features provided by **[bluesky](https://pub.dev/packages/bluesky)**.
+Just by writing following one-line import, you can use all endpoints provided by **[bluesky](https://pub.dev/packages/bluesky)**.
 
 ```dart
 import 'package:bluesky/bluesky.dart';
