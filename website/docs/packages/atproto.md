@@ -481,12 +481,12 @@ Future<void> main() async {
 ```
 
 :::tip
-Endpoints that can be paged can be seen in [this matrix](https://atprotodart.com/docs/api_support_matrix#atproto).
+Endpoints that can be paged can be seen in [this matrix](../api_support_matrix.md#atproto).
 :::
 
 This example is a very simple implementation, but it allows us to see pagination using **[atproto](https://pub.dev/packages/atproto)**.
 
-Whenever a method corresponding to a pagination-enabled endpoint is executed, the `cursor` is always present in the root of the response data, like `records.data.cursor` above.
+Whenever a method corresponding to a pagination-available endpoint is executed, the `cursor` is always present in the root of the response data, like `records.data.cursor` above.
 If the next page does not exist, `cursor` is basically `null`.
 
 :::danger
