@@ -75,6 +75,7 @@ class _RateLimitConverter {
   /// Returns true if [headers] has information about rate limit,
   /// otherwise false.
   bool _hasRateLimits(final Map<String, String> headers) =>
+      headers.containsKey('date') &&
       headers.containsKey('RateLimit-Limit') &&
       headers.containsKey('RateLimit-Remaining') &&
       headers.containsKey('RateLimit-Reset') &&
