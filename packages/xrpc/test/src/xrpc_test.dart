@@ -380,6 +380,34 @@ void main() {
       expect(response.data, jsonDecode('{"test": "test"}'));
       expect(response.rateLimit, isNull);
     });
+
+    test('with rate limits', () async {
+      final response = await procedure<EmptyData>(
+        NSID.create('test.com', 'post'),
+        postClient: (url, {body, encoding, headers}) async => Response(
+          '{}',
+          200,
+          request: Request('POST', Uri.https('bsky.social')),
+          headers: {
+            'RateLimit-Limit': '100',
+            'RateLimit-Remaining': '1000',
+            'RateLimit-Reset': '50',
+            'RateLimit-Policy': '100;w=300',
+            'date': 'Wed, 02 Aug 2023 04:27:20 GMT',
+          },
+        ),
+      );
+
+      expect(response.rateLimit, isNotNull);
+
+      final rateLimit = response.rateLimit!;
+
+      expect(rateLimit.limitCount, 100);
+      expect(rateLimit.remainingCount, 1000);
+      expect(rateLimit.resetInSeconds, 50);
+      expect(rateLimit.policy.limit, 100);
+      expect(rateLimit.policy.window.inSeconds, 300);
+    });
   });
 
   group('.upload', () {
@@ -448,6 +476,35 @@ void main() {
       expect(response.data, isA<Map<String, dynamic>>());
       expect(response.data, jsonDecode('{"test": "test"}'));
       expect(response.rateLimit, isNull);
+    });
+
+    test('with rate limits', () async {
+      final response = await upload<EmptyData>(
+        NSID.create('test.com', 'post'),
+        File('./test/src/data/dash.png').readAsBytesSync(),
+        postClient: (url, {body, encoding, headers}) async => Response(
+          '{}',
+          200,
+          request: Request('POST', Uri.https('bsky.social')),
+          headers: {
+            'RateLimit-Limit': '100',
+            'RateLimit-Remaining': '1000',
+            'RateLimit-Reset': '50',
+            'RateLimit-Policy': '100;w=300',
+            'date': 'Wed, 02 Aug 2023 04:27:20 GMT',
+          },
+        ),
+      );
+
+      expect(response.rateLimit, isNotNull);
+
+      final rateLimit = response.rateLimit!;
+
+      expect(rateLimit.limitCount, 100);
+      expect(rateLimit.remainingCount, 1000);
+      expect(rateLimit.resetInSeconds, 50);
+      expect(rateLimit.policy.limit, 100);
+      expect(rateLimit.policy.window.inSeconds, 300);
     });
   });
 
