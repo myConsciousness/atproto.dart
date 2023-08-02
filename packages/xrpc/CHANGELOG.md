@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.2
+
+- Supported `RateLimit`. You can access this property from `XRPCResponse.rateLimit`. If there is no rate limits, then it's always null. ([#636](https://github.com/myConsciousness/atproto.dart/issues/636))
+
 ## v0.2.1
 
 - Allows `Map<String, dynamic>` to be specified for generics, allowing response data to be retrieved as JSON. ([#563](https://github.com/myConsciousness/atproto.dart/issues/563))

@@ -226,6 +226,7 @@ void main() {
 
       expect(response, isA<XRPCResponse<EmptyData>>());
       expect(response.data, isA<EmptyData>());
+      expect(response.rateLimit, isNull);
     });
 
     test('"to" parameter is missing', () async {
@@ -244,6 +245,7 @@ void main() {
 
       expect(response, isA<XRPCResponse<EmptyData>>());
       expect(response.data, isA<EmptyData>());
+      expect(response.rateLimit, isNull);
     });
 
     test('T is String', () async {
@@ -263,6 +265,7 @@ void main() {
       expect(response, isA<XRPCResponse<String>>());
       expect(response.data, isA<String>());
       expect(response.data, '{"test": "test"}');
+      expect(response.rateLimit, isNull);
     });
 
     test('T is Map<String, dynamic>', () async {
@@ -282,6 +285,35 @@ void main() {
       expect(response, isA<XRPCResponse<Map<String, dynamic>>>());
       expect(response.data, isA<Map<String, dynamic>>());
       expect(response.data, jsonDecode('{"test": "test"}'));
+      expect(response.rateLimit, isNull);
+    });
+
+    test('with rate limits', () async {
+      final response = await query<EmptyData>(
+        NSID.create('test.com', 'get'),
+        getClient: (url, {headers}) async => Response(
+          '{}',
+          200,
+          request: Request('GET', Uri.https('bsky.social')),
+          headers: {
+            'RateLimit-Limit': '100',
+            'RateLimit-Remaining': '1000',
+            'RateLimit-Reset': '50',
+            'RateLimit-Policy': '100;w=300',
+            'date': 'Wed, 02 Aug 2023 04:27:20 GMT',
+          },
+        ),
+      );
+
+      expect(response.rateLimit, isNotNull);
+
+      final rateLimit = response.rateLimit!;
+
+      expect(rateLimit.limitCount, 100);
+      expect(rateLimit.remainingCount, 1000);
+      expect(rateLimit.resetInSeconds, 50);
+      expect(rateLimit.policy.limit, 100);
+      expect(rateLimit.policy.window.inSeconds, 300);
     });
   });
 
@@ -298,6 +330,7 @@ void main() {
 
       expect(response, isA<XRPCResponse<EmptyData>>());
       expect(response.data, isA<EmptyData>());
+      expect(response.rateLimit, isNull);
     });
 
     test('with "to" parameter', () async {
@@ -313,6 +346,7 @@ void main() {
 
       expect(response, isA<XRPCResponse<EmptyData>>());
       expect(response.data, isA<EmptyData>());
+      expect(response.rateLimit, isNull);
     });
 
     test('T is String', () async {
@@ -328,6 +362,7 @@ void main() {
       expect(response, isA<XRPCResponse<String>>());
       expect(response.data, isA<String>());
       expect(response.data, '{"test": "test"}');
+      expect(response.rateLimit, isNull);
     });
 
     test('T is Map<String, dynamic>', () async {
@@ -343,6 +378,7 @@ void main() {
       expect(response, isA<XRPCResponse<Map<String, dynamic>>>());
       expect(response.data, isA<Map<String, dynamic>>());
       expect(response.data, jsonDecode('{"test": "test"}'));
+      expect(response.rateLimit, isNull);
     });
   });
 
@@ -360,6 +396,7 @@ void main() {
 
       expect(response, isA<XRPCResponse<EmptyData>>());
       expect(response.data, isA<EmptyData>());
+      expect(response.rateLimit, isNull);
     });
 
     test('with "to" parameter', () async {
@@ -376,6 +413,7 @@ void main() {
 
       expect(response, isA<XRPCResponse<EmptyData>>());
       expect(response.data, isA<EmptyData>());
+      expect(response.rateLimit, isNull);
     });
 
     test('T is String', () async {
@@ -392,6 +430,7 @@ void main() {
       expect(response, isA<XRPCResponse<String>>());
       expect(response.data, isA<String>());
       expect(response.data, '{"test": "test"}');
+      expect(response.rateLimit, isNull);
     });
 
     test('T is Map<String, dynamic>', () async {
@@ -408,6 +447,7 @@ void main() {
       expect(response, isA<XRPCResponse<Map<String, dynamic>>>());
       expect(response.data, isA<Map<String, dynamic>>());
       expect(response.data, jsonDecode('{"test": "test"}'));
+      expect(response.rateLimit, isNull);
     });
   });
 
@@ -422,6 +462,7 @@ void main() {
 
       expect(subscription, isA<XRPCResponse<Subscription>>());
       expect(subscription.data, isA<Subscription>());
+      expect(subscription.rateLimit, isNull);
 
       final oneMinuteLater = DateTime.now().add(Duration(minutes: 1));
 
