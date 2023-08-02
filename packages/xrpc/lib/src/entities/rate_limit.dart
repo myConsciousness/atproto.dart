@@ -23,10 +23,7 @@ class RateLimit {
   factory RateLimit.unlimited() => RateLimit._(
         limitCount: -1,
         remainingCount: -1,
-        policy: RateLimitPolicy(
-          limit: -1,
-          window: Duration.zero,
-        ),
+        policy: RateLimitPolicy.unlimited(),
         resetAt: DateTime(0),
         enabled: false,
       );
@@ -43,6 +40,19 @@ class RateLimit {
 
   /// Returns true if the rate limit is not exceeded, otherwise false.
   bool get isNotExceeded => !isExceeded;
+
+  @override
+  String toString() {
+    final buffer = StringBuffer()
+      ..write('RateLimit(')
+      ..write('limitCount: $limitCount, ')
+      ..write('remainingCount: $remainingCount, ')
+      ..write('resetAt: $resetAt, ')
+      ..write('policy: $policy')
+      ..write(')');
+
+    return buffer.toString();
+  }
 }
 
 class _RateLimitConverter {
@@ -77,7 +87,7 @@ class _RateLimitPolicyConverter {
     final segments = headers['RateLimit-Policy']!.split(';');
 
     return RateLimitPolicy(
-      limit: int.parse(segments[0]),
+      limitCount: int.parse(segments[0]),
       window: Duration(seconds: int.parse(segments[1].split('=')[1])),
     );
   }

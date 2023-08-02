@@ -13,6 +13,7 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:xrpc/src/entities/empty_data.dart';
+import 'package:xrpc/src/entities/rate_limit.dart';
 import 'package:xrpc/src/exception/internal_server_error_exception.dart';
 import 'package:xrpc/src/exception/invalid_request_exception.dart';
 import 'package:xrpc/src/exception/rate_limit_exceeded_exception.dart';
@@ -245,7 +246,7 @@ void main() {
 
       expect(response, isA<XRPCResponse<EmptyData>>());
       expect(response.data, isA<EmptyData>());
-      expect(response.rateLimit, isNull);
+      expect(response.rateLimit, isA<RateLimit>());
     });
 
     test('T is String', () async {
@@ -265,7 +266,7 @@ void main() {
       expect(response, isA<XRPCResponse<String>>());
       expect(response.data, isA<String>());
       expect(response.data, '{"test": "test"}');
-      expect(response.rateLimit, isNull);
+      expect(response.rateLimit, isA<RateLimit>());
     });
 
     test('T is Map<String, dynamic>', () async {
@@ -285,7 +286,7 @@ void main() {
       expect(response, isA<XRPCResponse<Map<String, dynamic>>>());
       expect(response.data, isA<Map<String, dynamic>>());
       expect(response.data, jsonDecode('{"test": "test"}'));
-      expect(response.rateLimit, isNull);
+      expect(response.rateLimit, isA<RateLimit>());
     });
 
     test('with rate limits', () async {
@@ -311,7 +312,7 @@ void main() {
 
       expect(rateLimit.limitCount, 100);
       expect(rateLimit.remainingCount, 1000);
-      expect(rateLimit.policy.limit, 100);
+      expect(rateLimit.policy.limitCount, 100);
       expect(rateLimit.policy.window.inSeconds, 300);
     });
   });
@@ -329,7 +330,7 @@ void main() {
 
       expect(response, isA<XRPCResponse<EmptyData>>());
       expect(response.data, isA<EmptyData>());
-      expect(response.rateLimit, isNull);
+      expect(response.rateLimit, isA<RateLimit>());
     });
 
     test('with "to" parameter', () async {
@@ -345,7 +346,7 @@ void main() {
 
       expect(response, isA<XRPCResponse<EmptyData>>());
       expect(response.data, isA<EmptyData>());
-      expect(response.rateLimit, isNull);
+      expect(response.rateLimit, isA<RateLimit>());
     });
 
     test('T is String', () async {
@@ -361,7 +362,7 @@ void main() {
       expect(response, isA<XRPCResponse<String>>());
       expect(response.data, isA<String>());
       expect(response.data, '{"test": "test"}');
-      expect(response.rateLimit, isNull);
+      expect(response.rateLimit, isA<RateLimit>());
     });
 
     test('T is Map<String, dynamic>', () async {
@@ -377,7 +378,7 @@ void main() {
       expect(response, isA<XRPCResponse<Map<String, dynamic>>>());
       expect(response.data, isA<Map<String, dynamic>>());
       expect(response.data, jsonDecode('{"test": "test"}'));
-      expect(response.rateLimit, isNull);
+      expect(response.rateLimit, isA<RateLimit>());
     });
 
     test('with rate limits', () async {
@@ -403,7 +404,7 @@ void main() {
 
       expect(rateLimit.limitCount, 100);
       expect(rateLimit.remainingCount, 1000);
-      expect(rateLimit.policy.limit, 100);
+      expect(rateLimit.policy.limitCount, 100);
       expect(rateLimit.policy.window.inSeconds, 300);
     });
   });
@@ -422,7 +423,7 @@ void main() {
 
       expect(response, isA<XRPCResponse<EmptyData>>());
       expect(response.data, isA<EmptyData>());
-      expect(response.rateLimit, isNull);
+      expect(response.rateLimit, isA<RateLimit>());
     });
 
     test('with "to" parameter', () async {
@@ -439,7 +440,7 @@ void main() {
 
       expect(response, isA<XRPCResponse<EmptyData>>());
       expect(response.data, isA<EmptyData>());
-      expect(response.rateLimit, isNull);
+      expect(response.rateLimit, isA<RateLimit>());
     });
 
     test('T is String', () async {
@@ -456,7 +457,7 @@ void main() {
       expect(response, isA<XRPCResponse<String>>());
       expect(response.data, isA<String>());
       expect(response.data, '{"test": "test"}');
-      expect(response.rateLimit, isNull);
+      expect(response.rateLimit, isA<RateLimit>());
     });
 
     test('T is Map<String, dynamic>', () async {
@@ -473,7 +474,7 @@ void main() {
       expect(response, isA<XRPCResponse<Map<String, dynamic>>>());
       expect(response.data, isA<Map<String, dynamic>>());
       expect(response.data, jsonDecode('{"test": "test"}'));
-      expect(response.rateLimit, isNull);
+      expect(response.rateLimit, isA<RateLimit>());
     });
 
     test('with rate limits', () async {
@@ -500,7 +501,7 @@ void main() {
 
       expect(rateLimit.limitCount, 100);
       expect(rateLimit.remainingCount, 1000);
-      expect(rateLimit.policy.limit, 100);
+      expect(rateLimit.policy.limitCount, 100);
       expect(rateLimit.policy.window.inSeconds, 300);
     });
   });

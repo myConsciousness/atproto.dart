@@ -4,13 +4,27 @@
 
 class RateLimitPolicy {
   const RateLimitPolicy({
-    required this.limit,
+    required this.limitCount,
     required this.window,
   });
 
-  final int limit;
+  factory RateLimitPolicy.unlimited() =>
+      RateLimitPolicy(limitCount: -1, window: Duration.zero);
+
+  final int limitCount;
   final Duration window;
 
   /// Returns the representation in the HTTP response header.
-  String format() => '$limit;w=${window.inSeconds}';
+  String format() => '$limitCount;w=${window.inSeconds}';
+
+  @override
+  String toString() {
+    final buffer = StringBuffer()
+      ..write('RateLimitPolicy(')
+      ..write('limitCount: $limitCount, ')
+      ..write('window: $window')
+      ..write(')');
+
+    return buffer.toString();
+  }
 }
