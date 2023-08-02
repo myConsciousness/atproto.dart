@@ -227,7 +227,7 @@ void main() {
 
       expect(response, isA<XRPCResponse<EmptyData>>());
       expect(response.data, isA<EmptyData>());
-      expect(response.rateLimit, isNull);
+      expect(response.rateLimit, isA<RateLimit>());
     });
 
     test('"to" parameter is missing', () async {
@@ -517,7 +517,7 @@ void main() {
 
       expect(subscription, isA<XRPCResponse<Subscription>>());
       expect(subscription.data, isA<Subscription>());
-      expect(subscription.rateLimit, isNull);
+      expect(subscription.rateLimit, isA<RateLimit>());
 
       final oneMinuteLater = DateTime.now().add(Duration(minutes: 1));
 
