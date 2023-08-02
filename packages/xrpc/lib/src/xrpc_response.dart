@@ -42,7 +42,7 @@ class XRPCResponse<D> {
       ..write('XRPCResponse(')
       ..write('headers: $headers, ')
       ..write('status: ${status.code}, ')
-      ..write('rateLimit: $rateLimit')
+      ..write('rateLimit: $rateLimit, ')
       ..write('data: $data')
       ..write(')');
 

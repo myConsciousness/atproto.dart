@@ -42,7 +42,8 @@ void main() {
 
     expect(
       response.toString(),
-      'XRPCResponse(headers: {test: test}, status: 200, data: test)',
+      'XRPCResponse(headers: {test: test}, status: 200, rateLimit: null,'
+      ' data: test)',
     );
   });
 }
