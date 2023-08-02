@@ -48,21 +48,13 @@ abstract class $RateLimitCopyWith<$Res> {
       _$RateLimitCopyWithImpl<$Res, RateLimit>;
   @useResult
   $Res call(
-      {@intConverter
-      @JsonKey(name: 'RateLimit-Limit')
-          int limitCount,
-      @intConverter
-      @JsonKey(name: 'RateLimit-Remaining')
-          int remainingCount,
-      @intConverter
-      @JsonKey(name: 'RateLimit-Reset')
-          int resetInSeconds,
+      {@intConverter @JsonKey(name: 'RateLimit-Limit') int limitCount,
+      @intConverter @JsonKey(name: 'RateLimit-Remaining') int remainingCount,
+      @intConverter @JsonKey(name: 'RateLimit-Reset') int resetInSeconds,
       @_RateLimitPolicyConverter()
       @JsonKey(name: 'RateLimit-Policy')
-          RateLimitPolicy policy,
-      @httpDateConverter
-      @JsonKey(name: 'date')
-          DateTime createdAt});
+      RateLimitPolicy policy,
+      @httpDateConverter @JsonKey(name: 'date') DateTime createdAt});
 
   $RateLimitPolicyCopyWith<$Res> get policy;
 }
@@ -127,21 +119,13 @@ abstract class _$$_RateLimitCopyWith<$Res> implements $RateLimitCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@intConverter
-      @JsonKey(name: 'RateLimit-Limit')
-          int limitCount,
-      @intConverter
-      @JsonKey(name: 'RateLimit-Remaining')
-          int remainingCount,
-      @intConverter
-      @JsonKey(name: 'RateLimit-Reset')
-          int resetInSeconds,
+      {@intConverter @JsonKey(name: 'RateLimit-Limit') int limitCount,
+      @intConverter @JsonKey(name: 'RateLimit-Remaining') int remainingCount,
+      @intConverter @JsonKey(name: 'RateLimit-Reset') int resetInSeconds,
       @_RateLimitPolicyConverter()
       @JsonKey(name: 'RateLimit-Policy')
-          RateLimitPolicy policy,
-      @httpDateConverter
-      @JsonKey(name: 'date')
-          DateTime createdAt});
+      RateLimitPolicy policy,
+      @httpDateConverter @JsonKey(name: 'date') DateTime createdAt});
 
   @override
   $RateLimitPolicyCopyWith<$Res> get policy;
@@ -193,21 +177,17 @@ class __$$_RateLimitCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RateLimit extends _RateLimit {
   const _$_RateLimit(
-      {@intConverter
-      @JsonKey(name: 'RateLimit-Limit')
-          required this.limitCount,
+      {@intConverter @JsonKey(name: 'RateLimit-Limit') required this.limitCount,
       @intConverter
       @JsonKey(name: 'RateLimit-Remaining')
-          required this.remainingCount,
+      required this.remainingCount,
       @intConverter
       @JsonKey(name: 'RateLimit-Reset')
-          required this.resetInSeconds,
+      required this.resetInSeconds,
       @_RateLimitPolicyConverter()
       @JsonKey(name: 'RateLimit-Policy')
-          required this.policy,
-      @httpDateConverter
-      @JsonKey(name: 'date')
-          required this.createdAt})
+      required this.policy,
+      @httpDateConverter @JsonKey(name: 'date') required this.createdAt})
       : super._();
 
   factory _$_RateLimit.fromJson(Map<String, dynamic> json) =>
@@ -278,19 +258,19 @@ abstract class _RateLimit extends RateLimit {
   const factory _RateLimit(
       {@intConverter
       @JsonKey(name: 'RateLimit-Limit')
-          required final int limitCount,
+      required final int limitCount,
       @intConverter
       @JsonKey(name: 'RateLimit-Remaining')
-          required final int remainingCount,
+      required final int remainingCount,
       @intConverter
       @JsonKey(name: 'RateLimit-Reset')
-          required final int resetInSeconds,
+      required final int resetInSeconds,
       @_RateLimitPolicyConverter()
       @JsonKey(name: 'RateLimit-Policy')
-          required final RateLimitPolicy policy,
+      required final RateLimitPolicy policy,
       @httpDateConverter
       @JsonKey(name: 'date')
-          required final DateTime createdAt}) = _$_RateLimit;
+      required final DateTime createdAt}) = _$_RateLimit;
   const _RateLimit._() : super._();
 
   factory _RateLimit.fromJson(Map<String, dynamic> json) =
