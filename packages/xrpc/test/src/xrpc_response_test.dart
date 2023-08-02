@@ -17,6 +17,7 @@ void main() {
         method: HttpMethod.get,
         url: Uri.https('bsky.social'),
       ),
+      rateLimit: RateLimit.unlimited(),
       data: XRPCError(error: 'error', message: 'error'),
     );
 
@@ -37,6 +38,7 @@ void main() {
         method: HttpMethod.get,
         url: Uri.https('bsky.social'),
       ),
+      rateLimit: RateLimit.unlimited(),
       data: 'test',
     );
 

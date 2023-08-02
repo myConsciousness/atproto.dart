@@ -14,7 +14,7 @@ class XRPCResponse<D> {
     required this.headers,
     required this.status,
     required this.request,
-    this.rateLimit,
+    required this.rateLimit,
     required this.data,
   });
 
@@ -28,7 +28,7 @@ class XRPCResponse<D> {
   final XRPCRequest request;
 
   /// The rate limit.
-  final RateLimit? rateLimit;
+  final RateLimit rateLimit;
 
   /// The response data.
   final D data;

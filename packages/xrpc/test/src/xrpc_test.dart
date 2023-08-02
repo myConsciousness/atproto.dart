@@ -307,11 +307,10 @@ void main() {
 
       expect(response.rateLimit, isNotNull);
 
-      final rateLimit = response.rateLimit!;
+      final rateLimit = response.rateLimit;
 
       expect(rateLimit.limitCount, 100);
       expect(rateLimit.remainingCount, 1000);
-      expect(rateLimit.resetInSeconds, 50);
       expect(rateLimit.policy.limit, 100);
       expect(rateLimit.policy.window.inSeconds, 300);
     });
@@ -400,11 +399,10 @@ void main() {
 
       expect(response.rateLimit, isNotNull);
 
-      final rateLimit = response.rateLimit!;
+      final rateLimit = response.rateLimit;
 
       expect(rateLimit.limitCount, 100);
       expect(rateLimit.remainingCount, 1000);
-      expect(rateLimit.resetInSeconds, 50);
       expect(rateLimit.policy.limit, 100);
       expect(rateLimit.policy.window.inSeconds, 300);
     });
@@ -498,11 +496,10 @@ void main() {
 
       expect(response.rateLimit, isNotNull);
 
-      final rateLimit = response.rateLimit!;
+      final rateLimit = response.rateLimit;
 
       expect(rateLimit.limitCount, 100);
       expect(rateLimit.remainingCount, 1000);
-      expect(rateLimit.resetInSeconds, 50);
       expect(rateLimit.policy.limit, 100);
       expect(rateLimit.policy.window.inSeconds, 300);
     });

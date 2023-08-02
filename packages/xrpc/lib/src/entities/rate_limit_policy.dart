@@ -2,21 +2,15 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// ignore_for_file: invalid_annotation_target
+class RateLimitPolicy {
+  const RateLimitPolicy({
+    required this.limit,
+    required this.window,
+  });
 
-// 📦 Package imports:
-import 'package:freezed_annotation/freezed_annotation.dart';
+  final int limit;
+  final Duration window;
 
-part 'rate_limit_policy.freezed.dart';
-part 'rate_limit_policy.g.dart';
-
-@freezed
-class RateLimitPolicy with _$RateLimitPolicy {
-  const factory RateLimitPolicy({
-    required int limit,
-    required Duration window,
-  }) = _RateLimitPolicy;
-
-  factory RateLimitPolicy.fromJson(Map<String, Object?> json) =>
-      _$RateLimitPolicyFromJson(json);
+  /// Returns the representation in the HTTP response header.
+  String format() => '$limit;w=${window.inSeconds}';
 }

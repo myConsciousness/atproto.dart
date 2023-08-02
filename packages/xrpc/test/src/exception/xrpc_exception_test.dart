@@ -4,6 +4,7 @@
 
 // 📦 Package imports:
 import 'package:test/test.dart';
+import 'package:xrpc/src/entities/rate_limit.dart';
 
 // 🌎 Project imports:
 import 'package:xrpc/src/exception/xrpc_exception.dart';
@@ -22,6 +23,7 @@ void main() {
         method: HttpMethod.get,
         url: Uri.https('bsky.social'),
       ),
+      rateLimit: RateLimit.unlimited(),
       data: XRPCError(error: 'error', message: 'error'),
     ));
 

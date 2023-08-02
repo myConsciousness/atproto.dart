@@ -383,6 +383,7 @@ XRPCResponse<Subscription<T>> subscribe<T>(
       method: HttpMethod.get,
       url: uri,
     ),
+    rateLimit: RateLimit.unlimited(),
     data: Subscription(
       channel: channel,
       controller: controller,
@@ -493,9 +494,7 @@ XRPCResponse<T> _buildResponse<T>(
         method: HttpMethod.valueOf(response.request!.method),
         url: response.request!.url,
       ),
-      rateLimit: _hasRateLimit(response.headers)
-          ? RateLimit.fromJson(response.headers)
-          : null,
+      rateLimit: RateLimit.fromHeaders(response.headers),
       data: _transformData(
         adaptor != null
             ? jsonEncode(adaptor.call(response.bodyBytes))
@@ -560,11 +559,3 @@ Uri _buildWsUri(
 
   return Uri.parse(buffer.toString());
 }
-
-/// Returns true if [headers] has information about rate limit,
-/// otherwise false.
-bool _hasRateLimit(final Map<String, String> headers) =>
-    headers.containsKey('RateLimit-Limit') &&
-    headers.containsKey('RateLimit-Remaining') &&
-    headers.containsKey('RateLimit-Reset') &&
-    headers.containsKey('RateLimit-Policy');

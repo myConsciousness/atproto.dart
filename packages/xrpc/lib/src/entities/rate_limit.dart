@@ -2,62 +2,83 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// ignore_for_file: invalid_annotation_target
-
-// 📦 Package imports:
-import 'package:freezed_annotation/freezed_annotation.dart';
-
 // 🌎 Project imports:
-import 'converter/http_date_converter.dart';
-import 'converter/int_converter.dart';
+import 'dart:io';
+
 import 'rate_limit_policy.dart';
 
-part 'rate_limit.freezed.dart';
-part 'rate_limit.g.dart';
-
-@freezed
-class RateLimit with _$RateLimit {
+class RateLimit {
   // ignore: unused_element
-  const RateLimit._();
+  const RateLimit._({
+    required this.limitCount,
+    required this.remainingCount,
+    required this.policy,
+    required this.resetAt,
+    required bool enabled,
+  }) : _enabled = enabled;
 
-  const factory RateLimit({
-    @intConverter @JsonKey(name: 'RateLimit-Limit') required int limitCount,
-    @intConverter
-    @JsonKey(name: 'RateLimit-Remaining')
-    required int remainingCount,
-    @intConverter @JsonKey(name: 'RateLimit-Reset') required int resetInSeconds,
-    @_RateLimitPolicyConverter()
-    @JsonKey(name: 'RateLimit-Policy')
-    required RateLimitPolicy policy,
-    @httpDateConverter @JsonKey(name: 'date') required DateTime createdAt,
-  }) = _RateLimit;
+  factory RateLimit.fromHeaders(final Map<String, String> headers) =>
+      const _RateLimitConverter().fromHeaders(headers);
 
-  factory RateLimit.fromJson(Map<String, Object?> json) =>
-      _$RateLimitFromJson(json);
+  factory RateLimit.unlimited() => RateLimit._(
+        limitCount: -1,
+        remainingCount: -1,
+        policy: RateLimitPolicy(
+          limit: -1,
+          window: Duration.zero,
+        ),
+        resetAt: DateTime(0),
+        enabled: false,
+      );
 
-  DateTime get resetAt => createdAt.add(Duration(seconds: resetInSeconds));
+  final int limitCount;
+  final int remainingCount;
+  final DateTime resetAt;
+  final RateLimitPolicy policy;
+
+  final bool _enabled;
 
   /// Returns true if the rate limit is exceeded, otherwise false.
-  bool get isExceeded => remainingCount <= 0;
+  bool get isExceeded => _enabled ? remainingCount <= 0 : false;
 
   /// Returns true if the rate limit is not exceeded, otherwise false.
-  bool get isNotExceeded => remainingCount > 0;
+  bool get isNotExceeded => !isExceeded;
 }
 
-class _RateLimitPolicyConverter
-    implements JsonConverter<RateLimitPolicy, String> {
+class _RateLimitConverter {
+  const _RateLimitConverter();
+
+  RateLimit fromHeaders(final Map<String, String> headers) =>
+      _hasRateLimits(headers) ? _toRateLimit(headers) : RateLimit.unlimited();
+
+  RateLimit _toRateLimit(final Map<String, String> headers) => RateLimit._(
+        limitCount: int.parse(headers['RateLimit-Limit']!),
+        remainingCount: int.parse(headers['RateLimit-Remaining']!),
+        policy: const _RateLimitPolicyConverter().fromHeaders(headers),
+        resetAt: HttpDate.parse(headers['date']!).add(
+          Duration(seconds: int.parse(headers['RateLimit-Reset']!)),
+        ),
+        enabled: true,
+      );
+
+  /// Returns true if [headers] has information about rate limit,
+  /// otherwise false.
+  bool _hasRateLimits(final Map<String, String> headers) =>
+      headers.containsKey('RateLimit-Limit') &&
+      headers.containsKey('RateLimit-Remaining') &&
+      headers.containsKey('RateLimit-Reset') &&
+      headers.containsKey('RateLimit-Policy');
+}
+
+class _RateLimitPolicyConverter {
   const _RateLimitPolicyConverter();
 
-  @override
-  RateLimitPolicy fromJson(String json) {
-    final segments = json.split(';');
+  RateLimitPolicy fromHeaders(final Map<String, String> headers) {
+    final segments = headers['RateLimit-Policy']!.split(';');
 
     return RateLimitPolicy(
       limit: int.parse(segments[0]),
       window: Duration(seconds: int.parse(segments[1].split('=')[1])),
     );
   }
-
-  @override
-  String toJson(RateLimitPolicy object) => '${object.limit};w=${object.window}';
 }
