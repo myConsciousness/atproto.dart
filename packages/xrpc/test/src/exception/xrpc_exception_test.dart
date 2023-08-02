@@ -4,9 +4,9 @@
 
 // 📦 Package imports:
 import 'package:test/test.dart';
-import 'package:xrpc/src/entities/rate_limit.dart';
 
 // 🌎 Project imports:
+import 'package:xrpc/src/entities/rate_limit.dart';
 import 'package:xrpc/src/exception/xrpc_exception.dart';
 import 'package:xrpc/src/http_method.dart';
 import 'package:xrpc/src/http_status.dart';
