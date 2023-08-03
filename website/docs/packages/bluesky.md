@@ -345,6 +345,10 @@ if (rateLimit.isExceeded) {
 }
 ```
 
+:::caution
+Rate limits per endpoint must be properly handled. If the request is sent again while the rate limit is exceeded, the HTTP status will always be `429 Too Many Requests` and a [RateLimitExceededException](https://pub.dev/documentation/xrpc/latest/xrpc/RateLimitExceededException-class.html) will be thrown.
+:::
+
 :::tip
 Some API endpoints have rate limits enabled, while others do not.
 This depends on the authentication method and the characteristics of each endpoint,
