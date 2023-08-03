@@ -17,6 +17,7 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 // 🌎 Project imports:
 import 'client_types.dart';
 import 'entities/empty_data.dart';
+import 'entities/rate_limit.dart';
 import 'exception/internal_server_error_exception.dart';
 import 'exception/invalid_request_exception.dart';
 import 'exception/rate_limit_exceeded_exception.dart';
@@ -382,6 +383,7 @@ XRPCResponse<Subscription<T>> subscribe<T>(
       method: HttpMethod.get,
       url: uri,
     ),
+    rateLimit: RateLimit.unlimited(),
     data: Subscription(
       channel: channel,
       controller: controller,
@@ -492,6 +494,7 @@ XRPCResponse<T> _buildResponse<T>(
         method: HttpMethod.valueOf(response.request!.method),
         url: response.request!.url,
       ),
+      rateLimit: RateLimit.fromHeaders(response.headers),
       data: _transformData(
         adaptor != null
             ? jsonEncode(adaptor.call(response.bodyBytes))

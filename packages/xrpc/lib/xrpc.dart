@@ -5,6 +5,8 @@
 export 'package:nsid/nsid.dart' show NSID;
 export 'package:xrpc/src/client_types.dart';
 export 'package:xrpc/src/entities/empty_data.dart';
+export 'package:xrpc/src/entities/rate_limit.dart';
+export 'package:xrpc/src/entities/rate_limit_policy.dart';
 export 'package:xrpc/src/exception/internal_server_error_exception.dart';
 export 'package:xrpc/src/exception/invalid_request_exception.dart';
 export 'package:xrpc/src/exception/rate_limit_exceeded_exception.dart';

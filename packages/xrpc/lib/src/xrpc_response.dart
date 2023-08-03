@@ -4,6 +4,7 @@
 
 // 🌎 Project imports:
 import './http_status.dart';
+import 'entities/rate_limit.dart';
 import 'xrpc_request.dart';
 
 /// The class represents the response from ATP server.
@@ -13,6 +14,7 @@ class XRPCResponse<D> {
     required this.headers,
     required this.status,
     required this.request,
+    required this.rateLimit,
     required this.data,
   });
 
@@ -24,6 +26,9 @@ class XRPCResponse<D> {
 
   /// The request that generated this response.
   final XRPCRequest request;
+
+  /// The rate limit.
+  final RateLimit rateLimit;
 
   /// The response data.
   final D data;
@@ -37,6 +42,7 @@ class XRPCResponse<D> {
       ..write('XRPCResponse(')
       ..write('headers: $headers, ')
       ..write('status: ${status.code}, ')
+      ..write('rateLimit: $rateLimit, ')
       ..write('data: $data')
       ..write(')');
 

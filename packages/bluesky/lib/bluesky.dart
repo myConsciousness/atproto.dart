@@ -112,6 +112,8 @@ export 'package:atproto_core/atproto_core.dart'
         XRPCRequest,
         XRPCError,
         $XRPCErrorCopyWith,
+        RateLimit,
+        RateLimitPolicy,
         Protocol,
         Subscription,
         EmptyData,

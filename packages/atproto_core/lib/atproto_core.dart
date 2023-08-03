@@ -26,6 +26,8 @@ export 'package:xrpc/xrpc.dart'
         XRPCRequest,
         XRPCError,
         $XRPCErrorCopyWith,
+        RateLimit,
+        RateLimitPolicy,
         Subscription,
         Protocol,
         To,
