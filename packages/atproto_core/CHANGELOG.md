@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.6
+
+- Upgraded `xrpc` and exposed `RateLimit` and `RateLimitPolicy` objects. ([#636](https://github.com/myConsciousness/atproto.dart/issues/636))
+
 ## v0.4.5
 
 - Export useful `ids`  and `annotations` as const. ([#606](https://github.com/myConsciousness/atproto.dart/issues/606))

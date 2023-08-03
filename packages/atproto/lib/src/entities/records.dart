@@ -21,6 +21,9 @@ class Records with _$Records {
   const factory Records({
     /// The list of [Record] objects.
     required List<Record> records,
+
+    /// The pagination cursor.
+    String? cursor,
   }) = _Records;
 
   /// Creates a new instance of [Records] from a JSON object.

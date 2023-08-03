@@ -17,6 +17,7 @@ void main() {
         method: HttpMethod.get,
         url: Uri.https('bsky.social'),
       ),
+      rateLimit: RateLimit.unlimited(),
       data: XRPCError(error: 'error', message: 'error'),
     );
 
@@ -37,12 +38,16 @@ void main() {
         method: HttpMethod.get,
         url: Uri.https('bsky.social'),
       ),
+      rateLimit: RateLimit.unlimited(),
       data: 'test',
     );
 
     expect(
       response.toString(),
-      'XRPCResponse(headers: {test: test}, status: 200, data: test)',
+      'XRPCResponse(headers: {test: test}, status: 200, rateLimit: '
+      'RateLimit(limitCount: -1, remainingCount: -1, resetAt: 0000-01-01 '
+      '00:00:00.000, policy: RateLimitPolicy(limitCount: -1, '
+      'window: 0:00:00.000000)), data: test)',
     );
   });
 }

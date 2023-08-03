@@ -23,6 +23,9 @@ mixin _$Records {
   /// The list of [Record] objects.
   List<Record> get records => throw _privateConstructorUsedError;
 
+  /// The pagination cursor.
+  String? get cursor => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RecordsCopyWith<Records> get copyWith => throw _privateConstructorUsedError;
@@ -33,7 +36,7 @@ abstract class $RecordsCopyWith<$Res> {
   factory $RecordsCopyWith(Records value, $Res Function(Records) then) =
       _$RecordsCopyWithImpl<$Res, Records>;
   @useResult
-  $Res call({List<Record> records});
+  $Res call({List<Record> records, String? cursor});
 }
 
 /// @nodoc
@@ -50,12 +53,17 @@ class _$RecordsCopyWithImpl<$Res, $Val extends Records>
   @override
   $Res call({
     Object? records = null,
+    Object? cursor = freezed,
   }) {
     return _then(_value.copyWith(
       records: null == records
           ? _value.records
           : records // ignore: cast_nullable_to_non_nullable
               as List<Record>,
+      cursor: freezed == cursor
+          ? _value.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -67,7 +75,7 @@ abstract class _$$_RecordsCopyWith<$Res> implements $RecordsCopyWith<$Res> {
       __$$_RecordsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Record> records});
+  $Res call({List<Record> records, String? cursor});
 }
 
 /// @nodoc
@@ -81,12 +89,17 @@ class __$$_RecordsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? records = null,
+    Object? cursor = freezed,
   }) {
     return _then(_$_Records(
       records: null == records
           ? _value._records
           : records // ignore: cast_nullable_to_non_nullable
               as List<Record>,
+      cursor: freezed == cursor
+          ? _value.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -94,7 +107,8 @@ class __$$_RecordsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Records implements _Records {
-  const _$_Records({required final List<Record> records}) : _records = records;
+  const _$_Records({required final List<Record> records, this.cursor})
+      : _records = records;
 
   factory _$_Records.fromJson(Map<String, dynamic> json) =>
       _$$_RecordsFromJson(json);
@@ -110,9 +124,13 @@ class _$_Records implements _Records {
     return EqualUnmodifiableListView(_records);
   }
 
+  /// The pagination cursor.
+  @override
+  final String? cursor;
+
   @override
   String toString() {
-    return 'Records(records: $records)';
+    return 'Records(records: $records, cursor: $cursor)';
   }
 
   @override
@@ -120,13 +138,14 @@ class _$_Records implements _Records {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Records &&
-            const DeepCollectionEquality().equals(other._records, _records));
+            const DeepCollectionEquality().equals(other._records, _records) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_records));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_records), cursor);
 
   @JsonKey(ignore: true)
   @override
@@ -143,7 +162,8 @@ class _$_Records implements _Records {
 }
 
 abstract class _Records implements Records {
-  const factory _Records({required final List<Record> records}) = _$_Records;
+  const factory _Records(
+      {required final List<Record> records, final String? cursor}) = _$_Records;
 
   factory _Records.fromJson(Map<String, dynamic> json) = _$_Records.fromJson;
 
@@ -151,6 +171,10 @@ abstract class _Records implements Records {
 
   /// The list of [Record] objects.
   List<Record> get records;
+  @override
+
+  /// The pagination cursor.
+  String? get cursor;
   @override
   @JsonKey(ignore: true)
   _$$_RecordsCopyWith<_$_Records> get copyWith =>

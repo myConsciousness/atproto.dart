@@ -13,7 +13,7 @@ description: API wrapper for Bluesky things.
 - **[GitHub](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky)**
 
 :::info
-You can see more details about **[atproto section](./atproto.md)**.
+If you are having trouble implementing **RichText** in the Bluesky API, check out **[bluesky_text](./bluesky_text.md)**!
 :::
 
 ## Features ⭐
@@ -60,7 +60,7 @@ flutter pub get
 
 ### Import
 
-Just by writing following one-line import, you can use all the features provided by **[bluesky](https://pub.dev/packages/bluesky)**.
+Just by writing following one-line import, you can use all endpoints provided by **[bluesky](https://pub.dev/packages/bluesky)**.
 
 ```dart
 import 'package:bluesky/bluesky.dart';
@@ -279,6 +279,87 @@ Also, the following exceptions may be thrown due to temporary network failures.
 Exceptions with `Retriable` set to ✅ are subject to **[automatic retry](#advanced-built-in-retry)**. Exceptions with ❌ cannot be retried.
 :::
 
+### Rate Limits
+
+As with Web APIs in general, there is a rate limit for the AT Protocol and Bluesky API.
+The main purpose of setting a rate limit for the API is to prevent excessive requests to the server due to API abuse and to discourage spammy behavior.
+
+Rate limits in the AT Protocol are defined in a common specification for the protocol and are set and you can easily access this information as follows.
+
+```dart
+import 'package:bluesky/bluesky.dart' as bsky;
+
+Future<void> main() async {
+  final bluesky = bsky.Bluesky.fromSession(await _session);
+
+  final response = await bluesky.feeds.findTimeline();
+
+  // This is rate limit!
+  print(response.rateLimit);
+
+  final rateLimit = response.rateLimit;
+
+  // Available properties.
+  print(rateLimit.limitCount);
+  print(rateLimit.remainingCount);
+  print(rateLimit.resetAt);
+  print(rateLimit.policy);
+
+  // When you need to handle rate limits.
+  print(rateLimit.isExceeded);
+  print(rateLimit.isNotExceeded);
+}
+```
+
+As in the example above, the rate limits when using **[bluesky](https://pub.dev/packages/bluesky)** are **_always_** accessible from **[XRPCResponse](https://pub.dev/documentation/xrpc/latest/xrpc/XRPCResponse-class.html)**.
+In more detail, rate limit information is read from the HTTP response headers returned by the ATP server and can be accessed via the `rateLimit` property of the **[XRPCResponse](https://pub.dev/documentation/xrpc/latest/xrpc/XRPCResponse-class.html)** as a **[RateLimit](https://pub.dev/documentation/xrpc/latest/xrpc/RateLimit-class.html)** object.
+
+The following properties are available from the **[RateLimit](https://pub.dev/documentation/xrpc/latest/xrpc/RateLimit-class.html)** object, which are needed to determine the rate limit for the application.
+
+| Property           | HTTP Header           | Description                                           |
+| ------------------ | --------------------- | ----------------------------------------------------- |
+| **limitCount**     | `RateLimit-Limit`     | Maximum number of allowed requests.                   |
+| **remainingCount** | `RateLimit-Remaining` | Number of requests that can still be made.            |
+| **resetAt**        | `RateLimit-Reset`     | The time when the rate limit will reset.              |
+| **policy**         | `RateLimit-Policy`    | The rate limit policy being applied like `100;w=300`. |
+
+The properties for each rate limit as shown in the table above are very intuitive and easy to understand.
+
+Slightly different from the HTTP Header information is the `resetAt` property. This is the date and time the rate limit is reset, **not the number of seconds until the rate limit is reset**.
+The date and time of the `resetAt` is calculated using the date and time when the response was created in GMT format in the `date` field given in the HTTP response header.
+In other words, the value of the `resetAt` property is the sum of **_date + RateLimit-Reset_** given in the HTTP response headers.
+
+With all this out of the way, you can easily handle rate limits in the following way.
+
+```dart
+final rateLimit = response.rateLimit;
+
+if (rateLimit.isExceeded) {
+  final now = DateTime.now().toUtc();
+
+  // Calculate waiting time from the current time and resetAt.
+  final difference = rateLimit.resetAt.difference(now);
+
+  // Wait until rate limits are reset.
+  await Future.delayed(difference);
+}
+```
+
+:::caution
+Rate limits per endpoint must be properly handled. If the request is sent again while the rate limit is exceeded, the HTTP status will always be `429 Too Many Requests` and a [RateLimitExceededException](https://pub.dev/documentation/xrpc/latest/xrpc/RateLimitExceededException-class.html) will be thrown.
+:::
+
+:::tip
+Some API endpoints have rate limits enabled, while others do not.
+This depends on the authentication method and the characteristics of each endpoint,
+but **[XRPCResponse](https://pub.dev/documentation/xrpc/latest/xrpc/XRPCResponse-class.html)** **_always_** sets the **[RateLimit](https://pub.dev/documentation/xrpc/latest/xrpc/RateLimit-class.html)** object, even for endpoints that do not have rate limiting enabled.
+
+So you might ask what happens if you run the `.isExceeded` property with **[RateLimit](https://pub.dev/documentation/xrpc/latest/xrpc/RateLimit-class.html)** taken from an endpoint that does not have a rate limit in effect?
+**_Nothing to worry about_**. The **[RateLimit](https://pub.dev/documentation/xrpc/latest/xrpc/RateLimit-class.html)** object internally has a flag to indicate whether the rate limit is enabled or not.
+
+That is, **[RateLimit](https://pub.dev/documentation/xrpc/latest/xrpc/RateLimit-class.html)** object returned from an endpoint with no rate limit will be set as **_unlimited_**, and the `isExceeded` property will always return `false`.
+:::
+
 ### Union Types
 
 Since AT Protocol's Lexicon supports the Union type, there are several endpoints where multiple JSONs of different structures are returned at once. However, since Dart does not currently support Union as a language specification, there have been difficulties in marshaling JSON for this Union structure.
@@ -492,4 +573,54 @@ void main() {
 
 :::note
 These ID constants are automatically maintained when a new Lexicon is officially added. [See script](https://github.com/myConsciousness/atproto.dart/blob/main/bin/generate_lexicon_ids.dart).
+:::
+
+### Pagination
+
+Pagination in the AT Protocol is designed to be performed using `cursor`. `cursor` is a string indicating the beginning of the next page, and is returned by the ATP server if the next page exists.
+
+:::note
+For more details about design of pagination and `cursor` in the AT Protocol, [see official](https://atproto.com/specs/xrpc#cursors-and-pagination).
+:::
+
+**[bluesky](https://pub.dev/packages/bluesky)** also follows the common design of AT Protocol and allows paging by using `cursor`. It can be easily implemented as in the following example.
+
+```dart
+import 'package:bluesky/bluesky.dart' as bsky;
+
+Future<void> main() async {
+  final bluesky = bsky.Bluesky.fromSession(await _session);
+
+  // Pagination is performed on a per-cursor basis.
+  String? nextCursor;
+
+  do {
+    final actors = await bluesky.actors.searchActors(
+      term: 'alf',
+      cursor: nextCursor, // If null, it is ignored.
+    );
+
+    for (final actor in actors.data.actors) {
+      print(actor);
+    }
+
+    // Update pagination cursor.
+    nextCursor = actors.data.cursor;
+  } while (nextCursor != null); // If there is no next page, it ends.
+}
+```
+
+:::tip
+Endpoints that can be paged can be seen in [this matrix](../api_support_matrix.md#bluesky).
+:::
+
+This example is a very simple implementation, but it allows us to see pagination using **[bluesky](https://pub.dev/packages/bluesky)**.
+
+Whenever a method corresponding to a pagination-available endpoint is executed, the `cursor` is always present in the root of the response data, like `actors.data.cursor` above.
+If the next page does not exist, `cursor` is basically `null`.
+
+:::danger
+However, depending on the pagination endpoint, an invalid `cursor` may be returned even though the next page does not exist.
+In such a case, an exit condition that only looks at the state of the `cursor` as in the previous example may lead to an infinite loop.
+Implement appropriate termination conditions for each application.
 :::
