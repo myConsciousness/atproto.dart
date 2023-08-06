@@ -24,7 +24,7 @@ abstract class _Service {
     final xrpc.ResponseAdaptor? adaptor,
   });
 
-  Pagination paginate<T extends Pageable>(
+  Pagination<T> paginate<T extends Pageable>(
     final String methodName, {
     final UserContext userContext = UserContext.authRequired,
     required final Map<String, dynamic> parameters,
@@ -113,7 +113,7 @@ abstract class BaseService implements _Service {
       );
 
   @override
-  Pagination paginate<T extends Pageable>(
+  Pagination<T> paginate<T extends Pageable>(
     final String methodName, {
     final UserContext userContext = UserContext.authRequired,
     required final Map<String, dynamic> parameters,

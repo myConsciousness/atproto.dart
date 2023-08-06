@@ -9,27 +9,12 @@ import 'dart:typed_data';
 // 📦 Package imports:
 import 'package:xrpc/xrpc.dart' as xrpc;
 
-// 🌎 Project imports:
-import '../pagination/pageable.dart';
-import '../pagination/pagination.dart';
-
 abstract class Client {
   Future<xrpc.XRPCResponse<T>> get<T>(
     final xrpc.NSID methodId, {
     final xrpc.Protocol? protocol,
     required final String service,
     final Map<String, dynamic>? parameters,
-    final xrpc.To<T>? to,
-    final xrpc.ResponseAdaptor? adaptor,
-    required final Duration timeout,
-    final xrpc.GetClient? getClient,
-  });
-
-  Pagination paginate<T extends Pageable>(
-    final xrpc.NSID methodId, {
-    final xrpc.Protocol? protocol,
-    required final String service,
-    required final Map<String, dynamic> parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
     required final Duration timeout,

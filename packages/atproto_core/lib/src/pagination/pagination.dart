@@ -6,6 +6,8 @@
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // 🌎 Project imports:
+import '../client/challenge.dart';
+import '../client/client.dart';
 import 'pageable.dart';
 
 /// Pagination class for paginating through items that extend `Pageable`.
@@ -17,20 +19,22 @@ class Pagination<T extends Pageable> {
   ///
   /// The [parameters] map must contain a 'cursor' key.
   Pagination(
+    final Client client,
+    final Challenge challenge,
     final xrpc.NSID methodId, {
     final xrpc.Protocol? protocol,
     required final String service,
-    final Map<String, String>? headers,
     required final Map<String, dynamic> parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
     required final Duration timeout,
     final xrpc.GetClient? getClient,
   })  : assert(parameters.containsKey('cursor')),
+        _client = client,
+        _challenge = challenge,
         _methodId = methodId,
         _protocol = protocol ?? xrpc.Protocol.https,
         _service = service,
-        _headers = headers,
         _parameters = parameters,
         _to = to,
         _adaptor = adaptor,
@@ -39,10 +43,12 @@ class Pagination<T extends Pageable> {
     _nextCursor = _parameters['cursor'];
   }
 
+  final Client _client;
+  final Challenge _challenge;
+
   final xrpc.NSID _methodId;
   final xrpc.Protocol _protocol;
   final String _service;
-  final Map<String, String>? _headers;
   final Map<String, dynamic> _parameters;
   final xrpc.To<T>? _to;
   final xrpc.ResponseAdaptor? _adaptor;
@@ -57,19 +63,21 @@ class Pagination<T extends Pageable> {
   /// This method fetches the next page and updates the next cursor.
   /// It returns a `Future` of `XRPCResponse<T>`.
   Future<xrpc.XRPCResponse<T>> next() async {
-    final next = await xrpc.query<T>(
-      _methodId,
-      protocol: _protocol,
-      service: _service,
-      parameters: {
-        ..._parameters,
-        'cursor': _nextCursor,
-      },
-      headers: _headers,
-      to: _to,
-      adaptor: _adaptor,
-      timeout: _timeout,
-      getClient: _getClient,
+    final next = await _challenge.execute(
+      _client,
+      (client) async => await _client.get(
+        _methodId,
+        protocol: _protocol,
+        service: _service,
+        parameters: {
+          ..._parameters,
+          'cursor': _nextCursor,
+        },
+        to: _to,
+        adaptor: _adaptor,
+        timeout: _timeout,
+        getClient: _getClient,
+      ),
     );
 
     _nextCursor = next.data.cursor;

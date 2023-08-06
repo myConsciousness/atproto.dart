@@ -42,7 +42,7 @@ abstract class ClientContext {
     final xrpc.GetClient? getClient,
   });
 
-  Pagination paginate<T extends Pageable>(
+  Pagination<T> paginate<T extends Pageable>(
     final xrpc.NSID methodId, {
     required UserContext userContext,
     final xrpc.Protocol? protocol,
@@ -131,7 +131,7 @@ class _ClientContext implements ClientContext {
       );
 
   @override
-  Pagination paginate<T extends Pageable>(
+  Pagination<T> paginate<T extends Pageable>(
     final xrpc.NSID methodId, {
     required UserContext userContext,
     final xrpc.Protocol? protocol,
@@ -141,18 +141,17 @@ class _ClientContext implements ClientContext {
     final xrpc.ResponseAdaptor? adaptor,
     final xrpc.GetClient? getClient,
   }) =>
-      _challenge.execute(
+      Pagination(
         _clientResolver.execute(userContext),
-        (client) => client.paginate(
-          methodId,
-          protocol: protocol,
-          service: service,
-          parameters: parameters,
-          to: to,
-          adaptor: adaptor,
-          timeout: timeout,
-          getClient: getClient,
-        ),
+        _challenge,
+        methodId,
+        protocol: protocol,
+        service: service,
+        parameters: parameters,
+        to: to,
+        adaptor: adaptor,
+        timeout: timeout,
+        getClient: getClient,
       );
 
   @override
