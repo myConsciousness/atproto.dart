@@ -3,6 +3,7 @@
 ## v0.4.6
 
 - Upgraded `xrpc` and exposed `RateLimit` and `RateLimitPolicy` objects. ([#636](https://github.com/myConsciousness/atproto.dart/issues/636))
+- Added `Pagination` object and `paginate` method in `BaseService`. ([#626](https://github.com/myConsciousness/atproto.dart/issues/626))
 
 ## v0.4.5
 

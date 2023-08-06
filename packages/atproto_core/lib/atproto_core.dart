@@ -6,6 +6,8 @@ export 'package:at_uri/at_uri.dart' show AtUri;
 export 'package:atproto_core/src/base_service.dart';
 export 'package:atproto_core/src/car_decoder.dart';
 export 'package:atproto_core/src/client/challenge.dart';
+export 'package:atproto_core/src/pagination/pageable.dart';
+export 'package:atproto_core/src/pagination/pagination.dart';
 export 'package:atproto_core/src/client/client_context.dart';
 export 'package:atproto_core/src/client/jitter.dart';
 export 'package:atproto_core/src/client/retry_event.dart';

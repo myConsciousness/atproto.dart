@@ -3,10 +3,8 @@
 // modification, are permitted provided the conditions.
 
 abstract class Pageable {
-  /// Returns the new instance of [Pageable].
-  const Pageable();
+  const Pageable(this.cursor);
 
-  /// Returns the pagination cursor if there is a next page,
-  /// otherwise null.
-  String? get cursor;
+  /// Returns the next cursor;
+  final String? cursor;
 }

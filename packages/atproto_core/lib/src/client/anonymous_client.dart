@@ -9,6 +9,8 @@ import 'dart:typed_data';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // 🌎 Project imports:
+import '../pagination/pageable.dart';
+import '../pagination/pagination.dart';
 import 'client.dart';
 
 class AnonymousClient implements Client {
@@ -29,6 +31,28 @@ class AnonymousClient implements Client {
       await xrpc.query(
         methodId,
         protocol: protocol ?? xrpc.Protocol.https,
+        service: service,
+        parameters: parameters,
+        to: to,
+        adaptor: adaptor,
+        timeout: timeout,
+        getClient: getClient,
+      );
+
+  @override
+  Pagination paginate<T extends Pageable>(
+    final xrpc.NSID methodId, {
+    final xrpc.Protocol? protocol,
+    required final String service,
+    required final Map<String, dynamic> parameters,
+    final xrpc.To<T>? to,
+    final xrpc.ResponseAdaptor? adaptor,
+    required final Duration timeout,
+    final xrpc.GetClient? getClient,
+  }) =>
+      Pagination(
+        methodId,
+        protocol: protocol,
         service: service,
         parameters: parameters,
         to: to,
