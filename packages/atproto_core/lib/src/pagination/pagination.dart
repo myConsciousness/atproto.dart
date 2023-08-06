@@ -49,6 +49,7 @@ class Pagination<T extends Pageable> {
   final Duration _timeout;
   final xrpc.GetClient? _getClient;
 
+  bool _firstRun = true;
   String? _nextCursor;
 
   /// Fetches the next page of items.
@@ -60,7 +61,10 @@ class Pagination<T extends Pageable> {
       _methodId,
       protocol: _protocol,
       service: _service,
-      parameters: _parameters,
+      parameters: {
+        ..._parameters,
+        'cursor': _nextCursor,
+      },
       headers: _headers,
       to: _to,
       adaptor: _adaptor,
@@ -69,6 +73,7 @@ class Pagination<T extends Pageable> {
     );
 
     _nextCursor = next.data.cursor;
+    _firstRun = false;
 
     return next;
   }
@@ -86,7 +91,7 @@ class Pagination<T extends Pageable> {
   /// Indicates whether there is a next item.
   ///
   /// It returns `true` if there is a next item, `false` otherwise.
-  bool get hasNext => _nextCursor != null;
+  bool get hasNext => _firstRun ? true : _nextCursor != null;
 
   /// Indicates whether there is not a next item.
   ///
