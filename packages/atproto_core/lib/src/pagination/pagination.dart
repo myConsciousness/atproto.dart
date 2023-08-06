@@ -49,8 +49,8 @@ class Pagination<T extends Pageable> {
   final Duration _timeout;
   final xrpc.GetClient? _getClient;
 
-  bool _firstRun = true;
   String? _nextCursor;
+  bool _firstRun = true;
 
   /// Fetches the next page of items.
   ///
