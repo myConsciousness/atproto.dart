@@ -12,7 +12,6 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 // 🌎 Project imports:
 import 'client/client_context.dart';
 import 'client/user_context.dart';
-import 'pagination/pageable.dart';
 import 'pagination/pagination.dart';
 
 abstract class _Service {
@@ -24,7 +23,7 @@ abstract class _Service {
     final xrpc.ResponseAdaptor? adaptor,
   });
 
-  Pagination<T> paginate<T extends Pageable>(
+  Pagination<T> paginate<T>(
     final String methodName, {
     final UserContext userContext = UserContext.authRequired,
     required final Map<String, dynamic> parameters,
@@ -113,7 +112,7 @@ abstract class BaseService implements _Service {
       );
 
   @override
-  Pagination<T> paginate<T extends Pageable>(
+  Pagination<T> paginate<T>(
     final String methodName, {
     final UserContext userContext = UserContext.authRequired,
     required final Map<String, dynamic> parameters,

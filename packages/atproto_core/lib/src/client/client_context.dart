@@ -11,7 +11,6 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 
 // 🌎 Project imports:
 import '../config/retry_config.dart';
-import '../pagination/pageable.dart';
 import '../pagination/pagination.dart';
 import 'challenge.dart';
 import 'client_resolver.dart';
@@ -42,7 +41,7 @@ abstract class ClientContext {
     final xrpc.GetClient? getClient,
   });
 
-  Pagination<T> paginate<T extends Pageable>(
+  Pagination<T> paginate<T>(
     final xrpc.NSID methodId, {
     required UserContext userContext,
     final xrpc.Protocol? protocol,
@@ -131,7 +130,7 @@ class _ClientContext implements ClientContext {
       );
 
   @override
-  Pagination<T> paginate<T extends Pageable>(
+  Pagination<T> paginate<T>(
     final xrpc.NSID methodId, {
     required UserContext userContext,
     final xrpc.Protocol? protocol,

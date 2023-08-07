@@ -8,13 +8,12 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 // 🌎 Project imports:
 import '../client/challenge.dart';
 import '../client/client.dart';
-import 'pageable.dart';
 
 /// Pagination class for paginating through items that extend `Pageable`.
 ///
 /// It provides asynchronous operations for moving to the next item,
 /// and checking if the next item exists.
-class Pagination<T extends Pageable> {
+class Pagination<T> {
   /// Creates a Pagination instance.
   ///
   /// The [parameters] map must contain a 'cursor' key.
@@ -80,7 +79,12 @@ class Pagination<T extends Pageable> {
       ),
     );
 
-    _nextCursor = next.data.cursor;
+    if (T == Map<String, dynamic>) {
+      _nextCursor = next.data['cursor'];
+    } else {
+      _nextCursor = next.data.cursor;
+    }
+
     _firstRun = false;
 
     return next;
