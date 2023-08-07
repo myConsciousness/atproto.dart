@@ -116,6 +116,7 @@ export 'package:atproto_core/atproto_core.dart'
         RateLimitPolicy,
         Protocol,
         Subscription,
+        Pagination,
         EmptyData,
         HttpMethod,
         HttpStatus,
