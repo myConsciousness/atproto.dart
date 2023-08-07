@@ -50,6 +50,9 @@ class PostRecord with _$PostRecord {
     /// May include embed details for the post.
     @embedConverter Embed? embed,
 
+    /// Might include any BCP47 language tags the post is written in.
+    List<String>? langs,
+
     /// Might include any associated facets.
     List<Facet>? facets,
 
