@@ -11,6 +11,9 @@
     - `paginateActorsAsJson`
     - `paginateSuggestions`
     - `paginateSuggestionsAsJson`
+  - `NotificationsService`
+    - `paginateNotifications`
+    - `paginateNotificationsAsJson`
 
 ## v0.7.7
 
