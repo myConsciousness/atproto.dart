@@ -25,6 +25,8 @@ _$_PostRecord _$$_PostRecordFromJson(Map json) => $checkedCreate(
               'embed',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, Embed>(
                   v, embedConverter.fromJson)),
+          langs: $checkedConvert('langs',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           facets: $checkedConvert(
               'facets',
               (v) => (v as List<dynamic>?)
@@ -56,6 +58,7 @@ Map<String, dynamic> _$$_PostRecordToJson(_$_PostRecord instance) {
       'embed',
       _$JsonConverterToJson<Map<String, dynamic>, Embed>(
           instance.embed, embedConverter.toJson));
+  writeNotNull('langs', instance.langs);
   writeNotNull('facets', instance.facets?.map((e) => e.toJson()).toList());
   val['createdAt'] = instance.createdAt.toIso8601String();
   return val;
