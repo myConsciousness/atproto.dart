@@ -193,6 +193,54 @@ abstract class FeedsService {
     String? cursor,
   });
 
+  /// Get a pagination for timeline.
+  ///
+  /// ## Parameters
+  ///
+  /// - [algorithm]: Custom Algorithm.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getTimeline
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json
+  core.Pagination<Feed> paginateTimeline({
+    String? algorithm,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a pagination for timeline as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [algorithm]: Custom Algorithm.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getTimeline
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json
+  core.Pagination<Map<String, dynamic>> paginateTimelineAsJson({
+    String? algorithm,
+    int? limit,
+    String? cursor,
+  });
+
   /// Creates a vote.
   ///
   /// ## Parameters
@@ -285,6 +333,54 @@ abstract class FeedsService {
     String? cursor,
   });
 
+  /// Get a pagination for a view of an actor's feed.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getAuthorFeed
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getAuthorFeed.json
+  core.Pagination<Feed> paginateFeed({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a pagination for a view of an actor's feed as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getAuthorFeed
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getAuthorFeed.json
+  core.Pagination<Map<String, dynamic>> paginateFeedAsJson({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
   /// Compose and hydrate a feed from a user's selected feed generator.
   ///
   /// ## Parameters
@@ -335,6 +431,56 @@ abstract class FeedsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeed.json
   Future<core.XRPCResponse<Map<String, dynamic>>> findCustomFeedAsJson({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a pagination for compose and hydrate a feed from a user's
+  /// selected feed generator.
+  ///
+  /// ## Parameters
+  ///
+  /// - [generatorUri]: AT URI of generator to be used.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getFeed
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeed.json
+  core.Pagination<Feed> paginateCustomFeed({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a pagination for compose and hydrate a feed from a user's
+  /// selected feed generator as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [generatorUri]: AT URI of generator to be used.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getFeed
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeed.json
+  core.Pagination<Map<String, dynamic>> paginateCustomFeedAsJson({
     required core.AtUri generatorUri,
     int? limit,
     String? cursor,
@@ -394,6 +540,55 @@ abstract class FeedsService {
     String? cursor,
   });
 
+  /// Get a pagination for a skeleton of a feed provided by a feed generator.
+  ///
+  /// ## Parameters
+  ///
+  /// - [generatorUri]: AT URI of generator to be used.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getFeedSkeleton
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedSkeleton.json
+  core.Pagination<SkeletonFeed> paginateFeedSkeleton({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a pagination for a skeleton of a feed provided by a feed generator
+  /// as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [generatorUri]: AT URI of generator to be used.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getFeedSkeleton
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedSkeleton.json
+  core.Pagination<Map<String, dynamic>> paginateFeedSkeletonAsJson({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  });
+
   /// Retrieve a list of feeds created by a given actor.
   ///
   /// ## Parameters
@@ -443,6 +638,55 @@ abstract class FeedsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorFeeds.json
   Future<core.XRPCResponse<Map<String, dynamic>>> findActorFeedsAsJson({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a pagination for a list of feeds created by a given actor.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getActorFeeds
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorFeeds.json
+  core.Pagination<ActorFeeds> paginateActorFeeds({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a pagination for a list of feeds created by a given actor as JSON
+  /// representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getActorFeeds
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorFeeds.json
+  core.Pagination<Map<String, dynamic>> paginateActorFeedsAsJson({
     required String actor,
     int? limit,
     String? cursor,
@@ -508,6 +752,60 @@ abstract class FeedsService {
     String? cursor,
   });
 
+  /// Returns a pagination for likes of specific post.
+  ///
+  /// ## Parameters
+  ///
+  /// - [uri]: The post uri.
+  ///
+  /// - [cid]: The content id.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getLikes
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getLikes.json
+  core.Pagination<Likes> paginateLikes({
+    required core.AtUri uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination for likes of specific post as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [uri]: The post uri.
+  ///
+  /// - [cid]: The content id.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getLikes
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getLikes.json
+  core.Pagination<Map<String, dynamic>> paginateLikesAsJson({
+    required core.AtUri uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+  });
+
   /// Return the Actor who Reposted the Post of a specific [uri].
   ///
   /// ## Parameters
@@ -563,6 +861,62 @@ abstract class FeedsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getRepostedBy.json
   Future<core.XRPCResponse<Map<String, dynamic>>> findRepostedByAsJson({
+    required core.AtUri uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Return a pagination for the Actor who Reposted the Post of a
+  /// specific [uri].
+  ///
+  /// ## Parameters
+  ///
+  /// - [uri]: The post uri.
+  ///
+  /// - [cid]: The content id.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getRepostedBy
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getRepostedBy.json
+  core.Pagination<RepostedBy> paginateRepostedBy({
+    required core.AtUri uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Return a pagination for the Actor who Reposted the Post of a
+  /// specific [uri] as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [uri]: The post uri.
+  ///
+  /// - [cid]: The content id.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getRepostedBy
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getRepostedBy.json
+  core.Pagination<Map<String, dynamic>> paginateRepostedByAsJson({
     required core.AtUri uri,
     String? cid,
     int? limit,
@@ -949,6 +1303,31 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
+  core.Pagination<Feed> paginateTimeline({
+    String? algorithm,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateTimeline(
+        algorithm: algorithm,
+        limit: limit,
+        cursor: cursor,
+        to: Feed.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateTimelineAsJson({
+    String? algorithm,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateTimeline(
+        algorithm: algorithm,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
   Future<core.XRPCResponse<atp.StrongRef>> createRepost({
     required String cid,
     required core.AtUri uri,
@@ -1056,6 +1435,31 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
+  core.Pagination<Feed> paginateFeed({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateFeed(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+        to: Feed.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateFeedAsJson({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateFeed(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
   Future<core.XRPCResponse<Feed>> findCustomFeed({
     required core.AtUri generatorUri,
     int? limit,
@@ -1075,6 +1479,31 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     String? cursor,
   }) async =>
       await _findCustomFeed(
+        generatorUri: generatorUri,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  core.Pagination<Feed> paginateCustomFeed({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateCustomFeed(
+        generatorUri: generatorUri,
+        limit: limit,
+        cursor: cursor,
+        to: Feed.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateCustomFeedAsJson({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateCustomFeed(
         generatorUri: generatorUri,
         limit: limit,
         cursor: cursor,
@@ -1106,6 +1535,31 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
+  core.Pagination<SkeletonFeed> paginateFeedSkeleton({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateFeedSkeleton(
+        generatorUri: generatorUri,
+        limit: limit,
+        cursor: cursor,
+        to: SkeletonFeed.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateFeedSkeletonAsJson({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateFeedSkeleton(
+        generatorUri: generatorUri,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
   Future<core.XRPCResponse<ActorFeeds>> findActorFeeds({
     required String actor,
     int? limit,
@@ -1125,6 +1579,31 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     String? cursor,
   }) async =>
       await _findActorFeeds(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  core.Pagination<ActorFeeds> paginateActorFeeds({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateActorFeeds(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+        to: ActorFeeds.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateActorFeedsAsJson({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateActorFeeds(
         actor: actor,
         limit: limit,
         cursor: cursor,
@@ -1160,6 +1639,35 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
+  core.Pagination<Likes> paginateLikes({
+    required core.AtUri uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateLikes(
+        uri: uri,
+        cid: cid,
+        limit: limit,
+        cursor: cursor,
+        to: Likes.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateLikesAsJson({
+    required core.AtUri uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateLikes(
+        uri: uri,
+        cid: cid,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
   Future<core.XRPCResponse<RepostedBy>> findRepostedBy({
     required core.AtUri uri,
     String? cid,
@@ -1182,6 +1690,35 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     String? cursor,
   }) async =>
       await _findRepostedBy(
+        uri: uri,
+        cid: cid,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  core.Pagination<RepostedBy> paginateRepostedBy({
+    required core.AtUri uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateRepostedBy(
+        uri: uri,
+        cid: cid,
+        limit: limit,
+        cursor: cursor,
+        to: RepostedBy.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateRepostedByAsJson({
+    required core.AtUri uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateRepostedBy(
         uri: uri,
         cid: cid,
         limit: limit,
@@ -1324,11 +1861,27 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
   }) async =>
       await super.get(
         'getTimeline',
-        parameters: {
-          'algorithm': algorithm,
-          'limit': limit,
-          'cursor': cursor,
-        },
+        parameters: _buildGetTimelineParams(
+          algorithm: algorithm,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateTimeline<T>({
+    required String? algorithm,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getTimeline',
+        parameters: _buildGetTimelineParams(
+          algorithm: algorithm,
+          limit: limit,
+          cursor: cursor,
+        ),
         to: to,
       );
 
@@ -1340,11 +1893,27 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
   }) async =>
       await super.get(
         'getAuthorFeed',
-        parameters: {
-          'actor': actor,
-          'limit': limit,
-          'cursor': cursor,
-        },
+        parameters: _buildGetAuthorFeedParams(
+          actor: actor,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateFeed<T>({
+    required String actor,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getAuthorFeed',
+        parameters: _buildGetAuthorFeedParams(
+          actor: actor,
+          limit: limit,
+          cursor: cursor,
+        ),
         to: to,
       );
 
@@ -1356,11 +1925,27 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
   }) async =>
       await super.get(
         'getFeed',
-        parameters: {
-          'feed': generatorUri.toString(),
-          'limit': limit,
-          'cursor': cursor,
-        },
+        parameters: _buildGetFeedParams(
+          generatorUri: generatorUri,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateCustomFeed<T>({
+    required core.AtUri generatorUri,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getFeed',
+        parameters: _buildGetFeedParams(
+          generatorUri: generatorUri,
+          limit: limit,
+          cursor: cursor,
+        ),
         to: to,
       );
 
@@ -1372,11 +1957,27 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
   }) async =>
       await super.get(
         'getFeedSkeleton',
-        parameters: {
-          'feed': generatorUri.toString(),
-          'limit': limit,
-          'cursor': cursor,
-        },
+        parameters: _buildGetFeedSkeletonParams(
+          generatorUri: generatorUri,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateFeedSkeleton<T>({
+    required core.AtUri generatorUri,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getFeedSkeleton',
+        parameters: _buildGetFeedSkeletonParams(
+          generatorUri: generatorUri,
+          limit: limit,
+          cursor: cursor,
+        ),
         to: to,
       );
 
@@ -1388,11 +1989,27 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
   }) async =>
       await super.get(
         'getActorFeeds',
-        parameters: {
-          'actor': actor,
-          'limit': limit,
-          'cursor': cursor,
-        },
+        parameters: _buildGetActorFeedsParams(
+          actor: actor,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateActorFeeds<T>({
+    required String actor,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getActorFeeds',
+        parameters: _buildGetActorFeedsParams(
+          actor: actor,
+          limit: limit,
+          cursor: cursor,
+        ),
         to: to,
       );
 
@@ -1405,12 +2022,30 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
   }) async =>
       await super.get(
         'getLikes',
-        parameters: {
-          'uri': uri,
-          'cid': cid,
-          'limit': limit,
-          'cursor': cursor,
-        },
+        parameters: _buildGetLikes(
+          uri: uri,
+          cid: cid,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateLikes<T>({
+    required core.AtUri uri,
+    required String? cid,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getLikes',
+        parameters: _buildGetLikes(
+          uri: uri,
+          cid: cid,
+          limit: limit,
+          cursor: cursor,
+        ),
         to: to,
       );
 
@@ -1423,12 +2058,30 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
   }) async =>
       await super.get(
         'getRepostedBy',
-        parameters: {
-          'uri': uri,
-          'cid': cid,
-          'limit': limit,
-          'cursor': cursor,
-        },
+        parameters: _buildGetRepostedBy(
+          uri: uri,
+          cid: cid,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateRepostedBy<T>({
+    required core.AtUri uri,
+    required String? cid,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getRepostedBy',
+        parameters: _buildGetRepostedBy(
+          uri: uri,
+          cid: cid,
+          limit: limit,
+          cursor: cursor,
+        ),
         to: to,
       );
 
@@ -1491,4 +2144,85 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
         'describeFeedGenerator',
         to: to,
       );
+
+  Map<String, dynamic> _buildGetTimelineParams({
+    required String? algorithm,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'algorithm': algorithm,
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildGetAuthorFeedParams({
+    required String actor,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'actor': actor,
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildGetFeedParams({
+    required core.AtUri generatorUri,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'feed': generatorUri.toString(),
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildGetFeedSkeletonParams({
+    required core.AtUri generatorUri,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'feed': generatorUri.toString(),
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildGetActorFeedsParams({
+    required String actor,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'actor': actor,
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildGetLikes({
+    required core.AtUri uri,
+    required String? cid,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'uri': uri,
+        'cid': cid,
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildGetRepostedBy({
+    required core.AtUri uri,
+    required String? cid,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'uri': uri,
+        'cid': cid,
+        'limit': limit,
+        'cursor': cursor,
+      };
 }

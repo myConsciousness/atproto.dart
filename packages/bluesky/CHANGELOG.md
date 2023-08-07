@@ -11,6 +11,21 @@
     - `paginateActorsAsJson`
     - `paginateSuggestions`
     - `paginateSuggestionsAsJson`
+  - `FeedsService`
+    - `paginateTimeline`
+    - `paginateTimelineAsJson`
+    - `paginateFeed`
+    - `paginateFeedAsJson`
+    - `paginateCustomFeed`
+    - `paginateCustomFeedAsJson`
+    - `paginateFeedSkeleton`
+    - `paginateFeedSkeletonAsJson`
+    - `paginateActorFeeds`
+    - `paginateActorFeedsAsJson`
+    - `paginateLikes`
+    - `paginateLikesAsJson`
+    - `paginateRepostedBy`
+    - `paginateRepostedByAsJson`
   - `NotificationsService`
     - `paginateNotifications`
     - `paginateNotificationsAsJson`
