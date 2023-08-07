@@ -78,6 +78,49 @@ abstract class NotificationsService {
     String? cursor,
   });
 
+  /// Returns a pagination for notifications authenticated user received.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.notification.listNotifications
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/listNotifications.json
+  core.Pagination<Notifications> paginateNotifications({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination for notifications authenticated user received
+  /// as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.notification.listNotifications
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/listNotifications.json
+  core.Pagination<Map<String, dynamic>> paginateNotificationsAsJson({
+    int? limit,
+    String? cursor,
+  });
+
   /// Returns unread notifications count.
   ///
   /// ## Lexicon
@@ -159,6 +202,27 @@ class _NotificationsService extends BlueskyBaseService
       );
 
   @override
+  core.Pagination<Notifications> paginateNotifications({
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateNotifications(
+        limit: limit,
+        cursor: cursor,
+        to: Notifications.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateNotificationsAsJson({
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateNotifications(
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
   Future<core.XRPCResponse<Count>> findUnreadCount() async =>
       await _findUnreadCount(to: Count.fromJson);
 
@@ -184,10 +248,24 @@ class _NotificationsService extends BlueskyBaseService
   }) async =>
       await super.get(
         'listNotifications',
-        parameters: {
-          'limit': limit,
-          'cursor': cursor,
-        },
+        parameters: _buildListNotificationsParams(
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateNotifications<T>({
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'listNotifications',
+        parameters: _buildListNotificationsParams(
+          limit: limit,
+          cursor: cursor,
+        ),
         to: to,
       );
 
@@ -198,4 +276,13 @@ class _NotificationsService extends BlueskyBaseService
         'getUnreadCount',
         to: to,
       );
+
+  Map<String, dynamic> _buildListNotificationsParams({
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'limit': limit,
+        'cursor': cursor,
+      };
 }
