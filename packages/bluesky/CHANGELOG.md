@@ -14,6 +14,11 @@
   - `NotificationsService`
     - `paginateNotifications`
     - `paginateNotificationsAsJson`
+  - `UnspeccedService`
+    - `paginatePopularFeed`
+    - `paginatePopularFeedAsJson`
+    - `paginatePopularFeedGenerators`
+    - `paginatePopularFeedGeneratorsAsJson`
 
 ## v0.7.7
 
