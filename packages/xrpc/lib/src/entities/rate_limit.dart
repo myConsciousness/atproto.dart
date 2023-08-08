@@ -63,6 +63,26 @@ class RateLimit {
   /// If there is no rate limits, it always returns true.
   bool get isNotExceeded => !isExceeded;
 
+  /// A utility function to wait until certain conditions related to rate
+  /// limits are reset.
+  ///
+  /// If the current state is not exceeded, the function will return
+  /// immediately with `false`. Otherwise, it will delay the execution until the
+  /// specified reset time and will return `true`.
+  Future<bool> waitUntilReset() async {
+    if (isNotExceeded) {
+      //! No need to wait.
+      return false;
+    }
+
+    //! Wait until rate limits are reset.
+    await Future.delayed(
+      resetAt.difference(DateTime.now().toUtc()),
+    );
+
+    return true;
+  }
+
   @override
   String toString() {
     final buffer = StringBuffer()

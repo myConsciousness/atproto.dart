@@ -3,6 +3,8 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'dart:io';
+
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
@@ -61,6 +63,44 @@ void main() {
 
       expect(rateLimit.isExceeded, isFalse);
       expect(rateLimit.isNotExceeded, isTrue);
+    });
+  });
+
+  group('.waitUntilWait', () {
+    test('when need to wait', () async {
+      final now = DateTime.now().toUtc();
+
+      final rateLimit = RateLimit.fromHeaders({
+        'date': HttpDate.format(now),
+        'RateLimit-Limit': '1000',
+        'RateLimit-Remaining': '0',
+        //! Assumes a margin of error of a few milliseconds.
+        'RateLimit-Reset': '11',
+        'RateLimit-Policy': '100;w=300',
+      });
+
+      final result = await rateLimit.waitUntilReset();
+
+      final waitedInSeconds = DateTime.now().toUtc().difference(now).inSeconds;
+      expect(waitedInSeconds, 10); //! About 10998 milliseconds.
+
+      expect(result, isTrue);
+    });
+
+    test('when not need to wait', () async {
+      final now = DateTime.now().toUtc();
+
+      final rateLimit = RateLimit.fromHeaders({
+        'date': HttpDate.format(now),
+        'RateLimit-Limit': '1000',
+        'RateLimit-Remaining': '1',
+        'RateLimit-Reset': '10',
+        'RateLimit-Policy': '100;w=300',
+      });
+
+      final result = await rateLimit.waitUntilReset();
+
+      expect(result, isFalse);
     });
   });
 }
