@@ -110,13 +110,29 @@ void main() {
       expect(result, isTrue);
     });
 
-    test('when not need to wait', () async {
+    test('when not need to wait due to remaining', () async {
       final now = DateTime.now().toUtc();
 
       final rateLimit = RateLimit.fromHeaders({
         'date': HttpDate.format(now),
         'RateLimit-Limit': '1000',
         'RateLimit-Remaining': '1',
+        'RateLimit-Reset': '10',
+        'RateLimit-Policy': '100;w=300',
+      });
+
+      final result = await rateLimit.waitUntilReset();
+
+      expect(result, isFalse);
+    });
+
+    test('when not need to wait due to resetAt (past)', () async {
+      final now = DateTime.now().toUtc().add(Duration(days: -1));
+
+      final rateLimit = RateLimit.fromHeaders({
+        'date': HttpDate.format(now),
+        'RateLimit-Limit': '1000',
+        'RateLimit-Remaining': '0',
         'RateLimit-Reset': '10',
         'RateLimit-Policy': '100;w=300',
       });
