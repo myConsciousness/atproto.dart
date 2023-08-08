@@ -362,6 +362,10 @@ Future<void> main() async {
   // When you need to handle rate limits.
   print(rateLimit.isExceeded);
   print(rateLimit.isNotExceeded);
+
+  // It waits until the rate limit is reset based on resetAt.
+  // If the rate limit is not exceeded, return immediately.
+  await rateLimit.waitUntilReset();
 }
 ```
 
@@ -389,13 +393,8 @@ With all this out of the way, you can easily handle rate limits in the following
 final rateLimit = response.rateLimit;
 
 if (rateLimit.isExceeded) {
-  final now = DateTime.now().toUtc();
-
-  // Calculate waiting time from the current time and resetAt.
-  final difference = rateLimit.resetAt.difference(now);
-
-  // Wait until rate limits are reset.
-  await Future.delayed(difference);
+  // It waits until the rate limit is reset based on resetAt.
+  await rateLimit.waitUntilReset();
 }
 ```
 
@@ -706,11 +705,7 @@ while (pagination.hasNext) {
   print(response);
 
   if (rateLimit.isExceeded) {
-    final now = DateTime.now().toUtc();
-    final difference = rateLimit.resetAt.difference(now);
-
-    // Wait until rate limits are reset.
-    await Future.delayed(difference);
+    await rateLimit.waitUntilReset();
   }
 }
 ```
@@ -724,11 +719,7 @@ await for (final response in pagination.asStream()) {
   final rateLimit = response.rateLimit;
 
   if (rateLimit.isExceeded) {
-    final now = DateTime.now().toUtc();
-    final difference = rateLimit.resetAt.difference(now);
-
-    // Wait until rate limits are reset.
-    await Future.delayed(difference);
+    await rateLimit.waitUntilReset();
   }
 }
 ```

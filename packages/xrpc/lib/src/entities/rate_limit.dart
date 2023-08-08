@@ -2,8 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🎯 Dart imports:
-import 'dart:io';
+// 📦 Package imports:
+import 'package:universal_io/io.dart' as io;
 
 // 🌎 Project imports:
 import 'rate_limit_policy.dart';
@@ -56,12 +56,35 @@ class RateLimit {
   /// Indicates if the rate limit has been exceeded.
   ///
   /// If there is no rate limits, it always returns false.
-  bool get isExceeded => _enabled ? remainingCount <= 0 : false;
+  bool get isExceeded => _enabled ? _isExceeded : false;
 
   /// Indicates if the rate limit has not been exceeded.
   ///
   /// If there is no rate limits, it always returns true.
   bool get isNotExceeded => !isExceeded;
+
+  bool get _isExceeded =>
+      remainingCount <= 0 && resetAt.isAfter(DateTime.now().toUtc());
+
+  /// A utility function to wait until certain conditions related to rate
+  /// limits are reset.
+  ///
+  /// If the current state is not exceeded, the function will return
+  /// immediately with `false`. Otherwise, it will delay the execution until the
+  /// specified reset time and will return `true`.
+  Future<bool> waitUntilReset() async {
+    if (isNotExceeded) {
+      //! No need to wait.
+      return false;
+    }
+
+    //! Wait until rate limits are reset.
+    await Future.delayed(
+      resetAt.difference(DateTime.now().toUtc()),
+    );
+
+    return true;
+  }
 
   @override
   String toString() {
@@ -91,7 +114,7 @@ class _RateLimitConverter {
         limitCount: int.parse(headers['RateLimit-Limit']!),
         remainingCount: int.parse(headers['RateLimit-Remaining']!),
         policy: const _RateLimitPolicyConverter().fromHeaders(headers),
-        resetAt: HttpDate.parse(headers['date']!).add(
+        resetAt: io.HttpDate.parse(headers['date']!).add(
           Duration(seconds: int.parse(headers['RateLimit-Reset']!)),
         ),
         enabled: true,
