@@ -37,6 +37,13 @@ scripts:
     description: |
       Run `dart run import_sorter:main` in all packages.
 
+  build_runner:
+    run: |
+      melos exec -c 1 -- \
+        dart run build_runner build
+      melos format
+    description: Run build_runner and melos format in all packages.
+
   test:
     run: melos run test:dart --no-select && melos run test:flutter --no-select
     description: Run all Dart & Flutter tests in this project.
