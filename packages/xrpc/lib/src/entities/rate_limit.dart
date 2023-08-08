@@ -2,8 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🎯 Dart imports:
-import 'dart:io';
+// 📦 Package imports:
+import 'package:universal_io/io.dart' as io;
 
 // 🌎 Project imports:
 import 'rate_limit_policy.dart';
@@ -114,7 +114,7 @@ class _RateLimitConverter {
         limitCount: int.parse(headers['RateLimit-Limit']!),
         remainingCount: int.parse(headers['RateLimit-Remaining']!),
         policy: const _RateLimitPolicyConverter().fromHeaders(headers),
-        resetAt: HttpDate.parse(headers['date']!).add(
+        resetAt: io.HttpDate.parse(headers['date']!).add(
           Duration(seconds: int.parse(headers['RateLimit-Reset']!)),
         ),
         enabled: true,
