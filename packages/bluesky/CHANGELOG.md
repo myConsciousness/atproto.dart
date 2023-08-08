@@ -26,6 +26,21 @@
     - `paginateLikesAsJson`
     - `paginateRepostedBy`
     - `paginateRepostedByAsJson`
+  - `GraphsService`
+    - `paginateFollows`
+    - `paginateFollowsAsJson`
+    - `paginateFollowers`
+    - `paginateFollowersAsJson`
+    - `paginateMutes`
+    - `paginateMutesAsJson`
+    - `paginateBlocks`
+    - `paginateBlocksAsJson`
+    - `paginateLists`
+    - `paginateListsAsJson`
+    - `paginateListItems`
+    - `paginateListItemsAsJson`
+    - `paginateMutingLists`
+    - `paginateMutingListsAsJson`
   - `NotificationsService`
     - `paginateNotifications`
     - `paginateNotificationsAsJson`

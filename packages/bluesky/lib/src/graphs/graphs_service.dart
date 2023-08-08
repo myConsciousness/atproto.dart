@@ -130,7 +130,7 @@ abstract class GraphsService {
     String? cursor,
   });
 
-  /// Returns followers of specific user.
+  /// Returns a pagination for follows of specific user.
   ///
   /// ## Parameters
   ///
@@ -144,6 +144,55 @@ abstract class GraphsService {
   /// ## Lexicon
   ///
   /// - com.atproto.repo.deleteRecord
+  /// - app.bsky.graph.getFollows
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollows.json
+  core.Pagination<Follows> paginateFollows({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination for follows of specific user as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.deleteRecord
+  /// - app.bsky.graph.getFollows
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollows.json
+  core.Pagination<Map<String, dynamic>> paginateFollowsAsJson({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns followers of specific user.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
   /// - app.bsky.graph.getFollowers
   ///
   /// ## Reference
@@ -174,13 +223,61 @@ abstract class GraphsService {
   ///
   /// ## Lexicon
   ///
-  /// - com.atproto.repo.deleteRecord
   /// - app.bsky.graph.getFollowers
   ///
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollowers.json
   Future<core.XRPCResponse<Map<String, dynamic>>> findFollowersAsJson({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination for followers of specific user.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getFollowers
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollowers.json
+  core.Pagination<Followers> paginateFollowers({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination for followers of specific user as
+  /// JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getFollowers
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollowers.json
+  core.Pagination<Map<String, dynamic>> paginateFollowersAsJson({
     required String actor,
     int? limit,
     String? cursor,
@@ -268,6 +365,48 @@ abstract class GraphsService {
     String? cursor,
   });
 
+  /// Returns a pagination for viewer mutes.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getMutes
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getMutes.json
+  core.Pagination<Mutes> paginateMutes({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination for viewer mutes as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getMutes
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getMutes.json
+  core.Pagination<Map<String, dynamic>> paginateMutesAsJson({
+    int? limit,
+    String? cursor,
+  });
+
   /// Who is the requester's account blocking?
   ///
   /// ## Parameters
@@ -312,6 +451,48 @@ abstract class GraphsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getBlocks.json
   Future<core.XRPCResponse<Map<String, dynamic>>> findBlocksAsJson({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination for viewer blocks.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getBlocks
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getBlocks.json
+  core.Pagination<Blocks> paginateBlocks({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination for viewer blocks as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getBlocks
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getBlocks.json
+  core.Pagination<Map<String, dynamic>> paginateBlocksAsJson({
     int? limit,
     String? cursor,
   });
@@ -451,6 +632,55 @@ abstract class GraphsService {
     String? cursor,
   });
 
+  /// Fetch a pagination for a list of lists that belong to an actor.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getLists
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getLists.json
+  core.Pagination<Lists> paginateLists({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Fetch a pagination for a list of lists that belong to an actor
+  /// as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getLists
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getLists.json
+  core.Pagination<Map<String, dynamic>> paginateListsAsJson({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
   /// Fetch a list of actors.
   ///
   /// ## Parameters
@@ -500,6 +730,54 @@ abstract class GraphsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getList.json
   Future<core.XRPCResponse<Map<String, dynamic>>> findListItemsAsJson({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Fetch a pagination for a list of actors.
+  ///
+  /// ## Parameters
+  ///
+  /// - [list]: The list uri.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getList
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getList.json
+  core.Pagination<ListItems> paginateListItems({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Fetch a pagination for a list of actors as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [list]: The list uri.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getList
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getList.json
+  core.Pagination<Map<String, dynamic>> paginateListItemsAsJson({
     required core.AtUri list,
     int? limit,
     String? cursor,
@@ -587,6 +865,48 @@ abstract class GraphsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListMutes.json
   Future<core.XRPCResponse<Map<String, dynamic>>> findMutingListsAsJson({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination for viewer's muting lists.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getListMutes
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListMutes.json
+  core.Pagination<Lists> paginateMutingLists({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination for viewer's muting lists as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getListMutes
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListMutes.json
+  core.Pagination<Map<String, dynamic>> paginateMutingListsAsJson({
     int? limit,
     String? cursor,
   });
@@ -697,6 +1017,31 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       );
 
   @override
+  core.Pagination<Follows> paginateFollows({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateFollows(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+        to: Follows.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateFollowsAsJson({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateFollows(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
   Future<core.XRPCResponse<Followers>> findFollowers({
     required String actor,
     int? limit,
@@ -716,6 +1061,31 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
     String? cursor,
   }) async =>
       await _findFollowers(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  core.Pagination<Followers> paginateFollowers({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateFollowers(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+        to: Followers.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateFollowersAsJson({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateFollowers(
         actor: actor,
         limit: limit,
         cursor: cursor,
@@ -765,6 +1135,27 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       );
 
   @override
+  core.Pagination<Mutes> paginateMutes({
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateMutes(
+        limit: limit,
+        cursor: cursor,
+        to: Mutes.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateMutesAsJson({
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateMutes(
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
   Future<core.XRPCResponse<Blocks>> findBlocks({
     int? limit,
     String? cursor,
@@ -781,6 +1172,27 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
     String? cursor,
   }) async =>
       await _findBlocks(
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  core.Pagination<Blocks> paginateBlocks({
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateBlocks(
+        limit: limit,
+        cursor: cursor,
+        to: Blocks.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateBlocksAsJson({
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateBlocks(
         limit: limit,
         cursor: cursor,
       );
@@ -893,6 +1305,31 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       );
 
   @override
+  core.Pagination<Lists> paginateLists({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateLists(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+        to: Lists.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateListsAsJson({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateLists(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
   Future<core.XRPCResponse<ListItems>> findListItems({
     required core.AtUri list,
     int? limit,
@@ -912,6 +1349,31 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
     String? cursor,
   }) async =>
       await _findListItems(
+        list: list,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  core.Pagination<ListItems> paginateListItems({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateListItems(
+        list: list,
+        limit: limit,
+        cursor: cursor,
+        to: ListItems.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateListItemsAsJson({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateListItems(
         list: list,
         limit: limit,
         cursor: cursor,
@@ -976,6 +1438,27 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
       );
 
   @override
+  core.Pagination<Lists> paginateMutingLists({
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateMutingLists(
+        limit: limit,
+        cursor: cursor,
+        to: Lists.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateMutingListsAsJson({
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateMutingLists(
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
   Future<core.XRPCResponse<core.EmptyData>> createMuteActorList({
     required core.AtUri list,
   }) async =>
@@ -1005,11 +1488,27 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
   }) async =>
       await super.get(
         'getFollows',
-        parameters: {
-          'actor': actor,
-          'limit': limit,
-          'cursor': cursor,
-        },
+        parameters: _buildGetFollowsParams(
+          actor: actor,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateFollows<T>({
+    required String actor,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getFollows',
+        parameters: _buildGetFollowsParams(
+          actor: actor,
+          limit: limit,
+          cursor: cursor,
+        ),
         to: to,
       );
 
@@ -1021,11 +1520,27 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
   }) async =>
       await super.get(
         'getFollowers',
-        parameters: {
-          'actor': actor,
-          'limit': limit,
-          'cursor': cursor,
-        },
+        parameters: _buildGetFollowersParams(
+          actor: actor,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateFollowers<T>({
+    required String actor,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getFollowers',
+        parameters: _buildGetFollowersParams(
+          actor: actor,
+          limit: limit,
+          cursor: cursor,
+        ),
         to: to,
       );
 
@@ -1036,10 +1551,24 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
   }) async =>
       await super.get(
         'getMutes',
-        parameters: {
-          'limit': limit,
-          'cursor': cursor,
-        },
+        parameters: _buildGetMutesParams(
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateMutes<T>({
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getMutes',
+        parameters: _buildGetMutesParams(
+          limit: limit,
+          cursor: cursor,
+        ),
         to: to,
       );
 
@@ -1050,10 +1579,24 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
   }) async =>
       await super.get(
         'getBlocks',
-        parameters: {
-          'limit': limit,
-          'cursor': cursor,
-        },
+        parameters: _buildGetBlocksParams(
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateBlocks<T>({
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getBlocks',
+        parameters: _buildGetBlocksParams(
+          limit: limit,
+          cursor: cursor,
+        ),
         to: to,
       );
 
@@ -1065,11 +1608,27 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
   }) async =>
       await super.get(
         'getLists',
-        parameters: {
-          'actor': actor,
-          'limit': limit,
-          'cursor': cursor,
-        },
+        parameters: _buildGetListsParams(
+          actor: actor,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateLists<T>({
+    required String actor,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getLists',
+        parameters: _buildGetListsParams(
+          actor: actor,
+          limit: limit,
+          cursor: cursor,
+        ),
         to: to,
       );
 
@@ -1081,11 +1640,27 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
   }) async =>
       await super.get(
         'getList',
-        parameters: {
-          'list': list.toString(),
-          'limit': limit,
-          'cursor': cursor,
-        },
+        parameters: _buildListItemsParams(
+          list: list,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateListItems<T>({
+    required core.AtUri list,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getList',
+        parameters: _buildListItemsParams(
+          list: list,
+          limit: limit,
+          cursor: cursor,
+        ),
         to: to,
       );
 
@@ -1096,10 +1671,95 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
   }) async =>
       await super.get(
         'getListMutes',
-        parameters: {
-          'limit': limit,
-          'cursor': cursor,
-        },
+        parameters: _buildGetListMutesParams(
+          limit: limit,
+          cursor: cursor,
+        ),
         to: to,
       );
+
+  core.Pagination<T> _paginateMutingLists<T>({
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getListMutes',
+        parameters: _buildGetListMutesParams(
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  Map<String, dynamic> _buildGetFollowsParams({
+    required String actor,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'actor': actor,
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildGetFollowersParams({
+    required String actor,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'actor': actor,
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildGetMutesParams({
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildGetBlocksParams({
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildGetListsParams({
+    required String actor,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'actor': actor,
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildListItemsParams({
+    required core.AtUri list,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'list': list.toString(),
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildGetListMutesParams({
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'limit': limit,
+        'cursor': cursor,
+      };
 }
