@@ -100,16 +100,18 @@ dart pub global activate melos
 
 Then, the Melos commands available for this project are:
 
-| Command            | Description                                                           |
-| ------------------ | --------------------------------------------------------------------- |
-| melos get          | Run `pub get` command in this project.                                |
-| melos analyze      | Run `dart analyze` in all packages.                                   |
-| melos format       | Run `dart format` in all packages.                                    |
-| melos format       | Run `dart run import_sorter:main` in all packages.                    |
-| melos test         | Run all Dart & Flutter tests in this project.                         |
-| melos test:dart    | Run Dart tests for a specific package in this project.                |
-| melos test:flutter | Run Flutter tests for a specific package in this project.             |
-| melos publish_all  | Run publish for all packages, create a git tag and push it to origin. |
+| Command             | Description                                                                                                                        |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| melos get           | Run `pub get` command in this project.                                                                                             |
+| melos analyze       | Run `dart analyze` in all packages.                                                                                                |
+| melos format        | Run `dart format` in all packages.                                                                                                 |
+| melos import_sorter | Run `dart run import_sorter:main` in all packages.                                                                                 |
+| melos build_runner  | Run `build_runner` and `melos format` in all packages. You can generate `*.g.dart` and `*.freezed.dart` objects with this command. |
+| melos test          | Run all Dart & Flutter tests in this project.                                                                                      |
+| melos test:dart     | Run Dart tests for a specific package in this project.                                                                             |
+| melos test:flutter  | Run Flutter tests for a specific package in this project.                                                                          |
+| melos publish_all   | Run publish for all packages, create a git tag and push it to origin.                                                              |
+
 
 ## 1.4. Contribution 🏆
 
