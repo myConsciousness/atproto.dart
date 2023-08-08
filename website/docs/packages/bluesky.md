@@ -193,6 +193,52 @@ See **[API Support Matrix](../api_support_matrix.md#blueskyo)** for all supporte
 
 ## More Tips 🏄
 
+### Standardized Names
+
+The methods corresponding to each endpoint accessible from **[bluesky](https://pub.dev/packages/bluesky)** are given a **_standardized prefix_** according to the characteristics of the endpoint.
+This way, you do not have to frantically search for the corresponding method for the endpoint you want to use.
+You can always find the method you want to use by typing the prefix in the following table for each service object.
+
+| Prefix         | Description                                                                                             |
+| -------------- | ------------------------------------------------------------------------------------------------------- |
+| **.find**      | This prefix is attached to endpoints that reference post etc.                                           |
+| **.search**    | This prefix is attached to endpoints that perform extensive searches.                                   |
+| **.paginate**  | This prefix is attached to pagination available endpoints and provides utilities related to pagination. |
+| **.subscribe** | This prefix is attached to endpoints with high-performance streaming.                                   |
+| **.create**    | This prefix is attached to the endpoint performing the create state.                                    |
+| **.refresh**   | This prefix is attached to the endpoint performing the refresh state.                                   |
+| **.delete**    | This prefix is attached to the endpoint performing the delete state.                                    |
+| **.update**    | This prefix is attached to the endpoint performing the update state.                                    |
+| **.upload**    | This prefix is attached to the endpoint performing the upload contents.                                 |
+| **.request**   | This prefix is attached to the endpoint performing the request via email.                               |
+| **.rebase**    | This prefix is attached to the endpoint performing the rebase repo.                                     |
+
+:::tip
+For example, if you want to `find` a specific record using **[bluesky](https://pub.dev/packages/bluesky)**, you would type the following for the `GraphsService`.
+
+```dart
+import 'package:bluesky/bluesky.dart' as bsky;
+
+Future<void> main() async {
+  final session = await bsky.createSession(
+    identifier: 'YOUR_HANDLE_OR_EMAIL',
+    password: 'YOUR_PASSWORD',
+  );
+
+  final bluesky = bsky.Bluesky.fromSession(
+    session.data,
+  );
+
+  // See this line.
+  await bluesky.graphs.find
+}
+```
+
+As you can see, the above code is still incomplete, but you will get the following a collection of suggestions for `find` actions once you type `.find`.
+
+![find_suggestions](https://github.com/myConsciousness/atproto.dart/assets/13072231/35d7e48d-b5af-4b7a-82e1-0fe3408e17ce)
+:::
+
 ### Other Than `bsky.social`
 
 The endpoints provided by **[bluesky](https://pub.dev/packages/bluesky)** always access `bsky.social` by default. But as you know, certain services such as Bluesky, built on the AT Protocol, are **distributed services**. In other words, there must be a way to access services other than `bsky.social` as needed.

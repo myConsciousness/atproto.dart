@@ -351,19 +351,19 @@ Future<bsky.Session> get _session async {
 
 **bluesky** uses the following standard prefixes depending on endpoint characteristics. So it's very easy to find the method corresponding to the endpoint you want to use!
 
-| Prefix        | Description                                                                                             |
-| ------------- | ------------------------------------------------------------------------------------------------------- |
-| **find**      | This prefix is attached to endpoints that reference post etc.                                           |
-| **search**    | This prefix is attached to endpoints that perform extensive searches.                                   |
-| **paginate**  | This prefix is attached to pagination available endpoints and provides utilities related to pagination. |
-| **subscribe** | This prefix is attached to endpoints with high-performance streaming.                                   |
-| **create**    | This prefix is attached to the endpoint performing the create state.                                    |
-| **refresh**   | This prefix is attached to the endpoint performing the refresh state.                                   |
-| **delete**    | This prefix is attached to the endpoint performing the delete state.                                    |
-| **update**    | This prefix is attached to the endpoint performing the update state.                                    |
-| **upload**    | This prefix is attached to the endpoint performing the upload contents.                                 |
-| **request**   | This prefix is attached to the endpoint performing the request via email.                               |
-| **rebase**    | This prefix is attached to the endpoint performing the rebase repo.                                     |
+| Prefix         | Description                                                                                             |
+| -------------- | ------------------------------------------------------------------------------------------------------- |
+| **.find**      | This prefix is attached to endpoints that reference post etc.                                           |
+| **.search**    | This prefix is attached to endpoints that perform extensive searches.                                   |
+| **.paginate**  | This prefix is attached to pagination available endpoints and provides utilities related to pagination. |
+| **.subscribe** | This prefix is attached to endpoints with high-performance streaming.                                   |
+| **.create**    | This prefix is attached to the endpoint performing the create state.                                    |
+| **.refresh**   | This prefix is attached to the endpoint performing the refresh state.                                   |
+| **.delete**    | This prefix is attached to the endpoint performing the delete state.                                    |
+| **.update**    | This prefix is attached to the endpoint performing the update state.                                    |
+| **.upload**    | This prefix is attached to the endpoint performing the upload contents.                                 |
+| **.request**   | This prefix is attached to the endpoint performing the request via email.                               |
+| **.rebase**    | This prefix is attached to the endpoint performing the rebase repo.                                     |
 
 ### 1.4.2. Create Session
 
