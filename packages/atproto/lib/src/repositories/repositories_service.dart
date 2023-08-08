@@ -192,6 +192,84 @@ abstract class RepositoriesService {
     String? cursor,
   });
 
+  /// Get a pagination for listing a range of records in a collection.
+  ///
+  /// ## Parameters
+  ///
+  /// - [repo]: The handle or DID of the repo.
+  ///
+  /// - [collection]: The NSID of the record type.
+  ///
+  /// - [limit]: The number of records to return.
+  ///            From 1 to 100. The default is 50.
+  ///
+  /// - [cursor]: Pagination cursor.
+  ///
+  /// - [rkeyStart]: The lowest sort-ordered rkey to start from (exclusive).
+  ///
+  /// - [rkeyEnd]: The highest sort-ordered rkey to stop at (exclusive).
+  ///
+  /// - [reverse]: Reverse the order of the returned records?
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.listRecords
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/listRecords.json
+  core.Pagination<Records> paginateRecords({
+    required String repo,
+    required core.NSID collection,
+    int? limit,
+    bool? reverse,
+    String? rkeyStart,
+    String? rkeyEnd,
+    String? cursor,
+  });
+
+  /// Get a pagination for listing a range of records in a collection
+  /// as JSON representation.
+  ///
+  /// This method does not convert response data into a [Records] object, so
+  /// this may improve runtime performance.
+  ///
+  /// If you want to get it as a [Records] object, use [findRecords].
+  ///
+  /// ## Parameters
+  ///
+  /// - [repo]: The handle or DID of the repo.
+  ///
+  /// - [collection]: The NSID of the record type.
+  ///
+  /// - [limit]: The number of records to return.
+  ///            From 1 to 100. The default is 50.
+  ///
+  /// - [cursor]: Pagination cursor.
+  ///
+  /// - [rkeyStart]: The lowest sort-ordered rkey to start from (exclusive).
+  ///
+  /// - [rkeyEnd]: The highest sort-ordered rkey to stop at (exclusive).
+  ///
+  /// - [reverse]: Reverse the order of the returned records?
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.repo.listRecords
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/listRecords.json
+  core.Pagination<Map<String, dynamic>> paginateRecordsAsJson({
+    required String repo,
+    required core.NSID collection,
+    int? limit,
+    bool? reverse,
+    String? rkeyStart,
+    String? rkeyEnd,
+    String? cursor,
+  });
+
   /// Delete a record, or ensure it doesn't exist.
   ///
   /// ## Parameters
@@ -492,6 +570,47 @@ class _RepositoriesService extends ATProtoBaseService
       );
 
   @override
+  core.Pagination<Records> paginateRecords({
+    required String repo,
+    required core.NSID collection,
+    int? limit,
+    bool? reverse,
+    String? rkeyStart,
+    String? rkeyEnd,
+    String? cursor,
+  }) =>
+      _paginateRecords(
+        repo: repo,
+        collection: collection,
+        limit: limit,
+        reverse: reverse,
+        rkeyStart: rkeyStart,
+        rkeyEnd: rkeyEnd,
+        cursor: cursor,
+        to: Records.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateRecordsAsJson({
+    required String repo,
+    required core.NSID collection,
+    int? limit,
+    bool? reverse,
+    String? rkeyStart,
+    String? rkeyEnd,
+    String? cursor,
+  }) =>
+      _paginateRecords(
+        repo: repo,
+        collection: collection,
+        limit: limit,
+        reverse: reverse,
+        rkeyStart: rkeyStart,
+        rkeyEnd: rkeyEnd,
+        cursor: cursor,
+      );
+
+  @override
   Future<core.XRPCResponse<core.EmptyData>> deleteRecord({
     required core.AtUri uri,
     String? swapRecordCid,
@@ -658,15 +777,39 @@ class _RepositoriesService extends ATProtoBaseService
   }) async =>
       await super.get(
         'listRecords',
-        parameters: {
-          'repo': repo,
-          'collection': collection,
-          'limit': limit,
-          'reverse': reverse,
-          'rkeyStart': rkeyStart,
-          'rkeyEnd': rkeyEnd,
-          'cursor': cursor,
-        },
+        parameters: _buildListRecordsParam(
+          repo: repo,
+          collection: collection,
+          limit: limit,
+          reverse: reverse,
+          rkeyStart: rkeyStart,
+          rkeyEnd: rkeyEnd,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateRecords<T>({
+    required String repo,
+    required core.NSID collection,
+    required int? limit,
+    required bool? reverse,
+    required String? rkeyStart,
+    required String? rkeyEnd,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'listRecords',
+        parameters: _buildListRecordsParam(
+          repo: repo,
+          collection: collection,
+          limit: limit,
+          reverse: reverse,
+          rkeyStart: rkeyStart,
+          rkeyEnd: rkeyEnd,
+          cursor: cursor,
+        ),
         to: to,
       );
 
@@ -682,4 +825,23 @@ class _RepositoriesService extends ATProtoBaseService
         userContext: core.UserContext.anonymousOnly,
         to: to,
       );
+
+  Map<String, dynamic> _buildListRecordsParam({
+    required String repo,
+    required core.NSID collection,
+    required int? limit,
+    required bool? reverse,
+    required String? rkeyStart,
+    required String? rkeyEnd,
+    required String? cursor,
+  }) =>
+      {
+        'repo': repo,
+        'collection': collection,
+        'limit': limit,
+        'reverse': reverse,
+        'rkeyStart': rkeyStart,
+        'rkeyEnd': rkeyEnd,
+        'cursor': cursor,
+      };
 }
