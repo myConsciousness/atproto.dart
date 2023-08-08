@@ -187,6 +187,52 @@ See **[API Support Matrix](../api_support_matrix.md#atprotoo)** for all supporte
 
 ## More Tips 🏄
 
+### Standardized Names
+
+The methods corresponding to each endpoint accessible from **[atproto](https://pub.dev/packages/atproto)** are given a **_standardized prefix_** according to the characteristics of the endpoint.
+This way, you do not have to frantically search for the corresponding method for the endpoint you want to use.
+You can always find the method you want to use by typing the prefix in the following table for each service object.
+
+| Prefix         | Description                                                                                             |
+| -------------- | ------------------------------------------------------------------------------------------------------- |
+| **.find**      | This prefix is attached to endpoints that reference post etc.                                           |
+| **.search**    | This prefix is attached to endpoints that perform extensive searches.                                   |
+| **.paginate**  | This prefix is attached to pagination available endpoints and provides utilities related to pagination. |
+| **.subscribe** | This prefix is attached to endpoints with high-performance streaming.                                   |
+| **.create**    | This prefix is attached to the endpoint performing the create state.                                    |
+| **.refresh**   | This prefix is attached to the endpoint performing the refresh state.                                   |
+| **.delete**    | This prefix is attached to the endpoint performing the delete state.                                    |
+| **.update**    | This prefix is attached to the endpoint performing the update state.                                    |
+| **.upload**    | This prefix is attached to the endpoint performing the upload contents.                                 |
+| **.request**   | This prefix is attached to the endpoint performing the request via email.                               |
+| **.rebase**    | This prefix is attached to the endpoint performing the rebase repo.                                     |
+
+:::tip
+For example, if you want to `create` a specific record using **[atproto](https://pub.dev/packages/atproto)**, you would type the following for the `RepositoriesService`.
+
+```dart
+import 'package:atproto/atproto.dart' as atp;
+
+Future<void> main() async {
+  final session = await atp.createSession(
+    identifier: 'YOUR_HANDLE_OR_EMAIL',
+    password: 'YOUR_PASSWORD',
+  );
+
+  final atproto = atp.ATProto.fromSession(
+    session.data,
+  );
+
+  // See this line.
+  await atproto.repositories.create
+}
+```
+
+As you can see, the above code is still incomplete, but you will get the following a collection of suggestions for `create` actions once you type `.create`.
+
+![create_suggestions](https://github.com/myConsciousness/atproto.dart/assets/13072231/e8d3521d-1e54-4786-ae6b-854606124da0)
+:::
+
 ### Other Than `bsky.social`
 
 The endpoints provided by **[atproto](https://pub.dev/packages/atproto)** always access `bsky.social` by default. But as you know, certain services such as Bluesky, built on the AT Protocol, are **distributed services**. In other words, there must be a way to access services other than `bsky.social` as needed.
@@ -576,7 +622,7 @@ Future<void> main() async {
 ```
 
 :::tip
-Endpoints that can be paged can be seen in [this matrix](../api_support_matrix.md#atproto).
+Endpoints that can be paged can be seen in **[this matrix](../api_support_matrix.md#atproto)**.
 :::
 
 This example is a very simple implementation, but it allows us to see pagination using **[atproto](https://pub.dev/packages/atproto)**.
@@ -584,8 +630,107 @@ This example is a very simple implementation, but it allows us to see pagination
 Whenever a method corresponding to a pagination-available endpoint is executed, the `cursor` is always present in the root of the response data, like `records.data.cursor` above.
 If the next page does not exist, `cursor` is basically `null`.
 
-:::danger
-However, depending on the pagination endpoint, an invalid `cursor` may be returned even though the next page does not exist.
-In such a case, an exit condition that only looks at the state of the `cursor` as in the previous example may lead to an infinite loop.
-Implement appropriate termination conditions for each application.
+### Advanced Pagination
+
+As you saw in the **[previous section](#pagination)**, AT Protocol pagination is standardized to occur on a `cursor` basis.
+Of course it's possible to do primitive paging using `cursor`, but **[atproto](https://pub.dev/packages/atproto)** makes it much easier to implement it.
+Using this method you can paging without having to be aware of the `cursor`.
+
+You can easily implement it as follows.
+
+```dart
+import 'package:atproto/atproto.dart' as atp;
+
+Future<void> main() async {
+  final session = await atp.createSession(
+    identifier: 'YOUR_HANDLE_OR_EMAIL',
+    password: 'YOUR_PASSWORD',
+  );
+
+  final atproto = atp.ATProto.fromSession(session.data);
+
+  // Get a pagination for `com.atproto.repo.listRecords`.
+  final pagination = atproto.repositories.paginateRecords(
+    repo: 'shinyakato.dev',
+    collection: atp.NSID.create(
+      'feed.bsky.app',
+      'like',
+    ),
+  );
+
+  // Until the next cursor runs out.
+  while (pagination.hasNext) {
+    // Get a next page.
+    final response = await pagination.next();
+
+    print(response);
+  }
+}
+```
+
+As you can see from the above code, you can get a pagination specific **[Pagination](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination-class.html)** object by using the `.paginate` prefix method.
+Not only the above example, but any method prefixed with `.paginate` will **_always_** return a **[Pagination](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination-class.html)** object.
+In other words, the methods of the `.paginate` prefix can be used to easily handle pagination in a common interface using the **[Pagination](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination-class.html)** object.
+
+:::info
+Read **[this section](#standardized-names)** for an explanation of **_standardized names_**.
+:::
+
+The interface of the **[Pagination](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination-class.html)** object is very simple, and paging can be performed simply with following operations.
+
+| Operation                                                                                                   | Description                                                                                                                                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **[hasNext](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination/hasNext.html)**       | This property determines whether the next page exists. The criterion is the presence or absence of the next `cursor`, and `false` is returned if the next `cursor` does not exist. `True` is always returned for first run. |
+| **[hasNotNext](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination/hasNotNext.html)** | This is a simple negation of the property `hasNext`.                                                                                                                                                                        |
+| **[next](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination/next.html)**             | Return the next page asynchronously with the `cursor` indicating the next page.                                                                                                                                             |
+
+:::tip
+Paging can be done using the `hasNext` property and the `next` method as in the example above, or a series of processes can be implemented as a `Stream` with `.asStream` method.
+
+```dart
+await for (final response in pagination.asStream()) {
+  print(response);
+}
+```
+:::
+
+:::caution
+The **[rate limit](#rate-limits)** is **_not checked_** internally when using the `next` method of the **[Pagination](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination-class.html)** object.
+This means that you need to check the **[rate limit](#rate-limits)** of the endpoint as follows for your application.
+
+```dart
+while (pagination.hasNext) {
+  final response = await pagination.next();
+  final rateLimit = response.rateLimit;
+
+  print(response);
+
+  if (rateLimit.isExceeded) {
+    final now = DateTime.now().toUtc();
+    final difference = rateLimit.resetAt.difference(now);
+
+    // Wait until rate limits are reset.
+    await Future.delayed(difference);
+  }
+}
+```
+
+Or with `.asStream`.
+
+```dart
+await for (final response in pagination.asStream()) {
+  print(response);
+
+  final rateLimit = response.rateLimit;
+
+  if (rateLimit.isExceeded) {
+    final now = DateTime.now().toUtc();
+    final difference = rateLimit.resetAt.difference(now);
+
+    // Wait until rate limits are reset.
+    await Future.delayed(difference);
+  }
+}
+```
+
 :::

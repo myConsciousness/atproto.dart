@@ -86,6 +86,57 @@ abstract class UnspeccedService {
     String? cursor,
   });
 
+  /// Get a pagination for an unspecced view of globally popular items.
+  ///
+  /// ## Parameters
+  ///
+  /// - [includeNsfw]: Include NSFW content in the results?
+  ///                  Defaults to false.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.unspecced.getPopular
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopular.json
+  core.Pagination<Feed> paginatePopularFeed({
+    bool? includeNsfw,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a pagination for an unspecced view of globally popular items as
+  /// JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [includeNsfw]: Include NSFW content in the results?
+  ///                  Defaults to false.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.unspecced.getPopular
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopular.json
+  core.Pagination<Map<String, dynamic>> paginatePopularFeedAsJson({
+    bool? includeNsfw,
+    int? limit,
+    String? cursor,
+  });
+
   /// An unspecced view of globally popular feed generators.
   ///
   /// ## Parameters
@@ -141,6 +192,56 @@ abstract class UnspeccedService {
     String? cursor,
     String? query,
   });
+
+  /// Get a pagination for an unspecced view of globally popular feed
+  /// generators.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// - [query]: Search words.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.unspecced.getPopularFeedGenerators
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopularFeedGenerators.json
+  core.Pagination<FeedGenerators> paginatePopularFeedGenerators({
+    int? limit,
+    String? cursor,
+    String? query,
+  });
+
+  /// Get a pagination for an unspecced view of globally popular feed
+  /// generators as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// - [query]: Search words.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.unspecced.getPopularFeedGenerators
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopularFeedGenerators.json
+  core.Pagination<Map<String, dynamic>> paginatePopularFeedGeneratorsAsJson({
+    int? limit,
+    String? cursor,
+    String? query,
+  });
 }
 
 class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
@@ -180,6 +281,31 @@ class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
       );
 
   @override
+  core.Pagination<Feed> paginatePopularFeed({
+    bool? includeNsfw,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginatePopularFeed(
+        includeNsfw: includeNsfw,
+        limit: limit,
+        cursor: cursor,
+        to: Feed.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginatePopularFeedAsJson({
+    bool? includeNsfw,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginatePopularFeed(
+        includeNsfw: includeNsfw,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
   Future<core.XRPCResponse<FeedGenerators>> findPopularFeedGenerators({
     int? limit,
     String? cursor,
@@ -205,6 +331,31 @@ class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
             query: query,
           );
 
+  @override
+  core.Pagination<FeedGenerators> paginatePopularFeedGenerators({
+    int? limit,
+    String? cursor,
+    String? query,
+  }) =>
+      _paginatePopularFeedGenerators(
+        limit: limit,
+        cursor: cursor,
+        query: query,
+        to: FeedGenerators.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginatePopularFeedGeneratorsAsJson({
+    int? limit,
+    String? cursor,
+    String? query,
+  }) =>
+      _paginatePopularFeedGenerators(
+        limit: limit,
+        cursor: cursor,
+        query: query,
+      );
+
   Future<core.XRPCResponse<T>> _findPopularFeed<T>({
     required bool? includeNsfw,
     required int? limit,
@@ -213,11 +364,27 @@ class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
   }) async =>
       await super.get(
         'getPopular',
-        parameters: {
-          'includeNsfw': includeNsfw,
-          'limit': limit,
-          'cursor': cursor,
-        },
+        parameters: _buildGetPopular(
+          includeNsfw: includeNsfw,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginatePopularFeed<T>({
+    required bool? includeNsfw,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getPopular',
+        parameters: _buildGetPopular(
+          includeNsfw: includeNsfw,
+          limit: limit,
+          cursor: cursor,
+        ),
         to: to,
       );
 
@@ -229,11 +396,49 @@ class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
   }) async =>
       await super.get(
         'getPopularFeedGenerators',
-        parameters: {
-          'limit': limit,
-          'cursor': cursor,
-          'query': query,
-        },
+        parameters: _buildGetPopularFeedGenerators(
+          limit: limit,
+          cursor: cursor,
+          query: query,
+        ),
         to: to,
       );
+
+  core.Pagination<T> _paginatePopularFeedGenerators<T>({
+    required int? limit,
+    required String? cursor,
+    required String? query,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getPopularFeedGenerators',
+        parameters: _buildGetPopularFeedGenerators(
+          limit: limit,
+          cursor: cursor,
+          query: query,
+        ),
+        to: to,
+      );
+
+  Map<String, dynamic> _buildGetPopular({
+    required bool? includeNsfw,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'includeNsfw': includeNsfw,
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildGetPopularFeedGenerators({
+    required int? limit,
+    required String? cursor,
+    required String? query,
+  }) =>
+      {
+        'limit': limit,
+        'cursor': cursor,
+        'query': query,
+      };
 }

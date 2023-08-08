@@ -11,6 +11,7 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 
 // 🌎 Project imports:
 import '../config/retry_config.dart';
+import '../pagination/pagination.dart';
 import 'challenge.dart';
 import 'client_resolver.dart';
 import 'retry_policy.dart';
@@ -35,6 +36,17 @@ abstract class ClientContext {
     final xrpc.Protocol? protocol,
     required final String service,
     final Map<String, dynamic>? parameters,
+    final xrpc.To<T>? to,
+    final xrpc.ResponseAdaptor? adaptor,
+    final xrpc.GetClient? getClient,
+  });
+
+  Pagination<T> paginate<T>(
+    final xrpc.NSID methodId, {
+    required UserContext userContext,
+    final xrpc.Protocol? protocol,
+    required final String service,
+    required final Map<String, dynamic> parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
     final xrpc.GetClient? getClient,
@@ -115,6 +127,30 @@ class _ClientContext implements ClientContext {
           timeout: timeout,
           getClient: getClient,
         ),
+      );
+
+  @override
+  Pagination<T> paginate<T>(
+    final xrpc.NSID methodId, {
+    required UserContext userContext,
+    final xrpc.Protocol? protocol,
+    required final String service,
+    required final Map<String, dynamic> parameters,
+    final xrpc.To<T>? to,
+    final xrpc.ResponseAdaptor? adaptor,
+    final xrpc.GetClient? getClient,
+  }) =>
+      Pagination(
+        _clientResolver.execute(userContext),
+        _challenge,
+        methodId,
+        protocol: protocol,
+        service: service,
+        parameters: parameters,
+        to: to,
+        adaptor: adaptor,
+        timeout: timeout,
+        getClient: getClient,
       );
 
   @override

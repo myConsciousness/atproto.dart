@@ -89,6 +89,55 @@ abstract class ActorsService {
     String? cursor,
   });
 
+  /// Get a pagination for users matching search criteria.
+  ///
+  /// ## Parameters
+  ///
+  /// - [term]: Search criteria.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.actor.search
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/search.json
+  core.Pagination<Actors> paginateActors({
+    required String term,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a pagination for users matching search criteria as
+  /// JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [term]: Search criteria.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.actor.search
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/search.json
+  core.Pagination<Map<String, dynamic>> paginateActorsAsJson({
+    required String term,
+    int? limit,
+    String? cursor,
+  });
+
   /// Find a specific user profile based on handle or DID.
   ///
   /// ## Parameters
@@ -216,6 +265,56 @@ abstract class ActorsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getSuggestions.json
   Future<core.XRPCResponse<Map<String, dynamic>>> findSuggestionsAsJson({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a pagination for list of actors suggested for following.
+  /// Used in discovery UIs.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.actor.getSuggestions
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getSuggestions.json
+  core.Pagination<Actors> paginateSuggestions({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a list of actors suggested for following in JSON
+  /// representation.
+  ///
+  /// This method does not convert response data into a [Actors] object,
+  /// so this may improve runtime performance.
+  ///
+  /// If you want to get it as a [Actors] object,
+  /// use [findSuggestions].
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.actor.getSuggestions
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getSuggestions.json
+  core.Pagination<Map<String, dynamic>> paginateSuggestionsAsJson({
     int? limit,
     String? cursor,
   });
@@ -378,6 +477,31 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
       );
 
   @override
+  core.Pagination<Actors> paginateActors({
+    required String term,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateActors(
+        term: term,
+        limit: limit,
+        cursor: cursor,
+        to: Actors.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateActorsAsJson({
+    required String term,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateActors(
+        term: term,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
   Future<core.XRPCResponse<ActorProfile>> findProfile({
     required String actor,
   }) async =>
@@ -424,6 +548,27 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
     String? cursor,
   }) async =>
       await _findSuggestions(
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  core.Pagination<Actors> paginateSuggestions({
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateSuggestions(
+        limit: limit,
+        cursor: cursor,
+        to: Actors.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateSuggestionsAsJson({
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateSuggestions(
         limit: limit,
         cursor: cursor,
       );
@@ -497,11 +642,27 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
   }) async =>
       await super.get(
         'searchActors',
-        parameters: {
-          'term': term,
-          'limit': limit,
-          'cursor': cursor,
-        },
+        parameters: _buildSearchActorsParams(
+          term: term,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateActors<T>({
+    required String term,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'searchActors',
+        parameters: _buildSearchActorsParams(
+          term: term,
+          limit: limit,
+          cursor: cursor,
+        ),
         to: to,
       );
 
@@ -536,10 +697,24 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
   }) async =>
       await super.get(
         'getSuggestions',
-        parameters: {
-          'limit': limit,
-          'cursor': cursor,
-        },
+        parameters: _buildGetSuggestionsParams(
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateSuggestions<T>({
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getSuggestions',
+        parameters: _buildGetSuggestionsParams(
+          limit: limit,
+          cursor: cursor,
+        ),
         to: to,
       );
 
@@ -564,4 +739,24 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
         'getPreferences',
         to: to,
       );
+
+  Map<String, dynamic> _buildSearchActorsParams({
+    required String term,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'term': term,
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildGetSuggestionsParams({
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'limit': limit,
+        'cursor': cursor,
+      };
 }

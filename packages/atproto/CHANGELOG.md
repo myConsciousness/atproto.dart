@@ -4,6 +4,13 @@
 
 - Added `cursor` to `Repos` object. ([#627](https://github.com/myConsciousness/atproto.dart/issues/627))
 - Upgraded `atproto_core` and exposed `RateLimit` and `RateLimitPolicy` objects. ([#636](https://github.com/myConsciousness/atproto.dart/issues/636))
+- Added pagination utils. ([#626](https://github.com/myConsciousness/atproto.dart/issues/626))
+  - `RepositoriesService`
+    - `paginateRecords`
+    - `paginateRecordsAsJson`
+  - `SyncService`
+    - `paginateRepos`
+    - `paginateReposAsJson`
 
 ## v0.5.7
 

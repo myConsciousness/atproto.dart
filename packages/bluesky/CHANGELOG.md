@@ -4,6 +4,51 @@
 
 - Added `cursor` to `Repos` object. ([#627](https://github.com/myConsciousness/atproto.dart/issues/627))
 - Upgraded `atproto_core` and exposed `RateLimit` and `RateLimitPolicy` objects. ([#636](https://github.com/myConsciousness/atproto.dart/issues/636))
+- Added `langs` field in `PostRecord`. ([#642](https://github.com/myConsciousness/atproto.dart/issues/642))
+- Added pagination utils. ([#626](https://github.com/myConsciousness/atproto.dart/issues/626))
+  - `ActorsService`
+    - `paginateActors`
+    - `paginateActorsAsJson`
+    - `paginateSuggestions`
+    - `paginateSuggestionsAsJson`
+  - `FeedsService`
+    - `paginateTimeline`
+    - `paginateTimelineAsJson`
+    - `paginateFeed`
+    - `paginateFeedAsJson`
+    - `paginateCustomFeed`
+    - `paginateCustomFeedAsJson`
+    - `paginateFeedSkeleton`
+    - `paginateFeedSkeletonAsJson`
+    - `paginateActorFeeds`
+    - `paginateActorFeedsAsJson`
+    - `paginateLikes`
+    - `paginateLikesAsJson`
+    - `paginateRepostedBy`
+    - `paginateRepostedByAsJson`
+  - `GraphsService`
+    - `paginateFollows`
+    - `paginateFollowsAsJson`
+    - `paginateFollowers`
+    - `paginateFollowersAsJson`
+    - `paginateMutes`
+    - `paginateMutesAsJson`
+    - `paginateBlocks`
+    - `paginateBlocksAsJson`
+    - `paginateLists`
+    - `paginateListsAsJson`
+    - `paginateListItems`
+    - `paginateListItemsAsJson`
+    - `paginateMutingLists`
+    - `paginateMutingListsAsJson`
+  - `NotificationsService`
+    - `paginateNotifications`
+    - `paginateNotificationsAsJson`
+  - `UnspeccedService`
+    - `paginatePopularFeed`
+    - `paginatePopularFeedAsJson`
+    - `paginatePopularFeedGenerators`
+    - `paginatePopularFeedGeneratorsAsJson`
 
 ## v0.7.7
 

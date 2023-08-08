@@ -444,6 +444,49 @@ abstract class SyncService {
     int? limit,
     String? cursor,
   });
+
+  /// Get a pagination for listing dids and root cids of hosted repos.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: The size of repos to be fetched.
+  ///            Defaults to 500. From 1 to 1000.
+  ///
+  /// - [cursor]: The paginate cursor.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.listRepos
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listRepos.json
+  core.Pagination<Repos> paginateRepos({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a pagination for listing dids and root cids of hosted repos
+  /// as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: The size of repos to be fetched.
+  ///            Defaults to 500. From 1 to 1000.
+  ///
+  /// - [cursor]: The paginate cursor.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.listRepos
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listRepos.json
+  core.Pagination<Map<String, dynamic>> paginateReposAsJson({
+    int? limit,
+    String? cursor,
+  });
 }
 
 class _SyncService extends ATProtoBaseService implements SyncService {
@@ -629,19 +672,25 @@ class _SyncService extends ATProtoBaseService implements SyncService {
         cursor: cursor,
       );
 
-  Future<core.XRPCResponse<T>> _findRepos<T>({
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) async =>
-      await super.get(
-        'listRepos',
-        parameters: {
-          'limit': limit,
-          'cursor': cursor,
-        },
-        userContext: core.UserContext.anonymousOnly,
-        to: to,
+  @override
+  core.Pagination<Repos> paginateRepos({
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateRepos(
+        limit: limit,
+        cursor: cursor,
+        to: Repos.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateReposAsJson({
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateRepos(
+        limit: limit,
+        cursor: cursor,
       );
 
   Future<core.XRPCResponse<T>> _findRepoCommits<T>({
@@ -749,4 +798,43 @@ class _SyncService extends ATProtoBaseService implements SyncService {
         userContext: core.UserContext.anonymousOnly,
         to: to,
       );
+
+  Future<core.XRPCResponse<T>> _findRepos<T>({
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'listRepos',
+        parameters: _buildListReposParams(
+          limit: limit,
+          cursor: cursor,
+        ),
+        userContext: core.UserContext.anonymousOnly,
+        to: to,
+      );
+
+  core.Pagination<T> _paginateRepos<T>({
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'listRepos',
+        parameters: _buildListReposParams(
+          limit: limit,
+          cursor: cursor,
+        ),
+        userContext: core.UserContext.anonymousOnly,
+        to: to,
+      );
+
+  Map<String, dynamic> _buildListReposParams({
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'limit': limit,
+        'cursor': cursor,
+      };
 }

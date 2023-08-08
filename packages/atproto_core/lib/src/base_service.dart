@@ -12,12 +12,21 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 // 🌎 Project imports:
 import 'client/client_context.dart';
 import 'client/user_context.dart';
+import 'pagination/pagination.dart';
 
 abstract class _Service {
   Future<xrpc.XRPCResponse<T>> get<T>(
     final String methodName, {
     final UserContext userContext = UserContext.authRequired,
     final Map<String, dynamic>? parameters,
+    final xrpc.To<T>? to,
+    final xrpc.ResponseAdaptor? adaptor,
+  });
+
+  Pagination<T> paginate<T>(
+    final String methodName, {
+    final UserContext userContext = UserContext.authRequired,
+    required final Map<String, dynamic> parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
   });
@@ -89,6 +98,28 @@ abstract class BaseService implements _Service {
     final xrpc.ResponseAdaptor? adaptor,
   }) async =>
       await _context.get(
+        xrpc.NSID.create(
+          _methodAuthority,
+          methodName,
+        ),
+        userContext: userContext,
+        protocol: _protocol,
+        service: _service,
+        parameters: parameters,
+        to: to,
+        adaptor: adaptor,
+        getClient: _mockedGetClient,
+      );
+
+  @override
+  Pagination<T> paginate<T>(
+    final String methodName, {
+    final UserContext userContext = UserContext.authRequired,
+    required final Map<String, dynamic> parameters,
+    final xrpc.To<T>? to,
+    final xrpc.ResponseAdaptor? adaptor,
+  }) =>
+      _context.paginate(
         xrpc.NSID.create(
           _methodAuthority,
           methodName,
