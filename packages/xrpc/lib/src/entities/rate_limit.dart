@@ -56,12 +56,15 @@ class RateLimit {
   /// Indicates if the rate limit has been exceeded.
   ///
   /// If there is no rate limits, it always returns false.
-  bool get isExceeded => _enabled ? remainingCount <= 0 : false;
+  bool get isExceeded => _enabled ? _isExceeded : false;
 
   /// Indicates if the rate limit has not been exceeded.
   ///
   /// If there is no rate limits, it always returns true.
   bool get isNotExceeded => !isExceeded;
+
+  bool get _isExceeded =>
+      remainingCount <= 0 && resetAt.isAfter(DateTime.now().toUtc());
 
   /// A utility function to wait until certain conditions related to rate
   /// limits are reset.
