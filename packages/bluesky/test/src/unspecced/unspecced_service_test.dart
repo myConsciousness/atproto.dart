@@ -199,15 +199,15 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: atp_test.createMockedPostClient(
-            'test/src/feeds/data/create_labels.json',
-          ),
         ),
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
           timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/unspecced/data/create_labels.json',
         ),
       );
 
@@ -222,7 +222,7 @@ void main() {
       ]);
 
       expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<StrongRef>());
+      expect(response.data, isA<EmptyData>());
     });
 
     test('when unauthorized', () async {
@@ -231,16 +231,16 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: atp_test.createMockedPostClient(
-            'test/src/data/error.json',
-            statusCode: 401,
-          ),
         ),
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
           timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 401,
         ),
       );
 
@@ -263,16 +263,16 @@ void main() {
           did: 'test',
           accessJwt: 'test',
           service: 'test',
-          mockedPostClient: atp_test.createMockedPostClient(
-            'test/src/data/error.json',
-            statusCode: 429,
-          ),
         ),
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
           accessJwt: '1234',
           timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 429,
         ),
       );
 
