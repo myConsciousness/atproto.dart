@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.7.9
+
+- Exposed `NSID` from `bluesky.dart`.
+- Supported `app.bsky.unspecced.applyLabels` as `createLabels` on `UnspeccedService`. ([#651](https://github.com/myConsciousness/atproto.dart/issues/651))
+
 ## v0.7.8
 
 - Added `cursor` to `Repos` object. ([#627](https://github.com/myConsciousness/atproto.dart/issues/627))

@@ -191,4 +191,102 @@ void main() {
       );
     });
   });
+
+  group('.createLabels', () {
+    test('normal case', () async {
+      final unspecced = UnspeccedService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/feeds/data/create_labels.json',
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      final response = await unspecced.createLabels([
+        Label(
+          src: 'did:plc:iijrtk7ocored6zuziwmqq3c',
+          uri: 'did:plc:iijrtk7ocored6zuziwmqq3c',
+          value: 'developer',
+          isNegate: false,
+          createdAt: DateTime.now().toUtc(),
+        ),
+      ]);
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<StrongRef>());
+    });
+
+    test('when unauthorized', () async {
+      final unspecced = UnspeccedService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+            statusCode: 401,
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await unspecced.createLabels([
+          Label(
+            src: 'did:plc:iijrtk7ocored6zuziwmqq3c',
+            uri: 'did:plc:iijrtk7ocored6zuziwmqq3c',
+            value: 'developer',
+            isNegate: false,
+            createdAt: DateTime.now().toUtc(),
+          ),
+        ]),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final unspecced = UnspeccedService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+            statusCode: 429,
+          ),
+        ),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await unspecced.createLabels([
+          Label(
+            src: 'did:plc:iijrtk7ocored6zuziwmqq3c',
+            uri: 'did:plc:iijrtk7ocored6zuziwmqq3c',
+            value: 'developer',
+            isNegate: false,
+            createdAt: DateTime.now().toUtc(),
+          ),
+        ]),
+      );
+    });
+  });
 }
