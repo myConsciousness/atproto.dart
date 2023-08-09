@@ -90,6 +90,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "Uinelj",
+      "name": "Julien \"uj\" Abadji",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4410814?v=4",
+      "profile": "http://ujj.space",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 5,
@@ -98,5 +107,6 @@
   "repoType": "github",
   "repoHost": "https://github.com",
   "skipCi": true,
-  "commitConvention": "angular"
+  "commitConvention": "angular",
+  "commitType": "docs"
 }
