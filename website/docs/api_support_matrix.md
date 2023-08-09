@@ -160,6 +160,7 @@ See more details about **[bluesky](https://pub.dev/packages/bluesky)** in **[Pac
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | :-----------: | :--------: |
 | [GET app.bsky.unspecced.getPopular](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopular.json)                             | [findPopularFeed](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/findPopularFeed.html)                     |       ✅       |     ✅      |
 | [GET app.bsky.unspecced.getPopularFeedGenerators](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopularFeedGenerators.json) | [findPopularFeedGenerators](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/findPopularFeedGenerators.html) |       ✅       |     ✅      |
+| [POST app.bsky.unspecced.applyLabels](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/applyLabels.json)                          | [createLabels](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/createLabels.html)                           |       ✅       |     ❌      |
 
 ## **[bluesky_cli](https://pub.dev/packages/bluesky_cli)**
 

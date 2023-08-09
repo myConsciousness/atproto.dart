@@ -242,6 +242,23 @@ abstract class UnspeccedService {
     String? cursor,
     String? query,
   });
+
+  /// Allow a labeler to apply labels directly.
+  ///
+  /// ## Parameters
+  ///
+  /// - [labels]: A collection of [labels] to be applied.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.unspecced.applyLabels
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/applyLabels.json
+  Future<core.XRPCResponse<core.EmptyData>> createLabels(
+    final List<atp.Label> labels,
+  );
 }
 
 class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
@@ -354,6 +371,17 @@ class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
         limit: limit,
         cursor: cursor,
         query: query,
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> createLabels(
+    final List<atp.Label> labels,
+  ) async =>
+      await super.post(
+        'applyLabels',
+        body: {
+          'labels': labels.map((e) => e.toJson()).toList(),
+        },
       );
 
   Future<core.XRPCResponse<T>> _findPopularFeed<T>({

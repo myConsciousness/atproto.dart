@@ -122,6 +122,7 @@ export 'package:atproto_core/atproto_core.dart'
         HttpStatus,
         Serializable,
         AtUri,
+        NSID,
         CID,
         ProgressStatus,
         ProgressStatusEvent,
