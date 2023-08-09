@@ -4,7 +4,6 @@
   </a>
 </p>
 
-
 <p align="center">
   <b>Provides the easiest and most powerful way to analyze the text on Bluesky Social 🎯</b>
 </p>
@@ -31,18 +30,13 @@
 <!-- TOC -->
 
 - [1. Guide 🌎](#1-guide-)
-  - [1.1. Getting Started ⚡](#11-getting-started-)
-    - [1.1.1. Install Library](#111-install-library)
-    - [1.1.2. Import](#112-import)
-    - [1.1.3. Implementation](#113-implementation)
-  - [1.2. Tips 🏄](#12-tips-)
-    - [1.2.1. Instantiate](#121-instantiate)
-    - [1.2.2. Analyze Entities](#122-analyze-entities)
-    - [1.2.3. With bluesky Package](#123-with-bluesky-package)
-  - [1.3. Contribution 🏆](#13-contribution-)
-  - [1.4. Support ❤️](#14-support-️)
-  - [1.5. License 🔑](#15-license-)
-  - [1.6. More Information 🧐](#16-more-information-)
+  - [1.1. Features ⭐](#11-features-)
+  - [1.2. Getting Started 💪](#12-getting-started-)
+  - [1.3. Tips 🏄](#13-tips-)
+  - [1.4. Contribution 🏆](#14-contribution-)
+  - [1.5. Support ❤️](#15-support-️)
+  - [1.6. License 🔑](#16-license-)
+  - [1.7. More Information 🧐](#17-more-information-)
 
 <!-- /TOC -->
 
@@ -55,200 +49,38 @@ Have you ever had trouble parsing mentions or links in the text you post when us
 
 **Show some ❤️ and star the repo to support the project.**
 
-Also if you need more sample codes, please check [examples](https://github.com/myConsciousness/atproto.dart/tree/main/examples/README.md).
+Check **[official documents](https://atprotodart.com/docs/packages/bluesky_text)** for more details.
 
-## 1.1. Getting Started ⚡
+## 1.1. Features ⭐
 
-### 1.1.1. Install Library
+- ✅ **Zero Dependency**
+- ✅ **Automatic Detection of `Handle` and `Link`** in text
+- ✅ Supports **Automatic Conversion** to **Facet**
+- ✅ **100% Compatible with [bluesky](https://atprotodart.com/docs/packages/bluesky)**
+- ✅ Allows **Extraction of Custom Entities**
+- ✅ Supports **Unicode Grapheme Clusters**
+- ✅ Support for **Safe Text Splitting**
+- ✅ **Well Documented** and **Well Tested**
+- ✅ **100% Null Safety**
 
-**With Dart:**
+## 1.2. Getting Started 💪
 
-```bash
- dart pub add bluesky_text
-```
+See **[example](https://github.com/myConsciousness/atproto.dart/blob/main/packages/bluesky_text/example/example.dart)** or **[official documents](https://atprotodart.com/docs/packages/bluesky_text)** from following links.
 
-**Or With Flutter:**
+- **[Install](https://atprotodart.com/docs/packages/bluesky_text#install)**
+- **[Import](https://atprotodart.com/docs/packages/bluesky_text#import)**
+- **[Instantiate `BlueskyText`](https://atprotodart.com/docs/packages/bluesky_text#import)**
+- **[Extract Entities](https://atprotodart.com/docs/packages/bluesky_text#extract-entities)**
+- **[Extract Entities](https://atprotodart.com/docs/packages/bluesky_text#generate-facets)**
 
-```bash
- flutter pub add bluesky_text
-```
+## 1.3. Tips 🏄
 
-### 1.1.2. Import
+- **[Unicode Grapheme Clusters](https://atprotodart.com/docs/packages/bluesky_text#unicode-grapheme-clusters)**
+- **[Use with `bluesky`](https://atprotodart.com/docs/packages/bluesky_text#use-with-bluesky)**
+- **[Split Text](https://atprotodart.com/docs/packages/bluesky_text#split-text)**
+- **[Custom Entity](https://atprotodart.com/docs/packages/bluesky_text#custom-entity)**
 
-```dart
-import 'package:bluesky_text/bluesky_text.dart';
-```
-
-### 1.1.3. Implementation
-
-```dart
-import 'package:bluesky_text/bluesky_text.dart';
-
-void main() {
-  //! You just need to pass text to parse.
-  final text = BlueskyText(
-    'I speak 日本語 and English 🚀 @shinyakato.dev and @shinyakato.bsky.social. '
-    'Visit 🚀 https://shinyakato.dev.',
-  );
-
-  //! The character limit for Bluesky Social posts is 300 characters.
-  //! You need to split it before call some properties.
-  if (text.isLengthLimitExceeded) {
-    //! Let's split.
-    final texts = text.split();
-
-    for (final text in texts) {
-      print(text.handles);
-      print(text.links);
-      print(text.entities);
-    }
-  } else {
-    //! If it is less than 300 characters, it can simply be parsed.
-
-    // [{type: handle, value: @shinyakato.dev, indices: {start: 35, end: 50}},
-    // {type: handle, value: @shinyakato.bsky.social, indices: {start: 55, end: 78}}]
-    print(text.handles);
-
-    // [{type: link, value: https://shinyakato.dev, indices: {start: 91, end: 113}}]
-    print(text.links);
-
-    // [{type: handle, value: @shinyakato.dev, indices: {start: 35, end: 50}},
-    // {type: handle, value: @shinyakato.bsky.social, indices: {start: 55, end: 78}},
-    // {type: link, value: https://shinyakato.dev, indices: {start: 91, end: 113}}]
-    print(text.entities);
-  }
-}
-```
-
-## 1.2. Tips 🏄
-
-### 1.2.1. Instantiate
-
-You simply pass any text to the [BlueskyText](https://pub.dev/documentation/bluesky_text/latest/bluesky_text/BlueskyText-class.html) object to create an instance
-like following.
-
-```dart
-final text = BlueskyText(
-  'I speak 日本語 and English 🚀 @shinyakato.dev and @shinyakato.bsky.social. '
-  'Visit 🚀 https://shinyakato.dev.',
-);
-```
-
-The length of the string passed to [BlueskyText](https://pub.dev/documentation/bluesky_text/latest/bluesky_text/BlueskyText-class.html) can be longer than
-300 characters in grapheme. But, if there is a possibility that more than
-300 characters of text will be passed, be sure to check if the character
-count is exceeded and split the BlueskyText using the [split](https://pub.dev/documentation/bluesky_text/latest/bluesky_text/BlueskyText/split.html) method as
-follows.
-
-```dart
-final text = BlueskyText(
-  'I speak 日本語 and English 🚀 @shinyakato.dev and @shinyakato.bsky.social. '
-  'Visit 🚀 https://shinyakato.dev.',
-);
-
-if (text.isLengthLimitExceeded) {
-  final texts = text.split();
-
-  for (final text in texts) {
-    print(text.handles);
-    print(text.links);
-    print(text.entities);
-  }
-} else {
-  print(text.handles);
-  print(text.links);
-  print(text.entities);
-}
-```
-
-### 1.2.2. Analyze Entities
-
-This package makes it easy to analyze all the entities contained in the text, such as **Handles** and **Links**.
-
-The following methods can be used to analyze entities. The Lists returned from these methods are also
-sorted in **ascending order** based on the value of `start` in `Indices` object.
-
-| Method       | Description                                                              |
-| ------------ | ------------------------------------------------------------------------ |
-| **handles**  | Extracts all handles and byte string unit Indices in the text.           |
-| **links**    | Extracts all links and byte string unit Indices in the text.             |
-| **entities** | Extracts all handles and links and byte string unit Indices in the text. |
-
-And it's very easy to call, just call like followings.
-
-```dart
-final text = BlueskyText(
-  'I speak 日本語 and English 🚀 @shinyakato.dev and @shinyakato.bsky.social. '
-  'Visit 🚀 https://shinyakato.dev.',
-);
-
-print(text.handles);
-print(text.links);
-print(text.entities);
-```
-
-Also, the `entities` method will return a mixture of several types of entity.
-In this case, the type of Entity can be easily determined as follows.
-
-```dart
-final text = BlueskyText(
-  'I speak 日本語 and English 🚀 @shinyakato.dev and @shinyakato.bsky.social. '
-  'Visit 🚀 https://shinyakato.dev.',
-);
-
-final entities = text.entities;
-
-for (final entity in entities) {
-  switch (entity.type) {
-    case EntityType.handle:
-      // Do something for handle.
-      break;
-    case EntityType.link:
-      // Do something for link.
-      break;
-  }
-}
-```
-
-### 1.2.3. With [bluesky](https://pub.dev/packages/bluesky) Package
-
-This package can be easily integrated with [bluesky](https://pub.dev/packages/bluesky) package.
-
-```dart
-import 'package:bluesky/bluesky.dart' as bsky;
-import 'package:bluesky_text/bluesky_text.dart';
-
-Future<void> main() async {
-  //! You just need to pass text to parse.
-  final text = BlueskyText(
-    'I speak 日本語 and English 🚀 @shinyakato.dev and @shinyakato.bsky.social. '
-    'Visit 🚀 https://shinyakato.dev.',
-  );
-
-  final bluesky = bsky.Bluesky.fromSession(await _session);
-
-  // Just use "toFacets".
-  final facets = await text.entities.toFacets();
-
-  await bluesky.feeds.createPost(
-    text: text.value,
-    // And convert to `bsky.Facet`.
-    facets: facets.map((e) => bsky.Facet.fromJson(e)).toList(),
-  );
-}
-
-Future<bsky.Session> get _session async {
-  final session = await bsky.createSession(
-    service: 'SERVICE_NAME', //! The default is `bsky.social`
-    identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
-    password: 'YOUR_PASSWORD',
-  );
-
-  return session.data;
-}
-```
-
-## 1.3. Contribution 🏆
+## 1.4. Contribution 🏆
 
 If you would like to contribute to **bluesky_text**, please create an [issue](https://github.com/myConsciousness/atproto.dart/issues) or create a Pull Request.
 
@@ -269,7 +101,7 @@ Or you can create a [discussion](https://github.com/myConsciousness/atproto.dart
 
 **Feel free to join this development, diverse opinions make software better!**
 
-## 1.4. Support ❤️
+## 1.5. Support ❤️
 
 The simplest way to show us your support is by **giving the project a star** at [GitHub](https://github.com/myConsciousness/atproto.dart) and [Pub.dev](https://pub.dev/packages/bluesky_text).
 
@@ -295,7 +127,7 @@ You can also show on your repository that your app is made with **bluesky_text**
 [![Powered by bluesky_text](https://img.shields.io/badge/Powered%20by-bluesky_text-00acee.svg?style=for-the-badge)](https://github.com/myConsciousness/atproto.dart)
 ```
 
-## 1.5. License 🔑
+## 1.6. License 🔑
 
 All resources of **bluesky_text** is provided under the `BSD-3` license.
 
@@ -308,7 +140,7 @@ modification, are permitted provided the conditions.
 > **Note**</br>
 > License notices in the source are strictly validated based on `.github/header-checker-lint.yml`. Please check [header-checker-lint.yml](https://github.com/myConsciousness/atproto.dart/tree/main/.github/header-checker-lint.yml) for the permitted standards.
 
-## 1.6. More Information 🧐
+## 1.7. More Information 🧐
 
 **bluesky_text** was designed and implemented by **_Shinya Kato ([@myConsciousness](https://github.com/myConsciousness))_**.
 
