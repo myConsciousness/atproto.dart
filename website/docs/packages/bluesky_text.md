@@ -163,6 +163,14 @@ void main() {
   print(text.links); // Only links.
 }
 ```
+
+And check following table.
+
+| Method       | Description                                                              |
+| ------------ | ------------------------------------------------------------------------ |
+| **handles**  | Extracts all handles and byte string unit Indices in the text.           |
+| **links**    | Extracts all links and byte string unit Indices in the text.             |
+| **entities** | Extracts all handles and links and byte string unit Indices in the text. |
 :::
 
 :::caution
