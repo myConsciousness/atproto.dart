@@ -60,6 +60,8 @@ abstract class FeedsService {
   ///
   /// - [languageTags]: The collection of well-formatted BCP47 language tags.
   ///
+  /// - [labels]: Labels to be attached.
+  ///
   /// - [createdAt]: Date and time the post was created.
   ///                If omitted, defaults to the current time.
   ///
@@ -80,6 +82,7 @@ abstract class FeedsService {
     List<Facet>? facets,
     Embed? embed,
     List<String>? languageTags,
+    atp.Labels? labels,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   });
@@ -1048,6 +1051,8 @@ abstract class FeedsService {
   ///
   /// - [avatar]: Avatar blob to set to generator.
   ///
+  /// - [labels]: Labels to be attached.
+  ///
   /// - [createdAt]: Date and time the post was created.
   ///                If omitted, defaults to the current time.
   ///
@@ -1067,6 +1072,7 @@ abstract class FeedsService {
     String? description,
     List<Facet>? descriptionFacets,
     atp.Blob? avatar,
+    atp.Labels? labels,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   });
@@ -1211,6 +1217,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     List<Facet>? facets,
     Embed? embed,
     List<String>? languageTags,
+    atp.Labels? labels,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
@@ -1222,6 +1229,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'facets': facets?.map((e) => e.toJson()).toList(),
           'embed': embed?.toJson(),
           'langs': languageTags,
+          'labels': labels?.toJson(),
           'createdAt': toUtcIso8601String(createdAt),
           ...unspecced,
         },
@@ -1242,6 +1250,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
                   'facets': e.facets?.map((e) => e.toJson()).toList(),
                   'embed': e.embed?.toJson(),
                   'langs': e.languageTags,
+                  'labels': e.labels?.toJson(),
                   'createdAt': toUtcIso8601String(e.createdAt),
                   ...e.unspecced,
                 },
@@ -1268,6 +1277,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
       facets: rootParam.facets,
       embed: rootParam.embed,
       languageTags: rootParam.languageTags,
+      labels: rootParam.labels,
       createdAt: rootParam.createdAt,
       unspecced: rootParam.unspecced,
     );
@@ -1285,6 +1295,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
         facets: param.facets,
         embed: param.embed,
         languageTags: param.languageTags,
+        labels: param.labels,
         createdAt: param.createdAt,
         unspecced: param.unspecced,
       ))
@@ -1797,6 +1808,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     String? description,
     List<Facet>? descriptionFacets,
     atp.Blob? avatar,
+    atp.Labels? labels,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
@@ -1809,6 +1821,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           'descriptionFacets':
               descriptionFacets?.map((e) => e.toJson()).toList(),
           'avatar': avatar?.toJson(),
+          'labels': labels?.toJson(),
           'createdAt': toUtcIso8601String(createdAt),
           ...unspecced,
         },
@@ -1830,6 +1843,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
                   'descriptionFacets':
                       e.descriptionFacets?.map((e) => e.toJson()).toList(),
                   'avatar': e.avatar?.toJson(),
+                  'labels': e.labels?.toJson(),
                   'createdAt': toUtcIso8601String(e.createdAt),
                   ...e.unspecced,
                 },

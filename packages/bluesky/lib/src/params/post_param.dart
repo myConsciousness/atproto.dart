@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -26,6 +27,7 @@ class PostParam with _$PostParam {
     List<Facet>? facets,
     @embedConverter Embed? embed,
     List<String>? languageTags,
+    @labelsConverter Labels? labels,
     DateTime? createdAt,
     @Default(emptyJson) Map<String, dynamic> unspecced,
   }) = _PostParam;

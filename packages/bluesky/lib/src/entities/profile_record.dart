@@ -37,6 +37,9 @@ class ProfileRecord with _$ProfileRecord {
     /// Represents the avatar image of the actor.
     Blob? avatar,
 
+    /// Attached labels.
+    @labelsConverter Labels? labels,
+
     /// Represents the banner image of the actor.
     Blob? banner,
   }) = _ProfileRecord;
