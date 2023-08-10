@@ -12,16 +12,14 @@ import 'self_labels.dart';
 
 part 'labels.freezed.dart';
 
-/// The [Labels] class represents different types of embeddable content that
+/// The [Labels] class represents different types of labels that
 /// can be part of a post or content.
 @freezed
 class Labels with _$Labels {
   // ignore: unused_element
   const Labels._();
 
-  /// This constructor is used when the embeddable content is a record.
-  ///
-  /// It takes an [Labels] object which provides the details of the record.
+  /// This constructor is used when the label is a self-attached.
   const factory Labels.selfLabels({
     required SelfLabels data,
   }) = _Labels;
