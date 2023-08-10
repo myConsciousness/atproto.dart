@@ -25,6 +25,7 @@ import '../params/generator_param.dart';
 import '../params/post_param.dart';
 import '../params/strong_ref_param.dart';
 import '../params/thread_param.dart';
+import 'feed_filter.dart';
 
 abstract class FeedsService {
   /// Returns the new instance of [FeedsService].
@@ -290,6 +291,9 @@ abstract class FeedsService {
   ///
   /// - [cursor]: Cursor string returned from the last search.
   ///
+  /// - [filter]: Filter conditions to limit the feeds to be retrieved.
+  ///             Defaults to [FeedFilter.postsWithReplies].
+  ///
   /// ## Lexicon
   ///
   /// - app.bsky.feed.getAuthorFeed
@@ -301,6 +305,7 @@ abstract class FeedsService {
     required String actor,
     int? limit,
     String? cursor,
+    FeedFilter? filter,
   });
 
   /// A view of an actor's feed in JSON representation.
@@ -320,6 +325,9 @@ abstract class FeedsService {
   ///
   /// - [cursor]: Cursor string returned from the last search.
   ///
+  /// - [filter]: Filter conditions to limit the feeds to be retrieved.
+  ///             Defaults to [FeedFilter.postsWithReplies].
+  ///
   /// ## Lexicon
   ///
   /// - app.bsky.feed.getAuthorFeed
@@ -331,6 +339,7 @@ abstract class FeedsService {
     required String actor,
     int? limit,
     String? cursor,
+    FeedFilter? filter,
   });
 
   /// Get a pagination for a view of an actor's feed.
@@ -344,6 +353,9 @@ abstract class FeedsService {
   ///
   /// - [cursor]: Cursor string returned from the last search.
   ///
+  /// - [filter]: Filter conditions to limit the feeds to be retrieved.
+  ///             Defaults to [FeedFilter.postsWithReplies].
+  ///
   /// ## Lexicon
   ///
   /// - app.bsky.feed.getAuthorFeed
@@ -355,6 +367,7 @@ abstract class FeedsService {
     required String actor,
     int? limit,
     String? cursor,
+    FeedFilter? filter,
   });
 
   /// Get a pagination for a view of an actor's feed as JSON representation.
@@ -368,6 +381,9 @@ abstract class FeedsService {
   ///
   /// - [cursor]: Cursor string returned from the last search.
   ///
+  /// - [filter]: Filter conditions to limit the feeds to be retrieved.
+  ///             Defaults to [FeedFilter.postsWithReplies].
+  ///
   /// ## Lexicon
   ///
   /// - app.bsky.feed.getAuthorFeed
@@ -379,6 +395,7 @@ abstract class FeedsService {
     required String actor,
     int? limit,
     String? cursor,
+    FeedFilter? filter,
   });
 
   /// Compose and hydrate a feed from a user's selected feed generator.
@@ -1414,11 +1431,13 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     required String actor,
     int? limit,
     String? cursor,
+    FeedFilter? filter,
   }) async =>
       await _findFeed(
         actor: actor,
         limit: limit,
         cursor: cursor,
+        filter: filter,
         to: Feed.fromJson,
       );
 
@@ -1427,11 +1446,13 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     required String actor,
     int? limit,
     String? cursor,
+    FeedFilter? filter,
   }) async =>
       await _findFeed(
         actor: actor,
         limit: limit,
         cursor: cursor,
+        filter: filter,
       );
 
   @override
@@ -1439,11 +1460,13 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     required String actor,
     int? limit,
     String? cursor,
+    FeedFilter? filter,
   }) =>
       _paginateFeed(
         actor: actor,
         limit: limit,
         cursor: cursor,
+        filter: filter,
         to: Feed.fromJson,
       );
 
@@ -1452,11 +1475,13 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     required String actor,
     int? limit,
     String? cursor,
+    FeedFilter? filter,
   }) =>
       _paginateFeed(
         actor: actor,
         limit: limit,
         cursor: cursor,
+        filter: filter,
       );
 
   @override
@@ -1889,6 +1914,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     required String actor,
     required int? limit,
     required String? cursor,
+    required FeedFilter? filter,
     core.To<T>? to,
   }) async =>
       await super.get(
@@ -1897,6 +1923,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           actor: actor,
           limit: limit,
           cursor: cursor,
+          filter: filter,
         ),
         to: to,
       );
@@ -1905,6 +1932,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     required String actor,
     required int? limit,
     required String? cursor,
+    required FeedFilter? filter,
     core.To<T>? to,
   }) =>
       super.paginate(
@@ -1913,6 +1941,7 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
           actor: actor,
           limit: limit,
           cursor: cursor,
+          filter: filter,
         ),
         to: to,
       );
@@ -2160,11 +2189,13 @@ class _FeedsService extends BlueskyBaseService implements FeedsService {
     required String actor,
     required int? limit,
     required String? cursor,
+    required FeedFilter? filter,
   }) =>
       {
         'actor': actor,
         'limit': limit,
         'cursor': cursor,
+        'filter': filter,
       };
 
   Map<String, dynamic> _buildGetFeedParams({
