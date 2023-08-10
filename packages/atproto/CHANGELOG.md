@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.9
+
+- Added `SelfLabel`, `SelfLabels`, `Labels` objects. ([#654](https://github.com/myConsciousness/atproto.dart/issues/654))
+
 ## v0.5.8
 
 - Added `cursor` to `Repos` object. ([#627](https://github.com/myConsciousness/atproto.dart/issues/627))

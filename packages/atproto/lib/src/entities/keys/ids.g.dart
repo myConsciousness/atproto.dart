@@ -169,6 +169,12 @@ const comAtprotoLabelDefs = 'com.atproto.label.defs';
 /// `com.atproto.label.defs#label`
 const comAtprotoLabelDefsLabel = 'com.atproto.label.defs#label';
 
+/// `com.atproto.label.defs#selfLabel`
+const comAtprotoLabelDefsSelfLabel = 'com.atproto.label.defs#selfLabel';
+
+/// `com.atproto.label.defs#selfLabels`
+const comAtprotoLabelDefsSelfLabels = 'com.atproto.label.defs#selfLabels';
+
 /// `com.atproto.label.queryLabels`
 const comAtprotoLabelQueryLabels = 'com.atproto.label.queryLabels';
 
