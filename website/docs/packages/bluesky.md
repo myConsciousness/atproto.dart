@@ -754,3 +754,58 @@ await for (final response in pagination.asStream()) {
 ```
 
 :::
+
+### Unspecced Inputs
+
+When using a POST endpoint with services other than AT Protocol or Bluesky Social, basically only expected inputs are allowed.
+For example, the input `via` in addition to `text` is not allowed for an endpoint where only the input `text` is expected.
+
+However, AT Protocol and Bluesky Social **_allow_** these **unexpected inputs** to be posted and actually registered in the database.
+This is because **Record** in the AT Protocol are designed to be very generic, allowing registration and retrieval of fields other than the inputs and outputs defined in Lexicon.
+
+:::caution
+However, it's basically not possible to override the definition defined in Lexicon.
+For example, in the above example, if the `text` input is defined by Lexicon to be a string, the `text` value **_cannot_** be sent as a number or boolean value, but only string.
+If a structure or type different from the properties defined in Lexicon is detected, an `InvalidRequestException` is always thrown.
+:::
+
+To include such unspecced inputs in a request using **[bluesky](https://pub.dev/packages/bluesky)**, implement as follows.
+Send a request with location information to the post.
+
+```dart
+import 'package:bluesky/bluesky.dart' as bsky;
+
+Future<void> main() async {
+  final bluesky = bsky.Bluesky.fromSession(await _session);
+
+  final ref = await bluesky.feeds.createPost(
+    text: 'This is where I post from',
+
+    // Use this parameter.
+    unspecced: {
+      'place.shinyakato.dev': {
+        'latitude': 40.730610,
+        'longitude': -73.935242,
+      }
+    },
+  );
+
+  print(ref);
+}
+```
+
+Executing this code will register a following record.
+
+```json
+{
+  "text": "This is where I post from",
+  "$type": "app.bsky.feed.post",
+  "createdAt": "2023-08-10T02:27:19.682542Z",
+  "place.shinyakato.dev": {
+    "latitude": 40.73061,
+    "longitude": -73.935242
+  }
+}
+```
+
+As you can see, we were able to register a property that is not defined by Lexicon in [`app.bsky.feed.post`](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json).
