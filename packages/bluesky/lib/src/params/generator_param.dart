@@ -24,6 +24,7 @@ class GeneratorParam with _$GeneratorParam {
     String? description,
     List<Facet>? descriptionFacets,
     Blob? avatar,
+    @labelsConverter Labels? labels,
     DateTime? createdAt,
     @Default(emptyJson) Map<String, dynamic> unspecced,
   }) = _GeneratorParam;

@@ -7,6 +7,15 @@
   - `findFeedAsJson`
   - `paginateFeed`
   - `paginateFeedAsJson`
+- Supported self-labeling. Use `labels` parameters. ([#655](https://github.com/myConsciousness/atproto.dart/issues/655))
+  - `createPost`
+  - `createPosts`
+  - `createThreads`
+  - `createGenerator`
+  - `createGenerators`
+  - `createList`
+  - `createLists`
+  - `updateProfile`
 
 ## v0.7.9
 
