@@ -1,5 +1,13 @@
 # Release Note
 
+## v0.7.10
+
+- Added `filter` parameters. And exposed `FeedFilter` enum. ([#655](https://github.com/myConsciousness/atproto.dart/issues/655))
+  - `findFeed`
+  - `findFeedAsJson`
+  - `paginateFeed`
+  - `paginateFeedAsJson`
+
 ## v0.7.9
 
 - Exposed `NSID` from `bluesky.dart`.
