@@ -25,7 +25,7 @@ class NotFoundPost with _$NotFoundPost {
   /// provided.
   /// - [uri] parameter is a required field which represents the unique
   /// identifier of the post.
-  /// - [notFound] parameter is a required field that indicates whether
+  /// - [isNotFound] parameter is a required field that indicates whether
   /// the post was found or not.
   const factory NotFoundPost({
     /// The type of this [NotFoundPost]. Defaults to
