@@ -111,6 +111,9 @@ const appBskyEmbedRecordWithMediaView = 'app.bsky.embed.recordWithMedia#view';
 /// `app.bsky.feed.defs`
 const appBskyFeedDefs = 'app.bsky.feed.defs';
 
+/// `app.bsky.feed.defs#blockedAuthor`
+const appBskyFeedDefsBlockedAuthor = 'app.bsky.feed.defs#blockedAuthor';
+
 /// `app.bsky.feed.defs#blockedPost`
 const appBskyFeedDefsBlockedPost = 'app.bsky.feed.defs#blockedPost';
 
