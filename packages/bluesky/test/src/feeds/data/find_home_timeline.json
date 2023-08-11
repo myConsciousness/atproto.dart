@@ -19253,7 +19253,15 @@
         "parent": {
           "$type": "app.bsky.feed.defs#blockedPost",
           "uri": "at://did:plc:24lz3lshhmjsieafxih4exlw/app.bsky.feed.post/3jui52oiuad24",
-          "blocked": true
+          "blocked": true,
+          "author": {
+            "type": "app.bsky.feed.defs#blockedAuthor",
+            "did": "did:plc:x6eeihtkaqmj5ianx3qtzqq3",
+            "viewer": {
+              "mutes": false,
+              "blockedBy": false
+            }
+          }
         }
       }
     },
