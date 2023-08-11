@@ -30,6 +30,10 @@ mixin _$EmbedViewRecordViewNotFound {
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
 
+  /// Represents this record does not found.
+  /// Always `true`.
+  bool get notFound => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $EmbedViewRecordViewNotFoundCopyWith<EmbedViewRecordViewNotFound>
@@ -44,7 +48,7 @@ abstract class $EmbedViewRecordViewNotFoundCopyWith<$Res> {
       _$EmbedViewRecordViewNotFoundCopyWithImpl<$Res,
           EmbedViewRecordViewNotFound>;
   @useResult
-  $Res call({@typeKey String type, @atUriConverter AtUri uri});
+  $Res call({@typeKey String type, @atUriConverter AtUri uri, bool notFound});
 }
 
 /// @nodoc
@@ -63,6 +67,7 @@ class _$EmbedViewRecordViewNotFoundCopyWithImpl<$Res,
   $Res call({
     Object? type = null,
     Object? uri = null,
+    Object? notFound = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -73,6 +78,10 @@ class _$EmbedViewRecordViewNotFoundCopyWithImpl<$Res,
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      notFound: null == notFound
+          ? _value.notFound
+          : notFound // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -86,7 +95,7 @@ abstract class _$$_EmbedViewRecordViewNotFoundCopyWith<$Res>
       __$$_EmbedViewRecordViewNotFoundCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, @atUriConverter AtUri uri});
+  $Res call({@typeKey String type, @atUriConverter AtUri uri, bool notFound});
 }
 
 /// @nodoc
@@ -104,6 +113,7 @@ class __$$_EmbedViewRecordViewNotFoundCopyWithImpl<$Res>
   $Res call({
     Object? type = null,
     Object? uri = null,
+    Object? notFound = null,
   }) {
     return _then(_$_EmbedViewRecordViewNotFound(
       type: null == type
@@ -114,6 +124,10 @@ class __$$_EmbedViewRecordViewNotFoundCopyWithImpl<$Res>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      notFound: null == notFound
+          ? _value.notFound
+          : notFound // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -122,7 +136,9 @@ class __$$_EmbedViewRecordViewNotFoundCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedViewRecordViewNotFound implements _EmbedViewRecordViewNotFound {
   const _$_EmbedViewRecordViewNotFound(
-      {@typeKey required this.type, @atUriConverter required this.uri});
+      {@typeKey this.type = appBskyEmbedRecordViewNotFound,
+      @atUriConverter required this.uri,
+      required this.notFound});
 
   factory _$_EmbedViewRecordViewNotFound.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedViewRecordViewNotFoundFromJson(json);
@@ -138,9 +154,14 @@ class _$_EmbedViewRecordViewNotFound implements _EmbedViewRecordViewNotFound {
   @atUriConverter
   final AtUri uri;
 
+  /// Represents this record does not found.
+  /// Always `true`.
+  @override
+  final bool notFound;
+
   @override
   String toString() {
-    return 'EmbedViewRecordViewNotFound(type: $type, uri: $uri)';
+    return 'EmbedViewRecordViewNotFound(type: $type, uri: $uri, notFound: $notFound)';
   }
 
   @override
@@ -149,12 +170,14 @@ class _$_EmbedViewRecordViewNotFound implements _EmbedViewRecordViewNotFound {
         (other.runtimeType == runtimeType &&
             other is _$_EmbedViewRecordViewNotFound &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.uri, uri) || other.uri == uri));
+            (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.notFound, notFound) ||
+                other.notFound == notFound));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, uri);
+  int get hashCode => Object.hash(runtimeType, type, uri, notFound);
 
   @JsonKey(ignore: true)
   @override
@@ -174,9 +197,9 @@ class _$_EmbedViewRecordViewNotFound implements _EmbedViewRecordViewNotFound {
 abstract class _EmbedViewRecordViewNotFound
     implements EmbedViewRecordViewNotFound {
   const factory _EmbedViewRecordViewNotFound(
-          {@typeKey required final String type,
-          @atUriConverter required final AtUri uri}) =
-      _$_EmbedViewRecordViewNotFound;
+      {@typeKey final String type,
+      @atUriConverter required final AtUri uri,
+      required final bool notFound}) = _$_EmbedViewRecordViewNotFound;
 
   factory _EmbedViewRecordViewNotFound.fromJson(Map<String, dynamic> json) =
       _$_EmbedViewRecordViewNotFound.fromJson;
@@ -192,6 +215,11 @@ abstract class _EmbedViewRecordViewNotFound
   /// of the record.
   @atUriConverter
   AtUri get uri;
+  @override
+
+  /// Represents this record does not found.
+  /// Always `true`.
+  bool get notFound;
   @override
   @JsonKey(ignore: true)
   _$$_EmbedViewRecordViewNotFoundCopyWith<_$_EmbedViewRecordViewNotFound>

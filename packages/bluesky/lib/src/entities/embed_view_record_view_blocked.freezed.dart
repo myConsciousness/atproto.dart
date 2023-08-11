@@ -30,6 +30,13 @@ mixin _$EmbedViewRecordViewBlocked {
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
 
+  /// Represents this view is blocked.
+  /// Always `true`.
+  bool get blocked => throw _privateConstructorUsedError;
+
+  /// The author of this blocked view record.
+  BlockedAuthor get author => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $EmbedViewRecordViewBlockedCopyWith<EmbedViewRecordViewBlocked>
@@ -43,7 +50,13 @@ abstract class $EmbedViewRecordViewBlockedCopyWith<$Res> {
       _$EmbedViewRecordViewBlockedCopyWithImpl<$Res,
           EmbedViewRecordViewBlocked>;
   @useResult
-  $Res call({@typeKey String type, @atUriConverter AtUri uri});
+  $Res call(
+      {@typeKey String type,
+      @atUriConverter AtUri uri,
+      bool blocked,
+      BlockedAuthor author});
+
+  $BlockedAuthorCopyWith<$Res> get author;
 }
 
 /// @nodoc
@@ -62,6 +75,8 @@ class _$EmbedViewRecordViewBlockedCopyWithImpl<$Res,
   $Res call({
     Object? type = null,
     Object? uri = null,
+    Object? blocked = null,
+    Object? author = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -72,7 +87,23 @@ class _$EmbedViewRecordViewBlockedCopyWithImpl<$Res,
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      blocked: null == blocked
+          ? _value.blocked
+          : blocked // ignore: cast_nullable_to_non_nullable
+              as bool,
+      author: null == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as BlockedAuthor,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $BlockedAuthorCopyWith<$Res> get author {
+    return $BlockedAuthorCopyWith<$Res>(_value.author, (value) {
+      return _then(_value.copyWith(author: value) as $Val);
+    });
   }
 }
 
@@ -85,7 +116,14 @@ abstract class _$$_EmbedViewRecordViewBlockedCopyWith<$Res>
       __$$_EmbedViewRecordViewBlockedCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, @atUriConverter AtUri uri});
+  $Res call(
+      {@typeKey String type,
+      @atUriConverter AtUri uri,
+      bool blocked,
+      BlockedAuthor author});
+
+  @override
+  $BlockedAuthorCopyWith<$Res> get author;
 }
 
 /// @nodoc
@@ -103,6 +141,8 @@ class __$$_EmbedViewRecordViewBlockedCopyWithImpl<$Res>
   $Res call({
     Object? type = null,
     Object? uri = null,
+    Object? blocked = null,
+    Object? author = null,
   }) {
     return _then(_$_EmbedViewRecordViewBlocked(
       type: null == type
@@ -113,6 +153,14 @@ class __$$_EmbedViewRecordViewBlockedCopyWithImpl<$Res>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      blocked: null == blocked
+          ? _value.blocked
+          : blocked // ignore: cast_nullable_to_non_nullable
+              as bool,
+      author: null == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as BlockedAuthor,
     ));
   }
 }
@@ -121,7 +169,10 @@ class __$$_EmbedViewRecordViewBlockedCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedViewRecordViewBlocked implements _EmbedViewRecordViewBlocked {
   const _$_EmbedViewRecordViewBlocked(
-      {@typeKey required this.type, @atUriConverter required this.uri});
+      {@typeKey required this.type = appBskyEmbedRecordViewBlocked,
+      @atUriConverter required this.uri,
+      required this.blocked,
+      required this.author});
 
   factory _$_EmbedViewRecordViewBlocked.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedViewRecordViewBlockedFromJson(json);
@@ -137,9 +188,18 @@ class _$_EmbedViewRecordViewBlocked implements _EmbedViewRecordViewBlocked {
   @atUriConverter
   final AtUri uri;
 
+  /// Represents this view is blocked.
+  /// Always `true`.
+  @override
+  final bool blocked;
+
+  /// The author of this blocked view record.
+  @override
+  final BlockedAuthor author;
+
   @override
   String toString() {
-    return 'EmbedViewRecordViewBlocked(type: $type, uri: $uri)';
+    return 'EmbedViewRecordViewBlocked(type: $type, uri: $uri, blocked: $blocked, author: $author)';
   }
 
   @override
@@ -148,12 +208,14 @@ class _$_EmbedViewRecordViewBlocked implements _EmbedViewRecordViewBlocked {
         (other.runtimeType == runtimeType &&
             other is _$_EmbedViewRecordViewBlocked &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.uri, uri) || other.uri == uri));
+            (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.blocked, blocked) || other.blocked == blocked) &&
+            (identical(other.author, author) || other.author == author));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, uri);
+  int get hashCode => Object.hash(runtimeType, type, uri, blocked, author);
 
   @JsonKey(ignore: true)
   @override
@@ -173,9 +235,10 @@ class _$_EmbedViewRecordViewBlocked implements _EmbedViewRecordViewBlocked {
 abstract class _EmbedViewRecordViewBlocked
     implements EmbedViewRecordViewBlocked {
   const factory _EmbedViewRecordViewBlocked(
-          {@typeKey required final String type,
-          @atUriConverter required final AtUri uri}) =
-      _$_EmbedViewRecordViewBlocked;
+      {@typeKey required final String type,
+      @atUriConverter required final AtUri uri,
+      required final bool blocked,
+      required final BlockedAuthor author}) = _$_EmbedViewRecordViewBlocked;
 
   factory _EmbedViewRecordViewBlocked.fromJson(Map<String, dynamic> json) =
       _$_EmbedViewRecordViewBlocked.fromJson;
@@ -191,6 +254,15 @@ abstract class _EmbedViewRecordViewBlocked
   /// of the blocked record.
   @atUriConverter
   AtUri get uri;
+  @override
+
+  /// Represents this view is blocked.
+  /// Always `true`.
+  bool get blocked;
+  @override
+
+  /// The author of this blocked view record.
+  BlockedAuthor get author;
   @override
   @JsonKey(ignore: true)
   _$$_EmbedViewRecordViewBlockedCopyWith<_$_EmbedViewRecordViewBlocked>
