@@ -8,6 +8,7 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import 'keys/ids.g.dart';
 
 part 'embed_view_record_view_not_found.freezed.dart';
@@ -37,7 +38,7 @@ class EmbedViewRecordViewNotFound with _$EmbedViewRecordViewNotFound {
 
     /// Represents this record does not found.
     /// Always `true`.
-    required bool notFound,
+    @JsonKey(name: 'notFound') required bool isNotFound,
   }) = _EmbedViewRecordViewNotFound;
 
   /// Creates an instance of [EmbedViewRecordViewNotFound] from a map of

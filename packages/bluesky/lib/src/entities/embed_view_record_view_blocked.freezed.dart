@@ -170,7 +170,7 @@ class __$$_EmbedViewRecordViewBlockedCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedViewRecordViewBlocked implements _EmbedViewRecordViewBlocked {
   const _$_EmbedViewRecordViewBlocked(
-      {@typeKey required this.type = appBskyEmbedRecordViewBlocked,
+      {@typeKey this.type = appBskyEmbedRecordViewBlocked,
       @atUriConverter required this.uri,
       @JsonKey(name: 'blocked') required this.isBlocked,
       required this.author});
@@ -238,7 +238,7 @@ class _$_EmbedViewRecordViewBlocked implements _EmbedViewRecordViewBlocked {
 abstract class _EmbedViewRecordViewBlocked
     implements EmbedViewRecordViewBlocked {
   const factory _EmbedViewRecordViewBlocked(
-      {@typeKey required final String type,
+      {@typeKey final String type,
       @atUriConverter required final AtUri uri,
       @JsonKey(name: 'blocked') required final bool isBlocked,
       required final BlockedAuthor author}) = _$_EmbedViewRecordViewBlocked;

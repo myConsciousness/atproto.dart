@@ -27,7 +27,7 @@ class ListViewer with _$ListViewer {
   @jsonSerializable
   const factory ListViewer({
     /// Represents whether the viewer has muted the list.
-    @JsonKey(name: 'muted') required bool isMuted,
+    @JsonKey(name: 'muted') @Default(false) bool isMuted,
   }) = _ListViewer;
 
   /// Creates an instance of [ListViewer] from a map [json].

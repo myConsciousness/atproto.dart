@@ -38,10 +38,10 @@ class ActorViewer with _$ActorViewer {
   @jsonSerializable
   const factory ActorViewer({
     /// Indicates if the authenticated user has muted the actor.
-    @JsonKey(name: 'muted') required bool isMuted,
+    @JsonKey(name: 'muted') @Default(false) bool isMuted,
 
     /// Indicates if the actor has blocked the authenticated user.
-    @JsonKey(name: 'blockedBy') required bool isBlockedBy,
+    @JsonKey(name: 'blockedBy') @Default(false) bool isBlockedBy,
 
     /// A basic view of a list that the user uses to mute the actor.
     ListViewBasic? mutedByList,
