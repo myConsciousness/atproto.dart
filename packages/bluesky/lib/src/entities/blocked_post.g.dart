@@ -18,6 +18,10 @@ _$_BlockedPost _$$_BlockedPostFromJson(Map json) => $checkedCreate(
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),
           blocked: $checkedConvert('blocked', (v) => v as bool),
+          author: $checkedConvert(
+              'author',
+              (v) =>
+                  BlockedAuthor.fromJson(Map<String, Object?>.from(v as Map))),
         );
         return val;
       },
@@ -29,4 +33,5 @@ Map<String, dynamic> _$$_BlockedPostToJson(_$_BlockedPost instance) =>
       r'$type': instance.type,
       'uri': atUriConverter.toJson(instance.uri),
       'blocked': instance.blocked,
+      'author': instance.author.toJson(),
     };

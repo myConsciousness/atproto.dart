@@ -9,6 +9,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'blocked_author.dart';
 import 'keys/ids.g.dart';
 
 part 'blocked_post.freezed.dart';
@@ -37,6 +38,9 @@ class BlockedPost with _$BlockedPost {
 
     /// Whether the post has been blocked.
     required bool blocked,
+
+    /// The author of this blocked post.
+    required BlockedAuthor author,
   }) = _BlockedPost;
 
   /// Creates an instance of [BlockedPost] from a map of [String, Object?].

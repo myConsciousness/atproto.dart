@@ -162,6 +162,7 @@ export 'package:bluesky/src/entities/adaptor/repo_commit_update.dart';
 export 'package:bluesky/src/entities/adult_content_preference.dart';
 export 'package:bluesky/src/entities/block_record.dart';
 export 'package:bluesky/src/entities/blocked_post.dart';
+export 'package:bluesky/src/entities/blocked_author.dart';
 export 'package:bluesky/src/entities/blocks.dart';
 export 'package:bluesky/src/entities/byte_slice.dart';
 export 'package:bluesky/src/entities/content_label_preference.dart';
