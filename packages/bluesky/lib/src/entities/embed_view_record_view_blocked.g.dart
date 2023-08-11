@@ -15,13 +15,19 @@ _$_EmbedViewRecordViewBlocked _$$_EmbedViewRecordViewBlockedFromJson(
       json,
       ($checkedConvert) {
         final val = _$_EmbedViewRecordViewBlocked(
-          type: $checkedConvert(r'$type', (v) => v as String),
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyEmbedRecordViewBlocked),
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),
+          isBlocked: $checkedConvert('blocked', (v) => v as bool),
+          author: $checkedConvert(
+              'author',
+              (v) =>
+                  BlockedAuthor.fromJson(Map<String, Object?>.from(v as Map))),
         );
         return val;
       },
-      fieldKeyMap: const {'type': r'$type'},
+      fieldKeyMap: const {'type': r'$type', 'isBlocked': 'blocked'},
     );
 
 Map<String, dynamic> _$$_EmbedViewRecordViewBlockedToJson(
@@ -29,4 +35,6 @@ Map<String, dynamic> _$$_EmbedViewRecordViewBlockedToJson(
     <String, dynamic>{
       r'$type': instance.type,
       'uri': atUriConverter.toJson(instance.uri),
+      'blocked': instance.isBlocked,
+      'author': instance.author.toJson(),
     };

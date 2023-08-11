@@ -1,5 +1,14 @@
 # Release Note
 
+## v0.7.11
+
+- Added `BlockedAuthor` as `author` property. ([#660](https://github.com/myConsciousness/atproto.dart/issues/660))
+  - `BlockedPost`
+  - `EmbedViewRecordViewBlocked`
+- The default value of the flag is set as `false`.
+  - `ActorViewer`
+  - `ListViewer`
+
 ## v0.7.10
 
 - Added `filter` parameters. And exposed `FeedFilter` enum. ([#655](https://github.com/myConsciousness/atproto.dart/issues/655))

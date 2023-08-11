@@ -199,8 +199,8 @@ class __$$_ActorViewerCopyWithImpl<$Res>
 @jsonSerializable
 class _$_ActorViewer extends _ActorViewer {
   const _$_ActorViewer(
-      {@JsonKey(name: 'muted') required this.isMuted,
-      @JsonKey(name: 'blockedBy') required this.isBlockedBy,
+      {@JsonKey(name: 'muted') this.isMuted = false,
+      @JsonKey(name: 'blockedBy') this.isBlockedBy = false,
       this.mutedByList,
       @atUriConverter this.blocking,
       @atUriConverter this.following,
@@ -283,8 +283,8 @@ class _$_ActorViewer extends _ActorViewer {
 
 abstract class _ActorViewer extends ActorViewer {
   const factory _ActorViewer(
-      {@JsonKey(name: 'muted') required final bool isMuted,
-      @JsonKey(name: 'blockedBy') required final bool isBlockedBy,
+      {@JsonKey(name: 'muted') final bool isMuted,
+      @JsonKey(name: 'blockedBy') final bool isBlockedBy,
       final ListViewBasic? mutedByList,
       @atUriConverter final AtUri? blocking,
       @atUriConverter final AtUri? following,
