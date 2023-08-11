@@ -38,7 +38,7 @@ class EmbedViewRecordViewBlocked with _$EmbedViewRecordViewBlocked {
 
     /// Represents this view is blocked.
     /// Always `true`.
-    required bool blocked,
+    @JsonKey(name: 'blocked') required bool isBlocked,
 
     /// The author of this blocked view record.
     required BlockedAuthor author,

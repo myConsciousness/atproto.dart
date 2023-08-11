@@ -32,7 +32,8 @@ mixin _$EmbedViewRecordViewBlocked {
 
   /// Represents this view is blocked.
   /// Always `true`.
-  bool get blocked => throw _privateConstructorUsedError;
+  @JsonKey(name: 'blocked')
+  bool get isBlocked => throw _privateConstructorUsedError;
 
   /// The author of this blocked view record.
   BlockedAuthor get author => throw _privateConstructorUsedError;
@@ -53,7 +54,7 @@ abstract class $EmbedViewRecordViewBlockedCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       @atUriConverter AtUri uri,
-      bool blocked,
+      @JsonKey(name: 'blocked') bool isBlocked,
       BlockedAuthor author});
 
   $BlockedAuthorCopyWith<$Res> get author;
@@ -75,7 +76,7 @@ class _$EmbedViewRecordViewBlockedCopyWithImpl<$Res,
   $Res call({
     Object? type = null,
     Object? uri = null,
-    Object? blocked = null,
+    Object? isBlocked = null,
     Object? author = null,
   }) {
     return _then(_value.copyWith(
@@ -87,9 +88,9 @@ class _$EmbedViewRecordViewBlockedCopyWithImpl<$Res,
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      blocked: null == blocked
-          ? _value.blocked
-          : blocked // ignore: cast_nullable_to_non_nullable
+      isBlocked: null == isBlocked
+          ? _value.isBlocked
+          : isBlocked // ignore: cast_nullable_to_non_nullable
               as bool,
       author: null == author
           ? _value.author
@@ -119,7 +120,7 @@ abstract class _$$_EmbedViewRecordViewBlockedCopyWith<$Res>
   $Res call(
       {@typeKey String type,
       @atUriConverter AtUri uri,
-      bool blocked,
+      @JsonKey(name: 'blocked') bool isBlocked,
       BlockedAuthor author});
 
   @override
@@ -141,7 +142,7 @@ class __$$_EmbedViewRecordViewBlockedCopyWithImpl<$Res>
   $Res call({
     Object? type = null,
     Object? uri = null,
-    Object? blocked = null,
+    Object? isBlocked = null,
     Object? author = null,
   }) {
     return _then(_$_EmbedViewRecordViewBlocked(
@@ -153,9 +154,9 @@ class __$$_EmbedViewRecordViewBlockedCopyWithImpl<$Res>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      blocked: null == blocked
-          ? _value.blocked
-          : blocked // ignore: cast_nullable_to_non_nullable
+      isBlocked: null == isBlocked
+          ? _value.isBlocked
+          : isBlocked // ignore: cast_nullable_to_non_nullable
               as bool,
       author: null == author
           ? _value.author
@@ -171,7 +172,7 @@ class _$_EmbedViewRecordViewBlocked implements _EmbedViewRecordViewBlocked {
   const _$_EmbedViewRecordViewBlocked(
       {@typeKey required this.type = appBskyEmbedRecordViewBlocked,
       @atUriConverter required this.uri,
-      required this.blocked,
+      @JsonKey(name: 'blocked') required this.isBlocked,
       required this.author});
 
   factory _$_EmbedViewRecordViewBlocked.fromJson(Map<String, dynamic> json) =>
@@ -191,7 +192,8 @@ class _$_EmbedViewRecordViewBlocked implements _EmbedViewRecordViewBlocked {
   /// Represents this view is blocked.
   /// Always `true`.
   @override
-  final bool blocked;
+  @JsonKey(name: 'blocked')
+  final bool isBlocked;
 
   /// The author of this blocked view record.
   @override
@@ -199,7 +201,7 @@ class _$_EmbedViewRecordViewBlocked implements _EmbedViewRecordViewBlocked {
 
   @override
   String toString() {
-    return 'EmbedViewRecordViewBlocked(type: $type, uri: $uri, blocked: $blocked, author: $author)';
+    return 'EmbedViewRecordViewBlocked(type: $type, uri: $uri, isBlocked: $isBlocked, author: $author)';
   }
 
   @override
@@ -209,13 +211,14 @@ class _$_EmbedViewRecordViewBlocked implements _EmbedViewRecordViewBlocked {
             other is _$_EmbedViewRecordViewBlocked &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
-            (identical(other.blocked, blocked) || other.blocked == blocked) &&
+            (identical(other.isBlocked, isBlocked) ||
+                other.isBlocked == isBlocked) &&
             (identical(other.author, author) || other.author == author));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, uri, blocked, author);
+  int get hashCode => Object.hash(runtimeType, type, uri, isBlocked, author);
 
   @JsonKey(ignore: true)
   @override
@@ -237,7 +240,7 @@ abstract class _EmbedViewRecordViewBlocked
   const factory _EmbedViewRecordViewBlocked(
       {@typeKey required final String type,
       @atUriConverter required final AtUri uri,
-      required final bool blocked,
+      @JsonKey(name: 'blocked') required final bool isBlocked,
       required final BlockedAuthor author}) = _$_EmbedViewRecordViewBlocked;
 
   factory _EmbedViewRecordViewBlocked.fromJson(Map<String, dynamic> json) =
@@ -258,7 +261,8 @@ abstract class _EmbedViewRecordViewBlocked
 
   /// Represents this view is blocked.
   /// Always `true`.
-  bool get blocked;
+  @JsonKey(name: 'blocked')
+  bool get isBlocked;
   @override
 
   /// The author of this blocked view record.

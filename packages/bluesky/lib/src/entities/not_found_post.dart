@@ -36,7 +36,7 @@ class NotFoundPost with _$NotFoundPost {
     @atUriConverter required AtUri uri,
 
     /// Indicates whether the post was found or not.
-    required bool notFound,
+    @JsonKey(name: 'notFound') required bool isNotFound,
   }) = _NotFoundPost;
 
   /// Creates a new instance of [NotFoundPost] from a map of [json] data.
