@@ -15,7 +15,7 @@ import 'keys/ids.g.dart';
 part 'blocked_author.freezed.dart';
 part 'blocked_author.g.dart';
 
-/// [BlockedAuthor] represents a author that has been blocked.
+/// [BlockedAuthor] represents an author that has been blocked.
 @freezed
 class BlockedAuthor with _$BlockedAuthor {
   /// Creates an instance of [BlockedAuthor].
