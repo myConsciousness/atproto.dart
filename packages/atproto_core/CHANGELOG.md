@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.0
+
+- Updated SDK to `^3.0.0`. ([#599](https://github.com/myConsciousness/atproto.dart/issues/599))
+
 ## v0.4.6
 
 - Upgraded `xrpc` and exposed `RateLimit` and `RateLimitPolicy` objects. ([#636](https://github.com/myConsciousness/atproto.dart/issues/636))

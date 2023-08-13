@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.6.0
+
+- Updated SDK to `^3.0.0`. ([#599](https://github.com/myConsciousness/atproto.dart/issues/599))
+
 ## v0.5.9
 
 - Added `SelfLabel`, `SelfLabels`, `Labels` objects. ([#654](https://github.com/myConsciousness/atproto.dart/issues/654))
