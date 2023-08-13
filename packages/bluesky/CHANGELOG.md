@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.8.0
+
+- Drop support for null unsafe Dart, bump SDK constraint to '^3.0.0'. ([#599](https://github.com/myConsciousness/atproto.dart/issues/599))
+
 ## v0.7.11
 
 - Added `BlockedAuthor` as `author` property. ([#660](https://github.com/myConsciousness/atproto.dart/issues/660))
