@@ -1,9 +1,5 @@
 # Release Note
 
-## v0.2.0
-
-- Updated SDK to `^3.0.0`. ([#599](https://github.com/myConsciousness/atproto.dart/issues/599))
-
 ## v0.1.2
 
 - Exposed following objects from `universal_io`. ([#541](https://github.com/myConsciousness/atproto.dart/issues/541))
