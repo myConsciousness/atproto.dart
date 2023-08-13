@@ -36,7 +36,7 @@ typedef RepoCommitOnUpdate<T> = FutureOr<void> Function(
 /// Action on delete records.
 typedef RepoCommitOnDelete = FutureOr<void> Function(RepoCommitDelete data);
 
-class RepoCommitAdaptor {
+final class RepoCommitAdaptor {
   /// Returns the new instance of [RepoCommitAdaptor].
   const RepoCommitAdaptor({
     final RepoCommitOnCreate<PostRecord>? onCreatePost,

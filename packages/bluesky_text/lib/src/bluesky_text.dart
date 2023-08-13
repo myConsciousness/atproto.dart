@@ -81,7 +81,7 @@ const _maxLength = 300;
 ///   print(text.entities);
 /// }
 /// ```
-abstract class BlueskyText {
+sealed class BlueskyText {
   /// Returns the new instance of [BlueskyText].
   factory BlueskyText(final String text) => _BlueskyText(text);
 
@@ -175,7 +175,7 @@ abstract class BlueskyText {
   bool get isNotEmpty;
 }
 
-class _BlueskyText implements BlueskyText {
+final class _BlueskyText implements BlueskyText {
   /// Returns the new instance of [_BlueskyText].
   _BlueskyText(this.value) : _bytes = Uint8List.fromList(utf8.encode(value));
 

@@ -88,7 +88,7 @@ bool isValidHandle(final String handle) {
 }
 
 /// Thrown to indicate that handle didn't valid.
-class InvalidHandleError extends Error {
+final class InvalidHandleError extends Error {
   /// Returns the new instance of [InvalidHandleError].
   InvalidHandleError(this.message);
 

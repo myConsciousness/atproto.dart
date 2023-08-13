@@ -13,7 +13,8 @@ import '../reason_repost.dart';
 
 const reasonConverter = _ReasonConverter();
 
-class _ReasonConverter implements JsonConverter<Reason, Map<String, dynamic>> {
+final class _ReasonConverter
+    implements JsonConverter<Reason, Map<String, dynamic>> {
   const _ReasonConverter();
 
   @override

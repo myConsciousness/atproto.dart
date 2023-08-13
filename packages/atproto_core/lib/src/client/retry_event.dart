@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 /// This class represents the event during the retry process.
-class RetryEvent {
+final class RetryEvent {
   /// Returns the new instance of [RetryEvent].
   const RetryEvent({
     required this.retryCount,

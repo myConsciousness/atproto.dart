@@ -13,7 +13,8 @@ import '../self_labels.dart';
 
 const labelsConverter = _LabelsConverter();
 
-class _LabelsConverter implements JsonConverter<Labels, Map<String, dynamic>> {
+final class _LabelsConverter
+    implements JsonConverter<Labels, Map<String, dynamic>> {
   const _LabelsConverter();
 
   @override

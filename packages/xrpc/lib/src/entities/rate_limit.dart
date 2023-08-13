@@ -12,7 +12,7 @@ import 'rate_limit_policy.dart';
 ///
 /// Holds information like the limit count, remaining count,
 /// when the rate limit will reset, and the applied policy.
-class RateLimit {
+final class RateLimit {
   // Private constructor for rate limiting.
   const RateLimit._({
     required this.limitCount,
@@ -101,7 +101,7 @@ class RateLimit {
 }
 
 /// Converts HTTP headers to a `RateLimit` instance.
-class _RateLimitConverter {
+final class _RateLimitConverter {
   const _RateLimitConverter();
 
   /// Parses headers and creates a `RateLimit` instance from it.
@@ -130,7 +130,7 @@ class _RateLimitConverter {
 }
 
 /// Converts HTTP headers to a `RateLimitPolicy` instance.
-class _RateLimitPolicyConverter {
+final class _RateLimitPolicyConverter {
   const _RateLimitPolicyConverter();
 
   /// Parses headers and creates a `RateLimitPolicy` instance from it.

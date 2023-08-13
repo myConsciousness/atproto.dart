@@ -6,8 +6,7 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:atproto_core/src/client/anonymous_client.dart';
-import 'package:atproto_core/src/client/auth_required_client.dart';
+import 'package:atproto_core/src/client/client.dart';
 import 'package:atproto_core/src/client/client_resolver.dart';
 import 'package:atproto_core/src/client/user_context.dart';
 

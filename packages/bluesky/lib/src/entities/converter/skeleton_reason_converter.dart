@@ -13,7 +13,7 @@ import '../skeleton_reason_repost.dart';
 
 const skeletonReasonConverter = _SkeletonReasonConverter();
 
-class _SkeletonReasonConverter
+final class _SkeletonReasonConverter
     implements JsonConverter<SkeletonReason, Map<String, dynamic>> {
   const _SkeletonReasonConverter();
 

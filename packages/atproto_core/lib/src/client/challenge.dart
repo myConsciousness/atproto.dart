@@ -13,7 +13,7 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 import 'client.dart';
 import 'retry_policy.dart';
 
-class Challenge {
+final class Challenge {
   /// Returns the new instance of [Challenge].
   const Challenge(this._retryPolicy);
 

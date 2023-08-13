@@ -14,7 +14,7 @@ import '../strong_ref.dart';
 
 const reportSubjectConverter = _ReportSubjectConverter();
 
-class _ReportSubjectConverter
+final class _ReportSubjectConverter
     implements JsonConverter<ReportSubject, Map<String, dynamic>> {
   /// Returns the new instance of [_ReportSubjectConverter].
   const _ReportSubjectConverter();

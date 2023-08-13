@@ -4,12 +4,10 @@
 
 // 🌎 Project imports:
 import '../../atproto_core.dart';
-import 'anonymous_client.dart';
-import 'auth_required_client.dart';
 import 'client.dart';
 import 'user_context.dart';
 
-abstract class ClientResolver {
+sealed class ClientResolver {
   /// Returns the new instance of [ClientResolver].
   factory ClientResolver(final String accessJwt) => _ClientResolver(accessJwt);
 
@@ -17,7 +15,7 @@ abstract class ClientResolver {
   Client execute(final UserContext userContext);
 }
 
-class _ClientResolver implements ClientResolver {
+final class _ClientResolver implements ClientResolver {
   /// Returns the new instance of [_ClientResolver].
   const _ClientResolver(this.accessJwt);
 

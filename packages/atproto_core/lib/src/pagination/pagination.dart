@@ -13,7 +13,7 @@ import '../client/client.dart';
 ///
 /// It provides asynchronous operations for moving to the next item,
 /// and checking if the next item exists.
-class Pagination<T> {
+final class Pagination<T> {
   /// Creates a Pagination instance.
   ///
   /// The [parameters] map must contain a 'cursor' key.

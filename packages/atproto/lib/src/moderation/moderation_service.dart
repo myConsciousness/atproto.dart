@@ -11,7 +11,7 @@ import '../entities/report.dart';
 import '../entities/report_subject.dart';
 import 'moderation_reason_type.dart';
 
-abstract class ModerationService {
+sealed class ModerationService {
   /// Returns the new instance of [ModerationService].
   factory ModerationService({
     required String did,
@@ -56,7 +56,7 @@ abstract class ModerationService {
   });
 }
 
-class _ModerationService extends ATProtoBaseService
+final class _ModerationService extends ATProtoBaseService
     implements ModerationService {
   /// Returns the new instance of [_ModerationService].
   _ModerationService({

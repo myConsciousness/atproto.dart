@@ -2,7 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-class Jitter {
+final class Jitter {
   /// Returns the new instance of [Jitter].
   Jitter({
     this.minInSeconds = 0,

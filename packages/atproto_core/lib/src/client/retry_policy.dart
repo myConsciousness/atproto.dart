@@ -9,7 +9,7 @@ import 'dart:math' as math;
 import '../config/retry_config.dart';
 import 'retry_event.dart';
 
-abstract class RetryPolicy {
+sealed class RetryPolicy {
   /// Returns the new instance of [RetryPolicy].
   factory RetryPolicy(
     final RetryConfig? retryConfig,
@@ -22,7 +22,7 @@ abstract class RetryPolicy {
   Future wait(final int retryCount);
 }
 
-class _RetryPolicy implements RetryPolicy {
+final class _RetryPolicy implements RetryPolicy {
   /// Returns the new instance of [_RetryPolicy].
   const _RetryPolicy(RetryConfig? retryConfig) : _retryConfig = retryConfig;
 

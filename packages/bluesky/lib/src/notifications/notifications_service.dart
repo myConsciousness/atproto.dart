@@ -11,7 +11,7 @@ import '../bluesky_base_service.dart';
 import '../entities/count.dart';
 import '../entities/notifications.dart';
 
-abstract class NotificationsService {
+sealed class NotificationsService {
   /// Returns the new instance of [NotificationsService].
   factory NotificationsService({
     required atp.ATProto atproto,
@@ -168,7 +168,7 @@ abstract class NotificationsService {
   });
 }
 
-class _NotificationsService extends BlueskyBaseService
+final class _NotificationsService extends BlueskyBaseService
     implements NotificationsService {
   /// Returns the new instance of [_NotificationsService].
   _NotificationsService({

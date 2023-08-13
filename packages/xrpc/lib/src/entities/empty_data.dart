@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 /// An object representing a state that is empty instead of null.
-class EmptyData {
+final class EmptyData {
   /// Returns the new instance of [EmptyData].
   const EmptyData();
 
