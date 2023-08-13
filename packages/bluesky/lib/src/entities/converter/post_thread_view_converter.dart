@@ -15,7 +15,7 @@ import '../post_thread_view_record.dart';
 
 const postThreadViewConverter = _PostThreadViewConverter();
 
-class _PostThreadViewConverter
+final class _PostThreadViewConverter
     implements JsonConverter<PostThreadView, Map<String, dynamic>> {
   const _PostThreadViewConverter();
 

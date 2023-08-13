@@ -17,7 +17,7 @@ import '../list_view.dart';
 
 const embedViewRecordViewConverter = _EmbedViewRecordViewConverter();
 
-class _EmbedViewRecordViewConverter
+final class _EmbedViewRecordViewConverter
     implements JsonConverter<EmbedViewRecordView, Map<String, dynamic>> {
   /// Returns the new instance of [_EmbedViewRecordViewConverter].
   const _EmbedViewRecordViewConverter();

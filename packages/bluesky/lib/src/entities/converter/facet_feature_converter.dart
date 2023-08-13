@@ -14,7 +14,7 @@ import '../keys/ids.g.dart' as ids;
 
 const facetFeatureConverter = _FacetFeatureConverter();
 
-class _FacetFeatureConverter
+final class _FacetFeatureConverter
     implements JsonConverter<FacetFeature, Map<String, dynamic>> {
   /// Returns the new instance of [_FacetFeatureConverter].
   const _FacetFeatureConverter();

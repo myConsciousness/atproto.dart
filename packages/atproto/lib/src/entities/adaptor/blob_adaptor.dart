@@ -8,7 +8,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import '../keys/ids.g.dart' as ids;
 
-class BlobAdaptor {
+final class BlobAdaptor {
   /// Returns the new instance of [BlobAdaptor].
   const BlobAdaptor();
 

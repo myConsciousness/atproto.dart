@@ -16,7 +16,7 @@ import '../keys/ids.g.dart' as ids;
 
 const embedViewConverter = _EmbedViewConverter();
 
-class _EmbedViewConverter
+final class _EmbedViewConverter
     implements JsonConverter<EmbedView, Map<String, dynamic>> {
   /// Returns the new instance of [_EmbedViewConverter].
   const _EmbedViewConverter();
