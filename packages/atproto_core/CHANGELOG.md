@@ -2,7 +2,7 @@
 
 ## v0.5.0
 
-- Updated SDK to `^3.0.0`. ([#599](https://github.com/myConsciousness/atproto.dart/issues/599))
+- Drop support for null unsafe Dart, bump SDK constraint to '^3.0.0'. ([#599](https://github.com/myConsciousness/atproto.dart/issues/599))
 
 ## v0.4.6
 
