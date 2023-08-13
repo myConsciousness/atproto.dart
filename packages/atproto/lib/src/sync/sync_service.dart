@@ -19,7 +19,7 @@ import '../entities/repo_head.dart';
 import '../entities/repos.dart';
 import '../entities/subscribed_repo.dart';
 
-abstract class SyncService {
+sealed class SyncService {
   /// Returns the new instance of [SyncService].
   factory SyncService({
     required String did,
@@ -489,7 +489,7 @@ abstract class SyncService {
   });
 }
 
-class _SyncService extends ATProtoBaseService implements SyncService {
+final class _SyncService extends ATProtoBaseService implements SyncService {
   /// Returns the new instance of [_SyncService].
   _SyncService({
     required super.did,

@@ -8,8 +8,8 @@ funding:
   - https://github.com/sponsors/myConsciousness
 
 environment:
-  sdk: '>=2.19.2 <4.0.0'
-  flutter: ">=1.17.0"
+  sdk: ^3.0.0
+  flutter: '>=3.0.0'
 
 topics:
   - atproto
@@ -27,7 +27,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.1
   import_sorter: ^4.6.0
 
 import_sorter:

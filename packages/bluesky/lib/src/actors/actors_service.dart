@@ -15,7 +15,7 @@ import '../entities/actors_typeahead.dart';
 import '../entities/preference.dart';
 import '../entities/preferences.dart';
 
-abstract class ActorsService {
+sealed class ActorsService {
   /// Returns the new instance of [ActorsService].
   factory ActorsService({
     required atp.ATProto atproto,
@@ -443,7 +443,7 @@ abstract class ActorsService {
   );
 }
 
-class _ActorsService extends BlueskyBaseService implements ActorsService {
+final class _ActorsService extends BlueskyBaseService implements ActorsService {
   /// Returns the new instance of [_ActorsService].
   _ActorsService({
     required super.atproto,

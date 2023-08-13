@@ -6,7 +6,7 @@
 ///
 /// This policy specifies how many requests are allowed in a specific time
 /// window.
-class RateLimitPolicy {
+final class RateLimitPolicy {
   /// Creates a [RateLimitPolicy] with a specified limit count and window.
   ///
   /// [limitCount]: The maximum number of allowed requests within the time

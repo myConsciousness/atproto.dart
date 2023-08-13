@@ -23,7 +23,7 @@ const _defaultService = 'bsky.social';
 /// The default timeout duration.
 const _defaultTimeout = Duration(seconds: 30);
 
-abstract class ATProto {
+sealed class ATProto {
   /// Returns the new instance of [ATProto].
   factory ATProto({
     required String did,
@@ -95,7 +95,7 @@ abstract class ATProto {
   SyncService get sync;
 }
 
-class _ATProto implements ATProto {
+final class _ATProto implements ATProto {
   /// Returns the new instance of [_ATProto].
   _ATProto({
     required String did,

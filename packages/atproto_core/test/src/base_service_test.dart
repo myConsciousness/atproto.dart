@@ -206,7 +206,7 @@ void main() {
   });
 }
 
-class TestService extends BaseService {
+final class TestService extends BaseService {
   TestService({
     super.service = 'bsky.social',
     required super.methodAuthority,

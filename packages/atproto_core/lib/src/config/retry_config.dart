@@ -39,7 +39,7 @@ import '../client/retry_event.dart';
 ///
 /// Please note that [ArgumentError] is always raised if a negative number
 /// is passed to the [maxAttempts] field of [RetryConfig].
-class RetryConfig {
+final class RetryConfig {
   /// Returns the new instance of [RetryConfig].
   RetryConfig({
     required this.maxAttempts,

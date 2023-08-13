@@ -17,7 +17,7 @@ import 'client_resolver.dart';
 import 'retry_policy.dart';
 import 'user_context.dart';
 
-abstract class ClientContext {
+sealed class ClientContext {
   /// Returns the new instance of [ClientContext].
   factory ClientContext({
     required String accessJwt,
@@ -85,7 +85,7 @@ abstract class ClientContext {
   });
 }
 
-class _ClientContext implements ClientContext {
+final class _ClientContext implements ClientContext {
   _ClientContext({
     required String accessJwt,
     required this.timeout,

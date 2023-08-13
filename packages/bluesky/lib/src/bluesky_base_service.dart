@@ -6,7 +6,7 @@
 import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
-abstract class BlueskyBaseService extends core.BaseService {
+base class BlueskyBaseService extends core.BaseService {
   /// Returns the new instance of [BlueskyBaseService].
   BlueskyBaseService({
     required this.atproto,

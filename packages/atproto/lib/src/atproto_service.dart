@@ -12,7 +12,7 @@ import 'repositories/repositories_service.dart';
 import 'servers/servers_service.dart';
 import 'sync/sync_service.dart';
 
-abstract class ATProtoService {
+sealed class ATProtoService {
   /// Returns the new instance of [ATProtoService].
   factory ATProtoService({
     required String did,
@@ -47,7 +47,7 @@ abstract class ATProtoService {
   SyncService get sync;
 }
 
-class _ATProtoService implements ATProtoService {
+final class _ATProtoService implements ATProtoService {
   /// Returns the new instance of [_ATProtoService].
   _ATProtoService({
     required String did,

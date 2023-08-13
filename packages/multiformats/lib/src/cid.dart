@@ -67,7 +67,7 @@ enum Multicodec {
 }
 
 /// Indicates that the passed CID could not be parsed.
-class InvalidCidError extends Error {
+final class InvalidCidError extends Error {
   /// Returns the new instance of [InvalidCidError].
   InvalidCidError(this.message);
 
@@ -80,7 +80,7 @@ class InvalidCidError extends Error {
 
 /// This is a simple implementation of V1 CID, or a content identifier.
 /// CID is a label used to point to material in IPFS.
-class CID {
+final class CID {
   /// Returns the new instance of [CID].
   const CID(final Uint8List bytes) : _bytes = bytes;
 
@@ -136,7 +136,7 @@ class CID {
       sha256.convert(utf8.encode(input)).bytes,
     );
 
-    return Multihash.encode('sha2-256', digest);
+    return Multihash.encode('sha2-256', digest).toBytes();
   }
 
   /// Returns the multihash bytes as CID v1.

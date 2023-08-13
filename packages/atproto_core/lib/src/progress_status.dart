@@ -12,7 +12,7 @@ typedef ProgressStatus = void Function(ProgressStatusEvent event);
 
 /// Represents a progress status event, holding the total byte size of
 /// the download and the amount of bytes that have already been processed.
-class ProgressStatusEvent {
+final class ProgressStatusEvent {
   /// Creates a new instance of [ProgressStatusEvent] given the total byte size
   /// and the number of already processed bytes.
   const ProgressStatusEvent(this.totalBytes, this.processedBytes)

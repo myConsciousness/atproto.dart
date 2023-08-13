@@ -17,7 +17,7 @@ import 'validation.dart';
 /// - name      = segment
 /// - nsid      = authority delim name
 /// - nsid-ns   = authority delim "*"
-class NSID {
+final class NSID {
   factory NSID.parse(final String nsid) => NSID._(nsid);
 
   factory NSID.create(final String authority, final String name) =>

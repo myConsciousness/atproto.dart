@@ -8,7 +8,7 @@ import 'entities/rate_limit.dart';
 import 'xrpc_request.dart';
 
 /// The class represents the response from ATP server.
-class XRPCResponse<D> {
+final class XRPCResponse<D> {
   /// Returns the new instance of [XRPCResponse].
   const XRPCResponse({
     required this.headers,

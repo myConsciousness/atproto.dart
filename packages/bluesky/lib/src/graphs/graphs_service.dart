@@ -20,7 +20,7 @@ import '../params/list_item_param.dart';
 import '../params/list_param.dart';
 import '../params/repo_param.dart';
 
-abstract class GraphsService {
+sealed class GraphsService {
   /// Returns the new instance of [GraphsService].
   factory GraphsService({
     required atp.ATProto atproto,
@@ -949,7 +949,7 @@ abstract class GraphsService {
   });
 }
 
-class _GraphsService extends BlueskyBaseService implements GraphsService {
+final class _GraphsService extends BlueskyBaseService implements GraphsService {
   /// Returns the new instance of [_GraphsService].
   _GraphsService({
     required super.atproto,

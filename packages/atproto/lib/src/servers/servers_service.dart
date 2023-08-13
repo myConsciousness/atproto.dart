@@ -53,7 +53,7 @@ Future<core.XRPCResponse<Session>> createSession({
   );
 }
 
-class _$ServersService extends ATProtoBaseService {
+final class _$ServersService extends ATProtoBaseService {
   /// Returns the new instance of [_$ServersService].
   _$ServersService({
     required super.protocol,
@@ -85,7 +85,7 @@ class _$ServersService extends ATProtoBaseService {
       );
 }
 
-abstract class ServersService {
+sealed class ServersService {
   /// Returns the new instance of [ServersService].
   factory ServersService({
     required String did,
@@ -431,7 +431,8 @@ abstract class ServersService {
   Future<core.XRPCResponse<Map<String, dynamic>>> findServerInfoAsJson();
 }
 
-class _ServersService extends ATProtoBaseService implements ServersService {
+final class _ServersService extends ATProtoBaseService
+    implements ServersService {
   /// Returns the new instance of [_ServersService].
   _ServersService({
     required super.did,

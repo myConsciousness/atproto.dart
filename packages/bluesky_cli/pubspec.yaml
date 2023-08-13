@@ -29,7 +29,7 @@ dependencies:
   bluesky_text: ^0.3.0
 
 dev_dependencies:
-  lints: ^2.0.0
+  lints: ^2.0.1
   test: ^1.21.0
   import_sorter: ^4.6.0
 

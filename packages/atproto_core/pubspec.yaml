@@ -19,13 +19,13 @@ topics:
 dependencies:
   xrpc: ^0.3.0
   at_uri: ^0.2.0
-  freezed_annotation: ^2.2.0
+  freezed_annotation: ^2.4.1
   cbor: ^6.0.0
   multiformats: ^0.2.0
   universal_io: ^2.2.2
 
 dev_dependencies:
-  lints: ^2.0.0
+  lints: ^2.0.1
   test: ^1.21.0
   import_sorter: ^4.6.0
 

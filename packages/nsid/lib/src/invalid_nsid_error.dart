@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 /// Indicates that the passed NSID could not be parsed.
-class InvalidNsidError extends Error {
+final class InvalidNsidError extends Error {
   /// Returns the new instance of [InvalidNsidError].
   InvalidNsidError(this.message);
 

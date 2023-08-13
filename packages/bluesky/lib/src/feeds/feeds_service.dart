@@ -27,7 +27,7 @@ import '../params/strong_ref_param.dart';
 import '../params/thread_param.dart';
 import 'feed_filter.dart';
 
-abstract class FeedsService {
+sealed class FeedsService {
   /// Returns the new instance of [FeedsService].
   factory FeedsService({
     required atp.ATProto atproto,
@@ -1199,7 +1199,7 @@ abstract class FeedsService {
   Future<core.XRPCResponse<Map<String, dynamic>>> findGeneratorInfoAsJson();
 }
 
-class _FeedsService extends BlueskyBaseService implements FeedsService {
+final class _FeedsService extends BlueskyBaseService implements FeedsService {
   /// Returns the new instance of [_FeedsService].
   _FeedsService({
     required super.atproto,

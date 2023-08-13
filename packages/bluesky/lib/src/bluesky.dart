@@ -23,7 +23,7 @@ const _defaultService = 'bsky.social';
 /// The default timeout duration.
 const _defaultTimeout = Duration(seconds: 30);
 
-abstract class Bluesky {
+sealed class Bluesky {
   /// Returns the new instance of [Bluesky].
   factory Bluesky({
     required String did,
@@ -118,7 +118,7 @@ abstract class Bluesky {
   atp.SyncService get sync;
 }
 
-class _Bluesky implements Bluesky {
+final class _Bluesky implements Bluesky {
   /// Returns the new instance of [_Bluesky].
   _Bluesky({
     required String did,
