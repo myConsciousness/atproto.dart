@@ -798,7 +798,7 @@ For example, in the above example, if the `text` input is defined by Lexicon to 
 If a structure or type different from the properties defined in Lexicon is detected, an `InvalidRequestException` is always thrown.
 :::
 
-To include such unspecced inputs in a request using **[bluesky](https://pub.dev/packages/bluesky)**, implement as follows.
+To include such unspecced inputs in a request using **[bluesky](https://pub.dev/packages/bluesky)**, implement with `unspecced` parameter as follows.
 Send a request with location information to the post.
 
 ```dart
@@ -812,7 +812,7 @@ Future<void> main() async {
 
     // Use this parameter.
     unspecced: {
-      'place.shinyakato.dev': {
+      r'$place': {
         'latitude': 40.730610,
         'longitude': -73.935242,
       }
@@ -830,11 +830,25 @@ Executing this code will register a following record.
   "text": "This is where I post from",
   "$type": "app.bsky.feed.post",
   "createdAt": "2023-08-10T02:27:19.682542Z",
-  "place.shinyakato.dev": {
+  "$place": {
     "latitude": 40.73061,
     "longitude": -73.935242
   }
 }
 ```
 
-As you can see, we were able to register a property that is not defined by Lexicon in [`app.bsky.feed.post`](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json).
+As you can see, we were able to register a property that is not defined by Lexicon in **[`app.bsky.feed.post`](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json)**.
+
+:::danger
+As in the example above, any object of any structure can be registered as a record, as long as it does not override the properties defined in the Lexicon supported by the service.
+
+However, as you register your own properties, **you should consider the possibility that they will be added to the official Lexicon in the future**.
+If an official Lexicon property added in the future has the same name as a proprietary property you have registered, there is a possibility of name conflicts and system downtime for an unspecified number of clients.
+For example, if you registered `place` property and it's added to the official Lexicon in the future as a `place` with the same name, the client may not be able to process the data correctly due to structural inconsistencies.
+
+So, **_make sure that the unique properties you register from the `unspecced` parameter are unique_**.
+To make the name of a property unique, the following methods are possible.
+
+- Prefix symbols such a `$` (e.g. `$place`)
+- Prefix with the domain name you own (e.g. `shinyakato.dev.place`)
+:::
