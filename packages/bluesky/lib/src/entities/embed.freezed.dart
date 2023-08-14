@@ -47,29 +47,29 @@ mixin _$Embed {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Record value) record,
-    required TResult Function(_Images value) images,
-    required TResult Function(_External value) external,
-    required TResult Function(_RecordWithMedia value) recordWithMedia,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(UEmbedRecord value) record,
+    required TResult Function(UEmbedImages value) images,
+    required TResult Function(UEmbedExternal value) external,
+    required TResult Function(UEmbedRecordWithMedia value) recordWithMedia,
+    required TResult Function(UEmbedUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Record value)? record,
-    TResult? Function(_Images value)? images,
-    TResult? Function(_External value)? external,
-    TResult? Function(_RecordWithMedia value)? recordWithMedia,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(UEmbedRecord value)? record,
+    TResult? Function(UEmbedImages value)? images,
+    TResult? Function(UEmbedExternal value)? external,
+    TResult? Function(UEmbedRecordWithMedia value)? recordWithMedia,
+    TResult? Function(UEmbedUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Record value)? record,
-    TResult Function(_Images value)? images,
-    TResult Function(_External value)? external,
-    TResult Function(_RecordWithMedia value)? recordWithMedia,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(UEmbedRecord value)? record,
+    TResult Function(UEmbedImages value)? images,
+    TResult Function(UEmbedExternal value)? external,
+    TResult Function(UEmbedRecordWithMedia value)? recordWithMedia,
+    TResult Function(UEmbedUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -93,9 +93,10 @@ class _$EmbedCopyWithImpl<$Res, $Val extends Embed>
 }
 
 /// @nodoc
-abstract class _$$_RecordCopyWith<$Res> {
-  factory _$$_RecordCopyWith(_$_Record value, $Res Function(_$_Record) then) =
-      __$$_RecordCopyWithImpl<$Res>;
+abstract class _$$UEmbedRecordCopyWith<$Res> {
+  factory _$$UEmbedRecordCopyWith(
+          _$UEmbedRecord value, $Res Function(_$UEmbedRecord) then) =
+      __$$UEmbedRecordCopyWithImpl<$Res>;
   @useResult
   $Res call({EmbedRecord data});
 
@@ -103,9 +104,11 @@ abstract class _$$_RecordCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_RecordCopyWithImpl<$Res> extends _$EmbedCopyWithImpl<$Res, _$_Record>
-    implements _$$_RecordCopyWith<$Res> {
-  __$$_RecordCopyWithImpl(_$_Record _value, $Res Function(_$_Record) _then)
+class __$$UEmbedRecordCopyWithImpl<$Res>
+    extends _$EmbedCopyWithImpl<$Res, _$UEmbedRecord>
+    implements _$$UEmbedRecordCopyWith<$Res> {
+  __$$UEmbedRecordCopyWithImpl(
+      _$UEmbedRecord _value, $Res Function(_$UEmbedRecord) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -113,7 +116,7 @@ class __$$_RecordCopyWithImpl<$Res> extends _$EmbedCopyWithImpl<$Res, _$_Record>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Record(
+    return _then(_$UEmbedRecord(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -132,8 +135,8 @@ class __$$_RecordCopyWithImpl<$Res> extends _$EmbedCopyWithImpl<$Res, _$_Record>
 
 /// @nodoc
 
-class _$_Record extends _Record {
-  const _$_Record({required this.data}) : super._();
+class _$UEmbedRecord extends UEmbedRecord {
+  const _$UEmbedRecord({required this.data}) : super._();
 
   @override
   final EmbedRecord data;
@@ -147,7 +150,7 @@ class _$_Record extends _Record {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Record &&
+            other is _$UEmbedRecord &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -157,8 +160,8 @@ class _$_Record extends _Record {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RecordCopyWith<_$_Record> get copyWith =>
-      __$$_RecordCopyWithImpl<_$_Record>(this, _$identity);
+  _$$UEmbedRecordCopyWith<_$UEmbedRecord> get copyWith =>
+      __$$UEmbedRecordCopyWithImpl<_$UEmbedRecord>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -203,11 +206,11 @@ class _$_Record extends _Record {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Record value) record,
-    required TResult Function(_Images value) images,
-    required TResult Function(_External value) external,
-    required TResult Function(_RecordWithMedia value) recordWithMedia,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(UEmbedRecord value) record,
+    required TResult Function(UEmbedImages value) images,
+    required TResult Function(UEmbedExternal value) external,
+    required TResult Function(UEmbedRecordWithMedia value) recordWithMedia,
+    required TResult Function(UEmbedUnknown value) unknown,
   }) {
     return record(this);
   }
@@ -215,11 +218,11 @@ class _$_Record extends _Record {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Record value)? record,
-    TResult? Function(_Images value)? images,
-    TResult? Function(_External value)? external,
-    TResult? Function(_RecordWithMedia value)? recordWithMedia,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(UEmbedRecord value)? record,
+    TResult? Function(UEmbedImages value)? images,
+    TResult? Function(UEmbedExternal value)? external,
+    TResult? Function(UEmbedRecordWithMedia value)? recordWithMedia,
+    TResult? Function(UEmbedUnknown value)? unknown,
   }) {
     return record?.call(this);
   }
@@ -227,11 +230,11 @@ class _$_Record extends _Record {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Record value)? record,
-    TResult Function(_Images value)? images,
-    TResult Function(_External value)? external,
-    TResult Function(_RecordWithMedia value)? recordWithMedia,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(UEmbedRecord value)? record,
+    TResult Function(UEmbedImages value)? images,
+    TResult Function(UEmbedExternal value)? external,
+    TResult Function(UEmbedRecordWithMedia value)? recordWithMedia,
+    TResult Function(UEmbedUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (record != null) {
@@ -241,21 +244,23 @@ class _$_Record extends _Record {
   }
 }
 
-abstract class _Record extends Embed {
-  const factory _Record({required final EmbedRecord data}) = _$_Record;
-  const _Record._() : super._();
+abstract class UEmbedRecord extends Embed {
+  const factory UEmbedRecord({required final EmbedRecord data}) =
+      _$UEmbedRecord;
+  const UEmbedRecord._() : super._();
 
   @override
   EmbedRecord get data;
   @JsonKey(ignore: true)
-  _$$_RecordCopyWith<_$_Record> get copyWith =>
+  _$$UEmbedRecordCopyWith<_$UEmbedRecord> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ImagesCopyWith<$Res> {
-  factory _$$_ImagesCopyWith(_$_Images value, $Res Function(_$_Images) then) =
-      __$$_ImagesCopyWithImpl<$Res>;
+abstract class _$$UEmbedImagesCopyWith<$Res> {
+  factory _$$UEmbedImagesCopyWith(
+          _$UEmbedImages value, $Res Function(_$UEmbedImages) then) =
+      __$$UEmbedImagesCopyWithImpl<$Res>;
   @useResult
   $Res call({EmbedImages data});
 
@@ -263,9 +268,11 @@ abstract class _$$_ImagesCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ImagesCopyWithImpl<$Res> extends _$EmbedCopyWithImpl<$Res, _$_Images>
-    implements _$$_ImagesCopyWith<$Res> {
-  __$$_ImagesCopyWithImpl(_$_Images _value, $Res Function(_$_Images) _then)
+class __$$UEmbedImagesCopyWithImpl<$Res>
+    extends _$EmbedCopyWithImpl<$Res, _$UEmbedImages>
+    implements _$$UEmbedImagesCopyWith<$Res> {
+  __$$UEmbedImagesCopyWithImpl(
+      _$UEmbedImages _value, $Res Function(_$UEmbedImages) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -273,7 +280,7 @@ class __$$_ImagesCopyWithImpl<$Res> extends _$EmbedCopyWithImpl<$Res, _$_Images>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Images(
+    return _then(_$UEmbedImages(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -292,8 +299,8 @@ class __$$_ImagesCopyWithImpl<$Res> extends _$EmbedCopyWithImpl<$Res, _$_Images>
 
 /// @nodoc
 
-class _$_Images extends _Images {
-  const _$_Images({required this.data}) : super._();
+class _$UEmbedImages extends UEmbedImages {
+  const _$UEmbedImages({required this.data}) : super._();
 
   @override
   final EmbedImages data;
@@ -307,7 +314,7 @@ class _$_Images extends _Images {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Images &&
+            other is _$UEmbedImages &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -317,8 +324,8 @@ class _$_Images extends _Images {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ImagesCopyWith<_$_Images> get copyWith =>
-      __$$_ImagesCopyWithImpl<_$_Images>(this, _$identity);
+  _$$UEmbedImagesCopyWith<_$UEmbedImages> get copyWith =>
+      __$$UEmbedImagesCopyWithImpl<_$UEmbedImages>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -363,11 +370,11 @@ class _$_Images extends _Images {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Record value) record,
-    required TResult Function(_Images value) images,
-    required TResult Function(_External value) external,
-    required TResult Function(_RecordWithMedia value) recordWithMedia,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(UEmbedRecord value) record,
+    required TResult Function(UEmbedImages value) images,
+    required TResult Function(UEmbedExternal value) external,
+    required TResult Function(UEmbedRecordWithMedia value) recordWithMedia,
+    required TResult Function(UEmbedUnknown value) unknown,
   }) {
     return images(this);
   }
@@ -375,11 +382,11 @@ class _$_Images extends _Images {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Record value)? record,
-    TResult? Function(_Images value)? images,
-    TResult? Function(_External value)? external,
-    TResult? Function(_RecordWithMedia value)? recordWithMedia,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(UEmbedRecord value)? record,
+    TResult? Function(UEmbedImages value)? images,
+    TResult? Function(UEmbedExternal value)? external,
+    TResult? Function(UEmbedRecordWithMedia value)? recordWithMedia,
+    TResult? Function(UEmbedUnknown value)? unknown,
   }) {
     return images?.call(this);
   }
@@ -387,11 +394,11 @@ class _$_Images extends _Images {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Record value)? record,
-    TResult Function(_Images value)? images,
-    TResult Function(_External value)? external,
-    TResult Function(_RecordWithMedia value)? recordWithMedia,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(UEmbedRecord value)? record,
+    TResult Function(UEmbedImages value)? images,
+    TResult Function(UEmbedExternal value)? external,
+    TResult Function(UEmbedRecordWithMedia value)? recordWithMedia,
+    TResult Function(UEmbedUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (images != null) {
@@ -401,22 +408,23 @@ class _$_Images extends _Images {
   }
 }
 
-abstract class _Images extends Embed {
-  const factory _Images({required final EmbedImages data}) = _$_Images;
-  const _Images._() : super._();
+abstract class UEmbedImages extends Embed {
+  const factory UEmbedImages({required final EmbedImages data}) =
+      _$UEmbedImages;
+  const UEmbedImages._() : super._();
 
   @override
   EmbedImages get data;
   @JsonKey(ignore: true)
-  _$$_ImagesCopyWith<_$_Images> get copyWith =>
+  _$$UEmbedImagesCopyWith<_$UEmbedImages> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ExternalCopyWith<$Res> {
-  factory _$$_ExternalCopyWith(
-          _$_External value, $Res Function(_$_External) then) =
-      __$$_ExternalCopyWithImpl<$Res>;
+abstract class _$$UEmbedExternalCopyWith<$Res> {
+  factory _$$UEmbedExternalCopyWith(
+          _$UEmbedExternal value, $Res Function(_$UEmbedExternal) then) =
+      __$$UEmbedExternalCopyWithImpl<$Res>;
   @useResult
   $Res call({EmbedExternal data});
 
@@ -424,11 +432,11 @@ abstract class _$$_ExternalCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ExternalCopyWithImpl<$Res>
-    extends _$EmbedCopyWithImpl<$Res, _$_External>
-    implements _$$_ExternalCopyWith<$Res> {
-  __$$_ExternalCopyWithImpl(
-      _$_External _value, $Res Function(_$_External) _then)
+class __$$UEmbedExternalCopyWithImpl<$Res>
+    extends _$EmbedCopyWithImpl<$Res, _$UEmbedExternal>
+    implements _$$UEmbedExternalCopyWith<$Res> {
+  __$$UEmbedExternalCopyWithImpl(
+      _$UEmbedExternal _value, $Res Function(_$UEmbedExternal) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -436,7 +444,7 @@ class __$$_ExternalCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_External(
+    return _then(_$UEmbedExternal(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -455,8 +463,8 @@ class __$$_ExternalCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_External extends _External {
-  const _$_External({required this.data}) : super._();
+class _$UEmbedExternal extends UEmbedExternal {
+  const _$UEmbedExternal({required this.data}) : super._();
 
   @override
   final EmbedExternal data;
@@ -470,7 +478,7 @@ class _$_External extends _External {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_External &&
+            other is _$UEmbedExternal &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -480,8 +488,8 @@ class _$_External extends _External {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ExternalCopyWith<_$_External> get copyWith =>
-      __$$_ExternalCopyWithImpl<_$_External>(this, _$identity);
+  _$$UEmbedExternalCopyWith<_$UEmbedExternal> get copyWith =>
+      __$$UEmbedExternalCopyWithImpl<_$UEmbedExternal>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -526,11 +534,11 @@ class _$_External extends _External {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Record value) record,
-    required TResult Function(_Images value) images,
-    required TResult Function(_External value) external,
-    required TResult Function(_RecordWithMedia value) recordWithMedia,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(UEmbedRecord value) record,
+    required TResult Function(UEmbedImages value) images,
+    required TResult Function(UEmbedExternal value) external,
+    required TResult Function(UEmbedRecordWithMedia value) recordWithMedia,
+    required TResult Function(UEmbedUnknown value) unknown,
   }) {
     return external(this);
   }
@@ -538,11 +546,11 @@ class _$_External extends _External {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Record value)? record,
-    TResult? Function(_Images value)? images,
-    TResult? Function(_External value)? external,
-    TResult? Function(_RecordWithMedia value)? recordWithMedia,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(UEmbedRecord value)? record,
+    TResult? Function(UEmbedImages value)? images,
+    TResult? Function(UEmbedExternal value)? external,
+    TResult? Function(UEmbedRecordWithMedia value)? recordWithMedia,
+    TResult? Function(UEmbedUnknown value)? unknown,
   }) {
     return external?.call(this);
   }
@@ -550,11 +558,11 @@ class _$_External extends _External {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Record value)? record,
-    TResult Function(_Images value)? images,
-    TResult Function(_External value)? external,
-    TResult Function(_RecordWithMedia value)? recordWithMedia,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(UEmbedRecord value)? record,
+    TResult Function(UEmbedImages value)? images,
+    TResult Function(UEmbedExternal value)? external,
+    TResult Function(UEmbedRecordWithMedia value)? recordWithMedia,
+    TResult Function(UEmbedUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (external != null) {
@@ -564,22 +572,23 @@ class _$_External extends _External {
   }
 }
 
-abstract class _External extends Embed {
-  const factory _External({required final EmbedExternal data}) = _$_External;
-  const _External._() : super._();
+abstract class UEmbedExternal extends Embed {
+  const factory UEmbedExternal({required final EmbedExternal data}) =
+      _$UEmbedExternal;
+  const UEmbedExternal._() : super._();
 
   @override
   EmbedExternal get data;
   @JsonKey(ignore: true)
-  _$$_ExternalCopyWith<_$_External> get copyWith =>
+  _$$UEmbedExternalCopyWith<_$UEmbedExternal> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_RecordWithMediaCopyWith<$Res> {
-  factory _$$_RecordWithMediaCopyWith(
-          _$_RecordWithMedia value, $Res Function(_$_RecordWithMedia) then) =
-      __$$_RecordWithMediaCopyWithImpl<$Res>;
+abstract class _$$UEmbedRecordWithMediaCopyWith<$Res> {
+  factory _$$UEmbedRecordWithMediaCopyWith(_$UEmbedRecordWithMedia value,
+          $Res Function(_$UEmbedRecordWithMedia) then) =
+      __$$UEmbedRecordWithMediaCopyWithImpl<$Res>;
   @useResult
   $Res call({EmbedRecordWithMedia data});
 
@@ -587,11 +596,11 @@ abstract class _$$_RecordWithMediaCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_RecordWithMediaCopyWithImpl<$Res>
-    extends _$EmbedCopyWithImpl<$Res, _$_RecordWithMedia>
-    implements _$$_RecordWithMediaCopyWith<$Res> {
-  __$$_RecordWithMediaCopyWithImpl(
-      _$_RecordWithMedia _value, $Res Function(_$_RecordWithMedia) _then)
+class __$$UEmbedRecordWithMediaCopyWithImpl<$Res>
+    extends _$EmbedCopyWithImpl<$Res, _$UEmbedRecordWithMedia>
+    implements _$$UEmbedRecordWithMediaCopyWith<$Res> {
+  __$$UEmbedRecordWithMediaCopyWithImpl(_$UEmbedRecordWithMedia _value,
+      $Res Function(_$UEmbedRecordWithMedia) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -599,7 +608,7 @@ class __$$_RecordWithMediaCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_RecordWithMedia(
+    return _then(_$UEmbedRecordWithMedia(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -618,8 +627,8 @@ class __$$_RecordWithMediaCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_RecordWithMedia extends _RecordWithMedia {
-  const _$_RecordWithMedia({required this.data}) : super._();
+class _$UEmbedRecordWithMedia extends UEmbedRecordWithMedia {
+  const _$UEmbedRecordWithMedia({required this.data}) : super._();
 
   @override
   final EmbedRecordWithMedia data;
@@ -633,7 +642,7 @@ class _$_RecordWithMedia extends _RecordWithMedia {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RecordWithMedia &&
+            other is _$UEmbedRecordWithMedia &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -643,8 +652,9 @@ class _$_RecordWithMedia extends _RecordWithMedia {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RecordWithMediaCopyWith<_$_RecordWithMedia> get copyWith =>
-      __$$_RecordWithMediaCopyWithImpl<_$_RecordWithMedia>(this, _$identity);
+  _$$UEmbedRecordWithMediaCopyWith<_$UEmbedRecordWithMedia> get copyWith =>
+      __$$UEmbedRecordWithMediaCopyWithImpl<_$UEmbedRecordWithMedia>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -689,11 +699,11 @@ class _$_RecordWithMedia extends _RecordWithMedia {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Record value) record,
-    required TResult Function(_Images value) images,
-    required TResult Function(_External value) external,
-    required TResult Function(_RecordWithMedia value) recordWithMedia,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(UEmbedRecord value) record,
+    required TResult Function(UEmbedImages value) images,
+    required TResult Function(UEmbedExternal value) external,
+    required TResult Function(UEmbedRecordWithMedia value) recordWithMedia,
+    required TResult Function(UEmbedUnknown value) unknown,
   }) {
     return recordWithMedia(this);
   }
@@ -701,11 +711,11 @@ class _$_RecordWithMedia extends _RecordWithMedia {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Record value)? record,
-    TResult? Function(_Images value)? images,
-    TResult? Function(_External value)? external,
-    TResult? Function(_RecordWithMedia value)? recordWithMedia,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(UEmbedRecord value)? record,
+    TResult? Function(UEmbedImages value)? images,
+    TResult? Function(UEmbedExternal value)? external,
+    TResult? Function(UEmbedRecordWithMedia value)? recordWithMedia,
+    TResult? Function(UEmbedUnknown value)? unknown,
   }) {
     return recordWithMedia?.call(this);
   }
@@ -713,11 +723,11 @@ class _$_RecordWithMedia extends _RecordWithMedia {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Record value)? record,
-    TResult Function(_Images value)? images,
-    TResult Function(_External value)? external,
-    TResult Function(_RecordWithMedia value)? recordWithMedia,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(UEmbedRecord value)? record,
+    TResult Function(UEmbedImages value)? images,
+    TResult Function(UEmbedExternal value)? external,
+    TResult Function(UEmbedRecordWithMedia value)? recordWithMedia,
+    TResult Function(UEmbedUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (recordWithMedia != null) {
@@ -727,32 +737,33 @@ class _$_RecordWithMedia extends _RecordWithMedia {
   }
 }
 
-abstract class _RecordWithMedia extends Embed {
-  const factory _RecordWithMedia({required final EmbedRecordWithMedia data}) =
-      _$_RecordWithMedia;
-  const _RecordWithMedia._() : super._();
+abstract class UEmbedRecordWithMedia extends Embed {
+  const factory UEmbedRecordWithMedia(
+      {required final EmbedRecordWithMedia data}) = _$UEmbedRecordWithMedia;
+  const UEmbedRecordWithMedia._() : super._();
 
   @override
   EmbedRecordWithMedia get data;
   @JsonKey(ignore: true)
-  _$$_RecordWithMediaCopyWith<_$_RecordWithMedia> get copyWith =>
+  _$$UEmbedRecordWithMediaCopyWith<_$UEmbedRecordWithMedia> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_UnknownCopyWith<$Res> {
-  factory _$$_UnknownCopyWith(
-          _$_Unknown value, $Res Function(_$_Unknown) then) =
-      __$$_UnknownCopyWithImpl<$Res>;
+abstract class _$$UEmbedUnknownCopyWith<$Res> {
+  factory _$$UEmbedUnknownCopyWith(
+          _$UEmbedUnknown value, $Res Function(_$UEmbedUnknown) then) =
+      __$$UEmbedUnknownCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$_UnknownCopyWithImpl<$Res>
-    extends _$EmbedCopyWithImpl<$Res, _$_Unknown>
-    implements _$$_UnknownCopyWith<$Res> {
-  __$$_UnknownCopyWithImpl(_$_Unknown _value, $Res Function(_$_Unknown) _then)
+class __$$UEmbedUnknownCopyWithImpl<$Res>
+    extends _$EmbedCopyWithImpl<$Res, _$UEmbedUnknown>
+    implements _$$UEmbedUnknownCopyWith<$Res> {
+  __$$UEmbedUnknownCopyWithImpl(
+      _$UEmbedUnknown _value, $Res Function(_$UEmbedUnknown) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -760,7 +771,7 @@ class __$$_UnknownCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Unknown(
+    return _then(_$UEmbedUnknown(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -771,8 +782,8 @@ class __$$_UnknownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Unknown extends _Unknown {
-  const _$_Unknown({required final Map<String, dynamic> data})
+class _$UEmbedUnknown extends UEmbedUnknown {
+  const _$UEmbedUnknown({required final Map<String, dynamic> data})
       : _data = data,
         super._();
 
@@ -793,7 +804,7 @@ class _$_Unknown extends _Unknown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Unknown &&
+            other is _$UEmbedUnknown &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -804,8 +815,8 @@ class _$_Unknown extends _Unknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
-      __$$_UnknownCopyWithImpl<_$_Unknown>(this, _$identity);
+  _$$UEmbedUnknownCopyWith<_$UEmbedUnknown> get copyWith =>
+      __$$UEmbedUnknownCopyWithImpl<_$UEmbedUnknown>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -850,11 +861,11 @@ class _$_Unknown extends _Unknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Record value) record,
-    required TResult Function(_Images value) images,
-    required TResult Function(_External value) external,
-    required TResult Function(_RecordWithMedia value) recordWithMedia,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(UEmbedRecord value) record,
+    required TResult Function(UEmbedImages value) images,
+    required TResult Function(UEmbedExternal value) external,
+    required TResult Function(UEmbedRecordWithMedia value) recordWithMedia,
+    required TResult Function(UEmbedUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -862,11 +873,11 @@ class _$_Unknown extends _Unknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Record value)? record,
-    TResult? Function(_Images value)? images,
-    TResult? Function(_External value)? external,
-    TResult? Function(_RecordWithMedia value)? recordWithMedia,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(UEmbedRecord value)? record,
+    TResult? Function(UEmbedImages value)? images,
+    TResult? Function(UEmbedExternal value)? external,
+    TResult? Function(UEmbedRecordWithMedia value)? recordWithMedia,
+    TResult? Function(UEmbedUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -874,11 +885,11 @@ class _$_Unknown extends _Unknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Record value)? record,
-    TResult Function(_Images value)? images,
-    TResult Function(_External value)? external,
-    TResult Function(_RecordWithMedia value)? recordWithMedia,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(UEmbedRecord value)? record,
+    TResult Function(UEmbedImages value)? images,
+    TResult Function(UEmbedExternal value)? external,
+    TResult Function(UEmbedRecordWithMedia value)? recordWithMedia,
+    TResult Function(UEmbedUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -888,14 +899,14 @@ class _$_Unknown extends _Unknown {
   }
 }
 
-abstract class _Unknown extends Embed {
-  const factory _Unknown({required final Map<String, dynamic> data}) =
-      _$_Unknown;
-  const _Unknown._() : super._();
+abstract class UEmbedUnknown extends Embed {
+  const factory UEmbedUnknown({required final Map<String, dynamic> data}) =
+      _$UEmbedUnknown;
+  const UEmbedUnknown._() : super._();
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
+  _$$UEmbedUnknownCopyWith<_$UEmbedUnknown> get copyWith =>
       throw _privateConstructorUsedError;
 }

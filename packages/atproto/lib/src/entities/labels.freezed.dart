@@ -38,20 +38,20 @@ mixin _$Labels {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Labels value) selfLabels,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(ULabelsSelLabels value) selfLabels,
+    required TResult Function(ULabelsUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Labels value)? selfLabels,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(ULabelsSelLabels value)? selfLabels,
+    TResult? Function(ULabelsUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Labels value)? selfLabels,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(ULabelsSelLabels value)? selfLabels,
+    TResult Function(ULabelsUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -75,9 +75,10 @@ class _$LabelsCopyWithImpl<$Res, $Val extends Labels>
 }
 
 /// @nodoc
-abstract class _$$_LabelsCopyWith<$Res> {
-  factory _$$_LabelsCopyWith(_$_Labels value, $Res Function(_$_Labels) then) =
-      __$$_LabelsCopyWithImpl<$Res>;
+abstract class _$$ULabelsSelLabelsCopyWith<$Res> {
+  factory _$$ULabelsSelLabelsCopyWith(
+          _$ULabelsSelLabels value, $Res Function(_$ULabelsSelLabels) then) =
+      __$$ULabelsSelLabelsCopyWithImpl<$Res>;
   @useResult
   $Res call({SelfLabels data});
 
@@ -85,10 +86,11 @@ abstract class _$$_LabelsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LabelsCopyWithImpl<$Res>
-    extends _$LabelsCopyWithImpl<$Res, _$_Labels>
-    implements _$$_LabelsCopyWith<$Res> {
-  __$$_LabelsCopyWithImpl(_$_Labels _value, $Res Function(_$_Labels) _then)
+class __$$ULabelsSelLabelsCopyWithImpl<$Res>
+    extends _$LabelsCopyWithImpl<$Res, _$ULabelsSelLabels>
+    implements _$$ULabelsSelLabelsCopyWith<$Res> {
+  __$$ULabelsSelLabelsCopyWithImpl(
+      _$ULabelsSelLabels _value, $Res Function(_$ULabelsSelLabels) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -96,7 +98,7 @@ class __$$_LabelsCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Labels(
+    return _then(_$ULabelsSelLabels(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -115,8 +117,8 @@ class __$$_LabelsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Labels extends _Labels {
-  const _$_Labels({required this.data}) : super._();
+class _$ULabelsSelLabels extends ULabelsSelLabels {
+  const _$ULabelsSelLabels({required this.data}) : super._();
 
   @override
   final SelfLabels data;
@@ -130,7 +132,7 @@ class _$_Labels extends _Labels {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Labels &&
+            other is _$ULabelsSelLabels &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -140,8 +142,8 @@ class _$_Labels extends _Labels {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LabelsCopyWith<_$_Labels> get copyWith =>
-      __$$_LabelsCopyWithImpl<_$_Labels>(this, _$identity);
+  _$$ULabelsSelLabelsCopyWith<_$ULabelsSelLabels> get copyWith =>
+      __$$ULabelsSelLabelsCopyWithImpl<_$ULabelsSelLabels>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -177,8 +179,8 @@ class _$_Labels extends _Labels {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Labels value) selfLabels,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(ULabelsSelLabels value) selfLabels,
+    required TResult Function(ULabelsUnknown value) unknown,
   }) {
     return selfLabels(this);
   }
@@ -186,8 +188,8 @@ class _$_Labels extends _Labels {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Labels value)? selfLabels,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(ULabelsSelLabels value)? selfLabels,
+    TResult? Function(ULabelsUnknown value)? unknown,
   }) {
     return selfLabels?.call(this);
   }
@@ -195,8 +197,8 @@ class _$_Labels extends _Labels {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Labels value)? selfLabels,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(ULabelsSelLabels value)? selfLabels,
+    TResult Function(ULabelsUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (selfLabels != null) {
@@ -206,31 +208,33 @@ class _$_Labels extends _Labels {
   }
 }
 
-abstract class _Labels extends Labels {
-  const factory _Labels({required final SelfLabels data}) = _$_Labels;
-  const _Labels._() : super._();
+abstract class ULabelsSelLabels extends Labels {
+  const factory ULabelsSelLabels({required final SelfLabels data}) =
+      _$ULabelsSelLabels;
+  const ULabelsSelLabels._() : super._();
 
   @override
   SelfLabels get data;
   @JsonKey(ignore: true)
-  _$$_LabelsCopyWith<_$_Labels> get copyWith =>
+  _$$ULabelsSelLabelsCopyWith<_$ULabelsSelLabels> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_UnknownCopyWith<$Res> {
-  factory _$$_UnknownCopyWith(
-          _$_Unknown value, $Res Function(_$_Unknown) then) =
-      __$$_UnknownCopyWithImpl<$Res>;
+abstract class _$$ULabelsUnknownCopyWith<$Res> {
+  factory _$$ULabelsUnknownCopyWith(
+          _$ULabelsUnknown value, $Res Function(_$ULabelsUnknown) then) =
+      __$$ULabelsUnknownCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$_UnknownCopyWithImpl<$Res>
-    extends _$LabelsCopyWithImpl<$Res, _$_Unknown>
-    implements _$$_UnknownCopyWith<$Res> {
-  __$$_UnknownCopyWithImpl(_$_Unknown _value, $Res Function(_$_Unknown) _then)
+class __$$ULabelsUnknownCopyWithImpl<$Res>
+    extends _$LabelsCopyWithImpl<$Res, _$ULabelsUnknown>
+    implements _$$ULabelsUnknownCopyWith<$Res> {
+  __$$ULabelsUnknownCopyWithImpl(
+      _$ULabelsUnknown _value, $Res Function(_$ULabelsUnknown) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -238,7 +242,7 @@ class __$$_UnknownCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Unknown(
+    return _then(_$ULabelsUnknown(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -249,8 +253,8 @@ class __$$_UnknownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Unknown extends _Unknown {
-  const _$_Unknown({required final Map<String, dynamic> data})
+class _$ULabelsUnknown extends ULabelsUnknown {
+  const _$ULabelsUnknown({required final Map<String, dynamic> data})
       : _data = data,
         super._();
 
@@ -271,7 +275,7 @@ class _$_Unknown extends _Unknown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Unknown &&
+            other is _$ULabelsUnknown &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -282,8 +286,8 @@ class _$_Unknown extends _Unknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
-      __$$_UnknownCopyWithImpl<_$_Unknown>(this, _$identity);
+  _$$ULabelsUnknownCopyWith<_$ULabelsUnknown> get copyWith =>
+      __$$ULabelsUnknownCopyWithImpl<_$ULabelsUnknown>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -319,8 +323,8 @@ class _$_Unknown extends _Unknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Labels value) selfLabels,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(ULabelsSelLabels value) selfLabels,
+    required TResult Function(ULabelsUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -328,8 +332,8 @@ class _$_Unknown extends _Unknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Labels value)? selfLabels,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(ULabelsSelLabels value)? selfLabels,
+    TResult? Function(ULabelsUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -337,8 +341,8 @@ class _$_Unknown extends _Unknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Labels value)? selfLabels,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(ULabelsSelLabels value)? selfLabels,
+    TResult Function(ULabelsUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -348,14 +352,14 @@ class _$_Unknown extends _Unknown {
   }
 }
 
-abstract class _Unknown extends Labels {
-  const factory _Unknown({required final Map<String, dynamic> data}) =
-      _$_Unknown;
-  const _Unknown._() : super._();
+abstract class ULabelsUnknown extends Labels {
+  const factory ULabelsUnknown({required final Map<String, dynamic> data}) =
+      _$ULabelsUnknown;
+  const ULabelsUnknown._() : super._();
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
+  _$$ULabelsUnknownCopyWith<_$ULabelsUnknown> get copyWith =>
       throw _privateConstructorUsedError;
 }

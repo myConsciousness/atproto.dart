@@ -38,20 +38,20 @@ mixin _$Reason {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Repost value) repost,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(UReasonRepost value) repost,
+    required TResult Function(UReasonUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Repost value)? repost,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(UReasonRepost value)? repost,
+    TResult? Function(UReasonUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Repost value)? repost,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(UReasonRepost value)? repost,
+    TResult Function(UReasonUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -75,9 +75,10 @@ class _$ReasonCopyWithImpl<$Res, $Val extends Reason>
 }
 
 /// @nodoc
-abstract class _$$_RepostCopyWith<$Res> {
-  factory _$$_RepostCopyWith(_$_Repost value, $Res Function(_$_Repost) then) =
-      __$$_RepostCopyWithImpl<$Res>;
+abstract class _$$UReasonRepostCopyWith<$Res> {
+  factory _$$UReasonRepostCopyWith(
+          _$UReasonRepost value, $Res Function(_$UReasonRepost) then) =
+      __$$UReasonRepostCopyWithImpl<$Res>;
   @useResult
   $Res call({ReasonRepost data});
 
@@ -85,10 +86,11 @@ abstract class _$$_RepostCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_RepostCopyWithImpl<$Res>
-    extends _$ReasonCopyWithImpl<$Res, _$_Repost>
-    implements _$$_RepostCopyWith<$Res> {
-  __$$_RepostCopyWithImpl(_$_Repost _value, $Res Function(_$_Repost) _then)
+class __$$UReasonRepostCopyWithImpl<$Res>
+    extends _$ReasonCopyWithImpl<$Res, _$UReasonRepost>
+    implements _$$UReasonRepostCopyWith<$Res> {
+  __$$UReasonRepostCopyWithImpl(
+      _$UReasonRepost _value, $Res Function(_$UReasonRepost) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -96,7 +98,7 @@ class __$$_RepostCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Repost(
+    return _then(_$UReasonRepost(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -115,8 +117,8 @@ class __$$_RepostCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Repost implements _Repost {
-  _$_Repost({required this.data});
+class _$UReasonRepost implements UReasonRepost {
+  _$UReasonRepost({required this.data});
 
   @override
   final ReasonRepost data;
@@ -130,7 +132,7 @@ class _$_Repost implements _Repost {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Repost &&
+            other is _$UReasonRepost &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -140,8 +142,8 @@ class _$_Repost implements _Repost {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RepostCopyWith<_$_Repost> get copyWith =>
-      __$$_RepostCopyWithImpl<_$_Repost>(this, _$identity);
+  _$$UReasonRepostCopyWith<_$UReasonRepost> get copyWith =>
+      __$$UReasonRepostCopyWithImpl<_$UReasonRepost>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -177,8 +179,8 @@ class _$_Repost implements _Repost {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Repost value) repost,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(UReasonRepost value) repost,
+    required TResult Function(UReasonUnknown value) unknown,
   }) {
     return repost(this);
   }
@@ -186,8 +188,8 @@ class _$_Repost implements _Repost {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Repost value)? repost,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(UReasonRepost value)? repost,
+    TResult? Function(UReasonUnknown value)? unknown,
   }) {
     return repost?.call(this);
   }
@@ -195,8 +197,8 @@ class _$_Repost implements _Repost {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Repost value)? repost,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(UReasonRepost value)? repost,
+    TResult Function(UReasonUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (repost != null) {
@@ -206,30 +208,31 @@ class _$_Repost implements _Repost {
   }
 }
 
-abstract class _Repost implements Reason {
-  factory _Repost({required final ReasonRepost data}) = _$_Repost;
+abstract class UReasonRepost implements Reason {
+  factory UReasonRepost({required final ReasonRepost data}) = _$UReasonRepost;
 
   @override
   ReasonRepost get data;
   @JsonKey(ignore: true)
-  _$$_RepostCopyWith<_$_Repost> get copyWith =>
+  _$$UReasonRepostCopyWith<_$UReasonRepost> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_UnknownCopyWith<$Res> {
-  factory _$$_UnknownCopyWith(
-          _$_Unknown value, $Res Function(_$_Unknown) then) =
-      __$$_UnknownCopyWithImpl<$Res>;
+abstract class _$$UReasonUnknownCopyWith<$Res> {
+  factory _$$UReasonUnknownCopyWith(
+          _$UReasonUnknown value, $Res Function(_$UReasonUnknown) then) =
+      __$$UReasonUnknownCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$_UnknownCopyWithImpl<$Res>
-    extends _$ReasonCopyWithImpl<$Res, _$_Unknown>
-    implements _$$_UnknownCopyWith<$Res> {
-  __$$_UnknownCopyWithImpl(_$_Unknown _value, $Res Function(_$_Unknown) _then)
+class __$$UReasonUnknownCopyWithImpl<$Res>
+    extends _$ReasonCopyWithImpl<$Res, _$UReasonUnknown>
+    implements _$$UReasonUnknownCopyWith<$Res> {
+  __$$UReasonUnknownCopyWithImpl(
+      _$UReasonUnknown _value, $Res Function(_$UReasonUnknown) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -237,7 +240,7 @@ class __$$_UnknownCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Unknown(
+    return _then(_$UReasonUnknown(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -248,8 +251,8 @@ class __$$_UnknownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Unknown implements _Unknown {
-  _$_Unknown({required final Map<String, dynamic> data}) : _data = data;
+class _$UReasonUnknown implements UReasonUnknown {
+  _$UReasonUnknown({required final Map<String, dynamic> data}) : _data = data;
 
   final Map<String, dynamic> _data;
   @override
@@ -268,7 +271,7 @@ class _$_Unknown implements _Unknown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Unknown &&
+            other is _$UReasonUnknown &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -279,8 +282,8 @@ class _$_Unknown implements _Unknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
-      __$$_UnknownCopyWithImpl<_$_Unknown>(this, _$identity);
+  _$$UReasonUnknownCopyWith<_$UReasonUnknown> get copyWith =>
+      __$$UReasonUnknownCopyWithImpl<_$UReasonUnknown>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -316,8 +319,8 @@ class _$_Unknown implements _Unknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Repost value) repost,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(UReasonRepost value) repost,
+    required TResult Function(UReasonUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -325,8 +328,8 @@ class _$_Unknown implements _Unknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Repost value)? repost,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(UReasonRepost value)? repost,
+    TResult? Function(UReasonUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -334,8 +337,8 @@ class _$_Unknown implements _Unknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Repost value)? repost,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(UReasonRepost value)? repost,
+    TResult Function(UReasonUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -345,12 +348,13 @@ class _$_Unknown implements _Unknown {
   }
 }
 
-abstract class _Unknown implements Reason {
-  factory _Unknown({required final Map<String, dynamic> data}) = _$_Unknown;
+abstract class UReasonUnknown implements Reason {
+  factory UReasonUnknown({required final Map<String, dynamic> data}) =
+      _$UReasonUnknown;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
+  _$$UReasonUnknownCopyWith<_$UReasonUnknown> get copyWith =>
       throw _privateConstructorUsedError;
 }

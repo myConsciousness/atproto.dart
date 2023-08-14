@@ -27,13 +27,13 @@ class FacetFeature with _$FacetFeature {
   ///  mention.
   const factory FacetFeature.mention({
     required FacetMention data,
-  }) = _Mention;
+  }) = UFacetFeatureMention;
 
   /// This constructor is used when the feature is a link.
   /// It takes a [FacetLink] object which provides the details of the link.
   const factory FacetFeature.link({
     required FacetLink data,
-  }) = _Link;
+  }) = UFacetFeatureLink;
 
   /// This constructor is used when the feature's type is unknown or not
   /// expected.
@@ -41,5 +41,5 @@ class FacetFeature with _$FacetFeature {
   /// It includes the raw data map for unknown feature.
   const factory FacetFeature.unknown({
     required Map<String, dynamic> data,
-  }) = _Unknown;
+  }) = UFacetFeatureUnknown;
 }

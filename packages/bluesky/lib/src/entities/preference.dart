@@ -32,7 +32,7 @@ class Preference with _$Preference {
   /// of the user's adult content preference.
   const factory Preference.adultContent({
     required AdultContentPreference data,
-  }) = _AdultContent;
+  }) = UPreferenceAdultContent;
 
   /// This constructor is used when the user preference type is
   /// [ContentLabelPreference].
@@ -41,7 +41,7 @@ class Preference with _$Preference {
   /// of the user's content label preference.
   const factory Preference.contentLabel({
     required ContentLabelPreference data,
-  }) = _ContentLabel;
+  }) = UPreferenceContentLabel;
 
   /// This constructor is used when the user preference type is
   /// [SavedFeedsPreference].
@@ -50,7 +50,7 @@ class Preference with _$Preference {
   /// of the user's saved feeds preference.
   const factory Preference.savedFeeds({
     required SavedFeedsPreference data,
-  }) = _SavedFeeds;
+  }) = UPreferenceSavedFeeds;
 
   /// This constructor is used when the preference type is not supported
   /// or is not expected.
@@ -58,7 +58,7 @@ class Preference with _$Preference {
   /// It includes the raw data map for further investigation or future support.
   const factory Preference.unknown({
     required Map<String, dynamic> data,
-  }) = _Unknown;
+  }) = UPreferenceUnknown;
 
   /// This method returns the JSON representation of the [Preference] object.
   ///

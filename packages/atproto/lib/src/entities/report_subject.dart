@@ -25,12 +25,12 @@ class ReportSubject with _$ReportSubject {
   /// Creates a new instance of [ReportSubject] as a repository reference.
   const factory ReportSubject.repoRef({
     required RepoRef data,
-  }) = _RepoRef;
+  }) = UReportSubjectRepoRef;
 
   /// Creates a new instance of [ReportSubject] as a strong reference.
   const factory ReportSubject.strongRef({
     required StrongRef data,
-  }) = _StrongRef;
+  }) = UReportSubjectStrongRef;
 
   /// Creates a new instance of [ReportSubject] of an unknown type.
   ///
@@ -38,7 +38,7 @@ class ReportSubject with _$ReportSubject {
   /// is not recognized.
   const factory ReportSubject.unknown({
     required Map<String, dynamic> data,
-  }) = _Unknown;
+  }) = UReportSubjectUnknown;
 
   /// Returns the JSON representation of the [ReportSubject].
   ///

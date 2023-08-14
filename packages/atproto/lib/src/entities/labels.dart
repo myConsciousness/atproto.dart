@@ -22,7 +22,7 @@ class Labels with _$Labels {
   /// This constructor is used when the label is a self-attached.
   const factory Labels.selfLabels({
     required SelfLabels data,
-  }) = _Labels;
+  }) = ULabelsSelLabels;
 
   /// This constructor is used when the labels' type is unknown
   /// or not expected.
@@ -30,7 +30,7 @@ class Labels with _$Labels {
   /// It includes the raw data map for further investigation or future support.
   const factory Labels.unknown({
     required Map<String, dynamic> data,
-  }) = _Unknown;
+  }) = ULabelsUnknown;
 
   /// Returns the JSON representation.
   Map<String, dynamic> toJson() => when(
