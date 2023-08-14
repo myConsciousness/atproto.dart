@@ -842,7 +842,7 @@ As you can see, we were able to register a property that is not defined by Lexic
 As in the example above, any object of any structure can be registered as a record, as long as it does not override the properties defined in the Lexicon supported by the service.
 
 However, as you register your own properties, **you should consider the possibility that they will be added to the official Lexicon in the future**.
-If an official Lexicon property added in the future has the same name as a proprietary property you have registered, there is a possibility of name conflicts and system downtime for an unspecified number of clients.
+If an official Lexicon property added in the future has the same name as a property you have registered, there is a possibility of name conflicts and system downtime for an unspecified number of clients.
 For example, if you registered `place` property and it's added to the official Lexicon in the future as a `place` with the same name, the client may not be able to process the data correctly due to structural inconsistencies.
 
 So, **_make sure that the unique properties you register from the `unspecced` parameter are unique_**.
