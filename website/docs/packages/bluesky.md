@@ -799,9 +799,8 @@ If a structure or type different from the properties defined in Lexicon is detec
 :::
 
 To include such unspecced inputs in a request using **[bluesky](https://pub.dev/packages/bluesky)**, implement with `unspecced` parameter as follows.
-Send a request with location information to the post.
 
-```dart
+```dart title="Post with Place Information"
 import 'package:bluesky/bluesky.dart' as bsky;
 
 Future<void> main() async {
