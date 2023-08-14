@@ -22,7 +22,7 @@ class Reason with _$Reason {
   /// repost action.
   factory Reason.repost({
     required ReasonRepost data,
-  }) = _Repost;
+  }) = UReasonRepost;
 
   /// This constructor is used when the reason type is not supported or is not
   /// expected.
@@ -30,5 +30,5 @@ class Reason with _$Reason {
   /// It includes the raw data map for unknown feature.
   factory Reason.unknown({
     required Map<String, dynamic> data,
-  }) = _Unknown;
+  }) = UReasonUnknown;
 }

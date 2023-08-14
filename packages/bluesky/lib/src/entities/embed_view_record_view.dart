@@ -28,7 +28,7 @@ class EmbedViewRecordView with _$EmbedViewRecordView {
   /// the record view.
   const factory EmbedViewRecordView.record({
     required EmbedViewRecordViewRecord data,
-  }) = _Record;
+  }) = UEmbedViewRecordViewRecord;
 
   /// Constructs an `EmbedViewRecordView` instance for a not found view.
   ///
@@ -36,7 +36,7 @@ class EmbedViewRecordView with _$EmbedViewRecordView {
   /// the not found view.
   const factory EmbedViewRecordView.notFound({
     required EmbedViewRecordViewNotFound data,
-  }) = _NotFound;
+  }) = UEmbedViewRecordViewNotFound;
 
   /// Constructs an `EmbedViewRecordView` instance for a blocked view.
   ///
@@ -44,7 +44,7 @@ class EmbedViewRecordView with _$EmbedViewRecordView {
   /// the blocked view.
   const factory EmbedViewRecordView.blocked({
     required EmbedViewRecordViewBlocked data,
-  }) = _Blocked;
+  }) = UEmbedViewRecordViewBlocked;
 
   /// Constructs an `EmbedViewRecordView` instance for a feed generator view.
   ///
@@ -52,14 +52,14 @@ class EmbedViewRecordView with _$EmbedViewRecordView {
   /// generator view.
   const factory EmbedViewRecordView.generatorView({
     required FeedGeneratorView data,
-  }) = _GeneratorView;
+  }) = UEmbedViewRecordViewGeneratorView;
 
   /// Constructs an `EmbedViewRecordView` instance for a list view.
   ///
   /// The [data] parameter is the `ListView` representing the list view.
   const factory EmbedViewRecordView.listView({
     required ListView data,
-  }) = _ListView;
+  }) = UEmbedViewRecordViewListView;
 
   /// Constructs an `EmbedViewRecordView` instance for an unknown view type.
   ///
@@ -67,5 +67,5 @@ class EmbedViewRecordView with _$EmbedViewRecordView {
   /// the unknown view.
   const factory EmbedViewRecordView.unknown({
     required Map<String, dynamic> data,
-  }) = _Unknown;
+  }) = UEmbedViewRecordViewUnknown;
 }

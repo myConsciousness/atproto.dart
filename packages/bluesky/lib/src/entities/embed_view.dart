@@ -24,7 +24,7 @@ class EmbedView with _$EmbedView {
   /// record embed view.
   const factory EmbedView.record({
     required EmbedViewRecord data,
-  }) = _Record;
+  }) = UEmbedViewRecord;
 
   /// Constructs an `EmbedView` from a `EmbedViewImages` type.
   ///
@@ -32,7 +32,7 @@ class EmbedView with _$EmbedView {
   /// an images embed view.
   const factory EmbedView.images({
     required EmbedViewImages data,
-  }) = _Images;
+  }) = UEmbedViewImages;
 
   /// Constructs an `EmbedView` from a `EmbedViewExternal` type.
   ///
@@ -40,7 +40,7 @@ class EmbedView with _$EmbedView {
   /// an external embed view.
   const factory EmbedView.external({
     required EmbedViewExternal data,
-  }) = _External;
+  }) = UEmbedViewExternal;
 
   /// Constructs an `EmbedView` from a `EmbedViewRecordWithMedia` type.
   ///
@@ -48,10 +48,10 @@ class EmbedView with _$EmbedView {
   /// represents a record with media embed view.
   const factory EmbedView.recordWithMedia({
     required EmbedViewRecordWithMedia data,
-  }) = _RecordWithMedia;
+  }) = UEmbedViewRecordWithMedia;
 
   /// Constructs an `EmbedView` from an unknown feature.
   const factory EmbedView.unknown({
     required Map<String, dynamic> data,
-  }) = _Unknown;
+  }) = UEmbedViewUnknown;
 }

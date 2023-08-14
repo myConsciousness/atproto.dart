@@ -1,5 +1,19 @@
 # Release Note
 
+## v0.8.1
+
+- Exposed freezed union objects. You can use them for pattern matching. ([#600](https://github.com/myConsciousness/atproto.dart/issues/600))
+  - `embed.dart`
+  - `embed_media.dart`
+  - `embed_view.dart`
+  - `embed_view_media.dart`
+  - `facet_feature.dart`
+  - `post_thread_view.dart`
+  - `preference.dart`
+  - `reason.dart`
+  - `reply_post.dart`
+  - `skeleton_reason.dart`
+
 ## v0.8.0
 
 - Drop support for null unsafe Dart, bump SDK constraint to '^3.0.0'. ([#599](https://github.com/myConsciousness/atproto.dart/issues/599))

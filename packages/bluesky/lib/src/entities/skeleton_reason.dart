@@ -21,7 +21,7 @@ class SkeletonReason with _$SkeletonReason {
   /// the post appears in the feed.
   factory SkeletonReason.repost({
     required SkeletonReasonRepost data,
-  }) = _Repost;
+  }) = USkeletonReasonRepost;
 
   /// This constructor is used when the reason type is not supported or is not
   /// expected.
@@ -29,5 +29,5 @@ class SkeletonReason with _$SkeletonReason {
   /// It includes the raw data map for unknown feature.
   factory SkeletonReason.unknown({
     required Map<String, dynamic> data,
-  }) = _Unknown;
+  }) = USkeletonReasonUnknown;
 }
