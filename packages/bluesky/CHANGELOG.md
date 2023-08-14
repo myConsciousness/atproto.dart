@@ -4,16 +4,68 @@
 
 - Exposed freezed union objects. You can use them for pattern matching. ([#600](https://github.com/myConsciousness/atproto.dart/issues/600))
   - `embed.dart`
+    - `UEmbedRecord`
+    - `UEmbedImages`
+    - `UEmbedExternal`
+    - `UEmbedRecordWithMedia`
+    - `UEmbedUnknown`
   - `embed_media.dart`
+    - `UEmbedMediaImages`
+    - `UEmbedMediaExternal`
+    - `UEmbedMediaUnknown`
   - `embed_view.dart`
+    - `UEmbedViewRecord`
+    - `UEmbedViewImages`
+    - `UEmbedViewExternal`
+    - `UEmbedViewRecordWithMedia`
+    - `UEmbedViewUnknown`
   - `embed_view_media.dart`
+    - `UEmbedViewMediaImages`
+    - `UEmbedViewMediaExternal`
+    - `UEmbedViewMediaUnknown`
   - `facet_feature.dart`
+    - `UFacetFeatureMention`
+    - `UFacetFeatureLink`
+    - `UFacetFeatureUnknown`
   - `post_thread_view.dart`
+    - `UPostThreadViewRecord`
+    - `UPostThreadViewNotFound`
+    - `UPostThreadViewBlocked`
+    - `UPostThreadViewUnknown`
   - `preference.dart`
+    - `UPreferenceAdultContent`
+    - `UPreferenceContentLabel`
+    - `UPreferenceSavedFeeds`
+    - `UPreferenceUnknown`
   - `reason.dart`
+    - `UReasonRepost`
+    - `UReasonUnknown`
   - `reply_post.dart`
+    - `UReplyPostRecord`
+    - `UReplyPostNotFound`
+    - `UReplyPostBlocked`
+    - `UReplyPostUnknown`
   - `skeleton_reason.dart`
-
+    - `USkeletonReasonRepost`
+    - `USkeletonReasonUnknown`
+  - `labels.dart`
+    - `ULabelsSelLabels`
+    - `ULabelsUnknown`
+  - `report_subject.dart`
+    - `UReportSubjectRepoRef`
+    - `UReportSubjectStrongRef`
+    - `UReportSubjectUnknown`
+  - `subscribed_repo.dart`
+    - `USubscribedRepoCommit`
+    - `USubscribedRepoHandle`
+    - `USubscribedRepoMigrate`
+    - `USubscribedRepoTombstone`
+    - `USubscribedRepoInfo`
+    - `USubscribedRepoUnknown`
+  - `batch_action.dart`
+    - `UBatchActionCreate`
+    - `UBatchActionUpdate`
+    - `UBatchActionDelete`
 ## v0.8.0
 
 - Drop support for null unsafe Dart, bump SDK constraint to '^3.0.0'. ([#599](https://github.com/myConsciousness/atproto.dart/issues/599))

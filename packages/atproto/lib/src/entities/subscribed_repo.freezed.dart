@@ -17,17 +17,17 @@ final _privateConstructorUsedError = UnsupportedError(
 SubscribedRepo _$SubscribedRepoFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
     case 'commit':
-      return _Commit.fromJson(json);
+      return USubscribedRepoCommit.fromJson(json);
     case 'handle':
-      return _Handle.fromJson(json);
+      return USubscribedRepoHandle.fromJson(json);
     case 'migrate':
-      return _Migrate.fromJson(json);
+      return USubscribedRepoMigrate.fromJson(json);
     case 'tombstone':
-      return _Tombstone.fromJson(json);
+      return USubscribedRepoTombstone.fromJson(json);
     case 'info':
-      return _Info.fromJson(json);
+      return USubscribedRepoInfo.fromJson(json);
     case 'unknown':
-      return _Unknown.fromJson(json);
+      return USubscribedRepoUnknown.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'runtimeType', 'SubscribedRepo',
@@ -71,32 +71,32 @@ mixin _$SubscribedRepo {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Commit value) commit,
-    required TResult Function(_Handle value) handle,
-    required TResult Function(_Migrate value) migrate,
-    required TResult Function(_Tombstone value) tombstone,
-    required TResult Function(_Info value) info,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(USubscribedRepoCommit value) commit,
+    required TResult Function(USubscribedRepoHandle value) handle,
+    required TResult Function(USubscribedRepoMigrate value) migrate,
+    required TResult Function(USubscribedRepoTombstone value) tombstone,
+    required TResult Function(USubscribedRepoInfo value) info,
+    required TResult Function(USubscribedRepoUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Commit value)? commit,
-    TResult? Function(_Handle value)? handle,
-    TResult? Function(_Migrate value)? migrate,
-    TResult? Function(_Tombstone value)? tombstone,
-    TResult? Function(_Info value)? info,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(USubscribedRepoCommit value)? commit,
+    TResult? Function(USubscribedRepoHandle value)? handle,
+    TResult? Function(USubscribedRepoMigrate value)? migrate,
+    TResult? Function(USubscribedRepoTombstone value)? tombstone,
+    TResult? Function(USubscribedRepoInfo value)? info,
+    TResult? Function(USubscribedRepoUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Commit value)? commit,
-    TResult Function(_Handle value)? handle,
-    TResult Function(_Migrate value)? migrate,
-    TResult Function(_Tombstone value)? tombstone,
-    TResult Function(_Info value)? info,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(USubscribedRepoCommit value)? commit,
+    TResult Function(USubscribedRepoHandle value)? handle,
+    TResult Function(USubscribedRepoMigrate value)? migrate,
+    TResult Function(USubscribedRepoTombstone value)? tombstone,
+    TResult Function(USubscribedRepoInfo value)? info,
+    TResult Function(USubscribedRepoUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -122,9 +122,10 @@ class _$SubscribedRepoCopyWithImpl<$Res, $Val extends SubscribedRepo>
 }
 
 /// @nodoc
-abstract class _$$_CommitCopyWith<$Res> {
-  factory _$$_CommitCopyWith(_$_Commit value, $Res Function(_$_Commit) then) =
-      __$$_CommitCopyWithImpl<$Res>;
+abstract class _$$USubscribedRepoCommitCopyWith<$Res> {
+  factory _$$USubscribedRepoCommitCopyWith(_$USubscribedRepoCommit value,
+          $Res Function(_$USubscribedRepoCommit) then) =
+      __$$USubscribedRepoCommitCopyWithImpl<$Res>;
   @useResult
   $Res call({SubscribedRepoCommit data});
 
@@ -132,10 +133,11 @@ abstract class _$$_CommitCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_CommitCopyWithImpl<$Res>
-    extends _$SubscribedRepoCopyWithImpl<$Res, _$_Commit>
-    implements _$$_CommitCopyWith<$Res> {
-  __$$_CommitCopyWithImpl(_$_Commit _value, $Res Function(_$_Commit) _then)
+class __$$USubscribedRepoCommitCopyWithImpl<$Res>
+    extends _$SubscribedRepoCopyWithImpl<$Res, _$USubscribedRepoCommit>
+    implements _$$USubscribedRepoCommitCopyWith<$Res> {
+  __$$USubscribedRepoCommitCopyWithImpl(_$USubscribedRepoCommit _value,
+      $Res Function(_$USubscribedRepoCommit) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -143,7 +145,7 @@ class __$$_CommitCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Commit(
+    return _then(_$USubscribedRepoCommit(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -162,12 +164,12 @@ class __$$_CommitCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Commit implements _Commit {
-  const _$_Commit({required this.data, final String? $type})
+class _$USubscribedRepoCommit implements USubscribedRepoCommit {
+  const _$USubscribedRepoCommit({required this.data, final String? $type})
       : $type = $type ?? 'commit';
 
-  factory _$_Commit.fromJson(Map<String, dynamic> json) =>
-      _$$_CommitFromJson(json);
+  factory _$USubscribedRepoCommit.fromJson(Map<String, dynamic> json) =>
+      _$$USubscribedRepoCommitFromJson(json);
 
   @override
   final SubscribedRepoCommit data;
@@ -184,7 +186,7 @@ class _$_Commit implements _Commit {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Commit &&
+            other is _$USubscribedRepoCommit &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -195,8 +197,9 @@ class _$_Commit implements _Commit {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CommitCopyWith<_$_Commit> get copyWith =>
-      __$$_CommitCopyWithImpl<_$_Commit>(this, _$identity);
+  _$$USubscribedRepoCommitCopyWith<_$USubscribedRepoCommit> get copyWith =>
+      __$$USubscribedRepoCommitCopyWithImpl<_$USubscribedRepoCommit>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -244,12 +247,12 @@ class _$_Commit implements _Commit {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Commit value) commit,
-    required TResult Function(_Handle value) handle,
-    required TResult Function(_Migrate value) migrate,
-    required TResult Function(_Tombstone value) tombstone,
-    required TResult Function(_Info value) info,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(USubscribedRepoCommit value) commit,
+    required TResult Function(USubscribedRepoHandle value) handle,
+    required TResult Function(USubscribedRepoMigrate value) migrate,
+    required TResult Function(USubscribedRepoTombstone value) tombstone,
+    required TResult Function(USubscribedRepoInfo value) info,
+    required TResult Function(USubscribedRepoUnknown value) unknown,
   }) {
     return commit(this);
   }
@@ -257,12 +260,12 @@ class _$_Commit implements _Commit {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Commit value)? commit,
-    TResult? Function(_Handle value)? handle,
-    TResult? Function(_Migrate value)? migrate,
-    TResult? Function(_Tombstone value)? tombstone,
-    TResult? Function(_Info value)? info,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(USubscribedRepoCommit value)? commit,
+    TResult? Function(USubscribedRepoHandle value)? handle,
+    TResult? Function(USubscribedRepoMigrate value)? migrate,
+    TResult? Function(USubscribedRepoTombstone value)? tombstone,
+    TResult? Function(USubscribedRepoInfo value)? info,
+    TResult? Function(USubscribedRepoUnknown value)? unknown,
   }) {
     return commit?.call(this);
   }
@@ -270,12 +273,12 @@ class _$_Commit implements _Commit {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Commit value)? commit,
-    TResult Function(_Handle value)? handle,
-    TResult Function(_Migrate value)? migrate,
-    TResult Function(_Tombstone value)? tombstone,
-    TResult Function(_Info value)? info,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(USubscribedRepoCommit value)? commit,
+    TResult Function(USubscribedRepoHandle value)? handle,
+    TResult Function(USubscribedRepoMigrate value)? migrate,
+    TResult Function(USubscribedRepoTombstone value)? tombstone,
+    TResult Function(USubscribedRepoInfo value)? info,
+    TResult Function(USubscribedRepoUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (commit != null) {
@@ -286,28 +289,31 @@ class _$_Commit implements _Commit {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CommitToJson(
+    return _$$USubscribedRepoCommitToJson(
       this,
     );
   }
 }
 
-abstract class _Commit implements SubscribedRepo {
-  const factory _Commit({required final SubscribedRepoCommit data}) = _$_Commit;
+abstract class USubscribedRepoCommit implements SubscribedRepo {
+  const factory USubscribedRepoCommit(
+      {required final SubscribedRepoCommit data}) = _$USubscribedRepoCommit;
 
-  factory _Commit.fromJson(Map<String, dynamic> json) = _$_Commit.fromJson;
+  factory USubscribedRepoCommit.fromJson(Map<String, dynamic> json) =
+      _$USubscribedRepoCommit.fromJson;
 
   @override
   SubscribedRepoCommit get data;
   @JsonKey(ignore: true)
-  _$$_CommitCopyWith<_$_Commit> get copyWith =>
+  _$$USubscribedRepoCommitCopyWith<_$USubscribedRepoCommit> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_HandleCopyWith<$Res> {
-  factory _$$_HandleCopyWith(_$_Handle value, $Res Function(_$_Handle) then) =
-      __$$_HandleCopyWithImpl<$Res>;
+abstract class _$$USubscribedRepoHandleCopyWith<$Res> {
+  factory _$$USubscribedRepoHandleCopyWith(_$USubscribedRepoHandle value,
+          $Res Function(_$USubscribedRepoHandle) then) =
+      __$$USubscribedRepoHandleCopyWithImpl<$Res>;
   @useResult
   $Res call({SubscribedRepoHandle data});
 
@@ -315,10 +321,11 @@ abstract class _$$_HandleCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_HandleCopyWithImpl<$Res>
-    extends _$SubscribedRepoCopyWithImpl<$Res, _$_Handle>
-    implements _$$_HandleCopyWith<$Res> {
-  __$$_HandleCopyWithImpl(_$_Handle _value, $Res Function(_$_Handle) _then)
+class __$$USubscribedRepoHandleCopyWithImpl<$Res>
+    extends _$SubscribedRepoCopyWithImpl<$Res, _$USubscribedRepoHandle>
+    implements _$$USubscribedRepoHandleCopyWith<$Res> {
+  __$$USubscribedRepoHandleCopyWithImpl(_$USubscribedRepoHandle _value,
+      $Res Function(_$USubscribedRepoHandle) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -326,7 +333,7 @@ class __$$_HandleCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Handle(
+    return _then(_$USubscribedRepoHandle(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -345,12 +352,12 @@ class __$$_HandleCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Handle implements _Handle {
-  const _$_Handle({required this.data, final String? $type})
+class _$USubscribedRepoHandle implements USubscribedRepoHandle {
+  const _$USubscribedRepoHandle({required this.data, final String? $type})
       : $type = $type ?? 'handle';
 
-  factory _$_Handle.fromJson(Map<String, dynamic> json) =>
-      _$$_HandleFromJson(json);
+  factory _$USubscribedRepoHandle.fromJson(Map<String, dynamic> json) =>
+      _$$USubscribedRepoHandleFromJson(json);
 
   @override
   final SubscribedRepoHandle data;
@@ -367,7 +374,7 @@ class _$_Handle implements _Handle {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Handle &&
+            other is _$USubscribedRepoHandle &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -378,8 +385,9 @@ class _$_Handle implements _Handle {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HandleCopyWith<_$_Handle> get copyWith =>
-      __$$_HandleCopyWithImpl<_$_Handle>(this, _$identity);
+  _$$USubscribedRepoHandleCopyWith<_$USubscribedRepoHandle> get copyWith =>
+      __$$USubscribedRepoHandleCopyWithImpl<_$USubscribedRepoHandle>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -427,12 +435,12 @@ class _$_Handle implements _Handle {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Commit value) commit,
-    required TResult Function(_Handle value) handle,
-    required TResult Function(_Migrate value) migrate,
-    required TResult Function(_Tombstone value) tombstone,
-    required TResult Function(_Info value) info,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(USubscribedRepoCommit value) commit,
+    required TResult Function(USubscribedRepoHandle value) handle,
+    required TResult Function(USubscribedRepoMigrate value) migrate,
+    required TResult Function(USubscribedRepoTombstone value) tombstone,
+    required TResult Function(USubscribedRepoInfo value) info,
+    required TResult Function(USubscribedRepoUnknown value) unknown,
   }) {
     return handle(this);
   }
@@ -440,12 +448,12 @@ class _$_Handle implements _Handle {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Commit value)? commit,
-    TResult? Function(_Handle value)? handle,
-    TResult? Function(_Migrate value)? migrate,
-    TResult? Function(_Tombstone value)? tombstone,
-    TResult? Function(_Info value)? info,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(USubscribedRepoCommit value)? commit,
+    TResult? Function(USubscribedRepoHandle value)? handle,
+    TResult? Function(USubscribedRepoMigrate value)? migrate,
+    TResult? Function(USubscribedRepoTombstone value)? tombstone,
+    TResult? Function(USubscribedRepoInfo value)? info,
+    TResult? Function(USubscribedRepoUnknown value)? unknown,
   }) {
     return handle?.call(this);
   }
@@ -453,12 +461,12 @@ class _$_Handle implements _Handle {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Commit value)? commit,
-    TResult Function(_Handle value)? handle,
-    TResult Function(_Migrate value)? migrate,
-    TResult Function(_Tombstone value)? tombstone,
-    TResult Function(_Info value)? info,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(USubscribedRepoCommit value)? commit,
+    TResult Function(USubscribedRepoHandle value)? handle,
+    TResult Function(USubscribedRepoMigrate value)? migrate,
+    TResult Function(USubscribedRepoTombstone value)? tombstone,
+    TResult Function(USubscribedRepoInfo value)? info,
+    TResult Function(USubscribedRepoUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (handle != null) {
@@ -469,29 +477,31 @@ class _$_Handle implements _Handle {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_HandleToJson(
+    return _$$USubscribedRepoHandleToJson(
       this,
     );
   }
 }
 
-abstract class _Handle implements SubscribedRepo {
-  const factory _Handle({required final SubscribedRepoHandle data}) = _$_Handle;
+abstract class USubscribedRepoHandle implements SubscribedRepo {
+  const factory USubscribedRepoHandle(
+      {required final SubscribedRepoHandle data}) = _$USubscribedRepoHandle;
 
-  factory _Handle.fromJson(Map<String, dynamic> json) = _$_Handle.fromJson;
+  factory USubscribedRepoHandle.fromJson(Map<String, dynamic> json) =
+      _$USubscribedRepoHandle.fromJson;
 
   @override
   SubscribedRepoHandle get data;
   @JsonKey(ignore: true)
-  _$$_HandleCopyWith<_$_Handle> get copyWith =>
+  _$$USubscribedRepoHandleCopyWith<_$USubscribedRepoHandle> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_MigrateCopyWith<$Res> {
-  factory _$$_MigrateCopyWith(
-          _$_Migrate value, $Res Function(_$_Migrate) then) =
-      __$$_MigrateCopyWithImpl<$Res>;
+abstract class _$$USubscribedRepoMigrateCopyWith<$Res> {
+  factory _$$USubscribedRepoMigrateCopyWith(_$USubscribedRepoMigrate value,
+          $Res Function(_$USubscribedRepoMigrate) then) =
+      __$$USubscribedRepoMigrateCopyWithImpl<$Res>;
   @useResult
   $Res call({SubscribedRepoMigrate data});
 
@@ -499,10 +509,11 @@ abstract class _$$_MigrateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_MigrateCopyWithImpl<$Res>
-    extends _$SubscribedRepoCopyWithImpl<$Res, _$_Migrate>
-    implements _$$_MigrateCopyWith<$Res> {
-  __$$_MigrateCopyWithImpl(_$_Migrate _value, $Res Function(_$_Migrate) _then)
+class __$$USubscribedRepoMigrateCopyWithImpl<$Res>
+    extends _$SubscribedRepoCopyWithImpl<$Res, _$USubscribedRepoMigrate>
+    implements _$$USubscribedRepoMigrateCopyWith<$Res> {
+  __$$USubscribedRepoMigrateCopyWithImpl(_$USubscribedRepoMigrate _value,
+      $Res Function(_$USubscribedRepoMigrate) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -510,7 +521,7 @@ class __$$_MigrateCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Migrate(
+    return _then(_$USubscribedRepoMigrate(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -529,12 +540,12 @@ class __$$_MigrateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Migrate implements _Migrate {
-  const _$_Migrate({required this.data, final String? $type})
+class _$USubscribedRepoMigrate implements USubscribedRepoMigrate {
+  const _$USubscribedRepoMigrate({required this.data, final String? $type})
       : $type = $type ?? 'migrate';
 
-  factory _$_Migrate.fromJson(Map<String, dynamic> json) =>
-      _$$_MigrateFromJson(json);
+  factory _$USubscribedRepoMigrate.fromJson(Map<String, dynamic> json) =>
+      _$$USubscribedRepoMigrateFromJson(json);
 
   @override
   final SubscribedRepoMigrate data;
@@ -551,7 +562,7 @@ class _$_Migrate implements _Migrate {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Migrate &&
+            other is _$USubscribedRepoMigrate &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -562,8 +573,9 @@ class _$_Migrate implements _Migrate {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MigrateCopyWith<_$_Migrate> get copyWith =>
-      __$$_MigrateCopyWithImpl<_$_Migrate>(this, _$identity);
+  _$$USubscribedRepoMigrateCopyWith<_$USubscribedRepoMigrate> get copyWith =>
+      __$$USubscribedRepoMigrateCopyWithImpl<_$USubscribedRepoMigrate>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -611,12 +623,12 @@ class _$_Migrate implements _Migrate {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Commit value) commit,
-    required TResult Function(_Handle value) handle,
-    required TResult Function(_Migrate value) migrate,
-    required TResult Function(_Tombstone value) tombstone,
-    required TResult Function(_Info value) info,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(USubscribedRepoCommit value) commit,
+    required TResult Function(USubscribedRepoHandle value) handle,
+    required TResult Function(USubscribedRepoMigrate value) migrate,
+    required TResult Function(USubscribedRepoTombstone value) tombstone,
+    required TResult Function(USubscribedRepoInfo value) info,
+    required TResult Function(USubscribedRepoUnknown value) unknown,
   }) {
     return migrate(this);
   }
@@ -624,12 +636,12 @@ class _$_Migrate implements _Migrate {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Commit value)? commit,
-    TResult? Function(_Handle value)? handle,
-    TResult? Function(_Migrate value)? migrate,
-    TResult? Function(_Tombstone value)? tombstone,
-    TResult? Function(_Info value)? info,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(USubscribedRepoCommit value)? commit,
+    TResult? Function(USubscribedRepoHandle value)? handle,
+    TResult? Function(USubscribedRepoMigrate value)? migrate,
+    TResult? Function(USubscribedRepoTombstone value)? tombstone,
+    TResult? Function(USubscribedRepoInfo value)? info,
+    TResult? Function(USubscribedRepoUnknown value)? unknown,
   }) {
     return migrate?.call(this);
   }
@@ -637,12 +649,12 @@ class _$_Migrate implements _Migrate {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Commit value)? commit,
-    TResult Function(_Handle value)? handle,
-    TResult Function(_Migrate value)? migrate,
-    TResult Function(_Tombstone value)? tombstone,
-    TResult Function(_Info value)? info,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(USubscribedRepoCommit value)? commit,
+    TResult Function(USubscribedRepoHandle value)? handle,
+    TResult Function(USubscribedRepoMigrate value)? migrate,
+    TResult Function(USubscribedRepoTombstone value)? tombstone,
+    TResult Function(USubscribedRepoInfo value)? info,
+    TResult Function(USubscribedRepoUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (migrate != null) {
@@ -653,30 +665,31 @@ class _$_Migrate implements _Migrate {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MigrateToJson(
+    return _$$USubscribedRepoMigrateToJson(
       this,
     );
   }
 }
 
-abstract class _Migrate implements SubscribedRepo {
-  const factory _Migrate({required final SubscribedRepoMigrate data}) =
-      _$_Migrate;
+abstract class USubscribedRepoMigrate implements SubscribedRepo {
+  const factory USubscribedRepoMigrate(
+      {required final SubscribedRepoMigrate data}) = _$USubscribedRepoMigrate;
 
-  factory _Migrate.fromJson(Map<String, dynamic> json) = _$_Migrate.fromJson;
+  factory USubscribedRepoMigrate.fromJson(Map<String, dynamic> json) =
+      _$USubscribedRepoMigrate.fromJson;
 
   @override
   SubscribedRepoMigrate get data;
   @JsonKey(ignore: true)
-  _$$_MigrateCopyWith<_$_Migrate> get copyWith =>
+  _$$USubscribedRepoMigrateCopyWith<_$USubscribedRepoMigrate> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_TombstoneCopyWith<$Res> {
-  factory _$$_TombstoneCopyWith(
-          _$_Tombstone value, $Res Function(_$_Tombstone) then) =
-      __$$_TombstoneCopyWithImpl<$Res>;
+abstract class _$$USubscribedRepoTombstoneCopyWith<$Res> {
+  factory _$$USubscribedRepoTombstoneCopyWith(_$USubscribedRepoTombstone value,
+          $Res Function(_$USubscribedRepoTombstone) then) =
+      __$$USubscribedRepoTombstoneCopyWithImpl<$Res>;
   @useResult
   $Res call({SubscribedRepoTombstone data});
 
@@ -684,11 +697,11 @@ abstract class _$$_TombstoneCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_TombstoneCopyWithImpl<$Res>
-    extends _$SubscribedRepoCopyWithImpl<$Res, _$_Tombstone>
-    implements _$$_TombstoneCopyWith<$Res> {
-  __$$_TombstoneCopyWithImpl(
-      _$_Tombstone _value, $Res Function(_$_Tombstone) _then)
+class __$$USubscribedRepoTombstoneCopyWithImpl<$Res>
+    extends _$SubscribedRepoCopyWithImpl<$Res, _$USubscribedRepoTombstone>
+    implements _$$USubscribedRepoTombstoneCopyWith<$Res> {
+  __$$USubscribedRepoTombstoneCopyWithImpl(_$USubscribedRepoTombstone _value,
+      $Res Function(_$USubscribedRepoTombstone) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -696,7 +709,7 @@ class __$$_TombstoneCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Tombstone(
+    return _then(_$USubscribedRepoTombstone(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -715,12 +728,12 @@ class __$$_TombstoneCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Tombstone implements _Tombstone {
-  const _$_Tombstone({required this.data, final String? $type})
+class _$USubscribedRepoTombstone implements USubscribedRepoTombstone {
+  const _$USubscribedRepoTombstone({required this.data, final String? $type})
       : $type = $type ?? 'tombstone';
 
-  factory _$_Tombstone.fromJson(Map<String, dynamic> json) =>
-      _$$_TombstoneFromJson(json);
+  factory _$USubscribedRepoTombstone.fromJson(Map<String, dynamic> json) =>
+      _$$USubscribedRepoTombstoneFromJson(json);
 
   @override
   final SubscribedRepoTombstone data;
@@ -737,7 +750,7 @@ class _$_Tombstone implements _Tombstone {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Tombstone &&
+            other is _$USubscribedRepoTombstone &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -748,8 +761,10 @@ class _$_Tombstone implements _Tombstone {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TombstoneCopyWith<_$_Tombstone> get copyWith =>
-      __$$_TombstoneCopyWithImpl<_$_Tombstone>(this, _$identity);
+  _$$USubscribedRepoTombstoneCopyWith<_$USubscribedRepoTombstone>
+      get copyWith =>
+          __$$USubscribedRepoTombstoneCopyWithImpl<_$USubscribedRepoTombstone>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -797,12 +812,12 @@ class _$_Tombstone implements _Tombstone {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Commit value) commit,
-    required TResult Function(_Handle value) handle,
-    required TResult Function(_Migrate value) migrate,
-    required TResult Function(_Tombstone value) tombstone,
-    required TResult Function(_Info value) info,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(USubscribedRepoCommit value) commit,
+    required TResult Function(USubscribedRepoHandle value) handle,
+    required TResult Function(USubscribedRepoMigrate value) migrate,
+    required TResult Function(USubscribedRepoTombstone value) tombstone,
+    required TResult Function(USubscribedRepoInfo value) info,
+    required TResult Function(USubscribedRepoUnknown value) unknown,
   }) {
     return tombstone(this);
   }
@@ -810,12 +825,12 @@ class _$_Tombstone implements _Tombstone {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Commit value)? commit,
-    TResult? Function(_Handle value)? handle,
-    TResult? Function(_Migrate value)? migrate,
-    TResult? Function(_Tombstone value)? tombstone,
-    TResult? Function(_Info value)? info,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(USubscribedRepoCommit value)? commit,
+    TResult? Function(USubscribedRepoHandle value)? handle,
+    TResult? Function(USubscribedRepoMigrate value)? migrate,
+    TResult? Function(USubscribedRepoTombstone value)? tombstone,
+    TResult? Function(USubscribedRepoInfo value)? info,
+    TResult? Function(USubscribedRepoUnknown value)? unknown,
   }) {
     return tombstone?.call(this);
   }
@@ -823,12 +838,12 @@ class _$_Tombstone implements _Tombstone {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Commit value)? commit,
-    TResult Function(_Handle value)? handle,
-    TResult Function(_Migrate value)? migrate,
-    TResult Function(_Tombstone value)? tombstone,
-    TResult Function(_Info value)? info,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(USubscribedRepoCommit value)? commit,
+    TResult Function(USubscribedRepoHandle value)? handle,
+    TResult Function(USubscribedRepoMigrate value)? migrate,
+    TResult Function(USubscribedRepoTombstone value)? tombstone,
+    TResult Function(USubscribedRepoInfo value)? info,
+    TResult Function(USubscribedRepoUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (tombstone != null) {
@@ -839,30 +854,32 @@ class _$_Tombstone implements _Tombstone {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TombstoneToJson(
+    return _$$USubscribedRepoTombstoneToJson(
       this,
     );
   }
 }
 
-abstract class _Tombstone implements SubscribedRepo {
-  const factory _Tombstone({required final SubscribedRepoTombstone data}) =
-      _$_Tombstone;
+abstract class USubscribedRepoTombstone implements SubscribedRepo {
+  const factory USubscribedRepoTombstone(
+          {required final SubscribedRepoTombstone data}) =
+      _$USubscribedRepoTombstone;
 
-  factory _Tombstone.fromJson(Map<String, dynamic> json) =
-      _$_Tombstone.fromJson;
+  factory USubscribedRepoTombstone.fromJson(Map<String, dynamic> json) =
+      _$USubscribedRepoTombstone.fromJson;
 
   @override
   SubscribedRepoTombstone get data;
   @JsonKey(ignore: true)
-  _$$_TombstoneCopyWith<_$_Tombstone> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$USubscribedRepoTombstoneCopyWith<_$USubscribedRepoTombstone>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_InfoCopyWith<$Res> {
-  factory _$$_InfoCopyWith(_$_Info value, $Res Function(_$_Info) then) =
-      __$$_InfoCopyWithImpl<$Res>;
+abstract class _$$USubscribedRepoInfoCopyWith<$Res> {
+  factory _$$USubscribedRepoInfoCopyWith(_$USubscribedRepoInfo value,
+          $Res Function(_$USubscribedRepoInfo) then) =
+      __$$USubscribedRepoInfoCopyWithImpl<$Res>;
   @useResult
   $Res call({SubscribedRepoInfo data});
 
@@ -870,10 +887,11 @@ abstract class _$$_InfoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_InfoCopyWithImpl<$Res>
-    extends _$SubscribedRepoCopyWithImpl<$Res, _$_Info>
-    implements _$$_InfoCopyWith<$Res> {
-  __$$_InfoCopyWithImpl(_$_Info _value, $Res Function(_$_Info) _then)
+class __$$USubscribedRepoInfoCopyWithImpl<$Res>
+    extends _$SubscribedRepoCopyWithImpl<$Res, _$USubscribedRepoInfo>
+    implements _$$USubscribedRepoInfoCopyWith<$Res> {
+  __$$USubscribedRepoInfoCopyWithImpl(
+      _$USubscribedRepoInfo _value, $Res Function(_$USubscribedRepoInfo) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -881,7 +899,7 @@ class __$$_InfoCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Info(
+    return _then(_$USubscribedRepoInfo(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -900,11 +918,12 @@ class __$$_InfoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Info implements _Info {
-  const _$_Info({required this.data, final String? $type})
+class _$USubscribedRepoInfo implements USubscribedRepoInfo {
+  const _$USubscribedRepoInfo({required this.data, final String? $type})
       : $type = $type ?? 'info';
 
-  factory _$_Info.fromJson(Map<String, dynamic> json) => _$$_InfoFromJson(json);
+  factory _$USubscribedRepoInfo.fromJson(Map<String, dynamic> json) =>
+      _$$USubscribedRepoInfoFromJson(json);
 
   @override
   final SubscribedRepoInfo data;
@@ -921,7 +940,7 @@ class _$_Info implements _Info {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Info &&
+            other is _$USubscribedRepoInfo &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -932,8 +951,9 @@ class _$_Info implements _Info {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InfoCopyWith<_$_Info> get copyWith =>
-      __$$_InfoCopyWithImpl<_$_Info>(this, _$identity);
+  _$$USubscribedRepoInfoCopyWith<_$USubscribedRepoInfo> get copyWith =>
+      __$$USubscribedRepoInfoCopyWithImpl<_$USubscribedRepoInfo>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -981,12 +1001,12 @@ class _$_Info implements _Info {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Commit value) commit,
-    required TResult Function(_Handle value) handle,
-    required TResult Function(_Migrate value) migrate,
-    required TResult Function(_Tombstone value) tombstone,
-    required TResult Function(_Info value) info,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(USubscribedRepoCommit value) commit,
+    required TResult Function(USubscribedRepoHandle value) handle,
+    required TResult Function(USubscribedRepoMigrate value) migrate,
+    required TResult Function(USubscribedRepoTombstone value) tombstone,
+    required TResult Function(USubscribedRepoInfo value) info,
+    required TResult Function(USubscribedRepoUnknown value) unknown,
   }) {
     return info(this);
   }
@@ -994,12 +1014,12 @@ class _$_Info implements _Info {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Commit value)? commit,
-    TResult? Function(_Handle value)? handle,
-    TResult? Function(_Migrate value)? migrate,
-    TResult? Function(_Tombstone value)? tombstone,
-    TResult? Function(_Info value)? info,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(USubscribedRepoCommit value)? commit,
+    TResult? Function(USubscribedRepoHandle value)? handle,
+    TResult? Function(USubscribedRepoMigrate value)? migrate,
+    TResult? Function(USubscribedRepoTombstone value)? tombstone,
+    TResult? Function(USubscribedRepoInfo value)? info,
+    TResult? Function(USubscribedRepoUnknown value)? unknown,
   }) {
     return info?.call(this);
   }
@@ -1007,12 +1027,12 @@ class _$_Info implements _Info {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Commit value)? commit,
-    TResult Function(_Handle value)? handle,
-    TResult Function(_Migrate value)? migrate,
-    TResult Function(_Tombstone value)? tombstone,
-    TResult Function(_Info value)? info,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(USubscribedRepoCommit value)? commit,
+    TResult Function(USubscribedRepoHandle value)? handle,
+    TResult Function(USubscribedRepoMigrate value)? migrate,
+    TResult Function(USubscribedRepoTombstone value)? tombstone,
+    TResult Function(USubscribedRepoInfo value)? info,
+    TResult Function(USubscribedRepoUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (info != null) {
@@ -1023,37 +1043,41 @@ class _$_Info implements _Info {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_InfoToJson(
+    return _$$USubscribedRepoInfoToJson(
       this,
     );
   }
 }
 
-abstract class _Info implements SubscribedRepo {
-  const factory _Info({required final SubscribedRepoInfo data}) = _$_Info;
+abstract class USubscribedRepoInfo implements SubscribedRepo {
+  const factory USubscribedRepoInfo({required final SubscribedRepoInfo data}) =
+      _$USubscribedRepoInfo;
 
-  factory _Info.fromJson(Map<String, dynamic> json) = _$_Info.fromJson;
+  factory USubscribedRepoInfo.fromJson(Map<String, dynamic> json) =
+      _$USubscribedRepoInfo.fromJson;
 
   @override
   SubscribedRepoInfo get data;
   @JsonKey(ignore: true)
-  _$$_InfoCopyWith<_$_Info> get copyWith => throw _privateConstructorUsedError;
+  _$$USubscribedRepoInfoCopyWith<_$USubscribedRepoInfo> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_UnknownCopyWith<$Res> {
-  factory _$$_UnknownCopyWith(
-          _$_Unknown value, $Res Function(_$_Unknown) then) =
-      __$$_UnknownCopyWithImpl<$Res>;
+abstract class _$$USubscribedRepoUnknownCopyWith<$Res> {
+  factory _$$USubscribedRepoUnknownCopyWith(_$USubscribedRepoUnknown value,
+          $Res Function(_$USubscribedRepoUnknown) then) =
+      __$$USubscribedRepoUnknownCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$_UnknownCopyWithImpl<$Res>
-    extends _$SubscribedRepoCopyWithImpl<$Res, _$_Unknown>
-    implements _$$_UnknownCopyWith<$Res> {
-  __$$_UnknownCopyWithImpl(_$_Unknown _value, $Res Function(_$_Unknown) _then)
+class __$$USubscribedRepoUnknownCopyWithImpl<$Res>
+    extends _$SubscribedRepoCopyWithImpl<$Res, _$USubscribedRepoUnknown>
+    implements _$$USubscribedRepoUnknownCopyWith<$Res> {
+  __$$USubscribedRepoUnknownCopyWithImpl(_$USubscribedRepoUnknown _value,
+      $Res Function(_$USubscribedRepoUnknown) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1061,7 +1085,7 @@ class __$$_UnknownCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Unknown(
+    return _then(_$USubscribedRepoUnknown(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -1072,14 +1096,14 @@ class __$$_UnknownCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Unknown implements _Unknown {
-  const _$_Unknown(
+class _$USubscribedRepoUnknown implements USubscribedRepoUnknown {
+  const _$USubscribedRepoUnknown(
       {required final Map<String, dynamic> data, final String? $type})
       : _data = data,
         $type = $type ?? 'unknown';
 
-  factory _$_Unknown.fromJson(Map<String, dynamic> json) =>
-      _$$_UnknownFromJson(json);
+  factory _$USubscribedRepoUnknown.fromJson(Map<String, dynamic> json) =>
+      _$$USubscribedRepoUnknownFromJson(json);
 
   final Map<String, dynamic> _data;
   @override
@@ -1101,7 +1125,7 @@ class _$_Unknown implements _Unknown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Unknown &&
+            other is _$USubscribedRepoUnknown &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -1113,8 +1137,9 @@ class _$_Unknown implements _Unknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
-      __$$_UnknownCopyWithImpl<_$_Unknown>(this, _$identity);
+  _$$USubscribedRepoUnknownCopyWith<_$USubscribedRepoUnknown> get copyWith =>
+      __$$USubscribedRepoUnknownCopyWithImpl<_$USubscribedRepoUnknown>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1162,12 +1187,12 @@ class _$_Unknown implements _Unknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Commit value) commit,
-    required TResult Function(_Handle value) handle,
-    required TResult Function(_Migrate value) migrate,
-    required TResult Function(_Tombstone value) tombstone,
-    required TResult Function(_Info value) info,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(USubscribedRepoCommit value) commit,
+    required TResult Function(USubscribedRepoHandle value) handle,
+    required TResult Function(USubscribedRepoMigrate value) migrate,
+    required TResult Function(USubscribedRepoTombstone value) tombstone,
+    required TResult Function(USubscribedRepoInfo value) info,
+    required TResult Function(USubscribedRepoUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -1175,12 +1200,12 @@ class _$_Unknown implements _Unknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Commit value)? commit,
-    TResult? Function(_Handle value)? handle,
-    TResult? Function(_Migrate value)? migrate,
-    TResult? Function(_Tombstone value)? tombstone,
-    TResult? Function(_Info value)? info,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(USubscribedRepoCommit value)? commit,
+    TResult? Function(USubscribedRepoHandle value)? handle,
+    TResult? Function(USubscribedRepoMigrate value)? migrate,
+    TResult? Function(USubscribedRepoTombstone value)? tombstone,
+    TResult? Function(USubscribedRepoInfo value)? info,
+    TResult? Function(USubscribedRepoUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -1188,12 +1213,12 @@ class _$_Unknown implements _Unknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Commit value)? commit,
-    TResult Function(_Handle value)? handle,
-    TResult Function(_Migrate value)? migrate,
-    TResult Function(_Tombstone value)? tombstone,
-    TResult Function(_Info value)? info,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(USubscribedRepoCommit value)? commit,
+    TResult Function(USubscribedRepoHandle value)? handle,
+    TResult Function(USubscribedRepoMigrate value)? migrate,
+    TResult Function(USubscribedRepoTombstone value)? tombstone,
+    TResult Function(USubscribedRepoInfo value)? info,
+    TResult Function(USubscribedRepoUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -1204,21 +1229,22 @@ class _$_Unknown implements _Unknown {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UnknownToJson(
+    return _$$USubscribedRepoUnknownToJson(
       this,
     );
   }
 }
 
-abstract class _Unknown implements SubscribedRepo {
-  const factory _Unknown({required final Map<String, dynamic> data}) =
-      _$_Unknown;
+abstract class USubscribedRepoUnknown implements SubscribedRepo {
+  const factory USubscribedRepoUnknown(
+      {required final Map<String, dynamic> data}) = _$USubscribedRepoUnknown;
 
-  factory _Unknown.fromJson(Map<String, dynamic> json) = _$_Unknown.fromJson;
+  factory USubscribedRepoUnknown.fromJson(Map<String, dynamic> json) =
+      _$USubscribedRepoUnknown.fromJson;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
+  _$$USubscribedRepoUnknownCopyWith<_$USubscribedRepoUnknown> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,5 +1,27 @@
 # Release Note
 
+## v0.6.1
+
+- Exposed freezed union objects. You can use them for pattern matching. ([#600](https://github.com/myConsciousness/atproto.dart/issues/600))
+  - `labels.dart`
+    - `ULabelsSelLabels`
+    - `ULabelsUnknown`
+  - `report_subject.dart`
+    - `UReportSubjectRepoRef`
+    - `UReportSubjectStrongRef`
+    - `UReportSubjectUnknown`
+  - `subscribed_repo.dart`
+    - `USubscribedRepoCommit`
+    - `USubscribedRepoHandle`
+    - `USubscribedRepoMigrate`
+    - `USubscribedRepoTombstone`
+    - `USubscribedRepoInfo`
+    - `USubscribedRepoUnknown`
+  - `batch_action.dart`
+    - `UBatchActionCreate`
+    - `UBatchActionUpdate`
+    - `UBatchActionDelete`
+
 ## v0.6.0
 
 - Drop support for null unsafe Dart, bump SDK constraint to '^3.0.0'. ([#599](https://github.com/myConsciousness/atproto.dart/issues/599))
