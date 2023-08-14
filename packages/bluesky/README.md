@@ -109,6 +109,7 @@ See **[official documents](https://atprotodart.com/docs/packages/bluesky)** from
 - **[Lexicon/Object IDs](https://atprotodart.com/docs/packages/bluesky/#lexiconobject-ids)**
 - **[Pagination](https://atprotodart.com/docs/packages/bluesky/#pagination)**
 - **[Advanced Pagination](https://atprotodart.com/docs/packages/bluesky/#advanced-pagination)**
+- **[Unspecced Inputs](https://atprotodart.com/docs/packages/bluesky/#unspecced-inputs)**
 
 ## 1.5. Contribution 🏆
 
