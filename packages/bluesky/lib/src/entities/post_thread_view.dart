@@ -28,25 +28,25 @@ class PostThreadView with _$PostThreadView {
   /// of the post.
   const factory PostThreadView.record({
     required PostThreadViewRecord data,
-  }) = _Record;
+  }) = UPostThreadViewRecord;
 
   /// This constructor is used when the post was not found.
   /// It takes a [NotFoundPost] object which provides the details of the
   /// post's not found state.
   const factory PostThreadView.notFound({
     required NotFoundPost data,
-  }) = _NotFound;
+  }) = UPostThreadViewNotFound;
 
   /// This constructor is used when the post was blocked.
   /// It takes a [BlockedPost] object which provides the details of the
   /// post's blocked state.
   const factory PostThreadView.blocked({
     required BlockedPost data,
-  }) = _Blocked;
+  }) = UPostThreadViewBlocked;
 
   /// This constructor is used when the post's state is unknown or not expected.
   /// It includes the raw data map for unknown feature.
   const factory PostThreadView.unknown({
     required Map<String, dynamic> data,
-  }) = _Unknown;
+  }) = UPostThreadViewUnknown;
 }

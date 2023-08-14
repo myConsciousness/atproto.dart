@@ -47,6 +47,9 @@ class GeneratorRecord with _$GeneratorRecord {
     /// The avatar of the generator. This is optional.
     Blob? avatar,
 
+    /// Attached labels.
+    @labelsConverter Labels? labels,
+
     /// The time of creation of the generator.
     required DateTime createdAt,
   }) = _GeneratorRecord;

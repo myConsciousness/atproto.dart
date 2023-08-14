@@ -35,14 +35,14 @@ class Embed with _$Embed {
   /// It takes an [EmbedRecord] object which provides the details of the record.
   const factory Embed.record({
     required EmbedRecord data,
-  }) = _Record;
+  }) = UEmbedRecord;
 
   /// This constructor is used when the embeddable content is a set of images.
   ///
   /// It takes an [EmbedImages] object which provides the details of the images.
   const factory Embed.images({
     required EmbedImages data,
-  }) = _Images;
+  }) = UEmbedImages;
 
   /// This constructor is used when the embeddable content is external.
   ///
@@ -50,7 +50,7 @@ class Embed with _$Embed {
   /// external content.
   const factory Embed.external({
     required EmbedExternal data,
-  }) = _External;
+  }) = UEmbedExternal;
 
   /// This constructor is used when the embeddable content is a record with
   /// media.
@@ -59,7 +59,7 @@ class Embed with _$Embed {
   /// of the record with media.
   const factory Embed.recordWithMedia({
     required EmbedRecordWithMedia data,
-  }) = _RecordWithMedia;
+  }) = UEmbedRecordWithMedia;
 
   /// This constructor is used when the embeddable content's type is unknown
   /// or not expected.
@@ -67,7 +67,7 @@ class Embed with _$Embed {
   /// It includes the raw data map for further investigation or future support.
   const factory Embed.unknown({
     required Map<String, dynamic> data,
-  }) = _Unknown;
+  }) = UEmbedUnknown;
 
   /// Returns the JSON representation.
   Map<String, dynamic> toJson() => when(

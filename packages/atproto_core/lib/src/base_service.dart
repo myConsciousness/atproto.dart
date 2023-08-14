@@ -14,7 +14,7 @@ import 'client/client_context.dart';
 import 'client/user_context.dart';
 import 'pagination/pagination.dart';
 
-abstract class _Service {
+sealed class _Service {
   Future<xrpc.XRPCResponse<T>> get<T>(
     final String methodName, {
     final UserContext userContext = UserContext.authRequired,
@@ -58,7 +58,7 @@ abstract class _Service {
   });
 }
 
-abstract class BaseService implements _Service {
+base class BaseService implements _Service {
   /// Returns the new instance of [BaseService].
   BaseService({
     xrpc.Protocol? protocol,

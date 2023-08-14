@@ -9,7 +9,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../atproto_base_service.dart';
 import '../entities/did.dart';
 
-abstract class IdentitiesService {
+sealed class IdentitiesService {
   /// Returns the new instance of [IdentitiesService].
   factory IdentitiesService({
     required String did,
@@ -85,7 +85,7 @@ abstract class IdentitiesService {
   });
 }
 
-class _IdentitiesService extends ATProtoBaseService
+final class _IdentitiesService extends ATProtoBaseService
     implements IdentitiesService {
   /// Returns the new instance of [_IdentitiesService].
   _IdentitiesService({

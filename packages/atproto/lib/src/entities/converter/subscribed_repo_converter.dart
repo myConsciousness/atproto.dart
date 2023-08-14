@@ -15,7 +15,7 @@ import '../subscribed_repo_tombstone.dart';
 
 const subscribedRepoConverter = _SubscribedRepoConverter();
 
-class _SubscribedRepoConverter
+final class _SubscribedRepoConverter
     implements JsonConverter<SubscribedRepo, Map<String, dynamic>> {
   const _SubscribedRepoConverter();
 

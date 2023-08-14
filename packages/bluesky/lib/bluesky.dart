@@ -41,6 +41,12 @@ export 'package:atproto/atproto.dart'
         $ServerInfoCopyWith,
         ServerInfoLinks,
         $ServerInfoLinksCopyWith,
+        SelfLabel,
+        $SelfLabelCopyWith,
+        SelfLabels,
+        $SelfLabelsCopyWith,
+        Labels,
+        $LabelsCopyWith,
         InviteCodeUse,
         $InviteCodeUseCopyWith,
         InviteCode,
@@ -98,6 +104,20 @@ export 'package:atproto/atproto.dart'
         $StrongRefCopyWith,
         Label,
         $LabelCopyWith,
+        UBatchActionCreate,
+        UBatchActionUpdate,
+        UBatchActionDelete,
+        ULabelsSelLabels,
+        ULabelsUnknown,
+        UReportSubjectRepoRef,
+        UReportSubjectStrongRef,
+        UReportSubjectUnknown,
+        USubscribedRepoCommit,
+        USubscribedRepoHandle,
+        USubscribedRepoInfo,
+        USubscribedRepoMigrate,
+        USubscribedRepoTombstone,
+        USubscribedRepoUnknown,
         ModerationReasonType,
         ReportSubject,
         $ReportSubjectCopyWith,
@@ -156,6 +176,7 @@ export 'package:bluesky/src/entities/adaptor/repo_commit_update.dart';
 export 'package:bluesky/src/entities/adult_content_preference.dart';
 export 'package:bluesky/src/entities/block_record.dart';
 export 'package:bluesky/src/entities/blocked_post.dart';
+export 'package:bluesky/src/entities/blocked_author.dart';
 export 'package:bluesky/src/entities/blocks.dart';
 export 'package:bluesky/src/entities/byte_slice.dart';
 export 'package:bluesky/src/entities/content_label_preference.dart';
@@ -219,6 +240,7 @@ export 'package:bluesky/src/entities/post_thread_view_record.dart';
 export 'package:bluesky/src/entities/post_viewer.dart';
 export 'package:bluesky/src/entities/posts.dart';
 export 'package:bluesky/src/entities/preference.dart';
+export 'package:bluesky/src/feeds/feed_filter.dart';
 export 'package:bluesky/src/entities/preferences.dart';
 export 'package:bluesky/src/entities/profile_record.dart';
 export 'package:bluesky/src/entities/reason.dart';

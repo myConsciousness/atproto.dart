@@ -47,6 +47,9 @@ class ListRecord with _$ListRecord {
     /// An optional avatar for the list.
     Blob? avatar,
 
+    /// Attached labels.
+    @labelsConverter Labels? labels,
+
     /// The date of the creation of the list.
     required DateTime createdAt,
   }) = _ListRecord;

@@ -22,7 +22,7 @@ class EmbedMedia with _$EmbedMedia {
   /// The [data] parameter is an `EmbedImages` object that contains the images.
   const factory EmbedMedia.images({
     required EmbedImages data,
-  }) = _Images;
+  }) = UEmbedMediaImages;
 
   /// Creates an instance of `EmbedMedia` that represents external media.
   ///
@@ -30,10 +30,10 @@ class EmbedMedia with _$EmbedMedia {
   /// external media.
   const factory EmbedMedia.external({
     required EmbedExternal data,
-  }) = _External;
+  }) = UEmbedMediaExternal;
 
   /// Creates an instance of `EmbedMedia` that represents an unknown feature.
   const factory EmbedMedia.unknown({
     required Map<String, dynamic> data,
-  }) = _Unknown;
+  }) = UEmbedMediaUnknown;
 }

@@ -20,7 +20,7 @@ import '../params/list_item_param.dart';
 import '../params/list_param.dart';
 import '../params/repo_param.dart';
 
-abstract class GraphsService {
+sealed class GraphsService {
   /// Returns the new instance of [GraphsService].
   factory GraphsService({
     required atp.ATProto atproto,
@@ -546,6 +546,8 @@ abstract class GraphsService {
   ///
   /// - [avatar]: Avatar blob to set to list.
   ///
+  /// - [labels]: Labels to be attached.
+  ///
   /// - [createdAt]: Date and time the post was created.
   ///                If omitted, defaults to the current time.
   ///
@@ -565,6 +567,7 @@ abstract class GraphsService {
     String? description,
     List<Facet>? descriptionFacets,
     atp.Blob? avatar,
+    atp.Labels? labels,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   });
@@ -946,7 +949,7 @@ abstract class GraphsService {
   });
 }
 
-class _GraphsService extends BlueskyBaseService implements GraphsService {
+final class _GraphsService extends BlueskyBaseService implements GraphsService {
   /// Returns the new instance of [_GraphsService].
   _GraphsService({
     required super.atproto,
@@ -1238,6 +1241,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
     String? description,
     List<Facet>? descriptionFacets,
     atp.Blob? avatar,
+    atp.Labels? labels,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
@@ -1250,6 +1254,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
           'descriptionFacets':
               descriptionFacets?.map((e) => e.toJson()).toList(),
           'avatar': avatar,
+          'labels': labels?.toJson(),
           'createdAt': toUtcIso8601String(createdAt),
           ...unspecced,
         },
@@ -1271,6 +1276,7 @@ class _GraphsService extends BlueskyBaseService implements GraphsService {
                   'descriptionFacets':
                       e.descriptionFacets?.map((e) => e.toJson()).toList(),
                   'avatar': e.avatar,
+                  'labels': e.labels?.toJson(),
                   'createdAt': toUtcIso8601String(e.createdAt),
                   ...e.unspecced,
                 },

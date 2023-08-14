@@ -417,14 +417,43 @@ That is, **[RateLimit](https://pub.dev/documentation/xrpc/latest/xrpc/RateLimit-
 
 Since AT Protocol's Lexicon supports the Union type, there are several endpoints where multiple JSONs of different structures are returned at once. However, since Dart does not currently support Union as a language specification, there have been difficulties in marshaling JSON for this Union structure.
 
-**[atproto](https://pub.dev/packages/atproto)** solves this problem neatly by using [freezed](https://pub.dev/packages/freezed) to represent a pseudo-Union type. Besides it's type safe. And all the Union types provided by these **[atproto](https://pub.dev/packages/atproto)** are `.when(...)` methods to handle them cleanly.
+**[atproto](https://pub.dev/packages/atproto)** solves this problem neatly by using **[freezed](https://pub.dev/packages/freezed)** to represent a pseudo-Union type. Besides it's type safe. And all the Union types provided by these **[atproto](https://pub.dev/packages/atproto)** are `.when(...)` methods to handle them cleanly.
 
 See, for example, **[Firehose API](#firehose-api)** in the next section.
 
-:::tip
+:::info
 All Union types provided by **[atproto](https://pub.dev/packages/atproto)** always have the property **`unknown`**. This is because Union types not supported by **[atproto](https://pub.dev/packages/atproto)** **cannot be converted** to specific model objects when returned from a particular endpoint.
 
 When an **`unknown`** event occurs, a raw JSON object that has not been marshalled into a specific model object is passed in the callback. This allows us to safely handle Union types with **[atproto](https://pub.dev/packages/atproto)** even if they are suddenly added officially, and also allows for more customization.
+:::
+
+:::tip
+Alternatively, you can handle these union objects more easily using **_[pattern matching](https://dart.dev/language/patterns)_** supported by Dart3.
+For example, if pattern matching is used, the processing of `.when` when using the **[Firehose API](#firehose-api)** is replaced.
+
+And all union objects have defined class names prefixed with **_`U`_**.
+So, if you want the Firehose API to handle only `Commit` and `Handle` events, you can use the **`USubscribedRepoCommit`** and **`USubscribedRepoHandle`** objects for pattern matching as follows.
+
+```dart
+import 'package:atproto/atproto.dart' as atp;
+
+Future<void> main() async {
+  final atproto = atp.ATProto.anonymous();
+
+  final subscription = await atproto.sync.subscribeRepoUpdates();
+
+  await for (final event in subscription.data.stream) {
+    // No need to use `.when` method.
+    switch (event) {
+      // Specify an union object prefixed with `U` as the case.
+      case atp.USubscribedRepoCommit():
+        print(event.data.ops);
+      case atp.USubscribedRepoHandle():
+        print(event.data.handle);
+    }
+  }
+}
+```
 :::
 
 ### Firehose API

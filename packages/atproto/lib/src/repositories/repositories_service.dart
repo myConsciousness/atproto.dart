@@ -20,7 +20,7 @@ import '../entities/repo_info.dart';
 import '../entities/strong_ref.dart';
 import '../entities/update_action.dart';
 
-abstract class RepositoriesService {
+sealed class RepositoriesService {
   /// Returns the new instance of [RepositoriesService].
   factory RepositoriesService({
     required String did,
@@ -474,7 +474,7 @@ abstract class RepositoriesService {
   });
 }
 
-class _RepositoriesService extends ATProtoBaseService
+final class _RepositoriesService extends ATProtoBaseService
     implements RepositoriesService {
   /// Returns the new instance of [_RepositoriesService].
   _RepositoriesService({

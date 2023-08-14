@@ -13,7 +13,7 @@ import 'graphs/graphs_service.dart';
 import 'notifications/notifications_service.dart';
 import 'unspecced/unspecced_service.dart';
 
-abstract class BlueskyService {
+sealed class BlueskyService {
   /// Returns the new instance of [BlueskyService].
   factory BlueskyService({
     required atp.ATProto atproto,
@@ -63,7 +63,7 @@ abstract class BlueskyService {
   atp.SyncService get sync;
 }
 
-class _BlueskyService implements BlueskyService {
+final class _BlueskyService implements BlueskyService {
   /// Returns the new instance of [_BlueskyService].
   _BlueskyService({
     required atp.ATProto atproto,

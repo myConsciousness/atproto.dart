@@ -15,7 +15,7 @@ import '../reply_post.dart';
 
 const replyPostConverter = _ReplyPostConverter();
 
-class _ReplyPostConverter
+final class _ReplyPostConverter
     implements JsonConverter<ReplyPost, Map<String, dynamic>> {
   const _ReplyPostConverter();
 

@@ -55,7 +55,7 @@ void ensureValidDid(final String did) {
 }
 
 /// Thrown to indicate that DID didn't valid.
-class InvalidDidError extends Error {
+final class InvalidDidError extends Error {
   /// Returns the new instance of [InvalidDidError].
   InvalidDidError(this.message);
 

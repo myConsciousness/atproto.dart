@@ -39,6 +39,10 @@ mixin _$GeneratorRecord {
   /// The avatar of the generator. This is optional.
   Blob? get avatar => throw _privateConstructorUsedError;
 
+  /// Attached labels.
+  @labelsConverter
+  Labels? get labels => throw _privateConstructorUsedError;
+
   /// The time of creation of the generator.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -61,9 +65,11 @@ abstract class $GeneratorRecordCopyWith<$Res> {
       String? description,
       List<Facet>? descriptionFacets,
       Blob? avatar,
+      @labelsConverter Labels? labels,
       DateTime createdAt});
 
   $BlobCopyWith<$Res>? get avatar;
+  $LabelsCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -85,6 +91,7 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
     Object? description = freezed,
     Object? descriptionFacets = freezed,
     Object? avatar = freezed,
+    Object? labels = freezed,
     Object? createdAt = null,
   }) {
     return _then(_value.copyWith(
@@ -112,6 +119,10 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as Blob?,
+      labels: freezed == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as Labels?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -128,6 +139,18 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
 
     return $BlobCopyWith<$Res>(_value.avatar!, (value) {
       return _then(_value.copyWith(avatar: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LabelsCopyWith<$Res>? get labels {
+    if (_value.labels == null) {
+      return null;
+    }
+
+    return $LabelsCopyWith<$Res>(_value.labels!, (value) {
+      return _then(_value.copyWith(labels: value) as $Val);
     });
   }
 }
@@ -147,10 +170,13 @@ abstract class _$$_GeneratorRecordCopyWith<$Res>
       String? description,
       List<Facet>? descriptionFacets,
       Blob? avatar,
+      @labelsConverter Labels? labels,
       DateTime createdAt});
 
   @override
   $BlobCopyWith<$Res>? get avatar;
+  @override
+  $LabelsCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -170,6 +196,7 @@ class __$$_GeneratorRecordCopyWithImpl<$Res>
     Object? description = freezed,
     Object? descriptionFacets = freezed,
     Object? avatar = freezed,
+    Object? labels = freezed,
     Object? createdAt = null,
   }) {
     return _then(_$_GeneratorRecord(
@@ -197,6 +224,10 @@ class __$$_GeneratorRecordCopyWithImpl<$Res>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as Blob?,
+      labels: freezed == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as Labels?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -216,6 +247,7 @@ class _$_GeneratorRecord implements _GeneratorRecord {
       this.description,
       final List<Facet>? descriptionFacets,
       this.avatar,
+      @labelsConverter this.labels,
       required this.createdAt})
       : _descriptionFacets = descriptionFacets;
 
@@ -257,13 +289,18 @@ class _$_GeneratorRecord implements _GeneratorRecord {
   @override
   final Blob? avatar;
 
+  /// Attached labels.
+  @override
+  @labelsConverter
+  final Labels? labels;
+
   /// The time of creation of the generator.
   @override
   final DateTime createdAt;
 
   @override
   String toString() {
-    return 'GeneratorRecord(type: $type, did: $did, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, createdAt: $createdAt)';
+    return 'GeneratorRecord(type: $type, did: $did, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdAt: $createdAt)';
   }
 
   @override
@@ -280,6 +317,7 @@ class _$_GeneratorRecord implements _GeneratorRecord {
             const DeepCollectionEquality()
                 .equals(other._descriptionFacets, _descriptionFacets) &&
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            (identical(other.labels, labels) || other.labels == labels) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
   }
@@ -294,6 +332,7 @@ class _$_GeneratorRecord implements _GeneratorRecord {
       description,
       const DeepCollectionEquality().hash(_descriptionFacets),
       avatar,
+      labels,
       createdAt);
 
   @JsonKey(ignore: true)
@@ -318,6 +357,7 @@ abstract class _GeneratorRecord implements GeneratorRecord {
       final String? description,
       final List<Facet>? descriptionFacets,
       final Blob? avatar,
+      @labelsConverter final Labels? labels,
       required final DateTime createdAt}) = _$_GeneratorRecord;
 
   factory _GeneratorRecord.fromJson(Map<String, dynamic> json) =
@@ -348,6 +388,11 @@ abstract class _GeneratorRecord implements GeneratorRecord {
 
   /// The avatar of the generator. This is optional.
   Blob? get avatar;
+  @override
+
+  /// Attached labels.
+  @labelsConverter
+  Labels? get labels;
   @override
 
   /// The time of creation of the generator.

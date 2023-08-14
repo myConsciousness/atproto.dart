@@ -13,8 +13,8 @@ _$_ActorViewer _$$_ActorViewerFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_ActorViewer(
-          isMuted: $checkedConvert('muted', (v) => v as bool),
-          isBlockedBy: $checkedConvert('blockedBy', (v) => v as bool),
+          isMuted: $checkedConvert('muted', (v) => v as bool? ?? false),
+          isBlockedBy: $checkedConvert('blockedBy', (v) => v as bool? ?? false),
           mutedByList: $checkedConvert(
               'mutedByList',
               (v) => v == null

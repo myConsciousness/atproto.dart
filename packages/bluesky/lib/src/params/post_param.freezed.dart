@@ -26,6 +26,8 @@ mixin _$PostParam {
   @embedConverter
   Embed? get embed => throw _privateConstructorUsedError;
   List<String>? get languageTags => throw _privateConstructorUsedError;
+  @labelsConverter
+  Labels? get labels => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   Map<String, dynamic> get unspecced => throw _privateConstructorUsedError;
 
@@ -46,11 +48,13 @@ abstract class $PostParamCopyWith<$Res> {
       List<Facet>? facets,
       @embedConverter Embed? embed,
       List<String>? languageTags,
+      @labelsConverter Labels? labels,
       DateTime? createdAt,
       Map<String, dynamic> unspecced});
 
   $ReplyRefCopyWith<$Res>? get reply;
   $EmbedCopyWith<$Res>? get embed;
+  $LabelsCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -71,6 +75,7 @@ class _$PostParamCopyWithImpl<$Res, $Val extends PostParam>
     Object? facets = freezed,
     Object? embed = freezed,
     Object? languageTags = freezed,
+    Object? labels = freezed,
     Object? createdAt = freezed,
     Object? unspecced = null,
   }) {
@@ -95,6 +100,10 @@ class _$PostParamCopyWithImpl<$Res, $Val extends PostParam>
           ? _value.languageTags
           : languageTags // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      labels: freezed == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as Labels?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -129,6 +138,18 @@ class _$PostParamCopyWithImpl<$Res, $Val extends PostParam>
       return _then(_value.copyWith(embed: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LabelsCopyWith<$Res>? get labels {
+    if (_value.labels == null) {
+      return null;
+    }
+
+    return $LabelsCopyWith<$Res>(_value.labels!, (value) {
+      return _then(_value.copyWith(labels: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -144,6 +165,7 @@ abstract class _$$_PostParamCopyWith<$Res> implements $PostParamCopyWith<$Res> {
       List<Facet>? facets,
       @embedConverter Embed? embed,
       List<String>? languageTags,
+      @labelsConverter Labels? labels,
       DateTime? createdAt,
       Map<String, dynamic> unspecced});
 
@@ -151,6 +173,8 @@ abstract class _$$_PostParamCopyWith<$Res> implements $PostParamCopyWith<$Res> {
   $ReplyRefCopyWith<$Res>? get reply;
   @override
   $EmbedCopyWith<$Res>? get embed;
+  @override
+  $LabelsCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -169,6 +193,7 @@ class __$$_PostParamCopyWithImpl<$Res>
     Object? facets = freezed,
     Object? embed = freezed,
     Object? languageTags = freezed,
+    Object? labels = freezed,
     Object? createdAt = freezed,
     Object? unspecced = null,
   }) {
@@ -193,6 +218,10 @@ class __$$_PostParamCopyWithImpl<$Res>
           ? _value._languageTags
           : languageTags // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      labels: freezed == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as Labels?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -215,6 +244,7 @@ class _$_PostParam implements _PostParam {
       final List<Facet>? facets,
       @embedConverter this.embed,
       final List<String>? languageTags,
+      @labelsConverter this.labels,
       this.createdAt,
       final Map<String, dynamic> unspecced = emptyJson})
       : _facets = facets,
@@ -252,6 +282,9 @@ class _$_PostParam implements _PostParam {
   }
 
   @override
+  @labelsConverter
+  final Labels? labels;
+  @override
   final DateTime? createdAt;
   final Map<String, dynamic> _unspecced;
   @override
@@ -264,7 +297,7 @@ class _$_PostParam implements _PostParam {
 
   @override
   String toString() {
-    return 'PostParam(text: $text, reply: $reply, facets: $facets, embed: $embed, languageTags: $languageTags, createdAt: $createdAt, unspecced: $unspecced)';
+    return 'PostParam(text: $text, reply: $reply, facets: $facets, embed: $embed, languageTags: $languageTags, labels: $labels, createdAt: $createdAt, unspecced: $unspecced)';
   }
 
   @override
@@ -278,6 +311,7 @@ class _$_PostParam implements _PostParam {
             (identical(other.embed, embed) || other.embed == embed) &&
             const DeepCollectionEquality()
                 .equals(other._languageTags, _languageTags) &&
+            (identical(other.labels, labels) || other.labels == labels) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             const DeepCollectionEquality()
@@ -293,6 +327,7 @@ class _$_PostParam implements _PostParam {
       const DeepCollectionEquality().hash(_facets),
       embed,
       const DeepCollectionEquality().hash(_languageTags),
+      labels,
       createdAt,
       const DeepCollectionEquality().hash(_unspecced));
 
@@ -317,6 +352,7 @@ abstract class _PostParam implements PostParam {
       final List<Facet>? facets,
       @embedConverter final Embed? embed,
       final List<String>? languageTags,
+      @labelsConverter final Labels? labels,
       final DateTime? createdAt,
       final Map<String, dynamic> unspecced}) = _$_PostParam;
 
@@ -334,6 +370,9 @@ abstract class _PostParam implements PostParam {
   Embed? get embed;
   @override
   List<String>? get languageTags;
+  @override
+  @labelsConverter
+  Labels? get labels;
   @override
   DateTime? get createdAt;
   @override

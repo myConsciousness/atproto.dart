@@ -29,6 +29,10 @@ _$_GeneratorRecord _$$_GeneratorRecordFromJson(Map json) => $checkedCreate(
               (v) => v == null
                   ? null
                   : Blob.fromJson(Map<String, Object?>.from(v as Map))),
+          labels: $checkedConvert(
+              'labels',
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, Labels>(
+                  v, labelsConverter.fromJson)),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
         );
@@ -54,6 +58,22 @@ Map<String, dynamic> _$$_GeneratorRecordToJson(_$_GeneratorRecord instance) {
   writeNotNull('descriptionFacets',
       instance.descriptionFacets?.map((e) => e.toJson()).toList());
   writeNotNull('avatar', instance.avatar?.toJson());
+  writeNotNull(
+      'labels',
+      _$JsonConverterToJson<Map<String, dynamic>, Labels>(
+          instance.labels, labelsConverter.toJson));
   val['createdAt'] = instance.createdAt.toIso8601String();
   return val;
 }
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

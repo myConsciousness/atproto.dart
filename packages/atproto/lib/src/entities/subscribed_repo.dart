@@ -30,32 +30,32 @@ class SubscribedRepo with _$SubscribedRepo {
   /// Creates a new instance of [SubscribedRepo] as a commit.
   const factory SubscribedRepo.commit({
     required SubscribedRepoCommit data,
-  }) = _Commit;
+  }) = USubscribedRepoCommit;
 
   /// Creates a new instance of [SubscribedRepo] as a handle.
   const factory SubscribedRepo.handle({
     required SubscribedRepoHandle data,
-  }) = _Handle;
+  }) = USubscribedRepoHandle;
 
   /// Creates a new instance of [SubscribedRepo] as a migration.
   const factory SubscribedRepo.migrate({
     required SubscribedRepoMigrate data,
-  }) = _Migrate;
+  }) = USubscribedRepoMigrate;
 
   /// Creates a new instance of [SubscribedRepo] as a tombstone.
   const factory SubscribedRepo.tombstone({
     required SubscribedRepoTombstone data,
-  }) = _Tombstone;
+  }) = USubscribedRepoTombstone;
 
   /// Creates a new instance of [SubscribedRepo] as an info.
   const factory SubscribedRepo.info({
     required SubscribedRepoInfo data,
-  }) = _Info;
+  }) = USubscribedRepoInfo;
 
   /// Creates a new instance of [SubscribedRepo] as unknown type.
   const factory SubscribedRepo.unknown({
     required Map<String, dynamic> data,
-  }) = _Unknown;
+  }) = USubscribedRepoUnknown;
 
   /// Creates a new instance of [SubscribedRepo] from a JSON object.
   ///

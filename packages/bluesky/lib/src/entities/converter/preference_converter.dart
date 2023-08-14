@@ -15,7 +15,7 @@ import '../saved_feeds_preference.dart';
 
 const preferenceConverter = _PreferenceConverter();
 
-class _PreferenceConverter
+final class _PreferenceConverter
     implements JsonConverter<Preference, Map<String, dynamic>> {
   const _PreferenceConverter();
 

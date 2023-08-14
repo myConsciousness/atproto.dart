@@ -32,8 +32,8 @@
 - [1. Guide 🌎](#1-guide-)
   - [1.1. Features ⭐](#11-features-)
   - [1.2. Getting Started 💪](#12-getting-started-)
-  - [1.3. Supported Lexicons 👀](#13-supported-lexicons-)
-  - [1.4. Tips 🏄](#14-tips-)
+  - [1.3. Supported Endpoints 👀](#13-supported-endpoints-)
+  - [1.4. More Tips 🏄](#14-more-tips-)
   - [1.5. Contribution 🏆](#15-contribution-)
   - [1.6. Support ❤️](#16-support-️)
   - [1.7. License 🔑](#17-license-)
@@ -76,7 +76,7 @@ See **[example](https://github.com/myConsciousness/atproto.dart/blob/main/packag
 - **[Supported Services](https://atprotodart.com/docs/packages/bluesky/#supported-services)**
 - **[Let's Implement](https://atprotodart.com/docs/packages/bluesky/#lets-implement)**
 
-## 1.3. Supported Lexicons 👀
+## 1.3. Supported Endpoints 👀
 
 See **[official documents](https://atprotodart.com/docs/api_support_matrix)** from following links.
 
@@ -93,7 +93,7 @@ See **[official documents](https://atprotodart.com/docs/api_support_matrix)** fr
   - **[app.bsky.graph.*](https://atprotodart.com/docs/api_support_matrix#graphs-service)**
   - **[app.bsky.unspecced.*](https://atprotodart.com/docs/api_support_matrix#unspecced-service)**
 
-## 1.4. Tips 🏄
+## 1.4. More Tips 🏄
 
 See **[official documents](https://atprotodart.com/docs/packages/bluesky)** from following links.
 

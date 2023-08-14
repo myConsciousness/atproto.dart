@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.3.0
+
+- Drop support for null unsafe Dart, bump SDK constraint to '^3.0.0'. ([#599](https://github.com/myConsciousness/atproto.dart/issues/599))
+- Dart3 modifier applied.
+
 ## v0.2.7
 
 - Upgraded `xrpc`. ([#636](https://github.com/myConsciousness/atproto.dart/issues/636))

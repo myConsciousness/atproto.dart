@@ -8,7 +8,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 const atUriConverter = _AtUriConverter();
 
-class _AtUriConverter implements JsonConverter<AtUri, String> {
+final class _AtUriConverter implements JsonConverter<AtUri, String> {
   /// Returns the new instance of [_AtUriConverter].
   const _AtUriConverter();
 

@@ -1,5 +1,102 @@
 # Release Note
 
+## v0.8.1
+
+- Exposed freezed union objects. You can use them for pattern matching. ([#600](https://github.com/myConsciousness/atproto.dart/issues/600))
+  - `embed.dart`
+    - `UEmbedRecord`
+    - `UEmbedImages`
+    - `UEmbedExternal`
+    - `UEmbedRecordWithMedia`
+    - `UEmbedUnknown`
+  - `embed_media.dart`
+    - `UEmbedMediaImages`
+    - `UEmbedMediaExternal`
+    - `UEmbedMediaUnknown`
+  - `embed_view.dart`
+    - `UEmbedViewRecord`
+    - `UEmbedViewImages`
+    - `UEmbedViewExternal`
+    - `UEmbedViewRecordWithMedia`
+    - `UEmbedViewUnknown`
+  - `embed_view_media.dart`
+    - `UEmbedViewMediaImages`
+    - `UEmbedViewMediaExternal`
+    - `UEmbedViewMediaUnknown`
+  - `facet_feature.dart`
+    - `UFacetFeatureMention`
+    - `UFacetFeatureLink`
+    - `UFacetFeatureUnknown`
+  - `post_thread_view.dart`
+    - `UPostThreadViewRecord`
+    - `UPostThreadViewNotFound`
+    - `UPostThreadViewBlocked`
+    - `UPostThreadViewUnknown`
+  - `preference.dart`
+    - `UPreferenceAdultContent`
+    - `UPreferenceContentLabel`
+    - `UPreferenceSavedFeeds`
+    - `UPreferenceUnknown`
+  - `reason.dart`
+    - `UReasonRepost`
+    - `UReasonUnknown`
+  - `reply_post.dart`
+    - `UReplyPostRecord`
+    - `UReplyPostNotFound`
+    - `UReplyPostBlocked`
+    - `UReplyPostUnknown`
+  - `skeleton_reason.dart`
+    - `USkeletonReasonRepost`
+    - `USkeletonReasonUnknown`
+  - `labels.dart`
+    - `ULabelsSelLabels`
+    - `ULabelsUnknown`
+  - `report_subject.dart`
+    - `UReportSubjectRepoRef`
+    - `UReportSubjectStrongRef`
+    - `UReportSubjectUnknown`
+  - `subscribed_repo.dart`
+    - `USubscribedRepoCommit`
+    - `USubscribedRepoHandle`
+    - `USubscribedRepoMigrate`
+    - `USubscribedRepoTombstone`
+    - `USubscribedRepoInfo`
+    - `USubscribedRepoUnknown`
+  - `batch_action.dart`
+    - `UBatchActionCreate`
+    - `UBatchActionUpdate`
+    - `UBatchActionDelete`
+## v0.8.0
+
+- Drop support for null unsafe Dart, bump SDK constraint to '^3.0.0'. ([#599](https://github.com/myConsciousness/atproto.dart/issues/599))
+- Dart3 modifier applied.
+
+## v0.7.11
+
+- Added `BlockedAuthor` as `author` property. ([#660](https://github.com/myConsciousness/atproto.dart/issues/660))
+  - `BlockedPost`
+  - `EmbedViewRecordViewBlocked`
+- The default value of the flag is set as `false`.
+  - `ActorViewer`
+  - `ListViewer`
+
+## v0.7.10
+
+- Added `filter` parameters. And exposed `FeedFilter` enum. ([#655](https://github.com/myConsciousness/atproto.dart/issues/655))
+  - `findFeed`
+  - `findFeedAsJson`
+  - `paginateFeed`
+  - `paginateFeedAsJson`
+- Supported self-labeling. Use `labels` parameters. ([#655](https://github.com/myConsciousness/atproto.dart/issues/655))
+  - `createPost`
+  - `createPosts`
+  - `createThreads`
+  - `createGenerator`
+  - `createGenerators`
+  - `createList`
+  - `createLists`
+  - `updateProfile`
+
 ## v0.7.9
 
 - Exposed `NSID` from `bluesky.dart`.

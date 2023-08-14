@@ -100,7 +100,7 @@ class __$$_ListViewerCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$_ListViewer extends _ListViewer {
-  const _$_ListViewer({@JsonKey(name: 'muted') required this.isMuted})
+  const _$_ListViewer({@JsonKey(name: 'muted') this.isMuted = false})
       : super._();
 
   factory _$_ListViewer.fromJson(Map<String, dynamic> json) =>
@@ -143,8 +143,8 @@ class _$_ListViewer extends _ListViewer {
 }
 
 abstract class _ListViewer extends ListViewer {
-  const factory _ListViewer(
-      {@JsonKey(name: 'muted') required final bool isMuted}) = _$_ListViewer;
+  const factory _ListViewer({@JsonKey(name: 'muted') final bool isMuted}) =
+      _$_ListViewer;
   const _ListViewer._() : super._();
 
   factory _ListViewer.fromJson(Map<String, dynamic> json) =

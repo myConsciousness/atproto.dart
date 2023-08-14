@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -52,6 +53,9 @@ class PostRecord with _$PostRecord {
 
     /// Might include any BCP47 language tags the post is written in.
     List<String>? langs,
+
+    /// Attached labels.
+    @labelsConverter Labels? labels,
 
     /// Might include any associated facets.
     List<Facet>? facets,

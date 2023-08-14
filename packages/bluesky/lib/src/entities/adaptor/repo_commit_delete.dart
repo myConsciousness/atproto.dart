@@ -5,7 +5,7 @@
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 
-class RepoCommitDelete {
+final class RepoCommitDelete {
   /// Returns the new instance of [RepoCommitDelete].
   const RepoCommitDelete({
     required this.uri,

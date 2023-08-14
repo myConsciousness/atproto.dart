@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.3.0
+
+- Drop support for null unsafe Dart, bump SDK constraint to '^3.0.0'. ([#599](https://github.com/myConsciousness/atproto.dart/issues/599))
+- Dart3 modifier applied.
+
 ## v0.2.2
 
 - Supported `RateLimit`. You can access this property from `XRPCResponse.rateLimit`. If there is no rate limits, then it's always null. ([#636](https://github.com/myConsciousness/atproto.dart/issues/636))

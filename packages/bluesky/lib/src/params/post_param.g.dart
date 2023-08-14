@@ -31,6 +31,10 @@ _$_PostParam _$$_PostParamFromJson(Map json) => $checkedCreate(
                   v, embedConverter.fromJson)),
           languageTags: $checkedConvert('languageTags',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          labels: $checkedConvert(
+              'labels',
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, Labels>(
+                  v, labelsConverter.fromJson)),
           createdAt: $checkedConvert('createdAt',
               (v) => v == null ? null : DateTime.parse(v as String)),
           unspecced: $checkedConvert(
@@ -63,6 +67,10 @@ Map<String, dynamic> _$$_PostParamToJson(_$_PostParam instance) {
       _$JsonConverterToJson<Map<String, dynamic>, Embed>(
           instance.embed, embedConverter.toJson));
   writeNotNull('languageTags', instance.languageTags);
+  writeNotNull(
+      'labels',
+      _$JsonConverterToJson<Map<String, dynamic>, Labels>(
+          instance.labels, labelsConverter.toJson));
   writeNotNull('createdAt', instance.createdAt?.toIso8601String());
   val['unspecced'] = instance.unspecced;
   return val;

@@ -23,7 +23,7 @@ class EmbedViewMedia with _$EmbedViewMedia {
   /// the images.
   const factory EmbedViewMedia.images({
     required EmbedViewImages data,
-  }) = _Images;
+  }) = UEmbedViewMediaImages;
 
   /// Creates an instance of `EmbedViewMedia` representing external media.
   ///
@@ -31,11 +31,11 @@ class EmbedViewMedia with _$EmbedViewMedia {
   /// the external media.
   const factory EmbedViewMedia.external({
     required EmbedViewExternal data,
-  }) = _External;
+  }) = UEmbedViewMediaExternal;
 
   /// Creates an instance of `EmbedViewMedia` representing an unknown media
   /// feature.
   const factory EmbedViewMedia.unknown({
     required Map<String, dynamic> data,
-  }) = _Unknown;
+  }) = UEmbedViewMediaUnknown;
 }

@@ -37,6 +37,10 @@ mixin _$PostRecord {
   /// Might include any BCP47 language tags the post is written in.
   List<String>? get langs => throw _privateConstructorUsedError;
 
+  /// Attached labels.
+  @labelsConverter
+  Labels? get labels => throw _privateConstructorUsedError;
+
   /// Might include any associated facets.
   List<Facet>? get facets => throw _privateConstructorUsedError;
 
@@ -61,11 +65,13 @@ abstract class $PostRecordCopyWith<$Res> {
       PostRef? reply,
       @embedConverter Embed? embed,
       List<String>? langs,
+      @labelsConverter Labels? labels,
       List<Facet>? facets,
       DateTime createdAt});
 
   $PostRefCopyWith<$Res>? get reply;
   $EmbedCopyWith<$Res>? get embed;
+  $LabelsCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -86,6 +92,7 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
     Object? reply = freezed,
     Object? embed = freezed,
     Object? langs = freezed,
+    Object? labels = freezed,
     Object? facets = freezed,
     Object? createdAt = null,
   }) {
@@ -110,6 +117,10 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
           ? _value.langs
           : langs // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      labels: freezed == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as Labels?,
       facets: freezed == facets
           ? _value.facets
           : facets // ignore: cast_nullable_to_non_nullable
@@ -144,6 +155,18 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
       return _then(_value.copyWith(embed: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LabelsCopyWith<$Res>? get labels {
+    if (_value.labels == null) {
+      return null;
+    }
+
+    return $LabelsCopyWith<$Res>(_value.labels!, (value) {
+      return _then(_value.copyWith(labels: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -160,6 +183,7 @@ abstract class _$$_PostRecordCopyWith<$Res>
       PostRef? reply,
       @embedConverter Embed? embed,
       List<String>? langs,
+      @labelsConverter Labels? labels,
       List<Facet>? facets,
       DateTime createdAt});
 
@@ -167,6 +191,8 @@ abstract class _$$_PostRecordCopyWith<$Res>
   $PostRefCopyWith<$Res>? get reply;
   @override
   $EmbedCopyWith<$Res>? get embed;
+  @override
+  $LabelsCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -185,6 +211,7 @@ class __$$_PostRecordCopyWithImpl<$Res>
     Object? reply = freezed,
     Object? embed = freezed,
     Object? langs = freezed,
+    Object? labels = freezed,
     Object? facets = freezed,
     Object? createdAt = null,
   }) {
@@ -209,6 +236,10 @@ class __$$_PostRecordCopyWithImpl<$Res>
           ? _value._langs
           : langs // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      labels: freezed == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as Labels?,
       facets: freezed == facets
           ? _value._facets
           : facets // ignore: cast_nullable_to_non_nullable
@@ -231,6 +262,7 @@ class _$_PostRecord implements _PostRecord {
       this.reply,
       @embedConverter this.embed,
       final List<String>? langs,
+      @labelsConverter this.labels,
       final List<Facet>? facets,
       required this.createdAt})
       : _langs = langs,
@@ -270,6 +302,11 @@ class _$_PostRecord implements _PostRecord {
     return EqualUnmodifiableListView(value);
   }
 
+  /// Attached labels.
+  @override
+  @labelsConverter
+  final Labels? labels;
+
   /// Might include any associated facets.
   final List<Facet>? _facets;
 
@@ -289,7 +326,7 @@ class _$_PostRecord implements _PostRecord {
 
   @override
   String toString() {
-    return 'PostRecord(type: $type, text: $text, reply: $reply, embed: $embed, langs: $langs, facets: $facets, createdAt: $createdAt)';
+    return 'PostRecord(type: $type, text: $text, reply: $reply, embed: $embed, langs: $langs, labels: $labels, facets: $facets, createdAt: $createdAt)';
   }
 
   @override
@@ -302,6 +339,7 @@ class _$_PostRecord implements _PostRecord {
             (identical(other.reply, reply) || other.reply == reply) &&
             (identical(other.embed, embed) || other.embed == embed) &&
             const DeepCollectionEquality().equals(other._langs, _langs) &&
+            (identical(other.labels, labels) || other.labels == labels) &&
             const DeepCollectionEquality().equals(other._facets, _facets) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
@@ -316,6 +354,7 @@ class _$_PostRecord implements _PostRecord {
       reply,
       embed,
       const DeepCollectionEquality().hash(_langs),
+      labels,
       const DeepCollectionEquality().hash(_facets),
       createdAt);
 
@@ -340,6 +379,7 @@ abstract class _PostRecord implements PostRecord {
       final PostRef? reply,
       @embedConverter final Embed? embed,
       final List<String>? langs,
+      @labelsConverter final Labels? labels,
       final List<Facet>? facets,
       required final DateTime createdAt}) = _$_PostRecord;
 
@@ -368,6 +408,11 @@ abstract class _PostRecord implements PostRecord {
 
   /// Might include any BCP47 language tags the post is written in.
   List<String>? get langs;
+  @override
+
+  /// Attached labels.
+  @labelsConverter
+  Labels? get labels;
   @override
 
   /// Might include any associated facets.

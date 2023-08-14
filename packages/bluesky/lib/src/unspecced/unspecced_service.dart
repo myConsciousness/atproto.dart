@@ -11,7 +11,7 @@ import '../bluesky_base_service.dart';
 import '../entities/feed.dart';
 import '../entities/feed_generators.dart';
 
-abstract class UnspeccedService {
+sealed class UnspeccedService {
   /// Returns the new instance of [UnspeccedService].
   factory UnspeccedService({
     required atp.ATProto atproto,
@@ -261,7 +261,8 @@ abstract class UnspeccedService {
   );
 }
 
-class _UnspeccedService extends BlueskyBaseService implements UnspeccedService {
+final class _UnspeccedService extends BlueskyBaseService
+    implements UnspeccedService {
   /// Returns the new instance of [_UnspeccedService].
   _UnspeccedService({
     required super.atproto,

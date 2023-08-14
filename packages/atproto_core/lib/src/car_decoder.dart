@@ -67,7 +67,7 @@ _DecodedBlock _decodeReader(Uint8List bytes) {
   return _DecodedBlock(_decode(a), a.length);
 }
 
-class _DecodedBlock {
+final class _DecodedBlock {
   const _DecodedBlock(this.value, this.length);
 
   final int value;

@@ -41,12 +41,12 @@ scripts:
     run: |
       melos exec -c 1 -- \
         dart run build_runner build
-      melos format
     description: Run build_runner and melos format in all packages.
 
   test:
     run: melos run test:dart --no-select && melos run test:flutter --no-select
     description: Run all Dart & Flutter tests in this project.
+    dir-exists: test
 
   test:dart:
     run: melos exec  -c 1 --fail-fast -- "\$MELOS_ROOT_PATH/scripts/coverage.sh"

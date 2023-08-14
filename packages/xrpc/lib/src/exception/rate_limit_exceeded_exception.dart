@@ -5,7 +5,7 @@
 // 🌎 Project imports:
 import 'xrpc_exception.dart';
 
-class RateLimitExceededException extends XRPCException {
+final class RateLimitExceededException extends XRPCException {
   /// Returns the new instance of [RateLimitExceededException].
   const RateLimitExceededException(super.response)
       : super(label: 'RateLimitExceededException');

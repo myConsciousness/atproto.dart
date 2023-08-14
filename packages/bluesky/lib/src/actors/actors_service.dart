@@ -15,7 +15,7 @@ import '../entities/actors_typeahead.dart';
 import '../entities/preference.dart';
 import '../entities/preferences.dart';
 
-abstract class ActorsService {
+sealed class ActorsService {
   /// Returns the new instance of [ActorsService].
   factory ActorsService({
     required atp.ATProto atproto,
@@ -380,6 +380,8 @@ abstract class ActorsService {
   ///
   /// - [banner]: The uploaded banner blob.
   ///
+  /// - [labels]: Labels to be attached.
+  ///
   /// ## Lexicon
   ///
   /// - app.bsky.actor.profile
@@ -392,6 +394,7 @@ abstract class ActorsService {
     String? description,
     atp.Blob? avatar,
     atp.Blob? banner,
+    atp.Labels? labels,
   });
 
   /// Get private preferences attached to the account.
@@ -440,7 +443,7 @@ abstract class ActorsService {
   );
 }
 
-class _ActorsService extends BlueskyBaseService implements ActorsService {
+final class _ActorsService extends BlueskyBaseService implements ActorsService {
   /// Returns the new instance of [_ActorsService].
   _ActorsService({
     required super.atproto,
@@ -600,6 +603,7 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
     String? description,
     atp.Blob? avatar,
     atp.Blob? banner,
+    atp.Labels? labels,
   }) async =>
       await atproto.repositories.updateRecord(
         uri: core.AtUri.make(
@@ -612,6 +616,7 @@ class _ActorsService extends BlueskyBaseService implements ActorsService {
           'description': description,
           'avatar': avatar,
           'banner': banner,
+          'labels': labels?.toJson(),
         },
       );
 

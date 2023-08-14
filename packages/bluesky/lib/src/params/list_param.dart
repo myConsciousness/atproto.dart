@@ -25,6 +25,7 @@ class ListParam with _$ListParam {
     String? description,
     List<Facet>? descriptionFacets,
     Blob? avatar,
+    @labelsConverter Labels? labels,
     DateTime? createdAt,
     @Default(emptyJson) Map<String, dynamic> unspecced,
   }) = _ListParam;

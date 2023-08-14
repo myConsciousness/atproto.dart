@@ -20,7 +20,7 @@ class ReplyPost with _$ReplyPost {
   /// [Post] object which provides the content and context of the post.
   const factory ReplyPost.record({
     required Post data,
-  }) = _Record;
+  }) = UReplyPostRecord;
 
   /// This constructor is used when the post is not found.
   ///
@@ -28,7 +28,7 @@ class ReplyPost with _$ReplyPost {
   /// provides the context of why the post is not found.
   const factory ReplyPost.notFound({
     required NotFoundPost data,
-  }) = _NotFound;
+  }) = UReplyPostNotFound;
 
   /// This constructor is used when the post is blocked.
   ///
@@ -36,7 +36,7 @@ class ReplyPost with _$ReplyPost {
   /// provides the context of why the post is blocked.
   const factory ReplyPost.blocked({
     required BlockedPost data,
-  }) = _Blocked;
+  }) = UReplyPostBlocked;
 
   /// This constructor is used when the post type is not supported or is not
   /// expected.
@@ -44,5 +44,5 @@ class ReplyPost with _$ReplyPost {
   /// It includes the raw data map for further unknown feature.
   const factory ReplyPost.unknown({
     required Map<String, dynamic> data,
-  }) = _Unknown;
+  }) = UReplyPostUnknown;
 }

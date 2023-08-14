@@ -9,7 +9,7 @@ part 'xrpc_error.freezed.dart';
 part 'xrpc_error.g.dart';
 
 @freezed
-class XRPCError with _$XRPCError {
+sealed class XRPCError with _$XRPCError {
   const factory XRPCError({
     required String error,
     required String message,

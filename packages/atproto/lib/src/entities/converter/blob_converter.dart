@@ -11,7 +11,8 @@ import '../blob.dart';
 
 const blobConverter = _BlobConverter();
 
-class _BlobConverter implements JsonConverter<Blob, Map<String, dynamic>> {
+final class _BlobConverter
+    implements JsonConverter<Blob, Map<String, dynamic>> {
   const _BlobConverter();
 
   static const adaptor = BlobAdaptor();
