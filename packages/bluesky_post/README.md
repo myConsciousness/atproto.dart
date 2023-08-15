@@ -115,7 +115,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # You must checkout resources
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
       - uses: myConsciousness/bluesky-post@v4
         with:
@@ -141,9 +141,6 @@ jobs:
   post:
     runs-on: ubuntu-latest
     steps:
-      # You must checkout resources
-      - uses: actions/checkout@v4
-
       - uses: myConsciousness/bluesky-post@v4
         with:
           text: "Hello, Bluesky!"
@@ -167,9 +164,6 @@ jobs:
   post:
     runs-on: ubuntu-latest
     steps:
-      # You must checkout resources
-      - uses: actions/checkout@v4
-
       - uses: myConsciousness/bluesky-post@v4
         with:
           text: "Hello, Bluesky!"
