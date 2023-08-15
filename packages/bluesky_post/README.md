@@ -9,11 +9,11 @@
 
 Use this action to send a post from GitHub actions workflow.
 
-This action is implemented in the Dart language and uses [bluesky](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky) for posting to Bluesky Social.
+This action is implemented in the Dart language and uses **[bluesky](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky)** for posting to Bluesky Social.
 
 ## Workflow Usage
 
-Configure your workflow to use `myConsciousness/bluesky-post@v3`,
+Configure your workflow to use `myConsciousness/bluesky-post@v4`,
 and provide the post you want to send as the `text` input.
 
 Provide Bluesky's ATP server with `identifier` (handle or email) and `password` to create a session.
@@ -30,7 +30,7 @@ jobs:
   post:
     runs-on: ubuntu-latest
     steps:
-      - uses: myConsciousness/bluesky-post@v3
+      - uses: myConsciousness/bluesky-post@v4
         with:
           text: "Hello, Bluesky!"
           identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
@@ -64,7 +64,7 @@ jobs:
   post:
     runs-on: ubuntu-latest
     steps:
-      - uses: myConsciousness/bluesky-post@v3
+      - uses: myConsciousness/bluesky-post@v4
         with:
           text: "Hello, Bluesky!"
           identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
@@ -92,7 +92,7 @@ jobs:
   post:
     runs-on: ubuntu-latest
     steps:
-      - uses: myConsciousness/bluesky-post@v3
+      - uses: myConsciousness/bluesky-post@v4
         with:
           text: "Hello, Bluesky!"
           identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
@@ -115,13 +115,65 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # You must checkout resources
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: myConsciousness/bluesky-post@v3
+      - uses: myConsciousness/bluesky-post@v4
         with:
           text: "Hello, Bluesky!"
           media: cool_photo.png
           media-alt: "This is a cool photo!"
+          identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
+          password: ${{ secrets.BLUESKY_PASSWORD }}
+```
+
+## Attach Language Tags
+
+You can give the post you are sending **BCP47 format language tags**.
+One or more language tags can be set and passed to the `langs` parameter in **_CSV format_** as follows.
+
+```yml
+name: Send Bluesky Post
+
+on:
+    [push]
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      # You must checkout resources
+      - uses: actions/checkout@v4
+
+      - uses: myConsciousness/bluesky-post@v4
+        with:
+          text: "Hello, Bluesky!"
+          langs: "en,ja"
+          identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
+          password: ${{ secrets.BLUESKY_PASSWORD }}
+```
+
+## Attach Self Labels
+
+You can **label** any post you send.
+You can set one or more labels, and pass the value of any label in the `labels` parameter in **_CSV format_** as follows.
+
+```yml
+name: Send Bluesky Post
+
+on:
+    [push]
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      # You must checkout resources
+      - uses: actions/checkout@v4
+
+      - uses: myConsciousness/bluesky-post@v4
+        with:
+          text: "Hello, Bluesky!"
+          labels: "fun,sports"
           identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
           password: ${{ secrets.BLUESKY_PASSWORD }}
 ```
