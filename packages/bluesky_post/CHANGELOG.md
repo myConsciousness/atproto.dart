@@ -1,5 +1,9 @@
 # Release Note
 
+## v4
+
+- Supported `langs` and `labels` as optional parameters. Pass them as CSV format. ([#668](https://github.com/myConsciousness/atproto.dart/issues/668))
+
 ## v3
 
 - Fixed to automatically extract mentions and links contained in text and set facets appropriately. ([#384](https://github.com/myConsciousness/atproto.dart/issues/384))

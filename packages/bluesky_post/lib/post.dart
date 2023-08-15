@@ -24,7 +24,7 @@ Future<void> post() async {
 
   final createdPost = await bluesky.feeds.createPost(
     text: text.value,
-    facets: facets.map((e) => bsky.Facet.fromJson(e)).toList(),
+    facets: facets.map(bsky.Facet.fromJson).toList(),
     embed: uploaded == null
         ? null
         : bsky.Embed.images(
@@ -40,6 +40,8 @@ Future<void> post() async {
               ],
             ),
           ),
+    languageTags: _langs,
+    labels: _labels,
   );
 
   core.info(message: 'Sent a post successfully!');
@@ -112,4 +114,34 @@ Future<bsky.BlobData?> _uploadMedia(final bsky.Bluesky bluesky) async {
   );
 
   return uploaded.data;
+}
+
+List<String>? get _langs {
+  final langs = core.getInput(
+    name: 'langs',
+    options: core.InputOptions(trimWhitespace: true),
+  );
+
+  if (langs.isEmpty) {
+    return null;
+  }
+
+  return langs.split(',');
+}
+
+bsky.Labels? get _labels {
+  final labels = core.getInput(
+    name: 'labels',
+    options: core.InputOptions(trimWhitespace: true),
+  );
+
+  if (labels.isEmpty) {
+    return null;
+  }
+
+  return bsky.Labels.selfLabels(
+    data: bsky.SelfLabels(
+      values: labels.split(',').map((e) => bsky.SelfLabel(value: e)).toList(),
+    ),
+  );
 }
