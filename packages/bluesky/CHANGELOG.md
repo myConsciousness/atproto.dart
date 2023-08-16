@@ -9,6 +9,7 @@
   - `findTimelineSkeletonAsJson`
   - `paginateTimelineSkeleton`
   - `paginateTimelineSkeletonAsJson`
+- Improved documents. ([#677](https://github.com/myConsciousness/atproto.dart/issues/677))
 
 ## v0.8.1
 
