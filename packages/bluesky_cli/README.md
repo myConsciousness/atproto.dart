@@ -51,7 +51,12 @@
 
 A powerful CLI tool that allows [Bluesky Social](https://bsky.app)'s APIs to be executed from the command line powered by Dart language.
 
-**Show some ❤️ and star the repo to support the project.**
+**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) to activate this project!_**
+
+![github_star](https://github.com/myConsciousness/atproto.dart/assets/13072231/c4a9b0b9-6ea4-42f1-823b-3b9e7cdb8b04)
+
+- **[Official Documents](https://atprotodart.com/docs/packages/bluesky_cli)**
+- **[GitHub Repository](https://github.com/myConsciousness/atproto.dart)**
 
 ## 1.1. Getting Started ⚡
 

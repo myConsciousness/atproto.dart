@@ -43,18 +43,16 @@
 
 # 1. Guide 🌎
 
-This library provides the easiest way to use [Bluesky Social](https://blueskyweb.xyz) in **Dart** and **Flutter** apps.
+This library provides **the most productive way** to use the **_AT Protocol API_** and **_Bluesky API_** in Dart/Flutter apps.
 
-**Show some ❤️ and star the repo to support the project.**
+The library is **cross-platform** and is **already used in many applications**. See **[official showcase](https://atprotodart.com/showcase)** for more details.
 
-`bluesky` is developed on the basis of the [atproto](https://pub.dev/packages/atproto) package.
+**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) to activate this project!_**
 
-However, the [atproto](https://pub.dev/packages/atproto) package is highly integrated into this package,
-so you do not need to be aware of `atproto` when you use `bluesky`.
+![github_star](https://github.com/myConsciousness/atproto.dart/assets/13072231/c4a9b0b9-6ea4-42f1-823b-3b9e7cdb8b04)
 
-If you want to use atproto-only features, please check [atproto](https://pub.dev/packages/atproto).
-
-Check **[official documents](https://atprotodart.com/docs/packages/bluesky)** for more details.
+- **[Official Documents](https://atprotodart.com/docs/packages/bluesky)**
+- **[GitHub Repository](https://github.com/myConsciousness/atproto.dart)**
 
 ## 1.1. Features ⭐
 

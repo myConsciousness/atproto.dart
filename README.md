@@ -45,13 +45,14 @@
   - [1.8. More Information 🧐](#18-more-information-)
 
 <!-- /TOC -->
-
 # 1. Guide 🌎
 
-This monorepo aims to make [AT Protocol](https://atproto.com) and [Bluesky](https://blueskyweb.xyz) functionality easy to handle in Dart/Flutter,
-and to contribute to the development of [AT Protocol](https://atproto.com) and [Bluesky](https://blueskyweb.xyz) and AT Protocol-based services.
+The packages in this monorepo will **_minimize your learning time_** about AT Protocol and Bluesky things,
+and **_maximize your Dart/Flutter development productivity_** with  AT Protocol and Bluesky things.
 
-**Show some ❤️ and star the repo to support the project.**
+**_Give a ⭐ on [this repository](https://github.com/myConsciousness/atproto.dart) to activate a project!_**
+
+![github_star](https://github.com/myConsciousness/atproto.dart/assets/13072231/c4a9b0b9-6ea4-42f1-823b-3b9e7cdb8b04)
 
 ## 1.1. Packages & Tools
 
