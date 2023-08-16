@@ -10,6 +10,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../bluesky_base_service.dart';
 import '../entities/feed.dart';
 import '../entities/feed_generators.dart';
+import '../entities/skeleton_feed.dart';
 
 sealed class UnspeccedService {
   /// Returns the new instance of [UnspeccedService].
@@ -259,6 +260,96 @@ sealed class UnspeccedService {
   Future<core.XRPCResponse<core.EmptyData>> createLabels(
     final List<atp.Label> labels,
   );
+
+  /// A skeleton of a timeline.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.unspecced.getTimelineSkeleton
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getTimelineSkeleton.json
+  Future<core.XRPCResponse<SkeletonFeed>> findTimelineSkeleton({
+    int? limit,
+    String? cursor,
+  });
+
+  /// A skeleton of a timeline as JSON representation.
+  ///
+  /// This method does not convert response data into a [SkeletonFeed] object,
+  /// so this may improve runtime performance.
+  ///
+  /// If you want to get it as a [SkeletonFeed] object,
+  /// use [findTimelineSkeleton].
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.unspecced.getTimelineSkeleton
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getTimelineSkeleton.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findTimelineSkeletonAsJson({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a pagination for a skeleton of a timeline.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.unspecced.getTimelineSkeleton
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getTimelineSkeleton.json
+  core.Pagination<SkeletonFeed> paginateTimelineSkeleton({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a pagination for a skeleton of a timeline as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.unspecced.getTimelineSkeleton
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getTimelineSkeleton.json
+  core.Pagination<Map<String, dynamic>> paginateTimelineSkeletonAsJson({
+    int? limit,
+    String? cursor,
+  });
 }
 
 final class _UnspeccedService extends BlueskyBaseService
@@ -375,6 +466,51 @@ final class _UnspeccedService extends BlueskyBaseService
       );
 
   @override
+  Future<core.XRPCResponse<SkeletonFeed>> findTimelineSkeleton({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findTimelineSkeleton(
+        limit: limit,
+        cursor: cursor,
+        to: SkeletonFeed.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findTimelineSkeletonAsJson({
+    int? limit,
+    String? cursor,
+    String? query,
+  }) async =>
+      await _findTimelineSkeleton(
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  core.Pagination<SkeletonFeed> paginateTimelineSkeleton({
+    int? limit,
+    String? cursor,
+    String? query,
+  }) =>
+      _paginateTimelineSkeleton(
+        limit: limit,
+        cursor: cursor,
+        to: SkeletonFeed.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateTimelineSkeletonAsJson({
+    int? limit,
+    String? cursor,
+    String? query,
+  }) =>
+      _paginateTimelineSkeleton(
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
   Future<core.XRPCResponse<core.EmptyData>> createLabels(
     final List<atp.Label> labels,
   ) async =>
@@ -449,6 +585,34 @@ final class _UnspeccedService extends BlueskyBaseService
         to: to,
       );
 
+  Future<core.XRPCResponse<T>> _findTimelineSkeleton<T>({
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getTimelineSkeleton',
+        parameters: _buildGetTimelineSkeleton(
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateTimelineSkeleton<T>({
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getTimelineSkeleton',
+        parameters: _buildGetTimelineSkeleton(
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
   Map<String, dynamic> _buildGetPopular({
     required bool? includeNsfw,
     required int? limit,
@@ -469,5 +633,14 @@ final class _UnspeccedService extends BlueskyBaseService
         'limit': limit,
         'cursor': cursor,
         'query': query,
+      };
+
+  Map<String, dynamic> _buildGetTimelineSkeleton({
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'limit': limit,
+        'cursor': cursor,
       };
 }

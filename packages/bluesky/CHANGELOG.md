@@ -4,6 +4,11 @@
 
 - Supported `com.atproto.sync.notifyOfUpdate` as `notifyCrawlingServiceOfUpdate` on `SyncService`. ([#316](https://github.com/myConsciousness/atproto.dart/issues/316))
 - Supported `com.atproto.sync.requestCrawl` as `requestCrawl` on `SyncService`. ([#317](https://github.com/myConsciousness/atproto.dart/issues/317))
+- Supported `app.bsky.unspecced.getTimelineSkeleton` on `UnspeccedService`. ([#573](https://github.com/myConsciousness/atproto.dart/issues/573))
+  - `findTimelineSkeleton`
+  - `findTimelineSkeletonAsJson`
+  - `paginateTimelineSkeleton`
+  - `paginateTimelineSkeletonAsJson`
 
 ## v0.8.1
 
