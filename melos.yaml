@@ -17,7 +17,7 @@ scripts:
 
   analyze:
     run: |
-      melos exec -c 1 -- \
+      melos exec -c 10 -- \
         flutter analyze .
     description: |
       Run `dart analyze` in all packages.
@@ -25,21 +25,21 @@ scripts:
 
   format:
     run: |
-      melos exec -c 1 -- \
+      melos exec -c 10 -- \
         dart format .
     description: |
       Run `dart format` in all packages.
 
   import_sorter:
     run: |
-      melos exec -c 1 -- \
+      melos exec -c 10 -- \
         dart pub run import_sorter:main
     description: |
       Run `dart run import_sorter:main` in all packages.
 
   build_runner:
     run: |
-      melos exec -c 1 -- \
+      melos exec -c 10 -- \
         dart run build_runner build
     description: Run build_runner and melos format in all packages.
 

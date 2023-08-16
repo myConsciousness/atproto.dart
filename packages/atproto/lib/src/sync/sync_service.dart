@@ -487,6 +487,26 @@ sealed class SyncService {
     int? limit,
     String? cursor,
   });
+
+  /// Notify a crawling service of a recent update.
+  ///
+  /// Often when a long break between updates causes the connection with
+  /// the crawling service to break.
+  ///
+  /// ## Parameters
+  ///
+  /// - [hostname]: Hostname of the service that is notifying of update.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.notifyOfUpdate
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/notifyOfUpdate.json
+  Future<core.XRPCResponse<core.EmptyData>> notifyCrawlingServiceOfUpdate({
+    required String hostname,
+  });
 }
 
 final class _SyncService extends ATProtoBaseService implements SyncService {
@@ -691,6 +711,17 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
       _paginateRepos(
         limit: limit,
         cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> notifyCrawlingServiceOfUpdate({
+    required String hostname,
+  }) async =>
+      await super.post(
+        'notifyOfUpdate',
+        body: {
+          'hostname': hostname,
+        },
       );
 
   Future<core.XRPCResponse<T>> _findRepoCommits<T>({
