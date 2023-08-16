@@ -507,6 +507,23 @@ sealed class SyncService {
   Future<core.XRPCResponse<core.EmptyData>> notifyCrawlingServiceOfUpdate({
     required String hostname,
   });
+
+  /// Request a service to persistently crawl hosted repos.
+  ///
+  /// ## Parameters
+  ///
+  /// - [hostname]: Hostname of the service that is requesting to be crawled.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.requestCrawl
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/requestCrawl.json
+  Future<core.XRPCResponse<core.EmptyData>> requestCrawl({
+    required String hostname,
+  });
 }
 
 final class _SyncService extends ATProtoBaseService implements SyncService {
@@ -719,6 +736,17 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
   }) async =>
       await super.post(
         'notifyOfUpdate',
+        body: {
+          'hostname': hostname,
+        },
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> requestCrawl({
+    required String hostname,
+  }) async =>
+      await super.post(
+        'requestCrawl',
         body: {
           'hostname': hostname,
         },

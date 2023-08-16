@@ -3,6 +3,7 @@
 ## v0.8.2
 
 - Supported `com.atproto.sync.notifyOfUpdate` as `notifyCrawlingServiceOfUpdate` on `SyncService`. ([#316](https://github.com/myConsciousness/atproto.dart/issues/316))
+- Supported `com.atproto.sync.requestCrawl` as `requestCrawl` on `SyncService`. ([#317](https://github.com/myConsciousness/atproto.dart/issues/317))
 
 ## v0.8.1
 
