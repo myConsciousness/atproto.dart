@@ -11,6 +11,7 @@ import 'package:test/test.dart';
 // 🌎 Project imports:
 import 'package:bluesky/src/entities/feed.dart';
 import 'package:bluesky/src/entities/feed_generators.dart';
+import 'package:bluesky/src/entities/skeleton_feed.dart';
 import 'package:bluesky/src/unspecced/unspecced_service.dart';
 
 void main() {
@@ -286,6 +287,94 @@ void main() {
             createdAt: DateTime.now().toUtc(),
           ),
         ]),
+      );
+    });
+  });
+
+  group('.findTimelineSkeleton', () {
+    test('normal case', () async {
+      final unspecced = UnspeccedService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/unspecced/data/find_timeline_skeleton.json',
+        ),
+      );
+
+      final response = await unspecced.findTimelineSkeleton(
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<SkeletonFeed>());
+    });
+
+    test('as JSON', () async {
+      final feeds = UnspeccedService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/unspecced/data/find_timeline_skeleton.json',
+        ),
+      );
+
+      final response = await feeds.findTimelineSkeletonAsJson(
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
+    test('when unauthorized', () async {
+      final feeds = UnspeccedService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await feeds.findTimelineSkeleton(),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final feeds = UnspeccedService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await feeds.findTimelineSkeleton(),
       );
     });
   });
