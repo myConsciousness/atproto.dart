@@ -43,14 +43,18 @@
 
 # 1. Guide 🌎
 
-This library provides the easiest way to use [AT Protocol](https://atproto.com/docs) in **Dart** and **Flutter** apps.
+This library provides **the most productive way** to use the **_AT Protocol API_** in Dart/Flutter apps.
 
-**Show some ❤️ and star the repo to support the project.**
+The library is **cross-platform** and is **already used in many applications**. See **[official showcase](https://atprotodart.com/showcase)** for more details.
 
-This package provides the most basic features of [AT Protocol](https://atproto.com/docs). If you want to use [Bluesky](https://blueskyweb.xyz)'s API, please use [bluesky](https://pub.dev/packages/bluesky)!
-The core HTTP request portion of this package is provided in the [atproto_core](https://pub.dev/packages/atproto_core) and [xrpc](https://pub.dev/packages/xrpc) packages.
+If you want to use the **_Bluesky API_** as well, see the **[bluesky package](https://pub.dev/packages/bluesky)**.
 
-Check **[official documents](https://atprotodart.com/docs/packages/atproto)** for more details.
+**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) to activate this project!_**
+
+![github_star](https://github.com/myConsciousness/atproto.dart/assets/13072231/c4a9b0b9-6ea4-42f1-823b-3b9e7cdb8b04)
+
+- **[Official Documents](https://atprotodart.com/docs/packages/atproto)**
+- **[GitHub Repository](https://github.com/myConsciousness/atproto.dart)**
 
 ## 1.1. Features ⭐
 
