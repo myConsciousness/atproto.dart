@@ -772,4 +772,72 @@ void main() {
       );
     });
   });
+
+  group('.requestCrawl', () {
+    test('normal case', () async {
+      final sync = SyncService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/sync/data/request_crawl.json',
+        ),
+      );
+
+      final response = await sync.requestCrawl(
+        hostname: 'bsky.social',
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<core.EmptyData>());
+    });
+
+    test('when unauthorized', () async {
+      final sync = SyncService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await sync.requestCrawl(
+          hostname: 'bsky.social',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final sync = SyncService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await sync.requestCrawl(
+          hostname: 'bsky.social',
+        ),
+      );
+    });
+  });
 }
