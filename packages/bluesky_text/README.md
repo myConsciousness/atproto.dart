@@ -42,14 +42,17 @@
 
 # 1. Guide 🌎
 
-Provides the easiest and most powerful way to analyze the text on [Bluesky Social](https://blueskyweb.xyz) in **Dart** and **Flutter** apps.
+Provides the easiest and most powerful way to **_analyze the text on [Bluesky Social](https://blueskyweb.xyz)_** in Dart and Flutter apps.
 
 Have you ever had trouble parsing mentions or links in the text you post when using Bluesky Social's API?
-**If so, this is the library you are looking for!**
+**_If so, this is the library you are looking for!_**
 
-**Show some ❤️ and star the repo to support the project.**
+**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) to activate this project!_**
 
-Check **[official documents](https://atprotodart.com/docs/packages/bluesky_text)** for more details.
+![github_star](https://github.com/myConsciousness/atproto.dart/assets/13072231/c4a9b0b9-6ea4-42f1-823b-3b9e7cdb8b04)
+
+- **[Official Documents](https://atprotodart.com/docs/packages/bluesky_text)**
+- **[GitHub Repository](https://github.com/myConsciousness/atproto.dart)**
 
 ## 1.1. Features ⭐
 
