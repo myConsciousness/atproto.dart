@@ -10,6 +10,7 @@
   - `paginateTimelineSkeleton`
   - `paginateTimelineSkeletonAsJson`
 - Improved documents. ([#677](https://github.com/myConsciousness/atproto.dart/issues/677))
+- Upgrade `cbor` and now compatible with Flutter `3.13.0`. ([#681](https://github.com/myConsciousness/atproto.dart/issues/681))
 
 ## v0.8.1
 
