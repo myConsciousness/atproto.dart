@@ -22,6 +22,7 @@ import 'feed/generator_info.dart';
 import 'feed/like.dart';
 import 'feed/likes.dart';
 import 'feed/post.dart';
+import 'feed/posts.dart';
 import 'feed/repost.dart';
 import 'feed/reposted_by.dart';
 import 'feed/thread.dart';
@@ -63,6 +64,7 @@ final actorCommands = <BskyCommand>[
 
 final feedCommands = <BskyCommand>[
   PostCommand(),
+  PostsCommand(),
   RepostCommand(),
   LikeCommand(),
   TimelineCommand(),

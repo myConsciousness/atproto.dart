@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.1
+
+- Improved documents. ([#677](https://github.com/myConsciousness/atproto.dart/issues/677))
+
 ## v0.2.0
 
 - Drop support for null unsafe Dart, bump SDK constraint to '^3.0.0'. ([#599](https://github.com/myConsciousness/atproto.dart/issues/599))

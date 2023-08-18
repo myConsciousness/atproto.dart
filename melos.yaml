@@ -49,7 +49,7 @@ scripts:
     dir-exists: test
 
   test:dart:
-    run: melos exec  -c 1 --fail-fast -- "\$MELOS_ROOT_PATH/scripts/coverage.sh"
+    run: melos exec  -c 10 --fail-fast -- "\$MELOS_ROOT_PATH/scripts/coverage.sh"
     description: Run Dart tests for a specific package in this project.
     select-package:
       flutter: false

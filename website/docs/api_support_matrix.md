@@ -216,6 +216,7 @@ Available commands:
   popular                   Show the popular contents.
   popular-feed-generators   Show the popular feed generators.
   post                      Post to Bluesky Social.
+  posts                     Show the posts.
   preferences               Show the private preferences.
   profile                   Show the profile of specific user.
   profiles                  Show the profiles of specific users.

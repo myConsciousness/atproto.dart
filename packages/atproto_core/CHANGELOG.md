@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.5.1
+
+- Upgraded `multiformats`.
+- Upgrade `cbor` and now compatible with Flutter `3.13.0`. ([#681](https://github.com/myConsciousness/atproto.dart/issues/681))
+
 ## v0.5.0
 
 - Drop support for null unsafe Dart, bump SDK constraint to '^3.0.0'. ([#599](https://github.com/myConsciousness/atproto.dart/issues/599))

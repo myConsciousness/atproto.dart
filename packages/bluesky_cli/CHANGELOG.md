@@ -3,6 +3,8 @@
 ## v0.3.1
 
 - Improved documents. ([#677](https://github.com/myConsciousness/atproto.dart/issues/677))
+- Supported `langs` and `labels` options for `post` command. ([#679](https://github.com/myConsciousness/atproto.dart/issues/679))
+- Added `posts` command. ([#679](https://github.com/myConsciousness/atproto.dart/issues/679))
 
 ## v0.3.0
 

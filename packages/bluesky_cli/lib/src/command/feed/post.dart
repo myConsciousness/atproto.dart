@@ -23,6 +23,16 @@ class PostCommand extends CreateRecordCommand {
         defaultsTo: '',
       )
       ..addOption(
+        'langs',
+        help: 'A collection of well-formed BCP47 language tags in CSV format.',
+        defaultsTo: null,
+      )
+      ..addOption(
+        'labels',
+        help: 'A collection of self labels in CSV format.',
+        defaultsTo: null,
+      )
+      ..addOption(
         'created-at',
         help: 'Date and time the post is created in ISO 8601 format.',
         defaultsTo: DateTime.now().toUtc().toIso8601String(),
@@ -36,7 +46,7 @@ class PostCommand extends CreateRecordCommand {
   String get description => 'Post to Bluesky Social.';
 
   @override
-  final String invocation = 'bsky post [text] [created-at]';
+  final String invocation = 'bsky post [text] [langs] [labels] [created-at]';
 
   @override
   xrpc.NSID get collection => xrpc.NSID.create(
@@ -49,10 +59,53 @@ class PostCommand extends CreateRecordCommand {
     final text = BlueskyText(argResults!['text']);
     final entities = text.entities;
 
-    return {
+    final record = {
       'text': text.value,
       'facets': await entities.toFacets(),
       'createdAt': argResults!['created-at'],
+    };
+
+    final langs = _langs;
+    if (langs != null) {
+      record['langs'] = langs;
+    }
+
+    final labels = _labels;
+    if (labels != null) {
+      record['labels'] = labels;
+    }
+
+    return record;
+  }
+
+  List<String>? get _langs {
+    if (argResults!['langs'] == null) {
+      return null;
+    }
+
+    final String langs = argResults!['langs'];
+
+    return langs.split(',');
+  }
+
+  Map<String, dynamic>? get _labels {
+    if (argResults!['labels'] == null) {
+      return null;
+    }
+
+    final String labels = argResults!['labels'];
+
+    return {
+      r'$type': 'com.atproto.label.defs#selfLabels',
+      'values': labels
+          .split(',')
+          .map(
+            (e) => {
+              r'$type': 'com.atproto.label.defs#selfLabel',
+              'val': e,
+            },
+          )
+          .toList(),
     };
   }
 }
