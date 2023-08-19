@@ -187,6 +187,8 @@ See **[API Support Matrix](../api_support_matrix.md#atprotoo)** for all supporte
 
 ## More Tips 🏄
 
+### Session Management
+
 ### Standardized Names
 
 The methods corresponding to each endpoint accessible from **[atproto](https://pub.dev/packages/atproto)** are given a **_standardized prefix_** according to the characteristics of the endpoint.
