@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.6.3
+
+- Moved `Session` object and `createSession` function to `atproto_core`. And exposed `refreshSession` as a function. Also deprecated `ServersService.refreshSession` method. ([#686](https://github.com/myConsciousness/atproto.dart/issues/686))
+
 ## v0.6.2
 
 - Supported `com.atproto.sync.notifyOfUpdate` as `notifyCrawlingServiceOfUpdate` on `SyncService`. ([#316](https://github.com/myConsciousness/atproto.dart/issues/316))

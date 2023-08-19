@@ -47,7 +47,6 @@ export 'package:atproto/src/entities/repos.dart';
 export 'package:atproto/src/entities/sealed_app_password.dart';
 export 'package:atproto/src/entities/server_info.dart';
 export 'package:atproto/src/entities/server_info_links.dart';
-export 'package:atproto/src/entities/session.dart';
 export 'package:atproto/src/entities/strong_ref.dart';
 export 'package:atproto/src/entities/subscribed_repo.dart';
 export 'package:atproto/src/entities/self_label.dart';
@@ -94,4 +93,8 @@ export 'package:atproto_core/atproto_core.dart'
         RetryEvent,
         Jitter,
         GetClient,
-        PostClient;
+        PostClient,
+        Session,
+        $SessionCopyWith,
+        createSession,
+        refreshSession;

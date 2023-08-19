@@ -10,6 +10,9 @@ export 'package:atproto_core/src/paginations/pagination.dart';
 export 'package:atproto_core/src/clients/client_context.dart';
 export 'package:atproto_core/src/clients/jitter.dart';
 export 'package:atproto_core/src/clients/retry_event.dart';
+export 'package:atproto_core/src/sessions/session.dart';
+export 'package:atproto_core/src/sessions/sessions.dart'
+    show createSession, refreshSession;
 export 'package:atproto_core/src/clients/user_context.dart';
 export 'package:atproto_core/src/keys/ids.dart';
 export 'package:atproto_core/src/const.dart';
