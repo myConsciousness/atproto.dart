@@ -3,8 +3,8 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import '../client/jitter.dart';
-import '../client/retry_event.dart';
+import 'jitter.dart';
+import 'retry_event.dart';
 
 /// This class represents an automatic retry configuration.
 ///

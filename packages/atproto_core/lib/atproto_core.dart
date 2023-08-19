@@ -5,17 +5,20 @@
 export 'package:at_uri/at_uri.dart' show AtUri;
 export 'package:atproto_core/src/base_service.dart';
 export 'package:atproto_core/src/car_decoder.dart';
-export 'package:atproto_core/src/client/challenge.dart';
-export 'package:atproto_core/src/pagination/pagination.dart';
-export 'package:atproto_core/src/client/client_context.dart';
-export 'package:atproto_core/src/client/jitter.dart';
-export 'package:atproto_core/src/client/retry_event.dart';
-export 'package:atproto_core/src/client/user_context.dart';
+export 'package:atproto_core/src/clients/challenge.dart';
+export 'package:atproto_core/src/paginations/pagination.dart';
+export 'package:atproto_core/src/clients/client_context.dart';
+export 'package:atproto_core/src/clients/jitter.dart';
+export 'package:atproto_core/src/clients/retry_event.dart';
+export 'package:atproto_core/src/sessions/session.dart';
+export 'package:atproto_core/src/sessions/sessions.dart'
+    show createSession, refreshSession;
+export 'package:atproto_core/src/clients/user_context.dart';
 export 'package:atproto_core/src/keys/ids.dart';
 export 'package:atproto_core/src/const.dart';
 export 'package:atproto_core/src/keys/annotations.dart';
-export 'package:atproto_core/src/config/retry_config.dart';
-export 'package:atproto_core/src/converter/at_uri_converter.dart'
+export 'package:atproto_core/src/clients/retry_config.dart';
+export 'package:atproto_core/src/converters/at_uri_converter.dart'
     show atUriConverter;
 export 'package:atproto_core/src/progress_status.dart'
     show ProgressStatus, ProgressStatusEvent;

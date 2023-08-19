@@ -19,7 +19,7 @@ topics:
 dependencies:
   flutter:
     sdk: flutter
-  bluesky: ^0.8.2
+  bluesky: ^0.8.3
   cached_network_image: ^3.2.3
   html_unescape: ^2.0.0
   url_launcher: ^6.1.10

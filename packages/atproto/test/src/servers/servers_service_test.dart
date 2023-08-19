@@ -16,51 +16,9 @@ import 'package:atproto/src/entities/created_invite_codes.dart';
 import 'package:atproto/src/entities/current_session.dart';
 import 'package:atproto/src/entities/invite_codes.dart';
 import 'package:atproto/src/entities/server_info.dart';
-import 'package:atproto/src/entities/session.dart';
 import 'package:atproto/src/servers/servers_service.dart';
 
 void main() {
-  group('.createSession', () {
-    test('normal case', () async {
-      final response = await createSession(
-        identifier: 'shinyakato.dev',
-        password: '1234',
-        mockedPostClient: atp_test.createMockedPostClient(
-          'test/src/servers/data/create_session.json',
-        ),
-      );
-
-      expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<Session>());
-    });
-
-    test('when unauthorized', () async {
-      atp_test.expectUnauthorizedException(
-        () async => await createSession(
-          identifier: 'shinyakato.dev',
-          password: '1234',
-          mockedPostClient: atp_test.createMockedPostClient(
-            'test/src/data/error.json',
-            statusCode: 401,
-          ),
-        ),
-      );
-    });
-
-    test('when rate limit exceeded', () async {
-      atp_test.expectRateLimitExceededException(
-        () async => await createSession(
-          identifier: 'shinyakato.dev',
-          password: '1234',
-          mockedPostClient: atp_test.createMockedPostClient(
-            'test/src/data/error.json',
-            statusCode: 429,
-          ),
-        ),
-      );
-    });
-  });
-
   group('.findCurrentSession', () {
     test('normal case', () async {
       final servers = ServersService(
@@ -143,6 +101,7 @@ void main() {
     });
   });
 
+  // TODO: Will remove in v1.0.0
   group('.refreshSession', () {
     test('normal case', () async {
       final servers = ServersService(
@@ -158,12 +117,13 @@ void main() {
         ),
       );
 
+      // ignore: deprecated_member_use_from_same_package
       final response = await servers.refreshSession(
         refreshJwt: '',
       );
 
       expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<Session>());
+      expect(response.data, isA<core.Session>());
     });
 
     test('when unauthorized', () async {
@@ -182,6 +142,7 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
+        // ignore: deprecated_member_use_from_same_package
         () async => await servers.refreshSession(refreshJwt: ''),
       );
     });
@@ -202,6 +163,7 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
+        // ignore: deprecated_member_use_from_same_package
         () async => await servers.refreshSession(refreshJwt: ''),
       );
     });

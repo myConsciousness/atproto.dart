@@ -6,7 +6,7 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:atproto_core/src/config/retry_config.dart';
+import 'package:atproto_core/src/clients/retry_config.dart';
 
 void main() {
   group('ExponentialBackOffAndJitter', () {

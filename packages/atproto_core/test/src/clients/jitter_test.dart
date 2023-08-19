@@ -6,7 +6,7 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:atproto_core/src/client/jitter.dart';
+import 'package:atproto_core/src/clients/jitter.dart';
 
 void main() {
   test('normal case', () {

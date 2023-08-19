@@ -14,23 +14,14 @@ import 'graphs/graphs_service.dart';
 import 'notifications/notifications_service.dart';
 import 'unspecced/unspecced_service.dart';
 
-/// The default HTTP protocol.
-const _defaultProtocol = core.Protocol.https;
-
-/// The default service to access.
-const _defaultService = 'bsky.social';
-
-/// The default timeout duration.
-const _defaultTimeout = Duration(seconds: 30);
-
 sealed class Bluesky {
   /// Returns the new instance of [Bluesky].
   factory Bluesky({
     required String did,
     required String accessJwt,
-    core.Protocol protocol = _defaultProtocol,
-    String service = _defaultService,
-    Duration timeout = _defaultTimeout,
+    core.Protocol protocol = core.defaultProtocol,
+    String service = core.defaultService,
+    Duration timeout = core.defaultTimeout,
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
@@ -49,9 +40,9 @@ sealed class Bluesky {
   /// Returns the new instance of [Bluesky].
   factory Bluesky.fromSession(
     final atp.Session session, {
-    core.Protocol protocol = _defaultProtocol,
-    String service = _defaultService,
-    Duration timeout = _defaultTimeout,
+    core.Protocol protocol = core.defaultProtocol,
+    String service = core.defaultService,
+    Duration timeout = core.defaultTimeout,
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
@@ -69,9 +60,9 @@ sealed class Bluesky {
 
   /// Returns the new instance of [Bluesky] as anonymous.
   factory Bluesky.anonymous({
-    core.Protocol protocol = _defaultProtocol,
-    String service = _defaultService,
-    Duration timeout = _defaultTimeout,
+    core.Protocol protocol = core.defaultProtocol,
+    String service = core.defaultService,
+    Duration timeout = core.defaultTimeout,
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,

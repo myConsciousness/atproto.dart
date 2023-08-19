@@ -6,9 +6,9 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:atproto_core/src/client/client.dart';
-import 'package:atproto_core/src/client/client_resolver.dart';
-import 'package:atproto_core/src/client/user_context.dart';
+import 'package:atproto_core/src/clients/client.dart';
+import 'package:atproto_core/src/clients/client_resolver.dart';
+import 'package:atproto_core/src/clients/user_context.dart';
 
 void main() {
   group('.execute', () {

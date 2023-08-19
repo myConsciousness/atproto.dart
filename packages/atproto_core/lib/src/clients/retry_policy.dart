@@ -6,7 +6,7 @@
 import 'dart:math' as math;
 
 // 🌎 Project imports:
-import '../config/retry_config.dart';
+import 'retry_config.dart';
 import 'retry_event.dart';
 
 sealed class RetryPolicy {

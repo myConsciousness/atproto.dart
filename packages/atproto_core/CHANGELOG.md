@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.2
+
+- Moved `Session` object and `createSession` function from `atproto`. And exposed `refreshSession` as a function. ([#686](https://github.com/myConsciousness/atproto.dart/issues/686))
+
 ## v0.5.1
 
 - Upgraded `multiformats`.
