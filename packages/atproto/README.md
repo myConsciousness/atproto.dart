@@ -91,6 +91,7 @@ See **[official documents](https://atprotodart.com/docs/api_support_matrix)** fr
 
 See **[official documents](https://atprotodart.com/docs/packages/atproto)** from following links.
 
+- **[Session Management](https://atprotodart.com/docs/packages/atproto#session-management)**
 - **[Standardized Names](https://atprotodart.com/docs/packages/atproto#standardized-names)**
 - **[Other Than `bsky.social`](https://atprotodart.com/docs/packages/atproto#other-than-bskysocial)**
 - **[De/Serialize](https://atprotodart.com/docs/packages/atproto#deserialize)**
