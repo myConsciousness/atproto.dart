@@ -2,8 +2,6 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// ignore_for_file: deprecated_member_use_from_same_package
-
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
@@ -103,6 +101,7 @@ void main() {
     });
   });
 
+  // TODO: Will remove in v1.0.0
   group('.refreshSession', () {
     test('normal case', () async {
       final servers = ServersService(
@@ -118,6 +117,7 @@ void main() {
         ),
       );
 
+      // ignore: deprecated_member_use_from_same_package
       final response = await servers.refreshSession(
         refreshJwt: '',
       );
@@ -142,6 +142,7 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
+        // ignore: deprecated_member_use_from_same_package
         () async => await servers.refreshSession(refreshJwt: ''),
       );
     });
@@ -162,6 +163,7 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
+        // ignore: deprecated_member_use_from_same_package
         () async => await servers.refreshSession(refreshJwt: ''),
       );
     });
