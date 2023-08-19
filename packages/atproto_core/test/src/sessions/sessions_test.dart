@@ -58,7 +58,7 @@ void main() {
       final response = await refreshSession(
         refreshJwt: 'xxxxxx',
         mockedPostClient: atp_test.createMockedPostClient(
-          'test/src/sessions/data/create_session.json',
+          'test/src/sessions/data/refresh_session.json',
         ),
       );
 
