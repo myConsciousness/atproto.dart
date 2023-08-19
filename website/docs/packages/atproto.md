@@ -76,11 +76,11 @@ As shown in the following example, the key point in instantiating **[ATProto](ht
 See **[API Supported Matrix](../api_support_matrix.md#atproto)** for whether or not authentication is required for each endpoint.
 :::
 
-If authentication is required, first create a session with the ATP server using your credentials with the `createSession` function.
+If authentication is required, first create a session with the ATP server using your credentials with the `.createSession` function.
 
-The credentials passed to the `createSession` function should be your handle or email address as `identifier` and your password or app password as `password`.
+The credentials passed to the `.createSession` function should be your handle or email address as `identifier` and your password or app password as `password`.
 
-Your credentials will be sent safely and securely to the ATP server when you execute the `createSession` function. And it will return a [`Session`](https://pub.dev/documentation/atproto/latest/atproto/Session-class.html) object with an access token once authentication is complete.
+Your credentials will be sent safely and securely to the ATP server when you execute the `.createSession` function. And it will return a **[`Session`](https://pub.dev/documentation/atproto_core/latest/atproto_core/Session-class.html)** object with an access token once authentication is complete.
 
 You then do not need to be particularly aware of the contents of the retrieved Session object, just pass it to the `.fromSession` constructor of **[ATProto](https://pub.dev/documentation/atproto/latest/atproto/ATProto-class.html)** to safely and securely create an instance of the **[ATProto](https://pub.dev/documentation/atproto/latest/atproto/ATProto-class.html)** object.
 
@@ -113,6 +113,10 @@ Future<void> main() async {
     final atproto = ATProto.anonymous();
 }
 ```
+
+:::info
+See **[Session Management](#session-management)** for more details about authentication.
+:::
 
 ### Supported Services
 
@@ -188,6 +192,84 @@ See **[API Support Matrix](../api_support_matrix.md#atprotoo)** for all supporte
 ## More Tips 🏄
 
 ### Session Management
+
+When using the AT Protocol API, there are endpoints that requires user authentication, and an access token created when a user is authenticated is represented as a **[`Session`](https://pub.dev/documentation/atproto_core/latest/atproto_core/Session-class.html)**.
+Okay, the most important factor here is **_how to create a session_**.
+
+First, use the `.createSession` function to create the most primitive session as follows.
+
+```dart
+import 'package:atproto/atproto.dart' as atp;
+
+Future<void> main() async {
+  final session = await atp.createSession(
+    identifier: 'HANDLE_OR_EMAIL', // Like shinyakato.dev
+    password: 'PASSWORD', // App Password is recommended
+  );
+
+  print(session);
+}
+```
+
+Then you can create **[ATProto](https://pub.dev/documentation/atproto/latest/atproto/ATProto-class.html)** object from authenticated session.
+
+```dart
+import 'package:atproto/atproto.dart' as atp;
+
+Future<void> main() async {
+  final session = await atp.createSession(
+    identifier: 'HANDLE_OR_EMAIL', // Like shinyakato.dev
+    password: 'PASSWORD', // App Password is recommended
+  );
+
+  print(session);
+
+  // You can create ATProto object from authenticated session.
+  final atproto = atp.ATProto.fromSession(session.data);
+
+  // Do something with atproto
+  final did = atproto.identities.findDID(handle: session.data.handle);
+}
+```
+
+:::tip
+A **[`Session`](https://pub.dev/documentation/atproto_core/latest/atproto_core/Session-class.html)** can be created by using the `.createSession` function, as in the example above.
+But the problem is that an access token has a expiration time, and an access token created from `.createSession` is **_only valid for 120 minutes_**.
+In other words, once you have created a Session with `.createSession`, you must re-create the Session again using `.createSession` again **_within the 120 minutes of validity_**.
+
+However, instead of using `.createSession` every 120 minutes, there is a way to get an access token with a longer expiration time.
+That is, by using the `.refreshSession` function with **[`Session`](https://pub.dev/documentation/atproto_core/latest/atproto_core/Session-class.html)** information created from `.createSession`, the access token obtained from the `.refreshSession` function is **_valid for 90 days_**.
+
+```dart
+import 'package:atproto/atproto.dart' as atp;
+
+Future<void> main() async {
+  // Valid for 120 minutes only.
+  final session = await atp.createSession(
+    identifier: 'HANDLE_OR_EMAIL',
+    password: 'PASSWORD',
+  );
+
+  // Valid for 90 days.
+  final refreshedSession = await atp.refreshSession(
+    refreshJwt: session.data.refreshJwt,
+  );
+
+  // You can create ATProto object from authenticated session.
+  final atproto = atp.ATProto.fromSession(refreshedSession.data);
+
+  // Do something with atproto
+  final did = atproto.identities.findDID(handle: session.data.handle);
+}
+```
+
+The following matrix organizes the information so far.
+
+| Function              | Expiration Time |
+| --------------------- | --------------- |
+| **`.createSession`**  | 120 minutes     |
+| **`.refreshSession`** | 90 days         |
+:::
 
 ### Standardized Names
 
