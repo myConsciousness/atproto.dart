@@ -10,10 +10,10 @@ import 'dart:typed_data';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // 🌎 Project imports:
-import '../config/retry_config.dart';
-import '../pagination/pagination.dart';
+import '../paginations/pagination.dart';
 import 'challenge.dart';
 import 'client_resolver.dart';
+import 'retry_config.dart';
 import 'retry_policy.dart';
 import 'user_context.dart';
 

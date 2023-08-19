@@ -6,8 +6,8 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:atproto_core/src/client/retry_policy.dart';
-import 'package:atproto_core/src/config/retry_config.dart';
+import 'package:atproto_core/src/clients/retry_config.dart';
+import 'package:atproto_core/src/clients/retry_policy.dart';
 
 void main() {
   group('.shouldRetry', () {

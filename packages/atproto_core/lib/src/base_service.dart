@@ -10,9 +10,9 @@ import 'dart:typed_data';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // 🌎 Project imports:
-import 'client/client_context.dart';
-import 'client/user_context.dart';
-import 'pagination/pagination.dart';
+import 'clients/client_context.dart';
+import 'clients/user_context.dart';
+import 'paginations/pagination.dart';
 
 sealed class _Service {
   Future<xrpc.XRPCResponse<T>> get<T>(
