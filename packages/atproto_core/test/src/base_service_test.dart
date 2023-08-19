@@ -12,8 +12,8 @@ import 'package:xrpc/xrpc.dart';
 
 // 🌎 Project imports:
 import 'package:atproto_core/src/base_service.dart';
-import 'package:atproto_core/src/client/client_context.dart';
-import 'package:atproto_core/src/client/user_context.dart';
+import 'package:atproto_core/src/clients/client_context.dart';
+import 'package:atproto_core/src/clients/user_context.dart';
 
 void main() {
   test('.createNSID', () {

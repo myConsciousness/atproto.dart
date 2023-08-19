@@ -6,7 +6,7 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:atproto_core/src/client/user_context.dart';
+import 'package:atproto_core/src/clients/user_context.dart';
 
 void main() {
   test('.name', () {

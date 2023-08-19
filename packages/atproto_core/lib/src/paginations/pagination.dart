@@ -6,8 +6,8 @@
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // 🌎 Project imports:
-import '../client/challenge.dart';
-import '../client/client.dart';
+import '../clients/challenge.dart';
+import '../clients/client.dart';
 
 /// Pagination class for paginating through items that extend `Pageable`.
 ///

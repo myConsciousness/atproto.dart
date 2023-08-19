@@ -3,11 +3,11 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:atproto/src/atproto.dart';
-import 'package:atproto/src/entities/session.dart';
 import 'package:atproto/src/identities/identities_service.dart';
 import 'package:atproto/src/moderation/moderation_service.dart';
 import 'package:atproto/src/repositories/repositories_service.dart';
@@ -34,7 +34,7 @@ void main() {
   });
 
   test('.moderation', () {
-    final service = ATProto.fromSession(Session(
+    final service = ATProto.fromSession(core.Session(
       did: 'aaaa',
       handle: 'shinyakato.dev',
       accessJwt: 'test',

@@ -4,9 +4,6 @@
 
 export 'package:atproto/atproto.dart'
     show
-        createSession,
-        Session,
-        $SessionCopyWith,
         Record,
         $RecordCopyWith,
         Records,
@@ -158,7 +155,11 @@ export 'package:atproto_core/atproto_core.dart'
         RetryEvent,
         Jitter,
         GetClient,
-        PostClient;
+        PostClient,
+        Session,
+        $SessionCopyWith,
+        createSession,
+        refreshSession;
 export 'package:bluesky/src/actors/actors_service.dart';
 export 'package:bluesky/src/bluesky.dart';
 export 'package:bluesky/src/bluesky_service.dart';
