@@ -234,7 +234,7 @@ Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(session.data);
 
   // Do something with bluesky
-  final did = bluesky.identities.findDID(handle: session.data.handle);
+  final did = await bluesky.identities.findDID(handle: session.data.handle);
 }
 ```
 
@@ -261,11 +261,11 @@ Future<void> main() async {
     refreshJwt: session.data.refreshJwt,
   );
 
-  // You can create ATProto object from authenticated session.
+  // You can create Bluesky object from authenticated session.
   final bluesky = bsky.Bluesky.fromSession(refreshedSession.data);
 
-  // Do something with atproto
-  final did = bluesky.identities.findDID(handle: session.data.handle);
+  // Do something with bluesky
+  final did = await bluesky.identities.findDID(handle: session.data.handle);
 }
 ```
 

@@ -228,7 +228,7 @@ Future<void> main() async {
   final atproto = atp.ATProto.fromSession(session.data);
 
   // Do something with atproto
-  final did = atproto.identities.findDID(handle: session.data.handle);
+  final did = await atproto.identities.findDID(handle: session.data.handle);
 }
 ```
 
@@ -259,7 +259,7 @@ Future<void> main() async {
   final atproto = atp.ATProto.fromSession(refreshedSession.data);
 
   // Do something with atproto
-  final did = atproto.identities.findDID(handle: session.data.handle);
+  final did = await atproto.identities.findDID(handle: session.data.handle);
 }
 ```
 
