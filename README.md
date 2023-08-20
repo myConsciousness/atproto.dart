@@ -155,6 +155,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="20%"><a href="http://shy.dev"><img src="https://avatars.githubusercontent.com/u/1316340?v=4?s=100" width="100px;" alt="Shy Ruparel"/><br /><sub><b>Shy Ruparel</b></sub></a><br /><a href="#ideas-Shy" title="Ideas, Planning, & Feedback">🤔</a></td>
       <td align="center" valign="top" width="20%"><a href="http://ujj.space"><img src="https://avatars.githubusercontent.com/u/4410814?v=4?s=100" width="100px;" alt="Julien "uj" Abadji"/><br /><sub><b>Julien "uj" Abadji</b></sub></a><br /><a href="https://github.com/myConsciousness/atproto.dart/commits?author=Uinelj" title="Code">💻</a></td>
       <td align="center" valign="top" width="20%"><a href="https://github.com/barineco"><img src="https://avatars.githubusercontent.com/u/142575857?v=4?s=100" width="100px;" alt="maughtchiner"/><br /><sub><b>maughtchiner</b></sub></a><br /><a href="#ideas-barineco" title="Ideas, Planning, & Feedback">🤔</a> <a href="#content-barineco" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="20%"><a href="https://github.com/igz0"><img src="https://avatars.githubusercontent.com/u/37741728?v=4?s=100" width="100px;" alt="igz0"/><br /><sub><b>igz0</b></sub></a><br /><a href="#ideas-igz0" title="Ideas, Planning, & Feedback">🤔</a> <a href="#content-igz0" title="Content">🖋</a></td>
     </tr>
   </tbody>
 </table>
