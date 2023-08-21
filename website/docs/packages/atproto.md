@@ -234,7 +234,7 @@ Future<void> main() async {
 
 :::tip
 A **[`Session`](https://pub.dev/documentation/atproto_core/latest/atproto_core/Session-class.html)** can be created by using the `.createSession` function, as in the example above.
-But the problem is that an access token has a expiration time, and an access token created from `.createSession` is **_only valid for 120 minutes_**.
+But the problem is that an access token has an expiration time, and an access token created from `.createSession` is **_only valid for 120 minutes_**.
 In other words, once you have created a Session with `.createSession`, you must re-create the Session again using `.createSession` again **_within the 120 minutes of validity_**.
 
 However, instead of using `.createSession` every 120 minutes, there is a way to get an access token with a longer expiration time.
