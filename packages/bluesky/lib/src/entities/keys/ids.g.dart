@@ -169,6 +169,9 @@ const appBskyFeedGenerator = 'app.bsky.feed.generator';
 /// `app.bsky.feed.getActorFeeds`
 const appBskyFeedGetActorFeeds = 'app.bsky.feed.getActorFeeds';
 
+/// `app.bsky.feed.getActorLikes`
+const appBskyFeedGetActorLikes = 'app.bsky.feed.getActorLikes';
+
 /// `app.bsky.feed.getAuthorFeed`
 const appBskyFeedGetAuthorFeed = 'app.bsky.feed.getAuthorFeed';
 
