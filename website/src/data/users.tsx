@@ -97,8 +97,8 @@ const Users: User[] = [
   {
     title: 'SkyPurge',
     author: 'barine.co',
-    description: 'This CLI tool allows you to delete any post in bulk. This application is a fusion of Python and bluesky_cli.',
-    preview: require('./showcase/NoImage.png'),
+    description: 'This tool allows you to delete any post in bulk. This application is a fusion of Python and bluesky_cli.',
+    preview: require('./showcase/SkyPurge.png'),
     website: 'https://colab.research.google.com/drive/1XI-kQNAf5udLCWTI3qtIHEAN7wjYJOz-?usp=drive_link',
     source: null,
     tags: ['console'],
