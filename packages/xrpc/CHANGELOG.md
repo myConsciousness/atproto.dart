@@ -1,5 +1,28 @@
 # Release Note
 
+## v0.3.1
+
+- Improved documents. ([#677](https://github.com/myConsciousness/atproto.dart/issues/677))
+
+## v0.3.0
+
+- Drop support for null unsafe Dart, bump SDK constraint to '^3.0.0'. ([#599](https://github.com/myConsciousness/atproto.dart/issues/599))
+- Dart3 modifier applied.
+
+## v0.2.2
+
+- Supported `RateLimit`. You can access this property from `XRPCResponse.rateLimit`. If there is no rate limits, then it's always null. ([#636](https://github.com/myConsciousness/atproto.dart/issues/636))
+- Added `.waitUntilReset` method on `RateLimit` ([#643](https://github.com/myConsciousness/atproto.dart/issues/643))
+
+## v0.2.1
+
+- Allows `Map<String, dynamic>` to be specified for generics, allowing response data to be retrieved as JSON. ([#563](https://github.com/myConsciousness/atproto.dart/issues/563))
+
+## v0.2.0
+
+- Added `homepage` in `pubspec.yaml`. ([#549](https://github.com/myConsciousness/atproto.dart/issues/549))
+- Changed the argument of the `upload` function to byte data instead of a File object. This change allows uploads to be used without being affected by platform differences. ([#556](https://github.com/myConsciousness/atproto.dart/issues/556))
+
 ## v0.1.4
 
 - Added `ResponseAdaptor` and removed `JsonConverter` and `Decoder`. ([#495](https://github.com/myConsciousness/atproto.dart/issues/495))

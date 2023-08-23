@@ -20,8 +20,13 @@ ParsedService _$ParsedServiceFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ParsedService {
+  /// The unique identifier for the service.
   String get id => throw _privateConstructorUsedError;
+
+  /// The type of the service.
   String get type => throw _privateConstructorUsedError;
+
+  /// The endpoint where the service can be accessed.
   @JsonKey(name: 'serviceEndpoint')
   String get endpoint => throw _privateConstructorUsedError;
 
@@ -134,10 +139,15 @@ class _$_ParsedService implements _ParsedService {
   factory _$_ParsedService.fromJson(Map<String, dynamic> json) =>
       _$$_ParsedServiceFromJson(json);
 
+  /// The unique identifier for the service.
   @override
   final String id;
+
+  /// The type of the service.
   @override
   final String type;
+
+  /// The endpoint where the service can be accessed.
   @override
   @JsonKey(name: 'serviceEndpoint')
   final String endpoint;
@@ -187,10 +197,16 @@ abstract class _ParsedService implements ParsedService {
       _$_ParsedService.fromJson;
 
   @override
+
+  /// The unique identifier for the service.
   String get id;
   @override
+
+  /// The type of the service.
   String get type;
   @override
+
+  /// The endpoint where the service can be accessed.
   @JsonKey(name: 'serviceEndpoint')
   String get endpoint;
   @override

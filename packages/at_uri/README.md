@@ -44,9 +44,14 @@
 
 # 1. Guide 🌎
 
-This library provides the easiest way to use [AT Uri](https://atproto.com/specs/at-uri-scheme) supported by [AT Protocol](https://atproto.com) in **Dart** and **Flutter** apps.
+This library provides the easiest way to use **_[AT Uri](https://atproto.com/specs/at-uri-scheme)_** supported by **_[AT Protocol](https://atproto.com)_** in Dart and Flutter apps.
 
-**Show some ❤️ and star the repo to support the project.**
+**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) to activate this project!_**
+
+![github_star](https://github.com/myConsciousness/atproto.dart/assets/13072231/c4a9b0b9-6ea4-42f1-823b-3b9e7cdb8b04)
+
+- **[Official Documents](https://atprotodart.com/docs/packages/at_uri)**
+- **[GitHub Repository](https://github.com/myConsciousness/atproto.dart)**
 
 ## 1.1. Getting Started ⚡
 

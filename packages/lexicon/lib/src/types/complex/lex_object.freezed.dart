@@ -264,12 +264,10 @@ abstract class _LexObject implements LexObject {
   const factory _LexObject(
       {final String type,
       final String? description,
-      @JsonKey(name: 'required')
-          final List<String>? requiredProperties,
-      @JsonKey(name: 'nullable')
-          final List<String>? nullableProperties,
+      @JsonKey(name: 'required') final List<String>? requiredProperties,
+      @JsonKey(name: 'nullable') final List<String>? nullableProperties,
       @LexObjectPropertyRecordConverter()
-          final LexObjectPropertyRecord? properties}) = _$_LexObject;
+      final LexObjectPropertyRecord? properties}) = _$_LexObject;
 
   factory _LexObject.fromJson(Map<String, dynamic> json) =
       _$_LexObject.fromJson;

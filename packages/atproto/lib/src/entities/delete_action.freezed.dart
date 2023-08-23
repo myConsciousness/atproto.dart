@@ -20,9 +20,12 @@ DeleteAction _$DeleteActionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DeleteAction {
-  @JsonKey(name: '\$type')
+  /// The type of the action.
+  @typeKey
   String get type => throw _privateConstructorUsedError;
-  @AtUriConverter()
+
+  /// The URI of the resource to be deleted.
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,8 +40,7 @@ abstract class $DeleteActionCopyWith<$Res> {
           DeleteAction value, $Res Function(DeleteAction) then) =
       _$DeleteActionCopyWithImpl<$Res, DeleteAction>;
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String type, @AtUriConverter() AtUri uri});
+  $Res call({@typeKey String type, @atUriConverter AtUri uri});
 }
 
 /// @nodoc
@@ -78,8 +80,7 @@ abstract class _$$_DeleteActionCopyWith<$Res>
       __$$_DeleteActionCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String type, @AtUriConverter() AtUri uri});
+  $Res call({@typeKey String type, @atUriConverter AtUri uri});
 }
 
 /// @nodoc
@@ -111,21 +112,23 @@ class __$$_DeleteActionCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_DeleteAction implements _DeleteAction {
   const _$_DeleteAction(
-      {@JsonKey(name: '\$type')
-      this.type = 'com.atproto.repo.applyWrites#delete',
-      @AtUriConverter() required this.uri});
+      {@typeKey this.type = comAtprotoRepoApplyWritesDelete,
+      @atUriConverter required this.uri});
 
   factory _$_DeleteAction.fromJson(Map<String, dynamic> json) =>
       _$$_DeleteActionFromJson(json);
 
+  /// The type of the action.
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
+
+  /// The URI of the resource to be deleted.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
 
   @override
@@ -162,17 +165,21 @@ class _$_DeleteAction implements _DeleteAction {
 
 abstract class _DeleteAction implements DeleteAction {
   const factory _DeleteAction(
-      {@JsonKey(name: '\$type') final String type,
-      @AtUriConverter() required final AtUri uri}) = _$_DeleteAction;
+      {@typeKey final String type,
+      @atUriConverter required final AtUri uri}) = _$_DeleteAction;
 
   factory _DeleteAction.fromJson(Map<String, dynamic> json) =
       _$_DeleteAction.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// The type of the action.
+  @typeKey
   String get type;
   @override
-  @AtUriConverter()
+
+  /// The URI of the resource to be deleted.
+  @atUriConverter
   AtUri get uri;
   @override
   @JsonKey(ignore: true)

@@ -20,9 +20,16 @@ ReasonRepost _$ReasonRepostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ReasonRepost {
-  @JsonKey(name: '\$type')
+  /// Represents the type of the reason.
+  ///
+  /// By default, the type is [appBskyFeedDefsReasonRepost].
+  @typeKey
   String get type => throw _privateConstructorUsedError;
+
+  /// Represents the actor who reposted.
   Actor get by => throw _privateConstructorUsedError;
+
+  /// Represents the date and time when the reposting event was indexed.
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,8 +44,7 @@ abstract class $ReasonRepostCopyWith<$Res> {
           ReasonRepost value, $Res Function(ReasonRepost) then) =
       _$ReasonRepostCopyWithImpl<$Res, ReasonRepost>;
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String type, Actor by, DateTime indexedAt});
+  $Res call({@typeKey String type, Actor by, DateTime indexedAt});
 
   $ActorCopyWith<$Res> get by;
 }
@@ -93,8 +99,7 @@ abstract class _$$_ReasonRepostCopyWith<$Res>
       __$$_ReasonRepostCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String type, Actor by, DateTime indexedAt});
+  $Res call({@typeKey String type, Actor by, DateTime indexedAt});
 
   @override
   $ActorCopyWith<$Res> get by;
@@ -136,18 +141,25 @@ class __$$_ReasonRepostCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ReasonRepost implements _ReasonRepost {
   const _$_ReasonRepost(
-      {@JsonKey(name: '\$type') this.type = 'app.bsky.feed.defs#reasonRepost',
+      {@typeKey this.type = appBskyFeedDefsReasonRepost,
       required this.by,
       required this.indexedAt});
 
   factory _$_ReasonRepost.fromJson(Map<String, dynamic> json) =>
       _$$_ReasonRepostFromJson(json);
 
+  /// Represents the type of the reason.
+  ///
+  /// By default, the type is [appBskyFeedDefsReasonRepost].
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
+
+  /// Represents the actor who reposted.
   @override
   final Actor by;
+
+  /// Represents the date and time when the reposting event was indexed.
   @override
   final DateTime indexedAt;
 
@@ -187,7 +199,7 @@ class _$_ReasonRepost implements _ReasonRepost {
 
 abstract class _ReasonRepost implements ReasonRepost {
   const factory _ReasonRepost(
-      {@JsonKey(name: '\$type') final String type,
+      {@typeKey final String type,
       required final Actor by,
       required final DateTime indexedAt}) = _$_ReasonRepost;
 
@@ -195,11 +207,19 @@ abstract class _ReasonRepost implements ReasonRepost {
       _$_ReasonRepost.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// Represents the type of the reason.
+  ///
+  /// By default, the type is [appBskyFeedDefsReasonRepost].
+  @typeKey
   String get type;
   @override
+
+  /// Represents the actor who reposted.
   Actor get by;
   @override
+
+  /// Represents the date and time when the reposting event was indexed.
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)

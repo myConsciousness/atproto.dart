@@ -6,23 +6,28 @@
 
 // 📦 Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import '../entities/facet.dart';
+import '../entities/keys/ids.g.dart';
 
 part 'list_param.freezed.dart';
 part 'list_param.g.dart';
 
 @freezed
 class ListParam with _$ListParam {
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ListParam({
     required String name,
-    @Default('app.bsky.graph.defs#modlist') String purpose,
+    @Default(appBskyGraphDefsModlist) String purpose,
     String? description,
     List<Facet>? descriptionFacets,
     Blob? avatar,
+    @labelsConverter Labels? labels,
     DateTime? createdAt,
+    @Default(emptyJson) Map<String, dynamic> unspecced,
   }) = _ListParam;
 
   factory ListParam.fromJson(Map<String, Object?> json) =>

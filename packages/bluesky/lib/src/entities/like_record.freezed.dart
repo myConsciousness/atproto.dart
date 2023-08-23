@@ -20,10 +20,16 @@ LikeRecord _$LikeRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LikeRecord {
-  @JsonKey(name: '\$type')
+  /// Type of the record, defaults to [appBskyFeedLike].
+  @typeKey
   String get type => throw _privateConstructorUsedError;
+
+  /// The subject of the 'like'. It's usually a reference to the content that
+  /// was liked.
   @JsonKey(name: 'subject')
   StrongRef get ref => throw _privateConstructorUsedError;
+
+  /// The timestamp indicating when the 'like' was created.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +45,7 @@ abstract class $LikeRecordCopyWith<$Res> {
       _$LikeRecordCopyWithImpl<$Res, LikeRecord>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       @JsonKey(name: 'subject') StrongRef ref,
       DateTime createdAt});
 
@@ -97,7 +103,7 @@ abstract class _$$_LikeRecordCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       @JsonKey(name: 'subject') StrongRef ref,
       DateTime createdAt});
 
@@ -139,22 +145,28 @@ class __$$_LikeRecordCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_LikeRecord implements _LikeRecord {
   const _$_LikeRecord(
-      {@JsonKey(name: '\$type') this.type = appBskyFeedLike,
+      {@typeKey this.type = appBskyFeedLike,
       @JsonKey(name: 'subject') required this.ref,
       required this.createdAt});
 
   factory _$_LikeRecord.fromJson(Map<String, dynamic> json) =>
       _$$_LikeRecordFromJson(json);
 
+  /// Type of the record, defaults to [appBskyFeedLike].
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
+
+  /// The subject of the 'like'. It's usually a reference to the content that
+  /// was liked.
   @override
   @JsonKey(name: 'subject')
   final StrongRef ref;
+
+  /// The timestamp indicating when the 'like' was created.
   @override
   final DateTime createdAt;
 
@@ -194,7 +206,7 @@ class _$_LikeRecord implements _LikeRecord {
 
 abstract class _LikeRecord implements LikeRecord {
   const factory _LikeRecord(
-      {@JsonKey(name: '\$type') final String type,
+      {@typeKey final String type,
       @JsonKey(name: 'subject') required final StrongRef ref,
       required final DateTime createdAt}) = _$_LikeRecord;
 
@@ -202,12 +214,19 @@ abstract class _LikeRecord implements LikeRecord {
       _$_LikeRecord.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// Type of the record, defaults to [appBskyFeedLike].
+  @typeKey
   String get type;
   @override
+
+  /// The subject of the 'like'. It's usually a reference to the content that
+  /// was liked.
   @JsonKey(name: 'subject')
   StrongRef get ref;
   @override
+
+  /// The timestamp indicating when the 'like' was created.
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)

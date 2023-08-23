@@ -231,12 +231,11 @@ class _$_LexiconDoc implements _LexiconDoc {
 abstract class _LexiconDoc implements LexiconDoc {
   const factory _LexiconDoc(
       {required final int lexicon,
-      @NsidConverter()
-          required final NSID id,
+      @NsidConverter() required final NSID id,
       final int? revision,
       final String? description,
       @LexUserTypeRecordConverter()
-          required final LexUserTypeRecord defs}) = _$_LexiconDoc;
+      required final LexUserTypeRecord defs}) = _$_LexiconDoc;
 
   factory _LexiconDoc.fromJson(Map<String, dynamic> json) =
       _$_LexiconDoc.fromJson;

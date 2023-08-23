@@ -2315,53 +2315,24 @@
           "embed": {
             "$type": "app.bsky.embed.record#view",
             "record": {
-              "$type": "app.bsky.embed.record#viewRecord",
-              "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jw5tb7zx3w22",
-              "cid": "bafyreidznj3mpkzb3hoftmi6arvfsjutn6dduqxhmjiff2qln2kfsqlnsa",
-              "author": {
+              "$type": "app.bsky.graph.defs#listView",
+              "purpose": "app.bsky.graph.defs#modlist",
+              "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvqbvdsijh2p",
+              "cid": "bafyreid6pnaxbeqpxtos7wa7vfwg5ehpjlqcozerz5ycy7f6e2esqxiphq",
+              "name": "Test",
+              "description": "Just for testing",
+              "creator": {
                 "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
                 "handle": "shinyakato.dev",
                 "displayName": "Shinya Kato 🤯",
+                "description": "Dart/Flutter & atproto enthusiast\nContrib. bluesky-social/atproto\n\nThe author of many OSS packages for Dart/Flutter\n\nDeveloping Bluesky related packages 👇\nhttps://github.com/myConsciousness/atproto.dart\n\nGitHub: @myConsciousness",
                 "avatar": "https://cdn.bsky.social/imgproxy/JF97YphLyIEWfq4KJNO_ZCYm9v_zNcRj7sSB8UZrRBw/rs:fill:1000:1000:1:0/plain/bafkreidqn4z6ocv5snxuqguarboozqdusam2tehccnu23yab7g2sgv64dq@jpeg",
-                "viewer": { "muted": false, "blockedBy": false },
-                "labels": []
+                "viewer": { "muted": true, "blockedBy": false },
+                "labels": [],
+                "indexedAt": "2023-04-28T22:04:37.957Z"
               },
-              "value": {
-                "text": "Zennに記事を投稿しました。This article is in Japanese only, but I will  write in English too :)\n\nGitHub ActionsからBluesky Socialへ簡単にポストする｜加藤 真也 \n\nhttps://zenn.dev/kato_shinya/articles/send-post-to-bluesky-via-github-actions",
-                "$type": "app.bsky.feed.post",
-                "embed": {
-                  "$type": "app.bsky.embed.external",
-                  "external": {
-                    "uri": "https://zenn.dev/kato_shinya/articles/send-post-to-bluesky-via-github-actions",
-                    "title": "",
-                    "description": ""
-                  }
-                },
-                "facets": [
-                  {
-                    "index": { "byteEnd": 265, "byteStart": 188 },
-                    "features": [
-                      {
-                        "uri": "https://zenn.dev/kato_shinya/articles/send-post-to-bluesky-via-github-actions",
-                        "$type": "app.bsky.richtext.facet#link"
-                      }
-                    ]
-                  }
-                ],
-                "createdAt": "2023-05-20T11:26:17.322Z"
-              },
-              "labels": [],
-              "indexedAt": "2023-05-20T11:26:17.743Z",
-              "embeds": [
-                {
-                  "$type": "app.bsky.embed.external#view",
-                  "external": {
-                    "uri": "https://zenn.dev/kato_shinya/articles/send-post-to-bluesky-via-github-actions",
-                    "title": "",
-                    "description": ""
-                  }
-                }
-              ]
+              "viewer": { "muted": true },
+              "indexedAt": "2023-05-15T02:10:48.837Z"
             }
           },
           "replyCount": 1,
@@ -19282,7 +19253,15 @@
         "parent": {
           "$type": "app.bsky.feed.defs#blockedPost",
           "uri": "at://did:plc:24lz3lshhmjsieafxih4exlw/app.bsky.feed.post/3jui52oiuad24",
-          "blocked": true
+          "blocked": true,
+          "author": {
+            "type": "app.bsky.feed.defs#blockedAuthor",
+            "did": "did:plc:x6eeihtkaqmj5ianx3qtzqq3",
+            "viewer": {
+              "mutes": false,
+              "blockedBy": false
+            }
+          }
         }
       }
     },

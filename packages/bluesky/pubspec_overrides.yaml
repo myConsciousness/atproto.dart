@@ -11,8 +11,6 @@ dependency_overrides:
     path: ../multiformats
   atproto_core:
     path: ../atproto_core
-  atproto_test:
-    path: ../atproto_test
   atproto:
     path: ../atproto
   bluesky_text:

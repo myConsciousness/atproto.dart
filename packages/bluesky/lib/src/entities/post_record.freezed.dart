@@ -20,13 +20,31 @@ PostRecord _$PostRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostRecord {
-  @JsonKey(name: '\$type')
+  /// The type of the post record, defaulting to 'appBskyFeedPost'.
+  @typeKey
   String get type => throw _privateConstructorUsedError;
+
+  /// The text content of the post.
   String get text => throw _privateConstructorUsedError;
+
+  /// Might be a reference to a post that this post is replying to.
   PostRef? get reply => throw _privateConstructorUsedError;
-  @EmbedConverter()
+
+  /// May include embed details for the post.
+  @embedConverter
   Embed? get embed => throw _privateConstructorUsedError;
+
+  /// Might include any BCP47 language tags the post is written in.
+  List<String>? get langs => throw _privateConstructorUsedError;
+
+  /// Attached labels.
+  @labelsConverter
+  Labels? get labels => throw _privateConstructorUsedError;
+
+  /// Might include any associated facets.
   List<Facet>? get facets => throw _privateConstructorUsedError;
+
+  /// The timestamp indicating when the post was created.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,15 +60,18 @@ abstract class $PostRecordCopyWith<$Res> {
       _$PostRecordCopyWithImpl<$Res, PostRecord>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       String text,
       PostRef? reply,
-      @EmbedConverter() Embed? embed,
+      @embedConverter Embed? embed,
+      List<String>? langs,
+      @labelsConverter Labels? labels,
       List<Facet>? facets,
       DateTime createdAt});
 
   $PostRefCopyWith<$Res>? get reply;
   $EmbedCopyWith<$Res>? get embed;
+  $LabelsCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -70,6 +91,8 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
     Object? text = null,
     Object? reply = freezed,
     Object? embed = freezed,
+    Object? langs = freezed,
+    Object? labels = freezed,
     Object? facets = freezed,
     Object? createdAt = null,
   }) {
@@ -90,6 +113,14 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
               as Embed?,
+      langs: freezed == langs
+          ? _value.langs
+          : langs // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      labels: freezed == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as Labels?,
       facets: freezed == facets
           ? _value.facets
           : facets // ignore: cast_nullable_to_non_nullable
@@ -124,6 +155,18 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
       return _then(_value.copyWith(embed: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LabelsCopyWith<$Res>? get labels {
+    if (_value.labels == null) {
+      return null;
+    }
+
+    return $LabelsCopyWith<$Res>(_value.labels!, (value) {
+      return _then(_value.copyWith(labels: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -135,10 +178,12 @@ abstract class _$$_PostRecordCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       String text,
       PostRef? reply,
-      @EmbedConverter() Embed? embed,
+      @embedConverter Embed? embed,
+      List<String>? langs,
+      @labelsConverter Labels? labels,
       List<Facet>? facets,
       DateTime createdAt});
 
@@ -146,6 +191,8 @@ abstract class _$$_PostRecordCopyWith<$Res>
   $PostRefCopyWith<$Res>? get reply;
   @override
   $EmbedCopyWith<$Res>? get embed;
+  @override
+  $LabelsCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -163,6 +210,8 @@ class __$$_PostRecordCopyWithImpl<$Res>
     Object? text = null,
     Object? reply = freezed,
     Object? embed = freezed,
+    Object? langs = freezed,
+    Object? labels = freezed,
     Object? facets = freezed,
     Object? createdAt = null,
   }) {
@@ -183,6 +232,14 @@ class __$$_PostRecordCopyWithImpl<$Res>
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
               as Embed?,
+      langs: freezed == langs
+          ? _value._langs
+          : langs // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      labels: freezed == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as Labels?,
       facets: freezed == facets
           ? _value._facets
           : facets // ignore: cast_nullable_to_non_nullable
@@ -197,31 +254,63 @@ class __$$_PostRecordCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_PostRecord implements _PostRecord {
   const _$_PostRecord(
-      {@JsonKey(name: '\$type') this.type = appBskyFeedPost,
+      {@typeKey this.type = appBskyFeedPost,
       required this.text,
       this.reply,
-      @EmbedConverter() this.embed,
+      @embedConverter this.embed,
+      final List<String>? langs,
+      @labelsConverter this.labels,
       final List<Facet>? facets,
       required this.createdAt})
-      : _facets = facets;
+      : _langs = langs,
+        _facets = facets;
 
   factory _$_PostRecord.fromJson(Map<String, dynamic> json) =>
       _$$_PostRecordFromJson(json);
 
+  /// The type of the post record, defaulting to 'appBskyFeedPost'.
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
+
+  /// The text content of the post.
   @override
   final String text;
+
+  /// Might be a reference to a post that this post is replying to.
   @override
   final PostRef? reply;
+
+  /// May include embed details for the post.
   @override
-  @EmbedConverter()
+  @embedConverter
   final Embed? embed;
+
+  /// Might include any BCP47 language tags the post is written in.
+  final List<String>? _langs;
+
+  /// Might include any BCP47 language tags the post is written in.
+  @override
+  List<String>? get langs {
+    final value = _langs;
+    if (value == null) return null;
+    if (_langs is EqualUnmodifiableListView) return _langs;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  /// Attached labels.
+  @override
+  @labelsConverter
+  final Labels? labels;
+
+  /// Might include any associated facets.
   final List<Facet>? _facets;
+
+  /// Might include any associated facets.
   @override
   List<Facet>? get facets {
     final value = _facets;
@@ -231,12 +320,13 @@ class _$_PostRecord implements _PostRecord {
     return EqualUnmodifiableListView(value);
   }
 
+  /// The timestamp indicating when the post was created.
   @override
   final DateTime createdAt;
 
   @override
   String toString() {
-    return 'PostRecord(type: $type, text: $text, reply: $reply, embed: $embed, facets: $facets, createdAt: $createdAt)';
+    return 'PostRecord(type: $type, text: $text, reply: $reply, embed: $embed, langs: $langs, labels: $labels, facets: $facets, createdAt: $createdAt)';
   }
 
   @override
@@ -248,6 +338,8 @@ class _$_PostRecord implements _PostRecord {
             (identical(other.text, text) || other.text == text) &&
             (identical(other.reply, reply) || other.reply == reply) &&
             (identical(other.embed, embed) || other.embed == embed) &&
+            const DeepCollectionEquality().equals(other._langs, _langs) &&
+            (identical(other.labels, labels) || other.labels == labels) &&
             const DeepCollectionEquality().equals(other._facets, _facets) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
@@ -255,8 +347,16 @@ class _$_PostRecord implements _PostRecord {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, text, reply, embed,
-      const DeepCollectionEquality().hash(_facets), createdAt);
+  int get hashCode => Object.hash(
+      runtimeType,
+      type,
+      text,
+      reply,
+      embed,
+      const DeepCollectionEquality().hash(_langs),
+      labels,
+      const DeepCollectionEquality().hash(_facets),
+      createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -274,10 +374,12 @@ class _$_PostRecord implements _PostRecord {
 
 abstract class _PostRecord implements PostRecord {
   const factory _PostRecord(
-      {@JsonKey(name: '\$type') final String type,
+      {@typeKey final String type,
       required final String text,
       final PostRef? reply,
-      @EmbedConverter() final Embed? embed,
+      @embedConverter final Embed? embed,
+      final List<String>? langs,
+      @labelsConverter final Labels? labels,
       final List<Facet>? facets,
       required final DateTime createdAt}) = _$_PostRecord;
 
@@ -285,18 +387,39 @@ abstract class _PostRecord implements PostRecord {
       _$_PostRecord.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// The type of the post record, defaulting to 'appBskyFeedPost'.
+  @typeKey
   String get type;
   @override
+
+  /// The text content of the post.
   String get text;
   @override
+
+  /// Might be a reference to a post that this post is replying to.
   PostRef? get reply;
   @override
-  @EmbedConverter()
+
+  /// May include embed details for the post.
+  @embedConverter
   Embed? get embed;
   @override
+
+  /// Might include any BCP47 language tags the post is written in.
+  List<String>? get langs;
+  @override
+
+  /// Attached labels.
+  @labelsConverter
+  Labels? get labels;
+  @override
+
+  /// Might include any associated facets.
   List<Facet>? get facets;
   @override
+
+  /// The timestamp indicating when the post was created.
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)

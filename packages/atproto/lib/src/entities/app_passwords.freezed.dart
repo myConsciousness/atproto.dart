@@ -20,6 +20,7 @@ AppPasswords _$AppPasswordsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AppPasswords {
+  /// A list of passwords for applications.
   List<SealedAppPassword> get passwords => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -103,7 +104,10 @@ class _$_AppPasswords implements _AppPasswords {
   factory _$_AppPasswords.fromJson(Map<String, dynamic> json) =>
       _$$_AppPasswordsFromJson(json);
 
+  /// A list of passwords for applications.
   final List<SealedAppPassword> _passwords;
+
+  /// A list of passwords for applications.
   @override
   List<SealedAppPassword> get passwords {
     if (_passwords is EqualUnmodifiableListView) return _passwords;
@@ -152,6 +156,8 @@ abstract class _AppPasswords implements AppPasswords {
       _$_AppPasswords.fromJson;
 
   @override
+
+  /// A list of passwords for applications.
   List<SealedAppPassword> get passwords;
   @override
   @JsonKey(ignore: true)

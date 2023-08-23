@@ -20,12 +20,19 @@ PostThreadViewRecord _$PostThreadViewRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostThreadViewRecord {
-  @JsonKey(name: '\$type')
+  /// Represents the type of the thread view record.
+  @typeKey
   String get type => throw _privateConstructorUsedError;
+
+  /// Represents the post for which the thread view record is being created.
   Post get post => throw _privateConstructorUsedError;
-  @PostThreadViewConverter()
+
+  /// May contain the parent post thread view of the [post].
+  @postThreadViewConverter
   PostThreadView? get parent => throw _privateConstructorUsedError;
-  @PostThreadViewConverter()
+
+  /// May contain a list of post thread views that are replies to the [post].
+  @postThreadViewConverter
   List<PostThreadView>? get replies => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,10 +48,10 @@ abstract class $PostThreadViewRecordCopyWith<$Res> {
       _$PostThreadViewRecordCopyWithImpl<$Res, PostThreadViewRecord>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       Post post,
-      @PostThreadViewConverter() PostThreadView? parent,
-      @PostThreadViewConverter() List<PostThreadView>? replies});
+      @postThreadViewConverter PostThreadView? parent,
+      @postThreadViewConverter List<PostThreadView>? replies});
 
   $PostCopyWith<$Res> get post;
   $PostThreadViewCopyWith<$Res>? get parent;
@@ -119,10 +126,10 @@ abstract class _$$_PostThreadViewRecordCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       Post post,
-      @PostThreadViewConverter() PostThreadView? parent,
-      @PostThreadViewConverter() List<PostThreadView>? replies});
+      @postThreadViewConverter PostThreadView? parent,
+      @postThreadViewConverter List<PostThreadView>? replies});
 
   @override
   $PostCopyWith<$Res> get post;
@@ -171,26 +178,35 @@ class __$$_PostThreadViewRecordCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_PostThreadViewRecord implements _PostThreadViewRecord {
   const _$_PostThreadViewRecord(
-      {@JsonKey(name: '\$type') required this.type,
+      {@typeKey required this.type,
       required this.post,
-      @PostThreadViewConverter() this.parent,
-      @PostThreadViewConverter() final List<PostThreadView>? replies})
+      @postThreadViewConverter this.parent,
+      @postThreadViewConverter final List<PostThreadView>? replies})
       : _replies = replies;
 
   factory _$_PostThreadViewRecord.fromJson(Map<String, dynamic> json) =>
       _$$_PostThreadViewRecordFromJson(json);
 
+  /// Represents the type of the thread view record.
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
+
+  /// Represents the post for which the thread view record is being created.
   @override
   final Post post;
+
+  /// May contain the parent post thread view of the [post].
   @override
-  @PostThreadViewConverter()
+  @postThreadViewConverter
   final PostThreadView? parent;
+
+  /// May contain a list of post thread views that are replies to the [post].
   final List<PostThreadView>? _replies;
+
+  /// May contain a list of post thread views that are replies to the [post].
   @override
-  @PostThreadViewConverter()
+  @postThreadViewConverter
   List<PostThreadView>? get replies {
     final value = _replies;
     if (value == null) return null;
@@ -237,25 +253,33 @@ class _$_PostThreadViewRecord implements _PostThreadViewRecord {
 
 abstract class _PostThreadViewRecord implements PostThreadViewRecord {
   const factory _PostThreadViewRecord(
-          {@JsonKey(name: '\$type') required final String type,
+          {@typeKey required final String type,
           required final Post post,
-          @PostThreadViewConverter() final PostThreadView? parent,
-          @PostThreadViewConverter() final List<PostThreadView>? replies}) =
+          @postThreadViewConverter final PostThreadView? parent,
+          @postThreadViewConverter final List<PostThreadView>? replies}) =
       _$_PostThreadViewRecord;
 
   factory _PostThreadViewRecord.fromJson(Map<String, dynamic> json) =
       _$_PostThreadViewRecord.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// Represents the type of the thread view record.
+  @typeKey
   String get type;
   @override
+
+  /// Represents the post for which the thread view record is being created.
   Post get post;
   @override
-  @PostThreadViewConverter()
+
+  /// May contain the parent post thread view of the [post].
+  @postThreadViewConverter
   PostThreadView? get parent;
   @override
-  @PostThreadViewConverter()
+
+  /// May contain a list of post thread views that are replies to the [post].
+  @postThreadViewConverter
   List<PostThreadView>? get replies;
   @override
   @JsonKey(ignore: true)

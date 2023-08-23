@@ -14,7 +14,7 @@ _$_GeneratorFeed _$$_GeneratorFeedFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$_GeneratorFeed(
           uri: $checkedConvert(
-              'uri', (v) => const AtUriConverter().fromJson(v as String)),
+              'uri', (v) => atUriConverter.fromJson(v as String)),
         );
         return val;
       },
@@ -22,5 +22,5 @@ _$_GeneratorFeed _$$_GeneratorFeedFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$_GeneratorFeedToJson(_$_GeneratorFeed instance) =>
     <String, dynamic>{
-      'uri': const AtUriConverter().toJson(instance.uri),
+      'uri': atUriConverter.toJson(instance.uri),
     };

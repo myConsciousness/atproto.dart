@@ -20,12 +20,31 @@ ListViewBasic _$ListViewBasicFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListViewBasic {
+  /// The type of the list, by default it is
+  /// [appBskyGraphDefsListViewBasic].
+  @typeKey
+  String get type => throw _privateConstructorUsedError;
+
+  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
   String get purpose => throw _privateConstructorUsedError;
-  @AtUriConverter()
+
+  /// The URI of the list.
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
+
+  /// The CID of the list.
+  String get cid => throw _privateConstructorUsedError;
+
+  /// The name of the list.
   String get name => throw _privateConstructorUsedError;
+
+  /// An optional avatar for the list.
   String? get avatar => throw _privateConstructorUsedError;
+
+  /// The viewer of the list.
   ListViewer get viewer => throw _privateConstructorUsedError;
+
+  /// The date of the indexing of the list.
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,8 +60,10 @@ abstract class $ListViewBasicCopyWith<$Res> {
       _$ListViewBasicCopyWithImpl<$Res, ListViewBasic>;
   @useResult
   $Res call(
-      {String purpose,
-      @AtUriConverter() AtUri uri,
+      {@typeKey String type,
+      String purpose,
+      @atUriConverter AtUri uri,
+      String cid,
       String name,
       String? avatar,
       ListViewer viewer,
@@ -64,14 +85,20 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? purpose = null,
     Object? uri = null,
+    Object? cid = null,
     Object? name = null,
     Object? avatar = freezed,
     Object? viewer = null,
     Object? indexedAt = null,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       purpose: null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
@@ -80,6 +107,10 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      cid: null == cid
+          ? _value.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -117,8 +148,10 @@ abstract class _$$_ListViewBasicCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String purpose,
-      @AtUriConverter() AtUri uri,
+      {@typeKey String type,
+      String purpose,
+      @atUriConverter AtUri uri,
+      String cid,
       String name,
       String? avatar,
       ListViewer viewer,
@@ -139,14 +172,20 @@ class __$$_ListViewBasicCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? purpose = null,
     Object? uri = null,
+    Object? cid = null,
     Object? name = null,
     Object? avatar = freezed,
     Object? viewer = null,
     Object? indexedAt = null,
   }) {
     return _then(_$_ListViewBasic(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       purpose: null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
@@ -155,6 +194,10 @@ class __$$_ListViewBasicCopyWithImpl<$Res>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      cid: null == cid
+          ? _value.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -177,37 +220,61 @@ class __$$_ListViewBasicCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
-class _$_ListViewBasic implements _ListViewBasic {
+@jsonSerializable
+class _$_ListViewBasic extends _ListViewBasic {
   const _$_ListViewBasic(
-      {this.purpose = 'app.bsky.graph.defs#modlist',
-      @AtUriConverter() required this.uri,
+      {@typeKey this.type = appBskyGraphDefsListViewBasic,
+      this.purpose = appBskyGraphDefsModlist,
+      @atUriConverter required this.uri,
+      required this.cid,
       required this.name,
       this.avatar,
       required this.viewer,
-      required this.indexedAt});
+      required this.indexedAt})
+      : super._();
 
   factory _$_ListViewBasic.fromJson(Map<String, dynamic> json) =>
       _$$_ListViewBasicFromJson(json);
 
+  /// The type of the list, by default it is
+  /// [appBskyGraphDefsListViewBasic].
+  @override
+  @typeKey
+  final String type;
+
+  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
   @override
   @JsonKey()
   final String purpose;
+
+  /// The URI of the list.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
+
+  /// The CID of the list.
+  @override
+  final String cid;
+
+  /// The name of the list.
   @override
   final String name;
+
+  /// An optional avatar for the list.
   @override
   final String? avatar;
+
+  /// The viewer of the list.
   @override
   final ListViewer viewer;
+
+  /// The date of the indexing of the list.
   @override
   final DateTime indexedAt;
 
   @override
   String toString() {
-    return 'ListViewBasic(purpose: $purpose, uri: $uri, name: $name, avatar: $avatar, viewer: $viewer, indexedAt: $indexedAt)';
+    return 'ListViewBasic(type: $type, purpose: $purpose, uri: $uri, cid: $cid, name: $name, avatar: $avatar, viewer: $viewer, indexedAt: $indexedAt)';
   }
 
   @override
@@ -215,8 +282,10 @@ class _$_ListViewBasic implements _ListViewBasic {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ListViewBasic &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.purpose, purpose) || other.purpose == purpose) &&
             (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
@@ -226,8 +295,8 @@ class _$_ListViewBasic implements _ListViewBasic {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, purpose, uri, name, avatar, viewer, indexedAt);
+  int get hashCode => Object.hash(
+      runtimeType, type, purpose, uri, cid, name, avatar, viewer, indexedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -243,30 +312,55 @@ class _$_ListViewBasic implements _ListViewBasic {
   }
 }
 
-abstract class _ListViewBasic implements ListViewBasic {
+abstract class _ListViewBasic extends ListViewBasic {
   const factory _ListViewBasic(
-      {final String purpose,
-      @AtUriConverter() required final AtUri uri,
+      {@typeKey final String type,
+      final String purpose,
+      @atUriConverter required final AtUri uri,
+      required final String cid,
       required final String name,
       final String? avatar,
       required final ListViewer viewer,
       required final DateTime indexedAt}) = _$_ListViewBasic;
+  const _ListViewBasic._() : super._();
 
   factory _ListViewBasic.fromJson(Map<String, dynamic> json) =
       _$_ListViewBasic.fromJson;
 
   @override
+
+  /// The type of the list, by default it is
+  /// [appBskyGraphDefsListViewBasic].
+  @typeKey
+  String get type;
+  @override
+
+  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
   String get purpose;
   @override
-  @AtUriConverter()
+
+  /// The URI of the list.
+  @atUriConverter
   AtUri get uri;
   @override
+
+  /// The CID of the list.
+  String get cid;
+  @override
+
+  /// The name of the list.
   String get name;
   @override
+
+  /// An optional avatar for the list.
   String? get avatar;
   @override
+
+  /// The viewer of the list.
   ListViewer get viewer;
   @override
+
+  /// The date of the indexing of the list.
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)

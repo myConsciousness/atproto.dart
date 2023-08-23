@@ -20,8 +20,13 @@ Like _$LikeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Like {
+  /// The actor who performed the 'like' action.
   Actor get actor => throw _privateConstructorUsedError;
+
+  /// The time when the like was created.
   DateTime get createdAt => throw _privateConstructorUsedError;
+
+  /// The time when the like was indexed.
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -131,10 +136,15 @@ class _$_Like implements _Like {
 
   factory _$_Like.fromJson(Map<String, dynamic> json) => _$$_LikeFromJson(json);
 
+  /// The actor who performed the 'like' action.
   @override
   final Actor actor;
+
+  /// The time when the like was created.
   @override
   final DateTime createdAt;
+
+  /// The time when the like was indexed.
   @override
   final DateTime indexedAt;
 
@@ -182,10 +192,16 @@ abstract class _Like implements Like {
   factory _Like.fromJson(Map<String, dynamic> json) = _$_Like.fromJson;
 
   @override
+
+  /// The actor who performed the 'like' action.
   Actor get actor;
   @override
+
+  /// The time when the like was created.
   DateTime get createdAt;
   @override
+
+  /// The time when the like was indexed.
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)

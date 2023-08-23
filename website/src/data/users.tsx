@@ -1,5 +1,5 @@
 /**
- * Copyright (c) Facebook, Inc. and its affiliates.
+ * Copyright (c) Shinya Kato.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,38 +11,14 @@ import {translate} from '@docusaurus/Translate';
 import {sortBy} from '@site/src/utils/jsUtils';
 
 /*
- * ADD YOUR SITE TO THE DOCUSAURUS SHOWCASE
- *
- * Please don't submit a PR yourself: use the Github Discussion instead:
- * https://github.com/facebook/docusaurus/discussions/7826
- *
- * Instructions for maintainers:
- * - Add the site in the json array below
- * - `title` is the project's name (no need for the "Docs" suffix)
- * - A short (≤120 characters) description of the project
- * - Use relevant tags to categorize the site (read the tag descriptions on the
- *   https://docusaurus.io/showcase page and some further clarifications below)
- * - Add a local image preview (decent screenshot of the Docusaurus site)
- * - The image MUST be added to the GitHub repository, and use `require("img")`
- * - The image has to have minimum width 640 and an aspect of no wider than 2:1
- * - If a website is open-source, add a source link. The link should open
- *   to a directory containing the `docusaurus.config.js` file
- * - Resize images: node admin/scripts/resizeImage.js
- * - Run optimizt manually (see resize image script comment)
- * - Open a PR and check for reported CI errors
- *
- * Example PR: https://github.com/facebook/docusaurus/pull/7620
+ * ADD YOUR SITE TO THE atproto.dart SHOWCASE!
  */
-
-// LIST OF AVAILABLE TAGS
-// Available tags to assign to a showcase site
-// Please choose all tags that you think might apply.
-// We'll remove inappropriate tags, but it's less likely that we add tags.
 export type TagType =
-  // For open-source sites, a link to the source code is required.
-  // The source should be the *website's* source, not the project's source!
+  //! For open-source sites, a link to the source code is required.
+  //! This is automatically assigned when you enter a value for `source` field.
   | 'opensource'
-  // Platform
+
+  //! Platforms.
   | 'web'
   | 'mobile'
   | 'console'
@@ -53,39 +29,83 @@ export type TagType =
 const Users: User[] = [
   {
     title: 'SkyBridge',
+    author: 'videah.net',
     description: 'The bridge/proxy that allows you to use Mastodon apps with Bluesky.',
     preview: require('./showcase/SkyBridge.png'),
     website: 'https://github.com/videah/SkyBridge',
     source: 'https://github.com/videah/SkyBridge',
-    tags: ['opensource', 'console'],
+    tags: ['console'],
   },
   {
     title: 'SkyFeed',
+    author: 'redsolver.net',
     description: 'The real-time client for Bluesky Social. Hashtags are supported and advanced features related to custom feeds are implemented.',
     preview: require('./showcase/SkyFeed.png'),
     website: 'https://skyfeed.app',
     source: 'https://github.com/skyfeed-dev',
-    tags: ['opensource', 'web'],
+    tags: ['web'],
+  },
+  {
+    title: 'Shy Party BOT',
+    author: 'shy.party',
+    description: 'This BOT uses bluesky_post to post hilarious greeting images from GitHub Actions.',
+    preview: require('./showcase/ShyParty.png'),
+    website: 'https://github.com/Shy/party',
+    source: 'https://github.com/Shy/party',
+    tags: ['bot'],
+  },
+  {
+    title: 'Penumbra PR BOT',
+    author: 'penumbra.zone',
+    description: 'This BOT uses bluesky_post to post that a pull request has been merged from GitHub Actions.',
+    preview: require('./showcase/Penumbra.png'),
+    website: 'https://github.com/penumbra-zone/penumbra',
+    source: 'https://github.com/penumbra-zone/penumbra',
+    tags: ['bot'],
   },
   {
     title: 'APOD BOT',
+    author: 'shinyakato.dev',
     description: 'Unofficial APOD BOT that uses the NASA API to post APOD images to Bluesky at scheduled times.',
     preview: require('./showcase/APOD_BOT.png'),
     website: 'https://bsky.app/profile/apod.shinyakato.dev',
     source: 'https://github.com/myConsciousness/bluesky-apod-bot',
-    tags: ['opensource', 'bot'],
+    tags: ['bot'],
   },
-
-  /*
-  Pro Tip: add your site in alphabetical order.
-  Appending your site here (at the end) is more likely to produce Git conflicts.
-   */
+  {
+    title: 'Starry Night',
+    author: 'starrynight.bsky.social',
+    description: 'Yet another Bluesky client for iOS. Currently in alpha - has A LOT of missing features. The public road map will be coming out soon.',
+    preview: require('./showcase/StarryNight.png'),
+    website: 'https://testflight.apple.com/join/RhoFwdem',
+    source: null,
+    tags: ['mobile'],
+  },
+  {
+    title: 'BlueskyDeck',
+    author: 'blueskydeck.com',
+    description: 'A multi-column web app that aims to be a TweetDeck Alternative for Bluesky. The timeline flows in real time.',
+    preview: require('./showcase/BlueskyDeck.png'),
+    website: 'https://blueskydeck.com',
+    source: null,
+    tags: ['web'],
+  },
+  {
+    title: 'SkyPurge',
+    author: 'barine.co',
+    description: 'This tool allows you to delete any post in bulk. This application is a fusion of Python and bluesky_cli.',
+    preview: require('./showcase/SkyPurge.png'),
+    website: 'https://colab.research.google.com/drive/1XI-kQNAf5udLCWTI3qtIHEAN7wjYJOz-?usp=drive_link',
+    source: 'https://colab.research.google.com/drive/1XI-kQNAf5udLCWTI3qtIHEAN7wjYJOz-?usp=drive_link',
+    tags: ['console'],
+  },
 ];
 
 export type User = {
   title: string;
+  author: string;
   description: string;
-  preview: string | null; // null = use our serverless screenshot service
+  preview: string | null;
   website: string;
   source: string | null;
   tags: TagType[];
@@ -145,13 +165,15 @@ export const Tags: {[type in TagType]: Tag} = {
 };
 
 export const TagList = Object.keys(Tags) as TagType[];
-function sortUsers() {
-  let result = Users;
-  // Sort by site name
-  result = sortBy(result, (user) => user.title.toLowerCase());
-  // Sort by favorite tag, favorites first
-  result = sortBy(result, (user) => !user.tags.includes('favorite'));
-  return result;
+
+function getUsers() {
+  for (const user of Users) {
+    if (user.source != null) {
+      user.tags.push('opensource');
+    }
+  }
+
+  return sortBy(Users, (user) => user.title.toLowerCase());
 }
 
-export const sortedUsers = sortUsers();
+export const sortedUsers = getUsers();

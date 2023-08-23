@@ -2,25 +2,25 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🌎 Project imports:
+// 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 
+// 🌎 Project imports:
 import 'atproto_service.dart';
-import 'entities/session.dart';
 import 'identities/identities_service.dart';
 import 'moderation/moderation_service.dart';
 import 'repositories/repositories_service.dart';
 import 'servers/servers_service.dart';
 import 'sync/sync_service.dart';
 
-abstract class ATProto {
+sealed class ATProto {
   /// Returns the new instance of [ATProto].
   factory ATProto({
     required String did,
     required String accessJwt,
-    core.Protocol protocol = core.Protocol.https,
-    String service = 'bsky.social',
-    Duration timeout = const Duration(seconds: 30),
+    core.Protocol protocol = core.defaultProtocol,
+    String service = core.defaultService,
+    Duration timeout = core.defaultTimeout,
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
@@ -38,10 +38,10 @@ abstract class ATProto {
 
   /// Returns the new instance of [ATProto].
   factory ATProto.fromSession(
-    final Session session, {
-    core.Protocol protocol = core.Protocol.https,
-    String service = 'bsky.social',
-    Duration timeout = const Duration(seconds: 30),
+    final core.Session session, {
+    core.Protocol protocol = core.defaultProtocol,
+    String service = core.defaultService,
+    Duration timeout = core.defaultTimeout,
     core.RetryConfig? retryConfig,
   }) =>
       _ATProto(
@@ -55,9 +55,9 @@ abstract class ATProto {
 
   /// Returns the new instance of [ATProto] as anonymous.
   factory ATProto.anonymous({
-    core.Protocol protocol = core.Protocol.https,
-    String service = 'bsky.social',
-    Duration timeout = const Duration(seconds: 30),
+    core.Protocol protocol = core.defaultProtocol,
+    String service = core.defaultService,
+    Duration timeout = core.defaultTimeout,
     core.RetryConfig? retryConfig,
   }) =>
       _ATProto(
@@ -85,7 +85,7 @@ abstract class ATProto {
   SyncService get sync;
 }
 
-class _ATProto implements ATProto {
+final class _ATProto implements ATProto {
   /// Returns the new instance of [_ATProto].
   _ATProto({
     required String did,

@@ -15,8 +15,8 @@ _$_PostThread _$$_PostThreadFromJson(Map json) => $checkedCreate(
         final val = _$_PostThread(
           thread: $checkedConvert(
               'thread',
-              (v) => const PostThreadViewConverter()
-                  .fromJson(v as Map<String, dynamic>)),
+              (v) =>
+                  postThreadViewConverter.fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -24,5 +24,5 @@ _$_PostThread _$$_PostThreadFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$_PostThreadToJson(_$_PostThread instance) =>
     <String, dynamic>{
-      'thread': const PostThreadViewConverter().toJson(instance.thread),
+      'thread': postThreadViewConverter.toJson(instance.thread),
     };

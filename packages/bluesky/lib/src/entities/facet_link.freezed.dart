@@ -20,8 +20,11 @@ FacetLink _$FacetLinkFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FacetLink {
-  @JsonKey(name: '\$type')
+  /// Specifies the type of facet. Defaults to [appBskyRichtextFacetLink].
+  @typeKey
   String get type => throw _privateConstructorUsedError;
+
+  /// Represents the URI of the link facet.
   String get uri => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +38,7 @@ abstract class $FacetLinkCopyWith<$Res> {
   factory $FacetLinkCopyWith(FacetLink value, $Res Function(FacetLink) then) =
       _$FacetLinkCopyWithImpl<$Res, FacetLink>;
   @useResult
-  $Res call({@JsonKey(name: '\$type') String type, String uri});
+  $Res call({@typeKey String type, String uri});
 }
 
 /// @nodoc
@@ -74,7 +77,7 @@ abstract class _$$_FacetLinkCopyWith<$Res> implements $FacetLinkCopyWith<$Res> {
       __$$_FacetLinkCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: '\$type') String type, String uri});
+  $Res call({@typeKey String type, String uri});
 }
 
 /// @nodoc
@@ -108,15 +111,17 @@ class __$$_FacetLinkCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_FacetLink implements _FacetLink {
   const _$_FacetLink(
-      {@JsonKey(name: '\$type') this.type = 'app.bsky.richtext.facet#link',
-      required this.uri});
+      {@typeKey this.type = appBskyRichtextFacetLink, required this.uri});
 
   factory _$_FacetLink.fromJson(Map<String, dynamic> json) =>
       _$$_FacetLinkFromJson(json);
 
+  /// Specifies the type of facet. Defaults to [appBskyRichtextFacetLink].
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
+
+  /// Represents the URI of the link facet.
   @override
   final String uri;
 
@@ -154,16 +159,19 @@ class _$_FacetLink implements _FacetLink {
 
 abstract class _FacetLink implements FacetLink {
   const factory _FacetLink(
-      {@JsonKey(name: '\$type') final String type,
-      required final String uri}) = _$_FacetLink;
+      {@typeKey final String type, required final String uri}) = _$_FacetLink;
 
   factory _FacetLink.fromJson(Map<String, dynamic> json) =
       _$_FacetLink.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// Specifies the type of facet. Defaults to [appBskyRichtextFacetLink].
+  @typeKey
   String get type;
   @override
+
+  /// Represents the URI of the link facet.
   String get uri;
   @override
   @JsonKey(ignore: true)

@@ -2,16 +2,25 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
+import 'dart:convert';
+import 'dart:io';
+
+// 📦 Package imports:
 import 'package:http/http.dart';
 import 'package:nsid/nsid.dart';
 import 'package:test/test.dart';
+
+// 🌎 Project imports:
 import 'package:xrpc/src/entities/empty_data.dart';
+import 'package:xrpc/src/entities/rate_limit.dart';
 import 'package:xrpc/src/exception/internal_server_error_exception.dart';
 import 'package:xrpc/src/exception/invalid_request_exception.dart';
 import 'package:xrpc/src/exception/rate_limit_exceeded_exception.dart';
 import 'package:xrpc/src/exception/unauthorized_exception.dart';
 import 'package:xrpc/src/exception/xrpc_not_supported_exception.dart';
 import 'package:xrpc/src/serializable.dart';
+import 'package:xrpc/src/subscription.dart';
 import 'package:xrpc/src/xrpc.dart';
 import 'package:xrpc/src/xrpc_response.dart';
 
@@ -218,6 +227,7 @@ void main() {
 
       expect(response, isA<XRPCResponse<EmptyData>>());
       expect(response.data, isA<EmptyData>());
+      expect(response.rateLimit, isA<RateLimit>());
     });
 
     test('"to" parameter is missing', () async {
@@ -236,6 +246,7 @@ void main() {
 
       expect(response, isA<XRPCResponse<EmptyData>>());
       expect(response.data, isA<EmptyData>());
+      expect(response.rateLimit, isA<RateLimit>());
     });
 
     test('T is String', () async {
@@ -255,6 +266,54 @@ void main() {
       expect(response, isA<XRPCResponse<String>>());
       expect(response.data, isA<String>());
       expect(response.data, '{"test": "test"}');
+      expect(response.rateLimit, isA<RateLimit>());
+    });
+
+    test('T is Map<String, dynamic>', () async {
+      final response = await query<Map<String, dynamic>>(
+        NSID.create('test.com', 'get'),
+        parameters: {
+          'test': 'test',
+          'test2': 10,
+        },
+        getClient: (url, {headers}) async => Response(
+          '{"test": "test"}',
+          200,
+          request: Request('GET', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response, isA<XRPCResponse<Map<String, dynamic>>>());
+      expect(response.data, isA<Map<String, dynamic>>());
+      expect(response.data, jsonDecode('{"test": "test"}'));
+      expect(response.rateLimit, isA<RateLimit>());
+    });
+
+    test('with rate limits', () async {
+      final response = await query<EmptyData>(
+        NSID.create('test.com', 'get'),
+        getClient: (url, {headers}) async => Response(
+          '{}',
+          200,
+          request: Request('GET', Uri.https('bsky.social')),
+          headers: {
+            'RateLimit-Limit': '100',
+            'RateLimit-Remaining': '1000',
+            'RateLimit-Reset': '50',
+            'RateLimit-Policy': '100;w=300',
+            'date': 'Wed, 02 Aug 2023 04:27:20 GMT',
+          },
+        ),
+      );
+
+      expect(response.rateLimit, isNotNull);
+
+      final rateLimit = response.rateLimit;
+
+      expect(rateLimit.limitCount, 100);
+      expect(rateLimit.remainingCount, 1000);
+      expect(rateLimit.policy.limitCount, 100);
+      expect(rateLimit.policy.window.inSeconds, 300);
     });
   });
 
@@ -271,6 +330,7 @@ void main() {
 
       expect(response, isA<XRPCResponse<EmptyData>>());
       expect(response.data, isA<EmptyData>());
+      expect(response.rateLimit, isA<RateLimit>());
     });
 
     test('with "to" parameter', () async {
@@ -286,6 +346,7 @@ void main() {
 
       expect(response, isA<XRPCResponse<EmptyData>>());
       expect(response.data, isA<EmptyData>());
+      expect(response.rateLimit, isA<RateLimit>());
     });
 
     test('T is String', () async {
@@ -301,7 +362,173 @@ void main() {
       expect(response, isA<XRPCResponse<String>>());
       expect(response.data, isA<String>());
       expect(response.data, '{"test": "test"}');
+      expect(response.rateLimit, isA<RateLimit>());
     });
+
+    test('T is Map<String, dynamic>', () async {
+      final response = await procedure<Map<String, dynamic>>(
+        NSID.create('test.com', 'get'),
+        postClient: (url, {body, encoding, headers}) async => Response(
+          '{"test": "test"}',
+          200,
+          request: Request('POST', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response, isA<XRPCResponse<Map<String, dynamic>>>());
+      expect(response.data, isA<Map<String, dynamic>>());
+      expect(response.data, jsonDecode('{"test": "test"}'));
+      expect(response.rateLimit, isA<RateLimit>());
+    });
+
+    test('with rate limits', () async {
+      final response = await procedure<EmptyData>(
+        NSID.create('test.com', 'post'),
+        postClient: (url, {body, encoding, headers}) async => Response(
+          '{}',
+          200,
+          request: Request('POST', Uri.https('bsky.social')),
+          headers: {
+            'RateLimit-Limit': '100',
+            'RateLimit-Remaining': '1000',
+            'RateLimit-Reset': '50',
+            'RateLimit-Policy': '100;w=300',
+            'date': 'Wed, 02 Aug 2023 04:27:20 GMT',
+          },
+        ),
+      );
+
+      expect(response.rateLimit, isNotNull);
+
+      final rateLimit = response.rateLimit;
+
+      expect(rateLimit.limitCount, 100);
+      expect(rateLimit.remainingCount, 1000);
+      expect(rateLimit.policy.limitCount, 100);
+      expect(rateLimit.policy.window.inSeconds, 300);
+    });
+  });
+
+  group('.upload', () {
+    test('simple case', () async {
+      final response = await upload<EmptyData>(
+        NSID.create('test.com', 'get'),
+        File('./test/src/data/dash.png').readAsBytesSync(),
+        postClient: (url, {body, encoding, headers}) async => Response(
+          '{}',
+          200,
+          request: Request('POST', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response, isA<XRPCResponse<EmptyData>>());
+      expect(response.data, isA<EmptyData>());
+      expect(response.rateLimit, isA<RateLimit>());
+    });
+
+    test('with "to" parameter', () async {
+      final response = await upload(
+        NSID.create('test.com', 'get'),
+        File('./test/src/data/dash.png').readAsBytesSync(),
+        to: EmptyData.fromJson,
+        postClient: (url, {body, encoding, headers}) async => Response(
+          '{}',
+          200,
+          request: Request('POST', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response, isA<XRPCResponse<EmptyData>>());
+      expect(response.data, isA<EmptyData>());
+      expect(response.rateLimit, isA<RateLimit>());
+    });
+
+    test('T is String', () async {
+      final response = await upload<String>(
+        NSID.create('test.com', 'get'),
+        File('./test/src/data/dash.png').readAsBytesSync(),
+        postClient: (url, {body, encoding, headers}) async => Response(
+          '{"test": "test"}',
+          200,
+          request: Request('POST', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response, isA<XRPCResponse<String>>());
+      expect(response.data, isA<String>());
+      expect(response.data, '{"test": "test"}');
+      expect(response.rateLimit, isA<RateLimit>());
+    });
+
+    test('T is Map<String, dynamic>', () async {
+      final response = await upload<Map<String, dynamic>>(
+        NSID.create('test.com', 'get'),
+        File('./test/src/data/dash.png').readAsBytesSync(),
+        postClient: (url, {body, encoding, headers}) async => Response(
+          '{"test": "test"}',
+          200,
+          request: Request('POST', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response, isA<XRPCResponse<Map<String, dynamic>>>());
+      expect(response.data, isA<Map<String, dynamic>>());
+      expect(response.data, jsonDecode('{"test": "test"}'));
+      expect(response.rateLimit, isA<RateLimit>());
+    });
+
+    test('with rate limits', () async {
+      final response = await upload<EmptyData>(
+        NSID.create('test.com', 'post'),
+        File('./test/src/data/dash.png').readAsBytesSync(),
+        postClient: (url, {body, encoding, headers}) async => Response(
+          '{}',
+          200,
+          request: Request('POST', Uri.https('bsky.social')),
+          headers: {
+            'RateLimit-Limit': '100',
+            'RateLimit-Remaining': '1000',
+            'RateLimit-Reset': '50',
+            'RateLimit-Policy': '100;w=300',
+            'date': 'Wed, 02 Aug 2023 04:27:20 GMT',
+          },
+        ),
+      );
+
+      expect(response.rateLimit, isNotNull);
+
+      final rateLimit = response.rateLimit;
+
+      expect(rateLimit.limitCount, 100);
+      expect(rateLimit.remainingCount, 1000);
+      expect(rateLimit.policy.limitCount, 100);
+      expect(rateLimit.policy.window.inSeconds, 300);
+    });
+  });
+
+  group('.subscribe', () {
+    test('connect 1 minute', () async {
+      final subscription = subscribe(
+        NSID.create(
+          'sync.atproto.com',
+          'subscribeRepos',
+        ),
+      );
+
+      expect(subscription, isA<XRPCResponse<Subscription>>());
+      expect(subscription.data, isA<Subscription>());
+      expect(subscription.rateLimit, isA<RateLimit>());
+
+      final oneMinuteLater = DateTime.now().add(Duration(minutes: 1));
+
+      await for (final _ in subscription.data.stream) {
+        if (DateTime.now().isAfter(oneMinuteLater)) {
+          await subscription.data.close();
+
+          break;
+        }
+      }
+    }, timeout: Timeout(Duration(minutes: 2)));
   });
 }
 

@@ -3,7 +3,7 @@ name: Auto Mirror Lexicons
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 10 * * *"
+    - cron: "0 */3 * * *"
 
 jobs:
   build:
@@ -36,6 +36,15 @@ jobs:
         run: dart run ./bin/mirror_lexicons.dart
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
+
+      - name: Generate Lexicon IDs
+        run: dart run ./bin/generate_lexicon_ids.dart
+
+      - name: Activate Melos
+        run: dart pub global activate melos
+
+      - name: Format All
+        run: melos format
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3

@@ -20,10 +20,15 @@ Facet _$FacetFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Facet {
-  @JsonKey(name: '\$type')
+  /// Specifies the type of facet. Optional.
+  @typeKey
   String? get type => throw _privateConstructorUsedError;
+
+  /// Represents the byte slice index of the facet.
   ByteSlice get index => throw _privateConstructorUsedError;
-  @FacetFeatureConverter()
+
+  /// Represents the list of facet features.
+  @facetFeatureConverter
   List<FacetFeature> get features => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,9 +42,9 @@ abstract class $FacetCopyWith<$Res> {
       _$FacetCopyWithImpl<$Res, Facet>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String? type,
+      {@typeKey String? type,
       ByteSlice index,
-      @FacetFeatureConverter() List<FacetFeature> features});
+      @facetFeatureConverter List<FacetFeature> features});
 
   $ByteSliceCopyWith<$Res> get index;
 }
@@ -93,9 +98,9 @@ abstract class _$$_FacetCopyWith<$Res> implements $FacetCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String? type,
+      {@typeKey String? type,
       ByteSlice index,
-      @FacetFeatureConverter() List<FacetFeature> features});
+      @facetFeatureConverter List<FacetFeature> features});
 
   @override
   $ByteSliceCopyWith<$Res> get index;
@@ -133,25 +138,32 @@ class __$$_FacetCopyWithImpl<$Res> extends _$FacetCopyWithImpl<$Res, _$_Facet>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_Facet implements _Facet {
   const _$_Facet(
-      {@JsonKey(name: '\$type') this.type,
+      {@typeKey this.type,
       required this.index,
-      @FacetFeatureConverter() required final List<FacetFeature> features})
+      @facetFeatureConverter required final List<FacetFeature> features})
       : _features = features;
 
   factory _$_Facet.fromJson(Map<String, dynamic> json) =>
       _$$_FacetFromJson(json);
 
+  /// Specifies the type of facet. Optional.
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String? type;
+
+  /// Represents the byte slice index of the facet.
   @override
   final ByteSlice index;
+
+  /// Represents the list of facet features.
   final List<FacetFeature> _features;
+
+  /// Represents the list of facet features.
   @override
-  @FacetFeatureConverter()
+  @facetFeatureConverter
   List<FacetFeature> get features {
     if (_features is EqualUnmodifiableListView) return _features;
     // ignore: implicit_dynamic_type
@@ -194,20 +206,26 @@ class _$_Facet implements _Facet {
 
 abstract class _Facet implements Facet {
   const factory _Facet(
-      {@JsonKey(name: '\$type') final String? type,
-      required final ByteSlice index,
-      @FacetFeatureConverter()
-      required final List<FacetFeature> features}) = _$_Facet;
+          {@typeKey final String? type,
+          required final ByteSlice index,
+          @facetFeatureConverter required final List<FacetFeature> features}) =
+      _$_Facet;
 
   factory _Facet.fromJson(Map<String, dynamic> json) = _$_Facet.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// Specifies the type of facet. Optional.
+  @typeKey
   String? get type;
   @override
+
+  /// Represents the byte slice index of the facet.
   ByteSlice get index;
   @override
-  @FacetFeatureConverter()
+
+  /// Represents the list of facet features.
+  @facetFeatureConverter
   List<FacetFeature> get features;
   @override
   @JsonKey(ignore: true)

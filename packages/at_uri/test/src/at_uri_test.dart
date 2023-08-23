@@ -2,8 +2,11 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:at_uri/src/at_uri.dart';
+// 📦 Package imports:
 import 'package:test/test.dart';
+
+// 🌎 Project imports:
+import 'package:at_uri/src/at_uri.dart';
 
 void main() {
   test('parses valid at uris', () {

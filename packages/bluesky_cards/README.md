@@ -6,7 +6,7 @@
 
 
 <p align="center">
-  <b>The Easiest Widget to render Bluesky Social Content Nicely 🎯</b>
+  <b>The Easiest Widget to render Bluesky Social Post Nicely 🎯</b>
 </p>
 
 ---
@@ -123,13 +123,13 @@ class BlueskyCards extends StatelessWidget {
                 return const CircularProgressIndicator();
               }
 
-              final List<bsky.Feed> feeds = snapshot.data.data.feeds;
+              final List<bsky.FeedView> feed = snapshot.data.data.feed;
 
               return ListView.builder(
-                itemCount: feeds.length,
+                itemCount: feed.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Card(
-                    child: bskyc.EmbeddedCard.fromFeed(feeds[index]),
+                    child: bskyc.EmbeddedCard.fromFeed(feed[index]),
                   );
                 },
               );

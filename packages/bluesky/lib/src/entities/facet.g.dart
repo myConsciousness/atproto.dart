@@ -19,8 +19,8 @@ _$_Facet _$$_FacetFromJson(Map json) => $checkedCreate(
           features: $checkedConvert(
               'features',
               (v) => (v as List<dynamic>)
-                  .map((e) => const FacetFeatureConverter()
-                      .fromJson(e as Map<String, dynamic>))
+                  .map((e) =>
+                      facetFeatureConverter.fromJson(e as Map<String, dynamic>))
                   .toList()),
         );
         return val;
@@ -40,6 +40,6 @@ Map<String, dynamic> _$$_FacetToJson(_$_Facet instance) {
   writeNotNull(r'$type', instance.type);
   val['index'] = instance.index.toJson();
   val['features'] =
-      instance.features.map(const FacetFeatureConverter().toJson).toList();
+      instance.features.map(facetFeatureConverter.toJson).toList();
   return val;
 }

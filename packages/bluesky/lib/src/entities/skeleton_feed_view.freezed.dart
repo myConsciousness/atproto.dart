@@ -20,9 +20,13 @@ SkeletonFeedView _$SkeletonFeedViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SkeletonFeedView {
-  @AtUriConverter()
+  /// The URI of the post represented as an [AtUri] object.
+  @atUriConverter
   AtUri get post => throw _privateConstructorUsedError;
-  @SkeletonReasonConverter()
+
+  /// The reason for the skeleton feed view presence. This is optional and
+  /// represented as a [SkeletonReason] object. It is null by default.
+  @skeletonReasonConverter
   SkeletonReason? get reason => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,8 +42,8 @@ abstract class $SkeletonFeedViewCopyWith<$Res> {
       _$SkeletonFeedViewCopyWithImpl<$Res, SkeletonFeedView>;
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri post,
-      @SkeletonReasonConverter() SkeletonReason? reason});
+      {@atUriConverter AtUri post,
+      @skeletonReasonConverter SkeletonReason? reason});
 
   $SkeletonReasonCopyWith<$Res>? get reason;
 }
@@ -94,8 +98,8 @@ abstract class _$$_SkeletonFeedViewCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri post,
-      @SkeletonReasonConverter() SkeletonReason? reason});
+      {@atUriConverter AtUri post,
+      @skeletonReasonConverter SkeletonReason? reason});
 
   @override
   $SkeletonReasonCopyWith<$Res>? get reason;
@@ -130,20 +134,24 @@ class __$$_SkeletonFeedViewCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_SkeletonFeedView implements _SkeletonFeedView {
   const _$_SkeletonFeedView(
-      {@AtUriConverter() required this.post,
-      @SkeletonReasonConverter() this.reason});
+      {@atUriConverter required this.post,
+      @skeletonReasonConverter this.reason});
 
   factory _$_SkeletonFeedView.fromJson(Map<String, dynamic> json) =>
       _$$_SkeletonFeedViewFromJson(json);
 
+  /// The URI of the post represented as an [AtUri] object.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri post;
+
+  /// The reason for the skeleton feed view presence. This is optional and
+  /// represented as a [SkeletonReason] object. It is null by default.
   @override
-  @SkeletonReasonConverter()
+  @skeletonReasonConverter
   final SkeletonReason? reason;
 
   @override
@@ -180,18 +188,23 @@ class _$_SkeletonFeedView implements _SkeletonFeedView {
 
 abstract class _SkeletonFeedView implements SkeletonFeedView {
   const factory _SkeletonFeedView(
-          {@AtUriConverter() required final AtUri post,
-          @SkeletonReasonConverter() final SkeletonReason? reason}) =
+          {@atUriConverter required final AtUri post,
+          @skeletonReasonConverter final SkeletonReason? reason}) =
       _$_SkeletonFeedView;
 
   factory _SkeletonFeedView.fromJson(Map<String, dynamic> json) =
       _$_SkeletonFeedView.fromJson;
 
   @override
-  @AtUriConverter()
+
+  /// The URI of the post represented as an [AtUri] object.
+  @atUriConverter
   AtUri get post;
   @override
-  @SkeletonReasonConverter()
+
+  /// The reason for the skeleton feed view presence. This is optional and
+  /// represented as a [SkeletonReason] object. It is null by default.
+  @skeletonReasonConverter
   SkeletonReason? get reason;
   @override
   @JsonKey(ignore: true)

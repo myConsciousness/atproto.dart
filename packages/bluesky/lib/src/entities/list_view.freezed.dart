@@ -20,16 +20,40 @@ ListView _$ListViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListView {
+  /// The type of the list, by default it is [appBskyGraphDefsListView].
+  @typeKey
+  String get type => throw _privateConstructorUsedError;
+
+  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
   String get purpose => throw _privateConstructorUsedError;
-  @AtUriConverter()
+
+  /// The URI of the list.
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
+
+  /// The CID of the list.
+  String get cid => throw _privateConstructorUsedError;
+
+  /// The name of the list.
   String get name => throw _privateConstructorUsedError;
+
+  /// An optional description for the list.
   String? get description => throw _privateConstructorUsedError;
+
+  /// An optional list of facets for the description of the list.
   List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
+
+  /// An optional avatar for the list.
   String? get avatar => throw _privateConstructorUsedError;
+
+  /// The actor who created the list.
   @JsonKey(name: 'creator')
   Actor get createdBy => throw _privateConstructorUsedError;
+
+  /// The viewer of the list.
   ListViewer get viewer => throw _privateConstructorUsedError;
+
+  /// The date of the indexing of the list.
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,8 +68,10 @@ abstract class $ListViewCopyWith<$Res> {
       _$ListViewCopyWithImpl<$Res, ListView>;
   @useResult
   $Res call(
-      {String purpose,
-      @AtUriConverter() AtUri uri,
+      {@typeKey String type,
+      String purpose,
+      @atUriConverter AtUri uri,
+      String cid,
       String name,
       String? description,
       List<Facet>? descriptionFacets,
@@ -71,8 +97,10 @@ class _$ListViewCopyWithImpl<$Res, $Val extends ListView>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? purpose = null,
     Object? uri = null,
+    Object? cid = null,
     Object? name = null,
     Object? description = freezed,
     Object? descriptionFacets = freezed,
@@ -82,6 +110,10 @@ class _$ListViewCopyWithImpl<$Res, $Val extends ListView>
     Object? indexedAt = null,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       purpose: null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
@@ -90,6 +122,10 @@ class _$ListViewCopyWithImpl<$Res, $Val extends ListView>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      cid: null == cid
+          ? _value.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -146,8 +182,10 @@ abstract class _$$_ListViewCopyWith<$Res> implements $ListViewCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String purpose,
-      @AtUriConverter() AtUri uri,
+      {@typeKey String type,
+      String purpose,
+      @atUriConverter AtUri uri,
+      String cid,
       String name,
       String? description,
       List<Facet>? descriptionFacets,
@@ -173,8 +211,10 @@ class __$$_ListViewCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? purpose = null,
     Object? uri = null,
+    Object? cid = null,
     Object? name = null,
     Object? description = freezed,
     Object? descriptionFacets = freezed,
@@ -184,6 +224,10 @@ class __$$_ListViewCopyWithImpl<$Res>
     Object? indexedAt = null,
   }) {
     return _then(_$_ListView(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       purpose: null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
@@ -192,6 +236,10 @@ class __$$_ListViewCopyWithImpl<$Res>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      cid: null == cid
+          ? _value.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -226,11 +274,13 @@ class __$$_ListViewCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
-class _$_ListView implements _ListView {
+@jsonSerializable
+class _$_ListView extends _ListView {
   const _$_ListView(
-      {this.purpose = 'app.bsky.graph.defs#modlist',
-      @AtUriConverter() required this.uri,
+      {@typeKey this.type = appBskyGraphDefsListView,
+      this.purpose = appBskyGraphDefsModlist,
+      @atUriConverter required this.uri,
+      required this.cid,
       required this.name,
       this.description,
       final List<Facet>? descriptionFacets,
@@ -238,22 +288,43 @@ class _$_ListView implements _ListView {
       @JsonKey(name: 'creator') required this.createdBy,
       required this.viewer,
       required this.indexedAt})
-      : _descriptionFacets = descriptionFacets;
+      : _descriptionFacets = descriptionFacets,
+        super._();
 
   factory _$_ListView.fromJson(Map<String, dynamic> json) =>
       _$$_ListViewFromJson(json);
 
+  /// The type of the list, by default it is [appBskyGraphDefsListView].
+  @override
+  @typeKey
+  final String type;
+
+  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
   @override
   @JsonKey()
   final String purpose;
+
+  /// The URI of the list.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
+
+  /// The CID of the list.
+  @override
+  final String cid;
+
+  /// The name of the list.
   @override
   final String name;
+
+  /// An optional description for the list.
   @override
   final String? description;
+
+  /// An optional list of facets for the description of the list.
   final List<Facet>? _descriptionFacets;
+
+  /// An optional list of facets for the description of the list.
   @override
   List<Facet>? get descriptionFacets {
     final value = _descriptionFacets;
@@ -264,19 +335,26 @@ class _$_ListView implements _ListView {
     return EqualUnmodifiableListView(value);
   }
 
+  /// An optional avatar for the list.
   @override
   final String? avatar;
+
+  /// The actor who created the list.
   @override
   @JsonKey(name: 'creator')
   final Actor createdBy;
+
+  /// The viewer of the list.
   @override
   final ListViewer viewer;
+
+  /// The date of the indexing of the list.
   @override
   final DateTime indexedAt;
 
   @override
   String toString() {
-    return 'ListView(purpose: $purpose, uri: $uri, name: $name, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, createdBy: $createdBy, viewer: $viewer, indexedAt: $indexedAt)';
+    return 'ListView(type: $type, purpose: $purpose, uri: $uri, cid: $cid, name: $name, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, createdBy: $createdBy, viewer: $viewer, indexedAt: $indexedAt)';
   }
 
   @override
@@ -284,8 +362,10 @@ class _$_ListView implements _ListView {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ListView &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.purpose, purpose) || other.purpose == purpose) &&
             (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -303,8 +383,10 @@ class _$_ListView implements _ListView {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      type,
       purpose,
       uri,
+      cid,
       name,
       description,
       const DeepCollectionEquality().hash(_descriptionFacets),
@@ -327,10 +409,12 @@ class _$_ListView implements _ListView {
   }
 }
 
-abstract class _ListView implements ListView {
+abstract class _ListView extends ListView {
   const factory _ListView(
-      {final String purpose,
-      @AtUriConverter() required final AtUri uri,
+      {@typeKey final String type,
+      final String purpose,
+      @atUriConverter required final AtUri uri,
+      required final String cid,
       required final String name,
       final String? description,
       final List<Facet>? descriptionFacets,
@@ -338,28 +422,56 @@ abstract class _ListView implements ListView {
       @JsonKey(name: 'creator') required final Actor createdBy,
       required final ListViewer viewer,
       required final DateTime indexedAt}) = _$_ListView;
+  const _ListView._() : super._();
 
   factory _ListView.fromJson(Map<String, dynamic> json) = _$_ListView.fromJson;
 
   @override
+
+  /// The type of the list, by default it is [appBskyGraphDefsListView].
+  @typeKey
+  String get type;
+  @override
+
+  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
   String get purpose;
   @override
-  @AtUriConverter()
+
+  /// The URI of the list.
+  @atUriConverter
   AtUri get uri;
   @override
+
+  /// The CID of the list.
+  String get cid;
+  @override
+
+  /// The name of the list.
   String get name;
   @override
+
+  /// An optional description for the list.
   String? get description;
   @override
+
+  /// An optional list of facets for the description of the list.
   List<Facet>? get descriptionFacets;
   @override
+
+  /// An optional avatar for the list.
   String? get avatar;
   @override
+
+  /// The actor who created the list.
   @JsonKey(name: 'creator')
   Actor get createdBy;
   @override
+
+  /// The viewer of the list.
   ListViewer get viewer;
   @override
+
+  /// The date of the indexing of the list.
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)

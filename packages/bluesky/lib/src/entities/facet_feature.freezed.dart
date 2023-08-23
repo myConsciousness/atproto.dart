@@ -41,23 +41,23 @@ mixin _$FacetFeature {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Mention value) mention,
-    required TResult Function(_Link value) link,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(UFacetFeatureMention value) mention,
+    required TResult Function(UFacetFeatureLink value) link,
+    required TResult Function(UFacetFeatureUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Mention value)? mention,
-    TResult? Function(_Link value)? link,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(UFacetFeatureMention value)? mention,
+    TResult? Function(UFacetFeatureLink value)? link,
+    TResult? Function(UFacetFeatureUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Mention value)? mention,
-    TResult Function(_Link value)? link,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(UFacetFeatureMention value)? mention,
+    TResult Function(UFacetFeatureLink value)? link,
+    TResult Function(UFacetFeatureUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -82,10 +82,10 @@ class _$FacetFeatureCopyWithImpl<$Res, $Val extends FacetFeature>
 }
 
 /// @nodoc
-abstract class _$$_MentionCopyWith<$Res> {
-  factory _$$_MentionCopyWith(
-          _$_Mention value, $Res Function(_$_Mention) then) =
-      __$$_MentionCopyWithImpl<$Res>;
+abstract class _$$UFacetFeatureMentionCopyWith<$Res> {
+  factory _$$UFacetFeatureMentionCopyWith(_$UFacetFeatureMention value,
+          $Res Function(_$UFacetFeatureMention) then) =
+      __$$UFacetFeatureMentionCopyWithImpl<$Res>;
   @useResult
   $Res call({FacetMention data});
 
@@ -93,10 +93,11 @@ abstract class _$$_MentionCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_MentionCopyWithImpl<$Res>
-    extends _$FacetFeatureCopyWithImpl<$Res, _$_Mention>
-    implements _$$_MentionCopyWith<$Res> {
-  __$$_MentionCopyWithImpl(_$_Mention _value, $Res Function(_$_Mention) _then)
+class __$$UFacetFeatureMentionCopyWithImpl<$Res>
+    extends _$FacetFeatureCopyWithImpl<$Res, _$UFacetFeatureMention>
+    implements _$$UFacetFeatureMentionCopyWith<$Res> {
+  __$$UFacetFeatureMentionCopyWithImpl(_$UFacetFeatureMention _value,
+      $Res Function(_$UFacetFeatureMention) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -104,7 +105,7 @@ class __$$_MentionCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Mention(
+    return _then(_$UFacetFeatureMention(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -123,8 +124,8 @@ class __$$_MentionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Mention implements _Mention {
-  const _$_Mention({required this.data});
+class _$UFacetFeatureMention implements UFacetFeatureMention {
+  const _$UFacetFeatureMention({required this.data});
 
   @override
   final FacetMention data;
@@ -138,7 +139,7 @@ class _$_Mention implements _Mention {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Mention &&
+            other is _$UFacetFeatureMention &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -148,8 +149,9 @@ class _$_Mention implements _Mention {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MentionCopyWith<_$_Mention> get copyWith =>
-      __$$_MentionCopyWithImpl<_$_Mention>(this, _$identity);
+  _$$UFacetFeatureMentionCopyWith<_$UFacetFeatureMention> get copyWith =>
+      __$$UFacetFeatureMentionCopyWithImpl<_$UFacetFeatureMention>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -188,9 +190,9 @@ class _$_Mention implements _Mention {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Mention value) mention,
-    required TResult Function(_Link value) link,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(UFacetFeatureMention value) mention,
+    required TResult Function(UFacetFeatureLink value) link,
+    required TResult Function(UFacetFeatureUnknown value) unknown,
   }) {
     return mention(this);
   }
@@ -198,9 +200,9 @@ class _$_Mention implements _Mention {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Mention value)? mention,
-    TResult? Function(_Link value)? link,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(UFacetFeatureMention value)? mention,
+    TResult? Function(UFacetFeatureLink value)? link,
+    TResult? Function(UFacetFeatureUnknown value)? unknown,
   }) {
     return mention?.call(this);
   }
@@ -208,9 +210,9 @@ class _$_Mention implements _Mention {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Mention value)? mention,
-    TResult Function(_Link value)? link,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(UFacetFeatureMention value)? mention,
+    TResult Function(UFacetFeatureLink value)? link,
+    TResult Function(UFacetFeatureUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (mention != null) {
@@ -220,20 +222,22 @@ class _$_Mention implements _Mention {
   }
 }
 
-abstract class _Mention implements FacetFeature {
-  const factory _Mention({required final FacetMention data}) = _$_Mention;
+abstract class UFacetFeatureMention implements FacetFeature {
+  const factory UFacetFeatureMention({required final FacetMention data}) =
+      _$UFacetFeatureMention;
 
   @override
   FacetMention get data;
   @JsonKey(ignore: true)
-  _$$_MentionCopyWith<_$_Mention> get copyWith =>
+  _$$UFacetFeatureMentionCopyWith<_$UFacetFeatureMention> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LinkCopyWith<$Res> {
-  factory _$$_LinkCopyWith(_$_Link value, $Res Function(_$_Link) then) =
-      __$$_LinkCopyWithImpl<$Res>;
+abstract class _$$UFacetFeatureLinkCopyWith<$Res> {
+  factory _$$UFacetFeatureLinkCopyWith(
+          _$UFacetFeatureLink value, $Res Function(_$UFacetFeatureLink) then) =
+      __$$UFacetFeatureLinkCopyWithImpl<$Res>;
   @useResult
   $Res call({FacetLink data});
 
@@ -241,10 +245,11 @@ abstract class _$$_LinkCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LinkCopyWithImpl<$Res>
-    extends _$FacetFeatureCopyWithImpl<$Res, _$_Link>
-    implements _$$_LinkCopyWith<$Res> {
-  __$$_LinkCopyWithImpl(_$_Link _value, $Res Function(_$_Link) _then)
+class __$$UFacetFeatureLinkCopyWithImpl<$Res>
+    extends _$FacetFeatureCopyWithImpl<$Res, _$UFacetFeatureLink>
+    implements _$$UFacetFeatureLinkCopyWith<$Res> {
+  __$$UFacetFeatureLinkCopyWithImpl(
+      _$UFacetFeatureLink _value, $Res Function(_$UFacetFeatureLink) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -252,7 +257,7 @@ class __$$_LinkCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Link(
+    return _then(_$UFacetFeatureLink(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -271,8 +276,8 @@ class __$$_LinkCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Link implements _Link {
-  const _$_Link({required this.data});
+class _$UFacetFeatureLink implements UFacetFeatureLink {
+  const _$UFacetFeatureLink({required this.data});
 
   @override
   final FacetLink data;
@@ -286,7 +291,7 @@ class _$_Link implements _Link {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Link &&
+            other is _$UFacetFeatureLink &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -296,8 +301,8 @@ class _$_Link implements _Link {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LinkCopyWith<_$_Link> get copyWith =>
-      __$$_LinkCopyWithImpl<_$_Link>(this, _$identity);
+  _$$UFacetFeatureLinkCopyWith<_$UFacetFeatureLink> get copyWith =>
+      __$$UFacetFeatureLinkCopyWithImpl<_$UFacetFeatureLink>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -336,9 +341,9 @@ class _$_Link implements _Link {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Mention value) mention,
-    required TResult Function(_Link value) link,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(UFacetFeatureMention value) mention,
+    required TResult Function(UFacetFeatureLink value) link,
+    required TResult Function(UFacetFeatureUnknown value) unknown,
   }) {
     return link(this);
   }
@@ -346,9 +351,9 @@ class _$_Link implements _Link {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Mention value)? mention,
-    TResult? Function(_Link value)? link,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(UFacetFeatureMention value)? mention,
+    TResult? Function(UFacetFeatureLink value)? link,
+    TResult? Function(UFacetFeatureUnknown value)? unknown,
   }) {
     return link?.call(this);
   }
@@ -356,9 +361,9 @@ class _$_Link implements _Link {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Mention value)? mention,
-    TResult Function(_Link value)? link,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(UFacetFeatureMention value)? mention,
+    TResult Function(UFacetFeatureLink value)? link,
+    TResult Function(UFacetFeatureUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (link != null) {
@@ -368,29 +373,32 @@ class _$_Link implements _Link {
   }
 }
 
-abstract class _Link implements FacetFeature {
-  const factory _Link({required final FacetLink data}) = _$_Link;
+abstract class UFacetFeatureLink implements FacetFeature {
+  const factory UFacetFeatureLink({required final FacetLink data}) =
+      _$UFacetFeatureLink;
 
   @override
   FacetLink get data;
   @JsonKey(ignore: true)
-  _$$_LinkCopyWith<_$_Link> get copyWith => throw _privateConstructorUsedError;
+  _$$UFacetFeatureLinkCopyWith<_$UFacetFeatureLink> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_UnknownCopyWith<$Res> {
-  factory _$$_UnknownCopyWith(
-          _$_Unknown value, $Res Function(_$_Unknown) then) =
-      __$$_UnknownCopyWithImpl<$Res>;
+abstract class _$$UFacetFeatureUnknownCopyWith<$Res> {
+  factory _$$UFacetFeatureUnknownCopyWith(_$UFacetFeatureUnknown value,
+          $Res Function(_$UFacetFeatureUnknown) then) =
+      __$$UFacetFeatureUnknownCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$_UnknownCopyWithImpl<$Res>
-    extends _$FacetFeatureCopyWithImpl<$Res, _$_Unknown>
-    implements _$$_UnknownCopyWith<$Res> {
-  __$$_UnknownCopyWithImpl(_$_Unknown _value, $Res Function(_$_Unknown) _then)
+class __$$UFacetFeatureUnknownCopyWithImpl<$Res>
+    extends _$FacetFeatureCopyWithImpl<$Res, _$UFacetFeatureUnknown>
+    implements _$$UFacetFeatureUnknownCopyWith<$Res> {
+  __$$UFacetFeatureUnknownCopyWithImpl(_$UFacetFeatureUnknown _value,
+      $Res Function(_$UFacetFeatureUnknown) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -398,7 +406,7 @@ class __$$_UnknownCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Unknown(
+    return _then(_$UFacetFeatureUnknown(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -409,8 +417,9 @@ class __$$_UnknownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Unknown implements _Unknown {
-  const _$_Unknown({required final Map<String, dynamic> data}) : _data = data;
+class _$UFacetFeatureUnknown implements UFacetFeatureUnknown {
+  const _$UFacetFeatureUnknown({required final Map<String, dynamic> data})
+      : _data = data;
 
   final Map<String, dynamic> _data;
   @override
@@ -429,7 +438,7 @@ class _$_Unknown implements _Unknown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Unknown &&
+            other is _$UFacetFeatureUnknown &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -440,8 +449,9 @@ class _$_Unknown implements _Unknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
-      __$$_UnknownCopyWithImpl<_$_Unknown>(this, _$identity);
+  _$$UFacetFeatureUnknownCopyWith<_$UFacetFeatureUnknown> get copyWith =>
+      __$$UFacetFeatureUnknownCopyWithImpl<_$UFacetFeatureUnknown>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -480,9 +490,9 @@ class _$_Unknown implements _Unknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Mention value) mention,
-    required TResult Function(_Link value) link,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(UFacetFeatureMention value) mention,
+    required TResult Function(UFacetFeatureLink value) link,
+    required TResult Function(UFacetFeatureUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -490,9 +500,9 @@ class _$_Unknown implements _Unknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Mention value)? mention,
-    TResult? Function(_Link value)? link,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(UFacetFeatureMention value)? mention,
+    TResult? Function(UFacetFeatureLink value)? link,
+    TResult? Function(UFacetFeatureUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -500,9 +510,9 @@ class _$_Unknown implements _Unknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Mention value)? mention,
-    TResult Function(_Link value)? link,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(UFacetFeatureMention value)? mention,
+    TResult Function(UFacetFeatureLink value)? link,
+    TResult Function(UFacetFeatureUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -512,13 +522,13 @@ class _$_Unknown implements _Unknown {
   }
 }
 
-abstract class _Unknown implements FacetFeature {
-  const factory _Unknown({required final Map<String, dynamic> data}) =
-      _$_Unknown;
+abstract class UFacetFeatureUnknown implements FacetFeature {
+  const factory UFacetFeatureUnknown(
+      {required final Map<String, dynamic> data}) = _$UFacetFeatureUnknown;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
+  _$$UFacetFeatureUnknownCopyWith<_$UFacetFeatureUnknown> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -20,7 +20,10 @@ Actors _$ActorsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Actors {
+  /// A list of [Actor] instances.
   List<Actor> get actors => throw _privateConstructorUsedError;
+
+  /// An optional cursor for pagination.
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -109,7 +112,10 @@ class _$_Actors implements _Actors {
   factory _$_Actors.fromJson(Map<String, dynamic> json) =>
       _$$_ActorsFromJson(json);
 
+  /// A list of [Actor] instances.
   final List<Actor> _actors;
+
+  /// A list of [Actor] instances.
   @override
   List<Actor> get actors {
     if (_actors is EqualUnmodifiableListView) return _actors;
@@ -117,6 +123,7 @@ class _$_Actors implements _Actors {
     return EqualUnmodifiableListView(_actors);
   }
 
+  /// An optional cursor for pagination.
   @override
   final String? cursor;
 
@@ -160,8 +167,12 @@ abstract class _Actors implements Actors {
   factory _Actors.fromJson(Map<String, dynamic> json) = _$_Actors.fromJson;
 
   @override
+
+  /// A list of [Actor] instances.
   List<Actor> get actors;
   @override
+
+  /// An optional cursor for pagination.
   String? get cursor;
   @override
   @JsonKey(ignore: true)

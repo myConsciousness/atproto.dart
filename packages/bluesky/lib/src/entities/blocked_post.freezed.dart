@@ -20,11 +20,20 @@ BlockedPost _$BlockedPostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BlockedPost {
-  @JsonKey(name: '\$type')
+  /// The type of the record.
+  /// By default, it is [appBskyFeedDefsBlockedPost].
+  @typeKey
   String get type => throw _privateConstructorUsedError;
-  @AtUriConverter()
+
+  /// The URI of the post that has been blocked.
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
+
+  /// Whether the post has been blocked.
   bool get blocked => throw _privateConstructorUsedError;
+
+  /// The author of this blocked post.
+  BlockedAuthor get author => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,9 +48,12 @@ abstract class $BlockedPostCopyWith<$Res> {
       _$BlockedPostCopyWithImpl<$Res, BlockedPost>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
-      @AtUriConverter() AtUri uri,
-      bool blocked});
+      {@typeKey String type,
+      @atUriConverter AtUri uri,
+      bool blocked,
+      BlockedAuthor author});
+
+  $BlockedAuthorCopyWith<$Res> get author;
 }
 
 /// @nodoc
@@ -60,6 +72,7 @@ class _$BlockedPostCopyWithImpl<$Res, $Val extends BlockedPost>
     Object? type = null,
     Object? uri = null,
     Object? blocked = null,
+    Object? author = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -74,7 +87,19 @@ class _$BlockedPostCopyWithImpl<$Res, $Val extends BlockedPost>
           ? _value.blocked
           : blocked // ignore: cast_nullable_to_non_nullable
               as bool,
+      author: null == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as BlockedAuthor,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $BlockedAuthorCopyWith<$Res> get author {
+    return $BlockedAuthorCopyWith<$Res>(_value.author, (value) {
+      return _then(_value.copyWith(author: value) as $Val);
+    });
   }
 }
 
@@ -87,9 +112,13 @@ abstract class _$$_BlockedPostCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
-      @AtUriConverter() AtUri uri,
-      bool blocked});
+      {@typeKey String type,
+      @atUriConverter AtUri uri,
+      bool blocked,
+      BlockedAuthor author});
+
+  @override
+  $BlockedAuthorCopyWith<$Res> get author;
 }
 
 /// @nodoc
@@ -106,6 +135,7 @@ class __$$_BlockedPostCopyWithImpl<$Res>
     Object? type = null,
     Object? uri = null,
     Object? blocked = null,
+    Object? author = null,
   }) {
     return _then(_$_BlockedPost(
       type: null == type
@@ -120,6 +150,10 @@ class __$$_BlockedPostCopyWithImpl<$Res>
           ? _value.blocked
           : blocked // ignore: cast_nullable_to_non_nullable
               as bool,
+      author: null == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as BlockedAuthor,
     ));
   }
 }
@@ -128,25 +162,36 @@ class __$$_BlockedPostCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_BlockedPost implements _BlockedPost {
   const _$_BlockedPost(
-      {@JsonKey(name: '\$type') this.type = 'app.bsky.feed.defs#blockedPost',
-      @AtUriConverter() required this.uri,
-      required this.blocked});
+      {@typeKey this.type = appBskyFeedDefsBlockedPost,
+      @atUriConverter required this.uri,
+      required this.blocked,
+      required this.author});
 
   factory _$_BlockedPost.fromJson(Map<String, dynamic> json) =>
       _$$_BlockedPostFromJson(json);
 
+  /// The type of the record.
+  /// By default, it is [appBskyFeedDefsBlockedPost].
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
+
+  /// The URI of the post that has been blocked.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
+
+  /// Whether the post has been blocked.
   @override
   final bool blocked;
 
+  /// The author of this blocked post.
+  @override
+  final BlockedAuthor author;
+
   @override
   String toString() {
-    return 'BlockedPost(type: $type, uri: $uri, blocked: $blocked)';
+    return 'BlockedPost(type: $type, uri: $uri, blocked: $blocked, author: $author)';
   }
 
   @override
@@ -156,12 +201,13 @@ class _$_BlockedPost implements _BlockedPost {
             other is _$_BlockedPost &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
-            (identical(other.blocked, blocked) || other.blocked == blocked));
+            (identical(other.blocked, blocked) || other.blocked == blocked) &&
+            (identical(other.author, author) || other.author == author));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, uri, blocked);
+  int get hashCode => Object.hash(runtimeType, type, uri, blocked, author);
 
   @JsonKey(ignore: true)
   @override
@@ -179,21 +225,33 @@ class _$_BlockedPost implements _BlockedPost {
 
 abstract class _BlockedPost implements BlockedPost {
   const factory _BlockedPost(
-      {@JsonKey(name: '\$type') final String type,
-      @AtUriConverter() required final AtUri uri,
-      required final bool blocked}) = _$_BlockedPost;
+      {@typeKey final String type,
+      @atUriConverter required final AtUri uri,
+      required final bool blocked,
+      required final BlockedAuthor author}) = _$_BlockedPost;
 
   factory _BlockedPost.fromJson(Map<String, dynamic> json) =
       _$_BlockedPost.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// The type of the record.
+  /// By default, it is [appBskyFeedDefsBlockedPost].
+  @typeKey
   String get type;
   @override
-  @AtUriConverter()
+
+  /// The URI of the post that has been blocked.
+  @atUriConverter
   AtUri get uri;
   @override
+
+  /// Whether the post has been blocked.
   bool get blocked;
+  @override
+
+  /// The author of this blocked post.
+  BlockedAuthor get author;
   @override
   @JsonKey(ignore: true)
   _$$_BlockedPostCopyWith<_$_BlockedPost> get copyWith =>

@@ -20,6 +20,7 @@ ListViewer _$ListViewerFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListViewer {
+  /// Represents whether the viewer has muted the list.
   @JsonKey(name: 'muted')
   bool get isMuted => throw _privateConstructorUsedError;
 
@@ -97,13 +98,15 @@ class __$$_ListViewerCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
-class _$_ListViewer implements _ListViewer {
-  const _$_ListViewer({@JsonKey(name: 'muted') required this.isMuted});
+@jsonSerializable
+class _$_ListViewer extends _ListViewer {
+  const _$_ListViewer({@JsonKey(name: 'muted') this.isMuted = false})
+      : super._();
 
   factory _$_ListViewer.fromJson(Map<String, dynamic> json) =>
       _$$_ListViewerFromJson(json);
 
+  /// Represents whether the viewer has muted the list.
   @override
   @JsonKey(name: 'muted')
   final bool isMuted;
@@ -139,14 +142,17 @@ class _$_ListViewer implements _ListViewer {
   }
 }
 
-abstract class _ListViewer implements ListViewer {
-  const factory _ListViewer(
-      {@JsonKey(name: 'muted') required final bool isMuted}) = _$_ListViewer;
+abstract class _ListViewer extends ListViewer {
+  const factory _ListViewer({@JsonKey(name: 'muted') final bool isMuted}) =
+      _$_ListViewer;
+  const _ListViewer._() : super._();
 
   factory _ListViewer.fromJson(Map<String, dynamic> json) =
       _$_ListViewer.fromJson;
 
   @override
+
+  /// Represents whether the viewer has muted the list.
   @JsonKey(name: 'muted')
   bool get isMuted;
   @override

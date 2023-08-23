@@ -13,10 +13,10 @@ _$_DeleteAction _$$_DeleteActionFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_DeleteAction(
-          type: $checkedConvert(r'$type',
-              (v) => v as String? ?? 'com.atproto.repo.applyWrites#delete'),
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? comAtprotoRepoApplyWritesDelete),
           uri: $checkedConvert(
-              'uri', (v) => const AtUriConverter().fromJson(v as String)),
+              'uri', (v) => atUriConverter.fromJson(v as String)),
         );
         return val;
       },
@@ -26,5 +26,5 @@ _$_DeleteAction _$$_DeleteActionFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$_DeleteActionToJson(_$_DeleteAction instance) =>
     <String, dynamic>{
       r'$type': instance.type,
-      'uri': const AtUriConverter().toJson(instance.uri),
+      'uri': atUriConverter.toJson(instance.uri),
     };

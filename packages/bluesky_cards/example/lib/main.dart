@@ -2,10 +2,12 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+
+// 📦 Package imports:
 import 'package:bluesky/bluesky.dart' as bsky;
 import 'package:bluesky_cards/bluesky_cards.dart' as bskyc;
-
-import 'package:flutter/material.dart';
 
 void main() {
   runApp(
@@ -45,7 +47,7 @@ class BlueskyCards extends StatelessWidget {
                 return const CircularProgressIndicator();
               }
 
-              final List<bsky.Feed> feed = snapshot.data.data.feed;
+              final List<bsky.FeedView> feed = snapshot.data.data.feed;
 
               return ListView.builder(
                 itemCount: feed.length,

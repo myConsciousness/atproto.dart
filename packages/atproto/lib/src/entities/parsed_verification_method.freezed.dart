@@ -21,9 +21,16 @@ ParsedVerificationMethod _$ParsedVerificationMethodFromJson(
 
 /// @nodoc
 mixin _$ParsedVerificationMethod {
+  /// The unique identifier for the verification method.
   String get id => throw _privateConstructorUsedError;
+
+  /// The type of the verification method.
   String get type => throw _privateConstructorUsedError;
+
+  /// The identifier of the controller of the verification method.
   String get controller => throw _privateConstructorUsedError;
+
+  /// The public key for the verification method, in multibase format.
   String get publicKeyMultibase => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -145,12 +152,19 @@ class _$_ParsedVerificationMethod implements _ParsedVerificationMethod {
   factory _$_ParsedVerificationMethod.fromJson(Map<String, dynamic> json) =>
       _$$_ParsedVerificationMethodFromJson(json);
 
+  /// The unique identifier for the verification method.
   @override
   final String id;
+
+  /// The type of the verification method.
   @override
   final String type;
+
+  /// The identifier of the controller of the verification method.
   @override
   final String controller;
+
+  /// The public key for the verification method, in multibase format.
   @override
   final String publicKeyMultibase;
 
@@ -203,12 +217,20 @@ abstract class _ParsedVerificationMethod implements ParsedVerificationMethod {
       _$_ParsedVerificationMethod.fromJson;
 
   @override
+
+  /// The unique identifier for the verification method.
   String get id;
   @override
+
+  /// The type of the verification method.
   String get type;
   @override
+
+  /// The identifier of the controller of the verification method.
   String get controller;
   @override
+
+  /// The public key for the verification method, in multibase format.
   String get publicKeyMultibase;
   @override
   @JsonKey(ignore: true)

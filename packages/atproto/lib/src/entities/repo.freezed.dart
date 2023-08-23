@@ -20,7 +20,10 @@ Repo _$RepoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Repo {
+  /// The DID of the repository.
   String get did => throw _privateConstructorUsedError;
+
+  /// The CID of the head of the repository.
   @JsonKey(name: 'head')
   String get headCid => throw _privateConstructorUsedError;
 
@@ -108,8 +111,11 @@ class _$_Repo implements _Repo {
 
   factory _$_Repo.fromJson(Map<String, dynamic> json) => _$$_RepoFromJson(json);
 
+  /// The DID of the repository.
   @override
   final String did;
+
+  /// The CID of the head of the repository.
   @override
   @JsonKey(name: 'head')
   final String headCid;
@@ -154,8 +160,12 @@ abstract class _Repo implements Repo {
   factory _Repo.fromJson(Map<String, dynamic> json) = _$_Repo.fromJson;
 
   @override
+
+  /// The DID of the repository.
   String get did;
   @override
+
+  /// The CID of the head of the repository.
   @JsonKey(name: 'head')
   String get headCid;
   @override

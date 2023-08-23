@@ -14,7 +14,7 @@ _$_FacetLink _$$_FacetLinkFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$_FacetLink(
           type: $checkedConvert(
-              r'$type', (v) => v as String? ?? 'app.bsky.richtext.facet#link'),
+              r'$type', (v) => v as String? ?? appBskyRichtextFacetLink),
           uri: $checkedConvert('uri', (v) => v as String),
         );
         return val;

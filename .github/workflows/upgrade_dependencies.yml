@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3.1.0
       - uses: dart-lang/setup-dart@v1
-      - run: dart pub upgrade --null-safety # See: https://dart.dev/tools/pub/cmd/pub-upgrade#--null-safety
+      - run: dart pub upgrade # See: https://dart.dev/tools/pub/cmd/pub-upgrade#--null-safety
 
       # See: https://github.com/peter-evans/create-pull-request/tree/master#reference-example
       - name: create PR

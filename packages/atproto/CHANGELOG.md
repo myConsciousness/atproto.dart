@@ -1,5 +1,115 @@
 # Release Note
 
+## v0.6.3
+
+- Moved `Session` object and `createSession` function to `atproto_core`. And exposed `refreshSession` as a function. Also deprecated `ServersService.refreshSession` method. ([#686](https://github.com/myConsciousness/atproto.dart/issues/686))
+
+## v0.6.2
+
+- Supported `com.atproto.sync.notifyOfUpdate` as `notifyCrawlingServiceOfUpdate` on `SyncService`. ([#316](https://github.com/myConsciousness/atproto.dart/issues/316))
+- Supported `com.atproto.sync.requestCrawl` as `requestCrawl` on `SyncService`. ([#317](https://github.com/myConsciousness/atproto.dart/issues/317))
+- Improved documents. ([#677](https://github.com/myConsciousness/atproto.dart/issues/677))
+- Upgrade `cbor` and now compatible with Flutter `3.13.0`. ([#681](https://github.com/myConsciousness/atproto.dart/issues/681))
+
+## v0.6.1
+
+- Exposed freezed union objects. You can use them for pattern matching. ([#600](https://github.com/myConsciousness/atproto.dart/issues/600))
+  - `labels.dart`
+    - `ULabelsSelLabels`
+    - `ULabelsUnknown`
+  - `report_subject.dart`
+    - `UReportSubjectRepoRef`
+    - `UReportSubjectStrongRef`
+    - `UReportSubjectUnknown`
+  - `subscribed_repo.dart`
+    - `USubscribedRepoCommit`
+    - `USubscribedRepoHandle`
+    - `USubscribedRepoMigrate`
+    - `USubscribedRepoTombstone`
+    - `USubscribedRepoInfo`
+    - `USubscribedRepoUnknown`
+  - `batch_action.dart`
+    - `UBatchActionCreate`
+    - `UBatchActionUpdate`
+    - `UBatchActionDelete`
+
+## v0.6.0
+
+- Drop support for null unsafe Dart, bump SDK constraint to '^3.0.0'. ([#599](https://github.com/myConsciousness/atproto.dart/issues/599))
+- Dart3 modifier applied.
+
+## v0.5.9
+
+- Added `SelfLabel`, `SelfLabels`, `Labels` objects. ([#654](https://github.com/myConsciousness/atproto.dart/issues/654))
+
+## v0.5.8
+
+- Added `cursor` to `Repos` object. ([#627](https://github.com/myConsciousness/atproto.dart/issues/627))
+- Upgraded `atproto_core` and exposed `RateLimit` and `RateLimitPolicy` objects. ([#636](https://github.com/myConsciousness/atproto.dart/issues/636))
+- Added pagination utils. ([#626](https://github.com/myConsciousness/atproto.dart/issues/626))
+  - `RepositoriesService`
+    - `paginateRecords`
+    - `paginateRecordsAsJson`
+  - `SyncService`
+    - `paginateRepos`
+    - `paginateReposAsJson`
+
+## v0.5.7
+
+- Exposed lexicon ids from `com.atproto` as `ids.dart`. ([#623](https://github.com/myConsciousness/atproto.dart/issues/623))
+
+## v0.5.6
+
+- Optimized internal processing. ([#606](https://github.com/myConsciousness/atproto.dart/issues/606))
+
+## v0.5.5
+
+- Added documentations to model objects. ([#595](https://github.com/myConsciousness/atproto.dart/issues/595))
+- Made annotations const. ([#605](https://github.com/myConsciousness/atproto.dart/issues/605))
+
+## v0.5.4
+
+- Upgraded `atproto_core`. Fixed minor things.
+
+## v0.5.3
+
+- Removed deprecated properties. This is a property that was planned to be turned off in `v0.6.0`, so there are no breaking changes.
+
+## v0.5.2
+
+- A method to retrieve response data as JSON from endpoints that perform GET communication has been added. These processes do not convert to a specific model object, thus improving performance. ([#563](https://github.com/myConsciousness/atproto.dart/issues/563))
+  - `IdentitiesService`
+    - `findDIDAsJson`
+  - `RepositoriesService`
+    - `findRecordAsJson`
+    - `findRecordsAsJson`
+    - `findRepoInfoAsJson`
+  - `ServersService`
+    - `findCurrentSessionAsJson`
+    - `findInviteCodesAsJson`
+    - `findAppPasswordsAsJson`
+    - `findServerInfoAsJson`
+  - `SyncService`
+    - `findRepoCommitsAsJson`
+    - `findRepoCommitPathsAsJson`
+    - `findRepoBlocksAsJson`
+    - `findRepoCheckoutAsJson`
+    - `findRepoHeadAsJson`
+    - `findRecordAsJson`
+    - `findReposAsJson`
+
+## v0.5.1
+
+- Supported `com.atproto.server.describeServer` as `findServerInfo` in `ServersService`. ([#260](https://github.com/myConsciousness/atproto.dart/issues/260))
+- Supported `com.atproto.server.createInviteCodes` as `createInviteCodes` in `ServersService`. ([#258](https://github.com/myConsciousness/atproto.dart/issues/258))
+- `identifier` in `createSession` is now required.
+- Fixed to throw `UnsupportedError` when an anonymous user tries to access an endpoint that requires authentication. ([#564](https://github.com/myConsciousness/atproto.dart/issues/564))
+
+## v0.5.0
+
+- Added `homepage` in `pubspec.yaml`. ([#549](https://github.com/myConsciousness/atproto.dart/issues/549))
+- Changed the argument of the `uploadBlob` method to byte data instead of a File object. This change allows uploads to be used without being affected by platform differences. ([#556](https://github.com/myConsciousness/atproto.dart/issues/556))
+
 ## v0.4.0
 
 - Supported `com.atproto.sync.getRepo` as `findRepoCommits` in `SyncService`. ([#313](https://github.com/myConsciousness/atproto.dart/issues/313))

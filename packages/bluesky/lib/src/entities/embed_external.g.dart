@@ -14,7 +14,7 @@ _$_EmbedExternal _$$_EmbedExternalFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$_EmbedExternal(
           type: $checkedConvert(
-              r'$type', (v) => v as String? ?? 'app.bsky.embed.external'),
+              r'$type', (v) => v as String? ?? appBskyEmbedExternal),
           external: $checkedConvert(
               'external',
               (v) => EmbedExternalThumbnail.fromJson(

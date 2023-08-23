@@ -20,9 +20,14 @@ Record _$RecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Record {
-  @AtUriConverter()
+  /// The uri of the record.
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
+
+  /// The CID (Content Identifier) associated with the record.
   String? get cid => throw _privateConstructorUsedError;
+
+  /// The dynamic value associated with the record.
   Map<String, dynamic> get value => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +41,7 @@ abstract class $RecordCopyWith<$Res> {
       _$RecordCopyWithImpl<$Res, Record>;
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri uri, String? cid, Map<String, dynamic> value});
+      {@atUriConverter AtUri uri, String? cid, Map<String, dynamic> value});
 }
 
 /// @nodoc
@@ -80,7 +85,7 @@ abstract class _$$_RecordCopyWith<$Res> implements $RecordCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri uri, String? cid, Map<String, dynamic> value});
+      {@atUriConverter AtUri uri, String? cid, Map<String, dynamic> value});
 }
 
 /// @nodoc
@@ -116,10 +121,10 @@ class __$$_RecordCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_Record extends _Record {
   const _$_Record(
-      {@AtUriConverter() required this.uri,
+      {@atUriConverter required this.uri,
       this.cid,
       required final Map<String, dynamic> value})
       : _value = value,
@@ -128,12 +133,19 @@ class _$_Record extends _Record {
   factory _$_Record.fromJson(Map<String, dynamic> json) =>
       _$$_RecordFromJson(json);
 
+  /// The uri of the record.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
+
+  /// The CID (Content Identifier) associated with the record.
   @override
   final String? cid;
+
+  /// The dynamic value associated with the record.
   final Map<String, dynamic> _value;
+
+  /// The dynamic value associated with the record.
   @override
   Map<String, dynamic> get value {
     if (_value is EqualUnmodifiableMapView) return _value;
@@ -177,7 +189,7 @@ class _$_Record extends _Record {
 
 abstract class _Record extends Record {
   const factory _Record(
-      {@AtUriConverter() required final AtUri uri,
+      {@atUriConverter required final AtUri uri,
       final String? cid,
       required final Map<String, dynamic> value}) = _$_Record;
   const _Record._() : super._();
@@ -185,11 +197,17 @@ abstract class _Record extends Record {
   factory _Record.fromJson(Map<String, dynamic> json) = _$_Record.fromJson;
 
   @override
-  @AtUriConverter()
+
+  /// The uri of the record.
+  @atUriConverter
   AtUri get uri;
   @override
+
+  /// The CID (Content Identifier) associated with the record.
   String? get cid;
   @override
+
+  /// The dynamic value associated with the record.
   Map<String, dynamic> get value;
   @override
   @JsonKey(ignore: true)

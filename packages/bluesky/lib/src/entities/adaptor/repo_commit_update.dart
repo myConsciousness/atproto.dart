@@ -2,9 +2,10 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 
-class RepoCommitUpdate<T> {
+final class RepoCommitUpdate<T> {
   /// Returns the new instance of [RepoCommitUpdate].
   const RepoCommitUpdate({
     required this.record,

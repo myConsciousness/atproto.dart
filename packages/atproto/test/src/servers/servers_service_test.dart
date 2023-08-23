@@ -2,60 +2,23 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:atproto/src/entities/account.dart';
-import 'package:atproto/src/entities/app_password.dart';
-import 'package:atproto/src/entities/app_passwords.dart';
-import 'package:atproto/src/entities/created_invite_code.dart';
-import 'package:atproto/src/entities/current_session.dart';
-import 'package:atproto/src/entities/invite_codes.dart';
-import 'package:atproto/src/entities/session.dart';
-import 'package:atproto/src/servers/servers_service.dart';
+// 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
 
+// 🌎 Project imports:
+import 'package:atproto/src/entities/account.dart';
+import 'package:atproto/src/entities/app_password.dart';
+import 'package:atproto/src/entities/app_passwords.dart';
+import 'package:atproto/src/entities/created_invite_code.dart';
+import 'package:atproto/src/entities/created_invite_codes.dart';
+import 'package:atproto/src/entities/current_session.dart';
+import 'package:atproto/src/entities/invite_codes.dart';
+import 'package:atproto/src/entities/server_info.dart';
+import 'package:atproto/src/servers/servers_service.dart';
+
 void main() {
-  group('.createSession', () {
-    test('normal case', () async {
-      final response = await createSession(
-        identifier: 'shinyakato.dev',
-        password: '1234',
-        mockedPostClient: atp_test.createMockedPostClient(
-          'test/src/servers/data/create_session.json',
-        ),
-      );
-
-      expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<Session>());
-    });
-
-    test('when unauthorized', () async {
-      atp_test.expectUnauthorizedException(
-        () async => await createSession(
-          identifier: 'shinyakato.dev',
-          password: '1234',
-          mockedPostClient: atp_test.createMockedPostClient(
-            'test/src/data/error.json',
-            statusCode: 401,
-          ),
-        ),
-      );
-    });
-
-    test('when rate limit exceeded', () async {
-      atp_test.expectRateLimitExceededException(
-        () async => await createSession(
-          identifier: 'shinyakato.dev',
-          password: '1234',
-          mockedPostClient: atp_test.createMockedPostClient(
-            'test/src/data/error.json',
-            statusCode: 429,
-          ),
-        ),
-      );
-    });
-  });
-
   group('.findCurrentSession', () {
     test('normal case', () async {
       final servers = ServersService(
@@ -77,6 +40,26 @@ void main() {
       expect(response.data, isA<CurrentSession>());
     });
 
+    test('as JSON', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/servers/data/find_current_session.json',
+        ),
+      );
+
+      final response = await servers.findCurrentSessionAsJson();
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
     test('when unauthorized', () async {
       final servers = ServersService(
         did: 'test',
@@ -118,6 +101,7 @@ void main() {
     });
   });
 
+  // TODO: Will remove in v1.0.0
   group('.refreshSession', () {
     test('normal case', () async {
       final servers = ServersService(
@@ -133,12 +117,13 @@ void main() {
         ),
       );
 
+      // ignore: deprecated_member_use_from_same_package
       final response = await servers.refreshSession(
         refreshJwt: '',
       );
 
       expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<Session>());
+      expect(response.data, isA<core.Session>());
     });
 
     test('when unauthorized', () async {
@@ -157,6 +142,7 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
+        // ignore: deprecated_member_use_from_same_package
         () async => await servers.refreshSession(refreshJwt: ''),
       );
     });
@@ -177,6 +163,7 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
+        // ignore: deprecated_member_use_from_same_package
         () async => await servers.refreshSession(refreshJwt: ''),
       );
     });
@@ -325,6 +312,7 @@ void main() {
         ),
       );
     });
+
     group('.deleteAccount', () {
       test('normal case', () async {
         final servers = ServersService(
@@ -394,6 +382,151 @@ void main() {
           ),
         );
       });
+    });
+  });
+
+  group('.createInviteCodes', () {
+    test('normal case', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/servers/data/create_invite_codes.json',
+        ),
+      );
+
+      final response = await servers.createInviteCodes(
+        codeCount: 5,
+        useCount: 5,
+        forAccounts: ['xxxxxxxx'],
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<CreatedInviteCodes>());
+    });
+
+    test('when unauthorized', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await servers.createInviteCodes(
+          codeCount: 5,
+          useCount: 5,
+          forAccounts: ['xxxxxxxx'],
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await servers.createInviteCodes(
+          codeCount: 5,
+          useCount: 5,
+          forAccounts: ['xxxxxxxx'],
+        ),
+      );
+    });
+  });
+
+  group('.deleteAccount', () {
+    test('normal case', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/servers/data/delete_account.json',
+        ),
+      );
+
+      final response = await servers.deleteAccount(
+        password: 'yyyyyyy',
+        token: 'zzzzzzzzz',
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<core.EmptyData>());
+    });
+
+    test('when unauthorized', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await servers.deleteAccount(
+          password: 'yyyyyyy',
+          token: 'zzzzzzzzz',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await servers.deleteAccount(
+          password: 'yyyyyyy',
+          token: 'zzzzzzzzz',
+        ),
+      );
     });
   });
 
@@ -743,6 +876,26 @@ void main() {
       expect(response.data, isA<AppPasswords>());
     });
 
+    test('as JSON', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/servers/data/find_app_passwords.json',
+        ),
+      );
+
+      final response = await servers.findAppPasswordsAsJson();
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
     test('when unauthorized', () async {
       final servers = ServersService(
         did: 'test',
@@ -808,6 +961,29 @@ void main() {
       expect(response.data, isA<InviteCodes>());
     });
 
+    test('as JSON', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/servers/data/find_invite_codes.json',
+        ),
+      );
+
+      final response = await servers.findInviteCodesAsJson(
+        includeUsed: false,
+        createAvailable: false,
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
     test('when unauthorized', () async {
       final servers = ServersService(
         did: 'test',
@@ -845,6 +1021,88 @@ void main() {
 
       atp_test.expectRateLimitExceededException(
         () async => await servers.findInviteCodes(),
+      );
+    });
+  });
+
+  group('.findServerInfo', () {
+    test('normal case', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/servers/data/find_server_info.json',
+        ),
+      );
+
+      final response = await servers.findServerInfo();
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<ServerInfo>());
+    });
+
+    test('as JSON', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/servers/data/find_server_info.json',
+        ),
+      );
+
+      final response = await servers.findServerInfoAsJson();
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
+    test('when unauthorized', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await servers.findServerInfo(),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await servers.findServerInfo(),
       );
     });
   });

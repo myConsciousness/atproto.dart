@@ -20,10 +20,15 @@ RepostRecord _$RepostRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RepostRecord {
-  @JsonKey(name: '\$type')
+  /// The type of the repost record.
+  @typeKey
   String get type => throw _privateConstructorUsedError;
+
+  /// The reference to the subject of the repost.
   @JsonKey(name: 'subject')
   StrongRef get ref => throw _privateConstructorUsedError;
+
+  /// The timestamp of when the repost was created.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +44,7 @@ abstract class $RepostRecordCopyWith<$Res> {
       _$RepostRecordCopyWithImpl<$Res, RepostRecord>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       @JsonKey(name: 'subject') StrongRef ref,
       DateTime createdAt});
 
@@ -97,7 +102,7 @@ abstract class _$$_RepostRecordCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       @JsonKey(name: 'subject') StrongRef ref,
       DateTime createdAt});
 
@@ -139,22 +144,27 @@ class __$$_RepostRecordCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_RepostRecord implements _RepostRecord {
   const _$_RepostRecord(
-      {@JsonKey(name: '\$type') this.type = appBskyFeedRepost,
+      {@typeKey this.type = appBskyFeedRepost,
       @JsonKey(name: 'subject') required this.ref,
       required this.createdAt});
 
   factory _$_RepostRecord.fromJson(Map<String, dynamic> json) =>
       _$$_RepostRecordFromJson(json);
 
+  /// The type of the repost record.
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
+
+  /// The reference to the subject of the repost.
   @override
   @JsonKey(name: 'subject')
   final StrongRef ref;
+
+  /// The timestamp of when the repost was created.
   @override
   final DateTime createdAt;
 
@@ -194,7 +204,7 @@ class _$_RepostRecord implements _RepostRecord {
 
 abstract class _RepostRecord implements RepostRecord {
   const factory _RepostRecord(
-      {@JsonKey(name: '\$type') final String type,
+      {@typeKey final String type,
       @JsonKey(name: 'subject') required final StrongRef ref,
       required final DateTime createdAt}) = _$_RepostRecord;
 
@@ -202,12 +212,18 @@ abstract class _RepostRecord implements RepostRecord {
       _$_RepostRecord.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// The type of the repost record.
+  @typeKey
   String get type;
   @override
+
+  /// The reference to the subject of the repost.
   @JsonKey(name: 'subject')
   StrongRef get ref;
   @override
+
+  /// The timestamp of when the repost was created.
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)

@@ -20,6 +20,7 @@ Count _$CountFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Count {
+  /// The count value.
   int get count => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -96,6 +97,7 @@ class _$_Count implements _Count {
   factory _$_Count.fromJson(Map<String, dynamic> json) =>
       _$$_CountFromJson(json);
 
+  /// The count value.
   @override
   final int count;
 
@@ -136,6 +138,8 @@ abstract class _Count implements Count {
   factory _Count.fromJson(Map<String, dynamic> json) = _$_Count.fromJson;
 
   @override
+
+  /// The count value.
   int get count;
   @override
   @JsonKey(ignore: true)

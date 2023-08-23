@@ -14,17 +14,17 @@ _$_SavedFeedsPreference _$$_SavedFeedsPreferenceFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$_SavedFeedsPreference(
-          type: $checkedConvert(r'$type',
-              (v) => v as String? ?? 'app.bsky.actor.defs#savedFeedsPref'),
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyActorDefsSavedFeedsPref),
           pinnedUris: $checkedConvert(
               'pinned',
               (v) => (v as List<dynamic>)
-                  .map((e) => const AtUriConverter().fromJson(e as String))
+                  .map((e) => atUriConverter.fromJson(e as String))
                   .toList()),
           savedUris: $checkedConvert(
               'saved',
               (v) => (v as List<dynamic>)
-                  .map((e) => const AtUriConverter().fromJson(e as String))
+                  .map((e) => atUriConverter.fromJson(e as String))
                   .toList()),
         );
         return val;
@@ -40,6 +40,6 @@ Map<String, dynamic> _$$_SavedFeedsPreferenceToJson(
         _$_SavedFeedsPreference instance) =>
     <String, dynamic>{
       r'$type': instance.type,
-      'pinned': instance.pinnedUris.map(const AtUriConverter().toJson).toList(),
-      'saved': instance.savedUris.map(const AtUriConverter().toJson).toList(),
+      'pinned': instance.pinnedUris.map(atUriConverter.toJson).toList(),
+      'saved': instance.savedUris.map(atUriConverter.toJson).toList(),
     };

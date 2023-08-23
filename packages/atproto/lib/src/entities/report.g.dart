@@ -18,8 +18,8 @@ _$_Report _$$_ReportFromJson(Map json) => $checkedCreate(
               (v) => $enumDecode(_$ModerationReasonTypeEnumMap, v)),
           subject: $checkedConvert(
               'subject',
-              (v) => const ReportSubjectConverter()
-                  .fromJson(v as Map<String, dynamic>)),
+              (v) =>
+                  reportSubjectConverter.fromJson(v as Map<String, dynamic>)),
           reportedBy: $checkedConvert('reportedBy', (v) => v as String),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
@@ -31,7 +31,7 @@ _$_Report _$$_ReportFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$_ReportToJson(_$_Report instance) => <String, dynamic>{
       'id': instance.id,
       'reasonType': _$ModerationReasonTypeEnumMap[instance.reasonType]!,
-      'subject': const ReportSubjectConverter().toJson(instance.subject),
+      'subject': reportSubjectConverter.toJson(instance.subject),
       'reportedBy': instance.reportedBy,
       'createdAt': instance.createdAt.toIso8601String(),
     };

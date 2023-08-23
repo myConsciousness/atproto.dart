@@ -43,10 +43,9 @@ abstract class $LexXrpcParametersCopyWith<$Res> {
   $Res call(
       {String type,
       String? description,
-      @JsonKey(name: 'required')
-          List<String>? requiredProperties,
+      @JsonKey(name: 'required') List<String>? requiredProperties,
       @LexXrpcParametersPropertyRecordConverter()
-          LexXrpcParametersPropertyRecord? properties});
+      LexXrpcParametersPropertyRecord? properties});
 
   $LexXrpcParametersPropertyRecordCopyWith<$Res>? get properties;
 }
@@ -114,10 +113,9 @@ abstract class _$$_LexXrpcParametersCopyWith<$Res>
   $Res call(
       {String type,
       String? description,
-      @JsonKey(name: 'required')
-          List<String>? requiredProperties,
+      @JsonKey(name: 'required') List<String>? requiredProperties,
       @LexXrpcParametersPropertyRecordConverter()
-          LexXrpcParametersPropertyRecord? properties});
+      LexXrpcParametersPropertyRecord? properties});
 
   @override
   $LexXrpcParametersPropertyRecordCopyWith<$Res>? get properties;
@@ -238,10 +236,9 @@ abstract class _LexXrpcParameters implements LexXrpcParameters {
   const factory _LexXrpcParameters(
           {final String type,
           final String? description,
-          @JsonKey(name: 'required')
-              final List<String>? requiredProperties,
+          @JsonKey(name: 'required') final List<String>? requiredProperties,
           @LexXrpcParametersPropertyRecordConverter()
-              final LexXrpcParametersPropertyRecord? properties}) =
+          final LexXrpcParametersPropertyRecord? properties}) =
       _$_LexXrpcParameters;
 
   factory _LexXrpcParameters.fromJson(Map<String, dynamic> json) =

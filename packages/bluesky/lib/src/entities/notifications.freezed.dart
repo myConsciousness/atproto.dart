@@ -20,7 +20,10 @@ Notifications _$NotificationsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Notifications {
+  /// List of notifications.
   List<Notification> get notifications => throw _privateConstructorUsedError;
+
+  /// Might be used for pagination purposes.
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -115,7 +118,10 @@ class _$_Notifications implements _Notifications {
   factory _$_Notifications.fromJson(Map<String, dynamic> json) =>
       _$$_NotificationsFromJson(json);
 
+  /// List of notifications.
   final List<Notification> _notifications;
+
+  /// List of notifications.
   @override
   List<Notification> get notifications {
     if (_notifications is EqualUnmodifiableListView) return _notifications;
@@ -123,6 +129,7 @@ class _$_Notifications implements _Notifications {
     return EqualUnmodifiableListView(_notifications);
   }
 
+  /// Might be used for pagination purposes.
   @override
   final String? cursor;
 
@@ -169,8 +176,12 @@ abstract class _Notifications implements Notifications {
       _$_Notifications.fromJson;
 
   @override
+
+  /// List of notifications.
   List<Notification> get notifications;
   @override
+
+  /// Might be used for pagination purposes.
   String? get cursor;
   @override
   @JsonKey(ignore: true)

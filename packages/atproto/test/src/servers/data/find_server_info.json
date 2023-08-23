@@ -1,0 +1,8 @@
+{
+  "availableUserDomains": [".bsky.social"],
+  "inviteCodeRequired": true,
+  "links": {
+    "privacyPolicy": "https://blueskyweb.xyz/support/privacy-policy",
+    "termsOfService": "https://blueskyweb.xyz/support/tos"
+  }
+}

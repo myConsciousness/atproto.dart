@@ -41,23 +41,23 @@ mixin _$ReportSubject {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_RepoRef value) repoRef,
-    required TResult Function(_StrongRef value) strongRef,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(UReportSubjectRepoRef value) repoRef,
+    required TResult Function(UReportSubjectStrongRef value) strongRef,
+    required TResult Function(UReportSubjectUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_RepoRef value)? repoRef,
-    TResult? Function(_StrongRef value)? strongRef,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(UReportSubjectRepoRef value)? repoRef,
+    TResult? Function(UReportSubjectStrongRef value)? strongRef,
+    TResult? Function(UReportSubjectUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_RepoRef value)? repoRef,
-    TResult Function(_StrongRef value)? strongRef,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(UReportSubjectRepoRef value)? repoRef,
+    TResult Function(UReportSubjectStrongRef value)? strongRef,
+    TResult Function(UReportSubjectUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -82,10 +82,10 @@ class _$ReportSubjectCopyWithImpl<$Res, $Val extends ReportSubject>
 }
 
 /// @nodoc
-abstract class _$$_RepoRefCopyWith<$Res> {
-  factory _$$_RepoRefCopyWith(
-          _$_RepoRef value, $Res Function(_$_RepoRef) then) =
-      __$$_RepoRefCopyWithImpl<$Res>;
+abstract class _$$UReportSubjectRepoRefCopyWith<$Res> {
+  factory _$$UReportSubjectRepoRefCopyWith(_$UReportSubjectRepoRef value,
+          $Res Function(_$UReportSubjectRepoRef) then) =
+      __$$UReportSubjectRepoRefCopyWithImpl<$Res>;
   @useResult
   $Res call({RepoRef data});
 
@@ -93,10 +93,11 @@ abstract class _$$_RepoRefCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_RepoRefCopyWithImpl<$Res>
-    extends _$ReportSubjectCopyWithImpl<$Res, _$_RepoRef>
-    implements _$$_RepoRefCopyWith<$Res> {
-  __$$_RepoRefCopyWithImpl(_$_RepoRef _value, $Res Function(_$_RepoRef) _then)
+class __$$UReportSubjectRepoRefCopyWithImpl<$Res>
+    extends _$ReportSubjectCopyWithImpl<$Res, _$UReportSubjectRepoRef>
+    implements _$$UReportSubjectRepoRefCopyWith<$Res> {
+  __$$UReportSubjectRepoRefCopyWithImpl(_$UReportSubjectRepoRef _value,
+      $Res Function(_$UReportSubjectRepoRef) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -104,7 +105,7 @@ class __$$_RepoRefCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_RepoRef(
+    return _then(_$UReportSubjectRepoRef(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -123,8 +124,8 @@ class __$$_RepoRefCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_RepoRef extends _RepoRef {
-  const _$_RepoRef({required this.data}) : super._();
+class _$UReportSubjectRepoRef extends UReportSubjectRepoRef {
+  const _$UReportSubjectRepoRef({required this.data}) : super._();
 
   @override
   final RepoRef data;
@@ -138,7 +139,7 @@ class _$_RepoRef extends _RepoRef {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RepoRef &&
+            other is _$UReportSubjectRepoRef &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -148,8 +149,9 @@ class _$_RepoRef extends _RepoRef {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RepoRefCopyWith<_$_RepoRef> get copyWith =>
-      __$$_RepoRefCopyWithImpl<_$_RepoRef>(this, _$identity);
+  _$$UReportSubjectRepoRefCopyWith<_$UReportSubjectRepoRef> get copyWith =>
+      __$$UReportSubjectRepoRefCopyWithImpl<_$UReportSubjectRepoRef>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -188,9 +190,9 @@ class _$_RepoRef extends _RepoRef {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_RepoRef value) repoRef,
-    required TResult Function(_StrongRef value) strongRef,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(UReportSubjectRepoRef value) repoRef,
+    required TResult Function(UReportSubjectStrongRef value) strongRef,
+    required TResult Function(UReportSubjectUnknown value) unknown,
   }) {
     return repoRef(this);
   }
@@ -198,9 +200,9 @@ class _$_RepoRef extends _RepoRef {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_RepoRef value)? repoRef,
-    TResult? Function(_StrongRef value)? strongRef,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(UReportSubjectRepoRef value)? repoRef,
+    TResult? Function(UReportSubjectStrongRef value)? strongRef,
+    TResult? Function(UReportSubjectUnknown value)? unknown,
   }) {
     return repoRef?.call(this);
   }
@@ -208,9 +210,9 @@ class _$_RepoRef extends _RepoRef {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_RepoRef value)? repoRef,
-    TResult Function(_StrongRef value)? strongRef,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(UReportSubjectRepoRef value)? repoRef,
+    TResult Function(UReportSubjectStrongRef value)? strongRef,
+    TResult Function(UReportSubjectUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (repoRef != null) {
@@ -220,22 +222,23 @@ class _$_RepoRef extends _RepoRef {
   }
 }
 
-abstract class _RepoRef extends ReportSubject {
-  const factory _RepoRef({required final RepoRef data}) = _$_RepoRef;
-  const _RepoRef._() : super._();
+abstract class UReportSubjectRepoRef extends ReportSubject {
+  const factory UReportSubjectRepoRef({required final RepoRef data}) =
+      _$UReportSubjectRepoRef;
+  const UReportSubjectRepoRef._() : super._();
 
   @override
   RepoRef get data;
   @JsonKey(ignore: true)
-  _$$_RepoRefCopyWith<_$_RepoRef> get copyWith =>
+  _$$UReportSubjectRepoRefCopyWith<_$UReportSubjectRepoRef> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_StrongRefCopyWith<$Res> {
-  factory _$$_StrongRefCopyWith(
-          _$_StrongRef value, $Res Function(_$_StrongRef) then) =
-      __$$_StrongRefCopyWithImpl<$Res>;
+abstract class _$$UReportSubjectStrongRefCopyWith<$Res> {
+  factory _$$UReportSubjectStrongRefCopyWith(_$UReportSubjectStrongRef value,
+          $Res Function(_$UReportSubjectStrongRef) then) =
+      __$$UReportSubjectStrongRefCopyWithImpl<$Res>;
   @useResult
   $Res call({StrongRef data});
 
@@ -243,11 +246,11 @@ abstract class _$$_StrongRefCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_StrongRefCopyWithImpl<$Res>
-    extends _$ReportSubjectCopyWithImpl<$Res, _$_StrongRef>
-    implements _$$_StrongRefCopyWith<$Res> {
-  __$$_StrongRefCopyWithImpl(
-      _$_StrongRef _value, $Res Function(_$_StrongRef) _then)
+class __$$UReportSubjectStrongRefCopyWithImpl<$Res>
+    extends _$ReportSubjectCopyWithImpl<$Res, _$UReportSubjectStrongRef>
+    implements _$$UReportSubjectStrongRefCopyWith<$Res> {
+  __$$UReportSubjectStrongRefCopyWithImpl(_$UReportSubjectStrongRef _value,
+      $Res Function(_$UReportSubjectStrongRef) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -255,7 +258,7 @@ class __$$_StrongRefCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_StrongRef(
+    return _then(_$UReportSubjectStrongRef(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -274,8 +277,8 @@ class __$$_StrongRefCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StrongRef extends _StrongRef {
-  const _$_StrongRef({required this.data}) : super._();
+class _$UReportSubjectStrongRef extends UReportSubjectStrongRef {
+  const _$UReportSubjectStrongRef({required this.data}) : super._();
 
   @override
   final StrongRef data;
@@ -289,7 +292,7 @@ class _$_StrongRef extends _StrongRef {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_StrongRef &&
+            other is _$UReportSubjectStrongRef &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -299,8 +302,9 @@ class _$_StrongRef extends _StrongRef {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StrongRefCopyWith<_$_StrongRef> get copyWith =>
-      __$$_StrongRefCopyWithImpl<_$_StrongRef>(this, _$identity);
+  _$$UReportSubjectStrongRefCopyWith<_$UReportSubjectStrongRef> get copyWith =>
+      __$$UReportSubjectStrongRefCopyWithImpl<_$UReportSubjectStrongRef>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -339,9 +343,9 @@ class _$_StrongRef extends _StrongRef {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_RepoRef value) repoRef,
-    required TResult Function(_StrongRef value) strongRef,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(UReportSubjectRepoRef value) repoRef,
+    required TResult Function(UReportSubjectStrongRef value) strongRef,
+    required TResult Function(UReportSubjectUnknown value) unknown,
   }) {
     return strongRef(this);
   }
@@ -349,9 +353,9 @@ class _$_StrongRef extends _StrongRef {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_RepoRef value)? repoRef,
-    TResult? Function(_StrongRef value)? strongRef,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(UReportSubjectRepoRef value)? repoRef,
+    TResult? Function(UReportSubjectStrongRef value)? strongRef,
+    TResult? Function(UReportSubjectUnknown value)? unknown,
   }) {
     return strongRef?.call(this);
   }
@@ -359,9 +363,9 @@ class _$_StrongRef extends _StrongRef {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_RepoRef value)? repoRef,
-    TResult Function(_StrongRef value)? strongRef,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(UReportSubjectRepoRef value)? repoRef,
+    TResult Function(UReportSubjectStrongRef value)? strongRef,
+    TResult Function(UReportSubjectUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (strongRef != null) {
@@ -371,31 +375,33 @@ class _$_StrongRef extends _StrongRef {
   }
 }
 
-abstract class _StrongRef extends ReportSubject {
-  const factory _StrongRef({required final StrongRef data}) = _$_StrongRef;
-  const _StrongRef._() : super._();
+abstract class UReportSubjectStrongRef extends ReportSubject {
+  const factory UReportSubjectStrongRef({required final StrongRef data}) =
+      _$UReportSubjectStrongRef;
+  const UReportSubjectStrongRef._() : super._();
 
   @override
   StrongRef get data;
   @JsonKey(ignore: true)
-  _$$_StrongRefCopyWith<_$_StrongRef> get copyWith =>
+  _$$UReportSubjectStrongRefCopyWith<_$UReportSubjectStrongRef> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_UnknownCopyWith<$Res> {
-  factory _$$_UnknownCopyWith(
-          _$_Unknown value, $Res Function(_$_Unknown) then) =
-      __$$_UnknownCopyWithImpl<$Res>;
+abstract class _$$UReportSubjectUnknownCopyWith<$Res> {
+  factory _$$UReportSubjectUnknownCopyWith(_$UReportSubjectUnknown value,
+          $Res Function(_$UReportSubjectUnknown) then) =
+      __$$UReportSubjectUnknownCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$_UnknownCopyWithImpl<$Res>
-    extends _$ReportSubjectCopyWithImpl<$Res, _$_Unknown>
-    implements _$$_UnknownCopyWith<$Res> {
-  __$$_UnknownCopyWithImpl(_$_Unknown _value, $Res Function(_$_Unknown) _then)
+class __$$UReportSubjectUnknownCopyWithImpl<$Res>
+    extends _$ReportSubjectCopyWithImpl<$Res, _$UReportSubjectUnknown>
+    implements _$$UReportSubjectUnknownCopyWith<$Res> {
+  __$$UReportSubjectUnknownCopyWithImpl(_$UReportSubjectUnknown _value,
+      $Res Function(_$UReportSubjectUnknown) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -403,7 +409,7 @@ class __$$_UnknownCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Unknown(
+    return _then(_$UReportSubjectUnknown(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -414,8 +420,8 @@ class __$$_UnknownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Unknown extends _Unknown {
-  const _$_Unknown({required final Map<String, dynamic> data})
+class _$UReportSubjectUnknown extends UReportSubjectUnknown {
+  const _$UReportSubjectUnknown({required final Map<String, dynamic> data})
       : _data = data,
         super._();
 
@@ -436,7 +442,7 @@ class _$_Unknown extends _Unknown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Unknown &&
+            other is _$UReportSubjectUnknown &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -447,8 +453,9 @@ class _$_Unknown extends _Unknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
-      __$$_UnknownCopyWithImpl<_$_Unknown>(this, _$identity);
+  _$$UReportSubjectUnknownCopyWith<_$UReportSubjectUnknown> get copyWith =>
+      __$$UReportSubjectUnknownCopyWithImpl<_$UReportSubjectUnknown>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -487,9 +494,9 @@ class _$_Unknown extends _Unknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_RepoRef value) repoRef,
-    required TResult Function(_StrongRef value) strongRef,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(UReportSubjectRepoRef value) repoRef,
+    required TResult Function(UReportSubjectStrongRef value) strongRef,
+    required TResult Function(UReportSubjectUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -497,9 +504,9 @@ class _$_Unknown extends _Unknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_RepoRef value)? repoRef,
-    TResult? Function(_StrongRef value)? strongRef,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(UReportSubjectRepoRef value)? repoRef,
+    TResult? Function(UReportSubjectStrongRef value)? strongRef,
+    TResult? Function(UReportSubjectUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -507,9 +514,9 @@ class _$_Unknown extends _Unknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_RepoRef value)? repoRef,
-    TResult Function(_StrongRef value)? strongRef,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(UReportSubjectRepoRef value)? repoRef,
+    TResult Function(UReportSubjectStrongRef value)? strongRef,
+    TResult Function(UReportSubjectUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -519,14 +526,14 @@ class _$_Unknown extends _Unknown {
   }
 }
 
-abstract class _Unknown extends ReportSubject {
-  const factory _Unknown({required final Map<String, dynamic> data}) =
-      _$_Unknown;
-  const _Unknown._() : super._();
+abstract class UReportSubjectUnknown extends ReportSubject {
+  const factory UReportSubjectUnknown(
+      {required final Map<String, dynamic> data}) = _$UReportSubjectUnknown;
+  const UReportSubjectUnknown._() : super._();
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
+  _$$UReportSubjectUnknownCopyWith<_$UReportSubjectUnknown> get copyWith =>
       throw _privateConstructorUsedError;
 }

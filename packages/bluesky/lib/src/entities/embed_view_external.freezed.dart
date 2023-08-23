@@ -20,8 +20,12 @@ EmbedViewExternal _$EmbedViewExternalFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmbedViewExternal {
-  @JsonKey(name: '\$type')
+  /// A string that describes the type of the embed view external.
+  @typeKey
   String get type => throw _privateConstructorUsedError;
+
+  /// An instance of `EmbedViewExternalView` that contains the information
+  /// of the external view.
   EmbedViewExternalView get external => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,8 +40,7 @@ abstract class $EmbedViewExternalCopyWith<$Res> {
           EmbedViewExternal value, $Res Function(EmbedViewExternal) then) =
       _$EmbedViewExternalCopyWithImpl<$Res, EmbedViewExternal>;
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String type, EmbedViewExternalView external});
+  $Res call({@typeKey String type, EmbedViewExternalView external});
 
   $EmbedViewExternalViewCopyWith<$Res> get external;
 }
@@ -87,8 +90,7 @@ abstract class _$$_EmbedViewExternalCopyWith<$Res>
       __$$_EmbedViewExternalCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String type, EmbedViewExternalView external});
+  $Res call({@typeKey String type, EmbedViewExternalView external});
 
   @override
   $EmbedViewExternalViewCopyWith<$Res> get external;
@@ -125,14 +127,18 @@ class __$$_EmbedViewExternalCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedViewExternal implements _EmbedViewExternal {
   const _$_EmbedViewExternal(
-      {@JsonKey(name: '\$type') required this.type, required this.external});
+      {@typeKey required this.type, required this.external});
 
   factory _$_EmbedViewExternal.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedViewExternalFromJson(json);
 
+  /// A string that describes the type of the embed view external.
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
+
+  /// An instance of `EmbedViewExternalView` that contains the information
+  /// of the external view.
   @override
   final EmbedViewExternalView external;
 
@@ -172,16 +178,21 @@ class _$_EmbedViewExternal implements _EmbedViewExternal {
 
 abstract class _EmbedViewExternal implements EmbedViewExternal {
   const factory _EmbedViewExternal(
-      {@JsonKey(name: '\$type') required final String type,
+      {@typeKey required final String type,
       required final EmbedViewExternalView external}) = _$_EmbedViewExternal;
 
   factory _EmbedViewExternal.fromJson(Map<String, dynamic> json) =
       _$_EmbedViewExternal.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// A string that describes the type of the embed view external.
+  @typeKey
   String get type;
   @override
+
+  /// An instance of `EmbedViewExternalView` that contains the information
+  /// of the external view.
   EmbedViewExternalView get external;
   @override
   @JsonKey(ignore: true)

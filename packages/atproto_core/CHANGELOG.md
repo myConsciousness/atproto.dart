@@ -1,5 +1,49 @@
 # Release Note
 
+## v0.5.2
+
+- Moved `Session` object and `createSession` function from `atproto`. And exposed `refreshSession` as a function. ([#686](https://github.com/myConsciousness/atproto.dart/issues/686))
+
+## v0.5.1
+
+- Upgraded `multiformats`.
+- Upgrade `cbor` and now compatible with Flutter `3.13.0`. ([#681](https://github.com/myConsciousness/atproto.dart/issues/681))
+
+## v0.5.0
+
+- Drop support for null unsafe Dart, bump SDK constraint to '^3.0.0'. ([#599](https://github.com/myConsciousness/atproto.dart/issues/599))
+- Dart3 modifier applied.
+
+## v0.4.6
+
+- Upgraded `xrpc` and exposed `RateLimit` and `RateLimitPolicy` objects. ([#636](https://github.com/myConsciousness/atproto.dart/issues/636))
+- Added `Pagination` object and `paginate` method in `BaseService`. ([#626](https://github.com/myConsciousness/atproto.dart/issues/626))
+
+## v0.4.5
+
+- Export useful `ids`  and `annotations` as const. ([#606](https://github.com/myConsciousness/atproto.dart/issues/606))
+
+## v0.4.4
+
+- Export `atUriConverter` as const. ([#605](https://github.com/myConsciousness/atproto.dart/issues/605))
+
+## v0.4.3
+
+- Fixed parameter type of `upload` and `subscribe` in `BaseService` from `NSID` to `String`.
+
+## v0.4.2
+
+- Upgraded `xrpc`. ([#563](https://github.com/myConsciousness/atproto.dart/issues/563))
+
+## v0.4.1
+
+- Fixed to throw `UnsupportedError` when an anonymous user tries to access an endpoint that requires authentication. ([#564](https://github.com/myConsciousness/atproto.dart/issues/564))
+
+## v0.4.0
+
+- Added `homepage` in `pubspec.yaml`. ([#549](https://github.com/myConsciousness/atproto.dart/issues/549))
+- Changed the argument of the `upload` method to byte data instead of a File object. This change allows uploads to be used without being affected by platform differences. ([#556](https://github.com/myConsciousness/atproto.dart/issues/556))
+
 ## v0.3.5
 
 - Added `adaptor` parameter in `get` and `subscribe`, and removed `decoder` and `converter`. ([#495](https://github.com/myConsciousness/atproto.dart/issues/495))

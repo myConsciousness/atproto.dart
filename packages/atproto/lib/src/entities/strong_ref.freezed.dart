@@ -20,10 +20,15 @@ StrongRef _$StrongRefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$StrongRef {
-  @JsonKey(name: '\$type')
+  /// Type of the reference, defaults to [comAtprotoRepoStrongRef].
+  @typeKey
   String get type => throw _privateConstructorUsedError;
+
+  /// Content Identifier of the reference.
   String get cid => throw _privateConstructorUsedError;
-  @AtUriConverter()
+
+  /// Uri of the reference.
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,10 +42,7 @@ abstract class $StrongRefCopyWith<$Res> {
   factory $StrongRefCopyWith(StrongRef value, $Res Function(StrongRef) then) =
       _$StrongRefCopyWithImpl<$Res, StrongRef>;
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String type,
-      String cid,
-      @AtUriConverter() AtUri uri});
+  $Res call({@typeKey String type, String cid, @atUriConverter AtUri uri});
 }
 
 /// @nodoc
@@ -84,10 +86,7 @@ abstract class _$$_StrongRefCopyWith<$Res> implements $StrongRefCopyWith<$Res> {
       __$$_StrongRefCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String type,
-      String cid,
-      @AtUriConverter() AtUri uri});
+  $Res call({@typeKey String type, String cid, @atUriConverter AtUri uri});
 }
 
 /// @nodoc
@@ -126,20 +125,25 @@ class __$$_StrongRefCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_StrongRef implements _StrongRef {
   const _$_StrongRef(
-      {@JsonKey(name: '\$type') this.type = 'com.atproto.repo.strongRef',
+      {@typeKey this.type = comAtprotoRepoStrongRef,
       required this.cid,
-      @AtUriConverter() required this.uri});
+      @atUriConverter required this.uri});
 
   factory _$_StrongRef.fromJson(Map<String, dynamic> json) =>
       _$$_StrongRefFromJson(json);
 
+  /// Type of the reference, defaults to [comAtprotoRepoStrongRef].
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
+
+  /// Content Identifier of the reference.
   @override
   final String cid;
+
+  /// Uri of the reference.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
 
   @override
@@ -177,20 +181,26 @@ class _$_StrongRef implements _StrongRef {
 
 abstract class _StrongRef implements StrongRef {
   const factory _StrongRef(
-      {@JsonKey(name: '\$type') final String type,
+      {@typeKey final String type,
       required final String cid,
-      @AtUriConverter() required final AtUri uri}) = _$_StrongRef;
+      @atUriConverter required final AtUri uri}) = _$_StrongRef;
 
   factory _StrongRef.fromJson(Map<String, dynamic> json) =
       _$_StrongRef.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// Type of the reference, defaults to [comAtprotoRepoStrongRef].
+  @typeKey
   String get type;
   @override
+
+  /// Content Identifier of the reference.
   String get cid;
   @override
-  @AtUriConverter()
+
+  /// Uri of the reference.
+  @atUriConverter
   AtUri get uri;
   @override
   @JsonKey(ignore: true)

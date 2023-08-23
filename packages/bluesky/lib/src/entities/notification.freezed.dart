@@ -20,16 +20,33 @@ Notification _$NotificationFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Notification {
+  /// Unique identifier of the notification.
   String get cid => throw _privateConstructorUsedError;
-  @AtUriConverter()
+
+  /// The unique URI for the notification.
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
+
+  /// The actor causing the notification.
   Actor get author => throw _privateConstructorUsedError;
+
+  /// Specifies the reason for the notification.
   NotificationReason get reason => throw _privateConstructorUsedError;
-  @AtUriConverter()
+
+  /// Optionally, represents the subject of the reason for the notification.
+  @atUriConverter
   AtUri? get reasonSubject => throw _privateConstructorUsedError;
+
+  /// Indicates whether the notification has been read or not.
   bool get isRead => throw _privateConstructorUsedError;
+
+  /// Might include additional data related to the notification.
   Map<String, dynamic>? get record => throw _privateConstructorUsedError;
+
+  /// May include any labels attached to the notification.
   List<Label>? get labels => throw _privateConstructorUsedError;
+
+  /// Indicates the timestamp at which the notification was indexed.
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,10 +63,10 @@ abstract class $NotificationCopyWith<$Res> {
   @useResult
   $Res call(
       {String cid,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       Actor author,
       NotificationReason reason,
-      @AtUriConverter() AtUri? reasonSubject,
+      @atUriConverter AtUri? reasonSubject,
       bool isRead,
       Map<String, dynamic>? record,
       List<Label>? labels,
@@ -140,10 +157,10 @@ abstract class _$$_NotificationCopyWith<$Res>
   @useResult
   $Res call(
       {String cid,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       Actor author,
       NotificationReason reason,
-      @AtUriConverter() AtUri? reasonSubject,
+      @atUriConverter AtUri? reasonSubject,
       bool isRead,
       Map<String, dynamic>? record,
       List<Label>? labels,
@@ -217,14 +234,14 @@ class __$$_NotificationCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_Notification implements _Notification {
   const _$_Notification(
       {required this.cid,
-      @AtUriConverter() required this.uri,
+      @atUriConverter required this.uri,
       required this.author,
       required this.reason,
-      @AtUriConverter() this.reasonSubject,
+      @atUriConverter this.reasonSubject,
       required this.isRead,
       final Map<String, dynamic>? record,
       final List<Label>? labels,
@@ -235,21 +252,36 @@ class _$_Notification implements _Notification {
   factory _$_Notification.fromJson(Map<String, dynamic> json) =>
       _$$_NotificationFromJson(json);
 
+  /// Unique identifier of the notification.
   @override
   final String cid;
+
+  /// The unique URI for the notification.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
+
+  /// The actor causing the notification.
   @override
   final Actor author;
+
+  /// Specifies the reason for the notification.
   @override
   final NotificationReason reason;
+
+  /// Optionally, represents the subject of the reason for the notification.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri? reasonSubject;
+
+  /// Indicates whether the notification has been read or not.
   @override
   final bool isRead;
+
+  /// Might include additional data related to the notification.
   final Map<String, dynamic>? _record;
+
+  /// Might include additional data related to the notification.
   @override
   Map<String, dynamic>? get record {
     final value = _record;
@@ -259,7 +291,10 @@ class _$_Notification implements _Notification {
     return EqualUnmodifiableMapView(value);
   }
 
+  /// May include any labels attached to the notification.
   final List<Label>? _labels;
+
+  /// May include any labels attached to the notification.
   @override
   List<Label>? get labels {
     final value = _labels;
@@ -269,6 +304,7 @@ class _$_Notification implements _Notification {
     return EqualUnmodifiableListView(value);
   }
 
+  /// Indicates the timestamp at which the notification was indexed.
   @override
   final DateTime indexedAt;
 
@@ -326,10 +362,10 @@ class _$_Notification implements _Notification {
 abstract class _Notification implements Notification {
   const factory _Notification(
       {required final String cid,
-      @AtUriConverter() required final AtUri uri,
+      @atUriConverter required final AtUri uri,
       required final Actor author,
       required final NotificationReason reason,
-      @AtUriConverter() final AtUri? reasonSubject,
+      @atUriConverter final AtUri? reasonSubject,
       required final bool isRead,
       final Map<String, dynamic>? record,
       final List<Label>? labels,
@@ -339,24 +375,42 @@ abstract class _Notification implements Notification {
       _$_Notification.fromJson;
 
   @override
+
+  /// Unique identifier of the notification.
   String get cid;
   @override
-  @AtUriConverter()
+
+  /// The unique URI for the notification.
+  @atUriConverter
   AtUri get uri;
   @override
+
+  /// The actor causing the notification.
   Actor get author;
   @override
+
+  /// Specifies the reason for the notification.
   NotificationReason get reason;
   @override
-  @AtUriConverter()
+
+  /// Optionally, represents the subject of the reason for the notification.
+  @atUriConverter
   AtUri? get reasonSubject;
   @override
+
+  /// Indicates whether the notification has been read or not.
   bool get isRead;
   @override
+
+  /// Might include additional data related to the notification.
   Map<String, dynamic>? get record;
   @override
+
+  /// May include any labels attached to the notification.
   List<Label>? get labels;
   @override
+
+  /// Indicates the timestamp at which the notification was indexed.
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)

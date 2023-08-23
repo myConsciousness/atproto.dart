@@ -4,8 +4,10 @@
 
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:xrpc/xrpc.dart';
 
-import '../atproto.dart';
+// 🌎 Project imports:
+import '../api/find_did.dart' as api;
 import 'byte_indices.dart';
 import 'facetable.dart';
 
@@ -27,8 +29,14 @@ class Entity with _$Entity implements Facetable {
 
   /// Returns the facet representation of this entity as JSON.
   ///
-  /// Invalid handles are excluded from the results.
-  Future<Map<String, dynamic>> toFacet() async {
+  /// - [ignoreInvalidHandle]: If true, processing continues even if an invalid
+  ///                          handle is detected, and data from the invalid
+  ///                          handle is excluded from the result. If false, an
+  ///                          `InvalidRequestException` is thrown when an
+  ///                          invalid handle is detected.
+  Future<Map<String, dynamic>> toFacet({
+    bool ignoreInvalidHandle = true,
+  }) async {
     final facet = <String, dynamic>{
       'index': {
         'byteStart': indices.start,
@@ -40,17 +48,24 @@ class Entity with _$Entity implements Facetable {
     switch (type) {
       case EntityType.handle:
         try {
-          final did = await atproto.identities.findDID(
+          final did = await api.findDID(
             handle: value.substring(1),
           );
 
           facet['features'].add({
             '\$type': 'app.bsky.richtext.facet#mention',
-            'did': did.data.did,
+            'did': did.data['did'],
           });
-        } on Exception {
+        } on InvalidRequestException {
           //! Invalid handle.
-          return {};
+          if (ignoreInvalidHandle) {
+            return {};
+          }
+
+          rethrow;
+        } on Exception {
+          //! Network error or server error.
+          rethrow;
         }
 
         break;

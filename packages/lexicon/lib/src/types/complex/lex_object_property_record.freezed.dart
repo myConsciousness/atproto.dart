@@ -178,7 +178,7 @@ abstract class _LexObjectPropertyRecord implements LexObjectPropertyRecord {
   const factory _LexObjectPropertyRecord(
       {required final String key,
       @LexObjectPropertyConverter()
-          required final LexObjectProperty value}) = _$_LexObjectPropertyRecord;
+      required final LexObjectProperty value}) = _$_LexObjectPropertyRecord;
 
   factory _LexObjectPropertyRecord.fromJson(Map<String, dynamic> json) =
       _$_LexObjectPropertyRecord.fromJson;

@@ -90,6 +90,35 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "Uinelj",
+      "name": "Julien \"uj\" Abadji",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4410814?v=4",
+      "profile": "http://ujj.space",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "barineco",
+      "name": "maughtchiner",
+      "avatar_url": "https://avatars.githubusercontent.com/u/142575857?v=4",
+      "profile": "https://github.com/barineco",
+      "contributions": [
+        "ideas",
+        "content"
+      ]
+    },
+    {
+      "login": "igz0",
+      "name": "igz0",
+      "avatar_url": "https://avatars.githubusercontent.com/u/37741728?v=4",
+      "profile": "https://github.com/igz0",
+      "contributions": [
+        "ideas",
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 5,
@@ -98,5 +127,6 @@
   "repoType": "github",
   "repoHost": "https://github.com",
   "skipCi": true,
-  "commitConvention": "angular"
+  "commitConvention": "angular",
+  "commitType": "docs"
 }

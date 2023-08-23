@@ -2,10 +2,12 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
 import 'dart:convert';
-import 'dart:io';
 
+// 📦 Package imports:
 import 'package:http/http.dart' as http;
+import 'package:universal_io/io.dart';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 /// Returns the mocked [xrpc.GetClient]
@@ -20,6 +22,17 @@ xrpc.GetClient createMockedGetClient(
     );
 
 /// Returns the mocked [xrpc.GetClient]
+/// based on [json] and [statusCode].
+xrpc.GetClient createMockedGetClientFromJson(
+  final Map<String, dynamic> json, {
+  final int statusCode = 200,
+}) =>
+    createMockedGetClientFromBytes(
+      jsonEncode(json).codeUnits,
+      statusCode: statusCode,
+    );
+
+/// Returns the mocked [xrpc.GetClient]
 /// based on [bytes] and [statusCode].
 xrpc.GetClient createMockedGetClientFromBytes(
   final List<int> bytes, {
@@ -28,17 +41,16 @@ xrpc.GetClient createMockedGetClientFromBytes(
   mockedClient(
     Uri url, {
     Map<String, String>? headers,
-  }) async {
-    return http.Response.bytes(
-      bytes,
-      statusCode,
-      headers: {'content-type': 'application/json; charset=utf-8'},
-      request: http.Request(
-        'GET',
-        Uri.parse('https://bsky.social/xrpc/test.get'),
-      ),
-    );
-  }
+  }) async =>
+      http.Response.bytes(
+        bytes,
+        statusCode,
+        headers: {'content-type': 'application/json; charset=utf-8'},
+        request: http.Request(
+          'GET',
+          Uri.parse('https://bsky.social/xrpc/test.get'),
+        ),
+      );
 
   return mockedClient;
 }
@@ -48,23 +60,44 @@ xrpc.GetClient createMockedGetClientFromBytes(
 xrpc.PostClient createMockedPostClient(
   final String resourcePath, {
   final int statusCode = 200,
+}) =>
+    createMockedPostClientFromBytes(
+      File(resourcePath).readAsBytesSync(),
+      statusCode: statusCode,
+    );
+
+/// Returns the mocked [xrpc.PostClient]
+/// based on [json] and [statusCode].
+xrpc.PostClient createMockedPostClientFromJson(
+  final Map<String, dynamic> json, {
+  final int statusCode = 200,
+}) =>
+    createMockedPostClientFromBytes(
+      jsonEncode(json).codeUnits,
+      statusCode: statusCode,
+    );
+
+/// Returns the mocked [xrpc.PostClient]
+/// based on [bytes] and [statusCode].
+xrpc.PostClient createMockedPostClientFromBytes(
+  final List<int> bytes, {
+  final int statusCode = 200,
 }) {
   mockedClient(
     Uri url, {
     Map<String, String>? headers,
     Object? body,
     Encoding? encoding,
-  }) async {
-    return http.Response.bytes(
-      File(resourcePath).readAsBytesSync(),
-      statusCode,
-      headers: {'content-type': 'application/json; charset=utf-8'},
-      request: http.Request(
-        'POST',
-        Uri.parse('https://bsky.social/xrpc/test.post'),
-      ),
-    );
-  }
+  }) async =>
+      http.Response.bytes(
+        bytes,
+        statusCode,
+        headers: {'content-type': 'application/json; charset=utf-8'},
+        request: http.Request(
+          'POST',
+          Uri.parse('https://bsky.social/xrpc/test.post'),
+        ),
+      );
 
   return mockedClient;
 }

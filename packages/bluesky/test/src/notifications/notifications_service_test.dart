@@ -2,15 +2,16 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🌎 Project imports:
+// 📦 Package imports:
 import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_test/atproto_test.dart' as atp_test;
+import 'package:test/test.dart';
+
+// 🌎 Project imports:
 import 'package:bluesky/src/entities/count.dart';
 import 'package:bluesky/src/entities/notifications.dart';
 import 'package:bluesky/src/notifications/notifications_service.dart';
-// 📦 Package imports:
-import 'package:test/test.dart';
 
 void main() {
   group('.findNotifications', () {
@@ -35,6 +36,29 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<Notifications>());
+    });
+
+    test('as JSON', () async {
+      final notifications = NotificationsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/notifications/data/find_notifications.json',
+        ),
+      );
+
+      final response = await notifications.findNotificationsAsJson(
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {
@@ -103,6 +127,26 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<Count>());
+    });
+
+    test('as JSON', () async {
+      final notifications = NotificationsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/notifications/data/find_unread_count.json',
+        ),
+      );
+
+      final response = await notifications.findUnreadCountAsJson();
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {

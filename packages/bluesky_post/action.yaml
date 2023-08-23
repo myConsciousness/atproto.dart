@@ -8,6 +8,10 @@ inputs:
     description: File path of the media to be attached to the Post.
   media-alt:
     description: Alt Text to be assigned to uploaded Media.
+  langs:
+    description: A collection of well-formed BCP47 language tags in CSV format.
+  labels:
+    description: A collection of self labels in CSV format.
   identifier:
     description: >
       Handle name or email of the user who logs into Bluesky.

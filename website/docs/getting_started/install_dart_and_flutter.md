@@ -5,13 +5,13 @@ description: First step to use Dart and Flutter 🎯
 
 # Install Dart/Flutter
 
-**[atproto.dart](https://github.com/myConsciousness/atproto.dart)** is built in the **[Dart](https://dart.dev)**. The packages provided by **[atproto.dart](https://github.com/myConsciousness/atproto.dart)** can then be incorporated into [Flutter](https://flutter.dev) apps.
+**[atproto.dart](https://github.com/myConsciousness/atproto.dart)** is built in the **[Dart](https://dart.dev)**. The packages provided by **[atproto.dart](https://github.com/myConsciousness/atproto.dart)** can then be incorporated into **[Flutter](https://flutter.dev)** apps.
 
 So, to use **[atproto.dart](https://github.com/myConsciousness/atproto.dart)** packages, you need to have **[Dart](https://dart.dev)** and **[Flutter](https://flutter.dev)** installed on your machine anyway.
 
 ## What Is Dart/Flutter?
 
-Dart is **developed by Google** and is an **object-oriented language** with a syntax very **similar to C and Java**. Dart also has a lot of **modern syntax that is very similar to TypeScript**, due to the way it has been developed as AltJS. And **100% Null Safety** is now guaranteed with [Dart3](https://medium.com/p/53f065a10635).
+Dart is **developed by Google** and is an **object-oriented language** with a syntax very **similar to C and Java**. Dart also has a lot of **modern syntax that is very similar to TypeScript**, due to the way it has been developed as AltJS. And **100% Null Safety** is now guaranteed with **[Dart3](https://medium.com/p/53f065a10635)**.
 
 And Dart has recently begun to attract attention because of the release of the **Flutter** framework. Flutter is a **cross-platform framework** that uses Dart to write programs. With Flutter, you can develop apps that run on Android OS and iOS at once **by simply building a single code written in Dart**, and recently web and desktop apps are also supported.
 
@@ -23,7 +23,7 @@ By the way, this is **_Dash_**. This is the mascot for the Dart language and the
 
 ## Let's Install Dart/Flutter 🎯
 
-Dart and Flutter can be installed very easily using [Homebrew](https://formulae.brew.sh/cask/flutter).
+Dart and Flutter can be installed very easily using **[Homebrew](https://formulae.brew.sh/cask/flutter)**.
 
 Simply run the following command on the terminal to install the latest versions of Dart and Flutter on your machine.
 

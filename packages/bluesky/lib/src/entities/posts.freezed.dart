@@ -20,6 +20,7 @@ Posts _$PostsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Posts {
+  /// The list of [Post] instances.
   List<Post> get posts => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -96,7 +97,10 @@ class _$_Posts implements _Posts {
   factory _$_Posts.fromJson(Map<String, dynamic> json) =>
       _$$_PostsFromJson(json);
 
+  /// The list of [Post] instances.
   final List<Post> _posts;
+
+  /// The list of [Post] instances.
   @override
   List<Post> get posts {
     if (_posts is EqualUnmodifiableListView) return _posts;
@@ -142,6 +146,8 @@ abstract class _Posts implements Posts {
   factory _Posts.fromJson(Map<String, dynamic> json) = _$_Posts.fromJson;
 
   @override
+
+  /// The list of [Post] instances.
   List<Post> get posts;
   @override
   @JsonKey(ignore: true)

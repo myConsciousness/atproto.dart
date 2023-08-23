@@ -20,9 +20,12 @@ PostViewer _$PostViewerFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostViewer {
-  @AtUriConverter()
+  /// May contain the URI of the repost by the authenticated user.
+  @atUriConverter
   AtUri? get repost => throw _privateConstructorUsedError;
-  @AtUriConverter()
+
+  /// May contain the URI of the like by the authenticated user.
+  @atUriConverter
   AtUri? get like => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +40,7 @@ abstract class $PostViewerCopyWith<$Res> {
           PostViewer value, $Res Function(PostViewer) then) =
       _$PostViewerCopyWithImpl<$Res, PostViewer>;
   @useResult
-  $Res call({@AtUriConverter() AtUri? repost, @AtUriConverter() AtUri? like});
+  $Res call({@atUriConverter AtUri? repost, @atUriConverter AtUri? like});
 }
 
 /// @nodoc
@@ -77,7 +80,7 @@ abstract class _$$_PostViewerCopyWith<$Res>
       __$$_PostViewerCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@AtUriConverter() AtUri? repost, @AtUriConverter() AtUri? like});
+  $Res call({@atUriConverter AtUri? repost, @atUriConverter AtUri? like});
 }
 
 /// @nodoc
@@ -109,19 +112,22 @@ class __$$_PostViewerCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
-class _$_PostViewer implements _PostViewer {
-  const _$_PostViewer(
-      {@AtUriConverter() this.repost, @AtUriConverter() this.like});
+@jsonSerializable
+class _$_PostViewer extends _PostViewer {
+  const _$_PostViewer({@atUriConverter this.repost, @atUriConverter this.like})
+      : super._();
 
   factory _$_PostViewer.fromJson(Map<String, dynamic> json) =>
       _$$_PostViewerFromJson(json);
 
+  /// May contain the URI of the repost by the authenticated user.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri? repost;
+
+  /// May contain the URI of the like by the authenticated user.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri? like;
 
   @override
@@ -156,19 +162,24 @@ class _$_PostViewer implements _PostViewer {
   }
 }
 
-abstract class _PostViewer implements PostViewer {
+abstract class _PostViewer extends PostViewer {
   const factory _PostViewer(
-      {@AtUriConverter() final AtUri? repost,
-      @AtUriConverter() final AtUri? like}) = _$_PostViewer;
+      {@atUriConverter final AtUri? repost,
+      @atUriConverter final AtUri? like}) = _$_PostViewer;
+  const _PostViewer._() : super._();
 
   factory _PostViewer.fromJson(Map<String, dynamic> json) =
       _$_PostViewer.fromJson;
 
   @override
-  @AtUriConverter()
+
+  /// May contain the URI of the repost by the authenticated user.
+  @atUriConverter
   AtUri? get repost;
   @override
-  @AtUriConverter()
+
+  /// May contain the URI of the like by the authenticated user.
+  @atUriConverter
   AtUri? get like;
   @override
   @JsonKey(ignore: true)

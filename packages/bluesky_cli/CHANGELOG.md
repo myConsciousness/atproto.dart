@@ -1,8 +1,39 @@
 # Release Note
 
+## v0.3.2
+
+- Supported `actor-likes` command. ([#700](https://github.com/myConsciousness/atproto.dart/issues/700))
+
+## v0.3.1
+
+- Improved documents. ([#677](https://github.com/myConsciousness/atproto.dart/issues/677))
+- Supported `langs` and `labels` options for `post` command. ([#679](https://github.com/myConsciousness/atproto.dart/issues/679))
+- Added `posts` command. ([#679](https://github.com/myConsciousness/atproto.dart/issues/679))
+
+## v0.3.0
+
+- Drop support for null unsafe Dart, bump SDK constraint to '^3.0.0'. ([#599](https://github.com/myConsciousness/atproto.dart/issues/599))
+
+## v0.2.6
+
+- Upgraded `xrpc` and `bluesky_text`. ([#636](https://github.com/myConsciousness/atproto.dart/issues/636))
+
+## v0.2.5
+
+- Upgraded `bluesky_text`. ([#574](https://github.com/myConsciousness/atproto.dart/issues/574))
+
+## v0.2.4
+
+- Upgraded `xrpc` and `bluesky_text`. ([#563](https://github.com/myConsciousness/atproto.dart/issues/563))
+
+## v0.2.3
+
+- Upgraded `bluesky_text`. ([#260](https://github.com/myConsciousness/atproto.dart/issues/260))
+
 ## v0.2.2
 
 - Supported `popular-feed-generators` command. ([#458](https://github.com/myConsciousness/atproto.dart/issues/458))
+- Added `homepage` in `pubspec.yaml`. ([#549](https://github.com/myConsciousness/atproto.dart/issues/549))
 
 ## v0.2.1
 

@@ -36,7 +36,7 @@ import styles from './styles.module.css';
 
 const TITLE = translate({message: 'Showcase using atproto.dart'});
 const DESCRIPTION = translate({
-  message: 'List of works people are building with atproto.dart',
+  message: 'List of works people are building with atproto.dart, sorted alphabetically by app name',
 });
 const SUBMIT_URL = 'https://github.com/myConsciousness/atproto.dart/blob/a17972b592c59e1391a80cb354f6658ce28e1373/website/src/data/users.tsx#L53';
 

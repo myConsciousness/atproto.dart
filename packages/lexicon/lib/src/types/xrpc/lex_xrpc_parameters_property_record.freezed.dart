@@ -188,7 +188,7 @@ abstract class _LexXrpcParametersPropertyRecord
   const factory _LexXrpcParametersPropertyRecord(
           {required final String key,
           @LexXrpcParametersPropertyConverter()
-              required final LexXrpcParametersProperty value}) =
+          required final LexXrpcParametersProperty value}) =
       _$_LexXrpcParametersPropertyRecord;
 
   factory _LexXrpcParametersPropertyRecord.fromJson(Map<String, dynamic> json) =

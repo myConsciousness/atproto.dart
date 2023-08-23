@@ -20,20 +20,43 @@ Post _$PostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Post {
-  @JsonKey(name: '\$type')
+  /// The type of the post.
+  @typeKey
   String get type => throw _privateConstructorUsedError;
+
+  /// The record containing the content of the post.
   PostRecord get record => throw _privateConstructorUsedError;
+
+  /// The author who created the post.
   Actor get author => throw _privateConstructorUsedError;
-  @AtUriConverter()
+
+  /// The URI of the post.
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
+
+  /// The unique identifier of the post.
   String get cid => throw _privateConstructorUsedError;
-  @EmbedViewConverter()
+
+  /// The embeddable content associated with the post, if any.
+  @embedViewConverter
   EmbedView? get embed => throw _privateConstructorUsedError;
+
+  /// The count of replies to the post.
   int get replyCount => throw _privateConstructorUsedError;
+
+  /// The count of reposts of the post.
   int get repostCount => throw _privateConstructorUsedError;
+
+  /// The count of likes of the post.
   int get likeCount => throw _privateConstructorUsedError;
+
+  /// The interaction details of the viewer with the post.
   PostViewer get viewer => throw _privateConstructorUsedError;
+
+  /// The labels associated with the post, if any.
   List<Label>? get labels => throw _privateConstructorUsedError;
+
+  /// The date and time the post was indexed.
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -47,12 +70,12 @@ abstract class $PostCopyWith<$Res> {
       _$PostCopyWithImpl<$Res, Post>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       PostRecord record,
       Actor author,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       String cid,
-      @EmbedViewConverter() EmbedView? embed,
+      @embedViewConverter EmbedView? embed,
       int replyCount,
       int repostCount,
       int likeCount,
@@ -188,12 +211,12 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       PostRecord record,
       Actor author,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       String cid,
-      @EmbedViewConverter() EmbedView? embed,
+      @embedViewConverter EmbedView? embed,
       int replyCount,
       int repostCount,
       int likeCount,
@@ -288,15 +311,15 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_Post extends _Post {
   const _$_Post(
-      {@JsonKey(name: '\$type') this.type = 'app.bsky.feed.defs#postView',
+      {@typeKey this.type = appBskyFeedDefsPostView,
       required this.record,
       required this.author,
-      @AtUriConverter() required this.uri,
+      @atUriConverter required this.uri,
       required this.cid,
-      @EmbedViewConverter() this.embed,
+      @embedViewConverter this.embed,
       required this.replyCount,
       required this.repostCount,
       required this.likeCount,
@@ -308,30 +331,53 @@ class _$_Post extends _Post {
 
   factory _$_Post.fromJson(Map<String, dynamic> json) => _$$_PostFromJson(json);
 
+  /// The type of the post.
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
+
+  /// The record containing the content of the post.
   @override
   final PostRecord record;
+
+  /// The author who created the post.
   @override
   final Actor author;
+
+  /// The URI of the post.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
+
+  /// The unique identifier of the post.
   @override
   final String cid;
+
+  /// The embeddable content associated with the post, if any.
   @override
-  @EmbedViewConverter()
+  @embedViewConverter
   final EmbedView? embed;
+
+  /// The count of replies to the post.
   @override
   final int replyCount;
+
+  /// The count of reposts of the post.
   @override
   final int repostCount;
+
+  /// The count of likes of the post.
   @override
   final int likeCount;
+
+  /// The interaction details of the viewer with the post.
   @override
   final PostViewer viewer;
+
+  /// The labels associated with the post, if any.
   final List<Label>? _labels;
+
+  /// The labels associated with the post, if any.
   @override
   List<Label>? get labels {
     final value = _labels;
@@ -341,6 +387,7 @@ class _$_Post extends _Post {
     return EqualUnmodifiableListView(value);
   }
 
+  /// The date and time the post was indexed.
   @override
   final DateTime indexedAt;
 
@@ -405,12 +452,12 @@ class _$_Post extends _Post {
 
 abstract class _Post extends Post {
   const factory _Post(
-      {@JsonKey(name: '\$type') final String type,
+      {@typeKey final String type,
       required final PostRecord record,
       required final Actor author,
-      @AtUriConverter() required final AtUri uri,
+      @atUriConverter required final AtUri uri,
       required final String cid,
-      @EmbedViewConverter() final EmbedView? embed,
+      @embedViewConverter final EmbedView? embed,
       required final int replyCount,
       required final int repostCount,
       required final int likeCount,
@@ -422,31 +469,55 @@ abstract class _Post extends Post {
   factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// The type of the post.
+  @typeKey
   String get type;
   @override
+
+  /// The record containing the content of the post.
   PostRecord get record;
   @override
+
+  /// The author who created the post.
   Actor get author;
   @override
-  @AtUriConverter()
+
+  /// The URI of the post.
+  @atUriConverter
   AtUri get uri;
   @override
+
+  /// The unique identifier of the post.
   String get cid;
   @override
-  @EmbedViewConverter()
+
+  /// The embeddable content associated with the post, if any.
+  @embedViewConverter
   EmbedView? get embed;
   @override
+
+  /// The count of replies to the post.
   int get replyCount;
   @override
+
+  /// The count of reposts of the post.
   int get repostCount;
   @override
+
+  /// The count of likes of the post.
   int get likeCount;
   @override
+
+  /// The interaction details of the viewer with the post.
   PostViewer get viewer;
   @override
+
+  /// The labels associated with the post, if any.
   List<Label>? get labels;
   @override
+
+  /// The date and time the post was indexed.
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)

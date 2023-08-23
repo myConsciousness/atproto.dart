@@ -11,7 +11,7 @@
 /// - path      = [ "/" coll-nsid [ "/" record-id ] ]
 /// - coll-nsid = nsid
 /// - record-id = 1*pchar
-class AtUri {
+final class AtUri {
   /// Returns the new instance of [AtUri] based on raw [uri].
   factory AtUri.parse(final String uri) => AtUri._(uri);
 

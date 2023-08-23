@@ -20,20 +20,46 @@ FeedGeneratorView _$FeedGeneratorViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeedGeneratorView {
-  @JsonKey(name: '\$type')
+  /// Represents the type of the feed generator view. Defaults to
+  /// [appBskyFeedDefsGeneratorView].
+  @typeKey
   String get type => throw _privateConstructorUsedError;
-  @AtUriConverter()
+
+  /// Represents the URI of the feed generator.
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
+
+  /// Represents the CID of the feed generator.
   String get cid => throw _privateConstructorUsedError;
+
+  /// Represents the decentralized identifier (DID) of the feed generator.
+  /// Optional.
   String? get did => throw _privateConstructorUsedError;
+
+  /// Represents the actor who created the feed generator.
   @JsonKey(name: 'creator')
   Actor get createdBy => throw _privateConstructorUsedError;
+
+  /// Represents the display name of the feed generator.
   String get displayName => throw _privateConstructorUsedError;
+
+  /// Represents the description of the feed generator. Optional.
   String? get description => throw _privateConstructorUsedError;
+
+  /// Represents the list of description facets of the feed generator.
+  /// Optional.
   List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
+
+  /// Represents the avatar of the feed generator. Optional.
   String? get avatar => throw _privateConstructorUsedError;
+
+  /// Represents the count of likes for the feed generator.
   int get likeCount => throw _privateConstructorUsedError;
+
+  /// Represents the viewer of the feed generator.
   FeedGeneratorViewer get viewer => throw _privateConstructorUsedError;
+
+  /// Represents the time at which the feed generator was indexed.
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -49,8 +75,8 @@ abstract class $FeedGeneratorViewCopyWith<$Res> {
       _$FeedGeneratorViewCopyWithImpl<$Res, FeedGeneratorView>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
-      @AtUriConverter() AtUri uri,
+      {@typeKey String type,
+      @atUriConverter AtUri uri,
       String cid,
       String? did,
       @JsonKey(name: 'creator') Actor createdBy,
@@ -170,8 +196,8 @@ abstract class _$$_FeedGeneratorViewCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
-      @AtUriConverter() AtUri uri,
+      {@typeKey String type,
+      @atUriConverter AtUri uri,
       String cid,
       String? did,
       @JsonKey(name: 'creator') Actor createdBy,
@@ -268,11 +294,11 @@ class __$$_FeedGeneratorViewCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_FeedGeneratorView implements _FeedGeneratorView {
   const _$_FeedGeneratorView(
-      {@JsonKey(name: '\$type') this.type = 'app.bsky.feed.defs#generatorView',
-      @AtUriConverter() required this.uri,
+      {@typeKey this.type = appBskyFeedDefsGeneratorView,
+      @atUriConverter required this.uri,
       required this.cid,
       this.did,
       @JsonKey(name: 'creator') required this.createdBy,
@@ -288,24 +314,45 @@ class _$_FeedGeneratorView implements _FeedGeneratorView {
   factory _$_FeedGeneratorView.fromJson(Map<String, dynamic> json) =>
       _$$_FeedGeneratorViewFromJson(json);
 
+  /// Represents the type of the feed generator view. Defaults to
+  /// [appBskyFeedDefsGeneratorView].
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
+
+  /// Represents the URI of the feed generator.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
+
+  /// Represents the CID of the feed generator.
   @override
   final String cid;
+
+  /// Represents the decentralized identifier (DID) of the feed generator.
+  /// Optional.
   @override
   final String? did;
+
+  /// Represents the actor who created the feed generator.
   @override
   @JsonKey(name: 'creator')
   final Actor createdBy;
+
+  /// Represents the display name of the feed generator.
   @override
   final String displayName;
+
+  /// Represents the description of the feed generator. Optional.
   @override
   final String? description;
+
+  /// Represents the list of description facets of the feed generator.
+  /// Optional.
   final List<Facet>? _descriptionFacets;
+
+  /// Represents the list of description facets of the feed generator.
+  /// Optional.
   @override
   List<Facet>? get descriptionFacets {
     final value = _descriptionFacets;
@@ -316,12 +363,19 @@ class _$_FeedGeneratorView implements _FeedGeneratorView {
     return EqualUnmodifiableListView(value);
   }
 
+  /// Represents the avatar of the feed generator. Optional.
   @override
   final String? avatar;
+
+  /// Represents the count of likes for the feed generator.
   @override
   final int likeCount;
+
+  /// Represents the viewer of the feed generator.
   @override
   final FeedGeneratorViewer viewer;
+
+  /// Represents the time at which the feed generator was indexed.
   @override
   final DateTime indexedAt;
 
@@ -389,8 +443,8 @@ class _$_FeedGeneratorView implements _FeedGeneratorView {
 
 abstract class _FeedGeneratorView implements FeedGeneratorView {
   const factory _FeedGeneratorView(
-      {@JsonKey(name: '\$type') final String type,
-      @AtUriConverter() required final AtUri uri,
+      {@typeKey final String type,
+      @atUriConverter required final AtUri uri,
       required final String cid,
       final String? did,
       @JsonKey(name: 'creator') required final Actor createdBy,
@@ -406,31 +460,58 @@ abstract class _FeedGeneratorView implements FeedGeneratorView {
       _$_FeedGeneratorView.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// Represents the type of the feed generator view. Defaults to
+  /// [appBskyFeedDefsGeneratorView].
+  @typeKey
   String get type;
   @override
-  @AtUriConverter()
+
+  /// Represents the URI of the feed generator.
+  @atUriConverter
   AtUri get uri;
   @override
+
+  /// Represents the CID of the feed generator.
   String get cid;
   @override
+
+  /// Represents the decentralized identifier (DID) of the feed generator.
+  /// Optional.
   String? get did;
   @override
+
+  /// Represents the actor who created the feed generator.
   @JsonKey(name: 'creator')
   Actor get createdBy;
   @override
+
+  /// Represents the display name of the feed generator.
   String get displayName;
   @override
+
+  /// Represents the description of the feed generator. Optional.
   String? get description;
   @override
+
+  /// Represents the list of description facets of the feed generator.
+  /// Optional.
   List<Facet>? get descriptionFacets;
   @override
+
+  /// Represents the avatar of the feed generator. Optional.
   String? get avatar;
   @override
+
+  /// Represents the count of likes for the feed generator.
   int get likeCount;
   @override
+
+  /// Represents the viewer of the feed generator.
   FeedGeneratorViewer get viewer;
   @override
+
+  /// Represents the time at which the feed generator was indexed.
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)

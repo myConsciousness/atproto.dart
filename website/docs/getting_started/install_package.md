@@ -33,7 +33,7 @@ flutter pub get
 When installing packages using the Pub command, packages from **[atproto.dart](https://github.com/myConsciousness/atproto.dart)** can be installed in the same way whether you use the `dart` or `flutter` command. However, it is recommended that you use the `flutter` command, which includes [Flutter](https://flutter.dev)-specific processing, when installing packages with the [Flutter](https://flutter.dev) app.
 :::
 
-Then, in your [Dart](https://dart.dev) or [Flutter](https://flutter.dev) app's `pubspec.yaml`, **[bluesky](https://pub.dev/packages/bluesky)** will be added to the dependency as follows.
+Then, in your **[Dart](https://dart.dev)** or **[Flutter](https://flutter.dev)** app's `pubspec.yaml`, **[bluesky](https://pub.dev/packages/bluesky)** will be added to the dependency as follows.
 
 ```yaml title="pubspec.yaml"
 name: bluesky_app
@@ -51,4 +51,4 @@ dev_dependencies:
   test: ^1.21.0
 ```
 
-You can now use the **[bluesky](https://pub.dev/packages/bluesky)** package in your [Dart](https://dart.dev) or [Flutter](https://flutter.dev) app.
+You can now use the **[bluesky](https://pub.dev/packages/bluesky)** package in your **[Dart](https://dart.dev)** or **[Flutter](https://flutter.dev)** app.
