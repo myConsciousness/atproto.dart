@@ -1,5 +1,5 @@
 /**
- * Copyright (c) Facebook, Inc. and its affiliates.
+ * Copyright (c) Shinya Kato.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,18 +11,14 @@ import {translate} from '@docusaurus/Translate';
 import {sortBy} from '@site/src/utils/jsUtils';
 
 /*
- * ADD YOUR SITE TO THE atproto.dart SHOWCASE
+ * ADD YOUR SITE TO THE atproto.dart SHOWCASE!
  */
-
-// LIST OF AVAILABLE TAGS
-// Available tags to assign to a showcase site
-// Please choose all tags that you think might apply.
-// We'll remove inappropriate tags, but it's less likely that we add tags.
 export type TagType =
-  // For open-source sites, a link to the source code is required.
-  // The source should be the *website's* source, not the project's source!
+  //! For open-source sites, a link to the source code is required.
+  //! This is automatically assigned when you enter a value for `source` field.
   | 'opensource'
-  // Platform
+
+  //! Platforms.
   | 'web'
   | 'mobile'
   | 'console'
@@ -38,7 +34,7 @@ const Users: User[] = [
     preview: require('./showcase/SkyBridge.png'),
     website: 'https://github.com/videah/SkyBridge',
     source: 'https://github.com/videah/SkyBridge',
-    tags: ['opensource', 'console'],
+    tags: ['console'],
   },
   {
     title: 'SkyFeed',
@@ -47,7 +43,7 @@ const Users: User[] = [
     preview: require('./showcase/SkyFeed.png'),
     website: 'https://skyfeed.app',
     source: 'https://github.com/skyfeed-dev',
-    tags: ['opensource', 'web'],
+    tags: ['web'],
   },
   {
     title: 'Shy Party BOT',
@@ -56,7 +52,7 @@ const Users: User[] = [
     preview: require('./showcase/ShyParty.png'),
     website: 'https://github.com/Shy/party',
     source: 'https://github.com/Shy/party',
-    tags: ['opensource','bot'],
+    tags: ['bot'],
   },
   {
     title: 'Penumbra PR BOT',
@@ -65,7 +61,7 @@ const Users: User[] = [
     preview: require('./showcase/Penumbra.png'),
     website: 'https://github.com/penumbra-zone/penumbra',
     source: 'https://github.com/penumbra-zone/penumbra',
-    tags: ['opensource','bot'],
+    tags: ['bot'],
   },
   {
     title: 'APOD BOT',
@@ -74,7 +70,7 @@ const Users: User[] = [
     preview: require('./showcase/APOD_BOT.png'),
     website: 'https://bsky.app/profile/apod.shinyakato.dev',
     source: 'https://github.com/myConsciousness/bluesky-apod-bot',
-    tags: ['opensource', 'bot'],
+    tags: ['bot'],
   },
   {
     title: 'Starry Night',
@@ -100,21 +96,16 @@ const Users: User[] = [
     description: 'This tool allows you to delete any post in bulk. This application is a fusion of Python and bluesky_cli.',
     preview: require('./showcase/SkyPurge.png'),
     website: 'https://colab.research.google.com/drive/1XI-kQNAf5udLCWTI3qtIHEAN7wjYJOz-?usp=drive_link',
-    source: null,
+    source: 'https://colab.research.google.com/drive/1XI-kQNAf5udLCWTI3qtIHEAN7wjYJOz-?usp=drive_link',
     tags: ['console'],
   },
-
-  /*
-  Pro Tip: add your site in alphabetical order.
-  Appending your site here (at the end) is more likely to produce Git conflicts.
-   */
 ];
 
 export type User = {
   title: string;
   author: string;
   description: string;
-  preview: string | null; // null = use our serverless screenshot service
+  preview: string | null;
   website: string;
   source: string | null;
   tags: TagType[];
@@ -174,13 +165,15 @@ export const Tags: {[type in TagType]: Tag} = {
 };
 
 export const TagList = Object.keys(Tags) as TagType[];
-function sortUsers() {
-  let result = Users;
-  // Sort by site name
-  result = sortBy(result, (user) => user.title.toLowerCase());
-  // Sort by favorite tag, favorites first
-  result = sortBy(result, (user) => !user.tags.includes('favorite'));
-  return result;
+
+function getUsers() {
+  for (const user of Users) {
+    if (user.source != null) {
+      user.tags.push('opensource');
+    }
+  }
+
+  return sortBy(Users, (user) => user.title.toLowerCase());
 }
 
-export const sortedUsers = sortUsers();
+export const sortedUsers = getUsers();
