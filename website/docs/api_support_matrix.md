@@ -123,6 +123,7 @@ See more details about **[bluesky](https://pub.dev/packages/bluesky)** in **[Pac
 | [GET app.bsky.feed.getFeed](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeed.json)                             | [findCustomFeed](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findCustomFeed.html)       |       ✅       |     ✅      |
 | [GET app.bsky.feed.getFeedSkeleton](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedSkeleton.json)             | [findFeedSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findFeedSkeleton.html)   |       ✅       |     ✅      |
 | [GET app.bsky.feed.describeFeedGenerator](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/describeFeedGenerator.json) | [findGeneratorInfo](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findGeneratorInfo.html) |       ✅       |     ❌      |
+| [GET app.bsky.feed.getActorLikes](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorLikes.json)                 | [findActorLikes](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findActorLikes.html)       |       ✅       |     ✅      |
 
 ### [Notifications Service](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService-class.html)
 
@@ -188,6 +189,7 @@ Global options:
 
 Available commands:
   actor-feeds               Show the selected feeds of specific actor.
+  actor-likes               Show the liked feeds of specific actor.
   actors-typeahead          Show the typeahead for actors.
   add-list-item             Add an item to list.
   block                     Block an user.
