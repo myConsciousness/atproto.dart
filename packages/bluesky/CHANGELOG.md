@@ -1,5 +1,13 @@
 # Release Note
 
+## v0.8.4
+
+- Supported `app.bsky.feed.getActorLikes` on `FeedsService`. ([#700](https://github.com/myConsciousness/atproto.dart/issues/700))
+  - `findActorLikes`
+  - `findActorLikesAsJson`
+  - `paginateActorLikes`
+  - `paginateActorLikesAsJson`
+
 ## v0.8.3
 
 - Moved `Session` object and `createSession` function to `atproto_core`. And exposed `refreshSession` as a function. Also deprecated `ServersService.refreshSession` method. ([#686](https://github.com/myConsciousness/atproto.dart/issues/686))

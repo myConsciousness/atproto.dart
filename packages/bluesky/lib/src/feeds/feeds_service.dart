@@ -1197,6 +1197,103 @@ sealed class FeedsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/describeFeedGenerator.json
   Future<core.XRPCResponse<Map<String, dynamic>>> findGeneratorInfoAsJson();
+
+  /// A view of the posts liked by an actor.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getActorLikes
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorLikes.json
+  Future<core.XRPCResponse<Feed>> findActorLikes({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// A view of the posts liked by an actor as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getActorLikes
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorLikes.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findActorLikesAsJson({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a pagination for a view of the posts liked by an actor.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getActorLikes
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorLikes.json
+  core.Pagination<Feed> paginateActorLikes({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a pagination for a view of the posts liked by an actor
+  /// as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getActorLikes
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorLikes.json
+  core.Pagination<Map<String, dynamic>> paginateActorLikesAsJson({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
 }
 
 final class _FeedsService extends BlueskyBaseService implements FeedsService {
@@ -1892,6 +1989,56 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
   Future<core.XRPCResponse<Map<String, dynamic>>>
       findGeneratorInfoAsJson() async => await _findGeneratorInfo();
 
+  @override
+  Future<core.XRPCResponse<Feed>> findActorLikes({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findActorLikes(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+        to: Feed.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findActorLikesAsJson({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findActorLikes(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  core.Pagination<Feed> paginateActorLikes({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateActorLikes(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+        to: Feed.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateActorLikesAsJson({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateActorLikes(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+      );
+
   Future<core.XRPCResponse<T>> _findTimeline<T>({
     required String? algorithm,
     required int? limit,
@@ -2188,6 +2335,38 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
         to: to,
       );
 
+  Future<core.XRPCResponse<T>> _findActorLikes<T>({
+    required String actor,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getActorLikes',
+        parameters: _buildGetActorLikes(
+          actor: actor,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateActorLikes<T>({
+    required String actor,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getActorLikes',
+        parameters: _buildGetActorLikes(
+          actor: actor,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
   Map<String, dynamic> _buildGetTimelineParams({
     required String? algorithm,
     required int? limit,
@@ -2267,6 +2446,17 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
       {
         'uri': uri,
         'cid': cid,
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildGetActorLikes({
+    required String actor,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'actor': actor,
         'limit': limit,
         'cursor': cursor,
       };
