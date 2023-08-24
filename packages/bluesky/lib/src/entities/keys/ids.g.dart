@@ -301,6 +301,9 @@ const appBskyNotificationListNotifications =
 const appBskyNotificationListNotificationsNotification =
     'app.bsky.notification.listNotifications#notification';
 
+/// `app.bsky.notification.registerPush`
+const appBskyNotificationRegisterPush = 'app.bsky.notification.registerPush';
+
 /// `app.bsky.notification.updateSeen`
 const appBskyNotificationUpdateSeen = 'app.bsky.notification.updateSeen';
 
