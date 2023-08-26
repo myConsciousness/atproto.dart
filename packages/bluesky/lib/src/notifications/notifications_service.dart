@@ -166,6 +166,32 @@ sealed class NotificationsService {
   Future<core.XRPCResponse<core.EmptyData>> updateNotificationsAsRead({
     DateTime? seenAt,
   });
+
+  /// Register for push notifications with a service.
+  ///
+  /// ## Parameters
+  ///
+  /// - [serviceDid]: The DID for a service to be registered.
+  ///
+  /// - [token]: Authentication token for push notifications.
+  ///
+  /// - [platform]: A platform of an application.
+  ///
+  /// - [appId]: The ID of an application.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.notification.registerPush
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/registerPush.json
+  Future<core.XRPCResponse<core.EmptyData>> createPushRegistration({
+    required String serviceDid,
+    required String token,
+    required core.Platform platform,
+    required String appId,
+  });
 }
 
 final class _NotificationsService extends BlueskyBaseService
@@ -238,6 +264,23 @@ final class _NotificationsService extends BlueskyBaseService
         'updateSeen',
         body: {
           'seenAt': toUtcIso8601String(seenAt),
+        },
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> createPushRegistration({
+    required String serviceDid,
+    required String token,
+    required core.Platform platform,
+    required String appId,
+  }) async =>
+      await super.post(
+        'registerPush',
+        body: {
+          'serviceDid': serviceDid,
+          'token': token,
+          'platform': platform.value,
+          'appId': appId,
         },
       );
 

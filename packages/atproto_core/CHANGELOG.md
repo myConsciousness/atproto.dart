@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.3
+
+- Added `Platform` enum. ([#709](https://github.com/myConsciousness/atproto.dart/issues/709))
+
 ## v0.5.2
 
 - Moved `Session` object and `createSession` function from `atproto`. And exposed `refreshSession` as a function. ([#686](https://github.com/myConsciousness/atproto.dart/issues/686))
