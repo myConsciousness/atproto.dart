@@ -265,7 +265,7 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedPostClient: atp_test.createMockedPostClient(
-          'test/src/notifications/data/createPushRegistration.json',
+          'test/src/notifications/data/create_push_registration.json',
         ),
       );
 
