@@ -78,6 +78,7 @@ export 'package:atproto_core/atproto_core.dart'
         HttpMethod,
         HttpStatus,
         Serializable,
+        Platform,
         NSID,
         AtUri,
         CID,

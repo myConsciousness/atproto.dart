@@ -253,4 +253,81 @@ void main() {
       );
     });
   });
+
+  group('.createPushRegistration', () {
+    test('normal case', () async {
+      final notifications = NotificationsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/notifications/data/create_push_registration.json',
+        ),
+      );
+
+      final response = await notifications.createPushRegistration(
+        serviceDid: 'xxxxx',
+        token: 'xxxxxx',
+        platform: Platform.web,
+        appId: 'app-xxxxxx',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<EmptyData>());
+    });
+
+    test('when unauthorized', () async {
+      final notifications = NotificationsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await notifications.createPushRegistration(
+          serviceDid: 'xxxxx',
+          token: 'xxxxxx',
+          platform: Platform.web,
+          appId: 'app-xxxxxx',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final notifications = NotificationsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await notifications.createPushRegistration(
+          serviceDid: 'xxxxx',
+          token: 'xxxxxx',
+          platform: Platform.web,
+          appId: 'app-xxxxxx',
+        ),
+      );
+    });
+  });
 }

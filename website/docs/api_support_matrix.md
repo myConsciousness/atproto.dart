@@ -132,6 +132,7 @@ See more details about **[bluesky](https://pub.dev/packages/bluesky)** in **[Pac
 | [GET app.bsky.notification.listNotifications](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/listNotifications.json) | [findNotifications](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/findNotifications.html)                 |       ✅       |     ✅      |
 | [GET app.bsky.notification.getUnreadCount](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/getUnreadCount.json)       | [findUnreadCount](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/findUnreadCount.html)                     |       ✅       |     ❌      |
 | [POST app.bsky.notification.updateSeen](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/updateSeen.json)              | [updateNotificationsAsRead](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/updateNotificationsAsRead.html) |       ✅       |     ❌      |
+| [POST app.bsky.notification.registerPush](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/registerPush.json)          | [createPushRegistration](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService/createPushRegistration.html)       |       ✅       |     ❌      |
 
 ### [Graphs Service](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService-class.html)
 
