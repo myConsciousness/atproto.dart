@@ -215,6 +215,11 @@ const config = {
         disableSwitch: true,
         respectPrefersColorScheme: false,
       },
+      algolia: {
+        appId: "9DNFZTM6K6",
+        apiKey: "3bdac558da27b2f2f797bb3e5f3dc6a2",
+        indexName: "atprotodart.com",
+      },
     }),
   markdown: {
     mermaid: true,
