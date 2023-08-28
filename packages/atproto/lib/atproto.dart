@@ -98,4 +98,5 @@ export 'package:atproto_core/atproto_core.dart'
         Session,
         $SessionCopyWith,
         createSession,
-        refreshSession;
+        refreshSession,
+        isValidAppPassword;

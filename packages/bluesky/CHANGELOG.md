@@ -3,6 +3,7 @@
 ## v0.8.5
 
 - Supported `app.bsky.notification.registerPush` as `createPushRegistration` on `NotificationsService`. ([#709](https://github.com/myConsciousness/atproto.dart/issues/709))
+- Added `isValidAppPassword` function. ([#713](https://github.com/myConsciousness/atproto.dart/issues/713))
 
 ## v0.8.4
 
