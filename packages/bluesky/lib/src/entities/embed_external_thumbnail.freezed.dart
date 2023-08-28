@@ -21,10 +21,18 @@ EmbedExternalThumbnail _$EmbedExternalThumbnailFromJson(
 
 /// @nodoc
 mixin _$EmbedExternalThumbnail {
+  /// The Uniform Resource Identifier (URI) of the external resource.
   String get uri => throw _privateConstructorUsedError;
+
+  /// The title of the external resource.
   String get title => throw _privateConstructorUsedError;
+
+  /// The description of the external resource.
   String get description => throw _privateConstructorUsedError;
-  @BlobConverter()
+
+  /// The thumbnail of the external resource, represented as a `Blob`
+  /// instance.
+  @blobConverter
   @JsonKey(name: 'thumb')
   Blob? get blob => throw _privateConstructorUsedError;
 
@@ -44,7 +52,7 @@ abstract class $EmbedExternalThumbnailCopyWith<$Res> {
       {String uri,
       String title,
       String description,
-      @BlobConverter() @JsonKey(name: 'thumb') Blob? blob});
+      @blobConverter @JsonKey(name: 'thumb') Blob? blob});
 
   $BlobCopyWith<$Res>? get blob;
 }
@@ -113,7 +121,7 @@ abstract class _$$_EmbedExternalThumbnailCopyWith<$Res>
       {String uri,
       String title,
       String description,
-      @BlobConverter() @JsonKey(name: 'thumb') Blob? blob});
+      @blobConverter @JsonKey(name: 'thumb') Blob? blob});
 
   @override
   $BlobCopyWith<$Res>? get blob;
@@ -159,25 +167,33 @@ class __$$_EmbedExternalThumbnailCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_EmbedExternalThumbnail implements _EmbedExternalThumbnail {
   const _$_EmbedExternalThumbnail(
       {required this.uri,
       required this.title,
       required this.description,
-      @BlobConverter() @JsonKey(name: 'thumb') this.blob});
+      @blobConverter @JsonKey(name: 'thumb') this.blob});
 
   factory _$_EmbedExternalThumbnail.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedExternalThumbnailFromJson(json);
 
+  /// The Uniform Resource Identifier (URI) of the external resource.
   @override
   final String uri;
+
+  /// The title of the external resource.
   @override
   final String title;
+
+  /// The description of the external resource.
   @override
   final String description;
+
+  /// The thumbnail of the external resource, represented as a `Blob`
+  /// instance.
   @override
-  @BlobConverter()
+  @blobConverter
   @JsonKey(name: 'thumb')
   final Blob? blob;
 
@@ -222,20 +238,29 @@ abstract class _EmbedExternalThumbnail implements EmbedExternalThumbnail {
           {required final String uri,
           required final String title,
           required final String description,
-          @BlobConverter() @JsonKey(name: 'thumb') final Blob? blob}) =
+          @blobConverter @JsonKey(name: 'thumb') final Blob? blob}) =
       _$_EmbedExternalThumbnail;
 
   factory _EmbedExternalThumbnail.fromJson(Map<String, dynamic> json) =
       _$_EmbedExternalThumbnail.fromJson;
 
   @override
+
+  /// The Uniform Resource Identifier (URI) of the external resource.
   String get uri;
   @override
+
+  /// The title of the external resource.
   String get title;
   @override
+
+  /// The description of the external resource.
   String get description;
   @override
-  @BlobConverter()
+
+  /// The thumbnail of the external resource, represented as a `Blob`
+  /// instance.
+  @blobConverter
   @JsonKey(name: 'thumb')
   Blob? get blob;
   @override

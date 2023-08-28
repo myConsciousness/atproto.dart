@@ -2,17 +2,18 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🌎 Project imports:
+// 📦 Package imports:
 import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
+// 🌎 Project imports:
 import 'actors/actors_service.dart';
 import 'feeds/feeds_service.dart';
 import 'graphs/graphs_service.dart';
 import 'notifications/notifications_service.dart';
 import 'unspecced/unspecced_service.dart';
 
-abstract class BlueskyService {
+sealed class BlueskyService {
   /// Returns the new instance of [BlueskyService].
   factory BlueskyService({
     required atp.ATProto atproto,
@@ -62,7 +63,7 @@ abstract class BlueskyService {
   atp.SyncService get sync;
 }
 
-class _BlueskyService implements BlueskyService {
+final class _BlueskyService implements BlueskyService {
   /// Returns the new instance of [_BlueskyService].
   _BlueskyService({
     required atp.ATProto atproto,

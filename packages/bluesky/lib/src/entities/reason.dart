@@ -12,13 +12,23 @@ import 'reason_repost.dart';
 
 part 'reason.freezed.dart';
 
+/// The [Reason] class is a wrapper for different types of reasons for an
+/// action such as reposting.
 @freezed
 class Reason with _$Reason {
+  /// This constructor is used when the reason for the action is reposting.
+  ///
+  /// It takes a [ReasonRepost] object which provides the context of the
+  /// repost action.
   factory Reason.repost({
     required ReasonRepost data,
-  }) = _Repost;
+  }) = UReasonRepost;
 
+  /// This constructor is used when the reason type is not supported or is not
+  /// expected.
+  ///
+  /// It includes the raw data map for unknown feature.
   factory Reason.unknown({
     required Map<String, dynamic> data,
-  }) = _Unknown;
+  }) = UReasonUnknown;
 }

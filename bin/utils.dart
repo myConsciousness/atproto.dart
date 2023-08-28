@@ -10,6 +10,15 @@ const packagesPath = './packages';
 /// The name of `pubspec.yaml`.
 const pubspecFileName = 'pubspec.yaml';
 
+/// The path to `lexicons` directory.
+const lexiconsPath = './lexicons';
+
+/// The collection of lexicons root.
+const lexiconsRoot = [
+  'com/atproto',
+  'app/bsky',
+];
+
 /// Returns the package names.
 final packageNames = Directory(packagesPath)
     .listSync()

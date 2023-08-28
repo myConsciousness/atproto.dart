@@ -20,7 +20,10 @@ Blocks _$BlocksFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Blocks {
+  /// The list of blocked actors.
   List<Actor> get blocks => throw _privateConstructorUsedError;
+
+  /// The pagination cursor.
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -102,7 +105,7 @@ class __$$_BlocksCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_Blocks implements _Blocks {
   const _$_Blocks({required final List<Actor> blocks, this.cursor})
       : _blocks = blocks;
@@ -110,7 +113,10 @@ class _$_Blocks implements _Blocks {
   factory _$_Blocks.fromJson(Map<String, dynamic> json) =>
       _$$_BlocksFromJson(json);
 
+  /// The list of blocked actors.
   final List<Actor> _blocks;
+
+  /// The list of blocked actors.
   @override
   List<Actor> get blocks {
     if (_blocks is EqualUnmodifiableListView) return _blocks;
@@ -118,6 +124,7 @@ class _$_Blocks implements _Blocks {
     return EqualUnmodifiableListView(_blocks);
   }
 
+  /// The pagination cursor.
   @override
   final String? cursor;
 
@@ -161,8 +168,12 @@ abstract class _Blocks implements Blocks {
   factory _Blocks.fromJson(Map<String, dynamic> json) = _$_Blocks.fromJson;
 
   @override
+
+  /// The list of blocked actors.
   List<Actor> get blocks;
   @override
+
+  /// The pagination cursor.
   String? get cursor;
   @override
   @JsonKey(ignore: true)

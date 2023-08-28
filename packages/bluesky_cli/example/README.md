@@ -27,6 +27,7 @@ Global options:
 
 Available commands:
   actor-feeds               Show the selected feeds of specific actor.
+  actor-likes               Show the liked feeds of specific actor.
   actors-typeahead          Show the typeahead for actors.
   add-list-item             Add an item to list.
   block                     Block an user.
@@ -55,6 +56,7 @@ Available commands:
   popular                   Show the popular contents.
   popular-feed-generators   Show the popular feed generators.
   post                      Post to Bluesky Social.
+  posts                     Show the posts.
   preferences               Show the private preferences.
   profile                   Show the profile of specific user.
   profiles                  Show the profiles of specific users.

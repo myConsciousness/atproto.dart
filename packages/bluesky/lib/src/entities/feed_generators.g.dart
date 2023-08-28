@@ -19,12 +19,23 @@ _$_FeedGenerators _$$_FeedGeneratorsFromJson(Map json) => $checkedCreate(
                   .map((e) => FeedGeneratorView.fromJson(
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
+          cursor: $checkedConvert('cursor', (v) => v as String?),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$_FeedGeneratorsToJson(_$_FeedGenerators instance) =>
-    <String, dynamic>{
-      'feeds': instance.feeds.map((e) => e.toJson()).toList(),
-    };
+Map<String, dynamic> _$$_FeedGeneratorsToJson(_$_FeedGenerators instance) {
+  final val = <String, dynamic>{
+    'feeds': instance.feeds.map((e) => e.toJson()).toList(),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('cursor', instance.cursor);
+  return val;
+}

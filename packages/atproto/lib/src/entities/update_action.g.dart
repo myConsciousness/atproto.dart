@@ -13,10 +13,10 @@ _$_UpdateAction _$$_UpdateActionFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_UpdateAction(
-          type: $checkedConvert(r'$type',
-              (v) => v as String? ?? 'com.atproto.repo.applyWrites#update'),
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? comAtprotoRepoApplyWritesUpdate),
           collection: $checkedConvert(
-              'collection', (v) => const NsidConverter().fromJson(v as String)),
+              'collection', (v) => nsidConverter.fromJson(v as String)),
           rkey: $checkedConvert('rkey', (v) => v as String?),
           record: $checkedConvert(
               'value', (v) => Map<String, dynamic>.from(v as Map)),
@@ -29,7 +29,7 @@ _$_UpdateAction _$$_UpdateActionFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$_UpdateActionToJson(_$_UpdateAction instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
-    'collection': const NsidConverter().toJson(instance.collection),
+    'collection': nsidConverter.toJson(instance.collection),
   };
 
   void writeNotNull(String key, dynamic value) {

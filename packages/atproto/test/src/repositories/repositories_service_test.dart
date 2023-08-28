@@ -2,8 +2,15 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
 import 'dart:io';
 
+// 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart' as core;
+import 'package:atproto_test/atproto_test.dart' as atp_test;
+import 'package:test/test.dart';
+
+// 🌎 Project imports:
 import 'package:atproto/src/entities/batch_action.dart';
 import 'package:atproto/src/entities/blob_data.dart';
 import 'package:atproto/src/entities/create_action.dart';
@@ -14,9 +21,6 @@ import 'package:atproto/src/entities/repo_info.dart';
 import 'package:atproto/src/entities/strong_ref.dart';
 import 'package:atproto/src/entities/update_action.dart';
 import 'package:atproto/src/repositories/repositories_service.dart';
-import 'package:atproto_core/atproto_core.dart' as core;
-import 'package:atproto_test/atproto_test.dart' as atp_test;
-import 'package:test/test.dart';
 
 void main() {
   group('.createRecord', () {
@@ -252,6 +256,28 @@ void main() {
       expect(response.data, isA<RepoInfo>());
     });
 
+    test('as JSON', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/repositories/data/find_repo_info.json',
+        ),
+      );
+
+      final response = await repositories.findRepoInfoAsJson(
+        repo: 'shinyakato.dev',
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
     test('when unauthorized', () async {
       final repositories = RepositoriesService(
         did: 'test',
@@ -327,6 +353,30 @@ void main() {
       expect(strongRef, isA<StrongRef>());
       expect(strongRef.cid, response.data.cid);
       expect(strongRef.uri, response.data.uri);
+    });
+
+    test('as JSON', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/repositories/data/find_record.json',
+        ),
+      );
+
+      final response = await repositories.findRecordAsJson(
+        uri: core.AtUri.parse(
+          'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3juqjtr23dk2h',
+        ),
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('without cid', () async {
@@ -428,6 +478,29 @@ void main() {
 
       expect(response, isA<core.XRPCResponse>());
       expect(response.data, isA<Records>());
+    });
+
+    test('as JSON', () async {
+      final repositories = RepositoriesService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/repositories/data/find_records.json',
+        ),
+      );
+
+      final response = await repositories.findRecordsAsJson(
+        repo: 'did:plc:iijrtk7ocored6zuziwmqq3c',
+        collection: core.NSID.parse('app.bsky.feed.post'),
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {

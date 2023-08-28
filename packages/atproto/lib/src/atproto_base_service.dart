@@ -5,7 +5,7 @@
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 
-abstract class ATProtoBaseService extends core.BaseService {
+base class ATProtoBaseService extends core.BaseService {
   /// Returns the new instance of [ATProtoBaseService].
   ATProtoBaseService({
     required this.did,

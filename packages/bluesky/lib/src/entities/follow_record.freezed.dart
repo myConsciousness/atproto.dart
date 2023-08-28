@@ -20,10 +20,15 @@ FollowRecord _$FollowRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FollowRecord {
-  @JsonKey(name: '\$type')
+  /// Type of the record. Defaults to `appBskyGraphFollow`.
+  @typeKey
   String get type => throw _privateConstructorUsedError;
+
+  /// DID of the subject being followed.
   @JsonKey(name: 'subject')
   String get did => throw _privateConstructorUsedError;
+
+  /// Time when the follow action was created.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +44,7 @@ abstract class $FollowRecordCopyWith<$Res> {
       _$FollowRecordCopyWithImpl<$Res, FollowRecord>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       @JsonKey(name: 'subject') String did,
       DateTime createdAt});
 }
@@ -87,7 +92,7 @@ abstract class _$$_FollowRecordCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       @JsonKey(name: 'subject') String did,
       DateTime createdAt});
 }
@@ -126,22 +131,27 @@ class __$$_FollowRecordCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_FollowRecord implements _FollowRecord {
   const _$_FollowRecord(
-      {@JsonKey(name: '\$type') this.type = appBskyGraphFollow,
+      {@typeKey this.type = appBskyGraphFollow,
       @JsonKey(name: 'subject') required this.did,
       required this.createdAt});
 
   factory _$_FollowRecord.fromJson(Map<String, dynamic> json) =>
       _$$_FollowRecordFromJson(json);
 
+  /// Type of the record. Defaults to `appBskyGraphFollow`.
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
+
+  /// DID of the subject being followed.
   @override
   @JsonKey(name: 'subject')
   final String did;
+
+  /// Time when the follow action was created.
   @override
   final DateTime createdAt;
 
@@ -181,7 +191,7 @@ class _$_FollowRecord implements _FollowRecord {
 
 abstract class _FollowRecord implements FollowRecord {
   const factory _FollowRecord(
-      {@JsonKey(name: '\$type') final String type,
+      {@typeKey final String type,
       @JsonKey(name: 'subject') required final String did,
       required final DateTime createdAt}) = _$_FollowRecord;
 
@@ -189,12 +199,18 @@ abstract class _FollowRecord implements FollowRecord {
       _$_FollowRecord.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// Type of the record. Defaults to `appBskyGraphFollow`.
+  @typeKey
   String get type;
   @override
+
+  /// DID of the subject being followed.
   @JsonKey(name: 'subject')
   String get did;
   @override
+
+  /// Time when the follow action was created.
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)

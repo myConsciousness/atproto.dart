@@ -21,9 +21,10 @@ StrongRefParam _$StrongRefParamFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$StrongRefParam {
   String get cid => throw _privateConstructorUsedError;
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
+  Map<String, dynamic> get unspecced => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +38,11 @@ abstract class $StrongRefParamCopyWith<$Res> {
           StrongRefParam value, $Res Function(StrongRefParam) then) =
       _$StrongRefParamCopyWithImpl<$Res, StrongRefParam>;
   @useResult
-  $Res call({String cid, @AtUriConverter() AtUri uri, DateTime? createdAt});
+  $Res call(
+      {String cid,
+      @atUriConverter AtUri uri,
+      DateTime? createdAt,
+      Map<String, dynamic> unspecced});
 }
 
 /// @nodoc
@@ -56,6 +61,7 @@ class _$StrongRefParamCopyWithImpl<$Res, $Val extends StrongRefParam>
     Object? cid = null,
     Object? uri = null,
     Object? createdAt = freezed,
+    Object? unspecced = null,
   }) {
     return _then(_value.copyWith(
       cid: null == cid
@@ -70,6 +76,10 @@ class _$StrongRefParamCopyWithImpl<$Res, $Val extends StrongRefParam>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      unspecced: null == unspecced
+          ? _value.unspecced
+          : unspecced // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -82,7 +92,11 @@ abstract class _$$_StrongRefParamCopyWith<$Res>
       __$$_StrongRefParamCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String cid, @AtUriConverter() AtUri uri, DateTime? createdAt});
+  $Res call(
+      {String cid,
+      @atUriConverter AtUri uri,
+      DateTime? createdAt,
+      Map<String, dynamic> unspecced});
 }
 
 /// @nodoc
@@ -99,6 +113,7 @@ class __$$_StrongRefParamCopyWithImpl<$Res>
     Object? cid = null,
     Object? uri = null,
     Object? createdAt = freezed,
+    Object? unspecced = null,
   }) {
     return _then(_$_StrongRefParam(
       cid: null == cid
@@ -113,16 +128,24 @@ class __$$_StrongRefParamCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      unspecced: null == unspecced
+          ? _value._unspecced
+          : unspecced // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_StrongRefParam implements _StrongRefParam {
   const _$_StrongRefParam(
-      {required this.cid, @AtUriConverter() required this.uri, this.createdAt});
+      {required this.cid,
+      @atUriConverter required this.uri,
+      this.createdAt,
+      final Map<String, dynamic> unspecced = emptyJson})
+      : _unspecced = unspecced;
 
   factory _$_StrongRefParam.fromJson(Map<String, dynamic> json) =>
       _$$_StrongRefParamFromJson(json);
@@ -130,14 +153,22 @@ class _$_StrongRefParam implements _StrongRefParam {
   @override
   final String cid;
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
   @override
   final DateTime? createdAt;
+  final Map<String, dynamic> _unspecced;
+  @override
+  @JsonKey()
+  Map<String, dynamic> get unspecced {
+    if (_unspecced is EqualUnmodifiableMapView) return _unspecced;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_unspecced);
+  }
 
   @override
   String toString() {
-    return 'StrongRefParam(cid: $cid, uri: $uri, createdAt: $createdAt)';
+    return 'StrongRefParam(cid: $cid, uri: $uri, createdAt: $createdAt, unspecced: $unspecced)';
   }
 
   @override
@@ -148,12 +179,15 @@ class _$_StrongRefParam implements _StrongRefParam {
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality()
+                .equals(other._unspecced, _unspecced));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, cid, uri, createdAt);
+  int get hashCode => Object.hash(runtimeType, cid, uri, createdAt,
+      const DeepCollectionEquality().hash(_unspecced));
 
   @JsonKey(ignore: true)
   @override
@@ -172,8 +206,9 @@ class _$_StrongRefParam implements _StrongRefParam {
 abstract class _StrongRefParam implements StrongRefParam {
   const factory _StrongRefParam(
       {required final String cid,
-      @AtUriConverter() required final AtUri uri,
-      final DateTime? createdAt}) = _$_StrongRefParam;
+      @atUriConverter required final AtUri uri,
+      final DateTime? createdAt,
+      final Map<String, dynamic> unspecced}) = _$_StrongRefParam;
 
   factory _StrongRefParam.fromJson(Map<String, dynamic> json) =
       _$_StrongRefParam.fromJson;
@@ -181,10 +216,12 @@ abstract class _StrongRefParam implements StrongRefParam {
   @override
   String get cid;
   @override
-  @AtUriConverter()
+  @atUriConverter
   AtUri get uri;
   @override
   DateTime? get createdAt;
+  @override
+  Map<String, dynamic> get unspecced;
   @override
   @JsonKey(ignore: true)
   _$$_StrongRefParamCopyWith<_$_StrongRefParam> get copyWith =>

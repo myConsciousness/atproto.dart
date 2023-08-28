@@ -20,9 +20,14 @@ Likes _$LikesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Likes {
+  /// The list of 'like' actions.
   List<Like> get likes => throw _privateConstructorUsedError;
-  @AtUriConverter()
+
+  /// The URI of the likes collection.
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
+
+  /// The cursor used for pagination.
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +40,7 @@ abstract class $LikesCopyWith<$Res> {
   factory $LikesCopyWith(Likes value, $Res Function(Likes) then) =
       _$LikesCopyWithImpl<$Res, Likes>;
   @useResult
-  $Res call({List<Like> likes, @AtUriConverter() AtUri uri, String? cursor});
+  $Res call({List<Like> likes, @atUriConverter AtUri uri, String? cursor});
 }
 
 /// @nodoc
@@ -78,7 +83,7 @@ abstract class _$$_LikesCopyWith<$Res> implements $LikesCopyWith<$Res> {
       __$$_LikesCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Like> likes, @AtUriConverter() AtUri uri, String? cursor});
+  $Res call({List<Like> likes, @atUriConverter AtUri uri, String? cursor});
 }
 
 /// @nodoc
@@ -116,14 +121,17 @@ class __$$_LikesCopyWithImpl<$Res> extends _$LikesCopyWithImpl<$Res, _$_Likes>
 class _$_Likes implements _Likes {
   const _$_Likes(
       {required final List<Like> likes,
-      @AtUriConverter() required this.uri,
+      @atUriConverter required this.uri,
       this.cursor})
       : _likes = likes;
 
   factory _$_Likes.fromJson(Map<String, dynamic> json) =>
       _$$_LikesFromJson(json);
 
+  /// The list of 'like' actions.
   final List<Like> _likes;
+
+  /// The list of 'like' actions.
   @override
   List<Like> get likes {
     if (_likes is EqualUnmodifiableListView) return _likes;
@@ -131,9 +139,12 @@ class _$_Likes implements _Likes {
     return EqualUnmodifiableListView(_likes);
   }
 
+  /// The URI of the likes collection.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
+
+  /// The cursor used for pagination.
   @override
   final String? cursor;
 
@@ -174,17 +185,23 @@ class _$_Likes implements _Likes {
 abstract class _Likes implements Likes {
   const factory _Likes(
       {required final List<Like> likes,
-      @AtUriConverter() required final AtUri uri,
+      @atUriConverter required final AtUri uri,
       final String? cursor}) = _$_Likes;
 
   factory _Likes.fromJson(Map<String, dynamic> json) = _$_Likes.fromJson;
 
   @override
+
+  /// The list of 'like' actions.
   List<Like> get likes;
   @override
-  @AtUriConverter()
+
+  /// The URI of the likes collection.
+  @atUriConverter
   AtUri get uri;
   @override
+
+  /// The cursor used for pagination.
   String? get cursor;
   @override
   @JsonKey(ignore: true)

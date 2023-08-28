@@ -2,6 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🌎 Project imports:
 import 'actor/actors_typeahead.dart';
 import 'actor/preferences.dart';
 import 'actor/profile.dart';
@@ -12,6 +13,7 @@ import 'actor/suggestions.dart';
 import 'bsky_command.dart';
 import 'common/delete.dart';
 import 'feed/actor_feeds.dart';
+import 'feed/actor_likes.dart';
 import 'feed/create_generator.dart';
 import 'feed/custom_feed.dart';
 import 'feed/feed.dart';
@@ -21,6 +23,7 @@ import 'feed/generator_info.dart';
 import 'feed/like.dart';
 import 'feed/likes.dart';
 import 'feed/post.dart';
+import 'feed/posts.dart';
 import 'feed/repost.dart';
 import 'feed/reposted_by.dart';
 import 'feed/thread.dart';
@@ -62,6 +65,7 @@ final actorCommands = <BskyCommand>[
 
 final feedCommands = <BskyCommand>[
   PostCommand(),
+  PostsCommand(),
   RepostCommand(),
   LikeCommand(),
   TimelineCommand(),
@@ -75,6 +79,7 @@ final feedCommands = <BskyCommand>[
   FeedGeneratorsCommand(),
   CustomFeedCommand(),
   GeneratorInfoCommand(),
+  ActorLikesCommand(),
 ];
 
 final notificationCommands = <BskyCommand>[

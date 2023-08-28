@@ -4,9 +4,6 @@
 
 export 'package:atproto/atproto.dart'
     show
-        createSession,
-        Session,
-        $SessionCopyWith,
         Record,
         $RecordCopyWith,
         Records,
@@ -41,6 +38,12 @@ export 'package:atproto/atproto.dart'
         $ServerInfoCopyWith,
         ServerInfoLinks,
         $ServerInfoLinksCopyWith,
+        SelfLabel,
+        $SelfLabelCopyWith,
+        SelfLabels,
+        $SelfLabelsCopyWith,
+        Labels,
+        $LabelsCopyWith,
         InviteCodeUse,
         $InviteCodeUseCopyWith,
         InviteCode,
@@ -98,6 +101,20 @@ export 'package:atproto/atproto.dart'
         $StrongRefCopyWith,
         Label,
         $LabelCopyWith,
+        UBatchActionCreate,
+        UBatchActionUpdate,
+        UBatchActionDelete,
+        ULabelsSelLabels,
+        ULabelsUnknown,
+        UReportSubjectRepoRef,
+        UReportSubjectStrongRef,
+        UReportSubjectUnknown,
+        USubscribedRepoCommit,
+        USubscribedRepoHandle,
+        USubscribedRepoInfo,
+        USubscribedRepoMigrate,
+        USubscribedRepoTombstone,
+        USubscribedRepoUnknown,
         ModerationReasonType,
         ReportSubject,
         $ReportSubjectCopyWith,
@@ -112,13 +129,18 @@ export 'package:atproto_core/atproto_core.dart'
         XRPCRequest,
         XRPCError,
         $XRPCErrorCopyWith,
+        RateLimit,
+        RateLimitPolicy,
         Protocol,
         Subscription,
+        Pagination,
         EmptyData,
         HttpMethod,
         HttpStatus,
         Serializable,
+        Platform,
         AtUri,
+        NSID,
         CID,
         ProgressStatus,
         ProgressStatusEvent,
@@ -134,7 +156,12 @@ export 'package:atproto_core/atproto_core.dart'
         RetryEvent,
         Jitter,
         GetClient,
-        PostClient;
+        PostClient,
+        Session,
+        $SessionCopyWith,
+        createSession,
+        refreshSession,
+        isValidAppPassword;
 export 'package:bluesky/src/actors/actors_service.dart';
 export 'package:bluesky/src/bluesky.dart';
 export 'package:bluesky/src/bluesky_service.dart';
@@ -150,7 +177,9 @@ export 'package:bluesky/src/entities/adaptor/repo_commit_create.dart';
 export 'package:bluesky/src/entities/adaptor/repo_commit_delete.dart';
 export 'package:bluesky/src/entities/adaptor/repo_commit_update.dart';
 export 'package:bluesky/src/entities/adult_content_preference.dart';
+export 'package:bluesky/src/entities/block_record.dart';
 export 'package:bluesky/src/entities/blocked_post.dart';
+export 'package:bluesky/src/entities/blocked_author.dart';
 export 'package:bluesky/src/entities/blocks.dart';
 export 'package:bluesky/src/entities/byte_slice.dart';
 export 'package:bluesky/src/entities/content_label_preference.dart';
@@ -189,12 +218,15 @@ export 'package:bluesky/src/entities/followers.dart';
 export 'package:bluesky/src/entities/follows.dart';
 export 'package:bluesky/src/entities/generator_feed.dart';
 export 'package:bluesky/src/entities/generator_links.dart';
+export 'package:bluesky/src/entities/generator_record.dart';
 export 'package:bluesky/src/entities/image.dart';
 export 'package:bluesky/src/entities/like.dart';
 export 'package:bluesky/src/entities/like_record.dart';
 export 'package:bluesky/src/entities/likes.dart';
 export 'package:bluesky/src/entities/list_item.dart';
+export 'package:bluesky/src/entities/list_item_record.dart';
 export 'package:bluesky/src/entities/list_items.dart';
+export 'package:bluesky/src/entities/list_record.dart';
 export 'package:bluesky/src/entities/list_view.dart';
 export 'package:bluesky/src/entities/list_view_basic.dart';
 export 'package:bluesky/src/entities/list_viewer.dart';
@@ -211,6 +243,7 @@ export 'package:bluesky/src/entities/post_thread_view_record.dart';
 export 'package:bluesky/src/entities/post_viewer.dart';
 export 'package:bluesky/src/entities/posts.dart';
 export 'package:bluesky/src/entities/preference.dart';
+export 'package:bluesky/src/feeds/feed_filter.dart';
 export 'package:bluesky/src/entities/preferences.dart';
 export 'package:bluesky/src/entities/profile_record.dart';
 export 'package:bluesky/src/entities/reason.dart';
@@ -226,6 +259,8 @@ export 'package:bluesky/src/entities/skeleton_feed_view.dart';
 export 'package:bluesky/src/entities/skeleton_reason.dart';
 export 'package:bluesky/src/entities/skeleton_reason_repost.dart';
 export 'package:bluesky/src/extension/at_uri_extension.dart';
+export 'package:bluesky/src/extension/blob_extension.dart';
+export 'package:bluesky/src/extension/strong_ref_extension.dart';
 export 'package:bluesky/src/feeds/feeds_service.dart';
 export 'package:bluesky/src/graphs/graphs_service.dart';
 export 'package:bluesky/src/notifications/notifications_service.dart';

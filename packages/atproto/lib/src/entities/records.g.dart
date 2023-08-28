@@ -19,6 +19,7 @@ _$_Records _$$_RecordsFromJson(Map json) => $checkedCreate(
                   .map((e) =>
                       Record.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
+          cursor: $checkedConvert('cursor', (v) => v as String?),
         );
         return val;
       },
@@ -27,4 +28,5 @@ _$_Records _$$_RecordsFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$_RecordsToJson(_$_Records instance) =>
     <String, dynamic>{
       'records': instance.records.map((e) => e.toJson()).toList(),
+      'cursor': instance.cursor,
     };

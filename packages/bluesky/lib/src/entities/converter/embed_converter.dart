@@ -2,35 +2,42 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import '../embed.dart';
 import '../embed_external.dart';
 import '../embed_images.dart';
 import '../embed_record.dart';
 import '../embed_record_with_media.dart';
+import '../keys/ids.g.dart' as ids;
 
-class EmbedConverter implements JsonConverter<Embed, Map<String, dynamic>> {
-  /// Returns the new instance of [EmbedConverter].
-  const EmbedConverter();
+const embedConverter = _EmbedConverter();
+
+final class _EmbedConverter
+    implements JsonConverter<Embed, Map<String, dynamic>> {
+  /// Returns the new instance of [_EmbedConverter].
+  const _EmbedConverter();
 
   @override
   Embed fromJson(Map<String, dynamic> json) {
-    final type = json['\$type'];
+    final type = json[core.objectType];
 
-    if (type == 'app.bsky.embed.record') {
+    if (type == ids.appBskyEmbedRecord) {
       return Embed.record(
         data: EmbedRecord.fromJson(json),
       );
-    } else if (type == 'app.bsky.embed.images') {
+    } else if (type == ids.appBskyEmbedImages) {
       return Embed.images(
         data: EmbedImages.fromJson(json),
       );
-    } else if (type == 'app.bsky.embed.external') {
+    } else if (type == ids.appBskyEmbedExternal) {
       return Embed.external(
         data: EmbedExternal.fromJson(json),
       );
-    } else if (type == 'app.bsky.embed.recordWithMedia') {
+    } else if (type == ids.appBskyEmbedRecordWithMedia) {
       return Embed.recordWithMedia(
         data: EmbedRecordWithMedia.fromJson(json),
       );

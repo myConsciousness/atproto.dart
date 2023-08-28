@@ -16,6 +16,13 @@ _$_RepoParam _$$_RepoParamFromJson(Map json) => $checkedCreate(
           did: $checkedConvert('did', (v) => v as String),
           createdAt: $checkedConvert('createdAt',
               (v) => v == null ? null : DateTime.parse(v as String)),
+          unspecced: $checkedConvert(
+              'unspecced',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  emptyJson),
         );
         return val;
       },
@@ -33,5 +40,6 @@ Map<String, dynamic> _$$_RepoParamToJson(_$_RepoParam instance) {
   }
 
   writeNotNull('createdAt', instance.createdAt?.toIso8601String());
+  val['unspecced'] = instance.unspecced;
   return val;
 }

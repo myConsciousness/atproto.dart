@@ -2,18 +2,19 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🌎 Project imports:
+// 📦 Package imports:
 import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_test/atproto_test.dart' as atp_test;
+import 'package:test/test.dart';
+
+// 🌎 Project imports:
 import 'package:bluesky/src/actors/actors_service.dart';
 import 'package:bluesky/src/entities/actor_profile.dart';
 import 'package:bluesky/src/entities/actor_profiles.dart';
 import 'package:bluesky/src/entities/actors.dart';
 import 'package:bluesky/src/entities/actors_typeahead.dart';
 import 'package:bluesky/src/entities/preferences.dart';
-// 📦 Package imports:
-import 'package:test/test.dart';
 
 void main() {
   group('.searchActors', () {
@@ -39,6 +40,30 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<Actors>());
+    });
+
+    test('as JSON', () async {
+      final actors = ActorsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/actors/data/search_actors.json',
+        ),
+      );
+
+      final response = await actors.searchActorsAsJson(
+        term: 'test',
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {
@@ -113,6 +138,28 @@ void main() {
       expect(response.data, isA<ActorProfile>());
     });
 
+    test('as JSON', () async {
+      final actors = ActorsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/actors/data/find_profile.json',
+        ),
+      );
+
+      final response = await actors.findProfileAsJson(
+        actor: 'test.bsky.social',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
     test('when unauthorized', () async {
       final actors = ActorsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
@@ -182,6 +229,31 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<ActorProfiles>());
+    });
+
+    test('as JSON', () async {
+      final actors = ActorsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/actors/data/find_profiles.json',
+        ),
+      );
+
+      final response = await actors.findProfilesAsJson(
+        actors: [
+          'test.bsky.social',
+          'test2.bsky.social',
+        ],
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {
@@ -256,6 +328,29 @@ void main() {
       expect(response.data, isA<Actors>());
     });
 
+    test('as JSON', () async {
+      final actors = ActorsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/actors/data/find_suggestions.json',
+        ),
+      );
+
+      final response = await actors.findSuggestionsAsJson(
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
     test('when unauthorized', () async {
       final actors = ActorsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
@@ -297,7 +392,7 @@ void main() {
     });
   });
 
-  group('.searchActorTypeahead', () {
+  group('.searchTypeahead', () {
     test('normal case', () async {
       final actors = ActorsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
@@ -319,6 +414,29 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<ActorsTypeahead>());
+    });
+
+    test('as JSON', () async {
+      final actors = ActorsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/actors/data/search_actor_typeahead.json',
+        ),
+      );
+
+      final response = await actors.searchTypeaheadAsJson(
+        term: 'test',
+        limit: 10,
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {
@@ -468,6 +586,26 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<Preferences>());
+    });
+
+    test('as JSON', () async {
+      final actors = ActorsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/actors/data/find_preferences.json',
+        ),
+      );
+
+      final response = await actors.findPreferencesAsJson();
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {

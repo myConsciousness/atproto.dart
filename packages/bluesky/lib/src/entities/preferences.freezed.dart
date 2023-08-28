@@ -20,7 +20,8 @@ Preferences _$PreferencesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Preferences {
-  @PreferenceConverter()
+  /// The list of user [Preference] instances.
+  @preferenceConverter
   List<Preference> get preferences => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +36,7 @@ abstract class $PreferencesCopyWith<$Res> {
           Preferences value, $Res Function(Preferences) then) =
       _$PreferencesCopyWithImpl<$Res, Preferences>;
   @useResult
-  $Res call({@PreferenceConverter() List<Preference> preferences});
+  $Res call({@preferenceConverter List<Preference> preferences});
 }
 
 /// @nodoc
@@ -70,7 +71,7 @@ abstract class _$$_PreferencesCopyWith<$Res>
       __$$_PreferencesCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@PreferenceConverter() List<Preference> preferences});
+  $Res call({@preferenceConverter List<Preference> preferences});
 }
 
 /// @nodoc
@@ -99,15 +100,18 @@ class __$$_PreferencesCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Preferences implements _Preferences {
   const _$_Preferences(
-      {@PreferenceConverter() required final List<Preference> preferences})
+      {@preferenceConverter required final List<Preference> preferences})
       : _preferences = preferences;
 
   factory _$_Preferences.fromJson(Map<String, dynamic> json) =>
       _$$_PreferencesFromJson(json);
 
+  /// The list of user [Preference] instances.
   final List<Preference> _preferences;
+
+  /// The list of user [Preference] instances.
   @override
-  @PreferenceConverter()
+  @preferenceConverter
   List<Preference> get preferences {
     if (_preferences is EqualUnmodifiableListView) return _preferences;
     // ignore: implicit_dynamic_type
@@ -149,14 +153,16 @@ class _$_Preferences implements _Preferences {
 
 abstract class _Preferences implements Preferences {
   const factory _Preferences(
-      {@PreferenceConverter()
-      required final List<Preference> preferences}) = _$_Preferences;
+          {@preferenceConverter required final List<Preference> preferences}) =
+      _$_Preferences;
 
   factory _Preferences.fromJson(Map<String, dynamic> json) =
       _$_Preferences.fromJson;
 
   @override
-  @PreferenceConverter()
+
+  /// The list of user [Preference] instances.
+  @preferenceConverter
   List<Preference> get preferences;
   @override
   @JsonKey(ignore: true)

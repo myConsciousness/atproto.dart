@@ -2,14 +2,16 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 
+// 🌎 Project imports:
 import '../atproto_base_service.dart';
 import '../entities/report.dart';
 import '../entities/report_subject.dart';
 import 'moderation_reason_type.dart';
 
-abstract class ModerationService {
+sealed class ModerationService {
   /// Returns the new instance of [ModerationService].
   factory ModerationService({
     required String did,
@@ -54,7 +56,7 @@ abstract class ModerationService {
   });
 }
 
-class _ModerationService extends ATProtoBaseService
+final class _ModerationService extends ATProtoBaseService
     implements ModerationService {
   /// Returns the new instance of [_ModerationService].
   _ModerationService({

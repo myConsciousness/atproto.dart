@@ -20,8 +20,12 @@ EmbedImages _$EmbedImagesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmbedImages {
-  @JsonKey(name: '\$type')
+  /// The type of the embedded content, defaulted to
+  /// [appBskyEmbedImages].
+  @typeKey
   String get type => throw _privateConstructorUsedError;
+
+  /// A list of [Image] objects that represent the images to be embedded.
   List<Image> get images => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +40,7 @@ abstract class $EmbedImagesCopyWith<$Res> {
           EmbedImages value, $Res Function(EmbedImages) then) =
       _$EmbedImagesCopyWithImpl<$Res, EmbedImages>;
   @useResult
-  $Res call({@JsonKey(name: '\$type') String type, List<Image> images});
+  $Res call({@typeKey String type, List<Image> images});
 }
 
 /// @nodoc
@@ -76,7 +80,7 @@ abstract class _$$_EmbedImagesCopyWith<$Res>
       __$$_EmbedImagesCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: '\$type') String type, List<Image> images});
+  $Res call({@typeKey String type, List<Image> images});
 }
 
 /// @nodoc
@@ -110,17 +114,23 @@ class __$$_EmbedImagesCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedImages implements _EmbedImages {
   const _$_EmbedImages(
-      {@JsonKey(name: '\$type') this.type = 'app.bsky.embed.images',
+      {@typeKey this.type = appBskyEmbedImages,
       required final List<Image> images})
       : _images = images;
 
   factory _$_EmbedImages.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedImagesFromJson(json);
 
+  /// The type of the embedded content, defaulted to
+  /// [appBskyEmbedImages].
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
+
+  /// A list of [Image] objects that represent the images to be embedded.
   final List<Image> _images;
+
+  /// A list of [Image] objects that represent the images to be embedded.
   @override
   List<Image> get images {
     if (_images is EqualUnmodifiableListView) return _images;
@@ -163,16 +173,21 @@ class _$_EmbedImages implements _EmbedImages {
 
 abstract class _EmbedImages implements EmbedImages {
   const factory _EmbedImages(
-      {@JsonKey(name: '\$type') final String type,
+      {@typeKey final String type,
       required final List<Image> images}) = _$_EmbedImages;
 
   factory _EmbedImages.fromJson(Map<String, dynamic> json) =
       _$_EmbedImages.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// The type of the embedded content, defaulted to
+  /// [appBskyEmbedImages].
+  @typeKey
   String get type;
   @override
+
+  /// A list of [Image] objects that represent the images to be embedded.
   List<Image> get images;
   @override
   @JsonKey(ignore: true)

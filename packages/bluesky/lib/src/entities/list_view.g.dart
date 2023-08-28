@@ -14,11 +14,11 @@ _$_ListView _$$_ListViewFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$_ListView(
           type: $checkedConvert(
-              r'$type', (v) => v as String? ?? 'app.bsky.graph.defs#listView'),
+              r'$type', (v) => v as String? ?? appBskyGraphDefsListView),
           purpose: $checkedConvert(
-              'purpose', (v) => v as String? ?? 'app.bsky.graph.defs#modlist'),
+              'purpose', (v) => v as String? ?? appBskyGraphDefsModlist),
           uri: $checkedConvert(
-              'uri', (v) => const AtUriConverter().fromJson(v as String)),
+              'uri', (v) => atUriConverter.fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String?),
@@ -45,7 +45,7 @@ Map<String, dynamic> _$$_ListViewToJson(_$_ListView instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
     'purpose': instance.purpose,
-    'uri': const AtUriConverter().toJson(instance.uri),
+    'uri': atUriConverter.toJson(instance.uri),
     'cid': instance.cid,
     'name': instance.name,
   };

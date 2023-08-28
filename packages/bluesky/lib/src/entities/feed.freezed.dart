@@ -20,7 +20,10 @@ Feed _$FeedFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Feed {
+  /// List of feed view objects.
   List<FeedView> get feed => throw _privateConstructorUsedError;
+
+  /// Cursor for pagination. This is optional.
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -101,14 +104,17 @@ class __$$_FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res, _$_Feed>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_Feed implements _Feed {
   const _$_Feed({required final List<FeedView> feed, this.cursor})
       : _feed = feed;
 
   factory _$_Feed.fromJson(Map<String, dynamic> json) => _$$_FeedFromJson(json);
 
+  /// List of feed view objects.
   final List<FeedView> _feed;
+
+  /// List of feed view objects.
   @override
   List<FeedView> get feed {
     if (_feed is EqualUnmodifiableListView) return _feed;
@@ -116,6 +122,7 @@ class _$_Feed implements _Feed {
     return EqualUnmodifiableListView(_feed);
   }
 
+  /// Cursor for pagination. This is optional.
   @override
   final String? cursor;
 
@@ -159,8 +166,12 @@ abstract class _Feed implements Feed {
   factory _Feed.fromJson(Map<String, dynamic> json) = _$_Feed.fromJson;
 
   @override
+
+  /// List of feed view objects.
   List<FeedView> get feed;
   @override
+
+  /// Cursor for pagination. This is optional.
   String? get cursor;
   @override
   @JsonKey(ignore: true)

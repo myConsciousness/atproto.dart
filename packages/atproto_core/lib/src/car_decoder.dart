@@ -2,10 +2,13 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
 import 'dart:typed_data';
 
+// 📦 Package imports:
 import 'package:multiformats/multiformats.dart';
 
+// 🌎 Project imports:
 import 'progress_status.dart';
 
 const _cidV1BytesLength = 36;
@@ -64,7 +67,7 @@ _DecodedBlock _decodeReader(Uint8List bytes) {
   return _DecodedBlock(_decode(a), a.length);
 }
 
-class _DecodedBlock {
+final class _DecodedBlock {
   const _DecodedBlock(this.value, this.length);
 
   final int value;

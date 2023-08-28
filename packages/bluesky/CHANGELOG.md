@@ -1,5 +1,312 @@
 # Release Note
 
+## v0.8.5
+
+- Supported `app.bsky.notification.registerPush` as `createPushRegistration` on `NotificationsService`. ([#709](https://github.com/myConsciousness/atproto.dart/issues/709))
+- Added `isValidAppPassword` function. ([#713](https://github.com/myConsciousness/atproto.dart/issues/713))
+
+## v0.8.4
+
+- Supported `app.bsky.feed.getActorLikes` on `FeedsService`. ([#700](https://github.com/myConsciousness/atproto.dart/issues/700))
+  - `findActorLikes`
+  - `findActorLikesAsJson`
+  - `paginateActorLikes`
+  - `paginateActorLikesAsJson`
+
+## v0.8.3
+
+- Moved `Session` object and `createSession` function to `atproto_core`. And exposed `refreshSession` as a function. Also deprecated `ServersService.refreshSession` method. ([#686](https://github.com/myConsciousness/atproto.dart/issues/686))
+
+## v0.8.2
+
+- Supported `com.atproto.sync.notifyOfUpdate` as `notifyCrawlingServiceOfUpdate` on `SyncService`. ([#316](https://github.com/myConsciousness/atproto.dart/issues/316))
+- Supported `com.atproto.sync.requestCrawl` as `requestCrawl` on `SyncService`. ([#317](https://github.com/myConsciousness/atproto.dart/issues/317))
+- Supported `app.bsky.unspecced.getTimelineSkeleton` on `UnspeccedService`. ([#573](https://github.com/myConsciousness/atproto.dart/issues/573))
+  - `findTimelineSkeleton`
+  - `findTimelineSkeletonAsJson`
+  - `paginateTimelineSkeleton`
+  - `paginateTimelineSkeletonAsJson`
+- Improved documents. ([#677](https://github.com/myConsciousness/atproto.dart/issues/677))
+- Upgrade `cbor` and now compatible with Flutter `3.13.0`. ([#681](https://github.com/myConsciousness/atproto.dart/issues/681))
+
+## v0.8.1
+
+- Exposed freezed union objects. You can use them for pattern matching. ([#600](https://github.com/myConsciousness/atproto.dart/issues/600))
+  - `embed.dart`
+    - `UEmbedRecord`
+    - `UEmbedImages`
+    - `UEmbedExternal`
+    - `UEmbedRecordWithMedia`
+    - `UEmbedUnknown`
+  - `embed_media.dart`
+    - `UEmbedMediaImages`
+    - `UEmbedMediaExternal`
+    - `UEmbedMediaUnknown`
+  - `embed_view.dart`
+    - `UEmbedViewRecord`
+    - `UEmbedViewImages`
+    - `UEmbedViewExternal`
+    - `UEmbedViewRecordWithMedia`
+    - `UEmbedViewUnknown`
+  - `embed_view_media.dart`
+    - `UEmbedViewMediaImages`
+    - `UEmbedViewMediaExternal`
+    - `UEmbedViewMediaUnknown`
+  - `facet_feature.dart`
+    - `UFacetFeatureMention`
+    - `UFacetFeatureLink`
+    - `UFacetFeatureUnknown`
+  - `post_thread_view.dart`
+    - `UPostThreadViewRecord`
+    - `UPostThreadViewNotFound`
+    - `UPostThreadViewBlocked`
+    - `UPostThreadViewUnknown`
+  - `preference.dart`
+    - `UPreferenceAdultContent`
+    - `UPreferenceContentLabel`
+    - `UPreferenceSavedFeeds`
+    - `UPreferenceUnknown`
+  - `reason.dart`
+    - `UReasonRepost`
+    - `UReasonUnknown`
+  - `reply_post.dart`
+    - `UReplyPostRecord`
+    - `UReplyPostNotFound`
+    - `UReplyPostBlocked`
+    - `UReplyPostUnknown`
+  - `skeleton_reason.dart`
+    - `USkeletonReasonRepost`
+    - `USkeletonReasonUnknown`
+  - `labels.dart`
+    - `ULabelsSelLabels`
+    - `ULabelsUnknown`
+  - `report_subject.dart`
+    - `UReportSubjectRepoRef`
+    - `UReportSubjectStrongRef`
+    - `UReportSubjectUnknown`
+  - `subscribed_repo.dart`
+    - `USubscribedRepoCommit`
+    - `USubscribedRepoHandle`
+    - `USubscribedRepoMigrate`
+    - `USubscribedRepoTombstone`
+    - `USubscribedRepoInfo`
+    - `USubscribedRepoUnknown`
+  - `batch_action.dart`
+    - `UBatchActionCreate`
+    - `UBatchActionUpdate`
+    - `UBatchActionDelete`
+## v0.8.0
+
+- Drop support for null unsafe Dart, bump SDK constraint to '^3.0.0'. ([#599](https://github.com/myConsciousness/atproto.dart/issues/599))
+- Dart3 modifier applied.
+
+## v0.7.11
+
+- Added `BlockedAuthor` as `author` property. ([#660](https://github.com/myConsciousness/atproto.dart/issues/660))
+  - `BlockedPost`
+  - `EmbedViewRecordViewBlocked`
+- The default value of the flag is set as `false`.
+  - `ActorViewer`
+  - `ListViewer`
+
+## v0.7.10
+
+- Added `filter` parameters. And exposed `FeedFilter` enum. ([#655](https://github.com/myConsciousness/atproto.dart/issues/655))
+  - `findFeed`
+  - `findFeedAsJson`
+  - `paginateFeed`
+  - `paginateFeedAsJson`
+- Supported self-labeling. Use `labels` parameters. ([#655](https://github.com/myConsciousness/atproto.dart/issues/655))
+  - `createPost`
+  - `createPosts`
+  - `createThreads`
+  - `createGenerator`
+  - `createGenerators`
+  - `createList`
+  - `createLists`
+  - `updateProfile`
+
+## v0.7.9
+
+- Exposed `NSID` from `bluesky.dart`.
+- Supported `app.bsky.unspecced.applyLabels` as `createLabels` on `UnspeccedService`. ([#651](https://github.com/myConsciousness/atproto.dart/issues/651))
+
+## v0.7.8
+
+- Added `cursor` to `Repos` object. ([#627](https://github.com/myConsciousness/atproto.dart/issues/627))
+- Upgraded `atproto_core` and exposed `RateLimit` and `RateLimitPolicy` objects. ([#636](https://github.com/myConsciousness/atproto.dart/issues/636))
+- Added `langs` field in `PostRecord`. ([#642](https://github.com/myConsciousness/atproto.dart/issues/642))
+- Added pagination utils. ([#626](https://github.com/myConsciousness/atproto.dart/issues/626))
+  - `ActorsService`
+    - `paginateActors`
+    - `paginateActorsAsJson`
+    - `paginateSuggestions`
+    - `paginateSuggestionsAsJson`
+  - `FeedsService`
+    - `paginateTimeline`
+    - `paginateTimelineAsJson`
+    - `paginateFeed`
+    - `paginateFeedAsJson`
+    - `paginateCustomFeed`
+    - `paginateCustomFeedAsJson`
+    - `paginateFeedSkeleton`
+    - `paginateFeedSkeletonAsJson`
+    - `paginateActorFeeds`
+    - `paginateActorFeedsAsJson`
+    - `paginateLikes`
+    - `paginateLikesAsJson`
+    - `paginateRepostedBy`
+    - `paginateRepostedByAsJson`
+  - `GraphsService`
+    - `paginateFollows`
+    - `paginateFollowsAsJson`
+    - `paginateFollowers`
+    - `paginateFollowersAsJson`
+    - `paginateMutes`
+    - `paginateMutesAsJson`
+    - `paginateBlocks`
+    - `paginateBlocksAsJson`
+    - `paginateLists`
+    - `paginateListsAsJson`
+    - `paginateListItems`
+    - `paginateListItemsAsJson`
+    - `paginateMutingLists`
+    - `paginateMutingListsAsJson`
+  - `NotificationsService`
+    - `paginateNotifications`
+    - `paginateNotificationsAsJson`
+  - `UnspeccedService`
+    - `paginatePopularFeed`
+    - `paginatePopularFeedAsJson`
+    - `paginatePopularFeedGenerators`
+    - `paginatePopularFeedGeneratorsAsJson`
+
+## v0.7.7
+
+- Exposed lexicon ids from `com.atproto` and `app.bsky` as `ids.dart`. ([#623](https://github.com/myConsciousness/atproto.dart/issues/623))
+
+## v0.7.6
+
+- Added `query` parameters to `findPopularFeedGenerators` and `findPopularFeedGeneratorsAsJson` in `UnspeccedService`. ([#615](https://github.com/myConsciousness/atproto.dart/issues/615))
+- Optimized internal processing. ([#606](https://github.com/myConsciousness/atproto.dart/issues/606))
+- Added `unspecced` parameter. Fields not supported by the official Lexicon can be added when creating a record. ([#612](https://github.com/myConsciousness/atproto.dart/issues/612))
+  - `FeedsService`
+    - `createPost`
+    - `createPosts`
+    - `createRepost`
+    - `createReposts`
+    - `createLike`
+    - `createLikes`
+    - `createGenerator`
+    - `createGenerators`
+  - `GraphsService`
+    - `createFollow`
+    - `createFollows`
+    - `createBlock`
+    - `createBlocks`
+    - `createList`
+    - `createLists`
+    - `createListItem`
+    - `createListItems`
+
+## v0.7.5
+
+- Added documentations to model objects. ([#595](https://github.com/myConsciousness/atproto.dart/issues/595))
+- Added utilities to convert `Blob` to `Image` and `Embed.images`.
+  - `toImage`
+  - `toEmbedImage`
+- Added utilities to convert `StrongRef` to `Embed.record`.
+  - `toEmbedRecord`
+- Made annotations const. ([#605](https://github.com/myConsciousness/atproto.dart/issues/605))
+
+## v0.7.4
+
+- Upgraded `atproto_core`. Fixed minor things.
+
+## v0.7.3
+
+- Added callbacks in `RepoCommitAdaptor` and properties in `AtUriExtension`. ([#586](https://github.com/myConsciousness/atproto.dart/issues/586))
+  - `AtUriExtension`
+    - `isFeedGenerator`, `isNotFeedGenerator`
+    - `isGraphBlock`, `isNotGraphBlock`
+    - `isGraphList`, `isNotGraphList`
+    - `isGraphListItem`, `isNotGraphListItem`
+  - Added callbacks in `RepoCommitAdaptor`
+    - `onCreateGenerator`
+    - `onCreateBlock`
+    - `onCreateList`
+    - `onCreateListItem`
+    - `onDeleteGenerator`
+    - `onDeleteBlock`
+    - `onDeleteList`
+    - `onDeleteListItem`
+
+## v0.7.2
+
+- A method to retrieve response data as JSON from endpoints that perform GET communication has been added. These processes do not convert to a specific model object, thus improving performance. ([#563](https://github.com/myConsciousness/atproto.dart/issues/563))
+  - `IdentitiesService`
+    - `findDIDAsJson`
+  - `RepositoriesService`
+    - `findRecordAsJson`
+    - `findRecordsAsJson`
+    - `findRepoInfoAsJson`
+  - `ServersService`
+    - `findCurrentSessionAsJson`
+    - `findInviteCodesAsJson`
+    - `findAppPasswordsAsJson`
+    - `findServerInfoAsJson`
+  - `SyncService`
+    - `findRepoCommitsAsJson`
+    - `findRepoCommitPathsAsJson`
+    - `findRepoBlocksAsJson`
+    - `findRepoCheckoutAsJson`
+    - `findRepoHeadAsJson`
+    - `findRecordAsJson`
+    - `findReposAsJson`
+  - `ActorsService`
+    - `searchActorsAsJson`
+    - `findProfileAsJson`
+    - `findProfilesAsJson`
+    - `findSuggestionsAsJson`
+    - `searchTypeaheadAsJson`
+    - `findPreferencesAsJson`
+  - `FeedsService`
+    - `findTimelineAsJson`
+    - `findFeedAsJson`
+    - `findCustomFeedAsJson`
+    - `findFeedSkeletonAsJson`
+    - `findActorFeedsAsJson`
+    - `findLikesAsJson`
+    - `findRepostedByAsJson`
+    - `findPostThreadAsJson`
+    - `findPostsAsJson`
+    - `findGeneratorAsJson`
+    - `findGeneratorsAsJson`
+    - `findGeneratorInfoAsJson`
+  - `GraphsService`
+    - `findFollowsAsJson`
+    - `findFollowersAsJson`
+    - `findMutesAsJson`
+    - `findBlocksAsJson`
+    - `findListsAsJson`
+    - `findListItemsAsJson`
+    - `findMutingListsAsJson`
+  - `NotificationsService`
+    - `findNotificationsAsJson`
+    - `findUnreadCountAsJson`
+  - `UnspeccedService`
+    - `findPopularFeedAsJson`
+    - `findPopularFeedGeneratorsAsJson`
+- Added Viewer utilities. ([#576](https://github.com/myConsciousness/atproto.dart/issues/576))
+  - `ActorProfile`, `Actor`, `ActorViewer`
+    - `isNotMuted`
+    - `isNotBlockedBy`
+  - `ListView`, `ListViewBasic`, `ListViewer`
+    - `isNotMuted`
+- Added input and output of `findPopularFeedGenerators` in `UnspeccedService`. ([#581](https://github.com/myConsciousness/atproto.dart/issues/581))
+  - `limit` and `cursor`
+  - `cursor` in `FeedGenerators`
+
 ## v0.7.1
 
 - Supported `com.atproto.server.describeServer` as `findServerInfo` in `ServersService`. ([#260](https://github.com/myConsciousness/atproto.dart/issues/260))

@@ -20,11 +20,18 @@ NotFoundPost _$NotFoundPostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$NotFoundPost {
-  @JsonKey(name: '\$type')
+  /// The type of this [NotFoundPost]. Defaults to
+  /// [app.bsky.feed.defs#notFoundPost].
+  @typeKey
   String get type => throw _privateConstructorUsedError;
-  @AtUriConverter()
+
+  /// The unique identifier of the post.
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
-  bool get notFound => throw _privateConstructorUsedError;
+
+  /// Indicates whether the post was found or not.
+  @JsonKey(name: 'notFound')
+  bool get isNotFound => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,9 +46,9 @@ abstract class $NotFoundPostCopyWith<$Res> {
       _$NotFoundPostCopyWithImpl<$Res, NotFoundPost>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
-      @AtUriConverter() AtUri uri,
-      bool notFound});
+      {@typeKey String type,
+      @atUriConverter AtUri uri,
+      @JsonKey(name: 'notFound') bool isNotFound});
 }
 
 /// @nodoc
@@ -59,7 +66,7 @@ class _$NotFoundPostCopyWithImpl<$Res, $Val extends NotFoundPost>
   $Res call({
     Object? type = null,
     Object? uri = null,
-    Object? notFound = null,
+    Object? isNotFound = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -70,9 +77,9 @@ class _$NotFoundPostCopyWithImpl<$Res, $Val extends NotFoundPost>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      notFound: null == notFound
-          ? _value.notFound
-          : notFound // ignore: cast_nullable_to_non_nullable
+      isNotFound: null == isNotFound
+          ? _value.isNotFound
+          : isNotFound // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -87,9 +94,9 @@ abstract class _$$_NotFoundPostCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
-      @AtUriConverter() AtUri uri,
-      bool notFound});
+      {@typeKey String type,
+      @atUriConverter AtUri uri,
+      @JsonKey(name: 'notFound') bool isNotFound});
 }
 
 /// @nodoc
@@ -105,7 +112,7 @@ class __$$_NotFoundPostCopyWithImpl<$Res>
   $Res call({
     Object? type = null,
     Object? uri = null,
-    Object? notFound = null,
+    Object? isNotFound = null,
   }) {
     return _then(_$_NotFoundPost(
       type: null == type
@@ -116,9 +123,9 @@ class __$$_NotFoundPostCopyWithImpl<$Res>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      notFound: null == notFound
-          ? _value.notFound
-          : notFound // ignore: cast_nullable_to_non_nullable
+      isNotFound: null == isNotFound
+          ? _value.isNotFound
+          : isNotFound // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -128,25 +135,32 @@ class __$$_NotFoundPostCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_NotFoundPost implements _NotFoundPost {
   const _$_NotFoundPost(
-      {@JsonKey(name: '\$type') this.type = 'app.bsky.feed.defs#notFoundPost',
-      @AtUriConverter() required this.uri,
-      required this.notFound});
+      {@typeKey this.type = appBskyFeedDefsNotFoundPost,
+      @atUriConverter required this.uri,
+      @JsonKey(name: 'notFound') required this.isNotFound});
 
   factory _$_NotFoundPost.fromJson(Map<String, dynamic> json) =>
       _$$_NotFoundPostFromJson(json);
 
+  /// The type of this [NotFoundPost]. Defaults to
+  /// [app.bsky.feed.defs#notFoundPost].
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
+
+  /// The unique identifier of the post.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
+
+  /// Indicates whether the post was found or not.
   @override
-  final bool notFound;
+  @JsonKey(name: 'notFound')
+  final bool isNotFound;
 
   @override
   String toString() {
-    return 'NotFoundPost(type: $type, uri: $uri, notFound: $notFound)';
+    return 'NotFoundPost(type: $type, uri: $uri, isNotFound: $isNotFound)';
   }
 
   @override
@@ -156,13 +170,13 @@ class _$_NotFoundPost implements _NotFoundPost {
             other is _$_NotFoundPost &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
-            (identical(other.notFound, notFound) ||
-                other.notFound == notFound));
+            (identical(other.isNotFound, isNotFound) ||
+                other.isNotFound == isNotFound));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, uri, notFound);
+  int get hashCode => Object.hash(runtimeType, type, uri, isNotFound);
 
   @JsonKey(ignore: true)
   @override
@@ -180,21 +194,30 @@ class _$_NotFoundPost implements _NotFoundPost {
 
 abstract class _NotFoundPost implements NotFoundPost {
   const factory _NotFoundPost(
-      {@JsonKey(name: '\$type') final String type,
-      @AtUriConverter() required final AtUri uri,
-      required final bool notFound}) = _$_NotFoundPost;
+          {@typeKey final String type,
+          @atUriConverter required final AtUri uri,
+          @JsonKey(name: 'notFound') required final bool isNotFound}) =
+      _$_NotFoundPost;
 
   factory _NotFoundPost.fromJson(Map<String, dynamic> json) =
       _$_NotFoundPost.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// The type of this [NotFoundPost]. Defaults to
+  /// [app.bsky.feed.defs#notFoundPost].
+  @typeKey
   String get type;
   @override
-  @AtUriConverter()
+
+  /// The unique identifier of the post.
+  @atUriConverter
   AtUri get uri;
   @override
-  bool get notFound;
+
+  /// Indicates whether the post was found or not.
+  @JsonKey(name: 'notFound')
+  bool get isNotFound;
   @override
   @JsonKey(ignore: true)
   _$$_NotFoundPostCopyWith<_$_NotFoundPost> get copyWith =>

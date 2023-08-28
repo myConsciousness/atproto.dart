@@ -25,7 +25,10 @@ mixin _$GeneratorParam {
   String? get description => throw _privateConstructorUsedError;
   List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   Blob? get avatar => throw _privateConstructorUsedError;
+  @labelsConverter
+  Labels? get labels => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
+  Map<String, dynamic> get unspecced => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,9 +48,12 @@ abstract class $GeneratorParamCopyWith<$Res> {
       String? description,
       List<Facet>? descriptionFacets,
       Blob? avatar,
-      DateTime? createdAt});
+      @labelsConverter Labels? labels,
+      DateTime? createdAt,
+      Map<String, dynamic> unspecced});
 
   $BlobCopyWith<$Res>? get avatar;
+  $LabelsCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -68,7 +74,9 @@ class _$GeneratorParamCopyWithImpl<$Res, $Val extends GeneratorParam>
     Object? description = freezed,
     Object? descriptionFacets = freezed,
     Object? avatar = freezed,
+    Object? labels = freezed,
     Object? createdAt = freezed,
+    Object? unspecced = null,
   }) {
     return _then(_value.copyWith(
       did: null == did
@@ -91,10 +99,18 @@ class _$GeneratorParamCopyWithImpl<$Res, $Val extends GeneratorParam>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as Blob?,
+      labels: freezed == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as Labels?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      unspecced: null == unspecced
+          ? _value.unspecced
+          : unspecced // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -107,6 +123,18 @@ class _$GeneratorParamCopyWithImpl<$Res, $Val extends GeneratorParam>
 
     return $BlobCopyWith<$Res>(_value.avatar!, (value) {
       return _then(_value.copyWith(avatar: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LabelsCopyWith<$Res>? get labels {
+    if (_value.labels == null) {
+      return null;
+    }
+
+    return $LabelsCopyWith<$Res>(_value.labels!, (value) {
+      return _then(_value.copyWith(labels: value) as $Val);
     });
   }
 }
@@ -125,10 +153,14 @@ abstract class _$$_GeneratorParamCopyWith<$Res>
       String? description,
       List<Facet>? descriptionFacets,
       Blob? avatar,
-      DateTime? createdAt});
+      @labelsConverter Labels? labels,
+      DateTime? createdAt,
+      Map<String, dynamic> unspecced});
 
   @override
   $BlobCopyWith<$Res>? get avatar;
+  @override
+  $LabelsCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -147,7 +179,9 @@ class __$$_GeneratorParamCopyWithImpl<$Res>
     Object? description = freezed,
     Object? descriptionFacets = freezed,
     Object? avatar = freezed,
+    Object? labels = freezed,
     Object? createdAt = freezed,
+    Object? unspecced = null,
   }) {
     return _then(_$_GeneratorParam(
       did: null == did
@@ -170,17 +204,25 @@ class __$$_GeneratorParamCopyWithImpl<$Res>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as Blob?,
+      labels: freezed == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as Labels?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      unspecced: null == unspecced
+          ? _value._unspecced
+          : unspecced // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_GeneratorParam implements _GeneratorParam {
   const _$_GeneratorParam(
       {required this.did,
@@ -188,8 +230,11 @@ class _$_GeneratorParam implements _GeneratorParam {
       this.description,
       final List<Facet>? descriptionFacets,
       this.avatar,
-      this.createdAt})
-      : _descriptionFacets = descriptionFacets;
+      @labelsConverter this.labels,
+      this.createdAt,
+      final Map<String, dynamic> unspecced = emptyJson})
+      : _descriptionFacets = descriptionFacets,
+        _unspecced = unspecced;
 
   factory _$_GeneratorParam.fromJson(Map<String, dynamic> json) =>
       _$$_GeneratorParamFromJson(json);
@@ -214,11 +259,22 @@ class _$_GeneratorParam implements _GeneratorParam {
   @override
   final Blob? avatar;
   @override
+  @labelsConverter
+  final Labels? labels;
+  @override
   final DateTime? createdAt;
+  final Map<String, dynamic> _unspecced;
+  @override
+  @JsonKey()
+  Map<String, dynamic> get unspecced {
+    if (_unspecced is EqualUnmodifiableMapView) return _unspecced;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_unspecced);
+  }
 
   @override
   String toString() {
-    return 'GeneratorParam(did: $did, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, createdAt: $createdAt)';
+    return 'GeneratorParam(did: $did, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdAt: $createdAt, unspecced: $unspecced)';
   }
 
   @override
@@ -234,8 +290,11 @@ class _$_GeneratorParam implements _GeneratorParam {
             const DeepCollectionEquality()
                 .equals(other._descriptionFacets, _descriptionFacets) &&
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            (identical(other.labels, labels) || other.labels == labels) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality()
+                .equals(other._unspecced, _unspecced));
   }
 
   @JsonKey(ignore: true)
@@ -247,7 +306,9 @@ class _$_GeneratorParam implements _GeneratorParam {
       description,
       const DeepCollectionEquality().hash(_descriptionFacets),
       avatar,
-      createdAt);
+      labels,
+      createdAt,
+      const DeepCollectionEquality().hash(_unspecced));
 
   @JsonKey(ignore: true)
   @override
@@ -270,7 +331,9 @@ abstract class _GeneratorParam implements GeneratorParam {
       final String? description,
       final List<Facet>? descriptionFacets,
       final Blob? avatar,
-      final DateTime? createdAt}) = _$_GeneratorParam;
+      @labelsConverter final Labels? labels,
+      final DateTime? createdAt,
+      final Map<String, dynamic> unspecced}) = _$_GeneratorParam;
 
   factory _GeneratorParam.fromJson(Map<String, dynamic> json) =
       _$_GeneratorParam.fromJson;
@@ -286,7 +349,12 @@ abstract class _GeneratorParam implements GeneratorParam {
   @override
   Blob? get avatar;
   @override
+  @labelsConverter
+  Labels? get labels;
+  @override
   DateTime? get createdAt;
+  @override
+  Map<String, dynamic> get unspecced;
   @override
   @JsonKey(ignore: true)
   _$$_GeneratorParamCopyWith<_$_GeneratorParam> get copyWith =>

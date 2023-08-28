@@ -2,10 +2,11 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🌎 Project imports:
 import './http_method.dart';
 
 /// A class that represents a Request sent during XRPC communication.
-class XRPCRequest {
+final class XRPCRequest {
   /// Returns the new instance of [XRPCRequest].
   const XRPCRequest({
     required this.method,

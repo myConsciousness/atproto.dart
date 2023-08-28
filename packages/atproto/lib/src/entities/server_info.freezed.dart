@@ -20,9 +20,14 @@ ServerInfo _$ServerInfoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ServerInfo {
+  /// List of user domains available in the server.
   List<String> get availableUserDomains => throw _privateConstructorUsedError;
+
+  /// Determines if an invite code is required for registration.
   @JsonKey(name: 'inviteCodeRequired')
   bool get isInviteCodeRequired => throw _privateConstructorUsedError;
+
+  /// Links to the server's privacy policy and terms of service.
   ServerInfoLinks? get links => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -142,7 +147,7 @@ class __$$_ServerInfoCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_ServerInfo implements _ServerInfo {
   const _$_ServerInfo(
       {required final List<String> availableUserDomains,
@@ -153,7 +158,10 @@ class _$_ServerInfo implements _ServerInfo {
   factory _$_ServerInfo.fromJson(Map<String, dynamic> json) =>
       _$$_ServerInfoFromJson(json);
 
+  /// List of user domains available in the server.
   final List<String> _availableUserDomains;
+
+  /// List of user domains available in the server.
   @override
   List<String> get availableUserDomains {
     if (_availableUserDomains is EqualUnmodifiableListView)
@@ -162,9 +170,12 @@ class _$_ServerInfo implements _ServerInfo {
     return EqualUnmodifiableListView(_availableUserDomains);
   }
 
+  /// Determines if an invite code is required for registration.
   @override
   @JsonKey(name: 'inviteCodeRequired')
   final bool isInviteCodeRequired;
+
+  /// Links to the server's privacy policy and terms of service.
   @override
   final ServerInfoLinks? links;
 
@@ -218,11 +229,17 @@ abstract class _ServerInfo implements ServerInfo {
       _$_ServerInfo.fromJson;
 
   @override
+
+  /// List of user domains available in the server.
   List<String> get availableUserDomains;
   @override
+
+  /// Determines if an invite code is required for registration.
   @JsonKey(name: 'inviteCodeRequired')
   bool get isInviteCodeRequired;
   @override
+
+  /// Links to the server's privacy policy and terms of service.
   ServerInfoLinks? get links;
   @override
   @JsonKey(ignore: true)

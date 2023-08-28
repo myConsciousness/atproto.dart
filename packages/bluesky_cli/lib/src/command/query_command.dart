@@ -2,8 +2,10 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:xrpc/xrpc.dart' as xrpc;
 
+// 🌎 Project imports:
 import '../runner/bsky_runner.dart';
 import 'bsky_command.dart';
 

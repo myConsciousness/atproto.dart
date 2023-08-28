@@ -20,8 +20,13 @@ Follows _$FollowsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Follows {
+  /// The actor that is following others.
   Actor get subject => throw _privateConstructorUsedError;
+
+  /// List of actors whom the subject is following.
   List<Actor> get follows => throw _privateConstructorUsedError;
+
+  /// A cursor for fetching subsequent pages of follows.
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -135,9 +140,14 @@ class _$_Follows implements _Follows {
   factory _$_Follows.fromJson(Map<String, dynamic> json) =>
       _$$_FollowsFromJson(json);
 
+  /// The actor that is following others.
   @override
   final Actor subject;
+
+  /// List of actors whom the subject is following.
   final List<Actor> _follows;
+
+  /// List of actors whom the subject is following.
   @override
   List<Actor> get follows {
     if (_follows is EqualUnmodifiableListView) return _follows;
@@ -145,6 +155,7 @@ class _$_Follows implements _Follows {
     return EqualUnmodifiableListView(_follows);
   }
 
+  /// A cursor for fetching subsequent pages of follows.
   @override
   final String? cursor;
 
@@ -191,10 +202,16 @@ abstract class _Follows implements Follows {
   factory _Follows.fromJson(Map<String, dynamic> json) = _$_Follows.fromJson;
 
   @override
+
+  /// The actor that is following others.
   Actor get subject;
   @override
+
+  /// List of actors whom the subject is following.
   List<Actor> get follows;
   @override
+
+  /// A cursor for fetching subsequent pages of follows.
   String? get cursor;
   @override
   @JsonKey(ignore: true)

@@ -22,10 +22,13 @@ ThreadParam _$ThreadParamFromJson(Map<String, dynamic> json) {
 mixin _$ThreadParam {
   String get text => throw _privateConstructorUsedError;
   List<Facet>? get facets => throw _privateConstructorUsedError;
-  @EmbedConverter()
+  @embedConverter
   Embed? get embed => throw _privateConstructorUsedError;
   List<String>? get languageTags => throw _privateConstructorUsedError;
+  @labelsConverter
+  Labels? get labels => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
+  Map<String, dynamic> get unspecced => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,11 +45,14 @@ abstract class $ThreadParamCopyWith<$Res> {
   $Res call(
       {String text,
       List<Facet>? facets,
-      @EmbedConverter() Embed? embed,
+      @embedConverter Embed? embed,
       List<String>? languageTags,
-      DateTime? createdAt});
+      @labelsConverter Labels? labels,
+      DateTime? createdAt,
+      Map<String, dynamic> unspecced});
 
   $EmbedCopyWith<$Res>? get embed;
+  $LabelsCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -66,7 +72,9 @@ class _$ThreadParamCopyWithImpl<$Res, $Val extends ThreadParam>
     Object? facets = freezed,
     Object? embed = freezed,
     Object? languageTags = freezed,
+    Object? labels = freezed,
     Object? createdAt = freezed,
+    Object? unspecced = null,
   }) {
     return _then(_value.copyWith(
       text: null == text
@@ -85,10 +93,18 @@ class _$ThreadParamCopyWithImpl<$Res, $Val extends ThreadParam>
           ? _value.languageTags
           : languageTags // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      labels: freezed == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as Labels?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      unspecced: null == unspecced
+          ? _value.unspecced
+          : unspecced // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -101,6 +117,18 @@ class _$ThreadParamCopyWithImpl<$Res, $Val extends ThreadParam>
 
     return $EmbedCopyWith<$Res>(_value.embed!, (value) {
       return _then(_value.copyWith(embed: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LabelsCopyWith<$Res>? get labels {
+    if (_value.labels == null) {
+      return null;
+    }
+
+    return $LabelsCopyWith<$Res>(_value.labels!, (value) {
+      return _then(_value.copyWith(labels: value) as $Val);
     });
   }
 }
@@ -116,12 +144,16 @@ abstract class _$$_ThreadParamCopyWith<$Res>
   $Res call(
       {String text,
       List<Facet>? facets,
-      @EmbedConverter() Embed? embed,
+      @embedConverter Embed? embed,
       List<String>? languageTags,
-      DateTime? createdAt});
+      @labelsConverter Labels? labels,
+      DateTime? createdAt,
+      Map<String, dynamic> unspecced});
 
   @override
   $EmbedCopyWith<$Res>? get embed;
+  @override
+  $LabelsCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -139,7 +171,9 @@ class __$$_ThreadParamCopyWithImpl<$Res>
     Object? facets = freezed,
     Object? embed = freezed,
     Object? languageTags = freezed,
+    Object? labels = freezed,
     Object? createdAt = freezed,
+    Object? unspecced = null,
   }) {
     return _then(_$_ThreadParam(
       text: null == text
@@ -158,26 +192,37 @@ class __$$_ThreadParamCopyWithImpl<$Res>
           ? _value._languageTags
           : languageTags // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      labels: freezed == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as Labels?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      unspecced: null == unspecced
+          ? _value._unspecced
+          : unspecced // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_ThreadParam implements _ThreadParam {
   const _$_ThreadParam(
       {required this.text,
       final List<Facet>? facets,
-      @EmbedConverter() this.embed,
+      @embedConverter this.embed,
       final List<String>? languageTags,
-      this.createdAt})
+      @labelsConverter this.labels,
+      this.createdAt,
+      final Map<String, dynamic> unspecced = emptyJson})
       : _facets = facets,
-        _languageTags = languageTags;
+        _languageTags = languageTags,
+        _unspecced = unspecced;
 
   factory _$_ThreadParam.fromJson(Map<String, dynamic> json) =>
       _$$_ThreadParamFromJson(json);
@@ -195,7 +240,7 @@ class _$_ThreadParam implements _ThreadParam {
   }
 
   @override
-  @EmbedConverter()
+  @embedConverter
   final Embed? embed;
   final List<String>? _languageTags;
   @override
@@ -208,11 +253,22 @@ class _$_ThreadParam implements _ThreadParam {
   }
 
   @override
+  @labelsConverter
+  final Labels? labels;
+  @override
   final DateTime? createdAt;
+  final Map<String, dynamic> _unspecced;
+  @override
+  @JsonKey()
+  Map<String, dynamic> get unspecced {
+    if (_unspecced is EqualUnmodifiableMapView) return _unspecced;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_unspecced);
+  }
 
   @override
   String toString() {
-    return 'ThreadParam(text: $text, facets: $facets, embed: $embed, languageTags: $languageTags, createdAt: $createdAt)';
+    return 'ThreadParam(text: $text, facets: $facets, embed: $embed, languageTags: $languageTags, labels: $labels, createdAt: $createdAt, unspecced: $unspecced)';
   }
 
   @override
@@ -225,8 +281,11 @@ class _$_ThreadParam implements _ThreadParam {
             (identical(other.embed, embed) || other.embed == embed) &&
             const DeepCollectionEquality()
                 .equals(other._languageTags, _languageTags) &&
+            (identical(other.labels, labels) || other.labels == labels) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality()
+                .equals(other._unspecced, _unspecced));
   }
 
   @JsonKey(ignore: true)
@@ -237,7 +296,9 @@ class _$_ThreadParam implements _ThreadParam {
       const DeepCollectionEquality().hash(_facets),
       embed,
       const DeepCollectionEquality().hash(_languageTags),
-      createdAt);
+      labels,
+      createdAt,
+      const DeepCollectionEquality().hash(_unspecced));
 
   @JsonKey(ignore: true)
   @override
@@ -257,9 +318,11 @@ abstract class _ThreadParam implements ThreadParam {
   const factory _ThreadParam(
       {required final String text,
       final List<Facet>? facets,
-      @EmbedConverter() final Embed? embed,
+      @embedConverter final Embed? embed,
       final List<String>? languageTags,
-      final DateTime? createdAt}) = _$_ThreadParam;
+      @labelsConverter final Labels? labels,
+      final DateTime? createdAt,
+      final Map<String, dynamic> unspecced}) = _$_ThreadParam;
 
   factory _ThreadParam.fromJson(Map<String, dynamic> json) =
       _$_ThreadParam.fromJson;
@@ -269,12 +332,17 @@ abstract class _ThreadParam implements ThreadParam {
   @override
   List<Facet>? get facets;
   @override
-  @EmbedConverter()
+  @embedConverter
   Embed? get embed;
   @override
   List<String>? get languageTags;
   @override
+  @labelsConverter
+  Labels? get labels;
+  @override
   DateTime? get createdAt;
+  @override
+  Map<String, dynamic> get unspecced;
   @override
   @JsonKey(ignore: true)
   _$$_ThreadParamCopyWith<_$_ThreadParam> get copyWith =>

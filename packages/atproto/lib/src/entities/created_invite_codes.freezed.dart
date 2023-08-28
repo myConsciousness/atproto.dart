@@ -20,6 +20,7 @@ CreatedInviteCodes _$CreatedInviteCodesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CreatedInviteCodes {
+  /// The list of invitation codes.
   List<AccountCodes> get codes => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -103,7 +104,10 @@ class _$_CreatedInviteCodes implements _CreatedInviteCodes {
   factory _$_CreatedInviteCodes.fromJson(Map<String, dynamic> json) =>
       _$$_CreatedInviteCodesFromJson(json);
 
+  /// The list of invitation codes.
   final List<AccountCodes> _codes;
+
+  /// The list of invitation codes.
   @override
   List<AccountCodes> get codes {
     if (_codes is EqualUnmodifiableListView) return _codes;
@@ -152,6 +156,8 @@ abstract class _CreatedInviteCodes implements CreatedInviteCodes {
       _$_CreatedInviteCodes.fromJson;
 
   @override
+
+  /// The list of invitation codes.
   List<AccountCodes> get codes;
   @override
   @JsonKey(ignore: true)

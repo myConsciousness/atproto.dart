@@ -2,12 +2,13 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🌎 Project imports:
 import '../xrpc_error.dart';
 import '../xrpc_response.dart';
 
 /// This exception indicates that an unexpected error occurred when
 /// communicating with the ATP server.
-class XRPCException implements Exception {
+base class XRPCException implements Exception {
   /// Returns the new instance of [XRPCException].
   const XRPCException(
     this.response, {

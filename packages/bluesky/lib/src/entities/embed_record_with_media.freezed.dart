@@ -20,10 +20,16 @@ EmbedRecordWithMedia _$EmbedRecordWithMediaFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmbedRecordWithMedia {
-  @JsonKey(name: '\$type')
+  /// The type of the embedded content, defaulted to
+  /// [appBskyEmbedRecordWithMedia].
+  @typeKey
   String get type => throw _privateConstructorUsedError;
+
+  /// An [EmbedRecord] object that represents the record to be embedded.
   EmbedRecord get record => throw _privateConstructorUsedError;
-  @EmbedMediaConverter()
+
+  /// An [EmbedMedia] object that represents the media to be embedded.
+  @embedMediaConverter
   EmbedMedia get media => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,9 +45,9 @@ abstract class $EmbedRecordWithMediaCopyWith<$Res> {
       _$EmbedRecordWithMediaCopyWithImpl<$Res, EmbedRecordWithMedia>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       EmbedRecord record,
-      @EmbedMediaConverter() EmbedMedia media});
+      @embedMediaConverter EmbedMedia media});
 
   $EmbedRecordCopyWith<$Res> get record;
   $EmbedMediaCopyWith<$Res> get media;
@@ -107,9 +113,9 @@ abstract class _$$_EmbedRecordWithMediaCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       EmbedRecord record,
-      @EmbedMediaConverter() EmbedMedia media});
+      @embedMediaConverter EmbedMedia media});
 
   @override
   $EmbedRecordCopyWith<$Res> get record;
@@ -153,20 +159,26 @@ class __$$_EmbedRecordWithMediaCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedRecordWithMedia implements _EmbedRecordWithMedia {
   const _$_EmbedRecordWithMedia(
-      {@JsonKey(name: '\$type') this.type = 'app.bsky.embed.recordWithMedia',
+      {@typeKey this.type = appBskyEmbedRecordWithMedia,
       required this.record,
-      @EmbedMediaConverter() required this.media});
+      @embedMediaConverter required this.media});
 
   factory _$_EmbedRecordWithMedia.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedRecordWithMediaFromJson(json);
 
+  /// The type of the embedded content, defaulted to
+  /// [appBskyEmbedRecordWithMedia].
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
+
+  /// An [EmbedRecord] object that represents the record to be embedded.
   @override
   final EmbedRecord record;
+
+  /// An [EmbedMedia] object that represents the media to be embedded.
   @override
-  @EmbedMediaConverter()
+  @embedMediaConverter
   final EmbedMedia media;
 
   @override
@@ -205,21 +217,28 @@ class _$_EmbedRecordWithMedia implements _EmbedRecordWithMedia {
 
 abstract class _EmbedRecordWithMedia implements EmbedRecordWithMedia {
   const factory _EmbedRecordWithMedia(
-          {@JsonKey(name: '\$type') final String type,
+          {@typeKey final String type,
           required final EmbedRecord record,
-          @EmbedMediaConverter() required final EmbedMedia media}) =
+          @embedMediaConverter required final EmbedMedia media}) =
       _$_EmbedRecordWithMedia;
 
   factory _EmbedRecordWithMedia.fromJson(Map<String, dynamic> json) =
       _$_EmbedRecordWithMedia.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// The type of the embedded content, defaulted to
+  /// [appBskyEmbedRecordWithMedia].
+  @typeKey
   String get type;
   @override
+
+  /// An [EmbedRecord] object that represents the record to be embedded.
   EmbedRecord get record;
   @override
-  @EmbedMediaConverter()
+
+  /// An [EmbedMedia] object that represents the media to be embedded.
+  @embedMediaConverter
   EmbedMedia get media;
   @override
   @JsonKey(ignore: true)

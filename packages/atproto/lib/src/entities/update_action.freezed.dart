@@ -20,11 +20,19 @@ UpdateAction _$UpdateActionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UpdateAction {
-  @JsonKey(name: '\$type')
+  /// The type of action. It defaults to
+  /// [comAtprotoRepoApplyWritesUpdate].
+  @typeKey
   String get type => throw _privateConstructorUsedError;
-  @NsidConverter()
+
+  /// The collection to which the record belongs.
+  @nsidConverter
   NSID get collection => throw _privateConstructorUsedError;
+
+  /// The key of the record to be updated.
   String? get rkey => throw _privateConstructorUsedError;
+
+  /// The new values of the record.
   @JsonKey(name: 'value')
   Map<String, dynamic> get record => throw _privateConstructorUsedError;
 
@@ -41,8 +49,8 @@ abstract class $UpdateActionCopyWith<$Res> {
       _$UpdateActionCopyWithImpl<$Res, UpdateAction>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
-      @NsidConverter() NSID collection,
+      {@typeKey String type,
+      @nsidConverter NSID collection,
       String? rkey,
       @JsonKey(name: 'value') Map<String, dynamic> record});
 }
@@ -95,8 +103,8 @@ abstract class _$$_UpdateActionCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
-      @NsidConverter() NSID collection,
+      {@typeKey String type,
+      @nsidConverter NSID collection,
       String? rkey,
       @JsonKey(name: 'value') Map<String, dynamic> record});
 }
@@ -140,12 +148,11 @@ class __$$_UpdateActionCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_UpdateAction implements _UpdateAction {
   const _$_UpdateAction(
-      {@JsonKey(name: '\$type')
-      this.type = 'com.atproto.repo.applyWrites#update',
-      @NsidConverter() required this.collection,
+      {@typeKey this.type = comAtprotoRepoApplyWritesUpdate,
+      @nsidConverter required this.collection,
       this.rkey,
       @JsonKey(name: 'value') required final Map<String, dynamic> record})
       : _record = record;
@@ -153,15 +160,25 @@ class _$_UpdateAction implements _UpdateAction {
   factory _$_UpdateAction.fromJson(Map<String, dynamic> json) =>
       _$$_UpdateActionFromJson(json);
 
+  /// The type of action. It defaults to
+  /// [comAtprotoRepoApplyWritesUpdate].
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
+
+  /// The collection to which the record belongs.
   @override
-  @NsidConverter()
+  @nsidConverter
   final NSID collection;
+
+  /// The key of the record to be updated.
   @override
   final String? rkey;
+
+  /// The new values of the record.
   final Map<String, dynamic> _record;
+
+  /// The new values of the record.
   @override
   @JsonKey(name: 'value')
   Map<String, dynamic> get record {
@@ -208,8 +225,8 @@ class _$_UpdateAction implements _UpdateAction {
 
 abstract class _UpdateAction implements UpdateAction {
   const factory _UpdateAction(
-          {@JsonKey(name: '\$type') final String type,
-          @NsidConverter() required final NSID collection,
+          {@typeKey final String type,
+          @nsidConverter required final NSID collection,
           final String? rkey,
           @JsonKey(name: 'value') required final Map<String, dynamic> record}) =
       _$_UpdateAction;
@@ -218,14 +235,23 @@ abstract class _UpdateAction implements UpdateAction {
       _$_UpdateAction.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// The type of action. It defaults to
+  /// [comAtprotoRepoApplyWritesUpdate].
+  @typeKey
   String get type;
   @override
-  @NsidConverter()
+
+  /// The collection to which the record belongs.
+  @nsidConverter
   NSID get collection;
   @override
+
+  /// The key of the record to be updated.
   String? get rkey;
   @override
+
+  /// The new values of the record.
   @JsonKey(name: 'value')
   Map<String, dynamic> get record;
   @override

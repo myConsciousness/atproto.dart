@@ -6,7 +6,7 @@
 
 
 <p align="center">
-  <b>Provide Packages/Tools Make It Easy To Use AT Protocol and Bluesky With Dart/Flutter 🎯</b>
+  <b>AT Protocol and Bluesky Social Things for Dart/Flutter 🎯</b>
 </p>
 
 ---
@@ -37,7 +37,6 @@
     - [1.1.2. Flutter](#112-flutter)
     - [1.1.3. CLI](#113-cli)
     - [1.1.4. GitHub Actions](#114-github-actions)
-  - [1.2. Code Examples](#12-code-examples)
   - [1.3. Melos Commands](#13-melos-commands)
   - [1.4. Contribution 🏆](#14-contribution-)
   - [1.5. Contributors ✨](#15-contributors-)
@@ -46,60 +45,49 @@
   - [1.8. More Information 🧐](#18-more-information-)
 
 <!-- /TOC -->
-
 # 1. Guide 🌎
 
-This monorepo aims to make [AT Protocol](https://atproto.com) and [Bluesky](https://blueskyweb.xyz) functionality easy to handle in Dart/Flutter,
-and to contribute to the development of [AT Protocol](https://atproto.com) and [Bluesky](https://blueskyweb.xyz) and AT Protocol-based services.
+The packages in this monorepo will **_minimize your learning time_** about AT Protocol and Bluesky things,
+and **_maximize your Dart/Flutter development productivity_** with  AT Protocol and Bluesky things.
 
-**Show some ❤️ and star the repo to support the project.**
+**_Give a ⭐ on [this repository](https://github.com/myConsciousness/atproto.dart) to activate a project!_**
+
+![github_star](https://github.com/myConsciousness/atproto.dart/assets/13072231/c4a9b0b9-6ea4-42f1-823b-3b9e7cdb8b04)
 
 ## 1.1. Packages & Tools
 
 ### 1.1.1. Dart & Flutter
 
-| Name                                                                                              |                                                                   pub.dev                                                                    | Description                                                                                                                                                   |
-| ------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [at_identifier](https://github.com/myConsciousness/atproto.dart/tree/main/packages/at_identifier) | [![pub package](https://img.shields.io/pub/v/at_identifier.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/at_identifier) | Provide standard validation for identifier supported by AT Protocol to Dart/Flutter.                                                                          |
-| [nsid](https://github.com/myConsciousness/atproto.dart/tree/main/packages/nsid)                   |          [![pub package](https://img.shields.io/pub/v/nsid.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/nsid)          | Provide standard NSID object supported by AT Protocol to Dart/Flutter.                                                                                        |
-| [at_uri](https://github.com/myConsciousness/atproto.dart/tree/main/packages/at_uri)               |        [![pub package](https://img.shields.io/pub/v/at_uri.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/at_uri)        | Provide standard uri supported by AT Protocol to Dart/Flutter.                                                                                                |
-| [xrpc](https://github.com/myConsciousness/atproto.dart/tree/main/packages/xrpc)                   |          [![pub package](https://img.shields.io/pub/v/xrpc.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/xrpc)          | Provide an HTTP client specialized for XRPC communication in AT Protocol.                                                                                     |
-| [multiformats](https://github.com/myConsciousness/atproto.dart/tree/main/packages/multiformats)   |  [![pub package](https://img.shields.io/pub/v/multiformats.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/multiformats)  | Provide useful interfaces such a [CID](https://docs.ipfs.tech/concepts/content-addressing/) used by AT Protocol to Dart/Flutter.                              |
-| [atproto_test](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_test)   |  [![pub package](https://img.shields.io/pub/v/atproto_test.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/atproto_test)  | Provide reusable and useful functionality for testing [atproto](https://pub.dartlang.org/packages/atproto) based packages.                                    |
-| [atproto_core](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_core)   |  [![pub package](https://img.shields.io/pub/v/atproto_core.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/atproto_core)  | Provide core reusable and useful functionality for wrapping AT Protocol and related services.                                                                 |
-| [lexicon](https://github.com/myConsciousness/atproto.dart/tree/main/packages/lexicon)             |       [![pub package](https://img.shields.io/pub/v/lexicon.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/lexicon)       | Provide AT Protocol standard [lexicon](https://atproto.com/specs/lexicon) objects for Dart/Flutter.                                                           |
-| [atproto](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto)             |       [![pub package](https://img.shields.io/pub/v/atproto.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/atproto)       | Provide the easiest and powerful way to use [com.atproto](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto) lexicons in Dart/Flutter. |
-| [bluesky_text](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_text)   |  [![pub package](https://img.shields.io/pub/v/bluesky_text.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky_text)  | Provides the easiest and most powerful way to analyze the text on Bluesky Social.                                                                             |
-| [bluesky](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky)             |       [![pub package](https://img.shields.io/pub/v/bluesky.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky)       | Provide the easiest and powerful way to use [app.bsky](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky) lexicons in Dart/Flutter.       |
+| Name                                                                                                  |                                                                   pub.dev                                                                    | Description                                                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **[at_identifier](https://github.com/myConsciousness/atproto.dart/tree/main/packages/at_identifier)** | [![pub package](https://img.shields.io/pub/v/at_identifier.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/at_identifier) | Provide standard validation for identifier supported by AT Protocol to Dart/Flutter.                                                                          |
+| **[nsid](https://github.com/myConsciousness/atproto.dart/tree/main/packages/nsid)**                   |          [![pub package](https://img.shields.io/pub/v/nsid.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/nsid)          | Provide standard NSID object supported by AT Protocol to Dart/Flutter.                                                                                        |
+| **[at_uri](https://github.com/myConsciousness/atproto.dart/tree/main/packages/at_uri)**               |        [![pub package](https://img.shields.io/pub/v/at_uri.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/at_uri)        | Provide standard uri supported by AT Protocol to Dart/Flutter.                                                                                                |
+| **[xrpc](https://github.com/myConsciousness/atproto.dart/tree/main/packages/xrpc)**                   |          [![pub package](https://img.shields.io/pub/v/xrpc.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/xrpc)          | Provide an HTTP client specialized for XRPC communication in AT Protocol.                                                                                     |
+| **[multiformats](https://github.com/myConsciousness/atproto.dart/tree/main/packages/multiformats)**   |  [![pub package](https://img.shields.io/pub/v/multiformats.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/multiformats)  | Provide useful interfaces such a [CID](https://docs.ipfs.tech/concepts/content-addressing/) used by AT Protocol to Dart/Flutter.                              |
+| **[atproto_core](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_core)**   |  [![pub package](https://img.shields.io/pub/v/atproto_core.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/atproto_core)  | Provide core reusable and useful functionality for wrapping AT Protocol and related services.                                                                 |
+| **[lexicon](https://github.com/myConsciousness/atproto.dart/tree/main/packages/lexicon)**             |       [![pub package](https://img.shields.io/pub/v/lexicon.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/lexicon)       | Provide AT Protocol standard [lexicon](https://atproto.com/specs/lexicon) objects for Dart/Flutter.                                                           |
+| **[atproto](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto)**             |       [![pub package](https://img.shields.io/pub/v/atproto.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/atproto)       | Provide the easiest and powerful way to use [com.atproto](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto) lexicons in Dart/Flutter. |
+| **[bluesky_text](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_text)**   |  [![pub package](https://img.shields.io/pub/v/bluesky_text.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky_text)  | Provides the easiest and most powerful way to analyze the text on Bluesky Social.                                                                             |
+| **[bluesky](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky)**             |       [![pub package](https://img.shields.io/pub/v/bluesky.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky)       | Provide the easiest and powerful way to use [app.bsky](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky) lexicons in Dart/Flutter.       |
 
 ### 1.1.2. Flutter
 
-| Name                                                                                              |                                                                   pub.dev                                                                    | Description                                                                          |
-| ------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------ |
-| [bluesky_cards](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_cards) | [![pub package](https://img.shields.io/pub/v/bluesky_cards.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky_cards) | Provide a widget to output Bluesky Social's post content beautifully in Flutter app. |
+| Name                                                                                                  |                                                                   pub.dev                                                                    | Description                                                                          |
+| ----------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------ |
+| **[bluesky_cards](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_cards)** | [![pub package](https://img.shields.io/pub/v/bluesky_cards.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky_cards) | Provide a widget to output Bluesky Social's post content beautifully in Flutter app. |
 
 ### 1.1.3. CLI
 
-| Name                                                                                          |                                                                 pub.dev                                                                  | Description                                                         |
-| --------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------- |
-| [bluesky_cli](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_cli) | [![pub package](https://img.shields.io/pub/v/bluesky_cli.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky_cli) | CLI tool to easily use Bluesky Social's APIs from the command line. |
+| Name                                                                                              |                                                                 pub.dev                                                                  | Description                                                         |
+| ------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------- |
+| **[bluesky_cli](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_cli)** | [![pub package](https://img.shields.io/pub/v/bluesky_cli.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky_cli) | CLI tool to easily use Bluesky Social's APIs from the command line. |
 
 ### 1.1.4. GitHub Actions
 
-| Name                                                                                            |                                                                                        Marketplace                                                                                        | Description                                                                    |
-| ----------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------ |
-| [bluesky_post](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_post) | [![bluesky-post](https://img.shields.io/static/v1?label=actions&message=myConsciousness/bluesky-post&logo=GitHub&color=00acee)](https://github.com/marketplace/actions/send-bluesky-post) | Use this action to send a post to Bluesky Social from GitHub actions workflow. |
-
-## 1.2. Code Examples
-
-I have developed many packages in this monorepo. But rest assured, I have many sample codes for the major packages.
-
-All sample code is managed in the `examples` folder in this repository. You can easily find the sample code
-you are looking for by looking at the automatically maintained `examples/README.md`.
-
-**Please check the following link:**
-
-- [examples/README.md](https://github.com/myConsciousness/atproto.dart/tree/main/examples/README.md)
+| Name                                                                                                |                                                                                        Marketplace                                                                                        | Description                                                                    |
+| --------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------ |
+| **[bluesky_post](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_post)** | [![bluesky-post](https://img.shields.io/static/v1?label=actions&message=myConsciousness/bluesky-post&logo=GitHub&color=00acee)](https://github.com/marketplace/actions/send-bluesky-post) | Use this action to send a post to Bluesky Social from GitHub actions workflow. |
 
 ## 1.3. Melos Commands
 
@@ -113,20 +101,17 @@ dart pub global activate melos
 
 Then, the Melos commands available for this project are:
 
-| Command            | Description                                               |
-| ------------------ | --------------------------------------------------------- |
-| melos get          | Run `pub get` command in this project.                    |
-| melos analyze      | Run `dart analyze` in all packages.                       |
-| melos format       | Run `dart format` in all packages.                        |
-| melos test         | Run all Dart & Flutter tests in this project.             |
-| melos test:dart    | Run Dart tests for a specific package in this project.    |
-| melos test:flutter | Run Flutter tests for a specific package in this project. |
-
-> **Note** </br>
-> Depending on the development status of each package, some scripts may fail
-> due to unresolved dependencies of packages that have not yet been released.
-> </br></br>
-> In that case, please move to the each package and execute the dart command.
+| Command                 | Description                                                                                                                        |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| **melos get**           | Run `pub get` command in this project.                                                                                             |
+| **melos analyze**       | Run `dart analyze` in all packages.                                                                                                |
+| **melos format**        | Run `dart format` in all packages.                                                                                                 |
+| **melos import_sorter** | Run `dart run import_sorter:main` in all packages.                                                                                 |
+| **melos build_runner**  | Run `build_runner` and `melos format` in all packages. You can generate `*.g.dart` and `*.freezed.dart` objects with this command. |
+| **melos test**          | Run all Dart & Flutter tests in this project.                                                                                      |
+| **melos test:dart**     | Run Dart tests for a specific package in this project.                                                                             |
+| **melos test:flutter**  | Run Flutter tests for a specific package in this project.                                                                          |
+| **melos publish_all**   | Run publish for all packages, create a git tag and push it to origin.                                                              |
 
 ## 1.4. Contribution 🏆
 
@@ -168,6 +153,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="20%"><a href="https://github.com/redsolver"><img src="https://avatars.githubusercontent.com/u/30355444?v=4?s=100" width="100px;" alt="redsolver"/><br /><sub><b>redsolver</b></sub></a><br /><a href="#ideas-redsolver" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/myConsciousness/atproto.dart/issues?q=author%3Aredsolver" title="Bug reports">🐛</a> <a href="#question-redsolver" title="Answering Questions">💬</a></td>
       <td align="center" valign="top" width="20%"><a href="http://shy.dev"><img src="https://avatars.githubusercontent.com/u/1316340?v=4?s=100" width="100px;" alt="Shy Ruparel"/><br /><sub><b>Shy Ruparel</b></sub></a><br /><a href="#ideas-Shy" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center" valign="top" width="20%"><a href="http://ujj.space"><img src="https://avatars.githubusercontent.com/u/4410814?v=4?s=100" width="100px;" alt="Julien "uj" Abadji"/><br /><sub><b>Julien "uj" Abadji</b></sub></a><br /><a href="https://github.com/myConsciousness/atproto.dart/commits?author=Uinelj" title="Code">💻</a></td>
+      <td align="center" valign="top" width="20%"><a href="https://github.com/barineco"><img src="https://avatars.githubusercontent.com/u/142575857?v=4?s=100" width="100px;" alt="maughtchiner"/><br /><sub><b>maughtchiner</b></sub></a><br /><a href="#ideas-barineco" title="Ideas, Planning, & Feedback">🤔</a> <a href="#content-barineco" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="20%"><a href="https://github.com/igz0"><img src="https://avatars.githubusercontent.com/u/37741728?v=4?s=100" width="100px;" alt="igz0"/><br /><sub><b>igz0</b></sub></a><br /><a href="#ideas-igz0" title="Ideas, Planning, & Feedback">🤔</a> <a href="#content-igz0" title="Content">🖋</a></td>
     </tr>
   </tbody>
 </table>

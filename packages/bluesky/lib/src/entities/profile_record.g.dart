@@ -22,6 +22,10 @@ _$_ProfileRecord _$$_ProfileRecordFromJson(Map json) => $checkedCreate(
               (v) => v == null
                   ? null
                   : Blob.fromJson(Map<String, Object?>.from(v as Map))),
+          labels: $checkedConvert(
+              'labels',
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, Labels>(
+                  v, labelsConverter.fromJson)),
           banner: $checkedConvert(
               'banner',
               (v) => v == null
@@ -47,6 +51,22 @@ Map<String, dynamic> _$$_ProfileRecordToJson(_$_ProfileRecord instance) {
   writeNotNull('displayName', instance.displayName);
   writeNotNull('description', instance.description);
   writeNotNull('avatar', instance.avatar?.toJson());
+  writeNotNull(
+      'labels',
+      _$JsonConverterToJson<Map<String, dynamic>, Labels>(
+          instance.labels, labelsConverter.toJson));
   writeNotNull('banner', instance.banner?.toJson());
   return val;
 }
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

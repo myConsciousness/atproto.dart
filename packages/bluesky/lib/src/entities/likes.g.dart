@@ -20,7 +20,7 @@ _$_Likes _$$_LikesFromJson(Map json) => $checkedCreate(
                       (e) => Like.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           uri: $checkedConvert(
-              'uri', (v) => const AtUriConverter().fromJson(v as String)),
+              'uri', (v) => atUriConverter.fromJson(v as String)),
           cursor: $checkedConvert('cursor', (v) => v as String?),
         );
         return val;
@@ -29,6 +29,6 @@ _$_Likes _$$_LikesFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$_LikesToJson(_$_Likes instance) => <String, dynamic>{
       'likes': instance.likes.map((e) => e.toJson()).toList(),
-      'uri': const AtUriConverter().toJson(instance.uri),
+      'uri': atUriConverter.toJson(instance.uri),
       'cursor': instance.cursor,
     };

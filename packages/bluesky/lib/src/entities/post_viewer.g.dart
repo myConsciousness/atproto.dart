@@ -16,11 +16,11 @@ _$_PostViewer _$$_PostViewerFromJson(Map json) => $checkedCreate(
           repost: $checkedConvert(
               'repost',
               (v) => _$JsonConverterFromJson<String, AtUri>(
-                  v, const AtUriConverter().fromJson)),
+                  v, atUriConverter.fromJson)),
           like: $checkedConvert(
               'like',
               (v) => _$JsonConverterFromJson<String, AtUri>(
-                  v, const AtUriConverter().fromJson)),
+                  v, atUriConverter.fromJson)),
         );
         return val;
       },
@@ -38,11 +38,11 @@ Map<String, dynamic> _$$_PostViewerToJson(_$_PostViewer instance) {
   writeNotNull(
       'repost',
       _$JsonConverterToJson<String, AtUri>(
-          instance.repost, const AtUriConverter().toJson));
+          instance.repost, atUriConverter.toJson));
   writeNotNull(
       'like',
       _$JsonConverterToJson<String, AtUri>(
-          instance.like, const AtUriConverter().toJson));
+          instance.like, atUriConverter.toJson));
   return val;
 }
 

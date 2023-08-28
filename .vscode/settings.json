@@ -11,6 +11,7 @@
     "delim",
     "dids",
     "downvote",
+    "embeddable",
     "Facetable",
     "fullsize",
     "IPFS",
@@ -24,12 +25,15 @@
     "multiformats",
     "Multihash",
     "NSID",
+    "Pageable",
+    "paginations",
     "pchar",
     "proto",
     "pubspec",
     "punycode",
     "Repost",
     "Reposted",
+    "reposting",
     "Reposts",
     "rkey",
     "Roboto",
@@ -45,5 +49,7 @@
   ],
   "[markdown]": {
     "editor.wordWrap": "off"
-  }
+  },
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
 }

@@ -2,6 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🌎 Project imports:
 import 'validation.dart';
 
 /// This is the Dart implementation of NSID in AT Protocol.
@@ -16,7 +17,7 @@ import 'validation.dart';
 /// - name      = segment
 /// - nsid      = authority delim name
 /// - nsid-ns   = authority delim "*"
-class NSID {
+final class NSID {
   factory NSID.parse(final String nsid) => NSID._(nsid);
 
   factory NSID.create(final String authority, final String name) =>

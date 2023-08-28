@@ -5,8 +5,11 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import '../entities/converter/embed_converter.dart';
 import '../entities/embed.dart';
 import '../entities/facet.dart';
@@ -16,13 +19,15 @@ part 'thread_param.g.dart';
 
 @freezed
 class ThreadParam with _$ThreadParam {
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory ThreadParam({
     required String text,
     List<Facet>? facets,
-    @EmbedConverter() Embed? embed,
+    @embedConverter Embed? embed,
     List<String>? languageTags,
+    @labelsConverter Labels? labels,
     DateTime? createdAt,
+    @Default(emptyJson) Map<String, dynamic> unspecced,
   }) = _ThreadParam;
 
   factory ThreadParam.fromJson(Map<String, Object?> json) =>

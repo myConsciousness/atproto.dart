@@ -15,7 +15,7 @@ _$_ContentLabelPreference _$$_ContentLabelPreferenceFromJson(Map json) =>
       ($checkedConvert) {
         final val = _$_ContentLabelPreference(
           type: $checkedConvert(r'$type',
-              (v) => v as String? ?? 'app.bsky.actor.defs#contentLabelPref'),
+              (v) => v as String? ?? appBskyActorDefsContentLabelPref),
           label: $checkedConvert('label', (v) => v as String),
           visibility: $checkedConvert('visibility',
               (v) => $enumDecode(_$ContentLabelVisibilityEnumMap, v)),

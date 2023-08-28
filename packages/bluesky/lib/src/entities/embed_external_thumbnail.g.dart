@@ -20,7 +20,7 @@ _$_EmbedExternalThumbnail _$$_EmbedExternalThumbnailFromJson(Map json) =>
           blob: $checkedConvert(
               'thumb',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, Blob>(
-                  v, const BlobConverter().fromJson)),
+                  v, blobConverter.fromJson)),
         );
         return val;
       },
@@ -44,7 +44,7 @@ Map<String, dynamic> _$$_EmbedExternalThumbnailToJson(
   writeNotNull(
       'thumb',
       _$JsonConverterToJson<Map<String, dynamic>, Blob>(
-          instance.blob, const BlobConverter().toJson));
+          instance.blob, blobConverter.toJson));
   return val;
 }
 

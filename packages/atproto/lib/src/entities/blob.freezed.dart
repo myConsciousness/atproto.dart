@@ -20,10 +20,17 @@ Blob _$BlobFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Blob {
-  @JsonKey(name: '\$type')
+  /// The type of the blob. Default is [blob].
+  @typeKey
   String get type => throw _privateConstructorUsedError;
+
+  /// The MIME type of the blob.
   String get mimeType => throw _privateConstructorUsedError;
+
+  /// The size of the blob in bytes.
   int get size => throw _privateConstructorUsedError;
+
+  /// A reference to the blob data.
   BlobRef get ref => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,11 +43,7 @@ abstract class $BlobCopyWith<$Res> {
   factory $BlobCopyWith(Blob value, $Res Function(Blob) then) =
       _$BlobCopyWithImpl<$Res, Blob>;
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String type,
-      String mimeType,
-      int size,
-      BlobRef ref});
+  $Res call({@typeKey String type, String mimeType, int size, BlobRef ref});
 
   $BlobRefCopyWith<$Res> get ref;
 }
@@ -98,11 +101,7 @@ abstract class _$$_BlobCopyWith<$Res> implements $BlobCopyWith<$Res> {
       __$$_BlobCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String type,
-      String mimeType,
-      int size,
-      BlobRef ref});
+  $Res call({@typeKey String type, String mimeType, int size, BlobRef ref});
 
   @override
   $BlobRefCopyWith<$Res> get ref;
@@ -147,20 +146,27 @@ class __$$_BlobCopyWithImpl<$Res> extends _$BlobCopyWithImpl<$Res, _$_Blob>
 @JsonSerializable()
 class _$_Blob implements _Blob {
   const _$_Blob(
-      {@JsonKey(name: '\$type') this.type = 'blob',
+      {@typeKey this.type = blob,
       required this.mimeType,
       required this.size,
       required this.ref});
 
   factory _$_Blob.fromJson(Map<String, dynamic> json) => _$$_BlobFromJson(json);
 
+  /// The type of the blob. Default is [blob].
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
+
+  /// The MIME type of the blob.
   @override
   final String mimeType;
+
+  /// The size of the blob in bytes.
   @override
   final int size;
+
+  /// A reference to the blob data.
   @override
   final BlobRef ref;
 
@@ -201,7 +207,7 @@ class _$_Blob implements _Blob {
 
 abstract class _Blob implements Blob {
   const factory _Blob(
-      {@JsonKey(name: '\$type') final String type,
+      {@typeKey final String type,
       required final String mimeType,
       required final int size,
       required final BlobRef ref}) = _$_Blob;
@@ -209,13 +215,21 @@ abstract class _Blob implements Blob {
   factory _Blob.fromJson(Map<String, dynamic> json) = _$_Blob.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// The type of the blob. Default is [blob].
+  @typeKey
   String get type;
   @override
+
+  /// The MIME type of the blob.
   String get mimeType;
   @override
+
+  /// The size of the blob in bytes.
   int get size;
   @override
+
+  /// A reference to the blob data.
   BlobRef get ref;
   @override
   @JsonKey(ignore: true)

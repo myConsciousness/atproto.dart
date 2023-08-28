@@ -2,18 +2,22 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
 import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 
+// 📦 Package imports:
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 import 'package:mime/mime.dart';
 import 'package:nsid/nsid.dart' as nsid;
 import 'package:web_socket_channel/web_socket_channel.dart';
 
+// 🌎 Project imports:
 import 'client_types.dart';
 import 'entities/empty_data.dart';
+import 'entities/rate_limit.dart';
 import 'exception/internal_server_error_exception.dart';
 import 'exception/invalid_request_exception.dart';
 import 'exception/rate_limit_exceeded_exception.dart';
@@ -379,6 +383,7 @@ XRPCResponse<Subscription<T>> subscribe<T>(
       method: HttpMethod.get,
       url: uri,
     ),
+    rateLimit: RateLimit.unlimited(),
     data: Subscription(
       channel: channel,
       controller: controller,
@@ -489,6 +494,7 @@ XRPCResponse<T> _buildResponse<T>(
         method: HttpMethod.valueOf(response.request!.method),
         url: response.request!.url,
       ),
+      rateLimit: RateLimit.fromHeaders(response.headers),
       data: _transformData(
         adaptor != null
             ? jsonEncode(adaptor.call(response.bodyBytes))
@@ -517,6 +523,10 @@ T _transformData<T>(
 
   if (T == String) {
     return body as T;
+  }
+
+  if (T == Map<String, dynamic>) {
+    return jsonDecode(body) as T;
   }
 
   return const EmptyData() as T;

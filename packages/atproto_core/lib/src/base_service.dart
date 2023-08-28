@@ -6,17 +6,28 @@
 import 'dart:async';
 import 'dart:typed_data';
 
+// 📦 Package imports:
 import 'package:xrpc/xrpc.dart' as xrpc;
 
-import 'client/client_context.dart';
-import 'client/user_context.dart';
+// 🌎 Project imports:
+import 'clients/client_context.dart';
+import 'clients/user_context.dart';
+import 'paginations/pagination.dart';
 
-abstract class _Service {
+sealed class _Service {
   Future<xrpc.XRPCResponse<T>> get<T>(
     final String methodName, {
     final UserContext userContext = UserContext.authRequired,
     final Map<String, dynamic>? parameters,
-    required final xrpc.To<T> to,
+    final xrpc.To<T>? to,
+    final xrpc.ResponseAdaptor? adaptor,
+  });
+
+  Pagination<T> paginate<T>(
+    final String methodName, {
+    final UserContext userContext = UserContext.authRequired,
+    required final Map<String, dynamic> parameters,
+    final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
   });
 
@@ -28,7 +39,7 @@ abstract class _Service {
   });
 
   Future<xrpc.XRPCResponse<T>> upload<T>(
-    final xrpc.NSID methodId,
+    final String methodName,
     final Uint8List bytes, {
     final UserContext userContext = UserContext.authRequired,
     final String? service,
@@ -38,7 +49,7 @@ abstract class _Service {
   });
 
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
-    final xrpc.NSID methodId, {
+    final String methodName, {
     final UserContext userContext = UserContext.authRequired,
     final String? service,
     final Map<String, dynamic>? parameters,
@@ -47,7 +58,7 @@ abstract class _Service {
   });
 }
 
-abstract class BaseService implements _Service {
+base class BaseService implements _Service {
   /// Returns the new instance of [BaseService].
   BaseService({
     xrpc.Protocol? protocol,
@@ -83,10 +94,32 @@ abstract class BaseService implements _Service {
     final String methodName, {
     final UserContext userContext = UserContext.authRequired,
     final Map<String, dynamic>? parameters,
-    required final xrpc.To<T> to,
+    final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
   }) async =>
       await _context.get(
+        xrpc.NSID.create(
+          _methodAuthority,
+          methodName,
+        ),
+        userContext: userContext,
+        protocol: _protocol,
+        service: _service,
+        parameters: parameters,
+        to: to,
+        adaptor: adaptor,
+        getClient: _mockedGetClient,
+      );
+
+  @override
+  Pagination<T> paginate<T>(
+    final String methodName, {
+    final UserContext userContext = UserContext.authRequired,
+    required final Map<String, dynamic> parameters,
+    final xrpc.To<T>? to,
+    final xrpc.ResponseAdaptor? adaptor,
+  }) =>
+      _context.paginate(
         xrpc.NSID.create(
           _methodAuthority,
           methodName,
@@ -124,7 +157,7 @@ abstract class BaseService implements _Service {
 
   @override
   Future<xrpc.XRPCResponse<T>> upload<T>(
-    final xrpc.NSID methodId,
+    final String methodName,
     final Uint8List bytes, {
     UserContext userContext = UserContext.authRequired,
     final String? service,
@@ -133,7 +166,10 @@ abstract class BaseService implements _Service {
     final xrpc.To<T>? to,
   }) async =>
       await _context.upload(
-        methodId,
+        xrpc.NSID.create(
+          _methodAuthority,
+          methodName,
+        ),
         bytes,
         userContext: userContext,
         protocol: _protocol,
@@ -145,7 +181,7 @@ abstract class BaseService implements _Service {
 
   @override
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
-    final xrpc.NSID methodId, {
+    final String methodName, {
     UserContext userContext = UserContext.authRequired,
     final String? service,
     final Map<String, dynamic>? parameters,
@@ -153,7 +189,10 @@ abstract class BaseService implements _Service {
     final xrpc.ResponseAdaptor? adaptor,
   }) async =>
       await _context.stream(
-        methodId,
+        xrpc.NSID.create(
+          _methodAuthority,
+          methodName,
+        ),
         userContext: userContext,
         service: service,
         parameters: parameters,

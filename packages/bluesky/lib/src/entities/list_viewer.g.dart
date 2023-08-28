@@ -13,7 +13,7 @@ _$_ListViewer _$$_ListViewerFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_ListViewer(
-          isMuted: $checkedConvert('muted', (v) => v as bool),
+          isMuted: $checkedConvert('muted', (v) => v as bool? ?? false),
         );
         return val;
       },

@@ -11,33 +11,50 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'post_viewer.freezed.dart';
 part 'post_viewer.g.dart';
 
+/// Represents a viewer's interaction with a post.
+///
+/// This class captures whether the authenticated user has liked or reposted
+/// a specific post.
 @freezed
 class PostViewer with _$PostViewer {
   // ignore: unused_element
   const PostViewer._();
 
-  @JsonSerializable(includeIfNull: false)
+  /// Creates a new instance of [PostViewer].
+  ///
+  /// - [repost] parameter may contain the URI of the repost by the
+  /// authenticated user.
+  /// - [like] parameter may contain the URI of the like by the
+  /// authenticated user.
+  @jsonSerializable
   const factory PostViewer({
-    @AtUriConverter() AtUri? repost,
-    @AtUriConverter() AtUri? like,
+    /// May contain the URI of the repost by the authenticated user.
+    @atUriConverter AtUri? repost,
+
+    /// May contain the URI of the like by the authenticated user.
+    @atUriConverter AtUri? like,
   }) = _PostViewer;
 
+  /// Creates a new instance of [PostViewer] from a map of [json] data.
+  ///
+  /// The [json] data must correspond to the structure of [PostViewer] to
+  /// properly convert.
   factory PostViewer.fromJson(Map<String, Object?> json) =>
       _$PostViewerFromJson(json);
 
-  /// Returns true if authenticated user has already reposted this record,
+  /// Returns true if the authenticated user has already reposted this record,
   /// otherwise false.
   bool get isReposted => repost != null;
 
-  /// Returns true if authenticated user has not reposted yet this record,
+  /// Returns true if the authenticated user has not reposted yet this record,
   /// otherwise false.
   bool get isNotReposted => !isReposted;
 
-  /// Returns true if authenticated user has already liked this record,
+  /// Returns true if the authenticated user has already liked this record,
   /// otherwise false.
   bool get isLiked => like != null;
 
-  /// Returns true if authenticated user has not liked yet this record,
+  /// Returns true if the authenticated user has not liked yet this record,
   /// otherwise false.
   bool get isNotLiked => !isLiked;
 }

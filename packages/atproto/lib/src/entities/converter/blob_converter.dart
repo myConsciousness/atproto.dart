@@ -2,13 +2,18 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import '../adaptor/blob_adaptor.dart';
 import '../blob.dart';
 
-class BlobConverter implements JsonConverter<Blob, Map<String, dynamic>> {
-  const BlobConverter();
+const blobConverter = _BlobConverter();
+
+final class _BlobConverter
+    implements JsonConverter<Blob, Map<String, dynamic>> {
+  const _BlobConverter();
 
   static const adaptor = BlobAdaptor();
 

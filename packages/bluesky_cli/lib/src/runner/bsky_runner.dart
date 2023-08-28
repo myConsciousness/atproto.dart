@@ -2,13 +2,16 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+// 📦 Package imports:
 import 'package:cli_util/cli_logging.dart';
 import 'package:xrpc/xrpc.dart';
 
+// 🌎 Project imports:
 import '../logger.dart';
 
 class Bsky extends _Bsky {

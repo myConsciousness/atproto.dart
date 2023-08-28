@@ -20,7 +20,10 @@ ReplyRef _$ReplyRefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ReplyRef {
+  /// Represents the root of the reply.
   StrongRef get root => throw _privateConstructorUsedError;
+
+  /// Represents the parent of the reply.
   StrongRef get parent => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -135,8 +138,11 @@ class _$_ReplyRef implements _ReplyRef {
   factory _$_ReplyRef.fromJson(Map<String, dynamic> json) =>
       _$$_ReplyRefFromJson(json);
 
+  /// Represents the root of the reply.
   @override
   final StrongRef root;
+
+  /// Represents the parent of the reply.
   @override
   final StrongRef parent;
 
@@ -180,8 +186,12 @@ abstract class _ReplyRef implements ReplyRef {
   factory _ReplyRef.fromJson(Map<String, dynamic> json) = _$_ReplyRef.fromJson;
 
   @override
+
+  /// Represents the root of the reply.
   StrongRef get root;
   @override
+
+  /// Represents the parent of the reply.
   StrongRef get parent;
   @override
   @JsonKey(ignore: true)

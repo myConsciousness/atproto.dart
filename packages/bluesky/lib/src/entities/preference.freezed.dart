@@ -44,26 +44,26 @@ mixin _$Preference {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_AdultContent value) adultContent,
-    required TResult Function(_ContentLabel value) contentLabel,
-    required TResult Function(_SavedFeeds value) savedFeeds,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferenceUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_AdultContent value)? adultContent,
-    TResult? Function(_ContentLabel value)? contentLabel,
-    TResult? Function(_SavedFeeds value)? savedFeeds,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferenceUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AdultContent value)? adultContent,
-    TResult Function(_ContentLabel value)? contentLabel,
-    TResult Function(_SavedFeeds value)? savedFeeds,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -88,10 +88,10 @@ class _$PreferenceCopyWithImpl<$Res, $Val extends Preference>
 }
 
 /// @nodoc
-abstract class _$$_AdultContentCopyWith<$Res> {
-  factory _$$_AdultContentCopyWith(
-          _$_AdultContent value, $Res Function(_$_AdultContent) then) =
-      __$$_AdultContentCopyWithImpl<$Res>;
+abstract class _$$UPreferenceAdultContentCopyWith<$Res> {
+  factory _$$UPreferenceAdultContentCopyWith(_$UPreferenceAdultContent value,
+          $Res Function(_$UPreferenceAdultContent) then) =
+      __$$UPreferenceAdultContentCopyWithImpl<$Res>;
   @useResult
   $Res call({AdultContentPreference data});
 
@@ -99,11 +99,11 @@ abstract class _$$_AdultContentCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_AdultContentCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$_AdultContent>
-    implements _$$_AdultContentCopyWith<$Res> {
-  __$$_AdultContentCopyWithImpl(
-      _$_AdultContent _value, $Res Function(_$_AdultContent) _then)
+class __$$UPreferenceAdultContentCopyWithImpl<$Res>
+    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceAdultContent>
+    implements _$$UPreferenceAdultContentCopyWith<$Res> {
+  __$$UPreferenceAdultContentCopyWithImpl(_$UPreferenceAdultContent _value,
+      $Res Function(_$UPreferenceAdultContent) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +111,7 @@ class __$$_AdultContentCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_AdultContent(
+    return _then(_$UPreferenceAdultContent(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -130,8 +130,8 @@ class __$$_AdultContentCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AdultContent extends _AdultContent {
-  const _$_AdultContent({required this.data}) : super._();
+class _$UPreferenceAdultContent extends UPreferenceAdultContent {
+  const _$UPreferenceAdultContent({required this.data}) : super._();
 
   @override
   final AdultContentPreference data;
@@ -145,7 +145,7 @@ class _$_AdultContent extends _AdultContent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AdultContent &&
+            other is _$UPreferenceAdultContent &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -155,8 +155,9 @@ class _$_AdultContent extends _AdultContent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AdultContentCopyWith<_$_AdultContent> get copyWith =>
-      __$$_AdultContentCopyWithImpl<_$_AdultContent>(this, _$identity);
+  _$$UPreferenceAdultContentCopyWith<_$UPreferenceAdultContent> get copyWith =>
+      __$$UPreferenceAdultContentCopyWithImpl<_$UPreferenceAdultContent>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -198,10 +199,10 @@ class _$_AdultContent extends _AdultContent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_AdultContent value) adultContent,
-    required TResult Function(_ContentLabel value) contentLabel,
-    required TResult Function(_SavedFeeds value) savedFeeds,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return adultContent(this);
   }
@@ -209,10 +210,10 @@ class _$_AdultContent extends _AdultContent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_AdultContent value)? adultContent,
-    TResult? Function(_ContentLabel value)? contentLabel,
-    TResult? Function(_SavedFeeds value)? savedFeeds,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return adultContent?.call(this);
   }
@@ -220,10 +221,10 @@ class _$_AdultContent extends _AdultContent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AdultContent value)? adultContent,
-    TResult Function(_ContentLabel value)? contentLabel,
-    TResult Function(_SavedFeeds value)? savedFeeds,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (adultContent != null) {
@@ -233,23 +234,23 @@ class _$_AdultContent extends _AdultContent {
   }
 }
 
-abstract class _AdultContent extends Preference {
-  const factory _AdultContent({required final AdultContentPreference data}) =
-      _$_AdultContent;
-  const _AdultContent._() : super._();
+abstract class UPreferenceAdultContent extends Preference {
+  const factory UPreferenceAdultContent(
+      {required final AdultContentPreference data}) = _$UPreferenceAdultContent;
+  const UPreferenceAdultContent._() : super._();
 
   @override
   AdultContentPreference get data;
   @JsonKey(ignore: true)
-  _$$_AdultContentCopyWith<_$_AdultContent> get copyWith =>
+  _$$UPreferenceAdultContentCopyWith<_$UPreferenceAdultContent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ContentLabelCopyWith<$Res> {
-  factory _$$_ContentLabelCopyWith(
-          _$_ContentLabel value, $Res Function(_$_ContentLabel) then) =
-      __$$_ContentLabelCopyWithImpl<$Res>;
+abstract class _$$UPreferenceContentLabelCopyWith<$Res> {
+  factory _$$UPreferenceContentLabelCopyWith(_$UPreferenceContentLabel value,
+          $Res Function(_$UPreferenceContentLabel) then) =
+      __$$UPreferenceContentLabelCopyWithImpl<$Res>;
   @useResult
   $Res call({ContentLabelPreference data});
 
@@ -257,11 +258,11 @@ abstract class _$$_ContentLabelCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ContentLabelCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$_ContentLabel>
-    implements _$$_ContentLabelCopyWith<$Res> {
-  __$$_ContentLabelCopyWithImpl(
-      _$_ContentLabel _value, $Res Function(_$_ContentLabel) _then)
+class __$$UPreferenceContentLabelCopyWithImpl<$Res>
+    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceContentLabel>
+    implements _$$UPreferenceContentLabelCopyWith<$Res> {
+  __$$UPreferenceContentLabelCopyWithImpl(_$UPreferenceContentLabel _value,
+      $Res Function(_$UPreferenceContentLabel) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -269,7 +270,7 @@ class __$$_ContentLabelCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_ContentLabel(
+    return _then(_$UPreferenceContentLabel(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -288,8 +289,8 @@ class __$$_ContentLabelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ContentLabel extends _ContentLabel {
-  const _$_ContentLabel({required this.data}) : super._();
+class _$UPreferenceContentLabel extends UPreferenceContentLabel {
+  const _$UPreferenceContentLabel({required this.data}) : super._();
 
   @override
   final ContentLabelPreference data;
@@ -303,7 +304,7 @@ class _$_ContentLabel extends _ContentLabel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ContentLabel &&
+            other is _$UPreferenceContentLabel &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -313,8 +314,9 @@ class _$_ContentLabel extends _ContentLabel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ContentLabelCopyWith<_$_ContentLabel> get copyWith =>
-      __$$_ContentLabelCopyWithImpl<_$_ContentLabel>(this, _$identity);
+  _$$UPreferenceContentLabelCopyWith<_$UPreferenceContentLabel> get copyWith =>
+      __$$UPreferenceContentLabelCopyWithImpl<_$UPreferenceContentLabel>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -356,10 +358,10 @@ class _$_ContentLabel extends _ContentLabel {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_AdultContent value) adultContent,
-    required TResult Function(_ContentLabel value) contentLabel,
-    required TResult Function(_SavedFeeds value) savedFeeds,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return contentLabel(this);
   }
@@ -367,10 +369,10 @@ class _$_ContentLabel extends _ContentLabel {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_AdultContent value)? adultContent,
-    TResult? Function(_ContentLabel value)? contentLabel,
-    TResult? Function(_SavedFeeds value)? savedFeeds,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return contentLabel?.call(this);
   }
@@ -378,10 +380,10 @@ class _$_ContentLabel extends _ContentLabel {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AdultContent value)? adultContent,
-    TResult Function(_ContentLabel value)? contentLabel,
-    TResult Function(_SavedFeeds value)? savedFeeds,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (contentLabel != null) {
@@ -391,23 +393,23 @@ class _$_ContentLabel extends _ContentLabel {
   }
 }
 
-abstract class _ContentLabel extends Preference {
-  const factory _ContentLabel({required final ContentLabelPreference data}) =
-      _$_ContentLabel;
-  const _ContentLabel._() : super._();
+abstract class UPreferenceContentLabel extends Preference {
+  const factory UPreferenceContentLabel(
+      {required final ContentLabelPreference data}) = _$UPreferenceContentLabel;
+  const UPreferenceContentLabel._() : super._();
 
   @override
   ContentLabelPreference get data;
   @JsonKey(ignore: true)
-  _$$_ContentLabelCopyWith<_$_ContentLabel> get copyWith =>
+  _$$UPreferenceContentLabelCopyWith<_$UPreferenceContentLabel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_SavedFeedsCopyWith<$Res> {
-  factory _$$_SavedFeedsCopyWith(
-          _$_SavedFeeds value, $Res Function(_$_SavedFeeds) then) =
-      __$$_SavedFeedsCopyWithImpl<$Res>;
+abstract class _$$UPreferenceSavedFeedsCopyWith<$Res> {
+  factory _$$UPreferenceSavedFeedsCopyWith(_$UPreferenceSavedFeeds value,
+          $Res Function(_$UPreferenceSavedFeeds) then) =
+      __$$UPreferenceSavedFeedsCopyWithImpl<$Res>;
   @useResult
   $Res call({SavedFeedsPreference data});
 
@@ -415,11 +417,11 @@ abstract class _$$_SavedFeedsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_SavedFeedsCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$_SavedFeeds>
-    implements _$$_SavedFeedsCopyWith<$Res> {
-  __$$_SavedFeedsCopyWithImpl(
-      _$_SavedFeeds _value, $Res Function(_$_SavedFeeds) _then)
+class __$$UPreferenceSavedFeedsCopyWithImpl<$Res>
+    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceSavedFeeds>
+    implements _$$UPreferenceSavedFeedsCopyWith<$Res> {
+  __$$UPreferenceSavedFeedsCopyWithImpl(_$UPreferenceSavedFeeds _value,
+      $Res Function(_$UPreferenceSavedFeeds) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -427,7 +429,7 @@ class __$$_SavedFeedsCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_SavedFeeds(
+    return _then(_$UPreferenceSavedFeeds(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -446,8 +448,8 @@ class __$$_SavedFeedsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SavedFeeds extends _SavedFeeds {
-  const _$_SavedFeeds({required this.data}) : super._();
+class _$UPreferenceSavedFeeds extends UPreferenceSavedFeeds {
+  const _$UPreferenceSavedFeeds({required this.data}) : super._();
 
   @override
   final SavedFeedsPreference data;
@@ -461,7 +463,7 @@ class _$_SavedFeeds extends _SavedFeeds {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SavedFeeds &&
+            other is _$UPreferenceSavedFeeds &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -471,8 +473,9 @@ class _$_SavedFeeds extends _SavedFeeds {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SavedFeedsCopyWith<_$_SavedFeeds> get copyWith =>
-      __$$_SavedFeedsCopyWithImpl<_$_SavedFeeds>(this, _$identity);
+  _$$UPreferenceSavedFeedsCopyWith<_$UPreferenceSavedFeeds> get copyWith =>
+      __$$UPreferenceSavedFeedsCopyWithImpl<_$UPreferenceSavedFeeds>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -514,10 +517,10 @@ class _$_SavedFeeds extends _SavedFeeds {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_AdultContent value) adultContent,
-    required TResult Function(_ContentLabel value) contentLabel,
-    required TResult Function(_SavedFeeds value) savedFeeds,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return savedFeeds(this);
   }
@@ -525,10 +528,10 @@ class _$_SavedFeeds extends _SavedFeeds {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_AdultContent value)? adultContent,
-    TResult? Function(_ContentLabel value)? contentLabel,
-    TResult? Function(_SavedFeeds value)? savedFeeds,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return savedFeeds?.call(this);
   }
@@ -536,10 +539,10 @@ class _$_SavedFeeds extends _SavedFeeds {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AdultContent value)? adultContent,
-    TResult Function(_ContentLabel value)? contentLabel,
-    TResult Function(_SavedFeeds value)? savedFeeds,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (savedFeeds != null) {
@@ -549,32 +552,33 @@ class _$_SavedFeeds extends _SavedFeeds {
   }
 }
 
-abstract class _SavedFeeds extends Preference {
-  const factory _SavedFeeds({required final SavedFeedsPreference data}) =
-      _$_SavedFeeds;
-  const _SavedFeeds._() : super._();
+abstract class UPreferenceSavedFeeds extends Preference {
+  const factory UPreferenceSavedFeeds(
+      {required final SavedFeedsPreference data}) = _$UPreferenceSavedFeeds;
+  const UPreferenceSavedFeeds._() : super._();
 
   @override
   SavedFeedsPreference get data;
   @JsonKey(ignore: true)
-  _$$_SavedFeedsCopyWith<_$_SavedFeeds> get copyWith =>
+  _$$UPreferenceSavedFeedsCopyWith<_$UPreferenceSavedFeeds> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_UnknownCopyWith<$Res> {
-  factory _$$_UnknownCopyWith(
-          _$_Unknown value, $Res Function(_$_Unknown) then) =
-      __$$_UnknownCopyWithImpl<$Res>;
+abstract class _$$UPreferenceUnknownCopyWith<$Res> {
+  factory _$$UPreferenceUnknownCopyWith(_$UPreferenceUnknown value,
+          $Res Function(_$UPreferenceUnknown) then) =
+      __$$UPreferenceUnknownCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$_UnknownCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$_Unknown>
-    implements _$$_UnknownCopyWith<$Res> {
-  __$$_UnknownCopyWithImpl(_$_Unknown _value, $Res Function(_$_Unknown) _then)
+class __$$UPreferenceUnknownCopyWithImpl<$Res>
+    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceUnknown>
+    implements _$$UPreferenceUnknownCopyWith<$Res> {
+  __$$UPreferenceUnknownCopyWithImpl(
+      _$UPreferenceUnknown _value, $Res Function(_$UPreferenceUnknown) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -582,7 +586,7 @@ class __$$_UnknownCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Unknown(
+    return _then(_$UPreferenceUnknown(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -593,8 +597,8 @@ class __$$_UnknownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Unknown extends _Unknown {
-  const _$_Unknown({required final Map<String, dynamic> data})
+class _$UPreferenceUnknown extends UPreferenceUnknown {
+  const _$UPreferenceUnknown({required final Map<String, dynamic> data})
       : _data = data,
         super._();
 
@@ -615,7 +619,7 @@ class _$_Unknown extends _Unknown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Unknown &&
+            other is _$UPreferenceUnknown &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -626,8 +630,9 @@ class _$_Unknown extends _Unknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
-      __$$_UnknownCopyWithImpl<_$_Unknown>(this, _$identity);
+  _$$UPreferenceUnknownCopyWith<_$UPreferenceUnknown> get copyWith =>
+      __$$UPreferenceUnknownCopyWithImpl<_$UPreferenceUnknown>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -669,10 +674,10 @@ class _$_Unknown extends _Unknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_AdultContent value) adultContent,
-    required TResult Function(_ContentLabel value) contentLabel,
-    required TResult Function(_SavedFeeds value) savedFeeds,
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -680,10 +685,10 @@ class _$_Unknown extends _Unknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_AdultContent value)? adultContent,
-    TResult? Function(_ContentLabel value)? contentLabel,
-    TResult? Function(_SavedFeeds value)? savedFeeds,
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -691,10 +696,10 @@ class _$_Unknown extends _Unknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AdultContent value)? adultContent,
-    TResult Function(_ContentLabel value)? contentLabel,
-    TResult Function(_SavedFeeds value)? savedFeeds,
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -704,14 +709,14 @@ class _$_Unknown extends _Unknown {
   }
 }
 
-abstract class _Unknown extends Preference {
-  const factory _Unknown({required final Map<String, dynamic> data}) =
-      _$_Unknown;
-  const _Unknown._() : super._();
+abstract class UPreferenceUnknown extends Preference {
+  const factory UPreferenceUnknown({required final Map<String, dynamic> data}) =
+      _$UPreferenceUnknown;
+  const UPreferenceUnknown._() : super._();
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$_UnknownCopyWith<_$_Unknown> get copyWith =>
+  _$$UPreferenceUnknownCopyWith<_$UPreferenceUnknown> get copyWith =>
       throw _privateConstructorUsedError;
 }

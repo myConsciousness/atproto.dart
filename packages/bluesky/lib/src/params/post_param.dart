@@ -5,8 +5,11 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import '../entities/converter/embed_converter.dart';
 import '../entities/embed.dart';
 import '../entities/facet.dart';
@@ -17,14 +20,16 @@ part 'post_param.g.dart';
 
 @freezed
 class PostParam with _$PostParam {
-  @JsonSerializable(includeIfNull: false)
+  @jsonSerializable
   const factory PostParam({
     required String text,
     ReplyRef? reply,
     List<Facet>? facets,
-    @EmbedConverter() Embed? embed,
+    @embedConverter Embed? embed,
     List<String>? languageTags,
+    @labelsConverter Labels? labels,
     DateTime? createdAt,
+    @Default(emptyJson) Map<String, dynamic> unspecced,
   }) = _PostParam;
 
   factory PostParam.fromJson(Map<String, Object?> json) =>

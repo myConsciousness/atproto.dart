@@ -15,18 +15,21 @@ _$_EmbedViewRecordViewNotFound _$$_EmbedViewRecordViewNotFoundFromJson(
       json,
       ($checkedConvert) {
         final val = _$_EmbedViewRecordViewNotFound(
-          type: $checkedConvert(r'$type', (v) => v as String),
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyEmbedRecordViewNotFound),
           uri: $checkedConvert(
-              'uri', (v) => const AtUriConverter().fromJson(v as String)),
+              'uri', (v) => atUriConverter.fromJson(v as String)),
+          isNotFound: $checkedConvert('notFound', (v) => v as bool),
         );
         return val;
       },
-      fieldKeyMap: const {'type': r'$type'},
+      fieldKeyMap: const {'type': r'$type', 'isNotFound': 'notFound'},
     );
 
 Map<String, dynamic> _$$_EmbedViewRecordViewNotFoundToJson(
         _$_EmbedViewRecordViewNotFound instance) =>
     <String, dynamic>{
       r'$type': instance.type,
-      'uri': const AtUriConverter().toJson(instance.uri),
+      'uri': atUriConverter.toJson(instance.uri),
+      'notFound': instance.isNotFound,
     };

@@ -1,5 +1,27 @@
 # Release Note
 
+## v0.3.1
+
+- Improved documents. ([#677](https://github.com/myConsciousness/atproto.dart/issues/677))
+
+## v0.3.0
+
+- Drop support for null unsafe Dart, bump SDK constraint to '^3.0.0'. ([#599](https://github.com/myConsciousness/atproto.dart/issues/599))
+- Dart3 modifier applied.
+
+## v0.2.7
+
+- Upgraded `xrpc`. ([#636](https://github.com/myConsciousness/atproto.dart/issues/636))
+
+## v0.2.6
+
+- Changed the dependency of the communication process from `atproto` to `xrpc`. ([#574](https://github.com/myConsciousness/atproto.dart/issues/574))
+- Added `ignoreInvalidHandle` option to `toFacets` in `Entities` and `toFacet` in `Entity`. This flag controls the behavior when the handle is invalid. If true, no exception is thrown if an invalid handle is passed, and the process of creating a facet of the invalid handle is skipped; if false, an `InvlidRequestException` is thrown if an invalid handle is passed.
+
+## v0.2.5
+
+- Upgraded `atproto`. ([#563](https://github.com/myConsciousness/atproto.dart/issues/563))
+
 ## v0.2.4
 
 - Upgraded `atproto`. ([#260](https://github.com/myConsciousness/atproto.dart/issues/260))

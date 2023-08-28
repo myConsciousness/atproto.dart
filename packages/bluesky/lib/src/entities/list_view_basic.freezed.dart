@@ -20,15 +20,31 @@ ListViewBasic _$ListViewBasicFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListViewBasic {
-  @JsonKey(name: '\$type')
+  /// The type of the list, by default it is
+  /// [appBskyGraphDefsListViewBasic].
+  @typeKey
   String get type => throw _privateConstructorUsedError;
+
+  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
   String get purpose => throw _privateConstructorUsedError;
-  @AtUriConverter()
+
+  /// The URI of the list.
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
+
+  /// The CID of the list.
   String get cid => throw _privateConstructorUsedError;
+
+  /// The name of the list.
   String get name => throw _privateConstructorUsedError;
+
+  /// An optional avatar for the list.
   String? get avatar => throw _privateConstructorUsedError;
+
+  /// The viewer of the list.
   ListViewer get viewer => throw _privateConstructorUsedError;
+
+  /// The date of the indexing of the list.
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,9 +60,9 @@ abstract class $ListViewBasicCopyWith<$Res> {
       _$ListViewBasicCopyWithImpl<$Res, ListViewBasic>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       String purpose,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       String cid,
       String name,
       String? avatar,
@@ -132,9 +148,9 @@ abstract class _$$_ListViewBasicCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       String purpose,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       String cid,
       String name,
       String? avatar,
@@ -204,38 +220,55 @@ class __$$_ListViewBasicCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
-class _$_ListViewBasic implements _ListViewBasic {
+@jsonSerializable
+class _$_ListViewBasic extends _ListViewBasic {
   const _$_ListViewBasic(
-      {@JsonKey(name: '\$type') this.type = 'app.bsky.graph.defs#listViewBasic',
-      this.purpose = 'app.bsky.graph.defs#modlist',
-      @AtUriConverter() required this.uri,
+      {@typeKey this.type = appBskyGraphDefsListViewBasic,
+      this.purpose = appBskyGraphDefsModlist,
+      @atUriConverter required this.uri,
       required this.cid,
       required this.name,
       this.avatar,
       required this.viewer,
-      required this.indexedAt});
+      required this.indexedAt})
+      : super._();
 
   factory _$_ListViewBasic.fromJson(Map<String, dynamic> json) =>
       _$$_ListViewBasicFromJson(json);
 
+  /// The type of the list, by default it is
+  /// [appBskyGraphDefsListViewBasic].
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
+
+  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
   @override
   @JsonKey()
   final String purpose;
+
+  /// The URI of the list.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
+
+  /// The CID of the list.
   @override
   final String cid;
+
+  /// The name of the list.
   @override
   final String name;
+
+  /// An optional avatar for the list.
   @override
   final String? avatar;
+
+  /// The viewer of the list.
   @override
   final ListViewer viewer;
+
+  /// The date of the indexing of the list.
   @override
   final DateTime indexedAt;
 
@@ -279,37 +312,55 @@ class _$_ListViewBasic implements _ListViewBasic {
   }
 }
 
-abstract class _ListViewBasic implements ListViewBasic {
+abstract class _ListViewBasic extends ListViewBasic {
   const factory _ListViewBasic(
-      {@JsonKey(name: '\$type') final String type,
+      {@typeKey final String type,
       final String purpose,
-      @AtUriConverter() required final AtUri uri,
+      @atUriConverter required final AtUri uri,
       required final String cid,
       required final String name,
       final String? avatar,
       required final ListViewer viewer,
       required final DateTime indexedAt}) = _$_ListViewBasic;
+  const _ListViewBasic._() : super._();
 
   factory _ListViewBasic.fromJson(Map<String, dynamic> json) =
       _$_ListViewBasic.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// The type of the list, by default it is
+  /// [appBskyGraphDefsListViewBasic].
+  @typeKey
   String get type;
   @override
+
+  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
   String get purpose;
   @override
-  @AtUriConverter()
+
+  /// The URI of the list.
+  @atUriConverter
   AtUri get uri;
   @override
+
+  /// The CID of the list.
   String get cid;
   @override
+
+  /// The name of the list.
   String get name;
   @override
+
+  /// An optional avatar for the list.
   String? get avatar;
   @override
+
+  /// The viewer of the list.
   ListViewer get viewer;
   @override
+
+  /// The date of the indexing of the list.
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)

@@ -5,7 +5,7 @@
 // 🌎 Project imports:
 import 'xrpc_exception.dart';
 
-class UnauthorizedException extends XRPCException {
+final class UnauthorizedException extends XRPCException {
   /// Returns the new instance of [UnauthorizedException].
   const UnauthorizedException(super.response)
       : super(label: 'UnauthorizedException');

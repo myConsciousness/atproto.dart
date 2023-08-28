@@ -2,7 +2,10 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
 import 'package:html_unescape/html_unescape_small.dart';
 
 class Post extends StatelessWidget {

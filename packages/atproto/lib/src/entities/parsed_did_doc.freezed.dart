@@ -20,13 +20,22 @@ ParsedDidDoc _$ParsedDidDocFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ParsedDidDoc {
+  /// Contexts for the document. It's an array of strings.
   @JsonKey(name: '@context')
   List<String> get context => throw _privateConstructorUsedError;
+
+  /// The unique identifier for the document.
   String get id => throw _privateConstructorUsedError;
+
+  /// Also Known As identifiers for the document. It's an array of strings.
   List<String> get alsoKnownAs => throw _privateConstructorUsedError;
+
+  /// A list of verification methods used by the document.
   @JsonKey(name: 'verificationMethod')
   List<ParsedVerificationMethod> get verificationMethods =>
       throw _privateConstructorUsedError;
+
+  /// A list of services associated with the document.
   @JsonKey(name: 'service')
   List<ParsedService> get services => throw _privateConstructorUsedError;
 
@@ -172,7 +181,10 @@ class _$_ParsedDidDoc implements _ParsedDidDoc {
   factory _$_ParsedDidDoc.fromJson(Map<String, dynamic> json) =>
       _$$_ParsedDidDocFromJson(json);
 
+  /// Contexts for the document. It's an array of strings.
   final List<String> _context;
+
+  /// Contexts for the document. It's an array of strings.
   @override
   @JsonKey(name: '@context')
   List<String> get context {
@@ -181,9 +193,14 @@ class _$_ParsedDidDoc implements _ParsedDidDoc {
     return EqualUnmodifiableListView(_context);
   }
 
+  /// The unique identifier for the document.
   @override
   final String id;
+
+  /// Also Known As identifiers for the document. It's an array of strings.
   final List<String> _alsoKnownAs;
+
+  /// Also Known As identifiers for the document. It's an array of strings.
   @override
   List<String> get alsoKnownAs {
     if (_alsoKnownAs is EqualUnmodifiableListView) return _alsoKnownAs;
@@ -191,7 +208,10 @@ class _$_ParsedDidDoc implements _ParsedDidDoc {
     return EqualUnmodifiableListView(_alsoKnownAs);
   }
 
+  /// A list of verification methods used by the document.
   final List<ParsedVerificationMethod> _verificationMethods;
+
+  /// A list of verification methods used by the document.
   @override
   @JsonKey(name: 'verificationMethod')
   List<ParsedVerificationMethod> get verificationMethods {
@@ -201,7 +221,10 @@ class _$_ParsedDidDoc implements _ParsedDidDoc {
     return EqualUnmodifiableListView(_verificationMethods);
   }
 
+  /// A list of services associated with the document.
   final List<ParsedService> _services;
+
+  /// A list of services associated with the document.
   @override
   @JsonKey(name: 'service')
   List<ParsedService> get services {
@@ -267,16 +290,26 @@ abstract class _ParsedDidDoc implements ParsedDidDoc {
       _$_ParsedDidDoc.fromJson;
 
   @override
+
+  /// Contexts for the document. It's an array of strings.
   @JsonKey(name: '@context')
   List<String> get context;
   @override
+
+  /// The unique identifier for the document.
   String get id;
   @override
+
+  /// Also Known As identifiers for the document. It's an array of strings.
   List<String> get alsoKnownAs;
   @override
+
+  /// A list of verification methods used by the document.
   @JsonKey(name: 'verificationMethod')
   List<ParsedVerificationMethod> get verificationMethods;
   @override
+
+  /// A list of services associated with the document.
   @JsonKey(name: 'service')
   List<ParsedService> get services;
   @override

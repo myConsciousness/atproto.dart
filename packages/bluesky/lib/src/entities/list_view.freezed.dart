@@ -20,19 +20,40 @@ ListView _$ListViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListView {
-  @JsonKey(name: '\$type')
+  /// The type of the list, by default it is [appBskyGraphDefsListView].
+  @typeKey
   String get type => throw _privateConstructorUsedError;
+
+  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
   String get purpose => throw _privateConstructorUsedError;
-  @AtUriConverter()
+
+  /// The URI of the list.
+  @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
+
+  /// The CID of the list.
   String get cid => throw _privateConstructorUsedError;
+
+  /// The name of the list.
   String get name => throw _privateConstructorUsedError;
+
+  /// An optional description for the list.
   String? get description => throw _privateConstructorUsedError;
+
+  /// An optional list of facets for the description of the list.
   List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
+
+  /// An optional avatar for the list.
   String? get avatar => throw _privateConstructorUsedError;
+
+  /// The actor who created the list.
   @JsonKey(name: 'creator')
   Actor get createdBy => throw _privateConstructorUsedError;
+
+  /// The viewer of the list.
   ListViewer get viewer => throw _privateConstructorUsedError;
+
+  /// The date of the indexing of the list.
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -47,9 +68,9 @@ abstract class $ListViewCopyWith<$Res> {
       _$ListViewCopyWithImpl<$Res, ListView>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       String purpose,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       String cid,
       String name,
       String? description,
@@ -161,9 +182,9 @@ abstract class _$$_ListViewCopyWith<$Res> implements $ListViewCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
+      {@typeKey String type,
       String purpose,
-      @AtUriConverter() AtUri uri,
+      @atUriConverter AtUri uri,
       String cid,
       String name,
       String? description,
@@ -253,12 +274,12 @@ class __$$_ListViewCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
-class _$_ListView implements _ListView {
+@jsonSerializable
+class _$_ListView extends _ListView {
   const _$_ListView(
-      {@JsonKey(name: '\$type') this.type = 'app.bsky.graph.defs#listView',
-      this.purpose = 'app.bsky.graph.defs#modlist',
-      @AtUriConverter() required this.uri,
+      {@typeKey this.type = appBskyGraphDefsListView,
+      this.purpose = appBskyGraphDefsModlist,
+      @atUriConverter required this.uri,
       required this.cid,
       required this.name,
       this.description,
@@ -267,27 +288,43 @@ class _$_ListView implements _ListView {
       @JsonKey(name: 'creator') required this.createdBy,
       required this.viewer,
       required this.indexedAt})
-      : _descriptionFacets = descriptionFacets;
+      : _descriptionFacets = descriptionFacets,
+        super._();
 
   factory _$_ListView.fromJson(Map<String, dynamic> json) =>
       _$$_ListViewFromJson(json);
 
+  /// The type of the list, by default it is [appBskyGraphDefsListView].
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
+
+  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
   @override
   @JsonKey()
   final String purpose;
+
+  /// The URI of the list.
   @override
-  @AtUriConverter()
+  @atUriConverter
   final AtUri uri;
+
+  /// The CID of the list.
   @override
   final String cid;
+
+  /// The name of the list.
   @override
   final String name;
+
+  /// An optional description for the list.
   @override
   final String? description;
+
+  /// An optional list of facets for the description of the list.
   final List<Facet>? _descriptionFacets;
+
+  /// An optional list of facets for the description of the list.
   @override
   List<Facet>? get descriptionFacets {
     final value = _descriptionFacets;
@@ -298,13 +335,20 @@ class _$_ListView implements _ListView {
     return EqualUnmodifiableListView(value);
   }
 
+  /// An optional avatar for the list.
   @override
   final String? avatar;
+
+  /// The actor who created the list.
   @override
   @JsonKey(name: 'creator')
   final Actor createdBy;
+
+  /// The viewer of the list.
   @override
   final ListViewer viewer;
+
+  /// The date of the indexing of the list.
   @override
   final DateTime indexedAt;
 
@@ -365,11 +409,11 @@ class _$_ListView implements _ListView {
   }
 }
 
-abstract class _ListView implements ListView {
+abstract class _ListView extends ListView {
   const factory _ListView(
-      {@JsonKey(name: '\$type') final String type,
+      {@typeKey final String type,
       final String purpose,
-      @AtUriConverter() required final AtUri uri,
+      @atUriConverter required final AtUri uri,
       required final String cid,
       required final String name,
       final String? description,
@@ -378,33 +422,56 @@ abstract class _ListView implements ListView {
       @JsonKey(name: 'creator') required final Actor createdBy,
       required final ListViewer viewer,
       required final DateTime indexedAt}) = _$_ListView;
+  const _ListView._() : super._();
 
   factory _ListView.fromJson(Map<String, dynamic> json) = _$_ListView.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// The type of the list, by default it is [appBskyGraphDefsListView].
+  @typeKey
   String get type;
   @override
+
+  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
   String get purpose;
   @override
-  @AtUriConverter()
+
+  /// The URI of the list.
+  @atUriConverter
   AtUri get uri;
   @override
+
+  /// The CID of the list.
   String get cid;
   @override
+
+  /// The name of the list.
   String get name;
   @override
+
+  /// An optional description for the list.
   String? get description;
   @override
+
+  /// An optional list of facets for the description of the list.
   List<Facet>? get descriptionFacets;
   @override
+
+  /// An optional avatar for the list.
   String? get avatar;
   @override
+
+  /// The actor who created the list.
   @JsonKey(name: 'creator')
   Actor get createdBy;
   @override
+
+  /// The viewer of the list.
   ListViewer get viewer;
   @override
+
+  /// The date of the indexing of the list.
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)

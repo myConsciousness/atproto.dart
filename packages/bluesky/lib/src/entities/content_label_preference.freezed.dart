@@ -21,9 +21,14 @@ ContentLabelPreference _$ContentLabelPreferenceFromJson(
 
 /// @nodoc
 mixin _$ContentLabelPreference {
-  @JsonKey(name: '\$type')
+  /// The content label.
+  @typeKey
   String get type => throw _privateConstructorUsedError;
+
+  /// The content label.
   String get label => throw _privateConstructorUsedError;
+
+  /// The user's preference for visibility of content with this label.
   ContentLabelVisibility get visibility => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,9 +44,7 @@ abstract class $ContentLabelPreferenceCopyWith<$Res> {
       _$ContentLabelPreferenceCopyWithImpl<$Res, ContentLabelPreference>;
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
-      String label,
-      ContentLabelVisibility visibility});
+      {@typeKey String type, String label, ContentLabelVisibility visibility});
 }
 
 /// @nodoc
@@ -88,9 +91,7 @@ abstract class _$$_ContentLabelPreferenceCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '\$type') String type,
-      String label,
-      ContentLabelVisibility visibility});
+      {@typeKey String type, String label, ContentLabelVisibility visibility});
 }
 
 /// @nodoc
@@ -128,22 +129,26 @@ class __$$_ContentLabelPreferenceCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_ContentLabelPreference implements _ContentLabelPreference {
   const _$_ContentLabelPreference(
-      {@JsonKey(name: '\$type')
-      this.type = 'app.bsky.actor.defs#contentLabelPref',
+      {@typeKey this.type = appBskyActorDefsContentLabelPref,
       required this.label,
       required this.visibility});
 
   factory _$_ContentLabelPreference.fromJson(Map<String, dynamic> json) =>
       _$$_ContentLabelPreferenceFromJson(json);
 
+  /// The content label.
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String type;
+
+  /// The content label.
   @override
   final String label;
+
+  /// The user's preference for visibility of content with this label.
   @override
   final ContentLabelVisibility visibility;
 
@@ -184,7 +189,7 @@ class _$_ContentLabelPreference implements _ContentLabelPreference {
 
 abstract class _ContentLabelPreference implements ContentLabelPreference {
   const factory _ContentLabelPreference(
-          {@JsonKey(name: '\$type') final String type,
+          {@typeKey final String type,
           required final String label,
           required final ContentLabelVisibility visibility}) =
       _$_ContentLabelPreference;
@@ -193,11 +198,17 @@ abstract class _ContentLabelPreference implements ContentLabelPreference {
       _$_ContentLabelPreference.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// The content label.
+  @typeKey
   String get type;
   @override
+
+  /// The content label.
   String get label;
   @override
+
+  /// The user's preference for visibility of content with this label.
   ContentLabelVisibility get visibility;
   @override
   @JsonKey(ignore: true)

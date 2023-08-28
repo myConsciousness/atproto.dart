@@ -20,6 +20,7 @@ RepoCommits _$RepoCommitsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RepoCommits {
+  /// The list of [RepoCommit] objects.
   List<RepoCommit> get commits => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -96,7 +97,7 @@ class __$$_RepoCommitsCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(includeIfNull: false)
+@jsonSerializable
 class _$_RepoCommits implements _RepoCommits {
   const _$_RepoCommits({required final List<RepoCommit> commits})
       : _commits = commits;
@@ -104,7 +105,10 @@ class _$_RepoCommits implements _RepoCommits {
   factory _$_RepoCommits.fromJson(Map<String, dynamic> json) =>
       _$$_RepoCommitsFromJson(json);
 
+  /// The list of [RepoCommit] objects.
   final List<RepoCommit> _commits;
+
+  /// The list of [RepoCommit] objects.
   @override
   List<RepoCommit> get commits {
     if (_commits is EqualUnmodifiableListView) return _commits;
@@ -152,6 +156,8 @@ abstract class _RepoCommits implements RepoCommits {
       _$_RepoCommits.fromJson;
 
   @override
+
+  /// The list of [RepoCommit] objects.
   List<RepoCommit> get commits;
   @override
   @JsonKey(ignore: true)

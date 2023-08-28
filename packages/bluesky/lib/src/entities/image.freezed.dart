@@ -20,8 +20,11 @@ Image _$ImageFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Image {
+  /// The alternative text for the image.
   String get alt => throw _privateConstructorUsedError;
-  @BlobConverter()
+
+  /// The actual image data represented as a Blob.
+  @blobConverter
   Blob get image => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +37,7 @@ abstract class $ImageCopyWith<$Res> {
   factory $ImageCopyWith(Image value, $Res Function(Image) then) =
       _$ImageCopyWithImpl<$Res, Image>;
   @useResult
-  $Res call({String alt, @BlobConverter() Blob image});
+  $Res call({String alt, @blobConverter Blob image});
 
   $BlobCopyWith<$Res> get image;
 }
@@ -82,7 +85,7 @@ abstract class _$$_ImageCopyWith<$Res> implements $ImageCopyWith<$Res> {
       __$$_ImageCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String alt, @BlobConverter() Blob image});
+  $Res call({String alt, @blobConverter Blob image});
 
   @override
   $BlobCopyWith<$Res> get image;
@@ -116,15 +119,18 @@ class __$$_ImageCopyWithImpl<$Res> extends _$ImageCopyWithImpl<$Res, _$_Image>
 /// @nodoc
 @JsonSerializable()
 class _$_Image implements _Image {
-  const _$_Image({required this.alt, @BlobConverter() required this.image});
+  const _$_Image({required this.alt, @blobConverter required this.image});
 
   factory _$_Image.fromJson(Map<String, dynamic> json) =>
       _$$_ImageFromJson(json);
 
+  /// The alternative text for the image.
   @override
   final String alt;
+
+  /// The actual image data represented as a Blob.
   @override
-  @BlobConverter()
+  @blobConverter
   final Blob image;
 
   @override
@@ -162,14 +168,18 @@ class _$_Image implements _Image {
 abstract class _Image implements Image {
   const factory _Image(
       {required final String alt,
-      @BlobConverter() required final Blob image}) = _$_Image;
+      @blobConverter required final Blob image}) = _$_Image;
 
   factory _Image.fromJson(Map<String, dynamic> json) = _$_Image.fromJson;
 
   @override
+
+  /// The alternative text for the image.
   String get alt;
   @override
-  @BlobConverter()
+
+  /// The actual image data represented as a Blob.
+  @blobConverter
   Blob get image;
   @override
   @JsonKey(ignore: true)

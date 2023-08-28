@@ -2,9 +2,12 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
+import 'package:test/test.dart';
+
+// 🌎 Project imports:
 import 'package:nsid/src/invalid_nsid_error.dart';
 import 'package:nsid/src/nsid.dart';
-import 'package:test/test.dart';
 
 void main() {
   group('NSID parsing & creation', () {

@@ -20,8 +20,11 @@ EmbedViewImages _$EmbedViewImagesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmbedViewImages {
-  @JsonKey(name: '\$type')
+  /// An optional string that represents the type of the embedded images view.
+  @typeKey
   String? get type => throw _privateConstructorUsedError;
+
+  /// A list of `EmbedViewImagesView` instances.
   List<EmbedViewImagesView> get images => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,9 +39,7 @@ abstract class $EmbedViewImagesCopyWith<$Res> {
           EmbedViewImages value, $Res Function(EmbedViewImages) then) =
       _$EmbedViewImagesCopyWithImpl<$Res, EmbedViewImages>;
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String? type,
-      List<EmbedViewImagesView> images});
+  $Res call({@typeKey String? type, List<EmbedViewImagesView> images});
 }
 
 /// @nodoc
@@ -78,9 +79,7 @@ abstract class _$$_EmbedViewImagesCopyWith<$Res>
       __$$_EmbedViewImagesCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: '\$type') String? type,
-      List<EmbedViewImagesView> images});
+  $Res call({@typeKey String? type, List<EmbedViewImagesView> images});
 }
 
 /// @nodoc
@@ -114,17 +113,21 @@ class __$$_EmbedViewImagesCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbedViewImages implements _EmbedViewImages {
   const _$_EmbedViewImages(
-      {@JsonKey(name: '\$type') this.type,
-      required final List<EmbedViewImagesView> images})
+      {@typeKey this.type, required final List<EmbedViewImagesView> images})
       : _images = images;
 
   factory _$_EmbedViewImages.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedViewImagesFromJson(json);
 
+  /// An optional string that represents the type of the embedded images view.
   @override
-  @JsonKey(name: '\$type')
+  @typeKey
   final String? type;
+
+  /// A list of `EmbedViewImagesView` instances.
   final List<EmbedViewImagesView> _images;
+
+  /// A list of `EmbedViewImagesView` instances.
   @override
   List<EmbedViewImagesView> get images {
     if (_images is EqualUnmodifiableListView) return _images;
@@ -167,16 +170,20 @@ class _$_EmbedViewImages implements _EmbedViewImages {
 
 abstract class _EmbedViewImages implements EmbedViewImages {
   const factory _EmbedViewImages(
-      {@JsonKey(name: '\$type') final String? type,
+      {@typeKey final String? type,
       required final List<EmbedViewImagesView> images}) = _$_EmbedViewImages;
 
   factory _EmbedViewImages.fromJson(Map<String, dynamic> json) =
       _$_EmbedViewImages.fromJson;
 
   @override
-  @JsonKey(name: '\$type')
+
+  /// An optional string that represents the type of the embedded images view.
+  @typeKey
   String? get type;
   @override
+
+  /// A list of `EmbedViewImagesView` instances.
   List<EmbedViewImagesView> get images;
   @override
   @JsonKey(ignore: true)

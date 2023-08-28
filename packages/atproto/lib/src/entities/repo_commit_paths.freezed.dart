@@ -20,6 +20,7 @@ RepoCommitPaths _$RepoCommitPathsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RepoCommitPaths {
+  /// The list of commit paths in CID format.
   List<String> get commits => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -103,7 +104,10 @@ class _$_RepoCommitPaths implements _RepoCommitPaths {
   factory _$_RepoCommitPaths.fromJson(Map<String, dynamic> json) =>
       _$$_RepoCommitPathsFromJson(json);
 
+  /// The list of commit paths in CID format.
   final List<String> _commits;
+
+  /// The list of commit paths in CID format.
   @override
   List<String> get commits {
     if (_commits is EqualUnmodifiableListView) return _commits;
@@ -151,6 +155,8 @@ abstract class _RepoCommitPaths implements RepoCommitPaths {
       _$_RepoCommitPaths.fromJson;
 
   @override
+
+  /// The list of commit paths in CID format.
   List<String> get commits;
   @override
   @JsonKey(ignore: true)
