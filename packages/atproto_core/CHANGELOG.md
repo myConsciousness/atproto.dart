@@ -3,6 +3,7 @@
 ## v0.5.3
 
 - Added `Platform` enum. ([#709](https://github.com/myConsciousness/atproto.dart/issues/709))
+- Added `isValidAppPassword` function. ([#713](https://github.com/myConsciousness/atproto.dart/issues/713))
 
 ## v0.5.2
 

@@ -160,7 +160,8 @@ export 'package:atproto_core/atproto_core.dart'
         Session,
         $SessionCopyWith,
         createSession,
-        refreshSession;
+        refreshSession,
+        isValidAppPassword;
 export 'package:bluesky/src/actors/actors_service.dart';
 export 'package:bluesky/src/bluesky.dart';
 export 'package:bluesky/src/bluesky_service.dart';
