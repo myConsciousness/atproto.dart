@@ -277,6 +277,27 @@ The following matrix organizes the information so far.
 | **`.refreshSession`** | 90 days         |
 :::
 
+### App Password
+
+:::info
+App passwords have most of the same abilities as the user's account password, however they're **_restricted_** from **destructive actions such as account deletion or account migration**. They are also **_restricted_** from **creating additional app passwords**.
+App passwords are of the form `xxxx-xxxx-xxxx-xxxx`.
+
+So, it's **_strongly recommended_** that App Password be used for login in AT Protocol's services.
+:::
+
+Given the above reason, a possible use case is for the application to determine if the password given by the user is an App Password.
+With **[bluesky](https://pub.dev/packages/bluesky)**, you can easily determine if a password is in App Password format by using the `.isValidAppPassword` function.
+
+```dart
+import 'package:bluesky/bluesky.dart' as bsky;
+
+Future<void> main() async {
+  bsky.isValidAppPassword('xxxx-xxxx-xxxx-xxxx'); // => true
+  bsky.isValidAppPassword('xxxxxxxxxxxxxxxxxxx'); // => false
+}
+```
+
 ### Standardized Names
 
 The methods corresponding to each endpoint accessible from **[bluesky](https://pub.dev/packages/bluesky)** are given a **_standardized prefix_** according to the characteristics of the endpoint.
