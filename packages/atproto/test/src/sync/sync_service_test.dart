@@ -235,6 +235,8 @@ void main() {
         ),
       );
 
+      // TODO: Remove in v0.7.0
+      // ignore: deprecated_member_use_from_same_package
       final response = await sync.findRepoCheckout(
         did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
         commitCid: 'baaaaaa',
@@ -258,6 +260,8 @@ void main() {
         ),
       );
 
+      // TODO: Remove in v0.7.0
+      // ignore: deprecated_member_use_from_same_package
       final response = await sync.findRepoCheckoutAsJson(
         did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
         commitCid: 'baaaaaa',
@@ -283,6 +287,8 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
+        // TODO: Remove in v0.7.0
+        // ignore: deprecated_member_use_from_same_package
         () async => await sync.findRepoCheckout(
           did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
           commitCid: 'baaaaaa',
@@ -306,6 +312,8 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
+        // TODO: Remove in v0.7.0
+        // ignore: deprecated_member_use_from_same_package
         () async => await sync.findRepoCheckout(
           did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
           commitCid: 'baaaaaa',
@@ -329,6 +337,8 @@ void main() {
         ),
       );
 
+      // TODO: Remove in v0.7.0
+      // ignore: deprecated_member_use_from_same_package
       final response = await sync.findRepoHead(
         did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
       );
@@ -351,6 +361,8 @@ void main() {
         ),
       );
 
+      // TODO: Remove in v0.7.0
+      // ignore: deprecated_member_use_from_same_package
       final response = await sync.findRepoHeadAsJson(
         did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
       );
@@ -375,6 +387,8 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
+        // TODO: Remove in v0.7.0
+        // ignore: deprecated_member_use_from_same_package
         () async => await sync.findRepoHead(
           did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
         ),
@@ -397,6 +411,8 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
+        // TODO: Remove in v0.7.0
+        // ignore: deprecated_member_use_from_same_package
         () async => await sync.findRepoHead(
           did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
         ),

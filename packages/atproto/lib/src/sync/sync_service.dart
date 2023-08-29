@@ -209,6 +209,7 @@ sealed class SyncService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getCheckout.json
+  @Deprecated('Use findRepoCommits instead. Will be removed in v0.7.0')
   Future<core.XRPCResponse<RepoCommits>> findRepoCheckout({
     required String did,
     String? commitCid,
@@ -247,6 +248,7 @@ sealed class SyncService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getCheckout.json
+  @Deprecated('Use findRepoCommitsAsJson instead. Will be removed in v0.7.0')
   Future<core.XRPCResponse<Map<String, dynamic>>> findRepoCheckoutAsJson({
     required String did,
     String? commitCid,
@@ -266,6 +268,7 @@ sealed class SyncService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getHead.json
+  @Deprecated('Use findLatestCommit instead. Will be removed in v0.7.0')
   Future<core.XRPCResponse<RepoHead>> findRepoHead({
     required String did,
   });
@@ -289,6 +292,7 @@ sealed class SyncService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getHead.json
+  @Deprecated('Use findLatestCommitAsJson instead. Will be removed in v0.7.0')
   Future<core.XRPCResponse<Map<String, dynamic>>> findRepoHeadAsJson({
     required String did,
   });

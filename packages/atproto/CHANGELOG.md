@@ -7,6 +7,11 @@
 - Removed fully deprecated endpoint on `SyncService`. ([#716](https://github.com/myConsciousness/atproto.dart/issues/716))
   - `findRepoCommitPaths`
   - `findRepoCommitPathsAsJson`
+- Deprecated endpoint on `SyncService`. ([#717](https://github.com/myConsciousness/atproto.dart/issues/717))
+  - `findRepoCheckout`
+  - `findRepoCheckoutAsJson`
+  - `findRepoHead`
+  - `findRepoHeadAsJson`
 
 ## v0.6.3
 
