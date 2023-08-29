@@ -4,6 +4,9 @@
 
 - Exposed `Platform` enum. ([#709](https://github.com/myConsciousness/atproto.dart/issues/709))
 - Added `isValidAppPassword` function. ([#713](https://github.com/myConsciousness/atproto.dart/issues/713))
+- Removed fully deprecated endpoint on `SyncService`. ([#716](https://github.com/myConsciousness/atproto.dart/issues/716))
+  - `findRepoCommitPaths`
+  - `findRepoCommitPathsAsJson`
 
 ## v0.6.3
 

@@ -13,7 +13,6 @@ import '../adaptor/subscribe_repo_updates_adaptor.dart';
 import '../atproto_base_service.dart';
 import '../entities/repo_blocks.dart';
 import '../entities/repo_commit.dart';
-import '../entities/repo_commit_paths.dart';
 import '../entities/repo_commits.dart';
 import '../entities/repo_head.dart';
 import '../entities/repos.dart';
@@ -136,61 +135,6 @@ sealed class SyncService {
     String? earliestCommitCid,
     String? latestCommitCid,
     core.ProgressStatus? progress,
-  });
-
-  /// Gets the path of repo commits.
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The DID of the repo.
-  ///
-  /// - [earliestCommitCid]: The earliest commit in the commit range
-  ///                        (not inclusive).
-  ///
-  /// - [latestCommitCid]: The latest commit in the commit range (inclusive).
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.getCommitPath
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getCommitPath.json
-  Future<core.XRPCResponse<RepoCommitPaths>> findRepoCommitPaths({
-    required String did,
-    String? earliestCommitCid,
-    String? latestCommitCid,
-  });
-
-  /// Gets the path of repo commits in JSON representation.
-  ///
-  ///
-  /// This method does not convert response data into a [RepoCommitPaths]
-  /// object, so this may improve runtime performance.
-  ///
-  /// If you want to get it as a [RepoCommitPaths] object,
-  /// use [findRepoCommitPaths].
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The DID of the repo.
-  ///
-  /// - [earliestCommitCid]: The earliest commit in the commit range
-  ///                        (not inclusive).
-  ///
-  /// - [latestCommitCid]: The latest commit in the commit range (inclusive).
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.getCommitPath
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getCommitPath.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRepoCommitPathsAsJson({
-    required String did,
-    String? earliestCommitCid,
-    String? latestCommitCid,
   });
 
   /// Gets blocks from a given repo.
@@ -582,31 +526,6 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
       );
 
   @override
-  Future<core.XRPCResponse<RepoCommitPaths>> findRepoCommitPaths({
-    required String did,
-    String? earliestCommitCid,
-    String? latestCommitCid,
-  }) async =>
-      await _findRepoCommitPaths(
-        did: did,
-        earliestCommitCid: earliestCommitCid,
-        latestCommitCid: latestCommitCid,
-        to: RepoCommitPaths.fromJson,
-      );
-
-  @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRepoCommitPathsAsJson({
-    required String did,
-    String? earliestCommitCid,
-    String? latestCommitCid,
-  }) async =>
-      await _findRepoCommitPaths(
-        did: did,
-        earliestCommitCid: earliestCommitCid,
-        latestCommitCid: latestCommitCid,
-      );
-
-  @override
   Future<core.XRPCResponse<RepoBlocks>> findRepoBlocks({
     required String did,
     required List<String> commitCids,
@@ -770,23 +689,6 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
           data,
           progress,
         ),
-        userContext: core.UserContext.anonymousOnly,
-        to: to,
-      );
-
-  Future<core.XRPCResponse<T>> _findRepoCommitPaths<T>({
-    required String did,
-    required String? earliestCommitCid,
-    required String? latestCommitCid,
-    core.To<T>? to,
-  }) async =>
-      await super.get(
-        'getCommitPath',
-        parameters: {
-          'did': did,
-          'earliest': earliestCommitCid,
-          'latest': latestCommitCid,
-        },
         userContext: core.UserContext.anonymousOnly,
         to: to,
       );
