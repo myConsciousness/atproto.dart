@@ -12,6 +12,12 @@
   - `findRepoCheckoutAsJson`
   - `findRepoHead`
   - `findRepoHeadAsJson`
+- Removed and added optional params on `.findRepoCommits` and `.findRepoCommitsAsJson` on `SyncService`. ([#718](https://github.com/myConsciousness/atproto.dart/issues/718))
+  - **Removed**
+    - `earliestCommitCid`
+    - `latestCommitCid`
+  - **Added**
+    - `sinceCommitCid`
 
 ## v0.6.3
 

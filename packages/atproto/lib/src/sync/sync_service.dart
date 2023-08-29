@@ -70,10 +70,7 @@ sealed class SyncService {
   ///
   /// - [did]: The DID of the repo.
   ///
-  /// - [earliestCommitCid]: The earliest commit in the commit range
-  ///                        (not inclusive).
-  ///
-  /// - [latestCommitCid]: The latest commit in the commit range (inclusive).
+  /// - [sinceCommitCid]: Rev of the last seen commit.
   ///
   /// - [progress]: When the amount of data to be processed is large,
   ///               this callback can be used to check the progress of
@@ -88,8 +85,7 @@ sealed class SyncService {
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getRepo.json
   Future<core.XRPCResponse<RepoCommits>> findRepoCommits({
     required String did,
-    String? earliestCommitCid,
-    String? latestCommitCid,
+    String? sinceCommitCid,
     core.ProgressStatus? progress,
   });
 
@@ -114,10 +110,7 @@ sealed class SyncService {
   ///
   /// - [did]: The DID of the repo.
   ///
-  /// - [earliestCommitCid]: The earliest commit in the commit range
-  ///                        (not inclusive).
-  ///
-  /// - [latestCommitCid]: The latest commit in the commit range (inclusive).
+  /// - [sinceCommitCid]: Rev of the last seen commit.
   ///
   /// - [progress]: When the amount of data to be processed is large,
   ///               this callback can be used to check the progress of
@@ -132,8 +125,7 @@ sealed class SyncService {
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getRepo.json
   Future<core.XRPCResponse<Map<String, dynamic>>> findRepoCommitsAsJson({
     required String did,
-    String? earliestCommitCid,
-    String? latestCommitCid,
+    String? sinceCommitCid,
     core.ProgressStatus? progress,
   });
 
@@ -503,14 +495,12 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
   @override
   Future<core.XRPCResponse<RepoCommits>> findRepoCommits({
     required String did,
-    String? earliestCommitCid,
-    String? latestCommitCid,
+    String? sinceCommitCid,
     core.ProgressStatus? progress,
   }) async =>
       await _findRepoCommits(
         did: did,
-        earliestCommitCid: earliestCommitCid,
-        latestCommitCid: latestCommitCid,
+        sinceCommitCid: sinceCommitCid,
         progress: progress,
         to: RepoCommits.fromJson,
       );
@@ -518,14 +508,12 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
   @override
   Future<core.XRPCResponse<Map<String, dynamic>>> findRepoCommitsAsJson({
     required String did,
-    String? earliestCommitCid,
-    String? latestCommitCid,
+    String? sinceCommitCid,
     core.ProgressStatus? progress,
   }) async =>
       await _findRepoCommits(
         did: did,
-        earliestCommitCid: earliestCommitCid,
-        latestCommitCid: latestCommitCid,
+        sinceCommitCid: sinceCommitCid,
         progress: progress,
       );
 
@@ -677,8 +665,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
 
   Future<core.XRPCResponse<T>> _findRepoCommits<T>({
     required String did,
-    required String? earliestCommitCid,
-    required String? latestCommitCid,
+    required String? sinceCommitCid,
     required core.ProgressStatus? progress,
     core.To<T>? to,
   }) async =>
@@ -686,8 +673,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
         'getRepo',
         parameters: {
           'did': did,
-          'earliest': earliestCommitCid,
-          'latest': latestCommitCid,
+          'since': sinceCommitCid,
         },
         adaptor: (data) => toRepoCommits(
           data,

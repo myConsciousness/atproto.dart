@@ -37,8 +37,7 @@ void main() {
 
       final response = await sync.findRepoCommits(
         did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
-        earliestCommitCid: 'baaaaaaa',
-        latestCommitCid: 'baaaaaaa',
+        sinceCommitCid: 'baaaaaaa',
       );
 
       expect(response, isA<core.XRPCResponse>());
@@ -61,8 +60,7 @@ void main() {
 
       final response = await sync.findRepoCommitsAsJson(
         did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
-        earliestCommitCid: 'baaaaaaa',
-        latestCommitCid: 'baaaaaaa',
+        sinceCommitCid: 'baaaaaaa',
       );
 
       expect(response, isA<core.XRPCResponse>());
