@@ -101,7 +101,7 @@ void main() {
     });
   });
 
-  // TODO: Will remove in v1.0.0
+  // TODO: Will remove in v0.7.0
   group('.refreshSession', () {
     test('normal case', () async {
       final servers = ServersService(

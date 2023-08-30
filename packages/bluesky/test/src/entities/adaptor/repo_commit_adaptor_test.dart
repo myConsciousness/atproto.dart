@@ -998,6 +998,7 @@ SubscribedRepoCommit _buildSubscribedRepoCommit(
       ops: [op],
       did: 'aaaaaaa',
       cursor: 1234,
+      rev: 'xxxxxxx',
       isRebase: false,
       isTooBig: false,
       createdAt: DateTime.now(),

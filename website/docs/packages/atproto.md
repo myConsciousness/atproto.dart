@@ -310,7 +310,6 @@ You can always find the method you want to use by typing the prefix in the follo
 | **.update**    | This prefix is attached to the endpoint performing the update state.                                    |
 | **.upload**    | This prefix is attached to the endpoint performing the upload contents.                                 |
 | **.request**   | This prefix is attached to the endpoint performing the request via email.                               |
-| **.rebase**    | This prefix is attached to the endpoint performing the rebase repo.                                     |
 | **.notify**    | This prefix is attached to the endpoint used for the purpose of notifying the server of updates.        |
 
 :::tip

@@ -32,6 +32,12 @@ mixin _$SubscribedRepoCommit {
   @JsonKey(name: 'seq')
   int get cursor => throw _privateConstructorUsedError;
 
+  /// The rev of the emitted commit.
+  String get rev => throw _privateConstructorUsedError;
+
+  /// The rev of the last emitted commit from this repo.
+  String? get since => throw _privateConstructorUsedError;
+
   /// Flag to indicate if the commit was a rebase.
   @JsonKey(name: 'rebase')
   bool get isRebase => throw _privateConstructorUsedError;
@@ -60,6 +66,8 @@ abstract class $SubscribedRepoCommitCopyWith<$Res> {
       {List<RepoOp> ops,
       @JsonKey(name: 'repo') String did,
       @JsonKey(name: 'seq') int cursor,
+      String rev,
+      String? since,
       @JsonKey(name: 'rebase') bool isRebase,
       @JsonKey(name: 'tooBig') bool isTooBig,
       @JsonKey(name: 'time') DateTime createdAt});
@@ -82,6 +90,8 @@ class _$SubscribedRepoCommitCopyWithImpl<$Res,
     Object? ops = null,
     Object? did = null,
     Object? cursor = null,
+    Object? rev = null,
+    Object? since = freezed,
     Object? isRebase = null,
     Object? isTooBig = null,
     Object? createdAt = null,
@@ -99,6 +109,14 @@ class _$SubscribedRepoCommitCopyWithImpl<$Res,
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as int,
+      rev: null == rev
+          ? _value.rev
+          : rev // ignore: cast_nullable_to_non_nullable
+              as String,
+      since: freezed == since
+          ? _value.since
+          : since // ignore: cast_nullable_to_non_nullable
+              as String?,
       isRebase: null == isRebase
           ? _value.isRebase
           : isRebase // ignore: cast_nullable_to_non_nullable
@@ -127,6 +145,8 @@ abstract class _$$_SubscribedRepoCommitCopyWith<$Res>
       {List<RepoOp> ops,
       @JsonKey(name: 'repo') String did,
       @JsonKey(name: 'seq') int cursor,
+      String rev,
+      String? since,
       @JsonKey(name: 'rebase') bool isRebase,
       @JsonKey(name: 'tooBig') bool isTooBig,
       @JsonKey(name: 'time') DateTime createdAt});
@@ -146,6 +166,8 @@ class __$$_SubscribedRepoCommitCopyWithImpl<$Res>
     Object? ops = null,
     Object? did = null,
     Object? cursor = null,
+    Object? rev = null,
+    Object? since = freezed,
     Object? isRebase = null,
     Object? isTooBig = null,
     Object? createdAt = null,
@@ -163,6 +185,14 @@ class __$$_SubscribedRepoCommitCopyWithImpl<$Res>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as int,
+      rev: null == rev
+          ? _value.rev
+          : rev // ignore: cast_nullable_to_non_nullable
+              as String,
+      since: freezed == since
+          ? _value.since
+          : since // ignore: cast_nullable_to_non_nullable
+              as String?,
       isRebase: null == isRebase
           ? _value.isRebase
           : isRebase // ignore: cast_nullable_to_non_nullable
@@ -180,12 +210,15 @@ class __$$_SubscribedRepoCommitCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@jsonSerializable
 class _$_SubscribedRepoCommit implements _SubscribedRepoCommit {
   const _$_SubscribedRepoCommit(
       {required final List<RepoOp> ops,
       @JsonKey(name: 'repo') required this.did,
       @JsonKey(name: 'seq') required this.cursor,
+      required this.rev,
+      this.since,
       @JsonKey(name: 'rebase') required this.isRebase,
       @JsonKey(name: 'tooBig') required this.isTooBig,
       @JsonKey(name: 'time') required this.createdAt})
@@ -216,6 +249,14 @@ class _$_SubscribedRepoCommit implements _SubscribedRepoCommit {
   @JsonKey(name: 'seq')
   final int cursor;
 
+  /// The rev of the emitted commit.
+  @override
+  final String rev;
+
+  /// The rev of the last emitted commit from this repo.
+  @override
+  final String? since;
+
   /// Flag to indicate if the commit was a rebase.
   @override
   @JsonKey(name: 'rebase')
@@ -233,7 +274,7 @@ class _$_SubscribedRepoCommit implements _SubscribedRepoCommit {
 
   @override
   String toString() {
-    return 'SubscribedRepoCommit(ops: $ops, did: $did, cursor: $cursor, isRebase: $isRebase, isTooBig: $isTooBig, createdAt: $createdAt)';
+    return 'SubscribedRepoCommit(ops: $ops, did: $did, cursor: $cursor, rev: $rev, since: $since, isRebase: $isRebase, isTooBig: $isTooBig, createdAt: $createdAt)';
   }
 
   @override
@@ -244,6 +285,8 @@ class _$_SubscribedRepoCommit implements _SubscribedRepoCommit {
             const DeepCollectionEquality().equals(other._ops, _ops) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
+            (identical(other.rev, rev) || other.rev == rev) &&
+            (identical(other.since, since) || other.since == since) &&
             (identical(other.isRebase, isRebase) ||
                 other.isRebase == isRebase) &&
             (identical(other.isTooBig, isTooBig) ||
@@ -259,6 +302,8 @@ class _$_SubscribedRepoCommit implements _SubscribedRepoCommit {
       const DeepCollectionEquality().hash(_ops),
       did,
       cursor,
+      rev,
+      since,
       isRebase,
       isTooBig,
       createdAt);
@@ -283,6 +328,8 @@ abstract class _SubscribedRepoCommit implements SubscribedRepoCommit {
           {required final List<RepoOp> ops,
           @JsonKey(name: 'repo') required final String did,
           @JsonKey(name: 'seq') required final int cursor,
+          required final String rev,
+          final String? since,
           @JsonKey(name: 'rebase') required final bool isRebase,
           @JsonKey(name: 'tooBig') required final bool isTooBig,
           @JsonKey(name: 'time') required final DateTime createdAt}) =
@@ -306,6 +353,14 @@ abstract class _SubscribedRepoCommit implements SubscribedRepoCommit {
   /// The sequence number of this commit.
   @JsonKey(name: 'seq')
   int get cursor;
+  @override
+
+  /// The rev of the emitted commit.
+  String get rev;
+  @override
+
+  /// The rev of the last emitted commit from this repo.
+  String? get since;
   @override
 
   /// Flag to indicate if the commit was a rebase.
