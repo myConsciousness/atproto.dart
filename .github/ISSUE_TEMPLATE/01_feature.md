@@ -1,23 +1,26 @@
 ---
-name: Feature request.
-about: Suggest a new feature for atproto.
-title: "Feature Request:"
+name: Feature Request
+about: I have an idea about a new feature about atproto.dart.
+title: "Feature Request: "
 labels: "feat,help wanted,untriaged"
 assignees: "myConsciousness"
 ---
 
-<!-- When reporting a feature, please read this complete template and fill all the questions in order to get a better response -->
+## Packages/Tools
 
-# 1. Problem to solve
+- [ ] **at_identifier**
+- [ ] **nsid**
+- [ ] **at_uri**
+- [ ] **xrpc**
+- [ ] **multiformats**
+- [ ] **atproto_core**
+- [ ] **atproto**
+- [ ] **bluesky**
+- [ ] **bluesky_text**
+- [ ] **bluesky_cli**
+- [ ] **bluesky_post**
+- [ ] **others**
 
-<!-- Which problem would be solved with this feature? -->
+## Proposal
 
-# 2. Proposal
-
-<!-- What do you propose as a solution? Add as much information as you can! -->
-
-# 3. More information
-
-<!-- Do you have any other useful information about this feature report? Please write it down here -->
-<!-- Possible helpful information: references to other sites/repositories -->
-<!-- Are you interested in working on a PR for this? -->
+## Risks
