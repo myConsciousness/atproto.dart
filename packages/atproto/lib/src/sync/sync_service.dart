@@ -56,7 +56,7 @@ sealed class SyncService {
     int? cursor,
   });
 
-  /// Gets the repo commits.
+  /// Gets the did's repo, optionally catching up from a specific revision.
   ///
   /// Response data available from this endpoint is unsorted.
   ///
@@ -71,7 +71,7 @@ sealed class SyncService {
   ///
   /// - [did]: The DID of the repo.
   ///
-  /// - [sinceCommitCid]: Rev of the last seen commit.
+  /// - [sinceCommitCid]: The revision of the repo to catch up from.
   ///
   /// - [progress]: When the amount of data to be processed is large,
   ///               this callback can be used to check the progress of
@@ -90,7 +90,8 @@ sealed class SyncService {
     core.ProgressStatus? progress,
   });
 
-  /// Gets the repo commits in JSON representation.
+  /// Gets the did's repo, optionally catching up from a specific revision
+  /// as JSON representation.
   ///
   /// Response data available from this endpoint is unsorted.
   ///
@@ -111,7 +112,7 @@ sealed class SyncService {
   ///
   /// - [did]: The DID of the repo.
   ///
-  /// - [sinceCommitCid]: Rev of the last seen commit.
+  /// - [sinceCommitCid]: The revision of the repo to catch up from.
   ///
   /// - [progress]: When the amount of data to be processed is large,
   ///               this callback can be used to check the progress of
