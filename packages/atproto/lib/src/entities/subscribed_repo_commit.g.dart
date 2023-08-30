@@ -41,14 +41,23 @@ _$_SubscribedRepoCommit _$$_SubscribedRepoCommitFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$_SubscribedRepoCommitToJson(
-        _$_SubscribedRepoCommit instance) =>
-    <String, dynamic>{
-      'ops': instance.ops.map((e) => e.toJson()).toList(),
-      'repo': instance.did,
-      'seq': instance.cursor,
-      'rev': instance.rev,
-      'since': instance.since,
-      'rebase': instance.isRebase,
-      'tooBig': instance.isTooBig,
-      'time': instance.createdAt.toIso8601String(),
-    };
+    _$_SubscribedRepoCommit instance) {
+  final val = <String, dynamic>{
+    'ops': instance.ops.map((e) => e.toJson()).toList(),
+    'repo': instance.did,
+    'seq': instance.cursor,
+    'rev': instance.rev,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('since', instance.since);
+  val['rebase'] = instance.isRebase;
+  val['tooBig'] = instance.isTooBig;
+  val['time'] = instance.createdAt.toIso8601String();
+  return val;
+}

@@ -210,7 +210,8 @@ class __$$_SubscribedRepoCommitCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@jsonSerializable
 class _$_SubscribedRepoCommit implements _SubscribedRepoCommit {
   const _$_SubscribedRepoCommit(
       {required final List<RepoOp> ops,
