@@ -53,7 +53,6 @@ See more details about **[atproto](https://pub.dev/packages/atproto)** in **[Pac
 | [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)   | [createRecords](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/createRecords.html) |       ✅       |     ❌      |
 | [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)   | [updateRecords](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/updateRecords.html) |       ✅       |     ❌      |
 | [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)   | [deleteRecords](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/deleteRecords.html) |       ✅       |     ❌      |
-| [POST com.atproto.repo.rebaseRepo](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/rebaseRepo.json)     | [rebaseRepo](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService/rebaseRepo.html)       |       ✅       |     ❌      |
 
 ### [Moderation Service](https://pub.dev/documentation/atproto/latest/atproto/ModerationService-class.html)
 

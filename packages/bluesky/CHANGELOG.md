@@ -18,6 +18,7 @@
     - `latestCommitCid`
   - **Added**
     - `sinceCommitCid`
+- Removed fully deprecated `rebaseRepo` method on `RepositoriesService`.
 
 ## v0.8.4
 
