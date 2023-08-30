@@ -15,6 +15,7 @@ import '../entities/repo_blocks.dart';
 import '../entities/repo_commit.dart';
 import '../entities/repo_commits.dart';
 import '../entities/repo_head.dart';
+import '../entities/repo_latest_commit.dart';
 import '../entities/repos.dart';
 import '../entities/subscribed_repo.dart';
 
@@ -286,6 +287,46 @@ sealed class SyncService {
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getHead.json
   @Deprecated('Use findLatestCommitAsJson instead. Will be removed in v0.7.0')
   Future<core.XRPCResponse<Map<String, dynamic>>> findRepoHeadAsJson({
+    required String did,
+  });
+
+  /// Gets the current commit CID & revision of the repo.
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: The DID of the repo.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.getHead
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getHead.json
+  Future<core.XRPCResponse<RepoLatestCommit>> findLatestCommit({
+    required String did,
+  });
+
+  /// Gets the current commit CID & revision of the repo.
+  ///
+  /// This method does not convert response data into a [RepoLatestCommit]
+  /// object, so this may improve runtime performance.
+  ///
+  /// If you want to get it as a [RepoLatestCommit] object,
+  /// use [findLatestCommit].
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: The DID of the repo.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.getHead
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getHead.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findLatestCommitAsJson({
     required String did,
   });
 
@@ -579,6 +620,21 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
       await _findRepoHead(did: did);
 
   @override
+  Future<core.XRPCResponse<RepoLatestCommit>> findLatestCommit({
+    required String did,
+  }) async =>
+      await _findLatestCommit(
+        did: did,
+        to: RepoLatestCommit.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findLatestCommitAsJson({
+    required String did,
+  }) async =>
+      await _findLatestCommit(did: did);
+
+  @override
   Future<core.XRPCResponse<RepoCommit>> findRecord({
     required core.AtUri uri,
     String? commitCid,
@@ -725,6 +781,19 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
   }) async =>
       await super.get(
         'getHead',
+        parameters: {
+          'did': did,
+        },
+        userContext: core.UserContext.anonymousOnly,
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findLatestCommit<T>({
+    required String did,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getLatestCommit',
         parameters: {
           'did': did,
         },

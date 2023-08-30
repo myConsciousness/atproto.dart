@@ -34,6 +34,7 @@ export 'package:atproto/src/entities/records.dart';
 export 'package:atproto/src/entities/repo.dart';
 export 'package:atproto/src/entities/repo_block.dart';
 export 'package:atproto/src/entities/repo_blocks.dart';
+export 'package:atproto/src/entities/repo_latest_commit.dart';
 export 'package:atproto/src/entities/repo_commit.dart';
 export 'package:atproto/src/entities/repo_commits.dart';
 export 'package:atproto/src/entities/repo_head.dart';
