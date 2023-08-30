@@ -32,6 +32,12 @@ class SubscribedRepoCommit with _$SubscribedRepoCommit {
     /// The sequence number of this commit.
     @JsonKey(name: 'seq') required int cursor,
 
+    /// The rev of the emitted commit.
+    required String rev,
+
+    /// The rev of the last emitted commit from this repo.
+    String? since,
+
     /// Flag to indicate if the commit was a rebase.
     @JsonKey(name: 'rebase') required bool isRebase,
 

@@ -20,6 +20,9 @@
     - `sinceCommitCid`
 - Removed fully deprecated `rebaseRepo` method on `RepositoriesService`.
 - Added `findLatestCommit` method on `SyncService`. Use it instead of `findRepoHead`. ([#720](https://github.com/myConsciousness/atproto.dart/issues/720))
+- Added params on `SubscribedRepoCommit` object. ([#719](https://github.com/myConsciousness/atproto.dart/issues/719))
+  - `rev`
+  - `since` (nullable)
 
 ## v0.6.3
 
