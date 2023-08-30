@@ -128,9 +128,6 @@ const comAtprotoAdminGetRecord = 'com.atproto.admin.getRecord';
 /// `com.atproto.admin.getRepo`
 const comAtprotoAdminGetRepo = 'com.atproto.admin.getRepo';
 
-/// `com.atproto.admin.rebaseRepo`
-const comAtprotoAdminRebaseRepo = 'com.atproto.admin.rebaseRepo';
-
 /// `com.atproto.admin.resolveModerationReports`
 const comAtprotoAdminResolveModerationReports =
     'com.atproto.admin.resolveModerationReports';
@@ -256,9 +253,6 @@ const comAtprotoRepoListRecordsRecord = 'com.atproto.repo.listRecords#record';
 /// `com.atproto.repo.putRecord`
 const comAtprotoRepoPutRecord = 'com.atproto.repo.putRecord';
 
-/// `com.atproto.repo.rebaseRepo`
-const comAtprotoRepoRebaseRepo = 'com.atproto.repo.rebaseRepo';
-
 /// `com.atproto.repo.strongRef`
 const comAtprotoRepoStrongRef = 'com.atproto.repo.strongRef';
 
@@ -354,11 +348,11 @@ const comAtprotoSyncGetBlocks = 'com.atproto.sync.getBlocks';
 /// `com.atproto.sync.getCheckout`
 const comAtprotoSyncGetCheckout = 'com.atproto.sync.getCheckout';
 
-/// `com.atproto.sync.getCommitPath`
-const comAtprotoSyncGetCommitPath = 'com.atproto.sync.getCommitPath';
-
 /// `com.atproto.sync.getHead`
 const comAtprotoSyncGetHead = 'com.atproto.sync.getHead';
+
+/// `com.atproto.sync.getLatestCommit`
+const comAtprotoSyncGetLatestCommit = 'com.atproto.sync.getLatestCommit';
 
 /// `com.atproto.sync.getRecord`
 const comAtprotoSyncGetRecord = 'com.atproto.sync.getRecord';
@@ -406,6 +400,9 @@ const comAtprotoSyncSubscribeReposRepoOp =
 /// `com.atproto.sync.subscribeRepos#tombstone`
 const comAtprotoSyncSubscribeReposTombstone =
     'com.atproto.sync.subscribeRepos#tombstone';
+
+/// `com.atproto.temp.upgradeRepoVersion`
+const comAtprotoTempUpgradeRepoVersion = 'com.atproto.temp.upgradeRepoVersion';
 
 /// `blob`
 const blob = 'blob';
