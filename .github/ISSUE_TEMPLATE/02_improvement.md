@@ -6,8 +6,6 @@ labels: "enhancement,untriaged,help wanted"
 assignees: "myConsciousness"
 ---
 
-<!-- When reporting a improvement, please read this complete template and fill all the questions in order to get a better response -->
-
 ## Packages/Tools
 
 - [ ] **at_identifier**
