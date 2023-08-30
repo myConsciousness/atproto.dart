@@ -379,26 +379,6 @@ sealed class RepositoriesService {
     required String repo,
   });
 
-  /// Simple rebase of repo that deletes history.
-  ///
-  /// ## Parameters
-  ///
-  /// - [repo]: The handle or DID of the repo.
-  ///
-  /// - [swapCommitCid]: Compare and swap with the previous commit by cid.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.repo.rebaseRepo
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/rebaseRepo.json
-  Future<core.XRPCResponse<core.EmptyData>> rebaseRepo({
-    required String repo,
-    String? swapCommitCid,
-  });
-
   /// Apply a batch transaction of creates, updates, and deletes.
   ///
   /// ## Parameters
@@ -734,19 +714,6 @@ final class _RepositoriesService extends ATProtoBaseService
             .toList(),
         validate: validate,
         swapCommitCid: swapCommitCid,
-      );
-
-  @override
-  Future<core.XRPCResponse<core.EmptyData>> rebaseRepo({
-    required String repo,
-    String? swapCommitCid,
-  }) async =>
-      await super.post<core.EmptyData>(
-        'rebaseRepo',
-        body: {
-          'repo': repo,
-          'swapCommit': swapCommitCid,
-        },
       );
 
   Future<core.XRPCResponse<T>> _findRecord<T>({

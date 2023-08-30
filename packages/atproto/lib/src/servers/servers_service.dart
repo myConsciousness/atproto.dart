@@ -76,7 +76,7 @@ sealed class ServersService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/refreshSession.json
-  @Deprecated('Use refreshSession function instead. Will be removed in v1.0.0')
+  @Deprecated('Use refreshSession function instead. Will be removed in v0.7.0')
   Future<core.XRPCResponse<core.Session>> refreshSession({
     required String refreshJwt,
   });

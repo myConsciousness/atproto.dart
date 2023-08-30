@@ -4,6 +4,25 @@
 
 - Exposed `Platform` enum. ([#709](https://github.com/myConsciousness/atproto.dart/issues/709))
 - Added `isValidAppPassword` function. ([#713](https://github.com/myConsciousness/atproto.dart/issues/713))
+- Removed fully deprecated endpoint on `SyncService`. ([#716](https://github.com/myConsciousness/atproto.dart/issues/716))
+  - `findRepoCommitPaths`
+  - `findRepoCommitPathsAsJson`
+- Deprecated endpoint on `SyncService`. ([#717](https://github.com/myConsciousness/atproto.dart/issues/717))
+  - `findRepoCheckout`
+  - `findRepoCheckoutAsJson`
+  - `findRepoHead`
+  - `findRepoHeadAsJson`
+- Removed and added optional params on `.findRepoCommits` and `.findRepoCommitsAsJson` on `SyncService`. ([#718](https://github.com/myConsciousness/atproto.dart/issues/718))
+  - **Removed**
+    - `earliestCommitCid`
+    - `latestCommitCid`
+  - **Added**
+    - `sinceCommitCid`
+- Removed fully deprecated `rebaseRepo` method on `RepositoriesService`.
+- Added `findLatestCommit` method on `SyncService`. Use it instead of `findRepoHead`. ([#720](https://github.com/myConsciousness/atproto.dart/issues/720))
+- Added params on `SubscribedRepoCommit` object. ([#719](https://github.com/myConsciousness/atproto.dart/issues/719))
+  - `rev`
+  - `since` (nullable)
 
 ## v0.6.3
 
