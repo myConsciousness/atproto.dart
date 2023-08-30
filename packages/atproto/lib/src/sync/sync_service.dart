@@ -299,11 +299,11 @@ sealed class SyncService {
   ///
   /// ## Lexicon
   ///
-  /// - com.atproto.sync.getHead
+  /// - com.atproto.sync.getLatestCommit
   ///
   /// ## Reference
   ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getHead.json
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getLatestCommit.json
   Future<core.XRPCResponse<RepoLatestCommit>> findLatestCommit({
     required String did,
   });
@@ -322,11 +322,11 @@ sealed class SyncService {
   ///
   /// ## Lexicon
   ///
-  /// - com.atproto.sync.getHead
+  /// - com.atproto.sync.getLatestCommit
   ///
   /// ## Reference
   ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getHead.json
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getLatestCommit.json
   Future<core.XRPCResponse<Map<String, dynamic>>> findLatestCommitAsJson({
     required String did,
   });
