@@ -202,6 +202,9 @@ const appBskyFeedGetPosts = 'app.bsky.feed.getPosts';
 /// `app.bsky.feed.getRepostedBy`
 const appBskyFeedGetRepostedBy = 'app.bsky.feed.getRepostedBy';
 
+/// `app.bsky.feed.getSuggestedFeeds`
+const appBskyFeedGetSuggestedFeeds = 'app.bsky.feed.getSuggestedFeeds';
+
 /// `app.bsky.feed.getTimeline`
 const appBskyFeedGetTimeline = 'app.bsky.feed.getTimeline';
 
