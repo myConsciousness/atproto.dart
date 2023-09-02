@@ -1294,6 +1294,92 @@ sealed class FeedsService {
     int? limit,
     String? cursor,
   });
+
+  /// Get a list of suggested feeds for the viewer.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getSuggestedFeeds
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getSuggestedFeeds.json
+  Future<core.XRPCResponse<FeedGenerators>> findSuggestedFeeds({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a list of suggested feeds for the viewer
+  /// as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getSuggestedFeeds
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getSuggestedFeeds.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findSuggestedFeedsAsJson({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a pagination of suggested feeds for the viewer.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getSuggestedFeeds
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getSuggestedFeeds.json
+  core.Pagination<FeedGenerators> paginateSuggestedFeeds({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a pagination of suggested feeds for the viewer
+  /// as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getSuggestedFeeds
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getSuggestedFeeds.json
+  core.Pagination<Map<String, dynamic>> paginateSuggestedFeedsAsJson({
+    int? limit,
+    String? cursor,
+  });
 }
 
 final class _FeedsService extends BlueskyBaseService implements FeedsService {
@@ -2039,6 +2125,48 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
         cursor: cursor,
       );
 
+  @override
+  Future<core.XRPCResponse<FeedGenerators>> findSuggestedFeeds({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findSuggestedFeeds(
+        limit: limit,
+        cursor: cursor,
+        to: FeedGenerators.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findSuggestedFeedsAsJson({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findSuggestedFeeds(
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  core.Pagination<FeedGenerators> paginateSuggestedFeeds({
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateSuggestedFeeds(
+        limit: limit,
+        cursor: cursor,
+        to: FeedGenerators.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateSuggestedFeedsAsJson({
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateSuggestedFeeds(
+        limit: limit,
+        cursor: cursor,
+      );
+
   Future<core.XRPCResponse<T>> _findTimeline<T>({
     required String? algorithm,
     required int? limit,
@@ -2367,6 +2495,34 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
         to: to,
       );
 
+  Future<core.XRPCResponse<T>> _findSuggestedFeeds<T>({
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getSuggestedFeeds',
+        parameters: _buildGetSuggestedFeeds(
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateSuggestedFeeds<T>({
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getSuggestedFeeds',
+        parameters: _buildGetSuggestedFeeds(
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
   Map<String, dynamic> _buildGetTimelineParams({
     required String? algorithm,
     required int? limit,
@@ -2457,6 +2613,15 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
   }) =>
       {
         'actor': actor,
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildGetSuggestedFeeds({
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
         'limit': limit,
         'cursor': cursor,
       };

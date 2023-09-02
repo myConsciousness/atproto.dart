@@ -1,5 +1,13 @@
 # Release Note
 
+## v0.8.6
+
+- Supported `app.bsky.feed.getSuggestedFeeds` on `FeedsService`. ([#732](https://github.com/myConsciousness/atproto.dart/issues/732))
+  - `.findSuggestedFeeds`
+  - `.findSuggestedFeedsAsJson`
+  - `.paginateSuggestedFeeds`
+  - `.paginateSuggestedFeedsAsJson`
+
 ## v0.8.5
 
 - Supported `app.bsky.notification.registerPush` as `createPushRegistration` on `NotificationsService`. ([#709](https://github.com/myConsciousness/atproto.dart/issues/709))
