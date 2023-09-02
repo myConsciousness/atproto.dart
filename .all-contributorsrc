@@ -119,6 +119,17 @@
         "ideas",
         "content"
       ]
+    },
+    {
+      "login": "gildaswise",
+      "name": "Gildásio Filho",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1339236?v=4",
+      "profile": "https://gildaswise.com",
+      "contributions": [
+        "code",
+        "test",
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 5,
