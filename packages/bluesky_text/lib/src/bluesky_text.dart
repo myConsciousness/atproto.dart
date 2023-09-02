@@ -363,6 +363,11 @@ final class _BlueskyText implements BlueskyText {
       while (index < _bytes.length) {
         bool matched = true;
         for (int j = 0; j < searchBytes.length; j++) {
+          if (index + j >= _bytes.length) {
+            matched = false;
+            break;
+          }
+
           if (_bytes[index + j] != searchBytes[j]) {
             matched = false;
             break;

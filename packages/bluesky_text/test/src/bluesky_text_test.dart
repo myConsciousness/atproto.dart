@@ -455,6 +455,13 @@ void main() {
         returnsNormally,
       );
     });
+
+    test('case16', () {
+      expect(
+        BlueskyText('tbh').links,
+        [],
+      );
+    });
   });
 
   group('.entities', () {
@@ -553,6 +560,13 @@ github.com/videah/SkyBridge
       expect(
         () => BlueskyText('😳' * 300).entities,
         returnsNormally,
+      );
+    });
+
+    test('case11', () {
+      expect(
+        BlueskyText('tbh').entities,
+        [],
       );
     });
   });
