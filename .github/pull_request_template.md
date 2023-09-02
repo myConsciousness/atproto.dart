@@ -1,10 +1,3 @@
----
-name: Add Showcase.
-about: What showcases would you like to add to our website?
-labels: "untriaged"
-assignees: "myConsciousness"
----
-
 ## Checklist
 
 <!-- Before you create this PR confirm that it meets all requirements listed below by checking the
