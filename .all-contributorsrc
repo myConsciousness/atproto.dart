@@ -127,8 +127,9 @@
       "profile": "https://gildaswise.com",
       "contributions": [
         "code",
+        "content",
         "test",
-        "ideas"
+        "ideas" 
       ]
     }
   ],
