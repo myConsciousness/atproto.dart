@@ -1,5 +1,11 @@
 # Release Note
 
+## v0.8.7
+
+- Added `.group` method on `Notifications` object. With this method, you can obtain objects grouping notifications by `reason` and `reasonSubject`. ([#728](https://github.com/myConsciousness/atproto.dart/issues/728))
+  - `GroupedNotifications`
+  - `GroupedNotification`
+
 ## v0.8.6
 
 - Supported `app.bsky.feed.getSuggestedFeeds` on `FeedsService`. ([#732](https://github.com/myConsciousness/atproto.dart/issues/732))

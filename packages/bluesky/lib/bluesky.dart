@@ -216,6 +216,8 @@ export 'package:bluesky/src/entities/feed_view.dart';
 export 'package:bluesky/src/entities/follow_record.dart';
 export 'package:bluesky/src/entities/followers.dart';
 export 'package:bluesky/src/entities/follows.dart';
+export 'package:bluesky/src/entities/grouped_notifications.dart';
+export 'package:bluesky/src/entities/grouped_notification.dart';
 export 'package:bluesky/src/entities/generator_feed.dart';
 export 'package:bluesky/src/entities/generator_links.dart';
 export 'package:bluesky/src/entities/generator_record.dart';
