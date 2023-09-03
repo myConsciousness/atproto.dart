@@ -99,6 +99,15 @@ const Users: User[] = [
     source: 'https://colab.research.google.com/drive/1XI-kQNAf5udLCWTI3qtIHEAN7wjYJOz-?usp=drive_link',
     tags: ['console'],
   },
+  {
+    title: 'SkyClad',
+    author: 'igz0.bsky.social',
+    description: 'An experimental ATP/Bluesky client app for iOS and Android by Flutter.',
+    preview: require('./showcase/SkyClad.png'),
+    website: 'https://testflight.apple.com/join/TUCMYXnq',
+    source: 'https://github.com/igz0/skyclad',
+    tags: ['mobile'],
+  },
 ];
 
 export type User = {
