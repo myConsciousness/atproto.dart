@@ -60,5 +60,11 @@ class Notifications with _$Notifications {
   ///   group.
   /// - Returns a [GroupedNotifications] object containing the grouped
   ///   notifications.
-  GroupedNotifications group() => const NotificationsGrouper().group(this);
+  GroupedNotifications group({
+    List<NotificationReason>? includeReasons,
+  }) =>
+      const NotificationsGrouper().group(
+        this,
+        includeReasons: includeReasons,
+      );
 }
