@@ -39,14 +39,20 @@ sealed class NotificationsGrouper {
   ///   group.
   /// - Returns a [GroupedNotifications] object containing the grouped
   ///   notifications.
-  GroupedNotifications group(final Notifications notifications);
+  GroupedNotifications group(
+    final Notifications notifications, {
+    List<NotificationReason>? includeReasons,
+  });
 }
 
 final class _NotificationsGrouper implements NotificationsGrouper {
   const _NotificationsGrouper();
 
   @override
-  GroupedNotifications group(final Notifications data) {
+  GroupedNotifications group(
+    final Notifications data, {
+    List<NotificationReason>? includeReasons,
+  }) {
     if (data.notifications.isEmpty) {
       return emptyGroupedNotifications;
     }
@@ -54,6 +60,11 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     final groupedNotifications = <Map<String, dynamic>>[];
 
     for (final notification in data.notifications) {
+      if (includeReasons != null &&
+          !includeReasons.contains(notification.reason)) {
+        continue;
+      }
+
       if (_isGroupable(notification.reason)) {
         final reasonSubject = notification.reasonSubject.toString();
 
