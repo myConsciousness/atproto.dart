@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.8.8
+
+- Made `reasonSubject` nullable on `GroupedNotification`. It's nullable when reason is `follow`. ([#743](https://github.com/myConsciousness/atproto.dart/issues/743))
+
 ## v0.8.7
 
 - Added `.group` method on `Notifications` object. With this method, you can obtain objects grouping notifications by `reason` and `reasonSubject`. ([#728](https://github.com/myConsciousness/atproto.dart/issues/728))

@@ -28,7 +28,7 @@ mixin _$GroupedNotification {
 
   /// Optionally, represents the subject of the reason for the notification.
   @atUriConverter
-  AtUri get reasonSubject => throw _privateConstructorUsedError;
+  AtUri? get reasonSubject => throw _privateConstructorUsedError;
 
   /// Indicates whether the notification has been read or not.
   bool get isRead => throw _privateConstructorUsedError;
@@ -54,7 +54,7 @@ abstract class $GroupedNotificationCopyWith<$Res> {
   $Res call(
       {List<Actor> authors,
       NotificationReason reason,
-      @atUriConverter AtUri reasonSubject,
+      @atUriConverter AtUri? reasonSubject,
       bool isRead,
       List<Label> labels,
       DateTime indexedAt});
@@ -75,7 +75,7 @@ class _$GroupedNotificationCopyWithImpl<$Res, $Val extends GroupedNotification>
   $Res call({
     Object? authors = null,
     Object? reason = null,
-    Object? reasonSubject = null,
+    Object? reasonSubject = freezed,
     Object? isRead = null,
     Object? labels = null,
     Object? indexedAt = null,
@@ -89,10 +89,10 @@ class _$GroupedNotificationCopyWithImpl<$Res, $Val extends GroupedNotification>
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as NotificationReason,
-      reasonSubject: null == reasonSubject
+      reasonSubject: freezed == reasonSubject
           ? _value.reasonSubject
           : reasonSubject // ignore: cast_nullable_to_non_nullable
-              as AtUri,
+              as AtUri?,
       isRead: null == isRead
           ? _value.isRead
           : isRead // ignore: cast_nullable_to_non_nullable
@@ -120,7 +120,7 @@ abstract class _$$_GroupedNotificationCopyWith<$Res>
   $Res call(
       {List<Actor> authors,
       NotificationReason reason,
-      @atUriConverter AtUri reasonSubject,
+      @atUriConverter AtUri? reasonSubject,
       bool isRead,
       List<Label> labels,
       DateTime indexedAt});
@@ -139,7 +139,7 @@ class __$$_GroupedNotificationCopyWithImpl<$Res>
   $Res call({
     Object? authors = null,
     Object? reason = null,
-    Object? reasonSubject = null,
+    Object? reasonSubject = freezed,
     Object? isRead = null,
     Object? labels = null,
     Object? indexedAt = null,
@@ -153,10 +153,10 @@ class __$$_GroupedNotificationCopyWithImpl<$Res>
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as NotificationReason,
-      reasonSubject: null == reasonSubject
+      reasonSubject: freezed == reasonSubject
           ? _value.reasonSubject
           : reasonSubject // ignore: cast_nullable_to_non_nullable
-              as AtUri,
+              as AtUri?,
       isRead: null == isRead
           ? _value.isRead
           : isRead // ignore: cast_nullable_to_non_nullable
@@ -180,7 +180,7 @@ class _$_GroupedNotification implements _GroupedNotification {
   const _$_GroupedNotification(
       {required final List<Actor> authors,
       required this.reason,
-      @atUriConverter required this.reasonSubject,
+      @atUriConverter this.reasonSubject,
       required this.isRead,
       required final List<Label> labels,
       required this.indexedAt})
@@ -208,7 +208,7 @@ class _$_GroupedNotification implements _GroupedNotification {
   /// Optionally, represents the subject of the reason for the notification.
   @override
   @atUriConverter
-  final AtUri reasonSubject;
+  final AtUri? reasonSubject;
 
   /// Indicates whether the notification has been read or not.
   @override
@@ -279,7 +279,7 @@ abstract class _GroupedNotification implements GroupedNotification {
   const factory _GroupedNotification(
       {required final List<Actor> authors,
       required final NotificationReason reason,
-      @atUriConverter required final AtUri reasonSubject,
+      @atUriConverter final AtUri? reasonSubject,
       required final bool isRead,
       required final List<Label> labels,
       required final DateTime indexedAt}) = _$_GroupedNotification;
@@ -299,7 +299,7 @@ abstract class _GroupedNotification implements GroupedNotification {
 
   /// Optionally, represents the subject of the reason for the notification.
   @atUriConverter
-  AtUri get reasonSubject;
+  AtUri? get reasonSubject;
   @override
 
   /// Indicates whether the notification has been read or not.

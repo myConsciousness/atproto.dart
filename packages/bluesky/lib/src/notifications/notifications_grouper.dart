@@ -66,7 +66,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
       }
 
       if (_isGroupable(notification.reason)) {
-        final reasonSubject = notification.reasonSubject.toString();
+        final reasonSubject = notification.reasonSubject?.toString();
 
         final relatedGroup = _getRelatedGroup(
           notification.reason.name,
@@ -103,7 +103,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
 
   Map<String, dynamic> _getRelatedGroup(
     final String reason,
-    final String reasonSubject,
+    final String? reasonSubject,
     final List<Map<String, dynamic>> groupedNotifications,
   ) {
     if (groupedNotifications.isEmpty) {

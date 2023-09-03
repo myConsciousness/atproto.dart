@@ -29,7 +29,7 @@ class GroupedNotification with _$GroupedNotification {
     required NotificationReason reason,
 
     /// Optionally, represents the subject of the reason for the notification.
-    @atUriConverter required AtUri reasonSubject,
+    @atUriConverter AtUri? reasonSubject,
 
     /// Indicates whether the notification has been read or not.
     required bool isRead,
