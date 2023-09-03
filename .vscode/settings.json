@@ -25,6 +25,7 @@
     "multicodecs",
     "multiformats",
     "Multihash",
+    "Notitications",
     "NSID",
     "Pageable",
     "paginations",
