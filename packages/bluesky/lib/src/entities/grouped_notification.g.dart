@@ -23,7 +23,9 @@ _$_GroupedNotification _$$_GroupedNotificationFromJson(Map json) =>
           reason: $checkedConvert(
               'reason', (v) => $enumDecode(_$NotificationReasonEnumMap, v)),
           reasonSubject: $checkedConvert(
-              'reasonSubject', (v) => atUriConverter.fromJson(v as String)),
+              'reasonSubject',
+              (v) => _$JsonConverterFromJson<String, AtUri>(
+                  v, atUriConverter.fromJson)),
           isRead: $checkedConvert('isRead', (v) => v as bool),
           labels: $checkedConvert(
               'labels',
@@ -39,15 +41,27 @@ _$_GroupedNotification _$$_GroupedNotificationFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$_GroupedNotificationToJson(
-        _$_GroupedNotification instance) =>
-    <String, dynamic>{
-      'authors': instance.authors.map((e) => e.toJson()).toList(),
-      'reason': _$NotificationReasonEnumMap[instance.reason]!,
-      'reasonSubject': atUriConverter.toJson(instance.reasonSubject),
-      'isRead': instance.isRead,
-      'labels': instance.labels.map((e) => e.toJson()).toList(),
-      'indexedAt': instance.indexedAt.toIso8601String(),
-    };
+    _$_GroupedNotification instance) {
+  final val = <String, dynamic>{
+    'authors': instance.authors.map((e) => e.toJson()).toList(),
+    'reason': _$NotificationReasonEnumMap[instance.reason]!,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(
+      'reasonSubject',
+      _$JsonConverterToJson<String, AtUri>(
+          instance.reasonSubject, atUriConverter.toJson));
+  val['isRead'] = instance.isRead;
+  val['labels'] = instance.labels.map((e) => e.toJson()).toList();
+  val['indexedAt'] = instance.indexedAt.toIso8601String();
+  return val;
+}
 
 const _$NotificationReasonEnumMap = {
   NotificationReason.like: 'like',
@@ -57,3 +71,15 @@ const _$NotificationReasonEnumMap = {
   NotificationReason.reply: 'reply',
   NotificationReason.quote: 'quote',
 };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);
