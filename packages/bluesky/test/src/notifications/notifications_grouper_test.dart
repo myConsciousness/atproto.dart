@@ -360,10 +360,7 @@ void main() {
           'did:plc:2mswvlhacbduwaocihh6sh5f');
       expect(
           grouped.notifications[2].reason, GroupedNotificationReason.mention);
-      expect(
-        grouped.notifications[2].reasonSubject.toString(),
-        'at://did:plc:2mswvlhacbduwaocihh6sh5f/app.bsky.graph.follow/3jukrnv47hh2l',
-      );
+      expect(grouped.notifications[2].reasonSubject, isNull);
 
       expect(grouped.cursor, 'xxxx');
     });

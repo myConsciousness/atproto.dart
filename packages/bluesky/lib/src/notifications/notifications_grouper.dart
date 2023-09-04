@@ -88,9 +88,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
       } else {
         groupedNotifications.add(_buildRelatedGroup(
           notification,
-          notification.reason.isMention
-              ? notification.uri.toString()
-              : notification.reasonSubject.toString(),
+          notification.reasonSubject?.toString(),
         ));
       }
     }
