@@ -24,7 +24,7 @@ mixin _$GroupedNotification {
   List<Actor> get authors => throw _privateConstructorUsedError;
 
   /// Specifies the reason for the notification.
-  NotificationReason get reason => throw _privateConstructorUsedError;
+  GroupedNotificationReason get reason => throw _privateConstructorUsedError;
 
   /// Optionally, represents the subject of the reason for the notification.
   @atUriConverter
@@ -35,6 +35,9 @@ mixin _$GroupedNotification {
 
   /// May include any labels attached to the notification.
   List<Label> get labels => throw _privateConstructorUsedError;
+
+  /// Might include additional data related to the notification.
+  Map<String, dynamic>? get record => throw _privateConstructorUsedError;
 
   /// Indicates the timestamp at which the notification was indexed.
   DateTime get indexedAt => throw _privateConstructorUsedError;
@@ -53,10 +56,11 @@ abstract class $GroupedNotificationCopyWith<$Res> {
   @useResult
   $Res call(
       {List<Actor> authors,
-      NotificationReason reason,
+      GroupedNotificationReason reason,
       @atUriConverter AtUri? reasonSubject,
       bool isRead,
       List<Label> labels,
+      Map<String, dynamic>? record,
       DateTime indexedAt});
 }
 
@@ -78,6 +82,7 @@ class _$GroupedNotificationCopyWithImpl<$Res, $Val extends GroupedNotification>
     Object? reasonSubject = freezed,
     Object? isRead = null,
     Object? labels = null,
+    Object? record = freezed,
     Object? indexedAt = null,
   }) {
     return _then(_value.copyWith(
@@ -88,7 +93,7 @@ class _$GroupedNotificationCopyWithImpl<$Res, $Val extends GroupedNotification>
       reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
-              as NotificationReason,
+              as GroupedNotificationReason,
       reasonSubject: freezed == reasonSubject
           ? _value.reasonSubject
           : reasonSubject // ignore: cast_nullable_to_non_nullable
@@ -101,6 +106,10 @@ class _$GroupedNotificationCopyWithImpl<$Res, $Val extends GroupedNotification>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>,
+      record: freezed == record
+          ? _value.record
+          : record // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -119,10 +128,11 @@ abstract class _$$_GroupedNotificationCopyWith<$Res>
   @useResult
   $Res call(
       {List<Actor> authors,
-      NotificationReason reason,
+      GroupedNotificationReason reason,
       @atUriConverter AtUri? reasonSubject,
       bool isRead,
       List<Label> labels,
+      Map<String, dynamic>? record,
       DateTime indexedAt});
 }
 
@@ -142,6 +152,7 @@ class __$$_GroupedNotificationCopyWithImpl<$Res>
     Object? reasonSubject = freezed,
     Object? isRead = null,
     Object? labels = null,
+    Object? record = freezed,
     Object? indexedAt = null,
   }) {
     return _then(_$_GroupedNotification(
@@ -152,7 +163,7 @@ class __$$_GroupedNotificationCopyWithImpl<$Res>
       reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
-              as NotificationReason,
+              as GroupedNotificationReason,
       reasonSubject: freezed == reasonSubject
           ? _value.reasonSubject
           : reasonSubject // ignore: cast_nullable_to_non_nullable
@@ -165,6 +176,10 @@ class __$$_GroupedNotificationCopyWithImpl<$Res>
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>,
+      record: freezed == record
+          ? _value._record
+          : record // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -183,9 +198,11 @@ class _$_GroupedNotification implements _GroupedNotification {
       @atUriConverter this.reasonSubject,
       required this.isRead,
       required final List<Label> labels,
+      final Map<String, dynamic>? record,
       required this.indexedAt})
       : _authors = authors,
-        _labels = labels;
+        _labels = labels,
+        _record = record;
 
   factory _$_GroupedNotification.fromJson(Map<String, dynamic> json) =>
       _$$_GroupedNotificationFromJson(json);
@@ -203,7 +220,7 @@ class _$_GroupedNotification implements _GroupedNotification {
 
   /// Specifies the reason for the notification.
   @override
-  final NotificationReason reason;
+  final GroupedNotificationReason reason;
 
   /// Optionally, represents the subject of the reason for the notification.
   @override
@@ -225,13 +242,26 @@ class _$_GroupedNotification implements _GroupedNotification {
     return EqualUnmodifiableListView(_labels);
   }
 
+  /// Might include additional data related to the notification.
+  final Map<String, dynamic>? _record;
+
+  /// Might include additional data related to the notification.
+  @override
+  Map<String, dynamic>? get record {
+    final value = _record;
+    if (value == null) return null;
+    if (_record is EqualUnmodifiableMapView) return _record;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   /// Indicates the timestamp at which the notification was indexed.
   @override
   final DateTime indexedAt;
 
   @override
   String toString() {
-    return 'GroupedNotification(authors: $authors, reason: $reason, reasonSubject: $reasonSubject, isRead: $isRead, labels: $labels, indexedAt: $indexedAt)';
+    return 'GroupedNotification(authors: $authors, reason: $reason, reasonSubject: $reasonSubject, isRead: $isRead, labels: $labels, record: $record, indexedAt: $indexedAt)';
   }
 
   @override
@@ -245,6 +275,7 @@ class _$_GroupedNotification implements _GroupedNotification {
                 other.reasonSubject == reasonSubject) &&
             (identical(other.isRead, isRead) || other.isRead == isRead) &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
+            const DeepCollectionEquality().equals(other._record, _record) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt));
   }
@@ -258,6 +289,7 @@ class _$_GroupedNotification implements _GroupedNotification {
       reasonSubject,
       isRead,
       const DeepCollectionEquality().hash(_labels),
+      const DeepCollectionEquality().hash(_record),
       indexedAt);
 
   @JsonKey(ignore: true)
@@ -278,10 +310,11 @@ class _$_GroupedNotification implements _GroupedNotification {
 abstract class _GroupedNotification implements GroupedNotification {
   const factory _GroupedNotification(
       {required final List<Actor> authors,
-      required final NotificationReason reason,
+      required final GroupedNotificationReason reason,
       @atUriConverter final AtUri? reasonSubject,
       required final bool isRead,
       required final List<Label> labels,
+      final Map<String, dynamic>? record,
       required final DateTime indexedAt}) = _$_GroupedNotification;
 
   factory _GroupedNotification.fromJson(Map<String, dynamic> json) =
@@ -294,7 +327,7 @@ abstract class _GroupedNotification implements GroupedNotification {
   @override
 
   /// Specifies the reason for the notification.
-  NotificationReason get reason;
+  GroupedNotificationReason get reason;
   @override
 
   /// Optionally, represents the subject of the reason for the notification.
@@ -308,6 +341,10 @@ abstract class _GroupedNotification implements GroupedNotification {
 
   /// May include any labels attached to the notification.
   List<Label> get labels;
+  @override
+
+  /// Might include additional data related to the notification.
+  Map<String, dynamic>? get record;
   @override
 
   /// Indicates the timestamp at which the notification was indexed.

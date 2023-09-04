@@ -10,6 +10,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../notifications/notification_reason.dart';
 import 'actor.dart';
 
 part 'notification.freezed.dart';
@@ -71,25 +72,4 @@ class Notification with _$Notification {
   /// properly convert.
   factory Notification.fromJson(Map<String, Object?> json) =>
       _$NotificationFromJson(json);
-}
-
-/// Represents the reason for a [Notification].
-enum NotificationReason {
-  /// Indicates likes.
-  like,
-
-  /// Indicates reposts.
-  repost,
-
-  /// Indicates follows.
-  follow,
-
-  /// Indicates mentions.
-  mention,
-
-  /// Indicates replies.
-  reply,
-
-  /// Indicates quotes.
-  quote,
 }

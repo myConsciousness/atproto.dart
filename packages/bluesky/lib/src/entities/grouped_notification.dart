@@ -10,8 +10,8 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../notifications/grouped_notification_reason.dart';
 import 'actor.dart';
-import 'notification.dart';
 
 part 'grouped_notification.freezed.dart';
 part 'grouped_notification.g.dart';
@@ -26,7 +26,7 @@ class GroupedNotification with _$GroupedNotification {
     required List<Actor> authors,
 
     /// Specifies the reason for the notification.
-    required NotificationReason reason,
+    required GroupedNotificationReason reason,
 
     /// Optionally, represents the subject of the reason for the notification.
     @atUriConverter AtUri? reasonSubject,
@@ -36,6 +36,9 @@ class GroupedNotification with _$GroupedNotification {
 
     /// May include any labels attached to the notification.
     required List<Label> labels,
+
+    /// Might include additional data related to the notification.
+    Map<String, dynamic>? record,
 
     /// Indicates the timestamp at which the notification was indexed.
     required DateTime indexedAt,

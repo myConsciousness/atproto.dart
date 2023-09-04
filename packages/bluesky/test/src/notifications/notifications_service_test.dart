@@ -10,6 +10,7 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/entities/count.dart';
+import 'package:bluesky/src/entities/grouped_notifications.dart';
 import 'package:bluesky/src/entities/notifications.dart';
 import 'package:bluesky/src/notifications/notifications_service.dart';
 
@@ -59,6 +60,29 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<Map<String, dynamic>>());
+    });
+
+    test('grouping', () async {
+      final notifications = NotificationsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/notifications/data/find_notifications.json',
+        ),
+      );
+
+      final response = await notifications.findNotifications(
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data.group(), isA<GroupedNotifications>());
     });
 
     test('when unauthorized', () async {

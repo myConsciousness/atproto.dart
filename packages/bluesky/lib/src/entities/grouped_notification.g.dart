@@ -20,8 +20,8 @@ _$_GroupedNotification _$$_GroupedNotificationFromJson(Map json) =>
                   .map((e) =>
                       Actor.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
-          reason: $checkedConvert(
-              'reason', (v) => $enumDecode(_$NotificationReasonEnumMap, v)),
+          reason: $checkedConvert('reason',
+              (v) => $enumDecode(_$GroupedNotificationReasonEnumMap, v)),
           reasonSubject: $checkedConvert(
               'reasonSubject',
               (v) => _$JsonConverterFromJson<String, AtUri>(
@@ -33,6 +33,11 @@ _$_GroupedNotification _$$_GroupedNotificationFromJson(Map json) =>
                   .map((e) =>
                       Label.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
+          record: $checkedConvert(
+              'record',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
         );
@@ -44,7 +49,7 @@ Map<String, dynamic> _$$_GroupedNotificationToJson(
     _$_GroupedNotification instance) {
   final val = <String, dynamic>{
     'authors': instance.authors.map((e) => e.toJson()).toList(),
-    'reason': _$NotificationReasonEnumMap[instance.reason]!,
+    'reason': _$GroupedNotificationReasonEnumMap[instance.reason]!,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -59,17 +64,19 @@ Map<String, dynamic> _$$_GroupedNotificationToJson(
           instance.reasonSubject, atUriConverter.toJson));
   val['isRead'] = instance.isRead;
   val['labels'] = instance.labels.map((e) => e.toJson()).toList();
+  writeNotNull('record', instance.record);
   val['indexedAt'] = instance.indexedAt.toIso8601String();
   return val;
 }
 
-const _$NotificationReasonEnumMap = {
-  NotificationReason.like: 'like',
-  NotificationReason.repost: 'repost',
-  NotificationReason.follow: 'follow',
-  NotificationReason.mention: 'mention',
-  NotificationReason.reply: 'reply',
-  NotificationReason.quote: 'quote',
+const _$GroupedNotificationReasonEnumMap = {
+  GroupedNotificationReason.like: 'like',
+  GroupedNotificationReason.customFeedLike: 'customFeedLike',
+  GroupedNotificationReason.repost: 'repost',
+  GroupedNotificationReason.follow: 'follow',
+  GroupedNotificationReason.mention: 'mention',
+  GroupedNotificationReason.reply: 'reply',
+  GroupedNotificationReason.quote: 'quote',
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(
