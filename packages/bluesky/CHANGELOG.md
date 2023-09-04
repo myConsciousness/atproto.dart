@@ -1,5 +1,24 @@
 # Release Note
 
+## v0.8.9
+
+- Added `record` field on `GroupedNotification`. ([#745](https://github.com/myConsciousness/atproto.dart/issues/745))
+- Added `GroupedNotificationReason` enum. It has `customFeedLike` in addition to fields from `NotificationReason` enum. ([#745](https://github.com/myConsciousness/atproto.dart/issues/745))
+  - Also changed a type of field `reason` on `GroupedNotification` from `NotificationReason` to `GroupedNotificationReason`
+- Added utilities for `NotificationReason`. ([#745](https://github.com/myConsciousness/atproto.dart/issues/745))
+  - `isLike`
+  - `isNotLike`
+  - `isRepost`
+  - `isNotRepost`
+  - `isFollow`
+  - `isNotFollow`
+  - `isMention`
+  - `isNotMention`
+  - `isReply`
+  - `isNotReply`
+  - `isQuote`
+  - `isNotQuote`
+
 ## v0.8.8
 
 - Made `reasonSubject` nullable on `GroupedNotification`. It's nullable when reason is `follow`. ([#743](https://github.com/myConsciousness/atproto.dart/issues/743))
@@ -132,6 +151,7 @@
     - `UBatchActionCreate`
     - `UBatchActionUpdate`
     - `UBatchActionDelete`
+
 ## v0.8.0
 
 - Drop support for null unsafe Dart, bump SDK constraint to '^3.0.0'. ([#599](https://github.com/myConsciousness/atproto.dart/issues/599))
