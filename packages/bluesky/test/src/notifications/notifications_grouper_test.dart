@@ -8,8 +8,9 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/entities/notification.dart';
 import 'package:bluesky/src/entities/notifications.dart';
+import 'package:bluesky/src/notifications/grouped_notification_reason.dart';
+import 'package:bluesky/src/notifications/notification_reason.dart';
 import 'package:bluesky/src/notifications/notifications_grouper.dart';
 
 const _grouper = NotificationsGrouper();
@@ -351,7 +352,8 @@ void main() {
       expect(grouped.notifications[1].authors.length, 1);
       expect(grouped.notifications[1].authors[0].did,
           'did:plc:2mswvlhacbduwaocihh6sh5f');
-      expect(grouped.notifications[2].reason, NotificationReason.mention);
+      expect(
+          grouped.notifications[2].reason, GroupedNotificationReason.mention);
       expect(
         grouped.notifications[2].reasonSubject.toString(),
         'at://did:plc:2mswvlhacbduwaocihh6sh5f/app.bsky.graph.follow/3jukrnv47hh2l',

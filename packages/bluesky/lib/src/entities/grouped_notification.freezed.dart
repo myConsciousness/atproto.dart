@@ -24,7 +24,7 @@ mixin _$GroupedNotification {
   List<Actor> get authors => throw _privateConstructorUsedError;
 
   /// Specifies the reason for the notification.
-  NotificationReason get reason => throw _privateConstructorUsedError;
+  GroupedNotificationReason get reason => throw _privateConstructorUsedError;
 
   /// Optionally, represents the subject of the reason for the notification.
   @atUriConverter
@@ -53,7 +53,7 @@ abstract class $GroupedNotificationCopyWith<$Res> {
   @useResult
   $Res call(
       {List<Actor> authors,
-      NotificationReason reason,
+      GroupedNotificationReason reason,
       @atUriConverter AtUri? reasonSubject,
       bool isRead,
       List<Label> labels,
@@ -88,7 +88,7 @@ class _$GroupedNotificationCopyWithImpl<$Res, $Val extends GroupedNotification>
       reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
-              as NotificationReason,
+              as GroupedNotificationReason,
       reasonSubject: freezed == reasonSubject
           ? _value.reasonSubject
           : reasonSubject // ignore: cast_nullable_to_non_nullable
@@ -119,7 +119,7 @@ abstract class _$$_GroupedNotificationCopyWith<$Res>
   @useResult
   $Res call(
       {List<Actor> authors,
-      NotificationReason reason,
+      GroupedNotificationReason reason,
       @atUriConverter AtUri? reasonSubject,
       bool isRead,
       List<Label> labels,
@@ -152,7 +152,7 @@ class __$$_GroupedNotificationCopyWithImpl<$Res>
       reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
-              as NotificationReason,
+              as GroupedNotificationReason,
       reasonSubject: freezed == reasonSubject
           ? _value.reasonSubject
           : reasonSubject // ignore: cast_nullable_to_non_nullable
@@ -203,7 +203,7 @@ class _$_GroupedNotification implements _GroupedNotification {
 
   /// Specifies the reason for the notification.
   @override
-  final NotificationReason reason;
+  final GroupedNotificationReason reason;
 
   /// Optionally, represents the subject of the reason for the notification.
   @override
@@ -278,7 +278,7 @@ class _$_GroupedNotification implements _GroupedNotification {
 abstract class _GroupedNotification implements GroupedNotification {
   const factory _GroupedNotification(
       {required final List<Actor> authors,
-      required final NotificationReason reason,
+      required final GroupedNotificationReason reason,
       @atUriConverter final AtUri? reasonSubject,
       required final bool isRead,
       required final List<Label> labels,
@@ -294,7 +294,7 @@ abstract class _GroupedNotification implements GroupedNotification {
   @override
 
   /// Specifies the reason for the notification.
-  NotificationReason get reason;
+  GroupedNotificationReason get reason;
   @override
 
   /// Optionally, represents the subject of the reason for the notification.

@@ -10,6 +10,7 @@ import '../entities/actor.dart';
 import '../entities/grouped_notifications.dart';
 import '../entities/notification.dart';
 import '../entities/notifications.dart';
+import 'notification_reason.dart';
 
 const _groupableReasons = <NotificationReason>[
   NotificationReason.like,
@@ -85,7 +86,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
       } else {
         groupedNotifications.add(_buildRelatedGroup(
           notification,
-          notification.reason == NotificationReason.mention
+          notification.reason.isMention
               ? notification.uri.toString()
               : notification.reasonSubject.toString(),
         ));
