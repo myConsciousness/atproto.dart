@@ -8,8 +8,10 @@ import 'package:atproto/atproto.dart' as atp;
 // 🌎 Project imports:
 import '../entities/actor.dart';
 import '../entities/grouped_notifications.dart';
+import '../entities/keys/ids.g.dart' as ids;
 import '../entities/notification.dart';
 import '../entities/notifications.dart';
+import 'grouped_notification_reason.dart';
 import 'notification_reason.dart';
 
 const _groupableReasons = <NotificationReason>[
@@ -126,7 +128,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     final String? reasonSubject,
   ) =>
       {
-        'reason': notification.reason.name,
+        'reason': _getGroupedReason(notification.reason.name, reasonSubject),
         'reasonSubject': reasonSubject,
         'authors': [notification.author.toJson()],
         'labels': notification.labels?.map((e) => e.toJson()).toList(),
@@ -215,4 +217,24 @@ final class _NotificationsGrouper implements NotificationsGrouper {
           }),
         'cursor': cursor,
       });
+
+  String _getGroupedReason(
+    final String reason,
+    final String? reasonSubject,
+  ) =>
+      _isCustomFeedLike(reason, reasonSubject)
+          ? GroupedNotificationReason.customFeedLike.name
+          : reason;
+
+  bool _isCustomFeedLike(
+    final String reason,
+    final String? reasonSubject,
+  ) {
+    if (reasonSubject == null) {
+      return false;
+    }
+
+    return reason == NotificationReason.like.name &&
+        reasonSubject.contains(ids.appBskyFeedGenerator);
+  }
 }
