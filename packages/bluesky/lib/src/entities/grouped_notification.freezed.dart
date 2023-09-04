@@ -20,6 +20,10 @@ GroupedNotification _$GroupedNotificationFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GroupedNotification {
+  /// The unique URI for the notification content
+  @atUriConverter
+  AtUri get uri => throw _privateConstructorUsedError;
+
   /// The collection of authors causing the notification.
   List<Actor> get authors => throw _privateConstructorUsedError;
 
@@ -55,7 +59,8 @@ abstract class $GroupedNotificationCopyWith<$Res> {
       _$GroupedNotificationCopyWithImpl<$Res, GroupedNotification>;
   @useResult
   $Res call(
-      {List<Actor> authors,
+      {@atUriConverter AtUri uri,
+      List<Actor> authors,
       GroupedNotificationReason reason,
       @atUriConverter AtUri? reasonSubject,
       bool isRead,
@@ -77,6 +82,7 @@ class _$GroupedNotificationCopyWithImpl<$Res, $Val extends GroupedNotification>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? uri = null,
     Object? authors = null,
     Object? reason = null,
     Object? reasonSubject = freezed,
@@ -86,6 +92,10 @@ class _$GroupedNotificationCopyWithImpl<$Res, $Val extends GroupedNotification>
     Object? indexedAt = null,
   }) {
     return _then(_value.copyWith(
+      uri: null == uri
+          ? _value.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
       authors: null == authors
           ? _value.authors
           : authors // ignore: cast_nullable_to_non_nullable
@@ -127,7 +137,8 @@ abstract class _$$_GroupedNotificationCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<Actor> authors,
+      {@atUriConverter AtUri uri,
+      List<Actor> authors,
       GroupedNotificationReason reason,
       @atUriConverter AtUri? reasonSubject,
       bool isRead,
@@ -147,6 +158,7 @@ class __$$_GroupedNotificationCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? uri = null,
     Object? authors = null,
     Object? reason = null,
     Object? reasonSubject = freezed,
@@ -156,6 +168,10 @@ class __$$_GroupedNotificationCopyWithImpl<$Res>
     Object? indexedAt = null,
   }) {
     return _then(_$_GroupedNotification(
+      uri: null == uri
+          ? _value.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
       authors: null == authors
           ? _value._authors
           : authors // ignore: cast_nullable_to_non_nullable
@@ -193,7 +209,8 @@ class __$$_GroupedNotificationCopyWithImpl<$Res>
 @jsonSerializable
 class _$_GroupedNotification implements _GroupedNotification {
   const _$_GroupedNotification(
-      {required final List<Actor> authors,
+      {@atUriConverter required this.uri,
+      required final List<Actor> authors,
       required this.reason,
       @atUriConverter this.reasonSubject,
       required this.isRead,
@@ -206,6 +223,11 @@ class _$_GroupedNotification implements _GroupedNotification {
 
   factory _$_GroupedNotification.fromJson(Map<String, dynamic> json) =>
       _$$_GroupedNotificationFromJson(json);
+
+  /// The unique URI for the notification content
+  @override
+  @atUriConverter
+  final AtUri uri;
 
   /// The collection of authors causing the notification.
   final List<Actor> _authors;
@@ -261,7 +283,7 @@ class _$_GroupedNotification implements _GroupedNotification {
 
   @override
   String toString() {
-    return 'GroupedNotification(authors: $authors, reason: $reason, reasonSubject: $reasonSubject, isRead: $isRead, labels: $labels, record: $record, indexedAt: $indexedAt)';
+    return 'GroupedNotification(uri: $uri, authors: $authors, reason: $reason, reasonSubject: $reasonSubject, isRead: $isRead, labels: $labels, record: $record, indexedAt: $indexedAt)';
   }
 
   @override
@@ -269,6 +291,7 @@ class _$_GroupedNotification implements _GroupedNotification {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GroupedNotification &&
+            (identical(other.uri, uri) || other.uri == uri) &&
             const DeepCollectionEquality().equals(other._authors, _authors) &&
             (identical(other.reason, reason) || other.reason == reason) &&
             (identical(other.reasonSubject, reasonSubject) ||
@@ -284,6 +307,7 @@ class _$_GroupedNotification implements _GroupedNotification {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      uri,
       const DeepCollectionEquality().hash(_authors),
       reason,
       reasonSubject,
@@ -309,7 +333,8 @@ class _$_GroupedNotification implements _GroupedNotification {
 
 abstract class _GroupedNotification implements GroupedNotification {
   const factory _GroupedNotification(
-      {required final List<Actor> authors,
+      {@atUriConverter required final AtUri uri,
+      required final List<Actor> authors,
       required final GroupedNotificationReason reason,
       @atUriConverter final AtUri? reasonSubject,
       required final bool isRead,
@@ -320,6 +345,11 @@ abstract class _GroupedNotification implements GroupedNotification {
   factory _GroupedNotification.fromJson(Map<String, dynamic> json) =
       _$_GroupedNotification.fromJson;
 
+  @override
+
+  /// The unique URI for the notification content
+  @atUriConverter
+  AtUri get uri;
   @override
 
   /// The collection of authors causing the notification.

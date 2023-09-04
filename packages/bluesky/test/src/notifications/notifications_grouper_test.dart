@@ -235,6 +235,8 @@ void main() {
       expect(grouped.notifications[1].authors[1].did,
           'did:plc:2mswvlhacbduwaocihh6sh5i');
       expect(grouped.notifications[1].isRead, isFalse);
+      expect(grouped.notifications[1].uri.toString(),
+          'at://did:plc:2mswvlhacbduwaocihh6sh5f/app.bsky.graph.follow/3jukrnv47hh2l');
       expect(grouped.notifications[1].indexedAt,
           DateTime.parse('2023-04-30T04:11:48.301Z'));
 

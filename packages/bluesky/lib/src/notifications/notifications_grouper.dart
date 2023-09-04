@@ -126,6 +126,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     final String? reasonSubject,
   ) =>
       {
+        'uri': notification.uri.toString(),
         'reason': _getGroupedReason(notification.reason.name, reasonSubject),
         'reasonSubject': reasonSubject,
         'authors': [notification.author.toJson()],
@@ -143,6 +144,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
       relatedGroup['authors'],
       notification.author,
     );
+
     relatedGroup['labels'] = _mergeLabels(
       relatedGroup['labels'],
       notification.labels,
@@ -150,12 +152,20 @@ final class _NotificationsGrouper implements NotificationsGrouper {
 
     final relatedIndexedAt = DateTime.parse(relatedGroup['indexedAt']);
 
+    relatedGroup['uri'] = _mergeUri(
+      relatedGroup['uri'],
+      notification.uri.toString(),
+      relatedIndexedAt,
+      notification.indexedAt,
+    );
+
     relatedGroup['isRead'] = _mergeRead(
       relatedGroup['isRead'],
       notification.isRead,
       relatedIndexedAt,
       notification.indexedAt,
     );
+
     relatedGroup['indexedAt'] = _mergeIndexedAt(
       relatedIndexedAt,
       notification.indexedAt,
@@ -186,6 +196,14 @@ final class _NotificationsGrouper implements NotificationsGrouper {
 
     return relatedLabels.toSet().toList();
   }
+
+  String _mergeUri(
+    String relatedUri,
+    String uri,
+    DateTime relatedIndexedAt,
+    DateTime indexedAt,
+  ) =>
+      indexedAt.isAfter(relatedIndexedAt) ? uri : relatedUri;
 
   bool _mergeRead(
     bool relatedRead,

@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.8.10
+
+- Added `uri` field on `GroupedNotification`.
+
 ## v0.8.9
 
 - Added `record` field on `GroupedNotification`. ([#745](https://github.com/myConsciousness/atproto.dart/issues/745))
