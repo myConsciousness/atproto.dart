@@ -133,6 +133,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
         'authors': [notification.author.toJson()],
         'labels': notification.labels?.map((e) => e.toJson()).toList(),
         'isRead': notification.isRead,
+        'record': notification.record,
         'indexedAt': notification.indexedAt.toIso8601String(),
       };
 

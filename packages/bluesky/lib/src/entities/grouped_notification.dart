@@ -37,6 +37,9 @@ class GroupedNotification with _$GroupedNotification {
     /// May include any labels attached to the notification.
     required List<Label> labels,
 
+    /// Might include additional data related to the notification.
+    Map<String, dynamic>? record,
+
     /// Indicates the timestamp at which the notification was indexed.
     required DateTime indexedAt,
   }) = _GroupedNotification;

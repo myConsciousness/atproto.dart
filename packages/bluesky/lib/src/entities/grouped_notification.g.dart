@@ -33,6 +33,11 @@ _$_GroupedNotification _$$_GroupedNotificationFromJson(Map json) =>
                   .map((e) =>
                       Label.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
+          record: $checkedConvert(
+              'record',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
         );
@@ -59,6 +64,7 @@ Map<String, dynamic> _$$_GroupedNotificationToJson(
           instance.reasonSubject, atUriConverter.toJson));
   val['isRead'] = instance.isRead;
   val['labels'] = instance.labels.map((e) => e.toJson()).toList();
+  writeNotNull('record', instance.record);
   val['indexedAt'] = instance.indexedAt.toIso8601String();
   return val;
 }
