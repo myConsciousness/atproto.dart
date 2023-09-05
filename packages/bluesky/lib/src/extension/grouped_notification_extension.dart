@@ -20,7 +20,7 @@ extension GroupedNotificationExtension on GroupedNotification {
       case GroupedNotificationReason.like:
       case GroupedNotificationReason.customFeedLike:
       case GroupedNotificationReason.repost:
-        return reasonSubject!;
+        return reasonSubject;
       case GroupedNotificationReason.reply:
       case GroupedNotificationReason.quote:
       case GroupedNotificationReason.mention:
