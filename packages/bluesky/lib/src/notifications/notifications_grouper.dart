@@ -126,6 +126,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     final String? reasonSubject,
   ) =>
       {
+        'uris': [notification.uri.toString()],
         'reason': _getGroupedReason(notification.reason.name, reasonSubject),
         'reasonSubject': reasonSubject,
         'authors': [notification.author.toJson()],
@@ -139,10 +140,16 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     final Map<String, dynamic> relatedGroup,
     final Notification notification,
   ) {
+    relatedGroup['uris'] = _mergeUris(
+      relatedGroup['uris'],
+      notification.uri.toString(),
+    );
+
     relatedGroup['authors'] = _mergeAuthors(
       relatedGroup['authors'],
       notification.author,
     );
+
     relatedGroup['labels'] = _mergeLabels(
       relatedGroup['labels'],
       notification.labels,
@@ -156,6 +163,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
       relatedIndexedAt,
       notification.indexedAt,
     );
+
     relatedGroup['indexedAt'] = _mergeIndexedAt(
       relatedIndexedAt,
       notification.indexedAt,
@@ -171,6 +179,16 @@ final class _NotificationsGrouper implements NotificationsGrouper {
         //! notification, but just in case.
         ..removeWhere((element) => element['did'] == author.did)
         ..add(author.toJson());
+
+  List<String> _mergeUris(
+    final List<String> relatedUris,
+    final String uri,
+  ) =>
+      relatedUris
+        //! Technically the same uri could not appear on the same
+        //! notification, but just in case.
+        ..removeWhere((element) => element == uri)
+        ..add(uri);
 
   List<Map<String, dynamic>> _mergeLabels(
     final List<Map<String, dynamic>> relatedLabels,

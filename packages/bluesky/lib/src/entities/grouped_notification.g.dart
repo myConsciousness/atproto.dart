@@ -14,6 +14,11 @@ _$_GroupedNotification _$$_GroupedNotificationFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$_GroupedNotification(
+          uris: $checkedConvert(
+              'uris',
+              (v) => (v as List<dynamic>)
+                  .map((e) => atUriConverter.fromJson(e as String))
+                  .toList()),
           authors: $checkedConvert(
               'authors',
               (v) => (v as List<dynamic>)
@@ -48,6 +53,7 @@ _$_GroupedNotification _$$_GroupedNotificationFromJson(Map json) =>
 Map<String, dynamic> _$$_GroupedNotificationToJson(
     _$_GroupedNotification instance) {
   final val = <String, dynamic>{
+    'uris': instance.uris.map(atUriConverter.toJson).toList(),
     'authors': instance.authors.map((e) => e.toJson()).toList(),
     'reason': _$GroupedNotificationReasonEnumMap[instance.reason]!,
   };

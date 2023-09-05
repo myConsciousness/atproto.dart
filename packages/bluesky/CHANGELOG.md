@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.8.10
+
+- Added `uris` field on `GroupedNotification`. You can get a post uri related to Notification with `uri` property. ([#747](https://github.com/myConsciousness/atproto.dart/issues/747))
+
 ## v0.8.9
 
 - Added `record` field on `GroupedNotification`. ([#745](https://github.com/myConsciousness/atproto.dart/issues/745))

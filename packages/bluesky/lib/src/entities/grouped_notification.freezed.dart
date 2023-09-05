@@ -20,7 +20,17 @@ GroupedNotification _$GroupedNotificationFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GroupedNotification {
+  /// The unique URI for the notification content.
+  ///
+  /// This list is set in chronological order, with the uri of
+  /// the most recent notification at the top.
+  @atUriConverter
+  List<AtUri> get uris => throw _privateConstructorUsedError;
+
   /// The collection of authors causing the notification.
+  ///
+  /// This list is set in chronological order, with the author of the
+  /// most recent notification at the top.
   List<Actor> get authors => throw _privateConstructorUsedError;
 
   /// Specifies the reason for the notification.
@@ -55,7 +65,8 @@ abstract class $GroupedNotificationCopyWith<$Res> {
       _$GroupedNotificationCopyWithImpl<$Res, GroupedNotification>;
   @useResult
   $Res call(
-      {List<Actor> authors,
+      {@atUriConverter List<AtUri> uris,
+      List<Actor> authors,
       GroupedNotificationReason reason,
       @atUriConverter AtUri? reasonSubject,
       bool isRead,
@@ -77,6 +88,7 @@ class _$GroupedNotificationCopyWithImpl<$Res, $Val extends GroupedNotification>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? uris = null,
     Object? authors = null,
     Object? reason = null,
     Object? reasonSubject = freezed,
@@ -86,6 +98,10 @@ class _$GroupedNotificationCopyWithImpl<$Res, $Val extends GroupedNotification>
     Object? indexedAt = null,
   }) {
     return _then(_value.copyWith(
+      uris: null == uris
+          ? _value.uris
+          : uris // ignore: cast_nullable_to_non_nullable
+              as List<AtUri>,
       authors: null == authors
           ? _value.authors
           : authors // ignore: cast_nullable_to_non_nullable
@@ -127,7 +143,8 @@ abstract class _$$_GroupedNotificationCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<Actor> authors,
+      {@atUriConverter List<AtUri> uris,
+      List<Actor> authors,
       GroupedNotificationReason reason,
       @atUriConverter AtUri? reasonSubject,
       bool isRead,
@@ -147,6 +164,7 @@ class __$$_GroupedNotificationCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? uris = null,
     Object? authors = null,
     Object? reason = null,
     Object? reasonSubject = freezed,
@@ -156,6 +174,10 @@ class __$$_GroupedNotificationCopyWithImpl<$Res>
     Object? indexedAt = null,
   }) {
     return _then(_$_GroupedNotification(
+      uris: null == uris
+          ? _value._uris
+          : uris // ignore: cast_nullable_to_non_nullable
+              as List<AtUri>,
       authors: null == authors
           ? _value._authors
           : authors // ignore: cast_nullable_to_non_nullable
@@ -193,24 +215,50 @@ class __$$_GroupedNotificationCopyWithImpl<$Res>
 @jsonSerializable
 class _$_GroupedNotification implements _GroupedNotification {
   const _$_GroupedNotification(
-      {required final List<Actor> authors,
+      {@atUriConverter required final List<AtUri> uris,
+      required final List<Actor> authors,
       required this.reason,
       @atUriConverter this.reasonSubject,
       required this.isRead,
       required final List<Label> labels,
       final Map<String, dynamic>? record,
       required this.indexedAt})
-      : _authors = authors,
+      : _uris = uris,
+        _authors = authors,
         _labels = labels,
         _record = record;
 
   factory _$_GroupedNotification.fromJson(Map<String, dynamic> json) =>
       _$$_GroupedNotificationFromJson(json);
 
+  /// The unique URI for the notification content.
+  ///
+  /// This list is set in chronological order, with the uri of
+  /// the most recent notification at the top.
+  final List<AtUri> _uris;
+
+  /// The unique URI for the notification content.
+  ///
+  /// This list is set in chronological order, with the uri of
+  /// the most recent notification at the top.
+  @override
+  @atUriConverter
+  List<AtUri> get uris {
+    if (_uris is EqualUnmodifiableListView) return _uris;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_uris);
+  }
+
   /// The collection of authors causing the notification.
+  ///
+  /// This list is set in chronological order, with the author of the
+  /// most recent notification at the top.
   final List<Actor> _authors;
 
   /// The collection of authors causing the notification.
+  ///
+  /// This list is set in chronological order, with the author of the
+  /// most recent notification at the top.
   @override
   List<Actor> get authors {
     if (_authors is EqualUnmodifiableListView) return _authors;
@@ -261,7 +309,7 @@ class _$_GroupedNotification implements _GroupedNotification {
 
   @override
   String toString() {
-    return 'GroupedNotification(authors: $authors, reason: $reason, reasonSubject: $reasonSubject, isRead: $isRead, labels: $labels, record: $record, indexedAt: $indexedAt)';
+    return 'GroupedNotification(uris: $uris, authors: $authors, reason: $reason, reasonSubject: $reasonSubject, isRead: $isRead, labels: $labels, record: $record, indexedAt: $indexedAt)';
   }
 
   @override
@@ -269,6 +317,7 @@ class _$_GroupedNotification implements _GroupedNotification {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GroupedNotification &&
+            const DeepCollectionEquality().equals(other._uris, _uris) &&
             const DeepCollectionEquality().equals(other._authors, _authors) &&
             (identical(other.reason, reason) || other.reason == reason) &&
             (identical(other.reasonSubject, reasonSubject) ||
@@ -284,6 +333,7 @@ class _$_GroupedNotification implements _GroupedNotification {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(_uris),
       const DeepCollectionEquality().hash(_authors),
       reason,
       reasonSubject,
@@ -309,7 +359,8 @@ class _$_GroupedNotification implements _GroupedNotification {
 
 abstract class _GroupedNotification implements GroupedNotification {
   const factory _GroupedNotification(
-      {required final List<Actor> authors,
+      {@atUriConverter required final List<AtUri> uris,
+      required final List<Actor> authors,
       required final GroupedNotificationReason reason,
       @atUriConverter final AtUri? reasonSubject,
       required final bool isRead,
@@ -322,7 +373,18 @@ abstract class _GroupedNotification implements GroupedNotification {
 
   @override
 
+  /// The unique URI for the notification content.
+  ///
+  /// This list is set in chronological order, with the uri of
+  /// the most recent notification at the top.
+  @atUriConverter
+  List<AtUri> get uris;
+  @override
+
   /// The collection of authors causing the notification.
+  ///
+  /// This list is set in chronological order, with the author of the
+  /// most recent notification at the top.
   List<Actor> get authors;
   @override
 
