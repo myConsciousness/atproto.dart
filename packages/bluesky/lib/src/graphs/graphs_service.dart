@@ -24,6 +24,7 @@ sealed class GraphsService {
   /// Returns the new instance of [GraphsService].
   factory GraphsService({
     required atp.ATProto atproto,
+    required String did,
     required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
@@ -32,6 +33,7 @@ sealed class GraphsService {
   }) =>
       _GraphsService(
         atproto: atproto,
+        did: did,
         protocol: protocol,
         service: service,
         context: context,
@@ -953,6 +955,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
   /// Returns the new instance of [_GraphsService].
   _GraphsService({
     required super.atproto,
+    required super.did,
     required super.protocol,
     required super.service,
     required super.context,

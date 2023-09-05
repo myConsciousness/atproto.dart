@@ -19,6 +19,7 @@ void main() {
     test('normal case', () async {
       final unspecced = UnspeccedService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -42,6 +43,7 @@ void main() {
     test('as JSON', () async {
       final unspecced = UnspeccedService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -65,6 +67,7 @@ void main() {
     test('when unauthorized', () async {
       final unspecced = UnspeccedService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -88,6 +91,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final unspecced = UnspeccedService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -113,6 +117,7 @@ void main() {
     test('normal case', () async {
       final unspecced = UnspeccedService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -135,6 +140,7 @@ void main() {
     test('as JSON', () async {
       final unspecced = UnspeccedService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -155,6 +161,7 @@ void main() {
     test('when unauthorized', () async {
       final unspecced = UnspeccedService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -175,6 +182,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final unspecced = UnspeccedService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -201,6 +209,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -233,6 +242,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -265,6 +275,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -295,6 +306,7 @@ void main() {
     test('normal case', () async {
       final unspecced = UnspeccedService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -318,6 +330,7 @@ void main() {
     test('as JSON', () async {
       final feeds = UnspeccedService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -341,6 +354,7 @@ void main() {
     test('when unauthorized', () async {
       final feeds = UnspeccedService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -361,6 +375,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final feeds = UnspeccedService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(

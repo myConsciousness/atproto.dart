@@ -17,6 +17,7 @@ sealed class BlueskyService {
   /// Returns the new instance of [BlueskyService].
   factory BlueskyService({
     required atp.ATProto atproto,
+    required String did,
     required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
@@ -25,6 +26,7 @@ sealed class BlueskyService {
   }) =>
       _BlueskyService(
         atproto: atproto,
+        did: did,
         protocol: protocol,
         service: service,
         context: context,
@@ -67,6 +69,7 @@ final class _BlueskyService implements BlueskyService {
   /// Returns the new instance of [_BlueskyService].
   _BlueskyService({
     required atp.ATProto atproto,
+    required String did,
     required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
@@ -74,6 +77,7 @@ final class _BlueskyService implements BlueskyService {
     final core.PostClient? mockedPostClient,
   })  : actors = ActorsService(
           atproto: atproto,
+          did: did,
           protocol: protocol,
           service: service,
           context: context,
@@ -82,6 +86,7 @@ final class _BlueskyService implements BlueskyService {
         ),
         feeds = FeedsService(
           atproto: atproto,
+          did: did,
           protocol: protocol,
           service: service,
           context: context,
@@ -90,6 +95,7 @@ final class _BlueskyService implements BlueskyService {
         ),
         notifications = NotificationsService(
           atproto: atproto,
+          did: did,
           protocol: protocol,
           service: service,
           context: context,
@@ -98,6 +104,7 @@ final class _BlueskyService implements BlueskyService {
         ),
         graphs = GraphsService(
           atproto: atproto,
+          did: did,
           protocol: protocol,
           service: service,
           context: context,
@@ -106,6 +113,7 @@ final class _BlueskyService implements BlueskyService {
         ),
         unspecced = UnspeccedService(
           atproto: atproto,
+          did: did,
           protocol: protocol,
           service: service,
           context: context,

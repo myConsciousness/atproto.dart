@@ -14,11 +14,13 @@ import '../entities/actors.dart';
 import '../entities/actors_typeahead.dart';
 import '../entities/preference.dart';
 import '../entities/preferences.dart';
+import '../entities/profile_record.dart';
 
 sealed class ActorsService {
   /// Returns the new instance of [ActorsService].
   factory ActorsService({
     required atp.ATProto atproto,
+    required String did,
     required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
@@ -27,6 +29,7 @@ sealed class ActorsService {
   }) =>
       _ActorsService(
         atproto: atproto,
+        did: did,
         protocol: protocol,
         service: service,
         context: context,
@@ -178,6 +181,20 @@ sealed class ActorsService {
   Future<core.XRPCResponse<Map<String, dynamic>>> findProfileAsJson({
     required String actor,
   });
+
+  /// This is the easiest way to retrieve a profile record for
+  /// authenticated users.
+  ///
+  /// This endpoint is useful for retrieving information when
+  /// updating a profile.
+  Future<core.XRPCResponse<ProfileRecord>> findProfileRecord();
+
+  /// This is the easiest way to retrieve a profile record as JSON for
+  /// authenticated users.
+  ///
+  /// This endpoint is useful for retrieving information when
+  /// updating a profile.
+  Future<core.XRPCResponse<Map<String, dynamic>>> findProfileRecordAsJson();
 
   /// Find user profiles based on handles or DIDs.
   ///
@@ -447,6 +464,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
   /// Returns the new instance of [_ActorsService].
   _ActorsService({
     required super.atproto,
+    required super.did,
     required super.protocol,
     required super.service,
     required super.context,
@@ -518,6 +536,17 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
     required String actor,
   }) async =>
       await _findProfile(actor: actor);
+
+  @override
+  Future<core.XRPCResponse<ProfileRecord>> findProfileRecord() async =>
+      await super.findRecord(
+        selfUri,
+        ProfileRecord.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>>
+      findProfileRecordAsJson() async => await super.findRecord(selfUri);
 
   @override
   Future<core.XRPCResponse<ActorProfiles>> findProfiles({

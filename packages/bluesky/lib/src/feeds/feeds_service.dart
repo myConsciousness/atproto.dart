@@ -31,6 +31,7 @@ sealed class FeedsService {
   /// Returns the new instance of [FeedsService].
   factory FeedsService({
     required atp.ATProto atproto,
+    required String did,
     required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
@@ -39,6 +40,7 @@ sealed class FeedsService {
   }) =>
       _FeedsService(
         atproto: atproto,
+        did: did,
         protocol: protocol,
         service: service,
         context: context,
@@ -1386,6 +1388,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
   /// Returns the new instance of [_FeedsService].
   _FeedsService({
     required super.atproto,
+    required super.did,
     required super.protocol,
     required super.service,
     required super.context,

@@ -15,6 +15,7 @@ sealed class NotificationsService {
   /// Returns the new instance of [NotificationsService].
   factory NotificationsService({
     required atp.ATProto atproto,
+    required String did,
     required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
@@ -23,6 +24,7 @@ sealed class NotificationsService {
   }) =>
       _NotificationsService(
         atproto: atproto,
+        did: did,
         protocol: protocol,
         service: service,
         context: context,
@@ -199,6 +201,7 @@ final class _NotificationsService extends BlueskyBaseService
   /// Returns the new instance of [_NotificationsService].
   _NotificationsService({
     required super.atproto,
+    required super.did,
     required super.protocol,
     required super.service,
     required super.context,
