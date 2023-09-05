@@ -6,6 +6,9 @@
 import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
+// 🌎 Project imports:
+import 'entities/keys/ids.g.dart' as ids;
+
 base class BlueskyBaseService extends core.BaseService {
   /// Returns the new instance of [BlueskyBaseService].
   BlueskyBaseService({
@@ -43,7 +46,7 @@ base class BlueskyBaseService extends core.BaseService {
   /// Returns the AT URI of authenticated user.
   core.AtUri get selfUri => core.AtUri.make(
         did,
-        'app.bsky.actor.profile',
+        ids.appBskyActorProfile,
         'self',
       );
 
