@@ -126,7 +126,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     final String? reasonSubject,
   ) =>
       {
-        'uri': notification.uri.toString(),
+        'uris': [notification.uri.toString()],
         'reason': _getGroupedReason(notification.reason.name, reasonSubject),
         'reasonSubject': reasonSubject,
         'authors': [notification.author.toJson()],
@@ -140,6 +140,11 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     final Map<String, dynamic> relatedGroup,
     final Notification notification,
   ) {
+    relatedGroup['uris'] = _mergeUris(
+      relatedGroup['uris'],
+      notification.uri.toString(),
+    );
+
     relatedGroup['authors'] = _mergeAuthors(
       relatedGroup['authors'],
       notification.author,
@@ -151,13 +156,6 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     );
 
     final relatedIndexedAt = DateTime.parse(relatedGroup['indexedAt']);
-
-    relatedGroup['uri'] = _mergeUri(
-      relatedGroup['uri'],
-      notification.uri.toString(),
-      relatedIndexedAt,
-      notification.indexedAt,
-    );
 
     relatedGroup['isRead'] = _mergeRead(
       relatedGroup['isRead'],
@@ -182,6 +180,16 @@ final class _NotificationsGrouper implements NotificationsGrouper {
         ..removeWhere((element) => element['did'] == author.did)
         ..add(author.toJson());
 
+  List<String> _mergeUris(
+    final List<String> relatedUris,
+    final String uri,
+  ) =>
+      relatedUris
+        //! Technically the same uri could not appear on the same
+        //! notification, but just in case.
+        ..removeWhere((element) => element == uri)
+        ..add(uri);
+
   List<Map<String, dynamic>> _mergeLabels(
     final List<Map<String, dynamic>> relatedLabels,
     final List<atp.Label>? labels,
@@ -196,14 +204,6 @@ final class _NotificationsGrouper implements NotificationsGrouper {
 
     return relatedLabels.toSet().toList();
   }
-
-  String _mergeUri(
-    String relatedUri,
-    String uri,
-    DateTime relatedIndexedAt,
-    DateTime indexedAt,
-  ) =>
-      indexedAt.isAfter(relatedIndexedAt) ? uri : relatedUri;
 
   bool _mergeRead(
     bool relatedRead,

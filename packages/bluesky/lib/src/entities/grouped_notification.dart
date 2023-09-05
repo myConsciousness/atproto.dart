@@ -22,10 +22,16 @@ class GroupedNotification with _$GroupedNotification {
   /// Creates a new instance of [GroupedNotification].
   @jsonSerializable
   const factory GroupedNotification({
-    /// The unique URI for the notification content
-    @atUriConverter required AtUri uri,
+    /// The unique URI for the notification content.
+    ///
+    /// This list is set in chronological order, with the uri of
+    /// the most recent notification at the top.
+    @atUriConverter required List<AtUri> uris,
 
     /// The collection of authors causing the notification.
+    ///
+    /// This list is set in chronological order, with the author of the
+    /// most recent notification at the top.
     required List<Actor> authors,
 
     /// Specifies the reason for the notification.
