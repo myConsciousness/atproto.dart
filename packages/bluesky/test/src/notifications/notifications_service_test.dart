@@ -19,6 +19,7 @@ void main() {
     test('normal case', () async {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -42,6 +43,7 @@ void main() {
     test('as JSON', () async {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -65,6 +67,7 @@ void main() {
     test('grouping', () async {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -88,6 +91,7 @@ void main() {
     test('when unauthorized', () async {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -111,6 +115,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -136,6 +141,7 @@ void main() {
     test('normal case', () async {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -156,6 +162,7 @@ void main() {
     test('as JSON', () async {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -176,6 +183,7 @@ void main() {
     test('when unauthorized', () async {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -196,6 +204,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -218,6 +227,7 @@ void main() {
     test('normal case', () async {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -240,6 +250,7 @@ void main() {
     test('when unauthorized', () async {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -260,6 +271,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -282,6 +294,7 @@ void main() {
     test('normal case', () async {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -307,6 +320,7 @@ void main() {
     test('when unauthorized', () async {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -332,6 +346,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final notifications = NotificationsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(

@@ -23,6 +23,7 @@ void main() {
             'test/src/graphs/data/create_follow.json',
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -51,6 +52,7 @@ void main() {
             statusCode: 401,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -77,6 +79,7 @@ void main() {
             statusCode: 429,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -104,6 +107,7 @@ void main() {
             'test/src/graphs/data/create_follow.json',
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -132,6 +136,7 @@ void main() {
             statusCode: 401,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -156,6 +161,7 @@ void main() {
             statusCode: 429,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -174,6 +180,7 @@ void main() {
     test('normal case', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -198,6 +205,7 @@ void main() {
     test('as JSON', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -222,6 +230,7 @@ void main() {
     test('when unauthorized', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -246,6 +255,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -272,6 +282,7 @@ void main() {
     test('normal case', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -296,6 +307,7 @@ void main() {
     test('as JSON', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -320,6 +332,7 @@ void main() {
     test('when unauthorized', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -344,6 +357,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -374,6 +388,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -400,6 +415,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -426,6 +442,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -454,6 +471,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -480,6 +498,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -506,6 +525,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -530,6 +550,7 @@ void main() {
     test('normal case', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -553,6 +574,7 @@ void main() {
     test('as JSON', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -576,6 +598,7 @@ void main() {
     test('when unauthorized', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -599,6 +622,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -631,6 +655,7 @@ void main() {
             'test/src/graphs/data/create_block.json',
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -659,6 +684,7 @@ void main() {
             statusCode: 401,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -685,6 +711,7 @@ void main() {
             statusCode: 429,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -712,6 +739,7 @@ void main() {
             'test/src/graphs/data/create_block.json',
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -740,6 +768,7 @@ void main() {
             statusCode: 401,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -764,6 +793,7 @@ void main() {
             statusCode: 429,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -782,6 +812,7 @@ void main() {
     test('normal case', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -805,6 +836,7 @@ void main() {
     test('as JSON', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -828,6 +860,7 @@ void main() {
     test('when unauthorized', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -851,6 +884,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -883,6 +917,7 @@ void main() {
             'test/src/graphs/data/create_list.json',
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -927,6 +962,7 @@ void main() {
             statusCode: 401,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -953,6 +989,7 @@ void main() {
             statusCode: 429,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -980,6 +1017,7 @@ void main() {
             'test/src/graphs/data/create_list.json',
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1027,6 +1065,7 @@ void main() {
             statusCode: 401,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1051,6 +1090,7 @@ void main() {
             statusCode: 429,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1069,6 +1109,7 @@ void main() {
     test('normal case', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1093,6 +1134,7 @@ void main() {
     test('as JSON', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1117,6 +1159,7 @@ void main() {
     test('when unauthorized', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1141,6 +1184,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1167,6 +1211,7 @@ void main() {
     test('normal case', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1193,6 +1238,7 @@ void main() {
     test('as JSON', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1219,6 +1265,7 @@ void main() {
     test('when unauthorized', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1245,6 +1292,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1280,6 +1328,7 @@ void main() {
             'test/src/graphs/data/create_list_item.json',
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1311,6 +1360,7 @@ void main() {
             statusCode: 401,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1340,6 +1390,7 @@ void main() {
             statusCode: 429,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1370,6 +1421,7 @@ void main() {
             'test/src/graphs/data/create_list.json',
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1408,6 +1460,7 @@ void main() {
             statusCode: 401,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1432,6 +1485,7 @@ void main() {
             statusCode: 429,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1450,6 +1504,7 @@ void main() {
     test('normal case', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1473,6 +1528,7 @@ void main() {
     test('as JSON', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1496,6 +1552,7 @@ void main() {
     test('when unauthorized', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1519,6 +1576,7 @@ void main() {
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
         atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1548,6 +1606,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1576,6 +1635,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1604,6 +1664,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1634,6 +1695,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1662,6 +1724,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1690,6 +1753,7 @@ void main() {
           accessJwt: 'test',
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(

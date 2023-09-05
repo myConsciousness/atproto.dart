@@ -1,5 +1,11 @@
 # Release Note
 
+## v0.8.11
+
+- Added utility to retrieve profile records for authenticated user on `ActorsService`. ([#684](https://github.com/myConsciousness/atproto.dart/issues/684))
+  - `.findProfileRecord`
+  - `.findProfileRecordAsJson`
+
 ## v0.8.10
 
 - Added `uris` field on `GroupedNotification`. You can get a post uri related to Notification with `uri` property. ([#747](https://github.com/myConsciousness/atproto.dart/issues/747))

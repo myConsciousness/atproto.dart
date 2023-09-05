@@ -129,6 +129,7 @@ final class _Bluesky implements Bluesky {
             timeout: timeout,
             retryConfig: retryConfig,
           ),
+          did: did,
           protocol: protocol,
           service: service,
           context: core.ClientContext(
