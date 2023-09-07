@@ -78,6 +78,9 @@ const appBskyEmbedExternalViewExternal = 'app.bsky.embed.external#viewExternal';
 /// `app.bsky.embed.images`
 const appBskyEmbedImages = 'app.bsky.embed.images';
 
+/// `app.bsky.embed.images#aspectRatio`
+const appBskyEmbedImagesAspectRatio = 'app.bsky.embed.images#aspectRatio';
+
 /// `app.bsky.embed.images#image`
 const appBskyEmbedImagesImage = 'app.bsky.embed.images#image';
 
