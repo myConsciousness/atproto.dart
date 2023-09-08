@@ -330,7 +330,7 @@ final class _BlueskyText implements BlueskyText {
 
       if (!uri.startsWith('http')) {
         final domain = match.namedGroup('domain');
-        if (domain == null || !_hasValidDomain(domain)) {
+        if (domain == null) {
           continue;
         }
 
@@ -350,6 +350,10 @@ final class _BlueskyText implements BlueskyText {
       if (RegExp(r'[)]$').hasMatch(uri) && !uri.contains('(')) {
         uri = uri.substring(0, uri.length - 1);
         index['end'] = index['end']! - 1;
+      }
+
+      if (!_hasValidDomain(uri)) {
+        continue;
       }
 
       entities.add(

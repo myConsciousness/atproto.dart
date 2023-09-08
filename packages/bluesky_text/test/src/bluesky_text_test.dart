@@ -90,81 +90,77 @@ void main() {
 
   group('.handles', () {
     test('case1', () {
-      final text = BlueskyText('😳@test');
+      final text = BlueskyText('😳 @test.bsky.social');
       final handles = text.handles;
 
       expect(handles.length, 1);
       expect(handles.first.type, EntityType.handle);
       expect(handles.first.isHandle, isTrue);
       expect(handles.first.isLink, isFalse);
-      expect(handles.first.value, '@test');
-      expect(handles.first.indices.start, 4);
-      expect(handles.first.indices.end, 9);
+      expect(handles.first.value, 'test.bsky.social');
+      expect(handles.first.indices.start, 5);
+      expect(handles.first.indices.end, 22);
     });
 
     test('case2', () {
-      final text = BlueskyText('@test @test2');
+      final text = BlueskyText('@test.bsky.social @test2.bsky.social');
       final handles = text.handles;
 
       expect(handles.length, 2);
 
       expect(handles.first.type, EntityType.handle);
-      expect(handles.first.value, '@test');
+      expect(handles.first.value, 'test.bsky.social');
       expect(handles.first.indices.start, 0);
-      expect(handles.first.indices.end, 5);
+      expect(handles.first.indices.end, 17);
 
       expect(handles[1].type, EntityType.handle);
-      expect(handles[1].value, '@test2');
-      expect(handles[1].indices.start, 6);
-      expect(handles[1].indices.end, 12);
+      expect(handles[1].value, 'test2.bsky.social');
+      expect(handles[1].indices.start, 18);
+      expect(handles[1].indices.end, 36);
     });
 
     test('case3', () {
-      final text = BlueskyText('😳@test 😳😳😳 @test2');
+      final text =
+          BlueskyText('😳 @test.bsky.social 😳😳😳 @test2.bsky.social');
       final handles = text.handles;
 
       expect(handles.length, 2);
       expect(handles.first.type, EntityType.handle);
-      expect(handles.first.value, '@test');
-      expect(handles.first.indices.start, 4);
-      expect(handles.first.indices.end, 9);
+      expect(handles.first.value, 'test.bsky.social');
+      expect(handles.first.indices.start, 5);
+      expect(handles.first.indices.end, 22);
 
       expect(handles[1].type, EntityType.handle);
-      expect(handles[1].value, '@test2');
-      expect(handles[1].indices.start, 23);
-      expect(handles[1].indices.end, 29);
+      expect(handles[1].value, 'test2.bsky.social');
+      expect(handles[1].indices.start, 36);
+      expect(handles[1].indices.end, 54);
     });
 
     test('case4', () {
-      final text = BlueskyText('@test@test2');
+      final text = BlueskyText('@test.bsky.social');
       final handles = text.handles;
 
-      expect(handles.length, 2);
+      expect(handles.length, 1);
       expect(handles.first.type, EntityType.handle);
-      expect(handles.first.value, '@test');
+      expect(handles.first.value, 'test.bsky.social');
       expect(handles.first.indices.start, 0);
-      expect(handles.first.indices.end, 5);
-
-      expect(handles[1].type, EntityType.handle);
-      expect(handles[1].value, '@test2');
-      expect(handles[1].indices.start, 5);
-      expect(handles[1].indices.end, 11);
+      expect(handles.first.indices.end, 17);
     });
 
     test('case5', () {
-      final text = BlueskyText('@test. @test2.');
+      final text = BlueskyText('@test.bsky.social. @test2.bsky.social.');
       final handles = text.handles;
 
       expect(handles.length, 2);
       expect(handles.first.type, EntityType.handle);
-      expect(handles.first.value, '@test');
+      expect(handles.first.value, 'test.bsky.social');
       expect(handles.first.indices.start, 0);
-      expect(handles.first.indices.end, 5);
+      expect(handles.first.indices.end, 17);
 
       expect(handles[1].type, EntityType.handle);
-      expect(handles[1].value, '@test2');
-      expect(handles[1].indices.start, 7);
-      expect(handles[1].indices.end, 13);
+      expect(handles[1].value, 'test2.bsky.social');
+      expect(handles[1].indices.start, 19);
+      expect(handles[1].indices.end, 37);
     });
 
     test('case6', () {
@@ -173,7 +169,7 @@ void main() {
 
       expect(handles.length, 1);
       expect(handles.first.type, EntityType.handle);
-      expect(handles.first.value, '@shinyakato.dev');
+      expect(handles.first.value, 'shinyakato.dev');
       expect(handles.first.indices.start, 0);
       expect(handles.first.indices.end, 15);
     });
@@ -184,7 +180,7 @@ void main() {
 
       expect(handles.length, 1);
       expect(handles.first.type, EntityType.handle);
-      expect(handles.first.value, '@shinyakato.bsky.social');
+      expect(handles.first.value, 'shinyakato.bsky.social');
       expect(handles.first.indices.start, 0);
       expect(handles.first.indices.end, 23);
     });
@@ -246,61 +242,55 @@ void main() {
     });
 
     test('case16', () {
-      final text = BlueskyText('😳@test.bsky.social"test"');
+      final text = BlueskyText('😳 @test.bsky.social"test"');
       final handles = text.handles;
 
       expect(handles.length, 1);
       expect(handles.first.type, EntityType.handle);
       expect(handles.first.isHandle, isTrue);
       expect(handles.first.isLink, isFalse);
-      expect(handles.first.value, '@test.bsky.social');
-      expect(handles.first.indices.start, 4);
-      expect(handles.first.indices.end, 21);
+      expect(handles.first.value, 'test.bsky.social');
+      expect(handles.first.indices.start, 5);
+      expect(handles.first.indices.end, 22);
     });
 
     test('case17', () {
-      final text = BlueskyText('😳@test.bsky.social"');
+      final text = BlueskyText("😳 @test.bsky.social'test");
       final handles = text.handles;
 
       expect(handles.length, 1);
       expect(handles.first.type, EntityType.handle);
       expect(handles.first.isHandle, isTrue);
       expect(handles.first.isLink, isFalse);
-      expect(handles.first.value, '@test.bsky.social');
-      expect(handles.first.indices.start, 4);
-      expect(handles.first.indices.end, 21);
+      expect(handles.first.value, 'test.bsky.social');
+      expect(handles.first.indices.start, 5);
+      expect(handles.first.indices.end, 22);
     });
 
     test('case18', () {
-      final text = BlueskyText("😳@test.bsky.social'test");
+      final text = BlueskyText("😳 @test.bsky.social'");
       final handles = text.handles;
 
       expect(handles.length, 1);
       expect(handles.first.type, EntityType.handle);
       expect(handles.first.isHandle, isTrue);
       expect(handles.first.isLink, isFalse);
-      expect(handles.first.value, '@test.bsky.social');
-      expect(handles.first.indices.start, 4);
-      expect(handles.first.indices.end, 21);
+      expect(handles.first.value, 'test.bsky.social');
+      expect(handles.first.indices.start, 5);
+      expect(handles.first.indices.end, 22);
     });
 
     test('case19', () {
-      final text = BlueskyText("😳@test.bsky.social'");
+      final text = BlueskyText('@shinyakato.test');
       final handles = text.handles;
 
-      expect(handles.length, 1);
-      expect(handles.first.type, EntityType.handle);
-      expect(handles.first.isHandle, isTrue);
-      expect(handles.first.isLink, isFalse);
-      expect(handles.first.value, '@test.bsky.social');
-      expect(handles.first.indices.start, 4);
-      expect(handles.first.indices.end, 21);
+      expect(handles.length, 0);
     });
   });
 
   group('.links', () {
     test('case1', () {
-      final text = BlueskyText('😳https://test.com');
+      final text = BlueskyText('😳 https://test.com');
       final links = text.links;
 
       expect(links.length, 1);
@@ -308,8 +298,8 @@ void main() {
       expect(links.first.isHandle, isFalse);
       expect(links.first.isLink, isTrue);
       expect(links.first.value, 'https://test.com');
-      expect(links.first.indices.start, 4);
-      expect(links.first.indices.end, 20);
+      expect(links.first.indices.start, 5);
+      expect(links.first.indices.end, 21);
     });
 
     test('case2', () {
@@ -330,65 +320,22 @@ void main() {
     });
 
     test('case3', () {
-      final text = BlueskyText('😳https://test.com 😳😳😳 https://test.org');
+      final text = BlueskyText('😳 https://test.com 😳😳😳 https://test.org');
       final links = text.links;
 
       expect(links.length, 2);
       expect(links.first.type, EntityType.link);
       expect(links.first.value, 'https://test.com');
-      expect(links.first.indices.start, 4);
-      expect(links.first.indices.end, 20);
+      expect(links.first.indices.start, 5);
+      expect(links.first.indices.end, 21);
 
       expect(links[1].type, EntityType.link);
       expect(links[1].value, 'https://test.org');
-      expect(links[1].indices.start, 34);
-      expect(links[1].indices.end, 50);
+      expect(links[1].indices.start, 35);
+      expect(links[1].indices.end, 51);
     });
 
     test('case4', () {
-      final text = BlueskyText('https://test.comhttps://test.org');
-      final links = text.links;
-
-      expect(links.length, 2);
-      expect(links.first.type, EntityType.link);
-      expect(links.first.value, 'https://test.com');
-      expect(links.first.indices.start, 0);
-      expect(links.first.indices.end, 16);
-
-      expect(links[1].type, EntityType.link);
-      expect(links[1].value, 'https://test.org');
-      expect(links[1].indices.start, 16);
-      expect(links[1].indices.end, 32);
-    });
-
-    test('case5', () {
-      final text = BlueskyText('https://test.com. http://test.org.');
-      final links = text.links;
-
-      expect(links.length, 2);
-      expect(links.first.type, EntityType.link);
-      expect(links.first.value, 'https://test.com');
-      expect(links.first.indices.start, 0);
-      expect(links.first.indices.end, 16);
-
-      expect(links[1].type, EntityType.link);
-      expect(links[1].value, 'http://test.org');
-      expect(links[1].indices.start, 18);
-      expect(links[1].indices.end, 33);
-    });
-
-    test('case6', () {
-      final text = BlueskyText('http://test.com');
-      final links = text.links;
-
-      expect(links.length, 1);
-      expect(links.first.type, EntityType.link);
-      expect(links.first.value, 'http://test.com');
-      expect(links.first.indices.start, 0);
-      expect(links.first.indices.end, 15);
-    });
-
-    test('case7', () {
       final text = BlueskyText('https://test.com');
       final links = text.links;
 
@@ -397,6 +344,40 @@ void main() {
       expect(links.first.value, 'https://test.com');
       expect(links.first.indices.start, 0);
       expect(links.first.indices.end, 16);
+    });
+
+    test('case5', () {
+      final text = BlueskyText('https://test.com. test.org.');
+      final links = text.links;
+
+      expect(links.length, 2);
+      expect(links.first.type, EntityType.link);
+      expect(links.first.value, 'https://test.com');
+      expect(links.first.indices.start, 0);
+      expect(links.first.indices.end, 16);
+
+      expect(links[1].type, EntityType.link);
+      expect(links[1].value, 'https://test.org');
+      expect(links[1].indices.start, 18);
+      expect(links[1].indices.end, 26);
+    });
+
+    test('case6', () {
+      final text = BlueskyText('test.com');
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.type, EntityType.link);
+      expect(links.first.value, 'https://test.com');
+      expect(links.first.indices.start, 0);
+      expect(links.first.indices.end, 8);
+    });
+
+    test('case7', () {
+      final text = BlueskyText('test.test');
+      final links = text.links;
+
+      expect(links.length, 0);
     });
 
     test('case8', () {
@@ -470,7 +451,7 @@ void main() {
 
       expect(entities.length, 1);
       expect(entities.first.type, EntityType.handle);
-      expect(entities.first.value, '@shinyakato.dev');
+      expect(entities.first.value, 'shinyakato.dev');
       expect(entities.first.indices.start, 0);
       expect(entities.first.indices.end, 15);
     });
@@ -481,7 +462,7 @@ void main() {
 
       expect(entities.length, 2);
       expect(entities.first.type, EntityType.handle);
-      expect(entities.first.value, '@shinyakato.dev');
+      expect(entities.first.value, 'shinyakato.dev');
       expect(entities.first.indices.start, 0);
       expect(entities.first.indices.end, 15);
 
@@ -495,11 +476,16 @@ void main() {
       final text = BlueskyText('shinyakato.dev http://text.com');
       final entities = text.entities;
 
-      expect(entities.length, 1);
+      expect(entities.length, 2);
       expect(entities.first.type, EntityType.link);
-      expect(entities.first.value, 'http://text.com');
-      expect(entities.first.indices.start, 15);
-      expect(entities.first.indices.end, 30);
+      expect(entities.first.value, 'https://shinyakato.dev');
+      expect(entities.first.indices.start, 0);
+      expect(entities.first.indices.end, 14);
+
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value, 'http://text.com');
+      expect(entities[1].indices.start, 15);
+      expect(entities[1].indices.end, 30);
     });
 
     test('case4', () {
@@ -529,7 +515,7 @@ github.com/videah/SkyBridge
 
       expect(entities.length, 1);
       expect(entities.first.isHandle, isTrue);
-      expect(entities.first.value, '@videah.net');
+      expect(entities.first.value, 'videah.net');
       expect(entities.first.indices.start, 36);
       expect(entities.first.indices.end, 47);
     });

@@ -1,5 +1,15 @@
 # Release Note
 
+## v0.4.0
+
+- Improved algos for `.handles`, `links`, and `.entities` based on official RichText.
+  - `.handles`
+    - The value set to `.value` in `Entity` no longer contains `@`
+    - Domain is now validated based on ICANN TLDs
+  - `.links`
+    - Links with `http|https` prefixes omitted are now also detected (such as `bsky.app`)
+    - Domain is now validated based on ICANN TLDs
+
 ## v0.3.2
 
 - Fixed a bug that caused a range error if a string shorter than the search symbol (like `https://`) existed. ([#734](https://github.com/myConsciousness/atproto.dart/issues/734))

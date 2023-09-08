@@ -46,7 +46,7 @@ Future<void> main() async {
 
     await bluesky.feeds.createPost(
       text: text.value,
-      facets: facets.map((e) => bsky.Facet.fromJson(e)).toList(),
+      facets: facets.map(bsky.Facet.fromJson).toList(),
     );
   }
 }
