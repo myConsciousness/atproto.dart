@@ -954,6 +954,6 @@ github.com/videah/SkyBridge
   test('.toString', () {
     final text = BlueskyText(('test'));
 
-    expect(test.toString(), 'test');
+    expect(text.toString(), 'test');
   });
 }
