@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.4
+
+- Upgraded `bluesky_text`.
+
 ## v0.3.3
 
 - Upgraded `bluesky_text`.
