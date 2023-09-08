@@ -10,23 +10,52 @@ import 'package:bluesky_text/bluesky_text.dart';
 Future<void> main() async {
   //! You just need to pass text to parse.
   final text = BlueskyText(
-    '''I speak 日本語 and English 🚀 @shinyakato.dev and @shinyakato.bsky.social. Visit 🚀 shinyakato.dev. deck.blue.''',
+    'I speak 日本語 and English 🚀 @shinyakato.dev and @shinyakato.bsky.social. '
+    'Visit 🚀 https://shinyakato.dev.',
   );
 
-  //! And you can easily integrate with bluesky package!
-  final bluesky = bsky.Bluesky.fromSession(await _session);
-  final facets = await text.entities.toFacets();
+  //! The character limit for Bluesky Social posts is 300 characters.
+  //! You need to split it before call some properties.
+  if (text.isLengthLimitExceeded) {
+    //! Let's split.
+    final texts = text.split();
 
-  await bluesky.feeds.createPost(
-    text: text.value,
-    facets: facets.map((e) => bsky.Facet.fromJson(e)).toList(),
-  );
+    for (final text in texts) {
+      print(text.handles);
+      print(text.links);
+      print(text.entities);
+    }
+  } else {
+    //! If it is less than 300 characters, it can simply be parsed.
+
+    // [{type: handle, value: @shinyakato.dev, indices: {start: 35, end: 50}},
+    // {type: handle, value: @shinyakato.bsky.social, indices: {start: 55, end: 78}}]
+    print(text.handles);
+
+    // [{type: link, value: https://shinyakato.dev, indices: {start: 91, end: 113}}]
+    print(text.links);
+
+    // [{type: handle, value: @shinyakato.dev, indices: {start: 35, end: 50}},
+    // {type: handle, value: @shinyakato.bsky.social, indices: {start: 55, end: 78}},
+    // {type: link, value: https://shinyakato.dev, indices: {start: 91, end: 113}}]
+    print(text.entities);
+
+    //! And you can easily integrate with bluesky package!
+    final bluesky = bsky.Bluesky.fromSession(await _session);
+    final facets = await text.entities.toFacets();
+
+    await bluesky.feeds.createPost(
+      text: text.value,
+      facets: facets.map(bsky.Facet.fromJson).toList(),
+    );
+  }
 }
 
 Future<bsky.Session> get _session async {
   final session = await bsky.createSession(
-    identifier: 'shinyakato.bsky.social', //! Like `shinyakato.bsky.social`
-    password: 'zeitgeist19930924ks',
+    service: 'SERVICE_NAME', //! The default is `bsky.social`
+    identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
+    password: 'YOUR_PASSWORD',
   );
 
   return session.data;
