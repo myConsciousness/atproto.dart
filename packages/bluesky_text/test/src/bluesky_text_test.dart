@@ -950,4 +950,10 @@ github.com/videah/SkyBridge
       expect(texts.length, 1);
     });
   });
+
+  test('.toString', () {
+    final text = BlueskyText(('test'));
+
+    expect(test.toString(), 'test');
+  });
 }
