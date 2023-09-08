@@ -388,7 +388,7 @@ void main() {
     });
 
     test('case9', () {
-      final text = BlueskyText('https://https://');
+      final text = BlueskyText('https://');
       final links = text.links;
 
       expect(links.length, 0);
@@ -513,11 +513,15 @@ github.com/videah/SkyBridge
 
       final entities = text.entities;
 
-      expect(entities.length, 1);
+      expect(entities.length, 2);
       expect(entities.first.isHandle, isTrue);
       expect(entities.first.value, 'videah.net');
       expect(entities.first.indices.start, 36);
       expect(entities.first.indices.end, 47);
+      expect(entities[1].isLink, isTrue);
+      expect(entities[1].value, 'https://github.com/videah/SkyBridge');
+      expect(entities[1].indices.start, 49);
+      expect(entities[1].indices.end, 76);
     });
 
     test('case7', () {
@@ -553,6 +557,21 @@ github.com/videah/SkyBridge
         BlueskyText('tbh').entities,
         [],
       );
+    });
+
+    test('case12', () {
+      final text = BlueskyText(
+        'https://github.com/jakobo/codedrift/discussions/115',
+      );
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.isLink, isTrue);
+      expect(entities.first.value,
+          'https://github.com/jakobo/codedrift/discussions/115');
+      expect(entities.first.indices.start, 0);
+      expect(entities.first.indices.end, 51);
     });
   });
 

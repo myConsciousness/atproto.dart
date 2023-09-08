@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.1
+
+- Fixed a bug in which URLs were not detected in specific cases.
+
 ## v0.4.0
 
 - Improved algos for `.handles`, `links`, and `.entities` based on official RichText.
