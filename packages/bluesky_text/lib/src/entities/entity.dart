@@ -9,13 +9,12 @@ import 'package:xrpc/xrpc.dart';
 // 🌎 Project imports:
 import '../api/find_did.dart' as api;
 import 'byte_indices.dart';
-import 'facetable.dart';
 
 part 'entity.freezed.dart';
 part 'entity.g.dart';
 
 @freezed
-class Entity with _$Entity implements Facetable {
+class Entity with _$Entity {
   // ignore: unused_element
   const Entity._();
 
@@ -49,7 +48,7 @@ class Entity with _$Entity implements Facetable {
       case EntityType.handle:
         try {
           final did = await api.findDID(
-            handle: value.substring(1),
+            handle: value,
           );
 
           facet['features'].add({

@@ -2,22 +2,16 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🎯 Dart imports:
-import 'dart:convert';
-import 'dart:typed_data';
-
 // 📦 Package imports:
 import 'package:characters/characters.dart';
+import 'package:icann_tlds/icann_tlds.dart';
 
 // 🌎 Project imports:
 import 'entities/byte_indices.dart';
-import 'entities/custom_entities.dart';
-import 'entities/custom_entity.dart';
 import 'entities/entities.dart';
 import 'entities/entity.dart';
-import 'entities/facetable.dart';
-import 'params/entity_criterion.dart';
 import 'regex.dart';
+import 'unicode_string.dart';
 
 /// The max length of text.
 const _maxLength = 300;
@@ -114,18 +108,6 @@ sealed class BlueskyText {
   /// It includes the response from [handles] and [links].
   Entities get entities;
 
-  /// Returns the custom entities based on the given [criteria].
-  ///
-  /// This method is useful if you want to use entities not provided by
-  /// the official Lexicon in your service or app.
-  ///
-  /// The search engine for this process is the same as the one used by
-  /// [entities] and others, but you get to decide the criteria for
-  /// entity extraction.
-  CustomEntities getCustomEntities(
-    final List<EntityCriterion> criteria,
-  );
-
   /// Splits this [value].
   ///
   /// The maximum number of characters that can be posted on Bluesky Social
@@ -177,10 +159,10 @@ sealed class BlueskyText {
 
 final class _BlueskyText implements BlueskyText {
   /// Returns the new instance of [_BlueskyText].
-  _BlueskyText(this.value) : _bytes = Uint8List.fromList(utf8.encode(value));
+  _BlueskyText(this.value) : _unicode = UnicodeString(value);
 
-  /// The byte representation of this [value].
-  final Uint8List _bytes;
+  /// The unicode string.
+  final UnicodeString _unicode;
 
   @override
   final String value;
@@ -191,66 +173,23 @@ final class _BlueskyText implements BlueskyText {
   @override
   Entities get handles => Entities(
         _orderByIndicesStart(
-          _getEntities(
-            ['@'],
-            regexHandle,
-            (value, start, end) => _createEntity(
-              EntityType.handle,
-              value,
-              start,
-              end,
-            ),
-          ),
+          _detectHandles(_unicode),
         ),
       );
 
   @override
   Entities get links => Entities(
         _orderByIndicesStart(
-          _getEntities(
-            ['http:', 'https:'],
-            regexLink,
-            (value, start, end) => _createEntity(
-              EntityType.link,
-              value,
-              start,
-              end,
-            ),
-          ),
+          _detectLinks(_unicode),
         ),
       );
 
   @override
   Entities get entities => Entities(
-        _orderByIndicesStart<Entity>([
+        _orderByIndicesStart([
           ...handles,
           ...links,
         ]),
-      );
-
-  @override
-  CustomEntities getCustomEntities(
-    final List<EntityCriterion> criteria,
-  ) =>
-      CustomEntities(
-        _orderByIndicesStart(criteria
-            .map(
-              (criterion) => criterion.symbols
-                  .map((symbol) => _getEntities(
-                        [symbol],
-                        criterion.format ?? RegExp(symbol),
-                        (value, start, end) => _createCustomEntity(
-                          symbol,
-                          value,
-                          start,
-                          end,
-                        ),
-                      ))
-                  .expand((e) => e)
-                  .toList(),
-            )
-            .expand((e) => e)
-            .toList()),
       );
 
   @override
@@ -345,133 +284,88 @@ final class _BlueskyText implements BlueskyText {
   @override
   bool get isNotEmpty => !isEmpty;
 
-  List<E> _getEntities<E extends Facetable>(
-    final List<String> symbols,
-    final RegExp format,
-    E Function(String value, int start, int end) entityBuilder,
-  ) {
+  List<Entity> _detectHandles(final UnicodeString text) {
     _ensureLength();
 
-    final entities = <E>[];
+    final entities = <Entity>[];
 
-    for (final symbol in symbols) {
-      int index = 0;
-      int searchByteIndex = 0;
+    final regex = RegExp(r'(^|\s|\()(@)([a-zA-Z0-9.-]+)(\b)');
 
-      final searchBytes = utf8.encode(symbol);
+    for (final match in regex.allMatches(text.utf16)) {
+      final handle = match.group(3)!;
 
-      while (index < _bytes.length) {
-        bool matched = true;
-        for (int j = 0; j < searchBytes.length; j++) {
-          if (index + j >= _bytes.length) {
-            matched = false;
-            break;
-          }
-
-          if (_bytes[index + j] != searchBytes[j]) {
-            matched = false;
-            break;
-          }
-
-          searchByteIndex = j + 1;
-        }
-
-        if (matched) {
-          //! Search end index.
-          while (index + searchByteIndex < _bytes.length &&
-              _bytes[index + searchByteIndex] != 32 && //! Space
-              _bytes[index + searchByteIndex] != 10 && //! \n
-              !(_bytes[index + searchByteIndex] == 13 && //! \r
-                  _bytes[index + searchByteIndex + 1] == 10) && //! \n
-              !(_bytes[index + searchByteIndex] == 0xE3 &&
-                  _bytes[index + searchByteIndex + 1] == 0x80 &&
-                  _bytes[index + searchByteIndex + 2] == 0x80) //! Full-width
-              &&
-              _bytes[index + searchByteIndex] != 39 && //! Single quote
-              _bytes[index + searchByteIndex] != 34) //! Double quote
-          {
-            //! Detect duplicate sequences.
-            if (searchByteIndex > searchBytes.length) {
-              final found = utf8.decode(
-                _bytes.sublist(
-                  index,
-                  index + searchByteIndex,
-                ),
-                allowMalformed: true,
-              );
-
-              if (found.endsWith(symbol)) {
-                searchByteIndex -= searchBytes.length;
-                break;
-              }
-            }
-
-            searchByteIndex++;
-          }
-
-          String value = utf8.decode(_bytes.sublist(
-            index,
-            index + searchByteIndex,
-          ));
-
-          //! Remove unnecessary trails.
-          int valueIndex = value.length - 1;
-
-          while (
-              valueIndex >= 0 && regexPunctuation.hasMatch(value[valueIndex])) {
-            valueIndex--;
-          }
-
-          value = value.substring(0, valueIndex + 1);
-          searchByteIndex = utf8.encode(value).length;
-
-          if (format.hasMatch(value)) {
-            entities.add(entityBuilder.call(
-              value,
-              index,
-              index + searchByteIndex,
-            ));
-          }
-        }
-
-        index++;
+      if (!_hasValidDomain(handle)) {
+        continue;
       }
+
+      final start = text.utf16.indexOf(handle, match.start) - 1;
+
+      entities.add(
+        Entity(
+          type: EntityType.handle,
+          value: handle,
+          indices: ByteIndices(
+            start: text.utf16IndexToUtf8Index(start),
+            end: text.utf16IndexToUtf8Index(start + handle.length + 1),
+          ),
+        ),
+      );
     }
 
     return entities;
   }
 
-  /// Returns the entity.
-  Entity _createEntity(
-    final EntityType type,
-    final String value,
-    final int startIndex,
-    final int endIndex,
-  ) =>
-      Entity(
-        type: type,
-        value: value,
-        indices: ByteIndices(
-          start: startIndex,
-          end: endIndex,
-        ),
-      );
+  List<Entity> _detectLinks(final UnicodeString text) {
+    _ensureLength();
 
-  /// Returns the custom entity.
-  CustomEntity _createCustomEntity(
-    final String symbol,
-    final String value,
-    final int startIndex,
-    final int endIndex,
-  ) =>
-      CustomEntity(
-        symbol: symbol,
-        value: value,
-        indices: ByteIndices(
-          start: startIndex,
-          end: endIndex,
+    final entities = <Entity>[];
+
+    final regex = RegExp(
+      r'(^|\s|\()((https?:\/\/[\S]+)|((?<domain>[a-z][a-z0-9]*(\.[a-z0-9]+)+)[\S]*))',
+    );
+
+    for (final match in regex.allMatches(text.utf16)) {
+      String uri = match.group(2)!;
+      final uriLength = uri.length;
+
+      if (!uri.startsWith('http')) {
+        final domain = match.namedGroup('domain');
+        if (domain == null || !_hasValidDomain(domain)) {
+          continue;
+        }
+
+        uri = 'https://$uri';
+      }
+
+      final start = text.utf16.indexOf(match.group(2)!, match.start);
+      final index = {'start': start, 'end': start + uriLength};
+
+      // Strip ending punctuation
+      if (RegExp(r'[.,;!?]$').hasMatch(uri)) {
+        uri = uri.substring(0, uri.length - 1);
+        index['end'] = index['end']! - 1;
+      }
+
+      // Check for closing parenthesis without an opening parenthesis
+      if (RegExp(r'[)]$').hasMatch(uri) && !uri.contains('(')) {
+        uri = uri.substring(0, uri.length - 1);
+        index['end'] = index['end']! - 1;
+      }
+
+      entities.add(
+        Entity(
+          type: EntityType.link,
+          value: uri,
+          indices: ByteIndices(
+            start: text.utf16IndexToUtf8Index(index['start']!),
+            end: text.utf16IndexToUtf8Index(index['end']!),
+          ),
         ),
       );
+    }
+
+    return entities;
+  }
 
   void _ensureLength() {
     if (isLengthLimitExceeded) {
@@ -482,11 +376,13 @@ final class _BlueskyText implements BlueskyText {
     }
   }
 
-  List<E> _orderByIndicesStart<E extends Facetable>(final List<E> entities) =>
-      entities
-        ..sort(
-          (a, b) => a.indices.start.compareTo(b.indices.start),
-        );
+  List<Entity> _orderByIndicesStart(final List<Entity> entities) => entities
+    ..sort(
+      (a, b) => a.indices.start.compareTo(b.indices.start),
+    );
+
+  bool _hasValidDomain(final String value) =>
+      tlds.any((tld) => value.endsWith('.$tld'));
 
   @override
   String toString() => value;

@@ -8,7 +8,6 @@ import 'package:test/test.dart';
 // 🌎 Project imports:
 import 'package:bluesky_text/src/bluesky_text.dart';
 import 'package:bluesky_text/src/entities/entity.dart';
-import 'package:bluesky_text/src/params/entity_criterion.dart';
 
 void main() {
   test('.value', () {
@@ -568,42 +567,6 @@ github.com/videah/SkyBridge
         BlueskyText('tbh').entities,
         [],
       );
-    });
-  });
-
-  group('.getCustomEntities', () {
-    test('case1', () {
-      final text = BlueskyText('#test');
-      final entities = text.getCustomEntities([
-        EntityCriterion(
-          symbols: ['#'],
-          format: RegExp(r'#\w+'),
-        )
-      ]);
-
-      expect(entities.length, 1);
-      expect(entities.first.value, '#test');
-      expect(entities.first.indices.start, 0);
-      expect(entities.first.indices.end, 5);
-    });
-
-    test('case2', () {
-      final text = BlueskyText('#test#test2');
-      final entities = text.getCustomEntities([
-        EntityCriterion(
-          symbols: ['#'],
-          format: RegExp(r'#\w+'),
-        )
-      ]);
-
-      expect(entities.length, 2);
-      expect(entities.first.value, '#test');
-      expect(entities.first.indices.start, 0);
-      expect(entities.first.indices.end, 5);
-
-      expect(entities[1].value, '#test2');
-      expect(entities[1].indices.start, 5);
-      expect(entities[1].indices.end, 11);
     });
   });
 
