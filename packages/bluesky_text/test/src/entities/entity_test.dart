@@ -15,7 +15,7 @@ void main() {
     test('case1', () async {
       final entity = Entity(
         type: EntityType.handle,
-        value: '@shinyakato.dev',
+        value: 'shinyakato.dev',
         indices: ByteIndices(start: 0, end: 0),
       );
 

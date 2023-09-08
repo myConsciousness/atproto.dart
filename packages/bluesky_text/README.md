@@ -60,7 +60,6 @@ Have you ever had trouble parsing mentions or links in the text you post when us
 - ✅ **Automatic Detection of `Handle` and `Link`** in text
 - ✅ Supports **Automatic Conversion** to **Facet**
 - ✅ **100% Compatible with [bluesky](https://atprotodart.com/docs/packages/bluesky)**
-- ✅ Allows **Extraction of Custom Entities**
 - ✅ Supports **Unicode Grapheme Clusters**
 - ✅ Support for **Safe Text Splitting**
 - ✅ **Well Documented** and **Well Tested**
@@ -81,7 +80,6 @@ See **[example](https://github.com/myConsciousness/atproto.dart/blob/main/packag
 - **[Unicode Grapheme Clusters](https://atprotodart.com/docs/packages/bluesky_text#unicode-grapheme-clusters)**
 - **[Use with `bluesky`](https://atprotodart.com/docs/packages/bluesky_text#use-with-bluesky)**
 - **[Split Text](https://atprotodart.com/docs/packages/bluesky_text#split-text)**
-- **[Custom Entity](https://atprotodart.com/docs/packages/bluesky_text#custom-entity)**
 
 ## 1.4. Contribution 🏆
 
