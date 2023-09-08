@@ -5,6 +5,7 @@
 - Added utility to retrieve profile records for authenticated user on `ActorsService`. ([#684](https://github.com/myConsciousness/atproto.dart/issues/684))
   - `.findProfileRecord`
   - `.findProfileRecordAsJson`
+- Supported `AspectRatio` for images. You can use this property from embed `Image` object. ([#753](https://github.com/myConsciousness/atproto.dart/issues/753))
 
 ## v0.8.10
 

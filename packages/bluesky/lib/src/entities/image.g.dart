@@ -16,12 +16,29 @@ _$_Image _$$_ImageFromJson(Map json) => $checkedCreate(
           alt: $checkedConvert('alt', (v) => v as String),
           image: $checkedConvert('image',
               (v) => blobConverter.fromJson(v as Map<String, dynamic>)),
+          aspectRatio: $checkedConvert(
+              'aspectRatio',
+              (v) => v == null
+                  ? null
+                  : ImageAspectRatio.fromJson(
+                      Map<String, Object?>.from(v as Map))),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$_ImageToJson(_$_Image instance) => <String, dynamic>{
-      'alt': instance.alt,
-      'image': blobConverter.toJson(instance.image),
-    };
+Map<String, dynamic> _$$_ImageToJson(_$_Image instance) {
+  final val = <String, dynamic>{
+    'alt': instance.alt,
+    'image': blobConverter.toJson(instance.image),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('aspectRatio', instance.aspectRatio?.toJson());
+  return val;
+}
