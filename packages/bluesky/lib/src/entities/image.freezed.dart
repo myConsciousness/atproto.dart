@@ -27,6 +27,9 @@ mixin _$Image {
   @blobConverter
   Blob get image => throw _privateConstructorUsedError;
 
+  /// The aspect ratio for this [image].
+  ImageAspectRatio? get aspectRatio => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ImageCopyWith<Image> get copyWith => throw _privateConstructorUsedError;
@@ -37,9 +40,11 @@ abstract class $ImageCopyWith<$Res> {
   factory $ImageCopyWith(Image value, $Res Function(Image) then) =
       _$ImageCopyWithImpl<$Res, Image>;
   @useResult
-  $Res call({String alt, @blobConverter Blob image});
+  $Res call(
+      {String alt, @blobConverter Blob image, ImageAspectRatio? aspectRatio});
 
   $BlobCopyWith<$Res> get image;
+  $ImageAspectRatioCopyWith<$Res>? get aspectRatio;
 }
 
 /// @nodoc
@@ -57,6 +62,7 @@ class _$ImageCopyWithImpl<$Res, $Val extends Image>
   $Res call({
     Object? alt = null,
     Object? image = null,
+    Object? aspectRatio = freezed,
   }) {
     return _then(_value.copyWith(
       alt: null == alt
@@ -67,6 +73,10 @@ class _$ImageCopyWithImpl<$Res, $Val extends Image>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as Blob,
+      aspectRatio: freezed == aspectRatio
+          ? _value.aspectRatio
+          : aspectRatio // ignore: cast_nullable_to_non_nullable
+              as ImageAspectRatio?,
     ) as $Val);
   }
 
@@ -77,6 +87,18 @@ class _$ImageCopyWithImpl<$Res, $Val extends Image>
       return _then(_value.copyWith(image: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ImageAspectRatioCopyWith<$Res>? get aspectRatio {
+    if (_value.aspectRatio == null) {
+      return null;
+    }
+
+    return $ImageAspectRatioCopyWith<$Res>(_value.aspectRatio!, (value) {
+      return _then(_value.copyWith(aspectRatio: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -85,10 +107,13 @@ abstract class _$$_ImageCopyWith<$Res> implements $ImageCopyWith<$Res> {
       __$$_ImageCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String alt, @blobConverter Blob image});
+  $Res call(
+      {String alt, @blobConverter Blob image, ImageAspectRatio? aspectRatio});
 
   @override
   $BlobCopyWith<$Res> get image;
+  @override
+  $ImageAspectRatioCopyWith<$Res>? get aspectRatio;
 }
 
 /// @nodoc
@@ -102,6 +127,7 @@ class __$$_ImageCopyWithImpl<$Res> extends _$ImageCopyWithImpl<$Res, _$_Image>
   $Res call({
     Object? alt = null,
     Object? image = null,
+    Object? aspectRatio = freezed,
   }) {
     return _then(_$_Image(
       alt: null == alt
@@ -112,14 +138,22 @@ class __$$_ImageCopyWithImpl<$Res> extends _$ImageCopyWithImpl<$Res, _$_Image>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as Blob,
+      aspectRatio: freezed == aspectRatio
+          ? _value.aspectRatio
+          : aspectRatio // ignore: cast_nullable_to_non_nullable
+              as ImageAspectRatio?,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@jsonSerializable
 class _$_Image implements _Image {
-  const _$_Image({required this.alt, @blobConverter required this.image});
+  const _$_Image(
+      {required this.alt,
+      @blobConverter required this.image,
+      this.aspectRatio});
 
   factory _$_Image.fromJson(Map<String, dynamic> json) =>
       _$$_ImageFromJson(json);
@@ -133,9 +167,13 @@ class _$_Image implements _Image {
   @blobConverter
   final Blob image;
 
+  /// The aspect ratio for this [image].
+  @override
+  final ImageAspectRatio? aspectRatio;
+
   @override
   String toString() {
-    return 'Image(alt: $alt, image: $image)';
+    return 'Image(alt: $alt, image: $image, aspectRatio: $aspectRatio)';
   }
 
   @override
@@ -144,12 +182,14 @@ class _$_Image implements _Image {
         (other.runtimeType == runtimeType &&
             other is _$_Image &&
             (identical(other.alt, alt) || other.alt == alt) &&
-            (identical(other.image, image) || other.image == image));
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.aspectRatio, aspectRatio) ||
+                other.aspectRatio == aspectRatio));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, alt, image);
+  int get hashCode => Object.hash(runtimeType, alt, image, aspectRatio);
 
   @JsonKey(ignore: true)
   @override
@@ -168,7 +208,8 @@ class _$_Image implements _Image {
 abstract class _Image implements Image {
   const factory _Image(
       {required final String alt,
-      @blobConverter required final Blob image}) = _$_Image;
+      @blobConverter required final Blob image,
+      final ImageAspectRatio? aspectRatio}) = _$_Image;
 
   factory _Image.fromJson(Map<String, dynamic> json) = _$_Image.fromJson;
 
@@ -181,6 +222,10 @@ abstract class _Image implements Image {
   /// The actual image data represented as a Blob.
   @blobConverter
   Blob get image;
+  @override
+
+  /// The aspect ratio for this [image].
+  ImageAspectRatio? get aspectRatio;
   @override
   @JsonKey(ignore: true)
   _$$_ImageCopyWith<_$_Image> get copyWith =>

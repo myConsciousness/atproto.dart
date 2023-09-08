@@ -222,6 +222,7 @@ export 'package:bluesky/src/entities/generator_feed.dart';
 export 'package:bluesky/src/entities/generator_links.dart';
 export 'package:bluesky/src/entities/generator_record.dart';
 export 'package:bluesky/src/entities/image.dart';
+export 'package:bluesky/src/entities/image_aspect_ratio.dart';
 export 'package:bluesky/src/entities/like.dart';
 export 'package:bluesky/src/entities/like_record.dart';
 export 'package:bluesky/src/entities/likes.dart';

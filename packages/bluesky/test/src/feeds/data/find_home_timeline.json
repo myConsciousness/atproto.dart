@@ -67,6 +67,10 @@
                     },
                     "mimeType": "image/jpeg",
                     "size": 656976
+                  },
+                  "aspectRatio": {
+                    "width": 10,
+                    "height": 20
                   }
                 }
               ]
