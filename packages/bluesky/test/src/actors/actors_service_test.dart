@@ -716,7 +716,7 @@ void main() {
           case UPreferencePersonalDetails():
             expect(preference.data.birthDate, isA<DateTime>());
             expect(
-              preference.data.birthDate.toIso8601String(),
+              preference.data.birthDate?.toIso8601String(),
               '2023-05-21T00:48:01.666Z',
             );
         }
