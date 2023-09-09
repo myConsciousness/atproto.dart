@@ -19,6 +19,10 @@ const appBskyActorDefsAdultContentPref = 'app.bsky.actor.defs#adultContentPref';
 /// `app.bsky.actor.defs#contentLabelPref`
 const appBskyActorDefsContentLabelPref = 'app.bsky.actor.defs#contentLabelPref';
 
+/// `app.bsky.actor.defs#personalDetailsPref`
+const appBskyActorDefsPersonalDetailsPref =
+    'app.bsky.actor.defs#personalDetailsPref';
+
 /// `app.bsky.actor.defs#preferences`
 const appBskyActorDefsPreferences = 'app.bsky.actor.defs#preferences';
 
