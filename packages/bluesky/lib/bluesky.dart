@@ -185,6 +185,7 @@ export 'package:bluesky/src/entities/byte_slice.dart';
 export 'package:bluesky/src/entities/content_label_preference.dart';
 export 'package:bluesky/src/entities/count.dart';
 export 'package:bluesky/src/entities/embed.dart';
+export 'package:bluesky/src/entities/personal_details_preference.dart';
 export 'package:bluesky/src/entities/embed_external.dart';
 export 'package:bluesky/src/entities/embed_external_thumbnail.dart';
 export 'package:bluesky/src/entities/embed_images.dart';

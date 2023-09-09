@@ -10,6 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import 'adult_content_preference.dart';
 import 'content_label_preference.dart';
+import 'personal_details_preference.dart';
 import 'saved_feeds_preference.dart';
 
 part 'preference.freezed.dart';
@@ -52,6 +53,15 @@ class Preference with _$Preference {
     required SavedFeedsPreference data,
   }) = UPreferenceSavedFeeds;
 
+  /// This constructor is used when the user preference type is
+  /// [PersonalDetailsPreference].
+  ///
+  /// It takes a [PersonalDetailsPreference] object which provides the details
+  /// of the user's saved feeds preference.
+  const factory Preference.personalDetails({
+    required PersonalDetailsPreference data,
+  }) = UPreferencePersonalDetails;
+
   /// This constructor is used when the preference type is not supported
   /// or is not expected.
   ///
@@ -68,6 +78,7 @@ class Preference with _$Preference {
         adultContent: (data) => data.toJson(),
         contentLabel: (data) => data.toJson(),
         savedFeeds: (data) => data.toJson(),
+        personalDetails: (data) => data.toJson(),
         unknown: (data) => data,
       );
 }

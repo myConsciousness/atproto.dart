@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.8.12
+
+- Supported `Preference.personalDetails`. Also added `PersonalDetailsPreference`. ([#768](https://github.com/myConsciousness/atproto.dart/issues/768))
+
 ## v0.8.11
 
 - Added utility to retrieve profile records for authenticated user on `ActorsService`. ([#684](https://github.com/myConsciousness/atproto.dart/issues/684))
