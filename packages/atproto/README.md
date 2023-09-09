@@ -51,7 +51,7 @@ If you want to use the **_Bluesky API_** as well, see the **[bluesky package](ht
 
 **_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) to activate this project!_**
 
-![github_star](https://github.com/myConsciousness/atproto.dart/assets/13072231/c4a9b0b9-6ea4-42f1-823b-3b9e7cdb8b04)
+![github_star](https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/give_a_star.gif)
 
 - **[Official Documents](https://atprotodart.com/docs/packages/atproto)**
 - **[GitHub Repository](https://github.com/myConsciousness/atproto.dart)**

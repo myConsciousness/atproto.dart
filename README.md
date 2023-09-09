@@ -52,7 +52,7 @@ and **_maximize your Dart/Flutter development productivity_** with  AT Protocol 
 
 **_Give a ⭐ on [this repository](https://github.com/myConsciousness/atproto.dart) to activate a project!_**
 
-![github_star](https://github.com/myConsciousness/atproto.dart/assets/13072231/c4a9b0b9-6ea4-42f1-823b-3b9e7cdb8b04)
+![github_star](https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/give_a_star.gif)
 
 ## 1.1. Packages & Tools
 
