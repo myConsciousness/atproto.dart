@@ -26,7 +26,7 @@ class PersonalDetailsPreference with _$PersonalDetailsPreference {
     @typeKey @Default(appBskyActorDefsPersonalDetailsPref) String type,
 
     /// The birth date of the owner of the account.
-    required DateTime birthDate,
+    DateTime? birthDate,
   }) = _PersonalDetailsPreference;
 
   /// Creates a [PersonalDetailsPreference] object from a map ([json]).

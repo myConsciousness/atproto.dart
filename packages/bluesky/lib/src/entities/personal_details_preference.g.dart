@@ -16,8 +16,8 @@ _$_PersonalDetailsPreference _$$_PersonalDetailsPreferenceFromJson(Map json) =>
         final val = _$_PersonalDetailsPreference(
           type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyActorDefsPersonalDetailsPref),
-          birthDate:
-              $checkedConvert('birthDate', (v) => DateTime.parse(v as String)),
+          birthDate: $checkedConvert('birthDate',
+              (v) => v == null ? null : DateTime.parse(v as String)),
         );
         return val;
       },
@@ -25,8 +25,17 @@ _$_PersonalDetailsPreference _$$_PersonalDetailsPreferenceFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$_PersonalDetailsPreferenceToJson(
-        _$_PersonalDetailsPreference instance) =>
-    <String, dynamic>{
-      r'$type': instance.type,
-      'birthDate': instance.birthDate.toIso8601String(),
-    };
+    _$_PersonalDetailsPreference instance) {
+  final val = <String, dynamic>{
+    r'$type': instance.type,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('birthDate', instance.birthDate?.toIso8601String());
+  return val;
+}

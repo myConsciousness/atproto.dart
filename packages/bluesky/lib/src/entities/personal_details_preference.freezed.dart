@@ -27,7 +27,7 @@ mixin _$PersonalDetailsPreference {
   String get type => throw _privateConstructorUsedError;
 
   /// The birth date of the owner of the account.
-  DateTime get birthDate => throw _privateConstructorUsedError;
+  DateTime? get birthDate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ abstract class $PersonalDetailsPreferenceCopyWith<$Res> {
           $Res Function(PersonalDetailsPreference) then) =
       _$PersonalDetailsPreferenceCopyWithImpl<$Res, PersonalDetailsPreference>;
   @useResult
-  $Res call({@typeKey String type, DateTime birthDate});
+  $Res call({@typeKey String type, DateTime? birthDate});
 }
 
 /// @nodoc
@@ -59,17 +59,17 @@ class _$PersonalDetailsPreferenceCopyWithImpl<$Res,
   @override
   $Res call({
     Object? type = null,
-    Object? birthDate = null,
+    Object? birthDate = freezed,
   }) {
     return _then(_value.copyWith(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      birthDate: null == birthDate
+      birthDate: freezed == birthDate
           ? _value.birthDate
           : birthDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -83,7 +83,7 @@ abstract class _$$_PersonalDetailsPreferenceCopyWith<$Res>
       __$$_PersonalDetailsPreferenceCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, DateTime birthDate});
+  $Res call({@typeKey String type, DateTime? birthDate});
 }
 
 /// @nodoc
@@ -100,17 +100,17 @@ class __$$_PersonalDetailsPreferenceCopyWithImpl<$Res>
   @override
   $Res call({
     Object? type = null,
-    Object? birthDate = null,
+    Object? birthDate = freezed,
   }) {
     return _then(_$_PersonalDetailsPreference(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      birthDate: null == birthDate
+      birthDate: freezed == birthDate
           ? _value.birthDate
           : birthDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ));
   }
 }
@@ -121,7 +121,7 @@ class __$$_PersonalDetailsPreferenceCopyWithImpl<$Res>
 class _$_PersonalDetailsPreference implements _PersonalDetailsPreference {
   const _$_PersonalDetailsPreference(
       {@typeKey this.type = appBskyActorDefsPersonalDetailsPref,
-      required this.birthDate});
+      this.birthDate});
 
   factory _$_PersonalDetailsPreference.fromJson(Map<String, dynamic> json) =>
       _$$_PersonalDetailsPreferenceFromJson(json);
@@ -134,7 +134,7 @@ class _$_PersonalDetailsPreference implements _PersonalDetailsPreference {
 
   /// The birth date of the owner of the account.
   @override
-  final DateTime birthDate;
+  final DateTime? birthDate;
 
   @override
   String toString() {
@@ -173,7 +173,7 @@ class _$_PersonalDetailsPreference implements _PersonalDetailsPreference {
 abstract class _PersonalDetailsPreference implements PersonalDetailsPreference {
   const factory _PersonalDetailsPreference(
       {@typeKey final String type,
-      required final DateTime birthDate}) = _$_PersonalDetailsPreference;
+      final DateTime? birthDate}) = _$_PersonalDetailsPreference;
 
   factory _PersonalDetailsPreference.fromJson(Map<String, dynamic> json) =
       _$_PersonalDetailsPreference.fromJson;
@@ -187,7 +187,7 @@ abstract class _PersonalDetailsPreference implements PersonalDetailsPreference {
   @override
 
   /// The birth date of the owner of the account.
-  DateTime get birthDate;
+  DateTime? get birthDate;
   @override
   @JsonKey(ignore: true)
   _$$_PersonalDetailsPreferenceCopyWith<_$_PersonalDetailsPreference>
