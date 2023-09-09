@@ -3,6 +3,7 @@
 ## v0.8.12
 
 - Supported `Preference.personalDetails`. Also added `PersonalDetailsPreference`. ([#768](https://github.com/myConsciousness/atproto.dart/issues/768))
+- Added `.toStrongRef` methods on `RepoCommitCreate` and `RepoCommitUpdate`. ([#771](https://github.com/myConsciousness/atproto.dart/issues/771))
 
 ## v0.8.11
 
