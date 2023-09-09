@@ -14,6 +14,7 @@ import 'package:bluesky/src/entities/actor_profile.dart';
 import 'package:bluesky/src/entities/actor_profiles.dart';
 import 'package:bluesky/src/entities/actors.dart';
 import 'package:bluesky/src/entities/actors_typeahead.dart';
+import 'package:bluesky/src/entities/preference.dart';
 import 'package:bluesky/src/entities/preferences.dart';
 import 'package:bluesky/src/entities/profile_record.dart';
 
@@ -709,6 +710,17 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<Preferences>());
+
+      for (final preference in response.data.preferences) {
+        switch (preference) {
+          case UPreferencePersonalDetails():
+            expect(preference.data.birthDate, isA<DateTime>());
+            expect(
+              preference.data.birthDate?.toIso8601String(),
+              '2023-05-21T00:48:01.666Z',
+            );
+        }
+      }
     });
 
     test('as JSON', () async {

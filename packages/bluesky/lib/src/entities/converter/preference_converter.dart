@@ -10,6 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../adult_content_preference.dart';
 import '../content_label_preference.dart';
 import '../keys/ids.g.dart' as ids;
+import '../personal_details_preference.dart';
 import '../preference.dart';
 import '../saved_feeds_preference.dart';
 
@@ -35,6 +36,10 @@ final class _PreferenceConverter
       return Preference.savedFeeds(
         data: SavedFeedsPreference.fromJson(json),
       );
+    } else if (type == ids.appBskyActorDefsPersonalDetailsPref) {
+      return Preference.personalDetails(
+        data: PersonalDetailsPreference.fromJson(json),
+      );
     }
 
     return Preference.unknown(data: json);
@@ -45,6 +50,7 @@ final class _PreferenceConverter
         adultContent: (data) => data.toJson(),
         contentLabel: (data) => data.toJson(),
         savedFeeds: (data) => data.toJson(),
+        personalDetails: (data) => data.toJson(),
         unknown: (data) => data,
       );
 }

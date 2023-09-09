@@ -22,6 +22,7 @@ mixin _$Preference {
     required TResult Function(AdultContentPreference data) adultContent,
     required TResult Function(ContentLabelPreference data) contentLabel,
     required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -30,6 +31,7 @@ mixin _$Preference {
     TResult? Function(AdultContentPreference data)? adultContent,
     TResult? Function(ContentLabelPreference data)? contentLabel,
     TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -38,6 +40,7 @@ mixin _$Preference {
     TResult Function(AdultContentPreference data)? adultContent,
     TResult Function(ContentLabelPreference data)? contentLabel,
     TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
@@ -47,6 +50,7 @@ mixin _$Preference {
     required TResult Function(UPreferenceAdultContent value) adultContent,
     required TResult Function(UPreferenceContentLabel value) contentLabel,
     required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +59,7 @@ mixin _$Preference {
     TResult? Function(UPreferenceAdultContent value)? adultContent,
     TResult? Function(UPreferenceContentLabel value)? contentLabel,
     TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -63,6 +68,7 @@ mixin _$Preference {
     TResult Function(UPreferenceAdultContent value)? adultContent,
     TResult Function(UPreferenceContentLabel value)? contentLabel,
     TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) =>
@@ -165,6 +171,7 @@ class _$UPreferenceAdultContent extends UPreferenceAdultContent {
     required TResult Function(AdultContentPreference data) adultContent,
     required TResult Function(ContentLabelPreference data) contentLabel,
     required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return adultContent(data);
@@ -176,6 +183,7 @@ class _$UPreferenceAdultContent extends UPreferenceAdultContent {
     TResult? Function(AdultContentPreference data)? adultContent,
     TResult? Function(ContentLabelPreference data)? contentLabel,
     TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return adultContent?.call(data);
@@ -187,6 +195,7 @@ class _$UPreferenceAdultContent extends UPreferenceAdultContent {
     TResult Function(AdultContentPreference data)? adultContent,
     TResult Function(ContentLabelPreference data)? contentLabel,
     TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -202,6 +211,7 @@ class _$UPreferenceAdultContent extends UPreferenceAdultContent {
     required TResult Function(UPreferenceAdultContent value) adultContent,
     required TResult Function(UPreferenceContentLabel value) contentLabel,
     required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return adultContent(this);
@@ -213,6 +223,7 @@ class _$UPreferenceAdultContent extends UPreferenceAdultContent {
     TResult? Function(UPreferenceAdultContent value)? adultContent,
     TResult? Function(UPreferenceContentLabel value)? contentLabel,
     TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return adultContent?.call(this);
@@ -224,6 +235,7 @@ class _$UPreferenceAdultContent extends UPreferenceAdultContent {
     TResult Function(UPreferenceAdultContent value)? adultContent,
     TResult Function(UPreferenceContentLabel value)? contentLabel,
     TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -324,6 +336,7 @@ class _$UPreferenceContentLabel extends UPreferenceContentLabel {
     required TResult Function(AdultContentPreference data) adultContent,
     required TResult Function(ContentLabelPreference data) contentLabel,
     required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return contentLabel(data);
@@ -335,6 +348,7 @@ class _$UPreferenceContentLabel extends UPreferenceContentLabel {
     TResult? Function(AdultContentPreference data)? adultContent,
     TResult? Function(ContentLabelPreference data)? contentLabel,
     TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return contentLabel?.call(data);
@@ -346,6 +360,7 @@ class _$UPreferenceContentLabel extends UPreferenceContentLabel {
     TResult Function(AdultContentPreference data)? adultContent,
     TResult Function(ContentLabelPreference data)? contentLabel,
     TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -361,6 +376,7 @@ class _$UPreferenceContentLabel extends UPreferenceContentLabel {
     required TResult Function(UPreferenceAdultContent value) adultContent,
     required TResult Function(UPreferenceContentLabel value) contentLabel,
     required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return contentLabel(this);
@@ -372,6 +388,7 @@ class _$UPreferenceContentLabel extends UPreferenceContentLabel {
     TResult? Function(UPreferenceAdultContent value)? adultContent,
     TResult? Function(UPreferenceContentLabel value)? contentLabel,
     TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return contentLabel?.call(this);
@@ -383,6 +400,7 @@ class _$UPreferenceContentLabel extends UPreferenceContentLabel {
     TResult Function(UPreferenceAdultContent value)? adultContent,
     TResult Function(UPreferenceContentLabel value)? contentLabel,
     TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -483,6 +501,7 @@ class _$UPreferenceSavedFeeds extends UPreferenceSavedFeeds {
     required TResult Function(AdultContentPreference data) adultContent,
     required TResult Function(ContentLabelPreference data) contentLabel,
     required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return savedFeeds(data);
@@ -494,6 +513,7 @@ class _$UPreferenceSavedFeeds extends UPreferenceSavedFeeds {
     TResult? Function(AdultContentPreference data)? adultContent,
     TResult? Function(ContentLabelPreference data)? contentLabel,
     TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return savedFeeds?.call(data);
@@ -505,6 +525,7 @@ class _$UPreferenceSavedFeeds extends UPreferenceSavedFeeds {
     TResult Function(AdultContentPreference data)? adultContent,
     TResult Function(ContentLabelPreference data)? contentLabel,
     TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -520,6 +541,7 @@ class _$UPreferenceSavedFeeds extends UPreferenceSavedFeeds {
     required TResult Function(UPreferenceAdultContent value) adultContent,
     required TResult Function(UPreferenceContentLabel value) contentLabel,
     required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return savedFeeds(this);
@@ -531,6 +553,7 @@ class _$UPreferenceSavedFeeds extends UPreferenceSavedFeeds {
     TResult? Function(UPreferenceAdultContent value)? adultContent,
     TResult? Function(UPreferenceContentLabel value)? contentLabel,
     TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return savedFeeds?.call(this);
@@ -542,6 +565,7 @@ class _$UPreferenceSavedFeeds extends UPreferenceSavedFeeds {
     TResult Function(UPreferenceAdultContent value)? adultContent,
     TResult Function(UPreferenceContentLabel value)? contentLabel,
     TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -562,6 +586,174 @@ abstract class UPreferenceSavedFeeds extends Preference {
   @JsonKey(ignore: true)
   _$$UPreferenceSavedFeedsCopyWith<_$UPreferenceSavedFeeds> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UPreferencePersonalDetailsCopyWith<$Res> {
+  factory _$$UPreferencePersonalDetailsCopyWith(
+          _$UPreferencePersonalDetails value,
+          $Res Function(_$UPreferencePersonalDetails) then) =
+      __$$UPreferencePersonalDetailsCopyWithImpl<$Res>;
+  @useResult
+  $Res call({PersonalDetailsPreference data});
+
+  $PersonalDetailsPreferenceCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$UPreferencePersonalDetailsCopyWithImpl<$Res>
+    extends _$PreferenceCopyWithImpl<$Res, _$UPreferencePersonalDetails>
+    implements _$$UPreferencePersonalDetailsCopyWith<$Res> {
+  __$$UPreferencePersonalDetailsCopyWithImpl(
+      _$UPreferencePersonalDetails _value,
+      $Res Function(_$UPreferencePersonalDetails) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$UPreferencePersonalDetails(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as PersonalDetailsPreference,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PersonalDetailsPreferenceCopyWith<$Res> get data {
+    return $PersonalDetailsPreferenceCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UPreferencePersonalDetails extends UPreferencePersonalDetails {
+  const _$UPreferencePersonalDetails({required this.data}) : super._();
+
+  @override
+  final PersonalDetailsPreference data;
+
+  @override
+  String toString() {
+    return 'Preference.personalDetails(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UPreferencePersonalDetails &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UPreferencePersonalDetailsCopyWith<_$UPreferencePersonalDetails>
+      get copyWith => __$$UPreferencePersonalDetailsCopyWithImpl<
+          _$UPreferencePersonalDetails>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPreference data) adultContent,
+    required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return personalDetails(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPreference data)? adultContent,
+    TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return personalDetails?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPreference data)? adultContent,
+    TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (personalDetails != null) {
+      return personalDetails(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceUnknown value) unknown,
+  }) {
+    return personalDetails(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceUnknown value)? unknown,
+  }) {
+    return personalDetails?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (personalDetails != null) {
+      return personalDetails(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UPreferencePersonalDetails extends Preference {
+  const factory UPreferencePersonalDetails(
+          {required final PersonalDetailsPreference data}) =
+      _$UPreferencePersonalDetails;
+  const UPreferencePersonalDetails._() : super._();
+
+  @override
+  PersonalDetailsPreference get data;
+  @JsonKey(ignore: true)
+  _$$UPreferencePersonalDetailsCopyWith<_$UPreferencePersonalDetails>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -640,6 +832,7 @@ class _$UPreferenceUnknown extends UPreferenceUnknown {
     required TResult Function(AdultContentPreference data) adultContent,
     required TResult Function(ContentLabelPreference data) contentLabel,
     required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -651,6 +844,7 @@ class _$UPreferenceUnknown extends UPreferenceUnknown {
     TResult? Function(AdultContentPreference data)? adultContent,
     TResult? Function(ContentLabelPreference data)? contentLabel,
     TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -662,6 +856,7 @@ class _$UPreferenceUnknown extends UPreferenceUnknown {
     TResult Function(AdultContentPreference data)? adultContent,
     TResult Function(ContentLabelPreference data)? contentLabel,
     TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -677,6 +872,7 @@ class _$UPreferenceUnknown extends UPreferenceUnknown {
     required TResult Function(UPreferenceAdultContent value) adultContent,
     required TResult Function(UPreferenceContentLabel value) contentLabel,
     required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return unknown(this);
@@ -688,6 +884,7 @@ class _$UPreferenceUnknown extends UPreferenceUnknown {
     TResult? Function(UPreferenceAdultContent value)? adultContent,
     TResult? Function(UPreferenceContentLabel value)? contentLabel,
     TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return unknown?.call(this);
@@ -699,6 +896,7 @@ class _$UPreferenceUnknown extends UPreferenceUnknown {
     TResult Function(UPreferenceAdultContent value)? adultContent,
     TResult Function(UPreferenceContentLabel value)? contentLabel,
     TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
