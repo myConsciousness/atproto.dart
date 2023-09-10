@@ -23,27 +23,31 @@ final class _EmbedViewConverter
 
   @override
   EmbedView fromJson(Map<String, dynamic> json) {
-    final type = json[core.objectType];
+    try {
+      final type = json[core.objectType];
 
-    if (type == ids.appBskyEmbedRecordView) {
-      return EmbedView.record(
-        data: EmbedViewRecord.fromJson(json),
-      );
-    } else if (type == ids.appBskyEmbedImagesView) {
-      return EmbedView.images(
-        data: EmbedViewImages.fromJson(json),
-      );
-    } else if (type == ids.appBskyEmbedExternalView) {
-      return EmbedView.external(
-        data: EmbedViewExternal.fromJson(json),
-      );
-    } else if (type == ids.appBskyEmbedRecordWithMediaView) {
-      return EmbedView.recordWithMedia(
-        data: EmbedViewRecordWithMedia.fromJson(json),
-      );
+      if (type == ids.appBskyEmbedRecordView) {
+        return EmbedView.record(
+          data: EmbedViewRecord.fromJson(json),
+        );
+      } else if (type == ids.appBskyEmbedImagesView) {
+        return EmbedView.images(
+          data: EmbedViewImages.fromJson(json),
+        );
+      } else if (type == ids.appBskyEmbedExternalView) {
+        return EmbedView.external(
+          data: EmbedViewExternal.fromJson(json),
+        );
+      } else if (type == ids.appBskyEmbedRecordWithMediaView) {
+        return EmbedView.recordWithMedia(
+          data: EmbedViewRecordWithMedia.fromJson(json),
+        );
+      }
+
+      return EmbedView.unknown(data: json);
+    } catch (_) {
+      return EmbedView.unknown(data: json);
     }
-
-    return EmbedView.unknown(data: json);
   }
 
   @override

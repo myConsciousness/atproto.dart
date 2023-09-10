@@ -23,27 +23,31 @@ final class _EmbedConverter
 
   @override
   Embed fromJson(Map<String, dynamic> json) {
-    final type = json[core.objectType];
+    try {
+      final type = json[core.objectType];
 
-    if (type == ids.appBskyEmbedRecord) {
-      return Embed.record(
-        data: EmbedRecord.fromJson(json),
-      );
-    } else if (type == ids.appBskyEmbedImages) {
-      return Embed.images(
-        data: EmbedImages.fromJson(json),
-      );
-    } else if (type == ids.appBskyEmbedExternal) {
-      return Embed.external(
-        data: EmbedExternal.fromJson(json),
-      );
-    } else if (type == ids.appBskyEmbedRecordWithMedia) {
-      return Embed.recordWithMedia(
-        data: EmbedRecordWithMedia.fromJson(json),
-      );
+      if (type == ids.appBskyEmbedRecord) {
+        return Embed.record(
+          data: EmbedRecord.fromJson(json),
+        );
+      } else if (type == ids.appBskyEmbedImages) {
+        return Embed.images(
+          data: EmbedImages.fromJson(json),
+        );
+      } else if (type == ids.appBskyEmbedExternal) {
+        return Embed.external(
+          data: EmbedExternal.fromJson(json),
+        );
+      } else if (type == ids.appBskyEmbedRecordWithMedia) {
+        return Embed.recordWithMedia(
+          data: EmbedRecordWithMedia.fromJson(json),
+        );
+      }
+
+      return Embed.unknown(data: json);
+    } catch (_) {
+      return Embed.unknown(data: json);
     }
-
-    return Embed.unknown(data: json);
   }
 
   @override

@@ -21,19 +21,23 @@ final class _EmbedViewMediaConverter
 
   @override
   EmbedViewMedia fromJson(Map<String, dynamic> json) {
-    final type = json[core.objectType];
+    try {
+      final type = json[core.objectType];
 
-    if (type == ids.appBskyEmbedImagesView) {
-      return EmbedViewMedia.images(
-        data: EmbedViewImages.fromJson(json),
-      );
-    } else if (type == ids.appBskyEmbedExternalView) {
-      return EmbedViewMedia.external(
-        data: EmbedViewExternal.fromJson(json),
-      );
+      if (type == ids.appBskyEmbedImagesView) {
+        return EmbedViewMedia.images(
+          data: EmbedViewImages.fromJson(json),
+        );
+      } else if (type == ids.appBskyEmbedExternalView) {
+        return EmbedViewMedia.external(
+          data: EmbedViewExternal.fromJson(json),
+        );
+      }
+
+      return EmbedViewMedia.unknown(data: json);
+    } catch (_) {
+      return EmbedViewMedia.unknown(data: json);
     }
-
-    return EmbedViewMedia.unknown(data: json);
   }
 
   @override

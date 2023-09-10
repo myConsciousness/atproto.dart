@@ -8,30 +8,33 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../entities/keys/ids.g.dart' as ids;
+
 enum ModerationReasonType implements Serializable {
   /// spam
-  @JsonValue('com.atproto.moderation.defs#reasonSpam')
-  spam('com.atproto.moderation.defs#reasonSpam'),
+  @JsonValue(ids.comAtprotoModerationDefsReasonSpam)
+  spam(ids.comAtprotoModerationDefsReasonSpam),
 
   /// violation
-  @JsonValue('com.atproto.moderation.defs#reasonViolation')
-  violation('com.atproto.moderation.defs#reasonViolation'),
+  @JsonValue(ids.comAtprotoModerationDefsReasonViolation)
+  violation(ids.comAtprotoModerationDefsReasonViolation),
 
   /// violation
-  @JsonValue('com.atproto.moderation.defs#reasonMisleading')
-  misleading('com.atproto.moderation.defs#reasonMisleading'),
+  @JsonValue(ids.comAtprotoModerationDefsReasonMisleading)
+  misleading(ids.comAtprotoModerationDefsReasonMisleading),
 
   /// sexual
-  @JsonValue('com.atproto.moderation.defs#reasonSexual')
-  sexual('com.atproto.moderation.defs#reasonSexual'),
+  @JsonValue(ids.comAtprotoModerationDefsReasonSexual)
+  sexual(ids.comAtprotoModerationDefsReasonSexual),
 
   /// sexual
-  @JsonValue('com.atproto.moderation.defs#reasonRude')
-  rude('com.atproto.moderation.defs#reasonRude'),
+  @JsonValue(ids.comAtprotoModerationDefsReasonRude)
+  rude(ids.comAtprotoModerationDefsReasonRude),
 
   /// other
-  @JsonValue('com.atproto.moderation.defs#reasonOther')
-  other('com.atproto.moderation.defs#reasonOther');
+  @JsonValue(ids.comAtprotoModerationDefsReasonOther)
+  other(ids.comAtprotoModerationDefsReasonOther);
 
   @override
   final String value;

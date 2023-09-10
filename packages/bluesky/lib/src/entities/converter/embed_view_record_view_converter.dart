@@ -24,31 +24,35 @@ final class _EmbedViewRecordViewConverter
 
   @override
   EmbedViewRecordView fromJson(Map<String, dynamic> json) {
-    final type = json[core.objectType];
+    try {
+      final type = json[core.objectType];
 
-    if (type == ids.appBskyEmbedRecordViewRecord) {
-      return EmbedViewRecordView.record(
-        data: EmbedViewRecordViewRecord.fromJson(json),
-      );
-    } else if (type == ids.appBskyEmbedRecordViewNotFound) {
-      return EmbedViewRecordView.notFound(
-        data: EmbedViewRecordViewNotFound.fromJson(json),
-      );
-    } else if (type == ids.appBskyEmbedRecordViewBlocked) {
-      return EmbedViewRecordView.blocked(
-        data: EmbedViewRecordViewBlocked.fromJson(json),
-      );
-    } else if (type == ids.appBskyFeedDefsGeneratorView) {
-      return EmbedViewRecordView.generatorView(
-        data: FeedGeneratorView.fromJson(json),
-      );
-    } else if (type == ids.appBskyGraphDefsListView) {
-      return EmbedViewRecordView.listView(
-        data: ListView.fromJson(json),
-      );
+      if (type == ids.appBskyEmbedRecordViewRecord) {
+        return EmbedViewRecordView.record(
+          data: EmbedViewRecordViewRecord.fromJson(json),
+        );
+      } else if (type == ids.appBskyEmbedRecordViewNotFound) {
+        return EmbedViewRecordView.notFound(
+          data: EmbedViewRecordViewNotFound.fromJson(json),
+        );
+      } else if (type == ids.appBskyEmbedRecordViewBlocked) {
+        return EmbedViewRecordView.blocked(
+          data: EmbedViewRecordViewBlocked.fromJson(json),
+        );
+      } else if (type == ids.appBskyFeedDefsGeneratorView) {
+        return EmbedViewRecordView.generatorView(
+          data: FeedGeneratorView.fromJson(json),
+        );
+      } else if (type == ids.appBskyGraphDefsListView) {
+        return EmbedViewRecordView.listView(
+          data: ListView.fromJson(json),
+        );
+      }
+
+      return EmbedViewRecordView.unknown(data: json);
+    } catch (_) {
+      return EmbedViewRecordView.unknown(data: json);
     }
-
-    return EmbedViewRecordView.unknown(data: json);
   }
 
   @override

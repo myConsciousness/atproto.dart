@@ -19,15 +19,19 @@ final class _ReasonConverter
 
   @override
   Reason fromJson(Map<String, dynamic> json) {
-    final type = json[core.objectType];
+    try {
+      final type = json[core.objectType];
 
-    if (type == ids.appBskyFeedDefsReasonRepost) {
-      return Reason.repost(
-        data: ReasonRepost.fromJson(json),
-      );
+      if (type == ids.appBskyFeedDefsReasonRepost) {
+        return Reason.repost(
+          data: ReasonRepost.fromJson(json),
+        );
+      }
+
+      return Reason.unknown(data: json);
+    } catch (_) {
+      return Reason.unknown(data: json);
     }
-
-    return Reason.unknown(data: json);
   }
 
   @override
