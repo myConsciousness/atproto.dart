@@ -21,31 +21,35 @@ final class _SubscribedRepoConverter
 
   @override
   SubscribedRepo fromJson(Map<String, dynamic> json) {
-    final String type = json['t'];
+    try {
+      final String type = json['t'];
 
-    if (type == '#commit') {
-      return SubscribedRepo.commit(
-        data: SubscribedRepoCommit.fromJson(json),
-      );
-    } else if (type == '#handle') {
-      return SubscribedRepo.handle(
-        data: SubscribedRepoHandle.fromJson(json),
-      );
-    } else if (type == '#migrate') {
-      return SubscribedRepo.migrate(
-        data: SubscribedRepoMigrate.fromJson(json),
-      );
-    } else if (type == '#tombstone') {
-      return SubscribedRepo.tombstone(
-        data: SubscribedRepoTombstone.fromJson(json),
-      );
-    } else if (type == '#info') {
-      return SubscribedRepo.info(
-        data: SubscribedRepoInfo.fromJson(json),
-      );
+      if (type == '#commit') {
+        return SubscribedRepo.commit(
+          data: SubscribedRepoCommit.fromJson(json),
+        );
+      } else if (type == '#handle') {
+        return SubscribedRepo.handle(
+          data: SubscribedRepoHandle.fromJson(json),
+        );
+      } else if (type == '#migrate') {
+        return SubscribedRepo.migrate(
+          data: SubscribedRepoMigrate.fromJson(json),
+        );
+      } else if (type == '#tombstone') {
+        return SubscribedRepo.tombstone(
+          data: SubscribedRepoTombstone.fromJson(json),
+        );
+      } else if (type == '#info') {
+        return SubscribedRepo.info(
+          data: SubscribedRepoInfo.fromJson(json),
+        );
+      }
+
+      return SubscribedRepo.unknown(data: json);
+    } catch (_) {
+      return SubscribedRepo.unknown(data: json);
     }
-
-    return SubscribedRepo.unknown(data: json);
   }
 
   @override

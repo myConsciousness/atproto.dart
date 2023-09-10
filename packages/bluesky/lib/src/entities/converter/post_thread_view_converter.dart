@@ -21,23 +21,27 @@ final class _PostThreadViewConverter
 
   @override
   PostThreadView fromJson(Map<String, dynamic> json) {
-    final type = json[core.objectType];
+    try {
+      final type = json[core.objectType];
 
-    if (type == ids.appBskyFeedDefsThreadViewPost) {
-      return PostThreadView.record(
-        data: PostThreadViewRecord.fromJson(json),
-      );
-    } else if (type == ids.appBskyFeedDefsNotFoundPost) {
-      return PostThreadView.notFound(
-        data: NotFoundPost.fromJson(json),
-      );
-    } else if (type == ids.appBskyFeedDefsBlockedPost) {
-      return PostThreadView.blocked(
-        data: BlockedPost.fromJson(json),
-      );
+      if (type == ids.appBskyFeedDefsThreadViewPost) {
+        return PostThreadView.record(
+          data: PostThreadViewRecord.fromJson(json),
+        );
+      } else if (type == ids.appBskyFeedDefsNotFoundPost) {
+        return PostThreadView.notFound(
+          data: NotFoundPost.fromJson(json),
+        );
+      } else if (type == ids.appBskyFeedDefsBlockedPost) {
+        return PostThreadView.blocked(
+          data: BlockedPost.fromJson(json),
+        );
+      }
+
+      return PostThreadView.unknown(data: json);
+    } catch (_) {
+      return PostThreadView.unknown(data: json);
     }
-
-    return PostThreadView.unknown(data: json);
   }
 
   @override

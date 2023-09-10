@@ -22,27 +22,31 @@ final class _PreferenceConverter
 
   @override
   Preference fromJson(Map<String, dynamic> json) {
-    final type = json[core.objectType];
+    try {
+      final type = json[core.objectType];
 
-    if (type == ids.appBskyActorDefsAdultContentPref) {
-      return Preference.adultContent(
-        data: AdultContentPreference.fromJson(json),
-      );
-    } else if (type == ids.appBskyActorDefsContentLabelPref) {
-      return Preference.contentLabel(
-        data: ContentLabelPreference.fromJson(json),
-      );
-    } else if (type == ids.appBskyActorDefsSavedFeedsPref) {
-      return Preference.savedFeeds(
-        data: SavedFeedsPreference.fromJson(json),
-      );
-    } else if (type == ids.appBskyActorDefsPersonalDetailsPref) {
-      return Preference.personalDetails(
-        data: PersonalDetailsPreference.fromJson(json),
-      );
+      if (type == ids.appBskyActorDefsAdultContentPref) {
+        return Preference.adultContent(
+          data: AdultContentPreference.fromJson(json),
+        );
+      } else if (type == ids.appBskyActorDefsContentLabelPref) {
+        return Preference.contentLabel(
+          data: ContentLabelPreference.fromJson(json),
+        );
+      } else if (type == ids.appBskyActorDefsSavedFeedsPref) {
+        return Preference.savedFeeds(
+          data: SavedFeedsPreference.fromJson(json),
+        );
+      } else if (type == ids.appBskyActorDefsPersonalDetailsPref) {
+        return Preference.personalDetails(
+          data: PersonalDetailsPreference.fromJson(json),
+        );
+      }
+
+      return Preference.unknown(data: json);
+    } catch (_) {
+      return Preference.unknown(data: json);
     }
-
-    return Preference.unknown(data: json);
   }
 
   @override

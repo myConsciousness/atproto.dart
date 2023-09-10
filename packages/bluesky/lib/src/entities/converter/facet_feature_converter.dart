@@ -21,19 +21,23 @@ final class _FacetFeatureConverter
 
   @override
   FacetFeature fromJson(Map<String, dynamic> json) {
-    final type = json[core.objectType];
+    try {
+      final type = json[core.objectType];
 
-    if (type == ids.appBskyRichtextFacetLink) {
-      return FacetFeature.link(
-        data: FacetLink.fromJson(json),
-      );
-    } else if (type == ids.appBskyRichtextFacetMention) {
-      return FacetFeature.mention(
-        data: FacetMention.fromJson(json),
-      );
+      if (type == ids.appBskyRichtextFacetLink) {
+        return FacetFeature.link(
+          data: FacetLink.fromJson(json),
+        );
+      } else if (type == ids.appBskyRichtextFacetMention) {
+        return FacetFeature.mention(
+          data: FacetMention.fromJson(json),
+        );
+      }
+
+      return FacetFeature.unknown(data: json);
+    } catch (_) {
+      return FacetFeature.unknown(data: json);
     }
-
-    return FacetFeature.unknown(data: json);
   }
 
   @override
