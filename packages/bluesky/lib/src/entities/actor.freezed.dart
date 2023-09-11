@@ -37,7 +37,7 @@ mixin _$Actor {
 
   /// The [ActorViewer] instance representing the authenticated user's
   /// relationship with the actor.
-  ActorViewer get viewer => throw _privateConstructorUsedError;
+  ActorViewer? get viewer => throw _privateConstructorUsedError;
 
   /// A list of labels associated with the actor.
   List<Label>? get labels => throw _privateConstructorUsedError;
@@ -61,11 +61,11 @@ abstract class $ActorCopyWith<$Res> {
       String? displayName,
       String? description,
       String? avatar,
-      ActorViewer viewer,
+      ActorViewer? viewer,
       List<Label>? labels,
       DateTime? indexedAt});
 
-  $ActorViewerCopyWith<$Res> get viewer;
+  $ActorViewerCopyWith<$Res>? get viewer;
 }
 
 /// @nodoc
@@ -86,7 +86,7 @@ class _$ActorCopyWithImpl<$Res, $Val extends Actor>
     Object? displayName = freezed,
     Object? description = freezed,
     Object? avatar = freezed,
-    Object? viewer = null,
+    Object? viewer = freezed,
     Object? labels = freezed,
     Object? indexedAt = freezed,
   }) {
@@ -111,10 +111,10 @@ class _$ActorCopyWithImpl<$Res, $Val extends Actor>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      viewer: null == viewer
+      viewer: freezed == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ActorViewer,
+              as ActorViewer?,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -128,8 +128,12 @@ class _$ActorCopyWithImpl<$Res, $Val extends Actor>
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorViewerCopyWith<$Res> get viewer {
-    return $ActorViewerCopyWith<$Res>(_value.viewer, (value) {
+  $ActorViewerCopyWith<$Res>? get viewer {
+    if (_value.viewer == null) {
+      return null;
+    }
+
+    return $ActorViewerCopyWith<$Res>(_value.viewer!, (value) {
       return _then(_value.copyWith(viewer: value) as $Val);
     });
   }
@@ -147,12 +151,12 @@ abstract class _$$_ActorCopyWith<$Res> implements $ActorCopyWith<$Res> {
       String? displayName,
       String? description,
       String? avatar,
-      ActorViewer viewer,
+      ActorViewer? viewer,
       List<Label>? labels,
       DateTime? indexedAt});
 
   @override
-  $ActorViewerCopyWith<$Res> get viewer;
+  $ActorViewerCopyWith<$Res>? get viewer;
 }
 
 /// @nodoc
@@ -169,7 +173,7 @@ class __$$_ActorCopyWithImpl<$Res> extends _$ActorCopyWithImpl<$Res, _$_Actor>
     Object? displayName = freezed,
     Object? description = freezed,
     Object? avatar = freezed,
-    Object? viewer = null,
+    Object? viewer = freezed,
     Object? labels = freezed,
     Object? indexedAt = freezed,
   }) {
@@ -194,10 +198,10 @@ class __$$_ActorCopyWithImpl<$Res> extends _$ActorCopyWithImpl<$Res, _$_Actor>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      viewer: null == viewer
+      viewer: freezed == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ActorViewer,
+              as ActorViewer?,
       labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -252,7 +256,7 @@ class _$_Actor extends _Actor {
   /// The [ActorViewer] instance representing the authenticated user's
   /// relationship with the actor.
   @override
-  final ActorViewer viewer;
+  final ActorViewer? viewer;
 
   /// A list of labels associated with the actor.
   final List<Label>? _labels;
@@ -328,7 +332,7 @@ abstract class _Actor extends Actor {
       final String? displayName,
       final String? description,
       final String? avatar,
-      required final ActorViewer viewer,
+      required final ActorViewer? viewer,
       final List<Label>? labels,
       final DateTime? indexedAt}) = _$_Actor;
   const _Actor._() : super._();
@@ -359,7 +363,7 @@ abstract class _Actor extends Actor {
 
   /// The [ActorViewer] instance representing the authenticated user's
   /// relationship with the actor.
-  ActorViewer get viewer;
+  ActorViewer? get viewer;
   @override
 
   /// A list of labels associated with the actor.
