@@ -56,7 +56,7 @@ class Actor with _$Actor {
 
     /// The [ActorViewer] instance representing the authenticated user's
     /// relationship with the actor.
-    required ActorViewer viewer,
+    required ActorViewer? viewer,
 
     /// A list of labels associated with the actor.
     List<Label>? labels,
@@ -78,15 +78,15 @@ class Actor with _$Actor {
 
   /// Returns true if authenticated user has not muted yet this actor,
   /// otherwise false.
-  bool get isNotMuted => viewer.isNotMuted;
+  bool get isNotMuted => viewer?.isNotMuted ?? true;
 
   /// Returns true if authenticated user has not blocked yet by this actor,
   /// otherwise false.
-  bool get isNotBlockedBy => viewer.isNotBlockedBy;
+  bool get isNotBlockedBy => viewer?.isNotBlockedBy ?? true;
 
   /// Returns true if authenticated user has already muted this actor by list,
   /// otherwise false.
-  bool get isMutedByList => viewer.isMutedByList;
+  bool get isMutedByList => viewer?.isMutedByList ?? false;
 
   /// Returns true if authenticated user has not muted yet this actor by list,
   /// otherwise false.
@@ -94,7 +94,7 @@ class Actor with _$Actor {
 
   /// Returns true if authenticated user has already blocked this actor,
   /// otherwise false.
-  bool get isBlocking => viewer.isBlocking;
+  bool get isBlocking => viewer?.isBlocking ?? false;
 
   /// Returns true if authenticated user has not blocked yet this actor,
   /// otherwise false.
@@ -102,7 +102,7 @@ class Actor with _$Actor {
 
   /// Returns true if authenticated user has already following this actor,
   /// otherwise false.
-  bool get isFollowing => viewer.isFollowing;
+  bool get isFollowing => viewer?.isFollowing ?? false;
 
   /// Returns true if authenticated user has not following yet this actor,
   /// otherwise false.
@@ -110,7 +110,7 @@ class Actor with _$Actor {
 
   /// Returns true if authenticated user has already followed by this actor,
   /// otherwise false.
-  bool get isFollowedBy => viewer.isFollowedBy;
+  bool get isFollowedBy => viewer?.isFollowedBy ?? false;
 
   /// Returns true if authenticated user has not followed by yet by this actor,
   /// otherwise false.
