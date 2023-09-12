@@ -401,8 +401,5 @@ const comAtprotoSyncSubscribeReposRepoOp =
 const comAtprotoSyncSubscribeReposTombstone =
     'com.atproto.sync.subscribeRepos#tombstone';
 
-/// `com.atproto.temp.upgradeRepoVersion`
-const comAtprotoTempUpgradeRepoVersion = 'com.atproto.temp.upgradeRepoVersion';
-
 /// `blob`
 const blob = 'blob';
