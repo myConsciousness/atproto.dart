@@ -13,6 +13,40 @@ import 'package:bluesky/src/entities/list_view_basic.dart';
 import 'package:bluesky/src/entities/list_viewer.dart';
 
 void main() {
+  group('.isMuted', () {
+    test('when muted', () {
+      final actorProfile = ActorProfile(
+        did: 'xxxxxx',
+        handle: 'shinyakato.dev',
+        followersCount: 0,
+        followsCount: 0,
+        postsCount: 0,
+        viewer: ActorViewer(
+          isMuted: true,
+          isBlockedBy: false,
+        ),
+      );
+
+      expect(actorProfile.isMuted, isTrue);
+    });
+
+    test('when not muted', () {
+      final actorProfile = ActorProfile(
+        did: 'xxxxxx',
+        handle: 'shinyakato.dev',
+        followersCount: 0,
+        followsCount: 0,
+        postsCount: 0,
+        viewer: ActorViewer(
+          isMuted: false,
+          isBlockedBy: false,
+        ),
+      );
+
+      expect(actorProfile.isMuted, isFalse);
+    });
+  });
+
   group('.isNotMuted', () {
     test('when muted', () {
       final actorProfile = ActorProfile(
@@ -44,6 +78,40 @@ void main() {
       );
 
       expect(actorProfile.isNotMuted, isTrue);
+    });
+  });
+
+  group('.isBlockedBy', () {
+    test('when blocked by', () {
+      final actorProfile = ActorProfile(
+        did: 'xxxxxx',
+        handle: 'shinyakato.dev',
+        followersCount: 0,
+        followsCount: 0,
+        postsCount: 0,
+        viewer: ActorViewer(
+          isMuted: false,
+          isBlockedBy: true,
+        ),
+      );
+
+      expect(actorProfile.isBlockedBy, isTrue);
+    });
+
+    test('when not blocked by', () {
+      final actorProfile = ActorProfile(
+        did: 'xxxxxx',
+        handle: 'shinyakato.dev',
+        followersCount: 0,
+        followsCount: 0,
+        postsCount: 0,
+        viewer: ActorViewer(
+          isMuted: false,
+          isBlockedBy: false,
+        ),
+      );
+
+      expect(actorProfile.isBlockedBy, isFalse);
     });
   });
 

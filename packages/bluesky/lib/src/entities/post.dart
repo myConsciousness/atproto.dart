@@ -12,6 +12,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import 'actor.dart';
 import 'converter/embed_view_converter.dart';
+import 'defaults.dart';
 import 'embed_view.dart';
 import 'keys/ids.g.dart';
 import 'post_record.dart';
@@ -57,16 +58,16 @@ class Post with _$Post {
     @embedViewConverter EmbedView? embed,
 
     /// The count of replies to the post.
-    required int replyCount,
+    @Default(0) int replyCount,
 
     /// The count of reposts of the post.
-    required int repostCount,
+    @Default(0) int repostCount,
 
     /// The count of likes of the post.
-    required int likeCount,
+    @Default(0) int likeCount,
 
     /// The interaction details of the viewer with the post.
-    required PostViewer viewer,
+    @Default(defaultPostViewer) PostViewer viewer,
 
     /// The labels associated with the post, if any.
     List<Label>? labels,

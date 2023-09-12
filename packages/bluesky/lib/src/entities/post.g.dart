@@ -26,11 +26,14 @@ _$_Post _$$_PostFromJson(Map json) => $checkedCreate(
               'embed',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, EmbedView>(
                   v, embedViewConverter.fromJson)),
-          replyCount: $checkedConvert('replyCount', (v) => v as int),
-          repostCount: $checkedConvert('repostCount', (v) => v as int),
-          likeCount: $checkedConvert('likeCount', (v) => v as int),
-          viewer: $checkedConvert('viewer',
-              (v) => PostViewer.fromJson(Map<String, Object?>.from(v as Map))),
+          replyCount: $checkedConvert('replyCount', (v) => v as int? ?? 0),
+          repostCount: $checkedConvert('repostCount', (v) => v as int? ?? 0),
+          likeCount: $checkedConvert('likeCount', (v) => v as int? ?? 0),
+          viewer: $checkedConvert(
+              'viewer',
+              (v) => v == null
+                  ? defaultPostViewer
+                  : PostViewer.fromJson(Map<String, Object?>.from(v as Map))),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)

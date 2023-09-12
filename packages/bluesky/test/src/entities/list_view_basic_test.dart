@@ -11,6 +11,40 @@ import 'package:bluesky/src/entities/list_view_basic.dart';
 import 'package:bluesky/src/entities/list_viewer.dart';
 
 void main() {
+  group('.isMuted', () {
+    test('when muted', () {
+      final list = ListViewBasic(
+        uri: AtUri.parse(
+          'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
+        ),
+        cid: 'aaaaa',
+        name: 'test',
+        viewer: ListViewer(
+          isMuted: true,
+        ),
+        indexedAt: DateTime.now(),
+      );
+
+      expect(list.isMuted, isTrue);
+    });
+
+    test('when not muted', () {
+      final list = ListViewBasic(
+        uri: AtUri.parse(
+          'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
+        ),
+        cid: 'aaaaa',
+        name: 'test',
+        viewer: ListViewer(
+          isMuted: false,
+        ),
+        indexedAt: DateTime.now(),
+      );
+
+      expect(list.isMuted, isFalse);
+    });
+  });
+
   group('.isNotMuted', () {
     test('when muted', () {
       final list = ListViewBasic(

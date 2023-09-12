@@ -21,7 +21,7 @@ _$_Actor _$$_ActorFromJson(Map json) => $checkedCreate(
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
-                  ? null
+                  ? defaultActorViewer
                   : ActorViewer.fromJson(Map<String, Object?>.from(v as Map))),
           labels: $checkedConvert(
               'labels',
@@ -51,7 +51,7 @@ Map<String, dynamic> _$$_ActorToJson(_$_Actor instance) {
   writeNotNull('displayName', instance.displayName);
   writeNotNull('description', instance.description);
   writeNotNull('avatar', instance.avatar);
-  writeNotNull('viewer', instance.viewer?.toJson());
+  val['viewer'] = instance.viewer.toJson();
   writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
   writeNotNull('indexedAt', instance.indexedAt?.toIso8601String());
   return val;

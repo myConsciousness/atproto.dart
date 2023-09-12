@@ -286,10 +286,10 @@ class _$_ActorProfile extends _ActorProfile {
       this.description,
       this.avatar,
       this.banner,
-      required this.followsCount,
-      required this.followersCount,
-      required this.postsCount,
-      required this.viewer,
+      this.followsCount = 0,
+      this.followersCount = 0,
+      this.postsCount = 0,
+      this.viewer = defaultActorViewer,
       final List<Label>? labels,
       this.indexedAt})
       : _labels = labels,
@@ -324,18 +324,22 @@ class _$_ActorProfile extends _ActorProfile {
 
   /// The number of actors this actor is following.
   @override
+  @JsonKey()
   final int followsCount;
 
   /// The number of followers this actor has.
   @override
+  @JsonKey()
   final int followersCount;
 
   /// The number of posts this actor has made.
   @override
+  @JsonKey()
   final int postsCount;
 
   /// The viewer's (authenticated user's) relationship to this actor.
   @override
+  @JsonKey()
   final ActorViewer viewer;
 
   /// The labels assigned to this actor.
@@ -424,10 +428,10 @@ abstract class _ActorProfile extends ActorProfile {
       final String? description,
       final String? avatar,
       final String? banner,
-      required final int followsCount,
-      required final int followersCount,
-      required final int postsCount,
-      required final ActorViewer viewer,
+      final int followsCount,
+      final int followersCount,
+      final int postsCount,
+      final ActorViewer viewer,
       final List<Label>? labels,
       final DateTime? indexedAt}) = _$_ActorProfile;
   const _ActorProfile._() : super._();
