@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.4
+
+- Added `.accessToken` and `.refreshToken` properties on `Session` object. You can get decoded token objects based on JWT tokens. Also you can decode JWT token with `decodeJwt` function. ([#787](https://github.com/myConsciousness/atproto.dart/issues/787))
+
 ## v0.5.3
 
 - Added `Platform` enum. ([#709](https://github.com/myConsciousness/atproto.dart/issues/709))
