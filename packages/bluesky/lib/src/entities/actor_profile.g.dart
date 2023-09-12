@@ -19,11 +19,15 @@ _$_ActorProfile _$$_ActorProfileFromJson(Map json) => $checkedCreate(
           description: $checkedConvert('description', (v) => v as String?),
           avatar: $checkedConvert('avatar', (v) => v as String?),
           banner: $checkedConvert('banner', (v) => v as String?),
-          followsCount: $checkedConvert('followsCount', (v) => v as int),
-          followersCount: $checkedConvert('followersCount', (v) => v as int),
-          postsCount: $checkedConvert('postsCount', (v) => v as int),
-          viewer: $checkedConvert('viewer',
-              (v) => ActorViewer.fromJson(Map<String, Object?>.from(v as Map))),
+          followsCount: $checkedConvert('followsCount', (v) => v as int? ?? 0),
+          followersCount:
+              $checkedConvert('followersCount', (v) => v as int? ?? 0),
+          postsCount: $checkedConvert('postsCount', (v) => v as int? ?? 0),
+          viewer: $checkedConvert(
+              'viewer',
+              (v) => v == null
+                  ? defaultActorViewer
+                  : ActorViewer.fromJson(Map<String, Object?>.from(v as Map))),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)

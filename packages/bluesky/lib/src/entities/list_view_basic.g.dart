@@ -22,8 +22,11 @@ _$_ListViewBasic _$$_ListViewBasicFromJson(Map json) => $checkedCreate(
           cid: $checkedConvert('cid', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
           avatar: $checkedConvert('avatar', (v) => v as String?),
-          viewer: $checkedConvert('viewer',
-              (v) => ListViewer.fromJson(Map<String, Object?>.from(v as Map))),
+          viewer: $checkedConvert(
+              'viewer',
+              (v) => v == null
+                  ? defaultListViewer
+                  : ListViewer.fromJson(Map<String, Object?>.from(v as Map))),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
         );

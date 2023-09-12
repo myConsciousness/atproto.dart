@@ -320,10 +320,10 @@ class _$_Post extends _Post {
       @atUriConverter required this.uri,
       required this.cid,
       @embedViewConverter this.embed,
-      required this.replyCount,
-      required this.repostCount,
-      required this.likeCount,
-      required this.viewer,
+      this.replyCount = 0,
+      this.repostCount = 0,
+      this.likeCount = 0,
+      this.viewer = defaultPostViewer,
       final List<Label>? labels,
       required this.indexedAt})
       : _labels = labels,
@@ -360,18 +360,22 @@ class _$_Post extends _Post {
 
   /// The count of replies to the post.
   @override
+  @JsonKey()
   final int replyCount;
 
   /// The count of reposts of the post.
   @override
+  @JsonKey()
   final int repostCount;
 
   /// The count of likes of the post.
   @override
+  @JsonKey()
   final int likeCount;
 
   /// The interaction details of the viewer with the post.
   @override
+  @JsonKey()
   final PostViewer viewer;
 
   /// The labels associated with the post, if any.
@@ -458,10 +462,10 @@ abstract class _Post extends Post {
       @atUriConverter required final AtUri uri,
       required final String cid,
       @embedViewConverter final EmbedView? embed,
-      required final int replyCount,
-      required final int repostCount,
-      required final int likeCount,
-      required final PostViewer viewer,
+      final int replyCount,
+      final int repostCount,
+      final int likeCount,
+      final PostViewer viewer,
       final List<Label>? labels,
       required final DateTime indexedAt}) = _$_Post;
   const _Post._() : super._();

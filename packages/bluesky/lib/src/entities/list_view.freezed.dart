@@ -286,7 +286,7 @@ class _$_ListView extends _ListView {
       final List<Facet>? descriptionFacets,
       this.avatar,
       @JsonKey(name: 'creator') required this.createdBy,
-      required this.viewer,
+      this.viewer = defaultListViewer,
       required this.indexedAt})
       : _descriptionFacets = descriptionFacets,
         super._();
@@ -346,6 +346,7 @@ class _$_ListView extends _ListView {
 
   /// The viewer of the list.
   @override
+  @JsonKey()
   final ListViewer viewer;
 
   /// The date of the indexing of the list.
@@ -420,7 +421,7 @@ abstract class _ListView extends ListView {
       final List<Facet>? descriptionFacets,
       final String? avatar,
       @JsonKey(name: 'creator') required final Actor createdBy,
-      required final ListViewer viewer,
+      final ListViewer viewer,
       required final DateTime indexedAt}) = _$_ListView;
   const _ListView._() : super._();
 
