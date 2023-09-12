@@ -37,5 +37,5 @@ import_sorter:
   emojis: true
 
 screenshots:
-  - description: The bluesky package logo.
-    path: ../../resources/logo.png
+  - description: The bluesky package and atproto.dart logo.
+    path: screenshots/logo.png
