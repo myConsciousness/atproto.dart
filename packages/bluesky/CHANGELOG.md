@@ -2,7 +2,7 @@
 
 ## v0.8.15
 
-- `viewer` on `Actor` object is **NOT** nullable. Fixed to set default objects if JSON is empty. ([#782](https://github.com/myConsciousness/atproto.dart/issues/#779))
+- `viewer` on `Actor` object is **NOT** nullable. Fixed to set default objects if JSON is empty. ([#782](https://github.com/myConsciousness/atproto.dart/issues/#782))
 
 ## v0.8.14
 
