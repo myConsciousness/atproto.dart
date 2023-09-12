@@ -1,5 +1,13 @@
 # Release Note
 
+## v0.8.15
+
+- `viewer` on `Actor` object is **NOT** nullable. Fixed to set default objects if JSON is empty. ([#782](https://github.com/myConsciousness/atproto.dart/issues/#782))
+
+## v0.8.14
+
+- `viewer` on `Actor` object is nullable. ([#779](https://github.com/myConsciousness/atproto.dart/issues/#779))
+
 ## v0.8.13
 
 - Improved union type to always return Unknown type if conversion to a specific type fails. With this fix, an exception/error is no longer thrown when converting json to a specific type for union. ([#775](https://github.com/myConsciousness/atproto.dart/issues/775))

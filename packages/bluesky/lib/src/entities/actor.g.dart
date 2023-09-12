@@ -18,8 +18,11 @@ _$_Actor _$$_ActorFromJson(Map json) => $checkedCreate(
           displayName: $checkedConvert('displayName', (v) => v as String?),
           description: $checkedConvert('description', (v) => v as String?),
           avatar: $checkedConvert('avatar', (v) => v as String?),
-          viewer: $checkedConvert('viewer',
-              (v) => ActorViewer.fromJson(Map<String, Object?>.from(v as Map))),
+          viewer: $checkedConvert(
+              'viewer',
+              (v) => v == null
+                  ? defaultActorViewer
+                  : ActorViewer.fromJson(Map<String, Object?>.from(v as Map))),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)

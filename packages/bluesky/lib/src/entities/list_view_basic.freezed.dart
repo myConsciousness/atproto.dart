@@ -229,7 +229,7 @@ class _$_ListViewBasic extends _ListViewBasic {
       required this.cid,
       required this.name,
       this.avatar,
-      required this.viewer,
+      this.viewer = defaultListViewer,
       required this.indexedAt})
       : super._();
 
@@ -266,6 +266,7 @@ class _$_ListViewBasic extends _ListViewBasic {
 
   /// The viewer of the list.
   @override
+  @JsonKey()
   final ListViewer viewer;
 
   /// The date of the indexing of the list.
@@ -320,7 +321,7 @@ abstract class _ListViewBasic extends ListViewBasic {
       required final String cid,
       required final String name,
       final String? avatar,
-      required final ListViewer viewer,
+      final ListViewer viewer,
       required final DateTime indexedAt}) = _$_ListViewBasic;
   const _ListViewBasic._() : super._();
 
