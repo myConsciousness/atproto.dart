@@ -12,6 +12,9 @@ export 'package:atproto_core/src/paginations/pagination.dart';
 export 'package:atproto_core/src/clients/client_context.dart';
 export 'package:atproto_core/src/clients/jitter.dart';
 export 'package:atproto_core/src/clients/retry_event.dart';
+export 'package:atproto_core/src/sessions/auth_scope.dart';
+export 'package:atproto_core/src/sessions/auth_token.dart';
+export 'package:atproto_core/src/sessions/jwt_decoder.dart' show decodeJwt;
 export 'package:atproto_core/src/sessions/session.dart';
 export 'package:atproto_core/src/sessions/sessions.dart'
     show createSession, refreshSession;

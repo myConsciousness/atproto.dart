@@ -1,5 +1,9 @@
 # Release Note
 
+## 0.6.6
+
+- Added `.accessToken` and `.refreshToken` properties on `Session` object. You can get decoded token objects based on JWT tokens. Also you can decode JWT token with `decodeJwt` function. ([#787](https://github.com/myConsciousness/atproto.dart/issues/787))
+
 ## v0.6.5
 
 - Improved union type to always return Unknown type if conversion to a specific type fails. With this fix, an exception/error is no longer thrown when converting json to a specific type for union. ([#775](https://github.com/myConsciousness/atproto.dart/issues/775))

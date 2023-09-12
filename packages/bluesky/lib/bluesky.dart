@@ -159,6 +159,10 @@ export 'package:atproto_core/atproto_core.dart'
         PostClient,
         Session,
         $SessionCopyWith,
+        AuthToken,
+        $AuthTokenCopyWith,
+        AuthScope,
+        decodeJwt,
         createSession,
         refreshSession,
         isValidAppPassword;
