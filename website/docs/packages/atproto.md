@@ -232,45 +232,6 @@ Future<void> main() async {
 }
 ```
 
-:::tip
-A **[`Session`](https://pub.dev/documentation/atproto_core/latest/atproto_core/Session-class.html)** can be created by using the `.createSession` function, as in the example above.
-But the problem is that an access token has an expiration time, and an access token created from `.createSession` is **_only valid for 120 minutes_**.
-In other words, once you have created a Session with `.createSession`, you must re-create the Session again using `.createSession` again **_within the 120 minutes of validity_**.
-
-However, instead of using `.createSession` every 120 minutes, there is a way to get an access token with a longer expiration time.
-That is, by using the `.refreshSession` function with **[`Session`](https://pub.dev/documentation/atproto_core/latest/atproto_core/Session-class.html)** information created from `.createSession`, the access token obtained from the `.refreshSession` function is **_valid for 90 days_**.
-
-```dart
-import 'package:atproto/atproto.dart' as atp;
-
-Future<void> main() async {
-  // Valid for 120 minutes only.
-  final session = await atp.createSession(
-    identifier: 'HANDLE_OR_EMAIL',
-    password: 'PASSWORD',
-  );
-
-  // Valid for 90 days.
-  final refreshedSession = await atp.refreshSession(
-    refreshJwt: session.data.refreshJwt,
-  );
-
-  // You can create ATProto object from authenticated session.
-  final atproto = atp.ATProto.fromSession(refreshedSession.data);
-
-  // Do something with atproto
-  final did = await atproto.identities.findDID(handle: session.data.handle);
-}
-```
-
-The following matrix organizes the information so far.
-
-| Function              | Expiration Time |
-| --------------------- | --------------- |
-| **`.createSession`**  | 120 minutes     |
-| **`.refreshSession`** | 90 days         |
-:::
-
 ### App Password
 
 :::info
