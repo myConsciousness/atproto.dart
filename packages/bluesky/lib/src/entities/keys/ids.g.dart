@@ -272,6 +272,9 @@ const appBskyGraphGetFollows = 'app.bsky.graph.getFollows';
 /// `app.bsky.graph.getList`
 const appBskyGraphGetList = 'app.bsky.graph.getList';
 
+/// `app.bsky.graph.getListBlocks`
+const appBskyGraphGetListBlocks = 'app.bsky.graph.getListBlocks';
+
 /// `app.bsky.graph.getListMutes`
 const appBskyGraphGetListMutes = 'app.bsky.graph.getListMutes';
 
@@ -283,6 +286,9 @@ const appBskyGraphGetMutes = 'app.bsky.graph.getMutes';
 
 /// `app.bsky.graph.list`
 const appBskyGraphList = 'app.bsky.graph.list';
+
+/// `app.bsky.graph.listblock`
+const appBskyGraphListblock = 'app.bsky.graph.listblock';
 
 /// `app.bsky.graph.listitem`
 const appBskyGraphListitem = 'app.bsky.graph.listitem';
