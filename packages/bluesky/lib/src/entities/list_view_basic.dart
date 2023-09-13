@@ -72,4 +72,10 @@ class ListViewBasic with _$ListViewBasic {
   /// Returns true if authenticated user has not muted yet this actor,
   /// otherwise false.
   bool get isNotMuted => !isMuted;
+
+  /// Returns true if this list is blocked, otherwise false.
+  bool get isBlocked => viewer.isBlocked;
+
+  /// Returns true if this list is not blocked, otherwise false.
+  bool get isNotBlocked => !isBlocked;
 }

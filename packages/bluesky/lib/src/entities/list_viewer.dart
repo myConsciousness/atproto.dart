@@ -28,6 +28,9 @@ class ListViewer with _$ListViewer {
   const factory ListViewer({
     /// Represents whether the viewer has muted the list.
     @JsonKey(name: 'muted') @Default(false) bool isMuted,
+
+    /// The URI of the list that the user is blocking.
+    @atUriConverter AtUri? blocked,
   }) = _ListViewer;
 
   /// Creates an instance of [ListViewer] from a map [json].
@@ -40,4 +43,10 @@ class ListViewer with _$ListViewer {
   /// Returns true if authenticated user has not muted yet this actor,
   /// otherwise false.
   bool get isNotMuted => !isMuted;
+
+  /// Returns true if this list is blocked, otherwise false.
+  bool get isBlocked => blocked != null;
+
+  /// Returns true if this list is not blocked, otherwise false.
+  bool get isNotBlocked => !isBlocked;
 }
