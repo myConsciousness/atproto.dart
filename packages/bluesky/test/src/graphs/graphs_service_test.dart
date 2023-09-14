@@ -1775,4 +1775,99 @@ void main() {
       );
     });
   });
+
+  group('.findSuggestedFollows', () {
+    test('normal case', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/graphs/data/find_suggested_follows.json',
+        ),
+      );
+
+      final response = await graphs.findSuggestedFollows(
+        actor: 'shinyakato.dev',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<SuggestedFollows>());
+      expect(response.data.suggestions, isA<List<ActorProfile>>());
+    });
+
+    test('as JSON', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/graphs/data/find_suggested_follows.json',
+        ),
+      );
+
+      final response = await graphs.findSuggestedFollowsAsJson(
+        actor: 'shinyakato.dev',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
+    test('when unauthorized', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await graphs.findSuggestedFollows(
+          actor: 'shinyakato.dev',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await graphs.findSuggestedFollows(
+          actor: 'shinyakato.dev',
+        ),
+      );
+    });
+  });
 }
