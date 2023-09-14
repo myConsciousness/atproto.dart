@@ -3,6 +3,7 @@
 ## v0.8.17
 
 - Added `blocked` property on `ListViewer`. Also you can easily check with `.isBlocked` and `.isNotBlocked` properties. ([#792](https://github.com/myConsciousness/atproto.dart/issues/#792))
+- Upgraded `at_uri`. ([#797](https://github.com/myConsciousness/atproto.dart/issues/797))
 
 ## v0.8.16
 
