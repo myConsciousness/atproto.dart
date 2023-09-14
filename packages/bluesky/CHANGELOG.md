@@ -4,6 +4,9 @@
 
 - Added `blocked` property on `ListViewer`. Also you can easily check with `.isBlocked` and `.isNotBlocked` properties. ([#792](https://github.com/myConsciousness/atproto.dart/issues/#792))
 - Upgraded `at_uri`. ([#797](https://github.com/myConsciousness/atproto.dart/issues/797))
+- Supported `app.bsky.graph.getSuggestedFollowsByActor` on `GraphsService`. ([#800](https://github.com/myConsciousness/atproto.dart/issues/800))
+  - `.findSuggestedFollows`
+  - `.findSuggestedFollowsAsJson`
 
 ## v0.8.16
 

@@ -16,6 +16,7 @@ import '../entities/keys/ids.g.dart' as ids;
 import '../entities/list_items.dart';
 import '../entities/lists.dart';
 import '../entities/mutes.dart';
+import '../entities/suggested_follows.dart';
 import '../params/list_item_param.dart';
 import '../params/list_param.dart';
 import '../params/repo_param.dart';
@@ -949,6 +950,40 @@ sealed class GraphsService {
   Future<core.XRPCResponse<core.EmptyData>> deleteMuteActorList({
     required core.AtUri list,
   });
+
+  /// Get suggested follows related to a given actor.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getSuggestedFollowsByActor
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getSuggestedFollowsByActor.json
+  Future<core.XRPCResponse<SuggestedFollows>> findSuggestedFollows({
+    required String actor,
+  });
+
+  /// Get suggested follows related to a given actor as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getSuggestedFollowsByActor
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getSuggestedFollowsByActor.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findSuggestedFollowsAsJson({
+    required String actor,
+  });
 }
 
 final class _GraphsService extends BlueskyBaseService implements GraphsService {
@@ -1489,6 +1524,23 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
         },
       );
 
+  @override
+  Future<core.XRPCResponse<SuggestedFollows>> findSuggestedFollows({
+    required String actor,
+  }) async =>
+      await _findSuggestedFollows(
+        actor: actor,
+        to: SuggestedFollows.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findSuggestedFollowsAsJson({
+    required String actor,
+  }) async =>
+      await _findSuggestedFollows(
+        actor: actor,
+      );
+
   Future<core.XRPCResponse<T>> _findFollows<T>({
     required String actor,
     required int? limit,
@@ -1698,6 +1750,18 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
           limit: limit,
           cursor: cursor,
         ),
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findSuggestedFollows<T>({
+    required String actor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getSuggestedFollowsByActor',
+        parameters: {
+          'actor': actor,
+        },
         to: to,
       );
 
