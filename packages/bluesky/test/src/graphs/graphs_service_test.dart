@@ -1798,7 +1798,7 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<SuggestedFollows>());
-      expect(response.data.suggestions, isA<ActorProfile>());
+      expect(response.data.suggestions, isA<List<ActorProfile>>());
     });
 
     test('as JSON', () async {
