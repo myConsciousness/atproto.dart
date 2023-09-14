@@ -378,4 +378,62 @@ void main() {
       'at://did:plc:ohwup7m7r565tbdhulp77tkp/app.bsky.feed.post/3jqspl3hnee2a',
     );
   });
+
+  group('==', () {
+    test('case1', () {
+      final uri = AtUri.parse('at://bob.com/com.example.post/1234');
+
+      expect(uri == uri, isTrue);
+    });
+
+    test('case2', () {
+      final uri = AtUri.parse('at://bob.com/com.example.post/1234');
+      final other = AtUri.parse('at://alice.com/com.example.post/1234');
+
+      expect(uri == other, isFalse);
+    });
+
+    test('case3', () {
+      final uri = AtUri.parse('at://bob.com/com.example.post/1234');
+      final other = AtUri.parse('at://bob.com/com.example.like/1234');
+
+      expect(uri == other, isFalse);
+    });
+
+    test('case4', () {
+      final uri = AtUri.parse('at://bob.com/com.example.post/1234');
+      final other = AtUri.parse('at://bob.com/com.example.post/12345');
+
+      expect(uri == other, isFalse);
+    });
+  });
+
+  group('.hashCode', () {
+    test('case1', () {
+      final uri = AtUri.parse('at://bob.com/com.example.post/1234');
+
+      expect(uri.hashCode == uri.hashCode, isTrue);
+    });
+
+    test('case2', () {
+      final uri = AtUri.parse('at://bob.com/com.example.post/1234');
+      final other = AtUri.parse('at://alice.com/com.example.post/1234');
+
+      expect(uri.hashCode == other.hashCode, isFalse);
+    });
+
+    test('case3', () {
+      final uri = AtUri.parse('at://bob.com/com.example.post/1234');
+      final other = AtUri.parse('at://bob.com/com.example.like/1234');
+
+      expect(uri.hashCode == other.hashCode, isFalse);
+    });
+
+    test('case4', () {
+      final uri = AtUri.parse('at://bob.com/com.example.post/1234');
+      final other = AtUri.parse('at://bob.com/com.example.post/12345');
+
+      expect(uri.hashCode == other.hashCode, isFalse);
+    });
+  });
 }

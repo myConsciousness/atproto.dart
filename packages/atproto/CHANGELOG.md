@@ -1,6 +1,10 @@
 # Release Note
 
-## 0.6.6
+## v0.6.7
+
+- Upgraded `at_uri`. ([#797](https://github.com/myConsciousness/atproto.dart/issues/797))
+
+## v0.6.6
 
 - Added `.accessToken` and `.refreshToken` properties on `Session` object. You can get decoded token objects based on JWT tokens. Also you can decode JWT token with `decodeJwt` function. ([#787](https://github.com/myConsciousness/atproto.dart/issues/787))
 
