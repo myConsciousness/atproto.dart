@@ -200,6 +200,9 @@ const appBskyFeedGetLikes = 'app.bsky.feed.getLikes';
 /// `app.bsky.feed.getLikes#like`
 const appBskyFeedGetLikesLike = 'app.bsky.feed.getLikes#like';
 
+/// `app.bsky.feed.getListFeed`
+const appBskyFeedGetListFeed = 'app.bsky.feed.getListFeed';
+
 /// `app.bsky.feed.getPostThread`
 const appBskyFeedGetPostThread = 'app.bsky.feed.getPostThread';
 
@@ -238,6 +241,9 @@ const appBskyGraphBlock = 'app.bsky.graph.block';
 
 /// `app.bsky.graph.defs`
 const appBskyGraphDefs = 'app.bsky.graph.defs';
+
+/// `app.bsky.graph.defs#curatelist`
+const appBskyGraphDefsCuratelist = 'app.bsky.graph.defs#curatelist';
 
 /// `app.bsky.graph.defs#listItemView`
 const appBskyGraphDefsListItemView = 'app.bsky.graph.defs#listItemView';
