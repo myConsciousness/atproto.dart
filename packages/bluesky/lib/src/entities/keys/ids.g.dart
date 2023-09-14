@@ -284,6 +284,10 @@ const appBskyGraphGetLists = 'app.bsky.graph.getLists';
 /// `app.bsky.graph.getMutes`
 const appBskyGraphGetMutes = 'app.bsky.graph.getMutes';
 
+/// `app.bsky.graph.getSuggestedFollowsByActor`
+const appBskyGraphGetSuggestedFollowsByActor =
+    'app.bsky.graph.getSuggestedFollowsByActor';
+
 /// `app.bsky.graph.list`
 const appBskyGraphList = 'app.bsky.graph.list';
 
