@@ -156,13 +156,14 @@ class __$$_SessionCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_Session implements _Session {
+class _$_Session extends _Session {
   const _$_Session(
       {required this.did,
       required this.handle,
       this.email,
       required this.accessJwt,
-      required this.refreshJwt});
+      required this.refreshJwt})
+      : super._();
 
   factory _$_Session.fromJson(Map<String, dynamic> json) =>
       _$$_SessionFromJson(json);
@@ -225,13 +226,14 @@ class _$_Session implements _Session {
   }
 }
 
-abstract class _Session implements Session {
+abstract class _Session extends Session {
   const factory _Session(
       {required final String did,
       required final String handle,
       final String? email,
       required final String accessJwt,
       required final String refreshJwt}) = _$_Session;
+  const _Session._() : super._();
 
   factory _Session.fromJson(Map<String, dynamic> json) = _$_Session.fromJson;
 

@@ -1,5 +1,17 @@
 # Release Note
 
+## v0.8.17
+
+- Added `blocked` property on `ListViewer`. Also you can easily check with `.isBlocked` and `.isNotBlocked` properties. ([#792](https://github.com/myConsciousness/atproto.dart/issues/#792))
+- Upgraded `at_uri`. ([#797](https://github.com/myConsciousness/atproto.dart/issues/797))
+- Supported `app.bsky.graph.getSuggestedFollowsByActor` on `GraphsService`. ([#800](https://github.com/myConsciousness/atproto.dart/issues/800))
+  - `.findSuggestedFollows`
+  - `.findSuggestedFollowsAsJson`
+
+## v0.8.16
+
+- Added `.accessToken` and `.refreshToken` properties on `Session` object. You can get decoded token objects based on JWT tokens. Also you can decode JWT token with `decodeJwt` function. ([#787](https://github.com/myConsciousness/atproto.dart/issues/787))
+
 ## v0.8.15
 
 - `viewer` on `Actor` object is **NOT** nullable. Fixed to set default objects if JSON is empty. ([#782](https://github.com/myConsciousness/atproto.dart/issues/#782))

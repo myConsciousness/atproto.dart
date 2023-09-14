@@ -159,6 +159,10 @@ export 'package:atproto_core/atproto_core.dart'
         PostClient,
         Session,
         $SessionCopyWith,
+        AuthToken,
+        $AuthTokenCopyWith,
+        AuthScope,
+        decodeJwt,
         createSession,
         refreshSession,
         isValidAppPassword;
@@ -262,6 +266,7 @@ export 'package:bluesky/src/entities/skeleton_feed.dart';
 export 'package:bluesky/src/entities/skeleton_feed_view.dart';
 export 'package:bluesky/src/entities/skeleton_reason.dart';
 export 'package:bluesky/src/entities/skeleton_reason_repost.dart';
+export 'package:bluesky/src/entities/suggested_follows.dart';
 export 'package:bluesky/src/extension/grouped_notification_extension.dart';
 export 'package:bluesky/src/extension/at_uri_extension.dart';
 export 'package:bluesky/src/extension/blob_extension.dart';

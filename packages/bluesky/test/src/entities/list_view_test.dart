@@ -112,4 +112,110 @@ void main() {
       expect(list.isNotMuted, isTrue);
     });
   });
+
+  group('.isBlocked', () {
+    test('when blocked', () {
+      final list = ListView(
+        uri: AtUri.parse(
+          'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
+        ),
+        cid: 'aaaaa',
+        name: 'test',
+        createdBy: Actor(
+          did: 'xxxxxx',
+          handle: 'shinyakato.dev',
+          viewer: ActorViewer(
+            isMuted: true,
+            isBlockedBy: false,
+          ),
+        ),
+        viewer: ListViewer(
+          isMuted: true,
+          blocked: AtUri.parse(
+            'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.graph.list/3jzvem5m6d42v',
+          ),
+        ),
+        indexedAt: DateTime.now(),
+      );
+
+      expect(list.isBlocked, isTrue);
+    });
+
+    test('when not blocked', () {
+      final list = ListView(
+        uri: AtUri.parse(
+          'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
+        ),
+        cid: 'aaaaa',
+        name: 'test',
+        createdBy: Actor(
+          did: 'xxxxxx',
+          handle: 'shinyakato.dev',
+          viewer: ActorViewer(
+            isMuted: true,
+            isBlockedBy: false,
+          ),
+        ),
+        viewer: ListViewer(
+          isMuted: false,
+        ),
+        indexedAt: DateTime.now(),
+      );
+
+      expect(list.isBlocked, isFalse);
+    });
+  });
+
+  group('.isNotBlocked', () {
+    test('when blocked', () {
+      final list = ListView(
+        uri: AtUri.parse(
+          'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
+        ),
+        cid: 'aaaaa',
+        name: 'test',
+        createdBy: Actor(
+          did: 'xxxxxx',
+          handle: 'shinyakato.dev',
+          viewer: ActorViewer(
+            isMuted: true,
+            isBlockedBy: false,
+          ),
+        ),
+        viewer: ListViewer(
+          isMuted: true,
+          blocked: AtUri.parse(
+            'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.graph.list/3jzvem5m6d42v',
+          ),
+        ),
+        indexedAt: DateTime.now(),
+      );
+
+      expect(list.isNotBlocked, isFalse);
+    });
+
+    test('when not blocked', () {
+      final list = ListView(
+        uri: AtUri.parse(
+          'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
+        ),
+        cid: 'aaaaa',
+        name: 'test',
+        createdBy: Actor(
+          did: 'xxxxxx',
+          handle: 'shinyakato.dev',
+          viewer: ActorViewer(
+            isMuted: true,
+            isBlockedBy: false,
+          ),
+        ),
+        viewer: ListViewer(
+          isMuted: false,
+        ),
+        indexedAt: DateTime.now(),
+      );
+
+      expect(list.isNotBlocked, isTrue);
+    });
+  });
 }

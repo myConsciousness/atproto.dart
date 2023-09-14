@@ -24,6 +24,10 @@ mixin _$ListViewer {
   @JsonKey(name: 'muted')
   bool get isMuted => throw _privateConstructorUsedError;
 
+  /// The URI of the list that the user is blocking.
+  @atUriConverter
+  AtUri? get blocked => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ListViewerCopyWith<ListViewer> get copyWith =>
@@ -36,7 +40,8 @@ abstract class $ListViewerCopyWith<$Res> {
           ListViewer value, $Res Function(ListViewer) then) =
       _$ListViewerCopyWithImpl<$Res, ListViewer>;
   @useResult
-  $Res call({@JsonKey(name: 'muted') bool isMuted});
+  $Res call(
+      {@JsonKey(name: 'muted') bool isMuted, @atUriConverter AtUri? blocked});
 }
 
 /// @nodoc
@@ -53,12 +58,17 @@ class _$ListViewerCopyWithImpl<$Res, $Val extends ListViewer>
   @override
   $Res call({
     Object? isMuted = null,
+    Object? blocked = freezed,
   }) {
     return _then(_value.copyWith(
       isMuted: null == isMuted
           ? _value.isMuted
           : isMuted // ignore: cast_nullable_to_non_nullable
               as bool,
+      blocked: freezed == blocked
+          ? _value.blocked
+          : blocked // ignore: cast_nullable_to_non_nullable
+              as AtUri?,
     ) as $Val);
   }
 }
@@ -71,7 +81,8 @@ abstract class _$$_ListViewerCopyWith<$Res>
       __$$_ListViewerCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: 'muted') bool isMuted});
+  $Res call(
+      {@JsonKey(name: 'muted') bool isMuted, @atUriConverter AtUri? blocked});
 }
 
 /// @nodoc
@@ -86,12 +97,17 @@ class __$$_ListViewerCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isMuted = null,
+    Object? blocked = freezed,
   }) {
     return _then(_$_ListViewer(
       isMuted: null == isMuted
           ? _value.isMuted
           : isMuted // ignore: cast_nullable_to_non_nullable
               as bool,
+      blocked: freezed == blocked
+          ? _value.blocked
+          : blocked // ignore: cast_nullable_to_non_nullable
+              as AtUri?,
     ));
   }
 }
@@ -100,7 +116,9 @@ class __$$_ListViewerCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$_ListViewer extends _ListViewer {
-  const _$_ListViewer({@JsonKey(name: 'muted') this.isMuted = false})
+  const _$_ListViewer(
+      {@JsonKey(name: 'muted') this.isMuted = false,
+      @atUriConverter this.blocked})
       : super._();
 
   factory _$_ListViewer.fromJson(Map<String, dynamic> json) =>
@@ -111,9 +129,14 @@ class _$_ListViewer extends _ListViewer {
   @JsonKey(name: 'muted')
   final bool isMuted;
 
+  /// The URI of the list that the user is blocking.
+  @override
+  @atUriConverter
+  final AtUri? blocked;
+
   @override
   String toString() {
-    return 'ListViewer(isMuted: $isMuted)';
+    return 'ListViewer(isMuted: $isMuted, blocked: $blocked)';
   }
 
   @override
@@ -121,12 +144,13 @@ class _$_ListViewer extends _ListViewer {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ListViewer &&
-            (identical(other.isMuted, isMuted) || other.isMuted == isMuted));
+            (identical(other.isMuted, isMuted) || other.isMuted == isMuted) &&
+            (identical(other.blocked, blocked) || other.blocked == blocked));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, isMuted);
+  int get hashCode => Object.hash(runtimeType, isMuted, blocked);
 
   @JsonKey(ignore: true)
   @override
@@ -143,8 +167,9 @@ class _$_ListViewer extends _ListViewer {
 }
 
 abstract class _ListViewer extends ListViewer {
-  const factory _ListViewer({@JsonKey(name: 'muted') final bool isMuted}) =
-      _$_ListViewer;
+  const factory _ListViewer(
+      {@JsonKey(name: 'muted') final bool isMuted,
+      @atUriConverter final AtUri? blocked}) = _$_ListViewer;
   const _ListViewer._() : super._();
 
   factory _ListViewer.fromJson(Map<String, dynamic> json) =
@@ -155,6 +180,11 @@ abstract class _ListViewer extends ListViewer {
   /// Represents whether the viewer has muted the list.
   @JsonKey(name: 'muted')
   bool get isMuted;
+  @override
+
+  /// The URI of the list that the user is blocking.
+  @atUriConverter
+  AtUri? get blocked;
   @override
   @JsonKey(ignore: true)
   _$$_ListViewerCopyWith<_$_ListViewer> get copyWith =>
