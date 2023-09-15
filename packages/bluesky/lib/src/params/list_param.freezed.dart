@@ -20,8 +20,8 @@ ListParam _$ListParamFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListParam {
-  String get name => throw _privateConstructorUsedError;
   String get purpose => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   Blob? get avatar => throw _privateConstructorUsedError;
@@ -42,8 +42,8 @@ abstract class $ListParamCopyWith<$Res> {
       _$ListParamCopyWithImpl<$Res, ListParam>;
   @useResult
   $Res call(
-      {String name,
-      String purpose,
+      {String purpose,
+      String name,
       String? description,
       List<Facet>? descriptionFacets,
       Blob? avatar,
@@ -68,8 +68,8 @@ class _$ListParamCopyWithImpl<$Res, $Val extends ListParam>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
     Object? purpose = null,
+    Object? name = null,
     Object? description = freezed,
     Object? descriptionFacets = freezed,
     Object? avatar = freezed,
@@ -78,13 +78,13 @@ class _$ListParamCopyWithImpl<$Res, $Val extends ListParam>
     Object? unspecced = null,
   }) {
     return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
       purpose: null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       description: freezed == description
           ? _value.description
@@ -146,8 +146,8 @@ abstract class _$$_ListParamCopyWith<$Res> implements $ListParamCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String name,
-      String purpose,
+      {String purpose,
+      String name,
       String? description,
       List<Facet>? descriptionFacets,
       Blob? avatar,
@@ -172,8 +172,8 @@ class __$$_ListParamCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
     Object? purpose = null,
+    Object? name = null,
     Object? description = freezed,
     Object? descriptionFacets = freezed,
     Object? avatar = freezed,
@@ -182,13 +182,13 @@ class __$$_ListParamCopyWithImpl<$Res>
     Object? unspecced = null,
   }) {
     return _then(_$_ListParam(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
       purpose: null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       description: freezed == description
           ? _value.description
@@ -223,8 +223,8 @@ class __$$_ListParamCopyWithImpl<$Res>
 @jsonSerializable
 class _$_ListParam implements _ListParam {
   const _$_ListParam(
-      {required this.name,
-      this.purpose = appBskyGraphDefsModlist,
+      {required this.purpose,
+      required this.name,
       this.description,
       final List<Facet>? descriptionFacets,
       this.avatar,
@@ -238,10 +238,9 @@ class _$_ListParam implements _ListParam {
       _$$_ListParamFromJson(json);
 
   @override
-  final String name;
-  @override
-  @JsonKey()
   final String purpose;
+  @override
+  final String name;
   @override
   final String? description;
   final List<Facet>? _descriptionFacets;
@@ -273,7 +272,7 @@ class _$_ListParam implements _ListParam {
 
   @override
   String toString() {
-    return 'ListParam(name: $name, purpose: $purpose, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdAt: $createdAt, unspecced: $unspecced)';
+    return 'ListParam(purpose: $purpose, name: $name, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdAt: $createdAt, unspecced: $unspecced)';
   }
 
   @override
@@ -281,8 +280,8 @@ class _$_ListParam implements _ListParam {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ListParam &&
-            (identical(other.name, name) || other.name == name) &&
             (identical(other.purpose, purpose) || other.purpose == purpose) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             const DeepCollectionEquality()
@@ -299,8 +298,8 @@ class _$_ListParam implements _ListParam {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      name,
       purpose,
+      name,
       description,
       const DeepCollectionEquality().hash(_descriptionFacets),
       avatar,
@@ -324,8 +323,8 @@ class _$_ListParam implements _ListParam {
 
 abstract class _ListParam implements ListParam {
   const factory _ListParam(
-      {required final String name,
-      final String purpose,
+      {required final String purpose,
+      required final String name,
       final String? description,
       final List<Facet>? descriptionFacets,
       final Blob? avatar,
@@ -337,9 +336,9 @@ abstract class _ListParam implements ListParam {
       _$_ListParam.fromJson;
 
   @override
-  String get name;
-  @override
   String get purpose;
+  @override
+  String get name;
   @override
   String? get description;
   @override

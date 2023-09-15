@@ -6,6 +6,7 @@
 import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_test/atproto_test.dart' as atp_test;
+import 'package:bluesky/ids.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
@@ -928,6 +929,95 @@ void main() {
 
       final response = await graphs.createList(
         name: 'test',
+        purpose: appBskyGraphDefsModlist,
+        description: 'test description',
+        descriptionFacets: [
+          Facet(
+            index: ByteSlice(byteStart: 0, byteEnd: 1),
+            features: [
+              FacetFeature.mention(
+                data: FacetMention(did: 'xxxx'),
+              ),
+            ],
+          )
+        ],
+        avatar: Blob(
+          mimeType: '*/*',
+          size: 100,
+          ref: BlobRef(link: 'xxxx'),
+        ),
+        createdAt: DateTime.now(),
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<StrongRef>());
+    });
+
+    test('moderated list', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/graphs/data/create_list.json',
+          ),
+        ),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      final response = await graphs.createModeratedList(
+        name: 'test',
+        description: 'test description',
+        descriptionFacets: [
+          Facet(
+            index: ByteSlice(byteStart: 0, byteEnd: 1),
+            features: [
+              FacetFeature.mention(
+                data: FacetMention(did: 'xxxx'),
+              ),
+            ],
+          )
+        ],
+        avatar: Blob(
+          mimeType: '*/*',
+          size: 100,
+          ref: BlobRef(link: 'xxxx'),
+        ),
+        createdAt: DateTime.now(),
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<StrongRef>());
+    });
+
+    test('curated list', () async {
+      final graphs = GraphsService(
+        atproto: ATProto(
+          did: 'test',
+          accessJwt: 'test',
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/graphs/data/create_list.json',
+          ),
+        ),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      final response = await graphs.createCuratedList(
+        name: 'test',
         description: 'test description',
         descriptionFacets: [
           Facet(
@@ -974,6 +1064,7 @@ void main() {
       atp_test.expectUnauthorizedException(
         () async => await graphs.createList(
           name: 'test',
+          purpose: appBskyGraphDefsModlist,
         ),
       );
     });
@@ -1000,6 +1091,7 @@ void main() {
 
       atp_test.expectRateLimitExceededException(
         () async => await graphs.createList(
+          purpose: appBskyGraphDefsModlist,
           name: 'test',
         ),
       );
@@ -1027,8 +1119,9 @@ void main() {
       );
 
       final response = await graphs.createLists([
-        ListParam(name: 'xxxx'),
+        ListParam(purpose: appBskyGraphDefsModlist, name: 'xxxx'),
         ListParam(
+          purpose: appBskyGraphDefsModlist,
           name: 'yyyy',
           description: 'test description',
           descriptionFacets: [

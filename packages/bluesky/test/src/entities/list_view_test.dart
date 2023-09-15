@@ -4,6 +4,7 @@
 
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart';
+import 'package:bluesky/src/entities/keys/ids.g.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
@@ -16,6 +17,7 @@ void main() {
   group('.isMuted', () {
     test('when muted', () {
       final list = ListView(
+        purpose: appBskyGraphDefsCuratelist,
         uri: AtUri.parse(
           'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
         ),
@@ -40,6 +42,7 @@ void main() {
 
     test('when not muted', () {
       final list = ListView(
+        purpose: appBskyGraphDefsCuratelist,
         uri: AtUri.parse(
           'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
         ),
@@ -66,6 +69,7 @@ void main() {
   group('.isNotMuted', () {
     test('when muted', () {
       final list = ListView(
+        purpose: appBskyGraphDefsCuratelist,
         uri: AtUri.parse(
           'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
         ),
@@ -90,6 +94,7 @@ void main() {
 
     test('when not muted', () {
       final list = ListView(
+        purpose: appBskyGraphDefsCuratelist,
         uri: AtUri.parse(
           'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
         ),
@@ -116,6 +121,7 @@ void main() {
   group('.isBlocked', () {
     test('when blocked', () {
       final list = ListView(
+        purpose: appBskyGraphDefsCuratelist,
         uri: AtUri.parse(
           'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
         ),
@@ -143,6 +149,7 @@ void main() {
 
     test('when not blocked', () {
       final list = ListView(
+        purpose: appBskyGraphDefsCuratelist,
         uri: AtUri.parse(
           'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
         ),
@@ -169,6 +176,7 @@ void main() {
   group('.isNotBlocked', () {
     test('when blocked', () {
       final list = ListView(
+        purpose: appBskyGraphDefsCuratelist,
         uri: AtUri.parse(
           'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
         ),
@@ -196,6 +204,7 @@ void main() {
 
     test('when not blocked', () {
       final list = ListView(
+        purpose: appBskyGraphDefsCuratelist,
         uri: AtUri.parse(
           'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
         ),
@@ -217,5 +226,61 @@ void main() {
 
       expect(list.isNotBlocked, isTrue);
     });
+  });
+
+  test('.isModerated', () {
+    final list = ListView(
+      purpose: appBskyGraphDefsModlist,
+      uri: AtUri.parse(
+        'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
+      ),
+      cid: 'aaaaa',
+      name: 'test',
+      createdBy: Actor(
+        did: 'xxxxxx',
+        handle: 'shinyakato.dev',
+        viewer: ActorViewer(
+          isMuted: true,
+          isBlockedBy: false,
+        ),
+      ),
+      viewer: ListViewer(
+        isMuted: false,
+      ),
+      indexedAt: DateTime.now(),
+    );
+
+    expect(list.isModerated, isTrue);
+    expect(list.isNotModerated, isFalse);
+    expect(list.isCurated, isFalse);
+    expect(list.isNotCurated, isTrue);
+  });
+
+  test('.isCurated', () {
+    final list = ListView(
+      purpose: appBskyGraphDefsCuratelist,
+      uri: AtUri.parse(
+        'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
+      ),
+      cid: 'aaaaa',
+      name: 'test',
+      createdBy: Actor(
+        did: 'xxxxxx',
+        handle: 'shinyakato.dev',
+        viewer: ActorViewer(
+          isMuted: true,
+          isBlockedBy: false,
+        ),
+      ),
+      viewer: ListViewer(
+        isMuted: false,
+      ),
+      indexedAt: DateTime.now(),
+    );
+
+    expect(list.isCurated, isTrue);
+    expect(list.isNotCurated, isFalse);
+    expect(list.isModerated, isFalse);
+    expect(list.isNotModerated, isTrue);
   });
 }

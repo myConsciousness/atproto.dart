@@ -539,9 +539,9 @@ sealed class GraphsService {
   ///
   /// ## Parameters
   ///
-  /// - [name]: Name of list to be created.
-  ///
   /// - [purpose]: Purpose of list to be created.
+  ///
+  /// - [name]: Name of list to be created.
   ///
   /// - [description]: Description of list to be created.
   ///
@@ -565,8 +565,82 @@ sealed class GraphsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/list.json
   Future<core.XRPCResponse<atp.StrongRef>> createList({
+    required String purpose,
     required String name,
-    String purpose = ids.appBskyGraphDefsModlist,
+    String? description,
+    List<Facet>? descriptionFacets,
+    atp.Blob? avatar,
+    atp.Labels? labels,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  });
+
+  /// A declaration of a moderated list of actors.
+  ///
+  /// ## Parameters
+  ///
+  /// - [name]: Name of list to be created.
+  ///
+  /// - [description]: Description of list to be created.
+  ///
+  /// - [descriptionFacets]: Facet features for [description].
+  ///
+  /// - [avatar]: Avatar blob to set to list.
+  ///
+  /// - [labels]: Labels to be attached.
+  ///
+  /// - [createdAt]: Date and time the post was created.
+  ///                If omitted, defaults to the current time.
+  ///
+  /// - [unspecced]: You can set record fields that are not supported
+  ///                by `app.bsky.graph.list` as JSON.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.list
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/list.json
+  Future<core.XRPCResponse<atp.StrongRef>> createModeratedList({
+    required String name,
+    String? description,
+    List<Facet>? descriptionFacets,
+    atp.Blob? avatar,
+    atp.Labels? labels,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  });
+
+  /// A declaration of a curated list of actors.
+  ///
+  /// ## Parameters
+  ///
+  /// - [name]: Name of list to be created.
+  ///
+  /// - [description]: Description of list to be created.
+  ///
+  /// - [descriptionFacets]: Facet features for [description].
+  ///
+  /// - [avatar]: Avatar blob to set to list.
+  ///
+  /// - [labels]: Labels to be attached.
+  ///
+  /// - [createdAt]: Date and time the post was created.
+  ///                If omitted, defaults to the current time.
+  ///
+  /// - [unspecced]: You can set record fields that are not supported
+  ///                by `app.bsky.graph.list` as JSON.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.list
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/list.json
+  Future<core.XRPCResponse<atp.StrongRef>> createCuratedList({
+    required String name,
     String? description,
     List<Facet>? descriptionFacets,
     atp.Blob? avatar,
@@ -1274,8 +1348,8 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
 
   @override
   Future<core.XRPCResponse<atp.StrongRef>> createList({
+    required String purpose,
     required String name,
-    String purpose = 'app.bsky.graph.defs#modlist',
     String? description,
     List<Facet>? descriptionFacets,
     atp.Blob? avatar,
@@ -1296,6 +1370,48 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
           'createdAt': toUtcIso8601String(createdAt),
           ...unspecced,
         },
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.StrongRef>> createModeratedList({
+    required String name,
+    String? description,
+    List<Facet>? descriptionFacets,
+    atp.Blob? avatar,
+    atp.Labels? labels,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  }) async =>
+      await createList(
+        name: name,
+        purpose: ids.appBskyGraphDefsModlist,
+        description: description,
+        descriptionFacets: descriptionFacets,
+        avatar: avatar,
+        labels: labels,
+        createdAt: createdAt,
+        unspecced: unspecced,
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.StrongRef>> createCuratedList({
+    required String name,
+    String? description,
+    List<Facet>? descriptionFacets,
+    atp.Blob? avatar,
+    atp.Labels? labels,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  }) async =>
+      await createList(
+        name: name,
+        purpose: ids.appBskyGraphDefsCuratelist,
+        description: description,
+        descriptionFacets: descriptionFacets,
+        avatar: avatar,
+        labels: labels,
+        createdAt: createdAt,
+        unspecced: unspecced,
       );
 
   @override
