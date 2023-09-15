@@ -156,8 +156,14 @@ const appBskyFeedDefsSkeletonReasonRepost =
 /// `app.bsky.feed.defs#threadViewPost`
 const appBskyFeedDefsThreadViewPost = 'app.bsky.feed.defs#threadViewPost';
 
+/// `app.bsky.feed.defs#threadgateView`
+const appBskyFeedDefsThreadgateView = 'app.bsky.feed.defs#threadgateView';
+
 /// `app.bsky.feed.defs#viewerState`
 const appBskyFeedDefsViewerState = 'app.bsky.feed.defs#viewerState';
+
+/// `app.bsky.feed.defs#viewerThreadState`
+const appBskyFeedDefsViewerThreadState = 'app.bsky.feed.defs#viewerThreadState';
 
 /// `app.bsky.feed.describeFeedGenerator`
 const appBskyFeedDescribeFeedGenerator = 'app.bsky.feed.describeFeedGenerator';
@@ -200,6 +206,9 @@ const appBskyFeedGetLikes = 'app.bsky.feed.getLikes';
 /// `app.bsky.feed.getLikes#like`
 const appBskyFeedGetLikesLike = 'app.bsky.feed.getLikes#like';
 
+/// `app.bsky.feed.getListFeed`
+const appBskyFeedGetListFeed = 'app.bsky.feed.getListFeed';
+
 /// `app.bsky.feed.getPostThread`
 const appBskyFeedGetPostThread = 'app.bsky.feed.getPostThread';
 
@@ -233,11 +242,27 @@ const appBskyFeedPostTextSlice = 'app.bsky.feed.post#textSlice';
 /// `app.bsky.feed.repost`
 const appBskyFeedRepost = 'app.bsky.feed.repost';
 
+/// `app.bsky.feed.threadgate`
+const appBskyFeedThreadgate = 'app.bsky.feed.threadgate';
+
+/// `app.bsky.feed.threadgate#followingRule`
+const appBskyFeedThreadgateFollowingRule =
+    'app.bsky.feed.threadgate#followingRule';
+
+/// `app.bsky.feed.threadgate#listRule`
+const appBskyFeedThreadgateListRule = 'app.bsky.feed.threadgate#listRule';
+
+/// `app.bsky.feed.threadgate#mentionRule`
+const appBskyFeedThreadgateMentionRule = 'app.bsky.feed.threadgate#mentionRule';
+
 /// `app.bsky.graph.block`
 const appBskyGraphBlock = 'app.bsky.graph.block';
 
 /// `app.bsky.graph.defs`
 const appBskyGraphDefs = 'app.bsky.graph.defs';
+
+/// `app.bsky.graph.defs#curatelist`
+const appBskyGraphDefsCuratelist = 'app.bsky.graph.defs#curatelist';
 
 /// `app.bsky.graph.defs#listItemView`
 const appBskyGraphDefsListItemView = 'app.bsky.graph.defs#listItemView';
