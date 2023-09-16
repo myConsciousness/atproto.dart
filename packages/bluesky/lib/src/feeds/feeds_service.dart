@@ -1382,6 +1382,103 @@ sealed class FeedsService {
     int? limit,
     String? cursor,
   });
+
+  /// A view of a recent posts from actors in a list.
+  ///
+  /// ## Parameters
+  ///
+  /// - [list]: List uri.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getListFeed
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getListFeed.json
+  Future<core.XRPCResponse<Feed>> findListFeed({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  });
+
+  /// A view of a recent posts from actors in a list as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [list]: List uri.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getListFeed
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getListFeed.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findListFeedAsJson({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination for a view of a recent posts from actors in a list.
+  ///
+  /// ## Parameters
+  ///
+  /// - [list]: List uri.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getListFeed
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getListFeed.json
+  core.Pagination<Feed> paginateListFeed({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination for a view of a recent posts from actors in a list
+  /// As JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [list]: List uri.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getListFeed
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getListFeed.json
+  core.Pagination<Map<String, dynamic>> paginateListFeedAsJson({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  });
 }
 
 final class _FeedsService extends BlueskyBaseService implements FeedsService {
@@ -2170,6 +2267,38 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
         cursor: cursor,
       );
 
+  Future<core.XRPCResponse<T>> _findListFeed<T>({
+    required core.AtUri list,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getListFeed',
+        parameters: _buildGetListFeedParams(
+          list: list,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateListFeed<T>({
+    required core.AtUri list,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getListFeed',
+        parameters: _buildGetListFeedParams(
+          list: list,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
   Future<core.XRPCResponse<T>> _findTimeline<T>({
     required String? algorithm,
     required int? limit,
@@ -2526,6 +2655,56 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
         to: to,
       );
 
+  @override
+  Future<core.XRPCResponse<Feed>> findListFeed({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findListFeed(
+        list: list,
+        limit: limit,
+        cursor: cursor,
+        to: Feed.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findListFeedAsJson({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findListFeed(
+        list: list,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  core.Pagination<Feed> paginateListFeed({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateListFeed(
+        list: list,
+        limit: limit,
+        cursor: cursor,
+        to: Feed.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateListFeedAsJson({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateListFeed(
+        list: list,
+        limit: limit,
+        cursor: cursor,
+      );
+
   Map<String, dynamic> _buildGetTimelineParams({
     required String? algorithm,
     required int? limit,
@@ -2625,6 +2804,17 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     required String? cursor,
   }) =>
       {
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildGetListFeedParams({
+    required core.AtUri list,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'list': list,
         'limit': limit,
         'cursor': cursor,
       };
