@@ -21,6 +21,7 @@ import '../entities/posts.dart';
 import '../entities/reply_ref.dart';
 import '../entities/reposted_by.dart';
 import '../entities/skeleton_feed.dart';
+import '../entities/thread_rule.dart';
 import '../params/generator_param.dart';
 import '../params/post_param.dart';
 import '../params/strong_ref_param.dart';
@@ -1479,6 +1480,12 @@ sealed class FeedsService {
     int? limit,
     String? cursor,
   });
+
+  Future<core.XRPCResponse<atp.StrongRef>> createThreadgate({
+    required core.AtUri uri,
+    List<ThreadRule>? allowRules,
+    DateTime? createdAt,
+  });
 }
 
 final class _FeedsService extends BlueskyBaseService implements FeedsService {
@@ -2265,6 +2272,21 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
       _paginateSuggestedFeeds(
         limit: limit,
         cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.StrongRef>> createThreadgate({
+    required core.AtUri uri,
+    List<ThreadRule>? allowRules,
+    DateTime? createdAt,
+  }) async =>
+      await atproto.repositories.createRecord(
+        collection: createNSID('threadgate'),
+        record: {
+          'post': uri.toString(),
+          'allow': allowRules?.map((e) => e.toJson()).toList(),
+          'createdAt': toUtcIso8601String(createdAt),
+        },
       );
 
   Future<core.XRPCResponse<T>> _findListFeed<T>({
