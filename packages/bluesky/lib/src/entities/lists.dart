@@ -17,6 +17,9 @@ part 'lists.g.dart';
 /// The [Lists] class represents a collection of [ListView] objects.
 @freezed
 class Lists with _$Lists {
+  // ignore: unused_element
+  const Lists._();
+
   /// Constructs an instance of [Lists].
   ///
   /// - [lists] argument must not be null and should contain a list of
@@ -33,4 +36,12 @@ class Lists with _$Lists {
 
   /// Constructs an instance of [Lists] from a map of dynamic key-value pairs.
   factory Lists.fromJson(Map<String, Object?> json) => _$ListsFromJson(json);
+
+  /// Returns only moderated lists.
+  List<ListView> get moderatedLists =>
+      lists.where((element) => element.isModerated).toList();
+
+  /// Returns only curated lists.
+  List<ListView> get curatedLists =>
+      lists.where((element) => element.isCurated).toList();
 }

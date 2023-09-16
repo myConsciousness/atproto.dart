@@ -24,7 +24,7 @@ mixin _$ListView {
   @typeKey
   String get type => throw _privateConstructorUsedError;
 
-  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
+  /// The purpose of the list.
   String get purpose => throw _privateConstructorUsedError;
 
   /// The URI of the list.
@@ -278,7 +278,7 @@ class __$$_ListViewCopyWithImpl<$Res>
 class _$_ListView extends _ListView {
   const _$_ListView(
       {@typeKey this.type = appBskyGraphDefsListView,
-      this.purpose = appBskyGraphDefsModlist,
+      required this.purpose,
       @atUriConverter required this.uri,
       required this.cid,
       required this.name,
@@ -299,9 +299,8 @@ class _$_ListView extends _ListView {
   @typeKey
   final String type;
 
-  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
+  /// The purpose of the list.
   @override
-  @JsonKey()
   final String purpose;
 
   /// The URI of the list.
@@ -413,7 +412,7 @@ class _$_ListView extends _ListView {
 abstract class _ListView extends ListView {
   const factory _ListView(
       {@typeKey final String type,
-      final String purpose,
+      required final String purpose,
       @atUriConverter required final AtUri uri,
       required final String cid,
       required final String name,
@@ -434,7 +433,7 @@ abstract class _ListView extends ListView {
   String get type;
   @override
 
-  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
+  /// The purpose of the list.
   String get purpose;
   @override
 

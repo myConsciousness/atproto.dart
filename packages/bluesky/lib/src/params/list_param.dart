@@ -11,7 +11,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../entities/facet.dart';
-import '../entities/keys/ids.g.dart';
 
 part 'list_param.freezed.dart';
 part 'list_param.g.dart';
@@ -20,8 +19,8 @@ part 'list_param.g.dart';
 class ListParam with _$ListParam {
   @jsonSerializable
   const factory ListParam({
+    required String purpose,
     required String name,
-    @Default(appBskyGraphDefsModlist) String purpose,
     String? description,
     List<Facet>? descriptionFacets,
     Blob? avatar,
