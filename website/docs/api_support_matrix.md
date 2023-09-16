@@ -125,6 +125,7 @@ See more details about **[bluesky](https://pub.dev/packages/bluesky)** in **[Pac
 | [GET app.bsky.feed.describeFeedGenerator](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/describeFeedGenerator.json) | [findGeneratorInfo](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findGeneratorInfo.html)   |       ✅       |     ❌      |
 | [GET app.bsky.feed.getActorLikes](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorLikes.json)                 | [findActorLikes](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findActorLikes.html)         |       ✅       |     ✅      |
 | [GET app.bsky.feed.getSuggestedFeeds](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getSuggestedFeeds.json)         | [findSuggestedFeeds](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findSuggestedFeeds.html) |       ✅       |     ✅      |
+| [GET app.bsky.feed.getListFeed](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getListFeed.json)                     | [findListFeed](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findListFeed.html)             |       ✅       |     ✅      |
 
 ### [Notifications Service](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService-class.html)
 
@@ -213,6 +214,7 @@ Available commands:
   like                      Like a specific post.
   likes                     Show the likes of specific post.
   list                      Show the list.
+  list-feed                 Show the feed from the list.
   lists                     Show the lists.
   mute                      Mute an user.
   mute-list                 Mute an actor list.
@@ -232,6 +234,7 @@ Available commands:
   reposted-by               Show the actors reposted specific post.
   search-actors             Search the actors based on term.
   seen-notifications        Update all notifications to read.
+  suggested-follows         Show a list of suggested follows.
   suggestions               Show the actor suggestions.
   thread                    Show the thread of specific post.
   timeline                  Show the timeline of authenticated user.

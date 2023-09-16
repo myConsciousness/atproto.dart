@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.6
+
+- Added `list-feed` command. ([#813](https://github.com/myConsciousness/atproto.dart/issues/813))
+
 ## v0.3.5
 
 - Added `suggested-follows` command. ([#800](https://github.com/myConsciousness/atproto.dart/issues/800))

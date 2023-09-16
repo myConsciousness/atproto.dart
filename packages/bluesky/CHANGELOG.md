@@ -3,6 +3,11 @@
 ## v0.8.18
 
 - Added `.createModeratedList` and `.createCuratedList` on `GraphsService`. And now `purpose` param for `.createList` is required. ([#814](https://github.com/myConsciousness/atproto.dart/issues/814))
+- Supported `app.bsky.feed.getListFeed` on `FeedsService`. ([#813](https://github.com/myConsciousness/atproto.dart/issues/813))
+  - `.findListFeed`
+  - `.findListFeedAsJson`
+  - `.paginateListFeed`
+  - `.paginateListFeedAsJson`
 
 ## v0.8.17
 
