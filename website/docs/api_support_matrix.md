@@ -214,6 +214,7 @@ Available commands:
   like                      Like a specific post.
   likes                     Show the likes of specific post.
   list                      Show the list.
+  list-feed                 Show the feed from the list.
   lists                     Show the lists.
   mute                      Mute an user.
   mute-list                 Mute an actor list.
@@ -233,6 +234,7 @@ Available commands:
   reposted-by               Show the actors reposted specific post.
   search-actors             Search the actors based on term.
   seen-notifications        Update all notifications to read.
+  suggested-follows         Show a list of suggested follows.
   suggestions               Show the actor suggestions.
   thread                    Show the thread of specific post.
   timeline                  Show the timeline of authenticated user.
