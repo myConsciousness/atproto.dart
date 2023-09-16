@@ -2327,7 +2327,6 @@ void main() {
         limit: 10,
         cursor: '1234',
       );
-      ;
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<Map<String, dynamic>>());
