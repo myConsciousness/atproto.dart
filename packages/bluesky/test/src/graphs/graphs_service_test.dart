@@ -6,11 +6,11 @@
 import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_test/atproto_test.dart' as atp_test;
-import 'package:bluesky/ids.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/ids.dart';
 
 void main() {
   group('.createFollow', () {
