@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.8.19
+
+- Upgraded `xrpc` package. Fixed field names for rate limit.
+
 ## v0.8.18
 
 - Added `.createModeratedList` and `.createCuratedList` on `GraphsService`. And now `purpose` param for `.createList` is required. ([#814](https://github.com/myConsciousness/atproto.dart/issues/814))
