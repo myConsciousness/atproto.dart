@@ -1,7 +1,8 @@
 name: xrpc
 description: Provide an HTTP client specialized for XRPC communication in AT Protocol.
-version: 0.3.1
+version: 0.3.2
 homepage: https://atprotodart.com
+documentation: https://atprotodart.com/docs/intro
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/xrpc
 issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
 funding:
@@ -24,7 +25,6 @@ dependencies:
   json_annotation: ^4.8.1
   mime: ^1.0.4
   web_socket_channel: ^2.4.0
-  universal_io: ^2.2.2
 
 dev_dependencies:
   lints: ^2.0.1
@@ -36,3 +36,7 @@ dev_dependencies:
 
 import_sorter:
   emojis: true
+
+screenshots:
+  - description: The xrpc package and atproto.dart logo.
+    path: screenshots/logo.png

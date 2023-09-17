@@ -297,11 +297,10 @@ void main() {
           200,
           request: Request('GET', Uri.https('bsky.social')),
           headers: {
-            'RateLimit-Limit': '100',
-            'RateLimit-Remaining': '1000',
-            'RateLimit-Reset': '50',
-            'RateLimit-Policy': '100;w=300',
-            'date': 'Wed, 02 Aug 2023 04:27:20 GMT',
+            'ratelimit-limit': '100',
+            'ratelimit-remaining': '1000',
+            'ratelimit-reset': '50',
+            'ratelimit-policy': '100;w=300',
           },
         ),
       );
@@ -389,11 +388,10 @@ void main() {
           200,
           request: Request('POST', Uri.https('bsky.social')),
           headers: {
-            'RateLimit-Limit': '100',
-            'RateLimit-Remaining': '1000',
-            'RateLimit-Reset': '50',
-            'RateLimit-Policy': '100;w=300',
-            'date': 'Wed, 02 Aug 2023 04:27:20 GMT',
+            'ratelimit-limit': '100',
+            'ratelimit-remaining': '1000',
+            'ratelimit-reset': '50',
+            'ratelimit-policy': '100;w=300',
           },
         ),
       );
@@ -486,11 +484,10 @@ void main() {
           200,
           request: Request('POST', Uri.https('bsky.social')),
           headers: {
-            'RateLimit-Limit': '100',
-            'RateLimit-Remaining': '1000',
-            'RateLimit-Reset': '50',
-            'RateLimit-Policy': '100;w=300',
-            'date': 'Wed, 02 Aug 2023 04:27:20 GMT',
+            'ratelimit-limit': '100',
+            'ratelimit-remaining': '1000',
+            'ratelimit-reset': '50',
+            'ratelimit-policy': '100;w=300',
           },
         ),
       );

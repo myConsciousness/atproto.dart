@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.2
+
+- Upgraded `xrpc` package. Fixed field names for rate limit.
+
 ## v0.4.1
 
 - Fixed a bug in which URLs were not detected in specific cases.
