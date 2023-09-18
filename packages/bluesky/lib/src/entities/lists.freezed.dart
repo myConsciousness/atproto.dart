@@ -105,9 +105,10 @@ class __$$_ListsCopyWithImpl<$Res> extends _$ListsCopyWithImpl<$Res, _$_Lists>
 /// @nodoc
 
 @jsonSerializable
-class _$_Lists implements _Lists {
+class _$_Lists extends _Lists {
   const _$_Lists({required final List<ListView> lists, this.cursor})
-      : _lists = lists;
+      : _lists = lists,
+        super._();
 
   factory _$_Lists.fromJson(Map<String, dynamic> json) =>
       _$$_ListsFromJson(json);
@@ -160,9 +161,10 @@ class _$_Lists implements _Lists {
   }
 }
 
-abstract class _Lists implements Lists {
+abstract class _Lists extends Lists {
   const factory _Lists(
       {required final List<ListView> lists, final String? cursor}) = _$_Lists;
+  const _Lists._() : super._();
 
   factory _Lists.fromJson(Map<String, dynamic> json) = _$_Lists.fromJson;
 

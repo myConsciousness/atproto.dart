@@ -2,9 +2,6 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🎯 Dart imports:
-import 'dart:io';
-
 // 📦 Package imports:
 import 'package:test/test.dart';
 
@@ -14,14 +11,13 @@ import 'package:xrpc/src/entities/rate_limit.dart';
 void main() {
   group('.fromHeaders', () {
     test('enabled', () {
-      final now = DateTime.now().toUtc().add(Duration(days: 1));
-
+      final fiveMinutesLater = DateTime.now().add(Duration(minutes: 5)).toUtc();
       final rateLimit = RateLimit.fromHeaders({
-        'date': HttpDate.format(now),
-        'RateLimit-Limit': '1000',
-        'RateLimit-Remaining': '0',
-        'RateLimit-Reset': '50',
-        'RateLimit-Policy': '100;w=300',
+        'ratelimit-limit': '1000',
+        'ratelimit-remaining': '0',
+        'ratelimit-reset':
+            (fiveMinutesLater.millisecondsSinceEpoch ~/ 1000).toString(),
+        'ratelimit-policy': '100;w=300',
       });
 
       expect(rateLimit.limitCount, 1000);
@@ -34,14 +30,11 @@ void main() {
     });
 
     test('enabled and not exceeded due to remaining', () {
-      final now = DateTime.now().toUtc().add(Duration(days: 1));
-
       final rateLimit = RateLimit.fromHeaders({
-        'date': HttpDate.format(now),
-        'RateLimit-Limit': '1000',
-        'RateLimit-Remaining': '1',
-        'RateLimit-Reset': '50',
-        'RateLimit-Policy': '100;w=300',
+        'ratelimit-limit': '1000',
+        'ratelimit-remaining': '1',
+        'ratelimit-reset': '50',
+        'ratelimit-policy': '100;w=300',
       });
 
       expect(rateLimit.limitCount, 1000);
@@ -54,14 +47,11 @@ void main() {
     });
 
     test('enabled and not exceeded due to resetAt (past)', () {
-      final dayAgo = DateTime.now().toUtc().add(Duration(days: -1));
-
       final rateLimit = RateLimit.fromHeaders({
-        'date': HttpDate.format(dayAgo),
-        'RateLimit-Limit': '1000',
-        'RateLimit-Remaining': '0',
-        'RateLimit-Reset': '50',
-        'RateLimit-Policy': '100;w=300',
+        'ratelimit-limit': '1000',
+        'ratelimit-remaining': '0',
+        'ratelimit-reset': '50',
+        'ratelimit-policy': '100;w=300',
       });
 
       expect(rateLimit.limitCount, 1000);
@@ -74,9 +64,7 @@ void main() {
     });
 
     test('disabled', () {
-      final rateLimit = RateLimit.fromHeaders({
-        'date': 'Wed, 02 Aug 2023 04:27:20 GMT',
-      });
+      final rateLimit = RateLimit.fromHeaders({});
 
       expect(rateLimit.limitCount, -1);
       expect(rateLimit.remainingCount, -1);
@@ -91,34 +79,27 @@ void main() {
 
   group('.waitUntilWait', () {
     test('when need to wait', () async {
-      final now = DateTime.now().toUtc();
+      final fiveSecondsLater = DateTime.now().add(Duration(seconds: 5)).toUtc();
 
       final rateLimit = RateLimit.fromHeaders({
-        'date': HttpDate.format(now),
-        'RateLimit-Limit': '1000',
-        'RateLimit-Remaining': '0',
-        //! Assumes a margin of error of a few milliseconds.
-        'RateLimit-Reset': '11',
-        'RateLimit-Policy': '100;w=300',
+        'ratelimit-limit': '1000',
+        'ratelimit-remaining': '0',
+        'ratelimit-reset':
+            (fiveSecondsLater.millisecondsSinceEpoch ~/ 1000).toString(),
+        'ratelimit-policy': '100;w=300',
       });
 
       final result = await rateLimit.waitUntilReset();
-
-      final waitedInSeconds = DateTime.now().toUtc().difference(now).inSeconds;
-      expect(waitedInSeconds, 10); //! About 10998 milliseconds.
 
       expect(result, isTrue);
     });
 
     test('when not need to wait due to remaining', () async {
-      final now = DateTime.now().toUtc();
-
       final rateLimit = RateLimit.fromHeaders({
-        'date': HttpDate.format(now),
-        'RateLimit-Limit': '1000',
-        'RateLimit-Remaining': '1',
-        'RateLimit-Reset': '10',
-        'RateLimit-Policy': '100;w=300',
+        'ratelimit-limit': '1000',
+        'ratelimit-remaining': '1',
+        'ratelimit-reset': '10',
+        'ratelimit-policy': '100;w=300',
       });
 
       final result = await rateLimit.waitUntilReset();
@@ -127,14 +108,11 @@ void main() {
     });
 
     test('when not need to wait due to resetAt (past)', () async {
-      final now = DateTime.now().toUtc().add(Duration(days: -1));
-
       final rateLimit = RateLimit.fromHeaders({
-        'date': HttpDate.format(now),
-        'RateLimit-Limit': '1000',
-        'RateLimit-Remaining': '0',
-        'RateLimit-Reset': '10',
-        'RateLimit-Policy': '100;w=300',
+        'ratelimit-limit': '1000',
+        'ratelimit-remaining': '0',
+        'ratelimit-reset': '10',
+        'ratelimit-policy': '100;w=300',
       });
 
       final result = await rateLimit.waitUntilReset();

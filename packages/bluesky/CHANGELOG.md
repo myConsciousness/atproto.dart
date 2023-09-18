@@ -1,5 +1,22 @@
 # Release Note
 
+## v0.8.20
+
+- Added `.groupByHour` and `.groupByMinute` on `Notifications` object. You can adjust the unit of grouping in hours or minutes when grouping notifications. ([#821](https://github.com/myConsciousness/atproto.dart/issues/821))
+
+## v0.8.19
+
+- Upgraded `xrpc` package. Fixed field names for rate limit.
+
+## v0.8.18
+
+- Added `.createModeratedList` and `.createCuratedList` on `GraphsService`. And now `purpose` param for `.createList` is required. ([#814](https://github.com/myConsciousness/atproto.dart/issues/814))
+- Supported `app.bsky.feed.getListFeed` on `FeedsService`. ([#813](https://github.com/myConsciousness/atproto.dart/issues/813))
+  - `.findListFeed`
+  - `.findListFeedAsJson`
+  - `.paginateListFeed`
+  - `.paginateListFeedAsJson`
+
 ## v0.8.17
 
 - Added `blocked` property on `ListViewer`. Also you can easily check with `.isBlocked` and `.isNotBlocked` properties. ([#792](https://github.com/myConsciousness/atproto.dart/issues/#792))

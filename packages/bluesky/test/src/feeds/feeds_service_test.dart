@@ -2276,4 +2276,114 @@ void main() {
       );
     });
   });
+
+  group('.findListFeed', () {
+    test('normal case', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/find_list_feed.json',
+        ),
+      );
+
+      final response = await feeds.findListFeed(
+        list: AtUri.parse(
+          'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3k7hu3rjjh42f',
+        ),
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Feed>());
+    });
+
+    test('as JSON', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/find_list_feed.json',
+        ),
+      );
+
+      final response = await feeds.findListFeedAsJson(
+        list: AtUri.parse(
+          'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3k7hu3rjjh42f',
+        ),
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
+    test('when unauthorized', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await feeds.findListFeed(
+          list: AtUri.parse(
+            'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3k7hu3rjjh42f',
+          ),
+          limit: 10,
+          cursor: '1234',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => feeds.findListFeed(
+          list: AtUri.parse(
+            'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3k7hu3rjjh42f',
+          ),
+          limit: 10,
+          cursor: '1234',
+        ),
+      );
+    });
+  });
 }

@@ -125,6 +125,7 @@ See more details about **[bluesky](https://pub.dev/packages/bluesky)** in **[Pac
 | [GET app.bsky.feed.describeFeedGenerator](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/describeFeedGenerator.json) | [findGeneratorInfo](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findGeneratorInfo.html)   |       ✅       |     ❌      |
 | [GET app.bsky.feed.getActorLikes](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorLikes.json)                 | [findActorLikes](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findActorLikes.html)         |       ✅       |     ✅      |
 | [GET app.bsky.feed.getSuggestedFeeds](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getSuggestedFeeds.json)         | [findSuggestedFeeds](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findSuggestedFeeds.html) |       ✅       |     ✅      |
+| [GET app.bsky.feed.getListFeed](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getListFeed.json)                     | [findListFeed](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findListFeed.html)             |       ✅       |     ✅      |
 
 ### [Notifications Service](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService-class.html)
 
@@ -150,6 +151,8 @@ See more details about **[bluesky](https://pub.dev/packages/bluesky)** in **[Pac
 | [POST app.bsky.graph.block](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/block.json)                                          | [createBlock](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createBlock.html)                   |       ✅       |     ❌      |
 | [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)                          | [createBlocks](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createBlocks.html)                 |       ✅       |     ❌      |
 | [POST com.atproto.repo.list](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/list.json)                                        | [createList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createList.html)                     |       ✅       |     ❌      |
+| [POST com.atproto.repo.list](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/list.json)                                        | [createModeratedList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createModeratedList.html)   |       ✅       |     ❌      |
+| [POST com.atproto.repo.list](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/list.json)                                        | [createCuratedList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createCuratedList.html)       |       ✅       |     ❌      |
 | [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)                          | [createLists](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createLists.html)                   |       ✅       |     ✅      |
 | [POST com.atproto.repo.getLists](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/getLists.json)                                | [findLists](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/findLists.html)                       |       ✅       |     ❌      |
 | [POST com.atproto.repo.getList](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/getList.json)                                  | [findList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/findList.html)                         |       ✅       |     ❌      |
@@ -211,6 +214,7 @@ Available commands:
   like                      Like a specific post.
   likes                     Show the likes of specific post.
   list                      Show the list.
+  list-feed                 Show the feed from the list.
   lists                     Show the lists.
   mute                      Mute an user.
   mute-list                 Mute an actor list.
@@ -230,6 +234,7 @@ Available commands:
   reposted-by               Show the actors reposted specific post.
   search-actors             Search the actors based on term.
   seen-notifications        Update all notifications to read.
+  suggested-follows         Show a list of suggested follows.
   suggestions               Show the actor suggestions.
   thread                    Show the thread of specific post.
   timeline                  Show the timeline of authenticated user.

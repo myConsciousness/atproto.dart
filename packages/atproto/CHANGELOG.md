@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.6.8
+
+- Upgraded `xrpc` package. Fixed field names for rate limit.
+
 ## v0.6.7
 
 - Upgraded `at_uri`. ([#797](https://github.com/myConsciousness/atproto.dart/issues/797))

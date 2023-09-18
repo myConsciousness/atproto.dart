@@ -22,6 +22,7 @@ import 'feed/feed_generators.dart';
 import 'feed/generator_info.dart';
 import 'feed/like.dart';
 import 'feed/likes.dart';
+import 'feed/list_feed.dart';
 import 'feed/post.dart';
 import 'feed/posts.dart';
 import 'feed/repost.dart';
@@ -81,6 +82,7 @@ final feedCommands = <BskyCommand>[
   CustomFeedCommand(),
   GeneratorInfoCommand(),
   ActorLikesCommand(),
+  ListFeedCommand(),
 ];
 
 final notificationCommands = <BskyCommand>[

@@ -13,9 +13,8 @@ _$_ListParam _$$_ListParamFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_ListParam(
+          purpose: $checkedConvert('purpose', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
-          purpose: $checkedConvert(
-              'purpose', (v) => v as String? ?? appBskyGraphDefsModlist),
           description: $checkedConvert('description', (v) => v as String?),
           descriptionFacets: $checkedConvert(
               'descriptionFacets',
@@ -48,8 +47,8 @@ _$_ListParam _$$_ListParamFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$_ListParamToJson(_$_ListParam instance) {
   final val = <String, dynamic>{
-    'name': instance.name,
     'purpose': instance.purpose,
+    'name': instance.name,
   };
 
   void writeNotNull(String key, dynamic value) {

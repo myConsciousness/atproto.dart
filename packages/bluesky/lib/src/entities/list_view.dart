@@ -39,8 +39,8 @@ class ListView with _$ListView {
     /// The type of the list, by default it is [appBskyGraphDefsListView].
     @typeKey @Default(appBskyGraphDefsListView) String type,
 
-    /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
-    @Default(appBskyGraphDefsModlist) String purpose,
+    /// The purpose of the list.
+    required String purpose,
 
     /// The URI of the list.
     @atUriConverter required AtUri uri,
@@ -90,4 +90,16 @@ class ListView with _$ListView {
 
   /// Returns true if this list is not blocked, otherwise false.
   bool get isNotBlocked => !isBlocked;
+
+  /// Returns true if this list is for moderation purpose, otherwise false.
+  bool get isModerated => purpose == appBskyGraphDefsModlist;
+
+  /// Returns true if this list is not for moderation purpose, otherwise false.
+  bool get isNotModerated => !isModerated;
+
+  /// Returns true if this list is for curation purpose, otherwise false.
+  bool get isCurated => purpose == appBskyGraphDefsCuratelist;
+
+  /// Returns true if this list is not for curation purpose, otherwise false.
+  bool get isNotCurated => !isCurated;
 }
