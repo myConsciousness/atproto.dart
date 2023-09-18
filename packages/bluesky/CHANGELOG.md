@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.8.20
+
+- Added `.groupByHour` and `.groupByMinute` on `Notifications` object. You can adjust the unit of grouping in hours or minutes when grouping notifications. ([#821](https://github.com/myConsciousness/atproto.dart/issues/821))
+
 ## v0.8.19
 
 - Upgraded `xrpc` package. Fixed field names for rate limit.

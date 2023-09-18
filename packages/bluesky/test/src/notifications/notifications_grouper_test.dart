@@ -585,4 +585,272 @@ void main() {
       expect(grouped.cursor, 'xxxx');
     });
   });
+
+  group('.groupByHour', () {
+    test('case1', () {
+      final notifications = Notifications.fromJson({
+        'notifications': [
+          {
+            'uri':
+                'at://did:plc:sxd6pmcbqp6j7hics6p57hyc/app.bsky.feed.like/3jukrylmhec26',
+            'cid':
+                'bafyreidpmsxdbmw7gn55ek5xk4qwb6nyx6f6rppyjir4fizrdhyb44o2va',
+            'author': {
+              'did': 'did:plc:sxd6pmcbqp6j7hics6p57hyc',
+              'handle': 'jeon.bsky.social',
+              'displayName': '𝐏𝐑𝐈𝐍𝐂𝐄.',
+              'description': 'trust in yourself. 🌪',
+              'avatar':
+                  'https://cdn.bsky.social/imgproxy/DG_RnQ2JL5z3gwJUOh8VEmdckrHvTGuxQ9ipGILblz8/rs:fill:1000:1000:1:0/plain/bafkreidcar4ozokjfiyfrn2batr52dwjgcfqvox6tggi5y7ykv4nujiasm@jpeg',
+              'indexedAt': '2023-04-25T21:40:50.588Z',
+              'viewer': {
+                'muted': false,
+                'blockedBy': false,
+                'following':
+                    'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jttf4mid4322',
+                'followedBy':
+                    'at://did:plc:sxd6pmcbqp6j7hics6p57hyc/app.bsky.graph.follow/3jttfgryodt22'
+              },
+              'labels': []
+            },
+            'reason': 'like',
+            'reasonSubject':
+                'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jukoxegkhw2s',
+            'record': {
+              r'$type': 'app.bsky.feed.like',
+              'subject': {
+                'cid':
+                    'bafyreifpffel3c4n2whqwcrcxmnjijvgjynufwbgejtztq7sywgyipwdoa',
+                'uri':
+                    'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jukoxegkhw2s'
+              },
+              'createdAt': '2023-04-30T04:17:47.209Z'
+            },
+            'isRead': true,
+            'indexedAt': '2023-04-30T04:00:00.000Z',
+            'labels': []
+          },
+          {
+            'uri':
+                'at://did:plc:sxd6pmcbqp6j7hics6p57hyc/app.bsky.feed.like/3jukrylmhec26',
+            'cid':
+                'bafyreidpmsxdbmw7gn55ek5xk4qwb6nyx6f6rppyjir4fizrdhyb44o2va',
+            'author': {
+              'did': 'did:plc:sxd6pmcbqp6j7hics6p57hyc',
+              'handle': 'test.bsky.social',
+              'displayName': 'test.',
+              'description': 'test',
+              'avatar':
+                  'https://cdn.bsky.social/imgproxy/DG_RnQ2JL5z3gwJUOh8VEmdckrHvTGuxQ9ipGILblz8/rs:fill:1000:1000:1:0/plain/bafkreidcar4ozokjfiyfrn2batr52dwjgcfqvox6tggi5y7ykv4nujiasm@jpeg',
+              'indexedAt': '2023-04-25T21:40:50.588Z',
+              'viewer': {
+                'muted': false,
+                'blockedBy': false,
+                'following':
+                    'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jttf4mid4322',
+                'followedBy':
+                    'at://did:plc:sxd6pmcbqp6j7hics6p57hyc/app.bsky.graph.follow/3jttfgryodt22'
+              },
+              'labels': []
+            },
+            'reason': 'like',
+            'reasonSubject':
+                'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jukoxegkhw2s',
+            'record': {
+              r'$type': 'app.bsky.feed.like',
+              'subject': {
+                'cid':
+                    'bafyreifpffel3c4n2whqwcrcxmnjijvgjynufwbgejtztq7sywgyipwdoa',
+                'uri':
+                    'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jukoxegkhw2s'
+              },
+              'createdAt': '2023-04-30T04:17:47.209Z'
+            },
+            'isRead': true,
+            'indexedAt': '2023-04-30T05:00:00.000Z',
+            'labels': []
+          },
+        ],
+        'cursor': 'xxxx',
+      });
+
+      final groupedBy1Hour = notifications.groupByHour(1);
+      final groupedBy2Hours = notifications.groupByHour(2);
+
+      expect(groupedBy1Hour.notifications.length, 2);
+      expect(groupedBy2Hours.notifications.length, 1);
+      expect(notifications.group().notifications.length, 1);
+    });
+
+    test('when hour is 0', () {
+      final notifications = Notifications(notifications: []);
+
+      expect(
+        () => notifications.groupByHour(0),
+        throwsA(isA<AssertionError>()),
+      );
+    });
+
+    test('when hour is less than 0', () {
+      final notifications = Notifications(notifications: []);
+
+      expect(
+        () => notifications.groupByHour(-1),
+        throwsA(isA<AssertionError>()),
+      );
+    });
+
+    test('when hour is 24', () {
+      final notifications = Notifications(notifications: []);
+
+      expect(
+        () => notifications.groupByHour(24),
+        throwsA(isA<AssertionError>()),
+      );
+    });
+
+    test('when hour is greater than 24', () {
+      final notifications = Notifications(notifications: []);
+
+      expect(
+        () => notifications.groupByHour(25),
+        throwsA(isA<AssertionError>()),
+      );
+    });
+  });
+
+  group('.groupByMinute', () {
+    test('case1', () {
+      final notifications = Notifications.fromJson({
+        'notifications': [
+          {
+            'uri':
+                'at://did:plc:sxd6pmcbqp6j7hics6p57hyc/app.bsky.feed.like/3jukrylmhec26',
+            'cid':
+                'bafyreidpmsxdbmw7gn55ek5xk4qwb6nyx6f6rppyjir4fizrdhyb44o2va',
+            'author': {
+              'did': 'did:plc:sxd6pmcbqp6j7hics6p57hyc',
+              'handle': 'jeon.bsky.social',
+              'displayName': '𝐏𝐑𝐈𝐍𝐂𝐄.',
+              'description': 'trust in yourself. 🌪',
+              'avatar':
+                  'https://cdn.bsky.social/imgproxy/DG_RnQ2JL5z3gwJUOh8VEmdckrHvTGuxQ9ipGILblz8/rs:fill:1000:1000:1:0/plain/bafkreidcar4ozokjfiyfrn2batr52dwjgcfqvox6tggi5y7ykv4nujiasm@jpeg',
+              'indexedAt': '2023-04-25T21:40:50.588Z',
+              'viewer': {
+                'muted': false,
+                'blockedBy': false,
+                'following':
+                    'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jttf4mid4322',
+                'followedBy':
+                    'at://did:plc:sxd6pmcbqp6j7hics6p57hyc/app.bsky.graph.follow/3jttfgryodt22'
+              },
+              'labels': []
+            },
+            'reason': 'like',
+            'reasonSubject':
+                'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jukoxegkhw2s',
+            'record': {
+              r'$type': 'app.bsky.feed.like',
+              'subject': {
+                'cid':
+                    'bafyreifpffel3c4n2whqwcrcxmnjijvgjynufwbgejtztq7sywgyipwdoa',
+                'uri':
+                    'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jukoxegkhw2s'
+              },
+              'createdAt': '2023-04-30T04:17:47.209Z'
+            },
+            'isRead': true,
+            'indexedAt': '2023-04-30T04:00:00.000Z',
+            'labels': []
+          },
+          {
+            'uri':
+                'at://did:plc:sxd6pmcbqp6j7hics6p57hyc/app.bsky.feed.like/3jukrylmhec26',
+            'cid':
+                'bafyreidpmsxdbmw7gn55ek5xk4qwb6nyx6f6rppyjir4fizrdhyb44o2va',
+            'author': {
+              'did': 'did:plc:sxd6pmcbqp6j7hics6p57hyc',
+              'handle': 'test.bsky.social',
+              'displayName': 'test.',
+              'description': 'test',
+              'avatar':
+                  'https://cdn.bsky.social/imgproxy/DG_RnQ2JL5z3gwJUOh8VEmdckrHvTGuxQ9ipGILblz8/rs:fill:1000:1000:1:0/plain/bafkreidcar4ozokjfiyfrn2batr52dwjgcfqvox6tggi5y7ykv4nujiasm@jpeg',
+              'indexedAt': '2023-04-25T21:40:50.588Z',
+              'viewer': {
+                'muted': false,
+                'blockedBy': false,
+                'following':
+                    'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jttf4mid4322',
+                'followedBy':
+                    'at://did:plc:sxd6pmcbqp6j7hics6p57hyc/app.bsky.graph.follow/3jttfgryodt22'
+              },
+              'labels': []
+            },
+            'reason': 'like',
+            'reasonSubject':
+                'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jukoxegkhw2s',
+            'record': {
+              r'$type': 'app.bsky.feed.like',
+              'subject': {
+                'cid':
+                    'bafyreifpffel3c4n2whqwcrcxmnjijvgjynufwbgejtztq7sywgyipwdoa',
+                'uri':
+                    'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3jukoxegkhw2s'
+              },
+              'createdAt': '2023-04-30T04:17:47.209Z'
+            },
+            'isRead': true,
+            'indexedAt': '2023-04-30T04:30:00.000Z',
+            'labels': []
+          },
+        ],
+        'cursor': 'xxxx',
+      });
+
+      final groupedBy29Minutes = notifications.groupByMinute(29);
+      final groupedBy30Minutes = notifications.groupByMinute(30);
+      final groupedBy31Minutes = notifications.groupByMinute(31);
+
+      expect(groupedBy29Minutes.notifications.length, 2);
+      expect(groupedBy30Minutes.notifications.length, 2);
+      expect(groupedBy31Minutes.notifications.length, 1);
+      expect(notifications.group().notifications.length, 1);
+    });
+
+    test('when minute is 0', () {
+      final notifications = Notifications(notifications: []);
+
+      expect(
+        () => notifications.groupByMinute(0),
+        throwsA(isA<AssertionError>()),
+      );
+    });
+
+    test('when minute is less than 0', () {
+      final notifications = Notifications(notifications: []);
+
+      expect(
+        () => notifications.groupByMinute(-1),
+        throwsA(isA<AssertionError>()),
+      );
+    });
+
+    test('when minute is 60', () {
+      final notifications = Notifications(notifications: []);
+
+      expect(
+        () => notifications.groupByMinute(60),
+        throwsA(isA<AssertionError>()),
+      );
+    });
+
+    test('when minute is greater than 60', () {
+      final notifications = Notifications(notifications: []);
+
+      expect(
+        () => notifications.groupByHour(61),
+        throwsA(isA<AssertionError>()),
+      );
+    });
+  });
 }
