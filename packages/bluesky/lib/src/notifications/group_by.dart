@@ -10,15 +10,14 @@ sealed class GroupBy {
   // ignore: unused_element
   const GroupBy._();
 
-  const factory GroupBy.hour(final int hour) = GroupByHour;
-  const factory GroupBy.minute(final int minute) = GroupByMinute;
+  const factory GroupBy.hour(final int hour) = Hour;
+  const factory GroupBy.minute(final int minute) = Minute;
 
   List<List<Notification>> execute(final Notifications data);
 }
 
-final class GroupByHour implements GroupBy {
-  const GroupByHour(this.hour)
-      : assert(hour > 0 && hour < 24, 'Invalid hour value');
+final class Hour implements GroupBy {
+  const Hour(this.hour) : assert(hour > 0 && hour < 24, 'Invalid hour value');
 
   final int hour;
 
@@ -38,8 +37,8 @@ final class GroupByHour implements GroupBy {
   }
 }
 
-final class GroupByMinute implements GroupBy {
-  const GroupByMinute(this.minute)
+final class Minute implements GroupBy {
+  const Minute(this.minute)
       : assert(minute > 0 && minute < 60, 'Invalid minute value.');
 
   final int minute;
