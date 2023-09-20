@@ -6,6 +6,7 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
+import 'package:bluesky/src/entities/notification.dart';
 import '../entities/keys/ids.g.dart' as ids;
 import '../entities/notifications.dart';
 import 'grouped_notification_reason.dart';
@@ -37,19 +38,8 @@ final class NotificationReasonIncludeFilter
 
   @override
   Notifications execute(final Notifications data) => data.copyWith(
-        notifications: data.notifications.where((e) {
-          if (_isCustomFeedLike(e.reason, e.reasonSubject)) {
-            return reasons.contains(GroupedNotificationReason.customFeedLike);
-          }
-
-          for (final reason in reasons) {
-            if (e.reason.name == reason.name) {
-              return true;
-            }
-          }
-
-          return false;
-        }).toList(),
+        notifications:
+            data.notifications.where((e) => _test(e, reasons)).toList(),
       );
 }
 
@@ -63,20 +53,26 @@ final class NotificationReasonExcludeFilter
 
   @override
   Notifications execute(final Notifications data) => data.copyWith(
-        notifications: data.notifications.where((e) {
-          if (_isCustomFeedLike(e.reason, e.reasonSubject)) {
-            return !reasons.contains(GroupedNotificationReason.customFeedLike);
-          }
-
-          for (final reason in reasons) {
-            if (e.reason.name == reason.name) {
-              return false;
-            }
-          }
-
-          return true;
-        }).toList(),
+        notifications:
+            data.notifications.where((e) => !_test(e, reasons)).toList(),
       );
+}
+
+bool _test(
+  final Notification e,
+  final List<GroupedNotificationReason> reasons,
+) {
+  if (_isCustomFeedLike(e.reason, e.reasonSubject)) {
+    return reasons.contains(GroupedNotificationReason.customFeedLike);
+  }
+
+  for (final reason in reasons) {
+    if (e.reason.name == reason.name) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 /// Returns true if this [reason] is a custom feed like, otherwise false.
