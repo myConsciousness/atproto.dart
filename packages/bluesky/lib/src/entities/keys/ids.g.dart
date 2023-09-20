@@ -19,6 +19,9 @@ const appBskyActorDefsAdultContentPref = 'app.bsky.actor.defs#adultContentPref';
 /// `app.bsky.actor.defs#contentLabelPref`
 const appBskyActorDefsContentLabelPref = 'app.bsky.actor.defs#contentLabelPref';
 
+/// `app.bsky.actor.defs#feedViewPref`
+const appBskyActorDefsFeedViewPref = 'app.bsky.actor.defs#feedViewPref';
+
 /// `app.bsky.actor.defs#personalDetailsPref`
 const appBskyActorDefsPersonalDetailsPref =
     'app.bsky.actor.defs#personalDetailsPref';
@@ -38,6 +41,9 @@ const appBskyActorDefsProfileViewDetailed =
 
 /// `app.bsky.actor.defs#savedFeedsPref`
 const appBskyActorDefsSavedFeedsPref = 'app.bsky.actor.defs#savedFeedsPref';
+
+/// `app.bsky.actor.defs#threadViewPref`
+const appBskyActorDefsThreadViewPref = 'app.bsky.actor.defs#threadViewPref';
 
 /// `app.bsky.actor.defs#viewerState`
 const appBskyActorDefsViewerState = 'app.bsky.actor.defs#viewerState';
