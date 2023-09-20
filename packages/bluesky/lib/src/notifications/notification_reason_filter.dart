@@ -6,8 +6,8 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import 'package:bluesky/src/entities/notification.dart';
 import '../entities/keys/ids.g.dart' as ids;
+import '../entities/notification.dart';
 import '../entities/notifications.dart';
 import 'grouped_notification_reason.dart';
 import 'notification_reason.dart';
