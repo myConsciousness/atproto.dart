@@ -274,6 +274,11 @@ export 'package:bluesky/src/extension/strong_ref_extension.dart';
 export 'package:bluesky/src/feeds/feeds_service.dart';
 export 'package:bluesky/src/graphs/graphs_service.dart';
 export 'package:bluesky/src/notifications/notification_reason.dart';
+export 'package:bluesky/src/notifications/notification_reason_filter.dart'
+    show
+        NotificationReasonFilter,
+        NotificationReasonIncludeFilter,
+        NotificationReasonExcludeFilter;
 export 'package:bluesky/src/notifications/grouped_notification_reason.dart';
 export 'package:bluesky/src/notifications/notifications_service.dart';
 export 'package:bluesky/src/params/generator_param.dart';
