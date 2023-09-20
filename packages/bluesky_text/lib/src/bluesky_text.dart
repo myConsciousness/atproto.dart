@@ -77,7 +77,7 @@ const _maxLength = 300;
 /// ```
 sealed class BlueskyText {
   /// Returns the new instance of [BlueskyText].
-  factory BlueskyText(final String text) => _BlueskyText(text);
+  const factory BlueskyText(final String text) = _BlueskyText;
 
   /// Returns the resource text.
   ///
@@ -159,10 +159,7 @@ sealed class BlueskyText {
 
 final class _BlueskyText implements BlueskyText {
   /// Returns the new instance of [_BlueskyText].
-  _BlueskyText(this.value) : _unicode = UnicodeString(value);
-
-  /// The unicode string.
-  final UnicodeString _unicode;
+  const _BlueskyText(this.value);
 
   @override
   final String value;
@@ -173,14 +170,14 @@ final class _BlueskyText implements BlueskyText {
   @override
   Entities get handles => Entities(
         _orderByIndicesStart(
-          _detectHandles(_unicode),
+          _detectHandles(value),
         ),
       );
 
   @override
   Entities get links => Entities(
         _orderByIndicesStart(
-          _detectLinks(_unicode),
+          _detectLinks(value),
         ),
       );
 
@@ -255,13 +252,13 @@ final class _BlueskyText implements BlueskyText {
   }
 
   @override
-  bool get hasHandle => regexHandle.hasMatch(value);
+  bool get hasHandle => handleRegex.hasMatch(value);
 
   @override
   bool get hasNotHandle => !hasHandle;
 
   @override
-  bool get hasLink => regexLink.hasMatch(value);
+  bool get hasLink => linkRegex.hasMatch(value);
 
   @override
   bool get hasNotLink => !hasLink;
@@ -284,29 +281,27 @@ final class _BlueskyText implements BlueskyText {
   @override
   bool get isNotEmpty => !isEmpty;
 
-  List<Entity> _detectHandles(final UnicodeString text) {
+  List<Entity> _detectHandles(final String text) {
     _ensureLength();
 
     final entities = <Entity>[];
 
-    final regex = RegExp(r'(^|\s|\()(@)([a-zA-Z0-9.-]+)(\b)');
-
-    for (final match in regex.allMatches(text.utf16)) {
+    for (final match in handleRegex.allMatches(text)) {
       final handle = match.group(3)!;
 
       if (!_hasValidDomain(handle)) {
         continue;
       }
 
-      final start = text.utf16.indexOf(handle, match.start) - 1;
+      final start = text.indexOf(handle, match.start) - 1;
 
       entities.add(
         Entity(
           type: EntityType.handle,
           value: handle,
           indices: ByteIndices(
-            start: text.utf16IndexToUtf8Index(start),
-            end: text.utf16IndexToUtf8Index(start + handle.length + 1),
+            start: text.toUtf8Index(start),
+            end: text.toUtf8Index(start + handle.length + 1),
           ),
         ),
       );
@@ -315,16 +310,12 @@ final class _BlueskyText implements BlueskyText {
     return entities;
   }
 
-  List<Entity> _detectLinks(final UnicodeString text) {
+  List<Entity> _detectLinks(final String text) {
     _ensureLength();
 
     final entities = <Entity>[];
 
-    final regex = RegExp(
-      r'(^|\s|\()((https?:\/\/[\S]+)|((?<domain>[a-z][a-z0-9]*(\.[a-z0-9]+)+)[\S]*))',
-    );
-
-    for (final match in regex.allMatches(text.utf16)) {
+    for (final match in linkRegex.allMatches(text)) {
       String uri = match.group(2)!;
       final uriLength = uri.length;
 
@@ -337,7 +328,7 @@ final class _BlueskyText implements BlueskyText {
         uri = 'https://$uri';
       }
 
-      final start = text.utf16.indexOf(match.group(2)!, match.start);
+      final start = text.indexOf(match.group(2)!, match.start);
       final index = {'start': start, 'end': start + uriLength};
 
       // Strip ending punctuation
@@ -357,8 +348,8 @@ final class _BlueskyText implements BlueskyText {
           type: EntityType.link,
           value: uri,
           indices: ByteIndices(
-            start: text.utf16IndexToUtf8Index(index['start']!),
-            end: text.utf16IndexToUtf8Index(index['end']!),
+            start: text.toUtf8Index(index['start']!),
+            end: text.toUtf8Index(index['end']!),
           ),
         ),
       );
