@@ -661,13 +661,13 @@ github.com/videah/SkyBridge
     test('case4', () {
       final text = BlueskyText('.https://test.com/aaaa');
 
-      expect(text.hasLink, isTrue);
+      expect(text.hasLink, isFalse);
     });
 
     test('case5', () {
       final text = BlueskyText('.https://test.com/aaaa.');
 
-      expect(text.hasLink, isTrue);
+      expect(text.hasLink, isFalse);
     });
 
     test('case5', () {
@@ -717,13 +717,13 @@ github.com/videah/SkyBridge
     test('case4', () {
       final text = BlueskyText('.https://test.com/aaaa');
 
-      expect(text.hasNotLink, isFalse);
+      expect(text.hasNotLink, isTrue);
     });
 
     test('case5', () {
       final text = BlueskyText('.https://test.com/aaaa.');
 
-      expect(text.hasNotLink, isFalse);
+      expect(text.hasNotLink, isTrue);
     });
 
     test('case5', () {
@@ -785,7 +785,7 @@ github.com/videah/SkyBridge
     test('case6', () {
       final text = BlueskyText('shinyakato.dev https://');
 
-      expect(text.hasEntity, isFalse);
+      expect(text.hasEntity, isTrue);
     });
 
     test('case7', () {
@@ -835,7 +835,7 @@ github.com/videah/SkyBridge
     test('case6', () {
       final text = BlueskyText('shinyakato.dev https://');
 
-      expect(text.hasNotEntity, isTrue);
+      expect(text.hasNotEntity, isFalse);
     });
 
     test('case7', () {
