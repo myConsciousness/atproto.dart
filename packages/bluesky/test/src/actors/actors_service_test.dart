@@ -17,6 +17,7 @@ import 'package:bluesky/src/entities/actors_typeahead.dart';
 import 'package:bluesky/src/entities/preference.dart';
 import 'package:bluesky/src/entities/preferences.dart';
 import 'package:bluesky/src/entities/profile_record.dart';
+import 'package:bluesky/src/entities/thread_view_preference.dart';
 
 void main() {
   group('.searchActors', () {
@@ -719,6 +720,16 @@ void main() {
               preference.data.birthDate?.toIso8601String(),
               '2023-05-21T00:48:01.666Z',
             );
+          case UPreferenceFeedView():
+            expect(preference.data.feed, 'test');
+            expect(preference.data.isHideReplies, isTrue);
+            expect(preference.data.isHideRepliesByUnfollowed, isFalse);
+            expect(preference.data.hideRepliesByLikeCount, 20);
+            expect(preference.data.isHideReposts, isTrue);
+            expect(preference.data.isHideQuotePosts, isTrue);
+          case UPreferenceThreadView():
+            expect(preference.data.sort, ThreadViewSortType.mostLikes);
+            expect(preference.data.isPrioritizeFollowedUsers, isTrue);
         }
       }
     });
