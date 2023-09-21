@@ -14,7 +14,7 @@ import 'keys/ids.g.dart';
 part 'thread_view_preference.freezed.dart';
 part 'thread_view_preference.g.dart';
 
-/// A [ThreadViewPreference] represents the user's feed view preferences.
+/// A [ThreadViewPreference] represents the user's thread view preferences.
 @freezed
 class ThreadViewPreference with _$ThreadViewPreference {
   /// Default constructor for [ThreadViewPreference].
