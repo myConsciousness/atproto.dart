@@ -1,5 +1,11 @@
 # Release Note
 
+## v0.8.22
+
+- Supported actor preferences `#feedViewPref` and `#threadViewPref`. ([#831](https://github.com/myConsciousness/atproto.dart/issues/831))
+  - `Preference.feedView`
+  - `Preference.threadView`
+
 ## v0.8.21
 
 - Dropped `includeReasons` param from methods on `Notifications`. Instead, pass `NotificationReasonFilter` object as an argument. ([#826](https://github.com/myConsciousness/atproto.dart/issues/826))

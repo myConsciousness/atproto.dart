@@ -190,6 +190,8 @@ export 'package:bluesky/src/entities/content_label_preference.dart';
 export 'package:bluesky/src/entities/count.dart';
 export 'package:bluesky/src/entities/embed.dart';
 export 'package:bluesky/src/entities/personal_details_preference.dart';
+export 'package:bluesky/src/entities/feed_view_preference.dart';
+export 'package:bluesky/src/entities/thread_view_preference.dart';
 export 'package:bluesky/src/entities/embed_external.dart';
 export 'package:bluesky/src/entities/embed_external_thumbnail.dart';
 export 'package:bluesky/src/entities/embed_images.dart';
@@ -275,10 +277,7 @@ export 'package:bluesky/src/feeds/feeds_service.dart';
 export 'package:bluesky/src/graphs/graphs_service.dart';
 export 'package:bluesky/src/notifications/notification_reason.dart';
 export 'package:bluesky/src/notifications/notification_reason_filter.dart'
-    show
-        NotificationReasonFilter,
-        NotificationReasonIncludeFilter,
-        NotificationReasonExcludeFilter;
+    show NotificationReasonFilter;
 export 'package:bluesky/src/notifications/grouped_notification_reason.dart';
 export 'package:bluesky/src/notifications/notifications_service.dart';
 export 'package:bluesky/src/params/generator_param.dart';
