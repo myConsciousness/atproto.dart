@@ -14,8 +14,6 @@ Future<void> main() async {
     'Visit 🚀 https://shinyakato.dev.',
   );
 
-  //! The character limit for Bluesky Social posts is 300 characters.
-  //! You need to split it before call some properties.
   if (text.isLengthLimitExceeded) {
     //! Let's split.
     final texts = text.split();
@@ -26,8 +24,6 @@ Future<void> main() async {
       print(text.entities);
     }
   } else {
-    //! If it is less than 300 characters, it can simply be parsed.
-
     // [{type: handle, value: @shinyakato.dev, indices: {start: 35, end: 50}},
     // {type: handle, value: @shinyakato.bsky.social, indices: {start: 55, end: 78}}]
     print(text.handles);
