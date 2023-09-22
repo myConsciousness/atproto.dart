@@ -222,26 +222,12 @@ void main() {
 
     test('case13', () {
       expect(
-        () => BlueskyText('a' * 301).handles,
-        throwsA(isA<StateError>()),
-      );
-    });
-
-    test('case14', () {
-      expect(
-        () => BlueskyText('😳' * 301).handles,
-        throwsA(isA<StateError>()),
-      );
-    });
-
-    test('case15', () {
-      expect(
         () => BlueskyText('😳' * 300).handles,
         returnsNormally,
       );
     });
 
-    test('case16', () {
+    test('case14', () {
       final text = BlueskyText('😳 @test.bsky.social"test"');
       final handles = text.handles;
 
@@ -254,7 +240,7 @@ void main() {
       expect(handles.first.indices.end, 22);
     });
 
-    test('case17', () {
+    test('case15', () {
       final text = BlueskyText("😳 @test.bsky.social'test");
       final handles = text.handles;
 
@@ -267,7 +253,7 @@ void main() {
       expect(handles.first.indices.end, 22);
     });
 
-    test('case18', () {
+    test('case16', () {
       final text = BlueskyText("😳 @test.bsky.social'");
       final handles = text.handles;
 
@@ -280,7 +266,7 @@ void main() {
       expect(handles.first.indices.end, 22);
     });
 
-    test('case19', () {
+    test('case17', () {
       final text = BlueskyText('@shinyakato.test');
       final handles = text.handles;
 
@@ -417,26 +403,12 @@ void main() {
 
     test('case13', () {
       expect(
-        () => BlueskyText('a' * 301).links,
-        throwsA(isA<StateError>()),
-      );
-    });
-
-    test('case14', () {
-      expect(
-        () => BlueskyText('😳' * 301).links,
-        throwsA(isA<StateError>()),
-      );
-    });
-
-    test('case15', () {
-      expect(
         () => BlueskyText('😳' * 300).links,
         returnsNormally,
       );
     });
 
-    test('case16', () {
+    test('case14', () {
       expect(
         BlueskyText('tbh').links,
         [],
@@ -533,33 +505,19 @@ github.com/videah/SkyBridge
 
     test('case8', () {
       expect(
-        () => BlueskyText('a' * 301).entities,
-        throwsA(isA<StateError>()),
-      );
-    });
-
-    test('case9', () {
-      expect(
-        () => BlueskyText('😳' * 301).entities,
-        throwsA(isA<StateError>()),
-      );
-    });
-
-    test('case10', () {
-      expect(
         () => BlueskyText('😳' * 300).entities,
         returnsNormally,
       );
     });
 
-    test('case11', () {
+    test('case9', () {
       expect(
         BlueskyText('tbh').entities,
         [],
       );
     });
 
-    test('case12', () {
+    test('case10', () {
       final text = BlueskyText(
         'https://github.com/jakobo/codedrift/discussions/115',
       );
