@@ -20,7 +20,6 @@ import 'unicode_string.dart';
 
 /// The max length of text.
 const _maxLength = 300;
-const _minLinkLength = 20;
 
 const _httpsPrefix = 'https://';
 const _httpPrefix = 'http://';
@@ -471,7 +470,7 @@ final class _BlueskyText implements BlueskyText {
       }
     }
 
-    if (linkConfig!.maxGraphemeLength > _minLinkLength &&
+    if (linkConfig!.maxGraphemeLength > -1 &&
         newLink.characters.length > linkConfig!.maxGraphemeLength) {
       newLink = '${newLink.characters.take(linkConfig!.maxGraphemeLength)}'
           '$_shortenLinkSuffix';

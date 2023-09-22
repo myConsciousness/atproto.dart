@@ -11,6 +11,9 @@
 final class LinkConfig {
   /// Creates a [LinkConfig] instance with the specified configuration options.
   ///
+  /// The minimum valid number that can be specified for
+  /// [maxGraphemeLength] is 20 or more.
+  ///
   /// - Parameters:
   ///   - excludeProtocol: Whether to exclude the protocol (e.g., "https://")
   ///     when processing links. Defaults to `false`.
@@ -20,7 +23,11 @@ final class LinkConfig {
   const LinkConfig({
     this.excludeProtocol = false,
     this.maxGraphemeLength = -1,
-  });
+  }) : assert(
+          maxGraphemeLength <= -1 || maxGraphemeLength >= 20,
+          'maxGraphemeLength must be less tha or equal to -1 '
+          'or greater than or equal to 20',
+        );
 
   /// Whether to exclude the protocol (e.g., "https://") when processing links.
   final bool excludeProtocol;

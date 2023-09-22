@@ -7,6 +7,7 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky_text/src/bluesky_text.dart';
+import 'package:bluesky_text/src/config/link_config.dart';
 import 'package:bluesky_text/src/entities/entity.dart';
 
 void main() {
@@ -932,5 +933,65 @@ github.com/videah/SkyBridge
     final text = BlueskyText(('test'));
 
     expect(text.toString(), 'test');
+  });
+
+  group('.format', () {
+    test('case1', () {
+      final text = BlueskyText(
+        '@shinyakato.dev https://test.com',
+        linkConfig: LinkConfig(
+          excludeProtocol: true,
+        ),
+      ).format();
+
+      expect(text.value, '@shinyakato.dev test.com');
+      expect(text.length, 24);
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.handle);
+      expect(entities.first.value, 'shinyakato.dev');
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value, 'https://test.com');
+    });
+
+    test('case2', () {
+      final text = BlueskyText(
+        '@shinyakato.dev https://test.com',
+      ).format();
+
+      expect(text.value, '@shinyakato.dev https://test.com');
+      expect(text.length, 32);
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.handle);
+      expect(entities.first.value, 'shinyakato.dev');
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value, 'https://test.com');
+    });
+
+    test('case3', () {
+      final text = BlueskyText(
+          '@shinyakato.dev https://www.nikkei.com/article/DGXZQOGN20CZ30Q3A920C2000000/',
+          linkConfig: LinkConfig(
+            excludeProtocol: true,
+            maxGraphemeLength: 27,
+          )).format();
+
+      expect(text.value, '@shinyakato.dev www.nikkei.com/article/DGXZ...');
+      expect(text.length, 46);
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.handle);
+      expect(entities.first.value, 'shinyakato.dev');
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value,
+          'https://www.nikkei.com/article/DGXZQOGN20CZ30Q3A920C2000000/');
+    });
   });
 }
