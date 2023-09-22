@@ -2,19 +2,30 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
+import 'dart:convert';
+
 // 📦 Package imports:
 import 'package:characters/characters.dart';
 import 'package:icann_tlds/icann_tlds.dart';
 
 // 🌎 Project imports:
+import 'config/link_config.dart';
 import 'entities/byte_indices.dart';
 import 'entities/entities.dart';
 import 'entities/entity.dart';
 import 'regex.dart';
+import 'replacement.dart';
 import 'unicode_string.dart';
 
 /// The max length of text.
 const _maxLength = 300;
+
+const _httpsPrefix = 'https://';
+const _httpPrefix = 'http://';
+const _httpsLength = _httpsPrefix.length;
+const _httpLength = _httpPrefix.length;
+const _shortenLinkSuffix = '...';
 
 /// This class provides high-performance analysis of [Bluesky Social](https://blueskyweb.xyz)'s text
 /// and features related to secure posting.
@@ -77,7 +88,11 @@ const _maxLength = 300;
 /// ```
 sealed class BlueskyText {
   /// Returns the new instance of [BlueskyText].
-  const factory BlueskyText(final String text) = _BlueskyText;
+  const factory BlueskyText(
+    final String text, {
+    final LinkConfig? linkConfig,
+    final List<Replacement>? replacements,
+  }) = _BlueskyText;
 
   /// Returns the resource text.
   ///
@@ -124,6 +139,9 @@ sealed class BlueskyText {
   /// point.
   List<BlueskyText> split();
 
+  /// Returns a new formatted [BlueskyText] based on configs.
+  BlueskyText format();
+
   /// Returns true if this [value] has a handle at least one, otherwise false.
   bool get hasHandle;
 
@@ -159,7 +177,14 @@ sealed class BlueskyText {
 
 final class _BlueskyText implements BlueskyText {
   /// Returns the new instance of [_BlueskyText].
-  const _BlueskyText(this.value);
+  const _BlueskyText(
+    this.value, {
+    this.linkConfig,
+    this.replacements,
+  });
+
+  final LinkConfig? linkConfig;
+  final List<Replacement>? replacements;
 
   @override
   final String value;
@@ -168,18 +193,10 @@ final class _BlueskyText implements BlueskyText {
   int get length => value.characters.length;
 
   @override
-  Entities get handles => Entities(
-        _orderByIndicesStart(
-          _detectHandles(value),
-        ),
-      );
+  Entities get handles => Entities(_detectHandles(value));
 
   @override
-  Entities get links => Entities(
-        _orderByIndicesStart(
-          _detectLinks(value),
-        ),
-      );
+  Entities get links => Entities(_detectLinks(value));
 
   @override
   Entities get entities => Entities(
@@ -252,6 +269,25 @@ final class _BlueskyText implements BlueskyText {
   }
 
   @override
+  BlueskyText format() {
+    if (linkConfig == null) {
+      return this;
+    }
+
+    if (!linkConfig!.excludeProtocol && linkConfig!.maxGraphemeLength < 0) {
+      return this;
+    }
+
+    final formatted = _format(_detectLinks(value));
+
+    return BlueskyText(
+      formatted.$1,
+      linkConfig: linkConfig,
+      replacements: formatted.$2,
+    );
+  }
+
+  @override
   bool get hasHandle => handleRegex.hasMatch(value);
 
   @override
@@ -282,8 +318,6 @@ final class _BlueskyText implements BlueskyText {
   bool get isNotEmpty => !isEmpty;
 
   List<Entity> _detectHandles(final String text) {
-    _ensureLength();
-
     final entities = <Entity>[];
 
     for (final match in handleRegex.allMatches(text)) {
@@ -311,8 +345,6 @@ final class _BlueskyText implements BlueskyText {
   }
 
   List<Entity> _detectLinks(final String text) {
-    _ensureLength();
-
     final entities = <Entity>[];
 
     for (final match in linkRegex.allMatches(text)) {
@@ -333,8 +365,10 @@ final class _BlueskyText implements BlueskyText {
 
       // Strip ending punctuation
       if (RegExp(r'[.,;!?]$').hasMatch(uri)) {
-        uri = uri.substring(0, uri.length - 1);
-        index['end'] = index['end']! - 1;
+        if (!uri.endsWith(_shortenLinkSuffix)) {
+          uri = uri.substring(0, uri.length - 1);
+          index['end'] = index['end']! - 1;
+        }
       }
 
       // Check for closing parenthesis without an opening parenthesis
@@ -346,7 +380,7 @@ final class _BlueskyText implements BlueskyText {
       entities.add(
         Entity(
           type: EntityType.link,
-          value: uri,
+          value: _getReplacedValue(uri),
           indices: ByteIndices(
             start: text.toUtf8Index(index['start']!),
             end: text.toUtf8Index(index['end']!),
@@ -358,13 +392,20 @@ final class _BlueskyText implements BlueskyText {
     return entities;
   }
 
-  void _ensureLength() {
-    if (isLengthLimitExceeded) {
-      throw StateError(
-        'The number of characters in text exceeds the limit; '
-        'use split() to split the text.',
-      );
+  String _getReplacedValue(final String source) {
+    if (replacements == null || replacements!.isEmpty) {
+      return source;
     }
+
+    final $key = _toShortLink(source);
+
+    for (final replacement in replacements!) {
+      if (replacement.key == $key) {
+        return replacement.value;
+      }
+    }
+
+    return source;
   }
 
   List<Entity> _orderByIndicesStart(final List<Entity> entities) => entities
@@ -374,6 +415,69 @@ final class _BlueskyText implements BlueskyText {
 
   bool _hasValidDomain(final String value) =>
       tlds.any((tld) => value.endsWith('.$tld'));
+
+  (String, List<Replacement>) _format(final List<Entity> entities) {
+    final buffer = StringBuffer();
+    final bytes = utf8.encode(value);
+
+    int lastEnd = 0;
+
+    final replacements = <Replacement>[];
+    for (final facet in entities) {
+      final beforeLink = utf8.decode(
+        bytes.sublist(
+          lastEnd,
+          facet.indices.start,
+        ),
+      );
+
+      final link = utf8.decode(
+        bytes.sublist(
+          facet.indices.start,
+          facet.indices.end,
+        ),
+      );
+
+      final shortenLink = _toShortLink(link);
+
+      if (shortenLink.endsWith(_shortenLinkSuffix)) {
+        replacements.add(
+          Replacement(shortenLink, link),
+        );
+      }
+
+      buffer
+        ..write(beforeLink)
+        ..write(shortenLink);
+
+      lastEnd = facet.indices.end;
+    }
+
+    final afterLastLink = utf8.decode(bytes.sublist(lastEnd));
+    buffer.write(afterLastLink);
+
+    return (buffer.toString(), replacements);
+  }
+
+  String _toShortLink(final String link) {
+    String newLink = link;
+
+    if (linkConfig!.excludeProtocol) {
+      if (newLink.startsWith(_httpsPrefix)) {
+        newLink = newLink.substring(_httpsLength);
+      } else if (newLink.startsWith(_httpPrefix)) {
+        newLink = newLink.substring(_httpLength);
+      }
+    }
+
+    if (linkConfig!.maxGraphemeLength > -1 &&
+        newLink.characters.length > linkConfig!.maxGraphemeLength) {
+      newLink = '${newLink.characters.take(linkConfig!.maxGraphemeLength)}'
+          '$_shortenLinkSuffix';
+    }
+
+    return newLink;
+  }
 
   @override
   String toString() => value;

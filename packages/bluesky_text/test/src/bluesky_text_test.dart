@@ -7,6 +7,7 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky_text/src/bluesky_text.dart';
+import 'package:bluesky_text/src/config/link_config.dart';
 import 'package:bluesky_text/src/entities/entity.dart';
 
 void main() {
@@ -222,26 +223,12 @@ void main() {
 
     test('case13', () {
       expect(
-        () => BlueskyText('a' * 301).handles,
-        throwsA(isA<StateError>()),
-      );
-    });
-
-    test('case14', () {
-      expect(
-        () => BlueskyText('😳' * 301).handles,
-        throwsA(isA<StateError>()),
-      );
-    });
-
-    test('case15', () {
-      expect(
         () => BlueskyText('😳' * 300).handles,
         returnsNormally,
       );
     });
 
-    test('case16', () {
+    test('case14', () {
       final text = BlueskyText('😳 @test.bsky.social"test"');
       final handles = text.handles;
 
@@ -254,7 +241,7 @@ void main() {
       expect(handles.first.indices.end, 22);
     });
 
-    test('case17', () {
+    test('case15', () {
       final text = BlueskyText("😳 @test.bsky.social'test");
       final handles = text.handles;
 
@@ -267,7 +254,7 @@ void main() {
       expect(handles.first.indices.end, 22);
     });
 
-    test('case18', () {
+    test('case16', () {
       final text = BlueskyText("😳 @test.bsky.social'");
       final handles = text.handles;
 
@@ -280,7 +267,7 @@ void main() {
       expect(handles.first.indices.end, 22);
     });
 
-    test('case19', () {
+    test('case17', () {
       final text = BlueskyText('@shinyakato.test');
       final handles = text.handles;
 
@@ -417,26 +404,12 @@ void main() {
 
     test('case13', () {
       expect(
-        () => BlueskyText('a' * 301).links,
-        throwsA(isA<StateError>()),
-      );
-    });
-
-    test('case14', () {
-      expect(
-        () => BlueskyText('😳' * 301).links,
-        throwsA(isA<StateError>()),
-      );
-    });
-
-    test('case15', () {
-      expect(
         () => BlueskyText('😳' * 300).links,
         returnsNormally,
       );
     });
 
-    test('case16', () {
+    test('case14', () {
       expect(
         BlueskyText('tbh').links,
         [],
@@ -533,33 +506,19 @@ github.com/videah/SkyBridge
 
     test('case8', () {
       expect(
-        () => BlueskyText('a' * 301).entities,
-        throwsA(isA<StateError>()),
-      );
-    });
-
-    test('case9', () {
-      expect(
-        () => BlueskyText('😳' * 301).entities,
-        throwsA(isA<StateError>()),
-      );
-    });
-
-    test('case10', () {
-      expect(
         () => BlueskyText('😳' * 300).entities,
         returnsNormally,
       );
     });
 
-    test('case11', () {
+    test('case9', () {
       expect(
         BlueskyText('tbh').entities,
         [],
       );
     });
 
-    test('case12', () {
+    test('case10', () {
       final text = BlueskyText(
         'https://github.com/jakobo/codedrift/discussions/115',
       );
@@ -974,5 +933,65 @@ github.com/videah/SkyBridge
     final text = BlueskyText(('test'));
 
     expect(text.toString(), 'test');
+  });
+
+  group('.format', () {
+    test('case1', () {
+      final text = BlueskyText(
+        '@shinyakato.dev https://test.com',
+        linkConfig: LinkConfig(
+          excludeProtocol: true,
+        ),
+      ).format();
+
+      expect(text.value, '@shinyakato.dev test.com');
+      expect(text.length, 24);
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.handle);
+      expect(entities.first.value, 'shinyakato.dev');
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value, 'https://test.com');
+    });
+
+    test('case2', () {
+      final text = BlueskyText(
+        '@shinyakato.dev https://test.com',
+      ).format();
+
+      expect(text.value, '@shinyakato.dev https://test.com');
+      expect(text.length, 32);
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.handle);
+      expect(entities.first.value, 'shinyakato.dev');
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value, 'https://test.com');
+    });
+
+    test('case3', () {
+      final text = BlueskyText(
+          '@shinyakato.dev https://www.nikkei.com/article/DGXZQOGN20CZ30Q3A920C2000000/',
+          linkConfig: LinkConfig(
+            excludeProtocol: true,
+            maxGraphemeLength: 27,
+          )).format();
+
+      expect(text.value, '@shinyakato.dev www.nikkei.com/article/DGXZ...');
+      expect(text.length, 46);
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.handle);
+      expect(entities.first.value, 'shinyakato.dev');
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value,
+          'https://www.nikkei.com/article/DGXZQOGN20CZ30Q3A920C2000000/');
+    });
   });
 }

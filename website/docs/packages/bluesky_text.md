@@ -175,7 +175,6 @@ And check following table.
 
 :::caution
 The current specification defines **_300 characters_** as the maximum number of characters for **[bluesky_text](https://pub.dartlang.org/packages/bluesky_text)**, which is the text limit defined in the Lexicon of **[app.bsky.feed.post](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json)**.
-And `StateError` will be thrown whenever you run a method that extracts entities for text that exceeds the maximum number of characters.
 This means that you must check to see if the text you pass to the `BlueskyText` object exceeds the maximum number of characters and **[Split Text](#split-text)** if necessary.
 
 You can check if the string passed to the `BlueskyText` object exceeds the maximum number of characters with `isLengthLimitExceeded` or `isNotLengthLimitExceeded` as follows.
@@ -331,7 +330,7 @@ With **[bluesky_text](https://pub.dev/packages/bluesky_text)**, you can create F
 
 ### Split Text
 
-As mentioned in the section describing [entity extraction](#extract-entities), the `BlueskyText` object has a maximum number of characters for text, and any operation on text that exceeds that maximum will always throw a `StateError`.
+As mentioned in the section describing [entity extraction](#extract-entities), the `BlueskyText` object has a maximum number of characters for text.
 This is because the maximum number of characters allowed for each text in the Bluesky API is clearly defined, and any operation on a text that exceeds the maximum number of characters is meaningless.
 
 So do you always need to be aware of the number of characters of text you pass to the `BlueskyText` object in units of Grapheme Cluster? **No, you don't need it**. Instead, just call `.split()` as follows.
