@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.7
+
+- Supported hashtag detection. ([#839](https://github.com/myConsciousness/atproto.dart/issues/839))
+
 ## v0.3.6
 
 - Added `list-feed` command. ([#813](https://github.com/myConsciousness/atproto.dart/issues/813))
