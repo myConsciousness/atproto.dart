@@ -431,7 +431,7 @@ final class _BlueskyText implements BlueskyText {
         ),
       );
 
-      final link = utf8.decode(
+      String link = utf8.decode(
         bytes.sublist(
           facet.indices.start,
           facet.indices.end,
@@ -441,6 +441,10 @@ final class _BlueskyText implements BlueskyText {
       final shortenLink = _toShortLink(link);
 
       if (shortenLink.endsWith(_shortenLinkSuffix)) {
+        if (!link.startsWith('http')) {
+          link = '$_httpsPrefix$link';
+        }
+
         replacements.add(
           Replacement(shortenLink, link),
         );

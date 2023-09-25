@@ -993,5 +993,26 @@ github.com/videah/SkyBridge
       expect(entities[1].value,
           'https://www.nikkei.com/article/DGXZQOGN20CZ30Q3A920C2000000/');
     });
+
+    test('case4', () {
+      final text = BlueskyText(
+          '@shinyakato.dev www.nikkei.com/article/DGXZQOGN20CZ30Q3A920C2000000/',
+          linkConfig: LinkConfig(
+            excludeProtocol: true,
+            maxGraphemeLength: 27,
+          )).format();
+
+      expect(text.value, '@shinyakato.dev www.nikkei.com/article/DGXZ...');
+      expect(text.length, 46);
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.handle);
+      expect(entities.first.value, 'shinyakato.dev');
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value,
+          'https://www.nikkei.com/article/DGXZQOGN20CZ30Q3A920C2000000/');
+    });
   });
 }
