@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.4
+
+- Improved processing when `.format()` is executed. Correct if the original text link does not contain the `http` protocol.
+
 ## v0.4.3
 
 - Added the ability to shorten links detected as facets. You just need to pass `LinkConfig` to `BlueskyText` and run `.format()`. You can get new formatted `BlueskyText` then.
