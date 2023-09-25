@@ -370,6 +370,9 @@ const appBskyRichtextFacetLink = 'app.bsky.richtext.facet#link';
 /// `app.bsky.richtext.facet#mention`
 const appBskyRichtextFacetMention = 'app.bsky.richtext.facet#mention';
 
+/// `app.bsky.richtext.facet#tag`
+const appBskyRichtextFacetTag = 'app.bsky.richtext.facet#tag';
+
 /// `app.bsky.unspecced.applyLabels`
 const appBskyUnspeccedApplyLabels = 'app.bsky.unspecced.applyLabels';
 
