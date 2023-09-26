@@ -52,6 +52,7 @@ sealed class UnspeccedService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopular.json
+  @Deprecated('will be removed soon. Find a feed generator alternative')
   Future<core.XRPCResponse<Feed>> findPopularFeed({
     bool? includeNsfw,
     int? limit,
@@ -83,6 +84,7 @@ sealed class UnspeccedService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopular.json
+  @Deprecated('will be removed soon. Find a feed generator alternative')
   Future<core.XRPCResponse<Map<String, dynamic>>> findPopularFeedAsJson({
     bool? includeNsfw,
     int? limit,
@@ -108,6 +110,7 @@ sealed class UnspeccedService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopular.json
+  @Deprecated('will be removed soon. Find a feed generator alternative')
   core.Pagination<Feed> paginatePopularFeed({
     bool? includeNsfw,
     int? limit,
@@ -134,6 +137,7 @@ sealed class UnspeccedService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopular.json
+  @Deprecated('will be removed soon. Find a feed generator alternative')
   core.Pagination<Map<String, dynamic>> paginatePopularFeedAsJson({
     bool? includeNsfw,
     int? limit,
