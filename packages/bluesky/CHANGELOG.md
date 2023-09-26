@@ -1,5 +1,13 @@
 # Release Note
 
+## v0.8.24
+
+- Deprecated `app.bsky.unspecced.getPopular`. Find a feed generator alternative. ([#835](https://github.com/myConsciousness/atproto.dart/issues/835))
+  - `.findPopularFeed`
+  - `.findPopularFeedAsJson`
+  - `.paginatePopularFeed`
+  - `.paginatePopularFeedAsJson`
+
 ## v0.8.23
 
 - Supported hashtag on `FacetFeature.tag` and `FacetTag`. Also added `tags` parameter to `.createPost` on `FeedsService`. ([#839](https://github.com/myConsciousness/atproto.dart/issues/839))
