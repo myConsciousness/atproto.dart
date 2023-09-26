@@ -248,6 +248,9 @@ const appBskyFeedPostTextSlice = 'app.bsky.feed.post#textSlice';
 /// `app.bsky.feed.repost`
 const appBskyFeedRepost = 'app.bsky.feed.repost';
 
+/// `app.bsky.feed.searchPosts`
+const appBskyFeedSearchPosts = 'app.bsky.feed.searchPosts';
+
 /// `app.bsky.feed.threadgate`
 const appBskyFeedThreadgate = 'app.bsky.feed.threadgate';
 
@@ -376,6 +379,17 @@ const appBskyRichtextFacetTag = 'app.bsky.richtext.facet#tag';
 /// `app.bsky.unspecced.applyLabels`
 const appBskyUnspeccedApplyLabels = 'app.bsky.unspecced.applyLabels';
 
+/// `app.bsky.unspecced.defs`
+const appBskyUnspeccedDefs = 'app.bsky.unspecced.defs';
+
+/// `app.bsky.unspecced.defs#skeletonSearchActor`
+const appBskyUnspeccedDefsSkeletonSearchActor =
+    'app.bsky.unspecced.defs#skeletonSearchActor';
+
+/// `app.bsky.unspecced.defs#skeletonSearchPost`
+const appBskyUnspeccedDefsSkeletonSearchPost =
+    'app.bsky.unspecced.defs#skeletonSearchPost';
+
 /// `app.bsky.unspecced.getPopular`
 const appBskyUnspeccedGetPopular = 'app.bsky.unspecced.getPopular';
 
@@ -386,3 +400,11 @@ const appBskyUnspeccedGetPopularFeedGenerators =
 /// `app.bsky.unspecced.getTimelineSkeleton`
 const appBskyUnspeccedGetTimelineSkeleton =
     'app.bsky.unspecced.getTimelineSkeleton';
+
+/// `app.bsky.unspecced.searchActorsSkeleton`
+const appBskyUnspeccedSearchActorsSkeleton =
+    'app.bsky.unspecced.searchActorsSkeleton';
+
+/// `app.bsky.unspecced.searchPostsSkeleton`
+const appBskyUnspeccedSearchPostsSkeleton =
+    'app.bsky.unspecced.searchPostsSkeleton';
