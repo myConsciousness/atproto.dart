@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.5
+
+- Supported hashtag detection on `.entities` and `.hashtags`. ([#839](https://github.com/myConsciousness/atproto.dart/issues/839))
+
 ## v0.4.4
 
 - Improved processing when `.format()` is executed. Correct if the original text link does not contain the `http` protocol.

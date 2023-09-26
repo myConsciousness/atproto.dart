@@ -2,6 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: deprecated_member_use_from_same_package
+
 // 📦 Package imports:
 import 'package:test/test.dart';
 
@@ -414,6 +416,37 @@ void main() {
         BlueskyText('tbh').links,
         [],
       );
+    });
+  });
+
+  group('.hashtags', () {
+    test('case1', () async {
+      final text = BlueskyText('#test');
+      final tags = text.tags;
+
+      expect(tags.length, 1);
+      expect(tags.first.value, 'test');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 5);
+
+      final facets = await tags.toFacets();
+
+      expect(
+          facets.first['features'][0][r'$type'], 'app.bsky.richtext.facet#tag');
+      expect(facets.first['features'][0]['tag'], 'test');
+    });
+
+    test('case2', () async {
+      final text = BlueskyText('#test #test2');
+      final tags = text.tags;
+
+      expect(tags.length, 2);
+      expect(tags.first.value, 'test');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 5);
+      expect(tags[1].value, 'test2');
+      expect(tags[1].indices.start, 6);
+      expect(tags[1].indices.end, 12);
     });
   });
 

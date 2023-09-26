@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.8.23
+
+- Supported hashtag on `FacetFeature.tag` and `FacetTag`. Also added `tags` parameter to `.createPost` on `FeedsService`. ([#839](https://github.com/myConsciousness/atproto.dart/issues/839))
+
 ## v0.8.22
 
 - Supported actor preferences `#feedViewPref` and `#threadViewPref`. ([#831](https://github.com/myConsciousness/atproto.dart/issues/831))

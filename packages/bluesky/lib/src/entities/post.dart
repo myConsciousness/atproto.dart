@@ -72,6 +72,9 @@ class Post with _$Post {
     /// The labels associated with the post, if any.
     List<Label>? labels,
 
+    /// Additional non-inline tags describing this post.
+    List<String>? tags,
+
     /// The date and time the post was indexed.
     required DateTime indexedAt,
   }) = _Post;

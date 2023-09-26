@@ -33,6 +33,11 @@ class PostCommand extends CreateRecordCommand {
         defaultsTo: null,
       )
       ..addOption(
+        'tags',
+        help: 'Additional non-inline tags describing this post.',
+        defaultsTo: null,
+      )
+      ..addOption(
         'created-at',
         help: 'Date and time the post is created in ISO 8601 format.',
         defaultsTo: DateTime.now().toUtc().toIso8601String(),
@@ -46,7 +51,8 @@ class PostCommand extends CreateRecordCommand {
   String get description => 'Post to Bluesky Social.';
 
   @override
-  final String invocation = 'bsky post [text] [langs] [labels] [created-at]';
+  final String invocation =
+      'bsky post [text] [langs] [labels] [tags] [created-at]';
 
   @override
   xrpc.NSID get collection => xrpc.NSID.create(
@@ -75,6 +81,11 @@ class PostCommand extends CreateRecordCommand {
       record['labels'] = labels;
     }
 
+    final tags = _tags;
+    if (tags != null) {
+      record['tags'] = tags;
+    }
+
     return record;
   }
 
@@ -83,9 +94,19 @@ class PostCommand extends CreateRecordCommand {
       return null;
     }
 
-    final String langs = argResults!['langs'];
+    final langs = argResults!['langs'];
 
     return langs.split(',');
+  }
+
+  List<String>? get _tags {
+    if (argResults!['tags'] == null) {
+      return null;
+    }
+
+    final tags = argResults!['tags'];
+
+    return tags.split(',');
   }
 
   Map<String, dynamic>? get _labels {

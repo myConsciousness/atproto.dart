@@ -64,6 +64,8 @@ sealed class FeedsService {
   ///
   /// - [labels]: Labels to be attached.
   ///
+  /// - [tags]: Additional non-inline tags describing this post.
+  ///
   /// - [createdAt]: Date and time the post was created.
   ///                If omitted, defaults to the current time.
   ///
@@ -85,6 +87,7 @@ sealed class FeedsService {
     Embed? embed,
     List<String>? languageTags,
     atp.Labels? labels,
+    List<String>? tags,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   });
@@ -1501,6 +1504,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     Embed? embed,
     List<String>? languageTags,
     atp.Labels? labels,
+    List<String>? tags,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
@@ -1513,6 +1517,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
           'embed': embed?.toJson(),
           'langs': languageTags,
           'labels': labels?.toJson(),
+          'tags': tags,
           'createdAt': toUtcIso8601String(createdAt),
           ...unspecced,
         },
@@ -1534,6 +1539,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
                   'embed': e.embed?.toJson(),
                   'langs': e.languageTags,
                   'labels': e.labels?.toJson(),
+                  'tags': e.tags,
                   'createdAt': toUtcIso8601String(e.createdAt),
                   ...e.unspecced,
                 },
@@ -1561,6 +1567,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
       embed: rootParam.embed,
       languageTags: rootParam.languageTags,
       labels: rootParam.labels,
+      tags: rootParam.tags,
       createdAt: rootParam.createdAt,
       unspecced: rootParam.unspecced,
     );
@@ -1579,6 +1586,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
         embed: param.embed,
         languageTags: param.languageTags,
         labels: param.labels,
+        tags: param.tags,
         createdAt: param.createdAt,
         unspecced: param.unspecced,
       ))

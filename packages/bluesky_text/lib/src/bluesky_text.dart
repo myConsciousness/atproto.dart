@@ -118,6 +118,9 @@ sealed class BlueskyText {
   /// returned along with their start and end indices.
   Entities get links;
 
+  /// Returns the collection of tags.
+  Entities get tags;
+
   /// Returns the collection of entities.
   ///
   /// It includes the response from [handles] and [links].
@@ -143,21 +146,27 @@ sealed class BlueskyText {
   BlueskyText format();
 
   /// Returns true if this [value] has a handle at least one, otherwise false.
+  @Deprecated('Use .handles instead. Will be removed in v0.5.0')
   bool get hasHandle;
 
   /// Returns true if this [value] has not a handle, otherwise false.
+  @Deprecated('Use .handles instead. Will be removed in v0.5.0')
   bool get hasNotHandle;
 
   /// Returns true if this [value] has a link at least one, otherwise false.
+  @Deprecated('Use .links instead. Will be removed in v0.5.0')
   bool get hasLink;
 
   /// Returns true if this [value] has not a link, otherwise false.
+  @Deprecated('Use .links instead. Will be removed in v0.5.0')
   bool get hasNotLink;
 
   /// Returns true if this [value] has an entity at least one, otherwise false.
+  @Deprecated('Use .entities instead. Will be removed in v0.5.0')
   bool get hasEntity;
 
   /// Returns true if this [value] has not an entity, otherwise false.
+  @Deprecated('Use .entities instead. Will be removed in v0.5.0')
   bool get hasNotEntity;
 
   /// Returns true if this [length] is more than 300 chars,
@@ -199,10 +208,14 @@ final class _BlueskyText implements BlueskyText {
   Entities get links => Entities(_detectLinks(value));
 
   @override
+  Entities get tags => Entities(_detectTag(value));
+
+  @override
   Entities get entities => Entities(
         _orderByIndicesStart([
           ...handles,
           ...links,
+          ...tags,
         ]),
       );
 
@@ -384,6 +397,36 @@ final class _BlueskyText implements BlueskyText {
           indices: ByteIndices(
             start: text.toUtf8Index(index['start']!),
             end: text.toUtf8Index(index['end']!),
+          ),
+        ),
+      );
+    }
+
+    return entities;
+  }
+
+  List<Entity> _detectTag(final String text) {
+    final entities = <Entity>[];
+
+    for (final match in hashtagRegex.allMatches(text)) {
+      String tag = match.group(0)!;
+
+      final bool hasLeadingSpace = tag.startsWith(RegExp(r'\s'));
+      // Strip ending punctuation.
+      tag = tag.trim().replaceAll(RegExp(r'\p{P}+$', unicode: true), '');
+
+      // Inclusive of #, max of 64 chars
+      if (tag.length > 66) continue;
+
+      final index = match.start + (hasLeadingSpace ? 1 : 0);
+
+      entities.add(
+        Entity(
+          type: EntityType.tag,
+          value: tag.substring(1),
+          indices: ByteIndices(
+            start: text.toUtf8Index(index),
+            end: text.toUtf8Index(index + tag.length),
           ),
         ),
       );
