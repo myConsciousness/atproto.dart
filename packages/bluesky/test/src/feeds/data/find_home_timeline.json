@@ -32,7 +32,9 @@
         "likeCount": 0,
         "indexedAt": "2023-05-21T00:48:02.105Z",
         "viewer": {},
-        "labels": []
+        "labels": [],
+        "langs": ["ja"],
+        "tags": ["#test", "aaaa"]
       },
       "reply": {
         "root": {

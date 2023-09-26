@@ -37,6 +37,8 @@ _$_PostRecord _$$_PostRecordFromJson(Map json) => $checkedCreate(
                   ?.map((e) =>
                       Facet.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
+          tags: $checkedConvert('tags',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
         );
@@ -68,6 +70,7 @@ Map<String, dynamic> _$$_PostRecordToJson(_$_PostRecord instance) {
       _$JsonConverterToJson<Map<String, dynamic>, Labels>(
           instance.labels, labelsConverter.toJson));
   writeNotNull('facets', instance.facets?.map((e) => e.toJson()).toList());
+  writeNotNull('tags', instance.tags);
   val['createdAt'] = instance.createdAt.toIso8601String();
   return val;
 }

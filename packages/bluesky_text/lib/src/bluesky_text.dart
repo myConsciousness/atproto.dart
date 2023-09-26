@@ -118,8 +118,8 @@ sealed class BlueskyText {
   /// returned along with their start and end indices.
   Entities get links;
 
-  /// Returns the collection of hashtags.
-  Entities get hashtags;
+  /// Returns the collection of tags.
+  Entities get tags;
 
   /// Returns the collection of entities.
   ///
@@ -208,14 +208,14 @@ final class _BlueskyText implements BlueskyText {
   Entities get links => Entities(_detectLinks(value));
 
   @override
-  Entities get hashtags => Entities(_detectHashtag(value));
+  Entities get tags => Entities(_detectTag(value));
 
   @override
   Entities get entities => Entities(
         _orderByIndicesStart([
           ...handles,
           ...links,
-          ...hashtags,
+          ...tags,
         ]),
       );
 
@@ -405,7 +405,7 @@ final class _BlueskyText implements BlueskyText {
     return entities;
   }
 
-  List<Entity> _detectHashtag(final String text) {
+  List<Entity> _detectTag(final String text) {
     final entities = <Entity>[];
 
     for (final match in hashtagRegex.allMatches(text)) {
@@ -422,7 +422,7 @@ final class _BlueskyText implements BlueskyText {
 
       entities.add(
         Entity(
-          type: EntityType.hashtag,
+          type: EntityType.tag,
           value: tag,
           indices: ByteIndices(
             start: text.toUtf8Index(index),

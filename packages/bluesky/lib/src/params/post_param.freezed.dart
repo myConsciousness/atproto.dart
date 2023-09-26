@@ -28,6 +28,7 @@ mixin _$PostParam {
   List<String>? get languageTags => throw _privateConstructorUsedError;
   @labelsConverter
   Labels? get labels => throw _privateConstructorUsedError;
+  List<String>? get tags => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   Map<String, dynamic> get unspecced => throw _privateConstructorUsedError;
 
@@ -49,6 +50,7 @@ abstract class $PostParamCopyWith<$Res> {
       @embedConverter Embed? embed,
       List<String>? languageTags,
       @labelsConverter Labels? labels,
+      List<String>? tags,
       DateTime? createdAt,
       Map<String, dynamic> unspecced});
 
@@ -76,6 +78,7 @@ class _$PostParamCopyWithImpl<$Res, $Val extends PostParam>
     Object? embed = freezed,
     Object? languageTags = freezed,
     Object? labels = freezed,
+    Object? tags = freezed,
     Object? createdAt = freezed,
     Object? unspecced = null,
   }) {
@@ -104,6 +107,10 @@ class _$PostParamCopyWithImpl<$Res, $Val extends PostParam>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as Labels?,
+      tags: freezed == tags
+          ? _value.tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -166,6 +173,7 @@ abstract class _$$_PostParamCopyWith<$Res> implements $PostParamCopyWith<$Res> {
       @embedConverter Embed? embed,
       List<String>? languageTags,
       @labelsConverter Labels? labels,
+      List<String>? tags,
       DateTime? createdAt,
       Map<String, dynamic> unspecced});
 
@@ -194,6 +202,7 @@ class __$$_PostParamCopyWithImpl<$Res>
     Object? embed = freezed,
     Object? languageTags = freezed,
     Object? labels = freezed,
+    Object? tags = freezed,
     Object? createdAt = freezed,
     Object? unspecced = null,
   }) {
@@ -222,6 +231,10 @@ class __$$_PostParamCopyWithImpl<$Res>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as Labels?,
+      tags: freezed == tags
+          ? _value._tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -245,10 +258,12 @@ class _$_PostParam implements _PostParam {
       @embedConverter this.embed,
       final List<String>? languageTags,
       @labelsConverter this.labels,
+      final List<String>? tags,
       this.createdAt,
       final Map<String, dynamic> unspecced = emptyJson})
       : _facets = facets,
         _languageTags = languageTags,
+        _tags = tags,
         _unspecced = unspecced;
 
   factory _$_PostParam.fromJson(Map<String, dynamic> json) =>
@@ -284,6 +299,16 @@ class _$_PostParam implements _PostParam {
   @override
   @labelsConverter
   final Labels? labels;
+  final List<String>? _tags;
+  @override
+  List<String>? get tags {
+    final value = _tags;
+    if (value == null) return null;
+    if (_tags is EqualUnmodifiableListView) return _tags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final DateTime? createdAt;
   final Map<String, dynamic> _unspecced;
@@ -297,7 +322,7 @@ class _$_PostParam implements _PostParam {
 
   @override
   String toString() {
-    return 'PostParam(text: $text, reply: $reply, facets: $facets, embed: $embed, languageTags: $languageTags, labels: $labels, createdAt: $createdAt, unspecced: $unspecced)';
+    return 'PostParam(text: $text, reply: $reply, facets: $facets, embed: $embed, languageTags: $languageTags, labels: $labels, tags: $tags, createdAt: $createdAt, unspecced: $unspecced)';
   }
 
   @override
@@ -312,6 +337,7 @@ class _$_PostParam implements _PostParam {
             const DeepCollectionEquality()
                 .equals(other._languageTags, _languageTags) &&
             (identical(other.labels, labels) || other.labels == labels) &&
+            const DeepCollectionEquality().equals(other._tags, _tags) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             const DeepCollectionEquality()
@@ -328,6 +354,7 @@ class _$_PostParam implements _PostParam {
       embed,
       const DeepCollectionEquality().hash(_languageTags),
       labels,
+      const DeepCollectionEquality().hash(_tags),
       createdAt,
       const DeepCollectionEquality().hash(_unspecced));
 
@@ -353,6 +380,7 @@ abstract class _PostParam implements PostParam {
       @embedConverter final Embed? embed,
       final List<String>? languageTags,
       @labelsConverter final Labels? labels,
+      final List<String>? tags,
       final DateTime? createdAt,
       final Map<String, dynamic> unspecced}) = _$_PostParam;
 
@@ -373,6 +401,8 @@ abstract class _PostParam implements PostParam {
   @override
   @labelsConverter
   Labels? get labels;
+  @override
+  List<String>? get tags;
   @override
   DateTime? get createdAt;
   @override

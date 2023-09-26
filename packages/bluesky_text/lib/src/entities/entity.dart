@@ -75,7 +75,7 @@ class Entity with _$Entity {
         });
 
         break;
-      case EntityType.hashtag:
+      case EntityType.tag:
         facet['features'].add({
           '\$type': 'app.bsky.richtext.facet#tag',
           'tag': value,
@@ -93,12 +93,12 @@ class Entity with _$Entity {
   /// Returns true if this entity is link, otherwise false.
   bool get isLink => type == EntityType.link;
 
-  /// Returns true if this entity is hashtag, otherwise false.
-  bool get isHashtag => type == EntityType.hashtag;
+  /// Returns true if this entity is tag, otherwise false.
+  bool get isTag => type == EntityType.tag;
 }
 
 enum EntityType {
   handle,
   link,
-  hashtag,
+  tag,
 }

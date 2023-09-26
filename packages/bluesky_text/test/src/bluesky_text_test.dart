@@ -422,14 +422,14 @@ void main() {
   group('.hashtags', () {
     test('case1', () async {
       final text = BlueskyText('#test');
-      final hashtags = text.hashtags;
+      final tags = text.tags;
 
-      expect(hashtags.length, 1);
-      expect(hashtags.first.value, '#test');
-      expect(hashtags.first.indices.start, 0);
-      expect(hashtags.first.indices.end, 5);
+      expect(tags.length, 1);
+      expect(tags.first.value, '#test');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 5);
 
-      final facets = await hashtags.toFacets();
+      final facets = await tags.toFacets();
 
       expect(
           facets.first['features'][0][r'$type'], 'app.bsky.richtext.facet#tag');
@@ -438,15 +438,15 @@ void main() {
 
     test('case2', () async {
       final text = BlueskyText('#test #test2');
-      final hashtags = text.hashtags;
+      final tags = text.tags;
 
-      expect(hashtags.length, 2);
-      expect(hashtags.first.value, '#test');
-      expect(hashtags.first.indices.start, 0);
-      expect(hashtags.first.indices.end, 5);
-      expect(hashtags[1].value, '#test2');
-      expect(hashtags[1].indices.start, 6);
-      expect(hashtags[1].indices.end, 12);
+      expect(tags.length, 2);
+      expect(tags.first.value, '#test');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 5);
+      expect(tags[1].value, '#test2');
+      expect(tags[1].indices.start, 6);
+      expect(tags[1].indices.end, 12);
     });
   });
 

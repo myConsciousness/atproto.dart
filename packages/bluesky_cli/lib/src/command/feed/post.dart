@@ -75,6 +75,11 @@ class PostCommand extends CreateRecordCommand {
       record['labels'] = labels;
     }
 
+    final tags = entities.where((e) => e.isTag).map((e) => e.value).toList();
+    if (tags.isNotEmpty) {
+      record['tags'] = tags;
+    }
+
     return record;
   }
 
@@ -83,7 +88,7 @@ class PostCommand extends CreateRecordCommand {
       return null;
     }
 
-    final String langs = argResults!['langs'];
+    final langs = argResults!['langs'];
 
     return langs.split(',');
   }
