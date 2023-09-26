@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.8.25
+
+- Removed `app.bsky.unspecced.applyLabels` from `UnspeccedService`. ([#846](https://github.com/myConsciousness/atproto.dart/issues/846))
+
 ## v0.8.24
 
 - Deprecated `app.bsky.unspecced.getPopular`. Find a feed generator alternative. ([#835](https://github.com/myConsciousness/atproto.dart/issues/835))
