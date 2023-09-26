@@ -250,23 +250,6 @@ sealed class UnspeccedService {
     String? query,
   });
 
-  /// Allow a labeler to apply labels directly.
-  ///
-  /// ## Parameters
-  ///
-  /// - [labels]: A collection of [labels] to be applied.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.unspecced.applyLabels
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/applyLabels.json
-  Future<core.XRPCResponse<core.EmptyData>> createLabels(
-    final List<atp.Label> labels,
-  );
-
   /// A skeleton of a timeline.
   ///
   /// ## Parameters
@@ -515,17 +498,6 @@ final class _UnspeccedService extends BlueskyBaseService
       _paginateTimelineSkeleton(
         limit: limit,
         cursor: cursor,
-      );
-
-  @override
-  Future<core.XRPCResponse<core.EmptyData>> createLabels(
-    final List<atp.Label> labels,
-  ) async =>
-      await super.post(
-        'applyLabels',
-        body: {
-          'labels': labels.map((e) => e.toJson()).toList(),
-        },
       );
 
   Future<core.XRPCResponse<T>> _findPopularFeed<T>({
