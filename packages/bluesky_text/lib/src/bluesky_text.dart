@@ -423,7 +423,7 @@ final class _BlueskyText implements BlueskyText {
       entities.add(
         Entity(
           type: EntityType.tag,
-          value: tag,
+          value: tag.substring(1),
           indices: ByteIndices(
             start: text.toUtf8Index(index),
             end: text.toUtf8Index(index + tag.length),

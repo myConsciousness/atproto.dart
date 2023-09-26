@@ -425,7 +425,7 @@ void main() {
       final tags = text.tags;
 
       expect(tags.length, 1);
-      expect(tags.first.value, '#test');
+      expect(tags.first.value, 'test');
       expect(tags.first.indices.start, 0);
       expect(tags.first.indices.end, 5);
 
@@ -433,7 +433,7 @@ void main() {
 
       expect(
           facets.first['features'][0][r'$type'], 'app.bsky.richtext.facet#tag');
-      expect(facets.first['features'][0]['tag'], '#test');
+      expect(facets.first['features'][0]['tag'], 'test');
     });
 
     test('case2', () async {
@@ -441,10 +441,10 @@ void main() {
       final tags = text.tags;
 
       expect(tags.length, 2);
-      expect(tags.first.value, '#test');
+      expect(tags.first.value, 'test');
       expect(tags.first.indices.start, 0);
       expect(tags.first.indices.end, 5);
-      expect(tags[1].value, '#test2');
+      expect(tags[1].value, 'test2');
       expect(tags[1].indices.start, 6);
       expect(tags[1].indices.end, 12);
     });
