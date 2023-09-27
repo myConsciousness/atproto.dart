@@ -15,6 +15,8 @@ import 'entities/byte_indices.dart';
 import 'entities/entities.dart';
 import 'entities/entity.dart';
 import 'regex.dart';
+import 'regex/extract_url.dart';
+import 'regex/valid_ashii_domain.dart';
 import 'replacement.dart';
 import 'unicode_string.dart';
 
@@ -144,30 +146,6 @@ sealed class BlueskyText {
 
   /// Returns a new formatted [BlueskyText] based on configs.
   BlueskyText format();
-
-  /// Returns true if this [value] has a handle at least one, otherwise false.
-  @Deprecated('Use .handles instead. Will be removed in v0.5.0')
-  bool get hasHandle;
-
-  /// Returns true if this [value] has not a handle, otherwise false.
-  @Deprecated('Use .handles instead. Will be removed in v0.5.0')
-  bool get hasNotHandle;
-
-  /// Returns true if this [value] has a link at least one, otherwise false.
-  @Deprecated('Use .links instead. Will be removed in v0.5.0')
-  bool get hasLink;
-
-  /// Returns true if this [value] has not a link, otherwise false.
-  @Deprecated('Use .links instead. Will be removed in v0.5.0')
-  bool get hasNotLink;
-
-  /// Returns true if this [value] has an entity at least one, otherwise false.
-  @Deprecated('Use .entities instead. Will be removed in v0.5.0')
-  bool get hasEntity;
-
-  /// Returns true if this [value] has not an entity, otherwise false.
-  @Deprecated('Use .entities instead. Will be removed in v0.5.0')
-  bool get hasNotEntity;
 
   /// Returns true if this [length] is more than 300 chars,
   /// otherwise false.
@@ -301,24 +279,6 @@ final class _BlueskyText implements BlueskyText {
   }
 
   @override
-  bool get hasHandle => handleRegex.hasMatch(value);
-
-  @override
-  bool get hasNotHandle => !hasHandle;
-
-  @override
-  bool get hasLink => linkRegex.hasMatch(value);
-
-  @override
-  bool get hasNotLink => !hasLink;
-
-  @override
-  bool get hasEntity => hasHandle || hasLink;
-
-  @override
-  bool get hasNotEntity => !hasEntity;
-
-  @override
   bool get isLengthLimitExceeded => _maxLength < length;
 
   @override
@@ -360,43 +320,19 @@ final class _BlueskyText implements BlueskyText {
   List<Entity> _detectLinks(final String text) {
     final entities = <Entity>[];
 
-    for (final match in linkRegex.allMatches(text)) {
-      String uri = match.group(2)!;
+    for (final match in extractUrlRegex.allMatches(text)) {
+      final uri = _getUri(match);
       final uriLength = uri.length;
 
-      if (!uri.startsWith('http')) {
-        final domain = match.namedGroup('domain');
-        if (domain == null || !_hasValidDomain(domain)) {
-          continue;
-        }
-
-        uri = 'https://$uri';
-      }
-
-      final start = text.indexOf(match.group(2)!, match.start);
-      final index = {'start': start, 'end': start + uriLength};
-
-      // Strip ending punctuation
-      if (RegExp(r'[.,;!?]$').hasMatch(uri)) {
-        if (!uri.endsWith(_shortenLinkSuffix)) {
-          uri = uri.substring(0, uri.length - 1);
-          index['end'] = index['end']! - 1;
-        }
-      }
-
-      // Check for closing parenthesis without an opening parenthesis
-      if (RegExp(r'[)]$').hasMatch(uri) && !uri.contains('(')) {
-        uri = uri.substring(0, uri.length - 1);
-        index['end'] = index['end']! - 1;
-      }
+      final start = text.indexOf(uri, match.start);
 
       entities.add(
         Entity(
           type: EntityType.link,
-          value: _getReplacedValue(uri),
+          value: _getReplacedValue(_getPrefixedUri(uri)),
           indices: ByteIndices(
-            start: text.toUtf8Index(index['start']!),
-            end: text.toUtf8Index(index['end']!),
+            start: text.toUtf8Index(start),
+            end: text.toUtf8Index(start + uriLength),
           ),
         ),
       );
@@ -404,6 +340,25 @@ final class _BlueskyText implements BlueskyText {
 
     return entities;
   }
+
+  String _getPrefixedUri(final String source) =>
+      !source.startsWith('http') ? '$_httpsPrefix$source' : source;
+
+  String _getUri(final RegExpMatch match) {
+    final protocol = match.group(4) ?? '';
+    final domain = _getValidDomain(match.group(5)!);
+    final portNumber = _getPortNumber(match.group(6));
+    final urlPath = match.group(7) ?? '';
+    final urlQuery = match.group(8) ?? '';
+
+    return '$protocol$domain$portNumber$urlPath$urlQuery';
+  }
+
+  String _getValidDomain(final String source) =>
+      validAsciiDomainRegex.firstMatch(source)!.group(0)!;
+
+  String _getPortNumber(final String? source) =>
+      source == null ? '' : ':$source';
 
   List<Entity> _detectTag(final String text) {
     final entities = <Entity>[];
