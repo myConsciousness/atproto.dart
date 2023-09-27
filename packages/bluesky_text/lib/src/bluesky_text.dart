@@ -7,7 +7,6 @@ import 'dart:convert';
 
 // 📦 Package imports:
 import 'package:characters/characters.dart';
-import 'package:icann_tlds/icann_tlds.dart';
 
 // 🌎 Project imports:
 import 'config/link_config.dart';
