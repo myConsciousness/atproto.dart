@@ -373,6 +373,17 @@ sealed class ServersService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/requestEmailUpdate.json
   Future<core.XRPCResponse<EmailUpdate>> requestEmailUpdate();
+
+  /// Request an email with a code to confirm ownership of email.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.requestEmailConfirmation
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/requestEmailConfirmation.json
+  Future<core.XRPCResponse<core.EmptyData>> requestEmailConfirmation();
 }
 
 final class _ServersService extends ATProtoBaseService
@@ -568,6 +579,12 @@ final class _ServersService extends ATProtoBaseService
       await super.post(
         'requestEmailUpdate',
         to: EmailUpdate.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> requestEmailConfirmation() async =>
+      await super.post(
+        'requestEmailConfirmation',
       );
 
   Future<core.XRPCResponse<T>> _findCurrentSession<T>({
