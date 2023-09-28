@@ -980,7 +980,7 @@ github.com/videah/SkyBridge
           '@shinyakato.dev https://www.nikkei.com/article/DGXZQOGN20CZ30Q3A920C2000000/',
           linkConfig: LinkConfig(
             excludeProtocol: true,
-            maxGraphemeLength: 27,
+            enableShortening: true,
           )).format();
 
       expect(text.value, '@shinyakato.dev www.nikkei.com/article/DGXZ...');
@@ -1001,7 +1001,7 @@ github.com/videah/SkyBridge
           '@shinyakato.dev www.nikkei.com/article/DGXZQOGN20CZ30Q3A920C2000000/',
           linkConfig: LinkConfig(
             excludeProtocol: true,
-            maxGraphemeLength: 27,
+            enableShortening: true,
           )).format();
 
       expect(text.value, '@shinyakato.dev www.nikkei.com/article/DGXZ...');
@@ -1015,6 +1015,49 @@ github.com/videah/SkyBridge
       expect(entities[1].type, EntityType.link);
       expect(entities[1].value,
           'https://www.nikkei.com/article/DGXZQOGN20CZ30Q3A920C2000000/');
+    });
+
+    test('case5', () {
+      final text = BlueskyText(
+          '@shinyakato.dev www.nikkei.com/article/DGX?QOGN20CZ30Q3A920C2000000/',
+          linkConfig: LinkConfig(
+            excludeProtocol: true,
+            enableShortening: true,
+          )).format();
+
+      expect(text.value, '@shinyakato.dev www.nikkei.com/article/DGX...');
+      expect(text.length, 45);
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.handle);
+      expect(entities.first.value, 'shinyakato.dev');
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value,
+          'https://www.nikkei.com/article/DGX?QOGN20CZ30Q3A920C2000000/');
+    });
+
+    test('case6', () {
+      final text = BlueskyText(
+          '@shinyakato.dev www.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com/article/DGX?QOGN20CZ30Q3A920C2000000/',
+          linkConfig: LinkConfig(
+            excludeProtocol: true,
+            enableShortening: true,
+          )).format();
+
+      expect(text.value,
+          '@shinyakato.dev www.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com/article/DGX...');
+      expect(text.length, 81);
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.handle);
+      expect(entities.first.value, 'shinyakato.dev');
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value,
+          'https://www.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com/article/DGX?QOGN20CZ30Q3A920C2000000/');
     });
   });
 }

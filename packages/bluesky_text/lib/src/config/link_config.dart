@@ -4,35 +4,20 @@
 
 /// `LinkConfig` is a configuration class used to control how links are
 /// processed and formatted within a text.
-///
-/// By creating an instance of this class, you can specify whether to exclude
-/// the protocol part of the links and also determine the maximum length for
-/// each link in terms of graphemes.
 final class LinkConfig {
   /// Creates a [LinkConfig] instance with the specified configuration options.
-  ///
-  /// The minimum valid number that can be specified for
-  /// [maxGraphemeLength] is 20 or more.
-  ///
-  /// - Parameters:
-  ///   - excludeProtocol: Whether to exclude the protocol (e.g., "https://")
-  ///     when processing links. Defaults to `false`.
-  ///   - maxGraphemeLength: The maximum number of graphemes allowed for each
-  ///     link. If a link exceeds this length, it will be truncated. A value of
-  ///     `-1` implies no limit. Defaults to `-1`.
   const LinkConfig({
     this.excludeProtocol = false,
-    this.maxGraphemeLength = -1,
-  }) : assert(
-          maxGraphemeLength <= -1 || maxGraphemeLength >= 20,
-          'maxGraphemeLength must be less tha or equal to -1 '
-          'or greater than or equal to 20',
-        );
+    this.enableShortening = false,
+  });
 
   /// Whether to exclude the protocol (e.g., "https://") when processing links.
   final bool excludeProtocol;
 
-  /// The maximum number of graphemes allowed for each link.
-  /// A value of `-1` implies no limit.
-  final int maxGraphemeLength;
+  /// A flag indicating whether automatic link shortening is enabled.
+  ///
+  /// If this is set to `true`, any link inserted will be
+  /// automatically shortened. Otherwise, if this is set to `false`, links
+  /// will be inserted without shortening.
+  final bool enableShortening;
 }
