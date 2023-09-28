@@ -358,7 +358,7 @@ final class _BlueskyText implements BlueskyText {
     }
 
     for (final replacement in replacements!) {
-      if (replacement.key == '$uri...') {
+      if (replacement.key == '$uri$_shortenLinkSuffix') {
         //* Formatted.
         return replacement.key;
       }

@@ -585,6 +585,83 @@ void main() {
       expect(links.first.indices.start, 0);
       expect(links.first.indices.end, 52);
     });
+
+    test('case30', () {
+      final text = BlueskyText('wikipedia.com//track/We_Up_...');
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.value,
+          'https://wikipedia.com//track/We_Up_'); //* Not formatted.
+      expect(links.first.indices.start, 0);
+      expect(links.first.indices.end, 27);
+    });
+
+    test('case31', () {
+      final text = BlueskyText('''deck.blueの挙動が気になったのでテスト
+
+ドメイン名の前後にスペース文字を入れない：
+ああexample1.com
+example2.com/test?はいいぞ
+キミも、https://example3.com?test=においでよ
+
+ドメイン名の前後にスペース文字を入れる：
+ああ example4.com
+example5.com はいいぞ
+キミも、 example6.com においでよ
+
+ドメイン名とは違うURLへのリンク：
+ああ http://example7.com
+example8.com はいいぞ
+キミも、 example9.com:8080?test=value& においでよ''');
+
+      final links = text.links;
+
+      expect(links.length, 10);
+      expect(links[0].value, 'https://deck.blue');
+      expect(links[1].value, 'https://example1.com');
+      expect(links[2].value, 'https://example2.com/test');
+      expect(links[3].value, 'https://example3.com?test=');
+      expect(links[4].value, 'https://example4.com');
+      expect(links[5].value, 'https://example5.com');
+      expect(links[6].value, 'https://example6.com');
+      expect(links[7].value, 'http://example7.com');
+      expect(links[8].value, 'https://example8.com');
+      expect(links[9].value, 'https://example9.com:8080?test=value&');
+    });
+
+    test('case32', () {
+      final text = BlueskyText('''deck.blueの挙動が気になったのでテスト
+
+ドメイン名の前後にスペース文字を入れない：
+ああexample1.com
+example2.comはいいぞ
+キミも、example3.comにおいでよ
+
+ドメイン名の前後にスペース文字を入れる：
+ああ example4.com
+example5.com はいいぞ
+キミも、 example6.com においでよ
+
+ドメイン名とは違うURLへのリンク：
+ああ example7.com
+example8.com はいいぞ
+キミも、 example9.com においでよ''');
+
+      final links = text.links;
+
+      expect(links.length, 10);
+      expect(links[0].value, 'https://deck.blue');
+      expect(links[1].value, 'https://example1.com');
+      expect(links[2].value, 'https://example2.com');
+      expect(links[3].value, 'https://example3.com');
+      expect(links[4].value, 'https://example4.com');
+      expect(links[5].value, 'https://example5.com');
+      expect(links[6].value, 'https://example6.com');
+      expect(links[7].value, 'https://example7.com');
+      expect(links[8].value, 'https://example8.com');
+      expect(links[9].value, 'https://example9.com');
+    });
   });
 
   group('.tags', () {
