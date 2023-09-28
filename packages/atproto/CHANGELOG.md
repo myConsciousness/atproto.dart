@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.6.9
+
+- Added `isEmailConfirmed` field on `CurrentSession`. ([#857](https://github.com/myConsciousness/atproto.dart/issues/857))
+
 ## v0.6.8
 
 - Upgraded `xrpc` package. Fixed field names for rate limit.

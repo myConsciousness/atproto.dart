@@ -38,6 +38,8 @@ void main() {
 
       expect(response, isA<core.XRPCResponse>());
       expect(response.data, isA<CurrentSession>());
+
+      expect(response.data.isEmailConfirmed, isTrue);
     });
 
     test('as JSON', () async {
