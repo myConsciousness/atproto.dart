@@ -15,17 +15,16 @@ import 'entities/byte_indices.dart';
 import 'entities/entities.dart';
 import 'entities/entity.dart';
 import 'regex.dart';
+import 'regex/extract_url.dart';
+import 'regex/valid_ashii_domain.dart';
 import 'replacement.dart';
 import 'unicode_string.dart';
 
+const _httpsPrefix = 'https://';
+const _shortenLinkSuffix = '...';
+
 /// The max length of text.
 const _maxLength = 300;
-
-const _httpsPrefix = 'https://';
-const _httpPrefix = 'http://';
-const _httpsLength = _httpsPrefix.length;
-const _httpLength = _httpPrefix.length;
-const _shortenLinkSuffix = '...';
 
 /// This class provides high-performance analysis of [Bluesky Social](https://blueskyweb.xyz)'s text
 /// and features related to secure posting.
@@ -145,30 +144,6 @@ sealed class BlueskyText {
   /// Returns a new formatted [BlueskyText] based on configs.
   BlueskyText format();
 
-  /// Returns true if this [value] has a handle at least one, otherwise false.
-  @Deprecated('Use .handles instead. Will be removed in v0.5.0')
-  bool get hasHandle;
-
-  /// Returns true if this [value] has not a handle, otherwise false.
-  @Deprecated('Use .handles instead. Will be removed in v0.5.0')
-  bool get hasNotHandle;
-
-  /// Returns true if this [value] has a link at least one, otherwise false.
-  @Deprecated('Use .links instead. Will be removed in v0.5.0')
-  bool get hasLink;
-
-  /// Returns true if this [value] has not a link, otherwise false.
-  @Deprecated('Use .links instead. Will be removed in v0.5.0')
-  bool get hasNotLink;
-
-  /// Returns true if this [value] has an entity at least one, otherwise false.
-  @Deprecated('Use .entities instead. Will be removed in v0.5.0')
-  bool get hasEntity;
-
-  /// Returns true if this [value] has not an entity, otherwise false.
-  @Deprecated('Use .entities instead. Will be removed in v0.5.0')
-  bool get hasNotEntity;
-
   /// Returns true if this [length] is more than 300 chars,
   /// otherwise false.
   bool get isLengthLimitExceeded;
@@ -211,13 +186,20 @@ final class _BlueskyText implements BlueskyText {
   Entities get tags => Entities(_detectTag(value));
 
   @override
-  Entities get entities => Entities(
-        _orderByIndicesStart([
-          ...handles,
-          ...links,
-          ...tags,
-        ]),
-      );
+  Entities get entities {
+    final handles = this.handles;
+
+    return Entities(
+      _orderByIndicesStart([
+        ...handles,
+        ..._detectLinks(
+          value,
+          handles,
+        ),
+        ...tags,
+      ]),
+    );
+  }
 
   @override
   List<BlueskyText> split() {
@@ -287,7 +269,7 @@ final class _BlueskyText implements BlueskyText {
       return this;
     }
 
-    if (!linkConfig!.excludeProtocol && linkConfig!.maxGraphemeLength < 0) {
+    if (!linkConfig!.excludeProtocol && !linkConfig!.enableShortening) {
       return this;
     }
 
@@ -295,28 +277,9 @@ final class _BlueskyText implements BlueskyText {
 
     return BlueskyText(
       formatted.$1,
-      linkConfig: linkConfig,
       replacements: formatted.$2,
     );
   }
-
-  @override
-  bool get hasHandle => handleRegex.hasMatch(value);
-
-  @override
-  bool get hasNotHandle => !hasHandle;
-
-  @override
-  bool get hasLink => linkRegex.hasMatch(value);
-
-  @override
-  bool get hasNotLink => !hasLink;
-
-  @override
-  bool get hasEntity => hasHandle || hasLink;
-
-  @override
-  bool get hasNotEntity => !hasEntity;
 
   @override
   bool get isLengthLimitExceeded => _maxLength < length;
@@ -357,52 +320,78 @@ final class _BlueskyText implements BlueskyText {
     return entities;
   }
 
-  List<Entity> _detectLinks(final String text) {
+  List<Entity> _detectLinks(
+    final String text, [
+    final Entities? handles,
+  ]) {
     final entities = <Entity>[];
+    final $handles = handles ?? this.handles;
 
-    for (final match in linkRegex.allMatches(text)) {
-      String uri = match.group(2)!;
+    for (final match in extractUrlRegex.allMatches(text)) {
+      final uri = _getUri(match);
       final uriLength = uri.length;
 
-      if (!uri.startsWith('http')) {
-        final domain = match.namedGroup('domain');
-        if (domain == null || !_hasValidDomain(domain)) {
-          continue;
-        }
+      final start = text.indexOf(uri, match.start);
+      final endUtf8 = text.toUtf8Index(start + uriLength);
 
-        uri = 'https://$uri';
-      }
-
-      final start = text.indexOf(match.group(2)!, match.start);
-      final index = {'start': start, 'end': start + uriLength};
-
-      // Strip ending punctuation
-      if (RegExp(r'[.,;!?]$').hasMatch(uri)) {
-        if (!uri.endsWith(_shortenLinkSuffix)) {
-          uri = uri.substring(0, uri.length - 1);
-          index['end'] = index['end']! - 1;
-        }
-      }
-
-      // Check for closing parenthesis without an opening parenthesis
-      if (RegExp(r'[)]$').hasMatch(uri) && !uri.contains('(')) {
-        uri = uri.substring(0, uri.length - 1);
-        index['end'] = index['end']! - 1;
+      if (_isHandle(endUtf8, $handles)) {
+        continue;
       }
 
       entities.add(
         Entity(
           type: EntityType.link,
-          value: _getReplacedValue(uri),
+          value: _getPrefixedUri(_getReplacedValue(uri)),
           indices: ByteIndices(
-            start: text.toUtf8Index(index['start']!),
-            end: text.toUtf8Index(index['end']!),
+            start: text.toUtf8Index(start),
+            end: endUtf8,
           ),
         ),
       );
     }
 
     return entities;
+  }
+
+  bool _isHandle(
+    final int end,
+    final Entities handles,
+  ) {
+    for (final handle in handles) {
+      if (handle.indices.end == end) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  String _getPrefixedUri(final String source) =>
+      !source.startsWith('http') ? '$_httpsPrefix$source' : source;
+
+  String _getUri(final RegExpMatch match) {
+    final protocol = match.group(4) ?? '';
+    final domain = _getValidDomain(match.group(5)!);
+    final portNumber = _getPortNumber(match.group(6));
+    final urlPath = match.group(7) ?? '';
+    final urlQuery = match.group(8) ?? '';
+
+    final uri = '$protocol$domain$portNumber$urlPath$urlQuery';
+
+    if (replacements == null) {
+      //* Not formatted.
+      return uri;
+    }
+
+    for (final replacement in replacements!) {
+      if (replacement.key == '$uri$_shortenLinkSuffix') {
+        //* Formatted.
+        return replacement.key;
+      }
+    }
+
+    //* Not formatted.
+    return uri;
   }
 
   List<Entity> _detectTag(final String text) {
@@ -440,10 +429,8 @@ final class _BlueskyText implements BlueskyText {
       return source;
     }
 
-    final $key = _toShortLink(source);
-
     for (final replacement in replacements!) {
-      if (replacement.key == $key) {
+      if (replacement.key == source) {
         return replacement.value;
       }
     }
@@ -506,25 +493,46 @@ final class _BlueskyText implements BlueskyText {
     return (buffer.toString(), replacements);
   }
 
-  String _toShortLink(final String link) {
-    String newLink = link;
-
-    if (linkConfig!.excludeProtocol) {
-      if (newLink.startsWith(_httpsPrefix)) {
-        newLink = newLink.substring(_httpsLength);
-      } else if (newLink.startsWith(_httpPrefix)) {
-        newLink = newLink.substring(_httpLength);
-      }
+  String _toShortLink(final String source) {
+    if (linkConfig == null) {
+      return source;
     }
 
-    if (linkConfig!.maxGraphemeLength > -1 &&
-        newLink.characters.length > linkConfig!.maxGraphemeLength) {
-      newLink = '${newLink.characters.take(linkConfig!.maxGraphemeLength)}'
+    final match = extractUrlRegex.firstMatch(source)!;
+    final protocol = match.group(4) ?? '';
+    final domain = _getValidDomain(match.group(5)!);
+    final portNumber = _getPortNumber(match.group(6));
+    final urlPath = match.group(7) ?? '';
+    final urlQuery = match.group(8) ?? '';
+
+    final domainPart = linkConfig!.excludeProtocol
+        ? '$domain$portNumber'
+        : '$protocol$domain$portNumber';
+    final pathPart = '$urlPath$urlQuery';
+
+    if (linkConfig!.enableShortening && pathPart.length > 15) {
+      return '$domainPart${_getShortenedPath(pathPart)}';
+    }
+
+    return '$domainPart$pathPart';
+  }
+
+  String _getShortenedPath(final String source) {
+    final shortened = source.substring(0, 13);
+
+    if (shortened.endsWith('?')) {
+      return '${shortened.substring(0, shortened.length - 1)}'
           '$_shortenLinkSuffix';
     }
 
-    return newLink;
+    return '$shortened$_shortenLinkSuffix';
   }
+
+  String _getValidDomain(final String source) =>
+      validAsciiDomainRegex.firstMatch(source)!.group(0)!;
+
+  String _getPortNumber(final String? source) =>
+      source == null ? '' : ':$source';
 
   @override
   String toString() => value;
