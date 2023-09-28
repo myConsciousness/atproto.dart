@@ -417,9 +417,177 @@ void main() {
         [],
       );
     });
+
+    test('case15', () {
+      final text = BlueskyText('https://atprotodart.com');
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.value, 'https://atprotodart.com');
+      expect(links.first.indices.start, 0);
+      expect(links.first.indices.end, 23);
+    });
+
+    test('case16', () {
+      final text = BlueskyText('atprotodart.com');
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.value, 'https://atprotodart.com');
+      expect(links.first.indices.start, 0);
+      expect(links.first.indices.end, 15);
+    });
+
+    test('case16', () {
+      final text = BlueskyText('atprotodart.com...');
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.value, 'https://atprotodart.com'); //* Not formatted!
+      expect(links.first.indices.start, 0);
+      expect(links.first.indices.end, 15);
+    });
+
+    test('case17', () {
+      final text = BlueskyText('atprotodart.com/test');
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.value, 'https://atprotodart.com/test');
+      expect(links.first.indices.start, 0);
+      expect(links.first.indices.end, 20);
+    });
+
+    test('case18', () {
+      final text = BlueskyText('(atprotodart.com/test)');
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.value, 'https://atprotodart.com/test');
+      expect(links.first.indices.start, 1);
+      expect(links.first.indices.end, 21);
+    });
+
+    test('case19', () {
+      final text = BlueskyText('!atprotodart.com/test?');
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.value, 'https://atprotodart.com/test');
+      expect(links.first.indices.start, 1);
+      expect(links.first.indices.end, 21);
+    });
+
+    test('case20', () {
+      final text = BlueskyText('テストatprotodart.com/test?test=');
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.value, 'https://atprotodart.com/test?test=');
+      expect(links.first.indices.start, 9);
+      expect(links.first.indices.end, 35);
+    });
+
+    test('case21', () {
+      final text = BlueskyText('テストatprotodart.com/test?test=value');
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.value, 'https://atprotodart.com/test?test=value');
+      expect(links.first.indices.start, 9);
+      expect(links.first.indices.end, 40);
+    });
+
+    test('case22', () {
+      final text = BlueskyText('テストatprotodart.com:8080/test?test=valueあいうえお');
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.value, 'https://atprotodart.com:8080/test?test=value');
+      expect(links.first.indices.start, 9);
+      expect(links.first.indices.end, 45);
+    });
+
+    test('case23', () {
+      final text = BlueskyText(
+          'テストhttps://atprotodart.com:8080/test/test2?test=valueあいうえお');
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.value,
+          'https://atprotodart.com:8080/test/test2?test=value');
+      expect(links.first.indices.start, 9);
+      expect(links.first.indices.end, 59);
+    });
+
+    test('case24', () {
+      final text = BlueskyText('https://test.test');
+      final links = text.links;
+
+      expect(links.length, 0);
+    });
+
+    test('case25', () {
+      final text = BlueskyText('test.test');
+      final links = text.links;
+
+      expect(links.length, 0);
+    });
+
+    test('case26', () {
+      final text = BlueskyText('test.test');
+      final links = text.links;
+
+      expect(links.length, 0);
+    });
+
+    test('case27', () {
+      final text = BlueskyText('wikipedia.com/Primer_(film)');
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.value, 'https://wikipedia.com/Primer_(film)');
+      expect(links.first.indices.start, 0);
+      expect(links.first.indices.end, 27);
+    });
+
+    test('case28', () {
+      final text = BlueskyText('wikipedia.com/Primer_(film)/S(dfd346)/');
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(
+          links.first.value, 'https://wikipedia.com/Primer_(film)/S(dfd346)/');
+      expect(links.first.indices.start, 0);
+      expect(links.first.indices.end, 38);
+    });
+
+    test('case29', () {
+      final text =
+          BlueskyText('wikipedia.com/track/We_Up_(Album_Version_(Edited))/');
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.value,
+          'https://wikipedia.com/track/We_Up_(Album_Version_(Edited))/');
+      expect(links.first.indices.start, 0);
+      expect(links.first.indices.end, 51);
+    });
+
+    test('case29', () {
+      final text =
+          BlueskyText('wikipedia.com//track/We_Up_(Album_Version_(Edited))/');
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.value,
+          'https://wikipedia.com//track/We_Up_(Album_Version_(Edited))/'); //* No problem
+      expect(links.first.indices.start, 0);
+      expect(links.first.indices.end, 52);
+    });
   });
 
-  group('.hashtags', () {
+  group('.tags', () {
     test('case1', () async {
       final text = BlueskyText('#test');
       final tags = text.tags;

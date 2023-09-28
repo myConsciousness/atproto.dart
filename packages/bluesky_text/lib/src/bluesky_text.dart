@@ -273,7 +273,6 @@ final class _BlueskyText implements BlueskyText {
 
     return BlueskyText(
       formatted.$1,
-      linkConfig: linkConfig,
       replacements: formatted.$2,
     );
   }
@@ -329,7 +328,7 @@ final class _BlueskyText implements BlueskyText {
       entities.add(
         Entity(
           type: EntityType.link,
-          value: _getReplacedValue(_getPrefixedUri(uri)),
+          value: _getPrefixedUri(_getReplacedValue(uri)),
           indices: ByteIndices(
             start: text.toUtf8Index(start),
             end: text.toUtf8Index(start + uriLength),
@@ -351,7 +350,22 @@ final class _BlueskyText implements BlueskyText {
     final urlPath = match.group(7) ?? '';
     final urlQuery = match.group(8) ?? '';
 
-    return '$protocol$domain$portNumber$urlPath$urlQuery';
+    final uri = '$protocol$domain$portNumber$urlPath$urlQuery';
+
+    if (replacements == null) {
+      //* Not formatted.
+      return uri;
+    }
+
+    for (final replacement in replacements!) {
+      if (replacement.key == '$uri...') {
+        //* Formatted.
+        return replacement.key;
+      }
+    }
+
+    //* Not formatted.
+    return uri;
   }
 
   String _getValidDomain(final String source) =>
@@ -395,10 +409,8 @@ final class _BlueskyText implements BlueskyText {
       return source;
     }
 
-    final $key = _toShortLink(source);
-
     for (final replacement in replacements!) {
-      if (replacement.key == $key) {
+      if (replacement.key == source) {
         return replacement.value;
       }
     }
@@ -462,6 +474,10 @@ final class _BlueskyText implements BlueskyText {
   }
 
   String _toShortLink(final String link) {
+    if (linkConfig == null) {
+      return link;
+    }
+
     String newLink = link;
 
     if (linkConfig!.excludeProtocol) {
