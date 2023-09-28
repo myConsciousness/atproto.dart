@@ -13,48 +13,20 @@ void main() {
     final config = LinkConfig();
 
     expect(config.excludeProtocol, isFalse);
-    expect(config.maxGraphemeLength, -1);
+    expect(config.enableShortening, isFalse);
   });
 
   test('with excludeProtocol', () {
     final config = LinkConfig(excludeProtocol: true);
 
     expect(config.excludeProtocol, isTrue);
-    expect(config.maxGraphemeLength, -1);
+    expect(config.enableShortening, isFalse);
   });
 
   test('with maxGraphemeLength', () {
-    final config = LinkConfig(maxGraphemeLength: 25);
+    final config = LinkConfig(enableShortening: true);
 
     expect(config.excludeProtocol, isFalse);
-    expect(config.maxGraphemeLength, 25);
-  });
-
-  test('when maxGraphemeLength is 0', () {
-    expect(
-      () => LinkConfig(maxGraphemeLength: 0),
-      throwsA(isA<AssertionError>()),
-    );
-  });
-
-  test('when maxGraphemeLength is 1', () {
-    expect(
-      () => LinkConfig(maxGraphemeLength: 1),
-      throwsA(isA<AssertionError>()),
-    );
-  });
-
-  test('when maxGraphemeLength is 19', () {
-    expect(
-      () => LinkConfig(maxGraphemeLength: 19),
-      throwsA(isA<AssertionError>()),
-    );
-  });
-
-  test('when maxGraphemeLength is 20', () {
-    final config = LinkConfig(maxGraphemeLength: 20);
-
-    expect(config.excludeProtocol, isFalse);
-    expect(config.maxGraphemeLength, 20);
+    expect(config.enableShortening, isTrue);
   });
 }
