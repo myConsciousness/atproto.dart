@@ -404,6 +404,26 @@ sealed class ServersService {
     required String email,
     required String token,
   });
+
+  /// Update an account's email.
+  ///
+  /// ## Parameters
+  ///
+  /// - [email]: An email to be confirmed.
+  ///
+  /// - [token]: A token from [requestEmailConfirmation].
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.updateEmail
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/updateEmail.json
+  Future<core.XRPCResponse<core.EmptyData>> updateEmail({
+    required String email,
+    String? token,
+  });
 }
 
 final class _ServersService extends ATProtoBaseService
@@ -614,6 +634,19 @@ final class _ServersService extends ATProtoBaseService
   }) async =>
       await super.post(
         'confirmEmail',
+        body: {
+          'email': email,
+          'token': token,
+        },
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> updateEmail({
+    required String email,
+    String? token,
+  }) async =>
+      await super.post(
+        'updateEmail',
         body: {
           'email': email,
           'token': token,
