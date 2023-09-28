@@ -8,7 +8,6 @@ import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:atproto/atproto.dart';
 import 'package:atproto/src/entities/account.dart';
 import 'package:atproto/src/entities/app_password.dart';
 import 'package:atproto/src/entities/app_passwords.dart';
@@ -1191,7 +1190,7 @@ void main() {
       final response = await servers.requestEmailConfirmation();
 
       expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<EmptyData>());
+      expect(response.data, isA<core.EmptyData>());
     });
 
     test('when unauthorized', () async {
