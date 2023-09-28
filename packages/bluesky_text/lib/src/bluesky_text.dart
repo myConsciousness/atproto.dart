@@ -25,7 +25,6 @@ const _shortenLinkSuffix = '...';
 
 /// The max length of text.
 const _maxLength = 300;
-const _shorteningRange = 15;
 
 /// This class provides high-performance analysis of [Bluesky Social](https://blueskyweb.xyz)'s text
 /// and features related to secure posting.
