@@ -31,6 +31,7 @@ See more details about **[atproto](https://pub.dev/packages/atproto)** in **[Pac
 | [POST com.atproto.server.revokeAppPassword](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/revokeAppPassword.json)        | [deleteAppPassword](https://pub.dev/documentation/atproto/latest/atproto/ServersService/deleteAppPassword.html)       |       ✅       |     ❌      |
 | [GET com.atproto.server.listAppPasswords](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/listAppPasswords.json)           | [findAppPasswords](https://pub.dev/documentation/atproto/latest/atproto/ServersService/findAppPasswords.html)         |       ✅       |     ❌      |
 | [GET com.atproto.server.describeServer](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/describeServer.json)               | [findServerInfo](https://pub.dev/documentation/atproto/latest/atproto/ServersService/findServerInfo.html)             |       ❌       |     ❌      |
+| [POST com.atproto.server.requestEmailUpdate](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/requestEmailUpdate.json)      | [requestEmailUpdate](https://pub.dev/documentation/atproto/latest/atproto/ServersService/requestEmailUpdate.html)     |       ✅       |     ❌      |
 
 ### [Identity Service](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService-class.html)
 

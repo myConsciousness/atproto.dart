@@ -28,6 +28,8 @@ export 'package:atproto/atproto.dart'
         $CreatedInviteCodesCopyWith,
         AccountCodes,
         $AccountCodesCopyWith,
+        EmailUpdate,
+        $EmailUpdateCopyWith,
         RepoBlocks,
         $RepoBlocksCopyWith,
         RepoBlock,

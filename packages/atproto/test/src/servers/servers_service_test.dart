@@ -14,6 +14,7 @@ import 'package:atproto/src/entities/app_passwords.dart';
 import 'package:atproto/src/entities/created_invite_code.dart';
 import 'package:atproto/src/entities/created_invite_codes.dart';
 import 'package:atproto/src/entities/current_session.dart';
+import 'package:atproto/src/entities/email_update.dart';
 import 'package:atproto/src/entities/invite_codes.dart';
 import 'package:atproto/src/entities/server_info.dart';
 import 'package:atproto/src/servers/servers_service.dart';
@@ -1105,6 +1106,68 @@ void main() {
 
       atp_test.expectRateLimitExceededException(
         () async => await servers.findServerInfo(),
+      );
+    });
+  });
+
+  group('.requestEmailUpdate', () {
+    test('normal case', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/servers/data/request_email_update.json',
+        ),
+      );
+
+      final response = await servers.requestEmailUpdate();
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<EmailUpdate>());
+    });
+
+    test('when unauthorized', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await servers.requestEmailUpdate(),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await servers.requestEmailUpdate(),
       );
     });
   });

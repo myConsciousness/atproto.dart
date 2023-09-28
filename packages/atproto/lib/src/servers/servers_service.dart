@@ -13,6 +13,7 @@ import '../entities/app_passwords.dart';
 import '../entities/created_invite_code.dart';
 import '../entities/created_invite_codes.dart';
 import '../entities/current_session.dart';
+import '../entities/email_update.dart';
 import '../entities/invite_codes.dart';
 import '../entities/server_info.dart';
 
@@ -361,6 +362,17 @@ sealed class ServersService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/describeServer.json
   Future<core.XRPCResponse<Map<String, dynamic>>> findServerInfoAsJson();
+
+  /// Request a token in order to update email.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.requestEmailUpdate
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/requestEmailUpdate.json
+  Future<core.XRPCResponse<EmailUpdate>> requestEmailUpdate();
 }
 
 final class _ServersService extends ATProtoBaseService
@@ -550,6 +562,13 @@ final class _ServersService extends ATProtoBaseService
   @override
   Future<core.XRPCResponse<Map<String, dynamic>>>
       findServerInfoAsJson() async => await _findServerInfo();
+
+  @override
+  Future<core.XRPCResponse<EmailUpdate>> requestEmailUpdate() async =>
+      await super.post(
+        'requestEmailUpdate',
+        to: EmailUpdate.fromJson,
+      );
 
   Future<core.XRPCResponse<T>> _findCurrentSession<T>({
     core.To<T>? to,
