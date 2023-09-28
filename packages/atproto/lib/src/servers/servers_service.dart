@@ -384,6 +384,26 @@ sealed class ServersService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/requestEmailConfirmation.json
   Future<core.XRPCResponse<core.EmptyData>> requestEmailConfirmation();
+
+  /// Confirm an email using a token from [requestEmailConfirmation].
+  ///
+  /// ## Parameters
+  ///
+  /// - [email]: An email to be confirmed.
+  ///
+  /// - [token]: Confirmation token from [requestEmailConfirmation].
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.confirmEmail
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/confirmEmail.json
+  Future<core.XRPCResponse<core.EmptyData>> confirmEmail({
+    required String email,
+    required String token,
+  });
 }
 
 final class _ServersService extends ATProtoBaseService
@@ -585,6 +605,19 @@ final class _ServersService extends ATProtoBaseService
   Future<core.XRPCResponse<core.EmptyData>> requestEmailConfirmation() async =>
       await super.post(
         'requestEmailConfirmation',
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> confirmEmail({
+    required String email,
+    required String token,
+  }) async =>
+      await super.post(
+        'confirmEmail',
+        body: {
+          'email': email,
+          'token': token,
+        },
       );
 
   Future<core.XRPCResponse<T>> _findCurrentSession<T>({
