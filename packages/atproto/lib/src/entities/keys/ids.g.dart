@@ -259,6 +259,9 @@ const comAtprotoRepoStrongRef = 'com.atproto.repo.strongRef';
 /// `com.atproto.repo.uploadBlob`
 const comAtprotoRepoUploadBlob = 'com.atproto.repo.uploadBlob';
 
+/// `com.atproto.server.confirmEmail`
+const comAtprotoServerConfirmEmail = 'com.atproto.server.confirmEmail';
+
 /// `com.atproto.server.createAccount`
 const comAtprotoServerCreateAccount = 'com.atproto.server.createAccount';
 
@@ -328,6 +331,14 @@ const comAtprotoServerRefreshSession = 'com.atproto.server.refreshSession';
 const comAtprotoServerRequestAccountDelete =
     'com.atproto.server.requestAccountDelete';
 
+/// `com.atproto.server.requestEmailConfirmation`
+const comAtprotoServerRequestEmailConfirmation =
+    'com.atproto.server.requestEmailConfirmation';
+
+/// `com.atproto.server.requestEmailUpdate`
+const comAtprotoServerRequestEmailUpdate =
+    'com.atproto.server.requestEmailUpdate';
+
 /// `com.atproto.server.requestPasswordReset`
 const comAtprotoServerRequestPasswordReset =
     'com.atproto.server.requestPasswordReset';
@@ -338,6 +349,9 @@ const comAtprotoServerResetPassword = 'com.atproto.server.resetPassword';
 /// `com.atproto.server.revokeAppPassword`
 const comAtprotoServerRevokeAppPassword =
     'com.atproto.server.revokeAppPassword';
+
+/// `com.atproto.server.updateEmail`
+const comAtprotoServerUpdateEmail = 'com.atproto.server.updateEmail';
 
 /// `com.atproto.sync.getBlob`
 const comAtprotoSyncGetBlob = 'com.atproto.sync.getBlob';
