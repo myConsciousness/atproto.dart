@@ -3,6 +3,8 @@
 ## v0.6.9
 
 - Added `isEmailConfirmed` field on `CurrentSession`. ([#857](https://github.com/myConsciousness/atproto.dart/issues/857))
+- Supported `com.atproto.server.requestEmailUpdate` on `ServersService`. ([#859](https://github.com/myConsciousness/atproto.dart/issues/859))
+  - `requestEmailUpdate`
 
 ## v0.6.8
 

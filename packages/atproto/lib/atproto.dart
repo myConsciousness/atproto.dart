@@ -22,6 +22,7 @@ export 'package:atproto/src/entities/created_invite_codes.dart';
 export 'package:atproto/src/entities/current_session.dart';
 export 'package:atproto/src/entities/delete_action.dart';
 export 'package:atproto/src/entities/did.dart';
+export 'package:atproto/src/entities/email_update.dart';
 export 'package:atproto/src/entities/invite_code.dart';
 export 'package:atproto/src/entities/invite_code_use.dart';
 export 'package:atproto/src/entities/invite_codes.dart';
