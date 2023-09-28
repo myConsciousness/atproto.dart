@@ -23,9 +23,6 @@ class Session with _$Session {
   const Session._();
 
   /// Creates a new instance of [Session].
-  ///
-  /// The [did], [handle], [accessJwt], and [refreshJwt] parameters are
-  /// required, while [email] is optional.
   @jsonSerializable
   const factory Session({
     /// Decentralized Identifier for the user.
@@ -36,6 +33,9 @@ class Session with _$Session {
 
     /// User's email address.
     String? email,
+
+    /// A flag indicating whether the email address is confirmed.
+    @JsonKey(name: 'emailConfirmed') @Default(false) bool isEmailConfirmed,
 
     /// Access JSON Web Token.
     required String accessJwt,

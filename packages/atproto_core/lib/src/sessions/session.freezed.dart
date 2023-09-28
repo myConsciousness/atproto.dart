@@ -29,6 +29,10 @@ mixin _$Session {
   /// User's email address.
   String? get email => throw _privateConstructorUsedError;
 
+  /// A flag indicating whether the email address is confirmed.
+  @JsonKey(name: 'emailConfirmed')
+  bool get isEmailConfirmed => throw _privateConstructorUsedError;
+
   /// Access JSON Web Token.
   String get accessJwt => throw _privateConstructorUsedError;
 
@@ -49,6 +53,7 @@ abstract class $SessionCopyWith<$Res> {
       {String did,
       String handle,
       String? email,
+      @JsonKey(name: 'emailConfirmed') bool isEmailConfirmed,
       String accessJwt,
       String refreshJwt});
 }
@@ -69,6 +74,7 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
     Object? did = null,
     Object? handle = null,
     Object? email = freezed,
+    Object? isEmailConfirmed = null,
     Object? accessJwt = null,
     Object? refreshJwt = null,
   }) {
@@ -85,6 +91,10 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
+      isEmailConfirmed: null == isEmailConfirmed
+          ? _value.isEmailConfirmed
+          : isEmailConfirmed // ignore: cast_nullable_to_non_nullable
+              as bool,
       accessJwt: null == accessJwt
           ? _value.accessJwt
           : accessJwt // ignore: cast_nullable_to_non_nullable
@@ -108,6 +118,7 @@ abstract class _$$_SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
       {String did,
       String handle,
       String? email,
+      @JsonKey(name: 'emailConfirmed') bool isEmailConfirmed,
       String accessJwt,
       String refreshJwt});
 }
@@ -125,6 +136,7 @@ class __$$_SessionCopyWithImpl<$Res>
     Object? did = null,
     Object? handle = null,
     Object? email = freezed,
+    Object? isEmailConfirmed = null,
     Object? accessJwt = null,
     Object? refreshJwt = null,
   }) {
@@ -141,6 +153,10 @@ class __$$_SessionCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
+      isEmailConfirmed: null == isEmailConfirmed
+          ? _value.isEmailConfirmed
+          : isEmailConfirmed // ignore: cast_nullable_to_non_nullable
+              as bool,
       accessJwt: null == accessJwt
           ? _value.accessJwt
           : accessJwt // ignore: cast_nullable_to_non_nullable
@@ -161,6 +177,7 @@ class _$_Session extends _Session {
       {required this.did,
       required this.handle,
       this.email,
+      @JsonKey(name: 'emailConfirmed') this.isEmailConfirmed = false,
       required this.accessJwt,
       required this.refreshJwt})
       : super._();
@@ -180,6 +197,11 @@ class _$_Session extends _Session {
   @override
   final String? email;
 
+  /// A flag indicating whether the email address is confirmed.
+  @override
+  @JsonKey(name: 'emailConfirmed')
+  final bool isEmailConfirmed;
+
   /// Access JSON Web Token.
   @override
   final String accessJwt;
@@ -190,7 +212,7 @@ class _$_Session extends _Session {
 
   @override
   String toString() {
-    return 'Session(did: $did, handle: $handle, email: $email, accessJwt: $accessJwt, refreshJwt: $refreshJwt)';
+    return 'Session(did: $did, handle: $handle, email: $email, isEmailConfirmed: $isEmailConfirmed, accessJwt: $accessJwt, refreshJwt: $refreshJwt)';
   }
 
   @override
@@ -201,6 +223,8 @@ class _$_Session extends _Session {
             (identical(other.did, did) || other.did == did) &&
             (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.email, email) || other.email == email) &&
+            (identical(other.isEmailConfirmed, isEmailConfirmed) ||
+                other.isEmailConfirmed == isEmailConfirmed) &&
             (identical(other.accessJwt, accessJwt) ||
                 other.accessJwt == accessJwt) &&
             (identical(other.refreshJwt, refreshJwt) ||
@@ -209,8 +233,8 @@ class _$_Session extends _Session {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, did, handle, email, accessJwt, refreshJwt);
+  int get hashCode => Object.hash(
+      runtimeType, did, handle, email, isEmailConfirmed, accessJwt, refreshJwt);
 
   @JsonKey(ignore: true)
   @override
@@ -231,6 +255,7 @@ abstract class _Session extends Session {
       {required final String did,
       required final String handle,
       final String? email,
+      @JsonKey(name: 'emailConfirmed') final bool isEmailConfirmed,
       required final String accessJwt,
       required final String refreshJwt}) = _$_Session;
   const _Session._() : super._();
@@ -249,6 +274,11 @@ abstract class _Session extends Session {
 
   /// User's email address.
   String? get email;
+  @override
+
+  /// A flag indicating whether the email address is confirmed.
+  @JsonKey(name: 'emailConfirmed')
+  bool get isEmailConfirmed;
   @override
 
   /// Access JSON Web Token.
