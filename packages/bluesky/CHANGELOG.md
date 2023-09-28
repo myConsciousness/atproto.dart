@@ -1,6 +1,6 @@
 # Release Note
 
-## v0.8.26
+## v0.8.24
 
 - Supported `com.atproto.server.requestEmailUpdate` on `ServersService`. ([#859](https://github.com/myConsciousness/atproto.dart/issues/859))
   - `requestEmailUpdate`
@@ -10,18 +10,12 @@
   - `requestEmailConfirmation`
 - Supported `com.atproto.server.updateEmail` on `ServersService`. ([#860](https://github.com/myConsciousness/atproto.dart/issues/860))
   - `updateEmail`
-
-## v0.8.25
-
-- Removed `app.bsky.unspecced.applyLabels` from `UnspeccedService`. ([#846](https://github.com/myConsciousness/atproto.dart/issues/846))
-
-## v0.8.24
-
 - Deprecated `app.bsky.unspecced.getPopular`. Find a feed generator alternative. ([#835](https://github.com/myConsciousness/atproto.dart/issues/835))
   - `.findPopularFeed`
   - `.findPopularFeedAsJson`
   - `.paginatePopularFeed`
   - `.paginatePopularFeedAsJson`
+- Removed `app.bsky.unspecced.applyLabels` from `UnspeccedService`. ([#846](https://github.com/myConsciousness/atproto.dart/issues/846))
 
 ## v0.8.23
 
