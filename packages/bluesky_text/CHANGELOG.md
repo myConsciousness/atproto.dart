@@ -1,5 +1,17 @@
 # Release Note
 
+## v0.5.0
+
+- Improved algorithm for detecting links.
+- Removed deprecated properties.
+  - `.hasHandle`
+  - `.hasNotHandle`
+  - `.hasLink`
+  - `.hasNotLink`
+  - `.hasEntity`
+  - `.hasNotEntity`
+- Changed property from `int maxGraphemeLength` to `bool enableShortening` on `LinkConfig`.
+
 ## v0.4.5
 
 - Supported hashtag detection on `.entities` and `.hashtags`. ([#839](https://github.com/myConsciousness/atproto.dart/issues/839))
