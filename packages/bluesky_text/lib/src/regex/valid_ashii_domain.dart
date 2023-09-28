@@ -2,6 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: lines_longer_than_80_chars
+
 // 🌎 Project imports:
 import 'latin_accent_chars.dart';
 import 'valid_cctld.dart';
