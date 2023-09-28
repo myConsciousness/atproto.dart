@@ -662,6 +662,13 @@ example8.com はいいぞ
       expect(links[8].value, 'https://example8.com');
       expect(links[9].value, 'https://example9.com');
     });
+
+    test('case33', () {
+      final text = BlueskyText('@shinyakato.dev @shinyakato.bsky.social');
+      final links = text.links;
+
+      expect(links.length, 0);
+    });
   });
 
   group('.tags', () {
