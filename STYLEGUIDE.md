@@ -185,3 +185,4 @@ So `atproto` uses the following standard prefixes depending on endpoint characte
 | **.upload**    | This prefix is attached to the endpoint performing the upload contents.                                 |
 | **.request**   | This prefix is attached to the endpoint performing the request via email.                               |
 | **.notify**    | This prefix is attached to the endpoint used for the purpose of notifying the server of updates.        |
+| **.confirm**   | This prefix is attached to the endpoint performing the confirm state such an email.                     |
