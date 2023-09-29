@@ -1482,6 +1482,111 @@ sealed class FeedsService {
     int? limit,
     String? cursor,
   });
+
+  /// Find posts matching search criteria.
+  ///
+  /// ## Parameters
+  ///
+  /// - [query]: search query string; syntax, phrase, boolean, and faceting is
+  ///            unspecified, but Lucene query syntax is recommended
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 25.
+  ///
+  /// - [cursor]: Optional pagination mechanism; may not necessarily allow
+  ///             scrolling through entire result set
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.searchPosts
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/searchPosts.json
+  Future<core.XRPCResponse<Posts>> searchPostsByQuery(
+    final String query, {
+    int? limit,
+    String? cursor,
+  });
+
+  /// Find posts matching search criteria as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [query]: search query string; syntax, phrase, boolean, and faceting is
+  ///            unspecified, but Lucene query syntax is recommended
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 25.
+  ///
+  /// - [cursor]: Optional pagination mechanism; may not necessarily allow
+  ///             scrolling through entire result set
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.searchPosts
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/searchPosts.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> searchPostsByQueryAsJson(
+    final String query, {
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination to find posts matching search criteria.
+  ///
+  /// ## Parameters
+  ///
+  /// - [query]: search query string; syntax, phrase, boolean, and faceting is
+  ///            unspecified, but Lucene query syntax is recommended
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 25.
+  ///
+  /// - [cursor]: Optional pagination mechanism; may not necessarily allow
+  ///             scrolling through entire result set
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.searchPosts
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/searchPosts.json
+  core.Pagination<Posts> paginatePostsByQuery(
+    final String query, {
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination to find posts matching search criteria as JSON
+  /// representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [query]: search query string; syntax, phrase, boolean, and faceting is
+  ///            unspecified, but Lucene query syntax is recommended
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 25.
+  ///
+  /// - [cursor]: Optional pagination mechanism; may not necessarily allow
+  ///             scrolling through entire result set
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.searchPosts
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/searchPosts.json
+  core.Pagination<Map<String, dynamic>> paginatePostsByQueryAsJson(
+    final String query, {
+    int? limit,
+    String? cursor,
+  });
 }
 
 final class _FeedsService extends BlueskyBaseService implements FeedsService {
@@ -2275,6 +2380,106 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
         cursor: cursor,
       );
 
+  @override
+  Future<core.XRPCResponse<Feed>> findListFeed({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findListFeed(
+        list: list,
+        limit: limit,
+        cursor: cursor,
+        to: Feed.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findListFeedAsJson({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findListFeed(
+        list: list,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  core.Pagination<Feed> paginateListFeed({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateListFeed(
+        list: list,
+        limit: limit,
+        cursor: cursor,
+        to: Feed.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateListFeedAsJson({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateListFeed(
+        list: list,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<Posts>> searchPostsByQuery(
+    final String query, {
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _searchPostsByQuery(
+        query: query,
+        limit: limit,
+        cursor: cursor,
+        to: Posts.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> searchPostsByQueryAsJson(
+    final String query, {
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _searchPostsByQuery(
+        query: query,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  core.Pagination<Posts> paginatePostsByQuery(
+    final String query, {
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginatePostsByQuery(
+        query: query,
+        limit: limit,
+        cursor: cursor,
+        to: Posts.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginatePostsByQueryAsJson(
+    final String query, {
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginatePostsByQuery(
+        query: query,
+        limit: limit,
+        cursor: cursor,
+      );
+
   Future<core.XRPCResponse<T>> _findListFeed<T>({
     required core.AtUri list,
     required int? limit,
@@ -2663,54 +2868,36 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
         to: to,
       );
 
-  @override
-  Future<core.XRPCResponse<Feed>> findListFeed({
-    required core.AtUri list,
-    int? limit,
-    String? cursor,
+  Future<core.XRPCResponse<T>> _searchPostsByQuery<T>({
+    required String query,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
   }) async =>
-      await _findListFeed(
-        list: list,
-        limit: limit,
-        cursor: cursor,
-        to: Feed.fromJson,
+      await super.get(
+        'searchPosts',
+        parameters: _buildSearchPostsParams(
+          query: query,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
       );
 
-  @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> findListFeedAsJson({
-    required core.AtUri list,
-    int? limit,
-    String? cursor,
-  }) async =>
-      await _findListFeed(
-        list: list,
-        limit: limit,
-        cursor: cursor,
-      );
-
-  @override
-  core.Pagination<Feed> paginateListFeed({
-    required core.AtUri list,
-    int? limit,
-    String? cursor,
+  core.Pagination<T> _paginatePostsByQuery<T>({
+    required String query,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
   }) =>
-      _paginateListFeed(
-        list: list,
-        limit: limit,
-        cursor: cursor,
-        to: Feed.fromJson,
-      );
-
-  @override
-  core.Pagination<Map<String, dynamic>> paginateListFeedAsJson({
-    required core.AtUri list,
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateListFeed(
-        list: list,
-        limit: limit,
-        cursor: cursor,
+      super.paginate(
+        'searchPosts',
+        parameters: _buildSearchPostsParams(
+          query: query,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
       );
 
   Map<String, dynamic> _buildGetTimelineParams({
@@ -2823,6 +3010,17 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
   }) =>
       {
         'list': list,
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildSearchPostsParams({
+    required String query,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'q': query,
         'limit': limit,
         'cursor': cursor,
       };

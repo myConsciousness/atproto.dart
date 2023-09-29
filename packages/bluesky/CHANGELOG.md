@@ -1,5 +1,13 @@
 # Release Note
 
+## v0.8.25
+
+- Supported `app.bsky.feed.searchPosts` on `FeedsService`. ([#845](https://github.com/myConsciousness/atproto.dart/issues/845))
+  - `.searchPostsByQuery`
+  - `.searchPostsByQueryAsJson`
+  - `.paginatePostsByQuery`
+  - `.paginatePostsByQueryAsJson`
+
 ## v0.8.24
 
 - Supported `com.atproto.server.requestEmailUpdate` on `ServersService`. ([#859](https://github.com/myConsciousness/atproto.dart/issues/859))
