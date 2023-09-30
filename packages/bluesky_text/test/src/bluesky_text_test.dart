@@ -848,7 +848,7 @@ github.com/videah/SkyBridge
     test('case3', () {
       final text = BlueskyText('   ');
 
-      expect(text.isEmpty, isFalse);
+      expect(text.isEmpty, isTrue);
     });
   });
 
@@ -868,7 +868,7 @@ github.com/videah/SkyBridge
     test('case3', () {
       final text = BlueskyText('   ');
 
-      expect(text.isNotEmpty, isTrue);
+      expect(text.isNotEmpty, isFalse);
     });
   });
 
