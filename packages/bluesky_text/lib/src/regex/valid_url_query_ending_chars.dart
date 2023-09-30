@@ -2,4 +2,4 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-const validUrlQueryEndingChars = '[a-z0-9\\-_&=#/]';
+const validUrlQueryEndingChars = r'[a-z0-9\-_&=#/]';

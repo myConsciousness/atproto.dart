@@ -10,7 +10,10 @@ import 'valid_cctld.dart';
 import 'valid_gtld.dart';
 import 'valid_punycode.dart';
 
-const validAsciiDomain =
-    '(?:(?:[-a-z0-9$latinAccentChars]+).)+(?:$validGtld|$validCctld|$validPunycode)';
+const validAsciiDomain = r'(?:(?:[\-a-z0-9'
+    '$latinAccentChars'
+    r']+)\.)+(?:'
+    '$validGtld|$validCctld|$validPunycode'
+    ')';
 
-final validAsciiDomainRegex = RegExp(validAsciiDomain);
+final validAsciiDomainRegex = RegExp(validAsciiDomain, caseSensitive: false);
