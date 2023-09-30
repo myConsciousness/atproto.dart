@@ -200,7 +200,7 @@ final class _BlueskyText implements BlueskyText {
 
   @override
   List<BlueskyText> split() {
-    if (value.trim().isEmpty) return [this];
+    if (isEmpty) return [this];
     if (isNotLengthLimitExceeded) return [this];
 
     final chunk = StringBuffer();
@@ -280,7 +280,7 @@ final class _BlueskyText implements BlueskyText {
   bool get isNotLengthLimitExceeded => !isLengthLimitExceeded;
 
   @override
-  bool get isEmpty => value.isEmpty;
+  bool get isEmpty => value.trim().isEmpty;
 
   @override
   bool get isNotEmpty => !isEmpty;
