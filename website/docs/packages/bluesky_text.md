@@ -25,12 +25,13 @@ If you use this package with Bluesky API, see **[bluesky](./bluesky.md)**.
 ## Features ⭐
 
 - ✅ **Zero Dependency**
-- ✅ **Automatic Detection of `Handle` and `Link`** in text
+- ✅ **Automatic Detection of `Handle`, `Link`, `Tag`** in text
 - ✅ Supports **Automatic Conversion** to **Facet**
 - ✅ **100% Compatible with [bluesky](./bluesky.md)**
 - ✅ Allows **Extraction of Custom Entities**
 - ✅ Supports **Unicode Grapheme Clusters**
 - ✅ Support for **Safe Text Splitting**
+- ✅ **Works in All Languages**
 - ✅ **Well Documented** and **Well Tested**
 - ✅ **100% Null Safety**
 
