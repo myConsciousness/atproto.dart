@@ -177,13 +177,13 @@ final class _BlueskyText implements BlueskyText {
   int get length => value.characters.length;
 
   @override
-  Entities get handles => Entities(_detectHandles(value));
+  Entities get handles => Entities(_detectHandles());
 
   @override
-  Entities get links => Entities(_detectLinks(value));
+  Entities get links => Entities(_detectLinks());
 
   @override
-  Entities get tags => Entities(_detectTag(value));
+  Entities get tags => Entities(_detectTag());
 
   @override
   Entities get entities {
@@ -192,10 +192,7 @@ final class _BlueskyText implements BlueskyText {
     return Entities(
       _orderByIndicesStart([
         ...handles,
-        ..._detectLinks(
-          value,
-          handles,
-        ),
+        ..._detectLinks(handles),
         ...tags,
       ]),
     );
@@ -203,13 +200,8 @@ final class _BlueskyText implements BlueskyText {
 
   @override
   List<BlueskyText> split() {
-    if (value.trim().isEmpty) {
-      return [this];
-    }
-
-    if (isNotLengthLimitExceeded) {
-      return [this];
-    }
+    if (value.trim().isEmpty) return [this];
+    if (isNotLengthLimitExceeded) return [this];
 
     final chunk = StringBuffer();
     final chunks = <BlueskyText>[];
@@ -273,7 +265,7 @@ final class _BlueskyText implements BlueskyText {
       return this;
     }
 
-    final formatted = _format(_detectLinks(value));
+    final formatted = _format(_detectLinks());
 
     return BlueskyText(
       formatted.$1,
@@ -293,25 +285,28 @@ final class _BlueskyText implements BlueskyText {
   @override
   bool get isNotEmpty => !isEmpty;
 
-  List<Entity> _detectHandles(final String text) {
+  List<Entity> _detectHandles() {
+    if (isEmpty) return const [];
+    if (!value.contains('@')) return const [];
+
     final entities = <Entity>[];
 
-    for (final match in handleRegex.allMatches(text)) {
+    for (final match in handleRegex.allMatches(value)) {
       final handle = match.group(3)!;
 
       if (!_hasValidDomain(handle)) {
         continue;
       }
 
-      final start = text.indexOf(handle, match.start) - 1;
+      final start = value.indexOf(handle, match.start) - 1;
 
       entities.add(
         Entity(
           type: EntityType.handle,
           value: handle,
           indices: ByteIndices(
-            start: text.toUtf8Index(start),
-            end: text.toUtf8Index(start + handle.length + 1),
+            start: value.toUtf8Index(start),
+            end: value.toUtf8Index(start + handle.length + 1),
           ),
         ),
       );
@@ -320,37 +315,111 @@ final class _BlueskyText implements BlueskyText {
     return entities;
   }
 
-  List<Entity> _detectLinks(
-    final String text, [
+  List<Entity> _detectLinks([
     final Entities? handles,
   ]) {
+    if (isEmpty) return const [];
+    if (!value.contains('.')) return const [];
+
     final entities = <Entity>[];
     final $handles = handles ?? this.handles;
 
-    for (final match in extractUrlRegex.allMatches(text)) {
-      final uri = _getUri(match);
-      final uriLength = uri.length;
+    for (final match in extractUrlRegex.allMatches(value)) {
+      final url = match.group(3)!;
+      final protocol = match.group(4) ?? '';
+      final domain = match.group(5)!;
+      final portNumber = _getPortNumber(match.group(6));
+      final urlPath = match.group(7) ?? '';
+      final urlQuery = match.group(8) ?? '';
 
-      final start = text.indexOf(uri, match.start);
-      final endUtf8 = text.toUtf8Index(start + uriLength);
+      int endPosition = match.end;
+      final startPosition = endPosition - url.length;
 
-      if (_isHandle(endUtf8, $handles)) {
-        continue;
+      if (protocol.isEmpty) {
+        final foundUrls = <Map<String, dynamic>>[];
+        Map<String, dynamic> lastUrl = {};
+        int asciiEndPosition = 0;
+
+        validAsciiDomainRegex.allMatches(domain).forEach((match) {
+          final asciiDomain = match.group(0)!;
+          final asciiStartPosition =
+              domain.indexOf(asciiDomain, asciiEndPosition);
+          asciiEndPosition = asciiStartPosition + asciiDomain.length;
+
+          lastUrl = {
+            'url': asciiDomain,
+            'startIndex': startPosition + asciiStartPosition,
+          };
+
+          foundUrls.add(lastUrl);
+        });
+
+        // no ASCII-only domain found. Skip the entire URL.
+        if (lastUrl.isEmpty) {
+          continue;
+        }
+
+        // lastUrl only contains domain. Need to add path and query
+        // if they exist.
+        if (urlPath.isNotEmpty || urlQuery.isNotEmpty) {
+          lastUrl['url'] = url.replaceFirst(domain, lastUrl['url']);
+        }
+
+        for (final found in foundUrls) {
+          final replacedKey = _getReplacedKey(found['url']);
+
+          _addLinkEntity(
+            entities,
+            $handles,
+            replacedKey.isNotEmpty ? replacedKey : found['url'],
+            found['startIndex'],
+          );
+        }
+      } else {
+        final uri =
+            '$protocol${_getValidDomain(domain)}$portNumber$urlPath$urlQuery';
+
+        final replacedKey = _getReplacedKey(uri);
+
+        _addLinkEntity(
+          entities,
+          $handles,
+          replacedKey.isNotEmpty ? replacedKey : uri,
+          match.start,
+        );
       }
-
-      entities.add(
-        Entity(
-          type: EntityType.link,
-          value: _getPrefixedUri(_getReplacedValue(uri)),
-          indices: ByteIndices(
-            start: text.toUtf8Index(start),
-            end: endUtf8,
-          ),
-        ),
-      );
     }
 
     return entities;
+  }
+
+  void _addLinkEntity(
+    final List<Entity> entities,
+    final Entities handles,
+    final String source,
+    final int matchStart,
+  ) {
+    final start = value.indexOf(source, matchStart);
+    if (start == -1) {
+      return;
+    }
+
+    final endUtf8 = value.toUtf8Index(start + source.length);
+
+    if (_isHandle(endUtf8, handles)) {
+      return;
+    }
+
+    entities.add(
+      Entity(
+        type: EntityType.link,
+        value: _getPrefixedUri(_getReplacedValue(source)),
+        indices: ByteIndices(
+          start: value.toUtf8Index(start),
+          end: endUtf8,
+        ),
+      ),
+    );
   }
 
   bool _isHandle(
@@ -369,35 +438,13 @@ final class _BlueskyText implements BlueskyText {
   String _getPrefixedUri(final String source) =>
       !source.startsWith('http') ? '$_httpsPrefix$source' : source;
 
-  String _getUri(final RegExpMatch match) {
-    final protocol = match.group(4) ?? '';
-    final domain = _getValidDomain(match.group(5)!);
-    final portNumber = _getPortNumber(match.group(6));
-    final urlPath = match.group(7) ?? '';
-    final urlQuery = match.group(8) ?? '';
+  List<Entity> _detectTag() {
+    if (isEmpty) return const [];
+    if (!value.contains('#')) return const [];
 
-    final uri = '$protocol$domain$portNumber$urlPath$urlQuery';
-
-    if (replacements == null) {
-      //* Not formatted.
-      return uri;
-    }
-
-    for (final replacement in replacements!) {
-      if (replacement.key == '$uri$_shortenLinkSuffix') {
-        //* Formatted.
-        return replacement.key;
-      }
-    }
-
-    //* Not formatted.
-    return uri;
-  }
-
-  List<Entity> _detectTag(final String text) {
     final entities = <Entity>[];
 
-    for (final match in hashtagRegex.allMatches(text)) {
+    for (final match in hashtagRegex.allMatches(value)) {
       String tag = match.group(0)!;
 
       final bool hasLeadingSpace = tag.startsWith(RegExp(r'\s'));
@@ -414,14 +461,28 @@ final class _BlueskyText implements BlueskyText {
           type: EntityType.tag,
           value: tag.substring(1),
           indices: ByteIndices(
-            start: text.toUtf8Index(index),
-            end: text.toUtf8Index(index + tag.length),
+            start: value.toUtf8Index(index),
+            end: value.toUtf8Index(index + tag.length),
           ),
         ),
       );
     }
 
     return entities;
+  }
+
+  String _getReplacedKey(final String source) {
+    if (replacements == null || replacements!.isEmpty) {
+      return source;
+    }
+
+    for (final replacement in replacements!) {
+      if (replacement.key == '$source$_shortenLinkSuffix') {
+        return replacement.key;
+      }
+    }
+
+    return source;
   }
 
   String _getReplacedValue(final String source) {
@@ -438,10 +499,14 @@ final class _BlueskyText implements BlueskyText {
     return source;
   }
 
-  List<Entity> _orderByIndicesStart(final List<Entity> entities) => entities
-    ..sort(
-      (a, b) => a.indices.start.compareTo(b.indices.start),
-    );
+  List<Entity> _orderByIndicesStart(final List<Entity> entities) {
+    if (entities.isEmpty) return const [];
+
+    return entities
+      ..sort(
+        (a, b) => a.indices.start.compareTo(b.indices.start),
+      );
+  }
 
   bool _hasValidDomain(final String value) =>
       tlds.any((tld) => value.endsWith('.$tld'));

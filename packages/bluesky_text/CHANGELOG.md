@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.1
+
+- Improved link detection algorithm.
+
 ## v0.5.0
 
 - Improved algorithm for detecting links.

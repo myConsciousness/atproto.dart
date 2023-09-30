@@ -13,10 +13,10 @@ import 'valid_url_query_ending_chars.dart';
 const extractUrl = '(' // $1 total match
     '($validUrlPrecedingChars)' // $2 Preceding character
     '(' // $3 URL
-    '(https?://)?' // $4 Protocol (optional)
+    '(https?:\\/\\/)?' // $4 Protocol (optional)
     '($validDomain)' // $5 Domain(s)
     '(?::($validPortNumber))?' // $6 Port number (optional)
-    '(/$validUrlPath*)?' // $7 URL Path
+    '(\\/$validUrlPath*)?' // $7 URL Path
     '(\\?$validUrlQueryChars*$validUrlQueryEndingChars)?' // $8 Query String
     ')'
     ')';
