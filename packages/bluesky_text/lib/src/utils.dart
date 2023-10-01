@@ -5,6 +5,14 @@
 // 🎯 Dart imports:
 import 'dart:convert';
 
+// 🌎 Project imports:
+import 'regex/regex.dart';
+
+String getPortNumber(final String? source) => source == null ? '' : ':$source';
+
+String getFirstValidDomain(final String source) =>
+    validAsciiDomainRegex.firstMatch(source)!.group(0)!;
+
 extension UnicodeString on String {
   int toUtf8Index(int i) => utf8.encode(substring(0, i)).length;
 }
