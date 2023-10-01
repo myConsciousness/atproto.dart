@@ -1120,6 +1120,46 @@ github.com/videah/SkyBridge
       expect(links[7].indices.start, 354);
       expect(links[7].indices.end, 385);
     });
+
+    test('case8', () {
+      final text = BlueskyText(
+        'https://www.youtube.com/watch?v=lDK9QqIzhwk https://www.youtube.com/watch?v=lDK9QqIzhxx',
+        linkConfig: LinkConfig(excludeProtocol: true, enableShortening: true),
+      ).format();
+
+      final links = text.links;
+
+      expect(links.length, 2);
+      expect(links[0].value, 'https://www.youtube.com/watch?v=lDK9QqIzhwk');
+      expect(links[1].value, 'https://www.youtube.com/watch?v=lDK9QqIzhxx');
+    });
+
+    test('case9', () {
+      final text = BlueskyText(
+        'www.youtube.com/watch?v=lDK9QqIzhwk https://www.youtube.com/watch?v=lDK9QqIzhxx www.youtube.com/watch?v=lDK9QqIzhwk',
+        linkConfig: LinkConfig(excludeProtocol: true, enableShortening: true),
+      ).format();
+
+      final links = text.links;
+
+      expect(links.length, 3);
+      expect(links[0].value, 'https://www.youtube.com/watch?v=lDK9QqIzhwk');
+      expect(links[1].value, 'https://www.youtube.com/watch?v=lDK9QqIzhxx');
+      expect(links[2].value, 'https://www.youtube.com/watch?v=lDK9QqIzhwk');
+    });
+
+    test('case9', () {
+      final text = BlueskyText(
+        'www.youtube.com/watch?v=lDK9QqIzhwk https://www.youtube.com/watch?v=lDK9QqIzhxx www.youtube.com/watch?v=lDK9QqIzhwk',
+      ).format();
+
+      final links = text.links;
+
+      expect(links.length, 3);
+      expect(links[0].value, 'https://www.youtube.com/watch?v=lDK9QqIzhwk');
+      expect(links[1].value, 'https://www.youtube.com/watch?v=lDK9QqIzhxx');
+      expect(links[2].value, 'https://www.youtube.com/watch?v=lDK9QqIzhwk');
+    });
   });
 
   group('integration', () {

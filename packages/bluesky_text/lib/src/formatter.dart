@@ -13,7 +13,6 @@ import 'entities/entity.dart';
 import 'extractor.dart';
 import 'regex/regex.dart';
 import 'replacement.dart';
-import 'utils.dart';
 
 const formatter = Formatter();
 
@@ -60,7 +59,7 @@ final class _Formatter implements Formatter {
 
     int lastEnd = 0;
 
-    final replacements = <Replacement>[];
+    final replacements = <Map<String, String>>[];
     for (final facet in entities) {
       final beforeLink = utf8.decode(
         bytes.sublist(
@@ -83,9 +82,7 @@ final class _Formatter implements Formatter {
           link = '$httpsPrefix$link';
         }
 
-        replacements.add(
-          Replacement(shortenLink, link),
-        );
+        replacements.add({'key': shortenLink, 'value': link});
       }
 
       buffer
@@ -98,16 +95,18 @@ final class _Formatter implements Formatter {
     final afterLastLink = utf8.decode(bytes.sublist(lastEnd));
     buffer.write(afterLastLink);
 
-    return (buffer.toString(), replacements);
+    final formatted = buffer.toString();
+
+    return (formatted, _toReplacements(formatted, replacements));
   }
 
   String _toShortLink(final String source, final LinkConfig linkConfig) {
     final match = extractUrlRegex.firstMatch(source)!;
-    final protocol = match.group(4) ?? '';
-    final domain = getFirstValidDomain(match.group(5)!);
-    final portNumber = getPortNumber(match.group(6));
-    final urlPath = match.group(7) ?? '';
-    final urlQuery = match.group(8) ?? '';
+    final protocol = match.protocol;
+    final domain = getFirstValidDomain(match.domain);
+    final portNumber = match.portNumber;
+    final urlPath = match.path;
+    final urlQuery = match.query;
 
     final domainPart = linkConfig.excludeProtocol
         ? '$domain$portNumber'
@@ -130,5 +129,27 @@ final class _Formatter implements Formatter {
     }
 
     return '$shortened$shortenLinkSuffix';
+  }
+
+  List<Replacement> _toReplacements(
+    final String formatted,
+    final List<Map<String, String>> replacements,
+  ) {
+    if (replacements.isEmpty) return const [];
+
+    final $replacements = <Replacement>[];
+
+    int last = 0;
+    for (final replacement in replacements) {
+      final key = replacement['key']!;
+      final value = replacement['value']!;
+      final start = formatted.indexOf(key, last);
+
+      $replacements.add(Replacement(key, value, start));
+
+      last = start + key.length;
+    }
+
+    return $replacements;
   }
 }

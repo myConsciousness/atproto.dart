@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.2
+
+- Fixed safer processing when shortening links.
+
 ## v0.5.1
 
 - Improved link detection algorithm.

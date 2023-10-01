@@ -22,3 +22,15 @@ const extractUrl = '(' // $1 total match
     ')';
 
 final extractUrlRegex = RegExp(extractUrl, caseSensitive: false);
+
+extension ExtractUrlRegexExtension on RegExpMatch {
+  String get url => group(3) ?? '';
+  String get protocol => group(4) ?? '';
+  String get domain => group(5) ?? '';
+  String get portNumber => _getPortNumber(group(6));
+  String get path => group(7) ?? '';
+  String get query => group(8) ?? '';
+
+  String _getPortNumber(final String? source) =>
+      source == null ? '' : ':$source';
+}

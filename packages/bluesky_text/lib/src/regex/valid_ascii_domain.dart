@@ -17,3 +17,6 @@ const validAsciiDomain = r'(?:(?:[\-a-z0-9'
     ')';
 
 final validAsciiDomainRegex = RegExp(validAsciiDomain, caseSensitive: false);
+
+String getFirstValidDomain(final String source) =>
+    validAsciiDomainRegex.firstMatch(source)!.group(0)!;
