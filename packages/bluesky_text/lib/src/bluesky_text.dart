@@ -171,10 +171,7 @@ final class _BlueskyText implements BlueskyText {
   @override
   Entities get links => Entities(linksExtractor.execute(
         this,
-        ExtractorConfig(
-          handles: handles,
-          replacements: _replacements,
-        ),
+        ExtractorConfig(replacements: _replacements),
       ));
 
   @override
@@ -183,7 +180,10 @@ final class _BlueskyText implements BlueskyText {
   @override
   Entities get entities => Entities(allExtractor.execute(
         this,
-        ExtractorConfig(replacements: _replacements),
+        ExtractorConfig(
+          handles: handles,
+          replacements: _replacements,
+        ),
       ));
 
   @override

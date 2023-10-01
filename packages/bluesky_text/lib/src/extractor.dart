@@ -13,7 +13,7 @@ import 'entities/entities.dart';
 import 'entities/entity.dart';
 import 'regex/regex.dart';
 import 'replacement.dart';
-import 'utils.dart';
+import 'unicode_string.dart';
 
 const allExtractor = Extractor.all();
 const handlesExtractor = Extractor.handles();
@@ -46,15 +46,12 @@ final class _AllExtractor implements Extractor {
   List<Entity> execute(
     final BlueskyText text, [
     final ExtractorConfig? config,
-  ]) {
-    final handles = handlesExtractor.execute(text);
-
-    return _orderByIndicesStart([
-      ...handles,
-      ...linksExtractor.execute(text, config),
-      ...tagsExtractor.execute(text),
-    ]);
-  }
+  ]) =>
+      _orderByIndicesStart([
+        ...config!.handles!,
+        ...linksExtractor.execute(text, config),
+        ...tagsExtractor.execute(text),
+      ]);
 
   List<Entity> _orderByIndicesStart(final List<Entity> entities) {
     if (entities.isEmpty) return const [];
@@ -122,12 +119,12 @@ final class _LinksExtractor implements Extractor {
     final $handles = config?.handles ?? handlesExtractor.execute(text);
 
     for (final match in extractUrlRegex.allMatches(text.value)) {
-      final url = match.group(3)!;
-      final protocol = match.group(4) ?? '';
-      final domain = match.group(5)!;
-      final portNumber = getPortNumber(match.group(6));
-      final urlPath = match.group(7) ?? '';
-      final urlQuery = match.group(8) ?? '';
+      final url = match.url;
+      final protocol = match.protocol;
+      final domain = match.domain;
+      final portNumber = match.portNumber;
+      final urlPath = match.path;
+      final urlQuery = match.query;
 
       int endPosition = match.end;
       final startPosition = endPosition - url.length;
@@ -145,7 +142,7 @@ final class _LinksExtractor implements Extractor {
 
           lastUrl = {
             'url': asciiDomain,
-            'startIndex': startPosition + asciiStartPosition,
+            'start': startPosition + asciiStartPosition,
           };
 
           foundUrls.add(lastUrl);
@@ -163,14 +160,18 @@ final class _LinksExtractor implements Extractor {
         }
 
         for (final found in foundUrls) {
-          final replacedKey = _getReplacedKey(found['url'], config);
+          final replacedKey = _getReplacedKey(
+            found['url'],
+            found['start'],
+            config,
+          );
 
           _addLinkEntity(
             entities: entities,
             handles: $handles,
             value: text.value,
             source: replacedKey.isNotEmpty ? replacedKey : found['url'],
-            matchStart: found['startIndex'],
+            matchStart: found['start'],
             config: config,
           );
         }
@@ -178,7 +179,7 @@ final class _LinksExtractor implements Extractor {
         final uri = '$protocol${getFirstValidDomain(domain)}'
             '$portNumber$urlPath$urlQuery';
 
-        final replacedKey = _getReplacedKey(uri, config);
+        final replacedKey = _getReplacedKey(uri, match.start, config);
 
         _addLinkEntity(
           entities: entities,
@@ -217,7 +218,11 @@ final class _LinksExtractor implements Extractor {
       Entity(
         type: EntityType.link,
         value: _getPrefixedUri(
-          _getReplacedValue(source, config),
+          _getReplacedValue(
+            source,
+            matchStart,
+            config,
+          ),
         ),
         indices: ByteIndices(
           start: value.toUtf8Index(start),
@@ -245,6 +250,7 @@ final class _LinksExtractor implements Extractor {
 
   String _getReplacedKey(
     final String source,
+    final int matchStart,
     final ExtractorConfig? config,
   ) {
     if (config?.replacements == null || config!.replacements!.isEmpty) {
@@ -252,7 +258,8 @@ final class _LinksExtractor implements Extractor {
     }
 
     for (final replacement in config.replacements!) {
-      if (replacement.key == '$source$shortenLinkSuffix') {
+      if (replacement.key == '$source$shortenLinkSuffix' &&
+          replacement.start == matchStart) {
         return replacement.key;
       }
     }
@@ -262,6 +269,7 @@ final class _LinksExtractor implements Extractor {
 
   String _getReplacedValue(
     final String source,
+    final int matchStart,
     final ExtractorConfig? config,
   ) {
     if (config?.replacements == null || config!.replacements!.isEmpty) {
@@ -269,7 +277,7 @@ final class _LinksExtractor implements Extractor {
     }
 
     for (final replacement in config.replacements!) {
-      if (replacement.key == source) {
+      if (replacement.key == source && replacement.start == matchStart) {
         return replacement.value;
       }
     }
