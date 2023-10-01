@@ -125,7 +125,7 @@ final class _LinksExtractor implements Extractor {
       final url = match.group(3)!;
       final protocol = match.group(4) ?? '';
       final domain = match.group(5)!;
-      final portNumber = _getPortNumber(match.group(6));
+      final portNumber = getPortNumber(match.group(6));
       final urlPath = match.group(7) ?? '';
       final urlQuery = match.group(8) ?? '';
 
@@ -276,9 +276,6 @@ final class _LinksExtractor implements Extractor {
 
     return source;
   }
-
-  String _getPortNumber(final String? source) =>
-      source == null ? '' : ':$source';
 }
 
 final class _TagsExtractor implements Extractor {
