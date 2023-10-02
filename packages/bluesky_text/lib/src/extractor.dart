@@ -122,7 +122,7 @@ final class _LinksExtractor implements Extractor {
     if (!text.value.contains('.')) return const [];
 
     if (config?.replacements != null && config!.replacements!.isNotEmpty) {
-      return _getLinkEntityFromReplacements(config.replacements!, text.value);
+      return _getLinkEntitiesFromReplacements(config.replacements!, text.value);
     }
 
     final entities = <Entity>[];
@@ -225,7 +225,7 @@ final class _LinksExtractor implements Extractor {
     );
   }
 
-  List<Entity> _getLinkEntityFromReplacements(
+  List<Entity> _getLinkEntitiesFromReplacements(
     final List<Replacement> replacements,
     final String value,
   ) =>
