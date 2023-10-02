@@ -11,6 +11,7 @@ import 'const.dart';
 import 'entities/byte_indices.dart';
 import 'entities/entities.dart';
 import 'entities/entity.dart';
+import 'entities/markdown/markdown_link_entity.dart';
 import 'regex/regex.dart';
 import 'replacement.dart';
 import 'unicode_string.dart';
@@ -21,9 +22,14 @@ const linksExtractor = Extractor.links();
 const tagsExtractor = Extractor.tags();
 
 final class ExtractorConfig {
-  const ExtractorConfig({this.handles, this.replacements});
+  const ExtractorConfig({
+    this.handles,
+    this.markdownLinks,
+    this.replacements,
+  });
 
   final Entities? handles;
+  final List<MarkdownLinkEntity>? markdownLinks;
   final List<Replacement>? replacements;
 }
 
@@ -115,6 +121,10 @@ final class _LinksExtractor implements Extractor {
     if (text.isEmpty) return const [];
     if (!text.value.contains('.')) return const [];
 
+    if (config?.replacements != null && config!.replacements!.isNotEmpty) {
+      return _getLinkEntityFromReplacements(config.replacements!, text.value);
+    }
+
     final entities = <Entity>[];
     final $handles = config?.handles ?? handlesExtractor.execute(text);
 
@@ -160,17 +170,11 @@ final class _LinksExtractor implements Extractor {
         }
 
         for (final found in foundUrls) {
-          final replacedKey = _getReplacedKey(
-            found['url'],
-            found['start'],
-            config,
-          );
-
           _addLinkEntity(
             entities: entities,
             handles: $handles,
             value: text.value,
-            source: replacedKey.isNotEmpty ? replacedKey : found['url'],
+            source: found['url'],
             matchStart: found['start'],
             config: config,
           );
@@ -179,13 +183,11 @@ final class _LinksExtractor implements Extractor {
         final uri = '$protocol${getFirstValidDomain(domain)}'
             '$portNumber$urlPath$urlQuery';
 
-        final replacedKey = _getReplacedKey(uri, match.start, config);
-
         _addLinkEntity(
           entities: entities,
           handles: $handles,
           value: text.value,
-          source: replacedKey.isNotEmpty ? replacedKey : uri,
+          source: uri,
           matchStart: match.start,
           config: config,
         );
@@ -204,33 +206,43 @@ final class _LinksExtractor implements Extractor {
     required ExtractorConfig? config,
   }) {
     final start = value.indexOf(source, matchStart);
-    if (start == -1) {
-      return;
-    }
 
+    final startUtf8 = value.toUtf8Index(start);
     final endUtf8 = value.toUtf8Index(start + source.length);
 
-    if (_isHandle(endUtf8, handles)) {
-      return;
-    }
+    if (_isHandle(endUtf8, handles)) return;
+    if (_isMarkdownLink(startUtf8, endUtf8, config?.markdownLinks)) return;
 
     entities.add(
       Entity(
         type: EntityType.link,
-        value: _getPrefixedUri(
-          _getReplacedValue(
-            source,
-            matchStart,
-            config,
-          ),
-        ),
+        value: _getPrefixedUri(source),
         indices: ByteIndices(
-          start: value.toUtf8Index(start),
+          start: startUtf8,
           end: endUtf8,
         ),
       ),
     );
   }
+
+  List<Entity> _getLinkEntityFromReplacements(
+    final List<Replacement> replacements,
+    final String value,
+  ) =>
+      replacements
+          .map(
+            (e) => Entity(
+              type: EntityType.link,
+              value: e.value,
+              indices: ByteIndices(
+                start: value.toUtf8Index(e.start),
+                end: value.toUtf8Index(
+                  e.start + e.key.length,
+                ),
+              ),
+            ),
+          )
+          .toList();
 
   bool _isHandle(
     final int end,
@@ -245,45 +257,25 @@ final class _LinksExtractor implements Extractor {
     return false;
   }
 
+  bool _isMarkdownLink(
+    final int start,
+    final int end,
+    final List<MarkdownLinkEntity>? markdownLinks,
+  ) {
+    if (markdownLinks == null || markdownLinks.isEmpty) return false;
+
+    for (final markdownLink in markdownLinks) {
+      if (start >= markdownLink.indices.start &&
+          markdownLink.indices.end >= end) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
   String _getPrefixedUri(final String source) =>
       !source.startsWith('http') ? '$httpsPrefix$source' : source;
-
-  String _getReplacedKey(
-    final String source,
-    final int matchStart,
-    final ExtractorConfig? config,
-  ) {
-    if (config?.replacements == null || config!.replacements!.isEmpty) {
-      return source;
-    }
-
-    for (final replacement in config.replacements!) {
-      if (replacement.key == '$source$shortenLinkSuffix' &&
-          replacement.start == matchStart) {
-        return replacement.key;
-      }
-    }
-
-    return source;
-  }
-
-  String _getReplacedValue(
-    final String source,
-    final int matchStart,
-    final ExtractorConfig? config,
-  ) {
-    if (config?.replacements == null || config!.replacements!.isEmpty) {
-      return source;
-    }
-
-    for (final replacement in config.replacements!) {
-      if (replacement.key == source && replacement.start == matchStart) {
-        return replacement.value;
-      }
-    }
-
-    return source;
-  }
 }
 
 final class _TagsExtractor implements Extractor {

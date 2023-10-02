@@ -9,8 +9,10 @@ import 'dart:convert';
 import 'bluesky_text.dart';
 import 'config/link_config.dart';
 import 'const.dart';
-import 'entities/entity.dart';
+import 'entities/facetable.dart';
+import 'entities/markdown/markdown_link_entity.dart';
 import 'extractor.dart';
+import 'markdown_extractor.dart';
 import 'regex/regex.dart';
 import 'replacement.dart';
 
@@ -27,21 +29,21 @@ final class _Formatter implements Formatter {
 
   @override
   BlueskyText execute(final BlueskyText text, final LinkConfig? linkConfig) {
-    if (linkConfig == null) {
-      return text;
-    }
+    final markdownLinks = markdownLinksExtractor.execute(text);
+    final links = linksExtractor.execute(
+      text,
+      ExtractorConfig(markdownLinks: markdownLinks),
+    );
 
-    if (!linkConfig.excludeProtocol && !linkConfig.enableShortening) {
-      return text;
-    }
+    if (markdownLinks.isEmpty && links.isEmpty) return text;
 
-    final links = linksExtractor.execute(text);
-
-    if (links.isEmpty) {
-      return text;
-    }
-
-    final formatted = _format(text.value, links, linkConfig);
+    final formatted = _format(
+      text.value,
+      _orderByIndicesStart(
+        [...markdownLinks, ...links],
+      ),
+      linkConfig ?? const LinkConfig(),
+    );
 
     return BlueskyText(
       formatted.$1,
@@ -51,53 +53,63 @@ final class _Formatter implements Formatter {
 
   (String, List<Replacement>) _format(
     final String value,
-    final List<Entity> entities,
+    final List<Facetable> entities,
     final LinkConfig linkConfig,
   ) {
     final buffer = StringBuffer();
-    final bytes = utf8.encode(value);
+    final replacements = <Replacement>[];
 
     int lastEnd = 0;
-
-    final replacements = <Map<String, String>>[];
-    for (final facet in entities) {
-      final beforeLink = utf8.decode(
+    final bytes = utf8.encode(value);
+    for (final entity in entities) {
+      final before = utf8.decode(
         bytes.sublist(
           lastEnd,
-          facet.indices.start,
+          entity.indices.start,
         ),
       );
 
-      String link = utf8.decode(
+      String after = utf8.decode(
         bytes.sublist(
-          facet.indices.start,
-          facet.indices.end,
+          entity.indices.start,
+          entity.indices.end,
         ),
       );
 
-      final shortenLink = _toShortLink(link, linkConfig);
+      buffer.write(before);
 
-      if (shortenLink.endsWith(shortenLinkSuffix)) {
-        if (!link.startsWith('http')) {
-          link = '$httpsPrefix$link';
+      if (entity is MarkdownLinkEntity) {
+        replacements.add(Replacement(
+          entity.text,
+          !entity.url.startsWith('http')
+              ? '$httpsPrefix${entity.url}'
+              : entity.url,
+          buffer.length,
+        ));
+
+        buffer.write(entity.text);
+      } else {
+        if (!after.startsWith('http')) {
+          after = '$httpsPrefix$after';
         }
 
-        replacements.add({'key': shortenLink, 'value': link});
+        final shortenedLink = _toShortLink(after, linkConfig);
+
+        replacements.add(Replacement(
+          shortenedLink,
+          after,
+          buffer.length,
+        ));
+
+        buffer.write(shortenedLink);
       }
 
-      buffer
-        ..write(beforeLink)
-        ..write(shortenLink);
-
-      lastEnd = facet.indices.end;
+      lastEnd = entity.indices.end;
     }
 
-    final afterLastLink = utf8.decode(bytes.sublist(lastEnd));
-    buffer.write(afterLastLink);
+    buffer.write(utf8.decode(bytes.sublist(lastEnd)));
 
-    final formatted = buffer.toString();
-
-    return (formatted, _toReplacements(formatted, replacements));
+    return (buffer.toString(), replacements);
   }
 
   String _toShortLink(final String source, final LinkConfig linkConfig) {
@@ -131,25 +143,12 @@ final class _Formatter implements Formatter {
     return '$shortened$shortenLinkSuffix';
   }
 
-  List<Replacement> _toReplacements(
-    final String formatted,
-    final List<Map<String, String>> replacements,
-  ) {
-    if (replacements.isEmpty) return const [];
+  List<Facetable> _orderByIndicesStart(final List<Facetable> entities) {
+    if (entities.isEmpty) return const [];
 
-    final $replacements = <Replacement>[];
-
-    int last = 0;
-    for (final replacement in replacements) {
-      final key = replacement['key']!;
-      final value = replacement['value']!;
-      final start = formatted.indexOf(key, last);
-
-      $replacements.add(Replacement(key, value, start));
-
-      last = start + key.length;
-    }
-
-    return $replacements;
+    return entities
+      ..sort(
+        (a, b) => a.indices.start.compareTo(b.indices.start),
+      );
   }
 }

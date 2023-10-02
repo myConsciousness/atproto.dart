@@ -190,7 +190,11 @@ final class _BlueskyText implements BlueskyText {
   List<BlueskyText> split() => splitter.execute(this);
 
   @override
-  BlueskyText format() => formatter.execute(this, _linkConfig);
+  BlueskyText format() {
+    if (_replacements != null) return this; //* Already formatted.
+
+    return formatter.execute(this, _linkConfig);
+  }
 
   @override
   bool get isLengthLimitExceeded => maxLength < length;
