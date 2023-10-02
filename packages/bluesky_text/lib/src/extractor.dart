@@ -118,12 +118,12 @@ final class _LinksExtractor implements Extractor {
     final BlueskyText text, [
     final ExtractorConfig? config,
   ]) {
-    if (text.isEmpty) return const [];
-    if (!text.value.contains('.')) return const [];
-
     if (config?.replacements != null && config!.replacements!.isNotEmpty) {
       return _getLinkEntitiesFromReplacements(config.replacements!, text.value);
     }
+
+    if (text.isEmpty) return const [];
+    if (!text.value.contains('.')) return const [];
 
     final entities = <Entity>[];
     final $handles = config?.handles ?? handlesExtractor.execute(text);

@@ -110,7 +110,7 @@ sealed class BlueskyText {
 
   /// Returns the collection of entities.
   ///
-  /// It includes the response from [handles] and [links].
+  /// It includes the response from [handles], [links], [tags].
   Entities get entities;
 
   /// Splits this [value].

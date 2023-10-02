@@ -61,8 +61,9 @@ Have you ever had trouble parsing mentions or links in the text you post when us
 - ✅ Supports **Automatic Conversion** to **Facet**
 - ✅ **100% Compatible with [bluesky](https://atprotodart.com/docs/packages/bluesky)**
 - ✅ Supports **Unicode Grapheme Clusters**
-- ✅ Support for **Safe Text Splitting**
+- ✅ Supports **Safe Text Splitting**
 - ✅ **Works in All Languages**
+- ✅ Supports **Markdown Style Links**
 - ✅ **Well Documented** and **Well Tested**
 - ✅ **100% Null Safety**
 

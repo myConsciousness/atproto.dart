@@ -89,11 +89,11 @@ final class _Formatter implements Formatter {
 
         buffer.write(entity.text);
       } else {
+        final shortenedLink = _toShortLink(after, linkConfig);
+
         if (!after.startsWith('http')) {
           after = '$httpsPrefix$after';
         }
-
-        final shortenedLink = _toShortLink(after, linkConfig);
 
         replacements.add(Replacement(
           shortenedLink,
