@@ -1245,4 +1245,161 @@ github.com/videah/SkyBridge
       );
     });
   });
+
+  group('markdown links', () {
+    test('case1', () {
+      final text = BlueskyText('[test](https://example.com)').format();
+
+      expect(text.value, 'test');
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.value, 'https://example.com');
+      expect(entities.first.indices.start, 0);
+      expect(entities.first.indices.end, 4);
+    });
+
+    test('case2', () {
+      final text = BlueskyText('[test](example.com)').format();
+
+      expect(text.value, 'test');
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.value, 'https://example.com');
+      expect(entities.first.indices.start, 0);
+      expect(entities.first.indices.end, 4);
+    });
+
+    test('case3', () {
+      final text = BlueskyText('[test テスト](https://example.com)').format();
+
+      expect(text.value, 'test テスト');
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.value, 'https://example.com');
+      expect(entities.first.indices.start, 0);
+      expect(entities.first.indices.end, 14);
+    });
+
+    test('case4', () {
+      final text =
+          BlueskyText('あああああ[test テスト](https://example.com)test').format();
+
+      expect(text.value, 'あああああtest テストtest');
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.value, 'https://example.com');
+      expect(entities.first.indices.start, 15);
+      expect(entities.first.indices.end, 29);
+    });
+
+    test('case5', () {
+      final text = BlueskyText('[test](https://example.com)');
+
+      expect(text.value, '[test](https://example.com)');
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.value, 'https://example.com');
+      expect(entities.first.indices.start, 7);
+      expect(entities.first.indices.end, 26);
+    });
+
+    test('case6', () {
+      final text = BlueskyText('[](https://example.com)').format();
+
+      expect(text.value, '[](https://example.com)');
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.value, 'https://example.com');
+      expect(entities.first.indices.start, 3);
+      expect(entities.first.indices.end, 22);
+    });
+
+    test('case7', () {
+      final text = BlueskyText('[test]()').format();
+
+      expect(text.value, '[test]()');
+
+      final entities = text.entities;
+
+      expect(entities.length, 0);
+    });
+
+    test('case8', () {
+      final text = BlueskyText('[]()').format();
+
+      expect(text.value, '[]()');
+
+      final entities = text.entities;
+
+      expect(entities.length, 0);
+    });
+
+    test('case9', () {
+      final text =
+          BlueskyText('[test](https://example.com) atprotodart.com').format();
+
+      expect(text.value, 'test atprotodart.com');
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.value, 'https://example.com');
+      expect(entities.first.indices.start, 0);
+      expect(entities.first.indices.end, 4);
+      expect(entities[1].value, 'https://atprotodart.com');
+      expect(entities[1].indices.start, 5);
+      expect(entities[1].indices.end, 20);
+    });
+
+    test('case10', () {
+      final text =
+          BlueskyText('[test](https://example.com)https://atprotodart.com')
+              .format();
+
+      expect(text.value, 'testhttps://atprotodart.com');
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.value, 'https://example.com');
+      expect(entities.first.indices.start, 0);
+      expect(entities.first.indices.end, 4);
+      expect(entities[1].value, 'https://atprotodart.com');
+      expect(entities[1].indices.start, 4);
+      expect(entities[1].indices.end, 27);
+    });
+
+    test('case11', () {
+      final text = BlueskyText(
+              'https://atprotodart.dev[test](https://example.com)https://atprotodart.com')
+          .format();
+
+      expect(text.value, 'https://atprotodart.devtesthttps://atprotodart.com');
+
+      final entities = text.entities;
+
+      expect(entities.length, 3);
+      expect(entities.first.value, 'https://atprotodart.dev');
+      expect(entities.first.indices.start, 0);
+      expect(entities.first.indices.end, 23);
+      expect(entities[1].value, 'https://example.com');
+      expect(entities[1].indices.start, 23);
+      expect(entities[1].indices.end, 27);
+      expect(entities[2].value, 'https://atprotodart.com');
+      expect(entities[2].indices.start, 27);
+      expect(entities[2].indices.end, 50);
+    });
+  });
 }

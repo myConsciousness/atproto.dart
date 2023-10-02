@@ -9,12 +9,13 @@ import 'package:xrpc/xrpc.dart';
 // 🌎 Project imports:
 import '../api/find_did.dart' as api;
 import 'byte_indices.dart';
+import 'facetable.dart';
 
 part 'entity.freezed.dart';
 part 'entity.g.dart';
 
 @freezed
-class Entity with _$Entity {
+class Entity with _$Entity implements Facetable {
   // ignore: unused_element
   const Entity._();
 

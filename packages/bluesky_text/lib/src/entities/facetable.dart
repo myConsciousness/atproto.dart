@@ -2,10 +2,9 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-final class Replacement {
-  const Replacement(this.key, this.value, this.start);
+// 🌎 Project imports:
+import 'byte_indices.dart';
 
-  final String key;
-  final String value;
-  final int start;
+abstract class Facetable {
+  ByteIndices get indices;
 }
