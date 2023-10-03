@@ -4,6 +4,8 @@
 
 // 🎯 Dart imports:
 import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
 
 // 📦 Package imports:
 import 'package:bluesky_text/bluesky_text.dart';
@@ -21,6 +23,12 @@ class PostCommand extends CreateRecordCommand {
         'text',
         help: 'Text to be posted to Bluesky Social.',
         defaultsTo: '',
+      )
+      ..addOption(
+        'images',
+        help:
+            'Comma-separated collection of image paths to attach to the post.',
+        defaultsTo: null,
       )
       ..addOption(
         'langs',
@@ -52,7 +60,7 @@ class PostCommand extends CreateRecordCommand {
 
   @override
   final String invocation =
-      'bsky post [text] [langs] [labels] [tags] [created-at]';
+      'bsky post [text] [images] [langs] [labels] [tags] [created-at]';
 
   @override
   xrpc.NSID get collection => xrpc.NSID.create(
@@ -70,6 +78,14 @@ class PostCommand extends CreateRecordCommand {
       'facets': await entities.toFacets(),
       'createdAt': argResults!['created-at'],
     };
+
+    final images = await _uploadImages();
+    if (images.isNotEmpty) {
+      record['embed'] = {
+        r'$type': 'app.bsky.embed.images',
+        'images': images,
+      };
+    }
 
     final langs = _langs;
     if (langs != null) {
@@ -128,5 +144,25 @@ class PostCommand extends CreateRecordCommand {
           )
           .toList(),
     };
+  }
+
+  Future<List<Map<String, dynamic>>> _uploadImages() async {
+    if (argResults!['images'] == null) {
+      return const [];
+    }
+
+    final images = <Map<String, dynamic>>[];
+    for (final image in argResults!['images'].split(',')) {
+      final uploaded = await upload(File(image));
+
+      final blob = jsonDecode(uploaded.data);
+
+      images.add({
+        'alt': '',
+        'image': blob['blob'],
+      });
+    }
+
+    return images;
   }
 }
