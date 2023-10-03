@@ -2,10 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-final class Replacement {
-  const Replacement(this.key, this.value, this.start);
+/// The max length of text.
+const maxLength = 300;
 
-  final String key;
-  final String value;
-  final int start;
-}
+const httpsPrefix = 'https://';
+const shortenLinkSuffix = '...';

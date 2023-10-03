@@ -231,7 +231,7 @@ void main() {
     });
 
     test('case14', () {
-      final text = BlueskyText('😳 @test.bsky.social"test"');
+      final text = BlueskyText("😳 @test.bsky.social'test'");
       final handles = text.handles;
 
       expect(handles.length, 1);
@@ -700,6 +700,19 @@ example8.com はいいぞ
       expect(tags[1].indices.start, 6);
       expect(tags[1].indices.end, 12);
     });
+
+    test('case3', () async {
+      final text = BlueskyText('#test ##test2');
+      final tags = text.tags;
+
+      expect(tags.length, 2);
+      expect(tags.first.value, 'test');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 5);
+      expect(tags[1].value, '#test2');
+      expect(tags[1].indices.start, 6);
+      expect(tags[1].indices.end, 13);
+    });
   });
 
   group('.entities', () {
@@ -835,7 +848,7 @@ github.com/videah/SkyBridge
     test('case3', () {
       final text = BlueskyText('   ');
 
-      expect(text.isEmpty, isFalse);
+      expect(text.isEmpty, isTrue);
     });
   });
 
@@ -855,7 +868,7 @@ github.com/videah/SkyBridge
     test('case3', () {
       final text = BlueskyText('   ');
 
-      expect(text.isNotEmpty, isTrue);
+      expect(text.isNotEmpty, isFalse);
     });
   });
 
@@ -1065,6 +1078,328 @@ github.com/videah/SkyBridge
       expect(entities[1].type, EntityType.link);
       expect(entities[1].value,
           'https://www.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com/article/DGX?QOGN20CZ30Q3A920C2000000/');
+    });
+
+    test('case7', () {
+      final text = BlueskyText(
+        '''I post this from deck.blue. Wdyt of this music:https://www.youtube.com/watch?v=lDK9QqIzhwk?
+
+我从deck.blue发布的。您觉得这首音乐怎么样www.youtube.com/watch?v=lDK9QqIzhwk？
+
+나는 이것을deck.blue에서 게시합니다. 이 음악에 대해 어떻게 생각하세요https://www.youtube.com/watch?v=lDK9QqIzhwk?
+
+このポストはdeck.blueから。この音楽（https://www.youtube.com/watch?v=lDK9QqIzhwk）をどう思う？''',
+        linkConfig: LinkConfig(excludeProtocol: true, enableShortening: true),
+      ).format();
+
+      final links = text.links;
+
+      expect(links.length, 8);
+      expect(links[0].value, 'https://deck.blue');
+      expect(links[0].indices.start, 17);
+      expect(links[0].indices.end, 26);
+      expect(links[1].value, 'https://www.youtube.com/watch?v=lDK9QqIzhwk');
+      expect(links[1].indices.start, 47);
+      expect(links[1].indices.end, 78);
+      expect(links[2].value, 'https://deck.blue');
+      expect(links[2].indices.start, 87);
+      expect(links[2].indices.end, 96);
+      expect(links[3].value, 'https://www.youtube.com/watch?v=lDK9QqIzhwk');
+      expect(links[3].indices.start, 138);
+      expect(links[3].indices.end, 169);
+      expect(links[4].value, 'https://deck.blue');
+      expect(links[4].indices.start, 190);
+      expect(links[4].indices.end, 199);
+      expect(links[5].value, 'https://www.youtube.com/watch?v=lDK9QqIzhwk');
+      expect(links[5].indices.start, 269);
+      expect(links[5].indices.end, 300);
+      expect(links[6].value, 'https://deck.blue');
+      expect(links[6].indices.start, 321);
+      expect(links[6].indices.end, 330);
+      expect(links[7].value, 'https://www.youtube.com/watch?v=lDK9QqIzhwk');
+      expect(links[7].indices.start, 354);
+      expect(links[7].indices.end, 385);
+    });
+
+    test('case8', () {
+      final text = BlueskyText(
+        'https://www.youtube.com/watch?v=lDK9QqIzhwk https://www.youtube.com/watch?v=lDK9QqIzhxx',
+        linkConfig: LinkConfig(excludeProtocol: true, enableShortening: true),
+      ).format();
+
+      final links = text.links;
+
+      expect(links.length, 2);
+      expect(links[0].value, 'https://www.youtube.com/watch?v=lDK9QqIzhwk');
+      expect(links[1].value, 'https://www.youtube.com/watch?v=lDK9QqIzhxx');
+    });
+
+    test('case9', () {
+      final text = BlueskyText(
+        'www.youtube.com/watch?v=lDK9QqIzhwk https://www.youtube.com/watch?v=lDK9QqIzhxx www.youtube.com/watch?v=lDK9QqIzhwk',
+        linkConfig: LinkConfig(excludeProtocol: true, enableShortening: true),
+      ).format();
+
+      final links = text.links;
+
+      expect(links.length, 3);
+      expect(links[0].value, 'https://www.youtube.com/watch?v=lDK9QqIzhwk');
+      expect(links[1].value, 'https://www.youtube.com/watch?v=lDK9QqIzhxx');
+      expect(links[2].value, 'https://www.youtube.com/watch?v=lDK9QqIzhwk');
+    });
+
+    test('case9', () {
+      final text = BlueskyText(
+        'www.youtube.com/watch?v=lDK9QqIzhwk https://www.youtube.com/watch?v=lDK9QqIzhxx www.youtube.com/watch?v=lDK9QqIzhwk',
+      ).format();
+
+      final links = text.links;
+
+      expect(links.length, 3);
+      expect(links[0].value, 'https://www.youtube.com/watch?v=lDK9QqIzhwk');
+      expect(links[1].value, 'https://www.youtube.com/watch?v=lDK9QqIzhxx');
+      expect(links[2].value, 'https://www.youtube.com/watch?v=lDK9QqIzhwk');
+    });
+  });
+
+  group('integration', () {
+    test('urls with punctuations', () {
+      final urls = [
+        'http://www.foo.com/foo/path-with-period./ testaaaaa',
+        'ああああああhttp://www.foo.org.za/foo/bar/688.1',
+        'http://www.foo.com/bar-path/some.stm?param1=foo;param2=P1|0||P2|0',
+        'テスト。http://foo.com/bar/123/foo_&_barテスト２',
+        'http://foo.com/bar(test)bar(test)bar(test)',
+        'www.foo.com/foo/path-with-period./',
+        'www.foo.org.za/foo/bar/688.1',
+        'www.foo.com/bar-path/some.stm?param1=foo;param2=P1|0||P2|0',
+        'foo.com/bar/123/foo_&_bar/'
+      ];
+
+      final expectedUrls = [
+        'http://www.foo.com/foo/path-with-period./',
+        'http://www.foo.org.za/foo/bar/688.1',
+        'http://www.foo.com/bar-path/some.stm?param1=foo;param2=P1|0||P2|0',
+        'http://foo.com/bar/123/foo_&_bar',
+        'http://foo.com/bar(test)bar(test)bar(test)',
+        'https://www.foo.com/foo/path-with-period./',
+        'https://www.foo.org.za/foo/bar/688.1',
+        'https://www.foo.com/bar-path/some.stm?param1=foo;param2=P1|0||P2|0',
+        'https://foo.com/bar/123/foo_&_bar/'
+      ];
+
+      for (int i = 0; i < urls.length; i++) {
+        final text = BlueskyText(urls[i]);
+        expect(text.entities.first.value, expectedUrls[i]);
+      }
+    });
+
+    test('formatted urls with punctuations', () {
+      final urls = [
+        'http://www.foo.com/foo/path-with-period./ testaaaaa',
+        'ああああああhttp://www.foo.org.za/foo/bar/688.1',
+        'http://www.foo.com/bar-path/some.stm?param1=foo;param2=P1|0||P2|0',
+        'テスト。http://foo.com/bar/123/foo_&_barテスト２',
+        'http://foo.com/bar(test)bar(test)bar(test)',
+        'www.foo.com/foo/path-with-period./',
+        'www.foo.org.za/foo/bar/688.1',
+        'www.foo.com/bar-path/some.stm?param1=foo;param2=P1|0||P2|0',
+        'foo.com/bar/123/foo_&_bar/'
+      ];
+
+      final expectedUrls = [
+        'http://www.foo.com/foo/path-with-period./',
+        'http://www.foo.org.za/foo/bar/688.1',
+        'http://www.foo.com/bar-path/some.stm?param1=foo;param2=P1|0||P2|0',
+        'http://foo.com/bar/123/foo_&_bar',
+        'http://foo.com/bar(test)bar(test)bar(test)',
+        'https://www.foo.com/foo/path-with-period./',
+        'https://www.foo.org.za/foo/bar/688.1',
+        'https://www.foo.com/bar-path/some.stm?param1=foo;param2=P1|0||P2|0',
+        'https://foo.com/bar/123/foo_&_bar/'
+      ];
+
+      for (int i = 0; i < urls.length; i++) {
+        final text = BlueskyText(
+          urls[i],
+          linkConfig: LinkConfig(
+            excludeProtocol: true,
+            enableShortening: true,
+          ),
+        );
+
+        expect(text.entities.first.value, expectedUrls[i]);
+      }
+    });
+
+    test('urls followed by punctuations', () {
+      final text = BlueskyText(
+        'http://games.aarp.org/games/mahjongg-dimensions.aspx!!!!!!',
+      );
+
+      final entities = text.entities;
+
+      expect(
+        entities.first.value,
+        'http://games.aarp.org/games/mahjongg-dimensions.aspx',
+      );
+    });
+  });
+
+  group('markdown links', () {
+    test('case1', () {
+      final text = BlueskyText('[test](https://example.com)').format();
+
+      expect(text.value, 'test');
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.value, 'https://example.com');
+      expect(entities.first.indices.start, 0);
+      expect(entities.first.indices.end, 4);
+    });
+
+    test('case2', () {
+      final text = BlueskyText('[test](example.com)').format();
+
+      expect(text.value, 'test');
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.value, 'https://example.com');
+      expect(entities.first.indices.start, 0);
+      expect(entities.first.indices.end, 4);
+    });
+
+    test('case3', () {
+      final text = BlueskyText('[test テスト](https://example.com)').format();
+
+      expect(text.value, 'test テスト');
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.value, 'https://example.com');
+      expect(entities.first.indices.start, 0);
+      expect(entities.first.indices.end, 14);
+    });
+
+    test('case4', () {
+      final text =
+          BlueskyText('あああああ[test テスト](https://example.com)test').format();
+
+      expect(text.value, 'あああああtest テストtest');
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.value, 'https://example.com');
+      expect(entities.first.indices.start, 15);
+      expect(entities.first.indices.end, 29);
+    });
+
+    test('case5', () {
+      final text = BlueskyText('[test](https://example.com)');
+
+      expect(text.value, '[test](https://example.com)');
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.value, 'https://example.com');
+      expect(entities.first.indices.start, 7);
+      expect(entities.first.indices.end, 26);
+    });
+
+    test('case6', () {
+      final text = BlueskyText('[](https://example.com)').format();
+
+      expect(text.value, '[](https://example.com)');
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.value, 'https://example.com');
+      expect(entities.first.indices.start, 3);
+      expect(entities.first.indices.end, 22);
+    });
+
+    test('case7', () {
+      final text = BlueskyText('[test]()').format();
+
+      expect(text.value, '[test]()');
+
+      final entities = text.entities;
+
+      expect(entities.length, 0);
+    });
+
+    test('case8', () {
+      final text = BlueskyText('[]()').format();
+
+      expect(text.value, '[]()');
+
+      final entities = text.entities;
+
+      expect(entities.length, 0);
+    });
+
+    test('case9', () {
+      final text =
+          BlueskyText('[test](https://example.com) atprotodart.com').format();
+
+      expect(text.value, 'test atprotodart.com');
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.value, 'https://example.com');
+      expect(entities.first.indices.start, 0);
+      expect(entities.first.indices.end, 4);
+      expect(entities[1].value, 'https://atprotodart.com');
+      expect(entities[1].indices.start, 5);
+      expect(entities[1].indices.end, 20);
+    });
+
+    test('case10', () {
+      final text =
+          BlueskyText('[test](https://example.com)https://atprotodart.com')
+              .format();
+
+      expect(text.value, 'testhttps://atprotodart.com');
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.value, 'https://example.com');
+      expect(entities.first.indices.start, 0);
+      expect(entities.first.indices.end, 4);
+      expect(entities[1].value, 'https://atprotodart.com');
+      expect(entities[1].indices.start, 4);
+      expect(entities[1].indices.end, 27);
+    });
+
+    test('case11', () {
+      final text = BlueskyText(
+              'https://atprotodart.dev[test](https://example.com)https://atprotodart.com')
+          .format();
+
+      expect(text.value, 'https://atprotodart.devtesthttps://atprotodart.com');
+
+      final entities = text.entities;
+
+      expect(entities.length, 3);
+      expect(entities.first.value, 'https://atprotodart.dev');
+      expect(entities.first.indices.start, 0);
+      expect(entities.first.indices.end, 23);
+      expect(entities[1].value, 'https://example.com');
+      expect(entities[1].indices.start, 23);
+      expect(entities[1].indices.end, 27);
+      expect(entities[2].value, 'https://atprotodart.com');
+      expect(entities[2].indices.start, 27);
+      expect(entities[2].indices.end, 50);
     });
   });
 }

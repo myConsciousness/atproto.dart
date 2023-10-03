@@ -4,6 +4,17 @@
 
 // ignore_for_file: lines_longer_than_80_chars
 
+/// `validCctld` is a constant [RegExp] pattern string constructed to match
+/// a wide range of valid country code top-level domains (ccTLDs). The string
+/// encompasses an extensive list of ccTLDs representing various countries
+/// and territories, utilizing different scripts and alphabets.
+///
+/// The pattern is designed to match against:
+/// - Latin script ccTLDs: such as `.uk`, `.eu`, `.us`.
+/// - Non-Latin script ccTLDs: including Internationalized Domain Names (IDNs)
+///   like `.中国`, `.ไทย`.
+/// - Special characters: ccTLDs containing special characters like hyphens,
+///   e.g., `.co.uk`.
 const validCctld = '(?:(?:'
     '한국|香港|澳門|新加坡|台灣|台湾|中國|中国|გე|ລາວ|ไทย|ලංකා|ഭാരതം|ಭಾರತ|భారత్|சிங்கப்பூர்|இலங்கை|இந்தியா|ଭାରତ|'
     'ભારત|ਭਾਰਤ|ভাৰত|ভারত|বাংলা|भारोत|भारतम्|भारत|ڀارت|پاکستان|موريتانيا|مليسيا|مصر|قطر|فلسطين|عمان|'

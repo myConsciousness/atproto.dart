@@ -1,5 +1,17 @@
 # Release Note
 
+## v0.5.3
+
+- Supported markdown style links. You can set any links to any text such as `[test](https://foo.com)`. Be sure to execute `.format()` to make the link in markdown format recognized as a facet. ([#629](https://github.com/myConsciousness/atproto.dart/issues/629))
+
+## v0.5.2
+
+- Fixed safer processing when shortening links.
+
+## v0.5.1
+
+- Improved link detection algorithm.
+
 ## v0.5.0
 
 - Improved algorithm for detecting links.
