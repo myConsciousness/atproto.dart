@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.5
+
+- Added `service` parameter on `.toFacets` method. ([#882](https://github.com/myConsciousness/atproto.dart/issues/882))
+
 ## v0.5.4
 
 - Fixed that `.format` doesn't merge if the URL Path of the detected link is only `/` when `.format` is executed. ([#876](https://github.com/myConsciousness/atproto.dart/issues/876))
