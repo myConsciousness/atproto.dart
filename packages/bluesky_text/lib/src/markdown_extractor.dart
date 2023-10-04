@@ -24,7 +24,11 @@ final class MarkdownLinksExtractor {
       final linkUrl = match.markdownLinkUrl;
 
       if (linkText.isEmpty || linkUrl.isEmpty) continue;
-      if (!_isValidUrl(linkUrl)) continue;
+
+      final uri = Uri.tryParse(linkUrl);
+
+      if (uri == null) continue;
+      if (uri.scheme.isNotEmpty && !uri.scheme.startsWith('http')) continue;
 
       entities.add(
         MarkdownLinkEntity(
@@ -42,6 +46,4 @@ final class MarkdownLinksExtractor {
 
     return entities;
   }
-
-  bool _isValidUrl(final String source) => Uri.tryParse(source) != null;
 }

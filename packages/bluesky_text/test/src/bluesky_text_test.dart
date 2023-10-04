@@ -1441,5 +1441,30 @@ github.com/videah/SkyBridge
       expect(entities[2].indices.start, 27);
       expect(entities[2].indices.end, 50);
     });
+
+    test('case12', () {
+      final text = BlueskyText('[test](mailto:hello@example.com)').format();
+
+      expect(text.value, '[test](mailto:hello@example.com)');
+
+      final entities = text.entities;
+
+      expect(entities.isEmpty, isTrue);
+    });
+
+    test('case13', () {
+      final text = BlueskyText(
+        '[test](ftp://user:pass@ftp.example.txt)',
+      ).format();
+
+      expect(
+        text.value,
+        '[test](ftp://user:pass@ftp.example.txt)',
+      );
+
+      final entities = text.entities;
+
+      expect(entities.isEmpty, isTrue);
+    });
   });
 }

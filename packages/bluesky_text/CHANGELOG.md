@@ -3,6 +3,7 @@
 ## v0.5.4
 
 - Fixed that `.format` doesn't merge if the URL Path of the detected link is only `/` when `.format` is executed. ([#876](https://github.com/myConsciousness/atproto.dart/issues/876))
+- Fixed markdown URLs to allow only `http|https`. ([#877](https://github.com/myConsciousness/atproto.dart/issues/877))
 
 ## v0.5.3
 
