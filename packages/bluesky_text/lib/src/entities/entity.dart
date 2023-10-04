@@ -4,7 +4,6 @@
 
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:xrpc/xrpc.dart';
 
 // 🌎 Project imports:
 import '../api/find_did.dart' as api;
@@ -28,14 +27,8 @@ class Entity with _$Entity implements Facetable {
   factory Entity.fromJson(Map<String, Object?> json) => _$EntityFromJson(json);
 
   /// Returns the facet representation of this entity as JSON.
-  ///
-  /// - [ignoreInvalidHandle]: If true, processing continues even if an invalid
-  ///                          handle is detected, and data from the invalid
-  ///                          handle is excluded from the result. If false, an
-  ///                          `InvalidRequestException` is thrown when an
-  ///                          invalid handle is detected.
   Future<Map<String, dynamic>> toFacet({
-    bool ignoreInvalidHandle = true,
+    String? service,
   }) async {
     final facet = <String, dynamic>{
       'index': {
@@ -50,22 +43,15 @@ class Entity with _$Entity implements Facetable {
         try {
           final did = await api.findDID(
             handle: value,
+            service: service,
           );
 
           facet['features'].add({
             '\$type': 'app.bsky.richtext.facet#mention',
             'did': did.data['did'],
           });
-        } on InvalidRequestException {
-          //! Invalid handle.
-          if (ignoreInvalidHandle) {
-            return {};
-          }
-
-          rethrow;
-        } on Exception {
-          //! Network error or server error.
-          rethrow;
+        } catch (_) {
+          return {};
         }
 
         break;
