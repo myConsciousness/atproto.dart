@@ -129,7 +129,8 @@ final class _Formatter implements Formatter {
       return '$domainPart${_getShortenedPath(pathPart)}';
     }
 
-    return '$domainPart$pathPart';
+    // Remove trailing slash as it's unnecessary.
+    return pathPart == '/' ? domainPart : '$domainPart$pathPart';
   }
 
   String _getShortenedPath(final String source) {

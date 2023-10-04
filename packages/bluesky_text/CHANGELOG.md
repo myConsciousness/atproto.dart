@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.4
+
+- Fixed that `.format` doesn't merge if the URL Path of the detected link is only `/` when `.format` is executed. ([#876](https://github.com/myConsciousness/atproto.dart/issues/876))
+
 ## v0.5.3
 
 - Supported markdown style links. You can set any links to any text such as `[test](https://foo.com)`. Be sure to execute `.format()` to make the link in markdown format recognized as a facet. ([#629](https://github.com/myConsciousness/atproto.dart/issues/629))

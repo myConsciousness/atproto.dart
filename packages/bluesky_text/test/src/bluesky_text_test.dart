@@ -1148,7 +1148,7 @@ github.com/videah/SkyBridge
       expect(links[2].value, 'https://www.youtube.com/watch?v=lDK9QqIzhwk');
     });
 
-    test('case9', () {
+    test('case10', () {
       final text = BlueskyText(
         'www.youtube.com/watch?v=lDK9QqIzhwk https://www.youtube.com/watch?v=lDK9QqIzhxx www.youtube.com/watch?v=lDK9QqIzhwk',
       ).format();
@@ -1159,6 +1159,46 @@ github.com/videah/SkyBridge
       expect(links[0].value, 'https://www.youtube.com/watch?v=lDK9QqIzhwk');
       expect(links[1].value, 'https://www.youtube.com/watch?v=lDK9QqIzhxx');
       expect(links[2].value, 'https://www.youtube.com/watch?v=lDK9QqIzhwk');
+    });
+
+    test('case11', () {
+      final text = BlueskyText(
+        'https://deck.blue/',
+        linkConfig: LinkConfig(excludeProtocol: true),
+      ).format();
+
+      expect(text.value, 'deck.blue');
+
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.value, 'https://deck.blue/');
+    });
+
+    test('case12', () {
+      final text = BlueskyText(
+        'https://deck.blue/page',
+      ).format();
+
+      expect(text.value, 'https://deck.blue/page');
+
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.value, 'https://deck.blue/page');
+    });
+
+    test('case13', () {
+      final text = BlueskyText(
+        'https://deck.blue/page/',
+      ).format();
+
+      expect(text.value, 'https://deck.blue/page/');
+
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.value, 'https://deck.blue/page/');
     });
   });
 
