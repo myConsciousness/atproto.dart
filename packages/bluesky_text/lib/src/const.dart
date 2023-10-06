@@ -5,5 +5,6 @@
 /// The max length of text.
 const maxLength = 300;
 
+const httpPrefix = 'http://';
 const httpsPrefix = 'https://';
 const shortenLinkSuffix = '...';

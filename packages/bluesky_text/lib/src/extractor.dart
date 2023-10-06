@@ -12,8 +12,8 @@ import 'entities/byte_indices.dart';
 import 'entities/entities.dart';
 import 'entities/entity.dart';
 import 'entities/markdown/markdown_link_entity.dart';
+import 'entities/replacement.dart';
 import 'regex/regex.dart';
-import 'replacement.dart';
 import 'unicode_string.dart';
 
 const allExtractor = Extractor.all();
@@ -236,9 +236,7 @@ final class _LinksExtractor implements Extractor {
               value: e.value,
               indices: ByteIndices(
                 start: value.toUtf8Index(e.start),
-                end: value.toUtf8Index(
-                  e.start + e.key.length,
-                ),
+                end: value.toUtf8Index(e.end),
               ),
             ),
           )

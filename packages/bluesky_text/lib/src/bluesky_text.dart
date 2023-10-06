@@ -3,16 +3,23 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'dart:convert';
+
 import 'package:characters/characters.dart';
 
 // 🌎 Project imports:
 import 'config/link_config.dart';
 import 'const.dart';
+import 'entities/byte_indices.dart';
 import 'entities/entities.dart';
+import 'entities/length_exceeded_entity.dart';
+import 'entities/replacement.dart';
+import 'entities/replacements.dart';
+import 'extension/list_extension.dart';
 import 'extractor.dart';
 import 'formatter.dart';
-import 'replacement.dart';
 import 'splitter.dart';
+import 'unicode_string.dart';
 
 /// This class provides high-performance analysis of [Bluesky Social](https://blueskyweb.xyz)'s text
 /// and features related to secure posting.
@@ -78,7 +85,7 @@ sealed class BlueskyText {
   const factory BlueskyText(
     final String text, {
     final LinkConfig? linkConfig,
-    final List<Replacement>? replacements,
+    final Replacements? replacements,
   }) = _BlueskyText;
 
   /// Returns the resource text.
@@ -112,6 +119,8 @@ sealed class BlueskyText {
   ///
   /// It includes the response from [handles], [links], [tags].
   Entities get entities;
+
+  List<LengthExceededEntity> get exceededIndices;
 
   /// Splits this [value].
   ///
@@ -152,12 +161,12 @@ final class _BlueskyText implements BlueskyText {
   const _BlueskyText(
     this.value, {
     LinkConfig? linkConfig,
-    List<Replacement>? replacements,
+    Replacements? replacements,
   })  : _linkConfig = linkConfig,
         _replacements = replacements;
 
   final LinkConfig? _linkConfig;
-  final List<Replacement>? _replacements;
+  final Replacements? _replacements;
 
   @override
   final String value;
@@ -187,14 +196,110 @@ final class _BlueskyText implements BlueskyText {
       ));
 
   @override
+  List<LengthExceededEntity> get exceededIndices {
+    if (isNotLengthLimitExceeded) return const [];
+
+    final formatted =
+        _replacements?.where((e) => e.factors.isNotEmpty).toList();
+
+    if (formatted == null || formatted.isEmpty || _replacements!.base.isEmpty) {
+      return [
+        _buildLengthExceededEntity(
+          utf8.encode(_replacements!.base),
+          value.toUtf8Index(maxLength + 1),
+          value.toUtf8Index(value.length),
+        )!,
+      ];
+    }
+
+    final base = utf8.encode(_replacements!.base);
+    final exceededReplacements = _getExceededReplacements(formatted);
+
+    final indices = <LengthExceededEntity>[];
+    int lastEnd =
+        utf8.encode(_replacements!.base.characters.take(300).toString()).length;
+    for (final exceeded in exceededReplacements) {
+      final before = _buildLengthExceededEntity(
+        base,
+        lastEnd,
+        exceeded.source!.indices.start,
+      );
+
+      final (start, end) = _adjustIndices(
+        exceeded.key,
+        exceeded.factors,
+        exceeded.source!.indices.start,
+      );
+
+      final after = _buildLengthExceededEntity(base, start, end);
+
+      indices
+        ..addIfNotNull(before)
+        ..addIfNotNull(after);
+
+      lastEnd = exceeded.source!.indices.end;
+    }
+
+    return indices;
+  }
+
+  List<Replacement> _getExceededReplacements(
+    final List<Replacement> replacements,
+  ) =>
+      replacements.where((e) => e.end > maxLength).toList();
+
+  LengthExceededEntity? _buildLengthExceededEntity(
+    final List<int> base,
+    final int start,
+    final int end,
+  ) {
+    final value = utf8.decode(base.sublist(start, end));
+    if (value.isEmpty) return null;
+
+    return LengthExceededEntity(
+      value: value,
+      indices: ByteIndices(start: start, end: end),
+    );
+  }
+
+  (int, int) _adjustIndices(
+    final String key,
+    List<ReplacementFactor> factors,
+    final int start,
+  ) {
+    int $start = start;
+    int $end = start + utf8.encode(key).length;
+
+    for (final factor in factors) {
+      switch (factor) {
+        case ReplacementFactor.linkHttpProtocol:
+          $start += httpPrefix.length;
+          $end += httpPrefix.length;
+          break;
+        case ReplacementFactor.linkHttpsProtocol:
+          $start += httpsPrefix.length;
+          $end += httpsPrefix.length;
+          break;
+        case ReplacementFactor.linkShortening:
+          $end -= shortenLinkSuffix.length;
+          break;
+        case ReplacementFactor.markdownLink:
+          $start++;
+          $end++;
+          break;
+      }
+    }
+
+    return ($start, $end);
+  }
+
+  @override
   List<BlueskyText> split() => splitter.execute(this);
 
   @override
-  BlueskyText format() {
-    if (_replacements != null) return this; //* Already formatted.
-
-    return formatter.execute(this, _linkConfig);
-  }
+  BlueskyText format() => _replacements != null
+      ? this //* is already formatted.
+      : formatter.execute(this, _linkConfig);
 
   @override
   bool get isLengthLimitExceeded => maxLength < length;
