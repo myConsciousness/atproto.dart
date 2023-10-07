@@ -1200,6 +1200,22 @@ github.com/videah/SkyBridge
       expect(links.length, 1);
       expect(links.first.value, 'https://deck.blue/page/');
     });
+
+    test('case14', () {
+      final text = BlueskyText(
+        '[test](https://atprotodart.com)',
+        enableMarkdown: false,
+      ).format();
+
+      expect(text.value, '[test](https://atprotodart.com)');
+
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.indices.start, 7);
+      expect(links.first.indices.end, 30);
+      expect(links.first.value, 'https://atprotodart.com');
+    });
   });
 
   group('integration', () {
@@ -1481,6 +1497,19 @@ github.com/videah/SkyBridge
       expect(entities[1].indices.end, 53);
       expect(entities[2].indices.start, 69);
       expect(entities[2].indices.end, 90);
+    });
+
+    test('case15', () {
+      final text = BlueskyText(
+        '[テスト](deck.blue)',
+        enableMarkdown: false,
+      );
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities[0].indices.start, 12);
+      expect(entities[0].indices.end, 21);
     });
   });
 }

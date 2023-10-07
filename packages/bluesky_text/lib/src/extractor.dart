@@ -36,14 +36,16 @@ final class ExtractorConfig {
     this.handles,
     this.markdownLinks,
     this.replacements,
-    this.includeMarkdown = true,
+    this.enableMarkdown = true,
+    this.fromFormat = false,
   });
 
   final Entities? handles;
   final List<MarkdownLinkEntity>? markdownLinks;
   final List<Replacement>? replacements;
 
-  final bool includeMarkdown;
+  final bool enableMarkdown;
+  final bool fromFormat;
 }
 
 sealed class Extractor {
@@ -131,8 +133,9 @@ final class _LinksExtractor implements Extractor {
 
     final entities = <Entity>[];
     final $handles = config?.handles ?? handlesExtractor.execute(text);
-    final $markdownLinks =
-        config?.markdownLinks ?? markdownLinksExtractor.execute(text);
+    final $markdownLinks = config?.enableMarkdown ?? false
+        ? (config?.markdownLinks ?? markdownLinksExtractor.execute(text))
+        : const <MarkdownLinkEntity>[];
 
     for (final match in extractUrlRegex.allMatches(text.value)) {
       final url = match.url;
@@ -200,13 +203,11 @@ final class _LinksExtractor implements Extractor {
       }
     }
 
-    if (config?.includeMarkdown ?? false) {
-      for (final markdownLink in $markdownLinks) {
-        entities.add(markdownLink.toEntity());
-      }
-    }
-
-    return orderByIndicesStart(entities);
+    return (config?.fromFormat ?? false)
+        ? entities
+        : orderByIndicesStart(
+            [...entities, ...$markdownLinks.map((e) => e.toEntity())],
+          );
   }
 
   void _addLinkEntity({

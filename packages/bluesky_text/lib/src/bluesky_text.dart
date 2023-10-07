@@ -77,6 +77,7 @@ sealed class BlueskyText {
   /// Returns the new instance of [BlueskyText].
   const factory BlueskyText(
     final String text, {
+    final bool enableMarkdown,
     final LinkConfig? linkConfig,
     final List<Replacement>? replacements,
   }) = _BlueskyText;
@@ -151,11 +152,14 @@ final class _BlueskyText implements BlueskyText {
   /// Returns the new instance of [_BlueskyText].
   const _BlueskyText(
     this.value, {
+    bool enableMarkdown = true,
     LinkConfig? linkConfig,
     List<Replacement>? replacements,
-  })  : _linkConfig = linkConfig,
+  })  : _enableMarkdown = enableMarkdown,
+        _linkConfig = linkConfig,
         _replacements = replacements;
 
+  final bool _enableMarkdown;
   final LinkConfig? _linkConfig;
   final List<Replacement>? _replacements;
 
@@ -171,7 +175,10 @@ final class _BlueskyText implements BlueskyText {
   @override
   Entities get links => Entities(linksExtractor.execute(
         this,
-        ExtractorConfig(replacements: _replacements),
+        ExtractorConfig(
+          replacements: _replacements,
+          enableMarkdown: _enableMarkdown,
+        ),
       ));
 
   @override
@@ -183,6 +190,7 @@ final class _BlueskyText implements BlueskyText {
         ExtractorConfig(
           handles: handles,
           replacements: _replacements,
+          enableMarkdown: _enableMarkdown,
         ),
       ));
 
@@ -193,7 +201,7 @@ final class _BlueskyText implements BlueskyText {
   BlueskyText format() {
     if (_replacements != null) return this; //* Already formatted.
 
-    return formatter.execute(this, _linkConfig);
+    return formatter.execute(this, _enableMarkdown, _linkConfig);
   }
 
   @override
