@@ -1200,6 +1200,22 @@ github.com/videah/SkyBridge
       expect(links.length, 1);
       expect(links.first.value, 'https://deck.blue/page/');
     });
+
+    test('case14', () {
+      final text = BlueskyText(
+        '[test](https://atprotodart.com)',
+        enableMarkdown: false,
+      ).format();
+
+      expect(text.value, '[test](https://atprotodart.com)');
+
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.indices.start, 7);
+      expect(links.first.indices.end, 30);
+      expect(links.first.value, 'https://atprotodart.com');
+    });
   });
 
   group('integration', () {
@@ -1349,8 +1365,8 @@ github.com/videah/SkyBridge
 
       expect(entities.length, 1);
       expect(entities.first.value, 'https://example.com');
-      expect(entities.first.indices.start, 7);
-      expect(entities.first.indices.end, 26);
+      expect(entities.first.indices.start, 1);
+      expect(entities.first.indices.end, 5);
     });
 
     test('case6', () {
@@ -1461,6 +1477,44 @@ github.com/videah/SkyBridge
         text.value,
         '[test](ftp://user:pass@ftp.example.txt)',
       );
+
+      final entities = text.entities;
+
+      expect(entities.isEmpty, isTrue);
+    });
+
+    test('case14', () {
+      final text = BlueskyText(
+        '[あああああ](deck.blue)[あああああいいい](deck.blue)⭐[ううあえあああ](deck.blue)',
+      );
+
+      final entities = text.entities;
+
+      expect(entities.length, 3);
+      expect(entities[0].indices.start, 1);
+      expect(entities[0].indices.end, 16);
+      expect(entities[1].indices.start, 29);
+      expect(entities[1].indices.end, 53);
+      expect(entities[2].indices.start, 69);
+      expect(entities[2].indices.end, 90);
+    });
+
+    test('case15', () {
+      final text = BlueskyText(
+        '[テスト](deck.blue)',
+        enableMarkdown: false,
+      );
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities[0].value, 'https://deck.blue');
+      expect(entities[0].indices.start, 12);
+      expect(entities[0].indices.end, 21);
+    });
+
+    test('case16', () {
+      final text = BlueskyText('[テスト](deck)');
 
       final entities = text.entities;
 

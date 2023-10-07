@@ -1,5 +1,26 @@
 # Release Note
 
+## v0.5.10
+
+- Fixed to add `https://` to markdown URLs when it is not given.
+
+## v0.5.9
+
+- The markdown URL must always contain `.` symbol.
+
+## v0.5.8
+
+- Added `enableMarkdown` param on `BlueskyText`. Defaults to `true`.
+
+## v0.5.7
+
+- Fixed a bug regarding byte calculation when detecting markdowns.
+
+## v0.5.6
+
+- Improved entity extraction for unformatted markdown. For example, `[test](https://example.com)` extracts entities so that `test` can be highlighted. Facets of this entity cannot be generated with `.toFacets` until `.format` is executed.
+  - Also added `EntityType.markdownLink`. If you want to exclude entities in the markdown without being `.format`, you can filter by this fixed value.
+
 ## v0.5.5
 
 - Added `service` parameter on `.toFacets` method. ([#882](https://github.com/myConsciousness/atproto.dart/issues/882))

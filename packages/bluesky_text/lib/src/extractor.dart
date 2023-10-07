@@ -7,30 +7,45 @@ import 'package:icann_tlds/icann_tlds.dart';
 
 // 🌎 Project imports:
 import 'bluesky_text.dart';
-import 'const.dart';
 import 'entities/byte_indices.dart';
 import 'entities/entities.dart';
 import 'entities/entity.dart';
 import 'entities/markdown/markdown_link_entity.dart';
 import 'entities/replacement.dart';
+import 'markdown_extractor.dart';
 import 'regex/regex.dart';
 import 'unicode_string.dart';
+import 'utils.dart';
 
 const allExtractor = Extractor.all();
 const handlesExtractor = Extractor.handles();
 const linksExtractor = Extractor.links();
 const tagsExtractor = Extractor.tags();
 
+List<Entity> orderByIndicesStart(final List<Entity> entities) {
+  if (entities.isEmpty) return const [];
+
+  return entities
+    ..sort(
+      (a, b) => a.indices.start.compareTo(b.indices.start),
+    );
+}
+
 final class ExtractorConfig {
   const ExtractorConfig({
     this.handles,
     this.markdownLinks,
     this.replacements,
+    this.enableMarkdown = true,
+    this.fromFormat = false,
   });
 
   final Entities? handles;
   final List<MarkdownLinkEntity>? markdownLinks;
   final List<Replacement>? replacements;
+
+  final bool enableMarkdown;
+  final bool fromFormat;
 }
 
 sealed class Extractor {
@@ -53,20 +68,11 @@ final class _AllExtractor implements Extractor {
     final BlueskyText text, [
     final ExtractorConfig? config,
   ]) =>
-      _orderByIndicesStart([
+      orderByIndicesStart([
         ...config!.handles!,
         ...linksExtractor.execute(text, config),
         ...tagsExtractor.execute(text),
       ]);
-
-  List<Entity> _orderByIndicesStart(final List<Entity> entities) {
-    if (entities.isEmpty) return const [];
-
-    return entities
-      ..sort(
-        (a, b) => a.indices.start.compareTo(b.indices.start),
-      );
-  }
 }
 
 final class _HandlesExtractor implements Extractor {
@@ -127,6 +133,9 @@ final class _LinksExtractor implements Extractor {
 
     final entities = <Entity>[];
     final $handles = config?.handles ?? handlesExtractor.execute(text);
+    final $markdownLinks = config?.enableMarkdown ?? false
+        ? (config?.markdownLinks ?? markdownLinksExtractor.execute(text))
+        : const <MarkdownLinkEntity>[];
 
     for (final match in extractUrlRegex.allMatches(text.value)) {
       final url = match.url;
@@ -173,10 +182,10 @@ final class _LinksExtractor implements Extractor {
           _addLinkEntity(
             entities: entities,
             handles: $handles,
+            markdownLinks: $markdownLinks,
             value: text.value,
             source: found['url'],
             matchStart: found['start'],
-            config: config,
           );
         }
       } else {
@@ -186,24 +195,28 @@ final class _LinksExtractor implements Extractor {
         _addLinkEntity(
           entities: entities,
           handles: $handles,
+          markdownLinks: $markdownLinks,
           value: text.value,
           source: uri,
           matchStart: match.start,
-          config: config,
         );
       }
     }
 
-    return entities;
+    return (config?.fromFormat ?? false)
+        ? entities
+        : orderByIndicesStart(
+            [...entities, ...$markdownLinks.map((e) => e.toEntity())],
+          );
   }
 
   void _addLinkEntity({
     required List<Entity> entities,
     required List<Entity> handles,
+    required List<MarkdownLinkEntity> markdownLinks,
     required String value,
     required String source,
     required int matchStart,
-    required ExtractorConfig? config,
   }) {
     final start = value.indexOf(source, matchStart);
 
@@ -211,12 +224,12 @@ final class _LinksExtractor implements Extractor {
     final endUtf8 = value.toUtf8Index(start + source.length);
 
     if (_isHandle(endUtf8, handles)) return;
-    if (_isMarkdownLink(startUtf8, endUtf8, config?.markdownLinks)) return;
+    if (_isMarkdownLink(startUtf8, endUtf8, markdownLinks)) return;
 
     entities.add(
       Entity(
         type: EntityType.link,
-        value: _getPrefixedUri(source),
+        value: getPrefixedUri(source),
         indices: ByteIndices(
           start: startUtf8,
           end: endUtf8,
@@ -271,9 +284,6 @@ final class _LinksExtractor implements Extractor {
 
     return false;
   }
-
-  String _getPrefixedUri(final String source) =>
-      !source.startsWith('http') ? '$httpsPrefix$source' : source;
 }
 
 final class _TagsExtractor implements Extractor {

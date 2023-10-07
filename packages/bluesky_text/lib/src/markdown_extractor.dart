@@ -8,6 +8,7 @@ import 'entities/byte_indices.dart';
 import 'entities/markdown/markdown_link_entity.dart';
 import 'regex/markdown_link.dart';
 import 'unicode_string.dart';
+import 'utils.dart';
 
 const markdownLinksExtractor = MarkdownLinksExtractor();
 
@@ -24,6 +25,7 @@ final class MarkdownLinksExtractor {
       final linkUrl = match.markdownLinkUrl;
 
       if (linkText.isEmpty || linkUrl.isEmpty) continue;
+      if (!linkUrl.contains('.')) continue;
 
       final uri = Uri.tryParse(linkUrl);
 
@@ -33,7 +35,7 @@ final class MarkdownLinksExtractor {
       entities.add(
         MarkdownLinkEntity(
           text: linkText,
-          url: linkUrl,
+          url: getPrefixedUri(linkUrl),
           indices: ByteIndices(
             start: text.value.toUtf8Index(match.start),
             end: text.value.toUtf8Index(

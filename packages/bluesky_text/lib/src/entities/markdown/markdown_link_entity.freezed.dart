@@ -131,9 +131,10 @@ class __$$_MarkdownLinkEntityCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MarkdownLinkEntity implements _MarkdownLinkEntity {
+class _$_MarkdownLinkEntity extends _MarkdownLinkEntity {
   const _$_MarkdownLinkEntity(
-      {required this.text, required this.url, required this.indices});
+      {required this.text, required this.url, required this.indices})
+      : super._();
 
   factory _$_MarkdownLinkEntity.fromJson(Map<String, dynamic> json) =>
       _$$_MarkdownLinkEntityFromJson(json);
@@ -179,11 +180,12 @@ class _$_MarkdownLinkEntity implements _MarkdownLinkEntity {
   }
 }
 
-abstract class _MarkdownLinkEntity implements MarkdownLinkEntity {
+abstract class _MarkdownLinkEntity extends MarkdownLinkEntity {
   const factory _MarkdownLinkEntity(
       {required final String text,
       required final String url,
       required final ByteIndices indices}) = _$_MarkdownLinkEntity;
+  const _MarkdownLinkEntity._() : super._();
 
   factory _MarkdownLinkEntity.fromJson(Map<String, dynamic> json) =
       _$_MarkdownLinkEntity.fromJson;
