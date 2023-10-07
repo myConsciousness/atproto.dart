@@ -69,6 +69,11 @@ class Entity with _$Entity implements Facetable {
         });
 
         break;
+      case EntityType.markdownLink:
+        //* Raw markdown links don't generate facets.
+        //* The markdown is converted to `EntityType.link` when
+        //* `Formatter.format()` is executed.
+        return {};
     }
 
     return facet;
@@ -87,5 +92,6 @@ class Entity with _$Entity implements Facetable {
 enum EntityType {
   handle,
   link,
+  markdownLink,
   tag,
 }

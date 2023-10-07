@@ -1349,8 +1349,8 @@ github.com/videah/SkyBridge
 
       expect(entities.length, 1);
       expect(entities.first.value, 'https://example.com');
-      expect(entities.first.indices.start, 7);
-      expect(entities.first.indices.end, 26);
+      expect(entities.first.indices.start, 1);
+      expect(entities.first.indices.end, 5);
     });
 
     test('case6', () {

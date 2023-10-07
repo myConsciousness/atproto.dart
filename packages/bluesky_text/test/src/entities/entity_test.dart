@@ -106,5 +106,26 @@ void main() {
 
       expect(facet, {});
     });
+
+    test('case7', () async {
+      final entity = Entity(
+        type: EntityType.markdownLink,
+        value: '',
+        indices: ByteIndices(start: 0, end: 0),
+      );
+
+      final facet = await entity.toFacet();
+
+      expect(facet, {});
+    });
+  });
+
+  group('entity type', () {
+    test('.name', () {
+      expect(EntityType.handle.name, 'handle');
+      expect(EntityType.link.name, 'link');
+      expect(EntityType.markdownLink.name, 'markdownLink');
+      expect(EntityType.tag.name, 'tag');
+    });
   });
 }
