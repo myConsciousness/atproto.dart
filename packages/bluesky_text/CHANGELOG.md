@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.11
+
+- Improved handle extraction algorithm. From with this version, the use of spaces as well as URLs is no longer required. ([#892](https://github.com/myConsciousness/atproto.dart/issues/892))
+
 ## v0.5.10
 
 - Fixed to add `https://` to markdown URLs when it is not given.

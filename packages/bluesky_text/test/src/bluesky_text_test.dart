@@ -275,6 +275,23 @@ void main() {
 
       expect(handles.length, 0);
     });
+
+    test('case18', () {
+      final text = BlueskyText('テスト@shinyakato.dev試験');
+      final handles = text.handles;
+
+      expect(handles.length, 1);
+      expect(handles.first.value, 'shinyakato.dev');
+      expect(handles.first.indices.start, 9);
+      expect(handles.first.indices.end, 24);
+    });
+
+    test('case19', () {
+      final text = BlueskyText('@shinyakato.dev@shinyakato.bsky.social');
+      final handles = text.handles;
+
+      expect(handles.length, 0);
+    });
   });
 
   group('.links', () {

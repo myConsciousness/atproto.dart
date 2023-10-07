@@ -2,9 +2,6 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 📦 Package imports:
-import 'package:icann_tlds/icann_tlds.dart';
-
 // 🌎 Project imports:
 import 'bluesky_text.dart';
 import 'entities/byte_indices.dart';
@@ -13,6 +10,9 @@ import 'entities/entity.dart';
 import 'entities/markdown/markdown_link_entity.dart';
 import 'markdown_extractor.dart';
 import 'regex/regex.dart';
+import 'regex/valid_ascii_domain.dart';
+import 'regex/valid_mention.dart';
+import 'regex/valid_url.dart';
 import 'replacement.dart';
 import 'unicode_string.dart';
 import 'utils.dart';
@@ -88,14 +88,11 @@ final class _HandlesExtractor implements Extractor {
 
     final entities = <Entity>[];
 
-    for (final match in handleRegex.allMatches(text.value)) {
-      final handle = match.group(3)!;
+    for (final match in validMentionRegex.allMatches(text.value)) {
+      final handle = match.handle;
+      final mention = '${match.atMark}${match.handle}';
 
-      if (!_hasValidDomain(handle)) {
-        continue;
-      }
-
-      final start = text.value.indexOf(handle, match.start) - 1;
+      final start = text.value.indexOf(mention, match.start);
 
       entities.add(
         Entity(
@@ -103,7 +100,7 @@ final class _HandlesExtractor implements Extractor {
           value: handle,
           indices: ByteIndices(
             start: text.value.toUtf8Index(start),
-            end: text.value.toUtf8Index(start + handle.length + 1),
+            end: text.value.toUtf8Index(start + mention.length),
           ),
         ),
       );
@@ -111,9 +108,6 @@ final class _HandlesExtractor implements Extractor {
 
     return entities;
   }
-
-  bool _hasValidDomain(final String value) =>
-      tlds.any((tld) => value.endsWith('.$tld'));
 }
 
 final class _LinksExtractor implements Extractor {
@@ -137,7 +131,7 @@ final class _LinksExtractor implements Extractor {
         ? (config?.markdownLinks ?? markdownLinksExtractor.execute(text))
         : const <MarkdownLinkEntity>[];
 
-    for (final match in extractUrlRegex.allMatches(text.value)) {
+    for (final match in validUrlRegex.allMatches(text.value)) {
       final url = match.url;
       final protocol = match.protocol;
       final domain = match.domain;
