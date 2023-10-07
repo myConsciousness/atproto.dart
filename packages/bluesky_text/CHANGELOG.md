@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.9
+
+- The markdown URL must always contain `.` symbol.
+
 ## v0.5.8
 
 - Added `enableMarkdown` param on `BlueskyText`. Defaults to `true`.

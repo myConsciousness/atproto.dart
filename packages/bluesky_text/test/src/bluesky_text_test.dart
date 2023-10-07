@@ -1511,5 +1511,13 @@ github.com/videah/SkyBridge
       expect(entities[0].indices.start, 12);
       expect(entities[0].indices.end, 21);
     });
+
+    test('case16', () {
+      final text = BlueskyText('[テスト](deck)');
+
+      final entities = text.entities;
+
+      expect(entities.isEmpty, isTrue);
+    });
   });
 }
