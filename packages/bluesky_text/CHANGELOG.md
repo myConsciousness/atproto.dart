@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.7
+
+- Fixed a bug regarding byte calculation when detecting markdowns.
+
 ## v0.5.6
 
 - Improved entity extraction for unformatted markdown. For example, `[test](https://example.com)` extracts entities so that `test` can be highlighted. Facets of this entity cannot be generated with `.toFacets` until `.format` is executed.

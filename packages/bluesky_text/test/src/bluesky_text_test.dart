@@ -1466,5 +1466,21 @@ github.com/videah/SkyBridge
 
       expect(entities.isEmpty, isTrue);
     });
+
+    test('case14', () {
+      final text = BlueskyText(
+        '[あああああ](deck.blue)[あああああいいい](deck.blue)⭐[ううあえあああ](deck.blue)',
+      );
+
+      final entities = text.entities;
+
+      expect(entities.length, 3);
+      expect(entities[0].indices.start, 1);
+      expect(entities[0].indices.end, 16);
+      expect(entities[1].indices.start, 29);
+      expect(entities[1].indices.end, 53);
+      expect(entities[2].indices.start, 69);
+      expect(entities[2].indices.end, 90);
+    });
   });
 }
