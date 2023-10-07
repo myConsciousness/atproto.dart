@@ -90,7 +90,7 @@ final class _HandlesExtractor implements Extractor {
 
     for (final match in validMentionRegex.allMatches(text.value)) {
       final handle = match.handle;
-      final mention = '${match.atMark}${match.handle}';
+      final mention = '${match.atMark}$handle';
 
       final start = text.value.indexOf(mention, match.start);
 
