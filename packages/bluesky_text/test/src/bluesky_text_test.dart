@@ -292,6 +292,13 @@ void main() {
 
       expect(handles.length, 0);
     });
+
+    test('case20', () {
+      final text = BlueskyText('contact@shinyakato.dev');
+      final handles = text.handles;
+
+      expect(handles.length, 0);
+    });
   });
 
   group('.links', () {
