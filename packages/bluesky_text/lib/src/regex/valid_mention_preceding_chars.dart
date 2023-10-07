@@ -2,4 +2,5 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-final hashtagRegex = RegExp(r'(?:^|\s)(#[^\d\s]\S*)(?=\s)?');
+const validMentionPrecedingChars =
+    r'(?:^|[^a-zA-Z0-9_!#$%&*@＠]|(?:^|[^a-zA-Z0-9_+~.-]))';
