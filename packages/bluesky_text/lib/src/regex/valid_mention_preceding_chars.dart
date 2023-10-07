@@ -3,4 +3,4 @@
 // modification, are permitted provided the conditions.
 
 const validMentionPrecedingChars =
-    r'(?:^|[^a-zA-Z0-9_!#$%&*@＠]|(?:^|[^a-zA-Z0-9_+~.-])(?:rt|RT|rT|Rt):?)';
+    r'(?:^|[^a-zA-Z0-9_!#$%&*@＠]|(?:^|[^a-zA-Z0-9_+~.-]))';
