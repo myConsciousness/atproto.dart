@@ -32,7 +32,10 @@ final class _Formatter implements Formatter {
     final markdownLinks = markdownLinksExtractor.execute(text);
     final links = linksExtractor.execute(
       text,
-      ExtractorConfig(markdownLinks: markdownLinks),
+      ExtractorConfig(
+        markdownLinks: markdownLinks,
+        includeMarkdown: false,
+      ),
     );
 
     if (markdownLinks.isEmpty && links.isEmpty) return text;

@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.5.6
+
+- Improved entity extraction for unformatted markdown. For example, `[test](https://example.com)` extracts entities so that `test` can be highlighted. Facets of this entity cannot be generated with `.toFacets` until `.format` is executed.
+  - Also added `EntityType.markdownLink`. If you want to exclude entities in the markdown without being `.format`, you can filter by this fixed value.
+
 ## v0.5.5
 
 - Added `service` parameter on `.toFacets` method. ([#882](https://github.com/myConsciousness/atproto.dart/issues/882))
