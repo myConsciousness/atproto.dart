@@ -21,20 +21,31 @@ const formatter = Formatter();
 sealed class Formatter {
   const factory Formatter() = _Formatter;
 
-  BlueskyText execute(final BlueskyText text, final LinkConfig? linkConfig);
+  BlueskyText execute(
+    final BlueskyText text,
+    final bool enableMarkdown,
+    final LinkConfig? linkConfig,
+  );
 }
 
 final class _Formatter implements Formatter {
   const _Formatter();
 
   @override
-  BlueskyText execute(final BlueskyText text, final LinkConfig? linkConfig) {
-    final markdownLinks = markdownLinksExtractor.execute(text);
+  BlueskyText execute(
+    final BlueskyText text,
+    final bool enableMarkdown,
+    final LinkConfig? linkConfig,
+  ) {
+    final markdownLinks = enableMarkdown
+        ? markdownLinksExtractor.execute(text)
+        : const <MarkdownLinkEntity>[];
     final links = linksExtractor.execute(
       text,
       ExtractorConfig(
         markdownLinks: markdownLinks,
-        includeMarkdown: false,
+        enableMarkdown: enableMarkdown,
+        fromFormat: true,
       ),
     );
 
@@ -50,6 +61,7 @@ final class _Formatter implements Formatter {
 
     return BlueskyText(
       formatted.$1,
+      enableMarkdown: enableMarkdown,
       replacements: formatted.$2,
     );
   }

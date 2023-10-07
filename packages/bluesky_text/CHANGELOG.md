@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.8
+
+- Added `enableMarkdown` param on `BlueskyText`. Defaults to `true`.
+
 ## v0.5.7
 
 - Fixed a bug regarding byte calculation when detecting markdowns.
