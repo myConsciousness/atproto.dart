@@ -7,7 +7,6 @@ import 'package:icann_tlds/icann_tlds.dart';
 
 // 🌎 Project imports:
 import 'bluesky_text.dart';
-import 'const.dart';
 import 'entities/byte_indices.dart';
 import 'entities/entities.dart';
 import 'entities/entity.dart';
@@ -16,6 +15,7 @@ import 'markdown_extractor.dart';
 import 'regex/regex.dart';
 import 'replacement.dart';
 import 'unicode_string.dart';
+import 'utils.dart';
 
 const allExtractor = Extractor.all();
 const handlesExtractor = Extractor.handles();
@@ -229,7 +229,7 @@ final class _LinksExtractor implements Extractor {
     entities.add(
       Entity(
         type: EntityType.link,
-        value: _getPrefixedUri(source),
+        value: getPrefixedUri(source),
         indices: ByteIndices(
           start: startUtf8,
           end: endUtf8,
@@ -286,9 +286,6 @@ final class _LinksExtractor implements Extractor {
 
     return false;
   }
-
-  String _getPrefixedUri(final String source) =>
-      !source.startsWith('http') ? '$httpsPrefix$source' : source;
 }
 
 final class _TagsExtractor implements Extractor {

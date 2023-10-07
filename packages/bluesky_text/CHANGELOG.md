@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.10
+
+- Fixed to add `https://` to markdown URLs when it is not given.
+
 ## v0.5.9
 
 - The markdown URL must always contain `.` symbol.

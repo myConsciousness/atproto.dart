@@ -1508,6 +1508,7 @@ github.com/videah/SkyBridge
       final entities = text.entities;
 
       expect(entities.length, 1);
+      expect(entities[0].value, 'https://deck.blue');
       expect(entities[0].indices.start, 12);
       expect(entities[0].indices.end, 21);
     });
