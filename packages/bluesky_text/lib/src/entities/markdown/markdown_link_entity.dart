@@ -2,6 +2,9 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
+import 'dart:convert';
+
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -32,7 +35,7 @@ class MarkdownLinkEntity with _$MarkdownLinkEntity implements Facetable {
         value: url,
         indices: ByteIndices(
           start: indices.start + 1,
-          end: indices.start + text.length + 1,
+          end: indices.start + utf8.encode(text).length + 1,
         ),
       );
 }
