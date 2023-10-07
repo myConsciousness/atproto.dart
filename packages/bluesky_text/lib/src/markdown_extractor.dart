@@ -24,6 +24,7 @@ final class MarkdownLinksExtractor {
       final linkUrl = match.markdownLinkUrl;
 
       if (linkText.isEmpty || linkUrl.isEmpty) continue;
+      if (!linkUrl.contains('.')) continue;
 
       final uri = Uri.tryParse(linkUrl);
 
