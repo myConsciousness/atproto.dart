@@ -1544,5 +1544,49 @@ github.com/videah/SkyBridge
 
       expect(entities.isEmpty, isTrue);
     });
+
+    test('case17', () {
+      final text = BlueskyText('[@shinyakato.dev](https://example.com)');
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.handle);
+      expect(entities.first.value, 'shinyakato.dev');
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value, 'https://example.com');
+    });
+
+    test('case18', () {
+      final text = BlueskyText(
+        '[@shinyakato.dev](https://example.com)',
+      ).format();
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.handle);
+      expect(entities.first.value, 'shinyakato.dev');
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value, 'https://example.com');
+    });
+
+    test('case19', () {
+      final text = BlueskyText('[shinyakato.dev](https://example.com)');
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.type, EntityType.markdownLink);
+      expect(entities.first.value, 'https://example.com');
+    });
+
+    test('case20', () {
+      final text = BlueskyText('[shinyakato](https://example)');
+
+      final entities = text.entities;
+
+      expect(entities.length, 0);
+    });
   });
 }

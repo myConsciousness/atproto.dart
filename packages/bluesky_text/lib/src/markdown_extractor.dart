@@ -7,6 +7,8 @@ import 'bluesky_text.dart';
 import 'entities/byte_indices.dart';
 import 'entities/markdown/markdown_link_entity.dart';
 import 'regex/markdown_link.dart';
+import 'regex/valid_mention.dart';
+import 'regex/valid_url.dart';
 import 'unicode_string.dart';
 import 'utils.dart';
 
@@ -24,13 +26,7 @@ final class MarkdownLinksExtractor {
       final linkText = match.markdownLinkText;
       final linkUrl = match.markdownLinkUrl;
 
-      if (linkText.isEmpty || linkUrl.isEmpty) continue;
-      if (!linkUrl.contains('.')) continue;
-
-      final uri = Uri.tryParse(linkUrl);
-
-      if (uri == null) continue;
-      if (uri.scheme.isNotEmpty && !uri.scheme.startsWith('http')) continue;
+      if (!_isValidMarkdownLink(linkText, linkUrl)) continue;
 
       entities.add(
         MarkdownLinkEntity(
@@ -47,5 +43,14 @@ final class MarkdownLinksExtractor {
     }
 
     return entities;
+  }
+
+  bool _isValidMarkdownLink(final String text, final String url) {
+    if (text.isEmpty || url.isEmpty) return false;
+    if (!url.contains('.')) return false;
+    if (Uri.tryParse(url) == null) return false;
+
+    //* Prevent users from linking to specific mentions text for their safety.
+    return !validMentionRegex.hasMatch(text) && validUrlRegex.hasMatch(url);
   }
 }
