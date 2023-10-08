@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.5.12
+
+- Mentions cannot be set for markdown text. ([#894](https://github.com/myConsciousness/atproto.dart/issues/894))
+- Invalid url cannot be set for markdown url. ([#895](https://github.com/myConsciousness/atproto.dart/issues/895))
+
 ## v0.5.11
 
 - Improved handle extraction algorithm. From with this version, the use of spaces as well as URLs is no longer required. ([#892](https://github.com/myConsciousness/atproto.dart/issues/892))
