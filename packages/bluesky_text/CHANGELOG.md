@@ -1,5 +1,7 @@
 # Release Note
 
+## v0.5.12
+
 - Mentions cannot be set for markdown text. ([#894](https://github.com/myConsciousness/atproto.dart/issues/894))
 - Invalid url cannot be set for markdown url. ([#895](https://github.com/myConsciousness/atproto.dart/issues/895))
 
