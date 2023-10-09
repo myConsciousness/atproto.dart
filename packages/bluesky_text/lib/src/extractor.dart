@@ -9,8 +9,8 @@ import 'entities/entities.dart';
 import 'entities/entity.dart';
 import 'entities/markdown/markdown_link_entity.dart';
 import 'markdown_extractor.dart';
-import 'regex/regex.dart';
 import 'regex/valid_ascii_domain.dart';
+import 'regex/valid_hashtag.dart';
 import 'regex/valid_mention.dart';
 import 'regex/valid_url.dart';
 import 'replacement.dart';
@@ -295,25 +295,23 @@ final class _TagsExtractor implements Extractor {
 
     final entities = <Entity>[];
 
-    for (final match in hashtagRegex.allMatches(text.value)) {
-      String tag = match.group(0)!;
-
-      final bool hasLeadingSpace = tag.startsWith(RegExp(r'\s'));
-      // Strip ending punctuation.
-      tag = tag.trim().replaceAll(RegExp(r'\p{P}+$', unicode: true), '');
+    for (final match in validHashtagRegex.allMatches(text.value)) {
+      final tag = match.boundary == '#'
+          ? '#${match.hashMark}${match.tag}'
+          : '${match.hashMark}${match.tag}';
 
       // Inclusive of #, max of 64 chars
       if (tag.length > 66) continue;
 
-      final index = match.start + (hasLeadingSpace ? 1 : 0);
+      final start = text.value.indexOf(tag, match.start);
 
       entities.add(
         Entity(
           type: EntityType.tag,
           value: tag.substring(1),
           indices: ByteIndices(
-            start: text.value.toUtf8Index(index),
-            end: text.value.toUtf8Index(index + tag.length),
+            start: text.value.toUtf8Index(start),
+            end: text.value.toUtf8Index(start + tag.length),
           ),
         ),
       );
