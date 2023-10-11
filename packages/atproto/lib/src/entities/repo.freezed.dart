@@ -27,6 +27,9 @@ mixin _$Repo {
   @JsonKey(name: 'head')
   String get headCid => throw _privateConstructorUsedError;
 
+  /// A revision of this repo.
+  String get rev => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RepoCopyWith<Repo> get copyWith => throw _privateConstructorUsedError;
@@ -37,7 +40,7 @@ abstract class $RepoCopyWith<$Res> {
   factory $RepoCopyWith(Repo value, $Res Function(Repo) then) =
       _$RepoCopyWithImpl<$Res, Repo>;
   @useResult
-  $Res call({String did, @JsonKey(name: 'head') String headCid});
+  $Res call({String did, @JsonKey(name: 'head') String headCid, String rev});
 }
 
 /// @nodoc
@@ -55,6 +58,7 @@ class _$RepoCopyWithImpl<$Res, $Val extends Repo>
   $Res call({
     Object? did = null,
     Object? headCid = null,
+    Object? rev = null,
   }) {
     return _then(_value.copyWith(
       did: null == did
@@ -64,6 +68,10 @@ class _$RepoCopyWithImpl<$Res, $Val extends Repo>
       headCid: null == headCid
           ? _value.headCid
           : headCid // ignore: cast_nullable_to_non_nullable
+              as String,
+      rev: null == rev
+          ? _value.rev
+          : rev // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -75,7 +83,7 @@ abstract class _$$_RepoCopyWith<$Res> implements $RepoCopyWith<$Res> {
       __$$_RepoCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String did, @JsonKey(name: 'head') String headCid});
+  $Res call({String did, @JsonKey(name: 'head') String headCid, String rev});
 }
 
 /// @nodoc
@@ -89,6 +97,7 @@ class __$$_RepoCopyWithImpl<$Res> extends _$RepoCopyWithImpl<$Res, _$_Repo>
   $Res call({
     Object? did = null,
     Object? headCid = null,
+    Object? rev = null,
   }) {
     return _then(_$_Repo(
       did: null == did
@@ -99,6 +108,10 @@ class __$$_RepoCopyWithImpl<$Res> extends _$RepoCopyWithImpl<$Res, _$_Repo>
           ? _value.headCid
           : headCid // ignore: cast_nullable_to_non_nullable
               as String,
+      rev: null == rev
+          ? _value.rev
+          : rev // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -107,7 +120,9 @@ class __$$_RepoCopyWithImpl<$Res> extends _$RepoCopyWithImpl<$Res, _$_Repo>
 @JsonSerializable()
 class _$_Repo implements _Repo {
   const _$_Repo(
-      {required this.did, @JsonKey(name: 'head') required this.headCid});
+      {required this.did,
+      @JsonKey(name: 'head') required this.headCid,
+      required this.rev});
 
   factory _$_Repo.fromJson(Map<String, dynamic> json) => _$$_RepoFromJson(json);
 
@@ -120,9 +135,13 @@ class _$_Repo implements _Repo {
   @JsonKey(name: 'head')
   final String headCid;
 
+  /// A revision of this repo.
+  @override
+  final String rev;
+
   @override
   String toString() {
-    return 'Repo(did: $did, headCid: $headCid)';
+    return 'Repo(did: $did, headCid: $headCid, rev: $rev)';
   }
 
   @override
@@ -131,12 +150,13 @@ class _$_Repo implements _Repo {
         (other.runtimeType == runtimeType &&
             other is _$_Repo &&
             (identical(other.did, did) || other.did == did) &&
-            (identical(other.headCid, headCid) || other.headCid == headCid));
+            (identical(other.headCid, headCid) || other.headCid == headCid) &&
+            (identical(other.rev, rev) || other.rev == rev));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, did, headCid);
+  int get hashCode => Object.hash(runtimeType, did, headCid, rev);
 
   @JsonKey(ignore: true)
   @override
@@ -155,7 +175,8 @@ class _$_Repo implements _Repo {
 abstract class _Repo implements Repo {
   const factory _Repo(
       {required final String did,
-      @JsonKey(name: 'head') required final String headCid}) = _$_Repo;
+      @JsonKey(name: 'head') required final String headCid,
+      required final String rev}) = _$_Repo;
 
   factory _Repo.fromJson(Map<String, dynamic> json) = _$_Repo.fromJson;
 
@@ -168,6 +189,10 @@ abstract class _Repo implements Repo {
   /// The CID of the head of the repository.
   @JsonKey(name: 'head')
   String get headCid;
+  @override
+
+  /// A revision of this repo.
+  String get rev;
   @override
   @JsonKey(ignore: true)
   _$$_RepoCopyWith<_$_Repo> get copyWith => throw _privateConstructorUsedError;
