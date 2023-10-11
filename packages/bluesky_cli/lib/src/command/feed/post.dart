@@ -75,7 +75,7 @@ class PostCommand extends CreateRecordCommand {
 
     final record = {
       'text': text.value,
-      'facets': await entities.toFacets(),
+      'facets': await entities.toFacets(service: service),
       'createdAt': argResults!['created-at'],
     };
 

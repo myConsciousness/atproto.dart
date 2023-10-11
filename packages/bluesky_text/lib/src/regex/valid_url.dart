@@ -10,7 +10,7 @@ import 'valid_url_preceding_chars.dart';
 import 'valid_url_query_chars.dart';
 import 'valid_url_query_ending_chars.dart';
 
-const extractUrl = '(' // $1 total match
+const validUrl = '(' // $1 total match
     '($validUrlPrecedingChars)' // $2 Preceding character
     '(' // $3 URL
     '(https?:\\/\\/)?' // $4 Protocol (optional)
@@ -21,9 +21,9 @@ const extractUrl = '(' // $1 total match
     ')'
     ')';
 
-final extractUrlRegex = RegExp(extractUrl, caseSensitive: false);
+final validUrlRegex = RegExp(validUrl, caseSensitive: false);
 
-extension ExtractUrlRegexExtension on RegExpMatch {
+extension ValidUrlRegexExtension on RegExpMatch {
   String get url => group(3) ?? '';
   String get protocol => group(4) ?? '';
   String get domain => group(5) ?? '';

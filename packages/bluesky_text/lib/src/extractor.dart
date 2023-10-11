@@ -2,9 +2,6 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 📦 Package imports:
-import 'package:icann_tlds/icann_tlds.dart';
-
 // 🌎 Project imports:
 import 'bluesky_text.dart';
 import 'const.dart';
@@ -12,25 +9,45 @@ import 'entities/byte_indices.dart';
 import 'entities/entities.dart';
 import 'entities/entity.dart';
 import 'entities/markdown/markdown_link_entity.dart';
-import 'regex/regex.dart';
+import 'markdown_extractor.dart';
+import 'regex/end_hashtag.dart';
+import 'regex/valid_ascii_domain.dart';
+import 'regex/valid_hashtag.dart';
+import 'regex/valid_mention.dart';
+import 'regex/valid_url.dart';
 import 'replacement.dart';
 import 'unicode_string.dart';
+import 'utils.dart';
 
 const allExtractor = Extractor.all();
 const handlesExtractor = Extractor.handles();
 const linksExtractor = Extractor.links();
 const tagsExtractor = Extractor.tags();
 
+List<Entity> orderByIndicesStart(final List<Entity> entities) {
+  if (entities.isEmpty) return const [];
+
+  return entities
+    ..sort(
+      (a, b) => a.indices.start.compareTo(b.indices.start),
+    );
+}
+
 final class ExtractorConfig {
   const ExtractorConfig({
     this.handles,
     this.markdownLinks,
     this.replacements,
+    this.enableMarkdown = true,
+    this.fromFormat = false,
   });
 
   final Entities? handles;
   final List<MarkdownLinkEntity>? markdownLinks;
   final List<Replacement>? replacements;
+
+  final bool enableMarkdown;
+  final bool fromFormat;
 }
 
 sealed class Extractor {
@@ -53,20 +70,11 @@ final class _AllExtractor implements Extractor {
     final BlueskyText text, [
     final ExtractorConfig? config,
   ]) =>
-      _orderByIndicesStart([
+      orderByIndicesStart([
         ...config!.handles!,
         ...linksExtractor.execute(text, config),
         ...tagsExtractor.execute(text),
       ]);
-
-  List<Entity> _orderByIndicesStart(final List<Entity> entities) {
-    if (entities.isEmpty) return const [];
-
-    return entities
-      ..sort(
-        (a, b) => a.indices.start.compareTo(b.indices.start),
-      );
-  }
 }
 
 final class _HandlesExtractor implements Extractor {
@@ -82,14 +90,11 @@ final class _HandlesExtractor implements Extractor {
 
     final entities = <Entity>[];
 
-    for (final match in handleRegex.allMatches(text.value)) {
-      final handle = match.group(3)!;
+    for (final match in validMentionRegex.allMatches(text.value)) {
+      final handle = match.handle;
+      final mention = '${match.atMark}$handle';
 
-      if (!_hasValidDomain(handle)) {
-        continue;
-      }
-
-      final start = text.value.indexOf(handle, match.start) - 1;
+      final start = text.value.indexOf(mention, match.start);
 
       entities.add(
         Entity(
@@ -97,7 +102,7 @@ final class _HandlesExtractor implements Extractor {
           value: handle,
           indices: ByteIndices(
             start: text.value.toUtf8Index(start),
-            end: text.value.toUtf8Index(start + handle.length + 1),
+            end: text.value.toUtf8Index(start + mention.length),
           ),
         ),
       );
@@ -105,9 +110,6 @@ final class _HandlesExtractor implements Extractor {
 
     return entities;
   }
-
-  bool _hasValidDomain(final String value) =>
-      tlds.any((tld) => value.endsWith('.$tld'));
 }
 
 final class _LinksExtractor implements Extractor {
@@ -127,8 +129,11 @@ final class _LinksExtractor implements Extractor {
 
     final entities = <Entity>[];
     final $handles = config?.handles ?? handlesExtractor.execute(text);
+    final $markdownLinks = config?.enableMarkdown ?? false
+        ? (config?.markdownLinks ?? markdownLinksExtractor.execute(text))
+        : const <MarkdownLinkEntity>[];
 
-    for (final match in extractUrlRegex.allMatches(text.value)) {
+    for (final match in validUrlRegex.allMatches(text.value)) {
       final url = match.url;
       final protocol = match.protocol;
       final domain = match.domain;
@@ -173,10 +178,10 @@ final class _LinksExtractor implements Extractor {
           _addLinkEntity(
             entities: entities,
             handles: $handles,
+            markdownLinks: $markdownLinks,
             value: text.value,
             source: found['url'],
             matchStart: found['start'],
-            config: config,
           );
         }
       } else {
@@ -186,24 +191,28 @@ final class _LinksExtractor implements Extractor {
         _addLinkEntity(
           entities: entities,
           handles: $handles,
+          markdownLinks: $markdownLinks,
           value: text.value,
           source: uri,
           matchStart: match.start,
-          config: config,
         );
       }
     }
 
-    return entities;
+    return (config?.fromFormat ?? false)
+        ? entities
+        : orderByIndicesStart(
+            [...entities, ...$markdownLinks.map((e) => e.toEntity())],
+          );
   }
 
   void _addLinkEntity({
     required List<Entity> entities,
     required List<Entity> handles,
+    required List<MarkdownLinkEntity> markdownLinks,
     required String value,
     required String source,
     required int matchStart,
-    required ExtractorConfig? config,
   }) {
     final start = value.indexOf(source, matchStart);
 
@@ -211,12 +220,12 @@ final class _LinksExtractor implements Extractor {
     final endUtf8 = value.toUtf8Index(start + source.length);
 
     if (_isHandle(endUtf8, handles)) return;
-    if (_isMarkdownLink(startUtf8, endUtf8, config?.markdownLinks)) return;
+    if (_isMarkdownLink(startUtf8, endUtf8, markdownLinks)) return;
 
     entities.add(
       Entity(
         type: EntityType.link,
-        value: _getPrefixedUri(source),
+        value: getPrefixedUri(source),
         indices: ByteIndices(
           start: startUtf8,
           end: endUtf8,
@@ -273,9 +282,6 @@ final class _LinksExtractor implements Extractor {
 
     return false;
   }
-
-  String _getPrefixedUri(final String source) =>
-      !source.startsWith('http') ? '$httpsPrefix$source' : source;
 }
 
 final class _TagsExtractor implements Extractor {
@@ -291,25 +297,24 @@ final class _TagsExtractor implements Extractor {
 
     final entities = <Entity>[];
 
-    for (final match in hashtagRegex.allMatches(text.value)) {
-      String tag = match.group(0)!;
+    for (final match in validHashtagRegex.allMatches(text.value)) {
+      final after = match.input.substring(match.start + match.group(0)!.length);
+      if (endHashtagRegex.hasMatch(after)) continue;
 
-      final bool hasLeadingSpace = tag.startsWith(RegExp(r'\s'));
-      // Strip ending punctuation.
-      tag = tag.trim().replaceAll(RegExp(r'\p{P}+$', unicode: true), '');
+      final tag = match.boundary == '#'
+          ? '#${match.hashMark}${match.tag}'
+          : '${match.hashMark}${match.tag}';
+      if (tag.length > tagMaxLength) continue;
 
-      // Inclusive of #, max of 64 chars
-      if (tag.length > 66) continue;
-
-      final index = match.start + (hasLeadingSpace ? 1 : 0);
+      final start = text.value.indexOf(tag, match.start);
 
       entities.add(
         Entity(
           type: EntityType.tag,
           value: tag.substring(1),
           indices: ByteIndices(
-            start: text.value.toUtf8Index(index),
-            end: text.value.toUtf8Index(index + tag.length),
+            start: text.value.toUtf8Index(start),
+            end: text.value.toUtf8Index(start + tag.length),
           ),
         ),
       );

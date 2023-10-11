@@ -275,6 +275,30 @@ void main() {
 
       expect(handles.length, 0);
     });
+
+    test('case18', () {
+      final text = BlueskyText('テスト@shinyakato.dev試験');
+      final handles = text.handles;
+
+      expect(handles.length, 1);
+      expect(handles.first.value, 'shinyakato.dev');
+      expect(handles.first.indices.start, 9);
+      expect(handles.first.indices.end, 24);
+    });
+
+    test('case19', () {
+      final text = BlueskyText('@shinyakato.dev@shinyakato.bsky.social');
+      final handles = text.handles;
+
+      expect(handles.length, 0);
+    });
+
+    test('case20', () {
+      final text = BlueskyText('contact@shinyakato.dev');
+      final handles = text.handles;
+
+      expect(handles.length, 0);
+    });
   });
 
   group('.links', () {
@@ -713,6 +737,135 @@ example8.com はいいぞ
       expect(tags[1].indices.start, 6);
       expect(tags[1].indices.end, 13);
     });
+
+    test('case4', () async {
+      final text = BlueskyText("#test's #テスト");
+      final tags = text.tags;
+
+      expect(tags.length, 2);
+      expect(tags.first.value, 'test');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 5);
+      expect(tags[1].value, 'テスト');
+      expect(tags[1].indices.start, 8);
+      expect(tags[1].indices.end, 18);
+    });
+
+    test('case5', () async {
+      final text = BlueskyText("#test#テスト");
+      final tags = text.tags;
+
+      expect(tags.length, 0);
+    });
+
+    test('case6', () async {
+      final text = BlueskyText('''#test @shinyakato.dev
+
+🪔 #テスト''');
+      final tags = text.tags;
+
+      expect(tags.length, 2);
+      expect(tags.first.value, 'test');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 5);
+      expect(tags[1].value, 'テスト');
+      expect(tags[1].indices.start, 28);
+      expect(tags[1].indices.end, 38);
+    });
+
+    test('case7', () async {
+      final text = BlueskyText("#test @shinyakato.dev\n\n🪔 （,#テスト#?='）");
+      final tags = text.tags;
+
+      expect(tags.length, 1);
+      expect(tags.first.value, 'test');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 5);
+    });
+
+    test('case8', () async {
+      final text = BlueskyText("#test @shinyakato.dev\n\n🪔 （,#テスト?='）");
+      final tags = text.tags;
+
+      expect(tags.length, 2);
+      expect(tags.first.value, 'test');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 5);
+      expect(tags[1].value, 'テスト');
+      expect(tags[1].indices.start, 32);
+      expect(tags[1].indices.end, 42);
+    });
+
+    test('case9', () async {
+      final text = BlueskyText("#test @shinyakato.dev\n\n🪔 （,#テスト='）");
+      final tags = text.tags;
+
+      expect(tags.length, 2);
+      expect(tags.first.value, 'test');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 5);
+      expect(tags[1].value, 'テスト');
+      expect(tags[1].indices.start, 32);
+      expect(tags[1].indices.end, 42);
+    });
+
+    test('case10', () async {
+      final text = BlueskyText("#test @shinyakato.dev\n\n🪔 （#テスト'）");
+      final tags = text.tags;
+
+      expect(tags.length, 2);
+      expect(tags.first.value, 'test');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 5);
+      expect(tags[1].value, 'テスト');
+      expect(tags[1].indices.start, 31);
+      expect(tags[1].indices.end, 41);
+    });
+
+    test('case11', () async {
+      final text = BlueskyText('#${'a' * 65}');
+      final tags = text.tags;
+
+      expect(tags.length, 1);
+    });
+
+    test('case12', () async {
+      final text = BlueskyText('##${'a' * 64}');
+      final tags = text.tags;
+
+      expect(tags.length, 1);
+    });
+
+    test('case13', () async {
+      final text = BlueskyText('#${'a' * 66}');
+      final tags = text.tags;
+
+      expect(tags.length, 0);
+    });
+
+    test('case14', () async {
+      final text = BlueskyText('#https://shinyakato.dev');
+      final tags = text.tags;
+
+      expect(tags.length, 0);
+    });
+
+    test('case15', () async {
+      final text = BlueskyText('#@shinyakato.dev');
+      final tags = text.tags;
+
+      expect(tags.length, 0);
+    });
+
+    test('case16', () async {
+      final text = BlueskyText('#shinyakato.dev');
+      final tags = text.tags;
+
+      expect(tags.length, 1);
+      expect(tags.first.value, 'shinyakato');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 11);
+    });
   });
 
   group('.entities', () {
@@ -1148,7 +1301,7 @@ github.com/videah/SkyBridge
       expect(links[2].value, 'https://www.youtube.com/watch?v=lDK9QqIzhwk');
     });
 
-    test('case9', () {
+    test('case10', () {
       final text = BlueskyText(
         'www.youtube.com/watch?v=lDK9QqIzhwk https://www.youtube.com/watch?v=lDK9QqIzhxx www.youtube.com/watch?v=lDK9QqIzhwk',
       ).format();
@@ -1159,6 +1312,62 @@ github.com/videah/SkyBridge
       expect(links[0].value, 'https://www.youtube.com/watch?v=lDK9QqIzhwk');
       expect(links[1].value, 'https://www.youtube.com/watch?v=lDK9QqIzhxx');
       expect(links[2].value, 'https://www.youtube.com/watch?v=lDK9QqIzhwk');
+    });
+
+    test('case11', () {
+      final text = BlueskyText(
+        'https://deck.blue/',
+        linkConfig: LinkConfig(excludeProtocol: true),
+      ).format();
+
+      expect(text.value, 'deck.blue');
+
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.value, 'https://deck.blue/');
+    });
+
+    test('case12', () {
+      final text = BlueskyText(
+        'https://deck.blue/page',
+      ).format();
+
+      expect(text.value, 'https://deck.blue/page');
+
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.value, 'https://deck.blue/page');
+    });
+
+    test('case13', () {
+      final text = BlueskyText(
+        'https://deck.blue/page/',
+      ).format();
+
+      expect(text.value, 'https://deck.blue/page/');
+
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.value, 'https://deck.blue/page/');
+    });
+
+    test('case14', () {
+      final text = BlueskyText(
+        '[test](https://atprotodart.com)',
+        enableMarkdown: false,
+      ).format();
+
+      expect(text.value, '[test](https://atprotodart.com)');
+
+      final links = text.links;
+
+      expect(links.length, 1);
+      expect(links.first.indices.start, 7);
+      expect(links.first.indices.end, 30);
+      expect(links.first.value, 'https://atprotodart.com');
     });
   });
 
@@ -1309,8 +1518,8 @@ github.com/videah/SkyBridge
 
       expect(entities.length, 1);
       expect(entities.first.value, 'https://example.com');
-      expect(entities.first.indices.start, 7);
-      expect(entities.first.indices.end, 26);
+      expect(entities.first.indices.start, 1);
+      expect(entities.first.indices.end, 5);
     });
 
     test('case6', () {
@@ -1400,6 +1609,113 @@ github.com/videah/SkyBridge
       expect(entities[2].value, 'https://atprotodart.com');
       expect(entities[2].indices.start, 27);
       expect(entities[2].indices.end, 50);
+    });
+
+    test('case12', () {
+      final text = BlueskyText('[test](mailto:hello@example.com)').format();
+
+      expect(text.value, '[test](mailto:hello@example.com)');
+
+      final entities = text.entities;
+
+      expect(entities.isEmpty, isTrue);
+    });
+
+    test('case13', () {
+      final text = BlueskyText(
+        '[test](ftp://user:pass@ftp.example.txt)',
+      ).format();
+
+      expect(
+        text.value,
+        '[test](ftp://user:pass@ftp.example.txt)',
+      );
+
+      final entities = text.entities;
+
+      expect(entities.isEmpty, isTrue);
+    });
+
+    test('case14', () {
+      final text = BlueskyText(
+        '[あああああ](deck.blue)[あああああいいい](deck.blue)⭐[ううあえあああ](deck.blue)',
+      );
+
+      final entities = text.entities;
+
+      expect(entities.length, 3);
+      expect(entities[0].indices.start, 1);
+      expect(entities[0].indices.end, 16);
+      expect(entities[1].indices.start, 29);
+      expect(entities[1].indices.end, 53);
+      expect(entities[2].indices.start, 69);
+      expect(entities[2].indices.end, 90);
+    });
+
+    test('case15', () {
+      final text = BlueskyText(
+        '[テスト](deck.blue)',
+        enableMarkdown: false,
+      );
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities[0].value, 'https://deck.blue');
+      expect(entities[0].indices.start, 12);
+      expect(entities[0].indices.end, 21);
+    });
+
+    test('case16', () {
+      final text = BlueskyText('[テスト](deck)');
+
+      final entities = text.entities;
+
+      expect(entities.isEmpty, isTrue);
+    });
+
+    test('case17', () {
+      final text = BlueskyText('[@shinyakato.dev](https://example.com)');
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.handle);
+      expect(entities.first.value, 'shinyakato.dev');
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value, 'https://example.com');
+    });
+
+    test('case18', () {
+      final text = BlueskyText(
+        '[@shinyakato.dev](https://example.com)',
+      ).format();
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.handle);
+      expect(entities.first.value, 'shinyakato.dev');
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value, 'https://example.com');
+    });
+
+    test('case19', () {
+      final text = BlueskyText('[shinyakato.dev](https://example.com)');
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.type, EntityType.markdownLink);
+      expect(entities.first.value, 'https://example.com');
+    });
+
+    test('case20', () {
+      final text = BlueskyText('[shinyakato](https://example)');
+
+      final entities = text.entities;
+
+      expect(entities.length, 0);
     });
   });
 }

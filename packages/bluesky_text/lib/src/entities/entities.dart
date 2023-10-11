@@ -13,23 +13,11 @@ class Entities extends UnmodifiableListView<Entity> {
   Entities(super.source);
 
   /// Returns the collection of facet.
-  ///
-  /// ## Parameters
-  ///
-  /// - [ignoreInvalidHandle]: If true, processing continues even if an invalid
-  ///                          handle is detected, and data from the invalid
-  ///                          handle is excluded from the result. If false, an
-  ///                          `InvalidRequestException` is thrown when an
-  ///                          invalid handle is detected.
   Future<List<Map<String, dynamic>>> toFacets({
-    bool ignoreInvalidHandle = true,
+    String? service,
   }) async {
     final facets = await Future.wait(
-      map(
-        (entity) => entity.toFacet(
-          ignoreInvalidHandle: ignoreInvalidHandle,
-        ),
-      ),
+      map((entity) => entity.toFacet(service: service)),
     );
 
     return facets..removeWhere((e) => e.isEmpty);

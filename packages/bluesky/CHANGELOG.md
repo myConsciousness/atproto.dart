@@ -1,7 +1,14 @@
 # Release Note
 
-## v0.8.25
+## v0.9.0
 
+- Added `rev` on `Repo` object. ([#885](https://github.com/myConsciousness/atproto.dart/issues/885))
+- Removed deprecated methods and object.
+  - `.refreshSession`: **Use function version instead.**
+  - `.findRepoCheckout`
+  - `.findRepoCheckoutAsJson`
+  - `.findRepoHead`
+  - `.findRepoHeadAsJson`
 - Supported `app.bsky.feed.searchPosts` on `FeedsService`. ([#845](https://github.com/myConsciousness/atproto.dart/issues/845))
   - `.searchPostsByQuery`
   - `.searchPostsByQueryAsJson`

@@ -13,7 +13,8 @@ import 'entities/facetable.dart';
 import 'entities/markdown/markdown_link_entity.dart';
 import 'extractor.dart';
 import 'markdown_extractor.dart';
-import 'regex/regex.dart';
+import 'regex/valid_ascii_domain.dart';
+import 'regex/valid_url.dart';
 import 'replacement.dart';
 
 const formatter = Formatter();
@@ -21,18 +22,32 @@ const formatter = Formatter();
 sealed class Formatter {
   const factory Formatter() = _Formatter;
 
-  BlueskyText execute(final BlueskyText text, final LinkConfig? linkConfig);
+  BlueskyText execute(
+    final BlueskyText text,
+    final bool enableMarkdown,
+    final LinkConfig? linkConfig,
+  );
 }
 
 final class _Formatter implements Formatter {
   const _Formatter();
 
   @override
-  BlueskyText execute(final BlueskyText text, final LinkConfig? linkConfig) {
-    final markdownLinks = markdownLinksExtractor.execute(text);
+  BlueskyText execute(
+    final BlueskyText text,
+    final bool enableMarkdown,
+    final LinkConfig? linkConfig,
+  ) {
+    final markdownLinks = enableMarkdown
+        ? markdownLinksExtractor.execute(text)
+        : const <MarkdownLinkEntity>[];
     final links = linksExtractor.execute(
       text,
-      ExtractorConfig(markdownLinks: markdownLinks),
+      ExtractorConfig(
+        markdownLinks: markdownLinks,
+        enableMarkdown: enableMarkdown,
+        fromFormat: true,
+      ),
     );
 
     if (markdownLinks.isEmpty && links.isEmpty) return text;
@@ -47,6 +62,7 @@ final class _Formatter implements Formatter {
 
     return BlueskyText(
       formatted.$1,
+      enableMarkdown: enableMarkdown,
       replacements: formatted.$2,
     );
   }
@@ -113,7 +129,7 @@ final class _Formatter implements Formatter {
   }
 
   String _toShortLink(final String source, final LinkConfig linkConfig) {
-    final match = extractUrlRegex.firstMatch(source)!;
+    final match = validUrlRegex.firstMatch(source)!;
     final protocol = match.protocol;
     final domain = getFirstValidDomain(match.domain);
     final portNumber = match.portNumber;
@@ -129,7 +145,8 @@ final class _Formatter implements Formatter {
       return '$domainPart${_getShortenedPath(pathPart)}';
     }
 
-    return '$domainPart$pathPart';
+    // Remove trailing slash as it's unnecessary.
+    return pathPart == '/' ? domainPart : '$domainPart$pathPart';
   }
 
   String _getShortenedPath(final String source) {
