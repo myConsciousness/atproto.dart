@@ -2,4 +2,9 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-final hashtagRegex = RegExp(r'(?:^|\s)(#[^\d\s]\S*)(?=\s)?');
+// 🌎 Project imports:
+import 'hash_signs.dart';
+
+const endHashtag = '^(?:$hashSigns|:\\/\\/)';
+
+final endHashtagRegex = RegExp(endHashtag);
