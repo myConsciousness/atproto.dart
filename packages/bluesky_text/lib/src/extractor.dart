@@ -4,11 +4,13 @@
 
 // 🌎 Project imports:
 import 'bluesky_text.dart';
+import 'const.dart';
 import 'entities/byte_indices.dart';
 import 'entities/entities.dart';
 import 'entities/entity.dart';
 import 'entities/markdown/markdown_link_entity.dart';
 import 'markdown_extractor.dart';
+import 'regex/end_hashtag.dart';
 import 'regex/valid_ascii_domain.dart';
 import 'regex/valid_hashtag.dart';
 import 'regex/valid_mention.dart';
@@ -296,12 +298,13 @@ final class _TagsExtractor implements Extractor {
     final entities = <Entity>[];
 
     for (final match in validHashtagRegex.allMatches(text.value)) {
+      final after = match.input.substring(match.start + match.group(0)!.length);
+      if (endHashtagRegex.hasMatch(after)) continue;
+
       final tag = match.boundary == '#'
           ? '#${match.hashMark}${match.tag}'
           : '${match.hashMark}${match.tag}';
-
-      // Inclusive of #, max of 64 chars
-      if (tag.length > 66) continue;
+      if (tag.length > tagMaxLength) continue;
 
       final start = text.value.indexOf(tag, match.start);
 
