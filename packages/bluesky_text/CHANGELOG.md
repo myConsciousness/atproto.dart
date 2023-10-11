@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.13
+
+- Improved the extraction algo for hashtags. ([#897](https://github.com/myConsciousness/atproto.dart/issues/897))
+
 ## v0.5.12
 
 - Mentions cannot be set for markdown text. ([#894](https://github.com/myConsciousness/atproto.dart/issues/894))
