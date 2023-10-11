@@ -64,24 +64,6 @@ sealed class ServersService {
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/getSession.json
   Future<core.XRPCResponse<Map<String, dynamic>>> findCurrentSessionAsJson();
 
-  /// Refresh an authentication session.
-  ///
-  /// ## Parameters
-  ///
-  /// - [refreshJwt]: The token for refreshing session.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.server.refreshSession
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/refreshSession.json
-  @Deprecated('Use refreshSession function instead. Will be removed in v0.7.0')
-  Future<core.XRPCResponse<core.Session>> refreshSession({
-    required String refreshJwt,
-  });
-
   /// Create an account.
   ///
   /// ## Parameters
@@ -445,19 +427,6 @@ final class _ServersService extends ATProtoBaseService
   @override
   Future<core.XRPCResponse<Map<String, dynamic>>>
       findCurrentSessionAsJson() async => await _findCurrentSession();
-
-  @override
-  Future<core.XRPCResponse<core.Session>> refreshSession({
-    required String refreshJwt,
-  }) async =>
-      await super.post(
-        'refreshSession',
-        headers: {
-          'Authorization': 'Bearer $refreshJwt',
-        },
-        userContext: core.UserContext.anonymousOnly,
-        to: core.Session.fromJson,
-      );
 
   @override
   Future<core.XRPCResponse<Account>> createAccount({

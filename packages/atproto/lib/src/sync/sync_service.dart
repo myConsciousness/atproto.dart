@@ -14,7 +14,6 @@ import '../atproto_base_service.dart';
 import '../entities/repo_blocks.dart';
 import '../entities/repo_commit.dart';
 import '../entities/repo_commits.dart';
-import '../entities/repo_head.dart';
 import '../entities/repo_latest_commit.dart';
 import '../entities/repos.dart';
 import '../entities/subscribed_repo.dart';
@@ -175,120 +174,6 @@ sealed class SyncService {
   Future<core.XRPCResponse<Map<String, dynamic>>> findRepoBlocksAsJson({
     required String did,
     required List<String> commitCids,
-  });
-
-  /// Gets the repo state.
-  ///
-  /// This endpoint also retrieves information on all commits made by the
-  /// Repo associated with a particular DID. This means that depending on
-  /// the target Repo to be retrieved, a very data-intensive Car may need to be
-  /// decoded, and this process may take several minutes or more. At this time,
-  /// the [progress] callback can be used to check how much data has been
-  /// processed at this time.
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The DID of the repo.
-  ///
-  /// - [commit]: The commit to get the checkout from. Defaults to current HEAD.
-  ///
-  /// - [progress]: When the amount of data to be processed is large,
-  ///               this callback can be used to check the progress of
-  ///               processing.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.getCheckout
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getCheckout.json
-  @Deprecated('Use findRepoCommits instead. Will be removed in v0.7.0')
-  Future<core.XRPCResponse<RepoCommits>> findRepoCheckout({
-    required String did,
-    String? commitCid,
-    core.ProgressStatus? progress,
-  });
-
-  /// Gets the repo state in JSON representation.
-  ///
-  /// This endpoint also retrieves information on all commits made by the
-  /// Repo associated with a particular DID. This means that depending on
-  /// the target Repo to be retrieved, a very data-intensive Car may need to be
-  /// decoded, and this process may take several minutes or more. At this time,
-  /// the [progress] callback can be used to check how much data has been
-  /// processed at this time.
-  ///
-  /// This method does not convert response data into a [RepoCommits] object,
-  /// so this may improve runtime performance.
-  ///
-  /// If you want to get it as a [RepoCommits] object,
-  /// use [findRepoCheckout].
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The DID of the repo.
-  ///
-  /// - [commit]: The commit to get the checkout from. Defaults to current HEAD.
-  ///
-  /// - [progress]: When the amount of data to be processed is large,
-  ///               this callback can be used to check the progress of
-  ///               processing.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.getCheckout
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getCheckout.json
-  @Deprecated('Use findRepoCommitsAsJson instead. Will be removed in v0.7.0')
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRepoCheckoutAsJson({
-    required String did,
-    String? commitCid,
-    core.ProgressStatus? progress,
-  });
-
-  /// Gets the current HEAD CID of a repo.
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The DID of the repo.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.getHead
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getHead.json
-  @Deprecated('Use findLatestCommit instead. Will be removed in v0.7.0')
-  Future<core.XRPCResponse<RepoHead>> findRepoHead({
-    required String did,
-  });
-
-  /// Gets the current HEAD CID of a repo in JSON representation.
-  ///
-  /// This method does not convert response data into a [RepoHead] object,
-  /// so this may improve runtime performance.
-  ///
-  /// If you want to get it as a [RepoHead] object,
-  /// use [findRepoHead].
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The DID of the repo.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.getHead
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getHead.json
-  @Deprecated('Use findLatestCommitAsJson instead. Will be removed in v0.7.0')
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRepoHeadAsJson({
-    required String did,
   });
 
   /// Gets the current commit CID & revision of the repo.
@@ -581,46 +466,6 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
       );
 
   @override
-  Future<core.XRPCResponse<RepoCommits>> findRepoCheckout({
-    required String did,
-    String? commitCid,
-    core.ProgressStatus? progress,
-  }) async =>
-      await _findRepoCheckout(
-        did: did,
-        commitCid: commitCid,
-        progress: progress,
-        to: RepoCommits.fromJson,
-      );
-
-  @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRepoCheckoutAsJson({
-    required String did,
-    String? commitCid,
-    core.ProgressStatus? progress,
-  }) async =>
-      await _findRepoCheckout(
-        did: did,
-        commitCid: commitCid,
-        progress: progress,
-      );
-
-  @override
-  Future<core.XRPCResponse<RepoHead>> findRepoHead({
-    required String did,
-  }) async =>
-      await _findRepoHead(
-        did: did,
-        to: RepoHead.fromJson,
-      );
-
-  @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRepoHeadAsJson({
-    required String did,
-  }) async =>
-      await _findRepoHead(did: did);
-
-  @override
   Future<core.XRPCResponse<RepoLatestCommit>> findLatestCommit({
     required String did,
   }) async =>
@@ -752,39 +597,6 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
           'cids': commitCids,
         },
         adaptor: toRepoBlocks,
-        userContext: core.UserContext.anonymousOnly,
-        to: to,
-      );
-
-  Future<core.XRPCResponse<T>> _findRepoCheckout<T>({
-    required String did,
-    required String? commitCid,
-    required core.ProgressStatus? progress,
-    core.To<T>? to,
-  }) async =>
-      await super.get(
-        'getCheckout',
-        parameters: {
-          'did': did,
-          'commit': commitCid,
-        },
-        adaptor: (data) => toRepoCommits(
-          data,
-          progress,
-        ),
-        userContext: core.UserContext.anonymousOnly,
-        to: to,
-      );
-
-  Future<core.XRPCResponse<T>> _findRepoHead<T>({
-    required String did,
-    core.To<T>? to,
-  }) async =>
-      await super.get(
-        'getHead',
-        parameters: {
-          'did': did,
-        },
         userContext: core.UserContext.anonymousOnly,
         to: to,
       );
