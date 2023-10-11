@@ -2,18 +2,21 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 📦 Package imports:
-import 'package:icann_tlds/icann_tlds.dart';
-
 // 🌎 Project imports:
 import 'bluesky_text.dart';
+import 'const.dart';
 import 'entities/byte_indices.dart';
 import 'entities/entities.dart';
 import 'entities/entity.dart';
 import 'entities/markdown/markdown_link_entity.dart';
 import 'entities/replacement.dart';
 import 'markdown_extractor.dart';
-import 'regex/regex.dart';
+import 'regex/end_hashtag.dart';
+import 'regex/valid_ascii_domain.dart';
+import 'regex/valid_hashtag.dart';
+import 'regex/valid_mention.dart';
+import 'regex/valid_url.dart';
+import 'replacement.dart';
 import 'unicode_string.dart';
 import 'utils.dart';
 
@@ -88,14 +91,11 @@ final class _HandlesExtractor implements Extractor {
 
     final entities = <Entity>[];
 
-    for (final match in handleRegex.allMatches(text.value)) {
-      final handle = match.group(3)!;
+    for (final match in validMentionRegex.allMatches(text.value)) {
+      final handle = match.handle;
+      final mention = '${match.atMark}$handle';
 
-      if (!_hasValidDomain(handle)) {
-        continue;
-      }
-
-      final start = text.value.indexOf(handle, match.start) - 1;
+      final start = text.value.indexOf(mention, match.start);
 
       entities.add(
         Entity(
@@ -103,7 +103,7 @@ final class _HandlesExtractor implements Extractor {
           value: handle,
           indices: ByteIndices(
             start: text.value.toUtf8Index(start),
-            end: text.value.toUtf8Index(start + handle.length + 1),
+            end: text.value.toUtf8Index(start + mention.length),
           ),
         ),
       );
@@ -111,9 +111,6 @@ final class _HandlesExtractor implements Extractor {
 
     return entities;
   }
-
-  bool _hasValidDomain(final String value) =>
-      tlds.any((tld) => value.endsWith('.$tld'));
 }
 
 final class _LinksExtractor implements Extractor {
@@ -137,7 +134,7 @@ final class _LinksExtractor implements Extractor {
         ? (config?.markdownLinks ?? markdownLinksExtractor.execute(text))
         : const <MarkdownLinkEntity>[];
 
-    for (final match in extractUrlRegex.allMatches(text.value)) {
+    for (final match in validUrlRegex.allMatches(text.value)) {
       final url = match.url;
       final protocol = match.protocol;
       final domain = match.domain;
@@ -299,25 +296,24 @@ final class _TagsExtractor implements Extractor {
 
     final entities = <Entity>[];
 
-    for (final match in hashtagRegex.allMatches(text.value)) {
-      String tag = match.group(0)!;
+    for (final match in validHashtagRegex.allMatches(text.value)) {
+      final after = match.input.substring(match.start + match.group(0)!.length);
+      if (endHashtagRegex.hasMatch(after)) continue;
 
-      final bool hasLeadingSpace = tag.startsWith(RegExp(r'\s'));
-      // Strip ending punctuation.
-      tag = tag.trim().replaceAll(RegExp(r'\p{P}+$', unicode: true), '');
+      final tag = match.boundary == '#'
+          ? '#${match.hashMark}${match.tag}'
+          : '${match.hashMark}${match.tag}';
+      if (tag.length > tagMaxLength) continue;
 
-      // Inclusive of #, max of 64 chars
-      if (tag.length > 66) continue;
-
-      final index = match.start + (hasLeadingSpace ? 1 : 0);
+      final start = text.value.indexOf(tag, match.start);
 
       entities.add(
         Entity(
           type: EntityType.tag,
           value: tag.substring(1),
           indices: ByteIndices(
-            start: text.value.toUtf8Index(index),
-            end: text.value.toUtf8Index(index + tag.length),
+            start: text.value.toUtf8Index(start),
+            end: text.value.toUtf8Index(start + tag.length),
           ),
         ),
       );

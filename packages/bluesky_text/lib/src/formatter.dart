@@ -15,7 +15,9 @@ import 'entities/replacement.dart';
 import 'entities/replacements.dart';
 import 'extractor.dart';
 import 'markdown_extractor.dart';
-import 'regex/regex.dart';
+import 'regex/valid_ascii_domain.dart';
+import 'regex/valid_url.dart';
+import 'replacement.dart';
 
 const formatter = Formatter();
 
@@ -141,7 +143,7 @@ final class _Formatter implements Formatter {
 
   (String, List<ReplacementFactor>) _toShortLink(
       final String source, final LinkConfig linkConfig) {
-    final match = extractUrlRegex.firstMatch(source)!;
+    final match = validUrlRegex.firstMatch(source)!;
     final protocol = match.protocol;
     final domain = getFirstValidDomain(match.domain);
     final portNumber = match.portNumber;

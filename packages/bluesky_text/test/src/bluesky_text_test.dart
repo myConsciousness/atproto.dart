@@ -275,6 +275,30 @@ void main() {
 
       expect(handles.length, 0);
     });
+
+    test('case18', () {
+      final text = BlueskyText('テスト@shinyakato.dev試験');
+      final handles = text.handles;
+
+      expect(handles.length, 1);
+      expect(handles.first.value, 'shinyakato.dev');
+      expect(handles.first.indices.start, 9);
+      expect(handles.first.indices.end, 24);
+    });
+
+    test('case19', () {
+      final text = BlueskyText('@shinyakato.dev@shinyakato.bsky.social');
+      final handles = text.handles;
+
+      expect(handles.length, 0);
+    });
+
+    test('case20', () {
+      final text = BlueskyText('contact@shinyakato.dev');
+      final handles = text.handles;
+
+      expect(handles.length, 0);
+    });
   });
 
   group('.links', () {
@@ -712,6 +736,135 @@ example8.com はいいぞ
       expect(tags[1].value, '#test2');
       expect(tags[1].indices.start, 6);
       expect(tags[1].indices.end, 13);
+    });
+
+    test('case4', () async {
+      final text = BlueskyText("#test's #テスト");
+      final tags = text.tags;
+
+      expect(tags.length, 2);
+      expect(tags.first.value, 'test');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 5);
+      expect(tags[1].value, 'テスト');
+      expect(tags[1].indices.start, 8);
+      expect(tags[1].indices.end, 18);
+    });
+
+    test('case5', () async {
+      final text = BlueskyText("#test#テスト");
+      final tags = text.tags;
+
+      expect(tags.length, 0);
+    });
+
+    test('case6', () async {
+      final text = BlueskyText('''#test @shinyakato.dev
+
+🪔 #テスト''');
+      final tags = text.tags;
+
+      expect(tags.length, 2);
+      expect(tags.first.value, 'test');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 5);
+      expect(tags[1].value, 'テスト');
+      expect(tags[1].indices.start, 28);
+      expect(tags[1].indices.end, 38);
+    });
+
+    test('case7', () async {
+      final text = BlueskyText("#test @shinyakato.dev\n\n🪔 （,#テスト#?='）");
+      final tags = text.tags;
+
+      expect(tags.length, 1);
+      expect(tags.first.value, 'test');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 5);
+    });
+
+    test('case8', () async {
+      final text = BlueskyText("#test @shinyakato.dev\n\n🪔 （,#テスト?='）");
+      final tags = text.tags;
+
+      expect(tags.length, 2);
+      expect(tags.first.value, 'test');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 5);
+      expect(tags[1].value, 'テスト');
+      expect(tags[1].indices.start, 32);
+      expect(tags[1].indices.end, 42);
+    });
+
+    test('case9', () async {
+      final text = BlueskyText("#test @shinyakato.dev\n\n🪔 （,#テスト='）");
+      final tags = text.tags;
+
+      expect(tags.length, 2);
+      expect(tags.first.value, 'test');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 5);
+      expect(tags[1].value, 'テスト');
+      expect(tags[1].indices.start, 32);
+      expect(tags[1].indices.end, 42);
+    });
+
+    test('case10', () async {
+      final text = BlueskyText("#test @shinyakato.dev\n\n🪔 （#テスト'）");
+      final tags = text.tags;
+
+      expect(tags.length, 2);
+      expect(tags.first.value, 'test');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 5);
+      expect(tags[1].value, 'テスト');
+      expect(tags[1].indices.start, 31);
+      expect(tags[1].indices.end, 41);
+    });
+
+    test('case11', () async {
+      final text = BlueskyText('#${'a' * 65}');
+      final tags = text.tags;
+
+      expect(tags.length, 1);
+    });
+
+    test('case12', () async {
+      final text = BlueskyText('##${'a' * 64}');
+      final tags = text.tags;
+
+      expect(tags.length, 1);
+    });
+
+    test('case13', () async {
+      final text = BlueskyText('#${'a' * 66}');
+      final tags = text.tags;
+
+      expect(tags.length, 0);
+    });
+
+    test('case14', () async {
+      final text = BlueskyText('#https://shinyakato.dev');
+      final tags = text.tags;
+
+      expect(tags.length, 0);
+    });
+
+    test('case15', () async {
+      final text = BlueskyText('#@shinyakato.dev');
+      final tags = text.tags;
+
+      expect(tags.length, 0);
+    });
+
+    test('case16', () async {
+      final text = BlueskyText('#shinyakato.dev');
+      final tags = text.tags;
+
+      expect(tags.length, 1);
+      expect(tags.first.value, 'shinyakato');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 11);
     });
   });
 
@@ -1519,6 +1672,50 @@ github.com/videah/SkyBridge
       final entities = text.entities;
 
       expect(entities.isEmpty, isTrue);
+    });
+
+    test('case17', () {
+      final text = BlueskyText('[@shinyakato.dev](https://example.com)');
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.handle);
+      expect(entities.first.value, 'shinyakato.dev');
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value, 'https://example.com');
+    });
+
+    test('case18', () {
+      final text = BlueskyText(
+        '[@shinyakato.dev](https://example.com)',
+      ).format();
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.handle);
+      expect(entities.first.value, 'shinyakato.dev');
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value, 'https://example.com');
+    });
+
+    test('case19', () {
+      final text = BlueskyText('[shinyakato.dev](https://example.com)');
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.type, EntityType.markdownLink);
+      expect(entities.first.value, 'https://example.com');
+    });
+
+    test('case20', () {
+      final text = BlueskyText('[shinyakato](https://example)');
+
+      final entities = text.entities;
+
+      expect(entities.length, 0);
     });
   });
 }

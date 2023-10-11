@@ -15,6 +15,7 @@ _$_Repo _$$_RepoFromJson(Map json) => $checkedCreate(
         final val = _$_Repo(
           did: $checkedConvert('did', (v) => v as String),
           headCid: $checkedConvert('head', (v) => v as String),
+          rev: $checkedConvert('rev', (v) => v as String),
         );
         return val;
       },
@@ -24,4 +25,5 @@ _$_Repo _$$_RepoFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$_RepoToJson(_$_Repo instance) => <String, dynamic>{
       'did': instance.did,
       'head': instance.headCid,
+      'rev': instance.rev,
     };
