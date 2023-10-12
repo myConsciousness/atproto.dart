@@ -17,7 +17,6 @@ import 'extractor.dart';
 import 'markdown_extractor.dart';
 import 'regex/valid_ascii_domain.dart';
 import 'regex/valid_url.dart';
-import 'replacement.dart';
 
 const formatter = Formatter();
 
@@ -69,7 +68,6 @@ final class _Formatter implements Formatter {
         formatted.$2,
       ),
       enableMarkdown: enableMarkdown,
-      replacements: formatted.$2,
     );
   }
 

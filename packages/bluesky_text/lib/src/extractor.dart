@@ -16,7 +16,6 @@ import 'regex/valid_ascii_domain.dart';
 import 'regex/valid_hashtag.dart';
 import 'regex/valid_mention.dart';
 import 'regex/valid_url.dart';
-import 'replacement.dart';
 import 'unicode_string.dart';
 import 'utils.dart';
 

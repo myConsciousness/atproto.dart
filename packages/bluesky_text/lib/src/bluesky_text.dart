@@ -312,11 +312,6 @@ final class _BlueskyText implements BlueskyText {
   List<BlueskyText> split() => splitter.execute(this);
 
   @override
-  BlueskyText format() => _replacements != null
-      ? this //* is already formatted.
-      : formatter.execute(this, _linkConfig);
-
-  @override
   bool get isLengthLimitExceeded => maxLength < length;
 
   @override
@@ -330,4 +325,8 @@ final class _BlueskyText implements BlueskyText {
 
   @override
   String toString() => value;
+}
+
+extension _BlueskyTextExtension on _BlueskyText {
+  Replacements? get replacements => _replacements;
 }
