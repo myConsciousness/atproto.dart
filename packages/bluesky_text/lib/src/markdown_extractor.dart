@@ -7,6 +7,7 @@ import 'bluesky_text.dart';
 import 'entities/byte_indices.dart';
 import 'entities/markdown/markdown_link_entity.dart';
 import 'regex/markdown_link.dart';
+import 'regex/valid_hashtag.dart';
 import 'regex/valid_mention.dart';
 import 'regex/valid_url.dart';
 import 'unicode_string.dart';
@@ -51,6 +52,8 @@ final class MarkdownLinksExtractor {
     if (Uri.tryParse(url) == null) return false;
 
     //* Prevent users from linking to specific mentions text for their safety.
-    return !validMentionRegex.hasMatch(text) && validUrlRegex.hasMatch(url);
+    return !validMentionRegex.hasMatch(text) &&
+        !validHashtagRegex.hasMatch(text) &&
+        validUrlRegex.hasMatch(url);
   }
 }
