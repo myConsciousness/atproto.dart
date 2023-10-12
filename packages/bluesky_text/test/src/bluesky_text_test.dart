@@ -1717,5 +1717,91 @@ github.com/videah/SkyBridge
 
       expect(entities.length, 0);
     });
+
+    test('case21', () {
+      final text = BlueskyText('[test]aaaaa[test2](https://shinyakato.dev)');
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.value, 'https://shinyakato.dev');
+      expect(entities.first.indices.start, 12);
+      expect(entities.first.indices.end, 17);
+    });
+
+    test('case22', () {
+      final text = BlueskyText('[test]aaaaa[test2](shinyakato.dev)');
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.value, 'https://shinyakato.dev');
+      expect(entities.first.indices.start, 12);
+      expect(entities.first.indices.end, 17);
+    });
+
+    test('case23', () {
+      final text = BlueskyText('[#test](https://shinyakato.dev)');
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.tag);
+      expect(entities.first.value, 'test');
+      expect(entities.first.indices.start, 1);
+      expect(entities.first.indices.end, 6);
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value, 'https://shinyakato.dev');
+      expect(entities[1].indices.start, 8);
+      expect(entities[1].indices.end, 30);
+    });
+
+    test('case24', () {
+      final text = BlueskyText('[#test](https://shinyakato.dev)').format();
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.tag);
+      expect(entities.first.value, 'test');
+      expect(entities.first.indices.start, 1);
+      expect(entities.first.indices.end, 6);
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value, 'https://shinyakato.dev');
+      expect(entities[1].indices.start, 8);
+      expect(entities[1].indices.end, 30);
+    });
+
+    test('case25', () {
+      final text = BlueskyText('[##test](https://shinyakato.dev)');
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.tag);
+      expect(entities.first.value, '#test');
+      expect(entities.first.indices.start, 1);
+      expect(entities.first.indices.end, 7);
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value, 'https://shinyakato.dev');
+      expect(entities[1].indices.start, 9);
+      expect(entities[1].indices.end, 31);
+    });
+
+    test('case26', () {
+      final text = BlueskyText('[##test](https://shinyakato.dev)').format();
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.tag);
+      expect(entities.first.value, '#test');
+      expect(entities.first.indices.start, 1);
+      expect(entities.first.indices.end, 7);
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value, 'https://shinyakato.dev');
+      expect(entities[1].indices.start, 9);
+      expect(entities[1].indices.end, 31);
+    });
   });
 }
