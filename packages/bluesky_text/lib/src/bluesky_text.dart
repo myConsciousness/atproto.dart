@@ -253,7 +253,6 @@ final class _BlueskyText implements BlueskyText {
       replacementsWithFactor,
       utf8MaxLength,
     )) {
-      print(exceeded);
       final before = _buildLengthExceededEntity(
         base,
         lastEnd,
