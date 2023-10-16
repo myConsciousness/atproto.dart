@@ -23,7 +23,7 @@ const formatter = Formatter();
 sealed class Formatter {
   const factory Formatter() = _Formatter;
 
-  BlueskyText execute(
+  (BlueskyText, Replacements?) execute(
     final BlueskyText text,
     final bool enableMarkdown,
     final LinkConfig? linkConfig,
@@ -34,7 +34,7 @@ final class _Formatter implements Formatter {
   const _Formatter();
 
   @override
-  BlueskyText execute(
+  (BlueskyText, Replacements?) execute(
     final BlueskyText text,
     final bool enableMarkdown,
     final LinkConfig? linkConfig,
@@ -51,7 +51,7 @@ final class _Formatter implements Formatter {
       ),
     );
 
-    if (markdownLinks.isEmpty && links.isEmpty) return text;
+    if (markdownLinks.isEmpty && links.isEmpty) return (text, null);
 
     final formatted = _format(
       text.value,
@@ -61,13 +61,18 @@ final class _Formatter implements Formatter {
       linkConfig ?? const LinkConfig(),
     );
 
-    return BlueskyText(
-      formatted.$1,
-      replacements: Replacements(
-        text.value,
-        formatted.$2,
+    final replacements = Replacements(
+      text.value,
+      formatted.$2,
+    );
+
+    return (
+      BlueskyText(
+        formatted.$1,
+        enableMarkdown: enableMarkdown,
+        replacements: replacements,
       ),
-      enableMarkdown: enableMarkdown,
+      replacements,
     );
   }
 

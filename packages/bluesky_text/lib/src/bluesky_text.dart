@@ -12,7 +12,9 @@ import 'config/link_config.dart';
 import 'const.dart';
 import 'entities/byte_indices.dart';
 import 'entities/entities.dart';
+import 'entities/entity.dart';
 import 'entities/length_exceeded_entity.dart';
+import 'entities/markdown/markdown_link_entity.dart';
 import 'entities/replacement.dart';
 import 'entities/replacements.dart';
 import 'extension/list_extension.dart';
@@ -205,28 +207,53 @@ final class _BlueskyText implements BlueskyText {
 
   @override
   List<LengthExceededEntity> get exceededIndices {
+    if (isEmpty) return const [];
     if (isNotLengthLimitExceeded) return const [];
 
-    final formatted =
-        _replacements?.where((e) => e.factors.isNotEmpty).toList();
-
-    if (formatted == null || formatted.isEmpty || _replacements!.base.isEmpty) {
+    if (!_enableMarkdown && _linkConfig == null) {
+      //* No need to care about formatted things.
       return [
         _buildLengthExceededEntity(
-          utf8.encode(_replacements!.base),
-          value.toUtf8Index(maxLength + 1),
+          utf8.encode(value),
+          value.toUtf8Index(maxLength),
           value.toUtf8Index(value.length),
         )!,
       ];
     }
 
-    final base = utf8.encode(_replacements!.base);
-    final exceededReplacements = _getExceededReplacements(formatted);
+    return _getLengthExceededEntities(
+      _replacements ?? formatter.execute(this, _enableMarkdown, _linkConfig).$2,
+    );
+  }
 
-    final indices = <LengthExceededEntity>[];
-    int lastEnd =
-        utf8.encode(_replacements!.base.characters.take(300).toString()).length;
-    for (final exceeded in exceededReplacements) {
+  List<LengthExceededEntity> _getLengthExceededEntities(
+    final Replacements? replacements,
+  ) {
+    final replacementsWithFactor =
+        replacements?.where((e) => e.factors.isNotEmpty).toList() ?? const [];
+
+    if (replacementsWithFactor.isEmpty) {
+      return [
+        _buildLengthExceededEntity(
+          utf8.encode(value),
+          value.toUtf8Index(maxLength),
+          value.toUtf8Index(value.length),
+        )!,
+      ];
+    }
+
+    final base = utf8.encode(replacements!.base);
+    final utf8MaxLength = utf8
+        .encode(replacements.base.characters.take(maxLength).toString())
+        .length;
+
+    int lastEnd = utf8MaxLength;
+    final entities = <LengthExceededEntity>[];
+    for (final exceeded in _getExceededReplacements(
+      replacementsWithFactor,
+      utf8MaxLength,
+    )) {
+      print(exceeded);
       final before = _buildLengthExceededEntity(
         base,
         lastEnd,
@@ -241,20 +268,52 @@ final class _BlueskyText implements BlueskyText {
 
       final after = _buildLengthExceededEntity(base, start, end);
 
-      indices
+      entities
         ..addIfNotNull(before)
         ..addIfNotNull(after);
 
       lastEnd = exceeded.source!.indices.end;
     }
 
-    return indices;
+    return entities;
   }
 
   List<Replacement> _getExceededReplacements(
     final List<Replacement> replacements,
-  ) =>
-      replacements.where((e) => e.end > maxLength).toList();
+    final int utf8MaxLength,
+  ) {
+    final exceededReplacements =
+        replacements.where((e) => e.end > maxLength).toList();
+
+    if (exceededReplacements.first.source!.indices.start <= maxLength) {
+      final firstSourceEntity = exceededReplacements.first.source!;
+
+      switch (firstSourceEntity) {
+        case Entity():
+          [
+            exceededReplacements.first.copyWith(
+                source: Entity(
+              type: firstSourceEntity.type,
+              value: firstSourceEntity.value,
+              indices: firstSourceEntity.indices.copyWith(start: utf8MaxLength),
+            )),
+            ...exceededReplacements.sublist(1),
+          ];
+        case MarkdownLinkEntity():
+          return [
+            exceededReplacements.first.copyWith(
+                source: MarkdownLinkEntity(
+              text: firstSourceEntity.text,
+              url: firstSourceEntity.url,
+              indices: firstSourceEntity.indices.copyWith(start: utf8MaxLength),
+            )),
+            ...exceededReplacements.sublist(1),
+          ];
+      }
+    }
+
+    return exceededReplacements;
+  }
 
   LengthExceededEntity? _buildLengthExceededEntity(
     final List<int> base,
@@ -293,7 +352,7 @@ final class _BlueskyText implements BlueskyText {
           break;
         case ReplacementFactor.markdownLink:
           $start++;
-          $end++;
+          $end--;
           break;
       }
     }
@@ -305,7 +364,7 @@ final class _BlueskyText implements BlueskyText {
   BlueskyText format() {
     if (_replacements != null) return this; //* Already formatted.
 
-    return formatter.execute(this, _enableMarkdown, _linkConfig);
+    return formatter.execute(this, _enableMarkdown, _linkConfig).$1;
   }
 
   @override
@@ -325,8 +384,4 @@ final class _BlueskyText implements BlueskyText {
 
   @override
   String toString() => value;
-}
-
-extension _BlueskyTextExtension on _BlueskyText {
-  Replacements? get replacements => _replacements;
 }
