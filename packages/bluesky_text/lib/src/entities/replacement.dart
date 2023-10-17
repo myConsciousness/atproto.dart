@@ -22,27 +22,6 @@ final class Replacement {
 
   final Facetable? source;
   final List<ReplacementFactor> factors;
-
-  Replacement copyWith({
-    String? key,
-    String? value,
-    int? start,
-    int? end,
-    Facetable? source,
-    List<ReplacementFactor>? factors,
-  }) =>
-      Replacement(
-        key ?? this.key,
-        value ?? this.value,
-        start ?? this.start,
-        end ?? this.end,
-        source ?? this.source,
-        factors ?? this.factors,
-      );
-
-  @override
-  String toString() => 'Replacement(key: $key, value: $value, start: $start, '
-      'end: $end, source: $source, factors: $factors)';
 }
 
 enum ReplacementFactor {
