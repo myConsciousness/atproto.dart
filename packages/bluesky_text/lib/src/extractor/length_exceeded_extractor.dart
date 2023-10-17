@@ -5,6 +5,9 @@
 // 🎯 Dart imports:
 import 'dart:convert';
 
+// 📦 Package imports:
+import 'package:characters/characters.dart';
+
 // 🌎 Project imports:
 import '../bluesky_text.dart';
 import '../config/link_config.dart';
@@ -143,7 +146,7 @@ final class _LengthExceededExtractor implements LengthExceededExtractor {
   ) {
     final firstEntity = entities.first;
     final newIndices = firstEntity.indices.copyWith(
-      start: base.toUtf8Index(maxLength),
+      start: utf8.encode(base.characters.take(maxLength + 1).toString()).length,
     );
 
     return [

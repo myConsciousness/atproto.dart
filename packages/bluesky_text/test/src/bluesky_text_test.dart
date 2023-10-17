@@ -1804,4 +1804,128 @@ github.com/videah/SkyBridge
       expect(entities[1].indices.end, 31);
     });
   });
+
+  group('.lengthExceededEntities', () {
+    test('case1', () {
+      final text = BlueskyText('a' * 300);
+
+      expect(text.lengthExceededEntities.isEmpty, isTrue);
+    });
+
+    test('case2', () {
+      final text = BlueskyText('');
+
+      expect(text.lengthExceededEntities.isEmpty, isTrue);
+    });
+
+    test('case3', () {
+      final text = BlueskyText(' ');
+
+      expect(text.lengthExceededEntities.isEmpty, isTrue);
+    });
+
+    test('case4', () {
+      final text = BlueskyText('a' * 301);
+      final entities = text.lengthExceededEntities;
+
+      expect(entities.length, 1);
+      expect(entities.first.value, 'a');
+      expect(entities.first.indices.start, 300);
+      expect(entities.first.indices.end, 301);
+    });
+
+    test('case5', () {
+      final text = BlueskyText('${'a' * 300}[test](https://atprotodart.com)');
+      final entities = text.lengthExceededEntities;
+
+      expect(entities.length, 1);
+      expect(entities.first.value, 'test');
+      expect(entities.first.indices.start, 301);
+      expect(entities.first.indices.end, 305);
+    });
+
+    test('case6', () {
+      final text = BlueskyText('${'a' * 300}[テスト](https://atprotodart.com)');
+      final entities = text.lengthExceededEntities;
+
+      expect(entities.length, 1);
+      expect(entities.first.value, 'テスト');
+      expect(entities.first.indices.start, 301);
+      expect(entities.first.indices.end, 310);
+    });
+
+    test('case7', () {
+      final text = BlueskyText('${'a' * 299}[テスト](https://atprotodart.com)');
+      final entities = text.lengthExceededEntities;
+
+      expect(entities.length, 1);
+      expect(entities.first.value, 'スト');
+      expect(entities.first.indices.start, 303);
+      expect(entities.first.indices.end, 309);
+    });
+
+    test('case8', () {
+      final text = BlueskyText('${'a' * 298}[テスト](https://atprotodart.com)');
+      final entities = text.lengthExceededEntities;
+
+      expect(entities.length, 1);
+      expect(entities.first.value, 'ト');
+      expect(entities.first.indices.start, 305);
+      expect(entities.first.indices.end, 308);
+    });
+
+    test('case9', () {
+      final text = BlueskyText('${'a' * 298}[test](https://atprotodart.com)');
+      final entities = text.lengthExceededEntities;
+
+      expect(entities.length, 1);
+      expect(entities.first.value, 'st');
+      expect(entities.first.indices.start, 301);
+      expect(entities.first.indices.end, 303);
+    });
+
+    test('case10', () {
+      final text =
+          BlueskyText('${'a' * 298}[test](https://atprotodart.com) test テスト');
+      final entities = text.lengthExceededEntities;
+
+      expect(entities.length, 2);
+      expect(entities.first.value, 'st');
+      expect(entities.first.indices.start, 301);
+      expect(entities.first.indices.end, 303);
+      expect(entities[1].value, ' test テスト');
+      expect(entities[1].indices.start, 329);
+      expect(entities[1].indices.end, 344);
+    });
+
+    test('case11', () {
+      final text =
+          BlueskyText('${'a' * 300}[test](https://atprotodart.com) test テスト');
+      final entities = text.lengthExceededEntities;
+
+      expect(entities.length, 2);
+      expect(entities.first.value, 'test');
+      expect(entities.first.indices.start, 301);
+      expect(entities.first.indices.end, 305);
+      expect(entities[1].value, ' test テスト');
+      expect(entities[1].indices.start, 331);
+      expect(entities[1].indices.end, 346);
+    });
+
+    test('case12', () {
+      final text = BlueskyText(
+        '${'a' * 300}[test](https://atprotodart.com) test テスト https://atprotodart.com',
+      );
+
+      final entities = text.lengthExceededEntities;
+
+      expect(entities.length, 2);
+      expect(entities.first.value, 'test');
+      expect(entities.first.indices.start, 301);
+      expect(entities.first.indices.end, 305);
+      expect(entities[1].value, ' test テスト https://atprotodart.com');
+      expect(entities[1].indices.start, 331);
+      expect(entities[1].indices.end, 370);
+    });
+  });
 }
