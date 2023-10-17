@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.15-preview.0
+
+- Added the experimental feature: `lengthExceededEntity`.
+
 ## v0.5.14
 
 - Hashtag formatted text is not allowed as Markdown.
