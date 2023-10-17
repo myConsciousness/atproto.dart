@@ -2,10 +2,9 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-final class Replacement {
-  const Replacement(this.key, this.value, this.start);
-
-  final String key;
-  final String value;
-  final int start;
+extension ListExtension<E> on List<E> {
+  void addIfNotNull(final E? value) {
+    if (value == null) return;
+    add(value);
+  }
 }

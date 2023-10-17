@@ -9,9 +9,11 @@ import 'package:characters/characters.dart';
 import 'config/link_config.dart';
 import 'const.dart';
 import 'entities/entities.dart';
-import 'extractor.dart';
+import 'entities/length_exceeded_entity.dart';
+import 'entities/replacements.dart';
+import 'extractor/extractor.dart';
+import 'extractor/length_exceeded_extractor.dart';
 import 'formatter.dart';
-import 'replacement.dart';
 import 'splitter.dart';
 
 /// This class provides high-performance analysis of [Bluesky Social](https://blueskyweb.xyz)'s text
@@ -79,7 +81,7 @@ sealed class BlueskyText {
     final String text, {
     final bool enableMarkdown,
     final LinkConfig? linkConfig,
-    final List<Replacement>? replacements,
+    final Replacements? replacements,
   }) = _BlueskyText;
 
   /// Returns the resource text.
@@ -113,6 +115,8 @@ sealed class BlueskyText {
   ///
   /// It includes the response from [handles], [links], [tags].
   Entities get entities;
+
+  List<LengthExceededEntity> get lengthExceededEntities;
 
   /// Splits this [value].
   ///
@@ -154,14 +158,14 @@ final class _BlueskyText implements BlueskyText {
     this.value, {
     bool enableMarkdown = true,
     LinkConfig? linkConfig,
-    List<Replacement>? replacements,
+    Replacements? replacements,
   })  : _enableMarkdown = enableMarkdown,
         _linkConfig = linkConfig,
         _replacements = replacements;
 
   final bool _enableMarkdown;
   final LinkConfig? _linkConfig;
-  final List<Replacement>? _replacements;
+  final Replacements? _replacements;
 
   @override
   final String value;
@@ -195,14 +199,21 @@ final class _BlueskyText implements BlueskyText {
       ));
 
   @override
-  List<BlueskyText> split() => splitter.execute(this);
+  List<LengthExceededEntity> get lengthExceededEntities =>
+      lengthExceededExtractor.execute(
+        this,
+        _replacements,
+        _enableMarkdown,
+        _linkConfig,
+      );
 
   @override
-  BlueskyText format() {
-    if (_replacements != null) return this; //* Already formatted.
+  BlueskyText format() => _replacements != null
+      ? this //* is already formatted.
+      : formatter.execute(this, _enableMarkdown, _linkConfig).$1;
 
-    return formatter.execute(this, _enableMarkdown, _linkConfig);
-  }
+  @override
+  List<BlueskyText> split() => splitter.execute(this);
 
   @override
   bool get isLengthLimitExceeded => maxLength < length;

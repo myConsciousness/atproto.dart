@@ -3,21 +3,21 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'bluesky_text.dart';
-import 'const.dart';
-import 'entities/byte_indices.dart';
-import 'entities/entities.dart';
-import 'entities/entity.dart';
-import 'entities/markdown/markdown_link_entity.dart';
+import '../bluesky_text.dart';
+import '../const.dart';
+import '../entities/byte_indices.dart';
+import '../entities/entities.dart';
+import '../entities/entity.dart';
+import '../entities/markdown/markdown_link_entity.dart';
+import '../entities/replacement.dart';
+import '../regex/end_hashtag.dart';
+import '../regex/valid_ascii_domain.dart';
+import '../regex/valid_hashtag.dart';
+import '../regex/valid_mention.dart';
+import '../regex/valid_url.dart';
+import '../unicode_string.dart';
+import '../utils.dart';
 import 'markdown_extractor.dart';
-import 'regex/end_hashtag.dart';
-import 'regex/valid_ascii_domain.dart';
-import 'regex/valid_hashtag.dart';
-import 'regex/valid_mention.dart';
-import 'regex/valid_url.dart';
-import 'replacement.dart';
-import 'unicode_string.dart';
-import 'utils.dart';
 
 const allExtractor = Extractor.all();
 const handlesExtractor = Extractor.handles();
@@ -245,9 +245,7 @@ final class _LinksExtractor implements Extractor {
               value: e.value,
               indices: ByteIndices(
                 start: value.toUtf8Index(e.start),
-                end: value.toUtf8Index(
-                  e.start + e.key.length,
-                ),
+                end: value.toUtf8Index(e.end),
               ),
             ),
           )
