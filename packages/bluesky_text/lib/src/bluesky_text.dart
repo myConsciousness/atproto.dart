@@ -3,25 +3,18 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'dart:convert';
-
 import 'package:characters/characters.dart';
 
 // 🌎 Project imports:
 import 'config/link_config.dart';
 import 'const.dart';
-import 'entities/byte_indices.dart';
 import 'entities/entities.dart';
-import 'entities/entity.dart';
 import 'entities/length_exceeded_entity.dart';
-import 'entities/markdown/markdown_link_entity.dart';
-import 'entities/replacement.dart';
 import 'entities/replacements.dart';
-import 'extension/list_extension.dart';
-import 'extractor.dart';
+import 'extractor/extractor.dart';
+import 'extractor/length_exceeded_extractor.dart';
 import 'formatter.dart';
 import 'splitter.dart';
-import 'unicode_string.dart';
 
 /// This class provides high-performance analysis of [Bluesky Social](https://blueskyweb.xyz)'s text
 /// and features related to secure posting.
@@ -123,7 +116,7 @@ sealed class BlueskyText {
   /// It includes the response from [handles], [links], [tags].
   Entities get entities;
 
-  List<LengthExceededEntity> get exceededIndices;
+  List<LengthExceededEntity> get lengthExceededEntities;
 
   /// Splits this [value].
   ///
@@ -206,165 +199,18 @@ final class _BlueskyText implements BlueskyText {
       ));
 
   @override
-  List<LengthExceededEntity> get exceededIndices {
-    if (isEmpty) return const [];
-    if (isNotLengthLimitExceeded) return const [];
-
-    if (!_enableMarkdown && _linkConfig == null) {
-      //* No need to care about formatted things.
-      return [
-        _buildLengthExceededEntity(
-          utf8.encode(value),
-          value.toUtf8Index(maxLength),
-          value.toUtf8Index(value.length),
-        )!,
-      ];
-    }
-
-    return _getLengthExceededEntities(
-      _replacements ?? formatter.execute(this, _enableMarkdown, _linkConfig).$2,
-    );
-  }
-
-  List<LengthExceededEntity> _getLengthExceededEntities(
-    final Replacements? replacements,
-  ) {
-    final replacementsWithFactor =
-        replacements?.where((e) => e.factors.isNotEmpty).toList() ?? const [];
-
-    if (replacementsWithFactor.isEmpty) {
-      return [
-        _buildLengthExceededEntity(
-          utf8.encode(value),
-          value.toUtf8Index(maxLength),
-          value.toUtf8Index(value.length),
-        )!,
-      ];
-    }
-
-    final base = utf8.encode(replacements!.base);
-    final utf8MaxLength = utf8
-        .encode(replacements.base.characters.take(maxLength).toString())
-        .length;
-
-    int lastEnd = utf8MaxLength;
-    final entities = <LengthExceededEntity>[];
-    for (final exceeded in _getExceededReplacements(
-      replacementsWithFactor,
-      utf8MaxLength,
-    )) {
-      final before = _buildLengthExceededEntity(
-        base,
-        lastEnd,
-        exceeded.source!.indices.start,
+  List<LengthExceededEntity> get lengthExceededEntities =>
+      lengthExceededExtractor.execute(
+        this,
+        _replacements,
+        _enableMarkdown,
+        _linkConfig,
       );
-
-      final (start, end) = _adjustIndices(
-        exceeded.key,
-        exceeded.factors,
-        exceeded.source!.indices.start,
-      );
-
-      final after = _buildLengthExceededEntity(base, start, end);
-
-      entities
-        ..addIfNotNull(before)
-        ..addIfNotNull(after);
-
-      lastEnd = exceeded.source!.indices.end;
-    }
-
-    return entities;
-  }
-
-  List<Replacement> _getExceededReplacements(
-    final List<Replacement> replacements,
-    final int utf8MaxLength,
-  ) {
-    final exceededReplacements =
-        replacements.where((e) => e.end > maxLength).toList();
-
-    if (exceededReplacements.first.source!.indices.start <= maxLength) {
-      final firstSourceEntity = exceededReplacements.first.source!;
-
-      switch (firstSourceEntity) {
-        case Entity():
-          [
-            exceededReplacements.first.copyWith(
-                source: Entity(
-              type: firstSourceEntity.type,
-              value: firstSourceEntity.value,
-              indices: firstSourceEntity.indices.copyWith(start: utf8MaxLength),
-            )),
-            ...exceededReplacements.sublist(1),
-          ];
-        case MarkdownLinkEntity():
-          return [
-            exceededReplacements.first.copyWith(
-                source: MarkdownLinkEntity(
-              text: firstSourceEntity.text,
-              url: firstSourceEntity.url,
-              indices: firstSourceEntity.indices.copyWith(start: utf8MaxLength),
-            )),
-            ...exceededReplacements.sublist(1),
-          ];
-      }
-    }
-
-    return exceededReplacements;
-  }
-
-  LengthExceededEntity? _buildLengthExceededEntity(
-    final List<int> base,
-    final int start,
-    final int end,
-  ) {
-    final value = utf8.decode(base.sublist(start, end));
-    if (value.isEmpty) return null;
-
-    return LengthExceededEntity(
-      value: value,
-      indices: ByteIndices(start: start, end: end),
-    );
-  }
-
-  (int, int) _adjustIndices(
-    final String key,
-    List<ReplacementFactor> factors,
-    final int start,
-  ) {
-    int $start = start;
-    int $end = start + utf8.encode(key).length;
-
-    for (final factor in factors) {
-      switch (factor) {
-        case ReplacementFactor.linkHttpProtocol:
-          $start += httpPrefix.length;
-          $end += httpPrefix.length;
-          break;
-        case ReplacementFactor.linkHttpsProtocol:
-          $start += httpsPrefix.length;
-          $end += httpsPrefix.length;
-          break;
-        case ReplacementFactor.linkShortening:
-          $end -= shortenLinkSuffix.length;
-          break;
-        case ReplacementFactor.markdownLink:
-          $start++;
-          $end--;
-          break;
-      }
-    }
-
-    return ($start, $end);
-  }
 
   @override
-  BlueskyText format() {
-    if (_replacements != null) return this; //* Already formatted.
-
-    return formatter.execute(this, _enableMarkdown, _linkConfig).$1;
-  }
+  BlueskyText format() => _replacements != null
+      ? this //* is already formatted.
+      : formatter.execute(this, _enableMarkdown, _linkConfig).$1;
 
   @override
   List<BlueskyText> split() => splitter.execute(this);

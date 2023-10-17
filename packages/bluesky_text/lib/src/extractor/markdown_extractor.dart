@@ -3,15 +3,15 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'bluesky_text.dart';
-import 'entities/byte_indices.dart';
-import 'entities/markdown/markdown_link_entity.dart';
-import 'regex/markdown_link.dart';
-import 'regex/valid_hashtag.dart';
-import 'regex/valid_mention.dart';
-import 'regex/valid_url.dart';
-import 'unicode_string.dart';
-import 'utils.dart';
+import '../bluesky_text.dart';
+import '../entities/byte_indices.dart';
+import '../entities/markdown/markdown_link_entity.dart';
+import '../regex/markdown_link.dart';
+import '../regex/valid_hashtag.dart';
+import '../regex/valid_mention.dart';
+import '../regex/valid_url.dart';
+import '../unicode_string.dart';
+import '../utils.dart';
 
 const markdownLinksExtractor = MarkdownLinksExtractor();
 

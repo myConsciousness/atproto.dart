@@ -13,8 +13,8 @@ import 'entities/facetable.dart';
 import 'entities/markdown/markdown_link_entity.dart';
 import 'entities/replacement.dart';
 import 'entities/replacements.dart';
-import 'extractor.dart';
-import 'markdown_extractor.dart';
+import 'extractor/extractor.dart';
+import 'extractor/markdown_extractor.dart';
 import 'regex/valid_ascii_domain.dart';
 import 'regex/valid_url.dart';
 
