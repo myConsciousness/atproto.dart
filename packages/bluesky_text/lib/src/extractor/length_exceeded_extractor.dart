@@ -117,8 +117,12 @@ final class _LengthExceededExtractor implements LengthExceededExtractor {
       _buildLengthExceededEntity(base, lastEnd, base.length),
     );
 
-    return entities.first.indices.start <= maxLength
-        ? _adjustFirstExceededEntity(entities, replacements.base)
+    final utf8MaxLength = utf8
+        .encode(replacements.base.characters.take(maxLength + 1).toString())
+        .length;
+
+    return entities.first.indices.start <= utf8MaxLength
+        ? _adjustFirstExceededEntity(entities, replacements.base, utf8MaxLength)
         : entities;
   }
 
@@ -143,11 +147,10 @@ final class _LengthExceededExtractor implements LengthExceededExtractor {
   List<LengthExceededEntity> _adjustFirstExceededEntity(
     final List<LengthExceededEntity> entities,
     final String base,
+    final int utf8MaxLength,
   ) {
     final firstEntity = entities.first;
-    final newIndices = firstEntity.indices.copyWith(
-      start: utf8.encode(base.characters.take(maxLength + 1).toString()).length,
-    );
+    final newIndices = firstEntity.indices.copyWith(start: utf8MaxLength);
 
     return [
       LengthExceededEntity(
