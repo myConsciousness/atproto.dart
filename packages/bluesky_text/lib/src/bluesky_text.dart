@@ -116,7 +116,7 @@ sealed class BlueskyText {
   /// It includes the response from [handles], [links], [tags].
   Entities get entities;
 
-  List<LengthExceededEntity> get lengthExceededEntities;
+  // List<LengthExceededEntity> get lengthExceededEntities;
 
   /// Splits this [value].
   ///
@@ -198,7 +198,6 @@ final class _BlueskyText implements BlueskyText {
         ),
       ));
 
-  @override
   List<LengthExceededEntity> get lengthExceededEntities =>
       lengthExceededExtractor.execute(
         this,
