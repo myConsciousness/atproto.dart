@@ -1,8 +1,8 @@
 # Release Note
 
-## v0.5.15-preview.0
+## v0.5.15
 
-- Added the experimental feature: `lengthExceededEntity`.
+- Improved markdown extraction algo. You can use as a link if the URL contains markdown symbols, such as `https://wikipedia.com//track/We_Up_(Album_Version_(Edited))`.
 
 ## v0.5.14
 
