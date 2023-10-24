@@ -17,6 +17,13 @@
   - `.searchActorsByQuerySkeletonAsJson`
   - `.paginateActorsByQuerySkeleton`
   - `.paginateActorsByQuerySkeletonAsJson`
+- Supported `app.bsky.feed.threadgate` on `FeedsService`. ([#815](https://github.com/myConsciousness/atproto.dart/issues/815))
+  - `.createThreadgate`
+  - `ThreadRule`
+  - `ThreadMentionRule`
+  - `ThreadFollowingRule`
+  - `ThreadListRule`
+- Added `.onCreateThreadgate` and `.onDeleteThreadgate` events on `RepoCommitAdaptor`. Also added `ThreadgateRecord`.
 
 ## v0.9.0
 

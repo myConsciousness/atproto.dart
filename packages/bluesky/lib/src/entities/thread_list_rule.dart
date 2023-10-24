@@ -21,10 +21,10 @@ class ThreadListRule with _$ThreadListRule {
   @jsonSerializable
   const factory ThreadListRule({
     /// Represents the type of this object.
-    @Default(appBskyFeedThreadgateListRule) String type,
+    @typeKey @Default(appBskyFeedThreadgateListRule) String type,
 
     /// The subject uri for a list.
-    @atUriConverter required AtUri list,
+    @JsonKey(name: 'list') @atUriConverter required AtUri listUri,
   }) = _ThreadListRule;
 
   /// Creates a [ThreadListRule] object from a map ([json]).

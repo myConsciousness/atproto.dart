@@ -1485,11 +1485,36 @@ sealed class FeedsService {
     String? cursor,
   });
 
+  /// Defines interaction gating rules for a thread.
+  ///
+  /// The rkey of the threadgate record should match the rkey of
+  /// the thread's root post.
+  ///
+  /// ## Parameters
+  ///
+  /// - [postUri]: A post uri.
+  ///
+  /// - [allowRules]: A collection of interaction gating rules.
+  ///
+  /// - [createdAt]: Date and time the post was created.
+  ///                If omitted, defaults to the current time.
+  ///
+  /// - [unspecced]: You can set record fields that are not supported
+  ///                by `app.bsky.feed.threadgate` as JSON.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.threadgate
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/threadgate.json
   Future<core.XRPCResponse<atp.StrongRef>> createThreadgate({
-    required core.AtUri uri,
+    required core.AtUri postUri,
     List<ThreadRule>? allowRules,
     DateTime? createdAt,
-  }
+    Map<String, dynamic> unspecced = core.emptyJson,
+  });
 
   /// Find posts matching search criteria.
   ///
@@ -2390,18 +2415,20 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
 
   @override
   Future<core.XRPCResponse<atp.StrongRef>> createThreadgate({
-    required core.AtUri uri,
+    required core.AtUri postUri,
     List<ThreadRule>? allowRules,
     DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
       await atproto.repositories.createRecord(
         collection: createNSID('threadgate'),
         record: {
-          'post': uri.toString(),
+          'post': postUri.toString(),
           'allow': allowRules?.map((e) => e.toJson()).toList(),
           'createdAt': toUtcIso8601String(createdAt),
+          ...unspecced,
         },
-    }
+      );
 
   Future<core.XRPCResponse<Feed>> findListFeed({
     required core.AtUri list,

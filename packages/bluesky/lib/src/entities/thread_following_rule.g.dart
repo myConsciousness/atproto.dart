@@ -14,15 +14,16 @@ _$_ThreadFollowingRule _$$_ThreadFollowingRuleFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$_ThreadFollowingRule(
-          type: $checkedConvert('type',
+          type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyFeedThreadgateFollowingRule),
         );
         return val;
       },
+      fieldKeyMap: const {'type': r'$type'},
     );
 
 Map<String, dynamic> _$$_ThreadFollowingRuleToJson(
         _$_ThreadFollowingRule instance) =>
     <String, dynamic>{
-      'type': instance.type,
+      r'$type': instance.type,
     };

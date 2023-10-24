@@ -25,6 +25,9 @@ extension AtUriExtension on core.AtUri {
   /// Returns true if this [collection] is feed generator, otherwise false.
   bool get isFeedGenerator => collection == ids.appBskyFeedGenerator;
 
+  /// Returns true if this [collection] is feed threadgate, otherwise false.
+  bool get isFeedThreadgate => collection == ids.appBskyFeedThreadgate;
+
   /// Returns true if this [collection] is graph follow, otherwise false.
   bool get isGraphFollow => collection == ids.appBskyGraphFollow;
 
@@ -51,6 +54,9 @@ extension AtUriExtension on core.AtUri {
 
   /// Returns true if this [collection] is not feed generator, otherwise false.
   bool get isNotFeedGenerator => !isFeedGenerator;
+
+  /// Returns true if this [collection] is not feed threadgate, otherwise false.
+  bool get isNotFeedThreadgate => !isFeedThreadgate;
 
   /// Returns true if this [collection] is not graph follow, otherwise false.
   bool get isNotGraphFollow => !isGraphFollow;

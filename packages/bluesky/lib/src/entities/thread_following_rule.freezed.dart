@@ -21,6 +21,7 @@ ThreadFollowingRule _$ThreadFollowingRuleFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ThreadFollowingRule {
   /// Represents the type of this object.
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +36,7 @@ abstract class $ThreadFollowingRuleCopyWith<$Res> {
           ThreadFollowingRule value, $Res Function(ThreadFollowingRule) then) =
       _$ThreadFollowingRuleCopyWithImpl<$Res, ThreadFollowingRule>;
   @useResult
-  $Res call({String type});
+  $Res call({@typeKey String type});
 }
 
 /// @nodoc
@@ -70,7 +71,7 @@ abstract class _$$_ThreadFollowingRuleCopyWith<$Res>
       __$$_ThreadFollowingRuleCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String type});
+  $Res call({@typeKey String type});
 }
 
 /// @nodoc
@@ -100,14 +101,14 @@ class __$$_ThreadFollowingRuleCopyWithImpl<$Res>
 @jsonSerializable
 class _$_ThreadFollowingRule implements _ThreadFollowingRule {
   const _$_ThreadFollowingRule(
-      {this.type = appBskyFeedThreadgateFollowingRule});
+      {@typeKey this.type = appBskyFeedThreadgateFollowingRule});
 
   factory _$_ThreadFollowingRule.fromJson(Map<String, dynamic> json) =>
       _$$_ThreadFollowingRuleFromJson(json);
 
   /// Represents the type of this object.
   @override
-  @JsonKey()
+  @typeKey
   final String type;
 
   @override
@@ -143,7 +144,7 @@ class _$_ThreadFollowingRule implements _ThreadFollowingRule {
 }
 
 abstract class _ThreadFollowingRule implements ThreadFollowingRule {
-  const factory _ThreadFollowingRule({final String type}) =
+  const factory _ThreadFollowingRule({@typeKey final String type}) =
       _$_ThreadFollowingRule;
 
   factory _ThreadFollowingRule.fromJson(Map<String, dynamic> json) =
@@ -152,6 +153,7 @@ abstract class _ThreadFollowingRule implements ThreadFollowingRule {
   @override
 
   /// Represents the type of this object.
+  @typeKey
   String get type;
   @override
   @JsonKey(ignore: true)

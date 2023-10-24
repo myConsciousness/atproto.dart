@@ -21,7 +21,7 @@ class ThreadMentionRule with _$ThreadMentionRule {
   @jsonSerializable
   const factory ThreadMentionRule({
     /// Represents the type of this object.
-    @Default(appBskyFeedThreadgateMentionRule) String type,
+    @typeKey @Default(appBskyFeedThreadgateMentionRule) String type,
   }) = _ThreadMentionRule;
 
   /// Creates a [ThreadMentionRule] object from a map ([json]).

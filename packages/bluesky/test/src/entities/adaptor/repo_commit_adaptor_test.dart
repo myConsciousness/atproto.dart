@@ -21,6 +21,7 @@ import 'package:bluesky/src/entities/list_record.dart';
 import 'package:bluesky/src/entities/post_record.dart';
 import 'package:bluesky/src/entities/profile_record.dart';
 import 'package:bluesky/src/entities/repost_record.dart';
+import 'package:bluesky/src/entities/threadgate_record.dart';
 
 void main() {
   group('.onCreatePost', () {
@@ -219,6 +220,70 @@ void main() {
 
       final adaptor = RepoCommitAdaptor(
         onCreateGenerator: (data) {
+          result = true;
+        },
+      );
+
+      adaptor.execute(
+        _buildSubscribedRepoCommit(
+          _buildCreateRepoOp(
+            'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.feed.dummy/3k27u2pzoly2q',
+            {},
+          ),
+        ),
+      );
+
+      expect(result, isFalse);
+    });
+  });
+
+  group('.onCreateThreadgate', () {
+    test('when created', () async {
+      bool result = false;
+
+      final adaptor = RepoCommitAdaptor(
+        onCreateThreadgate: (data) {
+          expect(data, isA<RepoCommitCreate>());
+          expect(data.record, isA<ThreadgateRecord>());
+
+          result = true;
+        },
+      );
+
+      adaptor.execute(
+        _buildSubscribedRepoCommit(
+          _buildCreateRepoOp(
+            'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.feed.threadgate/3k27u2pzoly2q',
+            {
+              objectType: 'app.bsky.feed.threadgate',
+              'post':
+                  'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.feed.generator/3k27u2pzoly2q',
+              'allow': [
+                {
+                  r'$type': 'app.bsky.feed.threadgate#mentionRule',
+                },
+                {
+                  r'$type': 'app.bsky.feed.threadgate#followingRule',
+                },
+                {
+                  r'$type': 'app.bsky.feed.threadgate#listRule',
+                  'list': 'at://foo.com/com.example.foo/123',
+                }
+              ],
+              'createdAt': DateTime.now().toIso8601String(),
+            },
+          ),
+        ),
+      );
+
+      expect(result, isTrue);
+    });
+
+    test('when not created', () async {
+      bool result = false;
+
+      final adaptor = RepoCommitAdaptor(
+        onCreateThreadgate: (data) {
           result = true;
         },
       );
@@ -754,6 +819,50 @@ void main() {
 
       final adaptor = RepoCommitAdaptor(
         onDeleteGenerator: (data) {
+          result = true;
+        },
+      );
+
+      adaptor.execute(
+        _buildSubscribedRepoCommit(
+          _buildDeleteRepoOp(
+            'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.feed.dummy/3k27u2pzoly2q',
+          ),
+        ),
+      );
+
+      expect(result, isFalse);
+    });
+  });
+
+  group('.onDeleteThreadgate', () {
+    test('when created', () async {
+      bool result = false;
+
+      final adaptor = RepoCommitAdaptor(
+        onDeleteThreadgate: (data) {
+          expect(data, isA<RepoCommitDelete>());
+
+          result = true;
+        },
+      );
+
+      adaptor.execute(
+        _buildSubscribedRepoCommit(
+          _buildDeleteRepoOp(
+            'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.feed.threadgate/3k27u2pzoly2q',
+          ),
+        ),
+      );
+
+      expect(result, isTrue);
+    });
+
+    test('when not created', () async {
+      bool result = false;
+
+      final adaptor = RepoCommitAdaptor(
+        onDeleteThreadgate: (data) {
           result = true;
         },
       );

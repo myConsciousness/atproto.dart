@@ -21,7 +21,7 @@ class ThreadFollowingRule with _$ThreadFollowingRule {
   @jsonSerializable
   const factory ThreadFollowingRule({
     /// Represents the type of this object.
-    @Default(appBskyFeedThreadgateFollowingRule) String type,
+    @typeKey @Default(appBskyFeedThreadgateFollowingRule) String type,
   }) = _ThreadFollowingRule;
 
   /// Creates a [ThreadFollowingRule] object from a map ([json]).

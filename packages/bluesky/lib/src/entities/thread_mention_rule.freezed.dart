@@ -21,6 +21,7 @@ ThreadMentionRule _$ThreadMentionRuleFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ThreadMentionRule {
   /// Represents the type of this object.
+  @typeKey
   String get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +36,7 @@ abstract class $ThreadMentionRuleCopyWith<$Res> {
           ThreadMentionRule value, $Res Function(ThreadMentionRule) then) =
       _$ThreadMentionRuleCopyWithImpl<$Res, ThreadMentionRule>;
   @useResult
-  $Res call({String type});
+  $Res call({@typeKey String type});
 }
 
 /// @nodoc
@@ -70,7 +71,7 @@ abstract class _$$_ThreadMentionRuleCopyWith<$Res>
       __$$_ThreadMentionRuleCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String type});
+  $Res call({@typeKey String type});
 }
 
 /// @nodoc
@@ -99,14 +100,15 @@ class __$$_ThreadMentionRuleCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$_ThreadMentionRule implements _ThreadMentionRule {
-  const _$_ThreadMentionRule({this.type = appBskyFeedThreadgateMentionRule});
+  const _$_ThreadMentionRule(
+      {@typeKey this.type = appBskyFeedThreadgateMentionRule});
 
   factory _$_ThreadMentionRule.fromJson(Map<String, dynamic> json) =>
       _$$_ThreadMentionRuleFromJson(json);
 
   /// Represents the type of this object.
   @override
-  @JsonKey()
+  @typeKey
   final String type;
 
   @override
@@ -142,7 +144,8 @@ class _$_ThreadMentionRule implements _ThreadMentionRule {
 }
 
 abstract class _ThreadMentionRule implements ThreadMentionRule {
-  const factory _ThreadMentionRule({final String type}) = _$_ThreadMentionRule;
+  const factory _ThreadMentionRule({@typeKey final String type}) =
+      _$_ThreadMentionRule;
 
   factory _ThreadMentionRule.fromJson(Map<String, dynamic> json) =
       _$_ThreadMentionRule.fromJson;
@@ -150,6 +153,7 @@ abstract class _ThreadMentionRule implements ThreadMentionRule {
   @override
 
   /// Represents the type of this object.
+  @typeKey
   String get type;
   @override
   @JsonKey(ignore: true)

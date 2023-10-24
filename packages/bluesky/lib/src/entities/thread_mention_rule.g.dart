@@ -13,15 +13,16 @@ _$_ThreadMentionRule _$$_ThreadMentionRuleFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_ThreadMentionRule(
-          type: $checkedConvert(
-              'type', (v) => v as String? ?? appBskyFeedThreadgateMentionRule),
+          type: $checkedConvert(r'$type',
+              (v) => v as String? ?? appBskyFeedThreadgateMentionRule),
         );
         return val;
       },
+      fieldKeyMap: const {'type': r'$type'},
     );
 
 Map<String, dynamic> _$$_ThreadMentionRuleToJson(
         _$_ThreadMentionRule instance) =>
     <String, dynamic>{
-      'type': instance.type,
+      r'$type': instance.type,
     };

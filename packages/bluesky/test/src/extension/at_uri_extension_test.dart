@@ -189,6 +189,26 @@ void main() {
     });
   });
 
+  group('.isFeedThreadgate', () {
+    test('when feed threadgate', () {
+      final uri = AtUri.make(
+        'shinyakato.dev',
+        'app.bsky.feed.threadgate',
+      );
+
+      expect(uri.isFeedThreadgate, isTrue);
+    });
+
+    test('when not feed threadgate', () {
+      final uri = AtUri.make(
+        'shinyakato.dev',
+        'test',
+      );
+
+      expect(uri.isFeedThreadgate, isFalse);
+    });
+  });
+
   group('.isNotFeedGenerator', () {
     test('when not feed generator', () {
       final uri = AtUri.make(
@@ -206,6 +226,26 @@ void main() {
       );
 
       expect(uri.isNotFeedGenerator, isFalse);
+    });
+  });
+
+  group('.isNotFeedThreadgate', () {
+    test('when not feed threadgate', () {
+      final uri = AtUri.make(
+        'shinyakato.dev',
+        'test',
+      );
+
+      expect(uri.isNotFeedThreadgate, isTrue);
+    });
+
+    test('when feed threadgate', () {
+      final uri = AtUri.make(
+        'shinyakato.dev',
+        'app.bsky.feed.threadgate',
+      );
+
+      expect(uri.isNotFeedThreadgate, isFalse);
     });
   });
 
