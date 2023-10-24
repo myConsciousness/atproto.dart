@@ -2430,6 +2430,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
         },
       );
 
+  @override
   Future<core.XRPCResponse<Feed>> findListFeed({
     required core.AtUri list,
     int? limit,
