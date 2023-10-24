@@ -21,6 +21,7 @@ import '../list_record.dart';
 import '../post_record.dart';
 import '../profile_record.dart';
 import '../repost_record.dart';
+import '../threadgate_record.dart';
 import 'repo_commit_create.dart';
 import 'repo_commit_delete.dart';
 import 'repo_commit_update.dart';
@@ -43,6 +44,7 @@ final class RepoCommitAdaptor {
     final RepoCommitOnCreate<RepostRecord>? onCreateRepost,
     final RepoCommitOnCreate<LikeRecord>? onCreateLike,
     final RepoCommitOnCreate<GeneratorRecord>? onCreateGenerator,
+    final RepoCommitOnCreate<ThreadgateRecord>? onCreateThreadgate,
     final RepoCommitOnCreate<FollowRecord>? onCreateFollow,
     final RepoCommitOnCreate<BlockRecord>? onCreateBlock,
     final RepoCommitOnCreate<ListRecord>? onCreateList,
@@ -54,6 +56,7 @@ final class RepoCommitAdaptor {
     final RepoCommitOnDelete? onDeleteRepost,
     final RepoCommitOnDelete? onDeleteLike,
     final RepoCommitOnDelete? onDeleteGenerator,
+    final RepoCommitOnDelete? onDeleteThreadgate,
     final RepoCommitOnDelete? onDeleteFollow,
     final RepoCommitOnDelete? onDeleteBlock,
     final RepoCommitOnDelete? onDeleteList,
@@ -63,6 +66,7 @@ final class RepoCommitAdaptor {
         _onCreateRepost = onCreateRepost,
         _onCreateLike = onCreateLike,
         _onCreateGenerator = onCreateGenerator,
+        _onCreateThreadgate = onCreateThreadgate,
         _onCreateFollow = onCreateFollow,
         _onCreateBlock = onCreateBlock,
         _onCreateList = onCreateList,
@@ -74,6 +78,7 @@ final class RepoCommitAdaptor {
         _onDeleteRepost = onDeleteRepost,
         _onDeleteLike = onDeleteLike,
         _onDeleteGenerator = onDeleteGenerator,
+        _onDeleteThreadgate = onDeleteThreadgate,
         _onDeleteFollow = onDeleteFollow,
         _onDeleteBlock = onDeleteBlock,
         _onDeleteList = onDeleteList,
@@ -84,6 +89,7 @@ final class RepoCommitAdaptor {
   final RepoCommitOnCreate<RepostRecord>? _onCreateRepost;
   final RepoCommitOnCreate<LikeRecord>? _onCreateLike;
   final RepoCommitOnCreate<GeneratorRecord>? _onCreateGenerator;
+  final RepoCommitOnCreate<ThreadgateRecord>? _onCreateThreadgate;
   final RepoCommitOnCreate<FollowRecord>? _onCreateFollow;
   final RepoCommitOnCreate<BlockRecord>? _onCreateBlock;
   final RepoCommitOnCreate<ListRecord>? _onCreateList;
@@ -97,6 +103,7 @@ final class RepoCommitAdaptor {
   final RepoCommitOnDelete? _onDeleteRepost;
   final RepoCommitOnDelete? _onDeleteLike;
   final RepoCommitOnDelete? _onDeleteGenerator;
+  final RepoCommitOnDelete? _onDeleteThreadgate;
   final RepoCommitOnDelete? _onDeleteFollow;
   final RepoCommitOnDelete? _onDeleteBlock;
   final RepoCommitOnDelete? _onDeleteList;
@@ -165,6 +172,18 @@ final class RepoCommitAdaptor {
       await _onCreateGenerator?.call(
         RepoCommitCreate<GeneratorRecord>(
           record: GeneratorRecord.fromJson(
+            op.record!,
+          ),
+          uri: op.uri,
+          cid: op.cid!,
+          author: data.did,
+          cursor: data.cursor,
+        ),
+      );
+    } else if (op.uri.isFeedThreadgate && _isFeedThreadgate(op.record!)) {
+      await _onCreateThreadgate?.call(
+        RepoCommitCreate<ThreadgateRecord>(
+          record: ThreadgateRecord.fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -303,6 +322,15 @@ final class RepoCommitAdaptor {
           createdAt: data.createdAt,
         ),
       );
+    } else if (op.uri.isFeedThreadgate) {
+      await _onDeleteThreadgate?.call(
+        RepoCommitDelete(
+          uri: op.uri,
+          author: data.did,
+          cursor: data.cursor,
+          createdAt: data.createdAt,
+        ),
+      );
     } else if (op.uri.isGraphFollow) {
       await _onDeleteFollow?.call(
         RepoCommitDelete(
@@ -370,6 +398,10 @@ final class RepoCommitAdaptor {
   /// Returns true if [record] is feed generator, otherwise false.
   bool _isFeedGenerator(final Map<String, dynamic> record) =>
       record[core.objectType] == ids.appBskyFeedGenerator;
+
+  /// Returns true if [record] is feed threadgate, otherwise false.
+  bool _isFeedThreadgate(final Map<String, dynamic> record) =>
+      record[core.objectType] == ids.appBskyFeedThreadgate;
 
   /// Returns true if [record] is graph follow, otherwise false.
   bool _isGraphFollow(final Map<String, dynamic> record) =>

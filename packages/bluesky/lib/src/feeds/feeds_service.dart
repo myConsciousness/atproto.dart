@@ -22,6 +22,7 @@ import '../entities/posts_by_query.dart';
 import '../entities/reply_ref.dart';
 import '../entities/reposted_by.dart';
 import '../entities/skeleton_feed.dart';
+import '../entities/thread_rule.dart';
 import '../params/generator_param.dart';
 import '../params/post_param.dart';
 import '../params/strong_ref_param.dart';
@@ -1484,6 +1485,37 @@ sealed class FeedsService {
     String? cursor,
   });
 
+  /// Defines interaction gating rules for a thread.
+  ///
+  /// The rkey of the threadgate record should match the rkey of
+  /// the thread's root post.
+  ///
+  /// ## Parameters
+  ///
+  /// - [postUri]: A post uri.
+  ///
+  /// - [allowRules]: A collection of interaction gating rules.
+  ///
+  /// - [createdAt]: Date and time the post was created.
+  ///                If omitted, defaults to the current time.
+  ///
+  /// - [unspecced]: You can set record fields that are not supported
+  ///                by `app.bsky.feed.threadgate` as JSON.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.threadgate
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/threadgate.json
+  Future<core.XRPCResponse<atp.StrongRef>> createThreadgate({
+    required core.AtUri postUri,
+    List<ThreadRule>? allowRules,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  });
+
   /// Find posts matching search criteria.
   ///
   /// ## Parameters
@@ -2379,6 +2411,23 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
       _paginateSuggestedFeeds(
         limit: limit,
         cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.StrongRef>> createThreadgate({
+    required core.AtUri postUri,
+    List<ThreadRule>? allowRules,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  }) async =>
+      await atproto.repositories.createRecord(
+        collection: createNSID('threadgate'),
+        record: {
+          'post': postUri.toString(),
+          'allow': allowRules?.map((e) => e.toJson()).toList(),
+          'createdAt': toUtcIso8601String(createdAt),
+          ...unspecced,
+        },
       );
 
   @override
