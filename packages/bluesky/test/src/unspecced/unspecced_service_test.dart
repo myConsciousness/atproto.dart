@@ -13,6 +13,7 @@ import 'package:test/test.dart';
 // 🌎 Project imports:
 import 'package:bluesky/src/entities/feed.dart';
 import 'package:bluesky/src/entities/feed_generators.dart';
+import 'package:bluesky/src/entities/skeleton_actors_by_query.dart';
 import 'package:bluesky/src/entities/skeleton_feed.dart';
 import 'package:bluesky/src/entities/skeleton_posts_by_query.dart';
 import 'package:bluesky/src/unspecced/unspecced_service.dart';
@@ -382,6 +383,97 @@ void main() {
 
       atp_test.expectRateLimitExceededException(
         () async => await unspecced.searchPostsByQuerySkeleton('test'),
+      );
+    });
+  });
+
+  group('.searchActorsByQuerySkeleton', () {
+    test('normal case', () async {
+      final unspecced = UnspeccedService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/unspecced/data/search_actors_by_query_skeleton.json',
+        ),
+      );
+
+      final response = await unspecced.searchActorsByQuerySkeleton('test');
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<SkeletonActorsByQuery>());
+
+      expect(response.data.actors.length, 2);
+      expect(response.data.hitsTotal, 10);
+      expect(response.data.cursor, 'xxxxxxx');
+    });
+
+    test('as JSON', () async {
+      final unspecced = UnspeccedService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/unspecced/data/search_actors_by_query_skeleton.json',
+        ),
+      );
+
+      final response =
+          await unspecced.searchActorsByQuerySkeletonAsJson('test');
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
+    test('when unauthorized', () async {
+      final unspecced = UnspeccedService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await unspecced.searchActorsByQuerySkeletonAsJson('test'),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final unspecced = UnspeccedService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await unspecced.searchActorsByQuerySkeletonAsJson('test'),
       );
     });
   });
