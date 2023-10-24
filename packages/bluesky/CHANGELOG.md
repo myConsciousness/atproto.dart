@@ -3,6 +3,10 @@
 ## v0.9.1
 
 - Supported `app.bsky.feed.searchPosts` as `.searchPostsByQuery` on `FeedsService`. ([#845](https://github.com/myConsciousness/atproto.dart/issues/845))
+  - `.searchPostsByQuery`
+  - `.searchPostsByQueryAsJson`
+  - `.paginatePostsByQuery`
+  - `.paginatePostsByQueryAsJson`
 
 ## v0.9.0
 
@@ -13,11 +17,6 @@
   - `.findRepoCheckoutAsJson`
   - `.findRepoHead`
   - `.findRepoHeadAsJson`
-- Supported `app.bsky.feed.searchPosts` on `FeedsService`. ([#845](https://github.com/myConsciousness/atproto.dart/issues/845))
-  - `.searchPostsByQuery`
-  - `.searchPostsByQueryAsJson`
-  - `.paginatePostsByQuery`
-  - `.paginatePostsByQueryAsJson`
 
 ## v0.8.24
 
