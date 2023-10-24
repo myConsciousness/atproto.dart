@@ -130,6 +130,7 @@ See more details about **[bluesky](https://pub.dev/packages/bluesky)** in **[Pac
 | [GET app.bsky.feed.getActorLikes](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorLikes.json)                 | [findActorLikes](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findActorLikes.html)         |       ✅       |     ✅      |
 | [GET app.bsky.feed.getSuggestedFeeds](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getSuggestedFeeds.json)         | [findSuggestedFeeds](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findSuggestedFeeds.html) |       ✅       |     ✅      |
 | [GET app.bsky.feed.getListFeed](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getListFeed.json)                     | [findListFeed](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findListFeed.html)             |       ✅       |     ✅      |
+| [GET app.bsky.feed.searchPosts](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/searchPosts.json)                     | [searchPostsByQuery](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/searchPostsByQuery.html) |       ✅       |     ✅      |
 
 ### [Notifications Service](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService-class.html)
 

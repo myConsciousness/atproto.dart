@@ -253,6 +253,7 @@ export 'package:bluesky/src/entities/post_thread_view.dart';
 export 'package:bluesky/src/entities/post_thread_view_record.dart';
 export 'package:bluesky/src/entities/post_viewer.dart';
 export 'package:bluesky/src/entities/posts.dart';
+export 'package:bluesky/src/entities/posts_by_query.dart';
 export 'package:bluesky/src/entities/preference.dart';
 export 'package:bluesky/src/feeds/feed_filter.dart';
 export 'package:bluesky/src/entities/preferences.dart';
