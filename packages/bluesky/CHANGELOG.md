@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.9.1
+
+- Supported `app.bsky.feed.searchPosts` as `.searchPostsByQuery` on `FeedsService`. ([#845](https://github.com/myConsciousness/atproto.dart/issues/845))
+
 ## v0.9.0
 
 - Added `rev` on `Repo` object. ([#885](https://github.com/myConsciousness/atproto.dart/issues/885))

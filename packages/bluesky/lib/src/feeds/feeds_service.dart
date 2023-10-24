@@ -18,6 +18,7 @@ import '../entities/feed_generators.dart';
 import '../entities/likes.dart';
 import '../entities/post_thread.dart';
 import '../entities/posts.dart';
+import '../entities/posts_by_query.dart';
 import '../entities/reply_ref.dart';
 import '../entities/reposted_by.dart';
 import '../entities/skeleton_feed.dart';
@@ -1503,7 +1504,7 @@ sealed class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/searchPosts.json
-  Future<core.XRPCResponse<Posts>> searchPostsByQuery(
+  Future<core.XRPCResponse<PostsByQuery>> searchPostsByQuery(
     final String query, {
     int? limit,
     String? cursor,
@@ -1555,7 +1556,7 @@ sealed class FeedsService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/searchPosts.json
-  core.Pagination<Posts> paginatePostsByQuery(
+  core.Pagination<PostsByQuery> paginatePostsByQuery(
     final String query, {
     int? limit,
     String? cursor,
@@ -2431,7 +2432,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  Future<core.XRPCResponse<Posts>> searchPostsByQuery(
+  Future<core.XRPCResponse<PostsByQuery>> searchPostsByQuery(
     final String query, {
     int? limit,
     String? cursor,
@@ -2440,7 +2441,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
         query: query,
         limit: limit,
         cursor: cursor,
-        to: Posts.fromJson,
+        to: PostsByQuery.fromJson,
       );
 
   @override
@@ -2456,7 +2457,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
       );
 
   @override
-  core.Pagination<Posts> paginatePostsByQuery(
+  core.Pagination<PostsByQuery> paginatePostsByQuery(
     final String query, {
     int? limit,
     String? cursor,
@@ -2465,7 +2466,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
         query: query,
         limit: limit,
         cursor: cursor,
-        to: Posts.fromJson,
+        to: PostsByQuery.fromJson,
       );
 
   @override
