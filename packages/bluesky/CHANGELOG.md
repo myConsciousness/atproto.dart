@@ -12,6 +12,11 @@
   - `.searchPostsByQuerySkeletonAsJson`
   - `.paginatePostsByQuerySkeleton`
   - `.paginatePostsByQuerySkeletonAsJson`
+- Supported `app.bsky.unspecced.searchActorsSkeleton` on `UnspeccedService`. ([#847](https://github.com/myConsciousness/atproto.dart/issues/847))
+  - `.searchActorsByQuerySkeleton`
+  - `.searchActorsByQuerySkeletonAsJson`
+  - `.paginateActorsByQuerySkeleton`
+  - `.paginateActorsByQuerySkeletonAsJson`
 
 ## v0.9.0
 

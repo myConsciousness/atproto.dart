@@ -16,7 +16,7 @@ part 'skeleton_post.g.dart';
 class SkeletonPost with _$SkeletonPost {
   /// Creates a new instance of [SkeletonPost].
   const factory SkeletonPost({
-    /// The list of [SkeletonPost] instances.
+    /// The post uri.
     @atUriConverter required AtUri uri,
   }) = _SkeletonPost;
 

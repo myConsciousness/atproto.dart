@@ -1,0 +1,12 @@
+{
+  "actors": [
+    {
+      "did": "xxxxxxxx"
+    },
+    {
+      "did": "yyyyyyyy"
+    }
+  ],
+  "cursor": "xxxxxxx",
+  "hitsTotal": 10
+}
