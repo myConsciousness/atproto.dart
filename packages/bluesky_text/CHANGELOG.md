@@ -1,5 +1,14 @@
 # Release Note
 
+## v0.5.15
+
+- Improved markdown extraction algo. You can use as a link if the URL contains markdown symbols, such as `https://wikipedia.com//track/We_Up_(Album_Version_(Edited))`.
+
+## v0.5.14
+
+- Hashtag formatted text is not allowed as Markdown.
+- Improved the extraction algo for markdown. ([#901](https://github.com/myConsciousness/atproto.dart/issues/901))
+
 ## v0.5.13
 
 - Improved the extraction algo for hashtags. ([#897](https://github.com/myConsciousness/atproto.dart/issues/897))

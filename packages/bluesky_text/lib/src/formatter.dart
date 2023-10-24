@@ -11,18 +11,19 @@ import 'config/link_config.dart';
 import 'const.dart';
 import 'entities/facetable.dart';
 import 'entities/markdown/markdown_link_entity.dart';
-import 'extractor.dart';
-import 'markdown_extractor.dart';
+import 'entities/replacement.dart';
+import 'entities/replacements.dart';
+import 'extractor/extractor.dart';
+import 'extractor/markdown_extractor.dart';
 import 'regex/valid_ascii_domain.dart';
 import 'regex/valid_url.dart';
-import 'replacement.dart';
 
 const formatter = Formatter();
 
 sealed class Formatter {
   const factory Formatter() = _Formatter;
 
-  BlueskyText execute(
+  (BlueskyText, Replacements?) execute(
     final BlueskyText text,
     final bool enableMarkdown,
     final LinkConfig? linkConfig,
@@ -33,7 +34,7 @@ final class _Formatter implements Formatter {
   const _Formatter();
 
   @override
-  BlueskyText execute(
+  (BlueskyText, Replacements?) execute(
     final BlueskyText text,
     final bool enableMarkdown,
     final LinkConfig? linkConfig,
@@ -50,7 +51,7 @@ final class _Formatter implements Formatter {
       ),
     );
 
-    if (markdownLinks.isEmpty && links.isEmpty) return text;
+    if (markdownLinks.isEmpty && links.isEmpty) return (text, null);
 
     final formatted = _format(
       text.value,
@@ -60,10 +61,18 @@ final class _Formatter implements Formatter {
       linkConfig ?? const LinkConfig(),
     );
 
-    return BlueskyText(
-      formatted.$1,
-      enableMarkdown: enableMarkdown,
-      replacements: formatted.$2,
+    final replacements = Replacements(
+      text.value,
+      formatted.$2,
+    );
+
+    return (
+      BlueskyText(
+        formatted.$1,
+        enableMarkdown: enableMarkdown,
+        replacements: replacements,
+      ),
+      replacements,
     );
   }
 
@@ -94,18 +103,22 @@ final class _Formatter implements Formatter {
 
       buffer.write(before);
 
+      final start = buffer.length;
       if (entity is MarkdownLinkEntity) {
         replacements.add(Replacement(
           entity.text,
           !entity.url.startsWith('http')
               ? '$httpsPrefix${entity.url}'
               : entity.url,
-          buffer.length,
+          start,
+          start + entity.text.length,
+          entity,
+          const [ReplacementFactor.markdownLink],
         ));
 
         buffer.write(entity.text);
       } else {
-        final shortenedLink = _toShortLink(after, linkConfig);
+        final (shortenedLink, factors) = _toShortLink(after, linkConfig);
 
         if (!after.startsWith('http')) {
           after = '$httpsPrefix$after';
@@ -114,7 +127,10 @@ final class _Formatter implements Formatter {
         replacements.add(Replacement(
           shortenedLink,
           after,
-          buffer.length,
+          start,
+          start + shortenedLink.length,
+          factors.isNotEmpty ? entity : null,
+          factors,
         ));
 
         buffer.write(shortenedLink);
@@ -128,7 +144,8 @@ final class _Formatter implements Formatter {
     return (buffer.toString(), replacements);
   }
 
-  String _toShortLink(final String source, final LinkConfig linkConfig) {
+  (String, List<ReplacementFactor>) _toShortLink(
+      final String source, final LinkConfig linkConfig) {
     final match = validUrlRegex.firstMatch(source)!;
     final protocol = match.protocol;
     final domain = getFirstValidDomain(match.domain);
@@ -136,17 +153,33 @@ final class _Formatter implements Formatter {
     final urlPath = match.path;
     final urlQuery = match.query;
 
-    final domainPart = linkConfig.excludeProtocol
-        ? '$domain$portNumber'
-        : '$protocol$domain$portNumber';
+    final factors = <ReplacementFactor>[];
+
+    String domainPart = '';
+    if (linkConfig.excludeProtocol) {
+      domainPart = '$domain$portNumber';
+
+      if (protocol.isNotEmpty) {
+        //* Only if actually shortened.
+        factors.add(protocol == httpsPrefix
+            ? ReplacementFactor.linkHttpsProtocol
+            : ReplacementFactor.linkHttpProtocol);
+      }
+    } else {
+      domainPart = '$protocol$domain$portNumber';
+    }
+
     final pathPart = '$urlPath$urlQuery';
 
     if (linkConfig.enableShortening && pathPart.length > 15) {
-      return '$domainPart${_getShortenedPath(pathPart)}';
+      return (
+        '$domainPart${_getShortenedPath(pathPart)}',
+        factors..add(ReplacementFactor.linkShortening),
+      );
     }
 
     // Remove trailing slash as it's unnecessary.
-    return pathPart == '/' ? domainPart : '$domainPart$pathPart';
+    return (pathPart == '/' ? domainPart : '$domainPart$pathPart', factors);
   }
 
   String _getShortenedPath(final String source) {

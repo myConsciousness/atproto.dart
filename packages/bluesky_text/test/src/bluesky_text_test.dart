@@ -1705,9 +1705,11 @@ github.com/videah/SkyBridge
 
       final entities = text.entities;
 
-      expect(entities.length, 1);
-      expect(entities.first.type, EntityType.markdownLink);
-      expect(entities.first.value, 'https://example.com');
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.link);
+      expect(entities.first.value, 'https://shinyakato.dev');
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value, 'https://example.com');
     });
 
     test('case20', () {
@@ -1717,5 +1719,230 @@ github.com/videah/SkyBridge
 
       expect(entities.length, 0);
     });
+
+    test('case21', () {
+      final text = BlueskyText('[test]aaaaa[test2](https://shinyakato.dev)');
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.value, 'https://shinyakato.dev');
+      expect(entities.first.indices.start, 12);
+      expect(entities.first.indices.end, 17);
+    });
+
+    test('case22', () {
+      final text = BlueskyText('[test]aaaaa[test2](shinyakato.dev)');
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.value, 'https://shinyakato.dev');
+      expect(entities.first.indices.start, 12);
+      expect(entities.first.indices.end, 17);
+    });
+
+    test('case23', () {
+      final text = BlueskyText('[#test](https://shinyakato.dev)');
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.tag);
+      expect(entities.first.value, 'test');
+      expect(entities.first.indices.start, 1);
+      expect(entities.first.indices.end, 6);
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value, 'https://shinyakato.dev');
+      expect(entities[1].indices.start, 8);
+      expect(entities[1].indices.end, 30);
+    });
+
+    test('case24', () {
+      final text = BlueskyText('[#test](https://shinyakato.dev)').format();
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.tag);
+      expect(entities.first.value, 'test');
+      expect(entities.first.indices.start, 1);
+      expect(entities.first.indices.end, 6);
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value, 'https://shinyakato.dev');
+      expect(entities[1].indices.start, 8);
+      expect(entities[1].indices.end, 30);
+    });
+
+    test('case25', () {
+      final text = BlueskyText('[##test](https://shinyakato.dev)');
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.tag);
+      expect(entities.first.value, '#test');
+      expect(entities.first.indices.start, 1);
+      expect(entities.first.indices.end, 7);
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value, 'https://shinyakato.dev');
+      expect(entities[1].indices.start, 9);
+      expect(entities[1].indices.end, 31);
+    });
+
+    test('case26', () {
+      final text = BlueskyText('[##test](https://shinyakato.dev)').format();
+
+      final entities = text.entities;
+
+      expect(entities.length, 2);
+      expect(entities.first.type, EntityType.tag);
+      expect(entities.first.value, '#test');
+      expect(entities.first.indices.start, 1);
+      expect(entities.first.indices.end, 7);
+      expect(entities[1].type, EntityType.link);
+      expect(entities[1].value, 'https://shinyakato.dev');
+      expect(entities[1].indices.start, 9);
+      expect(entities[1].indices.end, 31);
+    });
+
+    test('case27', () {
+      final text = BlueskyText(
+        '[test](https://wikipedia.com//track/We_Up_(Album_Version_(Edited)))',
+      );
+
+      final entities = text.entities;
+
+      expect(entities.length, 1);
+      expect(entities.first.type, EntityType.markdownLink);
+      expect(entities.first.value,
+          'https://wikipedia.com//track/We_Up_(Album_Version_(Edited))');
+      expect(entities.first.indices.start, 1);
+      expect(entities.first.indices.end, 5);
+    });
   });
+
+  // group('.lengthExceededEntities', () {
+  //   test('case1', () {
+  //     final text = BlueskyText('a' * 300);
+
+  //     expect(text.lengthExceededEntities.isEmpty, isTrue);
+  //   });
+
+  //   test('case2', () {
+  //     final text = BlueskyText('');
+
+  //     expect(text.lengthExceededEntities.isEmpty, isTrue);
+  //   });
+
+  //   test('case3', () {
+  //     final text = BlueskyText(' ');
+
+  //     expect(text.lengthExceededEntities.isEmpty, isTrue);
+  //   });
+
+  //   test('case4', () {
+  //     final text = BlueskyText('a' * 301);
+  //     final entities = text.lengthExceededEntities;
+
+  //     expect(entities.length, 1);
+  //     expect(entities.first.value, 'a');
+  //     expect(entities.first.indices.start, 300);
+  //     expect(entities.first.indices.end, 301);
+  //   });
+
+  //   test('case5', () {
+  //     final text = BlueskyText('${'a' * 300}[test](https://atprotodart.com)');
+  //     final entities = text.lengthExceededEntities;
+
+  //     expect(entities.length, 1);
+  //     expect(entities.first.value, 'test');
+  //     expect(entities.first.indices.start, 301);
+  //     expect(entities.first.indices.end, 305);
+  //   });
+
+  //   test('case6', () {
+  //     final text = BlueskyText('${'a' * 300}[テスト](https://atprotodart.com)');
+  //     final entities = text.lengthExceededEntities;
+
+  //     expect(entities.length, 1);
+  //     expect(entities.first.value, 'テスト');
+  //     expect(entities.first.indices.start, 301);
+  //     expect(entities.first.indices.end, 310);
+  //   });
+
+  //   test('case7', () {
+  //     final text = BlueskyText('${'a' * 299}[テスト](https://atprotodart.com)');
+  //     final entities = text.lengthExceededEntities;
+
+  //     expect(entities.length, 1);
+  //     expect(entities.first.value, 'スト');
+  //     expect(entities.first.indices.start, 303);
+  //     expect(entities.first.indices.end, 309);
+  //   });
+
+  //   test('case8', () {
+  //     final text = BlueskyText('${'a' * 298}[テスト](https://atprotodart.com)');
+  //     final entities = text.lengthExceededEntities;
+
+  //     expect(entities.length, 1);
+  //     expect(entities.first.value, 'ト');
+  //     expect(entities.first.indices.start, 305);
+  //     expect(entities.first.indices.end, 308);
+  //   });
+
+  //   test('case9', () {
+  //     final text = BlueskyText('${'a' * 298}[test](https://atprotodart.com)');
+  //     final entities = text.lengthExceededEntities;
+
+  //     expect(entities.length, 1);
+  //     expect(entities.first.value, 'st');
+  //     expect(entities.first.indices.start, 301);
+  //     expect(entities.first.indices.end, 303);
+  //   });
+
+  //   test('case10', () {
+  //     final text =
+  //         BlueskyText('${'a' * 298}[test](https://atprotodart.com) test テスト');
+  //     final entities = text.lengthExceededEntities;
+
+  //     expect(entities.length, 2);
+  //     expect(entities.first.value, 'st');
+  //     expect(entities.first.indices.start, 301);
+  //     expect(entities.first.indices.end, 303);
+  //     expect(entities[1].value, ' test テスト');
+  //     expect(entities[1].indices.start, 329);
+  //     expect(entities[1].indices.end, 344);
+  //   });
+
+  //   test('case11', () {
+  //     final text =
+  //         BlueskyText('${'a' * 300}[test](https://atprotodart.com) test テスト');
+  //     final entities = text.lengthExceededEntities;
+
+  //     expect(entities.length, 2);
+  //     expect(entities.first.value, 'test');
+  //     expect(entities.first.indices.start, 301);
+  //     expect(entities.first.indices.end, 305);
+  //     expect(entities[1].value, ' test テスト');
+  //     expect(entities[1].indices.start, 331);
+  //     expect(entities[1].indices.end, 346);
+  //   });
+
+  //   test('case12', () {
+  //     final text = BlueskyText(
+  //       '${'a' * 300}[test](https://atprotodart.com) test テスト https://atprotodart.com',
+  //     );
+
+  //     final entities = text.lengthExceededEntities;
+
+  //     expect(entities.length, 2);
+  //     expect(entities.first.value, 'test');
+  //     expect(entities.first.indices.start, 301);
+  //     expect(entities.first.indices.end, 305);
+  //     expect(entities[1].value, ' test テスト https://atprotodart.com');
+  //     expect(entities[1].indices.start, 331);
+  //     expect(entities[1].indices.end, 370);
+  //   });
+  // });
 }
