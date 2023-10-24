@@ -6,7 +6,6 @@
 import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_test/atproto_test.dart' as atp_test;
-import 'package:bluesky/src/entities/posts_by_query.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
@@ -18,6 +17,7 @@ import 'package:bluesky/src/entities/feed_generators.dart';
 import 'package:bluesky/src/entities/likes.dart';
 import 'package:bluesky/src/entities/post_thread.dart';
 import 'package:bluesky/src/entities/posts.dart';
+import 'package:bluesky/src/entities/posts_by_query.dart';
 import 'package:bluesky/src/entities/reposted_by.dart';
 import 'package:bluesky/src/entities/skeleton_feed.dart';
 import 'package:bluesky/src/feeds/feeds_service.dart';

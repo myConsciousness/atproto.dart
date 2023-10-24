@@ -11,6 +11,7 @@ import '../bluesky_base_service.dart';
 import '../entities/feed.dart';
 import '../entities/feed_generators.dart';
 import '../entities/skeleton_feed.dart';
+import '../entities/skeleton_posts_by_query.dart';
 
 sealed class UnspeccedService {
   /// Returns the new instance of [UnspeccedService].
@@ -339,6 +340,112 @@ sealed class UnspeccedService {
     int? limit,
     String? cursor,
   });
+
+  /// Backend Posts search, returning only skeleton.
+  ///
+  /// ## Parameters
+  ///
+  /// - [query]: search query string; syntax, phrase, boolean, and faceting is
+  ///            unspecified, but Lucene query syntax is recommended
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 25.
+  ///
+  /// - [cursor]: Optional pagination mechanism; may not necessarily allow
+  ///             scrolling through entire result set
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.searchPostsSkeleton
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/searchPostsSkeleton.json
+  Future<core.XRPCResponse<SkeletonPostsByQuery>> searchPostsByQuerySkeleton(
+    final String query, {
+    int? limit,
+    String? cursor,
+  });
+
+  /// Backend Posts search, returning only skeleton as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [query]: search query string; syntax, phrase, boolean, and faceting is
+  ///            unspecified, but Lucene query syntax is recommended
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 25.
+  ///
+  /// - [cursor]: Optional pagination mechanism; may not necessarily allow
+  ///             scrolling through entire result set
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.searchPostsSkeleton
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/searchPostsSkeleton.json
+  Future<core.XRPCResponse<Map<String, dynamic>>>
+      searchPostsByQuerySkeletonAsJson(
+    final String query, {
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination for backend Posts search, returning only skeleton.
+  ///
+  /// ## Parameters
+  ///
+  /// - [query]: search query string; syntax, phrase, boolean, and faceting is
+  ///            unspecified, but Lucene query syntax is recommended
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 25.
+  ///
+  /// - [cursor]: Optional pagination mechanism; may not necessarily allow
+  ///             scrolling through entire result set
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.searchPostsSkeleton
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/searchPostsSkeleton.json
+  core.Pagination<SkeletonPostsByQuery> paginatePostsByQuerySkeleton(
+    final String query, {
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination for backend Posts search, returning only skeleton
+  /// as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [query]: search query string; syntax, phrase, boolean, and faceting is
+  ///            unspecified, but Lucene query syntax is recommended
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 25.
+  ///
+  /// - [cursor]: Optional pagination mechanism; may not necessarily allow
+  ///             scrolling through entire result set
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.searchPostsSkeleton
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/searchPostsSkeleton.json
+  core.Pagination<Map<String, dynamic>> paginatePostsByQuerySkeletonAsJson(
+    final String query, {
+    int? limit,
+    String? cursor,
+  });
 }
 
 final class _UnspeccedService extends BlueskyBaseService
@@ -500,6 +607,57 @@ final class _UnspeccedService extends BlueskyBaseService
         cursor: cursor,
       );
 
+  @override
+  Future<core.XRPCResponse<SkeletonPostsByQuery>> searchPostsByQuerySkeleton(
+    final String query, {
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _searchPostsByQuerySkeleton(
+        query: query,
+        limit: limit,
+        cursor: cursor,
+        to: SkeletonPostsByQuery.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>>
+      searchPostsByQuerySkeletonAsJson(
+    final String query, {
+    int? limit,
+    String? cursor,
+  }) async =>
+          await _searchPostsByQuerySkeleton(
+            query: query,
+            limit: limit,
+            cursor: cursor,
+          );
+
+  @override
+  core.Pagination<SkeletonPostsByQuery> paginatePostsByQuerySkeleton(
+    final String query, {
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginatePostsByQuerySkeleton(
+        query: query,
+        limit: limit,
+        cursor: cursor,
+        to: SkeletonPostsByQuery.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginatePostsByQuerySkeletonAsJson(
+    final String query, {
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginatePostsByQuerySkeleton(
+        query: query,
+        limit: limit,
+        cursor: cursor,
+      );
+
   Future<core.XRPCResponse<T>> _findPopularFeed<T>({
     required bool? includeNsfw,
     required int? limit,
@@ -592,6 +750,38 @@ final class _UnspeccedService extends BlueskyBaseService
         to: to,
       );
 
+  Future<core.XRPCResponse<T>> _searchPostsByQuerySkeleton<T>({
+    required String query,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'searchSkeletonPosts',
+        parameters: _buildSearchPostsSkeletonParams(
+          query: query,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginatePostsByQuerySkeleton<T>({
+    required String query,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'searchPosts',
+        parameters: _buildSearchPostsSkeletonParams(
+          query: query,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
   Map<String, dynamic> _buildGetPopular({
     required bool? includeNsfw,
     required int? limit,
@@ -619,6 +809,17 @@ final class _UnspeccedService extends BlueskyBaseService
     required String? cursor,
   }) =>
       {
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildSearchPostsSkeletonParams({
+    required String query,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'q': query,
         'limit': limit,
         'cursor': cursor,
       };

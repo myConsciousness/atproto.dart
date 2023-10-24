@@ -270,6 +270,8 @@ export 'package:bluesky/src/entities/skeleton_feed.dart';
 export 'package:bluesky/src/entities/skeleton_feed_view.dart';
 export 'package:bluesky/src/entities/skeleton_reason.dart';
 export 'package:bluesky/src/entities/skeleton_reason_repost.dart';
+export 'package:bluesky/src/entities/skeleton_posts_by_query.dart';
+export 'package:bluesky/src/entities/skeleton_post.dart';
 export 'package:bluesky/src/entities/suggested_follows.dart';
 export 'package:bluesky/src/extension/grouped_notification_extension.dart';
 export 'package:bluesky/src/extension/at_uri_extension.dart';

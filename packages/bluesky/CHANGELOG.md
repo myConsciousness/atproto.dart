@@ -2,11 +2,16 @@
 
 ## v0.9.1
 
-- Supported `app.bsky.feed.searchPosts` as `.searchPostsByQuery` on `FeedsService`. ([#845](https://github.com/myConsciousness/atproto.dart/issues/845))
+- Supported `app.bsky.feed.searchPosts` on `FeedsService`. ([#845](https://github.com/myConsciousness/atproto.dart/issues/845))
   - `.searchPostsByQuery`
   - `.searchPostsByQueryAsJson`
   - `.paginatePostsByQuery`
   - `.paginatePostsByQueryAsJson`
+- Supported `app.bsky.unspecced.searchPostsSkeleton` on `UnspeccedService`. ([#848](https://github.com/myConsciousness/atproto.dart/issues/848))
+  - `.searchPostsByQuerySkeleton`
+  - `.searchPostsByQuerySkeletonAsJson`
+  - `.paginatePostsByQuerySkeleton`
+  - `.paginatePostsByQuerySkeletonAsJson`
 
 ## v0.9.0
 
