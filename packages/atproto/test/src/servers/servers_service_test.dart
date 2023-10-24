@@ -14,6 +14,7 @@ import 'package:atproto/src/entities/app_passwords.dart';
 import 'package:atproto/src/entities/created_invite_code.dart';
 import 'package:atproto/src/entities/created_invite_codes.dart';
 import 'package:atproto/src/entities/current_session.dart';
+import 'package:atproto/src/entities/email_update.dart';
 import 'package:atproto/src/entities/invite_codes.dart';
 import 'package:atproto/src/entities/server_info.dart';
 import 'package:atproto/src/servers/servers_service.dart';
@@ -38,6 +39,8 @@ void main() {
 
       expect(response, isA<core.XRPCResponse>());
       expect(response.data, isA<CurrentSession>());
+
+      expect(response.data.isEmailConfirmed, isTrue);
     });
 
     test('as JSON', () async {
@@ -97,74 +100,6 @@ void main() {
 
       atp_test.expectRateLimitExceededException(
         () async => await servers.findCurrentSession(),
-      );
-    });
-  });
-
-  // TODO: Will remove in v0.7.0
-  group('.refreshSession', () {
-    test('normal case', () async {
-      final servers = ServersService(
-        did: 'test',
-        protocol: core.Protocol.https,
-        service: 'test',
-        context: core.ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedPostClient: atp_test.createMockedPostClient(
-          'test/src/servers/data/refresh_session.json',
-        ),
-      );
-
-      // ignore: deprecated_member_use_from_same_package
-      final response = await servers.refreshSession(
-        refreshJwt: '',
-      );
-
-      expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<core.Session>());
-    });
-
-    test('when unauthorized', () async {
-      final servers = ServersService(
-        did: 'test',
-        protocol: core.Protocol.https,
-        service: 'test',
-        context: core.ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedPostClient: atp_test.createMockedPostClient(
-          'test/src/data/error.json',
-          statusCode: 401,
-        ),
-      );
-
-      atp_test.expectUnauthorizedException(
-        // ignore: deprecated_member_use_from_same_package
-        () async => await servers.refreshSession(refreshJwt: ''),
-      );
-    });
-
-    test('when rate limit exceeded', () async {
-      final servers = ServersService(
-        did: 'test',
-        protocol: core.Protocol.https,
-        service: 'test',
-        context: core.ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedPostClient: atp_test.createMockedPostClient(
-          'test/src/data/error.json',
-          statusCode: 429,
-        ),
-      );
-
-      atp_test.expectRateLimitExceededException(
-        // ignore: deprecated_member_use_from_same_package
-        () async => await servers.refreshSession(refreshJwt: ''),
       );
     });
   });
@@ -1103,6 +1038,272 @@ void main() {
 
       atp_test.expectRateLimitExceededException(
         () async => await servers.findServerInfo(),
+      );
+    });
+  });
+
+  group('.requestEmailUpdate', () {
+    test('normal case', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/servers/data/request_email_update.json',
+        ),
+      );
+
+      final response = await servers.requestEmailUpdate();
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<EmailUpdate>());
+    });
+
+    test('when unauthorized', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await servers.requestEmailUpdate(),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await servers.requestEmailUpdate(),
+      );
+    });
+  });
+
+  group('.requestEmailConfirmation', () {
+    test('normal case', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/servers/data/request_email_confirmation.json',
+        ),
+      );
+
+      final response = await servers.requestEmailConfirmation();
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<core.EmptyData>());
+    });
+
+    test('when unauthorized', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await servers.requestEmailConfirmation(),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await servers.requestEmailConfirmation(),
+      );
+    });
+  });
+
+  group('.confirmEmail', () {
+    test('normal case', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/servers/data/confirm_email.json',
+        ),
+      );
+
+      final response = await servers.confirmEmail(
+        email: 'contact@shinyakato.dev',
+        token: 'xxxxxx',
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<core.EmptyData>());
+    });
+
+    test('when unauthorized', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await servers.confirmEmail(
+          email: 'contact@shinyakato.dev',
+          token: 'xxxxxx',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await servers.confirmEmail(
+          email: 'contact@shinyakato.dev',
+          token: 'xxxxxx',
+        ),
+      );
+    });
+  });
+
+  group('.updateEmail', () {
+    test('normal case', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/servers/data/update_email.json',
+        ),
+      );
+
+      final response = await servers.updateEmail(
+        email: 'contact@shinyakato.dev',
+        token: 'xxxxxx',
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<core.EmptyData>());
+    });
+
+    test('when unauthorized', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await servers.updateEmail(
+          email: 'contact@shinyakato.dev',
+          token: 'xxxxxx',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final servers = ServersService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await servers.updateEmail(
+          email: 'contact@shinyakato.dev',
+          token: 'xxxxxx',
+        ),
       );
     });
   });

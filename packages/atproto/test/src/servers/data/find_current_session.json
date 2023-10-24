@@ -1,5 +1,6 @@
 {
   "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
   "handle": "shinyakato.bsky.social",
-  "email": "contact@shinyakato.dev"
+  "email": "contact@shinyakato.dev",
+  "emailConfirmed": true
 }

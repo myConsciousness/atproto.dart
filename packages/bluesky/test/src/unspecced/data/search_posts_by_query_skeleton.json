@@ -1,0 +1,12 @@
+{
+  "posts": [
+    {
+      "uri": "at://did:plc:d3zpokjdspr22chfrc427eis/app.bsky.feed.post/yyyyyyyy"
+    },
+    {
+      "uri": "at://did:plc:d3zpokjdspr22chfrc427eis/app.bsky.feed.post/xxxxxxxx"
+    }
+  ],
+  "cursor": "xxxxxxx",
+  "hitsTotal": 10
+}

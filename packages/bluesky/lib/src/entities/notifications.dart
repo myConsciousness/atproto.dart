@@ -6,13 +6,16 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../notifications/notification_reason.dart';
+import '../notifications/group_by.dart';
+import '../notifications/notification_reason_filter.dart';
 import '../notifications/notifications_grouper.dart';
 import 'grouped_notifications.dart';
 import 'notification.dart';
 
 part 'notifications.freezed.dart';
 part 'notifications.g.dart';
+
+final _grouper = const NotificationsGrouper();
 
 /// Represents a collection of [Notification] objects.
 ///
@@ -62,10 +65,40 @@ class Notifications with _$Notifications {
   /// - Returns a [GroupedNotifications] object containing the grouped
   ///   notifications.
   GroupedNotifications group({
-    List<NotificationReason>? includeReasons,
+    NotificationReasonFilter? reasonFilter,
   }) =>
-      const NotificationsGrouper().group(
+      _grouper.group(
         this,
-        includeReasons: includeReasons,
+        reasonFilter: reasonFilter,
+      );
+
+  /// Groups a list of notifications based on their `reason` and
+  /// `reasonSubject` and by [hour].
+  ///
+  /// Available [hour] range is from 1 to 23 (include), otherwise
+  /// it always throws [AssertionError].
+  GroupedNotifications groupByHour(
+    final int hour, {
+    NotificationReasonFilter? reasonFilter,
+  }) =>
+      _grouper.group(
+        this,
+        reasonFilter: reasonFilter,
+        by: GroupBy.hour(hour),
+      );
+
+  /// Groups a list of notifications based on their `reason` and
+  /// `reasonSubject` and by [minute].
+  ///
+  /// Available [minute] range is from 1 to 59 (include), otherwise
+  /// it always throws [AssertionError].
+  GroupedNotifications groupByMinute(
+    final int minute, {
+    NotificationReasonFilter? reasonFilter,
+  }) =>
+      _grouper.group(
+        this,
+        reasonFilter: reasonFilter,
+        by: GroupBy.minute(minute),
       );
 }

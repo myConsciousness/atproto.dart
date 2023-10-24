@@ -60,6 +60,9 @@ class PostRecord with _$PostRecord {
     /// Might include any associated facets.
     List<Facet>? facets,
 
+    /// Additional non-inline tags describing this post.
+    List<String>? tags,
+
     /// The timestamp indicating when the post was created.
     required DateTime createdAt,
   }) = _PostRecord;

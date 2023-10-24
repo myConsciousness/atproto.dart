@@ -17,6 +17,7 @@ import 'package:bluesky/src/entities/feed_generators.dart';
 import 'package:bluesky/src/entities/likes.dart';
 import 'package:bluesky/src/entities/post_thread.dart';
 import 'package:bluesky/src/entities/posts.dart';
+import 'package:bluesky/src/entities/posts_by_query.dart';
 import 'package:bluesky/src/entities/reposted_by.dart';
 import 'package:bluesky/src/entities/skeleton_feed.dart';
 import 'package:bluesky/src/feeds/feeds_service.dart';
@@ -2383,6 +2384,96 @@ void main() {
           limit: 10,
           cursor: '1234',
         ),
+      );
+    });
+  });
+
+  group('.searchPostsByQuery', () {
+    test('normal case', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/search_posts_by_query.json',
+        ),
+      );
+
+      final response = await feeds.searchPostsByQuery('test');
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<PostsByQuery>());
+
+      expect(response.data.posts.length, 1);
+      expect(response.data.hitsTotal, 10);
+      expect(response.data.cursor, 'xxxxxxx');
+    });
+
+    test('as JSON', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/feeds/data/search_posts_by_query.json',
+        ),
+      );
+
+      final response = await feeds.searchPostsByQueryAsJson('test');
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
+    test('when unauthorized', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await feeds.searchPostsByQuery('test'),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final feeds = FeedsService(
+        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await feeds.searchPostsByQuery('test'),
       );
     });
   });

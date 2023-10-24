@@ -12,8 +12,6 @@ export 'package:atproto/atproto.dart'
         $DIDCopyWith,
         Blob,
         $BlobCopyWith,
-        RepoHead,
-        $RepoHeadCopyWith,
         BlobData,
         $BlobDataCopyWith,
         BlobRef,
@@ -28,6 +26,8 @@ export 'package:atproto/atproto.dart'
         $CreatedInviteCodesCopyWith,
         AccountCodes,
         $AccountCodesCopyWith,
+        EmailUpdate,
+        $EmailUpdateCopyWith,
         RepoBlocks,
         $RepoBlocksCopyWith,
         RepoBlock,
@@ -190,6 +190,8 @@ export 'package:bluesky/src/entities/content_label_preference.dart';
 export 'package:bluesky/src/entities/count.dart';
 export 'package:bluesky/src/entities/embed.dart';
 export 'package:bluesky/src/entities/personal_details_preference.dart';
+export 'package:bluesky/src/entities/feed_view_preference.dart';
+export 'package:bluesky/src/entities/thread_view_preference.dart';
 export 'package:bluesky/src/entities/embed_external.dart';
 export 'package:bluesky/src/entities/embed_external_thumbnail.dart';
 export 'package:bluesky/src/entities/embed_images.dart';
@@ -211,6 +213,7 @@ export 'package:bluesky/src/entities/facet.dart';
 export 'package:bluesky/src/entities/facet_feature.dart';
 export 'package:bluesky/src/entities/facet_link.dart';
 export 'package:bluesky/src/entities/facet_mention.dart';
+export 'package:bluesky/src/entities/facet_tag.dart';
 export 'package:bluesky/src/entities/feed.dart';
 export 'package:bluesky/src/entities/feed_generator.dart';
 export 'package:bluesky/src/entities/feed_generator_info.dart';
@@ -250,6 +253,7 @@ export 'package:bluesky/src/entities/post_thread_view.dart';
 export 'package:bluesky/src/entities/post_thread_view_record.dart';
 export 'package:bluesky/src/entities/post_viewer.dart';
 export 'package:bluesky/src/entities/posts.dart';
+export 'package:bluesky/src/entities/posts_by_query.dart';
 export 'package:bluesky/src/entities/preference.dart';
 export 'package:bluesky/src/feeds/feed_filter.dart';
 export 'package:bluesky/src/entities/preferences.dart';
@@ -266,6 +270,10 @@ export 'package:bluesky/src/entities/skeleton_feed.dart';
 export 'package:bluesky/src/entities/skeleton_feed_view.dart';
 export 'package:bluesky/src/entities/skeleton_reason.dart';
 export 'package:bluesky/src/entities/skeleton_reason_repost.dart';
+export 'package:bluesky/src/entities/skeleton_posts_by_query.dart';
+export 'package:bluesky/src/entities/skeleton_post.dart';
+export 'package:bluesky/src/entities/skeleton_actors_by_query.dart';
+export 'package:bluesky/src/entities/skeleton_actor.dart';
 export 'package:bluesky/src/entities/suggested_follows.dart';
 export 'package:bluesky/src/extension/grouped_notification_extension.dart';
 export 'package:bluesky/src/extension/at_uri_extension.dart';
@@ -274,6 +282,8 @@ export 'package:bluesky/src/extension/strong_ref_extension.dart';
 export 'package:bluesky/src/feeds/feeds_service.dart';
 export 'package:bluesky/src/graphs/graphs_service.dart';
 export 'package:bluesky/src/notifications/notification_reason.dart';
+export 'package:bluesky/src/notifications/notification_reason_filter.dart'
+    show NotificationReasonFilter;
 export 'package:bluesky/src/notifications/grouped_notification_reason.dart';
 export 'package:bluesky/src/notifications/notifications_service.dart';
 export 'package:bluesky/src/params/generator_param.dart';

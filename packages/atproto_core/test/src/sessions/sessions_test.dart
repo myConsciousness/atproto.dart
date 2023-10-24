@@ -24,6 +24,8 @@ void main() {
 
       expect(response, isA<xrpc.XRPCResponse>());
       expect(response.data, isA<Session>());
+
+      expect(response.data.isEmailConfirmed, isTrue);
     });
 
     test('when unauthorized', () async {

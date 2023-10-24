@@ -10,6 +10,7 @@ _$_Session _$$_SessionFromJson(Map<String, dynamic> json) => _$_Session(
       did: json['did'] as String,
       handle: json['handle'] as String,
       email: json['email'] as String?,
+      isEmailConfirmed: json['emailConfirmed'] as bool? ?? false,
       accessJwt: json['accessJwt'] as String,
       refreshJwt: json['refreshJwt'] as String,
     );
@@ -27,6 +28,7 @@ Map<String, dynamic> _$$_SessionToJson(_$_Session instance) {
   }
 
   writeNotNull('email', instance.email);
+  val['emailConfirmed'] = instance.isEmailConfirmed;
   val['accessJwt'] = instance.accessJwt;
   val['refreshJwt'] = instance.refreshJwt;
   return val;

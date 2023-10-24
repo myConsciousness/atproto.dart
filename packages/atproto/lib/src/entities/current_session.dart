@@ -2,7 +2,10 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: invalid_annotation_target
+
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'current_session.freezed.dart';
@@ -19,6 +22,7 @@ class CurrentSession with _$CurrentSession {
   ///
   /// [did], [handle], and [email] are all required parameters. They represent
   /// the current user's unique identifier, handle, and email, respectively.
+  @jsonSerializable
   const factory CurrentSession({
     /// The decentralized identifier (DID) for the user in the current session.
     required String did,
@@ -27,7 +31,10 @@ class CurrentSession with _$CurrentSession {
     required String handle,
 
     /// The email address of the user in the current session.
-    required String email,
+    String? email,
+
+    /// A flag indicating whether the email address is confirmed.
+    @JsonKey(name: 'emailConfirmed') @Default(false) bool isEmailConfirmed,
   }) = _CurrentSession;
 
   /// A factory method that creates a [CurrentSession] instance from a JSON map.

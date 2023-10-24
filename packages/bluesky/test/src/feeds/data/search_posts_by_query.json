@@ -1,0 +1,35 @@
+{
+  "posts": [
+    {
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "text": "eu queria um fone de ouvido com fio, não me dou bem com fone sem fios, tenho um da samsung que só fica caindo e eu não consigo enfiar ele todo na orelha pois ela é pititiquinha",
+        "createdAt": "2023-04-24T13:50:19.672Z"
+      },
+      "author": {
+        "did": "did:plc:d3zpokjdspr22chfrc427eis",
+        "handle": "luy.gay",
+        "displayName": "luy 🦋",
+        "avatar": "https://cdn.bsky.social/imgproxy/iWeJaZIxcw1gXlNudENlFDQHzb6ZuGEp9JGlYBlRRLs/rs:fill:1000:1000:1:0/plain/bafkreiaamsjmwczz7rd2d4pololrfdw2za7cj4zwiqbgz7q6sp4yqgvscm@jpeg",
+        "viewer": {
+          "muted": false,
+          "blockedBy": false,
+          "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jriwhw4uws2d",
+          "followedBy": "at://did:plc:d3zpokjdspr22chfrc427eis/app.bsky.graph.follow/3jt4vdct4s22h"
+        },
+        "labels": []
+      },
+      "uri": "at://did:plc:d3zpokjdspr22chfrc427eis/app.bsky.feed.post/3ju4p6u2i3a2g",
+      "cid": "bafyreigsrxui256rn6lxwgzhswg3qc3e3t2vnlej3ddlq4w5ebg7fd2voq",
+      "embed": null,
+      "replyCount": 8,
+      "repostCount": 0,
+      "likeCount": 7,
+      "viewer": {},
+      "labels": [],
+      "indexedAt": "2023-04-24T13:50:20.078Z"
+    }
+  ],
+  "cursor": "xxxxxxx",
+  "hitsTotal": 10
+}

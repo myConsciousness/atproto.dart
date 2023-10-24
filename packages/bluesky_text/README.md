@@ -57,11 +57,13 @@ Have you ever had trouble parsing mentions or links in the text you post when us
 ## 1.1. Features ⭐
 
 - ✅ **Zero Dependency**
-- ✅ **Automatic Detection of `Handle` and `Link`** in text
+- ✅ **Automatic Detection of `Handle`, `Link`, `Tag`** in text
 - ✅ Supports **Automatic Conversion** to **Facet**
 - ✅ **100% Compatible with [bluesky](https://atprotodart.com/docs/packages/bluesky)**
 - ✅ Supports **Unicode Grapheme Clusters**
-- ✅ Support for **Safe Text Splitting**
+- ✅ Supports **Safe Text Splitting**
+- ✅ **Works in All Languages**
+- ✅ Supports **Markdown Style Links**
 - ✅ **Well Documented** and **Well Tested**
 - ✅ **100% Null Safety**
 
@@ -73,7 +75,7 @@ See **[example](https://github.com/myConsciousness/atproto.dart/blob/main/packag
 - **[Import](https://atprotodart.com/docs/packages/bluesky_text#import)**
 - **[Instantiate `BlueskyText`](https://atprotodart.com/docs/packages/bluesky_text#import)**
 - **[Extract Entities](https://atprotodart.com/docs/packages/bluesky_text#extract-entities)**
-- **[Extract Entities](https://atprotodart.com/docs/packages/bluesky_text#generate-facets)**
+- **[Generate Facets](https://atprotodart.com/docs/packages/bluesky_text#generate-facets)**
 
 ## 1.3. Tips 🏄
 

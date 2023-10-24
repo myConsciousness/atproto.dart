@@ -23,6 +23,8 @@ mixin _$Preference {
     required TResult Function(ContentLabelPreference data) contentLabel,
     required TResult Function(SavedFeedsPreference data) savedFeeds,
     required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -32,6 +34,8 @@ mixin _$Preference {
     TResult? Function(ContentLabelPreference data)? contentLabel,
     TResult? Function(SavedFeedsPreference data)? savedFeeds,
     TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -41,6 +45,8 @@ mixin _$Preference {
     TResult Function(ContentLabelPreference data)? contentLabel,
     TResult Function(SavedFeedsPreference data)? savedFeeds,
     TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
@@ -51,6 +57,8 @@ mixin _$Preference {
     required TResult Function(UPreferenceContentLabel value) contentLabel,
     required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
     required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -60,6 +68,8 @@ mixin _$Preference {
     TResult? Function(UPreferenceContentLabel value)? contentLabel,
     TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
     TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -69,6 +79,8 @@ mixin _$Preference {
     TResult Function(UPreferenceContentLabel value)? contentLabel,
     TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
     TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) =>
@@ -172,6 +184,8 @@ class _$UPreferenceAdultContent extends UPreferenceAdultContent {
     required TResult Function(ContentLabelPreference data) contentLabel,
     required TResult Function(SavedFeedsPreference data) savedFeeds,
     required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return adultContent(data);
@@ -184,6 +198,8 @@ class _$UPreferenceAdultContent extends UPreferenceAdultContent {
     TResult? Function(ContentLabelPreference data)? contentLabel,
     TResult? Function(SavedFeedsPreference data)? savedFeeds,
     TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return adultContent?.call(data);
@@ -196,6 +212,8 @@ class _$UPreferenceAdultContent extends UPreferenceAdultContent {
     TResult Function(ContentLabelPreference data)? contentLabel,
     TResult Function(SavedFeedsPreference data)? savedFeeds,
     TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -212,6 +230,8 @@ class _$UPreferenceAdultContent extends UPreferenceAdultContent {
     required TResult Function(UPreferenceContentLabel value) contentLabel,
     required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
     required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return adultContent(this);
@@ -224,6 +244,8 @@ class _$UPreferenceAdultContent extends UPreferenceAdultContent {
     TResult? Function(UPreferenceContentLabel value)? contentLabel,
     TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
     TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return adultContent?.call(this);
@@ -236,6 +258,8 @@ class _$UPreferenceAdultContent extends UPreferenceAdultContent {
     TResult Function(UPreferenceContentLabel value)? contentLabel,
     TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
     TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -337,6 +361,8 @@ class _$UPreferenceContentLabel extends UPreferenceContentLabel {
     required TResult Function(ContentLabelPreference data) contentLabel,
     required TResult Function(SavedFeedsPreference data) savedFeeds,
     required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return contentLabel(data);
@@ -349,6 +375,8 @@ class _$UPreferenceContentLabel extends UPreferenceContentLabel {
     TResult? Function(ContentLabelPreference data)? contentLabel,
     TResult? Function(SavedFeedsPreference data)? savedFeeds,
     TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return contentLabel?.call(data);
@@ -361,6 +389,8 @@ class _$UPreferenceContentLabel extends UPreferenceContentLabel {
     TResult Function(ContentLabelPreference data)? contentLabel,
     TResult Function(SavedFeedsPreference data)? savedFeeds,
     TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -377,6 +407,8 @@ class _$UPreferenceContentLabel extends UPreferenceContentLabel {
     required TResult Function(UPreferenceContentLabel value) contentLabel,
     required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
     required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return contentLabel(this);
@@ -389,6 +421,8 @@ class _$UPreferenceContentLabel extends UPreferenceContentLabel {
     TResult? Function(UPreferenceContentLabel value)? contentLabel,
     TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
     TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return contentLabel?.call(this);
@@ -401,6 +435,8 @@ class _$UPreferenceContentLabel extends UPreferenceContentLabel {
     TResult Function(UPreferenceContentLabel value)? contentLabel,
     TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
     TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -502,6 +538,8 @@ class _$UPreferenceSavedFeeds extends UPreferenceSavedFeeds {
     required TResult Function(ContentLabelPreference data) contentLabel,
     required TResult Function(SavedFeedsPreference data) savedFeeds,
     required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return savedFeeds(data);
@@ -514,6 +552,8 @@ class _$UPreferenceSavedFeeds extends UPreferenceSavedFeeds {
     TResult? Function(ContentLabelPreference data)? contentLabel,
     TResult? Function(SavedFeedsPreference data)? savedFeeds,
     TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return savedFeeds?.call(data);
@@ -526,6 +566,8 @@ class _$UPreferenceSavedFeeds extends UPreferenceSavedFeeds {
     TResult Function(ContentLabelPreference data)? contentLabel,
     TResult Function(SavedFeedsPreference data)? savedFeeds,
     TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -542,6 +584,8 @@ class _$UPreferenceSavedFeeds extends UPreferenceSavedFeeds {
     required TResult Function(UPreferenceContentLabel value) contentLabel,
     required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
     required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return savedFeeds(this);
@@ -554,6 +598,8 @@ class _$UPreferenceSavedFeeds extends UPreferenceSavedFeeds {
     TResult? Function(UPreferenceContentLabel value)? contentLabel,
     TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
     TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return savedFeeds?.call(this);
@@ -566,6 +612,8 @@ class _$UPreferenceSavedFeeds extends UPreferenceSavedFeeds {
     TResult Function(UPreferenceContentLabel value)? contentLabel,
     TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
     TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -669,6 +717,8 @@ class _$UPreferencePersonalDetails extends UPreferencePersonalDetails {
     required TResult Function(ContentLabelPreference data) contentLabel,
     required TResult Function(SavedFeedsPreference data) savedFeeds,
     required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return personalDetails(data);
@@ -681,6 +731,8 @@ class _$UPreferencePersonalDetails extends UPreferencePersonalDetails {
     TResult? Function(ContentLabelPreference data)? contentLabel,
     TResult? Function(SavedFeedsPreference data)? savedFeeds,
     TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return personalDetails?.call(data);
@@ -693,6 +745,8 @@ class _$UPreferencePersonalDetails extends UPreferencePersonalDetails {
     TResult Function(ContentLabelPreference data)? contentLabel,
     TResult Function(SavedFeedsPreference data)? savedFeeds,
     TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -709,6 +763,8 @@ class _$UPreferencePersonalDetails extends UPreferencePersonalDetails {
     required TResult Function(UPreferenceContentLabel value) contentLabel,
     required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
     required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return personalDetails(this);
@@ -721,6 +777,8 @@ class _$UPreferencePersonalDetails extends UPreferencePersonalDetails {
     TResult? Function(UPreferenceContentLabel value)? contentLabel,
     TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
     TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return personalDetails?.call(this);
@@ -733,6 +791,8 @@ class _$UPreferencePersonalDetails extends UPreferencePersonalDetails {
     TResult Function(UPreferenceContentLabel value)? contentLabel,
     TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
     TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -754,6 +814,360 @@ abstract class UPreferencePersonalDetails extends Preference {
   @JsonKey(ignore: true)
   _$$UPreferencePersonalDetailsCopyWith<_$UPreferencePersonalDetails>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UPreferenceFeedViewCopyWith<$Res> {
+  factory _$$UPreferenceFeedViewCopyWith(_$UPreferenceFeedView value,
+          $Res Function(_$UPreferenceFeedView) then) =
+      __$$UPreferenceFeedViewCopyWithImpl<$Res>;
+  @useResult
+  $Res call({FeedViewPreference data});
+
+  $FeedViewPreferenceCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$UPreferenceFeedViewCopyWithImpl<$Res>
+    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceFeedView>
+    implements _$$UPreferenceFeedViewCopyWith<$Res> {
+  __$$UPreferenceFeedViewCopyWithImpl(
+      _$UPreferenceFeedView _value, $Res Function(_$UPreferenceFeedView) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$UPreferenceFeedView(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as FeedViewPreference,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FeedViewPreferenceCopyWith<$Res> get data {
+    return $FeedViewPreferenceCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UPreferenceFeedView extends UPreferenceFeedView {
+  const _$UPreferenceFeedView({required this.data}) : super._();
+
+  @override
+  final FeedViewPreference data;
+
+  @override
+  String toString() {
+    return 'Preference.feedView(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UPreferenceFeedView &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UPreferenceFeedViewCopyWith<_$UPreferenceFeedView> get copyWith =>
+      __$$UPreferenceFeedViewCopyWithImpl<_$UPreferenceFeedView>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPreference data) adultContent,
+    required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return feedView(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPreference data)? adultContent,
+    TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return feedView?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPreference data)? adultContent,
+    TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (feedView != null) {
+      return feedView(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
+    required TResult Function(UPreferenceUnknown value) unknown,
+  }) {
+    return feedView(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
+    TResult? Function(UPreferenceUnknown value)? unknown,
+  }) {
+    return feedView?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
+    TResult Function(UPreferenceUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (feedView != null) {
+      return feedView(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UPreferenceFeedView extends Preference {
+  const factory UPreferenceFeedView({required final FeedViewPreference data}) =
+      _$UPreferenceFeedView;
+  const UPreferenceFeedView._() : super._();
+
+  @override
+  FeedViewPreference get data;
+  @JsonKey(ignore: true)
+  _$$UPreferenceFeedViewCopyWith<_$UPreferenceFeedView> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UPreferenceThreadViewCopyWith<$Res> {
+  factory _$$UPreferenceThreadViewCopyWith(_$UPreferenceThreadView value,
+          $Res Function(_$UPreferenceThreadView) then) =
+      __$$UPreferenceThreadViewCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ThreadViewPreference data});
+
+  $ThreadViewPreferenceCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$UPreferenceThreadViewCopyWithImpl<$Res>
+    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceThreadView>
+    implements _$$UPreferenceThreadViewCopyWith<$Res> {
+  __$$UPreferenceThreadViewCopyWithImpl(_$UPreferenceThreadView _value,
+      $Res Function(_$UPreferenceThreadView) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$UPreferenceThreadView(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ThreadViewPreference,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ThreadViewPreferenceCopyWith<$Res> get data {
+    return $ThreadViewPreferenceCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UPreferenceThreadView extends UPreferenceThreadView {
+  const _$UPreferenceThreadView({required this.data}) : super._();
+
+  @override
+  final ThreadViewPreference data;
+
+  @override
+  String toString() {
+    return 'Preference.threadView(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UPreferenceThreadView &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UPreferenceThreadViewCopyWith<_$UPreferenceThreadView> get copyWith =>
+      __$$UPreferenceThreadViewCopyWithImpl<_$UPreferenceThreadView>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPreference data) adultContent,
+    required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return threadView(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPreference data)? adultContent,
+    TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return threadView?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPreference data)? adultContent,
+    TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (threadView != null) {
+      return threadView(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
+    required TResult Function(UPreferenceUnknown value) unknown,
+  }) {
+    return threadView(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
+    TResult? Function(UPreferenceUnknown value)? unknown,
+  }) {
+    return threadView?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
+    TResult Function(UPreferenceUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (threadView != null) {
+      return threadView(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UPreferenceThreadView extends Preference {
+  const factory UPreferenceThreadView(
+      {required final ThreadViewPreference data}) = _$UPreferenceThreadView;
+  const UPreferenceThreadView._() : super._();
+
+  @override
+  ThreadViewPreference get data;
+  @JsonKey(ignore: true)
+  _$$UPreferenceThreadViewCopyWith<_$UPreferenceThreadView> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -833,6 +1247,8 @@ class _$UPreferenceUnknown extends UPreferenceUnknown {
     required TResult Function(ContentLabelPreference data) contentLabel,
     required TResult Function(SavedFeedsPreference data) savedFeeds,
     required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -845,6 +1261,8 @@ class _$UPreferenceUnknown extends UPreferenceUnknown {
     TResult? Function(ContentLabelPreference data)? contentLabel,
     TResult? Function(SavedFeedsPreference data)? savedFeeds,
     TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -857,6 +1275,8 @@ class _$UPreferenceUnknown extends UPreferenceUnknown {
     TResult Function(ContentLabelPreference data)? contentLabel,
     TResult Function(SavedFeedsPreference data)? savedFeeds,
     TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -873,6 +1293,8 @@ class _$UPreferenceUnknown extends UPreferenceUnknown {
     required TResult Function(UPreferenceContentLabel value) contentLabel,
     required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
     required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return unknown(this);
@@ -885,6 +1307,8 @@ class _$UPreferenceUnknown extends UPreferenceUnknown {
     TResult? Function(UPreferenceContentLabel value)? contentLabel,
     TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
     TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return unknown?.call(this);
@@ -897,6 +1321,8 @@ class _$UPreferenceUnknown extends UPreferenceUnknown {
     TResult Function(UPreferenceContentLabel value)? contentLabel,
     TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
     TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {

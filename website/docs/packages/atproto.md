@@ -272,6 +272,7 @@ You can always find the method you want to use by typing the prefix in the follo
 | **.upload**    | This prefix is attached to the endpoint performing the upload contents.                                 |
 | **.request**   | This prefix is attached to the endpoint performing the request via email.                               |
 | **.notify**    | This prefix is attached to the endpoint used for the purpose of notifying the server of updates.        |
+| **.confirm**   | This prefix is attached to the endpoint performing the confirm state such an email.                     |
 
 :::tip
 For example, if you want to `create` a specific record using **[atproto](https://pub.dev/packages/atproto)**, you would type the following for the `RepositoriesService`.

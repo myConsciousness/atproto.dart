@@ -27,7 +27,11 @@ mixin _$CurrentSession {
   String get handle => throw _privateConstructorUsedError;
 
   /// The email address of the user in the current session.
-  String get email => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+
+  /// A flag indicating whether the email address is confirmed.
+  @JsonKey(name: 'emailConfirmed')
+  bool get isEmailConfirmed => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +45,11 @@ abstract class $CurrentSessionCopyWith<$Res> {
           CurrentSession value, $Res Function(CurrentSession) then) =
       _$CurrentSessionCopyWithImpl<$Res, CurrentSession>;
   @useResult
-  $Res call({String did, String handle, String email});
+  $Res call(
+      {String did,
+      String handle,
+      String? email,
+      @JsonKey(name: 'emailConfirmed') bool isEmailConfirmed});
 }
 
 /// @nodoc
@@ -59,7 +67,8 @@ class _$CurrentSessionCopyWithImpl<$Res, $Val extends CurrentSession>
   $Res call({
     Object? did = null,
     Object? handle = null,
-    Object? email = null,
+    Object? email = freezed,
+    Object? isEmailConfirmed = null,
   }) {
     return _then(_value.copyWith(
       did: null == did
@@ -70,10 +79,14 @@ class _$CurrentSessionCopyWithImpl<$Res, $Val extends CurrentSession>
           ? _value.handle
           : handle // ignore: cast_nullable_to_non_nullable
               as String,
-      email: null == email
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      isEmailConfirmed: null == isEmailConfirmed
+          ? _value.isEmailConfirmed
+          : isEmailConfirmed // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -86,7 +99,11 @@ abstract class _$$_CurrentSessionCopyWith<$Res>
       __$$_CurrentSessionCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String did, String handle, String email});
+  $Res call(
+      {String did,
+      String handle,
+      String? email,
+      @JsonKey(name: 'emailConfirmed') bool isEmailConfirmed});
 }
 
 /// @nodoc
@@ -102,7 +119,8 @@ class __$$_CurrentSessionCopyWithImpl<$Res>
   $Res call({
     Object? did = null,
     Object? handle = null,
-    Object? email = null,
+    Object? email = freezed,
+    Object? isEmailConfirmed = null,
   }) {
     return _then(_$_CurrentSession(
       did: null == did
@@ -113,19 +131,27 @@ class __$$_CurrentSessionCopyWithImpl<$Res>
           ? _value.handle
           : handle // ignore: cast_nullable_to_non_nullable
               as String,
-      email: null == email
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      isEmailConfirmed: null == isEmailConfirmed
+          ? _value.isEmailConfirmed
+          : isEmailConfirmed // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@jsonSerializable
 class _$_CurrentSession implements _CurrentSession {
   const _$_CurrentSession(
-      {required this.did, required this.handle, required this.email});
+      {required this.did,
+      required this.handle,
+      this.email,
+      @JsonKey(name: 'emailConfirmed') this.isEmailConfirmed = false});
 
   factory _$_CurrentSession.fromJson(Map<String, dynamic> json) =>
       _$$_CurrentSessionFromJson(json);
@@ -140,11 +166,16 @@ class _$_CurrentSession implements _CurrentSession {
 
   /// The email address of the user in the current session.
   @override
-  final String email;
+  final String? email;
+
+  /// A flag indicating whether the email address is confirmed.
+  @override
+  @JsonKey(name: 'emailConfirmed')
+  final bool isEmailConfirmed;
 
   @override
   String toString() {
-    return 'CurrentSession(did: $did, handle: $handle, email: $email)';
+    return 'CurrentSession(did: $did, handle: $handle, email: $email, isEmailConfirmed: $isEmailConfirmed)';
   }
 
   @override
@@ -154,12 +185,15 @@ class _$_CurrentSession implements _CurrentSession {
             other is _$_CurrentSession &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.handle, handle) || other.handle == handle) &&
-            (identical(other.email, email) || other.email == email));
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.isEmailConfirmed, isEmailConfirmed) ||
+                other.isEmailConfirmed == isEmailConfirmed));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, did, handle, email);
+  int get hashCode =>
+      Object.hash(runtimeType, did, handle, email, isEmailConfirmed);
 
   @JsonKey(ignore: true)
   @override
@@ -177,9 +211,11 @@ class _$_CurrentSession implements _CurrentSession {
 
 abstract class _CurrentSession implements CurrentSession {
   const factory _CurrentSession(
-      {required final String did,
-      required final String handle,
-      required final String email}) = _$_CurrentSession;
+          {required final String did,
+          required final String handle,
+          final String? email,
+          @JsonKey(name: 'emailConfirmed') final bool isEmailConfirmed}) =
+      _$_CurrentSession;
 
   factory _CurrentSession.fromJson(Map<String, dynamic> json) =
       _$_CurrentSession.fromJson;
@@ -195,7 +231,12 @@ abstract class _CurrentSession implements CurrentSession {
   @override
 
   /// The email address of the user in the current session.
-  String get email;
+  String? get email;
+  @override
+
+  /// A flag indicating whether the email address is confirmed.
+  @JsonKey(name: 'emailConfirmed')
+  bool get isEmailConfirmed;
   @override
   @JsonKey(ignore: true)
   _$$_CurrentSessionCopyWith<_$_CurrentSession> get copyWith =>

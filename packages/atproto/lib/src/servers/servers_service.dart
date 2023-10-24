@@ -13,6 +13,7 @@ import '../entities/app_passwords.dart';
 import '../entities/created_invite_code.dart';
 import '../entities/created_invite_codes.dart';
 import '../entities/current_session.dart';
+import '../entities/email_update.dart';
 import '../entities/invite_codes.dart';
 import '../entities/server_info.dart';
 
@@ -62,24 +63,6 @@ sealed class ServersService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/getSession.json
   Future<core.XRPCResponse<Map<String, dynamic>>> findCurrentSessionAsJson();
-
-  /// Refresh an authentication session.
-  ///
-  /// ## Parameters
-  ///
-  /// - [refreshJwt]: The token for refreshing session.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.server.refreshSession
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/refreshSession.json
-  @Deprecated('Use refreshSession function instead. Will be removed in v0.7.0')
-  Future<core.XRPCResponse<core.Session>> refreshSession({
-    required String refreshJwt,
-  });
 
   /// Create an account.
   ///
@@ -361,6 +344,68 @@ sealed class ServersService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/describeServer.json
   Future<core.XRPCResponse<Map<String, dynamic>>> findServerInfoAsJson();
+
+  /// Request a token in order to update email.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.requestEmailUpdate
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/requestEmailUpdate.json
+  Future<core.XRPCResponse<EmailUpdate>> requestEmailUpdate();
+
+  /// Request an email with a code to confirm ownership of email.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.requestEmailConfirmation
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/requestEmailConfirmation.json
+  Future<core.XRPCResponse<core.EmptyData>> requestEmailConfirmation();
+
+  /// Confirm an email using a token from [requestEmailConfirmation].
+  ///
+  /// ## Parameters
+  ///
+  /// - [email]: An email to be confirmed.
+  ///
+  /// - [token]: Confirmation token from [requestEmailConfirmation].
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.confirmEmail
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/confirmEmail.json
+  Future<core.XRPCResponse<core.EmptyData>> confirmEmail({
+    required String email,
+    required String token,
+  });
+
+  /// Update an account's email.
+  ///
+  /// ## Parameters
+  ///
+  /// - [email]: An email to be confirmed.
+  ///
+  /// - [token]: A token from [requestEmailConfirmation].
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.updateEmail
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/updateEmail.json
+  Future<core.XRPCResponse<core.EmptyData>> updateEmail({
+    required String email,
+    String? token,
+  });
 }
 
 final class _ServersService extends ATProtoBaseService
@@ -382,19 +427,6 @@ final class _ServersService extends ATProtoBaseService
   @override
   Future<core.XRPCResponse<Map<String, dynamic>>>
       findCurrentSessionAsJson() async => await _findCurrentSession();
-
-  @override
-  Future<core.XRPCResponse<core.Session>> refreshSession({
-    required String refreshJwt,
-  }) async =>
-      await super.post(
-        'refreshSession',
-        headers: {
-          'Authorization': 'Bearer $refreshJwt',
-        },
-        userContext: core.UserContext.anonymousOnly,
-        to: core.Session.fromJson,
-      );
 
   @override
   Future<core.XRPCResponse<Account>> createAccount({
@@ -550,6 +582,45 @@ final class _ServersService extends ATProtoBaseService
   @override
   Future<core.XRPCResponse<Map<String, dynamic>>>
       findServerInfoAsJson() async => await _findServerInfo();
+
+  @override
+  Future<core.XRPCResponse<EmailUpdate>> requestEmailUpdate() async =>
+      await super.post(
+        'requestEmailUpdate',
+        to: EmailUpdate.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> requestEmailConfirmation() async =>
+      await super.post(
+        'requestEmailConfirmation',
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> confirmEmail({
+    required String email,
+    required String token,
+  }) async =>
+      await super.post(
+        'confirmEmail',
+        body: {
+          'email': email,
+          'token': token,
+        },
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> updateEmail({
+    required String email,
+    String? token,
+  }) async =>
+      await super.post(
+        'updateEmail',
+        body: {
+          'email': email,
+          'token': token,
+        },
+      );
 
   Future<core.XRPCResponse<T>> _findCurrentSession<T>({
     core.To<T>? to,

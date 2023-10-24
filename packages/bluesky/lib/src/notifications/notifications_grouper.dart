@@ -11,8 +11,10 @@ import '../entities/grouped_notifications.dart';
 import '../entities/keys/ids.g.dart' as ids;
 import '../entities/notification.dart';
 import '../entities/notifications.dart';
+import 'group_by.dart';
 import 'grouped_notification_reason.dart';
 import 'notification_reason.dart';
+import 'notification_reason_filter.dart';
 
 const _groupableReasons = <NotificationReason>[
   NotificationReason.like,
@@ -44,7 +46,8 @@ sealed class NotificationsGrouper {
   ///   notifications.
   GroupedNotifications group(
     final Notifications notifications, {
-    List<NotificationReason>? includeReasons,
+    final NotificationReasonFilter? reasonFilter,
+    final GroupBy? by,
   });
 }
 
@@ -54,47 +57,49 @@ final class _NotificationsGrouper implements NotificationsGrouper {
   @override
   GroupedNotifications group(
     final Notifications data, {
-    List<NotificationReason>? includeReasons,
+    final NotificationReasonFilter? reasonFilter,
+    final GroupBy? by,
   }) {
     if (data.notifications.isEmpty) {
       return emptyGroupedNotifications;
     }
 
-    final groupedNotifications = <Map<String, dynamic>>[];
+    final groupedChunks = <List<Map<String, dynamic>>>[];
 
-    for (final notification in data.notifications) {
-      if (includeReasons != null &&
-          !includeReasons.contains(notification.reason)) {
-        continue;
-      }
+    for (final chunks in _groupBy(by, _filterReason(reasonFilter, data))) {
+      final groupedNotifications = <Map<String, dynamic>>[];
 
-      if (_isGroupable(notification.reason)) {
-        final reasonSubject = notification.reasonSubject?.toString();
+      for (final notification in chunks) {
+        if (_isGroupable(notification.reason)) {
+          final reasonSubject = notification.reasonSubject?.toString();
 
-        final relatedGroup = _getRelatedGroup(
-          notification.reason.name,
-          reasonSubject,
-          groupedNotifications,
-        );
+          final relatedGroup = _getRelatedGroup(
+            notification.reason.name,
+            reasonSubject,
+            groupedNotifications,
+          );
 
-        if (relatedGroup.isEmpty) {
+          if (relatedGroup.isEmpty) {
+            groupedNotifications.add(_buildRelatedGroup(
+              notification,
+              reasonSubject,
+            ));
+          } else {
+            _updateRelatedGroup(relatedGroup, notification);
+          }
+        } else {
           groupedNotifications.add(_buildRelatedGroup(
             notification,
-            reasonSubject,
+            notification.reasonSubject?.toString(),
           ));
-        } else {
-          _updateRelatedGroup(relatedGroup, notification);
         }
-      } else {
-        groupedNotifications.add(_buildRelatedGroup(
-          notification,
-          notification.reasonSubject?.toString(),
-        ));
       }
+
+      groupedChunks.add(groupedNotifications);
     }
 
     return _buildGroupedNotificationsFromJson(
-      groupedNotifications,
+      groupedChunks.expand((e) => e).toList(),
       data.cursor,
     );
   }
@@ -254,4 +259,21 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     return reason == NotificationReason.like.name &&
         reasonSubject.contains(ids.appBskyFeedGenerator);
   }
+
+  List<List<Notification>> _groupBy(
+    final GroupBy? by,
+    final Notifications data,
+  ) {
+    if (by == null) {
+      return [data.notifications];
+    }
+
+    return by.execute(data);
+  }
+
+  Notifications _filterReason(
+    NotificationReasonFilter? reasonFilter,
+    Notifications data,
+  ) =>
+      reasonFilter == null ? data : reasonFilter.execute(data);
 }

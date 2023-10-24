@@ -2,25 +2,24 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'repo_head.dart';
+part of 'skeleton_actor.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RepoHead _$$_RepoHeadFromJson(Map json) => $checkedCreate(
-      r'_$_RepoHead',
+_$_SkeletonActor _$$_SkeletonActorFromJson(Map json) => $checkedCreate(
+      r'_$_SkeletonActor',
       json,
       ($checkedConvert) {
-        final val = _$_RepoHead(
-          rootCid: $checkedConvert('root', (v) => v as String),
+        final val = _$_SkeletonActor(
+          did: $checkedConvert('did', (v) => v as String),
         );
         return val;
       },
-      fieldKeyMap: const {'rootCid': 'root'},
     );
 
-Map<String, dynamic> _$$_RepoHeadToJson(_$_RepoHead instance) =>
+Map<String, dynamic> _$$_SkeletonActorToJson(_$_SkeletonActor instance) =>
     <String, dynamic>{
-      'root': instance.rootCid,
+      'did': instance.did,
     };

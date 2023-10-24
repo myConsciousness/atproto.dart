@@ -1,5 +1,97 @@
 # Release Note
 
+## v0.5.15
+
+- Improved markdown extraction algo. You can use as a link if the URL contains markdown symbols, such as `https://wikipedia.com//track/We_Up_(Album_Version_(Edited))`.
+
+## v0.5.14
+
+- Hashtag formatted text is not allowed as Markdown.
+- Improved the extraction algo for markdown. ([#901](https://github.com/myConsciousness/atproto.dart/issues/901))
+
+## v0.5.13
+
+- Improved the extraction algo for hashtags. ([#897](https://github.com/myConsciousness/atproto.dart/issues/897))
+
+## v0.5.12
+
+- Mentions cannot be set for markdown text. ([#894](https://github.com/myConsciousness/atproto.dart/issues/894))
+- Invalid url cannot be set for markdown url. ([#895](https://github.com/myConsciousness/atproto.dart/issues/895))
+
+## v0.5.11
+
+- Improved handle extraction algorithm. From with this version, the use of spaces as well as URLs is no longer required. ([#892](https://github.com/myConsciousness/atproto.dart/issues/892))
+
+## v0.5.10
+
+- Fixed to add `https://` to markdown URLs when it is not given.
+
+## v0.5.9
+
+- The markdown URL must always contain `.` symbol.
+
+## v0.5.8
+
+- Added `enableMarkdown` param on `BlueskyText`. Defaults to `true`.
+
+## v0.5.7
+
+- Fixed a bug regarding byte calculation when detecting markdowns.
+
+## v0.5.6
+
+- Improved entity extraction for unformatted markdown. For example, `[test](https://example.com)` extracts entities so that `test` can be highlighted. Facets of this entity cannot be generated with `.toFacets` until `.format` is executed.
+  - Also added `EntityType.markdownLink`. If you want to exclude entities in the markdown without being `.format`, you can filter by this fixed value.
+
+## v0.5.5
+
+- Added `service` parameter on `.toFacets` method. ([#882](https://github.com/myConsciousness/atproto.dart/issues/882))
+
+## v0.5.4
+
+- Fixed that `.format` doesn't merge if the URL Path of the detected link is only `/` when `.format` is executed. ([#876](https://github.com/myConsciousness/atproto.dart/issues/876))
+- Fixed markdown URLs to allow only `http|https`. ([#877](https://github.com/myConsciousness/atproto.dart/issues/877))
+
+## v0.5.3
+
+- Supported markdown style links. You can set any links to any text such as `[test](https://foo.com)`. Be sure to execute `.format()` to make the link in markdown format recognized as a facet. ([#629](https://github.com/myConsciousness/atproto.dart/issues/629))
+
+## v0.5.2
+
+- Fixed safer processing when shortening links.
+
+## v0.5.1
+
+- Improved link detection algorithm.
+
+## v0.5.0
+
+- Improved algorithm for detecting links.
+- Removed deprecated properties.
+  - `.hasHandle`
+  - `.hasNotHandle`
+  - `.hasLink`
+  - `.hasNotLink`
+  - `.hasEntity`
+  - `.hasNotEntity`
+- Changed property from `int maxGraphemeLength` to `bool enableShortening` on `LinkConfig`.
+
+## v0.4.5
+
+- Supported hashtag detection on `.entities` and `.hashtags`. ([#839](https://github.com/myConsciousness/atproto.dart/issues/839))
+
+## v0.4.4
+
+- Improved processing when `.format()` is executed. Correct if the original text link does not contain the `http` protocol.
+
+## v0.4.3
+
+- Added the ability to shorten links detected as facets. You just need to pass `LinkConfig` to `BlueskyText` and run `.format()`. You can get new formatted `BlueskyText` then.
+
+## v0.4.2
+
+- Upgraded `xrpc` package. Fixed field names for rate limit.
+
 ## v0.4.1
 
 - Fixed a bug in which URLs were not detected in specific cases.

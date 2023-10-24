@@ -73,7 +73,7 @@ class CreateListCommand extends CreateRecordCommand {
 
     if (description.isNotEmpty) {
       final text = BlueskyText(argResults!['description']);
-      final facets = await text.entities.toFacets();
+      final facets = await text.entities.toFacets(service: service);
 
       record['description'] = text.value;
 

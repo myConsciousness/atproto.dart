@@ -1,5 +1,31 @@
 # Release Note
 
+## v0.7.0
+
+- Added `rev` on `Repo` object. ([#885](https://github.com/myConsciousness/atproto.dart/issues/885))
+- Removed deprecated methods and object.
+  - `.refreshSession`: **Use function version instead.**
+  - `.findRepoCheckout`
+  - `.findRepoCheckoutAsJson`
+  - `.findRepoHead`
+  - `.findRepoHeadAsJson`
+
+## v0.6.9
+
+- Added `isEmailConfirmed` field on `CurrentSession`. ([#857](https://github.com/myConsciousness/atproto.dart/issues/857))
+- Supported `com.atproto.server.requestEmailUpdate` on `ServersService`. ([#859](https://github.com/myConsciousness/atproto.dart/issues/859))
+  - `requestEmailUpdate`
+- Supported `com.atproto.server.requestEmailConfirmation` on `ServersService`. ([#858](https://github.com/myConsciousness/atproto.dart/issues/858))
+  - `requestEmailConfirmation`
+- Supported `com.atproto.server.confirmEmail` on `ServersService`. ([#855](https://github.com/myConsciousness/atproto.dart/issues/855))
+  - `requestEmailConfirmation`
+- Supported `com.atproto.server.updateEmail` on `ServersService`. ([#860](https://github.com/myConsciousness/atproto.dart/issues/860))
+  - `updateEmail`
+
+## v0.6.8
+
+- Upgraded `xrpc` package. Fixed field names for rate limit.
+
 ## v0.6.7
 
 - Upgraded `at_uri`. ([#797](https://github.com/myConsciousness/atproto.dart/issues/797))

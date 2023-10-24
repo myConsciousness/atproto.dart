@@ -4,17 +4,17 @@
 
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:xrpc/xrpc.dart';
 
 // 🌎 Project imports:
 import '../api/find_did.dart' as api;
 import 'byte_indices.dart';
+import 'facetable.dart';
 
 part 'entity.freezed.dart';
 part 'entity.g.dart';
 
 @freezed
-class Entity with _$Entity {
+class Entity with _$Entity implements Facetable {
   // ignore: unused_element
   const Entity._();
 
@@ -27,14 +27,8 @@ class Entity with _$Entity {
   factory Entity.fromJson(Map<String, Object?> json) => _$EntityFromJson(json);
 
   /// Returns the facet representation of this entity as JSON.
-  ///
-  /// - [ignoreInvalidHandle]: If true, processing continues even if an invalid
-  ///                          handle is detected, and data from the invalid
-  ///                          handle is excluded from the result. If false, an
-  ///                          `InvalidRequestException` is thrown when an
-  ///                          invalid handle is detected.
   Future<Map<String, dynamic>> toFacet({
-    bool ignoreInvalidHandle = true,
+    String? service,
   }) async {
     final facet = <String, dynamic>{
       'index': {
@@ -49,22 +43,15 @@ class Entity with _$Entity {
         try {
           final did = await api.findDID(
             handle: value,
+            service: service,
           );
 
           facet['features'].add({
             '\$type': 'app.bsky.richtext.facet#mention',
             'did': did.data['did'],
           });
-        } on InvalidRequestException {
-          //! Invalid handle.
-          if (ignoreInvalidHandle) {
-            return {};
-          }
-
-          rethrow;
-        } on Exception {
-          //! Network error or server error.
-          rethrow;
+        } catch (_) {
+          return {};
         }
 
         break;
@@ -75,6 +62,18 @@ class Entity with _$Entity {
         });
 
         break;
+      case EntityType.tag:
+        facet['features'].add({
+          '\$type': 'app.bsky.richtext.facet#tag',
+          'tag': value,
+        });
+
+        break;
+      case EntityType.markdownLink:
+        //* Raw markdown links don't generate facets.
+        //* The markdown is converted to `EntityType.link` when
+        //* `Formatter.format()` is executed.
+        return {};
     }
 
     return facet;
@@ -85,9 +84,14 @@ class Entity with _$Entity {
 
   /// Returns true if this entity is link, otherwise false.
   bool get isLink => type == EntityType.link;
+
+  /// Returns true if this entity is tag, otherwise false.
+  bool get isTag => type == EntityType.tag;
 }
 
 enum EntityType {
   handle,
   link,
+  markdownLink,
+  tag,
 }

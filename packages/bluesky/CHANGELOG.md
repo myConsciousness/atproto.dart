@@ -1,5 +1,75 @@
 # Release Note
 
+## v0.9.1
+
+- Supported `app.bsky.feed.searchPosts` on `FeedsService`. ([#845](https://github.com/myConsciousness/atproto.dart/issues/845))
+  - `.searchPostsByQuery`
+  - `.searchPostsByQueryAsJson`
+  - `.paginatePostsByQuery`
+  - `.paginatePostsByQueryAsJson`
+- Supported `app.bsky.unspecced.searchPostsSkeleton` on `UnspeccedService`. ([#848](https://github.com/myConsciousness/atproto.dart/issues/848))
+  - `.searchPostsByQuerySkeleton`
+  - `.searchPostsByQuerySkeletonAsJson`
+  - `.paginatePostsByQuerySkeleton`
+  - `.paginatePostsByQuerySkeletonAsJson`
+- Supported `app.bsky.unspecced.searchActorsSkeleton` on `UnspeccedService`. ([#847](https://github.com/myConsciousness/atproto.dart/issues/847))
+  - `.searchActorsByQuerySkeleton`
+  - `.searchActorsByQuerySkeletonAsJson`
+  - `.paginateActorsByQuerySkeleton`
+  - `.paginateActorsByQuerySkeletonAsJson`
+
+## v0.9.0
+
+- Added `rev` on `Repo` object. ([#885](https://github.com/myConsciousness/atproto.dart/issues/885))
+- Removed deprecated methods and object.
+  - `.refreshSession`: **Use function version instead.**
+  - `.findRepoCheckout`
+  - `.findRepoCheckoutAsJson`
+  - `.findRepoHead`
+  - `.findRepoHeadAsJson`
+
+## v0.8.24
+
+- Supported `com.atproto.server.requestEmailUpdate` on `ServersService`. ([#859](https://github.com/myConsciousness/atproto.dart/issues/859))
+  - `requestEmailUpdate`
+- Supported `com.atproto.server.requestEmailConfirmation` on `ServersService`. ([#858](https://github.com/myConsciousness/atproto.dart/issues/858))
+  - `requestEmailConfirmation`
+- Supported `com.atproto.server.confirmEmail` on `ServersService`. ([#855](https://github.com/myConsciousness/atproto.dart/issues/855))
+  - `requestEmailConfirmation`
+- Supported `com.atproto.server.updateEmail` on `ServersService`. ([#860](https://github.com/myConsciousness/atproto.dart/issues/860))
+  - `updateEmail`
+- Deprecated `app.bsky.unspecced.getPopular`. Find a feed generator alternative. ([#835](https://github.com/myConsciousness/atproto.dart/issues/835))
+  - `.findPopularFeed`
+  - `.findPopularFeedAsJson`
+  - `.paginatePopularFeed`
+  - `.paginatePopularFeedAsJson`
+- Removed `app.bsky.unspecced.applyLabels` from `UnspeccedService`. ([#846](https://github.com/myConsciousness/atproto.dart/issues/846))
+
+## v0.8.23
+
+- Supported hashtag on `FacetFeature.tag` and `FacetTag`. Also added `tags` parameter to `.createPost` on `FeedsService`. ([#839](https://github.com/myConsciousness/atproto.dart/issues/839))
+
+## v0.8.22
+
+- Supported actor preferences `#feedViewPref` and `#threadViewPref`. ([#831](https://github.com/myConsciousness/atproto.dart/issues/831))
+  - `Preference.feedView`
+  - `Preference.threadView`
+
+## v0.8.21
+
+- Dropped `includeReasons` param from methods on `Notifications`. Instead, pass `NotificationReasonFilter` object as an argument. ([#826](https://github.com/myConsciousness/atproto.dart/issues/826))
+  - `.group`
+  - `.groupByHour`
+  - `.groupByMinute`
+
+## v0.8.20
+
+- Added `.groupByHour` and `.groupByMinute` on `Notifications` object. You can adjust the unit of grouping in hours or minutes when grouping notifications. ([#821](https://github.com/myConsciousness/atproto.dart/issues/821))
+
+## v0.8.19
+
+- Upgraded `xrpc` package. Fixed field names for rate limit.
+
 ## v0.8.18
 
 - Added `.createModeratedList` and `.createCuratedList` on `GraphsService`. And now `purpose` param for `.createList` is required. ([#814](https://github.com/myConsciousness/atproto.dart/issues/814))

@@ -4,17 +4,17 @@
 
 // 📦 Package imports:
 import 'package:characters/characters.dart';
-import 'package:icann_tlds/icann_tlds.dart';
 
 // 🌎 Project imports:
-import 'entities/byte_indices.dart';
+import 'config/link_config.dart';
+import 'const.dart';
 import 'entities/entities.dart';
-import 'entities/entity.dart';
-import 'regex.dart';
-import 'unicode_string.dart';
-
-/// The max length of text.
-const _maxLength = 300;
+import 'entities/length_exceeded_entity.dart';
+import 'entities/replacements.dart';
+import 'extractor/extractor.dart';
+import 'extractor/length_exceeded_extractor.dart';
+import 'formatter.dart';
+import 'splitter.dart';
 
 /// This class provides high-performance analysis of [Bluesky Social](https://blueskyweb.xyz)'s text
 /// and features related to secure posting.
@@ -77,7 +77,12 @@ const _maxLength = 300;
 /// ```
 sealed class BlueskyText {
   /// Returns the new instance of [BlueskyText].
-  factory BlueskyText(final String text) => _BlueskyText(text);
+  const factory BlueskyText(
+    final String text, {
+    final bool enableMarkdown,
+    final LinkConfig? linkConfig,
+    final Replacements? replacements,
+  }) = _BlueskyText;
 
   /// Returns the resource text.
   ///
@@ -103,10 +108,15 @@ sealed class BlueskyText {
   /// returned along with their start and end indices.
   Entities get links;
 
+  /// Returns the collection of tags.
+  Entities get tags;
+
   /// Returns the collection of entities.
   ///
-  /// It includes the response from [handles] and [links].
+  /// It includes the response from [handles], [links], [tags].
   Entities get entities;
+
+  // List<LengthExceededEntity> get lengthExceededEntities;
 
   /// Splits this [value].
   ///
@@ -124,23 +134,8 @@ sealed class BlueskyText {
   /// point.
   List<BlueskyText> split();
 
-  /// Returns true if this [value] has a handle at least one, otherwise false.
-  bool get hasHandle;
-
-  /// Returns true if this [value] has not a handle, otherwise false.
-  bool get hasNotHandle;
-
-  /// Returns true if this [value] has a link at least one, otherwise false.
-  bool get hasLink;
-
-  /// Returns true if this [value] has not a link, otherwise false.
-  bool get hasNotLink;
-
-  /// Returns true if this [value] has an entity at least one, otherwise false.
-  bool get hasEntity;
-
-  /// Returns true if this [value] has not an entity, otherwise false.
-  bool get hasNotEntity;
+  /// Returns a new formatted [BlueskyText] based on configs.
+  BlueskyText format();
 
   /// Returns true if this [length] is more than 300 chars,
   /// otherwise false.
@@ -159,10 +154,18 @@ sealed class BlueskyText {
 
 final class _BlueskyText implements BlueskyText {
   /// Returns the new instance of [_BlueskyText].
-  _BlueskyText(this.value) : _unicode = UnicodeString(value);
+  const _BlueskyText(
+    this.value, {
+    bool enableMarkdown = true,
+    LinkConfig? linkConfig,
+    Replacements? replacements,
+  })  : _enableMarkdown = enableMarkdown,
+        _linkConfig = linkConfig,
+        _replacements = replacements;
 
-  /// The unicode string.
-  final UnicodeString _unicode;
+  final bool _enableMarkdown;
+  final LinkConfig? _linkConfig;
+  final Replacements? _replacements;
 
   @override
   final String value;
@@ -171,218 +174,57 @@ final class _BlueskyText implements BlueskyText {
   int get length => value.characters.length;
 
   @override
-  Entities get handles => Entities(
-        _orderByIndicesStart(
-          _detectHandles(_unicode),
+  Entities get handles => Entities(handlesExtractor.execute(this));
+
+  @override
+  Entities get links => Entities(linksExtractor.execute(
+        this,
+        ExtractorConfig(
+          replacements: _replacements,
+          enableMarkdown: _enableMarkdown,
         ),
-      );
+      ));
 
   @override
-  Entities get links => Entities(
-        _orderByIndicesStart(
-          _detectLinks(_unicode),
+  Entities get tags => Entities(tagsExtractor.execute(this));
+
+  @override
+  Entities get entities => Entities(allExtractor.execute(
+        this,
+        ExtractorConfig(
+          handles: handles,
+          replacements: _replacements,
+          enableMarkdown: _enableMarkdown,
         ),
+      ));
+
+  List<LengthExceededEntity> get lengthExceededEntities =>
+      lengthExceededExtractor.execute(
+        this,
+        _replacements,
+        _enableMarkdown,
+        _linkConfig,
       );
 
   @override
-  Entities get entities => Entities(
-        _orderByIndicesStart([
-          ...handles,
-          ...links,
-        ]),
-      );
+  BlueskyText format() => _replacements != null
+      ? this //* is already formatted.
+      : formatter.execute(this, _enableMarkdown, _linkConfig).$1;
 
   @override
-  List<BlueskyText> split() {
-    if (value.trim().isEmpty) {
-      return [this];
-    }
-
-    if (isNotLengthLimitExceeded) {
-      return [this];
-    }
-
-    final chunk = StringBuffer();
-    final chunks = <BlueskyText>[];
-
-    for (final word in value.split(' ')) {
-      if (word.characters.length > _maxLength) {
-        int i;
-        for (i = 0; i < word.characters.length - _maxLength; i += _maxLength) {
-          final splitWord = word.characters.skip(i).take(_maxLength).toString();
-
-          if (chunk.isNotEmpty) {
-            chunks.add(BlueskyText(chunk.toString()));
-            chunk.clear();
-          }
-
-          chunks.add(BlueskyText(splitWord));
-        }
-
-        final remainingWord = word.characters.skip(i).toString();
-
-        if (chunk.isNotEmpty &&
-            (chunk.length + remainingWord.characters.length + 1) > _maxLength) {
-          chunks.add(BlueskyText(chunk.toString()));
-          chunk.clear();
-        }
-
-        if (chunk.isNotEmpty) {
-          chunk.write(' ');
-        }
-
-        chunk.write(remainingWord);
-      } else {
-        if (chunk.isNotEmpty &&
-            (chunk.length + word.characters.length + 1) > _maxLength) {
-          chunks.add(BlueskyText(chunk.toString()));
-          chunk.clear();
-        }
-
-        if (chunk.isNotEmpty) {
-          chunk.write(' ');
-        }
-
-        chunk.write(word);
-      }
-    }
-
-    if (chunk.isNotEmpty) {
-      chunks.add(BlueskyText(chunk.toString()));
-    }
-
-    return chunks;
-  }
+  List<BlueskyText> split() => splitter.execute(this);
 
   @override
-  bool get hasHandle => regexHandle.hasMatch(value);
-
-  @override
-  bool get hasNotHandle => !hasHandle;
-
-  @override
-  bool get hasLink => regexLink.hasMatch(value);
-
-  @override
-  bool get hasNotLink => !hasLink;
-
-  @override
-  bool get hasEntity => hasHandle || hasLink;
-
-  @override
-  bool get hasNotEntity => !hasEntity;
-
-  @override
-  bool get isLengthLimitExceeded => _maxLength < length;
+  bool get isLengthLimitExceeded => maxLength < length;
 
   @override
   bool get isNotLengthLimitExceeded => !isLengthLimitExceeded;
 
   @override
-  bool get isEmpty => value.isEmpty;
+  bool get isEmpty => value.trim().isEmpty;
 
   @override
   bool get isNotEmpty => !isEmpty;
-
-  List<Entity> _detectHandles(final UnicodeString text) {
-    _ensureLength();
-
-    final entities = <Entity>[];
-
-    final regex = RegExp(r'(^|\s|\()(@)([a-zA-Z0-9.-]+)(\b)');
-
-    for (final match in regex.allMatches(text.utf16)) {
-      final handle = match.group(3)!;
-
-      if (!_hasValidDomain(handle)) {
-        continue;
-      }
-
-      final start = text.utf16.indexOf(handle, match.start) - 1;
-
-      entities.add(
-        Entity(
-          type: EntityType.handle,
-          value: handle,
-          indices: ByteIndices(
-            start: text.utf16IndexToUtf8Index(start),
-            end: text.utf16IndexToUtf8Index(start + handle.length + 1),
-          ),
-        ),
-      );
-    }
-
-    return entities;
-  }
-
-  List<Entity> _detectLinks(final UnicodeString text) {
-    _ensureLength();
-
-    final entities = <Entity>[];
-
-    final regex = RegExp(
-      r'(^|\s|\()((https?:\/\/[\S]+)|((?<domain>[a-z][a-z0-9]*(\.[a-z0-9]+)+)[\S]*))',
-    );
-
-    for (final match in regex.allMatches(text.utf16)) {
-      String uri = match.group(2)!;
-      final uriLength = uri.length;
-
-      if (!uri.startsWith('http')) {
-        final domain = match.namedGroup('domain');
-        if (domain == null || !_hasValidDomain(domain)) {
-          continue;
-        }
-
-        uri = 'https://$uri';
-      }
-
-      final start = text.utf16.indexOf(match.group(2)!, match.start);
-      final index = {'start': start, 'end': start + uriLength};
-
-      // Strip ending punctuation
-      if (RegExp(r'[.,;!?]$').hasMatch(uri)) {
-        uri = uri.substring(0, uri.length - 1);
-        index['end'] = index['end']! - 1;
-      }
-
-      // Check for closing parenthesis without an opening parenthesis
-      if (RegExp(r'[)]$').hasMatch(uri) && !uri.contains('(')) {
-        uri = uri.substring(0, uri.length - 1);
-        index['end'] = index['end']! - 1;
-      }
-
-      entities.add(
-        Entity(
-          type: EntityType.link,
-          value: uri,
-          indices: ByteIndices(
-            start: text.utf16IndexToUtf8Index(index['start']!),
-            end: text.utf16IndexToUtf8Index(index['end']!),
-          ),
-        ),
-      );
-    }
-
-    return entities;
-  }
-
-  void _ensureLength() {
-    if (isLengthLimitExceeded) {
-      throw StateError(
-        'The number of characters in text exceeds the limit; '
-        'use split() to split the text.',
-      );
-    }
-  }
-
-  List<Entity> _orderByIndicesStart(final List<Entity> entities) => entities
-    ..sort(
-      (a, b) => a.indices.start.compareTo(b.indices.start),
-    );
-
-  bool _hasValidDomain(final String value) =>
-      tlds.any((tld) => value.endsWith('.$tld'));
 
   @override
   String toString() => value;

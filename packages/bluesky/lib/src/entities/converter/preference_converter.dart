@@ -9,10 +9,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../adult_content_preference.dart';
 import '../content_label_preference.dart';
+import '../feed_view_preference.dart';
 import '../keys/ids.g.dart' as ids;
 import '../personal_details_preference.dart';
 import '../preference.dart';
 import '../saved_feeds_preference.dart';
+import '../thread_view_preference.dart';
 
 const preferenceConverter = _PreferenceConverter();
 
@@ -41,6 +43,14 @@ final class _PreferenceConverter
         return Preference.personalDetails(
           data: PersonalDetailsPreference.fromJson(json),
         );
+      } else if (type == ids.appBskyActorDefsFeedViewPref) {
+        return Preference.feedView(
+          data: FeedViewPreference.fromJson(json),
+        );
+      } else if (type == ids.appBskyActorDefsThreadViewPref) {
+        return Preference.threadView(
+          data: ThreadViewPreference.fromJson(json),
+        );
       }
 
       return Preference.unknown(data: json);
@@ -55,6 +65,8 @@ final class _PreferenceConverter
         contentLabel: (data) => data.toJson(),
         savedFeeds: (data) => data.toJson(),
         personalDetails: (data) => data.toJson(),
+        feedView: (data) => data.toJson(),
+        threadView: (data) => data.toJson(),
         unknown: (data) => data,
       );
 }
