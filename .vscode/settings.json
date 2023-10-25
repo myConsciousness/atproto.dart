@@ -8,6 +8,7 @@
     "Cbor",
     "Cctld",
     "cids",
+    "Concat",
     "Curatelist",
     "dartdoc",
     "DBFF",

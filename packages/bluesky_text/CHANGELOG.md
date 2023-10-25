@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.16
+
+- Supported hashtag with `-` separated strings. ([#907](https://github.com/myConsciousness/atproto.dart/issues/907))
+
 ## v0.5.15
 
 - Improved markdown extraction algo. You can use as a link if the URL contains markdown symbols, such as `https://wikipedia.com//track/We_Up_(Album_Version_(Edited))`.
