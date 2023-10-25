@@ -899,6 +899,46 @@ example8.com はいいぞ
       expect(tags[1].indices.start, 11);
       expect(tags[1].indices.end, 21);
     });
+
+    test('case20', () async {
+      final text = BlueskyText('#test_');
+      final tags = text.tags;
+
+      expect(tags.length, 1);
+      expect(tags.first.value, 'test');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 5);
+    });
+
+    test('case21', () async {
+      final text = BlueskyText('#test-');
+      final tags = text.tags;
+
+      expect(tags.length, 1);
+      expect(tags.first.value, 'test');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 5);
+    });
+
+    test('case22', () async {
+      final text = BlueskyText('#test_a');
+      final tags = text.tags;
+
+      expect(tags.length, 1);
+      expect(tags.first.value, 'test_a');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 7);
+    });
+
+    test('case21', () async {
+      final text = BlueskyText('#test-a');
+      final tags = text.tags;
+
+      expect(tags.length, 1);
+      expect(tags.first.value, 'test-a');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 7);
+    });
   });
 
   group('.entities', () {

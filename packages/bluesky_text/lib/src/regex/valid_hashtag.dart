@@ -7,11 +7,13 @@ import 'hash_signs.dart';
 import 'hashtag_alpha.dart';
 import 'hashtag_alpha_numeric.dart';
 import 'hashtag_boundary.dart';
+import 'hashtag_concat_chars.dart';
 
 const validHashtag = '($hashtagBoundary)'
     '($hashSigns)'
     r'(?!\uFE0F|\u20E3)'
-    '($hashtagAlphaNumeric*$hashtagAlpha$hashtagAlphaNumeric*)';
+    '($hashtagAlphaNumeric*$hashtagAlpha$hashtagAlphaNumeric*)'
+    '(?<![$hashtagConcatChars])';
 
 final validHashtagRegex = RegExp(
   validHashtag,
