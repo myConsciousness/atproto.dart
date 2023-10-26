@@ -73,24 +73,6 @@ const appBskyActorSearchActors = 'app.bsky.actor.searchActors';
 const appBskyActorSearchActorsTypeahead =
     'app.bsky.actor.searchActorsTypeahead';
 
-/// `app.bsky.bookmark.add`
-const appBskyBookmarkAdd = 'app.bsky.bookmark.add';
-
-/// `app.bsky.bookmark.defs`
-const appBskyBookmarkDefs = 'app.bsky.bookmark.defs';
-
-/// `app.bsky.bookmark.defs#bookmark`
-const appBskyBookmarkDefsBookmark = 'app.bsky.bookmark.defs#bookmark';
-
-/// `app.bsky.bookmark.delete`
-const appBskyBookmarkDelete = 'app.bsky.bookmark.delete';
-
-/// `app.bsky.bookmark.get`
-const appBskyBookmarkGet = 'app.bsky.bookmark.get';
-
-/// `app.bsky.bookmark.list`
-const appBskyBookmarkList = 'app.bsky.bookmark.list';
-
 /// `app.bsky.embed.external`
 const appBskyEmbedExternal = 'app.bsky.embed.external';
 
