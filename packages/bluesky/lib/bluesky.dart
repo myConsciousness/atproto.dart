@@ -280,6 +280,8 @@ export 'package:bluesky/src/entities/skeleton_post.dart';
 export 'package:bluesky/src/entities/skeleton_actors_by_query.dart';
 export 'package:bluesky/src/entities/skeleton_actor.dart';
 export 'package:bluesky/src/entities/suggested_follows.dart';
+export 'package:bluesky/src/entities/bookmark.dart';
+export 'package:bluesky/src/entities/bookmarks.dart';
 export 'package:bluesky/src/extension/grouped_notification_extension.dart';
 export 'package:bluesky/src/extension/at_uri_extension.dart';
 export 'package:bluesky/src/extension/blob_extension.dart';
