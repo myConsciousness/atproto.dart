@@ -8,6 +8,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import 'actors/actors_service.dart';
+import 'bookmarks/bookmarks_service.dart';
 import 'feeds/feeds_service.dart';
 import 'graphs/graphs_service.dart';
 import 'notifications/notifications_service.dart';
@@ -48,6 +49,9 @@ sealed class BlueskyService {
 
   /// Returns the unspecced service.
   UnspeccedService get unspecced;
+
+  /// Returns the bookmarks service.
+  BookmarksService get bookmarks;
 
   /// Returns the servers service.
   atp.ServersService get servers;
@@ -120,6 +124,15 @@ final class _BlueskyService implements BlueskyService {
           mockedGetClient: mockedGetClient,
           mockedPostClient: mockedPostClient,
         ),
+        bookmarks = BookmarksService(
+          atproto: atproto,
+          did: did,
+          protocol: protocol,
+          service: service,
+          context: context,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
+        ),
         servers = atproto.servers,
         identities = atproto.identities,
         repositories = atproto.repositories,
@@ -140,6 +153,9 @@ final class _BlueskyService implements BlueskyService {
 
   @override
   final UnspeccedService unspecced;
+
+  @override
+  final BookmarksService bookmarks;
 
   @override
   final atp.ServersService servers;

@@ -9,6 +9,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import 'actors/actors_service.dart';
 import 'bluesky_service.dart';
+import 'bookmarks/bookmarks_service.dart';
 import 'feeds/feeds_service.dart';
 import 'graphs/graphs_service.dart';
 import 'notifications/notifications_service.dart';
@@ -93,6 +94,9 @@ sealed class Bluesky {
   /// Returns the unspecced service.
   UnspeccedService get unspecced;
 
+  /// Returns the bookmarks service.
+  BookmarksService get bookmarks;
+
   /// Returns the servers service.
   atp.ServersService get servers;
 
@@ -157,6 +161,9 @@ final class _Bluesky implements Bluesky {
 
   @override
   UnspeccedService get unspecced => _service.unspecced;
+
+  @override
+  BookmarksService get bookmarks => _service.bookmarks;
 
   @override
   atp.ServersService get servers => _service.servers;
