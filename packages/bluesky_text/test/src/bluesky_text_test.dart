@@ -939,6 +939,90 @@ example8.com はいいぞ
       expect(tags.first.indices.start, 0);
       expect(tags.first.indices.end, 7);
     });
+
+    test('case22', () async {
+      final text = BlueskyText('#💗');
+      final tags = text.tags;
+
+      expect(tags.length, 1);
+      expect(tags.first.value, '💗');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 5);
+    });
+
+    test('case23', () async {
+      final text = BlueskyText('#💗💗');
+      final tags = text.tags;
+
+      expect(tags.length, 1);
+      expect(tags.first.value, '💗💗');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 9);
+    });
+
+    test('case24', () async {
+      final text = BlueskyText('#💗💗test');
+      final tags = text.tags;
+
+      expect(tags.length, 1);
+      expect(tags.first.value, '💗💗test');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 13);
+    });
+
+    test('case25', () async {
+      final text = BlueskyText('#test💗💗');
+      final tags = text.tags;
+
+      expect(tags.length, 1);
+      expect(tags.first.value, 'test💗💗');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 13);
+    });
+
+    test('case26', () async {
+      final text = BlueskyText('#te💗💗st');
+      final tags = text.tags;
+
+      expect(tags.length, 1);
+      expect(tags.first.value, 'te💗💗st');
+      expect(tags.first.indices.start, 0);
+      expect(tags.first.indices.end, 13);
+    });
+
+    test('case27', () async {
+      final text = BlueskyText('(#te🦋🦋st)');
+      final tags = text.tags;
+
+      expect(tags.length, 1);
+      expect(tags.first.value, 'te🦋🦋st');
+      expect(tags.first.indices.start, 1);
+      expect(tags.first.indices.end, 14);
+    });
+
+    test('case28', () async {
+      final text = BlueskyText('[#te🦋🦋st]');
+      final tags = text.tags;
+
+      expect(tags.length, 1);
+      expect(tags.first.value, 'te🦋🦋st');
+      expect(tags.first.indices.start, 1);
+      expect(tags.first.indices.end, 14);
+    });
+
+    test('case29', () async {
+      final text = BlueskyText('🦋🦋');
+      final tags = text.tags;
+
+      expect(tags.length, 0);
+    });
+
+    test('case30', () async {
+      final text = BlueskyText('🦋');
+      final tags = text.tags;
+
+      expect(tags.length, 0);
+    });
   });
 
   group('.entities', () {
