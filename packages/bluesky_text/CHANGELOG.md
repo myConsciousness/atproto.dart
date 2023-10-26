@@ -1,8 +1,12 @@
 # Release Note
 
+## v0.5.17
+
+- Supported hashtag with emoji strings. ([#907](https://github.com/myConsciousness/atproto.dart/issues/907))
+
 ## v0.5.16
 
-- Supported hashtag with `-` separated strings. ([#907](https://github.com/myConsciousness/atproto.dart/issues/907))
+- Supported hashtag with `-` separated strings. ([#908](https://github.com/myConsciousness/atproto.dart/issues/908))
 
 ## v0.5.15
 
