@@ -343,6 +343,10 @@ const comAtprotoServerRequestEmailUpdate =
 const comAtprotoServerRequestPasswordReset =
     'com.atproto.server.requestPasswordReset';
 
+/// `com.atproto.server.reserveSigningKey`
+const comAtprotoServerReserveSigningKey =
+    'com.atproto.server.reserveSigningKey';
+
 /// `com.atproto.server.resetPassword`
 const comAtprotoServerResetPassword = 'com.atproto.server.resetPassword';
 
