@@ -1979,6 +1979,71 @@ github.com/videah/SkyBridge
     });
   });
 
+  group('.isEmojiOnly', () {
+    test('case1', () {
+      final text = BlueskyText('');
+
+      expect(text.isEmojiOnly, isFalse);
+      expect(text.isNotEmojiOnly, isTrue);
+    });
+
+    test('case2', () {
+      final text = BlueskyText('a');
+
+      expect(text.isEmojiOnly, isFalse);
+      expect(text.isNotEmojiOnly, isTrue);
+    });
+
+    test('case3', () {
+      final text = BlueskyText('ああああ');
+
+      expect(text.isEmojiOnly, isFalse);
+      expect(text.isNotEmojiOnly, isTrue);
+    });
+
+    test('case4', () {
+      final text = BlueskyText('ああああ💗');
+
+      expect(text.isEmojiOnly, isFalse);
+      expect(text.isNotEmojiOnly, isTrue);
+    });
+
+    test('case5', () {
+      final text = BlueskyText('💗ああああ💗');
+
+      expect(text.isEmojiOnly, isFalse);
+      expect(text.isNotEmojiOnly, isTrue);
+    });
+
+    test('case6', () {
+      final text = BlueskyText('💗');
+
+      expect(text.isEmojiOnly, isTrue);
+      expect(text.isNotEmojiOnly, isFalse);
+    });
+
+    test('case7', () {
+      final text = BlueskyText('💗💗');
+
+      expect(text.isEmojiOnly, isTrue);
+      expect(text.isNotEmojiOnly, isFalse);
+    });
+
+    test('case8', () {
+      final text = BlueskyText(' 💗ああああ💗');
+
+      expect(text.isEmojiOnly, isFalse);
+      expect(text.isNotEmojiOnly, isTrue);
+    });
+
+    test('case9', () {
+      final text = BlueskyText('💗 💗');
+
+      expect(text.isEmojiOnly, isFalse);
+      expect(text.isNotEmojiOnly, isTrue);
+    });
+  });
+
   // group('.lengthExceededEntities', () {
   //   test('case1', () {
   //     final text = BlueskyText('a' * 300);

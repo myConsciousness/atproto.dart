@@ -7,7 +7,7 @@ import 'astral_letter_and_marks.dart';
 import 'astral_numerals.dart';
 import 'bmp_letter_and_marks.dart';
 import 'bmp_numerals.dart';
-import 'emoji.dart';
+import 'hashtag_emoji.dart';
 import 'hashtag_special_chars.dart';
 import 'non_bmp_code_pairs.dart';
 
@@ -29,7 +29,7 @@ import 'non_bmp_code_pairs.dart';
 ///     planes.
 /// 6. `$astralNumerals`: Matches numerals from the astral planes.
 const hashtagAlphaNumeric = r'(?:['
-    '$bmpLetterAndMarks$bmpNumerals$hashtagSpecialChars$emoji'
+    '$bmpLetterAndMarks$bmpNumerals$hashtagSpecialChars$hashtagEmoji'
     r']'
     '|(?=$nonBmpCodePairs)'
     '(?:$astralLetterAndMarks|$astralNumerals))';
