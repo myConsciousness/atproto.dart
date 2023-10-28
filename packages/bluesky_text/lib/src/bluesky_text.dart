@@ -14,8 +14,8 @@ import 'entities/replacements.dart';
 import 'extractor/extractor.dart';
 import 'extractor/length_exceeded_extractor.dart';
 import 'formatter.dart';
-import 'regex/emoji.dart';
 import 'splitter.dart';
+import 'utils.dart' as utils;
 
 /// This class provides high-performance analysis of [Bluesky Social](https://blueskyweb.xyz)'s text
 /// and features related to secure posting.
@@ -234,8 +234,7 @@ final class _BlueskyText implements BlueskyText {
   bool get isNotEmpty => !isEmpty;
 
   @override
-  bool get isEmojiOnly =>
-      isNotEmpty ? emojiRegex.allMatches(value).length == length : false;
+  bool get isEmojiOnly => utils.isEmojiOnly(value);
 
   @override
   bool get isNotEmojiOnly => !isEmojiOnly;
