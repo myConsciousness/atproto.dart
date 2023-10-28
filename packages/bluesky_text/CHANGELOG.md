@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.19
+
+- Exposed `.isEmojiOnly` as a function.
+
 ## v0.5.18
 
 - Added `.isEmojiOnly` property. It can determine if the text contains only emojis.
