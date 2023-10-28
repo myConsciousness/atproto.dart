@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.18
+
+- Added `.isEmojiOnly` property. It can determine if the text contains only emojis.
+
 ## v0.5.17
 
 - Supported hashtag with emoji strings. ([#907](https://github.com/myConsciousness/atproto.dart/issues/907))

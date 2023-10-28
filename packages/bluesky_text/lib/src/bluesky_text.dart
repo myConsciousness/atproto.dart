@@ -14,6 +14,7 @@ import 'entities/replacements.dart';
 import 'extractor/extractor.dart';
 import 'extractor/length_exceeded_extractor.dart';
 import 'formatter.dart';
+import 'regex/emoji.dart';
 import 'splitter.dart';
 
 /// This class provides high-performance analysis of [Bluesky Social](https://blueskyweb.xyz)'s text
@@ -150,6 +151,12 @@ sealed class BlueskyText {
 
   /// Returns true if this [value] is not empty, otherwise false.
   bool get isNotEmpty;
+
+  /// Returns true if this text contains only emoji, otherwise false.
+  bool get isEmojiOnly;
+
+  /// Returns true if this text not contains only emoji, otherwise false.
+  bool get isNotEmojiOnly;
 }
 
 final class _BlueskyText implements BlueskyText {
@@ -225,6 +232,13 @@ final class _BlueskyText implements BlueskyText {
 
   @override
   bool get isNotEmpty => !isEmpty;
+
+  @override
+  bool get isEmojiOnly =>
+      isNotEmpty ? emojiRegex.allMatches(value).length == length : false;
+
+  @override
+  bool get isNotEmojiOnly => !isEmojiOnly;
 
   @override
   String toString() => value;
