@@ -12,6 +12,7 @@ export 'package:atproto/src/entities/batch_action.dart';
 export 'package:atproto/src/entities/blob.dart';
 export 'package:atproto/src/entities/blob_data.dart';
 export 'package:atproto/src/entities/blob_ref.dart';
+export 'package:atproto/src/entities/blob_refs.dart';
 export 'package:atproto/src/entities/converter/blob_converter.dart'
     show blobConverter;
 export 'package:atproto/src/entities/converter/labels_converter.dart'

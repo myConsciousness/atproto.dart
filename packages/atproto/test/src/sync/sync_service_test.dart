@@ -2,10 +2,11 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 📦 Package imports:
+// 🎯 Dart imports:
 import 'dart:io';
 import 'dart:typed_data';
 
+// 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';

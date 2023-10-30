@@ -16,6 +16,8 @@ export 'package:atproto/atproto.dart'
         $BlobDataCopyWith,
         BlobRef,
         $BlobRefCopyWith,
+        BlobRefs,
+        $BlobRefsCopyWith,
         CurrentSession,
         $CurrentSessionCopyWith,
         Account,
