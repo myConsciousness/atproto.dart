@@ -78,6 +78,8 @@ See more details about **[atproto](https://pub.dev/packages/atproto)** in **[Pac
 | [GET com.atproto.sync.listRepos](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listRepos.json)             | [findRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepos.html)                                         |       ❌       |     ✅      |
 | [POST com.atproto.sync.notifyOfUpdate](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/notifyOfUpdate.json)  | [notifyCrawlingServiceOfUpdate](https://pub.dev/documentation/atproto/latest/atproto/SyncService/notifyCrawlingServiceOfUpdate.html) |       ❌       |     ❌      |
 | [POST com.atproto.sync.requestCrawl](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/requestCrawl.json)      | [requestCrawl](https://pub.dev/documentation/atproto/latest/atproto/SyncService/requestCrawl.html)                                   |       ❌       |     ❌      |
+| [GET com.atproto.sync.getBlob](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getBlob.json)                 | [findBlob](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findBlob.html)                                           |       ❌       |     ❌      |
+| [GET com.atproto.sync.listBlobs](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listBlobs.json)             | [findBlobs](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findBlobs.html)                                         |       ❌       |     ✅      |
 
 ## **[bluesky](https://pub.dev/packages/bluesky)**
 
