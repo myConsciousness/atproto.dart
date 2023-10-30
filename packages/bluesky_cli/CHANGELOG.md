@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.0
+
+- Upgraded dependencies.
+
 ## v0.3.8
 
 - Supported `images` option on `post` command. You can specify the paths of images to be attached, separated by commas. ([#825](https://github.com/myConsciousness/atproto.dart/issues/825))
