@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.9.2
+
+- Supported `com.atproto.sync.getBlob` on `SyncService`. ([#307](https://github.com/myConsciousness/atproto.dart/issues/307))
+  - `.findBlob`
+
 ## v0.9.1
 
 - Supported `app.bsky.feed.searchPosts` on `FeedsService`. ([#845](https://github.com/myConsciousness/atproto.dart/issues/845))

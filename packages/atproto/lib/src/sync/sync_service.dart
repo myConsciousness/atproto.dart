@@ -2,6 +2,9 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
+import 'dart:typed_data';
+
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 
@@ -391,6 +394,26 @@ sealed class SyncService {
   Future<core.XRPCResponse<core.EmptyData>> requestCrawl({
     required String hostname,
   });
+
+  /// Get a blob associated with a given repo.
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: The DID of the repo.
+  ///
+  /// - [cid]: The CID of the blob to fetch.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.getBlob
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getBlob.json
+  Future<core.XRPCResponse<Uint8List>> findBlob({
+    required String did,
+    required String cid,
+  });
 }
 
 final class _SyncService extends ATProtoBaseService implements SyncService {
@@ -562,6 +585,19 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
         'requestCrawl',
         body: {
           'hostname': hostname,
+        },
+      );
+
+  @override
+  Future<core.XRPCResponse<Uint8List>> findBlob({
+    required String did,
+    required String cid,
+  }) async =>
+      await super.get<Uint8List>(
+        'getBlob',
+        parameters: {
+          'did': did,
+          'cid': cid,
         },
       );
 

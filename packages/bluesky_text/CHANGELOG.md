@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.20
+
+- Upgraded `xrpc` package.
+
 ## v0.5.19
 
 - Exposed `.isEmojiOnly` as a function.
@@ -142,7 +146,7 @@
 ## v0.2.6
 
 - Changed the dependency of the communication process from `atproto` to `xrpc`. ([#574](https://github.com/myConsciousness/atproto.dart/issues/574))
-- Added `ignoreInvalidHandle` option to `toFacets` in `Entities` and `toFacet` in `Entity`. This flag controls the behavior when the handle is invalid. If true, no exception is thrown if an invalid handle is passed, and the process of creating a facet of the invalid handle is skipped; if false, an `InvlidRequestException` is thrown if an invalid handle is passed.
+- Added `ignoreInvalidHandle` option to `toFacets` in `Entities` and `toFacet` in `Entity`. This flag controls the behavior when the handle is invalid. If true, no exception is thrown if an invalid handle is passed, and the process of creating a facet of the invalid handle is skipped; if false, an `InvalidRequestException` is thrown if an invalid handle is passed.
 
 ## v0.2.5
 
