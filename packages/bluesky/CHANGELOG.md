@@ -9,6 +9,9 @@
   - `.findBlobsAsJson`
   - `.paginateBlobs`
   - `.paginateBlobsAsJson`
+- Changed to use recommended `q` param internally on `ActorsService`. ([#849](https://github.com/myConsciousness/atproto.dart/issues/849))
+  - `.searchActors`
+  - `.searchTypeahead`
 
 ## v0.9.1
 

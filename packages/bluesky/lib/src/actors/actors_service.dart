@@ -760,7 +760,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
       await super.get(
         'searchActorsTypeahead',
         parameters: {
-          'term': term,
+          'q': term,
           'limit': limit,
         },
         to: to,
@@ -780,7 +780,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
     required String? cursor,
   }) =>
       {
-        'term': term,
+        'q': term,
         'limit': limit,
         'cursor': cursor,
       };
