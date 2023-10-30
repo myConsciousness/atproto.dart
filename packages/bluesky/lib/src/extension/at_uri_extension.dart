@@ -37,6 +37,9 @@ extension AtUriExtension on core.AtUri {
   /// Returns true if this [collection] is graph list, otherwise false.
   bool get isGraphList => collection == ids.appBskyGraphList;
 
+  /// Returns true if this [collection] is graph block list, otherwise false.
+  bool get isGraphBlockList => collection == ids.appBskyGraphListblock;
+
   /// Returns true if this [collection] is graph block, otherwise false.
   bool get isGraphListItem => collection == ids.appBskyGraphListitem;
 
@@ -66,6 +69,10 @@ extension AtUriExtension on core.AtUri {
 
   /// Returns true if this [collection] is not graph list, otherwise false.
   bool get isNotGraphList => !isGraphList;
+
+  /// Returns true if this [collection] is not graph block list, otherwise
+  /// false.
+  bool get isNotGraphBlockList => !isGraphBlockList;
 
   /// Returns true if this [collection] is not graph block, otherwise false.
   bool get isNotGraphListItem => !isGraphListItem;

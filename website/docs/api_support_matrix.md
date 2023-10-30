@@ -170,6 +170,8 @@ See more details about **[bluesky](https://pub.dev/packages/bluesky)** in **[Pac
 | [POST app.bsky.graph.muteActorList](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/muteActorList.json)                          | [createMuteActorList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createMuteActorList.html)   |       ✅       |     ❌      |
 | [POST app.bsky.graph.unmuteActorList](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/unmuteActorList.json)                      | [deleteMuteActorList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/deleteMuteActorList.html)   |       ✅       |     ❌      |
 | [GET app.bsky.graph.getSuggestedFollowsByActor](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getSuggestedFollowsByActor.json) | [findSuggestedFollows](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/findSuggestedFollows.html) |       ✅       |     ❌      |
+| [POST app.bsky.graph.listblock](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/listblock.json)                                  | [createBlockList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/createBlockList.html)           |       ✅       |     ❌      |
+| [GET app.bsky.graph.getListBlocks](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListBlocks.json)                           | [findBlockLists](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService/findBlockLists.html)             |       ✅       |     ✅      |
 
 ### [Unspecced Service](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService-class.html)
 

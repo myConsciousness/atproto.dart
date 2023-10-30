@@ -1148,6 +1148,27 @@ sealed class GraphsService {
   Future<core.XRPCResponse<Map<String, dynamic>>> findSuggestedFollowsAsJson({
     required String actor,
   });
+
+  /// Create a block of an entire list of actors.
+  ///
+  /// ## Parameters
+  ///
+  /// - [listUri]: URI of the list to block list.
+  ///
+  /// - [createdAt]: Date and time the follow was created.
+  ///                If omitted, defaults to the current time.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.listblock
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/listblock.json
+  Future<core.XRPCResponse<atp.StrongRef>> createBlockList({
+    required core.AtUri listUri,
+    DateTime? createdAt,
+  });
 }
 
 final class _GraphsService extends BlueskyBaseService implements GraphsService {
@@ -1787,6 +1808,19 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
       _paginateBlockLists(
         limit: limit,
         cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.StrongRef>> createBlockList({
+    required core.AtUri listUri,
+    DateTime? createdAt,
+  }) async =>
+      await atproto.repositories.createRecord(
+        collection: createNSID('listblock'),
+        record: {
+          'subject': listUri.toString(),
+          'createdAt': toUtcIso8601String(createdAt),
+        },
       );
 
   Future<core.XRPCResponse<T>> _findFollows<T>({
