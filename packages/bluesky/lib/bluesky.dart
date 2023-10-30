@@ -245,6 +245,7 @@ export 'package:bluesky/src/entities/list_item.dart';
 export 'package:bluesky/src/entities/list_item_record.dart';
 export 'package:bluesky/src/entities/list_items.dart';
 export 'package:bluesky/src/entities/list_record.dart';
+export 'package:bluesky/src/entities/block_list_record.dart';
 export 'package:bluesky/src/entities/list_view.dart';
 export 'package:bluesky/src/entities/list_view_basic.dart';
 export 'package:bluesky/src/entities/list_viewer.dart';

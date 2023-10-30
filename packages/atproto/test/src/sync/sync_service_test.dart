@@ -7,12 +7,12 @@ import 'dart:io';
 import 'dart:typed_data';
 
 // 📦 Package imports:
-import 'package:atproto/src/entities/blob_refs.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
+import 'package:atproto/src/entities/blob_refs.dart';
 import 'package:atproto/src/entities/repo_blocks.dart';
 import 'package:atproto/src/entities/repo_commit.dart';
 import 'package:atproto/src/entities/repo_commits.dart';

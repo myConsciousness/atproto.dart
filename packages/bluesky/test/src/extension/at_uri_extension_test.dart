@@ -408,4 +408,44 @@ void main() {
       expect(uri.isNotGraphListItem, isFalse);
     });
   });
+
+  group('.isGraphBlockList', () {
+    test('when graph block list', () {
+      final uri = AtUri.make(
+        'shinyakato.dev',
+        'app.bsky.graph.listblock',
+      );
+
+      expect(uri.isGraphBlockList, isTrue);
+    });
+
+    test('when not graph block list', () {
+      final uri = AtUri.make(
+        'shinyakato.dev',
+        'test',
+      );
+
+      expect(uri.isGraphBlockList, isFalse);
+    });
+  });
+
+  group('.isNotGraphBlockList', () {
+    test('when not graph block list', () {
+      final uri = AtUri.make(
+        'shinyakato.dev',
+        'test',
+      );
+
+      expect(uri.isNotGraphBlockList, isTrue);
+    });
+
+    test('when graph block list', () {
+      final uri = AtUri.make(
+        'shinyakato.dev',
+        'app.bsky.graph.listblock',
+      );
+
+      expect(uri.isNotGraphBlockList, isFalse);
+    });
+  });
 }
