@@ -12,6 +12,11 @@
 - Changed to use recommended `q` param internally on `ActorsService`. ([#849](https://github.com/myConsciousness/atproto.dart/issues/849))
   - `.searchActors`
   - `.searchTypeahead`
+- Supported `app.bsky.graph.getListBlocks` on `GraphsService`. ([#793](https://github.com/myConsciousness/atproto.dart/issues/793))
+  - `.findBlockLists`
+  - `.findBlockListsAsJson`
+  - `.paginateBlockLists`
+  - `.paginateBlockListsAsJson`
 
 ## v0.9.1
 
