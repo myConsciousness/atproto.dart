@@ -5,6 +5,7 @@
 // 🎯 Dart imports:
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 // 📦 Package imports:
 import 'package:http/http.dart';
@@ -286,6 +287,25 @@ void main() {
       expect(response, isA<XRPCResponse<Map<String, dynamic>>>());
       expect(response.data, isA<Map<String, dynamic>>());
       expect(response.data, jsonDecode('{"test": "test"}'));
+      expect(response.rateLimit, isA<RateLimit>());
+    });
+
+    test('T is Uint8List', () async {
+      final response = await query<Uint8List>(
+        NSID.create('test.com', 'get'),
+        parameters: {
+          'test': 'test',
+          'test2': 10,
+        },
+        getClient: (url, {headers}) async => Response(
+          '{"test": "test"}',
+          200,
+          request: Request('GET', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response, isA<XRPCResponse<Uint8List>>());
+      expect(response.data, isA<Uint8List>());
       expect(response.rateLimit, isA<RateLimit>());
     });
 

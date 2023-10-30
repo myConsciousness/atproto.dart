@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.8
+
+- Upgraded `xrpc` package.
+
 ## v0.5.7
 
 - Added `isEmailConfirmed` field on `Session`. ([#856](https://github.com/myConsciousness/atproto.dart/issues/856))

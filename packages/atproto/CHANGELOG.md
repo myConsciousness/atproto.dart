@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.7.1
+
+- Supported `com.atproto.sync.getBlob` on `SyncService`. ([#307](https://github.com/myConsciousness/atproto.dart/issues/307))
+  - `.findBlob`
+
 ## v0.7.0
 
 - Added `rev` on `Repo` object. ([#885](https://github.com/myConsciousness/atproto.dart/issues/885))

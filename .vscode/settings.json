@@ -39,6 +39,7 @@
     "proto",
     "pubspec",
     "punycode",
+    "ratelimit",
     "Repost",
     "Reposted",
     "reposting",
