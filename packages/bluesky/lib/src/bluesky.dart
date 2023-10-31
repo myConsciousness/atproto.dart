@@ -16,28 +16,6 @@ import 'unspecced/unspecced_service.dart';
 
 sealed class Bluesky {
   /// Returns the new instance of [Bluesky].
-  factory Bluesky({
-    required String did,
-    required String accessJwt,
-    core.Protocol protocol = core.defaultProtocol,
-    String service = core.defaultService,
-    Duration timeout = core.defaultTimeout,
-    core.RetryConfig? retryConfig,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  }) =>
-      _Bluesky(
-        did: did,
-        accessJwt: accessJwt,
-        protocol: protocol,
-        service: service,
-        timeout: timeout,
-        retryConfig: retryConfig,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
-
-  /// Returns the new instance of [Bluesky].
   factory Bluesky.fromSession(
     final atp.Session session, {
     core.Protocol protocol = core.defaultProtocol,
@@ -48,8 +26,7 @@ sealed class Bluesky {
     final core.PostClient? mockedPostClient,
   }) =>
       _Bluesky(
-        did: session.did,
-        accessJwt: session.accessJwt,
+        session: session,
         protocol: protocol,
         service: service,
         timeout: timeout,
@@ -68,8 +45,6 @@ sealed class Bluesky {
     final core.PostClient? mockedPostClient,
   }) =>
       _Bluesky(
-        did: '',
-        accessJwt: '',
         protocol: protocol,
         service: service,
         timeout: timeout,
@@ -77,6 +52,12 @@ sealed class Bluesky {
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,
       );
+
+  /// Returns the current session.
+  ///
+  /// Set only if an instance of this object was created in
+  /// [Bluesky.fromSession], otherwise null.
+  core.Session? get session;
 
   /// Returns the actors service.
   ActorsService get actors;
@@ -112,8 +93,7 @@ sealed class Bluesky {
 final class _Bluesky implements Bluesky {
   /// Returns the new instance of [_Bluesky].
   _Bluesky({
-    required String did,
-    required String accessJwt,
+    this.session,
     required core.Protocol protocol,
     required String service,
     required Duration timeout,
@@ -121,19 +101,29 @@ final class _Bluesky implements Bluesky {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) : _service = BlueskyService(
-          atproto: atp.ATProto(
-            did: did,
-            accessJwt: accessJwt,
-            protocol: protocol,
-            service: service,
-            timeout: timeout,
-            retryConfig: retryConfig,
-          ),
-          did: did,
+          atproto: session == null
+              ? atp.ATProto.anonymous(
+                  protocol: protocol,
+                  service: service,
+                  timeout: timeout,
+                  retryConfig: retryConfig,
+                  mockedGetClient: mockedGetClient,
+                  mockedPostClient: mockedPostClient,
+                )
+              : atp.ATProto.fromSession(
+                  session,
+                  protocol: protocol,
+                  service: service,
+                  timeout: timeout,
+                  retryConfig: retryConfig,
+                  mockedGetClient: mockedGetClient,
+                  mockedPostClient: mockedPostClient,
+                ),
+          did: session?.did ?? '',
           protocol: protocol,
           service: service,
           context: core.ClientContext(
-            accessJwt: accessJwt,
+            accessJwt: session?.accessJwt ?? '',
             timeout: timeout,
             retryConfig: retryConfig,
           ),
@@ -142,6 +132,9 @@ final class _Bluesky implements Bluesky {
         );
 
   final BlueskyService _service;
+
+  @override
+  final core.Session? session;
 
   @override
   ActorsService get actors => _service.actors;
