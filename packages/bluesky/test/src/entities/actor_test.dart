@@ -199,6 +199,80 @@ void main() {
     });
   });
 
+  group('.isBlockingByList', () {
+    test('when blocking by list', () {
+      final actor = Actor(
+        did: 'xxxxxx',
+        handle: 'shinyakato.dev',
+        viewer: ActorViewer(
+          isMuted: false,
+          isBlockedBy: false,
+          blockingByList: ListViewBasic(
+            uri: AtUri.parse(
+              'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
+            ),
+            cid: 'xxxxxx',
+            name: 'test',
+            viewer: ListViewer(isMuted: false),
+            indexedAt: DateTime.now(),
+          ),
+        ),
+      );
+
+      expect(actor.isBlockingByList, isTrue);
+    });
+
+    test('when not blocking by list', () {
+      final actor = Actor(
+        did: 'xxxxxx',
+        handle: 'shinyakato.dev',
+        viewer: ActorViewer(
+          isMuted: false,
+          isBlockedBy: false,
+        ),
+      );
+
+      expect(actor.isBlockingByList, isFalse);
+    });
+  });
+
+  group('.isNotBlockingByList', () {
+    test('when blocking by list', () {
+      final actor = Actor(
+        did: 'xxxxxx',
+        handle: 'shinyakato.dev',
+        viewer: ActorViewer(
+          isMuted: false,
+          isBlockedBy: false,
+          blockingByList: ListViewBasic(
+            uri: AtUri.parse(
+              'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
+            ),
+            cid: 'xxxxxx',
+            name: 'test',
+            viewer: ListViewer(isMuted: false),
+            indexedAt: DateTime.now(),
+          ),
+        ),
+      );
+
+      expect(actor.isNotBlockingByList, isFalse);
+    });
+
+    test('when not blocking by list', () {
+      final actor = Actor(
+        did: 'xxxxxx',
+        handle: 'shinyakato.dev',
+        viewer: ActorViewer(
+          isMuted: false,
+          isBlockedBy: false,
+        ),
+      );
+
+      expect(actor.isNotBlockingByList, isTrue);
+    });
+  });
+
   group('.isBlocking', () {
     test('when blocking', () {
       final actor = Actor(
