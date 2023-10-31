@@ -6,8 +6,10 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
+import '../adaptor/subscribe_label_updates_adaptor.dart';
 import '../atproto_base_service.dart';
 import '../entities/labels_by_query.dart';
+import '../entities/subscribed_label.dart';
 
 sealed class LabelsService {
   /// Returns the new instance of [LabelsService].
@@ -57,6 +59,24 @@ sealed class LabelsService {
     int? limit,
     String? cursor,
   });
+
+  /// Subscribe to label updates.
+  ///
+  /// ## Parameters
+  ///
+  /// - [cursor]: The last known event to backfill from.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.label.subscribeLabels
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/label/subscribeLabels.json
+  Future<core.XRPCResponse<core.Subscription<SubscribedLabel>>>
+      subscribeLabelUpdates({
+    int? cursor,
+  });
 }
 
 final class _LabelsService extends ATProtoBaseService implements LabelsService {
@@ -88,4 +108,19 @@ final class _LabelsService extends ATProtoBaseService implements LabelsService {
         to: LabelsByQuery.fromJson,
         userContext: core.UserContext.anonymousOnly,
       );
+
+  @override
+  Future<core.XRPCResponse<core.Subscription<SubscribedLabel>>>
+      subscribeLabelUpdates({
+    int? cursor,
+  }) async =>
+          await super.stream(
+            'subscribeLabels',
+            parameters: {
+              'cursor': cursor,
+            },
+            userContext: core.UserContext.anonymousOnly,
+            to: SubscribedLabel.fromJson,
+            adaptor: toSubscribedLabel,
+          );
 }

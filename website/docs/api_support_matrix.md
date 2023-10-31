@@ -68,7 +68,7 @@ See more details about **[atproto](https://pub.dev/packages/atproto)** in **[Pac
 
 | **Lexicon**                                                                                                                                | **Method Name**                                                                                                                      | Auth Required | Pagination |
 | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | :-----------: | :--------: |
-| [com.atproto.sync.subscribeRepos](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/subscribeRepos.json)       | [subscribeRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepos.html)                               |       ❌       |     ❌      |
+| [com.atproto.sync.subscribeRepos](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/subscribeRepos.json)       | [subscribeRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepoUpdates.html)                         |       ❌       |     ✅      |
 | [GET com.atproto.sync.getHead](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getHead.json)                 | [findRepoHead](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoHead.html)                                   |       ❌       |     ❌      |
 | [GET com.atproto.sync.getLatestCommit](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getLatestCommit.json) | [findLatestCommit](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findLatestCommit.html)                           |       ❌       |     ❌      |
 | [GET com.atproto.sync.getRepo](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getRepo.json)                 | [findRepoCommits](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoCommit.html)                              |       ❌       |     ❌      |
@@ -83,9 +83,10 @@ See more details about **[atproto](https://pub.dev/packages/atproto)** in **[Pac
 
 ### [Labels Service](https://pub.dev/documentation/atproto/latest/atproto/LabelsService-class.html)
 
-| **Lexicon**                                                                                                                          | **Method Name**                                                                                      | Auth Required | Pagination |
-| ------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- | :-----------: | :--------: |
-| [GET com.atproto.label.queryLabels](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/label/queryLabels.json) | [searchLabels](https://pub.dev/documentation/atproto/latest/atproto/LabelsService/searchLabels.html) |       ❌       |     ✅      |
+| **Lexicon**                                                                                                                             | **Method Name**                                                                                                      | Auth Required | Pagination |
+| --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | :-----------: | :--------: |
+| [GET com.atproto.label.queryLabels](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/label/queryLabels.json)    | [searchLabels](https://pub.dev/documentation/atproto/latest/atproto/LabelsService/searchLabels.html)                 |       ❌       |     ✅      |
+| [com.atproto.sync.subscribeLabels](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/label/subscribeLabels.json) | [subscribeLabelUpdates](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeLabelUpdates.html) |       ❌       |     ✅      |
 
 ## **[bluesky](https://pub.dev/packages/bluesky)**
 
