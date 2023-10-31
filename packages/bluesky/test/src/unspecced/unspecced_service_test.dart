@@ -17,12 +17,13 @@ import 'package:bluesky/src/entities/skeleton_actors_by_query.dart';
 import 'package:bluesky/src/entities/skeleton_feed.dart';
 import 'package:bluesky/src/entities/skeleton_posts_by_query.dart';
 import 'package:bluesky/src/unspecced/unspecced_service.dart';
+import '../session.dart';
 
 void main() {
   group('.findPopularFeeds', () {
     test('normal case', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -46,7 +47,7 @@ void main() {
 
     test('as JSON', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -70,7 +71,7 @@ void main() {
 
     test('when unauthorized', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -94,7 +95,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -120,7 +121,7 @@ void main() {
   group('.findPopularFeedGenerators', () {
     test('normal case', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -143,7 +144,7 @@ void main() {
 
     test('as JSON', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -164,7 +165,7 @@ void main() {
 
     test('when unauthorized', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -185,7 +186,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -208,7 +209,7 @@ void main() {
   group('.findTimelineSkeleton', () {
     test('normal case', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -232,7 +233,7 @@ void main() {
 
     test('as JSON', () async {
       final feeds = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -256,7 +257,7 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -277,7 +278,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -300,7 +301,7 @@ void main() {
   group('.searchPostsByQuerySkeleton', () {
     test('normal case', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -325,7 +326,7 @@ void main() {
 
     test('as JSON', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -346,7 +347,7 @@ void main() {
 
     test('when unauthorized', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -367,7 +368,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -390,7 +391,7 @@ void main() {
   group('.searchActorsByQuerySkeleton', () {
     test('normal case', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -415,7 +416,7 @@ void main() {
 
     test('as JSON', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -437,7 +438,7 @@ void main() {
 
     test('when unauthorized', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -458,7 +459,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',

@@ -9,6 +9,7 @@
   - `.findBlobsAsJson`
   - `.paginateBlobs`
   - `.paginateBlobsAsJson`
+- Removed default constructor from `ATProto`, and added `.session` property. ([#961](https://github.com/myConsciousness/atproto.dart/issues/961))
 
 ## v0.7.0
 

@@ -18,6 +18,7 @@
   - `.paginateBlockLists`
   - `.paginateBlockListsAsJson`
 - Added `blockingByList` on `ActorViewer`. ([#952](https://github.com/myConsciousness/atproto.dart/issues/952))
+- Removed default constructor from `Bluesky`, and added `.session` property. ([#961](https://github.com/myConsciousness/atproto.dart/issues/961))
 
 ## v0.9.1
 

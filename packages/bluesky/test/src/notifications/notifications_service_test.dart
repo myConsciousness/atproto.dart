@@ -13,12 +13,13 @@ import 'package:bluesky/src/entities/count.dart';
 import 'package:bluesky/src/entities/grouped_notifications.dart';
 import 'package:bluesky/src/entities/notifications.dart';
 import 'package:bluesky/src/notifications/notifications_service.dart';
+import '../session.dart';
 
 void main() {
   group('.findNotifications', () {
     test('normal case', () async {
       final notifications = NotificationsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -42,7 +43,7 @@ void main() {
 
     test('as JSON', () async {
       final notifications = NotificationsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -66,7 +67,7 @@ void main() {
 
     test('grouping', () async {
       final notifications = NotificationsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -90,7 +91,7 @@ void main() {
 
     test('when unauthorized', () async {
       final notifications = NotificationsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -114,7 +115,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final notifications = NotificationsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -140,7 +141,7 @@ void main() {
   group('.findUnreadCount', () {
     test('normal case', () async {
       final notifications = NotificationsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -161,7 +162,7 @@ void main() {
 
     test('as JSON', () async {
       final notifications = NotificationsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -182,7 +183,7 @@ void main() {
 
     test('when unauthorized', () async {
       final notifications = NotificationsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -203,7 +204,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final notifications = NotificationsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -226,7 +227,7 @@ void main() {
   group('.updateNotificationsAsRead', () {
     test('normal case', () async {
       final notifications = NotificationsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -249,7 +250,7 @@ void main() {
 
     test('when unauthorized', () async {
       final notifications = NotificationsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -270,7 +271,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final notifications = NotificationsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -293,7 +294,7 @@ void main() {
   group('.createPushRegistration', () {
     test('normal case', () async {
       final notifications = NotificationsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -319,7 +320,7 @@ void main() {
 
     test('when unauthorized', () async {
       final notifications = NotificationsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -345,7 +346,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final notifications = NotificationsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
