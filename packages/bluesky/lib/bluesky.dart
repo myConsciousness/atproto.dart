@@ -179,6 +179,7 @@ export 'package:atproto_core/atproto_core.dart'
         decodeJwt,
         createSession,
         refreshSession,
+        deleteSession,
         isValidAppPassword;
 export 'package:bluesky/src/actors/actors_service.dart';
 export 'package:bluesky/src/bluesky.dart';

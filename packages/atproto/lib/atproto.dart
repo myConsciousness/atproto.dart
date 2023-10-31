@@ -109,4 +109,5 @@ export 'package:atproto_core/atproto_core.dart'
         AuthScope,
         createSession,
         refreshSession,
+        deleteSession,
         isValidAppPassword;

@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.9
+
+- Added `.deleteSession` function. ([#963](https://github.com/myConsciousness/atproto.dart/issues/963))
+
 ## v0.5.8
 
 - Upgraded `xrpc` package.
