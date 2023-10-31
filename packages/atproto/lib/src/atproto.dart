@@ -8,6 +8,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import 'atproto_service.dart';
 import 'identities/identities_service.dart';
+import 'labels/labels_service.dart';
 import 'moderation/moderation_service.dart';
 import 'repositories/repositories_service.dart';
 import 'servers/servers_service.dart';
@@ -72,6 +73,9 @@ sealed class ATProto {
 
   /// Returns the sync service.
   SyncService get sync;
+
+  /// Returns the labels service.
+  LabelsService get labels;
 }
 
 final class _ATProto implements ATProto {
@@ -116,4 +120,7 @@ final class _ATProto implements ATProto {
 
   @override
   SyncService get sync => _service.sync;
+
+  @override
+  LabelsService get labels => _service.labels;
 }

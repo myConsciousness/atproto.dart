@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.7.2
+
+- Supported `com.atproto.labels.queryLabels` and `LabelsService`. ([#265](https://github.com/myConsciousness/atproto.dart/issues/265))
+
 ## v0.7.1
 
 - Supported `com.atproto.sync.getBlob` on `SyncService`. ([#307](https://github.com/myConsciousness/atproto.dart/issues/307))

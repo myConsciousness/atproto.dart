@@ -9,6 +9,7 @@ import 'package:test/test.dart';
 // 🌎 Project imports:
 import 'package:atproto/src/atproto.dart';
 import 'package:atproto/src/identities/identities_service.dart';
+import 'package:atproto/src/labels/labels_service.dart';
 import 'package:atproto/src/moderation/moderation_service.dart';
 import 'package:atproto/src/repositories/repositories_service.dart';
 import 'package:atproto/src/servers/servers_service.dart';
@@ -70,5 +71,11 @@ void main() {
     final service = ATProto.anonymous().sync;
 
     expect(service, isA<SyncService>());
+  });
+
+  test('.labels', () {
+    final service = ATProto.anonymous().labels;
+
+    expect(service, isA<LabelsService>());
   });
 }
