@@ -8,6 +8,7 @@ import 'package:test/test.dart';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // 🌎 Project imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/src/sessions/session.dart';
 import 'package:atproto_core/src/sessions/sessions.dart';
 
@@ -83,6 +84,44 @@ void main() {
     test('when rate limit exceeded', () async {
       atp_test.expectRateLimitExceededException(
         () async => await refreshSession(
+          refreshJwt: 'xxxxxx',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/sessions/data/error.json',
+            statusCode: 429,
+          ),
+        ),
+      );
+    });
+  });
+
+  group('.deleteSession', () {
+    test('normal case', () async {
+      final response = await deleteSession(
+        refreshJwt: 'xxxxxx',
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/sessions/data/delete_session.json',
+        ),
+      );
+
+      expect(response, isA<xrpc.XRPCResponse>());
+      expect(response.data, isA<EmptyData>());
+    });
+
+    test('when unauthorized', () async {
+      atp_test.expectUnauthorizedException(
+        () async => await deleteSession(
+          refreshJwt: 'xxxxxx',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/sessions/data/error.json',
+            statusCode: 401,
+          ),
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      atp_test.expectRateLimitExceededException(
+        () async => await deleteSession(
           refreshJwt: 'xxxxxx',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/sessions/data/error.json',
