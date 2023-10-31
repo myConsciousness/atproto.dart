@@ -13,6 +13,9 @@
 /// `com.atproto.admin.defs`
 const comAtprotoAdminDefs = 'com.atproto.admin.defs';
 
+/// `com.atproto.admin.defs#accountView`
+const comAtprotoAdminDefsAccountView = 'com.atproto.admin.defs#accountView';
+
 /// `com.atproto.admin.defs#acknowledge`
 const comAtprotoAdminDefsAcknowledge = 'com.atproto.admin.defs#acknowledge';
 
@@ -64,6 +67,9 @@ const comAtprotoAdminDefsRecordViewDetail =
 const comAtprotoAdminDefsRecordViewNotFound =
     'com.atproto.admin.defs#recordViewNotFound';
 
+/// `com.atproto.admin.defs#repoBlobRef`
+const comAtprotoAdminDefsRepoBlobRef = 'com.atproto.admin.defs#repoBlobRef';
+
 /// `com.atproto.admin.defs#repoRef`
 const comAtprotoAdminDefsRepoRef = 'com.atproto.admin.defs#repoRef';
 
@@ -85,6 +91,9 @@ const comAtprotoAdminDefsReportView = 'com.atproto.admin.defs#reportView';
 const comAtprotoAdminDefsReportViewDetail =
     'com.atproto.admin.defs#reportViewDetail';
 
+/// `com.atproto.admin.defs#statusAttr`
+const comAtprotoAdminDefsStatusAttr = 'com.atproto.admin.defs#statusAttr';
+
 /// `com.atproto.admin.defs#takedown`
 const comAtprotoAdminDefsTakedown = 'com.atproto.admin.defs#takedown';
 
@@ -102,6 +111,9 @@ const comAtprotoAdminDisableInviteCodes =
 /// `com.atproto.admin.enableAccountInvites`
 const comAtprotoAdminEnableAccountInvites =
     'com.atproto.admin.enableAccountInvites';
+
+/// `com.atproto.admin.getAccountInfo`
+const comAtprotoAdminGetAccountInfo = 'com.atproto.admin.getAccountInfo';
 
 /// `com.atproto.admin.getInviteCodes`
 const comAtprotoAdminGetInviteCodes = 'com.atproto.admin.getInviteCodes';
@@ -128,6 +140,9 @@ const comAtprotoAdminGetRecord = 'com.atproto.admin.getRecord';
 /// `com.atproto.admin.getRepo`
 const comAtprotoAdminGetRepo = 'com.atproto.admin.getRepo';
 
+/// `com.atproto.admin.getSubjectStatus`
+const comAtprotoAdminGetSubjectStatus = 'com.atproto.admin.getSubjectStatus';
+
 /// `com.atproto.admin.resolveModerationReports`
 const comAtprotoAdminResolveModerationReports =
     'com.atproto.admin.resolveModerationReports';
@@ -153,6 +168,10 @@ const comAtprotoAdminUpdateAccountEmail =
 /// `com.atproto.admin.updateAccountHandle`
 const comAtprotoAdminUpdateAccountHandle =
     'com.atproto.admin.updateAccountHandle';
+
+/// `com.atproto.admin.updateSubjectStatus`
+const comAtprotoAdminUpdateSubjectStatus =
+    'com.atproto.admin.updateSubjectStatus';
 
 /// `com.atproto.identity.resolveHandle`
 const comAtprotoIdentityResolveHandle = 'com.atproto.identity.resolveHandle';
@@ -342,6 +361,10 @@ const comAtprotoServerRequestEmailUpdate =
 /// `com.atproto.server.requestPasswordReset`
 const comAtprotoServerRequestPasswordReset =
     'com.atproto.server.requestPasswordReset';
+
+/// `com.atproto.server.reserveSigningKey`
+const comAtprotoServerReserveSigningKey =
+    'com.atproto.server.reserveSigningKey';
 
 /// `com.atproto.server.resetPassword`
 const comAtprotoServerResetPassword = 'com.atproto.server.resetPassword';
