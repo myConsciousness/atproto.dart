@@ -36,14 +36,14 @@ See more details about **[atproto](https://pub.dev/packages/atproto)** in **[Pac
 | [POST com.atproto.server.confirmEmail](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/confirmEmail.json)                         | [confirmEmail](https://pub.dev/documentation/atproto/latest/atproto/ServersService/confirmEmail.html)                         |       ✅       |     ❌      |
 | [POST com.atproto.server.updateEmail](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/updateEmail.json)                           | [updateEmail](https://pub.dev/documentation/atproto/latest/atproto/ServersService/updateEmail.html)                           |       ✅       |     ❌      |
 
-### [Identity Service](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService-class.html)
+### [Identities Service](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService-class.html)
 
 | **Lexicon**                                                                                                                                    | **Method Name**                                                                                          | Auth Required | Pagination |
 | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | :-----------: | :--------: |
 | [GET com.atproto.identity.resolveHandle](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/identity/resolveHandle.json) | [findDID](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService/findDID.html)           |       ❌       |     ❌      |
 | [POST com.atproto.identity.updateHandle](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/identity/updateHandle.json)  | [updateHandle](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService/updateHandle.html) |       ✅       |     ❌      |
 
-### [Repository Service](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService-class.html)
+### [Repositories Service](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService-class.html)
 
 | **Lexicon**                                                                                                                           | **Method Name**                                                                                              | Auth Required | Pagination |
 | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | :-----------: | :--------: |
@@ -80,6 +80,12 @@ See more details about **[atproto](https://pub.dev/packages/atproto)** in **[Pac
 | [POST com.atproto.sync.requestCrawl](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/requestCrawl.json)      | [requestCrawl](https://pub.dev/documentation/atproto/latest/atproto/SyncService/requestCrawl.html)                                   |       ❌       |     ❌      |
 | [GET com.atproto.sync.getBlob](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getBlob.json)                 | [findBlob](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findBlob.html)                                           |       ❌       |     ❌      |
 | [GET com.atproto.sync.listBlobs](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listBlobs.json)             | [findBlobs](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findBlobs.html)                                         |       ❌       |     ✅      |
+
+### [Labels Service](https://pub.dev/documentation/atproto/latest/atproto/LabelsService-class.html)
+
+| **Lexicon**                                                                                                                          | **Method Name**                                                                                      | Auth Required | Pagination |
+| ------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- | :-----------: | :--------: |
+| [GET com.atproto.label.queryLabels](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/label/queryLabels.json) | [searchLabels](https://pub.dev/documentation/atproto/latest/atproto/LabelsService/searchLabels.html) |       ❌       |     ✅      |
 
 ## **[bluesky](https://pub.dev/packages/bluesky)**
 

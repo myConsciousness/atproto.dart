@@ -44,6 +44,8 @@ export 'package:atproto/atproto.dart'
         $SelfLabelsCopyWith,
         Labels,
         $LabelsCopyWith,
+        LabelsByQuery,
+        $LabelsByQueryCopyWith,
         InviteCodeUse,
         $InviteCodeUseCopyWith,
         InviteCode,
@@ -124,7 +126,8 @@ export 'package:atproto/atproto.dart'
         IdentitiesService,
         RepositoriesService,
         ModerationService,
-        SyncService;
+        SyncService,
+        LabelsService;
 export 'package:atproto_core/atproto_core.dart'
     show
         XRPCResponse,

@@ -63,6 +63,9 @@ sealed class BlueskyService {
 
   /// Returns the sync service.
   atp.SyncService get sync;
+
+  /// Returns the labels service.
+  atp.LabelsService get labels;
 }
 
 final class _BlueskyService implements BlueskyService {
@@ -124,7 +127,8 @@ final class _BlueskyService implements BlueskyService {
         identities = atproto.identities,
         repositories = atproto.repositories,
         moderation = atproto.moderation,
-        sync = atproto.sync;
+        sync = atproto.sync,
+        labels = atproto.labels;
 
   @override
   final ActorsService actors;
@@ -155,4 +159,7 @@ final class _BlueskyService implements BlueskyService {
 
   @override
   final atp.SyncService sync;
+
+  @override
+  final atp.LabelsService labels;
 }

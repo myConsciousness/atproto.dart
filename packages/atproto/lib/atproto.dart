@@ -53,6 +53,7 @@ export 'package:atproto/src/entities/subscribed_repo.dart';
 export 'package:atproto/src/entities/self_label.dart';
 export 'package:atproto/src/entities/self_labels.dart';
 export 'package:atproto/src/entities/labels.dart';
+export 'package:atproto/src/entities/labels_by_query.dart';
 export 'package:atproto/src/entities/subscribed_repo_commit.dart';
 export 'package:atproto/src/entities/subscribed_repo_handle.dart';
 export 'package:atproto/src/entities/subscribed_repo_info.dart';
@@ -65,6 +66,7 @@ export 'package:atproto/src/moderation/moderation_service.dart';
 export 'package:atproto/src/repositories/repositories_service.dart';
 export 'package:atproto/src/servers/servers_service.dart';
 export 'package:atproto/src/sync/sync_service.dart';
+export 'package:atproto/src/labels/labels_service.dart';
 export 'package:atproto_core/atproto_core.dart'
     show
         XRPCResponse,

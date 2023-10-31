@@ -88,6 +88,9 @@ sealed class Bluesky {
 
   /// Returns the sync service.
   atp.SyncService get sync;
+
+  /// Returns the labels service.
+  atp.LabelsService get labels;
 }
 
 final class _Bluesky implements Bluesky {
@@ -165,4 +168,7 @@ final class _Bluesky implements Bluesky {
 
   @override
   atp.SyncService get sync => _service.sync;
+
+  @override
+  atp.LabelsService get labels => _service.labels;
 }

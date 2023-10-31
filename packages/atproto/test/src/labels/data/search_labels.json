@@ -1,0 +1,12 @@
+{
+  "labels": [
+    {
+      "src": "did:plc:ar7c4by46qjdydhdevvrndac",
+      "uri": "did:plc:h7obn4tkp47wn7gqh4oe5eij",
+      "val": "impersonation",
+      "neg": false,
+      "cts": "2023-10-08T23:45:56.043Z"
+    }
+  ],
+  "cursor": "aaaaaaa"
+}
