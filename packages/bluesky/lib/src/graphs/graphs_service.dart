@@ -682,6 +682,96 @@ sealed class GraphsService {
     String? cursor,
   });
 
+  /// Which lists is the requester's account blocking?
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getListBlocks
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListBlocks.json
+  Future<core.XRPCResponse<Lists>> findBlockLists({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Which lists is the requester's account blocking?
+  ///
+  /// Returns data as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getListBlocks
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListBlocks.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findBlockListsAsJson({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Which lists is the requester's account blocking?
+  ///
+  /// Returns data as pagination.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getListBlocks
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListBlocks.json
+  core.Pagination<Lists> paginateBlockLists({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Which lists is the requester's account blocking?
+  ///
+  /// Returns data as pagination with JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getListBlocks
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListBlocks.json
+  core.Pagination<Map<String, dynamic>> paginateBlockListsAsJson({
+    int? limit,
+    String? cursor,
+  });
+
   /// Fetch a list of lists that belong to an actor in JSON representation.
   ///
   /// This method does not convert response data into a [Lists] object, so this
@@ -1057,6 +1147,27 @@ sealed class GraphsService {
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getSuggestedFollowsByActor.json
   Future<core.XRPCResponse<Map<String, dynamic>>> findSuggestedFollowsAsJson({
     required String actor,
+  });
+
+  /// Create a block of an entire list of actors.
+  ///
+  /// ## Parameters
+  ///
+  /// - [listUri]: URI of the list to block list.
+  ///
+  /// - [createdAt]: Date and time the follow was created.
+  ///                If omitted, defaults to the current time.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.listblock
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/listblock.json
+  Future<core.XRPCResponse<atp.StrongRef>> createBlockList({
+    required core.AtUri listUri,
+    DateTime? createdAt,
   });
 }
 
@@ -1657,6 +1768,61 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
         actor: actor,
       );
 
+  @override
+  Future<core.XRPCResponse<Lists>> findBlockLists({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findBlockLists(
+        limit: limit,
+        cursor: cursor,
+        to: Lists.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findBlockListsAsJson({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findBlockLists(
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  core.Pagination<Lists> paginateBlockLists({
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateBlockLists(
+        limit: limit,
+        cursor: cursor,
+        to: Lists.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateBlockListsAsJson({
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateBlockLists(
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.StrongRef>> createBlockList({
+    required core.AtUri listUri,
+    DateTime? createdAt,
+  }) async =>
+      await atproto.repositories.createRecord(
+        collection: createNSID('listblock'),
+        record: {
+          'subject': listUri.toString(),
+          'createdAt': toUtcIso8601String(createdAt),
+        },
+      );
+
   Future<core.XRPCResponse<T>> _findFollows<T>({
     required String actor,
     required int? limit,
@@ -1881,6 +2047,34 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
         to: to,
       );
 
+  Future<core.XRPCResponse<T>> _findBlockLists<T>({
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getListBlocks',
+        parameters: _buildGetBlockListsParams(
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateBlockLists<T>({
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getListBlocks',
+        parameters: _buildGetBlockListsParams(
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
   Map<String, dynamic> _buildGetFollowsParams({
     required String actor,
     required int? limit,
@@ -1944,6 +2138,15 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
       };
 
   Map<String, dynamic> _buildGetListMutesParams({
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildGetBlockListsParams({
     required int? limit,
     required String? cursor,
   }) =>

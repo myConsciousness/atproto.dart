@@ -17,7 +17,7 @@ export 'package:atproto_core/src/sessions/auth_token.dart';
 export 'package:atproto_core/src/sessions/jwt_decoder.dart' show decodeJwt;
 export 'package:atproto_core/src/sessions/session.dart';
 export 'package:atproto_core/src/sessions/sessions.dart'
-    show createSession, refreshSession;
+    show createSession, refreshSession, deleteSession;
 export 'package:atproto_core/src/clients/user_context.dart';
 export 'package:atproto_core/src/keys/ids.dart';
 export 'package:atproto_core/src/const.dart';

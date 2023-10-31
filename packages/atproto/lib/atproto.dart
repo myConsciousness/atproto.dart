@@ -12,6 +12,7 @@ export 'package:atproto/src/entities/batch_action.dart';
 export 'package:atproto/src/entities/blob.dart';
 export 'package:atproto/src/entities/blob_data.dart';
 export 'package:atproto/src/entities/blob_ref.dart';
+export 'package:atproto/src/entities/blob_refs.dart';
 export 'package:atproto/src/entities/converter/blob_converter.dart'
     show blobConverter;
 export 'package:atproto/src/entities/converter/labels_converter.dart'
@@ -49,9 +50,13 @@ export 'package:atproto/src/entities/server_info.dart';
 export 'package:atproto/src/entities/server_info_links.dart';
 export 'package:atproto/src/entities/strong_ref.dart';
 export 'package:atproto/src/entities/subscribed_repo.dart';
+export 'package:atproto/src/entities/subscribed_label.dart';
+export 'package:atproto/src/entities/subscribed_label_labels.dart';
+export 'package:atproto/src/entities/subscribed_label_info.dart';
 export 'package:atproto/src/entities/self_label.dart';
 export 'package:atproto/src/entities/self_labels.dart';
 export 'package:atproto/src/entities/labels.dart';
+export 'package:atproto/src/entities/labels_by_query.dart';
 export 'package:atproto/src/entities/subscribed_repo_commit.dart';
 export 'package:atproto/src/entities/subscribed_repo_handle.dart';
 export 'package:atproto/src/entities/subscribed_repo_info.dart';
@@ -64,6 +69,7 @@ export 'package:atproto/src/moderation/moderation_service.dart';
 export 'package:atproto/src/repositories/repositories_service.dart';
 export 'package:atproto/src/servers/servers_service.dart';
 export 'package:atproto/src/sync/sync_service.dart';
+export 'package:atproto/src/labels/labels_service.dart';
 export 'package:atproto_core/atproto_core.dart'
     show
         XRPCResponse,
@@ -103,4 +109,5 @@ export 'package:atproto_core/atproto_core.dart'
         AuthScope,
         createSession,
         refreshSession,
+        deleteSession,
         isValidAppPassword;

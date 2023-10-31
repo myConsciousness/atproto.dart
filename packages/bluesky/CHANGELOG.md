@@ -1,5 +1,31 @@
 # Release Note
 
+## v0.9.3
+
+- Supported `com.atproto.labels.queryLabels` and `LabelsService`. ([#265](https://github.com/myConsciousness/atproto.dart/issues/265))
+- Supported `com.atproto.labels.subscribeLabels` on `LabelsService`. ([#340](https://github.com/myConsciousness/atproto.dart/issues/340))
+- Added `.deleteSession` function. ([#963](https://github.com/myConsciousness/atproto.dart/issues/963))
+
+## v0.9.2
+
+- Supported `com.atproto.sync.getBlob` on `SyncService`. ([#307](https://github.com/myConsciousness/atproto.dart/issues/307))
+  - `.findBlob`
+- Supported `com.atproto.sync.listBlobs` on `SyncService`. ([#314](https://github.com/myConsciousness/atproto.dart/issues/314))
+  - `.findBlobs`
+  - `.findBlobsAsJson`
+  - `.paginateBlobs`
+  - `.paginateBlobsAsJson`
+- Changed to use recommended `q` param internally on `ActorsService`. ([#849](https://github.com/myConsciousness/atproto.dart/issues/849))
+  - `.searchActors`
+  - `.searchTypeahead`
+- Supported `app.bsky.graph.getListBlocks` on `GraphsService`. ([#793](https://github.com/myConsciousness/atproto.dart/issues/793))
+  - `.findBlockLists`
+  - `.findBlockListsAsJson`
+  - `.paginateBlockLists`
+  - `.paginateBlockListsAsJson`
+- Added `blockingByList` on `ActorViewer`. ([#952](https://github.com/myConsciousness/atproto.dart/issues/952))
+- Removed default constructor from `Bluesky`, and added `.session` property. ([#961](https://github.com/myConsciousness/atproto.dart/issues/961))
+
 ## v0.9.1
 
 - Supported `app.bsky.feed.searchPosts` on `FeedsService`. ([#845](https://github.com/myConsciousness/atproto.dart/issues/845))

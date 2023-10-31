@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.3
+
+- You can specify `Uint8List` as a type parameter.
+
 ## v0.3.2
 
 - Fixed field names for rate limits.

@@ -1,5 +1,22 @@
 # Release Note
 
+## v0.7.2
+
+- Supported `com.atproto.labels.queryLabels` and `LabelsService`. ([#265](https://github.com/myConsciousness/atproto.dart/issues/265))
+- Supported `com.atproto.labels.subscribeLabels` on `LabelsService`. ([#340](https://github.com/myConsciousness/atproto.dart/issues/340))
+- Added `.deleteSession` function. ([#963](https://github.com/myConsciousness/atproto.dart/issues/963))
+
+## v0.7.1
+
+- Supported `com.atproto.sync.getBlob` on `SyncService`. ([#307](https://github.com/myConsciousness/atproto.dart/issues/307))
+  - `.findBlob`
+- Supported `com.atproto.sync.listBlobs` on `SyncService`. ([#314](https://github.com/myConsciousness/atproto.dart/issues/314))
+  - `.findBlobs`
+  - `.findBlobsAsJson`
+  - `.paginateBlobs`
+  - `.paginateBlobsAsJson`
+- Removed default constructor from `ATProto`, and added `.session` property. ([#961](https://github.com/myConsciousness/atproto.dart/issues/961))
+
 ## v0.7.0
 
 - Added `rev` on `Repo` object. ([#885](https://github.com/myConsciousness/atproto.dart/issues/885))

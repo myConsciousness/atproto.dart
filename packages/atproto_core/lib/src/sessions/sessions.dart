@@ -81,6 +81,38 @@ Future<xrpc.XRPCResponse<Session>> refreshSession({
   );
 }
 
+/// Delete an authenticated session.
+///
+/// ## Parameters
+///
+/// - [refreshJwt]: The token for refreshing session.
+///
+/// ## Lexicon
+///
+/// - com.atproto.server.deleteSession
+///
+/// ## Reference
+///
+/// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/deleteSession.json
+Future<xrpc.XRPCResponse<xrpc.EmptyData>> deleteSession({
+  xrpc.Protocol protocol = defaultProtocol,
+  String service = defaultService,
+  required String refreshJwt,
+  RetryConfig? retryConfig,
+  final xrpc.PostClient? mockedPostClient,
+}) async {
+  final session = _Sessions(
+    protocol: protocol,
+    service: service,
+    retryConfig: retryConfig,
+    mockedPostClient: mockedPostClient,
+  );
+
+  return await session.deleteSession(
+    refreshJwt: refreshJwt,
+  );
+}
+
 final class _Sessions extends BaseService {
   /// Returns the new instance of [_Sessions].
   _Sessions({
@@ -121,5 +153,16 @@ final class _Sessions extends BaseService {
         },
         userContext: UserContext.anonymousOnly,
         to: Session.fromJson,
+      );
+
+  Future<xrpc.XRPCResponse<xrpc.EmptyData>> deleteSession({
+    required String refreshJwt,
+  }) async =>
+      await super.post(
+        'deleteSession',
+        headers: {
+          'Authorization': 'Bearer $refreshJwt',
+        },
+        userContext: UserContext.anonymousOnly,
       );
 }

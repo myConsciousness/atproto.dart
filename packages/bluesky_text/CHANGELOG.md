@@ -1,8 +1,24 @@
 # Release Note
 
+## v0.5.20
+
+- Upgraded `xrpc` package.
+
+## v0.5.19
+
+- Exposed `.isEmojiOnly` as a function.
+
+## v0.5.18
+
+- Added `.isEmojiOnly` property. It can determine if the text contains only emojis.
+
+## v0.5.17
+
+- Supported hashtag with emoji strings. ([#907](https://github.com/myConsciousness/atproto.dart/issues/907))
+
 ## v0.5.16
 
-- Supported hashtag with `-` separated strings. ([#907](https://github.com/myConsciousness/atproto.dart/issues/907))
+- Supported hashtag with `-` separated strings. ([#908](https://github.com/myConsciousness/atproto.dart/issues/908))
 
 ## v0.5.15
 
@@ -130,7 +146,7 @@
 ## v0.2.6
 
 - Changed the dependency of the communication process from `atproto` to `xrpc`. ([#574](https://github.com/myConsciousness/atproto.dart/issues/574))
-- Added `ignoreInvalidHandle` option to `toFacets` in `Entities` and `toFacet` in `Entity`. This flag controls the behavior when the handle is invalid. If true, no exception is thrown if an invalid handle is passed, and the process of creating a facet of the invalid handle is skipped; if false, an `InvlidRequestException` is thrown if an invalid handle is passed.
+- Added `ignoreInvalidHandle` option to `toFacets` in `Entities` and `toFacet` in `Entity`. This flag controls the behavior when the handle is invalid. If true, no exception is thrown if an invalid handle is passed, and the process of creating a facet of the invalid handle is skipped; if false, an `InvalidRequestException` is thrown if an invalid handle is passed.
 
 ## v0.2.5
 

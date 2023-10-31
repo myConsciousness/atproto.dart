@@ -1,0 +1,143 @@
+{
+  "lists": [
+    {
+      "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvsv3d3h7d2o",
+      "cid": "bafyreid6pnaxbeqpxtos7wa7vfwg5ehpjlqcozerz5ycy7f6e2esqxiphq",
+      "creator": {
+        "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
+        "handle": "shinyakato.dev",
+        "displayName": "Shinya Kato 🤯",
+        "description": "Dart/Flutter & atproto enthusiast\nContrib. bluesky-social/atproto\n\nThe author of many OSS packages for Dart/Flutter\n\nDeveloping Bluesky related packages 👇\nhttps://github.com/myConsciousness/atproto.dart\n\nGitHub: @myConsciousness",
+        "avatar": "https://cdn.bsky.social/imgproxy/JF97YphLyIEWfq4KJNO_ZCYm9v_zNcRj7sSB8UZrRBw/rs:fill:1000:1000:1:0/plain/bafkreidqn4z6ocv5snxuqguarboozqdusam2tehccnu23yab7g2sgv64dq@jpeg",
+        "indexedAt": "2023-04-28T22:04:37.957Z",
+        "viewer": { "muted": false, "blockedBy": false },
+        "labels": []
+      },
+      "name": "test via cli",
+      "purpose": "app.bsky.graph.defs#modlist",
+      "description": "@shinyakato.dev",
+      "descriptionFacets": [
+        {
+          "index": { "byteStart": 0, "byteEnd": 15 },
+          "features": [
+            {
+              "$type": "app.bsky.richtext.facet#mention",
+              "did": "did:plc:iijrtk7ocored6zuziwmqq3c"
+            }
+          ]
+        }
+      ],
+      "avatar": "https://cdn.bsky.social/imgproxy/6T2FMHPa3qld8CjoEowsJZVOfKhmPE-502sF9gSQjYE/rs:fill:1000:1000:1:0/plain/bafkreiflipfku74fw2rmagyxnznibpb2ks5wtyuawa6q5vyrttdtlzloba@jpeg",
+      "indexedAt": "2023-05-16T02:59:29.953Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvsrfaad622u",
+      "cid": "bafyreid6pnaxbeqpxtos7wa7vfwg5ehpjlqcozerz5ycy7f6e2esqxiphq",
+      "creator": {
+        "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
+        "handle": "shinyakato.dev",
+        "displayName": "Shinya Kato 🤯",
+        "description": "Dart/Flutter & atproto enthusiast\nContrib. bluesky-social/atproto\n\nThe author of many OSS packages for Dart/Flutter\n\nDeveloping Bluesky related packages 👇\nhttps://github.com/myConsciousness/atproto.dart\n\nGitHub: @myConsciousness",
+        "avatar": "https://cdn.bsky.social/imgproxy/JF97YphLyIEWfq4KJNO_ZCYm9v_zNcRj7sSB8UZrRBw/rs:fill:1000:1000:1:0/plain/bafkreidqn4z6ocv5snxuqguarboozqdusam2tehccnu23yab7g2sgv64dq@jpeg",
+        "indexedAt": "2023-04-28T22:04:37.957Z",
+        "viewer": { "muted": false, "blockedBy": false },
+        "labels": []
+      },
+      "name": "Test with avatar",
+      "purpose": "app.bsky.graph.defs#modlist",
+      "description": "@shinyakato.dev 😳",
+      "descriptionFacets": [
+        {
+          "index": { "byteStart": 0, "byteEnd": 15 },
+          "features": [
+            {
+              "$type": "app.bsky.richtext.facet#mention",
+              "did": "did:plc:iijrtk7ocored6zuziwmqq3c"
+            }
+          ]
+        }
+      ],
+      "avatar": "https://cdn.bsky.social/imgproxy/6T2FMHPa3qld8CjoEowsJZVOfKhmPE-502sF9gSQjYE/rs:fill:1000:1000:1:0/plain/bafkreiflipfku74fw2rmagyxnznibpb2ks5wtyuawa6q5vyrttdtlzloba@jpeg",
+      "indexedAt": "2023-05-16T01:53:27.536Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvspzvk7t42q",
+      "cid": "bafyreid6pnaxbeqpxtos7wa7vfwg5ehpjlqcozerz5ycy7f6e2esqxiphq",
+      "creator": {
+        "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
+        "handle": "shinyakato.dev",
+        "displayName": "Shinya Kato 🤯",
+        "description": "Dart/Flutter & atproto enthusiast\nContrib. bluesky-social/atproto\n\nThe author of many OSS packages for Dart/Flutter\n\nDeveloping Bluesky related packages 👇\nhttps://github.com/myConsciousness/atproto.dart\n\nGitHub: @myConsciousness",
+        "avatar": "https://cdn.bsky.social/imgproxy/JF97YphLyIEWfq4KJNO_ZCYm9v_zNcRj7sSB8UZrRBw/rs:fill:1000:1000:1:0/plain/bafkreidqn4z6ocv5snxuqguarboozqdusam2tehccnu23yab7g2sgv64dq@jpeg",
+        "indexedAt": "2023-04-28T22:04:37.957Z",
+        "viewer": { "muted": false, "blockedBy": false },
+        "labels": []
+      },
+      "name": "testtest2",
+      "purpose": "app.bsky.graph.defs#modlist",
+      "description": "@shinyakato.dev 😳 https://shinyakato.dev",
+      "descriptionFacets": [
+        {
+          "index": { "byteStart": 0, "byteEnd": 15 },
+          "features": [
+            {
+              "$type": "app.bsky.richtext.facet#mention",
+              "did": "did:plc:iijrtk7ocored6zuziwmqq3c"
+            }
+          ]
+        },
+        {
+          "index": { "byteStart": 21, "byteEnd": 43 },
+          "features": [
+            {
+              "$type": "app.bsky.richtext.facet#link",
+              "uri": "https://shinyakato.dev"
+            }
+          ]
+        }
+      ],
+      "indexedAt": "2023-05-16T01:29:13.496Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvspnuhbp32k",
+      "cid": "bafyreid6pnaxbeqpxtos7wa7vfwg5ehpjlqcozerz5ycy7f6e2esqxiphq",
+      "creator": {
+        "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
+        "handle": "shinyakato.dev",
+        "displayName": "Shinya Kato 🤯",
+        "description": "Dart/Flutter & atproto enthusiast\nContrib. bluesky-social/atproto\n\nThe author of many OSS packages for Dart/Flutter\n\nDeveloping Bluesky related packages 👇\nhttps://github.com/myConsciousness/atproto.dart\n\nGitHub: @myConsciousness",
+        "avatar": "https://cdn.bsky.social/imgproxy/JF97YphLyIEWfq4KJNO_ZCYm9v_zNcRj7sSB8UZrRBw/rs:fill:1000:1000:1:0/plain/bafkreidqn4z6ocv5snxuqguarboozqdusam2tehccnu23yab7g2sgv64dq@jpeg",
+        "indexedAt": "2023-04-28T22:04:37.957Z",
+        "viewer": { "muted": false, "blockedBy": false },
+        "labels": []
+      },
+      "name": "testtest",
+      "purpose": "app.bsky.graph.defs#modlist",
+      "indexedAt": "2023-05-16T01:22:29.736Z",
+      "viewer": { "muted": false }
+    },
+    {
+      "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvqbvdsijh2p",
+      "cid": "bafyreid6pnaxbeqpxtos7wa7vfwg5ehpjlqcozerz5ycy7f6e2esqxiphq",
+      "creator": {
+        "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
+        "handle": "shinyakato.dev",
+        "displayName": "Shinya Kato 🤯",
+        "description": "Dart/Flutter & atproto enthusiast\nContrib. bluesky-social/atproto\n\nThe author of many OSS packages for Dart/Flutter\n\nDeveloping Bluesky related packages 👇\nhttps://github.com/myConsciousness/atproto.dart\n\nGitHub: @myConsciousness",
+        "avatar": "https://cdn.bsky.social/imgproxy/JF97YphLyIEWfq4KJNO_ZCYm9v_zNcRj7sSB8UZrRBw/rs:fill:1000:1000:1:0/plain/bafkreidqn4z6ocv5snxuqguarboozqdusam2tehccnu23yab7g2sgv64dq@jpeg",
+        "indexedAt": "2023-04-28T22:04:37.957Z",
+        "viewer": { "muted": false, "blockedBy": false },
+        "labels": []
+      },
+      "name": "Test",
+      "purpose": "app.bsky.graph.defs#modlist",
+      "description": "Just for testing",
+      "indexedAt": "2023-05-15T02:10:48.837Z",
+      "viewer": { "muted": false }
+    }
+  ],
+  "cursor": "1684116648396::bafyreid6pnaxbeqpxtos7wa7vfwg5ehpjlqcozerz5ycy7f6e2esqxiphq"
+}

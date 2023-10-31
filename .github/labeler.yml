@@ -46,8 +46,10 @@ atproto/lexicon/servers:
 - packages/atproto/lib/src/servers/*.dart
 atproto/lexicon/sessions:
 - packages/atproto/lib/src/sessions/*.dart
-atproto/lexicon/syncs:
-- packages/atproto/lib/src/syncs/*.dart
+atproto/lexicon/sync:
+- packages/atproto/lib/src/sync/*.dart
+atproto/lexicon/labels:
+- packages/atproto/lib/src/labels/*.dart
 
 bsky/lexicon/actors:
 - packages/bluesky/lib/src/actors/*.dart

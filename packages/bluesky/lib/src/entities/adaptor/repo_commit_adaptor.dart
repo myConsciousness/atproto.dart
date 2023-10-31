@@ -11,6 +11,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../../extension/at_uri_extension.dart';
+import '../block_list_record.dart';
 import '../block_record.dart';
 import '../follow_record.dart';
 import '../generator_record.dart';
@@ -49,6 +50,7 @@ final class RepoCommitAdaptor {
     final RepoCommitOnCreate<BlockRecord>? onCreateBlock,
     final RepoCommitOnCreate<ListRecord>? onCreateList,
     final RepoCommitOnCreate<ListItemRecord>? onCreateListItem,
+    final RepoCommitOnCreate<BlockListRecord>? onCreateBlockList,
     final RepoCommitOnCreate<Map<String, dynamic>>? onCreateUnknown,
     final RepoCommitOnUpdate<ProfileRecord>? onUpdateProfile,
     final RepoCommitOnUpdate<Map<String, dynamic>>? onUpdateUnknown,
@@ -61,6 +63,7 @@ final class RepoCommitAdaptor {
     final RepoCommitOnDelete? onDeleteBlock,
     final RepoCommitOnDelete? onDeleteList,
     final RepoCommitOnDelete? onDeleteListItem,
+    final RepoCommitOnDelete? onDeleteBlockList,
     final RepoCommitOnDelete? onDeleteUnknown,
   })  : _onCreatePost = onCreatePost,
         _onCreateRepost = onCreateRepost,
@@ -71,6 +74,7 @@ final class RepoCommitAdaptor {
         _onCreateBlock = onCreateBlock,
         _onCreateList = onCreateList,
         _onCreateListItem = onCreateListItem,
+        _onCreateBlockList = onCreateBlockList,
         _onCreateUnknown = onCreateUnknown,
         _onUpdateProfile = onUpdateProfile,
         _onUpdateUnknown = onUpdateUnknown,
@@ -83,6 +87,7 @@ final class RepoCommitAdaptor {
         _onDeleteBlock = onDeleteBlock,
         _onDeleteList = onDeleteList,
         _onDeleteListItem = onDeleteListItem,
+        _onDeleteBlockList = onDeleteBlockList,
         _onDeleteUnknown = onDeleteUnknown;
 
   final RepoCommitOnCreate<PostRecord>? _onCreatePost;
@@ -94,6 +99,7 @@ final class RepoCommitAdaptor {
   final RepoCommitOnCreate<BlockRecord>? _onCreateBlock;
   final RepoCommitOnCreate<ListRecord>? _onCreateList;
   final RepoCommitOnCreate<ListItemRecord>? _onCreateListItem;
+  final RepoCommitOnCreate<BlockListRecord>? _onCreateBlockList;
   final RepoCommitOnCreate<Map<String, dynamic>>? _onCreateUnknown;
 
   final RepoCommitOnUpdate<ProfileRecord>? _onUpdateProfile;
@@ -108,6 +114,7 @@ final class RepoCommitAdaptor {
   final RepoCommitOnDelete? _onDeleteBlock;
   final RepoCommitOnDelete? _onDeleteList;
   final RepoCommitOnDelete? _onDeleteListItem;
+  final RepoCommitOnDelete? _onDeleteBlockList;
   final RepoCommitOnDelete? _onDeleteUnknown;
 
   /// Performs actions based on [data].
@@ -230,6 +237,18 @@ final class RepoCommitAdaptor {
       await _onCreateListItem?.call(
         RepoCommitCreate<ListItemRecord>(
           record: ListItemRecord.fromJson(
+            op.record!,
+          ),
+          uri: op.uri,
+          cid: op.cid!,
+          author: data.did,
+          cursor: data.cursor,
+        ),
+      );
+    } else if (op.uri.isGraphBlockList && _isGraphBlockList(op.record!)) {
+      await _onCreateBlockList?.call(
+        RepoCommitCreate<BlockListRecord>(
+          record: BlockListRecord.fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -367,6 +386,15 @@ final class RepoCommitAdaptor {
           createdAt: data.createdAt,
         ),
       );
+    } else if (op.uri.isGraphBlockList) {
+      await _onDeleteBlockList?.call(
+        RepoCommitDelete(
+          uri: op.uri,
+          author: data.did,
+          cursor: data.cursor,
+          createdAt: data.createdAt,
+        ),
+      );
     } else {
       await _onDeleteUnknown?.call(
         RepoCommitDelete(
@@ -418,4 +446,8 @@ final class RepoCommitAdaptor {
   /// Returns true if [record] is graph list item, otherwise false.
   bool _isGraphListItem(final Map<String, dynamic> record) =>
       record[core.objectType] == ids.appBskyGraphListitem;
+
+  /// Returns true if [record] is graph block list, otherwise false.
+  bool _isGraphBlockList(final Map<String, dynamic> record) =>
+      record[core.objectType] == ids.appBskyGraphListblock;
 }

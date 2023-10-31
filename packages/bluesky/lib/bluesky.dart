@@ -16,6 +16,8 @@ export 'package:atproto/atproto.dart'
         $BlobDataCopyWith,
         BlobRef,
         $BlobRefCopyWith,
+        BlobRefs,
+        $BlobRefsCopyWith,
         CurrentSession,
         $CurrentSessionCopyWith,
         Account,
@@ -42,6 +44,8 @@ export 'package:atproto/atproto.dart'
         $SelfLabelsCopyWith,
         Labels,
         $LabelsCopyWith,
+        LabelsByQuery,
+        $LabelsByQueryCopyWith,
         InviteCodeUse,
         $InviteCodeUseCopyWith,
         InviteCode,
@@ -84,6 +88,12 @@ export 'package:atproto/atproto.dart'
         $SubscribedRepoMigrateCopyWith,
         SubscribedRepoTombstone,
         $SubscribedRepoTombstoneCopyWith,
+        SubscribedLabel,
+        $SubscribedLabelCopyWith,
+        SubscribedLabelLabels,
+        $SubscribedLabelLabelsCopyWith,
+        SubscribedLabelInfo,
+        $SubscribedLabelInfoCopyWith,
         RepoOp,
         $RepoOpCopyWith,
         RepoAction,
@@ -115,6 +125,9 @@ export 'package:atproto/atproto.dart'
         USubscribedRepoMigrate,
         USubscribedRepoTombstone,
         USubscribedRepoUnknown,
+        USubscribedLabelLabels,
+        USubscribedLabelInfo,
+        USubscribedLabelUnknown,
         ModerationReasonType,
         ReportSubject,
         $ReportSubjectCopyWith,
@@ -122,7 +135,8 @@ export 'package:atproto/atproto.dart'
         IdentitiesService,
         RepositoriesService,
         ModerationService,
-        SyncService;
+        SyncService,
+        LabelsService;
 export 'package:atproto_core/atproto_core.dart'
     show
         XRPCResponse,
@@ -165,6 +179,7 @@ export 'package:atproto_core/atproto_core.dart'
         decodeJwt,
         createSession,
         refreshSession,
+        deleteSession,
         isValidAppPassword;
 export 'package:bluesky/src/actors/actors_service.dart';
 export 'package:bluesky/src/bluesky.dart';
@@ -243,6 +258,7 @@ export 'package:bluesky/src/entities/list_item.dart';
 export 'package:bluesky/src/entities/list_item_record.dart';
 export 'package:bluesky/src/entities/list_items.dart';
 export 'package:bluesky/src/entities/list_record.dart';
+export 'package:bluesky/src/entities/block_list_record.dart';
 export 'package:bluesky/src/entities/list_view.dart';
 export 'package:bluesky/src/entities/list_view_basic.dart';
 export 'package:bluesky/src/entities/list_viewer.dart';

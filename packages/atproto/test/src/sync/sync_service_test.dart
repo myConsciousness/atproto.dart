@@ -2,12 +2,17 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
+import 'dart:io';
+import 'dart:typed_data';
+
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
+import 'package:atproto/src/entities/blob_refs.dart';
 import 'package:atproto/src/entities/repo_blocks.dart';
 import 'package:atproto/src/entities/repo_commit.dart';
 import 'package:atproto/src/entities/repo_commits.dart';
@@ -645,6 +650,159 @@ void main() {
         () async => await sync.requestCrawl(
           hostname: 'bsky.social',
         ),
+      );
+    });
+  });
+
+  group('.findBlob', () {
+    test('normal case', () async {
+      final sync = SyncService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClientFromBytes(
+          File('test/src/sync/data/find_blob.txt').readAsBytesSync(),
+        ),
+      );
+
+      final response = await sync.findBlob(
+        did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
+        cid: 'baaaaaaa',
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<Uint8List>());
+    });
+
+    test('when unauthorized', () async {
+      final sync = SyncService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await sync.findBlob(
+          did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
+          cid: 'baaaaaaa',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final sync = SyncService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await sync.findBlob(
+          did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
+          cid: 'baaaaaaa',
+        ),
+      );
+    });
+  });
+
+  group('.findBlobs', () {
+    test('normal case', () async {
+      final sync = SyncService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/sync/data/find_blobs.json',
+        ),
+      );
+
+      final response = await sync.findBlobs(did: 'did');
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<BlobRefs>());
+    });
+
+    test('as JSON', () async {
+      final sync = SyncService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/sync/data/find_blobs.json',
+        ),
+      );
+
+      final response = await sync.findReposAsJson();
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
+    test('when unauthorized', () async {
+      final sync = SyncService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await sync.findBlobs(did: 'did'),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final sync = SyncService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await sync.findBlobs(did: 'did'),
       );
     });
   });

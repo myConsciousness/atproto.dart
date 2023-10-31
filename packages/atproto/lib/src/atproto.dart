@@ -8,6 +8,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import 'atproto_service.dart';
 import 'identities/identities_service.dart';
+import 'labels/labels_service.dart';
 import 'moderation/moderation_service.dart';
 import 'repositories/repositories_service.dart';
 import 'servers/servers_service.dart';
@@ -15,9 +16,8 @@ import 'sync/sync_service.dart';
 
 sealed class ATProto {
   /// Returns the new instance of [ATProto].
-  factory ATProto({
-    required String did,
-    required String accessJwt,
+  factory ATProto.fromSession(
+    final core.Session session, {
     core.Protocol protocol = core.defaultProtocol,
     String service = core.defaultService,
     Duration timeout = core.defaultTimeout,
@@ -26,8 +26,7 @@ sealed class ATProto {
     final core.PostClient? mockedPostClient,
   }) =>
       _ATProto(
-        did: did,
-        accessJwt: accessJwt,
+        session: session,
         protocol: protocol,
         service: service,
         timeout: timeout,
@@ -36,38 +35,29 @@ sealed class ATProto {
         mockedPostClient: mockedPostClient,
       );
 
-  /// Returns the new instance of [ATProto].
-  factory ATProto.fromSession(
-    final core.Session session, {
-    core.Protocol protocol = core.defaultProtocol,
-    String service = core.defaultService,
-    Duration timeout = core.defaultTimeout,
-    core.RetryConfig? retryConfig,
-  }) =>
-      _ATProto(
-        did: session.did,
-        accessJwt: session.accessJwt,
-        protocol: protocol,
-        service: service,
-        timeout: timeout,
-        retryConfig: retryConfig,
-      );
-
   /// Returns the new instance of [ATProto] as anonymous.
   factory ATProto.anonymous({
     core.Protocol protocol = core.defaultProtocol,
     String service = core.defaultService,
     Duration timeout = core.defaultTimeout,
     core.RetryConfig? retryConfig,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   }) =>
       _ATProto(
-        did: '',
-        accessJwt: '',
         protocol: protocol,
         service: service,
         timeout: timeout,
         retryConfig: retryConfig,
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
       );
+
+  /// Returns the current session.
+  ///
+  /// Set only if an instance of this object was created in
+  /// [ATProto.fromSession], otherwise null.
+  core.Session? get session;
 
   /// Returns the servers service.
   ServersService get servers;
@@ -83,13 +73,15 @@ sealed class ATProto {
 
   /// Returns the sync service.
   SyncService get sync;
+
+  /// Returns the labels service.
+  LabelsService get labels;
 }
 
 final class _ATProto implements ATProto {
   /// Returns the new instance of [_ATProto].
   _ATProto({
-    required String did,
-    required String accessJwt,
+    this.session,
     required core.Protocol protocol,
     required String service,
     required Duration timeout,
@@ -97,11 +89,11 @@ final class _ATProto implements ATProto {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) : _service = ATProtoService(
-          did: did,
+          did: session?.did ?? '',
           protocol: protocol,
           service: service,
           context: core.ClientContext(
-            accessJwt: accessJwt,
+            accessJwt: session?.accessJwt ?? '',
             timeout: timeout,
             retryConfig: retryConfig,
           ),
@@ -110,6 +102,9 @@ final class _ATProto implements ATProto {
         );
 
   final ATProtoService _service;
+
+  @override
+  final core.Session? session;
 
   @override
   ServersService get servers => _service.servers;
@@ -125,4 +120,7 @@ final class _ATProto implements ATProto {
 
   @override
   SyncService get sync => _service.sync;
+
+  @override
+  LabelsService get labels => _service.labels;
 }

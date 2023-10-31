@@ -25,12 +25,13 @@ import 'package:bluesky/src/params/generator_param.dart';
 import 'package:bluesky/src/params/post_param.dart';
 import 'package:bluesky/src/params/strong_ref_param.dart';
 import 'package:bluesky/src/params/thread_param.dart';
+import '../session.dart';
 
 void main() {
   group('.findTimeline', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -62,7 +63,7 @@ void main() {
 
     test('as JSON', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -87,7 +88,7 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -112,7 +113,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -139,9 +140,8 @@ void main() {
   group('.createPost', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/feeds/data/create_post.json',
@@ -167,9 +167,8 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
@@ -194,9 +193,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
@@ -223,9 +221,8 @@ void main() {
   group('.createThread', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/feeds/data/create_post.json',
@@ -252,9 +249,8 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
@@ -281,9 +277,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
@@ -310,9 +305,8 @@ void main() {
 
     test('when empty params', () {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
@@ -337,9 +331,8 @@ void main() {
   group('.createPosts', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/feeds/data/no_json.json',
@@ -367,9 +360,8 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
@@ -397,9 +389,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
@@ -429,9 +420,8 @@ void main() {
   group('.createRepost', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/feeds/data/create_repost.json',
@@ -458,9 +448,8 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
@@ -486,9 +475,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
@@ -516,9 +504,8 @@ void main() {
   group('.createReposts', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/feeds/data/no_json.json',
@@ -548,9 +535,8 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
@@ -573,9 +559,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
@@ -600,9 +585,8 @@ void main() {
   group('.createLike', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/feeds/data/create_like.json',
@@ -629,9 +613,8 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
@@ -657,9 +640,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
@@ -687,9 +669,8 @@ void main() {
   group('.createLikes', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/feeds/data/no_json.json',
@@ -727,9 +708,8 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
@@ -752,9 +732,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
@@ -779,7 +758,7 @@ void main() {
   group('.findFeed', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -804,7 +783,7 @@ void main() {
 
     test('as JSON', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -829,7 +808,7 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -854,7 +833,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -881,7 +860,7 @@ void main() {
   group('.findCustomFeed', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -908,7 +887,7 @@ void main() {
 
     test('as JSON', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -935,7 +914,7 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -960,7 +939,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -986,7 +965,7 @@ void main() {
   group('.findFeedSkeleton', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1013,7 +992,7 @@ void main() {
 
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1040,7 +1019,7 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1065,7 +1044,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1091,7 +1070,7 @@ void main() {
   group('.findLikes', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1117,7 +1096,7 @@ void main() {
 
     test('as JSON', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1143,7 +1122,7 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1169,7 +1148,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1197,7 +1176,7 @@ void main() {
   group('.findRepostedBy', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1223,7 +1202,7 @@ void main() {
 
     test('as JSON', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1249,7 +1228,7 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1275,7 +1254,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1303,7 +1282,7 @@ void main() {
   group('.findPostThread', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1328,7 +1307,7 @@ void main() {
 
     test('as JSON', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1353,7 +1332,7 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1377,7 +1356,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1403,7 +1382,7 @@ void main() {
   group('.findPosts', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1426,7 +1405,7 @@ void main() {
 
     test('as JSON', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1449,7 +1428,7 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1472,7 +1451,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1497,9 +1476,8 @@ void main() {
   group('.createGenerator', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/feeds/data/create_generator.json',
@@ -1533,9 +1511,8 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
@@ -1561,9 +1538,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
@@ -1591,9 +1567,8 @@ void main() {
   group('.createGenerators', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/feeds/data/create_generator.json',
@@ -1641,9 +1616,8 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
@@ -1666,9 +1640,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
@@ -1693,7 +1666,7 @@ void main() {
   group('.findActorFeeds', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1718,7 +1691,7 @@ void main() {
 
     test('as JSON', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1743,7 +1716,7 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1766,7 +1739,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1791,7 +1764,7 @@ void main() {
   group('.findFeedGenerator', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1816,7 +1789,7 @@ void main() {
 
     test('as JSON', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1841,7 +1814,7 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1866,7 +1839,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1893,7 +1866,7 @@ void main() {
   group('.findFeedGenerators', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1920,7 +1893,7 @@ void main() {
 
     test('as JSON', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1947,7 +1920,7 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1970,7 +1943,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -1995,7 +1968,7 @@ void main() {
   group('.findGeneratorInfo', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -2016,7 +1989,7 @@ void main() {
 
     test('as JSON', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -2037,7 +2010,7 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -2058,7 +2031,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -2081,7 +2054,7 @@ void main() {
   group('.findActorLikes', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -2106,7 +2079,7 @@ void main() {
 
     test('as JSON', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -2131,7 +2104,7 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -2156,7 +2129,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -2183,7 +2156,7 @@ void main() {
   group('.findSuggestedFeeds', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -2207,7 +2180,7 @@ void main() {
 
     test('as JSON', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -2231,7 +2204,7 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -2255,7 +2228,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -2281,7 +2254,7 @@ void main() {
   group('.findListFeed', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -2308,7 +2281,7 @@ void main() {
 
     test('as JSON', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -2335,7 +2308,7 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -2362,7 +2335,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -2391,7 +2364,7 @@ void main() {
   group('.searchPostsByQuery', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -2416,7 +2389,7 @@ void main() {
 
     test('as JSON', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -2437,7 +2410,7 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -2458,7 +2431,7 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
         did: '',
         protocol: Protocol.https,
         service: 'test',
@@ -2481,9 +2454,8 @@ void main() {
   group('.createThreadgate', () {
     test('normal case', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/feeds/data/create_threadgate.json',
@@ -2509,9 +2481,8 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
@@ -2537,9 +2508,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = FeedsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',

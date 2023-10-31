@@ -495,13 +495,26 @@ XRPCResponse<T> _buildResponse<T>(
         url: response.request!.url,
       ),
       rateLimit: RateLimit.fromHeaders(response.headers),
-      data: _transformData(
-        adaptor != null
-            ? jsonEncode(adaptor.call(response.bodyBytes))
-            : response.body,
-        to,
-      ),
+      data: _getData(response, to, adaptor),
     );
+
+T _getData<T>(
+  final http.Response response,
+  final To<T>? to,
+  final ResponseAdaptor? adaptor,
+) {
+  if (T == Uint8List) {
+    //* This is basically used to retrieve Blob data.
+    return response.bodyBytes as T;
+  }
+
+  return _transformData(
+    adaptor != null
+        ? jsonEncode(adaptor.call(response.bodyBytes))
+        : response.body,
+    to,
+  );
+}
 
 /// Returns the error response.
 XRPCResponse<XRPCError> _buildErrorResponse(final http.Response response) =>

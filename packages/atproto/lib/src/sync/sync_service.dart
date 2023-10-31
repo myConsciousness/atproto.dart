@@ -2,6 +2,9 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
+import 'dart:typed_data';
+
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 
@@ -11,6 +14,7 @@ import '../adaptor/repo_commit_adaptor.dart';
 import '../adaptor/repo_commits_adaptor.dart';
 import '../adaptor/subscribe_repo_updates_adaptor.dart';
 import '../atproto_base_service.dart';
+import '../entities/blob_refs.dart';
 import '../entities/repo_blocks.dart';
 import '../entities/repo_commit.dart';
 import '../entities/repo_commits.dart';
@@ -391,6 +395,135 @@ sealed class SyncService {
   Future<core.XRPCResponse<core.EmptyData>> requestCrawl({
     required String hostname,
   });
+
+  /// Get a blob associated with a given repo.
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: The DID of the repo.
+  ///
+  /// - [cid]: The CID of the blob to fetch.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.getBlob
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getBlob.json
+  Future<core.XRPCResponse<Uint8List>> findBlob({
+    required String did,
+    required String cid,
+  });
+
+  /// Get a blob associated with a given repo.
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: The DID of the repo.
+  ///
+  /// - [sinceCid]: Optional revision of the repo to list blobs since.
+  ///
+  /// - [limit]: The size of blobs to be fetched.
+  ///            Defaults to 500. From 1 to 1000.
+  ///
+  /// - [cursor]: The pagination cursor.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.listBlobs
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listBlobs.json
+  Future<core.XRPCResponse<BlobRefs>> findBlobs({
+    required String did,
+    String? sinceCid,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a blob associated with a given repo as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: The DID of the repo.
+  ///
+  /// - [sinceCid]: Optional revision of the repo to list blobs since.
+  ///
+  /// - [limit]: The size of blobs to be fetched.
+  ///            Defaults to 500. From 1 to 1000.
+  ///
+  /// - [cursor]: The pagination cursor.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.listBlobs
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listBlobs.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findBlobsAsJson({
+    required String did,
+    String? sinceCid,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination to get a blob associated with a given repo.
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: The DID of the repo.
+  ///
+  /// - [sinceCid]: Optional revision of the repo to list blobs since.
+  ///
+  /// - [limit]: The size of blobs to be fetched.
+  ///            Defaults to 500. From 1 to 1000.
+  ///
+  /// - [cursor]: The pagination cursor.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.listBlobs
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listBlobs.json
+  core.Pagination<BlobRefs> paginateBlobs({
+    required String did,
+    String? sinceCid,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination to get a blob associated with a given repo as
+  /// JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: The DID of the repo.
+  ///
+  /// - [sinceCid]: Optional revision of the repo to list blobs since.
+  ///
+  /// - [limit]: The size of blobs to be fetched.
+  ///            Defaults to 500. From 1 to 1000.
+  ///
+  /// - [cursor]: The pagination cursor.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.listBlobs
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listBlobs.json
+  core.Pagination<Map<String, dynamic>> paginateBlobsAsJson({
+    required String did,
+    String? sinceCid,
+    int? limit,
+    String? cursor,
+  });
 }
 
 final class _SyncService extends ATProtoBaseService implements SyncService {
@@ -565,6 +698,78 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
         },
       );
 
+  @override
+  Future<core.XRPCResponse<Uint8List>> findBlob({
+    required String did,
+    required String cid,
+  }) async =>
+      await super.get<Uint8List>(
+        'getBlob',
+        parameters: {
+          'did': did,
+          'cid': cid,
+        },
+        userContext: core.UserContext.anonymousOnly,
+      );
+
+  @override
+  Future<core.XRPCResponse<BlobRefs>> findBlobs({
+    required String did,
+    String? sinceCid,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findBlobs(
+        did: did,
+        sinceCid: sinceCid,
+        limit: limit,
+        cursor: cursor,
+        to: BlobRefs.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findBlobsAsJson({
+    required String did,
+    String? sinceCid,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findBlobs(
+        did: did,
+        sinceCid: sinceCid,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  core.Pagination<BlobRefs> paginateBlobs({
+    required String did,
+    String? sinceCid,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateBlobs(
+        did: did,
+        sinceCid: sinceCid,
+        limit: limit,
+        cursor: cursor,
+        to: BlobRefs.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateBlobsAsJson({
+    required String did,
+    String? sinceCid,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateBlobs(
+        did: did,
+        sinceCid: sinceCid,
+        limit: limit,
+        cursor: cursor,
+      );
+
   Future<core.XRPCResponse<T>> _findRepoCommits<T>({
     required String did,
     required String? sinceCommitCid,
@@ -662,11 +867,62 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
         to: to,
       );
 
+  Future<core.XRPCResponse<T>> _findBlobs<T>({
+    required String did,
+    required String? sinceCid,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'listBlobs',
+        parameters: _buildListBlobsParams(
+          did: did,
+          sinceCid: sinceCid,
+          limit: limit,
+          cursor: cursor,
+        ),
+        userContext: core.UserContext.anonymousOnly,
+        to: to,
+      );
+
+  core.Pagination<T> _paginateBlobs<T>({
+    required String did,
+    required String? sinceCid,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'listBlobs',
+        parameters: _buildListBlobsParams(
+          did: did,
+          sinceCid: sinceCid,
+          limit: limit,
+          cursor: cursor,
+        ),
+        userContext: core.UserContext.anonymousOnly,
+        to: to,
+      );
+
   Map<String, dynamic> _buildListReposParams({
     required int? limit,
     required String? cursor,
   }) =>
       {
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildListBlobsParams({
+    required String did,
+    required String? sinceCid,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'did': did,
+        'since': sinceCid,
         'limit': limit,
         'cursor': cursor,
       };

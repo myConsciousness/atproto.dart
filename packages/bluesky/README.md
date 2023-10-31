@@ -80,10 +80,11 @@ See **[official documents](https://atprotodart.com/docs/api_support_matrix)** fr
 
 - **[com.atproto.*](https://atprotodart.com/docs/api_support_matrix#atproto)**
   - **[com.atproto.server.*](https://atprotodart.com/docs/api_support_matrix#servers-service)**
-  - **[com.atproto.identity.*](https://atprotodart.com/docs/api_support_matrix#servers-service)**
-  - **[com.atproto.repo.*](https://atprotodart.com/docs/api_support_matrix#repository-service)**
+  - **[com.atproto.identity.*](https://atprotodart.com/docs/api_support_matrix#identities-service)**
+  - **[com.atproto.repo.*](https://atprotodart.com/docs/api_support_matrix#repositories-service)**
   - **[com.atproto.moderation.*](https://atprotodart.com/docs/api_support_matrix#moderation-service)**
   - **[com.atproto.sync.*](https://atprotodart.com/docs/api_support_matrix#sync-service)**
+  - **[com.atproto.label.*](https://atprotodart.com/docs/api_support_matrix#labels-service)**
 - **[app.bsky.*](https://atprotodart.com/docs/api_support_matrix#bluesky)**
   - **[app.bsky.actor.*](https://atprotodart.com/docs/api_support_matrix#actors-service)**
   - **[app.bsky.feed.*](https://atprotodart.com/docs/api_support_matrix#feeds-service)**

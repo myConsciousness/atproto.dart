@@ -26,15 +26,6 @@ class ActorViewer with _$ActorViewer {
   const ActorViewer._();
 
   /// Creates an instance of [ActorViewer].
-  ///
-  /// - `isMuted`: Indicates if the authenticated user has muted the actor.
-  /// - `isBlockedBy`: Indicates if the actor has blocked the authenticated
-  /// user.
-  /// - `mutedByList`: A basic view of a list that the user uses to mute the
-  /// actor.
-  /// - `blocking`: The URI of the actor that the user is blocking.
-  /// - `following`: The URI of the actor that the user is following.
-  /// - `followedBy`: The URI of the actor that is following the user.
   @jsonSerializable
   const factory ActorViewer({
     /// Indicates if the authenticated user has muted the actor.
@@ -45,6 +36,9 @@ class ActorViewer with _$ActorViewer {
 
     /// A basic view of a list that the user uses to mute the actor.
     ListViewBasic? mutedByList,
+
+    /// A basic view of a list that the user uses to block actors.
+    ListViewBasic? blockingByList,
 
     /// The URI of the actor that the user is blocking.
     @atUriConverter AtUri? blocking,
@@ -81,6 +75,14 @@ class ActorViewer with _$ActorViewer {
   /// Returns true if authenticated user has not muted yet this actor by list,
   /// otherwise false.
   bool get isNotMutedByList => !isMutedByList;
+
+  /// Returns true if authenticated user has already blocked actors by list,
+  /// otherwise false.
+  bool get isBlockingByList => blockingByList != null;
+
+  /// Returns true if authenticated user has not blocked yet blocked actors by
+  /// list, otherwise false.
+  bool get isNotBlockingByList => !isBlockingByList;
 
   /// Returns true if authenticated user has already blocked this actor,
   /// otherwise false.
