@@ -17,6 +17,7 @@
   - `.findBlockListsAsJson`
   - `.paginateBlockLists`
   - `.paginateBlockListsAsJson`
+- Added `blockingByList` on `ActorViewer`. ([#952](https://github.com/myConsciousness/atproto.dart/issues/952))
 
 ## v0.9.1
 

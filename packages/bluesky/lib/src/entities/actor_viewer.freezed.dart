@@ -31,6 +31,9 @@ mixin _$ActorViewer {
   /// A basic view of a list that the user uses to mute the actor.
   ListViewBasic? get mutedByList => throw _privateConstructorUsedError;
 
+  /// A basic view of a list that the user uses to block actors.
+  ListViewBasic? get blockingByList => throw _privateConstructorUsedError;
+
   /// The URI of the actor that the user is blocking.
   @atUriConverter
   AtUri? get blocking => throw _privateConstructorUsedError;
@@ -59,11 +62,13 @@ abstract class $ActorViewerCopyWith<$Res> {
       {@JsonKey(name: 'muted') bool isMuted,
       @JsonKey(name: 'blockedBy') bool isBlockedBy,
       ListViewBasic? mutedByList,
+      ListViewBasic? blockingByList,
       @atUriConverter AtUri? blocking,
       @atUriConverter AtUri? following,
       @atUriConverter AtUri? followedBy});
 
   $ListViewBasicCopyWith<$Res>? get mutedByList;
+  $ListViewBasicCopyWith<$Res>? get blockingByList;
 }
 
 /// @nodoc
@@ -82,6 +87,7 @@ class _$ActorViewerCopyWithImpl<$Res, $Val extends ActorViewer>
     Object? isMuted = null,
     Object? isBlockedBy = null,
     Object? mutedByList = freezed,
+    Object? blockingByList = freezed,
     Object? blocking = freezed,
     Object? following = freezed,
     Object? followedBy = freezed,
@@ -98,6 +104,10 @@ class _$ActorViewerCopyWithImpl<$Res, $Val extends ActorViewer>
       mutedByList: freezed == mutedByList
           ? _value.mutedByList
           : mutedByList // ignore: cast_nullable_to_non_nullable
+              as ListViewBasic?,
+      blockingByList: freezed == blockingByList
+          ? _value.blockingByList
+          : blockingByList // ignore: cast_nullable_to_non_nullable
               as ListViewBasic?,
       blocking: freezed == blocking
           ? _value.blocking
@@ -125,6 +135,18 @@ class _$ActorViewerCopyWithImpl<$Res, $Val extends ActorViewer>
       return _then(_value.copyWith(mutedByList: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ListViewBasicCopyWith<$Res>? get blockingByList {
+    if (_value.blockingByList == null) {
+      return null;
+    }
+
+    return $ListViewBasicCopyWith<$Res>(_value.blockingByList!, (value) {
+      return _then(_value.copyWith(blockingByList: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -139,12 +161,15 @@ abstract class _$$_ActorViewerCopyWith<$Res>
       {@JsonKey(name: 'muted') bool isMuted,
       @JsonKey(name: 'blockedBy') bool isBlockedBy,
       ListViewBasic? mutedByList,
+      ListViewBasic? blockingByList,
       @atUriConverter AtUri? blocking,
       @atUriConverter AtUri? following,
       @atUriConverter AtUri? followedBy});
 
   @override
   $ListViewBasicCopyWith<$Res>? get mutedByList;
+  @override
+  $ListViewBasicCopyWith<$Res>? get blockingByList;
 }
 
 /// @nodoc
@@ -161,6 +186,7 @@ class __$$_ActorViewerCopyWithImpl<$Res>
     Object? isMuted = null,
     Object? isBlockedBy = null,
     Object? mutedByList = freezed,
+    Object? blockingByList = freezed,
     Object? blocking = freezed,
     Object? following = freezed,
     Object? followedBy = freezed,
@@ -177,6 +203,10 @@ class __$$_ActorViewerCopyWithImpl<$Res>
       mutedByList: freezed == mutedByList
           ? _value.mutedByList
           : mutedByList // ignore: cast_nullable_to_non_nullable
+              as ListViewBasic?,
+      blockingByList: freezed == blockingByList
+          ? _value.blockingByList
+          : blockingByList // ignore: cast_nullable_to_non_nullable
               as ListViewBasic?,
       blocking: freezed == blocking
           ? _value.blocking
@@ -202,6 +232,7 @@ class _$_ActorViewer extends _ActorViewer {
       {@JsonKey(name: 'muted') this.isMuted = false,
       @JsonKey(name: 'blockedBy') this.isBlockedBy = false,
       this.mutedByList,
+      this.blockingByList,
       @atUriConverter this.blocking,
       @atUriConverter this.following,
       @atUriConverter this.followedBy})
@@ -224,6 +255,10 @@ class _$_ActorViewer extends _ActorViewer {
   @override
   final ListViewBasic? mutedByList;
 
+  /// A basic view of a list that the user uses to block actors.
+  @override
+  final ListViewBasic? blockingByList;
+
   /// The URI of the actor that the user is blocking.
   @override
   @atUriConverter
@@ -241,7 +276,7 @@ class _$_ActorViewer extends _ActorViewer {
 
   @override
   String toString() {
-    return 'ActorViewer(isMuted: $isMuted, isBlockedBy: $isBlockedBy, mutedByList: $mutedByList, blocking: $blocking, following: $following, followedBy: $followedBy)';
+    return 'ActorViewer(isMuted: $isMuted, isBlockedBy: $isBlockedBy, mutedByList: $mutedByList, blockingByList: $blockingByList, blocking: $blocking, following: $following, followedBy: $followedBy)';
   }
 
   @override
@@ -254,6 +289,8 @@ class _$_ActorViewer extends _ActorViewer {
                 other.isBlockedBy == isBlockedBy) &&
             (identical(other.mutedByList, mutedByList) ||
                 other.mutedByList == mutedByList) &&
+            (identical(other.blockingByList, blockingByList) ||
+                other.blockingByList == blockingByList) &&
             (identical(other.blocking, blocking) ||
                 other.blocking == blocking) &&
             (identical(other.following, following) ||
@@ -265,7 +302,7 @@ class _$_ActorViewer extends _ActorViewer {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, isMuted, isBlockedBy,
-      mutedByList, blocking, following, followedBy);
+      mutedByList, blockingByList, blocking, following, followedBy);
 
   @JsonKey(ignore: true)
   @override
@@ -286,6 +323,7 @@ abstract class _ActorViewer extends ActorViewer {
       {@JsonKey(name: 'muted') final bool isMuted,
       @JsonKey(name: 'blockedBy') final bool isBlockedBy,
       final ListViewBasic? mutedByList,
+      final ListViewBasic? blockingByList,
       @atUriConverter final AtUri? blocking,
       @atUriConverter final AtUri? following,
       @atUriConverter final AtUri? followedBy}) = _$_ActorViewer;
@@ -308,6 +346,10 @@ abstract class _ActorViewer extends ActorViewer {
 
   /// A basic view of a list that the user uses to mute the actor.
   ListViewBasic? get mutedByList;
+  @override
+
+  /// A basic view of a list that the user uses to block actors.
+  ListViewBasic? get blockingByList;
   @override
 
   /// The URI of the actor that the user is blocking.
