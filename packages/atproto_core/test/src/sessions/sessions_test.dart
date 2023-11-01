@@ -26,6 +26,7 @@ void main() {
       expect(response.data, isA<Session>());
 
       expect(response.data.isEmailConfirmed, isTrue);
+      expect(response.data.didDoc, isNotNull);
     });
 
     test('when unauthorized', () async {
