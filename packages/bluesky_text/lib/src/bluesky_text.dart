@@ -2,9 +2,6 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 📦 Package imports:
-import 'package:characters/characters.dart';
-
 // 🌎 Project imports:
 import 'config/link_config.dart';
 import 'const.dart';
@@ -32,6 +29,7 @@ import 'utils.dart' as utils;
 ///
 /// - **Handle** (like @shinyakato.dev)
 /// - **Link** (like https://shinyakato.dev)
+/// - **Tag** (like #hashtag)
 ///
 /// The class also supports counting the number of characters using `grapheme`,
 /// and the length of the string that can be obtained with [length] is
@@ -178,7 +176,7 @@ final class _BlueskyText implements BlueskyText {
   final String value;
 
   @override
-  int get length => value.characters.length;
+  int get length => utils.getGraphemeLength(value);
 
   @override
   Entities get handles => Entities(handlesExtractor.execute(this));

@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.21
+
+- Exposed `.getGraphemeLength`.
+
 ## v0.5.20
 
 - Upgraded `xrpc` package.
