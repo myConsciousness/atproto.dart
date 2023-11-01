@@ -16,6 +16,7 @@ import '../entities/current_session.dart';
 import '../entities/email_update.dart';
 import '../entities/invite_codes.dart';
 import '../entities/server_info.dart';
+import '../entities/signing_key.dart';
 
 sealed class ServersService {
   /// Returns the new instance of [ServersService].
@@ -406,6 +407,17 @@ sealed class ServersService {
     required String email,
     String? token,
   });
+
+  /// Reserve a repo signing key for account creation.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.server.reserveSigningKey
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/reserveSigningKey.json
+  Future<core.XRPCResponse<SigningKey>> createSigningKey();
 }
 
 final class _ServersService extends ATProtoBaseService
@@ -620,6 +632,13 @@ final class _ServersService extends ATProtoBaseService
           'email': email,
           'token': token,
         },
+      );
+
+  @override
+  Future<core.XRPCResponse<SigningKey>> createSigningKey() async =>
+      await super.post(
+        'reserveSigningKey',
+        to: SigningKey.fromJson,
       );
 
   Future<core.XRPCResponse<T>> _findCurrentSession<T>({

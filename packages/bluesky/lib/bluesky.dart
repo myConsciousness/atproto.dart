@@ -68,6 +68,8 @@ export 'package:atproto/atproto.dart'
         $CreateActionCopyWith,
         UpdateAction,
         $UpdateActionCopyWith,
+        SigningKey,
+        $SigningKeyCopyWith,
         RepoLatestCommit,
         $RepoLatestCommitCopyWith,
         RepoCommits,

@@ -63,6 +63,7 @@ export 'package:atproto/src/entities/subscribed_repo_info.dart';
 export 'package:atproto/src/entities/subscribed_repo_migrate.dart';
 export 'package:atproto/src/entities/subscribed_repo_tombstone.dart';
 export 'package:atproto/src/entities/update_action.dart';
+export 'package:atproto/src/entities/signing_key.dart';
 export 'package:atproto/src/identities/identities_service.dart';
 export 'package:atproto/src/moderation/moderation_reason_type.dart';
 export 'package:atproto/src/moderation/moderation_service.dart';

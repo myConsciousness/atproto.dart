@@ -5,6 +5,8 @@
 - Supported `com.atproto.labels.queryLabels` and `LabelsService`. ([#265](https://github.com/myConsciousness/atproto.dart/issues/265))
 - Supported `com.atproto.labels.subscribeLabels` on `LabelsService`. ([#340](https://github.com/myConsciousness/atproto.dart/issues/340))
 - Added `.deleteSession` function. ([#963](https://github.com/myConsciousness/atproto.dart/issues/963))
+- Supported `com.atproto.server.reserveSigningKey` on `ServersService`. ([#953](https://github.com/myConsciousness/atproto.dart/issues/953))
+  - `.createSigningKey`
 
 ## v0.7.1
 
