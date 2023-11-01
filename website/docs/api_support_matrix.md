@@ -36,6 +36,7 @@ See more details about **[atproto](https://pub.dev/packages/atproto)** in **[Pac
 | [POST com.atproto.server.requestEmailConfirmation](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/requestEmailConfirmation.json) | [requestEmailConfirmation](https://pub.dev/documentation/atproto/latest/atproto/ServersService/requestEmailConfirmation.html) |       ✅       |     ❌      |
 | [POST com.atproto.server.confirmEmail](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/confirmEmail.json)                         | [confirmEmail](https://pub.dev/documentation/atproto/latest/atproto/ServersService/confirmEmail.html)                         |       ✅       |     ❌      |
 | [POST com.atproto.server.updateEmail](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/updateEmail.json)                           | [updateEmail](https://pub.dev/documentation/atproto/latest/atproto/ServersService/updateEmail.html)                           |       ✅       |     ❌      |
+| [POST com.atproto.server.reserveSigningKey](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/reserveSigningKey.json)               | [createSigningKey](https://pub.dev/documentation/atproto/latest/atproto/createSigningKey.html)                                |       ✅       |     ❌      |
 
 ### [Identities Service](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService-class.html)
 
