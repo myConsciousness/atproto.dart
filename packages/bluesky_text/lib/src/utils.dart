@@ -16,3 +16,6 @@ String getPrefixedUri(final String source) =>
 bool isEmojiOnly(final String value) => value.trim().isNotEmpty
     ? emojiRegex.allMatches(value).length == value.characters.length
     : false;
+
+/// Returns the grapheme length of [value].
+int getGraphemeLength(final String value) => value.characters.length;
