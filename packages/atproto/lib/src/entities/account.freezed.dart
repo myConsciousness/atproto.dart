@@ -32,6 +32,9 @@ mixin _$Account {
   /// The decentralized identifier for the user.
   String get did => throw _privateConstructorUsedError;
 
+  /// DID plc document.
+  Map<String, dynamic>? get didDoc => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AccountCopyWith<Account> get copyWith => throw _privateConstructorUsedError;
@@ -42,7 +45,12 @@ abstract class $AccountCopyWith<$Res> {
   factory $AccountCopyWith(Account value, $Res Function(Account) then) =
       _$AccountCopyWithImpl<$Res, Account>;
   @useResult
-  $Res call({String accessJwt, String refreshJwt, String handle, String did});
+  $Res call(
+      {String accessJwt,
+      String refreshJwt,
+      String handle,
+      String did,
+      Map<String, dynamic>? didDoc});
 }
 
 /// @nodoc
@@ -62,6 +70,7 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
     Object? refreshJwt = null,
     Object? handle = null,
     Object? did = null,
+    Object? didDoc = freezed,
   }) {
     return _then(_value.copyWith(
       accessJwt: null == accessJwt
@@ -80,6 +89,10 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
+      didDoc: freezed == didDoc
+          ? _value.didDoc
+          : didDoc // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -91,7 +104,12 @@ abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
       __$$_AccountCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String accessJwt, String refreshJwt, String handle, String did});
+  $Res call(
+      {String accessJwt,
+      String refreshJwt,
+      String handle,
+      String did,
+      Map<String, dynamic>? didDoc});
 }
 
 /// @nodoc
@@ -108,6 +126,7 @@ class __$$_AccountCopyWithImpl<$Res>
     Object? refreshJwt = null,
     Object? handle = null,
     Object? did = null,
+    Object? didDoc = freezed,
   }) {
     return _then(_$_Account(
       accessJwt: null == accessJwt
@@ -126,6 +145,10 @@ class __$$_AccountCopyWithImpl<$Res>
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
+      didDoc: freezed == didDoc
+          ? _value._didDoc
+          : didDoc // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -137,7 +160,9 @@ class _$_Account implements _Account {
       {required this.accessJwt,
       required this.refreshJwt,
       required this.handle,
-      required this.did});
+      required this.did,
+      final Map<String, dynamic>? didDoc})
+      : _didDoc = didDoc;
 
   factory _$_Account.fromJson(Map<String, dynamic> json) =>
       _$$_AccountFromJson(json);
@@ -158,9 +183,22 @@ class _$_Account implements _Account {
   @override
   final String did;
 
+  /// DID plc document.
+  final Map<String, dynamic>? _didDoc;
+
+  /// DID plc document.
+  @override
+  Map<String, dynamic>? get didDoc {
+    final value = _didDoc;
+    if (value == null) return null;
+    if (_didDoc is EqualUnmodifiableMapView) return _didDoc;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   @override
   String toString() {
-    return 'Account(accessJwt: $accessJwt, refreshJwt: $refreshJwt, handle: $handle, did: $did)';
+    return 'Account(accessJwt: $accessJwt, refreshJwt: $refreshJwt, handle: $handle, did: $did, didDoc: $didDoc)';
   }
 
   @override
@@ -173,13 +211,14 @@ class _$_Account implements _Account {
             (identical(other.refreshJwt, refreshJwt) ||
                 other.refreshJwt == refreshJwt) &&
             (identical(other.handle, handle) || other.handle == handle) &&
-            (identical(other.did, did) || other.did == did));
+            (identical(other.did, did) || other.did == did) &&
+            const DeepCollectionEquality().equals(other._didDoc, _didDoc));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, accessJwt, refreshJwt, handle, did);
+  int get hashCode => Object.hash(runtimeType, accessJwt, refreshJwt, handle,
+      did, const DeepCollectionEquality().hash(_didDoc));
 
   @JsonKey(ignore: true)
   @override
@@ -200,7 +239,8 @@ abstract class _Account implements Account {
       {required final String accessJwt,
       required final String refreshJwt,
       required final String handle,
-      required final String did}) = _$_Account;
+      required final String did,
+      final Map<String, dynamic>? didDoc}) = _$_Account;
 
   factory _Account.fromJson(Map<String, dynamic> json) = _$_Account.fromJson;
 
@@ -220,6 +260,10 @@ abstract class _Account implements Account {
 
   /// The decentralized identifier for the user.
   String get did;
+  @override
+
+  /// DID plc document.
+  Map<String, dynamic>? get didDoc;
   @override
   @JsonKey(ignore: true)
   _$$_AccountCopyWith<_$_Account> get copyWith =>

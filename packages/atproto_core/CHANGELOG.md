@@ -3,6 +3,7 @@
 ## v0.5.9
 
 - Added `.deleteSession` function. ([#963](https://github.com/myConsciousness/atproto.dart/issues/963))
+- Added `didDoc` field on `Session` object. ([#968](https://github.com/myConsciousness/atproto.dart/issues/968))
 
 ## v0.5.8
 
