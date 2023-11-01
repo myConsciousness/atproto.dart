@@ -66,6 +66,8 @@ void main() {
 
       expect(response, isA<xrpc.XRPCResponse>());
       expect(response.data, isA<Session>());
+
+      expect(response.data.didDoc, isNotNull);
     });
 
     test('when unauthorized', () async {

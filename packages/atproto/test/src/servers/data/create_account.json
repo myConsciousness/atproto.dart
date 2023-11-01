@@ -2,5 +2,29 @@
   "accessJwt": "eJ9.eyJzY29wZSI6ImNvbS5hdHByb3RvLmFjY2VzcyIsInN1YiI6ImRpZDpwbGM6aWNnZ3B2eG51eWMzejR5bzZtd2d6ZTU2IiwiaWF0IjoxNjgxODA0MDEyLCJleHAiOjE2ODE4MTEyMTJ9.vMXbMweBSjd5dhEl_Lpzsi5jwQPC9GgZCFzzu_SJvng",
   "refreshJwt": "eyJhbGciOiJwZSI6ImNvbS5hdHByb3RvLnJlZnJlc2giLCJzdWIiOiJkaWQ6cGxjOmljZ2dwdnhudXljM3o0eW82bXdnemU1NiIsImp0aSI6Ijc2cGxralltQ3k1Tk1YellrY1BlY2V0dFl4NkI5OWdPa0lXWGUvWmorcm8iLCJpYXQiOjE2ODE4MDQwMTIsImV4cCI6MTY4OTU4MDAxMn0.YVWDra3wk3Jjd8Z8FVgWYkiPBakL6n8z_F56erSp7nk",
   "handle": "dummy.stems",
-  "did": "did:plc:icggpvxnuyc3z4yo6mwgze56"
+  "did": "did:plc:icggpvxnuyc3z4yo6mwgze56",
+  "didDoc": {
+    "@context": [
+      "https://www.w3.org/ns/did/v1",
+      "https://w3id.org/security/multikey/v1",
+      "https://w3id.org/security/suites/secp256k1-2019/v1"
+    ],
+    "id": "did:plc:iijrtk7ocored6zuziwmqq3c",
+    "alsoKnownAs": ["at://shinyakato.dev"],
+    "verificationMethod": [
+      {
+        "id": "did:plc:iijrtk7ocored6zuziwmqq3c#atproto",
+        "type": "Multikey",
+        "controller": "did:plc:iijrtk7ocored6zuziwmqq3c",
+        "publicKeyMultibase": "zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF"
+      }
+    ],
+    "service": [
+      {
+        "id": "#atproto_pds",
+        "type": "AtprotoPersonalDataServer",
+        "serviceEndpoint": "https://bsky.social"
+      }
+    ]
+  }
 }

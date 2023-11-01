@@ -128,6 +128,8 @@ void main() {
 
       expect(response, isA<core.XRPCResponse>());
       expect(response.data, isA<Account>());
+
+      expect(response.data.didDoc, isNotNull);
     });
 
     test('when unauthorized', () async {

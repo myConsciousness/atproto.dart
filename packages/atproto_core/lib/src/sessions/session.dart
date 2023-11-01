@@ -42,6 +42,9 @@ class Session with _$Session {
 
     /// Refresh JSON Web Token.
     required String refreshJwt,
+
+    /// DID plc document.
+    Map<String, dynamic>? didDoc,
   }) = _Session;
 
   /// Creates a new instance of [Session] from a JSON object.
