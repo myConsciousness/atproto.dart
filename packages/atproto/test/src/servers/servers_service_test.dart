@@ -42,6 +42,7 @@ void main() {
       expect(response.data, isA<CurrentSession>());
 
       expect(response.data.isEmailConfirmed, isTrue);
+      expect(response.data.didDoc, isNotNull);
     });
 
     test('as JSON', () async {

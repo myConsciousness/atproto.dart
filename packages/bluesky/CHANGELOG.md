@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.9.4
+
+- Added `.didDoc` on `CurrentSession`. ([#983](https://github.com/myConsciousness/atproto.dart/issues/983))
+
 ## v0.9.3
 
 - Supported `com.atproto.labels.queryLabels` and `LabelsService`. ([#265](https://github.com/myConsciousness/atproto.dart/issues/265))

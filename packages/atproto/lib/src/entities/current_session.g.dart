@@ -18,6 +18,11 @@ _$_CurrentSession _$$_CurrentSessionFromJson(Map json) => $checkedCreate(
           email: $checkedConvert('email', (v) => v as String?),
           isEmailConfirmed:
               $checkedConvert('emailConfirmed', (v) => v as bool? ?? false),
+          didDoc: $checkedConvert(
+              'didDoc',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
@@ -38,5 +43,6 @@ Map<String, dynamic> _$$_CurrentSessionToJson(_$_CurrentSession instance) {
 
   writeNotNull('email', instance.email);
   val['emailConfirmed'] = instance.isEmailConfirmed;
+  writeNotNull('didDoc', instance.didDoc);
   return val;
 }
