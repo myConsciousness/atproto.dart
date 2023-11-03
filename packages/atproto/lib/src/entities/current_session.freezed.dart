@@ -33,6 +33,9 @@ mixin _$CurrentSession {
   @JsonKey(name: 'emailConfirmed')
   bool get isEmailConfirmed => throw _privateConstructorUsedError;
 
+  /// DID plc document.
+  Map<String, dynamic>? get didDoc => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CurrentSessionCopyWith<CurrentSession> get copyWith =>
@@ -49,7 +52,8 @@ abstract class $CurrentSessionCopyWith<$Res> {
       {String did,
       String handle,
       String? email,
-      @JsonKey(name: 'emailConfirmed') bool isEmailConfirmed});
+      @JsonKey(name: 'emailConfirmed') bool isEmailConfirmed,
+      Map<String, dynamic>? didDoc});
 }
 
 /// @nodoc
@@ -69,6 +73,7 @@ class _$CurrentSessionCopyWithImpl<$Res, $Val extends CurrentSession>
     Object? handle = null,
     Object? email = freezed,
     Object? isEmailConfirmed = null,
+    Object? didDoc = freezed,
   }) {
     return _then(_value.copyWith(
       did: null == did
@@ -87,6 +92,10 @@ class _$CurrentSessionCopyWithImpl<$Res, $Val extends CurrentSession>
           ? _value.isEmailConfirmed
           : isEmailConfirmed // ignore: cast_nullable_to_non_nullable
               as bool,
+      didDoc: freezed == didDoc
+          ? _value.didDoc
+          : didDoc // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -103,7 +112,8 @@ abstract class _$$_CurrentSessionCopyWith<$Res>
       {String did,
       String handle,
       String? email,
-      @JsonKey(name: 'emailConfirmed') bool isEmailConfirmed});
+      @JsonKey(name: 'emailConfirmed') bool isEmailConfirmed,
+      Map<String, dynamic>? didDoc});
 }
 
 /// @nodoc
@@ -121,6 +131,7 @@ class __$$_CurrentSessionCopyWithImpl<$Res>
     Object? handle = null,
     Object? email = freezed,
     Object? isEmailConfirmed = null,
+    Object? didDoc = freezed,
   }) {
     return _then(_$_CurrentSession(
       did: null == did
@@ -139,6 +150,10 @@ class __$$_CurrentSessionCopyWithImpl<$Res>
           ? _value.isEmailConfirmed
           : isEmailConfirmed // ignore: cast_nullable_to_non_nullable
               as bool,
+      didDoc: freezed == didDoc
+          ? _value._didDoc
+          : didDoc // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -151,7 +166,9 @@ class _$_CurrentSession implements _CurrentSession {
       {required this.did,
       required this.handle,
       this.email,
-      @JsonKey(name: 'emailConfirmed') this.isEmailConfirmed = false});
+      @JsonKey(name: 'emailConfirmed') this.isEmailConfirmed = false,
+      final Map<String, dynamic>? didDoc})
+      : _didDoc = didDoc;
 
   factory _$_CurrentSession.fromJson(Map<String, dynamic> json) =>
       _$$_CurrentSessionFromJson(json);
@@ -173,9 +190,22 @@ class _$_CurrentSession implements _CurrentSession {
   @JsonKey(name: 'emailConfirmed')
   final bool isEmailConfirmed;
 
+  /// DID plc document.
+  final Map<String, dynamic>? _didDoc;
+
+  /// DID plc document.
+  @override
+  Map<String, dynamic>? get didDoc {
+    final value = _didDoc;
+    if (value == null) return null;
+    if (_didDoc is EqualUnmodifiableMapView) return _didDoc;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   @override
   String toString() {
-    return 'CurrentSession(did: $did, handle: $handle, email: $email, isEmailConfirmed: $isEmailConfirmed)';
+    return 'CurrentSession(did: $did, handle: $handle, email: $email, isEmailConfirmed: $isEmailConfirmed, didDoc: $didDoc)';
   }
 
   @override
@@ -187,13 +217,14 @@ class _$_CurrentSession implements _CurrentSession {
             (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.isEmailConfirmed, isEmailConfirmed) ||
-                other.isEmailConfirmed == isEmailConfirmed));
+                other.isEmailConfirmed == isEmailConfirmed) &&
+            const DeepCollectionEquality().equals(other._didDoc, _didDoc));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, did, handle, email, isEmailConfirmed);
+  int get hashCode => Object.hash(runtimeType, did, handle, email,
+      isEmailConfirmed, const DeepCollectionEquality().hash(_didDoc));
 
   @JsonKey(ignore: true)
   @override
@@ -211,11 +242,11 @@ class _$_CurrentSession implements _CurrentSession {
 
 abstract class _CurrentSession implements CurrentSession {
   const factory _CurrentSession(
-          {required final String did,
-          required final String handle,
-          final String? email,
-          @JsonKey(name: 'emailConfirmed') final bool isEmailConfirmed}) =
-      _$_CurrentSession;
+      {required final String did,
+      required final String handle,
+      final String? email,
+      @JsonKey(name: 'emailConfirmed') final bool isEmailConfirmed,
+      final Map<String, dynamic>? didDoc}) = _$_CurrentSession;
 
   factory _CurrentSession.fromJson(Map<String, dynamic> json) =
       _$_CurrentSession.fromJson;
@@ -237,6 +268,10 @@ abstract class _CurrentSession implements CurrentSession {
   /// A flag indicating whether the email address is confirmed.
   @JsonKey(name: 'emailConfirmed')
   bool get isEmailConfirmed;
+  @override
+
+  /// DID plc document.
+  Map<String, dynamic>? get didDoc;
   @override
   @JsonKey(ignore: true)
   _$$_CurrentSessionCopyWith<_$_CurrentSession> get copyWith =>
