@@ -2,6 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: deprecated_member_use_from_same_package
+
 // 📦 Package imports:
 import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
@@ -11,14 +13,18 @@ import 'package:test/test.dart';
 // 🌎 Project imports:
 import 'package:bluesky/src/entities/feed.dart';
 import 'package:bluesky/src/entities/feed_generators.dart';
+import 'package:bluesky/src/entities/skeleton_actors_by_query.dart';
 import 'package:bluesky/src/entities/skeleton_feed.dart';
+import 'package:bluesky/src/entities/skeleton_posts_by_query.dart';
 import 'package:bluesky/src/unspecced/unspecced_service.dart';
+import '../session.dart';
 
 void main() {
   group('.findPopularFeeds', () {
     test('normal case', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -41,7 +47,8 @@ void main() {
 
     test('as JSON', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -64,7 +71,8 @@ void main() {
 
     test('when unauthorized', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -87,7 +95,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -112,7 +121,8 @@ void main() {
   group('.findPopularFeedGenerators', () {
     test('normal case', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -134,7 +144,8 @@ void main() {
 
     test('as JSON', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -154,7 +165,8 @@ void main() {
 
     test('when unauthorized', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -174,7 +186,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -189,104 +202,6 @@ void main() {
 
       atp_test.expectRateLimitExceededException(
         () async => await unspecced.findPopularFeedGenerators(),
-      );
-    });
-  });
-
-  group('.createLabels', () {
-    test('normal case', () async {
-      final unspecced = UnspeccedService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
-          service: 'test',
-        ),
-        protocol: Protocol.https,
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedPostClient: atp_test.createMockedPostClient(
-          'test/src/unspecced/data/create_labels.json',
-        ),
-      );
-
-      final response = await unspecced.createLabels([
-        Label(
-          src: 'did:plc:iijrtk7ocored6zuziwmqq3c',
-          uri: 'did:plc:iijrtk7ocored6zuziwmqq3c',
-          value: 'developer',
-          isNegate: false,
-          createdAt: DateTime.now().toUtc(),
-        ),
-      ]);
-
-      expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<EmptyData>());
-    });
-
-    test('when unauthorized', () async {
-      final unspecced = UnspeccedService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
-          service: 'test',
-        ),
-        protocol: Protocol.https,
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedPostClient: atp_test.createMockedPostClient(
-          'test/src/data/error.json',
-          statusCode: 401,
-        ),
-      );
-
-      atp_test.expectUnauthorizedException(
-        () async => await unspecced.createLabels([
-          Label(
-            src: 'did:plc:iijrtk7ocored6zuziwmqq3c',
-            uri: 'did:plc:iijrtk7ocored6zuziwmqq3c',
-            value: 'developer',
-            isNegate: false,
-            createdAt: DateTime.now().toUtc(),
-          ),
-        ]),
-      );
-    });
-
-    test('when rate limit exceeded', () async {
-      final unspecced = UnspeccedService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
-          service: 'test',
-        ),
-        protocol: Protocol.https,
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedPostClient: atp_test.createMockedPostClient(
-          'test/src/data/error.json',
-          statusCode: 429,
-        ),
-      );
-
-      atp_test.expectRateLimitExceededException(
-        () async => await unspecced.createLabels([
-          Label(
-            src: 'did:plc:iijrtk7ocored6zuziwmqq3c',
-            uri: 'did:plc:iijrtk7ocored6zuziwmqq3c',
-            value: 'developer',
-            isNegate: false,
-            createdAt: DateTime.now().toUtc(),
-          ),
-        ]),
       );
     });
   });
@@ -294,7 +209,8 @@ void main() {
   group('.findTimelineSkeleton', () {
     test('normal case', () async {
       final unspecced = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -317,7 +233,8 @@ void main() {
 
     test('as JSON', () async {
       final feeds = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -340,7 +257,8 @@ void main() {
 
     test('when unauthorized', () async {
       final feeds = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -360,7 +278,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final feeds = UnspeccedService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -375,6 +294,187 @@ void main() {
 
       atp_test.expectRateLimitExceededException(
         () async => await feeds.findTimelineSkeleton(),
+      );
+    });
+  });
+
+  group('.searchPostsByQuerySkeleton', () {
+    test('normal case', () async {
+      final unspecced = UnspeccedService(
+        atproto: ATProto.fromSession(session),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/unspecced/data/search_posts_by_query_skeleton.json',
+        ),
+      );
+
+      final response = await unspecced.searchPostsByQuerySkeleton('test');
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<SkeletonPostsByQuery>());
+
+      expect(response.data.posts.length, 2);
+      expect(response.data.hitsTotal, 10);
+      expect(response.data.cursor, 'xxxxxxx');
+    });
+
+    test('as JSON', () async {
+      final unspecced = UnspeccedService(
+        atproto: ATProto.fromSession(session),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/unspecced/data/search_posts_by_query_skeleton.json',
+        ),
+      );
+
+      final response = await unspecced.searchPostsByQuerySkeletonAsJson('test');
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
+    test('when unauthorized', () async {
+      final unspecced = UnspeccedService(
+        atproto: ATProto.fromSession(session),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await unspecced.searchPostsByQuerySkeleton('test'),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final unspecced = UnspeccedService(
+        atproto: ATProto.fromSession(session),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await unspecced.searchPostsByQuerySkeleton('test'),
+      );
+    });
+  });
+
+  group('.searchActorsByQuerySkeleton', () {
+    test('normal case', () async {
+      final unspecced = UnspeccedService(
+        atproto: ATProto.fromSession(session),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/unspecced/data/search_actors_by_query_skeleton.json',
+        ),
+      );
+
+      final response = await unspecced.searchActorsByQuerySkeleton('test');
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<SkeletonActorsByQuery>());
+
+      expect(response.data.actors.length, 2);
+      expect(response.data.hitsTotal, 10);
+      expect(response.data.cursor, 'xxxxxxx');
+    });
+
+    test('as JSON', () async {
+      final unspecced = UnspeccedService(
+        atproto: ATProto.fromSession(session),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/unspecced/data/search_actors_by_query_skeleton.json',
+        ),
+      );
+
+      final response =
+          await unspecced.searchActorsByQuerySkeletonAsJson('test');
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
+    test('when unauthorized', () async {
+      final unspecced = UnspeccedService(
+        atproto: ATProto.fromSession(session),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await unspecced.searchActorsByQuerySkeletonAsJson('test'),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final unspecced = UnspeccedService(
+        atproto: ATProto.fromSession(session),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await unspecced.searchActorsByQuerySkeletonAsJson('test'),
       );
     });
   });

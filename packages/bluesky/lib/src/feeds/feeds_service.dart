@@ -18,9 +18,11 @@ import '../entities/feed_generators.dart';
 import '../entities/likes.dart';
 import '../entities/post_thread.dart';
 import '../entities/posts.dart';
+import '../entities/posts_by_query.dart';
 import '../entities/reply_ref.dart';
 import '../entities/reposted_by.dart';
 import '../entities/skeleton_feed.dart';
+import '../entities/thread_rule.dart';
 import '../params/generator_param.dart';
 import '../params/post_param.dart';
 import '../params/strong_ref_param.dart';
@@ -31,6 +33,7 @@ sealed class FeedsService {
   /// Returns the new instance of [FeedsService].
   factory FeedsService({
     required atp.ATProto atproto,
+    required String did,
     required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
@@ -39,6 +42,7 @@ sealed class FeedsService {
   }) =>
       _FeedsService(
         atproto: atproto,
+        did: did,
         protocol: protocol,
         service: service,
         context: context,
@@ -62,6 +66,8 @@ sealed class FeedsService {
   ///
   /// - [labels]: Labels to be attached.
   ///
+  /// - [tags]: Additional non-inline tags describing this post.
+  ///
   /// - [createdAt]: Date and time the post was created.
   ///                If omitted, defaults to the current time.
   ///
@@ -83,6 +89,7 @@ sealed class FeedsService {
     Embed? embed,
     List<String>? languageTags,
     atp.Labels? labels,
+    List<String>? tags,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   });
@@ -1294,12 +1301,332 @@ sealed class FeedsService {
     int? limit,
     String? cursor,
   });
+
+  /// Get a list of suggested feeds for the viewer.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getSuggestedFeeds
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getSuggestedFeeds.json
+  Future<core.XRPCResponse<FeedGenerators>> findSuggestedFeeds({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a list of suggested feeds for the viewer
+  /// as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getSuggestedFeeds
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getSuggestedFeeds.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findSuggestedFeedsAsJson({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a pagination of suggested feeds for the viewer.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getSuggestedFeeds
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getSuggestedFeeds.json
+  core.Pagination<FeedGenerators> paginateSuggestedFeeds({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a pagination of suggested feeds for the viewer
+  /// as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getSuggestedFeeds
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getSuggestedFeeds.json
+  core.Pagination<Map<String, dynamic>> paginateSuggestedFeedsAsJson({
+    int? limit,
+    String? cursor,
+  });
+
+  /// A view of a recent posts from actors in a list.
+  ///
+  /// ## Parameters
+  ///
+  /// - [list]: List uri.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getListFeed
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getListFeed.json
+  Future<core.XRPCResponse<Feed>> findListFeed({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  });
+
+  /// A view of a recent posts from actors in a list as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [list]: List uri.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getListFeed
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getListFeed.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findListFeedAsJson({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination for a view of a recent posts from actors in a list.
+  ///
+  /// ## Parameters
+  ///
+  /// - [list]: List uri.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getListFeed
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getListFeed.json
+  core.Pagination<Feed> paginateListFeed({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination for a view of a recent posts from actors in a list
+  /// As JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [list]: List uri.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.getListFeed
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getListFeed.json
+  core.Pagination<Map<String, dynamic>> paginateListFeedAsJson({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Defines interaction gating rules for a thread.
+  ///
+  /// The rkey of the threadgate record should match the rkey of
+  /// the thread's root post.
+  ///
+  /// ## Parameters
+  ///
+  /// - [postUri]: A post uri.
+  ///
+  /// - [allowRules]: A collection of interaction gating rules.
+  ///
+  /// - [createdAt]: Date and time the post was created.
+  ///                If omitted, defaults to the current time.
+  ///
+  /// - [unspecced]: You can set record fields that are not supported
+  ///                by `app.bsky.feed.threadgate` as JSON.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.threadgate
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/threadgate.json
+  Future<core.XRPCResponse<atp.StrongRef>> createThreadgate({
+    required core.AtUri postUri,
+    List<ThreadRule>? allowRules,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  });
+
+  /// Find posts matching search criteria.
+  ///
+  /// ## Parameters
+  ///
+  /// - [query]: search query string; syntax, phrase, boolean, and faceting is
+  ///            unspecified, but Lucene query syntax is recommended
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 25.
+  ///
+  /// - [cursor]: Optional pagination mechanism; may not necessarily allow
+  ///             scrolling through entire result set
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.searchPosts
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/searchPosts.json
+  Future<core.XRPCResponse<PostsByQuery>> searchPostsByQuery(
+    final String query, {
+    int? limit,
+    String? cursor,
+  });
+
+  /// Find posts matching search criteria as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [query]: search query string; syntax, phrase, boolean, and faceting is
+  ///            unspecified, but Lucene query syntax is recommended
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 25.
+  ///
+  /// - [cursor]: Optional pagination mechanism; may not necessarily allow
+  ///             scrolling through entire result set
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.searchPosts
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/searchPosts.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> searchPostsByQueryAsJson(
+    final String query, {
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination to find posts matching search criteria.
+  ///
+  /// ## Parameters
+  ///
+  /// - [query]: search query string; syntax, phrase, boolean, and faceting is
+  ///            unspecified, but Lucene query syntax is recommended
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 25.
+  ///
+  /// - [cursor]: Optional pagination mechanism; may not necessarily allow
+  ///             scrolling through entire result set
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.searchPosts
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/searchPosts.json
+  core.Pagination<PostsByQuery> paginatePostsByQuery(
+    final String query, {
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination to find posts matching search criteria as JSON
+  /// representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [query]: search query string; syntax, phrase, boolean, and faceting is
+  ///            unspecified, but Lucene query syntax is recommended
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 25.
+  ///
+  /// - [cursor]: Optional pagination mechanism; may not necessarily allow
+  ///             scrolling through entire result set
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.searchPosts
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/searchPosts.json
+  core.Pagination<Map<String, dynamic>> paginatePostsByQueryAsJson(
+    final String query, {
+    int? limit,
+    String? cursor,
+  });
 }
 
 final class _FeedsService extends BlueskyBaseService implements FeedsService {
   /// Returns the new instance of [_FeedsService].
   _FeedsService({
     required super.atproto,
+    required super.did,
     required super.protocol,
     required super.service,
     required super.context,
@@ -1315,6 +1642,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     Embed? embed,
     List<String>? languageTags,
     atp.Labels? labels,
+    List<String>? tags,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
@@ -1327,6 +1655,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
           'embed': embed?.toJson(),
           'langs': languageTags,
           'labels': labels?.toJson(),
+          'tags': tags,
           'createdAt': toUtcIso8601String(createdAt),
           ...unspecced,
         },
@@ -1348,6 +1677,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
                   'embed': e.embed?.toJson(),
                   'langs': e.languageTags,
                   'labels': e.labels?.toJson(),
+                  'tags': e.tags,
                   'createdAt': toUtcIso8601String(e.createdAt),
                   ...e.unspecced,
                 },
@@ -1375,6 +1705,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
       embed: rootParam.embed,
       languageTags: rootParam.languageTags,
       labels: rootParam.labels,
+      tags: rootParam.tags,
       createdAt: rootParam.createdAt,
       unspecced: rootParam.unspecced,
     );
@@ -1393,6 +1724,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
         embed: param.embed,
         languageTags: param.languageTags,
         labels: param.labels,
+        tags: param.tags,
         createdAt: param.createdAt,
         unspecced: param.unspecced,
       ))
@@ -2039,6 +2371,197 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
         cursor: cursor,
       );
 
+  @override
+  Future<core.XRPCResponse<FeedGenerators>> findSuggestedFeeds({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findSuggestedFeeds(
+        limit: limit,
+        cursor: cursor,
+        to: FeedGenerators.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findSuggestedFeedsAsJson({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findSuggestedFeeds(
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  core.Pagination<FeedGenerators> paginateSuggestedFeeds({
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateSuggestedFeeds(
+        limit: limit,
+        cursor: cursor,
+        to: FeedGenerators.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateSuggestedFeedsAsJson({
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateSuggestedFeeds(
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.StrongRef>> createThreadgate({
+    required core.AtUri postUri,
+    List<ThreadRule>? allowRules,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  }) async =>
+      await atproto.repositories.createRecord(
+        collection: createNSID('threadgate'),
+        record: {
+          'post': postUri.toString(),
+          'allow': allowRules?.map((e) => e.toJson()).toList(),
+          'createdAt': toUtcIso8601String(createdAt),
+          ...unspecced,
+        },
+      );
+
+  @override
+  Future<core.XRPCResponse<Feed>> findListFeed({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findListFeed(
+        list: list,
+        limit: limit,
+        cursor: cursor,
+        to: Feed.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findListFeedAsJson({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findListFeed(
+        list: list,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  core.Pagination<Feed> paginateListFeed({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateListFeed(
+        list: list,
+        limit: limit,
+        cursor: cursor,
+        to: Feed.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateListFeedAsJson({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateListFeed(
+        list: list,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<PostsByQuery>> searchPostsByQuery(
+    final String query, {
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _searchPostsByQuery(
+        query: query,
+        limit: limit,
+        cursor: cursor,
+        to: PostsByQuery.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> searchPostsByQueryAsJson(
+    final String query, {
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _searchPostsByQuery(
+        query: query,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  core.Pagination<PostsByQuery> paginatePostsByQuery(
+    final String query, {
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginatePostsByQuery(
+        query: query,
+        limit: limit,
+        cursor: cursor,
+        to: PostsByQuery.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginatePostsByQueryAsJson(
+    final String query, {
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginatePostsByQuery(
+        query: query,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  Future<core.XRPCResponse<T>> _findListFeed<T>({
+    required core.AtUri list,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getListFeed',
+        parameters: _buildGetListFeedParams(
+          list: list,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateListFeed<T>({
+    required core.AtUri list,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getListFeed',
+        parameters: _buildGetListFeedParams(
+          list: list,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
   Future<core.XRPCResponse<T>> _findTimeline<T>({
     required String? algorithm,
     required int? limit,
@@ -2367,6 +2890,66 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
         to: to,
       );
 
+  Future<core.XRPCResponse<T>> _findSuggestedFeeds<T>({
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getSuggestedFeeds',
+        parameters: _buildGetSuggestedFeeds(
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateSuggestedFeeds<T>({
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getSuggestedFeeds',
+        parameters: _buildGetSuggestedFeeds(
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _searchPostsByQuery<T>({
+    required String query,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'searchPosts',
+        parameters: _buildSearchPostsParams(
+          query: query,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginatePostsByQuery<T>({
+    required String query,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'searchPosts',
+        parameters: _buildSearchPostsParams(
+          query: query,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
   Map<String, dynamic> _buildGetTimelineParams({
     required String? algorithm,
     required int? limit,
@@ -2457,6 +3040,37 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
   }) =>
       {
         'actor': actor,
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildGetSuggestedFeeds({
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildGetListFeedParams({
+    required core.AtUri list,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'list': list,
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildSearchPostsParams({
+    required String query,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'q': query,
         'limit': limit,
         'cursor': cursor,
       };

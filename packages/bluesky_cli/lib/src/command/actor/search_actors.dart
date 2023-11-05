@@ -47,7 +47,7 @@ class SearchActorsCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-        'term': argResults!['term'],
+        'q': argResults!['term'],
         'limit': argResults!['limit'],
         'cursor': argResults!['cursor'],
       };

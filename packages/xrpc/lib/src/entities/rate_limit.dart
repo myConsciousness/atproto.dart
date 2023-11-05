@@ -2,9 +2,6 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 📦 Package imports:
-import 'package:universal_io/io.dart' as io;
-
 // 🌎 Project imports:
 import 'rate_limit_policy.dart';
 
@@ -111,22 +108,21 @@ final class _RateLimitConverter {
 
   /// Converts the given headers to a `RateLimit`.
   RateLimit _toRateLimit(final Map<String, String> headers) => RateLimit._(
-        limitCount: int.parse(headers['RateLimit-Limit']!),
-        remainingCount: int.parse(headers['RateLimit-Remaining']!),
+        limitCount: int.parse(headers['ratelimit-limit']!),
+        remainingCount: int.parse(headers['ratelimit-remaining']!),
         policy: const _RateLimitPolicyConverter().fromHeaders(headers),
-        resetAt: io.HttpDate.parse(headers['date']!).add(
-          Duration(seconds: int.parse(headers['RateLimit-Reset']!)),
-        ),
+        resetAt: DateTime.fromMillisecondsSinceEpoch(
+          int.parse(headers['ratelimit-reset']!) * 1000,
+        ).toUtc(),
         enabled: true,
       );
 
   /// Checks if the given headers have rate limit related information.
   bool _hasRateLimits(final Map<String, String> headers) =>
-      headers.containsKey('date') &&
-      headers.containsKey('RateLimit-Limit') &&
-      headers.containsKey('RateLimit-Remaining') &&
-      headers.containsKey('RateLimit-Reset') &&
-      headers.containsKey('RateLimit-Policy');
+      headers.containsKey('ratelimit-limit') &&
+      headers.containsKey('ratelimit-remaining') &&
+      headers.containsKey('ratelimit-reset') &&
+      headers.containsKey('ratelimit-policy');
 }
 
 /// Converts HTTP headers to a `RateLimitPolicy` instance.
@@ -135,7 +131,7 @@ final class _RateLimitPolicyConverter {
 
   /// Parses headers and creates a `RateLimitPolicy` instance from it.
   RateLimitPolicy fromHeaders(final Map<String, String> headers) {
-    final segments = headers['RateLimit-Policy']!.split(';');
+    final segments = headers['ratelimit-policy']!.split(';');
 
     return RateLimitPolicy(
       limitCount: int.parse(segments[0]),

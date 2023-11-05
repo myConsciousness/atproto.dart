@@ -220,7 +220,7 @@ class _$_Actor extends _Actor {
       this.displayName,
       this.description,
       this.avatar,
-      required this.viewer,
+      this.viewer = defaultActorViewer,
       final List<Label>? labels,
       this.indexedAt})
       : _labels = labels,
@@ -252,6 +252,7 @@ class _$_Actor extends _Actor {
   /// The [ActorViewer] instance representing the authenticated user's
   /// relationship with the actor.
   @override
+  @JsonKey()
   final ActorViewer viewer;
 
   /// A list of labels associated with the actor.
@@ -328,7 +329,7 @@ abstract class _Actor extends Actor {
       final String? displayName,
       final String? description,
       final String? avatar,
-      required final ActorViewer viewer,
+      final ActorViewer viewer,
       final List<Label>? labels,
       final DateTime? indexedAt}) = _$_Actor;
   const _Actor._() : super._();

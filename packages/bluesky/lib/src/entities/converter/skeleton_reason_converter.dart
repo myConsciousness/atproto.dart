@@ -19,15 +19,19 @@ final class _SkeletonReasonConverter
 
   @override
   SkeletonReason fromJson(Map<String, dynamic> json) {
-    final type = json[core.objectType];
+    try {
+      final type = json[core.objectType];
 
-    if (type == ids.appBskyFeedDefsSkeletonReasonRepost) {
-      return SkeletonReason.repost(
-        data: SkeletonReasonRepost.fromJson(json),
-      );
+      if (type == ids.appBskyFeedDefsSkeletonReasonRepost) {
+        return SkeletonReason.repost(
+          data: SkeletonReasonRepost.fromJson(json),
+        );
+      }
+
+      return SkeletonReason.unknown(data: json);
+    } catch (_) {
+      return SkeletonReason.unknown(data: json);
     }
-
-    return SkeletonReason.unknown(data: json);
   }
 
   @override

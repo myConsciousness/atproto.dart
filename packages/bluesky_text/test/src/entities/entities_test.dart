@@ -16,7 +16,7 @@ void main() {
       final entities = Entities([
         Entity(
           type: EntityType.handle,
-          value: '@shinyakato.dev',
+          value: 'shinyakato.dev',
           indices: ByteIndices(start: 0, end: 0),
         )
       ]);

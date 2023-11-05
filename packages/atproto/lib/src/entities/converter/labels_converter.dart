@@ -19,15 +19,19 @@ final class _LabelsConverter
 
   @override
   Labels fromJson(Map<String, dynamic> json) {
-    final type = json[core.objectType];
+    try {
+      final type = json[core.objectType];
 
-    if (type == ids.comAtprotoLabelDefsSelfLabels) {
-      return Labels.selfLabels(
-        data: SelfLabels.fromJson(json),
-      );
+      if (type == ids.comAtprotoLabelDefsSelfLabels) {
+        return Labels.selfLabels(
+          data: SelfLabels.fromJson(json),
+        );
+      }
+
+      return Labels.unknown(data: json);
+    } catch (_) {
+      return Labels.unknown(data: json);
     }
-
-    return Labels.unknown(data: json);
   }
 
   @override

@@ -9,12 +9,35 @@ import 'package:test/test.dart';
 // 🌎 Project imports:
 import 'package:atproto/src/atproto.dart';
 import 'package:atproto/src/identities/identities_service.dart';
+import 'package:atproto/src/labels/labels_service.dart';
 import 'package:atproto/src/moderation/moderation_service.dart';
 import 'package:atproto/src/repositories/repositories_service.dart';
 import 'package:atproto/src/servers/servers_service.dart';
 import 'package:atproto/src/sync/sync_service.dart';
 
 void main() {
+  group('.session', () {
+    test('fromSession', () {
+      final session = core.Session(
+        did: 'aaaa',
+        handle: 'bbbbb',
+        accessJwt: 'cccccc',
+        refreshJwt: 'ddddddd',
+      );
+
+      final atproto = ATProto.fromSession(session);
+
+      expect(atproto.session != null, isTrue);
+      expect(atproto.session, session);
+    });
+
+    test('anonymous', () {
+      final atproto = ATProto.anonymous();
+
+      expect(atproto.session == null, isTrue);
+    });
+  });
+
   test('.servers', () {
     final service = ATProto.anonymous().servers;
 
@@ -48,5 +71,11 @@ void main() {
     final service = ATProto.anonymous().sync;
 
     expect(service, isA<SyncService>());
+  });
+
+  test('.labels', () {
+    final service = ATProto.anonymous().labels;
+
+    expect(service, isA<LabelsService>());
   });
 }

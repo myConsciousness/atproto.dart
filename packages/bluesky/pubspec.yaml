@@ -1,7 +1,8 @@
 name: bluesky
 description: The most famous and powerful Dart/Flutter library for Bluesky Social.
-version: 0.8.4
+version: 0.9.4
 homepage: https://atprotodart.com
+documentation: https://atprotodart.com/docs/packages/bluesky
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky
 issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
 funding:
@@ -16,8 +17,8 @@ topics:
   - api
 
 dependencies:
-  atproto_core: ^0.5.2
-  atproto: ^0.6.3
+  atproto_core: ^0.5.9
+  atproto: ^0.7.3
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
 
@@ -34,3 +35,7 @@ dev_dependencies:
 
 import_sorter:
   emojis: true
+
+screenshots:
+  - description: The bluesky package and atproto.dart logo.
+    path: screenshots/logo.png

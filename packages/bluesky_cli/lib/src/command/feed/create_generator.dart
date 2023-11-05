@@ -72,7 +72,7 @@ class CreateGeneratorCommand extends CreateRecordCommand {
 
     if (description.isNotEmpty) {
       final text = BlueskyText(description);
-      final facets = await text.entities.toFacets();
+      final facets = await text.entities.toFacets(service: service);
 
       record['description'] = description;
 

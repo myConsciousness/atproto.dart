@@ -1,5 +1,225 @@
 # Release Note
 
+## v0.9.4
+
+- Added `.didDoc` on `CurrentSession`. ([#983](https://github.com/myConsciousness/atproto.dart/issues/983))
+
+## v0.9.3
+
+- Supported `com.atproto.labels.queryLabels` and `LabelsService`. ([#265](https://github.com/myConsciousness/atproto.dart/issues/265))
+- Supported `com.atproto.labels.subscribeLabels` on `LabelsService`. ([#340](https://github.com/myConsciousness/atproto.dart/issues/340))
+- Added `.deleteSession` function. ([#963](https://github.com/myConsciousness/atproto.dart/issues/963))
+- Supported `com.atproto.server.reserveSigningKey` on `ServersService`. ([#953](https://github.com/myConsciousness/atproto.dart/issues/953))
+  - `.createSigningKey`
+- Added `didDoc` field on `Session` and `Account` objects. ([#968](https://github.com/myConsciousness/atproto.dart/issues/968))
+
+## v0.9.2
+
+- Supported `com.atproto.sync.getBlob` on `SyncService`. ([#307](https://github.com/myConsciousness/atproto.dart/issues/307))
+  - `.findBlob`
+- Supported `com.atproto.sync.listBlobs` on `SyncService`. ([#314](https://github.com/myConsciousness/atproto.dart/issues/314))
+  - `.findBlobs`
+  - `.findBlobsAsJson`
+  - `.paginateBlobs`
+  - `.paginateBlobsAsJson`
+- Changed to use recommended `q` param internally on `ActorsService`. ([#849](https://github.com/myConsciousness/atproto.dart/issues/849))
+  - `.searchActors`
+  - `.searchTypeahead`
+- Supported `app.bsky.graph.getListBlocks` on `GraphsService`. ([#793](https://github.com/myConsciousness/atproto.dart/issues/793))
+  - `.findBlockLists`
+  - `.findBlockListsAsJson`
+  - `.paginateBlockLists`
+  - `.paginateBlockListsAsJson`
+- Added `blockingByList` on `ActorViewer`. ([#952](https://github.com/myConsciousness/atproto.dart/issues/952))
+- Removed default constructor from `Bluesky`, and added `.session` property. ([#961](https://github.com/myConsciousness/atproto.dart/issues/961))
+
+## v0.9.1
+
+- Supported `app.bsky.feed.searchPosts` on `FeedsService`. ([#845](https://github.com/myConsciousness/atproto.dart/issues/845))
+  - `.searchPostsByQuery`
+  - `.searchPostsByQueryAsJson`
+  - `.paginatePostsByQuery`
+  - `.paginatePostsByQueryAsJson`
+- Supported `app.bsky.unspecced.searchPostsSkeleton` on `UnspeccedService`. ([#848](https://github.com/myConsciousness/atproto.dart/issues/848))
+  - `.searchPostsByQuerySkeleton`
+  - `.searchPostsByQuerySkeletonAsJson`
+  - `.paginatePostsByQuerySkeleton`
+  - `.paginatePostsByQuerySkeletonAsJson`
+- Supported `app.bsky.unspecced.searchActorsSkeleton` on `UnspeccedService`. ([#847](https://github.com/myConsciousness/atproto.dart/issues/847))
+  - `.searchActorsByQuerySkeleton`
+  - `.searchActorsByQuerySkeletonAsJson`
+  - `.paginateActorsByQuerySkeleton`
+  - `.paginateActorsByQuerySkeletonAsJson`
+- Supported `app.bsky.feed.threadgate` on `FeedsService`. ([#815](https://github.com/myConsciousness/atproto.dart/issues/815))
+  - `.createThreadgate`
+  - `ThreadRule`
+  - `ThreadMentionRule`
+  - `ThreadFollowingRule`
+  - `ThreadListRule`
+- Added `.onCreateThreadgate` and `.onDeleteThreadgate` events on `RepoCommitAdaptor`. Also added `ThreadgateRecord`.
+
+## v0.9.0
+
+- Added `rev` on `Repo` object. ([#885](https://github.com/myConsciousness/atproto.dart/issues/885))
+- Removed deprecated methods and object.
+  - `.refreshSession`: **Use function version instead.**
+  - `.findRepoCheckout`
+  - `.findRepoCheckoutAsJson`
+  - `.findRepoHead`
+  - `.findRepoHeadAsJson`
+
+## v0.8.24
+
+- Supported `com.atproto.server.requestEmailUpdate` on `ServersService`. ([#859](https://github.com/myConsciousness/atproto.dart/issues/859))
+  - `requestEmailUpdate`
+- Supported `com.atproto.server.requestEmailConfirmation` on `ServersService`. ([#858](https://github.com/myConsciousness/atproto.dart/issues/858))
+  - `requestEmailConfirmation`
+- Supported `com.atproto.server.confirmEmail` on `ServersService`. ([#855](https://github.com/myConsciousness/atproto.dart/issues/855))
+  - `requestEmailConfirmation`
+- Supported `com.atproto.server.updateEmail` on `ServersService`. ([#860](https://github.com/myConsciousness/atproto.dart/issues/860))
+  - `updateEmail`
+- Deprecated `app.bsky.unspecced.getPopular`. Find a feed generator alternative. ([#835](https://github.com/myConsciousness/atproto.dart/issues/835))
+  - `.findPopularFeed`
+  - `.findPopularFeedAsJson`
+  - `.paginatePopularFeed`
+  - `.paginatePopularFeedAsJson`
+- Removed `app.bsky.unspecced.applyLabels` from `UnspeccedService`. ([#846](https://github.com/myConsciousness/atproto.dart/issues/846))
+
+## v0.8.23
+
+- Supported hashtag on `FacetFeature.tag` and `FacetTag`. Also added `tags` parameter to `.createPost` on `FeedsService`. ([#839](https://github.com/myConsciousness/atproto.dart/issues/839))
+
+## v0.8.22
+
+- Supported actor preferences `#feedViewPref` and `#threadViewPref`. ([#831](https://github.com/myConsciousness/atproto.dart/issues/831))
+  - `Preference.feedView`
+  - `Preference.threadView`
+
+## v0.8.21
+
+- Dropped `includeReasons` param from methods on `Notifications`. Instead, pass `NotificationReasonFilter` object as an argument. ([#826](https://github.com/myConsciousness/atproto.dart/issues/826))
+  - `.group`
+  - `.groupByHour`
+  - `.groupByMinute`
+
+## v0.8.20
+
+- Added `.groupByHour` and `.groupByMinute` on `Notifications` object. You can adjust the unit of grouping in hours or minutes when grouping notifications. ([#821](https://github.com/myConsciousness/atproto.dart/issues/821))
+
+## v0.8.19
+
+- Upgraded `xrpc` package. Fixed field names for rate limit.
+
+## v0.8.18
+
+- Added `.createModeratedList` and `.createCuratedList` on `GraphsService`. And now `purpose` param for `.createList` is required. ([#814](https://github.com/myConsciousness/atproto.dart/issues/814))
+- Supported `app.bsky.feed.getListFeed` on `FeedsService`. ([#813](https://github.com/myConsciousness/atproto.dart/issues/813))
+  - `.findListFeed`
+  - `.findListFeedAsJson`
+  - `.paginateListFeed`
+  - `.paginateListFeedAsJson`
+
+## v0.8.17
+
+- Added `blocked` property on `ListViewer`. Also you can easily check with `.isBlocked` and `.isNotBlocked` properties. ([#792](https://github.com/myConsciousness/atproto.dart/issues/#792))
+- Upgraded `at_uri`. ([#797](https://github.com/myConsciousness/atproto.dart/issues/797))
+- Supported `app.bsky.graph.getSuggestedFollowsByActor` on `GraphsService`. ([#800](https://github.com/myConsciousness/atproto.dart/issues/800))
+  - `.findSuggestedFollows`
+  - `.findSuggestedFollowsAsJson`
+
+## v0.8.16
+
+- Added `.accessToken` and `.refreshToken` properties on `Session` object. You can get decoded token objects based on JWT tokens. Also you can decode JWT token with `decodeJwt` function. ([#787](https://github.com/myConsciousness/atproto.dart/issues/787))
+
+## v0.8.15
+
+- `viewer` on `Actor` object is **NOT** nullable. Fixed to set default objects if JSON is empty. ([#782](https://github.com/myConsciousness/atproto.dart/issues/#782))
+
+## v0.8.14
+
+- `viewer` on `Actor` object is nullable. ([#779](https://github.com/myConsciousness/atproto.dart/issues/#779))
+
+## v0.8.13
+
+- Improved union type to always return Unknown type if conversion to a specific type fails. With this fix, an exception/error is no longer thrown when converting json to a specific type for union. ([#775](https://github.com/myConsciousness/atproto.dart/issues/775))
+
+## v0.8.12
+
+- Supported `Preference.personalDetails`. Also added `PersonalDetailsPreference`. ([#768](https://github.com/myConsciousness/atproto.dart/issues/768))
+- Added `.toStrongRef` methods on `RepoCommitCreate` and `RepoCommitUpdate`. ([#771](https://github.com/myConsciousness/atproto.dart/issues/771))
+
+## v0.8.11
+
+- Added utility to retrieve profile records for authenticated user on `ActorsService`. ([#684](https://github.com/myConsciousness/atproto.dart/issues/684))
+  - `.findProfileRecord`
+  - `.findProfileRecordAsJson`
+- Supported `AspectRatio` for images. You can use this property from embed `Image` object. ([#753](https://github.com/myConsciousness/atproto.dart/issues/753))
+
+## v0.8.10
+
+- Added `uris` field on `GroupedNotification`. You can get a post uri related to Notification with `uri` property. ([#747](https://github.com/myConsciousness/atproto.dart/issues/747))
+
+## v0.8.9
+
+- Added `record` field on `GroupedNotification`. ([#745](https://github.com/myConsciousness/atproto.dart/issues/745))
+- Added `GroupedNotificationReason` enum. It has `customFeedLike` in addition to fields from `NotificationReason` enum. ([#745](https://github.com/myConsciousness/atproto.dart/issues/745))
+  - Also changed a type of field `reason` on `GroupedNotification` from `NotificationReason` to `GroupedNotificationReason`
+- Added utilities for `NotificationReason`. ([#745](https://github.com/myConsciousness/atproto.dart/issues/745))
+  - `isLike`
+  - `isNotLike`
+  - `isRepost`
+  - `isNotRepost`
+  - `isFollow`
+  - `isNotFollow`
+  - `isMention`
+  - `isNotMention`
+  - `isReply`
+  - `isNotReply`
+  - `isQuote`
+  - `isNotQuote`
+
+## v0.8.8
+
+- Made `reasonSubject` nullable on `GroupedNotification`. It's nullable when reason is `follow`. ([#743](https://github.com/myConsciousness/atproto.dart/issues/743))
+
+## v0.8.7
+
+- Added `.group` method on `Notifications` object. With this method, you can obtain objects grouping notifications by `reason` and `reasonSubject`. ([#728](https://github.com/myConsciousness/atproto.dart/issues/728))
+  - `GroupedNotifications`
+  - `GroupedNotification`
+
+## v0.8.6
+
+- Supported `app.bsky.feed.getSuggestedFeeds` on `FeedsService`. ([#732](https://github.com/myConsciousness/atproto.dart/issues/732))
+  - `.findSuggestedFeeds`
+  - `.findSuggestedFeedsAsJson`
+  - `.paginateSuggestedFeeds`
+  - `.paginateSuggestedFeedsAsJson`
+
+## v0.8.5
+
+- Supported `app.bsky.notification.registerPush` as `createPushRegistration` on `NotificationsService`. ([#709](https://github.com/myConsciousness/atproto.dart/issues/709))
+- Added `isValidAppPassword` function. ([#713](https://github.com/myConsciousness/atproto.dart/issues/713))
+- Removed fully deprecated endpoint on `SyncService`. ([#716](https://github.com/myConsciousness/atproto.dart/issues/716))
+  - `findRepoCommitPaths`
+  - `findRepoCommitPathsAsJson`
+- Deprecated endpoint on `SyncService`. ([#717](https://github.com/myConsciousness/atproto.dart/issues/717))
+  - `findRepoCheckout`
+  - `findRepoCheckoutAsJson`
+  - `findRepoHead`
+  - `findRepoHeadAsJson`
+- Removed and added optional params on `.findRepoCommits` and `.findRepoCommitsAsJson` on `SyncService`. ([#718](https://github.com/myConsciousness/atproto.dart/issues/718))
+  - **Removed**
+    - `earliestCommitCid`
+    - `latestCommitCid`
+  - **Added**
+    - `sinceCommitCid`
+- Removed fully deprecated `rebaseRepo` method on `RepositoriesService`.
+- Added `findLatestCommit` method on `SyncService`. Use it instead of `findRepoHead`. ([#720](https://github.com/myConsciousness/atproto.dart/issues/720))
+- Added params on `SubscribedRepoCommit` object. ([#719](https://github.com/myConsciousness/atproto.dart/issues/719))
+  - `rev`
+  - `since` (nullable)
+
 ## v0.8.4
 
 - Supported `app.bsky.feed.getActorLikes` on `FeedsService`. ([#700](https://github.com/myConsciousness/atproto.dart/issues/700))
@@ -90,6 +310,7 @@
     - `UBatchActionCreate`
     - `UBatchActionUpdate`
     - `UBatchActionDelete`
+
 ## v0.8.0
 
 - Drop support for null unsafe Dart, bump SDK constraint to '^3.0.0'. ([#599](https://github.com/myConsciousness/atproto.dart/issues/599))

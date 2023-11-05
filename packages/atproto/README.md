@@ -51,7 +51,7 @@ If you want to use the **_Bluesky API_** as well, see the **[bluesky package](ht
 
 **_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) to activate this project!_**
 
-![github_star](https://github.com/myConsciousness/atproto.dart/assets/13072231/c4a9b0b9-6ea4-42f1-823b-3b9e7cdb8b04)
+![github_star](https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/give_a_star.gif)
 
 - **[Official Documents](https://atprotodart.com/docs/packages/atproto)**
 - **[GitHub Repository](https://github.com/myConsciousness/atproto.dart)**
@@ -82,16 +82,18 @@ See **[official documents](https://atprotodart.com/docs/api_support_matrix)** fr
 
 - **[com.atproto.*](https://atprotodart.com/docs/api_support_matrix#atproto)**
   - **[com.atproto.server.*](https://atprotodart.com/docs/api_support_matrix#servers-service)**
-  - **[com.atproto.identity.*](https://atprotodart.com/docs/api_support_matrix#servers-service)**
-  - **[com.atproto.repo.*](https://atprotodart.com/docs/api_support_matrix#repository-service)**
+  - **[com.atproto.identity.*](https://atprotodart.com/docs/api_support_matrix#identities-service)**
+  - **[com.atproto.repo.*](https://atprotodart.com/docs/api_support_matrix#repositories-service)**
   - **[com.atproto.moderation.*](https://atprotodart.com/docs/api_support_matrix#moderation-service)**
   - **[com.atproto.sync.*](https://atprotodart.com/docs/api_support_matrix#sync-service)**
+  - **[com.atproto.label.*](https://atprotodart.com/docs/api_support_matrix#labels-service)**
 
 ## 1.4. More Tips 🏄
 
 See **[official documents](https://atprotodart.com/docs/packages/atproto)** from following links.
 
 - **[Session Management](https://atprotodart.com/docs/packages/atproto#session-management)**
+- **[App Password](https://atprotodart.com/docs/packages/atproto#app-password)**
 - **[Standardized Names](https://atprotodart.com/docs/packages/atproto#standardized-names)**
 - **[Other Than `bsky.social`](https://atprotodart.com/docs/packages/atproto#other-than-bskysocial)**
 - **[De/Serialize](https://atprotodart.com/docs/packages/atproto#deserialize)**

@@ -10,7 +10,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import 'adult_content_preference.dart';
 import 'content_label_preference.dart';
+import 'converter/preference_converter.dart';
+import 'feed_view_preference.dart';
+import 'personal_details_preference.dart';
 import 'saved_feeds_preference.dart';
+import 'thread_view_preference.dart';
 
 part 'preference.freezed.dart';
 
@@ -52,6 +56,24 @@ class Preference with _$Preference {
     required SavedFeedsPreference data,
   }) = UPreferenceSavedFeeds;
 
+  /// This constructor is used when the user preference type is
+  /// [PersonalDetailsPreference].
+  const factory Preference.personalDetails({
+    required PersonalDetailsPreference data,
+  }) = UPreferencePersonalDetails;
+
+  /// This constructor is used when the user preference type is
+  /// [FeedViewPreference].
+  const factory Preference.feedView({
+    required FeedViewPreference data,
+  }) = UPreferenceFeedView;
+
+  /// This constructor is used when the user preference type is
+  /// [ThreadViewPreference].
+  const factory Preference.threadView({
+    required ThreadViewPreference data,
+  }) = UPreferenceThreadView;
+
   /// This constructor is used when the preference type is not supported
   /// or is not expected.
   ///
@@ -64,10 +86,5 @@ class Preference with _$Preference {
   ///
   /// Depending on the type of preference, it calls the appropriate
   /// `toJson()` method of the specific preference object.
-  Map<String, dynamic> toJson() => when(
-        adultContent: (data) => data.toJson(),
-        contentLabel: (data) => data.toJson(),
-        savedFeeds: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson() => preferenceConverter.toJson(this);
 }

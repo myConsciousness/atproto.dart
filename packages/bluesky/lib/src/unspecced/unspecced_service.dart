@@ -10,12 +10,15 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../bluesky_base_service.dart';
 import '../entities/feed.dart';
 import '../entities/feed_generators.dart';
+import '../entities/skeleton_actors_by_query.dart';
 import '../entities/skeleton_feed.dart';
+import '../entities/skeleton_posts_by_query.dart';
 
 sealed class UnspeccedService {
   /// Returns the new instance of [UnspeccedService].
   factory UnspeccedService({
     required atp.ATProto atproto,
+    required String did,
     required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
@@ -24,6 +27,7 @@ sealed class UnspeccedService {
   }) =>
       _UnspeccedService(
         atproto: atproto,
+        did: did,
         protocol: protocol,
         service: service,
         context: context,
@@ -50,6 +54,7 @@ sealed class UnspeccedService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopular.json
+  @Deprecated('will be removed soon. Find a feed generator alternative')
   Future<core.XRPCResponse<Feed>> findPopularFeed({
     bool? includeNsfw,
     int? limit,
@@ -81,6 +86,7 @@ sealed class UnspeccedService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopular.json
+  @Deprecated('will be removed soon. Find a feed generator alternative')
   Future<core.XRPCResponse<Map<String, dynamic>>> findPopularFeedAsJson({
     bool? includeNsfw,
     int? limit,
@@ -106,6 +112,7 @@ sealed class UnspeccedService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopular.json
+  @Deprecated('will be removed soon. Find a feed generator alternative')
   core.Pagination<Feed> paginatePopularFeed({
     bool? includeNsfw,
     int? limit,
@@ -132,6 +139,7 @@ sealed class UnspeccedService {
   /// ## Reference
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopular.json
+  @Deprecated('will be removed soon. Find a feed generator alternative')
   core.Pagination<Map<String, dynamic>> paginatePopularFeedAsJson({
     bool? includeNsfw,
     int? limit,
@@ -244,23 +252,6 @@ sealed class UnspeccedService {
     String? query,
   });
 
-  /// Allow a labeler to apply labels directly.
-  ///
-  /// ## Parameters
-  ///
-  /// - [labels]: A collection of [labels] to be applied.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.unspecced.applyLabels
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/applyLabels.json
-  Future<core.XRPCResponse<core.EmptyData>> createLabels(
-    final List<atp.Label> labels,
-  );
-
   /// A skeleton of a timeline.
   ///
   /// ## Parameters
@@ -350,6 +341,232 @@ sealed class UnspeccedService {
     int? limit,
     String? cursor,
   });
+
+  /// Backend Posts search, returning only skeleton.
+  ///
+  /// ## Parameters
+  ///
+  /// - [query]: search query string; syntax, phrase, boolean, and faceting is
+  ///            unspecified, but Lucene query syntax is recommended
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 25.
+  ///
+  /// - [cursor]: Optional pagination mechanism; may not necessarily allow
+  ///             scrolling through entire result set
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.searchPostsSkeleton
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/searchPostsSkeleton.json
+  Future<core.XRPCResponse<SkeletonPostsByQuery>> searchPostsByQuerySkeleton(
+    final String query, {
+    int? limit,
+    String? cursor,
+  });
+
+  /// Backend Posts search, returning only skeleton as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [query]: search query string; syntax, phrase, boolean, and faceting is
+  ///            unspecified, but Lucene query syntax is recommended
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 25.
+  ///
+  /// - [cursor]: Optional pagination mechanism; may not necessarily allow
+  ///             scrolling through entire result set
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.searchPostsSkeleton
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/searchPostsSkeleton.json
+  Future<core.XRPCResponse<Map<String, dynamic>>>
+      searchPostsByQuerySkeletonAsJson(
+    final String query, {
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination for backend Posts search, returning only skeleton.
+  ///
+  /// ## Parameters
+  ///
+  /// - [query]: search query string; syntax, phrase, boolean, and faceting is
+  ///            unspecified, but Lucene query syntax is recommended
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 25.
+  ///
+  /// - [cursor]: Optional pagination mechanism; may not necessarily allow
+  ///             scrolling through entire result set
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.searchPostsSkeleton
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/searchPostsSkeleton.json
+  core.Pagination<SkeletonPostsByQuery> paginatePostsByQuerySkeleton(
+    final String query, {
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination for backend Posts search, returning only skeleton
+  /// as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [query]: search query string; syntax, phrase, boolean, and faceting is
+  ///            unspecified, but Lucene query syntax is recommended
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 25.
+  ///
+  /// - [cursor]: Optional pagination mechanism; may not necessarily allow
+  ///             scrolling through entire result set
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.searchPostsSkeleton
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/searchPostsSkeleton.json
+  core.Pagination<Map<String, dynamic>> paginatePostsByQuerySkeletonAsJson(
+    final String query, {
+    int? limit,
+    String? cursor,
+  });
+
+  /// Backend Actors (profile) search, returning only skeleton.
+  ///
+  /// ## Parameters
+  ///
+  /// - [query]: search query string; syntax, phrase, boolean, and faceting is
+  ///            unspecified, but Lucene query syntax is recommended
+  ///
+  /// - [typeahead]: If true, acts as fast/simple `typeahead` query.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 25.
+  ///
+  /// - [cursor]: Optional pagination mechanism; may not necessarily allow
+  ///             scrolling through entire result set
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.searchActorsSkeleton
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/searchActorsSkeleton.json
+  Future<core.XRPCResponse<SkeletonActorsByQuery>> searchActorsByQuerySkeleton(
+    final String query, {
+    bool? typeahead,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Backend Actors (profile) search, returning only skeleton
+  /// as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [query]: search query string; syntax, phrase, boolean, and faceting is
+  ///            unspecified, but Lucene query syntax is recommended
+  ///
+  /// - [typeahead]: If true, acts as fast/simple `typeahead` query.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 25.
+  ///
+  /// - [cursor]: Optional pagination mechanism; may not necessarily allow
+  ///             scrolling through entire result set
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.searchActorsSkeleton
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/searchActorsSkeleton.json
+  Future<core.XRPCResponse<Map<String, dynamic>>>
+      searchActorsByQuerySkeletonAsJson(
+    final String query, {
+    bool? typeahead,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination for backend Actors (profile) search,
+  /// returning only skeleton.
+  ///
+  /// ## Parameters
+  ///
+  /// - [query]: search query string; syntax, phrase, boolean, and faceting is
+  ///            unspecified, but Lucene query syntax is recommended
+  ///
+  /// - [typeahead]: If true, acts as fast/simple `typeahead` query.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 25.
+  ///
+  /// - [cursor]: Optional pagination mechanism; may not necessarily allow
+  ///             scrolling through entire result set
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.searchActorsSkeleton
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/searchActorsSkeleton.json
+  core.Pagination<SkeletonActorsByQuery> paginateActorsByQuerySkeleton(
+    final String query, {
+    bool? typeahead,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination for backend Actors (profile) search,
+  /// returning only skeleton as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [query]: search query string; syntax, phrase, boolean, and faceting is
+  ///            unspecified, but Lucene query syntax is recommended
+  ///
+  /// - [typeahead]: If true, acts as fast/simple `typeahead` query.
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 25.
+  ///
+  /// - [cursor]: Optional pagination mechanism; may not necessarily allow
+  ///             scrolling through entire result set
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.feed.searchActorsSkeleton
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/searchActorsSkeleton.json
+  core.Pagination<Map<String, dynamic>> paginateActorsByQuerySkeletonAsJson(
+    final String query, {
+    bool? typeahead,
+    int? limit,
+    String? cursor,
+  });
 }
 
 final class _UnspeccedService extends BlueskyBaseService
@@ -357,6 +574,7 @@ final class _UnspeccedService extends BlueskyBaseService
   /// Returns the new instance of [_UnspeccedService].
   _UnspeccedService({
     required super.atproto,
+    required super.did,
     required super.protocol,
     required super.service,
     required super.context,
@@ -511,14 +729,113 @@ final class _UnspeccedService extends BlueskyBaseService
       );
 
   @override
-  Future<core.XRPCResponse<core.EmptyData>> createLabels(
-    final List<atp.Label> labels,
-  ) async =>
-      await super.post(
-        'applyLabels',
-        body: {
-          'labels': labels.map((e) => e.toJson()).toList(),
-        },
+  Future<core.XRPCResponse<SkeletonPostsByQuery>> searchPostsByQuerySkeleton(
+    final String query, {
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _searchPostsByQuerySkeleton(
+        query: query,
+        limit: limit,
+        cursor: cursor,
+        to: SkeletonPostsByQuery.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>>
+      searchPostsByQuerySkeletonAsJson(
+    final String query, {
+    int? limit,
+    String? cursor,
+  }) async =>
+          await _searchPostsByQuerySkeleton(
+            query: query,
+            limit: limit,
+            cursor: cursor,
+          );
+
+  @override
+  core.Pagination<SkeletonPostsByQuery> paginatePostsByQuerySkeleton(
+    final String query, {
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginatePostsByQuerySkeleton(
+        query: query,
+        limit: limit,
+        cursor: cursor,
+        to: SkeletonPostsByQuery.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginatePostsByQuerySkeletonAsJson(
+    final String query, {
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginatePostsByQuerySkeleton(
+        query: query,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<SkeletonActorsByQuery>> searchActorsByQuerySkeleton(
+    final String query, {
+    bool? typeahead,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _searchActorsByQuerySkeleton(
+        query: query,
+        typeahead: typeahead,
+        limit: limit,
+        cursor: cursor,
+        to: SkeletonActorsByQuery.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>>
+      searchActorsByQuerySkeletonAsJson(
+    final String query, {
+    bool? typeahead,
+    int? limit,
+    String? cursor,
+  }) async =>
+          await _searchActorsByQuerySkeleton(
+            query: query,
+            typeahead: typeahead,
+            limit: limit,
+            cursor: cursor,
+          );
+
+  @override
+  core.Pagination<SkeletonActorsByQuery> paginateActorsByQuerySkeleton(
+    final String query, {
+    bool? typeahead,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateActorsByQuerySkeleton(
+        query: query,
+        typeahead: typeahead,
+        limit: limit,
+        cursor: cursor,
+        to: SkeletonActorsByQuery.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateActorsByQuerySkeletonAsJson(
+    final String query, {
+    bool? typeahead,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateActorsByQuerySkeleton(
+        query: query,
+        typeahead: typeahead,
+        limit: limit,
+        cursor: cursor,
       );
 
   Future<core.XRPCResponse<T>> _findPopularFeed<T>({
@@ -613,6 +930,74 @@ final class _UnspeccedService extends BlueskyBaseService
         to: to,
       );
 
+  Future<core.XRPCResponse<T>> _searchPostsByQuerySkeleton<T>({
+    required String query,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'searchPostsSkeleton',
+        parameters: _buildSearchPostsSkeletonParams(
+          query: query,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginatePostsByQuerySkeleton<T>({
+    required String query,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'searchPostsSkeleton',
+        parameters: _buildSearchPostsSkeletonParams(
+          query: query,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _searchActorsByQuerySkeleton<T>({
+    required String query,
+    required bool? typeahead,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'searchActorsSkeleton',
+        parameters: _buildSearchActorsSkeletonParams(
+          query: query,
+          typeahead: typeahead,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateActorsByQuerySkeleton<T>({
+    required String query,
+    required bool? typeahead,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'searchActorsSkeleton',
+        parameters: _buildSearchActorsSkeletonParams(
+          query: query,
+          typeahead: typeahead,
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
   Map<String, dynamic> _buildGetPopular({
     required bool? includeNsfw,
     required int? limit,
@@ -640,6 +1025,30 @@ final class _UnspeccedService extends BlueskyBaseService
     required String? cursor,
   }) =>
       {
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildSearchPostsSkeletonParams({
+    required String query,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'q': query,
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildSearchActorsSkeletonParams({
+    required String query,
+    required bool? typeahead,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'q': query,
+        'typeahead': typeahead,
         'limit': limit,
         'cursor': cursor,
       };

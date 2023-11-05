@@ -10,19 +10,21 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/ids.dart';
+import '../session.dart';
 
 void main() {
   group('.createFollow', () {
     test('normal case', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/graphs/data/create_follow.json',
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -42,15 +44,15 @@ void main() {
 
     test('when unauthorized', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 401,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -68,15 +70,15 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 429,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -96,14 +98,14 @@ void main() {
   group('.createFollows', () {
     test('normal case', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/graphs/data/create_follow.json',
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -123,15 +125,15 @@ void main() {
 
     test('when unauthorized', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 401,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -147,15 +149,15 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 429,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -173,7 +175,10 @@ void main() {
   group('.findFollows', () {
     test('normal case', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(
+          session,
+        ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -197,7 +202,8 @@ void main() {
 
     test('as JSON', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -221,7 +227,8 @@ void main() {
 
     test('when unauthorized', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -245,7 +252,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -271,7 +279,8 @@ void main() {
   group('.findFollowers', () {
     test('normal case', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -295,7 +304,8 @@ void main() {
 
     test('as JSON', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -319,7 +329,8 @@ void main() {
 
     test('when unauthorized', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -343,7 +354,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -369,11 +381,11 @@ void main() {
   group('.createMute', () {
     test('normal case', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -395,11 +407,11 @@ void main() {
 
     test('when unauthorized', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -421,11 +433,11 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -449,11 +461,11 @@ void main() {
   group('.deleteMute', () {
     test('normal case', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -475,11 +487,11 @@ void main() {
 
     test('when unauthorized', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -501,11 +513,11 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -529,7 +541,8 @@ void main() {
   group('.findMutes', () {
     test('normal case', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -552,7 +565,8 @@ void main() {
 
     test('as JSON', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -575,7 +589,8 @@ void main() {
 
     test('when unauthorized', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -598,7 +613,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -623,14 +639,14 @@ void main() {
   group('.createBlock', () {
     test('normal case', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/graphs/data/create_block.json',
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -650,15 +666,15 @@ void main() {
 
     test('when unauthorized', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 401,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -676,15 +692,15 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 429,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -704,14 +720,14 @@ void main() {
   group('.createBlocks', () {
     test('normal case', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/graphs/data/create_block.json',
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -731,15 +747,15 @@ void main() {
 
     test('when unauthorized', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 401,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -755,15 +771,15 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 429,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -781,7 +797,8 @@ void main() {
   group('.findBlocks', () {
     test('normal case', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -804,7 +821,8 @@ void main() {
 
     test('as JSON', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -827,7 +845,8 @@ void main() {
 
     test('when unauthorized', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -850,7 +869,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -875,14 +895,14 @@ void main() {
   group('.createList', () {
     test('normal case', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/graphs/data/create_list.json',
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -892,6 +912,93 @@ void main() {
       );
 
       final response = await graphs.createList(
+        name: 'test',
+        purpose: appBskyGraphDefsModlist,
+        description: 'test description',
+        descriptionFacets: [
+          Facet(
+            index: ByteSlice(byteStart: 0, byteEnd: 1),
+            features: [
+              FacetFeature.mention(
+                data: FacetMention(did: 'xxxx'),
+              ),
+            ],
+          )
+        ],
+        avatar: Blob(
+          mimeType: '*/*',
+          size: 100,
+          ref: BlobRef(link: 'xxxx'),
+        ),
+        createdAt: DateTime.now(),
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<StrongRef>());
+    });
+
+    test('moderated list', () async {
+      final graphs = GraphsService(
+        atproto: ATProto.fromSession(
+          session,
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/graphs/data/create_list.json',
+          ),
+        ),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      final response = await graphs.createModeratedList(
+        name: 'test',
+        description: 'test description',
+        descriptionFacets: [
+          Facet(
+            index: ByteSlice(byteStart: 0, byteEnd: 1),
+            features: [
+              FacetFeature.mention(
+                data: FacetMention(did: 'xxxx'),
+              ),
+            ],
+          )
+        ],
+        avatar: Blob(
+          mimeType: '*/*',
+          size: 100,
+          ref: BlobRef(link: 'xxxx'),
+        ),
+        createdAt: DateTime.now(),
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<StrongRef>());
+    });
+
+    test('curated list', () async {
+      final graphs = GraphsService(
+        atproto: ATProto.fromSession(
+          session,
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/graphs/data/create_list.json',
+          ),
+        ),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      final response = await graphs.createCuratedList(
         name: 'test',
         description: 'test description',
         descriptionFacets: [
@@ -918,15 +1025,15 @@ void main() {
 
     test('when unauthorized', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 401,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -938,21 +1045,22 @@ void main() {
       atp_test.expectUnauthorizedException(
         () async => await graphs.createList(
           name: 'test',
+          purpose: appBskyGraphDefsModlist,
         ),
       );
     });
 
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 429,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -963,6 +1071,7 @@ void main() {
 
       atp_test.expectRateLimitExceededException(
         () async => await graphs.createList(
+          purpose: appBskyGraphDefsModlist,
           name: 'test',
         ),
       );
@@ -972,14 +1081,14 @@ void main() {
   group('.createLists', () {
     test('normal case', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/graphs/data/create_list.json',
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -989,8 +1098,9 @@ void main() {
       );
 
       final response = await graphs.createLists([
-        ListParam(name: 'xxxx'),
+        ListParam(purpose: appBskyGraphDefsModlist, name: 'xxxx'),
         ListParam(
+          purpose: appBskyGraphDefsModlist,
           name: 'yyyy',
           description: 'test description',
           descriptionFacets: [
@@ -1018,15 +1128,15 @@ void main() {
 
     test('when unauthorized', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 401,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1042,15 +1152,15 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 429,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1068,7 +1178,8 @@ void main() {
   group('.findLists', () {
     test('normal case', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1092,7 +1203,8 @@ void main() {
 
     test('as JSON', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1116,7 +1228,8 @@ void main() {
 
     test('when unauthorized', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1140,7 +1253,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1166,7 +1280,8 @@ void main() {
   group('.findListItems', () {
     test('normal case', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1192,7 +1307,8 @@ void main() {
 
     test('as JSON', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1218,7 +1334,8 @@ void main() {
 
     test('when unauthorized', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1244,7 +1361,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1272,14 +1390,14 @@ void main() {
   group('.createListItem', () {
     test('normal case', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/graphs/data/create_list_item.json',
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1302,15 +1420,15 @@ void main() {
 
     test('when unauthorized', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 401,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1331,15 +1449,15 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 429,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1362,14 +1480,14 @@ void main() {
   group('.createLists', () {
     test('normal case', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/graphs/data/create_list.json',
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1399,15 +1517,15 @@ void main() {
 
     test('when unauthorized', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 401,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1423,15 +1541,15 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 429,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1449,7 +1567,8 @@ void main() {
   group('.findMutingLists', () {
     test('normal case', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1472,7 +1591,8 @@ void main() {
 
     test('as JSON', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1495,7 +1615,8 @@ void main() {
 
     test('when unauthorized', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1518,7 +1639,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1543,11 +1665,11 @@ void main() {
   group('.createMuteActorList', () {
     test('normal case', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1571,11 +1693,11 @@ void main() {
 
     test('when unauthorized', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1599,11 +1721,11 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1629,11 +1751,11 @@ void main() {
   group('.deleteMuteActorList', () {
     test('normal case', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1657,11 +1779,11 @@ void main() {
 
     test('when unauthorized', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1685,11 +1807,11 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final graphs = GraphsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -1707,6 +1829,288 @@ void main() {
           list: AtUri.parse(
             'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvqbvdsijh2p',
           ),
+        ),
+      );
+    });
+  });
+
+  group('.findSuggestedFollows', () {
+    test('normal case', () async {
+      final graphs = GraphsService(
+        atproto: ATProto.fromSession(session),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/graphs/data/find_suggested_follows.json',
+        ),
+      );
+
+      final response = await graphs.findSuggestedFollows(
+        actor: 'shinyakato.dev',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<SuggestedFollows>());
+      expect(response.data.suggestions, isA<List<ActorProfile>>());
+    });
+
+    test('as JSON', () async {
+      final graphs = GraphsService(
+        atproto: ATProto.fromSession(session),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/graphs/data/find_suggested_follows.json',
+        ),
+      );
+
+      final response = await graphs.findSuggestedFollowsAsJson(
+        actor: 'shinyakato.dev',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
+    test('when unauthorized', () async {
+      final graphs = GraphsService(
+        atproto: ATProto.fromSession(session),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await graphs.findSuggestedFollows(
+          actor: 'shinyakato.dev',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final graphs = GraphsService(
+        atproto: ATProto.fromSession(session),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await graphs.findSuggestedFollows(
+          actor: 'shinyakato.dev',
+        ),
+      );
+    });
+  });
+
+  group('.findBlockLists', () {
+    test('normal case', () async {
+      final graphs = GraphsService(
+        atproto: ATProto.fromSession(session),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/graphs/data/find_block_lists.json',
+        ),
+      );
+
+      final response = await graphs.findBlockLists(
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Lists>());
+    });
+
+    test('as JSON', () async {
+      final graphs = GraphsService(
+        atproto: ATProto.fromSession(session),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/graphs/data/find_block_lists.json',
+        ),
+      );
+
+      final response = await graphs.findBlockListsAsJson(
+        limit: 10,
+        cursor: '1234',
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
+    test('when unauthorized', () async {
+      final graphs = GraphsService(
+        atproto: ATProto.fromSession(session),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await graphs.findBlockLists(
+          limit: 10,
+          cursor: '1234',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final graphs = GraphsService(
+        atproto: ATProto.fromSession(session),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await graphs.findBlockLists(
+          limit: 10,
+          cursor: '1234',
+        ),
+      );
+    });
+  });
+
+  group('.createBlockList', () {
+    test('normal case', () async {
+      final graphs = GraphsService(
+        atproto: ATProto.fromSession(
+          session,
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/graphs/data/create_block_list.json',
+          ),
+        ),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      final response = await graphs.createBlockList(
+        listUri: AtUri.parse(
+          'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.listblock/3kcxcsgkfrh2i',
+        ),
+        createdAt: DateTime.now(),
+      );
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<StrongRef>());
+    });
+
+    test('when unauthorized', () async {
+      final graphs = GraphsService(
+        atproto: ATProto.fromSession(
+          session,
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+            statusCode: 401,
+          ),
+        ),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await graphs.createBlockList(
+          listUri: AtUri.parse(
+            'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.listblock/3kcxcsgkfrh2i',
+          ),
+          createdAt: DateTime.now(),
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final graphs = GraphsService(
+        atproto: ATProto.fromSession(
+          session,
+          service: 'test',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/data/error.json',
+            statusCode: 429,
+          ),
+        ),
+        did: '',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await graphs.createBlockList(
+          listUri: AtUri.parse(
+            'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.listblock/3kcxcsgkfrh2i',
+          ),
+          createdAt: DateTime.now(),
         ),
       );
     });

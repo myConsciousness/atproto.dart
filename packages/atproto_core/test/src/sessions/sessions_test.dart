@@ -24,6 +24,9 @@ void main() {
 
       expect(response, isA<xrpc.XRPCResponse>());
       expect(response.data, isA<Session>());
+
+      expect(response.data.isEmailConfirmed, isTrue);
+      expect(response.data.didDoc, isNotNull);
     });
 
     test('when unauthorized', () async {
@@ -64,6 +67,8 @@ void main() {
 
       expect(response, isA<xrpc.XRPCResponse>());
       expect(response.data, isA<Session>());
+
+      expect(response.data.didDoc, isNotNull);
     });
 
     test('when unauthorized', () async {
@@ -81,6 +86,44 @@ void main() {
     test('when rate limit exceeded', () async {
       atp_test.expectRateLimitExceededException(
         () async => await refreshSession(
+          refreshJwt: 'xxxxxx',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/sessions/data/error.json',
+            statusCode: 429,
+          ),
+        ),
+      );
+    });
+  });
+
+  group('.deleteSession', () {
+    test('normal case', () async {
+      final response = await deleteSession(
+        refreshJwt: 'xxxxxx',
+        mockedPostClient: atp_test.createMockedPostClient(
+          'test/src/sessions/data/delete_session.json',
+        ),
+      );
+
+      expect(response, isA<xrpc.XRPCResponse>());
+      expect(response.data, isA<xrpc.EmptyData>());
+    });
+
+    test('when unauthorized', () async {
+      atp_test.expectUnauthorizedException(
+        () async => await deleteSession(
+          refreshJwt: 'xxxxxx',
+          mockedPostClient: atp_test.createMockedPostClient(
+            'test/src/sessions/data/error.json',
+            statusCode: 401,
+          ),
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      atp_test.expectRateLimitExceededException(
+        () async => await deleteSession(
           refreshJwt: 'xxxxxx',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/sessions/data/error.json',

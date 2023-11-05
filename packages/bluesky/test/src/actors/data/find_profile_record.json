@@ -1,0 +1,25 @@
+{
+  "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.post/3juqjtr23dk2h",
+  "cid": "bafyreiaffp6kg4sdy6opdm4jryusit3hqchyb46ofi4xwsnzzikkfdfu6e",
+  "value": {
+    "$type": "app.bsky.actor.profile",
+    "avatar": {
+      "$type": "blob",
+      "ref": {
+        "$link": "bafkreidcymbychkzpbbghmvgxhe3btr2bjkfr7frzlvkr2qy6ruxidldfe"
+      },
+      "mimeType": "image/jpeg",
+      "size": 415649
+    },
+    "banner": {
+      "$type": "blob",
+      "ref": {
+        "$link": "bafkreiaxtd7wdurgd6uxcmbirwljbxkbiskiiuothsskgmvvv6dazjbzba"
+      },
+      "mimeType": "image/jpeg",
+      "size": 550690
+    },
+    "description": "A Programmer. @apod.shinyakato.dev\n\n- Dart/Flutter and AT Protocol enthusiast\n- https://shinyakato.dev\n- https://atprotodart.com\n- https://github.com/myConsciousness",
+    "displayName": "Shinya Kato 🤯"
+  }
+}

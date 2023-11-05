@@ -22,6 +22,7 @@ import 'feed/feed_generators.dart';
 import 'feed/generator_info.dart';
 import 'feed/like.dart';
 import 'feed/likes.dart';
+import 'feed/list_feed.dart';
 import 'feed/post.dart';
 import 'feed/posts.dart';
 import 'feed/repost.dart';
@@ -41,6 +42,7 @@ import 'graph/mute.dart';
 import 'graph/mute_list.dart';
 import 'graph/mutes.dart';
 import 'graph/muting_lists.dart';
+import 'graph/suggested_follows.dart';
 import 'graph/unmute.dart';
 import 'graph/unmute_list.dart';
 import 'notification/notification_count.dart';
@@ -80,6 +82,7 @@ final feedCommands = <BskyCommand>[
   CustomFeedCommand(),
   GeneratorInfoCommand(),
   ActorLikesCommand(),
+  ListFeedCommand(),
 ];
 
 final notificationCommands = <BskyCommand>[
@@ -104,6 +107,7 @@ final graphCommands = <BskyCommand>[
   MutingListsCommand(),
   MuteListCommand(),
   UnmuteListCommand(),
+  SuggestedFollowsCommand(),
 ];
 
 final unspeccedCommands = <BskyCommand>[

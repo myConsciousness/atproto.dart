@@ -12,24 +12,24 @@ export 'package:atproto/atproto.dart'
         $DIDCopyWith,
         Blob,
         $BlobCopyWith,
-        RepoHead,
-        $RepoHeadCopyWith,
         BlobData,
         $BlobDataCopyWith,
         BlobRef,
         $BlobRefCopyWith,
+        BlobRefs,
+        $BlobRefsCopyWith,
         CurrentSession,
         $CurrentSessionCopyWith,
         Account,
         $AccountCopyWith,
-        RepoCommitPaths,
-        $RepoCommitPathsCopyWith,
         CreatedInviteCode,
         $CreatedInviteCodeCopyWith,
         CreatedInviteCodes,
         $CreatedInviteCodesCopyWith,
         AccountCodes,
         $AccountCodesCopyWith,
+        EmailUpdate,
+        $EmailUpdateCopyWith,
         RepoBlocks,
         $RepoBlocksCopyWith,
         RepoBlock,
@@ -44,6 +44,8 @@ export 'package:atproto/atproto.dart'
         $SelfLabelsCopyWith,
         Labels,
         $LabelsCopyWith,
+        LabelsByQuery,
+        $LabelsByQueryCopyWith,
         InviteCodeUse,
         $InviteCodeUseCopyWith,
         InviteCode,
@@ -66,6 +68,10 @@ export 'package:atproto/atproto.dart'
         $CreateActionCopyWith,
         UpdateAction,
         $UpdateActionCopyWith,
+        SigningKey,
+        $SigningKeyCopyWith,
+        RepoLatestCommit,
+        $RepoLatestCommitCopyWith,
         RepoCommits,
         $RepoCommitsCopyWith,
         RepoCommit,
@@ -84,6 +90,12 @@ export 'package:atproto/atproto.dart'
         $SubscribedRepoMigrateCopyWith,
         SubscribedRepoTombstone,
         $SubscribedRepoTombstoneCopyWith,
+        SubscribedLabel,
+        $SubscribedLabelCopyWith,
+        SubscribedLabelLabels,
+        $SubscribedLabelLabelsCopyWith,
+        SubscribedLabelInfo,
+        $SubscribedLabelInfoCopyWith,
         RepoOp,
         $RepoOpCopyWith,
         RepoAction,
@@ -115,6 +127,9 @@ export 'package:atproto/atproto.dart'
         USubscribedRepoMigrate,
         USubscribedRepoTombstone,
         USubscribedRepoUnknown,
+        USubscribedLabelLabels,
+        USubscribedLabelInfo,
+        USubscribedLabelUnknown,
         ModerationReasonType,
         ReportSubject,
         $ReportSubjectCopyWith,
@@ -122,7 +137,8 @@ export 'package:atproto/atproto.dart'
         IdentitiesService,
         RepositoriesService,
         ModerationService,
-        SyncService;
+        SyncService,
+        LabelsService;
 export 'package:atproto_core/atproto_core.dart'
     show
         XRPCResponse,
@@ -138,6 +154,7 @@ export 'package:atproto_core/atproto_core.dart'
         HttpMethod,
         HttpStatus,
         Serializable,
+        Platform,
         AtUri,
         NSID,
         CID,
@@ -158,8 +175,14 @@ export 'package:atproto_core/atproto_core.dart'
         PostClient,
         Session,
         $SessionCopyWith,
+        AuthToken,
+        $AuthTokenCopyWith,
+        AuthScope,
+        decodeJwt,
         createSession,
-        refreshSession;
+        refreshSession,
+        deleteSession,
+        isValidAppPassword;
 export 'package:bluesky/src/actors/actors_service.dart';
 export 'package:bluesky/src/bluesky.dart';
 export 'package:bluesky/src/bluesky_service.dart';
@@ -183,6 +206,14 @@ export 'package:bluesky/src/entities/byte_slice.dart';
 export 'package:bluesky/src/entities/content_label_preference.dart';
 export 'package:bluesky/src/entities/count.dart';
 export 'package:bluesky/src/entities/embed.dart';
+export 'package:bluesky/src/entities/personal_details_preference.dart';
+export 'package:bluesky/src/entities/feed_view_preference.dart';
+export 'package:bluesky/src/entities/thread_view_preference.dart';
+export 'package:bluesky/src/entities/thread_rule.dart';
+export 'package:bluesky/src/entities/thread_mention_rule.dart';
+export 'package:bluesky/src/entities/thread_following_rule.dart';
+export 'package:bluesky/src/entities/thread_list_rule.dart';
+export 'package:bluesky/src/entities/threadgate_record.dart';
 export 'package:bluesky/src/entities/embed_external.dart';
 export 'package:bluesky/src/entities/embed_external_thumbnail.dart';
 export 'package:bluesky/src/entities/embed_images.dart';
@@ -204,6 +235,7 @@ export 'package:bluesky/src/entities/facet.dart';
 export 'package:bluesky/src/entities/facet_feature.dart';
 export 'package:bluesky/src/entities/facet_link.dart';
 export 'package:bluesky/src/entities/facet_mention.dart';
+export 'package:bluesky/src/entities/facet_tag.dart';
 export 'package:bluesky/src/entities/feed.dart';
 export 'package:bluesky/src/entities/feed_generator.dart';
 export 'package:bluesky/src/entities/feed_generator_info.dart';
@@ -214,10 +246,13 @@ export 'package:bluesky/src/entities/feed_view.dart';
 export 'package:bluesky/src/entities/follow_record.dart';
 export 'package:bluesky/src/entities/followers.dart';
 export 'package:bluesky/src/entities/follows.dart';
+export 'package:bluesky/src/entities/grouped_notifications.dart';
+export 'package:bluesky/src/entities/grouped_notification.dart';
 export 'package:bluesky/src/entities/generator_feed.dart';
 export 'package:bluesky/src/entities/generator_links.dart';
 export 'package:bluesky/src/entities/generator_record.dart';
 export 'package:bluesky/src/entities/image.dart';
+export 'package:bluesky/src/entities/image_aspect_ratio.dart';
 export 'package:bluesky/src/entities/like.dart';
 export 'package:bluesky/src/entities/like_record.dart';
 export 'package:bluesky/src/entities/likes.dart';
@@ -225,6 +260,7 @@ export 'package:bluesky/src/entities/list_item.dart';
 export 'package:bluesky/src/entities/list_item_record.dart';
 export 'package:bluesky/src/entities/list_items.dart';
 export 'package:bluesky/src/entities/list_record.dart';
+export 'package:bluesky/src/entities/block_list_record.dart';
 export 'package:bluesky/src/entities/list_view.dart';
 export 'package:bluesky/src/entities/list_view_basic.dart';
 export 'package:bluesky/src/entities/list_viewer.dart';
@@ -240,6 +276,7 @@ export 'package:bluesky/src/entities/post_thread_view.dart';
 export 'package:bluesky/src/entities/post_thread_view_record.dart';
 export 'package:bluesky/src/entities/post_viewer.dart';
 export 'package:bluesky/src/entities/posts.dart';
+export 'package:bluesky/src/entities/posts_by_query.dart';
 export 'package:bluesky/src/entities/preference.dart';
 export 'package:bluesky/src/feeds/feed_filter.dart';
 export 'package:bluesky/src/entities/preferences.dart';
@@ -256,11 +293,21 @@ export 'package:bluesky/src/entities/skeleton_feed.dart';
 export 'package:bluesky/src/entities/skeleton_feed_view.dart';
 export 'package:bluesky/src/entities/skeleton_reason.dart';
 export 'package:bluesky/src/entities/skeleton_reason_repost.dart';
+export 'package:bluesky/src/entities/skeleton_posts_by_query.dart';
+export 'package:bluesky/src/entities/skeleton_post.dart';
+export 'package:bluesky/src/entities/skeleton_actors_by_query.dart';
+export 'package:bluesky/src/entities/skeleton_actor.dart';
+export 'package:bluesky/src/entities/suggested_follows.dart';
+export 'package:bluesky/src/extension/grouped_notification_extension.dart';
 export 'package:bluesky/src/extension/at_uri_extension.dart';
 export 'package:bluesky/src/extension/blob_extension.dart';
 export 'package:bluesky/src/extension/strong_ref_extension.dart';
 export 'package:bluesky/src/feeds/feeds_service.dart';
 export 'package:bluesky/src/graphs/graphs_service.dart';
+export 'package:bluesky/src/notifications/notification_reason.dart';
+export 'package:bluesky/src/notifications/notification_reason_filter.dart'
+    show NotificationReasonFilter;
+export 'package:bluesky/src/notifications/grouped_notification_reason.dart';
 export 'package:bluesky/src/notifications/notifications_service.dart';
 export 'package:bluesky/src/params/generator_param.dart';
 export 'package:bluesky/src/params/list_item_param.dart';

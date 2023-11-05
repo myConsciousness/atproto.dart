@@ -21,29 +21,27 @@ final class _ReplyPostConverter
 
   @override
   ReplyPost fromJson(Map<String, dynamic> json) {
-    final type = json[core.objectType];
-
-    if (type == ids.appBskyFeedDefsPostView) {
-      return ReplyPost.record(
-        data: Post.fromJson(json),
-      );
-    } else if (type == ids.appBskyFeedDefsNotFoundPost) {
-      return ReplyPost.notFound(
-        data: NotFoundPost.fromJson(json),
-      );
-    } else if (type == ids.appBskyFeedDefsBlockedPost) {
-      return ReplyPost.blocked(
-        data: BlockedPost.fromJson(json),
-      );
-    }
-
     try {
+      final type = json[core.objectType];
+
+      if (type == ids.appBskyFeedDefsPostView) {
+        return ReplyPost.record(
+          data: Post.fromJson(json),
+        );
+      } else if (type == ids.appBskyFeedDefsNotFoundPost) {
+        return ReplyPost.notFound(
+          data: NotFoundPost.fromJson(json),
+        );
+      } else if (type == ids.appBskyFeedDefsBlockedPost) {
+        return ReplyPost.blocked(
+          data: BlockedPost.fromJson(json),
+        );
+      }
+
       return ReplyPost.record(
         data: Post.fromJson(json),
       );
-    } on Error {
-      return ReplyPost.unknown(data: json);
-    } on Exception {
+    } catch (_) {
       return ReplyPost.unknown(data: json);
     }
   }

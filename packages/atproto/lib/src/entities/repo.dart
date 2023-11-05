@@ -2,6 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: invalid_annotation_target
+
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -20,6 +22,9 @@ class Repo with _$Repo {
 
     /// The CID of the head of the repository.
     @JsonKey(name: 'head') required String headCid,
+
+    /// A revision of this repo.
+    required String rev,
   }) = _Repo;
 
   /// Creates a new instance of [Repo] from a JSON object.

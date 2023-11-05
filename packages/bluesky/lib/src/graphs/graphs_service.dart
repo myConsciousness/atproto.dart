@@ -16,6 +16,7 @@ import '../entities/keys/ids.g.dart' as ids;
 import '../entities/list_items.dart';
 import '../entities/lists.dart';
 import '../entities/mutes.dart';
+import '../entities/suggested_follows.dart';
 import '../params/list_item_param.dart';
 import '../params/list_param.dart';
 import '../params/repo_param.dart';
@@ -24,6 +25,7 @@ sealed class GraphsService {
   /// Returns the new instance of [GraphsService].
   factory GraphsService({
     required atp.ATProto atproto,
+    required String did,
     required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
@@ -32,6 +34,7 @@ sealed class GraphsService {
   }) =>
       _GraphsService(
         atproto: atproto,
+        did: did,
         protocol: protocol,
         service: service,
         context: context,
@@ -536,9 +539,9 @@ sealed class GraphsService {
   ///
   /// ## Parameters
   ///
-  /// - [name]: Name of list to be created.
-  ///
   /// - [purpose]: Purpose of list to be created.
+  ///
+  /// - [name]: Name of list to be created.
   ///
   /// - [description]: Description of list to be created.
   ///
@@ -562,8 +565,82 @@ sealed class GraphsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/list.json
   Future<core.XRPCResponse<atp.StrongRef>> createList({
+    required String purpose,
     required String name,
-    String purpose = ids.appBskyGraphDefsModlist,
+    String? description,
+    List<Facet>? descriptionFacets,
+    atp.Blob? avatar,
+    atp.Labels? labels,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  });
+
+  /// A declaration of a moderated list of actors.
+  ///
+  /// ## Parameters
+  ///
+  /// - [name]: Name of list to be created.
+  ///
+  /// - [description]: Description of list to be created.
+  ///
+  /// - [descriptionFacets]: Facet features for [description].
+  ///
+  /// - [avatar]: Avatar blob to set to list.
+  ///
+  /// - [labels]: Labels to be attached.
+  ///
+  /// - [createdAt]: Date and time the post was created.
+  ///                If omitted, defaults to the current time.
+  ///
+  /// - [unspecced]: You can set record fields that are not supported
+  ///                by `app.bsky.graph.list` as JSON.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.list
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/list.json
+  Future<core.XRPCResponse<atp.StrongRef>> createModeratedList({
+    required String name,
+    String? description,
+    List<Facet>? descriptionFacets,
+    atp.Blob? avatar,
+    atp.Labels? labels,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  });
+
+  /// A declaration of a curated list of actors.
+  ///
+  /// ## Parameters
+  ///
+  /// - [name]: Name of list to be created.
+  ///
+  /// - [description]: Description of list to be created.
+  ///
+  /// - [descriptionFacets]: Facet features for [description].
+  ///
+  /// - [avatar]: Avatar blob to set to list.
+  ///
+  /// - [labels]: Labels to be attached.
+  ///
+  /// - [createdAt]: Date and time the post was created.
+  ///                If omitted, defaults to the current time.
+  ///
+  /// - [unspecced]: You can set record fields that are not supported
+  ///                by `app.bsky.graph.list` as JSON.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.list
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/list.json
+  Future<core.XRPCResponse<atp.StrongRef>> createCuratedList({
+    required String name,
     String? description,
     List<Facet>? descriptionFacets,
     atp.Blob? avatar,
@@ -601,6 +678,96 @@ sealed class GraphsService {
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getLists.json
   Future<core.XRPCResponse<Lists>> findLists({
     required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Which lists is the requester's account blocking?
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getListBlocks
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListBlocks.json
+  Future<core.XRPCResponse<Lists>> findBlockLists({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Which lists is the requester's account blocking?
+  ///
+  /// Returns data as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getListBlocks
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListBlocks.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findBlockListsAsJson({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Which lists is the requester's account blocking?
+  ///
+  /// Returns data as pagination.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getListBlocks
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListBlocks.json
+  core.Pagination<Lists> paginateBlockLists({
+    int? limit,
+    String? cursor,
+  });
+
+  /// Which lists is the requester's account blocking?
+  ///
+  /// Returns data as pagination with JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [limit]: Maximum number of search results. From 1 to 100.
+  ///            The default is 50.
+  ///
+  /// - [cursor]: Cursor string returned from the last search.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getListBlocks
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListBlocks.json
+  core.Pagination<Map<String, dynamic>> paginateBlockListsAsJson({
     int? limit,
     String? cursor,
   });
@@ -947,12 +1114,68 @@ sealed class GraphsService {
   Future<core.XRPCResponse<core.EmptyData>> deleteMuteActorList({
     required core.AtUri list,
   });
+
+  /// Get suggested follows related to a given actor.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getSuggestedFollowsByActor
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getSuggestedFollowsByActor.json
+  Future<core.XRPCResponse<SuggestedFollows>> findSuggestedFollows({
+    required String actor,
+  });
+
+  /// Get suggested follows related to a given actor as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [actor]: The DID or handle of target user.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.getSuggestedFollowsByActor
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getSuggestedFollowsByActor.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findSuggestedFollowsAsJson({
+    required String actor,
+  });
+
+  /// Create a block of an entire list of actors.
+  ///
+  /// ## Parameters
+  ///
+  /// - [listUri]: URI of the list to block list.
+  ///
+  /// - [createdAt]: Date and time the follow was created.
+  ///                If omitted, defaults to the current time.
+  ///
+  /// ## Lexicon
+  ///
+  /// - app.bsky.graph.listblock
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/listblock.json
+  Future<core.XRPCResponse<atp.StrongRef>> createBlockList({
+    required core.AtUri listUri,
+    DateTime? createdAt,
+  });
 }
 
 final class _GraphsService extends BlueskyBaseService implements GraphsService {
   /// Returns the new instance of [_GraphsService].
   _GraphsService({
     required super.atproto,
+    required super.did,
     required super.protocol,
     required super.service,
     required super.context,
@@ -1236,8 +1459,8 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
 
   @override
   Future<core.XRPCResponse<atp.StrongRef>> createList({
+    required String purpose,
     required String name,
-    String purpose = 'app.bsky.graph.defs#modlist',
     String? description,
     List<Facet>? descriptionFacets,
     atp.Blob? avatar,
@@ -1258,6 +1481,48 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
           'createdAt': toUtcIso8601String(createdAt),
           ...unspecced,
         },
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.StrongRef>> createModeratedList({
+    required String name,
+    String? description,
+    List<Facet>? descriptionFacets,
+    atp.Blob? avatar,
+    atp.Labels? labels,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  }) async =>
+      await createList(
+        name: name,
+        purpose: ids.appBskyGraphDefsModlist,
+        description: description,
+        descriptionFacets: descriptionFacets,
+        avatar: avatar,
+        labels: labels,
+        createdAt: createdAt,
+        unspecced: unspecced,
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.StrongRef>> createCuratedList({
+    required String name,
+    String? description,
+    List<Facet>? descriptionFacets,
+    atp.Blob? avatar,
+    atp.Labels? labels,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  }) async =>
+      await createList(
+        name: name,
+        purpose: ids.appBskyGraphDefsCuratelist,
+        description: description,
+        descriptionFacets: descriptionFacets,
+        avatar: avatar,
+        labels: labels,
+        createdAt: createdAt,
+        unspecced: unspecced,
       );
 
   @override
@@ -1486,6 +1751,78 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
         },
       );
 
+  @override
+  Future<core.XRPCResponse<SuggestedFollows>> findSuggestedFollows({
+    required String actor,
+  }) async =>
+      await _findSuggestedFollows(
+        actor: actor,
+        to: SuggestedFollows.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findSuggestedFollowsAsJson({
+    required String actor,
+  }) async =>
+      await _findSuggestedFollows(
+        actor: actor,
+      );
+
+  @override
+  Future<core.XRPCResponse<Lists>> findBlockLists({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findBlockLists(
+        limit: limit,
+        cursor: cursor,
+        to: Lists.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findBlockListsAsJson({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findBlockLists(
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  core.Pagination<Lists> paginateBlockLists({
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateBlockLists(
+        limit: limit,
+        cursor: cursor,
+        to: Lists.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateBlockListsAsJson({
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateBlockLists(
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.StrongRef>> createBlockList({
+    required core.AtUri listUri,
+    DateTime? createdAt,
+  }) async =>
+      await atproto.repositories.createRecord(
+        collection: createNSID('listblock'),
+        record: {
+          'subject': listUri.toString(),
+          'createdAt': toUtcIso8601String(createdAt),
+        },
+      );
+
   Future<core.XRPCResponse<T>> _findFollows<T>({
     required String actor,
     required int? limit,
@@ -1698,6 +2035,46 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
         to: to,
       );
 
+  Future<core.XRPCResponse<T>> _findSuggestedFollows<T>({
+    required String actor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getSuggestedFollowsByActor',
+        parameters: {
+          'actor': actor,
+        },
+        to: to,
+      );
+
+  Future<core.XRPCResponse<T>> _findBlockLists<T>({
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'getListBlocks',
+        parameters: _buildGetBlockListsParams(
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
+  core.Pagination<T> _paginateBlockLists<T>({
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'getListBlocks',
+        parameters: _buildGetBlockListsParams(
+          limit: limit,
+          cursor: cursor,
+        ),
+        to: to,
+      );
+
   Map<String, dynamic> _buildGetFollowsParams({
     required String actor,
     required int? limit,
@@ -1761,6 +2138,15 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
       };
 
   Map<String, dynamic> _buildGetListMutesParams({
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildGetBlockListsParams({
     required int? limit,
     required String? cursor,
   }) =>

@@ -232,44 +232,26 @@ Future<void> main() async {
 }
 ```
 
-:::tip
-A **[`Session`](https://pub.dev/documentation/atproto_core/latest/atproto_core/Session-class.html)** can be created by using the `.createSession` function, as in the example above.
-But the problem is that an access token has an expiration time, and an access token created from `.createSession` is **_only valid for 120 minutes_**.
-In other words, once you have created a Session with `.createSession`, you must re-create the Session again using `.createSession` again **_within the 120 minutes of validity_**.
+### App Password
 
-However, instead of using `.createSession` every 120 minutes, there is a way to get an access token with a longer expiration time.
-That is, by using the `.refreshSession` function with **[`Session`](https://pub.dev/documentation/atproto_core/latest/atproto_core/Session-class.html)** information created from `.createSession`, the access token obtained from the `.refreshSession` function is **_valid for 90 days_**.
+:::info
+App passwords have most of the same abilities as the user's account password, however they're **_restricted_** from **destructive actions such as account deletion or account migration**. They are also **_restricted_** from **creating additional app passwords**.
+App passwords are of the form `xxxx-xxxx-xxxx-xxxx`.
+
+So, it's **_strongly recommended_** that App Password be used for login in AT Protocol's services.
+:::
+
+Given the above reason, a possible use case is for the application to determine if the password given by the user is an App Password.
+With **[atproto](https://pub.dev/packages/atproto)**, you can easily determine if a password is in App Password format by using the `.isValidAppPassword` function.
 
 ```dart
 import 'package:atproto/atproto.dart' as atp;
 
 Future<void> main() async {
-  // Valid for 120 minutes only.
-  final session = await atp.createSession(
-    identifier: 'HANDLE_OR_EMAIL',
-    password: 'PASSWORD',
-  );
-
-  // Valid for 90 days.
-  final refreshedSession = await atp.refreshSession(
-    refreshJwt: session.data.refreshJwt,
-  );
-
-  // You can create ATProto object from authenticated session.
-  final atproto = atp.ATProto.fromSession(refreshedSession.data);
-
-  // Do something with atproto
-  final did = await atproto.identities.findDID(handle: session.data.handle);
+  atp.isValidAppPassword('xxxx-xxxx-xxxx-xxxx'); // => true
+  atp.isValidAppPassword('xxxxxxxxxxxxxxxxxxx'); // => false
 }
 ```
-
-The following matrix organizes the information so far.
-
-| Function              | Expiration Time |
-| --------------------- | --------------- |
-| **`.createSession`**  | 120 minutes     |
-| **`.refreshSession`** | 90 days         |
-:::
 
 ### Standardized Names
 
@@ -289,8 +271,8 @@ You can always find the method you want to use by typing the prefix in the follo
 | **.update**    | This prefix is attached to the endpoint performing the update state.                                    |
 | **.upload**    | This prefix is attached to the endpoint performing the upload contents.                                 |
 | **.request**   | This prefix is attached to the endpoint performing the request via email.                               |
-| **.rebase**    | This prefix is attached to the endpoint performing the rebase repo.                                     |
 | **.notify**    | This prefix is attached to the endpoint used for the purpose of notifying the server of updates.        |
+| **.confirm**   | This prefix is attached to the endpoint performing the confirm state such an email.                     |
 
 :::tip
 For example, if you want to `create` a specific record using **[atproto](https://pub.dev/packages/atproto)**, you would type the following for the `RepositoriesService`.

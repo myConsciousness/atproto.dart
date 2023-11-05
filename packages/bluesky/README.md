@@ -49,7 +49,7 @@ The library is **cross-platform** and is **already used in many applications**. 
 
 **_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) to activate this project!_**
 
-![github_star](https://github.com/myConsciousness/atproto.dart/assets/13072231/c4a9b0b9-6ea4-42f1-823b-3b9e7cdb8b04)
+![github_star](https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/give_a_star.gif)
 
 - **[Official Documents](https://atprotodart.com/docs/packages/bluesky)**
 - **[GitHub Repository](https://github.com/myConsciousness/atproto.dart)**
@@ -80,10 +80,11 @@ See **[official documents](https://atprotodart.com/docs/api_support_matrix)** fr
 
 - **[com.atproto.*](https://atprotodart.com/docs/api_support_matrix#atproto)**
   - **[com.atproto.server.*](https://atprotodart.com/docs/api_support_matrix#servers-service)**
-  - **[com.atproto.identity.*](https://atprotodart.com/docs/api_support_matrix#servers-service)**
-  - **[com.atproto.repo.*](https://atprotodart.com/docs/api_support_matrix#repository-service)**
+  - **[com.atproto.identity.*](https://atprotodart.com/docs/api_support_matrix#identities-service)**
+  - **[com.atproto.repo.*](https://atprotodart.com/docs/api_support_matrix#repositories-service)**
   - **[com.atproto.moderation.*](https://atprotodart.com/docs/api_support_matrix#moderation-service)**
   - **[com.atproto.sync.*](https://atprotodart.com/docs/api_support_matrix#sync-service)**
+  - **[com.atproto.label.*](https://atprotodart.com/docs/api_support_matrix#labels-service)**
 - **[app.bsky.*](https://atprotodart.com/docs/api_support_matrix#bluesky)**
   - **[app.bsky.actor.*](https://atprotodart.com/docs/api_support_matrix#actors-service)**
   - **[app.bsky.feed.*](https://atprotodart.com/docs/api_support_matrix#feeds-service)**
@@ -96,6 +97,7 @@ See **[official documents](https://atprotodart.com/docs/api_support_matrix)** fr
 See **[official documents](https://atprotodart.com/docs/packages/bluesky)** from following links.
 
 - **[Session Management](https://atprotodart.com/docs/packages/bluesky#session-management)**
+- **[App Password](https://atprotodart.com/docs/packages/bluesky#app-password)**
 - **[Standardized Names](https://atprotodart.com/docs/packages/bluesky#standardized-names)**
 - **[Other Than `bsky.social`](https://atprotodart.com/docs/packages/bluesky#other-than-bskysocial)**
 - **[De/Serialize](https://atprotodart.com/docs/packages/bluesky#deserialize)**

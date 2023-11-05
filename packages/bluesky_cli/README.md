@@ -53,7 +53,7 @@ A powerful CLI tool that allows [Bluesky Social](https://bsky.app)'s APIs to be 
 
 **_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) to activate this project!_**
 
-![github_star](https://github.com/myConsciousness/atproto.dart/assets/13072231/c4a9b0b9-6ea4-42f1-823b-3b9e7cdb8b04)
+![github_star](https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/give_a_star.gif)
 
 - **[Official Documents](https://atprotodart.com/docs/packages/bluesky_cli)**
 - **[GitHub Repository](https://github.com/myConsciousness/atproto.dart)**
@@ -106,6 +106,7 @@ Available commands:
   like                      Like a specific post.
   likes                     Show the likes of specific post.
   list                      Show the list.
+  list-feed                 Show the feed from the list.
   lists                     Show the lists.
   mute                      Mute an user.
   mute-list                 Mute an actor list.
@@ -125,6 +126,7 @@ Available commands:
   reposted-by               Show the actors reposted specific post.
   search-actors             Search the actors based on term.
   seen-notifications        Update all notifications to read.
+  suggested-follows         Show a list of suggested follows.
   suggestions               Show the actor suggestions.
   thread                    Show the thread of specific post.
   timeline                  Show the timeline of authenticated user.

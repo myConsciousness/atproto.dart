@@ -13,6 +13,9 @@
 /// `com.atproto.admin.defs`
 const comAtprotoAdminDefs = 'com.atproto.admin.defs';
 
+/// `com.atproto.admin.defs#accountView`
+const comAtprotoAdminDefsAccountView = 'com.atproto.admin.defs#accountView';
+
 /// `com.atproto.admin.defs#acknowledge`
 const comAtprotoAdminDefsAcknowledge = 'com.atproto.admin.defs#acknowledge';
 
@@ -64,6 +67,9 @@ const comAtprotoAdminDefsRecordViewDetail =
 const comAtprotoAdminDefsRecordViewNotFound =
     'com.atproto.admin.defs#recordViewNotFound';
 
+/// `com.atproto.admin.defs#repoBlobRef`
+const comAtprotoAdminDefsRepoBlobRef = 'com.atproto.admin.defs#repoBlobRef';
+
 /// `com.atproto.admin.defs#repoRef`
 const comAtprotoAdminDefsRepoRef = 'com.atproto.admin.defs#repoRef';
 
@@ -85,6 +91,9 @@ const comAtprotoAdminDefsReportView = 'com.atproto.admin.defs#reportView';
 const comAtprotoAdminDefsReportViewDetail =
     'com.atproto.admin.defs#reportViewDetail';
 
+/// `com.atproto.admin.defs#statusAttr`
+const comAtprotoAdminDefsStatusAttr = 'com.atproto.admin.defs#statusAttr';
+
 /// `com.atproto.admin.defs#takedown`
 const comAtprotoAdminDefsTakedown = 'com.atproto.admin.defs#takedown';
 
@@ -102,6 +111,9 @@ const comAtprotoAdminDisableInviteCodes =
 /// `com.atproto.admin.enableAccountInvites`
 const comAtprotoAdminEnableAccountInvites =
     'com.atproto.admin.enableAccountInvites';
+
+/// `com.atproto.admin.getAccountInfo`
+const comAtprotoAdminGetAccountInfo = 'com.atproto.admin.getAccountInfo';
 
 /// `com.atproto.admin.getInviteCodes`
 const comAtprotoAdminGetInviteCodes = 'com.atproto.admin.getInviteCodes';
@@ -128,8 +140,8 @@ const comAtprotoAdminGetRecord = 'com.atproto.admin.getRecord';
 /// `com.atproto.admin.getRepo`
 const comAtprotoAdminGetRepo = 'com.atproto.admin.getRepo';
 
-/// `com.atproto.admin.rebaseRepo`
-const comAtprotoAdminRebaseRepo = 'com.atproto.admin.rebaseRepo';
+/// `com.atproto.admin.getSubjectStatus`
+const comAtprotoAdminGetSubjectStatus = 'com.atproto.admin.getSubjectStatus';
 
 /// `com.atproto.admin.resolveModerationReports`
 const comAtprotoAdminResolveModerationReports =
@@ -156,6 +168,10 @@ const comAtprotoAdminUpdateAccountEmail =
 /// `com.atproto.admin.updateAccountHandle`
 const comAtprotoAdminUpdateAccountHandle =
     'com.atproto.admin.updateAccountHandle';
+
+/// `com.atproto.admin.updateSubjectStatus`
+const comAtprotoAdminUpdateSubjectStatus =
+    'com.atproto.admin.updateSubjectStatus';
 
 /// `com.atproto.identity.resolveHandle`
 const comAtprotoIdentityResolveHandle = 'com.atproto.identity.resolveHandle';
@@ -256,14 +272,14 @@ const comAtprotoRepoListRecordsRecord = 'com.atproto.repo.listRecords#record';
 /// `com.atproto.repo.putRecord`
 const comAtprotoRepoPutRecord = 'com.atproto.repo.putRecord';
 
-/// `com.atproto.repo.rebaseRepo`
-const comAtprotoRepoRebaseRepo = 'com.atproto.repo.rebaseRepo';
-
 /// `com.atproto.repo.strongRef`
 const comAtprotoRepoStrongRef = 'com.atproto.repo.strongRef';
 
 /// `com.atproto.repo.uploadBlob`
 const comAtprotoRepoUploadBlob = 'com.atproto.repo.uploadBlob';
+
+/// `com.atproto.server.confirmEmail`
+const comAtprotoServerConfirmEmail = 'com.atproto.server.confirmEmail';
 
 /// `com.atproto.server.createAccount`
 const comAtprotoServerCreateAccount = 'com.atproto.server.createAccount';
@@ -334,9 +350,21 @@ const comAtprotoServerRefreshSession = 'com.atproto.server.refreshSession';
 const comAtprotoServerRequestAccountDelete =
     'com.atproto.server.requestAccountDelete';
 
+/// `com.atproto.server.requestEmailConfirmation`
+const comAtprotoServerRequestEmailConfirmation =
+    'com.atproto.server.requestEmailConfirmation';
+
+/// `com.atproto.server.requestEmailUpdate`
+const comAtprotoServerRequestEmailUpdate =
+    'com.atproto.server.requestEmailUpdate';
+
 /// `com.atproto.server.requestPasswordReset`
 const comAtprotoServerRequestPasswordReset =
     'com.atproto.server.requestPasswordReset';
+
+/// `com.atproto.server.reserveSigningKey`
+const comAtprotoServerReserveSigningKey =
+    'com.atproto.server.reserveSigningKey';
 
 /// `com.atproto.server.resetPassword`
 const comAtprotoServerResetPassword = 'com.atproto.server.resetPassword';
@@ -344,6 +372,9 @@ const comAtprotoServerResetPassword = 'com.atproto.server.resetPassword';
 /// `com.atproto.server.revokeAppPassword`
 const comAtprotoServerRevokeAppPassword =
     'com.atproto.server.revokeAppPassword';
+
+/// `com.atproto.server.updateEmail`
+const comAtprotoServerUpdateEmail = 'com.atproto.server.updateEmail';
 
 /// `com.atproto.sync.getBlob`
 const comAtprotoSyncGetBlob = 'com.atproto.sync.getBlob';
@@ -354,11 +385,11 @@ const comAtprotoSyncGetBlocks = 'com.atproto.sync.getBlocks';
 /// `com.atproto.sync.getCheckout`
 const comAtprotoSyncGetCheckout = 'com.atproto.sync.getCheckout';
 
-/// `com.atproto.sync.getCommitPath`
-const comAtprotoSyncGetCommitPath = 'com.atproto.sync.getCommitPath';
-
 /// `com.atproto.sync.getHead`
 const comAtprotoSyncGetHead = 'com.atproto.sync.getHead';
+
+/// `com.atproto.sync.getLatestCommit`
+const comAtprotoSyncGetLatestCommit = 'com.atproto.sync.getLatestCommit';
 
 /// `com.atproto.sync.getRecord`
 const comAtprotoSyncGetRecord = 'com.atproto.sync.getRecord';

@@ -113,4 +113,20 @@ final class AtUri {
 
     return buffer.toString();
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    if (other is AtUri) {
+      return other.hash == hash &&
+          other.pathname == pathname &&
+          other._host == _host;
+    }
+
+    return false;
+  }
+
+  @override
+  int get hashCode => hash.hashCode ^ pathname.hashCode ^ _host.hashCode;
 }

@@ -11,6 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'actor_viewer.dart';
+import 'defaults.dart';
 
 part 'actor.freezed.dart';
 part 'actor.g.dart';
@@ -56,7 +57,7 @@ class Actor with _$Actor {
 
     /// The [ActorViewer] instance representing the authenticated user's
     /// relationship with the actor.
-    required ActorViewer viewer,
+    @Default(defaultActorViewer) ActorViewer viewer,
 
     /// A list of labels associated with the actor.
     List<Label>? labels,
@@ -76,13 +77,21 @@ class Actor with _$Actor {
   /// this class.
   factory Actor.fromJson(Map<String, Object?> json) => _$ActorFromJson(json);
 
+  /// Returns true if authenticated user has muted this actor,
+  /// otherwise false.
+  bool get isMuted => viewer.isMuted;
+
   /// Returns true if authenticated user has not muted yet this actor,
   /// otherwise false.
-  bool get isNotMuted => viewer.isNotMuted;
+  bool get isNotMuted => !isMuted;
+
+  /// Returns true if authenticated user has blocked by this actor,
+  /// otherwise false.
+  bool get isBlockedBy => viewer.isBlockedBy;
 
   /// Returns true if authenticated user has not blocked yet by this actor,
   /// otherwise false.
-  bool get isNotBlockedBy => viewer.isNotBlockedBy;
+  bool get isNotBlockedBy => !isBlockedBy;
 
   /// Returns true if authenticated user has already muted this actor by list,
   /// otherwise false.
@@ -91,6 +100,14 @@ class Actor with _$Actor {
   /// Returns true if authenticated user has not muted yet this actor by list,
   /// otherwise false.
   bool get isNotMutedByList => !isMutedByList;
+
+  /// Returns true if authenticated user has already blocked actors by list,
+  /// otherwise false.
+  bool get isBlockingByList => viewer.isBlockingByList;
+
+  /// Returns true if authenticated user has not blocked yet blocked actors by
+  /// list, otherwise false.
+  bool get isNotBlockingByList => !isBlockingByList;
 
   /// Returns true if authenticated user has already blocked this actor,
   /// otherwise false.

@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 final class RepoCommitUpdate<T> {
@@ -33,6 +34,9 @@ final class RepoCommitUpdate<T> {
 
   /// The date and time this event was created.
   final DateTime createdAt;
+
+  /// Returns the [atp.StrongRef] representation.
+  atp.StrongRef toStrongRef() => atp.StrongRef(cid: cid, uri: uri);
 
   @override
   String toString() =>

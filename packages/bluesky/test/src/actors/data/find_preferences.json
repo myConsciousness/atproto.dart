@@ -47,6 +47,24 @@
       "saved": [
         "at://did:plc:7hsnhyve3clc2crizt2ttrxz/app.bsky.feed.post/3jvwwuk2jrs2n"
       ]
+    },
+    {
+      "$type": "app.bsky.actor.defs#personalDetailsPref",
+      "birthDate": "2023-05-21T00:48:01.666Z"
+    },
+    {
+      "$type": "app.bsky.actor.defs#threadViewPref",
+      "sort": "most-likes",
+      "prioritizeFollowedUsers": true
+    },
+    {
+      "$type": "app.bsky.actor.defs#feedViewPref",
+      "feed": "test",
+      "hideReplies": true,
+      "hideRepliesByUnfollowed": false,
+      "hideRepliesByLikeCount": 20,
+      "hideReposts": true,
+      "hideQuotePosts": true
     }
   ]
 }

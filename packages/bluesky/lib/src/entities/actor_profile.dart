@@ -11,6 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'actor_viewer.dart';
+import 'defaults.dart';
 
 part 'actor_profile.freezed.dart';
 part 'actor_profile.g.dart';
@@ -64,16 +65,16 @@ class ActorProfile with _$ActorProfile {
     String? banner,
 
     /// The number of actors this actor is following.
-    required int followsCount,
+    @Default(0) int followsCount,
 
     /// The number of followers this actor has.
-    required int followersCount,
+    @Default(0) int followersCount,
 
     /// The number of posts this actor has made.
-    required int postsCount,
+    @Default(0) int postsCount,
 
     /// The viewer's (authenticated user's) relationship to this actor.
-    required ActorViewer viewer,
+    @Default(defaultActorViewer) ActorViewer viewer,
 
     /// The labels assigned to this actor.
     List<Label>? labels,
@@ -93,13 +94,21 @@ class ActorProfile with _$ActorProfile {
   factory ActorProfile.fromJson(Map<String, Object?> json) =>
       _$ActorProfileFromJson(json);
 
+  /// Returns true if authenticated user has muted this actor,
+  /// otherwise false.
+  bool get isMuted => viewer.isMuted;
+
   /// Returns true if authenticated user has not muted yet this actor,
   /// otherwise false.
-  bool get isNotMuted => viewer.isNotMuted;
+  bool get isNotMuted => !isMuted;
+
+  /// Returns true if authenticated user has blocked by this actor,
+  /// otherwise false.
+  bool get isBlockedBy => viewer.isBlockedBy;
 
   /// Returns true if authenticated user has not blocked yet by this actor,
   /// otherwise false.
-  bool get isNotBlockedBy => viewer.isNotBlockedBy;
+  bool get isNotBlockedBy => !isBlockedBy;
 
   /// Returns true if authenticated user has already muted this actor by list,
   /// otherwise false.
@@ -108,6 +117,14 @@ class ActorProfile with _$ActorProfile {
   /// Returns true if authenticated user has not muted yet this actor by list,
   /// otherwise false.
   bool get isNotMutedByList => !isMutedByList;
+
+  /// Returns true if authenticated user has already blocked actors by list,
+  /// otherwise false.
+  bool get isBlockingByList => viewer.isBlockingByList;
+
+  /// Returns true if authenticated user has not blocked yet blocked actors by
+  /// list, otherwise false.
+  bool get isNotBlockingByList => !isBlockingByList;
 
   /// Returns true if authenticated user has already blocked this actor,
   /// otherwise false.

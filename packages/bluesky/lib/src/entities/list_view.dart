@@ -10,6 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'actor.dart';
+import 'defaults.dart';
 import 'facet.dart';
 import 'keys/ids.g.dart';
 import 'list_viewer.dart';
@@ -38,8 +39,8 @@ class ListView with _$ListView {
     /// The type of the list, by default it is [appBskyGraphDefsListView].
     @typeKey @Default(appBskyGraphDefsListView) String type,
 
-    /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
-    @Default(appBskyGraphDefsModlist) String purpose,
+    /// The purpose of the list.
+    required String purpose,
 
     /// The URI of the list.
     @atUriConverter required AtUri uri,
@@ -63,7 +64,7 @@ class ListView with _$ListView {
     @JsonKey(name: 'creator') required Actor createdBy,
 
     /// The viewer of the list.
-    required ListViewer viewer,
+    @Default(defaultListViewer) ListViewer viewer,
 
     /// The date of the indexing of the list.
     required DateTime indexedAt,
@@ -76,7 +77,29 @@ class ListView with _$ListView {
   factory ListView.fromJson(Map<String, Object?> json) =>
       _$ListViewFromJson(json);
 
+  /// Returns true if authenticated user has muted this actor,
+  /// otherwise false.
+  bool get isMuted => viewer.isMuted;
+
   /// Returns true if authenticated user has not muted yet this actor,
   /// otherwise false.
-  bool get isNotMuted => viewer.isNotMuted;
+  bool get isNotMuted => !isMuted;
+
+  /// Returns true if this list is blocked, otherwise false.
+  bool get isBlocked => viewer.isBlocked;
+
+  /// Returns true if this list is not blocked, otherwise false.
+  bool get isNotBlocked => !isBlocked;
+
+  /// Returns true if this list is for moderation purpose, otherwise false.
+  bool get isModerated => purpose == appBskyGraphDefsModlist;
+
+  /// Returns true if this list is not for moderation purpose, otherwise false.
+  bool get isNotModerated => !isModerated;
+
+  /// Returns true if this list is for curation purpose, otherwise false.
+  bool get isCurated => purpose == appBskyGraphDefsCuratelist;
+
+  /// Returns true if this list is not for curation purpose, otherwise false.
+  bool get isNotCurated => !isCurated;
 }

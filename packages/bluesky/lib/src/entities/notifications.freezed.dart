@@ -110,10 +110,11 @@ class __$$_NotificationsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Notifications implements _Notifications {
+class _$_Notifications extends _Notifications {
   const _$_Notifications(
       {required final List<Notification> notifications, this.cursor})
-      : _notifications = notifications;
+      : _notifications = notifications,
+        super._();
 
   factory _$_Notifications.fromJson(Map<String, dynamic> json) =>
       _$$_NotificationsFromJson(json);
@@ -167,10 +168,11 @@ class _$_Notifications implements _Notifications {
   }
 }
 
-abstract class _Notifications implements Notifications {
+abstract class _Notifications extends Notifications {
   const factory _Notifications(
       {required final List<Notification> notifications,
       final String? cursor}) = _$_Notifications;
+  const _Notifications._() : super._();
 
   factory _Notifications.fromJson(Map<String, dynamic> json) =
       _$_Notifications.fromJson;

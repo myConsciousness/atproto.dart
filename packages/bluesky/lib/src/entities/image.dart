@@ -6,7 +6,11 @@
 
 // 📦 Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import 'image_aspect_ratio.dart';
 
 part 'image.freezed.dart';
 part 'image.g.dart';
@@ -18,14 +22,16 @@ part 'image.g.dart';
 @freezed
 class Image with _$Image {
   /// Creates an instance of [Image].
-  ///
-  /// Both fields [alt] and [image] are required.
+  @jsonSerializable
   const factory Image({
     /// The alternative text for the image.
     required String alt,
 
     /// The actual image data represented as a Blob.
     @blobConverter required Blob image,
+
+    /// The aspect ratio for this [image].
+    ImageAspectRatio? aspectRatio,
   }) = _Image;
 
   /// Creates an instance of [Image] from a map [json].

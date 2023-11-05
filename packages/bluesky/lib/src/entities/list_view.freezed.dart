@@ -24,7 +24,7 @@ mixin _$ListView {
   @typeKey
   String get type => throw _privateConstructorUsedError;
 
-  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
+  /// The purpose of the list.
   String get purpose => throw _privateConstructorUsedError;
 
   /// The URI of the list.
@@ -278,7 +278,7 @@ class __$$_ListViewCopyWithImpl<$Res>
 class _$_ListView extends _ListView {
   const _$_ListView(
       {@typeKey this.type = appBskyGraphDefsListView,
-      this.purpose = appBskyGraphDefsModlist,
+      required this.purpose,
       @atUriConverter required this.uri,
       required this.cid,
       required this.name,
@@ -286,7 +286,7 @@ class _$_ListView extends _ListView {
       final List<Facet>? descriptionFacets,
       this.avatar,
       @JsonKey(name: 'creator') required this.createdBy,
-      required this.viewer,
+      this.viewer = defaultListViewer,
       required this.indexedAt})
       : _descriptionFacets = descriptionFacets,
         super._();
@@ -299,9 +299,8 @@ class _$_ListView extends _ListView {
   @typeKey
   final String type;
 
-  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
+  /// The purpose of the list.
   @override
-  @JsonKey()
   final String purpose;
 
   /// The URI of the list.
@@ -346,6 +345,7 @@ class _$_ListView extends _ListView {
 
   /// The viewer of the list.
   @override
+  @JsonKey()
   final ListViewer viewer;
 
   /// The date of the indexing of the list.
@@ -412,7 +412,7 @@ class _$_ListView extends _ListView {
 abstract class _ListView extends ListView {
   const factory _ListView(
       {@typeKey final String type,
-      final String purpose,
+      required final String purpose,
       @atUriConverter required final AtUri uri,
       required final String cid,
       required final String name,
@@ -420,7 +420,7 @@ abstract class _ListView extends ListView {
       final List<Facet>? descriptionFacets,
       final String? avatar,
       @JsonKey(name: 'creator') required final Actor createdBy,
-      required final ListViewer viewer,
+      final ListViewer viewer,
       required final DateTime indexedAt}) = _$_ListView;
   const _ListView._() : super._();
 
@@ -433,7 +433,7 @@ abstract class _ListView extends ListView {
   String get type;
   @override
 
-  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
+  /// The purpose of the list.
   String get purpose;
   @override
 

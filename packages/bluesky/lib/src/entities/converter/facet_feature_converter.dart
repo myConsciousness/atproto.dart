@@ -10,6 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../facet_feature.dart';
 import '../facet_link.dart';
 import '../facet_mention.dart';
+import '../facet_tag.dart';
 import '../keys/ids.g.dart' as ids;
 
 const facetFeatureConverter = _FacetFeatureConverter();
@@ -21,25 +22,34 @@ final class _FacetFeatureConverter
 
   @override
   FacetFeature fromJson(Map<String, dynamic> json) {
-    final type = json[core.objectType];
+    try {
+      final type = json[core.objectType];
 
-    if (type == ids.appBskyRichtextFacetLink) {
-      return FacetFeature.link(
-        data: FacetLink.fromJson(json),
-      );
-    } else if (type == ids.appBskyRichtextFacetMention) {
-      return FacetFeature.mention(
-        data: FacetMention.fromJson(json),
-      );
+      if (type == ids.appBskyRichtextFacetLink) {
+        return FacetFeature.link(
+          data: FacetLink.fromJson(json),
+        );
+      } else if (type == ids.appBskyRichtextFacetMention) {
+        return FacetFeature.mention(
+          data: FacetMention.fromJson(json),
+        );
+      } else if (type == ids.appBskyRichtextFacetTag) {
+        return FacetFeature.tag(
+          data: FacetTag.fromJson(json),
+        );
+      }
+
+      return FacetFeature.unknown(data: json);
+    } catch (_) {
+      return FacetFeature.unknown(data: json);
     }
-
-    return FacetFeature.unknown(data: json);
   }
 
   @override
   Map<String, dynamic> toJson(FacetFeature object) => object.when(
         mention: (data) => data.toJson(),
         link: (data) => data.toJson(),
+        tag: (data) => data.toJson(),
         unknown: (data) => data,
       );
 }

@@ -2,22 +2,25 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
+import 'dart:io';
+import 'dart:typed_data';
+
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
+import 'package:atproto/src/entities/blob_refs.dart';
 import 'package:atproto/src/entities/repo_blocks.dart';
 import 'package:atproto/src/entities/repo_commit.dart';
-import 'package:atproto/src/entities/repo_commit_paths.dart';
 import 'package:atproto/src/entities/repo_commits.dart';
-import 'package:atproto/src/entities/repo_head.dart';
+import 'package:atproto/src/entities/repo_latest_commit.dart';
 import 'package:atproto/src/entities/repos.dart';
 import 'package:atproto/src/sync/sync_service.dart';
 import 'data/find_record.dart';
 import 'data/find_repo_blocks.dart';
-import 'data/find_repo_checkout.dart';
 import 'data/find_repo_commits.dart';
 
 void main() {
@@ -38,8 +41,7 @@ void main() {
 
       final response = await sync.findRepoCommits(
         did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
-        earliestCommitCid: 'baaaaaaa',
-        latestCommitCid: 'baaaaaaa',
+        sinceCommitCid: 'baaaaaaa',
       );
 
       expect(response, isA<core.XRPCResponse>());
@@ -62,8 +64,7 @@ void main() {
 
       final response = await sync.findRepoCommitsAsJson(
         did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
-        earliestCommitCid: 'baaaaaaa',
-        latestCommitCid: 'baaaaaaa',
+        sinceCommitCid: 'baaaaaaa',
       );
 
       expect(response, isA<core.XRPCResponse>());
@@ -109,100 +110,6 @@ void main() {
 
       atp_test.expectRateLimitExceededException(
         () async => await sync.findRepoCommits(
-          did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
-        ),
-      );
-    });
-  });
-
-  group('.findRepoCommitPaths', () {
-    test('normal case', () async {
-      final sync = SyncService(
-        did: 'test',
-        protocol: core.Protocol.https,
-        service: 'test',
-        context: core.ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/sync/data/find_repo_commit_paths.json',
-        ),
-      );
-
-      final response = await sync.findRepoCommitPaths(
-        did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
-        earliestCommitCid: 'baaaaaaa',
-        latestCommitCid: 'baaaaaaa',
-      );
-
-      expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<RepoCommitPaths>());
-    });
-
-    test('as JSON', () async {
-      final sync = SyncService(
-        did: 'test',
-        protocol: core.Protocol.https,
-        service: 'test',
-        context: core.ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/sync/data/find_repo_commit_paths.json',
-        ),
-      );
-
-      final response = await sync.findRepoCommitPathsAsJson(
-        did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
-        earliestCommitCid: 'baaaaaaa',
-        latestCommitCid: 'baaaaaaa',
-      );
-
-      expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<Map<String, dynamic>>());
-    });
-
-    test('when unauthorized', () async {
-      final sync = SyncService(
-        did: 'test',
-        protocol: core.Protocol.https,
-        service: 'test',
-        context: core.ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/data/error.json',
-          statusCode: 401,
-        ),
-      );
-
-      atp_test.expectUnauthorizedException(
-        () async => await sync.findRepoCommitPaths(
-          did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
-        ),
-      );
-    });
-
-    test('when rate limit exceeded', () async {
-      final sync = SyncService(
-        did: 'test',
-        protocol: core.Protocol.https,
-        service: 'test',
-        context: core.ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/data/error.json',
-          statusCode: 429,
-        ),
-      );
-
-      atp_test.expectRateLimitExceededException(
-        () async => await sync.findRepoCommitPaths(
           did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
         ),
       );
@@ -315,101 +222,7 @@ void main() {
     });
   });
 
-  group('.findRepoCheckout', () {
-    test('normal case', () async {
-      final sync = SyncService(
-        did: 'test',
-        protocol: core.Protocol.https,
-        service: 'test',
-        context: core.ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClientFromBytes(
-          findRepoCheckoutBytes,
-        ),
-      );
-
-      final response = await sync.findRepoCheckout(
-        did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
-        commitCid: 'baaaaaa',
-      );
-
-      expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<RepoCommits>());
-    });
-
-    test('as JSON', () async {
-      final sync = SyncService(
-        did: 'test',
-        protocol: core.Protocol.https,
-        service: 'test',
-        context: core.ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClientFromBytes(
-          findRepoCheckoutBytes,
-        ),
-      );
-
-      final response = await sync.findRepoCheckoutAsJson(
-        did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
-        commitCid: 'baaaaaa',
-      );
-
-      expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<Map<String, dynamic>>());
-    });
-
-    test('when unauthorized', () async {
-      final sync = SyncService(
-        did: 'test',
-        protocol: core.Protocol.https,
-        service: 'test',
-        context: core.ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/data/error.json',
-          statusCode: 401,
-        ),
-      );
-
-      atp_test.expectUnauthorizedException(
-        () async => await sync.findRepoCheckout(
-          did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
-          commitCid: 'baaaaaa',
-        ),
-      );
-    });
-
-    test('when rate limit exceeded', () async {
-      final sync = SyncService(
-        did: 'test',
-        protocol: core.Protocol.https,
-        service: 'test',
-        context: core.ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/data/error.json',
-          statusCode: 429,
-        ),
-      );
-
-      atp_test.expectRateLimitExceededException(
-        () async => await sync.findRepoCheckout(
-          did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
-          commitCid: 'baaaaaa',
-        ),
-      );
-    });
-  });
-
-  group('.findRepoHead', () {
+  group('.findLatestCommit', () {
     test('normal case', () async {
       final sync = SyncService(
         did: 'test',
@@ -420,16 +233,16 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/sync/data/find_repo_head.json',
+          'test/src/sync/data/find_latest_commit.json',
         ),
       );
 
-      final response = await sync.findRepoHead(
+      final response = await sync.findLatestCommit(
         did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
       );
 
       expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<RepoHead>());
+      expect(response.data, isA<RepoLatestCommit>());
     });
 
     test('as JSON', () async {
@@ -442,11 +255,11 @@ void main() {
           timeout: Duration.zero,
         ),
         mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/sync/data/find_repo_head.json',
+          'test/src/sync/data/find_latest_commit.json',
         ),
       );
 
-      final response = await sync.findRepoHeadAsJson(
+      final response = await sync.findLatestCommitAsJson(
         did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
       );
 
@@ -470,7 +283,7 @@ void main() {
       );
 
       atp_test.expectUnauthorizedException(
-        () async => await sync.findRepoHead(
+        () async => await sync.findLatestCommit(
           did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
         ),
       );
@@ -492,7 +305,7 @@ void main() {
       );
 
       atp_test.expectRateLimitExceededException(
-        () async => await sync.findRepoHead(
+        () async => await sync.findLatestCommit(
           did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
         ),
       );
@@ -837,6 +650,159 @@ void main() {
         () async => await sync.requestCrawl(
           hostname: 'bsky.social',
         ),
+      );
+    });
+  });
+
+  group('.findBlob', () {
+    test('normal case', () async {
+      final sync = SyncService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClientFromBytes(
+          File('test/src/sync/data/find_blob.txt').readAsBytesSync(),
+        ),
+      );
+
+      final response = await sync.findBlob(
+        did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
+        cid: 'baaaaaaa',
+      );
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<Uint8List>());
+    });
+
+    test('when unauthorized', () async {
+      final sync = SyncService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await sync.findBlob(
+          did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
+          cid: 'baaaaaaa',
+        ),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final sync = SyncService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await sync.findBlob(
+          did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
+          cid: 'baaaaaaa',
+        ),
+      );
+    });
+  });
+
+  group('.findBlobs', () {
+    test('normal case', () async {
+      final sync = SyncService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/sync/data/find_blobs.json',
+        ),
+      );
+
+      final response = await sync.findBlobs(did: 'did');
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<BlobRefs>());
+    });
+
+    test('as JSON', () async {
+      final sync = SyncService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/sync/data/find_blobs.json',
+        ),
+      );
+
+      final response = await sync.findReposAsJson();
+
+      expect(response, isA<core.XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
+    test('when unauthorized', () async {
+      final sync = SyncService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 401,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await sync.findBlobs(did: 'did'),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final sync = SyncService(
+        did: 'test',
+        protocol: core.Protocol.https,
+        service: 'test',
+        context: core.ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+        mockedGetClient: atp_test.createMockedGetClient(
+          'test/src/data/error.json',
+          statusCode: 429,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await sync.findBlobs(did: 'did'),
       );
     });
   });

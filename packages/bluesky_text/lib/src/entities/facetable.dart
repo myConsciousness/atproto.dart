@@ -6,12 +6,5 @@
 import 'byte_indices.dart';
 
 abstract class Facetable {
-  /// Returns the new instance of [Facetable].
-  const Facetable();
-
-  /// Returns the value.
-  String get value;
-
-  /// Returns the byte indices.
   ByteIndices get indices;
 }

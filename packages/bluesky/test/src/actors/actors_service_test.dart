@@ -14,13 +14,18 @@ import 'package:bluesky/src/entities/actor_profile.dart';
 import 'package:bluesky/src/entities/actor_profiles.dart';
 import 'package:bluesky/src/entities/actors.dart';
 import 'package:bluesky/src/entities/actors_typeahead.dart';
+import 'package:bluesky/src/entities/preference.dart';
 import 'package:bluesky/src/entities/preferences.dart';
+import 'package:bluesky/src/entities/profile_record.dart';
+import 'package:bluesky/src/entities/thread_view_preference.dart';
+import '../session.dart';
 
 void main() {
   group('.searchActors', () {
     test('normal case', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -44,7 +49,8 @@ void main() {
 
     test('as JSON', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -68,7 +74,8 @@ void main() {
 
     test('when unauthorized', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -92,7 +99,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -118,7 +126,8 @@ void main() {
   group('.findProfile', () {
     test('normal case', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -140,7 +149,8 @@ void main() {
 
     test('as JSON', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -162,7 +172,8 @@ void main() {
 
     test('when unauthorized', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -184,7 +195,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -208,7 +220,8 @@ void main() {
   group('.findProfiles', () {
     test('normal case', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -233,7 +246,8 @@ void main() {
 
     test('as JSON', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -258,7 +272,8 @@ void main() {
 
     test('when unauthorized', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -283,7 +298,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -307,10 +323,105 @@ void main() {
     });
   });
 
+  group('.findProfileRecord', () {
+    test('normal case', () async {
+      final actors = ActorsService(
+        atproto: ATProto.fromSession(
+          session,
+          mockedGetClient: atp_test.createMockedGetClient(
+            'test/src/actors/data/find_profile_record.json',
+          ),
+        ),
+        did: 'alice',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      final response = await actors.findProfileRecord();
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<ProfileRecord>());
+    });
+
+    test('as JSON', () async {
+      final actors = ActorsService(
+        atproto: ATProto.fromSession(
+          session,
+          mockedGetClient: atp_test.createMockedGetClient(
+            'test/src/actors/data/find_profile_record.json',
+          ),
+        ),
+        did: 'alice',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      final response = await actors.findProfileRecordAsJson();
+
+      expect(response, isA<XRPCResponse>());
+      expect(response.data, isA<Map<String, dynamic>>());
+    });
+
+    test('when unauthorized', () async {
+      final actors = ActorsService(
+        atproto: ATProto.fromSession(
+          session,
+          mockedGetClient: atp_test.createMockedGetClient(
+            'test/src/data/error.json',
+            statusCode: 401,
+          ),
+        ),
+        did: 'alice',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectUnauthorizedException(
+        () async => await actors.findProfileRecord(),
+      );
+    });
+
+    test('when rate limit exceeded', () async {
+      final actors = ActorsService(
+        atproto: ATProto.fromSession(
+          session,
+          mockedGetClient: atp_test.createMockedGetClient(
+            'test/src/data/error.json',
+            statusCode: 429,
+          ),
+        ),
+        did: 'alice',
+        protocol: Protocol.https,
+        service: 'test',
+        context: ClientContext(
+          accessJwt: '1234',
+          timeout: Duration.zero,
+        ),
+      );
+
+      atp_test.expectRateLimitExceededException(
+        () async => await actors.findProfileRecord(),
+      );
+    });
+  });
+
   group('.findSuggestions', () {
     test('normal case', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -330,7 +441,8 @@ void main() {
 
     test('as JSON', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -353,7 +465,8 @@ void main() {
 
     test('when unauthorized', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -373,7 +486,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -395,7 +509,8 @@ void main() {
   group('.searchTypeahead', () {
     test('normal case', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -418,7 +533,8 @@ void main() {
 
     test('as JSON', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -441,7 +557,8 @@ void main() {
 
     test('when unauthorized', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -464,7 +581,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -489,14 +607,14 @@ void main() {
   group('.updateProfile', () {
     test('normal case', () async {
       final actors = ActorsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/actors/data/update_profile.json',
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -516,15 +634,15 @@ void main() {
 
     test('when unauthorized', () async {
       final actors = ActorsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 401,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -542,15 +660,15 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final actors = ActorsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
           mockedPostClient: atp_test.createMockedPostClient(
             'test/src/data/error.json',
             statusCode: 429,
           ),
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -570,7 +688,8 @@ void main() {
   group('.findPreferences', () {
     test('normal case', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -586,11 +705,33 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<Preferences>());
+
+      for (final preference in response.data.preferences) {
+        switch (preference) {
+          case UPreferencePersonalDetails():
+            expect(preference.data.birthDate, isA<DateTime>());
+            expect(
+              preference.data.birthDate?.toIso8601String(),
+              '2023-05-21T00:48:01.666Z',
+            );
+          case UPreferenceFeedView():
+            expect(preference.data.feed, 'test');
+            expect(preference.data.isHideReplies, isTrue);
+            expect(preference.data.isHideRepliesByUnfollowed, isFalse);
+            expect(preference.data.hideRepliesByLikeCount, 20);
+            expect(preference.data.isHideReposts, isTrue);
+            expect(preference.data.isHideQuotePosts, isTrue);
+          case UPreferenceThreadView():
+            expect(preference.data.sort, ThreadViewSortType.mostLikes);
+            expect(preference.data.isPrioritizeFollowedUsers, isTrue);
+        }
+      }
     });
 
     test('as JSON', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -610,7 +751,8 @@ void main() {
 
     test('when unauthorized', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -630,7 +772,8 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final actors = ActorsService(
-        atproto: ATProto(did: 'test', accessJwt: 'test'),
+        atproto: ATProto.fromSession(session),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -652,11 +795,11 @@ void main() {
   group('.updatePreferences', () {
     test('normal case', () async {
       final actors = ActorsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -676,11 +819,11 @@ void main() {
 
     test('when unauthorized', () async {
       final actors = ActorsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(
@@ -700,11 +843,11 @@ void main() {
 
     test('when rate limit exceeded', () async {
       final actors = ActorsService(
-        atproto: ATProto(
-          did: 'test',
-          accessJwt: 'test',
+        atproto: ATProto.fromSession(
+          session,
           service: 'test',
         ),
+        did: '',
         protocol: Protocol.https,
         service: 'test',
         context: ClientContext(

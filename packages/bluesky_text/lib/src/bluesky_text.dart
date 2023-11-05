@@ -2,25 +2,17 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🎯 Dart imports:
-import 'dart:convert';
-import 'dart:typed_data';
-
-// 📦 Package imports:
-import 'package:characters/characters.dart';
-
 // 🌎 Project imports:
-import 'entities/byte_indices.dart';
-import 'entities/custom_entities.dart';
-import 'entities/custom_entity.dart';
+import 'config/link_config.dart';
+import 'const.dart';
 import 'entities/entities.dart';
-import 'entities/entity.dart';
-import 'entities/facetable.dart';
-import 'params/entity_criterion.dart';
-import 'regex.dart';
-
-/// The max length of text.
-const _maxLength = 300;
+import 'entities/length_exceeded_entity.dart';
+import 'entities/replacements.dart';
+import 'extractor/extractor.dart';
+import 'extractor/length_exceeded_extractor.dart';
+import 'formatter.dart';
+import 'splitter.dart';
+import 'utils.dart' as utils;
 
 /// This class provides high-performance analysis of [Bluesky Social](https://blueskyweb.xyz)'s text
 /// and features related to secure posting.
@@ -37,6 +29,7 @@ const _maxLength = 300;
 ///
 /// - **Handle** (like @shinyakato.dev)
 /// - **Link** (like https://shinyakato.dev)
+/// - **Tag** (like #hashtag)
 ///
 /// The class also supports counting the number of characters using `grapheme`,
 /// and the length of the string that can be obtained with [length] is
@@ -83,7 +76,12 @@ const _maxLength = 300;
 /// ```
 sealed class BlueskyText {
   /// Returns the new instance of [BlueskyText].
-  factory BlueskyText(final String text) => _BlueskyText(text);
+  const factory BlueskyText(
+    final String text, {
+    final bool enableMarkdown,
+    final LinkConfig? linkConfig,
+    final Replacements? replacements,
+  }) = _BlueskyText;
 
   /// Returns the resource text.
   ///
@@ -109,22 +107,15 @@ sealed class BlueskyText {
   /// returned along with their start and end indices.
   Entities get links;
 
+  /// Returns the collection of tags.
+  Entities get tags;
+
   /// Returns the collection of entities.
   ///
-  /// It includes the response from [handles] and [links].
+  /// It includes the response from [handles], [links], [tags].
   Entities get entities;
 
-  /// Returns the custom entities based on the given [criteria].
-  ///
-  /// This method is useful if you want to use entities not provided by
-  /// the official Lexicon in your service or app.
-  ///
-  /// The search engine for this process is the same as the one used by
-  /// [entities] and others, but you get to decide the criteria for
-  /// entity extraction.
-  CustomEntities getCustomEntities(
-    final List<EntityCriterion> criteria,
-  );
+  // List<LengthExceededEntity> get lengthExceededEntities;
 
   /// Splits this [value].
   ///
@@ -142,23 +133,8 @@ sealed class BlueskyText {
   /// point.
   List<BlueskyText> split();
 
-  /// Returns true if this [value] has a handle at least one, otherwise false.
-  bool get hasHandle;
-
-  /// Returns true if this [value] has not a handle, otherwise false.
-  bool get hasNotHandle;
-
-  /// Returns true if this [value] has a link at least one, otherwise false.
-  bool get hasLink;
-
-  /// Returns true if this [value] has not a link, otherwise false.
-  bool get hasNotLink;
-
-  /// Returns true if this [value] has an entity at least one, otherwise false.
-  bool get hasEntity;
-
-  /// Returns true if this [value] has not an entity, otherwise false.
-  bool get hasNotEntity;
+  /// Returns a new formatted [BlueskyText] based on configs.
+  BlueskyText format();
 
   /// Returns true if this [length] is more than 300 chars,
   /// otherwise false.
@@ -173,315 +149,93 @@ sealed class BlueskyText {
 
   /// Returns true if this [value] is not empty, otherwise false.
   bool get isNotEmpty;
+
+  /// Returns true if this text contains only emoji, otherwise false.
+  bool get isEmojiOnly;
+
+  /// Returns true if this text not contains only emoji, otherwise false.
+  bool get isNotEmojiOnly;
 }
 
 final class _BlueskyText implements BlueskyText {
   /// Returns the new instance of [_BlueskyText].
-  _BlueskyText(this.value) : _bytes = Uint8List.fromList(utf8.encode(value));
+  const _BlueskyText(
+    this.value, {
+    bool enableMarkdown = true,
+    LinkConfig? linkConfig,
+    Replacements? replacements,
+  })  : _enableMarkdown = enableMarkdown,
+        _linkConfig = linkConfig,
+        _replacements = replacements;
 
-  /// The byte representation of this [value].
-  final Uint8List _bytes;
+  final bool _enableMarkdown;
+  final LinkConfig? _linkConfig;
+  final Replacements? _replacements;
 
   @override
   final String value;
 
   @override
-  int get length => value.characters.length;
+  int get length => utils.getGraphemeLength(value);
 
   @override
-  Entities get handles => Entities(
-        _orderByIndicesStart(
-          _getEntities(
-            ['@'],
-            regexHandle,
-            (value, start, end) => _createEntity(
-              EntityType.handle,
-              value,
-              start,
-              end,
-            ),
-          ),
+  Entities get handles => Entities(handlesExtractor.execute(this));
+
+  @override
+  Entities get links => Entities(linksExtractor.execute(
+        this,
+        ExtractorConfig(
+          replacements: _replacements,
+          enableMarkdown: _enableMarkdown,
         ),
-      );
+      ));
 
   @override
-  Entities get links => Entities(
-        _orderByIndicesStart(
-          _getEntities(
-            ['http:', 'https:'],
-            regexLink,
-            (value, start, end) => _createEntity(
-              EntityType.link,
-              value,
-              start,
-              end,
-            ),
-          ),
+  Entities get tags => Entities(tagsExtractor.execute(this));
+
+  @override
+  Entities get entities => Entities(allExtractor.execute(
+        this,
+        ExtractorConfig(
+          handles: handles,
+          replacements: _replacements,
+          enableMarkdown: _enableMarkdown,
         ),
+      ));
+
+  List<LengthExceededEntity> get lengthExceededEntities =>
+      lengthExceededExtractor.execute(
+        this,
+        _replacements,
+        _enableMarkdown,
+        _linkConfig,
       );
 
   @override
-  Entities get entities => Entities(
-        _orderByIndicesStart<Entity>([
-          ...handles,
-          ...links,
-        ]),
-      );
+  BlueskyText format() => _replacements != null
+      ? this //* is already formatted.
+      : formatter.execute(this, _enableMarkdown, _linkConfig).$1;
 
   @override
-  CustomEntities getCustomEntities(
-    final List<EntityCriterion> criteria,
-  ) =>
-      CustomEntities(
-        _orderByIndicesStart(criteria
-            .map(
-              (criterion) => criterion.symbols
-                  .map((symbol) => _getEntities(
-                        [symbol],
-                        criterion.format ?? RegExp(symbol),
-                        (value, start, end) => _createCustomEntity(
-                          symbol,
-                          value,
-                          start,
-                          end,
-                        ),
-                      ))
-                  .expand((e) => e)
-                  .toList(),
-            )
-            .expand((e) => e)
-            .toList()),
-      );
+  List<BlueskyText> split() => splitter.execute(this);
 
   @override
-  List<BlueskyText> split() {
-    if (value.trim().isEmpty) {
-      return [this];
-    }
-
-    if (isNotLengthLimitExceeded) {
-      return [this];
-    }
-
-    final chunk = StringBuffer();
-    final chunks = <BlueskyText>[];
-
-    for (final word in value.split(' ')) {
-      if (word.characters.length > _maxLength) {
-        int i;
-        for (i = 0; i < word.characters.length - _maxLength; i += _maxLength) {
-          final splitWord = word.characters.skip(i).take(_maxLength).toString();
-
-          if (chunk.isNotEmpty) {
-            chunks.add(BlueskyText(chunk.toString()));
-            chunk.clear();
-          }
-
-          chunks.add(BlueskyText(splitWord));
-        }
-
-        final remainingWord = word.characters.skip(i).toString();
-
-        if (chunk.isNotEmpty &&
-            (chunk.length + remainingWord.characters.length + 1) > _maxLength) {
-          chunks.add(BlueskyText(chunk.toString()));
-          chunk.clear();
-        }
-
-        if (chunk.isNotEmpty) {
-          chunk.write(' ');
-        }
-
-        chunk.write(remainingWord);
-      } else {
-        if (chunk.isNotEmpty &&
-            (chunk.length + word.characters.length + 1) > _maxLength) {
-          chunks.add(BlueskyText(chunk.toString()));
-          chunk.clear();
-        }
-
-        if (chunk.isNotEmpty) {
-          chunk.write(' ');
-        }
-
-        chunk.write(word);
-      }
-    }
-
-    if (chunk.isNotEmpty) {
-      chunks.add(BlueskyText(chunk.toString()));
-    }
-
-    return chunks;
-  }
-
-  @override
-  bool get hasHandle => regexHandle.hasMatch(value);
-
-  @override
-  bool get hasNotHandle => !hasHandle;
-
-  @override
-  bool get hasLink => regexLink.hasMatch(value);
-
-  @override
-  bool get hasNotLink => !hasLink;
-
-  @override
-  bool get hasEntity => hasHandle || hasLink;
-
-  @override
-  bool get hasNotEntity => !hasEntity;
-
-  @override
-  bool get isLengthLimitExceeded => _maxLength < length;
+  bool get isLengthLimitExceeded => maxLength < length;
 
   @override
   bool get isNotLengthLimitExceeded => !isLengthLimitExceeded;
 
   @override
-  bool get isEmpty => value.isEmpty;
+  bool get isEmpty => value.trim().isEmpty;
 
   @override
   bool get isNotEmpty => !isEmpty;
 
-  List<E> _getEntities<E extends Facetable>(
-    final List<String> symbols,
-    final RegExp format,
-    E Function(String value, int start, int end) entityBuilder,
-  ) {
-    _ensureLength();
+  @override
+  bool get isEmojiOnly => utils.isEmojiOnly(value);
 
-    final entities = <E>[];
-
-    for (final symbol in symbols) {
-      int index = 0;
-      int searchByteIndex = 0;
-
-      final searchBytes = utf8.encode(symbol);
-
-      while (index < _bytes.length) {
-        bool matched = true;
-        for (int j = 0; j < searchBytes.length; j++) {
-          if (_bytes[index + j] != searchBytes[j]) {
-            matched = false;
-            break;
-          }
-
-          searchByteIndex = j + 1;
-        }
-
-        if (matched) {
-          //! Search end index.
-          while (index + searchByteIndex < _bytes.length &&
-              _bytes[index + searchByteIndex] != 32 && //! Space
-              _bytes[index + searchByteIndex] != 10 && //! \n
-              !(_bytes[index + searchByteIndex] == 13 && //! \r
-                  _bytes[index + searchByteIndex + 1] == 10) && //! \n
-              !(_bytes[index + searchByteIndex] == 0xE3 &&
-                  _bytes[index + searchByteIndex + 1] == 0x80 &&
-                  _bytes[index + searchByteIndex + 2] == 0x80) //! Full-width
-              &&
-              _bytes[index + searchByteIndex] != 39 && //! Single quote
-              _bytes[index + searchByteIndex] != 34) //! Double quote
-          {
-            //! Detect duplicate sequences.
-            if (searchByteIndex > searchBytes.length) {
-              final found = utf8.decode(
-                _bytes.sublist(
-                  index,
-                  index + searchByteIndex,
-                ),
-                allowMalformed: true,
-              );
-
-              if (found.endsWith(symbol)) {
-                searchByteIndex -= searchBytes.length;
-                break;
-              }
-            }
-
-            searchByteIndex++;
-          }
-
-          String value = utf8.decode(_bytes.sublist(
-            index,
-            index + searchByteIndex,
-          ));
-
-          //! Remove unnecessary trails.
-          int valueIndex = value.length - 1;
-
-          while (
-              valueIndex >= 0 && regexPunctuation.hasMatch(value[valueIndex])) {
-            valueIndex--;
-          }
-
-          value = value.substring(0, valueIndex + 1);
-          searchByteIndex = utf8.encode(value).length;
-
-          if (format.hasMatch(value)) {
-            entities.add(entityBuilder.call(
-              value,
-              index,
-              index + searchByteIndex,
-            ));
-          }
-        }
-
-        index++;
-      }
-    }
-
-    return entities;
-  }
-
-  /// Returns the entity.
-  Entity _createEntity(
-    final EntityType type,
-    final String value,
-    final int startIndex,
-    final int endIndex,
-  ) =>
-      Entity(
-        type: type,
-        value: value,
-        indices: ByteIndices(
-          start: startIndex,
-          end: endIndex,
-        ),
-      );
-
-  /// Returns the custom entity.
-  CustomEntity _createCustomEntity(
-    final String symbol,
-    final String value,
-    final int startIndex,
-    final int endIndex,
-  ) =>
-      CustomEntity(
-        symbol: symbol,
-        value: value,
-        indices: ByteIndices(
-          start: startIndex,
-          end: endIndex,
-        ),
-      );
-
-  void _ensureLength() {
-    if (isLengthLimitExceeded) {
-      throw StateError(
-        'The number of characters in text exceeds the limit; '
-        'use split() to split the text.',
-      );
-    }
-  }
-
-  List<E> _orderByIndicesStart<E extends Facetable>(final List<E> entities) =>
-      entities
-        ..sort(
-          (a, b) => a.indices.start.compareTo(b.indices.start),
-        );
+  @override
+  bool get isNotEmojiOnly => !isEmojiOnly;
 
   @override
   String toString() => value;

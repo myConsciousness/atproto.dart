@@ -25,6 +25,9 @@ extension AtUriExtension on core.AtUri {
   /// Returns true if this [collection] is feed generator, otherwise false.
   bool get isFeedGenerator => collection == ids.appBskyFeedGenerator;
 
+  /// Returns true if this [collection] is feed threadgate, otherwise false.
+  bool get isFeedThreadgate => collection == ids.appBskyFeedThreadgate;
+
   /// Returns true if this [collection] is graph follow, otherwise false.
   bool get isGraphFollow => collection == ids.appBskyGraphFollow;
 
@@ -33,6 +36,9 @@ extension AtUriExtension on core.AtUri {
 
   /// Returns true if this [collection] is graph list, otherwise false.
   bool get isGraphList => collection == ids.appBskyGraphList;
+
+  /// Returns true if this [collection] is graph block list, otherwise false.
+  bool get isGraphBlockList => collection == ids.appBskyGraphListblock;
 
   /// Returns true if this [collection] is graph block, otherwise false.
   bool get isGraphListItem => collection == ids.appBskyGraphListitem;
@@ -52,6 +58,9 @@ extension AtUriExtension on core.AtUri {
   /// Returns true if this [collection] is not feed generator, otherwise false.
   bool get isNotFeedGenerator => !isFeedGenerator;
 
+  /// Returns true if this [collection] is not feed threadgate, otherwise false.
+  bool get isNotFeedThreadgate => !isFeedThreadgate;
+
   /// Returns true if this [collection] is not graph follow, otherwise false.
   bool get isNotGraphFollow => !isGraphFollow;
 
@@ -60,6 +69,10 @@ extension AtUriExtension on core.AtUri {
 
   /// Returns true if this [collection] is not graph list, otherwise false.
   bool get isNotGraphList => !isGraphList;
+
+  /// Returns true if this [collection] is not graph block list, otherwise
+  /// false.
+  bool get isNotGraphBlockList => !isGraphBlockList;
 
   /// Returns true if this [collection] is not graph block, otherwise false.
   bool get isNotGraphListItem => !isGraphListItem;

@@ -44,6 +44,9 @@ mixin _$PostRecord {
   /// Might include any associated facets.
   List<Facet>? get facets => throw _privateConstructorUsedError;
 
+  /// Additional non-inline tags describing this post.
+  List<String>? get tags => throw _privateConstructorUsedError;
+
   /// The timestamp indicating when the post was created.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -67,6 +70,7 @@ abstract class $PostRecordCopyWith<$Res> {
       List<String>? langs,
       @labelsConverter Labels? labels,
       List<Facet>? facets,
+      List<String>? tags,
       DateTime createdAt});
 
   $PostRefCopyWith<$Res>? get reply;
@@ -94,6 +98,7 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
     Object? langs = freezed,
     Object? labels = freezed,
     Object? facets = freezed,
+    Object? tags = freezed,
     Object? createdAt = null,
   }) {
     return _then(_value.copyWith(
@@ -125,6 +130,10 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
           ? _value.facets
           : facets // ignore: cast_nullable_to_non_nullable
               as List<Facet>?,
+      tags: freezed == tags
+          ? _value.tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -185,6 +194,7 @@ abstract class _$$_PostRecordCopyWith<$Res>
       List<String>? langs,
       @labelsConverter Labels? labels,
       List<Facet>? facets,
+      List<String>? tags,
       DateTime createdAt});
 
   @override
@@ -213,6 +223,7 @@ class __$$_PostRecordCopyWithImpl<$Res>
     Object? langs = freezed,
     Object? labels = freezed,
     Object? facets = freezed,
+    Object? tags = freezed,
     Object? createdAt = null,
   }) {
     return _then(_$_PostRecord(
@@ -244,6 +255,10 @@ class __$$_PostRecordCopyWithImpl<$Res>
           ? _value._facets
           : facets // ignore: cast_nullable_to_non_nullable
               as List<Facet>?,
+      tags: freezed == tags
+          ? _value._tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -264,9 +279,11 @@ class _$_PostRecord implements _PostRecord {
       final List<String>? langs,
       @labelsConverter this.labels,
       final List<Facet>? facets,
+      final List<String>? tags,
       required this.createdAt})
       : _langs = langs,
-        _facets = facets;
+        _facets = facets,
+        _tags = tags;
 
   factory _$_PostRecord.fromJson(Map<String, dynamic> json) =>
       _$$_PostRecordFromJson(json);
@@ -320,13 +337,26 @@ class _$_PostRecord implements _PostRecord {
     return EqualUnmodifiableListView(value);
   }
 
+  /// Additional non-inline tags describing this post.
+  final List<String>? _tags;
+
+  /// Additional non-inline tags describing this post.
+  @override
+  List<String>? get tags {
+    final value = _tags;
+    if (value == null) return null;
+    if (_tags is EqualUnmodifiableListView) return _tags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   /// The timestamp indicating when the post was created.
   @override
   final DateTime createdAt;
 
   @override
   String toString() {
-    return 'PostRecord(type: $type, text: $text, reply: $reply, embed: $embed, langs: $langs, labels: $labels, facets: $facets, createdAt: $createdAt)';
+    return 'PostRecord(type: $type, text: $text, reply: $reply, embed: $embed, langs: $langs, labels: $labels, facets: $facets, tags: $tags, createdAt: $createdAt)';
   }
 
   @override
@@ -341,6 +371,7 @@ class _$_PostRecord implements _PostRecord {
             const DeepCollectionEquality().equals(other._langs, _langs) &&
             (identical(other.labels, labels) || other.labels == labels) &&
             const DeepCollectionEquality().equals(other._facets, _facets) &&
+            const DeepCollectionEquality().equals(other._tags, _tags) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
   }
@@ -356,6 +387,7 @@ class _$_PostRecord implements _PostRecord {
       const DeepCollectionEquality().hash(_langs),
       labels,
       const DeepCollectionEquality().hash(_facets),
+      const DeepCollectionEquality().hash(_tags),
       createdAt);
 
   @JsonKey(ignore: true)
@@ -381,6 +413,7 @@ abstract class _PostRecord implements PostRecord {
       final List<String>? langs,
       @labelsConverter final Labels? labels,
       final List<Facet>? facets,
+      final List<String>? tags,
       required final DateTime createdAt}) = _$_PostRecord;
 
   factory _PostRecord.fromJson(Map<String, dynamic> json) =
@@ -417,6 +450,10 @@ abstract class _PostRecord implements PostRecord {
 
   /// Might include any associated facets.
   List<Facet>? get facets;
+  @override
+
+  /// Additional non-inline tags describing this post.
+  List<String>? get tags;
   @override
 
   /// The timestamp indicating when the post was created.

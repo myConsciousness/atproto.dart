@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.2
+
+- Override `==` and `hashCode`. ([#797](https://github.com/myConsciousness/atproto.dart/issues/797))
+
 ## v0.2.1
 
 - Improved documents. ([#677](https://github.com/myConsciousness/atproto.dart/issues/677))

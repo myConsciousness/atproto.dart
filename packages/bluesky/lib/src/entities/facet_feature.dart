@@ -10,6 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import 'facet_link.dart';
 import 'facet_mention.dart';
+import 'facet_tag.dart';
 
 part 'facet_feature.freezed.dart';
 
@@ -34,6 +35,12 @@ class FacetFeature with _$FacetFeature {
   const factory FacetFeature.link({
     required FacetLink data,
   }) = UFacetFeatureLink;
+
+  /// This constructor is used when the feature is a tag.
+  /// It takes a [FacetTag] object which provides the details of the tag.
+  const factory FacetFeature.tag({
+    required FacetTag data,
+  }) = UFacetFeatureTag;
 
   /// This constructor is used when the feature's type is unknown or not
   /// expected.

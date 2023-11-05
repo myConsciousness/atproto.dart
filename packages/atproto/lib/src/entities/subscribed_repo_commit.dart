@@ -2,7 +2,10 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: invalid_annotation_target
+
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -21,6 +24,7 @@ class SubscribedRepoCommit with _$SubscribedRepoCommit {
   /// Creates a new instance of [SubscribedRepoCommit].
   ///
   /// All parameters are required.
+  @jsonSerializable
   const factory SubscribedRepoCommit({
     /// List of repository operations included in this commit.
     required List<RepoOp> ops,
@@ -31,6 +35,12 @@ class SubscribedRepoCommit with _$SubscribedRepoCommit {
 
     /// The sequence number of this commit.
     @JsonKey(name: 'seq') required int cursor,
+
+    /// The rev of the emitted commit.
+    required String rev,
+
+    /// The rev of the last emitted commit from this repo.
+    String? since,
 
     /// Flag to indicate if the commit was a rebase.
     @JsonKey(name: 'rebase') required bool isRebase,

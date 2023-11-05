@@ -15,6 +15,28 @@ import 'package:bluesky/src/notifications/notifications_service.dart';
 import 'package:bluesky/src/unspecced/unspecced_service.dart';
 
 void main() {
+  group('.session', () {
+    test('fromSession', () {
+      final session = Session(
+        did: 'aaaa',
+        handle: 'bbbbb',
+        accessJwt: 'cccccc',
+        refreshJwt: 'ddddddd',
+      );
+
+      final atproto = ATProto.fromSession(session);
+
+      expect(atproto.session != null, isTrue);
+      expect(atproto.session, session);
+    });
+
+    test('anonymous', () {
+      final atproto = ATProto.anonymous();
+
+      expect(atproto.session == null, isTrue);
+    });
+  });
+
   test('.actors', () {
     final service = Bluesky.fromSession(Session(
       did: 'aaaa',

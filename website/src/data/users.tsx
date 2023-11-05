@@ -82,11 +82,11 @@ const Users: User[] = [
     tags: ['mobile'],
   },
   {
-    title: 'BlueskyDeck',
-    author: 'blueskydeck.com',
+    title: 'DeckBlue',
+    author: 'deck.blue',
     description: 'A multi-column web app that aims to be a TweetDeck Alternative for Bluesky. The timeline flows in real time.',
     preview: require('./showcase/BlueskyDeck.png'),
-    website: 'https://blueskydeck.com',
+    website: 'https://deck.blue',
     source: null,
     tags: ['web'],
   },
@@ -98,6 +98,15 @@ const Users: User[] = [
     website: 'https://colab.research.google.com/drive/1XI-kQNAf5udLCWTI3qtIHEAN7wjYJOz-?usp=drive_link',
     source: 'https://colab.research.google.com/drive/1XI-kQNAf5udLCWTI3qtIHEAN7wjYJOz-?usp=drive_link',
     tags: ['console'],
+  },
+  {
+    title: 'SkyClad',
+    author: 'igz0.bsky.social',
+    description: 'An experimental ATP/Bluesky client app for iOS and Android by Flutter.',
+    preview: require('./showcase/SkyClad.png'),
+    website: 'https://testflight.apple.com/join/TUCMYXnq',
+    source: 'https://github.com/igz0/skyclad',
+    tags: ['mobile'],
   },
 ];
 

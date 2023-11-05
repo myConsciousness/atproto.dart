@@ -17,6 +17,7 @@ sealed class BlueskyService {
   /// Returns the new instance of [BlueskyService].
   factory BlueskyService({
     required atp.ATProto atproto,
+    required String did,
     required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
@@ -25,6 +26,7 @@ sealed class BlueskyService {
   }) =>
       _BlueskyService(
         atproto: atproto,
+        did: did,
         protocol: protocol,
         service: service,
         context: context,
@@ -61,12 +63,16 @@ sealed class BlueskyService {
 
   /// Returns the sync service.
   atp.SyncService get sync;
+
+  /// Returns the labels service.
+  atp.LabelsService get labels;
 }
 
 final class _BlueskyService implements BlueskyService {
   /// Returns the new instance of [_BlueskyService].
   _BlueskyService({
     required atp.ATProto atproto,
+    required String did,
     required core.Protocol protocol,
     required String service,
     required core.ClientContext context,
@@ -74,6 +80,7 @@ final class _BlueskyService implements BlueskyService {
     final core.PostClient? mockedPostClient,
   })  : actors = ActorsService(
           atproto: atproto,
+          did: did,
           protocol: protocol,
           service: service,
           context: context,
@@ -82,6 +89,7 @@ final class _BlueskyService implements BlueskyService {
         ),
         feeds = FeedsService(
           atproto: atproto,
+          did: did,
           protocol: protocol,
           service: service,
           context: context,
@@ -90,6 +98,7 @@ final class _BlueskyService implements BlueskyService {
         ),
         notifications = NotificationsService(
           atproto: atproto,
+          did: did,
           protocol: protocol,
           service: service,
           context: context,
@@ -98,6 +107,7 @@ final class _BlueskyService implements BlueskyService {
         ),
         graphs = GraphsService(
           atproto: atproto,
+          did: did,
           protocol: protocol,
           service: service,
           context: context,
@@ -106,6 +116,7 @@ final class _BlueskyService implements BlueskyService {
         ),
         unspecced = UnspeccedService(
           atproto: atproto,
+          did: did,
           protocol: protocol,
           service: service,
           context: context,
@@ -116,7 +127,8 @@ final class _BlueskyService implements BlueskyService {
         identities = atproto.identities,
         repositories = atproto.repositories,
         moderation = atproto.moderation,
-        sync = atproto.sync;
+        sync = atproto.sync,
+        labels = atproto.labels;
 
   @override
   final ActorsService actors;
@@ -147,4 +159,7 @@ final class _BlueskyService implements BlueskyService {
 
   @override
   final atp.SyncService sync;
+
+  @override
+  final atp.LabelsService labels;
 }

@@ -32,6 +32,9 @@ class Account with _$Account {
 
     /// The decentralized identifier for the user.
     required String did,
+
+    /// DID plc document.
+    Map<String, dynamic>? didDoc,
   }) = _Account;
 
   /// A method fromJson that takes a map in JSON format as input,

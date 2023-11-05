@@ -4,6 +4,8 @@
 
 // 🎯 Dart imports:
 import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
 
 // 📦 Package imports:
 import 'package:bluesky_text/bluesky_text.dart';
@@ -23,6 +25,12 @@ class PostCommand extends CreateRecordCommand {
         defaultsTo: '',
       )
       ..addOption(
+        'images',
+        help:
+            'Comma-separated collection of image paths to attach to the post.',
+        defaultsTo: null,
+      )
+      ..addOption(
         'langs',
         help: 'A collection of well-formed BCP47 language tags in CSV format.',
         defaultsTo: null,
@@ -30,6 +38,11 @@ class PostCommand extends CreateRecordCommand {
       ..addOption(
         'labels',
         help: 'A collection of self labels in CSV format.',
+        defaultsTo: null,
+      )
+      ..addOption(
+        'tags',
+        help: 'Additional non-inline tags describing this post.',
         defaultsTo: null,
       )
       ..addOption(
@@ -46,7 +59,8 @@ class PostCommand extends CreateRecordCommand {
   String get description => 'Post to Bluesky Social.';
 
   @override
-  final String invocation = 'bsky post [text] [langs] [labels] [created-at]';
+  final String invocation =
+      'bsky post [text] [images] [langs] [labels] [tags] [created-at]';
 
   @override
   xrpc.NSID get collection => xrpc.NSID.create(
@@ -61,9 +75,17 @@ class PostCommand extends CreateRecordCommand {
 
     final record = {
       'text': text.value,
-      'facets': await entities.toFacets(),
+      'facets': await entities.toFacets(service: service),
       'createdAt': argResults!['created-at'],
     };
+
+    final images = await _uploadImages();
+    if (images.isNotEmpty) {
+      record['embed'] = {
+        r'$type': 'app.bsky.embed.images',
+        'images': images,
+      };
+    }
 
     final langs = _langs;
     if (langs != null) {
@@ -75,6 +97,11 @@ class PostCommand extends CreateRecordCommand {
       record['labels'] = labels;
     }
 
+    final tags = _tags;
+    if (tags != null) {
+      record['tags'] = tags;
+    }
+
     return record;
   }
 
@@ -83,9 +110,19 @@ class PostCommand extends CreateRecordCommand {
       return null;
     }
 
-    final String langs = argResults!['langs'];
+    final langs = argResults!['langs'];
 
     return langs.split(',');
+  }
+
+  List<String>? get _tags {
+    if (argResults!['tags'] == null) {
+      return null;
+    }
+
+    final tags = argResults!['tags'];
+
+    return tags.split(',');
   }
 
   Map<String, dynamic>? get _labels {
@@ -107,5 +144,25 @@ class PostCommand extends CreateRecordCommand {
           )
           .toList(),
     };
+  }
+
+  Future<List<Map<String, dynamic>>> _uploadImages() async {
+    if (argResults!['images'] == null) {
+      return const [];
+    }
+
+    final images = <Map<String, dynamic>>[];
+    for (final image in argResults!['images'].split(',')) {
+      final uploaded = await upload(File(image));
+
+      final blob = jsonDecode(uploaded.data);
+
+      images.add({
+        'alt': '',
+        'image': blob['blob'],
+      });
+    }
+
+    return images;
   }
 }

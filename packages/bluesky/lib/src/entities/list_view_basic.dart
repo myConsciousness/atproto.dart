@@ -9,6 +9,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'defaults.dart';
 import 'keys/ids.g.dart';
 import 'list_viewer.dart';
 
@@ -51,7 +52,7 @@ class ListViewBasic with _$ListViewBasic {
     String? avatar,
 
     /// The viewer of the list.
-    required ListViewer viewer,
+    @Default(defaultListViewer) ListViewer viewer,
 
     /// The date of the indexing of the list.
     required DateTime indexedAt,
@@ -64,7 +65,17 @@ class ListViewBasic with _$ListViewBasic {
   factory ListViewBasic.fromJson(Map<String, Object?> json) =>
       _$ListViewBasicFromJson(json);
 
+  /// Returns true if authenticated user has muted this actor,
+  /// otherwise false.
+  bool get isMuted => viewer.isMuted;
+
   /// Returns true if authenticated user has not muted yet this actor,
   /// otherwise false.
-  bool get isNotMuted => viewer.isNotMuted;
+  bool get isNotMuted => !isMuted;
+
+  /// Returns true if this list is blocked, otherwise false.
+  bool get isBlocked => viewer.isBlocked;
+
+  /// Returns true if this list is not blocked, otherwise false.
+  bool get isNotBlocked => !isBlocked;
 }

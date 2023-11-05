@@ -1,5 +1,35 @@
 # Release Note
 
+## v0.5.9
+
+- Added `.deleteSession` function. ([#963](https://github.com/myConsciousness/atproto.dart/issues/963))
+- Added `didDoc` field on `Session` object. ([#968](https://github.com/myConsciousness/atproto.dart/issues/968))
+
+## v0.5.8
+
+- Upgraded `xrpc` package.
+
+## v0.5.7
+
+- Added `isEmailConfirmed` field on `Session`. ([#856](https://github.com/myConsciousness/atproto.dart/issues/856))
+
+## v0.5.6
+
+- Upgraded `xrpc` package. Fixed field names for rate limit.
+
+## v0.5.5
+
+- Upgraded `at_uri`. ([#797](https://github.com/myConsciousness/atproto.dart/issues/797))
+
+## v0.5.4
+
+- Added `.accessToken` and `.refreshToken` properties on `Session` object. You can get decoded token objects based on JWT tokens. Also you can decode JWT token with `decodeJwt` function. ([#787](https://github.com/myConsciousness/atproto.dart/issues/787))
+
+## v0.5.3
+
+- Added `Platform` enum. ([#709](https://github.com/myConsciousness/atproto.dart/issues/709))
+- Added `isValidAppPassword` function. ([#713](https://github.com/myConsciousness/atproto.dart/issues/713))
+
 ## v0.5.2
 
 - Moved `Session` object and `createSession` function from `atproto`. And exposed `refreshSession` as a function. ([#686](https://github.com/myConsciousness/atproto.dart/issues/686))

@@ -2,6 +2,9 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
+import 'dart:typed_data';
+
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 
@@ -11,11 +14,11 @@ import '../adaptor/repo_commit_adaptor.dart';
 import '../adaptor/repo_commits_adaptor.dart';
 import '../adaptor/subscribe_repo_updates_adaptor.dart';
 import '../atproto_base_service.dart';
+import '../entities/blob_refs.dart';
 import '../entities/repo_blocks.dart';
 import '../entities/repo_commit.dart';
-import '../entities/repo_commit_paths.dart';
 import '../entities/repo_commits.dart';
-import '../entities/repo_head.dart';
+import '../entities/repo_latest_commit.dart';
 import '../entities/repos.dart';
 import '../entities/subscribed_repo.dart';
 
@@ -56,7 +59,7 @@ sealed class SyncService {
     int? cursor,
   });
 
-  /// Gets the repo commits.
+  /// Gets the did's repo, optionally catching up from a specific revision.
   ///
   /// Response data available from this endpoint is unsorted.
   ///
@@ -71,10 +74,7 @@ sealed class SyncService {
   ///
   /// - [did]: The DID of the repo.
   ///
-  /// - [earliestCommitCid]: The earliest commit in the commit range
-  ///                        (not inclusive).
-  ///
-  /// - [latestCommitCid]: The latest commit in the commit range (inclusive).
+  /// - [sinceCommitCid]: The revision of the repo to catch up from.
   ///
   /// - [progress]: When the amount of data to be processed is large,
   ///               this callback can be used to check the progress of
@@ -89,12 +89,12 @@ sealed class SyncService {
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getRepo.json
   Future<core.XRPCResponse<RepoCommits>> findRepoCommits({
     required String did,
-    String? earliestCommitCid,
-    String? latestCommitCid,
+    String? sinceCommitCid,
     core.ProgressStatus? progress,
   });
 
-  /// Gets the repo commits in JSON representation.
+  /// Gets the did's repo, optionally catching up from a specific revision
+  /// as JSON representation.
   ///
   /// Response data available from this endpoint is unsorted.
   ///
@@ -115,10 +115,7 @@ sealed class SyncService {
   ///
   /// - [did]: The DID of the repo.
   ///
-  /// - [earliestCommitCid]: The earliest commit in the commit range
-  ///                        (not inclusive).
-  ///
-  /// - [latestCommitCid]: The latest commit in the commit range (inclusive).
+  /// - [sinceCommitCid]: The revision of the repo to catch up from.
   ///
   /// - [progress]: When the amount of data to be processed is large,
   ///               this callback can be used to check the progress of
@@ -133,64 +130,8 @@ sealed class SyncService {
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getRepo.json
   Future<core.XRPCResponse<Map<String, dynamic>>> findRepoCommitsAsJson({
     required String did,
-    String? earliestCommitCid,
-    String? latestCommitCid,
+    String? sinceCommitCid,
     core.ProgressStatus? progress,
-  });
-
-  /// Gets the path of repo commits.
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The DID of the repo.
-  ///
-  /// - [earliestCommitCid]: The earliest commit in the commit range
-  ///                        (not inclusive).
-  ///
-  /// - [latestCommitCid]: The latest commit in the commit range (inclusive).
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.getCommitPath
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getCommitPath.json
-  Future<core.XRPCResponse<RepoCommitPaths>> findRepoCommitPaths({
-    required String did,
-    String? earliestCommitCid,
-    String? latestCommitCid,
-  });
-
-  /// Gets the path of repo commits in JSON representation.
-  ///
-  ///
-  /// This method does not convert response data into a [RepoCommitPaths]
-  /// object, so this may improve runtime performance.
-  ///
-  /// If you want to get it as a [RepoCommitPaths] object,
-  /// use [findRepoCommitPaths].
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The DID of the repo.
-  ///
-  /// - [earliestCommitCid]: The earliest commit in the commit range
-  ///                        (not inclusive).
-  ///
-  /// - [latestCommitCid]: The latest commit in the commit range (inclusive).
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.getCommitPath
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getCommitPath.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRepoCommitPathsAsJson({
-    required String did,
-    String? earliestCommitCid,
-    String? latestCommitCid,
   });
 
   /// Gets blocks from a given repo.
@@ -239,77 +180,7 @@ sealed class SyncService {
     required List<String> commitCids,
   });
 
-  /// Gets the repo state.
-  ///
-  /// This endpoint also retrieves information on all commits made by the
-  /// Repo associated with a particular DID. This means that depending on
-  /// the target Repo to be retrieved, a very data-intensive Car may need to be
-  /// decoded, and this process may take several minutes or more. At this time,
-  /// the [progress] callback can be used to check how much data has been
-  /// processed at this time.
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The DID of the repo.
-  ///
-  /// - [commit]: The commit to get the checkout from. Defaults to current HEAD.
-  ///
-  /// - [progress]: When the amount of data to be processed is large,
-  ///               this callback can be used to check the progress of
-  ///               processing.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.getCheckout
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getCheckout.json
-  Future<core.XRPCResponse<RepoCommits>> findRepoCheckout({
-    required String did,
-    String? commitCid,
-    core.ProgressStatus? progress,
-  });
-
-  /// Gets the repo state in JSON representation.
-  ///
-  /// This endpoint also retrieves information on all commits made by the
-  /// Repo associated with a particular DID. This means that depending on
-  /// the target Repo to be retrieved, a very data-intensive Car may need to be
-  /// decoded, and this process may take several minutes or more. At this time,
-  /// the [progress] callback can be used to check how much data has been
-  /// processed at this time.
-  ///
-  /// This method does not convert response data into a [RepoCommits] object,
-  /// so this may improve runtime performance.
-  ///
-  /// If you want to get it as a [RepoCommits] object,
-  /// use [findRepoCheckout].
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The DID of the repo.
-  ///
-  /// - [commit]: The commit to get the checkout from. Defaults to current HEAD.
-  ///
-  /// - [progress]: When the amount of data to be processed is large,
-  ///               this callback can be used to check the progress of
-  ///               processing.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.getCheckout
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getCheckout.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRepoCheckoutAsJson({
-    required String did,
-    String? commitCid,
-    core.ProgressStatus? progress,
-  });
-
-  /// Gets the current HEAD CID of a repo.
+  /// Gets the current commit CID & revision of the repo.
   ///
   /// ## Parameters
   ///
@@ -317,22 +188,22 @@ sealed class SyncService {
   ///
   /// ## Lexicon
   ///
-  /// - com.atproto.sync.getHead
+  /// - com.atproto.sync.getLatestCommit
   ///
   /// ## Reference
   ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getHead.json
-  Future<core.XRPCResponse<RepoHead>> findRepoHead({
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getLatestCommit.json
+  Future<core.XRPCResponse<RepoLatestCommit>> findLatestCommit({
     required String did,
   });
 
-  /// Gets the current HEAD CID of a repo in JSON representation.
+  /// Gets the current commit CID & revision of the repo.
   ///
-  /// This method does not convert response data into a [RepoHead] object,
-  /// so this may improve runtime performance.
+  /// This method does not convert response data into a [RepoLatestCommit]
+  /// object, so this may improve runtime performance.
   ///
-  /// If you want to get it as a [RepoHead] object,
-  /// use [findRepoHead].
+  /// If you want to get it as a [RepoLatestCommit] object,
+  /// use [findLatestCommit].
   ///
   /// ## Parameters
   ///
@@ -340,12 +211,12 @@ sealed class SyncService {
   ///
   /// ## Lexicon
   ///
-  /// - com.atproto.sync.getHead
+  /// - com.atproto.sync.getLatestCommit
   ///
   /// ## Reference
   ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getHead.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRepoHeadAsJson({
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getLatestCommit.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findLatestCommitAsJson({
     required String did,
   });
 
@@ -524,6 +395,135 @@ sealed class SyncService {
   Future<core.XRPCResponse<core.EmptyData>> requestCrawl({
     required String hostname,
   });
+
+  /// Get a blob associated with a given repo.
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: The DID of the repo.
+  ///
+  /// - [cid]: The CID of the blob to fetch.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.getBlob
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getBlob.json
+  Future<core.XRPCResponse<Uint8List>> findBlob({
+    required String did,
+    required String cid,
+  });
+
+  /// Get a blob associated with a given repo.
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: The DID of the repo.
+  ///
+  /// - [sinceCid]: Optional revision of the repo to list blobs since.
+  ///
+  /// - [limit]: The size of blobs to be fetched.
+  ///            Defaults to 500. From 1 to 1000.
+  ///
+  /// - [cursor]: The pagination cursor.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.listBlobs
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listBlobs.json
+  Future<core.XRPCResponse<BlobRefs>> findBlobs({
+    required String did,
+    String? sinceCid,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Get a blob associated with a given repo as JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: The DID of the repo.
+  ///
+  /// - [sinceCid]: Optional revision of the repo to list blobs since.
+  ///
+  /// - [limit]: The size of blobs to be fetched.
+  ///            Defaults to 500. From 1 to 1000.
+  ///
+  /// - [cursor]: The pagination cursor.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.listBlobs
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listBlobs.json
+  Future<core.XRPCResponse<Map<String, dynamic>>> findBlobsAsJson({
+    required String did,
+    String? sinceCid,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination to get a blob associated with a given repo.
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: The DID of the repo.
+  ///
+  /// - [sinceCid]: Optional revision of the repo to list blobs since.
+  ///
+  /// - [limit]: The size of blobs to be fetched.
+  ///            Defaults to 500. From 1 to 1000.
+  ///
+  /// - [cursor]: The pagination cursor.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.listBlobs
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listBlobs.json
+  core.Pagination<BlobRefs> paginateBlobs({
+    required String did,
+    String? sinceCid,
+    int? limit,
+    String? cursor,
+  });
+
+  /// Returns a pagination to get a blob associated with a given repo as
+  /// JSON representation.
+  ///
+  /// ## Parameters
+  ///
+  /// - [did]: The DID of the repo.
+  ///
+  /// - [sinceCid]: Optional revision of the repo to list blobs since.
+  ///
+  /// - [limit]: The size of blobs to be fetched.
+  ///            Defaults to 500. From 1 to 1000.
+  ///
+  /// - [cursor]: The pagination cursor.
+  ///
+  /// ## Lexicon
+  ///
+  /// - com.atproto.sync.listBlobs
+  ///
+  /// ## Reference
+  ///
+  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listBlobs.json
+  core.Pagination<Map<String, dynamic>> paginateBlobsAsJson({
+    required String did,
+    String? sinceCid,
+    int? limit,
+    String? cursor,
+  });
 }
 
 final class _SyncService extends ATProtoBaseService implements SyncService {
@@ -555,14 +555,12 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
   @override
   Future<core.XRPCResponse<RepoCommits>> findRepoCommits({
     required String did,
-    String? earliestCommitCid,
-    String? latestCommitCid,
+    String? sinceCommitCid,
     core.ProgressStatus? progress,
   }) async =>
       await _findRepoCommits(
         did: did,
-        earliestCommitCid: earliestCommitCid,
-        latestCommitCid: latestCommitCid,
+        sinceCommitCid: sinceCommitCid,
         progress: progress,
         to: RepoCommits.fromJson,
       );
@@ -570,40 +568,13 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
   @override
   Future<core.XRPCResponse<Map<String, dynamic>>> findRepoCommitsAsJson({
     required String did,
-    String? earliestCommitCid,
-    String? latestCommitCid,
+    String? sinceCommitCid,
     core.ProgressStatus? progress,
   }) async =>
       await _findRepoCommits(
         did: did,
-        earliestCommitCid: earliestCommitCid,
-        latestCommitCid: latestCommitCid,
+        sinceCommitCid: sinceCommitCid,
         progress: progress,
-      );
-
-  @override
-  Future<core.XRPCResponse<RepoCommitPaths>> findRepoCommitPaths({
-    required String did,
-    String? earliestCommitCid,
-    String? latestCommitCid,
-  }) async =>
-      await _findRepoCommitPaths(
-        did: did,
-        earliestCommitCid: earliestCommitCid,
-        latestCommitCid: latestCommitCid,
-        to: RepoCommitPaths.fromJson,
-      );
-
-  @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRepoCommitPathsAsJson({
-    required String did,
-    String? earliestCommitCid,
-    String? latestCommitCid,
-  }) async =>
-      await _findRepoCommitPaths(
-        did: did,
-        earliestCommitCid: earliestCommitCid,
-        latestCommitCid: latestCommitCid,
       );
 
   @override
@@ -628,44 +599,19 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
       );
 
   @override
-  Future<core.XRPCResponse<RepoCommits>> findRepoCheckout({
+  Future<core.XRPCResponse<RepoLatestCommit>> findLatestCommit({
     required String did,
-    String? commitCid,
-    core.ProgressStatus? progress,
   }) async =>
-      await _findRepoCheckout(
+      await _findLatestCommit(
         did: did,
-        commitCid: commitCid,
-        progress: progress,
-        to: RepoCommits.fromJson,
+        to: RepoLatestCommit.fromJson,
       );
 
   @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRepoCheckoutAsJson({
-    required String did,
-    String? commitCid,
-    core.ProgressStatus? progress,
-  }) async =>
-      await _findRepoCheckout(
-        did: did,
-        commitCid: commitCid,
-        progress: progress,
-      );
-
-  @override
-  Future<core.XRPCResponse<RepoHead>> findRepoHead({
+  Future<core.XRPCResponse<Map<String, dynamic>>> findLatestCommitAsJson({
     required String did,
   }) async =>
-      await _findRepoHead(
-        did: did,
-        to: RepoHead.fromJson,
-      );
-
-  @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRepoHeadAsJson({
-    required String did,
-  }) async =>
-      await _findRepoHead(did: did);
+      await _findLatestCommit(did: did);
 
   @override
   Future<core.XRPCResponse<RepoCommit>> findRecord({
@@ -752,10 +698,81 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
         },
       );
 
+  @override
+  Future<core.XRPCResponse<Uint8List>> findBlob({
+    required String did,
+    required String cid,
+  }) async =>
+      await super.get<Uint8List>(
+        'getBlob',
+        parameters: {
+          'did': did,
+          'cid': cid,
+        },
+        userContext: core.UserContext.anonymousOnly,
+      );
+
+  @override
+  Future<core.XRPCResponse<BlobRefs>> findBlobs({
+    required String did,
+    String? sinceCid,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findBlobs(
+        did: did,
+        sinceCid: sinceCid,
+        limit: limit,
+        cursor: cursor,
+        to: BlobRefs.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<Map<String, dynamic>>> findBlobsAsJson({
+    required String did,
+    String? sinceCid,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _findBlobs(
+        did: did,
+        sinceCid: sinceCid,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  core.Pagination<BlobRefs> paginateBlobs({
+    required String did,
+    String? sinceCid,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateBlobs(
+        did: did,
+        sinceCid: sinceCid,
+        limit: limit,
+        cursor: cursor,
+        to: BlobRefs.fromJson,
+      );
+
+  @override
+  core.Pagination<Map<String, dynamic>> paginateBlobsAsJson({
+    required String did,
+    String? sinceCid,
+    int? limit,
+    String? cursor,
+  }) =>
+      _paginateBlobs(
+        did: did,
+        sinceCid: sinceCid,
+        limit: limit,
+        cursor: cursor,
+      );
+
   Future<core.XRPCResponse<T>> _findRepoCommits<T>({
     required String did,
-    required String? earliestCommitCid,
-    required String? latestCommitCid,
+    required String? sinceCommitCid,
     required core.ProgressStatus? progress,
     core.To<T>? to,
   }) async =>
@@ -763,30 +780,12 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
         'getRepo',
         parameters: {
           'did': did,
-          'earliest': earliestCommitCid,
-          'latest': latestCommitCid,
+          'since': sinceCommitCid,
         },
         adaptor: (data) => toRepoCommits(
           data,
           progress,
         ),
-        userContext: core.UserContext.anonymousOnly,
-        to: to,
-      );
-
-  Future<core.XRPCResponse<T>> _findRepoCommitPaths<T>({
-    required String did,
-    required String? earliestCommitCid,
-    required String? latestCommitCid,
-    core.To<T>? to,
-  }) async =>
-      await super.get(
-        'getCommitPath',
-        parameters: {
-          'did': did,
-          'earliest': earliestCommitCid,
-          'latest': latestCommitCid,
-        },
         userContext: core.UserContext.anonymousOnly,
         to: to,
       );
@@ -807,32 +806,12 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
         to: to,
       );
 
-  Future<core.XRPCResponse<T>> _findRepoCheckout<T>({
-    required String did,
-    required String? commitCid,
-    required core.ProgressStatus? progress,
-    core.To<T>? to,
-  }) async =>
-      await super.get(
-        'getCheckout',
-        parameters: {
-          'did': did,
-          'commit': commitCid,
-        },
-        adaptor: (data) => toRepoCommits(
-          data,
-          progress,
-        ),
-        userContext: core.UserContext.anonymousOnly,
-        to: to,
-      );
-
-  Future<core.XRPCResponse<T>> _findRepoHead<T>({
+  Future<core.XRPCResponse<T>> _findLatestCommit<T>({
     required String did,
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getHead',
+        'getLatestCommit',
         parameters: {
           'did': did,
         },
@@ -888,11 +867,62 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
         to: to,
       );
 
+  Future<core.XRPCResponse<T>> _findBlobs<T>({
+    required String did,
+    required String? sinceCid,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) async =>
+      await super.get(
+        'listBlobs',
+        parameters: _buildListBlobsParams(
+          did: did,
+          sinceCid: sinceCid,
+          limit: limit,
+          cursor: cursor,
+        ),
+        userContext: core.UserContext.anonymousOnly,
+        to: to,
+      );
+
+  core.Pagination<T> _paginateBlobs<T>({
+    required String did,
+    required String? sinceCid,
+    required int? limit,
+    required String? cursor,
+    core.To<T>? to,
+  }) =>
+      super.paginate(
+        'listBlobs',
+        parameters: _buildListBlobsParams(
+          did: did,
+          sinceCid: sinceCid,
+          limit: limit,
+          cursor: cursor,
+        ),
+        userContext: core.UserContext.anonymousOnly,
+        to: to,
+      );
+
   Map<String, dynamic> _buildListReposParams({
     required int? limit,
     required String? cursor,
   }) =>
       {
+        'limit': limit,
+        'cursor': cursor,
+      };
+
+  Map<String, dynamic> _buildListBlobsParams({
+    required String did,
+    required String? sinceCid,
+    required int? limit,
+    required String? cursor,
+  }) =>
+      {
+        'did': did,
+        'since': sinceCid,
         'limit': limit,
         'cursor': cursor,
       };

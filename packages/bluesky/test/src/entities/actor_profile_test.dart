@@ -13,6 +13,40 @@ import 'package:bluesky/src/entities/list_view_basic.dart';
 import 'package:bluesky/src/entities/list_viewer.dart';
 
 void main() {
+  group('.isMuted', () {
+    test('when muted', () {
+      final actorProfile = ActorProfile(
+        did: 'xxxxxx',
+        handle: 'shinyakato.dev',
+        followersCount: 0,
+        followsCount: 0,
+        postsCount: 0,
+        viewer: ActorViewer(
+          isMuted: true,
+          isBlockedBy: false,
+        ),
+      );
+
+      expect(actorProfile.isMuted, isTrue);
+    });
+
+    test('when not muted', () {
+      final actorProfile = ActorProfile(
+        did: 'xxxxxx',
+        handle: 'shinyakato.dev',
+        followersCount: 0,
+        followsCount: 0,
+        postsCount: 0,
+        viewer: ActorViewer(
+          isMuted: false,
+          isBlockedBy: false,
+        ),
+      );
+
+      expect(actorProfile.isMuted, isFalse);
+    });
+  });
+
   group('.isNotMuted', () {
     test('when muted', () {
       final actorProfile = ActorProfile(
@@ -44,6 +78,40 @@ void main() {
       );
 
       expect(actorProfile.isNotMuted, isTrue);
+    });
+  });
+
+  group('.isBlockedBy', () {
+    test('when blocked by', () {
+      final actorProfile = ActorProfile(
+        did: 'xxxxxx',
+        handle: 'shinyakato.dev',
+        followersCount: 0,
+        followsCount: 0,
+        postsCount: 0,
+        viewer: ActorViewer(
+          isMuted: false,
+          isBlockedBy: true,
+        ),
+      );
+
+      expect(actorProfile.isBlockedBy, isTrue);
+    });
+
+    test('when not blocked by', () {
+      final actorProfile = ActorProfile(
+        did: 'xxxxxx',
+        handle: 'shinyakato.dev',
+        followersCount: 0,
+        followsCount: 0,
+        postsCount: 0,
+        viewer: ActorViewer(
+          isMuted: false,
+          isBlockedBy: false,
+        ),
+      );
+
+      expect(actorProfile.isBlockedBy, isFalse);
     });
   });
 
@@ -164,6 +232,92 @@ void main() {
       );
 
       expect(actorProfile.isNotMutedByList, isTrue);
+    });
+  });
+
+  group('.isBlockingByList', () {
+    test('when blocking by list', () {
+      final actorProfile = ActorProfile(
+        did: 'xxxxxx',
+        handle: 'shinyakato.dev',
+        followersCount: 0,
+        followsCount: 0,
+        postsCount: 0,
+        viewer: ActorViewer(
+          isMuted: false,
+          isBlockedBy: false,
+          blockingByList: ListViewBasic(
+            uri: AtUri.parse(
+              'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
+            ),
+            cid: 'xxxxxx',
+            name: 'test',
+            viewer: ListViewer(isMuted: false),
+            indexedAt: DateTime.now(),
+          ),
+        ),
+      );
+
+      expect(actorProfile.isBlockingByList, isTrue);
+    });
+
+    test('when not blocking by list', () {
+      final actorProfile = ActorProfile(
+        did: 'xxxxxx',
+        handle: 'shinyakato.dev',
+        followersCount: 0,
+        followsCount: 0,
+        postsCount: 0,
+        viewer: ActorViewer(
+          isMuted: false,
+          isBlockedBy: false,
+        ),
+      );
+
+      expect(actorProfile.isBlockingByList, isFalse);
+    });
+  });
+
+  group('.isNotBlockingByList', () {
+    test('when muted by list', () {
+      final actorProfile = ActorProfile(
+        did: 'xxxxxx',
+        handle: 'shinyakato.dev',
+        followersCount: 0,
+        followsCount: 0,
+        postsCount: 0,
+        viewer: ActorViewer(
+          isMuted: false,
+          isBlockedBy: false,
+          blockingByList: ListViewBasic(
+            uri: AtUri.parse(
+              'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
+            ),
+            cid: 'xxxxxx',
+            name: 'test',
+            viewer: ListViewer(isMuted: false),
+            indexedAt: DateTime.now(),
+          ),
+        ),
+      );
+
+      expect(actorProfile.isNotBlockingByList, isFalse);
+    });
+
+    test('when not blocking by list', () {
+      final actorProfile = ActorProfile(
+        did: 'xxxxxx',
+        handle: 'shinyakato.dev',
+        followersCount: 0,
+        followsCount: 0,
+        postsCount: 0,
+        viewer: ActorViewer(
+          isMuted: false,
+          isBlockedBy: false,
+        ),
+      );
+
+      expect(actorProfile.isNotBlockingByList, isTrue);
     });
   });
 

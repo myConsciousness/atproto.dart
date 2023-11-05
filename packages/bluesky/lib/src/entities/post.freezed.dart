@@ -56,6 +56,9 @@ mixin _$Post {
   /// The labels associated with the post, if any.
   List<Label>? get labels => throw _privateConstructorUsedError;
 
+  /// Additional non-inline tags describing this post.
+  List<String>? get tags => throw _privateConstructorUsedError;
+
   /// The date and time the post was indexed.
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
@@ -81,6 +84,7 @@ abstract class $PostCopyWith<$Res> {
       int likeCount,
       PostViewer viewer,
       List<Label>? labels,
+      List<String>? tags,
       DateTime indexedAt});
 
   $PostRecordCopyWith<$Res> get record;
@@ -113,6 +117,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? likeCount = null,
     Object? viewer = null,
     Object? labels = freezed,
+    Object? tags = freezed,
     Object? indexedAt = null,
   }) {
     return _then(_value.copyWith(
@@ -160,6 +165,10 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
+      tags: freezed == tags
+          ? _value.tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -222,6 +231,7 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       int likeCount,
       PostViewer viewer,
       List<Label>? labels,
+      List<String>? tags,
       DateTime indexedAt});
 
   @override
@@ -254,6 +264,7 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
     Object? likeCount = null,
     Object? viewer = null,
     Object? labels = freezed,
+    Object? tags = freezed,
     Object? indexedAt = null,
   }) {
     return _then(_$_Post(
@@ -301,6 +312,10 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
+      tags: freezed == tags
+          ? _value._tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -320,13 +335,15 @@ class _$_Post extends _Post {
       @atUriConverter required this.uri,
       required this.cid,
       @embedViewConverter this.embed,
-      required this.replyCount,
-      required this.repostCount,
-      required this.likeCount,
-      required this.viewer,
+      this.replyCount = 0,
+      this.repostCount = 0,
+      this.likeCount = 0,
+      this.viewer = defaultPostViewer,
       final List<Label>? labels,
+      final List<String>? tags,
       required this.indexedAt})
       : _labels = labels,
+        _tags = tags,
         super._();
 
   factory _$_Post.fromJson(Map<String, dynamic> json) => _$$_PostFromJson(json);
@@ -360,18 +377,22 @@ class _$_Post extends _Post {
 
   /// The count of replies to the post.
   @override
+  @JsonKey()
   final int replyCount;
 
   /// The count of reposts of the post.
   @override
+  @JsonKey()
   final int repostCount;
 
   /// The count of likes of the post.
   @override
+  @JsonKey()
   final int likeCount;
 
   /// The interaction details of the viewer with the post.
   @override
+  @JsonKey()
   final PostViewer viewer;
 
   /// The labels associated with the post, if any.
@@ -387,13 +408,26 @@ class _$_Post extends _Post {
     return EqualUnmodifiableListView(value);
   }
 
+  /// Additional non-inline tags describing this post.
+  final List<String>? _tags;
+
+  /// Additional non-inline tags describing this post.
+  @override
+  List<String>? get tags {
+    final value = _tags;
+    if (value == null) return null;
+    if (_tags is EqualUnmodifiableListView) return _tags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   /// The date and time the post was indexed.
   @override
   final DateTime indexedAt;
 
   @override
   String toString() {
-    return 'Post(type: $type, record: $record, author: $author, uri: $uri, cid: $cid, embed: $embed, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, viewer: $viewer, labels: $labels, indexedAt: $indexedAt)';
+    return 'Post(type: $type, record: $record, author: $author, uri: $uri, cid: $cid, embed: $embed, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, viewer: $viewer, labels: $labels, tags: $tags, indexedAt: $indexedAt)';
   }
 
   @override
@@ -415,6 +449,7 @@ class _$_Post extends _Post {
                 other.likeCount == likeCount) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
+            const DeepCollectionEquality().equals(other._tags, _tags) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt));
   }
@@ -434,6 +469,7 @@ class _$_Post extends _Post {
       likeCount,
       viewer,
       const DeepCollectionEquality().hash(_labels),
+      const DeepCollectionEquality().hash(_tags),
       indexedAt);
 
   @JsonKey(ignore: true)
@@ -458,11 +494,12 @@ abstract class _Post extends Post {
       @atUriConverter required final AtUri uri,
       required final String cid,
       @embedViewConverter final EmbedView? embed,
-      required final int replyCount,
-      required final int repostCount,
-      required final int likeCount,
-      required final PostViewer viewer,
+      final int replyCount,
+      final int repostCount,
+      final int likeCount,
+      final PostViewer viewer,
       final List<Label>? labels,
+      final List<String>? tags,
       required final DateTime indexedAt}) = _$_Post;
   const _Post._() : super._();
 
@@ -515,6 +552,10 @@ abstract class _Post extends Post {
 
   /// The labels associated with the post, if any.
   List<Label>? get labels;
+  @override
+
+  /// Additional non-inline tags describing this post.
+  List<String>? get tags;
   @override
 
   /// The date and time the post was indexed.

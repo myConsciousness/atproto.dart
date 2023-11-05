@@ -49,7 +49,7 @@ Have you ever had trouble parsing mentions or links in the text you post when us
 
 **_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) to activate this project!_**
 
-![github_star](https://github.com/myConsciousness/atproto.dart/assets/13072231/c4a9b0b9-6ea4-42f1-823b-3b9e7cdb8b04)
+![github_star](https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/give_a_star.gif)
 
 - **[Official Documents](https://atprotodart.com/docs/packages/bluesky_text)**
 - **[GitHub Repository](https://github.com/myConsciousness/atproto.dart)**
@@ -57,12 +57,13 @@ Have you ever had trouble parsing mentions or links in the text you post when us
 ## 1.1. Features ⭐
 
 - ✅ **Zero Dependency**
-- ✅ **Automatic Detection of `Handle` and `Link`** in text
+- ✅ **Automatic Detection of `Handle`, `Link`, `Tag`** in text
 - ✅ Supports **Automatic Conversion** to **Facet**
 - ✅ **100% Compatible with [bluesky](https://atprotodart.com/docs/packages/bluesky)**
-- ✅ Allows **Extraction of Custom Entities**
 - ✅ Supports **Unicode Grapheme Clusters**
-- ✅ Support for **Safe Text Splitting**
+- ✅ Supports **Safe Text Splitting**
+- ✅ **Works in All Languages**
+- ✅ Supports **Markdown Style Links**
 - ✅ **Well Documented** and **Well Tested**
 - ✅ **100% Null Safety**
 
@@ -74,14 +75,13 @@ See **[example](https://github.com/myConsciousness/atproto.dart/blob/main/packag
 - **[Import](https://atprotodart.com/docs/packages/bluesky_text#import)**
 - **[Instantiate `BlueskyText`](https://atprotodart.com/docs/packages/bluesky_text#import)**
 - **[Extract Entities](https://atprotodart.com/docs/packages/bluesky_text#extract-entities)**
-- **[Extract Entities](https://atprotodart.com/docs/packages/bluesky_text#generate-facets)**
+- **[Generate Facets](https://atprotodart.com/docs/packages/bluesky_text#generate-facets)**
 
 ## 1.3. Tips 🏄
 
 - **[Unicode Grapheme Clusters](https://atprotodart.com/docs/packages/bluesky_text#unicode-grapheme-clusters)**
 - **[Use with `bluesky`](https://atprotodart.com/docs/packages/bluesky_text#use-with-bluesky)**
 - **[Split Text](https://atprotodart.com/docs/packages/bluesky_text#split-text)**
-- **[Custom Entity](https://atprotodart.com/docs/packages/bluesky_text#custom-entity)**
 
 ## 1.4. Contribution 🏆
 

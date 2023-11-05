@@ -12,6 +12,7 @@ import 'package:bluesky/src/entities/adaptor/repo_commit_adaptor.dart';
 import 'package:bluesky/src/entities/adaptor/repo_commit_create.dart';
 import 'package:bluesky/src/entities/adaptor/repo_commit_delete.dart';
 import 'package:bluesky/src/entities/adaptor/repo_commit_update.dart';
+import 'package:bluesky/src/entities/block_list_record.dart';
 import 'package:bluesky/src/entities/block_record.dart';
 import 'package:bluesky/src/entities/follow_record.dart';
 import 'package:bluesky/src/entities/generator_record.dart';
@@ -21,6 +22,7 @@ import 'package:bluesky/src/entities/list_record.dart';
 import 'package:bluesky/src/entities/post_record.dart';
 import 'package:bluesky/src/entities/profile_record.dart';
 import 'package:bluesky/src/entities/repost_record.dart';
+import 'package:bluesky/src/entities/threadgate_record.dart';
 
 void main() {
   group('.onCreatePost', () {
@@ -219,6 +221,70 @@ void main() {
 
       final adaptor = RepoCommitAdaptor(
         onCreateGenerator: (data) {
+          result = true;
+        },
+      );
+
+      adaptor.execute(
+        _buildSubscribedRepoCommit(
+          _buildCreateRepoOp(
+            'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.feed.dummy/3k27u2pzoly2q',
+            {},
+          ),
+        ),
+      );
+
+      expect(result, isFalse);
+    });
+  });
+
+  group('.onCreateThreadgate', () {
+    test('when created', () async {
+      bool result = false;
+
+      final adaptor = RepoCommitAdaptor(
+        onCreateThreadgate: (data) {
+          expect(data, isA<RepoCommitCreate>());
+          expect(data.record, isA<ThreadgateRecord>());
+
+          result = true;
+        },
+      );
+
+      adaptor.execute(
+        _buildSubscribedRepoCommit(
+          _buildCreateRepoOp(
+            'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.feed.threadgate/3k27u2pzoly2q',
+            {
+              objectType: 'app.bsky.feed.threadgate',
+              'post':
+                  'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.feed.generator/3k27u2pzoly2q',
+              'allow': [
+                {
+                  r'$type': 'app.bsky.feed.threadgate#mentionRule',
+                },
+                {
+                  r'$type': 'app.bsky.feed.threadgate#followingRule',
+                },
+                {
+                  r'$type': 'app.bsky.feed.threadgate#listRule',
+                  'list': 'at://foo.com/com.example.foo/123',
+                }
+              ],
+              'createdAt': DateTime.now().toIso8601String(),
+            },
+          ),
+        ),
+      );
+
+      expect(result, isTrue);
+    });
+
+    test('when not created', () async {
+      bool result = false;
+
+      final adaptor = RepoCommitAdaptor(
+        onCreateThreadgate: (data) {
           result = true;
         },
       );
@@ -443,6 +509,58 @@ void main() {
     });
   });
 
+  group('.onCreateBlockList', () {
+    test('when created', () async {
+      bool result = false;
+
+      final adaptor = RepoCommitAdaptor(
+        onCreateBlockList: (data) {
+          expect(data, isA<RepoCommitCreate>());
+          expect(data.record, isA<BlockListRecord>());
+
+          result = true;
+        },
+      );
+
+      adaptor.execute(
+        _buildSubscribedRepoCommit(
+          _buildCreateRepoOp(
+            'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.graph.listblock/3k27u2pzoly2q',
+            {
+              objectType: 'app.bsky.graph.listblock',
+              'subject':
+                  'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.graph.list/3k27u2pzoly2q',
+              'createdAt': DateTime.now().toIso8601String(),
+            },
+          ),
+        ),
+      );
+
+      expect(result, isTrue);
+    });
+
+    test('when not created', () async {
+      bool result = false;
+
+      final adaptor = RepoCommitAdaptor(
+        onCreateBlockList: (data) {
+          result = true;
+        },
+      );
+
+      adaptor.execute(
+        _buildSubscribedRepoCommit(
+          _buildCreateRepoOp(
+            'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.graph.dummy/3k27u2pzoly2q',
+            {},
+          ),
+        ),
+      );
+
+      expect(result, isFalse);
+    });
+  });
+
   group('.onCreateUnknown', () {
     test('when created', () async {
       bool result = false;
@@ -595,7 +713,7 @@ void main() {
   });
 
   group('.onDeletePost', () {
-    test('when created', () async {
+    test('when deleted', () async {
       bool result = false;
 
       final adaptor = RepoCommitAdaptor(
@@ -617,7 +735,7 @@ void main() {
       expect(result, isTrue);
     });
 
-    test('when not created', () async {
+    test('when not deleted', () async {
       bool result = false;
 
       final adaptor = RepoCommitAdaptor(
@@ -639,7 +757,7 @@ void main() {
   });
 
   group('.onDeleteRepost', () {
-    test('when created', () async {
+    test('when deleted', () async {
       bool result = false;
 
       final adaptor = RepoCommitAdaptor(
@@ -661,7 +779,7 @@ void main() {
       expect(result, isTrue);
     });
 
-    test('when not created', () async {
+    test('when not deleted', () async {
       bool result = false;
 
       final adaptor = RepoCommitAdaptor(
@@ -683,7 +801,7 @@ void main() {
   });
 
   group('.onDeleteLike', () {
-    test('when created', () async {
+    test('when deleted', () async {
       bool result = false;
 
       final adaptor = RepoCommitAdaptor(
@@ -705,7 +823,7 @@ void main() {
       expect(result, isTrue);
     });
 
-    test('when not created', () async {
+    test('when not deleted', () async {
       bool result = false;
 
       final adaptor = RepoCommitAdaptor(
@@ -727,7 +845,7 @@ void main() {
   });
 
   group('.onDeleteGenerator', () {
-    test('when created', () async {
+    test('when deleted', () async {
       bool result = false;
 
       final adaptor = RepoCommitAdaptor(
@@ -749,7 +867,7 @@ void main() {
       expect(result, isTrue);
     });
 
-    test('when not created', () async {
+    test('when not deleted', () async {
       bool result = false;
 
       final adaptor = RepoCommitAdaptor(
@@ -770,8 +888,52 @@ void main() {
     });
   });
 
+  group('.onDeleteThreadgate', () {
+    test('when deleted', () async {
+      bool result = false;
+
+      final adaptor = RepoCommitAdaptor(
+        onDeleteThreadgate: (data) {
+          expect(data, isA<RepoCommitDelete>());
+
+          result = true;
+        },
+      );
+
+      adaptor.execute(
+        _buildSubscribedRepoCommit(
+          _buildDeleteRepoOp(
+            'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.feed.threadgate/3k27u2pzoly2q',
+          ),
+        ),
+      );
+
+      expect(result, isTrue);
+    });
+
+    test('when not deleted', () async {
+      bool result = false;
+
+      final adaptor = RepoCommitAdaptor(
+        onDeleteThreadgate: (data) {
+          result = true;
+        },
+      );
+
+      adaptor.execute(
+        _buildSubscribedRepoCommit(
+          _buildDeleteRepoOp(
+            'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.feed.dummy/3k27u2pzoly2q',
+          ),
+        ),
+      );
+
+      expect(result, isFalse);
+    });
+  });
+
   group('.onDeleteFollow', () {
-    test('when created', () async {
+    test('when deleted', () async {
       bool result = false;
 
       final adaptor = RepoCommitAdaptor(
@@ -793,7 +955,7 @@ void main() {
       expect(result, isTrue);
     });
 
-    test('when not created', () async {
+    test('when not deleted', () async {
       bool result = false;
 
       final adaptor = RepoCommitAdaptor(
@@ -815,7 +977,7 @@ void main() {
   });
 
   group('.onDeleteBlock', () {
-    test('when created', () async {
+    test('when deleted', () async {
       bool result = false;
 
       final adaptor = RepoCommitAdaptor(
@@ -837,7 +999,7 @@ void main() {
       expect(result, isTrue);
     });
 
-    test('when not created', () async {
+    test('when not deleted', () async {
       bool result = false;
 
       final adaptor = RepoCommitAdaptor(
@@ -903,7 +1065,7 @@ void main() {
   });
 
   group('.onDeleteListItem', () {
-    test('when created', () async {
+    test('when deleted', () async {
       bool result = false;
 
       final adaptor = RepoCommitAdaptor(
@@ -925,7 +1087,7 @@ void main() {
       expect(result, isTrue);
     });
 
-    test('when not created', () async {
+    test('when not deleted', () async {
       bool result = false;
 
       final adaptor = RepoCommitAdaptor(
@@ -946,8 +1108,52 @@ void main() {
     });
   });
 
+  group('.onDeleteBlockList', () {
+    test('when deleted', () async {
+      bool result = false;
+
+      final adaptor = RepoCommitAdaptor(
+        onDeleteBlockList: (data) {
+          expect(data, isA<RepoCommitDelete>());
+
+          result = true;
+        },
+      );
+
+      adaptor.execute(
+        _buildSubscribedRepoCommit(
+          _buildDeleteRepoOp(
+            'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.graph.listblock/3k27u2pzoly2q',
+          ),
+        ),
+      );
+
+      expect(result, isTrue);
+    });
+
+    test('when not deleted', () async {
+      bool result = false;
+
+      final adaptor = RepoCommitAdaptor(
+        onDeleteBlockList: (data) {
+          result = true;
+        },
+      );
+
+      adaptor.execute(
+        _buildSubscribedRepoCommit(
+          _buildDeleteRepoOp(
+            'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.graph.dummy/3k27u2pzoly2q',
+          ),
+        ),
+      );
+
+      expect(result, isFalse);
+    });
+  });
+
   group('.onDeleteUnknown', () {
-    test('when created', () async {
+    test('when deleted', () async {
       bool result = false;
 
       final adaptor = RepoCommitAdaptor(
@@ -969,7 +1175,7 @@ void main() {
       expect(result, isTrue);
     });
 
-    test('when not created', () async {
+    test('when not deleted', () async {
       bool result = false;
 
       final adaptor = RepoCommitAdaptor(
@@ -998,6 +1204,7 @@ SubscribedRepoCommit _buildSubscribedRepoCommit(
       ops: [op],
       did: 'aaaaaaa',
       cursor: 1234,
+      rev: 'xxxxxxx',
       isRebase: false,
       isTooBig: false,
       createdAt: DateTime.now(),

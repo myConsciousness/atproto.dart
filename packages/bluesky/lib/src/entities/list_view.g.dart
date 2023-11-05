@@ -15,8 +15,7 @@ _$_ListView _$$_ListViewFromJson(Map json) => $checkedCreate(
         final val = _$_ListView(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyGraphDefsListView),
-          purpose: $checkedConvert(
-              'purpose', (v) => v as String? ?? appBskyGraphDefsModlist),
+          purpose: $checkedConvert('purpose', (v) => v as String),
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
@@ -31,8 +30,11 @@ _$_ListView _$$_ListViewFromJson(Map json) => $checkedCreate(
           avatar: $checkedConvert('avatar', (v) => v as String?),
           createdBy: $checkedConvert('creator',
               (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
-          viewer: $checkedConvert('viewer',
-              (v) => ListViewer.fromJson(Map<String, Object?>.from(v as Map))),
+          viewer: $checkedConvert(
+              'viewer',
+              (v) => v == null
+                  ? defaultListViewer
+                  : ListViewer.fromJson(Map<String, Object?>.from(v as Map))),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
         );

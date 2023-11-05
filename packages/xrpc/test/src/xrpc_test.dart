@@ -5,6 +5,7 @@
 // 🎯 Dart imports:
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 // 📦 Package imports:
 import 'package:http/http.dart';
@@ -289,6 +290,25 @@ void main() {
       expect(response.rateLimit, isA<RateLimit>());
     });
 
+    test('T is Uint8List', () async {
+      final response = await query<Uint8List>(
+        NSID.create('test.com', 'get'),
+        parameters: {
+          'test': 'test',
+          'test2': 10,
+        },
+        getClient: (url, {headers}) async => Response(
+          '{"test": "test"}',
+          200,
+          request: Request('GET', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response, isA<XRPCResponse<Uint8List>>());
+      expect(response.data, isA<Uint8List>());
+      expect(response.rateLimit, isA<RateLimit>());
+    });
+
     test('with rate limits', () async {
       final response = await query<EmptyData>(
         NSID.create('test.com', 'get'),
@@ -297,11 +317,10 @@ void main() {
           200,
           request: Request('GET', Uri.https('bsky.social')),
           headers: {
-            'RateLimit-Limit': '100',
-            'RateLimit-Remaining': '1000',
-            'RateLimit-Reset': '50',
-            'RateLimit-Policy': '100;w=300',
-            'date': 'Wed, 02 Aug 2023 04:27:20 GMT',
+            'ratelimit-limit': '100',
+            'ratelimit-remaining': '1000',
+            'ratelimit-reset': '50',
+            'ratelimit-policy': '100;w=300',
           },
         ),
       );
@@ -389,11 +408,10 @@ void main() {
           200,
           request: Request('POST', Uri.https('bsky.social')),
           headers: {
-            'RateLimit-Limit': '100',
-            'RateLimit-Remaining': '1000',
-            'RateLimit-Reset': '50',
-            'RateLimit-Policy': '100;w=300',
-            'date': 'Wed, 02 Aug 2023 04:27:20 GMT',
+            'ratelimit-limit': '100',
+            'ratelimit-remaining': '1000',
+            'ratelimit-reset': '50',
+            'ratelimit-policy': '100;w=300',
           },
         ),
       );
@@ -486,11 +504,10 @@ void main() {
           200,
           request: Request('POST', Uri.https('bsky.social')),
           headers: {
-            'RateLimit-Limit': '100',
-            'RateLimit-Remaining': '1000',
-            'RateLimit-Reset': '50',
-            'RateLimit-Policy': '100;w=300',
-            'date': 'Wed, 02 Aug 2023 04:27:20 GMT',
+            'ratelimit-limit': '100',
+            'ratelimit-remaining': '1000',
+            'ratelimit-reset': '50',
+            'ratelimit-policy': '100;w=300',
           },
         ),
       );

@@ -7,6 +7,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import 'identities/identities_service.dart';
+import 'labels/labels_service.dart';
 import 'moderation/moderation_service.dart';
 import 'repositories/repositories_service.dart';
 import 'servers/servers_service.dart';
@@ -45,6 +46,9 @@ sealed class ATProtoService {
 
   /// Returns the sync service.
   SyncService get sync;
+
+  /// Returns the labels service.
+  LabelsService get labels;
 }
 
 final class _ATProtoService implements ATProtoService {
@@ -95,6 +99,14 @@ final class _ATProtoService implements ATProtoService {
           context: context,
           mockedGetClient: mockedGetClient,
           mockedPostClient: mockedPostClient,
+        ),
+        labels = LabelsService(
+          did: did,
+          protocol: protocol,
+          service: service,
+          context: context,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
         );
 
   @override
@@ -111,4 +123,7 @@ final class _ATProtoService implements ATProtoService {
 
   @override
   final SyncService sync;
+
+  @override
+  final LabelsService labels;
 }

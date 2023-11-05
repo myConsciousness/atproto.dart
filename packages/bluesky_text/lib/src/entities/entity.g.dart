@@ -32,4 +32,6 @@ Map<String, dynamic> _$$_EntityToJson(_$_Entity instance) => <String, dynamic>{
 const _$EntityTypeEnumMap = {
   EntityType.handle: 'handle',
   EntityType.link: 'link',
+  EntityType.markdownLink: 'markdownLink',
+  EntityType.tag: 'tag',
 };

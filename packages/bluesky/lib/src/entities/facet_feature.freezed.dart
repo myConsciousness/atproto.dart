@@ -21,6 +21,7 @@ mixin _$FacetFeature {
   TResult when<TResult extends Object?>({
     required TResult Function(FacetMention data) mention,
     required TResult Function(FacetLink data) link,
+    required TResult Function(FacetTag data) tag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,6 +29,7 @@ mixin _$FacetFeature {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(FacetMention data)? mention,
     TResult? Function(FacetLink data)? link,
+    TResult? Function(FacetTag data)? tag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -35,6 +37,7 @@ mixin _$FacetFeature {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(FacetMention data)? mention,
     TResult Function(FacetLink data)? link,
+    TResult Function(FacetTag data)? tag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
@@ -43,6 +46,7 @@ mixin _$FacetFeature {
   TResult map<TResult extends Object?>({
     required TResult Function(UFacetFeatureMention value) mention,
     required TResult Function(UFacetFeatureLink value) link,
+    required TResult Function(UFacetFeatureTag value) tag,
     required TResult Function(UFacetFeatureUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -50,6 +54,7 @@ mixin _$FacetFeature {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UFacetFeatureMention value)? mention,
     TResult? Function(UFacetFeatureLink value)? link,
+    TResult? Function(UFacetFeatureTag value)? tag,
     TResult? Function(UFacetFeatureUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -57,6 +62,7 @@ mixin _$FacetFeature {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UFacetFeatureMention value)? mention,
     TResult Function(UFacetFeatureLink value)? link,
+    TResult Function(UFacetFeatureTag value)? tag,
     TResult Function(UFacetFeatureUnknown value)? unknown,
     required TResult orElse(),
   }) =>
@@ -158,6 +164,7 @@ class _$UFacetFeatureMention implements UFacetFeatureMention {
   TResult when<TResult extends Object?>({
     required TResult Function(FacetMention data) mention,
     required TResult Function(FacetLink data) link,
+    required TResult Function(FacetTag data) tag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return mention(data);
@@ -168,6 +175,7 @@ class _$UFacetFeatureMention implements UFacetFeatureMention {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(FacetMention data)? mention,
     TResult? Function(FacetLink data)? link,
+    TResult? Function(FacetTag data)? tag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return mention?.call(data);
@@ -178,6 +186,7 @@ class _$UFacetFeatureMention implements UFacetFeatureMention {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(FacetMention data)? mention,
     TResult Function(FacetLink data)? link,
+    TResult Function(FacetTag data)? tag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -192,6 +201,7 @@ class _$UFacetFeatureMention implements UFacetFeatureMention {
   TResult map<TResult extends Object?>({
     required TResult Function(UFacetFeatureMention value) mention,
     required TResult Function(UFacetFeatureLink value) link,
+    required TResult Function(UFacetFeatureTag value) tag,
     required TResult Function(UFacetFeatureUnknown value) unknown,
   }) {
     return mention(this);
@@ -202,6 +212,7 @@ class _$UFacetFeatureMention implements UFacetFeatureMention {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UFacetFeatureMention value)? mention,
     TResult? Function(UFacetFeatureLink value)? link,
+    TResult? Function(UFacetFeatureTag value)? tag,
     TResult? Function(UFacetFeatureUnknown value)? unknown,
   }) {
     return mention?.call(this);
@@ -212,6 +223,7 @@ class _$UFacetFeatureMention implements UFacetFeatureMention {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UFacetFeatureMention value)? mention,
     TResult Function(UFacetFeatureLink value)? link,
+    TResult Function(UFacetFeatureTag value)? tag,
     TResult Function(UFacetFeatureUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -309,6 +321,7 @@ class _$UFacetFeatureLink implements UFacetFeatureLink {
   TResult when<TResult extends Object?>({
     required TResult Function(FacetMention data) mention,
     required TResult Function(FacetLink data) link,
+    required TResult Function(FacetTag data) tag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return link(data);
@@ -319,6 +332,7 @@ class _$UFacetFeatureLink implements UFacetFeatureLink {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(FacetMention data)? mention,
     TResult? Function(FacetLink data)? link,
+    TResult? Function(FacetTag data)? tag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return link?.call(data);
@@ -329,6 +343,7 @@ class _$UFacetFeatureLink implements UFacetFeatureLink {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(FacetMention data)? mention,
     TResult Function(FacetLink data)? link,
+    TResult Function(FacetTag data)? tag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -343,6 +358,7 @@ class _$UFacetFeatureLink implements UFacetFeatureLink {
   TResult map<TResult extends Object?>({
     required TResult Function(UFacetFeatureMention value) mention,
     required TResult Function(UFacetFeatureLink value) link,
+    required TResult Function(UFacetFeatureTag value) tag,
     required TResult Function(UFacetFeatureUnknown value) unknown,
   }) {
     return link(this);
@@ -353,6 +369,7 @@ class _$UFacetFeatureLink implements UFacetFeatureLink {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UFacetFeatureMention value)? mention,
     TResult? Function(UFacetFeatureLink value)? link,
+    TResult? Function(UFacetFeatureTag value)? tag,
     TResult? Function(UFacetFeatureUnknown value)? unknown,
   }) {
     return link?.call(this);
@@ -363,6 +380,7 @@ class _$UFacetFeatureLink implements UFacetFeatureLink {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UFacetFeatureMention value)? mention,
     TResult Function(UFacetFeatureLink value)? link,
+    TResult Function(UFacetFeatureTag value)? tag,
     TResult Function(UFacetFeatureUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -381,6 +399,163 @@ abstract class UFacetFeatureLink implements FacetFeature {
   FacetLink get data;
   @JsonKey(ignore: true)
   _$$UFacetFeatureLinkCopyWith<_$UFacetFeatureLink> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UFacetFeatureTagCopyWith<$Res> {
+  factory _$$UFacetFeatureTagCopyWith(
+          _$UFacetFeatureTag value, $Res Function(_$UFacetFeatureTag) then) =
+      __$$UFacetFeatureTagCopyWithImpl<$Res>;
+  @useResult
+  $Res call({FacetTag data});
+
+  $FacetTagCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$UFacetFeatureTagCopyWithImpl<$Res>
+    extends _$FacetFeatureCopyWithImpl<$Res, _$UFacetFeatureTag>
+    implements _$$UFacetFeatureTagCopyWith<$Res> {
+  __$$UFacetFeatureTagCopyWithImpl(
+      _$UFacetFeatureTag _value, $Res Function(_$UFacetFeatureTag) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$UFacetFeatureTag(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as FacetTag,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FacetTagCopyWith<$Res> get data {
+    return $FacetTagCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UFacetFeatureTag implements UFacetFeatureTag {
+  const _$UFacetFeatureTag({required this.data});
+
+  @override
+  final FacetTag data;
+
+  @override
+  String toString() {
+    return 'FacetFeature.tag(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UFacetFeatureTag &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UFacetFeatureTagCopyWith<_$UFacetFeatureTag> get copyWith =>
+      __$$UFacetFeatureTagCopyWithImpl<_$UFacetFeatureTag>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(FacetMention data) mention,
+    required TResult Function(FacetLink data) link,
+    required TResult Function(FacetTag data) tag,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return tag(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FacetMention data)? mention,
+    TResult? Function(FacetLink data)? link,
+    TResult? Function(FacetTag data)? tag,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return tag?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FacetMention data)? mention,
+    TResult Function(FacetLink data)? link,
+    TResult Function(FacetTag data)? tag,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (tag != null) {
+      return tag(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UFacetFeatureMention value) mention,
+    required TResult Function(UFacetFeatureLink value) link,
+    required TResult Function(UFacetFeatureTag value) tag,
+    required TResult Function(UFacetFeatureUnknown value) unknown,
+  }) {
+    return tag(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UFacetFeatureMention value)? mention,
+    TResult? Function(UFacetFeatureLink value)? link,
+    TResult? Function(UFacetFeatureTag value)? tag,
+    TResult? Function(UFacetFeatureUnknown value)? unknown,
+  }) {
+    return tag?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UFacetFeatureMention value)? mention,
+    TResult Function(UFacetFeatureLink value)? link,
+    TResult Function(UFacetFeatureTag value)? tag,
+    TResult Function(UFacetFeatureUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (tag != null) {
+      return tag(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UFacetFeatureTag implements FacetFeature {
+  const factory UFacetFeatureTag({required final FacetTag data}) =
+      _$UFacetFeatureTag;
+
+  @override
+  FacetTag get data;
+  @JsonKey(ignore: true)
+  _$$UFacetFeatureTagCopyWith<_$UFacetFeatureTag> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -458,6 +633,7 @@ class _$UFacetFeatureUnknown implements UFacetFeatureUnknown {
   TResult when<TResult extends Object?>({
     required TResult Function(FacetMention data) mention,
     required TResult Function(FacetLink data) link,
+    required TResult Function(FacetTag data) tag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -468,6 +644,7 @@ class _$UFacetFeatureUnknown implements UFacetFeatureUnknown {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(FacetMention data)? mention,
     TResult? Function(FacetLink data)? link,
+    TResult? Function(FacetTag data)? tag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -478,6 +655,7 @@ class _$UFacetFeatureUnknown implements UFacetFeatureUnknown {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(FacetMention data)? mention,
     TResult Function(FacetLink data)? link,
+    TResult Function(FacetTag data)? tag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -492,6 +670,7 @@ class _$UFacetFeatureUnknown implements UFacetFeatureUnknown {
   TResult map<TResult extends Object?>({
     required TResult Function(UFacetFeatureMention value) mention,
     required TResult Function(UFacetFeatureLink value) link,
+    required TResult Function(UFacetFeatureTag value) tag,
     required TResult Function(UFacetFeatureUnknown value) unknown,
   }) {
     return unknown(this);
@@ -502,6 +681,7 @@ class _$UFacetFeatureUnknown implements UFacetFeatureUnknown {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UFacetFeatureMention value)? mention,
     TResult? Function(UFacetFeatureLink value)? link,
+    TResult? Function(UFacetFeatureTag value)? tag,
     TResult? Function(UFacetFeatureUnknown value)? unknown,
   }) {
     return unknown?.call(this);
@@ -512,6 +692,7 @@ class _$UFacetFeatureUnknown implements UFacetFeatureUnknown {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UFacetFeatureMention value)? mention,
     TResult Function(UFacetFeatureLink value)? link,
+    TResult Function(UFacetFeatureTag value)? tag,
     TResult Function(UFacetFeatureUnknown value)? unknown,
     required TResult orElse(),
   }) {

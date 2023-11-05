@@ -21,19 +21,23 @@ final class _ReportSubjectConverter
 
   @override
   ReportSubject fromJson(Map<String, dynamic> json) {
-    final type = json[core.objectType];
+    try {
+      final type = json[core.objectType];
 
-    if (type == ids.comAtprotoAdminDefsRepoRef) {
-      return ReportSubject.repoRef(
-        data: RepoRef.fromJson(json),
-      );
-    } else if (type == ids.comAtprotoRepoStrongRef) {
-      return ReportSubject.strongRef(
-        data: StrongRef.fromJson(json),
-      );
+      if (type == ids.comAtprotoAdminDefsRepoRef) {
+        return ReportSubject.repoRef(
+          data: RepoRef.fromJson(json),
+        );
+      } else if (type == ids.comAtprotoRepoStrongRef) {
+        return ReportSubject.strongRef(
+          data: StrongRef.fromJson(json),
+        );
+      }
+
+      return ReportSubject.unknown(data: json);
+    } catch (_) {
+      return ReportSubject.unknown(data: json);
     }
-
-    return ReportSubject.unknown(data: json);
   }
 
   @override

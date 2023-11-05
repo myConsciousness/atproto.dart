@@ -25,12 +25,14 @@ If you use this package with Bluesky API, see **[bluesky](./bluesky.md)**.
 ## Features ⭐
 
 - ✅ **Zero Dependency**
-- ✅ **Automatic Detection of `Handle` and `Link`** in text
+- ✅ **Automatic Detection of `Handle`, `Link`, `Tag`** in text
 - ✅ Supports **Automatic Conversion** to **Facet**
 - ✅ **100% Compatible with [bluesky](./bluesky.md)**
 - ✅ Allows **Extraction of Custom Entities**
 - ✅ Supports **Unicode Grapheme Clusters**
-- ✅ Support for **Safe Text Splitting**
+- ✅ Supports **Safe Text Splitting**
+- ✅ **Works in All Languages**
+- ✅ Supports **Markdown Style Links**
 - ✅ **Well Documented** and **Well Tested**
 - ✅ **100% Null Safety**
 
@@ -175,7 +177,6 @@ And check following table.
 
 :::caution
 The current specification defines **_300 characters_** as the maximum number of characters for **[bluesky_text](https://pub.dartlang.org/packages/bluesky_text)**, which is the text limit defined in the Lexicon of **[app.bsky.feed.post](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json)**.
-And `StateError` will be thrown whenever you run a method that extracts entities for text that exceeds the maximum number of characters.
 This means that you must check to see if the text you pass to the `BlueskyText` object exceeds the maximum number of characters and **[Split Text](#split-text)** if necessary.
 
 You can check if the string passed to the `BlueskyText` object exceeds the maximum number of characters with `isLengthLimitExceeded` or `isNotLengthLimitExceeded` as follows.
@@ -331,7 +332,7 @@ With **[bluesky_text](https://pub.dev/packages/bluesky_text)**, you can create F
 
 ### Split Text
 
-As mentioned in the section describing [entity extraction](#extract-entities), the `BlueskyText` object has a maximum number of characters for text, and any operation on text that exceeds that maximum will always throw a `StateError`.
+As mentioned in the section describing [entity extraction](#extract-entities), the `BlueskyText` object has a maximum number of characters for text.
 This is because the maximum number of characters allowed for each text in the Bluesky API is clearly defined, and any operation on a text that exceeds the maximum number of characters is meaningless.
 
 So do you always need to be aware of the number of characters of text you pass to the `BlueskyText` object in units of Grapheme Cluster? **No, you don't need it**. Instead, just call `.split()` as follows.
@@ -355,109 +356,3 @@ Future<void> main() async {
   }
 }
 ```
-
-### Custom Entity
-
-**[bluesky_text](https://pub.dev/packages/bluesky_text)** basically parses handles and http-based links officially supported by Bluesky, but it can be customized by implementors to parse any entity.
-This is a feature called `Custom Entity` in **[bluesky_text](https://pub.dev/packages/bluesky_text)**. `Custom Entity` can be used to extract hashtags or cashtags from text that are not supported by Bluesky, for example.
-
-Let's assume the following situation where a hashtag is included in the text.
-
-```txt title="Text with Hashtag"
-This is my #hashtag.
-```
-
-You can extract a hashtag as follows.
-
-```dart
-import 'package:bluesky_text/bluesky_text.dart';
-
-void main() {
-  final text = BlueskyText('This is my #hashtag.');
-
-  // Extract custom entity.
-  final entities = text.getCustomEntities([
-    EntityCriterion(
-      symbols: ['#'], // Specify entity marks.
-      format: RegExp(r'#(\w+)'), // Specify exact formatting with regex.
-    )
-  ]);
-
-  print(entities);
-}
-```
-
-As you see, `.getCustomEntities` is the method for parsing `Custom Entity`. `.getCustomEntities` can extract any user-defined token, not just handle and link.
-
-The point to using `.getCustomEntities` is an object called `EntityCriterion` that represents the criteria for the entity to be parsed.
-The `EntityCriterion` has a **prefix or other symbol to search for entities** to analyze, and a **regular expression to represent the format of the entity** for more accurate entity analysis.
-
-:::caution
-The regular expression parameter is **_optional_**, but is recommended if you want to be sure to extract specific entities.
-If the regular expression parameter is omitted, the entity is searched based only on the string specified in `symbols`.
-:::
-
-Then, the object returned from `.getCustomEntities` is `CustomEntities`. To generate `Facets` from `CustomEntities`, implement as follows.
-
-```dart
-import 'dart:convert';
-
-import 'package:bluesky_text/bluesky_text.dart';
-
-Future<void> main() async {
-  final text = BlueskyText('This is my #hashtag.');
-
-  final entities = text.getCustomEntities([
-    EntityCriterion(
-      symbols: ['#'],
-      format: RegExp(r'#(\w+)'),
-    )
-  ]);
-
-  // Call `.toFacets`.
-  final facets = await entities.toFacets(
-    // Define custom features.
-    (entity) => CustomFeature(
-      type: 'dev.shinyakato.something.hashtag', // Unique namespace is recommended.
-      builder: (value) => {
-        'hashtag': value, // It will be a feature value.
-      },
-    ),
-  );
-
-  // Convert to JSON representation.
-  print(jsonEncode(facets));
-}
-```
-
-Unlike the `.toFacets` method as seen in [Getting Started](#generate-facets), this one is a bit more advanced in implementation.
-To generate `Facets` from a `CustomEntities` object, you must define the structure of the Facet you wish to generate using a callback.
-This is because `CustomEntities` and `CustomEntity` objects do not know about the `Facets` they generate.
-
-First, you need to return a `CustomFeature` object as a callback to the `.toFacets` method.
-The `type` field of the `CustomFeature` object should be a namespace that represents your extracted entity.
-
-:::danger
-The namespace specified for `type` should be a unique value that does not duplicate the official Lexicon ID.
-If you specify a `type` in a way that duplicates an official Lexicon ID, your registered data may become noise when that ID you specified is actually implemented even officially.
-:::
-
-Then, in the `builder` of the `CustomFeature`, return the JSON you wish to specify as the Facet's Feature based on the `value` of the entity passed in the callback.
-
-Now, if we run the above example, we get the following results.
-The result of this process is converted as JSON to better understand the structure.
-
-```json
-[
-  {
-    "index": { "byteStart": 11, "byteEnd": 19 },
-    "features": [
-      { "hashtag": "#hashtag", "$type": "dev.shinyakato.something.hashtag" }
-    ]
-  }
-]
-```
-
-:::tip
-Read **[this section](#use-with-bluesky)** to learn how to integrate with the **[bluesky](https://pub.dev/packages/bluesky)** package and generate Facet objects.
-:::
