@@ -10,14 +10,14 @@ import 'dart:typed_data';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // 🌎 Project imports:
+import 'clients/auth_type.dart';
 import 'clients/client_context.dart';
-import 'clients/user_context.dart';
 import 'paginations/pagination.dart';
 
 sealed class _Service {
   Future<xrpc.XRPCResponse<T>> get<T>(
     final String methodName, {
-    final UserContext userContext = UserContext.authRequired,
+    final AuthType authType = AuthType.access,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
@@ -25,7 +25,7 @@ sealed class _Service {
 
   Pagination<T> paginate<T>(
     final String methodName, {
-    final UserContext userContext = UserContext.authRequired,
+    final AuthType authType = AuthType.access,
     required final Map<String, dynamic> parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
@@ -33,7 +33,7 @@ sealed class _Service {
 
   Future<xrpc.XRPCResponse<T>> post<T>(
     final String methodName, {
-    final UserContext userContext = UserContext.authRequired,
+    final AuthType authType = AuthType.access,
     required final dynamic body,
     final xrpc.To<T>? to,
   });
@@ -41,7 +41,7 @@ sealed class _Service {
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final String methodName,
     final Uint8List bytes, {
-    final UserContext userContext = UserContext.authRequired,
+    final AuthType authType = AuthType.access,
     final String? service,
     final Map<String, String>? headers,
     final Duration timeout = const Duration(seconds: 10),
@@ -50,7 +50,7 @@ sealed class _Service {
 
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
     final String methodName, {
-    final UserContext userContext = UserContext.authRequired,
+    final AuthType authType = AuthType.access,
     final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
@@ -92,7 +92,7 @@ base class BaseService implements _Service {
   @override
   Future<xrpc.XRPCResponse<T>> get<T>(
     final String methodName, {
-    final UserContext userContext = UserContext.authRequired,
+    final AuthType authType = AuthType.access,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
@@ -102,7 +102,7 @@ base class BaseService implements _Service {
           _methodAuthority,
           methodName,
         ),
-        userContext: userContext,
+        authType: authType,
         protocol: _protocol,
         service: _service,
         parameters: parameters,
@@ -114,7 +114,7 @@ base class BaseService implements _Service {
   @override
   Pagination<T> paginate<T>(
     final String methodName, {
-    final UserContext userContext = UserContext.authRequired,
+    final AuthType authType = AuthType.access,
     required final Map<String, dynamic> parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
@@ -124,7 +124,7 @@ base class BaseService implements _Service {
           _methodAuthority,
           methodName,
         ),
-        userContext: userContext,
+        authType: authType,
         protocol: _protocol,
         service: _service,
         parameters: parameters,
@@ -136,7 +136,7 @@ base class BaseService implements _Service {
   @override
   Future<xrpc.XRPCResponse<T>> post<T>(
     final String methodName, {
-    final UserContext userContext = UserContext.authRequired,
+    final AuthType authType = AuthType.access,
     final Map<String, String>? headers,
     final dynamic body,
     final xrpc.To<T>? to,
@@ -146,7 +146,7 @@ base class BaseService implements _Service {
           _methodAuthority,
           methodName,
         ),
-        userContext: userContext,
+        authType: authType,
         protocol: _protocol,
         service: _service,
         headers: headers,
@@ -159,7 +159,7 @@ base class BaseService implements _Service {
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final String methodName,
     final Uint8List bytes, {
-    UserContext userContext = UserContext.authRequired,
+    AuthType authType = AuthType.access,
     final String? service,
     final Map<String, String>? headers,
     final Duration timeout = const Duration(seconds: 10),
@@ -171,7 +171,7 @@ base class BaseService implements _Service {
           methodName,
         ),
         bytes,
-        userContext: userContext,
+        authType: authType,
         protocol: _protocol,
         service: _service,
         headers: headers,
@@ -182,7 +182,7 @@ base class BaseService implements _Service {
   @override
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
     final String methodName, {
-    UserContext userContext = UserContext.authRequired,
+    AuthType authType = AuthType.access,
     final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
@@ -193,7 +193,7 @@ base class BaseService implements _Service {
           _methodAuthority,
           methodName,
         ),
-        userContext: userContext,
+        authType: authType,
         service: service,
         parameters: parameters,
         to: to,

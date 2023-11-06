@@ -11,11 +11,11 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 
 // 🌎 Project imports:
 import '../paginations/pagination.dart';
+import 'auth_type.dart';
 import 'challenge.dart';
 import 'client_resolver.dart';
 import 'retry_config.dart';
 import 'retry_policy.dart';
-import 'user_context.dart';
 
 sealed class ClientContext {
   /// Returns the new instance of [ClientContext].
@@ -32,7 +32,7 @@ sealed class ClientContext {
 
   Future<xrpc.XRPCResponse<T>> get<T>(
     final xrpc.NSID methodId, {
-    required UserContext userContext,
+    required AuthType authType,
     final xrpc.Protocol? protocol,
     required final String service,
     final Map<String, dynamic>? parameters,
@@ -43,7 +43,7 @@ sealed class ClientContext {
 
   Pagination<T> paginate<T>(
     final xrpc.NSID methodId, {
-    required UserContext userContext,
+    required AuthType authType,
     final xrpc.Protocol? protocol,
     required final String service,
     required final Map<String, dynamic> parameters,
@@ -54,7 +54,7 @@ sealed class ClientContext {
 
   Future<xrpc.XRPCResponse<T>> post<T>(
     final xrpc.NSID methodId, {
-    required UserContext userContext,
+    required AuthType authType,
     final xrpc.Protocol? protocol,
     required final String service,
     final Map<String, String>? headers,
@@ -66,7 +66,7 @@ sealed class ClientContext {
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final xrpc.NSID methodId,
     final Uint8List bytes, {
-    required UserContext userContext,
+    required AuthType authType,
     final xrpc.Protocol? protocol,
     final String? service,
     final Map<String, String>? headers,
@@ -77,7 +77,7 @@ sealed class ClientContext {
 
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
     final xrpc.NSID methodId, {
-    required UserContext userContext,
+    required AuthType authType,
     final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
@@ -107,7 +107,7 @@ final class _ClientContext implements ClientContext {
   @override
   Future<xrpc.XRPCResponse<T>> get<T>(
     final xrpc.NSID methodId, {
-    required UserContext userContext,
+    required AuthType authType,
     final xrpc.Protocol? protocol,
     required final String service,
     final Map<String, dynamic>? parameters,
@@ -116,7 +116,7 @@ final class _ClientContext implements ClientContext {
     final xrpc.GetClient? getClient,
   }) async =>
       await _challenge.execute(
-        _clientResolver.execute(userContext),
+        _clientResolver.execute(authType),
         (client) async => await client.get(
           methodId,
           protocol: protocol,
@@ -132,7 +132,7 @@ final class _ClientContext implements ClientContext {
   @override
   Pagination<T> paginate<T>(
     final xrpc.NSID methodId, {
-    required UserContext userContext,
+    required AuthType authType,
     final xrpc.Protocol? protocol,
     required final String service,
     required final Map<String, dynamic> parameters,
@@ -141,7 +141,7 @@ final class _ClientContext implements ClientContext {
     final xrpc.GetClient? getClient,
   }) =>
       Pagination(
-        _clientResolver.execute(userContext),
+        _clientResolver.execute(authType),
         _challenge,
         methodId,
         protocol: protocol,
@@ -156,7 +156,7 @@ final class _ClientContext implements ClientContext {
   @override
   Future<xrpc.XRPCResponse<T>> post<T>(
     final xrpc.NSID methodId, {
-    required UserContext userContext,
+    required AuthType authType,
     final xrpc.Protocol? protocol,
     required final String service,
     final Map<String, String>? headers,
@@ -165,7 +165,7 @@ final class _ClientContext implements ClientContext {
     final xrpc.PostClient? postClient,
   }) async =>
       await _challenge.execute(
-        _clientResolver.execute(userContext),
+        _clientResolver.execute(authType),
         (client) async => await client.post(
           methodId,
           protocol: protocol,
@@ -182,7 +182,7 @@ final class _ClientContext implements ClientContext {
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final xrpc.NSID methodId,
     final Uint8List bytes, {
-    required UserContext userContext,
+    required AuthType authType,
     final xrpc.Protocol? protocol,
     final String? service,
     final Map<String, String>? headers,
@@ -191,7 +191,7 @@ final class _ClientContext implements ClientContext {
     final xrpc.PostClient? postClient,
   }) async =>
       await _challenge.execute(
-        _clientResolver.execute(userContext),
+        _clientResolver.execute(authType),
         (client) async => await client.upload(
           methodId,
           bytes,
@@ -207,14 +207,14 @@ final class _ClientContext implements ClientContext {
   @override
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
     final xrpc.NSID methodId, {
-    required UserContext userContext,
+    required AuthType authType,
     final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
   }) async =>
       await _challenge.execute(
-        _clientResolver.execute(userContext),
+        _clientResolver.execute(authType),
         (client) => client.stream(
           methodId,
           service: service,

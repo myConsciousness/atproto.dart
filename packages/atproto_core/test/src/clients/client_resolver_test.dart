@@ -6,9 +6,9 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
+import 'package:atproto_core/src/clients/auth_type.dart';
 import 'package:atproto_core/src/clients/client.dart';
 import 'package:atproto_core/src/clients/client_resolver.dart';
-import 'package:atproto_core/src/clients/user_context.dart';
 
 void main() {
   group('.execute', () {
@@ -16,7 +16,7 @@ void main() {
       final resolver = ClientResolver('aaaaa');
 
       expect(
-        resolver.execute(UserContext.authRequired),
+        resolver.execute(AuthType.access),
         isA<AuthRequiredClient>(),
       );
     });
@@ -25,7 +25,7 @@ void main() {
       final resolver = ClientResolver('');
 
       expect(
-        resolver.execute(UserContext.anonymousOnly),
+        resolver.execute(AuthType.anonymous),
         isA<AnonymousClient>(),
       );
     });
@@ -34,7 +34,7 @@ void main() {
       final resolver = ClientResolver('');
 
       expect(
-        () => resolver.execute(UserContext.authRequired),
+        () => resolver.execute(AuthType.access),
         throwsA(isA<UnsupportedError>()),
       );
     });

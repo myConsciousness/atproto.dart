@@ -3,16 +3,15 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import '../../atproto_core.dart';
+import 'auth_type.dart';
 import 'client.dart';
-import 'user_context.dart';
 
 sealed class ClientResolver {
   /// Returns the new instance of [ClientResolver].
   factory ClientResolver(final String accessJwt) => _ClientResolver(accessJwt);
 
   /// Returns the resolved client.
-  Client execute(final UserContext userContext);
+  Client execute(final AuthType authType);
 }
 
 final class _ClientResolver implements ClientResolver {
@@ -23,14 +22,14 @@ final class _ClientResolver implements ClientResolver {
   final String accessJwt;
 
   @override
-  Client execute(final UserContext userContext) {
-    switch (userContext) {
-      case UserContext.anonymousOnly:
+  Client execute(final AuthType authType) {
+    switch (authType) {
+      case AuthType.anonymous:
         return AnonymousClient();
-      case UserContext.authRequired:
+      case AuthType.access:
         if (accessJwt.isEmpty) {
           throw UnsupportedError(
-            'Authentication token is required for this endpoint.',
+            'Access token is required for this endpoint.',
           );
         }
 

@@ -6,11 +6,11 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:atproto_core/src/clients/user_context.dart';
+import 'package:atproto_core/src/clients/auth_type.dart';
 
 void main() {
   test('.name', () {
-    expect(UserContext.anonymousOnly.name, 'anonymousOnly');
-    expect(UserContext.authRequired.name, 'authRequired');
+    expect(AuthType.anonymous.name, 'anonymous');
+    expect(AuthType.access.name, 'access');
   });
 }
