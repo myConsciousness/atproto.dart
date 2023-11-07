@@ -789,7 +789,7 @@ final class _RepositoriesService extends ATProtoBaseService
         parameters: {
           'repo': repo,
         },
-        userContext: core.UserContext.anonymousOnly,
+        authType: core.AuthType.anonymous,
         to: to,
       );
 

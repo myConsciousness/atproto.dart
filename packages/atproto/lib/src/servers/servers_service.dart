@@ -457,7 +457,7 @@ final class _ServersService extends ATProtoBaseService
           'inviteCode': inviteCode,
           'recoveryKey': recoveryKey,
         },
-        userContext: core.UserContext.anonymousOnly,
+        authType: core.AuthType.anonymous,
         to: Account.fromJson,
       );
 
@@ -539,7 +539,7 @@ final class _ServersService extends ATProtoBaseService
         body: {
           'email': email,
         },
-        userContext: core.UserContext.anonymousOnly,
+        authType: core.AuthType.anonymous,
       );
 
   @override
@@ -553,7 +553,7 @@ final class _ServersService extends ATProtoBaseService
           'password': password,
           'token': token,
         },
-        userContext: core.UserContext.anonymousOnly,
+        authType: core.AuthType.anonymous,
       );
 
   @override
@@ -676,7 +676,7 @@ final class _ServersService extends ATProtoBaseService
   }) async =>
       await super.get(
         'describeServer',
-        userContext: core.UserContext.anonymousOnly,
+        authType: core.AuthType.anonymous,
         to: to,
       );
 }

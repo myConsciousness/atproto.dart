@@ -11,9 +11,9 @@ import 'package:test/test.dart';
 import 'package:xrpc/xrpc.dart';
 
 // 🌎 Project imports:
-import 'package:atproto_core/src/base_service.dart';
+import 'package:atproto_core/src/base_xrpc_service.dart';
+import 'package:atproto_core/src/clients/auth_type.dart';
 import 'package:atproto_core/src/clients/client_context.dart';
-import 'package:atproto_core/src/clients/user_context.dart';
 
 void main() {
   test('.createNSID', () {
@@ -43,7 +43,7 @@ void main() {
 
       final response = await service.get<Map<String, dynamic>>(
         'resolveHandle',
-        userContext: UserContext.anonymousOnly,
+        authType: AuthType.anonymous,
         parameters: {
           'handle': 'shinyakato.dev',
         },
@@ -88,7 +88,7 @@ void main() {
 
       final response = await service.post<Map<String, dynamic>>(
         'createAccount',
-        userContext: UserContext.anonymousOnly,
+        authType: AuthType.anonymous,
         body: {
           'something': 'test',
         },
@@ -135,7 +135,7 @@ void main() {
         () async => await service.upload<Map<String, dynamic>>(
           'uploadBlob',
           Uint8List(10),
-          userContext: UserContext.anonymousOnly,
+          authType: AuthType.anonymous,
         ),
         throwsA(isA<UnimplementedError>()),
       );
@@ -173,7 +173,7 @@ void main() {
 
       final subscription = await service.stream(
         'subscribeRepos',
-        userContext: UserContext.anonymousOnly,
+        authType: AuthType.anonymous,
       );
 
       final oneMinuteLater = DateTime.now().add(Duration(minutes: 1));
@@ -206,7 +206,7 @@ void main() {
   });
 }
 
-final class TestService extends BaseService {
+final class TestService extends BaseXRPCService {
   TestService({
     super.service = 'bsky.social',
     required super.methodAuthority,

@@ -9,47 +9,28 @@ import 'dart:typed_data';
 
 // 📦 Package imports:
 import 'package:http/http.dart' as http;
-import 'package:meta/meta.dart';
 import 'package:mime/mime.dart';
 import 'package:nsid/nsid.dart' as nsid;
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 // 🌎 Project imports:
-import 'client_types.dart';
-import 'entities/empty_data.dart';
-import 'entities/rate_limit.dart';
+import '../const.dart';
+import '../entities/empty_data.dart';
+import '../entities/rate_limit.dart';
+import '../http_method.dart';
+import '../http_status.dart';
+import '../protocol.dart';
+import '../subscription.dart';
+import '../types.dart' as type;
+import '../utils.dart' as util;
 import 'exception/internal_server_error_exception.dart';
 import 'exception/invalid_request_exception.dart';
 import 'exception/rate_limit_exceeded_exception.dart';
 import 'exception/unauthorized_exception.dart';
 import 'exception/xrpc_not_supported_exception.dart';
-import 'http_method.dart';
-import 'http_status.dart';
-import 'protocol.dart';
-import 'serializable.dart';
-import 'subscription.dart';
 import 'xrpc_error.dart';
 import 'xrpc_request.dart';
 import 'xrpc_response.dart';
-
-/// The default service to communicate.
-const _defaultService = 'bsky.social';
-
-/// A function type that expresses the function of converting response body
-/// to model objects.
-typedef To<T> = T Function(Map<String, Object?> json);
-
-/// Function to convert response data to an specific structure.
-typedef ResponseAdaptor = Map<String, dynamic> Function(
-  dynamic data,
-);
-
-/// A function type that express factory for URI.
-typedef UriFactory = Uri Function(
-  String authority, [
-  String unencodedPath,
-  Map<String, dynamic>? queryParameters,
-]);
 
 /// Performs GET communication to the ATP server.
 ///
@@ -162,21 +143,21 @@ Future<XRPCResponse<T>> query<T>(
   final Map<String, String>? headers,
   final Map<String, dynamic>? parameters,
   final Duration timeout = const Duration(seconds: 10),
-  final To<T>? to,
-  final ResponseAdaptor? adaptor,
-  final GetClient? getClient,
+  final type.To<T>? to,
+  final type.ResponseAdaptor? adaptor,
+  final type.GetClient? getClient,
 }) async =>
     _buildResponse<T>(
       checkStatus(
         await (getClient ?? http.get)
             .call(
-              _getUriFactory(protocol).call(
-                service ?? _defaultService,
-                '/xrpc/$methodId',
-                convertParameters(
-                  removeNullValues(parameters) ?? {},
-                ),
-              ),
+              util.getUriFactory(protocol).call(
+                    service ?? defaultService,
+                    '/xrpc/$methodId',
+                    util.convertParameters(
+                      util.removeNullValues(parameters) ?? {},
+                    ),
+                  ),
               headers: headers,
             )
             .timeout(timeout),
@@ -298,23 +279,23 @@ Future<XRPCResponse<T>> procedure<T>(
   final Map<String, String>? headers,
   final Map<String, dynamic>? body,
   final Duration timeout = const Duration(seconds: 10),
-  final To<T>? to,
-  final PostClient? postClient,
+  final type.To<T>? to,
+  final type.PostClient? postClient,
 }) async =>
     _buildResponse<T>(
       checkStatus(
         await (postClient ?? http.post)
             .call(
-              _getUriFactory(protocol).call(
-                service ?? _defaultService,
-                '/xrpc/$methodId',
-              ),
+              util.getUriFactory(protocol).call(
+                    service ?? defaultService,
+                    '/xrpc/$methodId',
+                  ),
               headers: {
                 'Content-type': 'application/json',
               }..addAll(headers ?? {}),
               body: body != null
                   ? jsonEncode(
-                      removeNullValues(body) ?? {},
+                      util.removeNullValues(body) ?? {},
                     )
                   : null,
               encoding: utf8,
@@ -332,16 +313,16 @@ Future<XRPCResponse<T>> upload<T>(
   final String? service,
   final Map<String, String>? headers,
   final Duration timeout = const Duration(seconds: 10),
-  final To<T>? to,
-  final PostClient? postClient,
+  final type.To<T>? to,
+  final type.PostClient? postClient,
 }) async =>
     _buildResponse(
       checkStatus(
         await (postClient ?? http.post).call(
-          _getUriFactory(protocol).call(
-            service ?? _defaultService,
-            '/xrpc/${methodId.toString()}',
-          ),
+          util.getUriFactory(protocol).call(
+                service ?? defaultService,
+                '/xrpc/${methodId.toString()}',
+              ),
           headers: {
             'Content-Type': lookupMimeType('', headerBytes: bytes) ?? '*/*',
           }..addAll(headers ?? {}),
@@ -356,10 +337,10 @@ XRPCResponse<Subscription<T>> subscribe<T>(
   final nsid.NSID methodId, {
   final String? service,
   final Map<String, dynamic>? parameters,
-  final To<T>? to,
-  final ResponseAdaptor? adaptor,
+  final type.To<T>? to,
+  final type.ResponseAdaptor? adaptor,
 }) {
-  final uri = _buildWsUri(methodId, service, removeNullValues(parameters));
+  final uri = _buildWsUri(methodId, service, util.removeNullValues(parameters));
   final channel = WebSocketChannel.connect(uri);
 
   final controller = StreamController<T>();
@@ -391,7 +372,6 @@ XRPCResponse<Subscription<T>> subscribe<T>(
   );
 }
 
-@visibleForTesting
 http.Response checkStatus(final http.Response response) {
   final statusCode = response.statusCode;
 
@@ -429,63 +409,11 @@ http.Response checkStatus(final http.Response response) {
   );
 }
 
-@visibleForTesting
-dynamic removeNullValues(final dynamic object) {
-  if (object is Map) {
-    final parameters = <String, dynamic>{};
-    object.forEach((key, value) {
-      final newObject = removeNullValues(value);
-
-      if (newObject != null) {
-        parameters[key] = newObject;
-      }
-    });
-
-    return parameters.isNotEmpty ? parameters : null;
-  } else if (object is List) {
-    final parameters = <dynamic>[];
-    for (final value in object) {
-      final newObject = removeNullValues(value);
-
-      if (newObject != null) {
-        parameters.add(newObject);
-      }
-    }
-
-    return parameters.isNotEmpty ? parameters : null;
-  }
-
-  //! Just return it as is if it's neither Map nor List.
-  return object;
-}
-
-@visibleForTesting
-Map<String, dynamic> convertParameters(final Map<String, dynamic> parameters) =>
-    parameters.map((key, value) {
-      if (value is List?) {
-        return MapEntry(
-          key,
-          value?.map((e) => e.toString()).toList(),
-        );
-      } else if (value is Serializable) {
-        return MapEntry(
-          key,
-          value.value,
-        );
-      }
-
-      if (value is DateTime) {
-        return MapEntry(key, value.toUtc().toIso8601String());
-      }
-
-      return MapEntry(key, value.toString());
-    });
-
 /// Returns the response object.
 XRPCResponse<T> _buildResponse<T>(
   final http.Response response,
-  final To<T>? to, [
-  final ResponseAdaptor? adaptor,
+  final type.To<T>? to, [
+  final type.ResponseAdaptor? adaptor,
 ]) =>
     XRPCResponse(
       headers: response.headers,
@@ -495,26 +423,8 @@ XRPCResponse<T> _buildResponse<T>(
         url: response.request!.url,
       ),
       rateLimit: RateLimit.fromHeaders(response.headers),
-      data: _getData(response, to, adaptor),
+      data: util.getData(response, to, adaptor),
     );
-
-T _getData<T>(
-  final http.Response response,
-  final To<T>? to,
-  final ResponseAdaptor? adaptor,
-) {
-  if (T == Uint8List) {
-    //* This is basically used to retrieve Blob data.
-    return response.bodyBytes as T;
-  }
-
-  return _transformData(
-    adaptor != null
-        ? jsonEncode(adaptor.call(response.bodyBytes))
-        : response.body,
-    to,
-  );
-}
 
 /// Returns the error response.
 XRPCResponse<XRPCError> _buildErrorResponse(final http.Response response) =>
@@ -523,32 +433,6 @@ XRPCResponse<XRPCError> _buildErrorResponse(final http.Response response) =>
       XRPCError.fromJson,
     );
 
-/// Returns the transformed data object.
-T _transformData<T>(
-  final String body,
-  final To<T>? to,
-) {
-  if (to != null) {
-    return to.call(
-      jsonDecode(body),
-    );
-  }
-
-  if (T == String) {
-    return body as T;
-  }
-
-  if (T == Map<String, dynamic>) {
-    return jsonDecode(body) as T;
-  }
-
-  return const EmptyData() as T;
-}
-
-/// Returns the uri factory based on [protocol].
-UriFactory _getUriFactory(final Protocol protocol) =>
-    protocol == Protocol.https ? Uri.https : Uri.http;
-
 Uri _buildWsUri(
   final nsid.NSID methodId,
   final String? service,
@@ -556,7 +440,7 @@ Uri _buildWsUri(
 ) {
   final buffer = StringBuffer()
     ..write('wss://')
-    ..write(service ?? _defaultService)
+    ..write(service ?? defaultService)
     ..write('/xrpc/')
     ..write(methodId.toString());
 

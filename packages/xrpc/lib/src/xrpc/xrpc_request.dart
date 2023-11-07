@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import './http_method.dart';
+import '../http_method.dart';
 
 /// A class that represents a Request sent during XRPC communication.
 final class XRPCRequest {

@@ -3,8 +3,8 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import './http_status.dart';
-import 'entities/rate_limit.dart';
+import '../entities/rate_limit.dart';
+import '../http_status.dart';
 import 'xrpc_request.dart';
 
 /// The class represents the response from ATP server.

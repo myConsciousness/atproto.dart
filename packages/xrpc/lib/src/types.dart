@@ -23,3 +23,19 @@ typedef PostClient = Future<http.Response> Function(
   Object? body,
   Encoding? encoding,
 });
+
+/// A function type that expresses the function of converting response body
+/// to model objects.
+typedef To<T> = T Function(Map<String, Object?> json);
+
+/// Function to convert response data to an specific structure.
+typedef ResponseAdaptor = Map<String, dynamic> Function(
+  dynamic data,
+);
+
+/// A function type that express factory for URI.
+typedef UriFactory = Uri Function(
+  String authority, [
+  String unencodedPath,
+  Map<String, dynamic>? queryParameters,
+]);

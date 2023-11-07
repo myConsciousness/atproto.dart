@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.6.0
+
+- Added HTTP specific client. ([#989](https://github.com/myConsciousness/atproto.dart/issues/989))
+- Renamed from `UserContext` to `AuthType`.
+
 ## v0.5.9
 
 - Added `.deleteSession` function. ([#963](https://github.com/myConsciousness/atproto.dart/issues/963))
