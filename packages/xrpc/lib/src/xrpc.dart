@@ -14,6 +14,7 @@ import 'package:nsid/nsid.dart' as nsid;
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 // 🌎 Project imports:
+import 'utils.dart' as util;
 import 'client_types.dart';
 import 'entities/empty_data.dart';
 import 'entities/rate_limit.dart';
@@ -25,7 +26,6 @@ import 'exception/xrpc_not_supported_exception.dart';
 import 'http_method.dart';
 import 'http_status.dart';
 import 'protocol.dart';
-import 'serializable.dart';
 import 'subscription.dart';
 import 'xrpc_error.dart';
 import 'xrpc_request.dart';
@@ -172,8 +172,8 @@ Future<XRPCResponse<T>> query<T>(
               _getUriFactory(protocol).call(
                 service ?? _defaultService,
                 '/xrpc/$methodId',
-                convertParameters(
-                  removeNullValues(parameters) ?? {},
+                util.convertParameters(
+                  util.removeNullValues(parameters) ?? {},
                 ),
               ),
               headers: headers,
@@ -313,7 +313,7 @@ Future<XRPCResponse<T>> procedure<T>(
               }..addAll(headers ?? {}),
               body: body != null
                   ? jsonEncode(
-                      removeNullValues(body) ?? {},
+                      util.removeNullValues(body) ?? {},
                     )
                   : null,
               encoding: utf8,
@@ -358,7 +358,7 @@ XRPCResponse<Subscription<T>> subscribe<T>(
   final To<T>? to,
   final ResponseAdaptor? adaptor,
 }) {
-  final uri = _buildWsUri(methodId, service, removeNullValues(parameters));
+  final uri = _buildWsUri(methodId, service, util.removeNullValues(parameters));
   final channel = WebSocketChannel.connect(uri);
 
   final controller = StreamController<T>();
@@ -426,56 +426,6 @@ http.Response checkStatus(final http.Response response) {
     _buildErrorResponse(response),
   );
 }
-
-dynamic removeNullValues(final dynamic object) {
-  if (object is Map) {
-    final parameters = <String, dynamic>{};
-    object.forEach((key, value) {
-      final newObject = removeNullValues(value);
-
-      if (newObject != null) {
-        parameters[key] = newObject;
-      }
-    });
-
-    return parameters.isNotEmpty ? parameters : null;
-  } else if (object is List) {
-    final parameters = <dynamic>[];
-    for (final value in object) {
-      final newObject = removeNullValues(value);
-
-      if (newObject != null) {
-        parameters.add(newObject);
-      }
-    }
-
-    return parameters.isNotEmpty ? parameters : null;
-  }
-
-  //! Just return it as is if it's neither Map nor List.
-  return object;
-}
-
-Map<String, dynamic> convertParameters(final Map<String, dynamic> parameters) =>
-    parameters.map((key, value) {
-      if (value is List?) {
-        return MapEntry(
-          key,
-          value?.map((e) => e.toString()).toList(),
-        );
-      } else if (value is Serializable) {
-        return MapEntry(
-          key,
-          value.value,
-        );
-      }
-
-      if (value is DateTime) {
-        return MapEntry(key, value.toUtc().toIso8601String());
-      }
-
-      return MapEntry(key, value.toString());
-    });
 
 /// Returns the response object.
 XRPCResponse<T> _buildResponse<T>(
