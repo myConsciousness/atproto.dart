@@ -7,7 +7,7 @@ import '../http_status.dart';
 import 'request.dart';
 
 /// The class represents the response from the server.
-base class Response<D> {
+final class Response<D> {
   /// Returns the new instance of [Response].
   const Response({
     required this.headers,

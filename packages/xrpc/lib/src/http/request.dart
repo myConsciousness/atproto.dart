@@ -6,7 +6,7 @@
 import '../http_method.dart';
 
 /// A class that represents a Request sent during HTTP communication.
-base class Request {
+final class Request {
   /// Returns the new instance of [Request].
   const Request({
     required this.method,
