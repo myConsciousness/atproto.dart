@@ -9,7 +9,6 @@ import 'dart:typed_data';
 
 // 📦 Package imports:
 import 'package:http/http.dart' as http;
-import 'package:meta/meta.dart';
 import 'package:mime/mime.dart';
 import 'package:nsid/nsid.dart' as nsid;
 import 'package:web_socket_channel/web_socket_channel.dart';
@@ -391,7 +390,6 @@ XRPCResponse<Subscription<T>> subscribe<T>(
   );
 }
 
-@visibleForTesting
 http.Response checkStatus(final http.Response response) {
   final statusCode = response.statusCode;
 
@@ -429,7 +427,6 @@ http.Response checkStatus(final http.Response response) {
   );
 }
 
-@visibleForTesting
 dynamic removeNullValues(final dynamic object) {
   if (object is Map) {
     final parameters = <String, dynamic>{};
@@ -459,7 +456,6 @@ dynamic removeNullValues(final dynamic object) {
   return object;
 }
 
-@visibleForTesting
 Map<String, dynamic> convertParameters(final Map<String, dynamic> parameters) =>
     parameters.map((key, value) {
       if (value is List?) {
