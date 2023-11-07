@@ -14,8 +14,6 @@ import 'package:nsid/nsid.dart' as nsid;
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 // 🌎 Project imports:
-import 'utils.dart' as util;
-import 'client_types.dart';
 import 'entities/empty_data.dart';
 import 'entities/rate_limit.dart';
 import 'exception/internal_server_error_exception.dart';
@@ -27,28 +25,14 @@ import 'http_method.dart';
 import 'http_status.dart';
 import 'protocol.dart';
 import 'subscription.dart';
+import 'types.dart' as type;
+import 'utils.dart' as util;
 import 'xrpc_error.dart';
 import 'xrpc_request.dart';
 import 'xrpc_response.dart';
 
 /// The default service to communicate.
 const _defaultService = 'bsky.social';
-
-/// A function type that expresses the function of converting response body
-/// to model objects.
-typedef To<T> = T Function(Map<String, Object?> json);
-
-/// Function to convert response data to an specific structure.
-typedef ResponseAdaptor = Map<String, dynamic> Function(
-  dynamic data,
-);
-
-/// A function type that express factory for URI.
-typedef UriFactory = Uri Function(
-  String authority, [
-  String unencodedPath,
-  Map<String, dynamic>? queryParameters,
-]);
 
 /// Performs GET communication to the ATP server.
 ///
@@ -161,9 +145,9 @@ Future<XRPCResponse<T>> query<T>(
   final Map<String, String>? headers,
   final Map<String, dynamic>? parameters,
   final Duration timeout = const Duration(seconds: 10),
-  final To<T>? to,
-  final ResponseAdaptor? adaptor,
-  final GetClient? getClient,
+  final type.To<T>? to,
+  final type.ResponseAdaptor? adaptor,
+  final type.GetClient? getClient,
 }) async =>
     _buildResponse<T>(
       checkStatus(
@@ -297,8 +281,8 @@ Future<XRPCResponse<T>> procedure<T>(
   final Map<String, String>? headers,
   final Map<String, dynamic>? body,
   final Duration timeout = const Duration(seconds: 10),
-  final To<T>? to,
-  final PostClient? postClient,
+  final type.To<T>? to,
+  final type.PostClient? postClient,
 }) async =>
     _buildResponse<T>(
       checkStatus(
@@ -331,8 +315,8 @@ Future<XRPCResponse<T>> upload<T>(
   final String? service,
   final Map<String, String>? headers,
   final Duration timeout = const Duration(seconds: 10),
-  final To<T>? to,
-  final PostClient? postClient,
+  final type.To<T>? to,
+  final type.PostClient? postClient,
 }) async =>
     _buildResponse(
       checkStatus(
@@ -355,8 +339,8 @@ XRPCResponse<Subscription<T>> subscribe<T>(
   final nsid.NSID methodId, {
   final String? service,
   final Map<String, dynamic>? parameters,
-  final To<T>? to,
-  final ResponseAdaptor? adaptor,
+  final type.To<T>? to,
+  final type.ResponseAdaptor? adaptor,
 }) {
   final uri = _buildWsUri(methodId, service, util.removeNullValues(parameters));
   final channel = WebSocketChannel.connect(uri);
@@ -430,8 +414,8 @@ http.Response checkStatus(final http.Response response) {
 /// Returns the response object.
 XRPCResponse<T> _buildResponse<T>(
   final http.Response response,
-  final To<T>? to, [
-  final ResponseAdaptor? adaptor,
+  final type.To<T>? to, [
+  final type.ResponseAdaptor? adaptor,
 ]) =>
     XRPCResponse(
       headers: response.headers,
@@ -446,8 +430,8 @@ XRPCResponse<T> _buildResponse<T>(
 
 T _getData<T>(
   final http.Response response,
-  final To<T>? to,
-  final ResponseAdaptor? adaptor,
+  final type.To<T>? to,
+  final type.ResponseAdaptor? adaptor,
 ) {
   if (T == Uint8List) {
     //* This is basically used to retrieve Blob data.
@@ -472,7 +456,7 @@ XRPCResponse<XRPCError> _buildErrorResponse(final http.Response response) =>
 /// Returns the transformed data object.
 T _transformData<T>(
   final String body,
-  final To<T>? to,
+  final type.To<T>? to,
 ) {
   if (to != null) {
     return to.call(
@@ -492,7 +476,7 @@ T _transformData<T>(
 }
 
 /// Returns the uri factory based on [protocol].
-UriFactory _getUriFactory(final Protocol protocol) =>
+type.UriFactory _getUriFactory(final Protocol protocol) =>
     protocol == Protocol.https ? Uri.https : Uri.http;
 
 Uri _buildWsUri(
