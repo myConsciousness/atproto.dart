@@ -11,7 +11,7 @@ import 'package:test/test.dart';
 import 'package:xrpc/xrpc.dart';
 
 // 🌎 Project imports:
-import 'package:atproto_core/src/base_service.dart';
+import 'package:atproto_core/src/base_xrpc_service.dart';
 import 'package:atproto_core/src/clients/auth_type.dart';
 import 'package:atproto_core/src/clients/client_context.dart';
 
@@ -206,7 +206,7 @@ void main() {
   });
 }
 
-final class TestService extends BaseService {
+final class TestService extends BaseXRPCService {
   TestService({
     super.service = 'bsky.social',
     required super.methodAuthority,

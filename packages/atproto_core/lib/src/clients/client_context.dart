@@ -13,6 +13,7 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 import '../paginations/pagination.dart';
 import 'auth_type.dart';
 import 'challenge.dart';
+import 'client.dart';
 import 'client_resolver.dart';
 import 'retry_config.dart';
 import 'retry_policy.dart';
@@ -90,7 +91,9 @@ final class _ClientContext implements ClientContext {
     required String accessJwt,
     required this.timeout,
     RetryConfig? retryConfig,
-  })  : _clientResolver = ClientResolver(accessJwt),
+  })  : _clientResolver = ClientResolver(
+          accessJwt.isNotEmpty ? AuthRequiredClient(accessJwt) : null,
+        ),
         _challenge = Challenge(
           RetryPolicy(retryConfig),
         );

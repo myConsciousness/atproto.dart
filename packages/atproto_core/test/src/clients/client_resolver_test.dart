@@ -13,7 +13,7 @@ import 'package:atproto_core/src/clients/client_resolver.dart';
 void main() {
   group('.execute', () {
     test('auth required client', () {
-      final resolver = ClientResolver('aaaaa');
+      final resolver = ClientResolver(AuthRequiredClient('aaa'));
 
       expect(
         resolver.execute(AuthType.access),
@@ -22,7 +22,7 @@ void main() {
     });
 
     test('anonymous client', () {
-      final resolver = ClientResolver('');
+      final resolver = ClientResolver(null);
 
       expect(
         resolver.execute(AuthType.anonymous),
@@ -31,7 +31,7 @@ void main() {
     });
 
     test('auth required client without token', () {
-      final resolver = ClientResolver('');
+      final resolver = ClientResolver(null);
 
       expect(
         () => resolver.execute(AuthType.access),

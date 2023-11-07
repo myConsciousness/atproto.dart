@@ -58,9 +58,9 @@ sealed class _Service {
   });
 }
 
-base class BaseService implements _Service {
-  /// Returns the new instance of [BaseService].
-  BaseService({
+base class BaseXRPCService implements _Service {
+  /// Returns the new instance of [BaseXRPCService].
+  BaseXRPCService({
     xrpc.Protocol? protocol,
     required String service,
     required String methodAuthority,

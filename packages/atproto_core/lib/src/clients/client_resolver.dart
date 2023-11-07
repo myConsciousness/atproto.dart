@@ -8,7 +8,9 @@ import 'client.dart';
 
 sealed class ClientResolver {
   /// Returns the new instance of [ClientResolver].
-  factory ClientResolver(final String accessJwt) => _ClientResolver(accessJwt);
+  const factory ClientResolver(
+    final AuthRequiredClient? authRequiredClient,
+  ) = _ClientResolver;
 
   /// Returns the resolved client.
   Client execute(final AuthType authType);
@@ -16,24 +18,24 @@ sealed class ClientResolver {
 
 final class _ClientResolver implements ClientResolver {
   /// Returns the new instance of [_ClientResolver].
-  const _ClientResolver(this.accessJwt);
+  const _ClientResolver(this.authRequiredClient);
 
-  /// The access token.
-  final String accessJwt;
+  /// The client with access token.
+  final AuthRequiredClient? authRequiredClient;
 
   @override
   Client execute(final AuthType authType) {
     switch (authType) {
       case AuthType.anonymous:
-        return AnonymousClient();
+        return const AnonymousClient();
       case AuthType.access:
-        if (accessJwt.isEmpty) {
+        if (authRequiredClient == null) {
           throw UnsupportedError(
             'Access token is required for this endpoint.',
           );
         }
 
-        return AuthRequiredClient(accessJwt);
+        return authRequiredClient!;
     }
   }
 }
