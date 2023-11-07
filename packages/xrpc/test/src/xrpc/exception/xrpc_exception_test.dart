@@ -7,12 +7,12 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:xrpc/src/entities/rate_limit.dart';
-import 'package:xrpc/src/exception/xrpc_exception.dart';
 import 'package:xrpc/src/http_method.dart';
 import 'package:xrpc/src/http_status.dart';
-import 'package:xrpc/src/xrpc_error.dart';
-import 'package:xrpc/src/xrpc_request.dart';
-import 'package:xrpc/src/xrpc_response.dart';
+import 'package:xrpc/src/xrpc/exception/xrpc_exception.dart';
+import 'package:xrpc/src/xrpc/xrpc_error.dart';
+import 'package:xrpc/src/xrpc/xrpc_request.dart';
+import 'package:xrpc/src/xrpc/xrpc_response.dart';
 
 void main() {
   test('.toString', () {

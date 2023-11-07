@@ -14,19 +14,19 @@ import 'package:nsid/nsid.dart' as nsid;
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 // 🌎 Project imports:
-import 'entities/empty_data.dart';
-import 'entities/rate_limit.dart';
+import '../entities/empty_data.dart';
+import '../entities/rate_limit.dart';
+import '../http_method.dart';
+import '../http_status.dart';
+import '../protocol.dart';
+import '../subscription.dart';
+import '../types.dart' as type;
+import '../utils.dart' as util;
 import 'exception/internal_server_error_exception.dart';
 import 'exception/invalid_request_exception.dart';
 import 'exception/rate_limit_exceeded_exception.dart';
 import 'exception/unauthorized_exception.dart';
 import 'exception/xrpc_not_supported_exception.dart';
-import 'http_method.dart';
-import 'http_status.dart';
-import 'protocol.dart';
-import 'subscription.dart';
-import 'types.dart' as type;
-import 'utils.dart' as util;
 import 'xrpc_error.dart';
 import 'xrpc_request.dart';
 import 'xrpc_response.dart';
