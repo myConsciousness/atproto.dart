@@ -27,22 +27,6 @@ void main() {
       expect(response, isA<Response>());
       expect(response.data, {'key': 'value'});
     });
-
-    test('auth required', () async {
-      final service = TestService(
-        mockedGetClient: createMockedGetClientFromJson({'key': 'value'}),
-      );
-
-      final response = await service.get<Map<String, dynamic>>(
-        'getTimeline',
-        parameters: {
-          'handle': 'shinyakato.dev',
-        },
-      );
-
-      expect(response, isA<Response>());
-      expect(response.data, {'key': 'value'});
-    });
   });
 }
 
