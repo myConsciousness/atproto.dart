@@ -14,6 +14,7 @@ import 'package:nsid/nsid.dart' as nsid;
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 // 🌎 Project imports:
+import '../const.dart';
 import '../entities/empty_data.dart';
 import '../entities/rate_limit.dart';
 import '../http_method.dart';
@@ -30,9 +31,6 @@ import 'exception/xrpc_not_supported_exception.dart';
 import 'xrpc_error.dart';
 import 'xrpc_request.dart';
 import 'xrpc_response.dart';
-
-/// The default service to communicate.
-const _defaultService = 'bsky.social';
 
 /// Performs GET communication to the ATP server.
 ///
@@ -153,13 +151,13 @@ Future<XRPCResponse<T>> query<T>(
       checkStatus(
         await (getClient ?? http.get)
             .call(
-              _getUriFactory(protocol).call(
-                service ?? _defaultService,
-                '/xrpc/$methodId',
-                util.convertParameters(
-                  util.removeNullValues(parameters) ?? {},
-                ),
-              ),
+              util.getUriFactory(protocol).call(
+                    service ?? defaultService,
+                    '/xrpc/$methodId',
+                    util.convertParameters(
+                      util.removeNullValues(parameters) ?? {},
+                    ),
+                  ),
               headers: headers,
             )
             .timeout(timeout),
@@ -288,10 +286,10 @@ Future<XRPCResponse<T>> procedure<T>(
       checkStatus(
         await (postClient ?? http.post)
             .call(
-              _getUriFactory(protocol).call(
-                service ?? _defaultService,
-                '/xrpc/$methodId',
-              ),
+              util.getUriFactory(protocol).call(
+                    service ?? defaultService,
+                    '/xrpc/$methodId',
+                  ),
               headers: {
                 'Content-type': 'application/json',
               }..addAll(headers ?? {}),
@@ -321,10 +319,10 @@ Future<XRPCResponse<T>> upload<T>(
     _buildResponse(
       checkStatus(
         await (postClient ?? http.post).call(
-          _getUriFactory(protocol).call(
-            service ?? _defaultService,
-            '/xrpc/${methodId.toString()}',
-          ),
+          util.getUriFactory(protocol).call(
+                service ?? defaultService,
+                '/xrpc/${methodId.toString()}',
+              ),
           headers: {
             'Content-Type': lookupMimeType('', headerBytes: bytes) ?? '*/*',
           }..addAll(headers ?? {}),
@@ -425,26 +423,8 @@ XRPCResponse<T> _buildResponse<T>(
         url: response.request!.url,
       ),
       rateLimit: RateLimit.fromHeaders(response.headers),
-      data: _getData(response, to, adaptor),
+      data: util.getData(response, to, adaptor),
     );
-
-T _getData<T>(
-  final http.Response response,
-  final type.To<T>? to,
-  final type.ResponseAdaptor? adaptor,
-) {
-  if (T == Uint8List) {
-    //* This is basically used to retrieve Blob data.
-    return response.bodyBytes as T;
-  }
-
-  return _transformData(
-    adaptor != null
-        ? jsonEncode(adaptor.call(response.bodyBytes))
-        : response.body,
-    to,
-  );
-}
 
 /// Returns the error response.
 XRPCResponse<XRPCError> _buildErrorResponse(final http.Response response) =>
@@ -453,32 +433,6 @@ XRPCResponse<XRPCError> _buildErrorResponse(final http.Response response) =>
       XRPCError.fromJson,
     );
 
-/// Returns the transformed data object.
-T _transformData<T>(
-  final String body,
-  final type.To<T>? to,
-) {
-  if (to != null) {
-    return to.call(
-      jsonDecode(body),
-    );
-  }
-
-  if (T == String) {
-    return body as T;
-  }
-
-  if (T == Map<String, dynamic>) {
-    return jsonDecode(body) as T;
-  }
-
-  return const EmptyData() as T;
-}
-
-/// Returns the uri factory based on [protocol].
-type.UriFactory _getUriFactory(final Protocol protocol) =>
-    protocol == Protocol.https ? Uri.https : Uri.http;
-
 Uri _buildWsUri(
   final nsid.NSID methodId,
   final String? service,
@@ -486,7 +440,7 @@ Uri _buildWsUri(
 ) {
   final buffer = StringBuffer()
     ..write('wss://')
-    ..write(service ?? _defaultService)
+    ..write(service ?? defaultService)
     ..write('/xrpc/')
     ..write(methodId.toString());
 
