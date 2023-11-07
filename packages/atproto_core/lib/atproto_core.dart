@@ -53,3 +53,4 @@ export 'package:xrpc/xrpc.dart'
         RateLimitExceededException,
         GetClient,
         PostClient;
+export 'package:xrpc/http.dart' show Request, Response, HttpException;
