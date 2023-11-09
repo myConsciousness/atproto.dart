@@ -2,10 +2,6 @@
 
 ## v0.8.0
 
-- Upgraded `atproto_core`.
-
-## v0.7.3
-
 - Added `.didDoc` on `CurrentSession`. ([#983](https://github.com/myConsciousness/atproto.dart/issues/983))
 - Upgraded `atproto_core`. ([#989](https://github.com/myConsciousness/atproto.dart/issues/989))
 
