@@ -4,7 +4,16 @@
 
 // 📦 Package imports:
 import 'package:test/test.dart';
+import 'package:xrpc/http.dart' as http;
 import 'package:xrpc/xrpc.dart' as xrpc;
+
+/// Checks if [fn] throws [http.HttpException].
+void expectHttpException(Function fn) {
+  expect(
+    () async => await fn.call(),
+    throwsA(isA<http.HttpException>()),
+  );
+}
 
 /// Checks if [fn] throws [xrpc.XRPCException].
 void expectXRPCException(Function fn) {
