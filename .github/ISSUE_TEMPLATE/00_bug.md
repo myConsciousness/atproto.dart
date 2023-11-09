@@ -14,6 +14,7 @@ assignees: "myConsciousness"
 - [ ] **xrpc** (version: )
 - [ ] **multiformats** (version: )
 - [ ] **atproto_core** (version: )
+- [ ] **did_plc** (version: )
 - [ ] **atproto** (version: )
 - [ ] **bluesky** (version: )
 - [ ] **bluesky_text** (version: )
