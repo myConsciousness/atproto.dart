@@ -26,15 +26,15 @@ class CompatibleOpOrTombstone with _$CompatibleOpOrTombstone {
 
   const factory CompatibleOpOrTombstone.tombstone({
     required Tombstone data,
-  }) = UOperationsTombstone;
+  }) = UCompatibleOpOrTombstoneTombstone;
 
   const factory CompatibleOpOrTombstone.createOpV1({
     required CreateOperationV1 data,
-  }) = UOperationsCreateOperationV1;
+  }) = UCompatibleOpOrTombstoneCreateOperationV1;
 
   const factory CompatibleOpOrTombstone.unknown({
     required Map<String, dynamic> data,
-  }) = UOperationsUnknown;
+  }) = UCompatibleOpOrTombstoneUnknown;
 
   Map<String, dynamic> toJson() =>
       compatibleOpOrTombstoneConverter.toJson(this);
