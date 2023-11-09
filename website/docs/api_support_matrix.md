@@ -194,7 +194,7 @@ See more details about **[bluesky](https://pub.dev/packages/bluesky)** in **[Pac
 
 ## **[DID PLC](https://pub.dev/packages/did_plc)**
 
-**[did_plc](https://pub.dev/packages/bluesky)** supports the endpoints for [DID PLC Directory](https://web.plc.directory.
+**[did_plc](https://pub.dev/packages/bluesky)** supports the endpoints for [DID PLC Directory](https://web.plc.directory).
 
 | **Endpoint**          | **Method Name**                                                                                           | Auth Required | Pagination |
 | --------------------- | --------------------------------------------------------------------------------------------------------- | :-----------: | :--------: |
