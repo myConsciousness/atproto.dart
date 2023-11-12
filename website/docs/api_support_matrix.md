@@ -196,13 +196,15 @@ See more details about **[bluesky](https://pub.dev/packages/bluesky)** in **[Pac
 
 **[did_plc](https://pub.dev/packages/bluesky)** supports the endpoints for [DID PLC Directory](https://web.plc.directory).
 
-| **Endpoint**          | **Method Name**                                                                                           | Auth Required | Pagination |
-| --------------------- | --------------------------------------------------------------------------------------------------------- | :-----------: | :--------: |
-| [GET /:did:           | [findDocument](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findDocument.html)                |       ❌       |     ❌      |
-| [GET /:did:/data      | [findDocumentData](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findDocumentData.html)        |       ❌       |     ❌      |
-| [GET /:did:/log       | [findOperationLog](https://pub.dev/documentation/did_plcdid_plc/latest/did_plc/PLC/findOperationLog.html) |       ❌       |     ❌      |
-| [GET /:did:/log/audit | [findAuditableLog](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findAuditableLog.html)        |       ❌       |     ❌      |
-| [GET /:did:/log/last  | [findLastOperation](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findLastOperatio.html)       |       ❌       |     ❌      |
+| **Endpoint**         | **Method Name**                                                                                      | Auth Required | Pagination |
+| -------------------- | ---------------------------------------------------------------------------------------------------- | :-----------: | :--------: |
+| GET /:did:           | [findDocument](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findDocument.html)           |       ❌       |     ❌      |
+| GET /:did:/data      | [findDocumentData](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findDocumentData.html)   |       ❌       |     ❌      |
+| GET /:did:/log       | [findOperationLog](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findOperationLog.html)   |       ❌       |     ❌      |
+| GET /:did:/log/audit | [findAuditableLog](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findAuditableLog.html)   |       ❌       |     ❌      |
+| GET /:did:/log/last  | [findLastOperation](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findLastOperation.html) |       ❌       |     ❌      |
+| GET health           | [health](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/health.html)                       |       ❌       |     ❌      |
+| GET export           | [export](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/export.html)                       |       ❌       |     ✅      |
 
 ## **[bluesky_cli](https://pub.dev/packages/bluesky_cli)**
 
