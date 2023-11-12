@@ -11,6 +11,7 @@ import 'entities/compatible_op_or_tombstone.dart';
 import 'entities/converter/compatible_op_or_tombstone_converter.dart';
 import 'entities/did_document.dart';
 import 'entities/document_data.dart';
+import 'entities/instance.dart';
 import 'entities/operation_log.dart';
 import 'plc_base_service.dart';
 
@@ -41,6 +42,13 @@ sealed class PLC {
   Future<core.Response<CompatibleOpOrTombstone>> findLastOperation({
     required String did,
   });
+
+  Future<core.Response<AuditableLog>> export({
+    DateTime? after,
+    int? count,
+  });
+
+  Future<core.Response<Instance>> health();
 }
 
 final class _PLC extends PLCBaseService implements PLC {
@@ -88,5 +96,26 @@ final class _PLC extends PLCBaseService implements PLC {
       await super.get(
         '$did/log/last',
         to: compatibleOpOrTombstoneConverter.fromJson,
+      );
+
+  @override
+  Future<core.Response<AuditableLog>> export({
+    DateTime? after,
+    int? count,
+  }) async =>
+      await super.get(
+        'export',
+        parameters: {
+          'after': after,
+          'count': count,
+        },
+        adaptor: (data) => toCompatibleBody('log', data, jsonl: true),
+        to: AuditableLog.fromJson,
+      );
+
+  @override
+  Future<core.Response<Instance>> health() async => await super.get(
+        '_health',
+        to: Instance.fromJson,
       );
 }

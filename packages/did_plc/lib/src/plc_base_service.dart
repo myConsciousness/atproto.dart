@@ -16,7 +16,16 @@ base class PLCBaseService extends BaseHttpService {
 
   Map<String, dynamic> toCompatibleBody(
     final String root,
-    final dynamic data,
-  ) =>
-      {root: jsonDecode(String.fromCharCodes(data))};
+    final dynamic data, {
+    bool jsonl = false,
+  }) =>
+      jsonl
+          ? {
+              root: jsonDecode(
+                String.fromCharCodes(data).split('\n').toString(),
+              )
+            }
+          : {
+              root: jsonDecode(String.fromCharCodes(data)),
+            };
 }

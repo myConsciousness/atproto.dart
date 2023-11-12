@@ -14,6 +14,7 @@ import 'package:did_plc/src/entities/auditable_log.dart';
 import 'package:did_plc/src/entities/compatible_op_or_tombstone.dart';
 import 'package:did_plc/src/entities/did_document.dart';
 import 'package:did_plc/src/entities/document_data.dart';
+import 'package:did_plc/src/entities/instance.dart';
 import 'package:did_plc/src/entities/operation_log.dart';
 import 'package:did_plc/src/plc.dart';
 
@@ -203,6 +204,35 @@ void main() {
     });
   });
 
+  test('.export', () async {
+    final plc = PLC(
+      mockedGetClient: atp_test.createMockedGetClient(
+        'test/src/data/export.jsonl',
+      ),
+    );
+
+    final response = await plc.export(
+      after: DateTime.now().toUtc(),
+      count: 1000,
+    );
+
+    expect(response, isA<core.Response<AuditableLog>>());
+    expect(response.data.log.length, 1000);
+  });
+
+  test('.health', () async {
+    final plc = PLC(
+      mockedGetClient: atp_test.createMockedGetClient(
+        'test/src/data/health.json',
+      ),
+    );
+
+    final response = await plc.health();
+
+    expect(response, isA<core.Response<Instance>>());
+    expect(response.data.version, 'e3c860a6a55646d16f7d558b63931bde2d0944ae');
+  });
+
   test('errors', () async {
     final plc = PLC(
       mockedGetClient: atp_test.createMockedGetClient(
@@ -218,5 +248,7 @@ void main() {
     atp_test.expectHttpException(() => plc.findOperationLog(did: did));
     atp_test.expectHttpException(() => plc.findAuditableLog(did: did));
     atp_test.expectHttpException(() => plc.findLastOperation(did: did));
+    atp_test.expectHttpException(() => plc.export());
+    atp_test.expectHttpException(() => plc.health());
   });
 }
