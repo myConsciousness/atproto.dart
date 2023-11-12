@@ -12,6 +12,7 @@ export 'package:did_plc/src/entities/create_operation_v1.dart';
 export 'package:did_plc/src/entities/did_document.dart';
 export 'package:did_plc/src/entities/document_data.dart';
 export 'package:did_plc/src/entities/exported_operation.dart';
+export 'package:did_plc/src/entities/instance.dart';
 export 'package:did_plc/src/entities/operation_log.dart';
 export 'package:did_plc/src/entities/operation.dart';
 export 'package:did_plc/src/entities/service.dart';
