@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.6.1
+
+- Improved extraction algo for markdown links.
+
 ## v0.6.0
 
 - Upgraded `xrpc`. ([#989](https://github.com/myConsciousness/atproto.dart/issues/989))
