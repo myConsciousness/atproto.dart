@@ -693,6 +693,31 @@ example8.com はいいぞ
 
       expect(links.length, 0);
     });
+
+    test('case34', () {
+      final text = BlueskyText(
+          '''I use @deck.blue, which lets you add inline links using Markdown! So that
+
+[example link](link url here)
+
+becomes
+
+[example link](https://www.picserver.org/assets/library/2020-10-31/originals/example1.jpg)''');
+
+      final links = text.links;
+      expect(links.length, 1);
+      expect(links.first.value,
+          'https://www.picserver.org/assets/library/2020-10-31/originals/example1.jpg');
+      expect(links.first.indices.start, 116);
+      expect(links.first.indices.end, 128);
+
+      final formatted = text.format().links;
+      expect(formatted.length, 1);
+      expect(formatted.first.value,
+          'https://www.picserver.org/assets/library/2020-10-31/originals/example1.jpg');
+      expect(formatted.first.indices.start, 115);
+      expect(formatted.first.indices.end, 127);
+    });
   });
 
   group('.tags', () {

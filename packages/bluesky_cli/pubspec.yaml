@@ -20,7 +20,7 @@ topics:
   - cli
 
 dependencies:
-  xrpc: ^0.4.0
+  xrpc: ^0.4.1
   at_uri: ^0.2.2
   ansi_styles: ^0.3.1
   args: ^2.0.0
