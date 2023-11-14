@@ -28,11 +28,30 @@ void main() {
       expect(response.data, {'key': 'value'});
     });
   });
+
+  group('.post', () {
+    test('anonymous', () async {
+      final service = TestService(
+        mockedPostClient: createMockedPostClientFromJson({'key': 'value'}),
+      );
+
+      final response = await service.post<Map<String, dynamic>>(
+        'post',
+        body: {
+          'handle': 'shinyakato.dev',
+        },
+      );
+
+      expect(response, isA<Response>());
+      expect(response.data, {'key': 'value'});
+    });
+  });
 }
 
 final class TestService extends BaseHttpService {
   TestService({
     super.service = 'bsky.social',
     super.mockedGetClient,
+    super.mockedPostClient,
   });
 }

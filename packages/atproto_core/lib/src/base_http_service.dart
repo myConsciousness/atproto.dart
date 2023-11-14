@@ -15,6 +15,13 @@ sealed class _Service {
     final http.To<T>? to,
     final http.ResponseAdaptor? adaptor,
   });
+
+  Future<http.Response<T>> post<T>(
+    final String unencodedPath, {
+    final Map<String, String>? headers,
+    final dynamic body,
+    final http.To<T>? to,
+  });
 }
 
 base class BaseHttpService implements _Service {
@@ -23,9 +30,11 @@ base class BaseHttpService implements _Service {
     http.Protocol? protocol,
     required String service,
     final http.GetClient? mockedGetClient,
+    final http.PostClient? mockedPostClient,
   })  : _protocol = protocol,
         _service = service,
-        _mockedGetClient = mockedGetClient;
+        _mockedGetClient = mockedGetClient,
+        _mockedPostClient = mockedPostClient;
 
   /// The communication protocol.
   final http.Protocol? _protocol;
@@ -34,6 +43,7 @@ base class BaseHttpService implements _Service {
   final String _service;
 
   final http.GetClient? _mockedGetClient;
+  final http.PostClient? _mockedPostClient;
 
   @override
   Future<http.Response<T>> get<T>(
@@ -50,5 +60,21 @@ base class BaseHttpService implements _Service {
         to: to,
         adaptor: adaptor,
         getClient: _mockedGetClient,
+      );
+
+  @override
+  Future<http.Response<T>> post<T>(
+    final String unencodedPath, {
+    final Map<String, String>? headers,
+    final dynamic body,
+    final http.To<T>? to,
+  }) async =>
+      await http.post(
+        unencodedPath,
+        protocol: _protocol ?? http.Protocol.https,
+        service: _service,
+        body: body,
+        to: to,
+        postClient: _mockedPostClient,
       );
 }

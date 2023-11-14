@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.1
+
+- Added `.post` function. ([#999](https://github.com/myConsciousness/atproto.dart/issues/999))
+
 ## v0.4.0
 
 - Added HTTP specific function and exposed as `http/http`. ([#989](https://github.com/myConsciousness/atproto.dart/issues/989))

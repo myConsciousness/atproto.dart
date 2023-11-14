@@ -188,4 +188,65 @@ void main() {
       expect(response.data, jsonDecode('{"test": "test"}'));
     });
   });
+
+  group('.post', () {
+    test('simple case', () async {
+      final response = await post<EmptyData>(
+        'test.com',
+        postClient: (url, {body, encoding, headers}) async => http.Response(
+          '{}',
+          200,
+          request: http.Request('POST', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response, isA<Response<EmptyData>>());
+      expect(response.data, isA<EmptyData>());
+    });
+
+    test('with "to" parameter', () async {
+      final response = await post(
+        'test.com',
+        to: EmptyData.fromJson,
+        postClient: (url, {body, encoding, headers}) async => http.Response(
+          '{}',
+          200,
+          request: http.Request('POST', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response, isA<Response<EmptyData>>());
+      expect(response.data, isA<EmptyData>());
+    });
+
+    test('T is String', () async {
+      final response = await post<String>(
+        'test.com',
+        postClient: (url, {body, encoding, headers}) async => http.Response(
+          '{"test": "test"}',
+          200,
+          request: http.Request('POST', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response, isA<Response<String>>());
+      expect(response.data, isA<String>());
+      expect(response.data, '{"test": "test"}');
+    });
+
+    test('T is Map<String, dynamic>', () async {
+      final response = await post<Map<String, dynamic>>(
+        'test.com',
+        postClient: (url, {body, encoding, headers}) async => http.Response(
+          '{"test": "test"}',
+          200,
+          request: http.Request('POST', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response, isA<Response<Map<String, dynamic>>>());
+      expect(response.data, isA<Map<String, dynamic>>());
+      expect(response.data, jsonDecode('{"test": "test"}'));
+    });
+  });
 }
