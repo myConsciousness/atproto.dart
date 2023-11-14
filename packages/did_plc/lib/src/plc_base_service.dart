@@ -12,6 +12,7 @@ base class PLCBaseService extends BaseHttpService {
   PLCBaseService({
     required super.service,
     super.mockedGetClient,
+    super.mockedPostClient,
   });
 
   Map<String, dynamic> toCompatibleBody(

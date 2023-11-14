@@ -2,6 +2,9 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
+import 'dart:convert';
+
 // 📦 Package imports:
 import 'package:http/http.dart' as http;
 
@@ -44,6 +47,39 @@ Future<Response<T>> get<T>(
       ),
       to,
       adaptor,
+    );
+
+Future<Response<T>> post<T>(
+  final String unencodedPath, {
+  final Protocol protocol = Protocol.https,
+  final String? service,
+  final Map<String, String>? headers,
+  final Map<String, dynamic>? body,
+  final Duration timeout = const Duration(seconds: 10),
+  final type.To<T>? to,
+  final type.PostClient? postClient,
+}) async =>
+    _buildResponse<T>(
+      checkStatus(
+        await (postClient ?? http.post)
+            .call(
+              util.getUriFactory(protocol).call(
+                    service ?? defaultService,
+                    unencodedPath,
+                  ),
+              headers: {
+                'Content-type': 'application/json',
+              }..addAll(headers ?? {}),
+              body: body != null
+                  ? jsonEncode(
+                      util.removeNullValues(body) ?? {},
+                    )
+                  : null,
+              encoding: utf8,
+            )
+            .timeout(timeout),
+      ),
+      to,
     );
 
 http.Response checkStatus(

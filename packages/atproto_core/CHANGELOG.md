@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.6.1
+
+- Added `BaseHttpService.post`. ([#999](https://github.com/myConsciousness/atproto.dart/issues/999))
+
 ## v0.6.0
 
 - Added HTTP specific client. ([#989](https://github.com/myConsciousness/atproto.dart/issues/989))

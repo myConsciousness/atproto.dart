@@ -21,6 +21,7 @@ sealed class PLC {
   factory PLC({
     final String service,
     final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   }) = _PLC;
 
   Future<core.Response<DidDocument>> findDocument({
@@ -55,6 +56,7 @@ final class _PLC extends PLCBaseService implements PLC {
   _PLC({
     super.service = _defaultService,
     super.mockedGetClient,
+    super.mockedPostClient,
   });
 
   @override
