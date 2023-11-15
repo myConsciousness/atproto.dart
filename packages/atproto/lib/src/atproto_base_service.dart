@@ -11,6 +11,7 @@ base class ATProtoBaseService extends core.BaseXRPCService {
     required this.did,
     required super.protocol,
     required super.service,
+    super.streamService,
     required super.methodAuthority,
     required super.context,
     super.mockedGetClient,

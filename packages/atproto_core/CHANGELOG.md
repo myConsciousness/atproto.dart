@@ -3,6 +3,7 @@
 ## v0.6.1
 
 - Added `BaseHttpService.post`. ([#999](https://github.com/myConsciousness/atproto.dart/issues/999))
+- Fixed a bug that service names were not specified correctly when using stream endpoints.
 
 ## v0.6.0
 

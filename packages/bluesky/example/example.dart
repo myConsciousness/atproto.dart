@@ -13,6 +13,9 @@ Future<void> main() async {
       //! The default is `bsky.social`
       service: 'SERVICE_NAME',
 
+      //! The default is `bsky.network`
+      streamService: 'STREAM_SERVICE_NAME',
+
       //! Automatic retry is available when server error or network error occurs
       //! when communicating with the API.
       retryConfig: bsky.RetryConfig(

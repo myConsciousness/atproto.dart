@@ -440,7 +440,7 @@ Uri _buildWsUri(
 ) {
   final buffer = StringBuffer()
     ..write('wss://')
-    ..write(service ?? defaultService)
+    ..write(service ?? defaultStreamService)
     ..write('/xrpc/')
     ..write(methodId.toString());
 

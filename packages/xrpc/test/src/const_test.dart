@@ -11,5 +11,6 @@ import 'package:xrpc/src/const.dart';
 void main() {
   test('default service', () {
     expect(defaultService, 'bsky.social');
+    expect(defaultStreamService, 'bsky.network');
   });
 }
