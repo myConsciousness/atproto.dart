@@ -12,6 +12,7 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 // 🌎 Project imports:
 import 'clients/auth_type.dart';
 import 'clients/client_context.dart';
+import 'const.dart';
 import 'paginations/pagination.dart';
 
 sealed class _Service {
@@ -51,7 +52,6 @@ sealed class _Service {
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
     final String methodName, {
     final AuthType authType = AuthType.access,
-    final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
@@ -63,12 +63,14 @@ base class BaseXRPCService implements _Service {
   BaseXRPCService({
     xrpc.Protocol? protocol,
     required String service,
+    String? streamService,
     required String methodAuthority,
     required ClientContext context,
     final xrpc.GetClient? mockedGetClient,
     final xrpc.PostClient? mockedPostClient,
   })  : _protocol = protocol,
         _service = service,
+        _streamService = streamService ?? defaultStreamService,
         _methodAuthority = methodAuthority,
         _context = context,
         _mockedGetClient = mockedGetClient,
@@ -79,6 +81,7 @@ base class BaseXRPCService implements _Service {
 
   /// The base service.
   final String _service;
+  final String _streamService;
 
   /// The authority for method.
   final String _methodAuthority;
@@ -183,7 +186,6 @@ base class BaseXRPCService implements _Service {
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
     final String methodName, {
     AuthType authType = AuthType.access,
-    final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
@@ -194,7 +196,7 @@ base class BaseXRPCService implements _Service {
           methodName,
         ),
         authType: authType,
-        service: service,
+        service: _streamService,
         parameters: parameters,
         to: to,
         adaptor: adaptor,

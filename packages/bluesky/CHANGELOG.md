@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.10.2
+
+- Fixed a bug that service names were not specified correctly when using stream endpoints.
+- Added `.streamService` property on `ATProto`. Defaults to `bsky.network`.
+
 ## v0.10.1
 
 - Upgraded `atproto_core`. ([#999](https://github.com/myConsciousness/atproto.dart/issues/999))

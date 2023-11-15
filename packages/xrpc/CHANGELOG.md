@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.2
+
+- Use `bsky.network` as default when service is missing for `.subscribe` function.
+
 ## v0.4.1
 
 - Added `.post` function. ([#999](https://github.com/myConsciousness/atproto.dart/issues/999))

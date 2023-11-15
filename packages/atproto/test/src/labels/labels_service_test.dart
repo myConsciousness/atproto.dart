@@ -18,6 +18,7 @@ void main() {
         did: 'test',
         protocol: core.Protocol.https,
         service: 'test',
+        streamService: 'test',
         context: core.ClientContext(
           accessJwt: '1234',
           timeout: Duration.zero,
@@ -40,6 +41,7 @@ void main() {
         protocol: core.Protocol.https,
         did: 'test',
         service: 'test',
+        streamService: 'test',
         context: core.ClientContext(
           accessJwt: '1234',
           timeout: Duration.zero,
@@ -62,6 +64,7 @@ void main() {
         protocol: core.Protocol.https,
         did: 'test',
         service: 'test',
+        streamService: 'test',
         context: core.ClientContext(
           accessJwt: '1234',
           timeout: Duration.zero,

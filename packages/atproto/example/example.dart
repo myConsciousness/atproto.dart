@@ -18,6 +18,12 @@ Future<void> main() async {
     final atproto = atp.ATProto.fromSession(
       session.data,
 
+      //! The default is `bsky.social`
+      service: 'SERVICE_NAME',
+
+      //! The default is `bsky.network`
+      streamService: 'STREAM_SERVICE_NAME',
+
       //! Automatic retry is available when server error or network error occurs
       //! when communicating with the API.
       retryConfig: atp.RetryConfig(
