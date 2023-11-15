@@ -88,7 +88,7 @@ final class _ATProto implements ATProto {
     this.session,
     required core.Protocol protocol,
     required String service,
-    required streamService,
+    required String streamService,
     required Duration timeout,
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
