@@ -518,7 +518,7 @@ void main() {
         did: 'test',
         protocol: core.Protocol.https,
         service: 'bsky.social',
-        streamService: 'test',
+        streamService: 'bsky.network',
         context: core.ClientContext(
           accessJwt: '',
           timeout: Duration.zero,
