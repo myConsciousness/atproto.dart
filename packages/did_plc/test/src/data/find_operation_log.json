@@ -1,0 +1,96 @@
+[
+  {
+    "sig": "MH087fj3fW8RhEOGKQaUupjQ4OVqXO36p9mOK2LE09cHXcXA01uU9nGtjPvbKZTsTog-yhw7tfYhpmg8GYN7eQ",
+    "type": "plc_operation",
+    "services": {
+      "atproto_pds": {
+        "type": "AtprotoPersonalDataServer",
+        "endpoint": "https://bsky.social"
+      }
+    },
+    "alsoKnownAs": ["at://shinyakato.bsky.social"],
+    "rotationKeys": [
+      "did:key:zQ3shhCGUqDKjStzuDxPkTxN6ujddP4RkEKJJouJGRRkaLGbg",
+      "did:key:zQ3shP5TBe1sQfSttXty15FAEHV1DZgcxRZNxvEWnPfLFwLxJ"
+    ],
+    "verificationMethods": {
+      "atproto": "did:key:zQ3shP5TBe1sQfSttXty15FAEHV1DZgcxRZNxvEWnPfLFwLxJ"
+    }
+  },
+  {
+    "sig": "D01agCo4fPmgY5oREI9WwTwbHXVEkKMBdkNAwFSmZMB6HoeAmxmuMR2XL1milHjvxbY-FbrlVq_fyW1A6idZ2Q",
+    "type": "plc_operation",
+    "services": {
+      "atproto_pds": {
+        "type": "AtprotoPersonalDataServer",
+        "endpoint": "https://bsky.social"
+      }
+    },
+    "alsoKnownAs": ["at://shinyakato.dev"],
+    "rotationKeys": [
+      "did:key:zQ3shhCGUqDKjStzuDxPkTxN6ujddP4RkEKJJouJGRRkaLGbg",
+      "did:key:zQ3shP5TBe1sQfSttXty15FAEHV1DZgcxRZNxvEWnPfLFwLxJ"
+    ],
+    "verificationMethods": {
+      "atproto": "did:key:zQ3shP5TBe1sQfSttXty15FAEHV1DZgcxRZNxvEWnPfLFwLxJ"
+    },
+    "prev": "bafyreicccmm2x3qtuja7wngkfteegyukzbmgaqxmywt6gubcovcmog2zxe"
+  },
+  {
+    "sig": "wkHbMhfRjn10j8vlZRbsfr4hpW7t7ODbzrrSD-LbVJ4nCrcTLlzyKj2tjySB26d678BMxxkL8jFW6aocWXBztQ",
+    "type": "plc_operation",
+    "services": {
+      "atproto_pds": {
+        "type": "AtprotoPersonalDataServer",
+        "endpoint": "https://bsky.social"
+      }
+    },
+    "alsoKnownAs": ["at://shinyakato.bsky.social"],
+    "rotationKeys": [
+      "did:key:zQ3shhCGUqDKjStzuDxPkTxN6ujddP4RkEKJJouJGRRkaLGbg",
+      "did:key:zQ3shP5TBe1sQfSttXty15FAEHV1DZgcxRZNxvEWnPfLFwLxJ"
+    ],
+    "verificationMethods": {
+      "atproto": "did:key:zQ3shP5TBe1sQfSttXty15FAEHV1DZgcxRZNxvEWnPfLFwLxJ"
+    },
+    "prev": "bafyreiebkbwyf6n6bgtm7hd6xl75jwxpc4difngxitq27n7yw4gmidfrmm"
+  },
+  {
+    "sig": "B3wsZUm0_5-huZ7_12B8xTKkQzZAY5fDqBNRGXgfUsMNm2C5DcjQ9aWBV58rpAeC15ZAaqgINYCDUao4y5BrPg",
+    "type": "plc_operation",
+    "services": {
+      "atproto_pds": {
+        "type": "AtprotoPersonalDataServer",
+        "endpoint": "https://bsky.social"
+      }
+    },
+    "alsoKnownAs": ["at://shinyakato.bsky.social"],
+    "rotationKeys": [
+      "did:key:zQ3shhCGUqDKjStzuDxPkTxN6ujddP4RkEKJJouJGRRkaLGbg",
+      "did:key:zQ3shpKnbdPx3g3CmPf5cRVTPe1HtSwVn5ish3wSnDPQCbLJK"
+    ],
+    "verificationMethods": {
+      "atproto": "did:key:zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF"
+    },
+    "prev": "bafyreigepsrftlwowkfjlyflfmreaiacnvzg2ak5aeihcl6r63yb6v4q6q"
+  },
+  {
+    "sig": "rH2by5P2J-YyS27JZfbqvkYLTaVX_ZGKYm820fW4GFARr8N_Zzhf_hyeT0NkC0qpphVGZuqWaKt2n9sHLiGMbg",
+    "type": "plc_operation",
+    "services": {
+      "atproto_pds": {
+        "type": "AtprotoPersonalDataServer",
+        "endpoint": "https://bsky.social"
+      }
+    },
+    "alsoKnownAs": ["at://shinyakato.dev"],
+    "rotationKeys": [
+      "did:key:zQ3shhCGUqDKjStzuDxPkTxN6ujddP4RkEKJJouJGRRkaLGbg",
+      "did:key:zQ3shpKnbdPx3g3CmPf5cRVTPe1HtSwVn5ish3wSnDPQCbLJK"
+    ],
+    "verificationMethods": {
+      "atproto": "did:key:zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF"
+    },
+    "prev": "bafyreib7l5z5gpxj6lnorf6k3xcwoijiozmnn3ysm2vjgo76yktsq2fnpu"
+  }
+]

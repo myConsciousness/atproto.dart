@@ -21,6 +21,7 @@ sealed class Bluesky {
     final atp.Session session, {
     core.Protocol protocol = core.defaultProtocol,
     String service = core.defaultService,
+    String streamService = core.defaultStreamService,
     Duration timeout = core.defaultTimeout,
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
@@ -30,6 +31,7 @@ sealed class Bluesky {
         session: session,
         protocol: protocol,
         service: service,
+        streamService: streamService,
         timeout: timeout,
         retryConfig: retryConfig,
         mockedGetClient: mockedGetClient,
@@ -40,6 +42,7 @@ sealed class Bluesky {
   factory Bluesky.anonymous({
     core.Protocol protocol = core.defaultProtocol,
     String service = core.defaultService,
+    String streamService = core.defaultStreamService,
     Duration timeout = core.defaultTimeout,
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
@@ -48,6 +51,7 @@ sealed class Bluesky {
       _Bluesky(
         protocol: protocol,
         service: service,
+        streamService: streamService,
         timeout: timeout,
         retryConfig: retryConfig,
         mockedGetClient: mockedGetClient,
@@ -103,6 +107,7 @@ final class _Bluesky implements Bluesky {
     this.session,
     required core.Protocol protocol,
     required String service,
+    required String streamService,
     required Duration timeout,
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
@@ -112,6 +117,7 @@ final class _Bluesky implements Bluesky {
               ? atp.ATProto.anonymous(
                   protocol: protocol,
                   service: service,
+                  streamService: streamService,
                   timeout: timeout,
                   retryConfig: retryConfig,
                   mockedGetClient: mockedGetClient,
@@ -121,6 +127,7 @@ final class _Bluesky implements Bluesky {
                   session,
                   protocol: protocol,
                   service: service,
+                  streamService: streamService,
                   timeout: timeout,
                   retryConfig: retryConfig,
                   mockedGetClient: mockedGetClient,

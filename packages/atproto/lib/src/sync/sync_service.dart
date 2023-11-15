@@ -28,6 +28,7 @@ sealed class SyncService {
     required String did,
     required core.Protocol protocol,
     required String service,
+    required String streamService,
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
@@ -36,6 +37,7 @@ sealed class SyncService {
         did: did,
         protocol: protocol,
         service: service,
+        streamService: streamService,
         context: context,
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,
@@ -532,6 +534,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     required super.did,
     required super.protocol,
     required super.service,
+    required super.streamService,
     required super.context,
     super.mockedGetClient,
     super.mockedPostClient,
@@ -547,7 +550,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
             parameters: {
               'cursor': cursor,
             },
-            userContext: core.UserContext.anonymousOnly,
+            authType: core.AuthType.anonymous,
             to: SubscribedRepo.fromJson,
             adaptor: toSubscribedRepo,
           );
@@ -709,7 +712,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
           'did': did,
           'cid': cid,
         },
-        userContext: core.UserContext.anonymousOnly,
+        authType: core.AuthType.anonymous,
       );
 
   @override
@@ -786,7 +789,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
           data,
           progress,
         ),
-        userContext: core.UserContext.anonymousOnly,
+        authType: core.AuthType.anonymous,
         to: to,
       );
 
@@ -802,7 +805,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
           'cids': commitCids,
         },
         adaptor: toRepoBlocks,
-        userContext: core.UserContext.anonymousOnly,
+        authType: core.AuthType.anonymous,
         to: to,
       );
 
@@ -815,7 +818,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
         parameters: {
           'did': did,
         },
-        userContext: core.UserContext.anonymousOnly,
+        authType: core.AuthType.anonymous,
         to: to,
       );
 
@@ -833,7 +836,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
           'commit': commitCid,
         },
         adaptor: toRepoCommit,
-        userContext: core.UserContext.anonymousOnly,
+        authType: core.AuthType.anonymous,
         to: to,
       );
 
@@ -848,7 +851,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
           limit: limit,
           cursor: cursor,
         ),
-        userContext: core.UserContext.anonymousOnly,
+        authType: core.AuthType.anonymous,
         to: to,
       );
 
@@ -863,7 +866,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
           limit: limit,
           cursor: cursor,
         ),
-        userContext: core.UserContext.anonymousOnly,
+        authType: core.AuthType.anonymous,
         to: to,
       );
 
@@ -882,7 +885,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
           limit: limit,
           cursor: cursor,
         ),
-        userContext: core.UserContext.anonymousOnly,
+        authType: core.AuthType.anonymous,
         to: to,
       );
 
@@ -901,7 +904,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
           limit: limit,
           cursor: cursor,
         ),
-        userContext: core.UserContext.anonymousOnly,
+        authType: core.AuthType.anonymous,
         to: to,
       );
 

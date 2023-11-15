@@ -36,6 +36,7 @@ See more details about **[atproto](https://pub.dev/packages/atproto)** in **[Pac
 | [POST com.atproto.server.requestEmailConfirmation](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/requestEmailConfirmation.json) | [requestEmailConfirmation](https://pub.dev/documentation/atproto/latest/atproto/ServersService/requestEmailConfirmation.html) |       ✅       |     ❌      |
 | [POST com.atproto.server.confirmEmail](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/confirmEmail.json)                         | [confirmEmail](https://pub.dev/documentation/atproto/latest/atproto/ServersService/confirmEmail.html)                         |       ✅       |     ❌      |
 | [POST com.atproto.server.updateEmail](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/updateEmail.json)                           | [updateEmail](https://pub.dev/documentation/atproto/latest/atproto/ServersService/updateEmail.html)                           |       ✅       |     ❌      |
+| [POST com.atproto.server.reserveSigningKey](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/reserveSigningKey.json)               | [createSigningKey](https://pub.dev/documentation/atproto/latest/atproto/createSigningKey.html)                                |       ✅       |     ❌      |
 
 ### [Identities Service](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService-class.html)
 
@@ -190,6 +191,20 @@ See more details about **[bluesky](https://pub.dev/packages/bluesky)** in **[Pac
 | [GET app.bsky.unspecced.getTimelineSkeleton](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getTimelineSkeleton.json)           | [findTimelineSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/findTimelineSkeleton.html)               |       ✅       |     ✅      |
 | [GET app.bsky.unspecced.searchPostsSkeleton](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/searchPostsSkeleton.json)           | [searchPostsByQuerySkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/searchPostsByQuerySkeleton.html)   |       ✅       |     ✅      |
 | [GET app.bsky.unspecced.searchActorsSkeleton](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/searchActorsSkeleton.json)         | [searchActorsByQuerySkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/searchActorsByQuerySkeleton.html) |       ✅       |     ✅      |
+
+## **[DID PLC](https://pub.dev/packages/did_plc)**
+
+**[did_plc](https://pub.dev/packages/bluesky)** supports the endpoints for [DID PLC Directory](https://web.plc.directory).
+
+| **Endpoint**         | **Method Name**                                                                                      | Auth Required | Pagination |
+| -------------------- | ---------------------------------------------------------------------------------------------------- | :-----------: | :--------: |
+| GET /:did:           | [findDocument](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findDocument.html)           |       ❌       |     ❌      |
+| GET /:did:/data      | [findDocumentData](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findDocumentData.html)   |       ❌       |     ❌      |
+| GET /:did:/log       | [findOperationLog](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findOperationLog.html)   |       ❌       |     ❌      |
+| GET /:did:/log/audit | [findAuditableLog](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findAuditableLog.html)   |       ❌       |     ❌      |
+| GET /:did:/log/last  | [findLastOperation](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findLastOperation.html) |       ❌       |     ❌      |
+| GET health           | [health](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/health.html)                       |       ❌       |     ❌      |
+| GET export           | [export](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/export.html)                       |       ❌       |     ✅      |
 
 ## **[bluesky_cli](https://pub.dev/packages/bluesky_cli)**
 

@@ -5,12 +5,13 @@
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 
-base class ATProtoBaseService extends core.BaseService {
+base class ATProtoBaseService extends core.BaseXRPCService {
   /// Returns the new instance of [ATProtoBaseService].
   ATProtoBaseService({
     required this.did,
     required super.protocol,
     required super.service,
+    super.streamService,
     required super.methodAuthority,
     required super.context,
     super.mockedGetClient,

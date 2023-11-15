@@ -6,10 +6,10 @@
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // 🌎 Project imports:
-import '../base_service.dart';
+import '../base_xrpc_service.dart';
+import '../clients/auth_type.dart';
 import '../clients/client_context.dart';
 import '../clients/retry_config.dart';
-import '../clients/user_context.dart';
 import '../const.dart';
 import 'session.dart';
 
@@ -113,7 +113,7 @@ Future<xrpc.XRPCResponse<xrpc.EmptyData>> deleteSession({
   );
 }
 
-final class _Sessions extends BaseService {
+final class _Sessions extends BaseXRPCService {
   /// Returns the new instance of [_Sessions].
   _Sessions({
     required super.protocol,
@@ -140,7 +140,7 @@ final class _Sessions extends BaseService {
           'password': password,
         },
         to: Session.fromJson,
-        userContext: UserContext.anonymousOnly,
+        authType: AuthType.anonymous,
       );
 
   Future<xrpc.XRPCResponse<Session>> refreshSession({
@@ -151,7 +151,7 @@ final class _Sessions extends BaseService {
         headers: {
           'Authorization': 'Bearer $refreshJwt',
         },
-        userContext: UserContext.anonymousOnly,
+        authType: AuthType.anonymous,
         to: Session.fromJson,
       );
 
@@ -163,6 +163,6 @@ final class _Sessions extends BaseService {
         headers: {
           'Authorization': 'Bearer $refreshJwt',
         },
-        userContext: UserContext.anonymousOnly,
+        authType: AuthType.anonymous,
       );
 }

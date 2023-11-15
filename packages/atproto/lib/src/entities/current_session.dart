@@ -35,6 +35,9 @@ class CurrentSession with _$CurrentSession {
 
     /// A flag indicating whether the email address is confirmed.
     @JsonKey(name: 'emailConfirmed') @Default(false) bool isEmailConfirmed,
+
+    /// DID plc document.
+    Map<String, dynamic>? didDoc,
   }) = _CurrentSession;
 
   /// A factory method that creates a [CurrentSession] instance from a JSON map.

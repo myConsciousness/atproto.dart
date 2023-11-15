@@ -1,0 +1,11 @@
+dependency_overrides:
+  at_identifier:
+    path: ../at_identifier
+  nsid:
+    path: ../nsid
+  at_uri:
+    path: ../at_uri
+  xrpc:
+    path: ../xrpc
+  atproto_core:
+    path: ../atproto_core

@@ -1,10 +1,24 @@
 # Release Note
 
+## v0.8.1
+
+- Upgraded `atproto_core`. ([#999](https://github.com/myConsciousness/atproto.dart/issues/999))
+- Fixed a bug that service names were not specified correctly when using stream endpoints.
+- Added `.streamService` property on `ATProto`. Defaults to `bsky.network`.
+
+## v0.8.0
+
+- Added `.didDoc` on `CurrentSession`. ([#983](https://github.com/myConsciousness/atproto.dart/issues/983))
+- Upgraded `atproto_core`. ([#989](https://github.com/myConsciousness/atproto.dart/issues/989))
+
 ## v0.7.2
 
 - Supported `com.atproto.labels.queryLabels` and `LabelsService`. ([#265](https://github.com/myConsciousness/atproto.dart/issues/265))
 - Supported `com.atproto.labels.subscribeLabels` on `LabelsService`. ([#340](https://github.com/myConsciousness/atproto.dart/issues/340))
 - Added `.deleteSession` function. ([#963](https://github.com/myConsciousness/atproto.dart/issues/963))
+- Supported `com.atproto.server.reserveSigningKey` on `ServersService`. ([#953](https://github.com/myConsciousness/atproto.dart/issues/953))
+  - `.createSigningKey`
+- Added `didDoc` field on `Session` and `Account` objects. ([#968](https://github.com/myConsciousness/atproto.dart/issues/968))
 
 ## v0.7.1
 

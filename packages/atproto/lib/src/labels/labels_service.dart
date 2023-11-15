@@ -17,6 +17,7 @@ sealed class LabelsService {
     required String did,
     required core.Protocol protocol,
     required String service,
+    required String streamService,
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
@@ -25,6 +26,7 @@ sealed class LabelsService {
         did: did,
         protocol: protocol,
         service: service,
+        streamService: streamService,
         context: context,
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,
@@ -85,6 +87,7 @@ final class _LabelsService extends ATProtoBaseService implements LabelsService {
     required super.did,
     required super.protocol,
     required super.service,
+    required super.streamService,
     required super.context,
     super.mockedGetClient,
     super.mockedPostClient,
@@ -106,7 +109,7 @@ final class _LabelsService extends ATProtoBaseService implements LabelsService {
           'cursor': cursor,
         },
         to: LabelsByQuery.fromJson,
-        userContext: core.UserContext.anonymousOnly,
+        authType: core.AuthType.anonymous,
       );
 
   @override
@@ -119,7 +122,7 @@ final class _LabelsService extends ATProtoBaseService implements LabelsService {
             parameters: {
               'cursor': cursor,
             },
-            userContext: core.UserContext.anonymousOnly,
+            authType: core.AuthType.anonymous,
             to: SubscribedLabel.fromJson,
             adaptor: toSubscribedLabel,
           );

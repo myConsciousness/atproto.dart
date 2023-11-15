@@ -2,5 +2,29 @@
   "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
   "handle": "shinyakato.bsky.social",
   "email": "contact@shinyakato.dev",
-  "emailConfirmed": true
+  "emailConfirmed": true,
+  "didDoc": {
+    "@context": [
+      "https://www.w3.org/ns/did/v1",
+      "https://w3id.org/security/multikey/v1",
+      "https://w3id.org/security/suites/secp256k1-2019/v1"
+    ],
+    "id": "did:plc:iijrtk7ocored6zuziwmqq3c",
+    "alsoKnownAs": ["at://shinyakato.dev"],
+    "verificationMethod": [
+      {
+        "id": "did:plc:iijrtk7ocored6zuziwmqq3c#atproto",
+        "type": "Multikey",
+        "controller": "did:plc:iijrtk7ocored6zuziwmqq3c",
+        "publicKeyMultibase": "zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF"
+      }
+    ],
+    "service": [
+      {
+        "id": "#atproto_pds",
+        "type": "AtprotoPersonalDataServer",
+        "serviceEndpoint": "https://bsky.social"
+      }
+    ]
+  }
 }

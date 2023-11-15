@@ -1,5 +1,25 @@
 # Release Note
 
+## v0.6.3
+
+- Upgraded `xrpc`.
+
+## v0.6.2
+
+- Upgraded `xrpc`. ([#999](https://github.com/myConsciousness/atproto.dart/issues/999))
+
+## v0.6.1
+
+- Improved extraction algo for markdown links.
+
+## v0.6.0
+
+- Upgraded `xrpc`. ([#989](https://github.com/myConsciousness/atproto.dart/issues/989))
+
+## v0.5.21
+
+- Exposed `.getGraphemeLength`.
+
 ## v0.5.20
 
 - Upgraded `xrpc` package.
