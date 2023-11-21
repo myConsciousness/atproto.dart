@@ -1,34 +1,31 @@
 {
   "lexicon": 1,
-  "id": "app.bsky.graph.getLists",
+  "id": "com.atproto.temp.fetchLabels",
   "defs": {
     "main": {
       "type": "query",
-      "description": "Get a list of lists that belong to an actor.",
+      "description": "Fetch all labels from a labeler created after a certain date.",
       "parameters": {
         "type": "params",
-        "required": ["actor"],
         "properties": {
-          "actor": { "type": "string", "format": "at-identifier" },
+          "since": { "type": "integer" },
           "limit": {
             "type": "integer",
             "minimum": 1,
-            "maximum": 100,
+            "maximum": 250,
             "default": 50
-          },
-          "cursor": { "type": "string" }
+          }
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["lists"],
+          "required": ["labels"],
           "properties": {
-            "cursor": { "type": "string" },
-            "lists": {
+            "labels": {
               "type": "array",
-              "items": { "type": "ref", "ref": "app.bsky.graph.defs#listView" }
+              "items": { "type": "ref", "ref": "com.atproto.label.defs#label" }
             }
           }
         }
