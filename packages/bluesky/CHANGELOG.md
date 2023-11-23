@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.10.2
+
+- Changed auth type from access to anonymous for `app.bsky.feed.getFeed`. ([#1010](https://github.com/myConsciousness/atproto.dart/issues/1010))
+
 ## v0.10.1
 
 - Upgraded `atproto_core`. ([#999](https://github.com/myConsciousness/atproto.dart/issues/999))
