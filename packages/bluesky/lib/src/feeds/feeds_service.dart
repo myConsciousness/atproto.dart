@@ -2644,6 +2644,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
           cursor: cursor,
         ),
         to: to,
+        authType: core.AuthType.anonymous,
       );
 
   core.Pagination<T> _paginateCustomFeed<T>({
@@ -2660,6 +2661,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
           cursor: cursor,
         ),
         to: to,
+        authType: core.AuthType.anonymous,
       );
 
   Future<core.XRPCResponse<T>> _findFeedSkeleton<T>({
