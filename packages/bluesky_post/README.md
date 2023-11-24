@@ -201,7 +201,7 @@ jobs:
 
 ## Markdown Link
 
-You may specify links in a generic markdown format.
+You can specify links in a generic markdown format.
 
 ```yml
 name: Send Bluesky Post
@@ -216,6 +216,31 @@ jobs:
       - uses: myConsciousness/bluesky-post@v5
         with:
           text: "[This is a markdown link!](https://atprotodart.com)"
+          identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
+          password: ${{ secrets.BLUESKY_PASSWORD }}
+```
+
+## Attach Link Preview
+
+You can attach link preview (link card) with `link-preview-url` parameter.
+
+If a `link-preview-url` parameter is also specified while a `media` parameter is present,
+the `media` parameter will be used first.
+
+```yml
+name: Send Bluesky Post
+
+on:
+    [push]
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: myConsciousness/bluesky-post@v5
+        with:
+          text: "Hello, Bluesky!"
+          link-preview-url: "https://atprotodart.com"
           identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
           password: ${{ secrets.BLUESKY_PASSWORD }}
 ```

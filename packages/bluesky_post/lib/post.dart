@@ -9,7 +9,9 @@ import 'dart:io';
 // 📦 Package imports:
 import 'package:actions_toolkit_dart/core.dart' as core;
 import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/cardyb.dart' as cardyb;
 import 'package:bluesky_text/bluesky_text.dart';
+import 'package:http/http.dart' as http;
 
 const _linkConfig = LinkConfig(
   excludeProtocol: true,
@@ -28,26 +30,11 @@ Future<void> post() async {
   ).format();
 
   final facets = await text.entities.toFacets(service: _service);
-  final uploaded = await _uploadMedia(bluesky);
 
   final createdPost = await bluesky.feeds.createPost(
     text: text.value,
     facets: facets.map(bsky.Facet.fromJson).toList(),
-    embed: uploaded == null
-        ? null
-        : bsky.Embed.images(
-            data: bsky.EmbedImages(
-              images: [
-                bsky.Image(
-                  alt: core.getInput(
-                    name: 'media-alt',
-                    options: core.InputOptions(trimWhitespace: true),
-                  ),
-                  image: uploaded.blob,
-                )
-              ],
-            ),
-          ),
+    embed: await _getEmbed(bluesky),
     languageTags: _langs,
     labels: _labels,
     tags: _tags,
@@ -56,6 +43,50 @@ Future<void> post() async {
   core.info(message: 'Sent a post successfully!');
   core.info(message: 'cid = [${createdPost.data.cid}]');
   core.info(message: 'uri = [${createdPost.data.uri}]');
+}
+
+Future<bsky.Embed?> _getEmbed(final bsky.Bluesky bluesky) async {
+  try {
+    final uploadedMedia = await _uploadMedia(bluesky);
+    if (uploadedMedia != null) {
+      return bsky.Embed.images(
+        data: bsky.EmbedImages(
+          images: [
+            bsky.Image(
+              alt: core.getInput(
+                name: 'media-alt',
+                options: core.InputOptions(trimWhitespace: true),
+              ),
+              image: uploadedMedia.blob,
+            )
+          ],
+        ),
+      );
+    }
+
+    final preview = await cardyb.findLinkPreview(Uri.parse(core.getInput(
+      name: 'link-preview-url',
+      options: core.InputOptions(trimWhitespace: true),
+    )));
+
+    final uploadedPreview = await _uploadLinkPreview(
+      bluesky,
+      preview.data.image,
+    );
+
+    return bsky.Embed.external(
+      data: bsky.EmbedExternal(
+        external: bsky.EmbedExternalThumbnail(
+          uri: preview.data.url,
+          title: preview.data.title,
+          description: preview.data.description,
+          blob: uploadedPreview?.blob,
+        ),
+      ),
+    );
+  } catch (_) {
+    return null;
+  }
 }
 
 Future<bsky.Session> _getSession(
@@ -121,6 +152,22 @@ Future<bsky.BlobData?> _uploadMedia(final bsky.Bluesky bluesky) async {
   final uploaded = await bluesky.repositories.uploadBlob(
     File(mediaPath).readAsBytesSync(),
   );
+
+  return uploaded.data;
+}
+
+Future<bsky.BlobData?> _uploadLinkPreview(
+  final bsky.Bluesky bluesky,
+  final String previewImage,
+) async {
+  if (previewImage.isEmpty) {
+    return null;
+  }
+
+  final image = await http.get(Uri.parse(previewImage));
+  if (image.statusCode != 200) return null;
+
+  final uploaded = await bluesky.repositories.uploadBlob(image.bodyBytes);
 
   return uploaded.data;
 }
