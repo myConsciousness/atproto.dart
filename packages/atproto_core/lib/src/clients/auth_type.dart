@@ -4,5 +4,6 @@
 
 enum AuthType {
   anonymous,
-  access,
+  authOptional,
+  authRequired,
 }

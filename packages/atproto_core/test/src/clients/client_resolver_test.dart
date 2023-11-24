@@ -16,7 +16,7 @@ void main() {
       final resolver = ClientResolver(AuthRequiredClient('aaa'));
 
       expect(
-        resolver.execute(AuthType.access),
+        resolver.execute(AuthType.authRequired),
         isA<AuthRequiredClient>(),
       );
     });
@@ -34,8 +34,26 @@ void main() {
       final resolver = ClientResolver(null);
 
       expect(
-        () => resolver.execute(AuthType.access),
+        () => resolver.execute(AuthType.authRequired),
         throwsA(isA<UnsupportedError>()),
+      );
+    });
+
+    test('auth optional with token', () {
+      final resolver = ClientResolver(AuthRequiredClient('aaa'));
+
+      expect(
+        resolver.execute(AuthType.authOptional),
+        isA<AuthRequiredClient>(),
+      );
+    });
+
+    test('auth optional without token', () {
+      final resolver = ClientResolver(null);
+
+      expect(
+        resolver.execute(AuthType.authOptional),
+        isA<AnonymousClient>(),
       );
     });
   });

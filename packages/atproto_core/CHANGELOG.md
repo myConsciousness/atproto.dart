@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.6.2
+
+- Added `AuthType.authOptional`. ([#1012](https://github.com/myConsciousness/atproto.dart/issues/1012))
+
 ## v0.6.1
 
 - Added `BaseHttpService.post`. ([#999](https://github.com/myConsciousness/atproto.dart/issues/999))
