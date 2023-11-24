@@ -32,7 +32,7 @@ void main() {
 
   test('defaultStreamService', () {
     expect(defaultStreamService, isA<String>());
-    expect(defaultStreamService, 'bsky.networks');
+    expect(defaultStreamService, 'bsky.network');
   });
 
   test('defaultLinkPreviewService', () {
