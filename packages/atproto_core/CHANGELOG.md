@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.6.3
+
+- Added `cardyb.bsky.app` as `defaultLinkPreviewService`. ([#1009](https://github.com/myConsciousness/atproto.dart/issues/1009))
+
 ## v0.6.2
 
 - Added `AuthType.authOptional`. ([#1012](https://github.com/myConsciousness/atproto.dart/issues/1012))

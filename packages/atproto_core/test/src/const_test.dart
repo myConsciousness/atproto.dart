@@ -29,4 +29,14 @@ void main() {
     expect(defaultService, isA<String>());
     expect(defaultService, 'bsky.social');
   });
+
+  test('defaultStreamService', () {
+    expect(defaultStreamService, isA<String>());
+    expect(defaultStreamService, 'bsky.networks');
+  });
+
+  test('defaultLinkPreviewService', () {
+    expect(defaultLinkPreviewService, isA<String>());
+    expect(defaultLinkPreviewService, 'cardyb.bsky.app');
+  });
 }

@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.10.4
+
+- Added `.findLinkPreview` function. ThiIts returns preview information for a given URL. ([#1009](https://github.com/myConsciousness/atproto.dart/issues/1009))
+
 ## v0.10.3
 
 - Fixed a bug that occurred in [#1010](https://github.com/myConsciousness/atproto.dart/issues/1010). getCustomFeed behaves differently depending on whether or not an access token is given. ([#1012](https://github.com/myConsciousness/atproto.dart/issues/1012))
