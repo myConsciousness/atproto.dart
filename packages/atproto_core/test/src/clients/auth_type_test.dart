@@ -11,6 +11,7 @@ import 'package:atproto_core/src/clients/auth_type.dart';
 void main() {
   test('.name', () {
     expect(AuthType.anonymous.name, 'anonymous');
-    expect(AuthType.access.name, 'access');
+    expect(AuthType.authOptional.name, 'authOptional');
+    expect(AuthType.authRequired.name, 'authRequired');
   });
 }

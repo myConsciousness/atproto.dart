@@ -18,7 +18,7 @@ import 'paginations/pagination.dart';
 sealed class _Service {
   Future<xrpc.XRPCResponse<T>> get<T>(
     final String methodName, {
-    final AuthType authType = AuthType.access,
+    final AuthType authType = AuthType.authRequired,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
@@ -26,7 +26,7 @@ sealed class _Service {
 
   Pagination<T> paginate<T>(
     final String methodName, {
-    final AuthType authType = AuthType.access,
+    final AuthType authType = AuthType.authRequired,
     required final Map<String, dynamic> parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
@@ -34,7 +34,7 @@ sealed class _Service {
 
   Future<xrpc.XRPCResponse<T>> post<T>(
     final String methodName, {
-    final AuthType authType = AuthType.access,
+    final AuthType authType = AuthType.authRequired,
     required final dynamic body,
     final xrpc.To<T>? to,
   });
@@ -42,7 +42,7 @@ sealed class _Service {
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final String methodName,
     final Uint8List bytes, {
-    final AuthType authType = AuthType.access,
+    final AuthType authType = AuthType.authRequired,
     final String? service,
     final Map<String, String>? headers,
     final Duration timeout = const Duration(seconds: 10),
@@ -51,7 +51,7 @@ sealed class _Service {
 
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
     final String methodName, {
-    final AuthType authType = AuthType.access,
+    final AuthType authType = AuthType.authRequired,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
@@ -95,7 +95,7 @@ base class BaseXRPCService implements _Service {
   @override
   Future<xrpc.XRPCResponse<T>> get<T>(
     final String methodName, {
-    final AuthType authType = AuthType.access,
+    final AuthType authType = AuthType.authRequired,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
@@ -117,7 +117,7 @@ base class BaseXRPCService implements _Service {
   @override
   Pagination<T> paginate<T>(
     final String methodName, {
-    final AuthType authType = AuthType.access,
+    final AuthType authType = AuthType.authRequired,
     required final Map<String, dynamic> parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
@@ -139,7 +139,7 @@ base class BaseXRPCService implements _Service {
   @override
   Future<xrpc.XRPCResponse<T>> post<T>(
     final String methodName, {
-    final AuthType authType = AuthType.access,
+    final AuthType authType = AuthType.authRequired,
     final Map<String, String>? headers,
     final dynamic body,
     final xrpc.To<T>? to,
@@ -162,7 +162,7 @@ base class BaseXRPCService implements _Service {
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final String methodName,
     final Uint8List bytes, {
-    AuthType authType = AuthType.access,
+    AuthType authType = AuthType.authRequired,
     final String? service,
     final Map<String, String>? headers,
     final Duration timeout = const Duration(seconds: 10),
@@ -185,7 +185,7 @@ base class BaseXRPCService implements _Service {
   @override
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
     final String methodName, {
-    AuthType authType = AuthType.access,
+    AuthType authType = AuthType.authRequired,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
