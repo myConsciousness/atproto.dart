@@ -199,6 +199,27 @@ jobs:
 > The value specified in the `tags` parameter is different from hashtags in the text,
 > which are generally displayed as metadata about the post in Bluesky's clients.
 
+## Markdown Link
+
+You may specify links in a generic markdown format.
+
+```yml
+name: Send Bluesky Post
+
+on:
+    [push]
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: myConsciousness/bluesky-post@v5
+        with:
+          text: "[This is a markdown link!](https://atprotodart.com)"
+          identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
+          password: ${{ secrets.BLUESKY_PASSWORD }}
+```
+
 ## More Information
 
 **bluesky_post** was designed and implemented by **_Shinya Kato ([@myConsciousness](https://github.com/myConsciousness))_**.
