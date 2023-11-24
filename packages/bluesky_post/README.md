@@ -41,7 +41,7 @@ Now whenever you push something to your repository, GitHub Actions
 will post to Bluesky on your behalf.
 
 > **Note** </br>
-> In the Bluesky API, the `mention` and `link` functions will not work unless
+> In the Bluesky API, the `mention`, `link` and `tag` functions will not work unless
 > the `facet` parameter is set correctly when the request is sent,
 > but this Action will automatically extract valid handle and link
 > from the text and set the facet.
@@ -171,6 +171,33 @@ jobs:
           identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
           password: ${{ secrets.BLUESKY_PASSWORD }}
 ```
+
+## Attach Tags
+
+You can **tag** any post you send.
+You can set one or more tags, and pass the value of any tag in the `tags` parameter in **_CSV format_** as follows.
+
+```yml
+name: Send Bluesky Post
+
+on:
+    [push]
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: myConsciousness/bluesky-post@v5
+        with:
+          text: "Hello, Bluesky!"
+          tags: "bluesky,awesome"
+          identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
+          password: ${{ secrets.BLUESKY_PASSWORD }}
+```
+
+> **Note** </br>
+> The value specified in the `tags` parameter is different from hashtags in the text,
+> which are generally displayed as metadata about the post in Bluesky's clients.
 
 ## More Information
 
