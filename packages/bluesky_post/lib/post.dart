@@ -11,15 +11,23 @@ import 'package:actions_toolkit_dart/core.dart' as core;
 import 'package:bluesky/bluesky.dart' as bsky;
 import 'package:bluesky_text/bluesky_text.dart';
 
+const _linkConfig = LinkConfig(
+  excludeProtocol: true,
+  enableShortening: true,
+);
+
 Future<void> post() async {
   final bluesky = await _bluesky;
 
-  final text = BlueskyText(core.getInput(
-    name: 'text',
-    options: core.InputOptions(required: true),
-  ));
+  final text = BlueskyText(
+    core.getInput(
+      name: 'text',
+      options: core.InputOptions(required: true),
+    ),
+    linkConfig: _linkConfig,
+  ).format();
 
-  final facets = await text.entities.toFacets();
+  final facets = await text.entities.toFacets(service: _service);
   final uploaded = await _uploadMedia(bluesky);
 
   final createdPost = await bluesky.feeds.createPost(
@@ -42,6 +50,7 @@ Future<void> post() async {
           ),
     languageTags: _langs,
     labels: _labels,
+    tags: _tags,
   );
 
   core.info(message: 'Sent a post successfully!');
@@ -144,4 +153,17 @@ bsky.Labels? get _labels {
       values: labels.split(',').map((e) => bsky.SelfLabel(value: e)).toList(),
     ),
   );
+}
+
+List<String>? get _tags {
+  final tags = core.getInput(
+    name: 'tags',
+    options: core.InputOptions(trimWhitespace: true),
+  );
+
+  if (tags.isEmpty) {
+    return null;
+  }
+
+  return tags.split(',');
 }

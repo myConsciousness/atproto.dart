@@ -12,6 +12,8 @@ inputs:
     description: A collection of well-formed BCP47 language tags in CSV format.
   labels:
     description: A collection of self labels in CSV format.
+  tags:
+    description: A collection of tags in CSV format.
   identifier:
     description: >
       Handle name or email of the user who logs into Bluesky.

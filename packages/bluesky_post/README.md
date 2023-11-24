@@ -13,7 +13,7 @@ This action is implemented in the Dart language and uses **[bluesky](https://git
 
 ## Workflow Usage
 
-Configure your workflow to use `myConsciousness/bluesky-post@v4`,
+Configure your workflow to use `myConsciousness/bluesky-post@v5`,
 and provide the post you want to send as the `text` input.
 
 Provide Bluesky's ATP server with `identifier` (handle or email) and `password` to create a session.
@@ -30,7 +30,7 @@ jobs:
   post:
     runs-on: ubuntu-latest
     steps:
-      - uses: myConsciousness/bluesky-post@v4
+      - uses: myConsciousness/bluesky-post@v5
         with:
           text: "Hello, Bluesky!"
           identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
@@ -64,7 +64,7 @@ jobs:
   post:
     runs-on: ubuntu-latest
     steps:
-      - uses: myConsciousness/bluesky-post@v4
+      - uses: myConsciousness/bluesky-post@v5
         with:
           text: "Hello, Bluesky!"
           identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
@@ -92,7 +92,7 @@ jobs:
   post:
     runs-on: ubuntu-latest
     steps:
-      - uses: myConsciousness/bluesky-post@v4
+      - uses: myConsciousness/bluesky-post@v5
         with:
           text: "Hello, Bluesky!"
           identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
@@ -117,7 +117,7 @@ jobs:
       # You must checkout resources
       - uses: actions/checkout@v3
 
-      - uses: myConsciousness/bluesky-post@v4
+      - uses: myConsciousness/bluesky-post@v5
         with:
           text: "Hello, Bluesky!"
           media: cool_photo.png
@@ -141,7 +141,7 @@ jobs:
   post:
     runs-on: ubuntu-latest
     steps:
-      - uses: myConsciousness/bluesky-post@v4
+      - uses: myConsciousness/bluesky-post@v5
         with:
           text: "Hello, Bluesky!"
           langs: "en,ja"
@@ -164,10 +164,10 @@ jobs:
   post:
     runs-on: ubuntu-latest
     steps:
-      - uses: myConsciousness/bluesky-post@v4
+      - uses: myConsciousness/bluesky-post@v5
         with:
           text: "Hello, Bluesky!"
-          labels: "fun,sports"
+          labels: "spam,porn"
           identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
           password: ${{ secrets.BLUESKY_PASSWORD }}
 ```
