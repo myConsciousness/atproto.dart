@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.10.5
+
+- Added `.isReplyDisabled` and `.isNotReplyDisabled` properties on `PostViewer`.
+
 ## v0.10.4
 
 - Added `.findLinkPreview` function. ThiIts returns preview information for a given URL. ([#1009](https://github.com/myConsciousness/atproto.dart/issues/1009))
