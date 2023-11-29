@@ -2,7 +2,7 @@
 
 ## v0.10.5
 
-- Added `.isReplyDisabled` and `.isNotReplyDisabled` properties on `PostViewer`.
+- Added `.isReplyDisabled` and `.isNotReplyDisabled` properties on `PostViewer`. ([#1019](https://github.com/myConsciousness/atproto.dart/issues/1019))
 
 ## v0.10.4
 
