@@ -1401,6 +1401,8 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<Posts>());
+
+      expect(response.data.posts.first.isReplyDisabled, isTrue);
     });
 
     test('as JSON', () async {

@@ -103,4 +103,10 @@ class Post with _$Post {
   /// Returns true if the authenticated user has not liked yet this record,
   /// otherwise false.
   bool get isNotLiked => !isLiked;
+
+  /// Returns true if this post is reply disabled, otherwise false.
+  bool get isReplyDisabled => viewer.isReplyDisabled;
+
+  /// Returns true if this post is not reply disabled, otherwise false.
+  bool get isNotReplyDisabled => !isReplyDisabled;
 }
