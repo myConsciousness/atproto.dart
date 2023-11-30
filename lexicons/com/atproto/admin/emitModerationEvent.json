@@ -1,6 +1,6 @@
 {
   "lexicon": 1,
-  "id": "com.atproto.admin.takeModerationAction",
+  "id": "com.atproto.admin.emitModerationEvent",
   "defs": {
     "main": {
       "type": "procedure",
@@ -9,14 +9,21 @@
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["action", "subject", "reason", "createdBy"],
+          "required": ["event", "subject", "createdBy"],
           "properties": {
-            "action": {
-              "type": "string",
-              "knownValues": [
-                "com.atproto.admin.defs#takedown",
-                "com.atproto.admin.defs#flag",
-                "com.atproto.admin.defs#acknowledge"
+            "event": {
+              "type": "union",
+              "refs": [
+                "com.atproto.admin.defs#modEventTakedown",
+                "com.atproto.admin.defs#modEventAcknowledge",
+                "com.atproto.admin.defs#modEventEscalate",
+                "com.atproto.admin.defs#modEventComment",
+                "com.atproto.admin.defs#modEventLabel",
+                "com.atproto.admin.defs#modEventReport",
+                "com.atproto.admin.defs#modEventMute",
+                "com.atproto.admin.defs#modEventReverseTakedown",
+                "com.atproto.admin.defs#modEventUnmute",
+                "com.atproto.admin.defs#modEventEmail"
               ]
             },
             "subject": {
@@ -30,19 +37,6 @@
               "type": "array",
               "items": { "type": "string", "format": "cid" }
             },
-            "createLabelVals": {
-              "type": "array",
-              "items": { "type": "string" }
-            },
-            "negateLabelVals": {
-              "type": "array",
-              "items": { "type": "string" }
-            },
-            "reason": { "type": "string" },
-            "durationInHours": {
-              "type": "integer",
-              "description": "Indicates how long this action is meant to be in effect before automatically expiring."
-            },
             "createdBy": { "type": "string", "format": "did" }
           }
         }
@@ -51,7 +45,7 @@
         "encoding": "application/json",
         "schema": {
           "type": "ref",
-          "ref": "com.atproto.admin.defs#actionView"
+          "ref": "com.atproto.admin.defs#modEventView"
         }
       },
       "errors": [{ "name": "SubjectHasAction" }]
