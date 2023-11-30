@@ -1,5 +1,11 @@
 # Release Note
 
+## v0.10.6
+
+- Added deprecated `entities` field on `PostRecord`. ([#1020](https://github.com/myConsciousness/atproto.dart/issues/1020))
+  - `LegacyFacet`
+  - `TextSlice`
+
 ## v0.10.5
 
 - Added `.isReplyDisabled` and `.isNotReplyDisabled` properties on `PostViewer`. ([#1019](https://github.com/myConsciousness/atproto.dart/issues/1019))
