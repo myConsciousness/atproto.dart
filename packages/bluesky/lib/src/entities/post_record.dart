@@ -14,7 +14,6 @@ import 'converter/embed_converter.dart';
 import 'embed.dart';
 import 'facet.dart';
 import 'keys/ids.g.dart';
-import 'legacy_facet.dart';
 import 'post_ref.dart';
 
 part 'post_record.freezed.dart';
@@ -57,9 +56,6 @@ class PostRecord with _$PostRecord {
 
     /// Attached labels.
     @labelsConverter Labels? labels,
-
-    /// Good old facet for UTF16 encoding characters.
-    List<LegacyFacet>? entities,
 
     /// Might include any associated facets.
     List<Facet>? facets,

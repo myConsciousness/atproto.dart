@@ -31,12 +31,6 @@ _$_PostRecord _$$_PostRecordFromJson(Map json) => $checkedCreate(
               'labels',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, Labels>(
                   v, labelsConverter.fromJson)),
-          entities: $checkedConvert(
-              'entities',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      LegacyFacet.fromJson(Map<String, Object?>.from(e as Map)))
-                  .toList()),
           facets: $checkedConvert(
               'facets',
               (v) => (v as List<dynamic>?)
@@ -75,7 +69,6 @@ Map<String, dynamic> _$$_PostRecordToJson(_$_PostRecord instance) {
       'labels',
       _$JsonConverterToJson<Map<String, dynamic>, Labels>(
           instance.labels, labelsConverter.toJson));
-  writeNotNull('entities', instance.entities?.map((e) => e.toJson()).toList());
   writeNotNull('facets', instance.facets?.map((e) => e.toJson()).toList());
   writeNotNull('tags', instance.tags);
   val['createdAt'] = instance.createdAt.toIso8601String();

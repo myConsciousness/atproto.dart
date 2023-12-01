@@ -13,6 +13,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../../extension/at_uri_extension.dart';
 import '../block_list_record.dart';
 import '../block_record.dart';
+import '../converter/post_record_converter.dart';
 import '../follow_record.dart';
 import '../generator_record.dart';
 import '../keys/ids.g.dart' as ids;
@@ -142,7 +143,7 @@ final class RepoCommitAdaptor {
     if (op.uri.isFeedPost && _isFeedPost(op.record!)) {
       await _onCreatePost?.call(
         RepoCommitCreate<PostRecord>(
-          record: PostRecord.fromJson(
+          record: postRecordConverter.fromJson(
             op.record!,
           ),
           uri: op.uri,

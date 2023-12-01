@@ -21,7 +21,7 @@ _$_EmbedViewRecordViewRecord _$$_EmbedViewRecordViewRecordFromJson(Map json) =>
           author: $checkedConvert('author',
               (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
           value: $checkedConvert('value',
-              (v) => PostRecord.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => postRecordConverter.fromJson(v as Map<String, dynamic>)),
           embeds: $checkedConvert(
               'embeds',
               (v) => (v as List<dynamic>?)
@@ -43,7 +43,7 @@ Map<String, dynamic> _$$_EmbedViewRecordViewRecordToJson(
     'uri': atUriConverter.toJson(instance.uri),
     'cid': instance.cid,
     'author': instance.author.toJson(),
-    'value': instance.value.toJson(),
+    'value': postRecordConverter.toJson(instance.value),
   };
 
   void writeNotNull(String key, dynamic value) {
