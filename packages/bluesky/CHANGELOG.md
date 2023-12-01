@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.10.7
+
+- Removed `entities` field on `PostRecord`. Instead of this field, `entities` is merged internally to `facets` field.
+
 ## v0.10.6
 
 - Added deprecated `entities` field on `PostRecord`. ([#1020](https://github.com/myConsciousness/atproto.dart/issues/1020))

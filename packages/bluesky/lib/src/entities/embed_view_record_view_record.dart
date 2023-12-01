@@ -11,6 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import 'actor.dart';
 import 'converter/embed_view_converter.dart';
+import 'converter/post_record_converter.dart';
 import 'embed_view.dart';
 import 'post_record.dart';
 
@@ -54,7 +55,7 @@ class EmbedViewRecordViewRecord with _$EmbedViewRecordViewRecord {
     required Actor author,
 
     /// The post value of the embedded view record view.
-    required PostRecord value,
+    @postRecordConverter required PostRecord value,
 
     /// The list of embedded views within the record (optional).
     @embedViewConverter List<EmbedView>? embeds,

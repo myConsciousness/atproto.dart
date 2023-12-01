@@ -41,9 +41,6 @@ mixin _$PostRecord {
   @labelsConverter
   Labels? get labels => throw _privateConstructorUsedError;
 
-  /// Good old facet for UTF16 encoding characters.
-  List<LegacyFacet>? get entities => throw _privateConstructorUsedError;
-
   /// Might include any associated facets.
   List<Facet>? get facets => throw _privateConstructorUsedError;
 
@@ -72,7 +69,6 @@ abstract class $PostRecordCopyWith<$Res> {
       @embedConverter Embed? embed,
       List<String>? langs,
       @labelsConverter Labels? labels,
-      List<LegacyFacet>? entities,
       List<Facet>? facets,
       List<String>? tags,
       DateTime createdAt});
@@ -101,7 +97,6 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
     Object? embed = freezed,
     Object? langs = freezed,
     Object? labels = freezed,
-    Object? entities = freezed,
     Object? facets = freezed,
     Object? tags = freezed,
     Object? createdAt = null,
@@ -131,10 +126,6 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as Labels?,
-      entities: freezed == entities
-          ? _value.entities
-          : entities // ignore: cast_nullable_to_non_nullable
-              as List<LegacyFacet>?,
       facets: freezed == facets
           ? _value.facets
           : facets // ignore: cast_nullable_to_non_nullable
@@ -202,7 +193,6 @@ abstract class _$$_PostRecordCopyWith<$Res>
       @embedConverter Embed? embed,
       List<String>? langs,
       @labelsConverter Labels? labels,
-      List<LegacyFacet>? entities,
       List<Facet>? facets,
       List<String>? tags,
       DateTime createdAt});
@@ -232,7 +222,6 @@ class __$$_PostRecordCopyWithImpl<$Res>
     Object? embed = freezed,
     Object? langs = freezed,
     Object? labels = freezed,
-    Object? entities = freezed,
     Object? facets = freezed,
     Object? tags = freezed,
     Object? createdAt = null,
@@ -262,10 +251,6 @@ class __$$_PostRecordCopyWithImpl<$Res>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as Labels?,
-      entities: freezed == entities
-          ? _value._entities
-          : entities // ignore: cast_nullable_to_non_nullable
-              as List<LegacyFacet>?,
       facets: freezed == facets
           ? _value._facets
           : facets // ignore: cast_nullable_to_non_nullable
@@ -293,12 +278,10 @@ class _$_PostRecord implements _PostRecord {
       @embedConverter this.embed,
       final List<String>? langs,
       @labelsConverter this.labels,
-      final List<LegacyFacet>? entities,
       final List<Facet>? facets,
       final List<String>? tags,
       required this.createdAt})
       : _langs = langs,
-        _entities = entities,
         _facets = facets,
         _tags = tags;
 
@@ -341,19 +324,6 @@ class _$_PostRecord implements _PostRecord {
   @labelsConverter
   final Labels? labels;
 
-  /// Good old facet for UTF16 encoding characters.
-  final List<LegacyFacet>? _entities;
-
-  /// Good old facet for UTF16 encoding characters.
-  @override
-  List<LegacyFacet>? get entities {
-    final value = _entities;
-    if (value == null) return null;
-    if (_entities is EqualUnmodifiableListView) return _entities;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
   /// Might include any associated facets.
   final List<Facet>? _facets;
 
@@ -386,7 +356,7 @@ class _$_PostRecord implements _PostRecord {
 
   @override
   String toString() {
-    return 'PostRecord(type: $type, text: $text, reply: $reply, embed: $embed, langs: $langs, labels: $labels, entities: $entities, facets: $facets, tags: $tags, createdAt: $createdAt)';
+    return 'PostRecord(type: $type, text: $text, reply: $reply, embed: $embed, langs: $langs, labels: $labels, facets: $facets, tags: $tags, createdAt: $createdAt)';
   }
 
   @override
@@ -400,7 +370,6 @@ class _$_PostRecord implements _PostRecord {
             (identical(other.embed, embed) || other.embed == embed) &&
             const DeepCollectionEquality().equals(other._langs, _langs) &&
             (identical(other.labels, labels) || other.labels == labels) &&
-            const DeepCollectionEquality().equals(other._entities, _entities) &&
             const DeepCollectionEquality().equals(other._facets, _facets) &&
             const DeepCollectionEquality().equals(other._tags, _tags) &&
             (identical(other.createdAt, createdAt) ||
@@ -417,7 +386,6 @@ class _$_PostRecord implements _PostRecord {
       embed,
       const DeepCollectionEquality().hash(_langs),
       labels,
-      const DeepCollectionEquality().hash(_entities),
       const DeepCollectionEquality().hash(_facets),
       const DeepCollectionEquality().hash(_tags),
       createdAt);
@@ -444,7 +412,6 @@ abstract class _PostRecord implements PostRecord {
       @embedConverter final Embed? embed,
       final List<String>? langs,
       @labelsConverter final Labels? labels,
-      final List<LegacyFacet>? entities,
       final List<Facet>? facets,
       final List<String>? tags,
       required final DateTime createdAt}) = _$_PostRecord;
@@ -479,10 +446,6 @@ abstract class _PostRecord implements PostRecord {
   /// Attached labels.
   @labelsConverter
   Labels? get labels;
-  @override
-
-  /// Good old facet for UTF16 encoding characters.
-  List<LegacyFacet>? get entities;
   @override
 
   /// Might include any associated facets.

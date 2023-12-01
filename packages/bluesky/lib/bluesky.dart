@@ -236,8 +236,6 @@ export 'package:bluesky/src/entities/facet_feature.dart';
 export 'package:bluesky/src/entities/facet_link.dart';
 export 'package:bluesky/src/entities/facet_mention.dart';
 export 'package:bluesky/src/entities/facet_tag.dart';
-export 'package:bluesky/src/entities/legacy_facet.dart';
-export 'package:bluesky/src/entities/text_slice.dart';
 export 'package:bluesky/src/entities/feed.dart';
 export 'package:bluesky/src/entities/feed_generator.dart';
 export 'package:bluesky/src/entities/feed_generator_info.dart';
