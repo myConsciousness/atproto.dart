@@ -33,16 +33,16 @@ final class _PostRecordConverter
       final String text = json['text'];
 
       for (final entity in json['entities']) {
-        final Map<String, dynamic> index = entity['index'];
-
-        final facet = <String, dynamic>{
-          'index': {
-            'byteStart': text.toUtf8Index(index['start']),
-            'byteEnd': text.toUtf8Index(index['end']),
-          },
-        };
-
         try {
+          final Map<String, dynamic> index = entity['index'];
+
+          final facet = <String, dynamic>{
+            'index': {
+              'byteStart': text.toUtf8Index(index['start']),
+              'byteEnd': text.toUtf8Index(index['end']),
+            },
+          };
+
           //* Support only mention and link from entities.
           switch (entity['type']) {
             case 'mention':
@@ -72,10 +72,10 @@ final class _PostRecordConverter
       return PostRecord.fromJson({
         ...json,
         //* Override facets and merge with facets from entities.
-        'facets': _sortByByteStart([
+        'facets': [
           ...json['facets'] ?? const [],
           ...compatibleFacets,
-        ]),
+        ],
       });
     } catch (_) {
       return PostRecord.fromJson(json);
@@ -84,13 +84,6 @@ final class _PostRecordConverter
 
   @override
   Map<String, dynamic> toJson(PostRecord object) => object.toJson();
-
-  List<Map<String, dynamic>> _sortByByteStart(
-          final List<Map<String, dynamic>> facets) =>
-      List<Map<String, dynamic>>.from(facets)
-        ..sort(
-          (a, b) => a['index']['byteStart'].compareTo(b['index']['byteStart']),
-        );
 }
 
 extension _UnicodeString on String {
