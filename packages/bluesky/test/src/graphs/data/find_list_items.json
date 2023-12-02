@@ -1,6 +1,7 @@
 {
   "items": [
     {
+      "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.listitem/3katlppurw22g",
       "subject": {
         "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
         "handle": "shinyakato.dev",

@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -14,15 +15,13 @@ part 'list_item.freezed.dart';
 part 'list_item.g.dart';
 
 /// [ListItem] class represents a single item within a list in the application.
-///
-/// This class includes an [Actor] object, which contains information about
-/// the subject of the list item.
 @freezed
 class ListItem with _$ListItem {
   /// Creates an instance of [ListItem].
-  ///
-  /// The [subject] field is required.
   const factory ListItem({
+    /// The AT URI for list item.
+    @atUriConverter required AtUri uri,
+
     /// An [Actor] object which represents the subject of the list item.
     required Actor subject,
   }) = _ListItem;

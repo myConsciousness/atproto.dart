@@ -72,5 +72,18 @@ class PostRecord with _$PostRecord {
   /// The [json] data must correspond to the structure of [PostRecord] to
   /// properly convert.
   factory PostRecord.fromJson(Map<String, Object?> json) =>
-      _$PostRecordFromJson(json);
+      _$PostRecordFromJson({
+        ...json,
+        'facets': _orderByByteStart(json['facets']),
+      });
+
+  static List<Map<String, dynamic>>? _orderByByteStart(
+    final dynamic facets,
+  ) {
+    if (facets == null) return null;
+    return List<Map<String, dynamic>>.from(facets)
+      ..sort(
+        (a, b) => a['index']['byteStart'].compareTo(b['index']['byteStart']),
+      );
+  }
 }

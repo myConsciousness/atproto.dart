@@ -13,6 +13,8 @@ _$_ListItem _$$_ListItemFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_ListItem(
+          uri: $checkedConvert(
+              'uri', (v) => atUriConverter.fromJson(v as String)),
           subject: $checkedConvert('subject',
               (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
         );
@@ -22,5 +24,6 @@ _$_ListItem _$$_ListItemFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$_ListItemToJson(_$_ListItem instance) =>
     <String, dynamic>{
+      'uri': atUriConverter.toJson(instance.uri),
       'subject': instance.subject.toJson(),
     };

@@ -20,6 +20,10 @@ ListItem _$ListItemFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListItem {
+  /// The AT URI for list item.
+  @atUriConverter
+  AtUri get uri => throw _privateConstructorUsedError;
+
   /// An [Actor] object which represents the subject of the list item.
   Actor get subject => throw _privateConstructorUsedError;
 
@@ -34,7 +38,7 @@ abstract class $ListItemCopyWith<$Res> {
   factory $ListItemCopyWith(ListItem value, $Res Function(ListItem) then) =
       _$ListItemCopyWithImpl<$Res, ListItem>;
   @useResult
-  $Res call({Actor subject});
+  $Res call({@atUriConverter AtUri uri, Actor subject});
 
   $ActorCopyWith<$Res> get subject;
 }
@@ -52,9 +56,14 @@ class _$ListItemCopyWithImpl<$Res, $Val extends ListItem>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? uri = null,
     Object? subject = null,
   }) {
     return _then(_value.copyWith(
+      uri: null == uri
+          ? _value.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -78,7 +87,7 @@ abstract class _$$_ListItemCopyWith<$Res> implements $ListItemCopyWith<$Res> {
       __$$_ListItemCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Actor subject});
+  $Res call({@atUriConverter AtUri uri, Actor subject});
 
   @override
   $ActorCopyWith<$Res> get subject;
@@ -95,9 +104,14 @@ class __$$_ListItemCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? uri = null,
     Object? subject = null,
   }) {
     return _then(_$_ListItem(
+      uri: null == uri
+          ? _value.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -109,10 +123,15 @@ class __$$_ListItemCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ListItem implements _ListItem {
-  const _$_ListItem({required this.subject});
+  const _$_ListItem({@atUriConverter required this.uri, required this.subject});
 
   factory _$_ListItem.fromJson(Map<String, dynamic> json) =>
       _$$_ListItemFromJson(json);
+
+  /// The AT URI for list item.
+  @override
+  @atUriConverter
+  final AtUri uri;
 
   /// An [Actor] object which represents the subject of the list item.
   @override
@@ -120,7 +139,7 @@ class _$_ListItem implements _ListItem {
 
   @override
   String toString() {
-    return 'ListItem(subject: $subject)';
+    return 'ListItem(uri: $uri, subject: $subject)';
   }
 
   @override
@@ -128,12 +147,13 @@ class _$_ListItem implements _ListItem {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ListItem &&
+            (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.subject, subject) || other.subject == subject));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, subject);
+  int get hashCode => Object.hash(runtimeType, uri, subject);
 
   @JsonKey(ignore: true)
   @override
@@ -150,10 +170,17 @@ class _$_ListItem implements _ListItem {
 }
 
 abstract class _ListItem implements ListItem {
-  const factory _ListItem({required final Actor subject}) = _$_ListItem;
+  const factory _ListItem(
+      {@atUriConverter required final AtUri uri,
+      required final Actor subject}) = _$_ListItem;
 
   factory _ListItem.fromJson(Map<String, dynamic> json) = _$_ListItem.fromJson;
 
+  @override
+
+  /// The AT URI for list item.
+  @atUriConverter
+  AtUri get uri;
   @override
 
   /// An [Actor] object which represents the subject of the list item.
