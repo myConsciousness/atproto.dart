@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.10.8
+
+- Added `uri` on `ListItem`. ([#1026](https://github.com/myConsciousness/atproto.dart/issues/1026))
+
 ## v0.10.7
 
 - Removed `entities` field on `PostRecord`. Instead of this field, `entities` is merged internally to `facets` field.
