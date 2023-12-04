@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -27,19 +28,6 @@ part 'embed_view_record_view_record.g.dart';
 @freezed
 class EmbedViewRecordViewRecord with _$EmbedViewRecordViewRecord {
   /// Create a new [EmbedViewRecordViewRecord] instance.
-  ///
-  /// The [type] parameter represents the type of the embedded view record view.
-  /// The [uri] parameter represents the URI of the embedded view record view.
-  /// The [cid] parameter represents the content ID (CID) of the embedded view
-  /// record view.
-  /// The [author] parameter represents the author of the embedded view record
-  /// view.
-  /// The [value] parameter represents the post value of the embedded view
-  /// record view.
-  /// The [embeds] parameter represents the list of embedded views within the
-  /// record (optional).
-  /// The [indexedAt] parameter represents the date and time the record was
-  /// indexed.
   @jsonSerializable
   const factory EmbedViewRecordViewRecord({
     /// The type of the embedded view record view.
@@ -56,6 +44,9 @@ class EmbedViewRecordViewRecord with _$EmbedViewRecordViewRecord {
 
     /// The post value of the embedded view record view.
     @postRecordConverter required PostRecord value,
+
+    /// Attached labels.
+    List<Label>? labels,
 
     /// The list of embedded views within the record (optional).
     @embedViewConverter List<EmbedView>? embeds,

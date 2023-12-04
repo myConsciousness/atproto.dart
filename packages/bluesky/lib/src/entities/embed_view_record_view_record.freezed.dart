@@ -39,6 +39,9 @@ mixin _$EmbedViewRecordViewRecord {
   @postRecordConverter
   PostRecord get value => throw _privateConstructorUsedError;
 
+  /// Attached labels.
+  List<Label>? get labels => throw _privateConstructorUsedError;
+
   /// The list of embedded views within the record (optional).
   @embedViewConverter
   List<EmbedView>? get embeds => throw _privateConstructorUsedError;
@@ -64,6 +67,7 @@ abstract class $EmbedViewRecordViewRecordCopyWith<$Res> {
       String cid,
       Actor author,
       @postRecordConverter PostRecord value,
+      List<Label>? labels,
       @embedViewConverter List<EmbedView>? embeds,
       DateTime indexedAt});
 
@@ -90,6 +94,7 @@ class _$EmbedViewRecordViewRecordCopyWithImpl<$Res,
     Object? cid = null,
     Object? author = null,
     Object? value = null,
+    Object? labels = freezed,
     Object? embeds = freezed,
     Object? indexedAt = null,
   }) {
@@ -114,6 +119,10 @@ class _$EmbedViewRecordViewRecordCopyWithImpl<$Res,
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as PostRecord,
+      labels: freezed == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>?,
       embeds: freezed == embeds
           ? _value.embeds
           : embeds // ignore: cast_nullable_to_non_nullable
@@ -157,6 +166,7 @@ abstract class _$$_EmbedViewRecordViewRecordCopyWith<$Res>
       String cid,
       Actor author,
       @postRecordConverter PostRecord value,
+      List<Label>? labels,
       @embedViewConverter List<EmbedView>? embeds,
       DateTime indexedAt});
 
@@ -184,6 +194,7 @@ class __$$_EmbedViewRecordViewRecordCopyWithImpl<$Res>
     Object? cid = null,
     Object? author = null,
     Object? value = null,
+    Object? labels = freezed,
     Object? embeds = freezed,
     Object? indexedAt = null,
   }) {
@@ -208,6 +219,10 @@ class __$$_EmbedViewRecordViewRecordCopyWithImpl<$Res>
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as PostRecord,
+      labels: freezed == labels
+          ? _value._labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>?,
       embeds: freezed == embeds
           ? _value._embeds
           : embeds // ignore: cast_nullable_to_non_nullable
@@ -230,9 +245,11 @@ class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
       required this.cid,
       required this.author,
       @postRecordConverter required this.value,
+      final List<Label>? labels,
       @embedViewConverter final List<EmbedView>? embeds,
       required this.indexedAt})
-      : _embeds = embeds;
+      : _labels = labels,
+        _embeds = embeds;
 
   factory _$_EmbedViewRecordViewRecord.fromJson(Map<String, dynamic> json) =>
       _$$_EmbedViewRecordViewRecordFromJson(json);
@@ -260,6 +277,19 @@ class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
   @postRecordConverter
   final PostRecord value;
 
+  /// Attached labels.
+  final List<Label>? _labels;
+
+  /// Attached labels.
+  @override
+  List<Label>? get labels {
+    final value = _labels;
+    if (value == null) return null;
+    if (_labels is EqualUnmodifiableListView) return _labels;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   /// The list of embedded views within the record (optional).
   final List<EmbedView>? _embeds;
 
@@ -280,7 +310,7 @@ class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
 
   @override
   String toString() {
-    return 'EmbedViewRecordViewRecord(type: $type, uri: $uri, cid: $cid, author: $author, value: $value, embeds: $embeds, indexedAt: $indexedAt)';
+    return 'EmbedViewRecordViewRecord(type: $type, uri: $uri, cid: $cid, author: $author, value: $value, labels: $labels, embeds: $embeds, indexedAt: $indexedAt)';
   }
 
   @override
@@ -293,6 +323,7 @@ class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.author, author) || other.author == author) &&
             (identical(other.value, value) || other.value == value) &&
+            const DeepCollectionEquality().equals(other._labels, _labels) &&
             const DeepCollectionEquality().equals(other._embeds, _embeds) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt));
@@ -300,8 +331,16 @@ class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, uri, cid, author, value,
-      const DeepCollectionEquality().hash(_embeds), indexedAt);
+  int get hashCode => Object.hash(
+      runtimeType,
+      type,
+      uri,
+      cid,
+      author,
+      value,
+      const DeepCollectionEquality().hash(_labels),
+      const DeepCollectionEquality().hash(_embeds),
+      indexedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -325,6 +364,7 @@ abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
       required final String cid,
       required final Actor author,
       @postRecordConverter required final PostRecord value,
+      final List<Label>? labels,
       @embedViewConverter final List<EmbedView>? embeds,
       required final DateTime indexedAt}) = _$_EmbedViewRecordViewRecord;
 
@@ -354,6 +394,10 @@ abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
   /// The post value of the embedded view record view.
   @postRecordConverter
   PostRecord get value;
+  @override
+
+  /// Attached labels.
+  List<Label>? get labels;
   @override
 
   /// The list of embedded views within the record (optional).

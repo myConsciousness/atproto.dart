@@ -20,6 +20,7 @@ import 'entities/moderation_cause_source.dart';
 import 'entities/moderation_cause_source_labeler.dart';
 import 'entities/moderation_cause_source_list.dart';
 import 'entities/moderation_cause_source_user.dart';
+import 'entities/moderation_decision.dart';
 import 'entities/moderation_options.dart';
 import 'types/label_definition_flag.dart';
 import 'types/label_definition_on_warn_behavior.dart';
@@ -43,6 +44,8 @@ sealed class ModerationCauseAccumulator {
   );
   void addMuted();
   void addMutedByList(final ListViewBasic mutedByList);
+
+  ModerationDecision finalizeDecision(final ModerationOptions options);
 }
 
 final class _ModerationCauseAccumulator implements ModerationCauseAccumulator {
@@ -190,4 +193,101 @@ final class _ModerationCauseAccumulator implements ModerationCauseAccumulator {
           ),
         ),
       );
+
+  @override
+  ModerationDecision finalizeDecision(final ModerationOptions options) {
+    if (causes.isEmpty) return ModerationDecision(did: did);
+
+    final orderedCauses = _orderedCausesByPriority;
+
+    final cause = orderedCauses.first;
+    final additionalCauses =
+        orderedCauses.length > 1 ? orderedCauses.sublist(1) : null;
+
+    if (cause is UModerationCauseBlocking ||
+        cause is UModerationCauseBlockedBy ||
+        cause is UModerationCauseBlockOther) {
+      //* Blocked User
+      return ModerationDecision(
+        did: did,
+        cause: cause,
+        additionalCauses: additionalCauses,
+        isFilter: true,
+        isBlur: true,
+        isNoOverride: true,
+      );
+    } else if (cause is UModerationCauseMuted) {
+      //* Muted User
+      return ModerationDecision(
+        did: did,
+        cause: cause,
+        additionalCauses: additionalCauses,
+        isFilter: true,
+        isBlur: true,
+      );
+    } else if (cause is UModerationCauseLabel) {
+      //* Labeled Subject
+      return ModerationDecision(
+        did: did,
+        cause: cause,
+        additionalCauses: additionalCauses,
+        isAlert: _isAlert(cause),
+        isBlur: _isBlur(cause),
+        isBlurMedia: _isBlurMedia(cause),
+        isFilter: cause.data.setting == LabelPreference.hide,
+        isNoOverride: _isNoOverride(cause, options),
+      );
+    }
+
+    return ModerationDecision(
+      did: did,
+      cause: cause,
+      additionalCauses: additionalCauses,
+    );
+  }
+
+  List<ModerationCause> get _orderedCausesByPriority => List.from(causes)
+    ..sort(
+      (a, b) => _getPriorityFromCause(a).compareTo(_getPriorityFromCause(b)),
+    );
+
+  int _getPriorityFromCause(final ModerationCause cause) => switch (cause) {
+        UModerationCauseBlocking() => cause.data.priority,
+        UModerationCauseBlockedBy() => cause.data.priority,
+        UModerationCauseBlockOther() => cause.data.priority,
+        UModerationCauseLabel() => cause.data.priority,
+        UModerationCauseMuted() => cause.data.priority,
+        _ => 8,
+      };
+
+  bool _isAlert(final UModerationCauseLabel cause) =>
+      _checkOnWarnBehavior(cause, LabelDefinitionOnWarnBehavior.alert);
+
+  bool _isBlur(final UModerationCauseLabel cause) =>
+      _checkOnWarnBehavior(cause, LabelDefinitionOnWarnBehavior.blur);
+
+  bool _isBlurMedia(final UModerationCauseLabel cause) =>
+      _checkOnWarnBehavior(cause, LabelDefinitionOnWarnBehavior.blurMedia);
+
+  bool _checkOnWarnBehavior(
+    final UModerationCauseLabel cause,
+    LabelDefinitionOnWarnBehavior expected,
+  ) =>
+      cause.data.labelDefinition.onWarn == expected;
+
+  bool _isNoOverride(
+    final UModerationCauseLabel cause,
+    final ModerationOptions options,
+  ) {
+    if (cause.data.labelDefinition.flags
+        .contains(LabelDefinitionFlag.noOverride)) {
+      return true;
+    } else if (cause.data.labelDefinition.flags
+            .contains(LabelDefinitionFlag.adult) &&
+        !options.enableAdultContent) {
+      return true;
+    }
+
+    return false;
+  }
 }
