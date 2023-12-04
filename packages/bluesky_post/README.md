@@ -13,7 +13,7 @@ This action is implemented in the Dart language and uses **[bluesky](https://git
 
 ## Workflow Usage
 
-Configure your workflow to use `myConsciousness/bluesky-post@v4`,
+Configure your workflow to use `myConsciousness/bluesky-post@v5`,
 and provide the post you want to send as the `text` input.
 
 Provide Bluesky's ATP server with `identifier` (handle or email) and `password` to create a session.
@@ -30,7 +30,7 @@ jobs:
   post:
     runs-on: ubuntu-latest
     steps:
-      - uses: myConsciousness/bluesky-post@v4
+      - uses: myConsciousness/bluesky-post@v5
         with:
           text: "Hello, Bluesky!"
           identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
@@ -41,7 +41,7 @@ Now whenever you push something to your repository, GitHub Actions
 will post to Bluesky on your behalf.
 
 > **Note** </br>
-> In the Bluesky API, the `mention` and `link` functions will not work unless
+> In the Bluesky API, the `mention`, `link` and `tag` functions will not work unless
 > the `facet` parameter is set correctly when the request is sent,
 > but this Action will automatically extract valid handle and link
 > from the text and set the facet.
@@ -64,7 +64,7 @@ jobs:
   post:
     runs-on: ubuntu-latest
     steps:
-      - uses: myConsciousness/bluesky-post@v4
+      - uses: myConsciousness/bluesky-post@v5
         with:
           text: "Hello, Bluesky!"
           identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
@@ -92,7 +92,7 @@ jobs:
   post:
     runs-on: ubuntu-latest
     steps:
-      - uses: myConsciousness/bluesky-post@v4
+      - uses: myConsciousness/bluesky-post@v5
         with:
           text: "Hello, Bluesky!"
           identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
@@ -117,7 +117,7 @@ jobs:
       # You must checkout resources
       - uses: actions/checkout@v3
 
-      - uses: myConsciousness/bluesky-post@v4
+      - uses: myConsciousness/bluesky-post@v5
         with:
           text: "Hello, Bluesky!"
           media: cool_photo.png
@@ -141,7 +141,7 @@ jobs:
   post:
     runs-on: ubuntu-latest
     steps:
-      - uses: myConsciousness/bluesky-post@v4
+      - uses: myConsciousness/bluesky-post@v5
         with:
           text: "Hello, Bluesky!"
           langs: "en,ja"
@@ -164,10 +164,83 @@ jobs:
   post:
     runs-on: ubuntu-latest
     steps:
-      - uses: myConsciousness/bluesky-post@v4
+      - uses: myConsciousness/bluesky-post@v5
         with:
           text: "Hello, Bluesky!"
-          labels: "fun,sports"
+          labels: "spam,porn"
+          identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
+          password: ${{ secrets.BLUESKY_PASSWORD }}
+```
+
+## Attach Tags
+
+You can **tag** any post you send.
+You can set one or more tags, and pass the value of any tag in the `tags` parameter in **_CSV format_** as follows.
+
+```yml
+name: Send Bluesky Post
+
+on:
+    [push]
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: myConsciousness/bluesky-post@v5
+        with:
+          text: "Hello, Bluesky!"
+          tags: "bluesky,awesome"
+          identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
+          password: ${{ secrets.BLUESKY_PASSWORD }}
+```
+
+> **Note** </br>
+> The value specified in the `tags` parameter is different from hashtags in the text,
+> which are generally displayed as metadata about the post in Bluesky's clients.
+
+## Markdown Link
+
+You can specify links in a generic markdown format.
+
+```yml
+name: Send Bluesky Post
+
+on:
+    [push]
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: myConsciousness/bluesky-post@v5
+        with:
+          text: "[This is a markdown link!](https://atprotodart.com)"
+          identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
+          password: ${{ secrets.BLUESKY_PASSWORD }}
+```
+
+## Attach Link Preview
+
+You can attach link preview (link card) with `link-preview-url` parameter.
+
+If a `link-preview-url` parameter is also specified while a `media` parameter is present,
+the `media` parameter will be used first.
+
+```yml
+name: Send Bluesky Post
+
+on:
+    [push]
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: myConsciousness/bluesky-post@v5
+        with:
+          text: "Hello, Bluesky!"
+          link-preview-url: "https://atprotodart.com"
           identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
           password: ${{ secrets.BLUESKY_PASSWORD }}
 ```

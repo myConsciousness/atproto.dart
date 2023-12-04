@@ -12,6 +12,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import 'actor.dart';
 import 'converter/embed_view_converter.dart';
+import 'converter/post_record_converter.dart';
 import 'defaults.dart';
 import 'embed_view.dart';
 import 'keys/ids.g.dart';
@@ -43,7 +44,7 @@ class Post with _$Post {
     @typeKey @Default(appBskyFeedDefsPostView) String type,
 
     /// The record containing the content of the post.
-    required PostRecord record,
+    @postRecordConverter required PostRecord record,
 
     /// The author who created the post.
     required Actor author,
@@ -103,4 +104,10 @@ class Post with _$Post {
   /// Returns true if the authenticated user has not liked yet this record,
   /// otherwise false.
   bool get isNotLiked => !isLiked;
+
+  /// Returns true if this post is reply disabled, otherwise false.
+  bool get isReplyDisabled => viewer.isReplyDisabled;
+
+  /// Returns true if this post is not reply disabled, otherwise false.
+  bool get isNotReplyDisabled => !isReplyDisabled;
 }

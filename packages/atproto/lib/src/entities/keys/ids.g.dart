@@ -16,38 +16,55 @@ const comAtprotoAdminDefs = 'com.atproto.admin.defs';
 /// `com.atproto.admin.defs#accountView`
 const comAtprotoAdminDefsAccountView = 'com.atproto.admin.defs#accountView';
 
-/// `com.atproto.admin.defs#acknowledge`
-const comAtprotoAdminDefsAcknowledge = 'com.atproto.admin.defs#acknowledge';
-
-/// `com.atproto.admin.defs#actionReversal`
-const comAtprotoAdminDefsActionReversal =
-    'com.atproto.admin.defs#actionReversal';
-
-/// `com.atproto.admin.defs#actionType`
-const comAtprotoAdminDefsActionType = 'com.atproto.admin.defs#actionType';
-
-/// `com.atproto.admin.defs#actionView`
-const comAtprotoAdminDefsActionView = 'com.atproto.admin.defs#actionView';
-
-/// `com.atproto.admin.defs#actionViewCurrent`
-const comAtprotoAdminDefsActionViewCurrent =
-    'com.atproto.admin.defs#actionViewCurrent';
-
-/// `com.atproto.admin.defs#actionViewDetail`
-const comAtprotoAdminDefsActionViewDetail =
-    'com.atproto.admin.defs#actionViewDetail';
-
 /// `com.atproto.admin.defs#blobView`
 const comAtprotoAdminDefsBlobView = 'com.atproto.admin.defs#blobView';
 
-/// `com.atproto.admin.defs#escalate`
-const comAtprotoAdminDefsEscalate = 'com.atproto.admin.defs#escalate';
-
-/// `com.atproto.admin.defs#flag`
-const comAtprotoAdminDefsFlag = 'com.atproto.admin.defs#flag';
-
 /// `com.atproto.admin.defs#imageDetails`
 const comAtprotoAdminDefsImageDetails = 'com.atproto.admin.defs#imageDetails';
+
+/// `com.atproto.admin.defs#modEventAcknowledge`
+const comAtprotoAdminDefsModEventAcknowledge =
+    'com.atproto.admin.defs#modEventAcknowledge';
+
+/// `com.atproto.admin.defs#modEventComment`
+const comAtprotoAdminDefsModEventComment =
+    'com.atproto.admin.defs#modEventComment';
+
+/// `com.atproto.admin.defs#modEventEmail`
+const comAtprotoAdminDefsModEventEmail = 'com.atproto.admin.defs#modEventEmail';
+
+/// `com.atproto.admin.defs#modEventEscalate`
+const comAtprotoAdminDefsModEventEscalate =
+    'com.atproto.admin.defs#modEventEscalate';
+
+/// `com.atproto.admin.defs#modEventLabel`
+const comAtprotoAdminDefsModEventLabel = 'com.atproto.admin.defs#modEventLabel';
+
+/// `com.atproto.admin.defs#modEventMute`
+const comAtprotoAdminDefsModEventMute = 'com.atproto.admin.defs#modEventMute';
+
+/// `com.atproto.admin.defs#modEventReport`
+const comAtprotoAdminDefsModEventReport =
+    'com.atproto.admin.defs#modEventReport';
+
+/// `com.atproto.admin.defs#modEventReverseTakedown`
+const comAtprotoAdminDefsModEventReverseTakedown =
+    'com.atproto.admin.defs#modEventReverseTakedown';
+
+/// `com.atproto.admin.defs#modEventTakedown`
+const comAtprotoAdminDefsModEventTakedown =
+    'com.atproto.admin.defs#modEventTakedown';
+
+/// `com.atproto.admin.defs#modEventUnmute`
+const comAtprotoAdminDefsModEventUnmute =
+    'com.atproto.admin.defs#modEventUnmute';
+
+/// `com.atproto.admin.defs#modEventView`
+const comAtprotoAdminDefsModEventView = 'com.atproto.admin.defs#modEventView';
+
+/// `com.atproto.admin.defs#modEventViewDetail`
+const comAtprotoAdminDefsModEventViewDetail =
+    'com.atproto.admin.defs#modEventViewDetail';
 
 /// `com.atproto.admin.defs#moderation`
 const comAtprotoAdminDefsModeration = 'com.atproto.admin.defs#moderation';
@@ -91,11 +108,26 @@ const comAtprotoAdminDefsReportView = 'com.atproto.admin.defs#reportView';
 const comAtprotoAdminDefsReportViewDetail =
     'com.atproto.admin.defs#reportViewDetail';
 
+/// `com.atproto.admin.defs#reviewClosed`
+const comAtprotoAdminDefsReviewClosed = 'com.atproto.admin.defs#reviewClosed';
+
+/// `com.atproto.admin.defs#reviewEscalated`
+const comAtprotoAdminDefsReviewEscalated =
+    'com.atproto.admin.defs#reviewEscalated';
+
+/// `com.atproto.admin.defs#reviewOpen`
+const comAtprotoAdminDefsReviewOpen = 'com.atproto.admin.defs#reviewOpen';
+
 /// `com.atproto.admin.defs#statusAttr`
 const comAtprotoAdminDefsStatusAttr = 'com.atproto.admin.defs#statusAttr';
 
-/// `com.atproto.admin.defs#takedown`
-const comAtprotoAdminDefsTakedown = 'com.atproto.admin.defs#takedown';
+/// `com.atproto.admin.defs#subjectReviewState`
+const comAtprotoAdminDefsSubjectReviewState =
+    'com.atproto.admin.defs#subjectReviewState';
+
+/// `com.atproto.admin.defs#subjectStatusView`
+const comAtprotoAdminDefsSubjectStatusView =
+    'com.atproto.admin.defs#subjectStatusView';
 
 /// `com.atproto.admin.defs#videoDetails`
 const comAtprotoAdminDefsVideoDetails = 'com.atproto.admin.defs#videoDetails';
@@ -108,6 +140,10 @@ const comAtprotoAdminDisableAccountInvites =
 const comAtprotoAdminDisableInviteCodes =
     'com.atproto.admin.disableInviteCodes';
 
+/// `com.atproto.admin.emitModerationEvent`
+const comAtprotoAdminEmitModerationEvent =
+    'com.atproto.admin.emitModerationEvent';
+
 /// `com.atproto.admin.enableAccountInvites`
 const comAtprotoAdminEnableAccountInvites =
     'com.atproto.admin.enableAccountInvites';
@@ -118,21 +154,9 @@ const comAtprotoAdminGetAccountInfo = 'com.atproto.admin.getAccountInfo';
 /// `com.atproto.admin.getInviteCodes`
 const comAtprotoAdminGetInviteCodes = 'com.atproto.admin.getInviteCodes';
 
-/// `com.atproto.admin.getModerationAction`
-const comAtprotoAdminGetModerationAction =
-    'com.atproto.admin.getModerationAction';
-
-/// `com.atproto.admin.getModerationActions`
-const comAtprotoAdminGetModerationActions =
-    'com.atproto.admin.getModerationActions';
-
-/// `com.atproto.admin.getModerationReport`
-const comAtprotoAdminGetModerationReport =
-    'com.atproto.admin.getModerationReport';
-
-/// `com.atproto.admin.getModerationReports`
-const comAtprotoAdminGetModerationReports =
-    'com.atproto.admin.getModerationReports';
+/// `com.atproto.admin.getModerationEvent`
+const comAtprotoAdminGetModerationEvent =
+    'com.atproto.admin.getModerationEvent';
 
 /// `com.atproto.admin.getRecord`
 const comAtprotoAdminGetRecord = 'com.atproto.admin.getRecord';
@@ -143,23 +167,19 @@ const comAtprotoAdminGetRepo = 'com.atproto.admin.getRepo';
 /// `com.atproto.admin.getSubjectStatus`
 const comAtprotoAdminGetSubjectStatus = 'com.atproto.admin.getSubjectStatus';
 
-/// `com.atproto.admin.resolveModerationReports`
-const comAtprotoAdminResolveModerationReports =
-    'com.atproto.admin.resolveModerationReports';
+/// `com.atproto.admin.queryModerationEvents`
+const comAtprotoAdminQueryModerationEvents =
+    'com.atproto.admin.queryModerationEvents';
 
-/// `com.atproto.admin.reverseModerationAction`
-const comAtprotoAdminReverseModerationAction =
-    'com.atproto.admin.reverseModerationAction';
+/// `com.atproto.admin.queryModerationStatuses`
+const comAtprotoAdminQueryModerationStatuses =
+    'com.atproto.admin.queryModerationStatuses';
 
 /// `com.atproto.admin.searchRepos`
 const comAtprotoAdminSearchRepos = 'com.atproto.admin.searchRepos';
 
 /// `com.atproto.admin.sendEmail`
 const comAtprotoAdminSendEmail = 'com.atproto.admin.sendEmail';
-
-/// `com.atproto.admin.takeModerationAction`
-const comAtprotoAdminTakeModerationAction =
-    'com.atproto.admin.takeModerationAction';
 
 /// `com.atproto.admin.updateAccountEmail`
 const comAtprotoAdminUpdateAccountEmail =

@@ -16,7 +16,7 @@ _$_Post _$$_PostFromJson(Map json) => $checkedCreate(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsPostView),
           record: $checkedConvert('record',
-              (v) => PostRecord.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => postRecordConverter.fromJson(v as Map<String, dynamic>)),
           author: $checkedConvert('author',
               (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
           uri: $checkedConvert(
@@ -53,7 +53,7 @@ _$_Post _$$_PostFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$_PostToJson(_$_Post instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
-    'record': instance.record.toJson(),
+    'record': postRecordConverter.toJson(instance.record),
     'author': instance.author.toJson(),
     'uri': atUriConverter.toJson(instance.uri),
     'cid': instance.cid,

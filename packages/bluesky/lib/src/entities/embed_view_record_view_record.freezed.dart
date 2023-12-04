@@ -36,6 +36,7 @@ mixin _$EmbedViewRecordViewRecord {
   Actor get author => throw _privateConstructorUsedError;
 
   /// The post value of the embedded view record view.
+  @postRecordConverter
   PostRecord get value => throw _privateConstructorUsedError;
 
   /// The list of embedded views within the record (optional).
@@ -62,7 +63,7 @@ abstract class $EmbedViewRecordViewRecordCopyWith<$Res> {
       @atUriConverter AtUri uri,
       String cid,
       Actor author,
-      PostRecord value,
+      @postRecordConverter PostRecord value,
       @embedViewConverter List<EmbedView>? embeds,
       DateTime indexedAt});
 
@@ -155,7 +156,7 @@ abstract class _$$_EmbedViewRecordViewRecordCopyWith<$Res>
       @atUriConverter AtUri uri,
       String cid,
       Actor author,
-      PostRecord value,
+      @postRecordConverter PostRecord value,
       @embedViewConverter List<EmbedView>? embeds,
       DateTime indexedAt});
 
@@ -228,7 +229,7 @@ class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
       @atUriConverter required this.uri,
       required this.cid,
       required this.author,
-      required this.value,
+      @postRecordConverter required this.value,
       @embedViewConverter final List<EmbedView>? embeds,
       required this.indexedAt})
       : _embeds = embeds;
@@ -256,6 +257,7 @@ class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
 
   /// The post value of the embedded view record view.
   @override
+  @postRecordConverter
   final PostRecord value;
 
   /// The list of embedded views within the record (optional).
@@ -322,7 +324,7 @@ abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
       @atUriConverter required final AtUri uri,
       required final String cid,
       required final Actor author,
-      required final PostRecord value,
+      @postRecordConverter required final PostRecord value,
       @embedViewConverter final List<EmbedView>? embeds,
       required final DateTime indexedAt}) = _$_EmbedViewRecordViewRecord;
 
@@ -350,6 +352,7 @@ abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
   @override
 
   /// The post value of the embedded view record view.
+  @postRecordConverter
   PostRecord get value;
   @override
 

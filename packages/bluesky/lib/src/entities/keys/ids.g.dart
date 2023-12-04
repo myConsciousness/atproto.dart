@@ -168,9 +168,6 @@ const appBskyFeedDefsThreadgateView = 'app.bsky.feed.defs#threadgateView';
 /// `app.bsky.feed.defs#viewerState`
 const appBskyFeedDefsViewerState = 'app.bsky.feed.defs#viewerState';
 
-/// `app.bsky.feed.defs#viewerThreadState`
-const appBskyFeedDefsViewerThreadState = 'app.bsky.feed.defs#viewerThreadState';
-
 /// `app.bsky.feed.describeFeedGenerator`
 const appBskyFeedDescribeFeedGenerator = 'app.bsky.feed.describeFeedGenerator';
 

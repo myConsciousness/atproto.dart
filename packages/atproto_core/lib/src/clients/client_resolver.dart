@@ -20,15 +20,17 @@ final class _ClientResolver implements ClientResolver {
   /// Returns the new instance of [_ClientResolver].
   const _ClientResolver(this.authRequiredClient);
 
-  /// The client with access token.
+  static const anonymousClient = AnonymousClient();
   final AuthRequiredClient? authRequiredClient;
 
   @override
   Client execute(final AuthType authType) {
     switch (authType) {
       case AuthType.anonymous:
-        return const AnonymousClient();
-      case AuthType.access:
+        return anonymousClient;
+      case AuthType.authOptional:
+        return authRequiredClient ?? anonymousClient;
+      case AuthType.authRequired:
         if (authRequiredClient == null) {
           throw UnsupportedError(
             'Access token is required for this endpoint.',
