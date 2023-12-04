@@ -15,7 +15,8 @@ _$_LabelDefinition _$$_LabelDefinitionFromJson(Map json) => $checkedCreate(
         final val = _$_LabelDefinition(
           id: $checkedConvert('id', (v) => v as String),
           groupId: $checkedConvert('groupId', (v) => v as String),
-          isConfigurable: $checkedConvert('configurable', (v) => v as bool),
+          isConfigurable:
+              $checkedConvert('configurable', (v) => v as bool? ?? false),
           preferences: $checkedConvert(
               'preferences',
               (v) => (v as List<dynamic>)

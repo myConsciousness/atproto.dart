@@ -8,6 +8,7 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import '../types/label_definition_flag.dart';
 import '../types/label_definition_on_warn_behavior.dart';
 import '../types/label_preference.dart';
@@ -21,7 +22,7 @@ class LabelDefinition with _$LabelDefinition {
   const factory LabelDefinition({
     required String id,
     required String groupId,
-    @JsonKey(name: 'configurable') required bool isConfigurable,
+    @JsonKey(name: 'configurable') @Default(false) bool isConfigurable,
     required List<LabelPreference> preferences,
     required List<LabelDefinitionFlag> flags,
     required LabelDefinitionOnWarnBehavior onWarn,

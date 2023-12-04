@@ -5,6 +5,7 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import 'converter/moderation_cause_converter.dart';
 import 'moderation_cause_block_other.dart';
 import 'moderation_cause_blocked_by.dart';

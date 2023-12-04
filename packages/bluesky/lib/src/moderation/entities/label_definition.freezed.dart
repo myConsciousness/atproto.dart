@@ -170,7 +170,7 @@ class _$_LabelDefinition implements _LabelDefinition {
   const _$_LabelDefinition(
       {required this.id,
       required this.groupId,
-      @JsonKey(name: 'configurable') required this.isConfigurable,
+      @JsonKey(name: 'configurable') this.isConfigurable = false,
       required final List<LabelPreference> preferences,
       required final List<LabelDefinitionFlag> flags,
       required this.onWarn})
@@ -255,7 +255,7 @@ abstract class _LabelDefinition implements LabelDefinition {
   const factory _LabelDefinition(
           {required final String id,
           required final String groupId,
-          @JsonKey(name: 'configurable') required final bool isConfigurable,
+          @JsonKey(name: 'configurable') final bool isConfigurable,
           required final List<LabelPreference> preferences,
           required final List<LabelDefinitionFlag> flags,
           required final LabelDefinitionOnWarnBehavior onWarn}) =
