@@ -19,10 +19,10 @@ part 'moderation_ui.g.dart';
 class ModerationUI with _$ModerationUI {
   @jsonSerializable
   const factory ModerationUI({
+    @moderationCauseConverter ModerationCause? cause,
     @Default(false) bool filter,
     @Default(false) bool blur,
     @Default(false) bool alert,
-    @moderationCauseConverter ModerationCause? cause,
     @Default(false) bool noOverride,
   }) = _ModerationUI;
 
