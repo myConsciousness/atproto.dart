@@ -20,8 +20,8 @@ class ProfileModeration with _$ProfileModeration {
   @jsonSerializable
   const factory ProfileModeration({
     required ProfileModerationDecisions decisions,
-    required ModerationUI account,
-    required ModerationUI profile,
+    required ModerationUI? account,
+    required ModerationUI? profile,
     required ModerationUI avatar,
   }) = _ProfileModeration;
 

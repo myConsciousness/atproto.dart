@@ -19,12 +19,14 @@ _$_ProfileModeration _$$_ProfileModerationFromJson(Map json) => $checkedCreate(
                   Map<String, Object?>.from(v as Map))),
           account: $checkedConvert(
               'account',
-              (v) =>
-                  ModerationUI.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => v == null
+                  ? null
+                  : ModerationUI.fromJson(Map<String, Object?>.from(v as Map))),
           profile: $checkedConvert(
               'profile',
-              (v) =>
-                  ModerationUI.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => v == null
+                  ? null
+                  : ModerationUI.fromJson(Map<String, Object?>.from(v as Map))),
           avatar: $checkedConvert(
               'avatar',
               (v) =>
@@ -35,10 +37,19 @@ _$_ProfileModeration _$$_ProfileModerationFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$_ProfileModerationToJson(
-        _$_ProfileModeration instance) =>
-    <String, dynamic>{
-      'decisions': instance.decisions.toJson(),
-      'account': instance.account.toJson(),
-      'profile': instance.profile.toJson(),
-      'avatar': instance.avatar.toJson(),
-    };
+    _$_ProfileModeration instance) {
+  final val = <String, dynamic>{
+    'decisions': instance.decisions.toJson(),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('account', instance.account?.toJson());
+  writeNotNull('profile', instance.profile?.toJson());
+  val['avatar'] = instance.avatar.toJson();
+  return val;
+}

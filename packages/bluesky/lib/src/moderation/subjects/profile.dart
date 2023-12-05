@@ -6,38 +6,17 @@
 import 'package:atproto/atproto.dart' as atp;
 
 // 🌎 Project imports:
-import '../../entities/actor.dart';
-import '../../entities/actor_profile.dart';
 import '../accumulator.dart';
 import '../entities/moderation_decision.dart';
 import '../entities/moderation_options.dart';
+import '../entities/moderation_subject_profile.dart';
 import 'utils.dart';
 
-ModerationDecision decideProfileFromActor(
-  final Actor subject,
-  final ModerationOptions options,
-) =>
-    _decideProfile(
-      subject.did,
-      subject.labels,
-      options,
-    );
-
-ModerationDecision decideProfileFromActorProfile(
-  final ActorProfile subject,
-  final ModerationOptions options,
-) =>
-    _decideProfile(
-      subject.did,
-      subject.labels,
-      options,
-    );
-
-ModerationDecision _decideProfile(
-  final String did,
-  final List<atp.Label>? labels,
+ModerationDecision decideProfile(
+  final ModerationSubjectProfile subject,
   final ModerationOptions options,
 ) {
+  final (did, labels) = _getDecisionFactors(subject);
   final accumulator = ModerationCauseAccumulator(did);
 
   for (final label in filterProfileLabels(labels)) {
@@ -46,3 +25,11 @@ ModerationDecision _decideProfile(
 
   return accumulator.finalizeDecision(options);
 }
+
+(String, List<atp.Label>?) _getDecisionFactors(
+  final ModerationSubjectProfile subject,
+) =>
+    subject.when(
+      actor: (data) => (data.did, data.labels),
+      actorProfile: (data) => (data.did, data.labels),
+    );

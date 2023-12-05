@@ -11,6 +11,7 @@ import '../../entities/embed_view_record_with_media.dart';
 import '../accumulator.dart';
 import '../entities/moderation_decision.dart';
 import '../entities/moderation_options.dart';
+import '../entities/moderation_subject_profile.dart';
 import 'account.dart';
 
 ModerationDecision decideQuotedPost(
@@ -52,7 +53,11 @@ ModerationDecision decideQuotedPostAccount(
 ) {
   if (subject.record is UEmbedViewRecordViewRecord) {
     final viewRecord = subject.record.data as EmbedViewRecordViewRecord;
-    return decideAccountFromActor(viewRecord.author, options);
+
+    return decideAccount(
+      ModerationSubjectProfile.actor(data: viewRecord.author),
+      options,
+    );
   }
 
   return moderationDecisionNoop;
@@ -98,7 +103,11 @@ ModerationDecision decideQuotedPostWithMediaAccount(
 ) {
   if (subject.record.record is UEmbedViewRecordViewRecord) {
     final viewRecord = subject.record.record.data as EmbedViewRecordViewRecord;
-    return decideAccountFromActor(viewRecord.author, options);
+
+    return decideAccount(
+      ModerationSubjectProfile.actor(data: viewRecord.author),
+      options,
+    );
   }
 
   return moderationDecisionNoop;

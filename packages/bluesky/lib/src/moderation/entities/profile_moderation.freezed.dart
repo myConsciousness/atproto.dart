@@ -22,8 +22,8 @@ ProfileModeration _$ProfileModerationFromJson(Map<String, dynamic> json) {
 mixin _$ProfileModeration {
   ProfileModerationDecisions get decisions =>
       throw _privateConstructorUsedError;
-  ModerationUI get account => throw _privateConstructorUsedError;
-  ModerationUI get profile => throw _privateConstructorUsedError;
+  ModerationUI? get account => throw _privateConstructorUsedError;
+  ModerationUI? get profile => throw _privateConstructorUsedError;
   ModerationUI get avatar => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,13 +40,13 @@ abstract class $ProfileModerationCopyWith<$Res> {
   @useResult
   $Res call(
       {ProfileModerationDecisions decisions,
-      ModerationUI account,
-      ModerationUI profile,
+      ModerationUI? account,
+      ModerationUI? profile,
       ModerationUI avatar});
 
   $ProfileModerationDecisionsCopyWith<$Res> get decisions;
-  $ModerationUICopyWith<$Res> get account;
-  $ModerationUICopyWith<$Res> get profile;
+  $ModerationUICopyWith<$Res>? get account;
+  $ModerationUICopyWith<$Res>? get profile;
   $ModerationUICopyWith<$Res> get avatar;
 }
 
@@ -64,8 +64,8 @@ class _$ProfileModerationCopyWithImpl<$Res, $Val extends ProfileModeration>
   @override
   $Res call({
     Object? decisions = null,
-    Object? account = null,
-    Object? profile = null,
+    Object? account = freezed,
+    Object? profile = freezed,
     Object? avatar = null,
   }) {
     return _then(_value.copyWith(
@@ -73,14 +73,14 @@ class _$ProfileModerationCopyWithImpl<$Res, $Val extends ProfileModeration>
           ? _value.decisions
           : decisions // ignore: cast_nullable_to_non_nullable
               as ProfileModerationDecisions,
-      account: null == account
+      account: freezed == account
           ? _value.account
           : account // ignore: cast_nullable_to_non_nullable
-              as ModerationUI,
-      profile: null == profile
+              as ModerationUI?,
+      profile: freezed == profile
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
-              as ModerationUI,
+              as ModerationUI?,
       avatar: null == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -98,16 +98,24 @@ class _$ProfileModerationCopyWithImpl<$Res, $Val extends ProfileModeration>
 
   @override
   @pragma('vm:prefer-inline')
-  $ModerationUICopyWith<$Res> get account {
-    return $ModerationUICopyWith<$Res>(_value.account, (value) {
+  $ModerationUICopyWith<$Res>? get account {
+    if (_value.account == null) {
+      return null;
+    }
+
+    return $ModerationUICopyWith<$Res>(_value.account!, (value) {
       return _then(_value.copyWith(account: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ModerationUICopyWith<$Res> get profile {
-    return $ModerationUICopyWith<$Res>(_value.profile, (value) {
+  $ModerationUICopyWith<$Res>? get profile {
+    if (_value.profile == null) {
+      return null;
+    }
+
+    return $ModerationUICopyWith<$Res>(_value.profile!, (value) {
       return _then(_value.copyWith(profile: value) as $Val);
     });
   }
@@ -131,16 +139,16 @@ abstract class _$$_ProfileModerationCopyWith<$Res>
   @useResult
   $Res call(
       {ProfileModerationDecisions decisions,
-      ModerationUI account,
-      ModerationUI profile,
+      ModerationUI? account,
+      ModerationUI? profile,
       ModerationUI avatar});
 
   @override
   $ProfileModerationDecisionsCopyWith<$Res> get decisions;
   @override
-  $ModerationUICopyWith<$Res> get account;
+  $ModerationUICopyWith<$Res>? get account;
   @override
-  $ModerationUICopyWith<$Res> get profile;
+  $ModerationUICopyWith<$Res>? get profile;
   @override
   $ModerationUICopyWith<$Res> get avatar;
 }
@@ -157,8 +165,8 @@ class __$$_ProfileModerationCopyWithImpl<$Res>
   @override
   $Res call({
     Object? decisions = null,
-    Object? account = null,
-    Object? profile = null,
+    Object? account = freezed,
+    Object? profile = freezed,
     Object? avatar = null,
   }) {
     return _then(_$_ProfileModeration(
@@ -166,14 +174,14 @@ class __$$_ProfileModerationCopyWithImpl<$Res>
           ? _value.decisions
           : decisions // ignore: cast_nullable_to_non_nullable
               as ProfileModerationDecisions,
-      account: null == account
+      account: freezed == account
           ? _value.account
           : account // ignore: cast_nullable_to_non_nullable
-              as ModerationUI,
-      profile: null == profile
+              as ModerationUI?,
+      profile: freezed == profile
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
-              as ModerationUI,
+              as ModerationUI?,
       avatar: null == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -198,9 +206,9 @@ class _$_ProfileModeration implements _ProfileModeration {
   @override
   final ProfileModerationDecisions decisions;
   @override
-  final ModerationUI account;
+  final ModerationUI? account;
   @override
-  final ModerationUI profile;
+  final ModerationUI? profile;
   @override
   final ModerationUI avatar;
 
@@ -244,8 +252,8 @@ class _$_ProfileModeration implements _ProfileModeration {
 abstract class _ProfileModeration implements ProfileModeration {
   const factory _ProfileModeration(
       {required final ProfileModerationDecisions decisions,
-      required final ModerationUI account,
-      required final ModerationUI profile,
+      required final ModerationUI? account,
+      required final ModerationUI? profile,
       required final ModerationUI avatar}) = _$_ProfileModeration;
 
   factory _ProfileModeration.fromJson(Map<String, dynamic> json) =
@@ -254,9 +262,9 @@ abstract class _ProfileModeration implements ProfileModeration {
   @override
   ProfileModerationDecisions get decisions;
   @override
-  ModerationUI get account;
+  ModerationUI? get account;
   @override
-  ModerationUI get profile;
+  ModerationUI? get profile;
   @override
   ModerationUI get avatar;
   @override

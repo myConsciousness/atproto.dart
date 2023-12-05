@@ -2,23 +2,34 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
+import 'package:atproto/atproto.dart' as atp;
+
 // 🌎 Project imports:
-import '../../entities/post.dart';
 import '../accumulator.dart';
 import '../entities/moderation_decision.dart';
 import '../entities/moderation_options.dart';
+import '../entities/moderation_subject_post.dart';
 
 ModerationDecision decidePost(
-  final Post post,
+  final ModerationSubjectPost subject,
   final ModerationOptions options,
 ) {
-  final accumulator = ModerationCauseAccumulator(post.author.did);
+  final (did, labels) = _getDecisionFactors(subject);
+  final accumulator = ModerationCauseAccumulator(did);
 
-  if (post.labels != null) {
-    for (final label in post.labels!) {
+  if (labels != null) {
+    for (final label in labels) {
       accumulator.addLabel(label, options);
     }
   }
 
   return accumulator.finalizeDecision(options);
 }
+
+(String, List<atp.Label>?) _getDecisionFactors(
+  final ModerationSubjectPost subject,
+) =>
+    subject.when(
+      post: (data) => (data.author.did, data.labels),
+    );
