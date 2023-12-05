@@ -522,6 +522,164 @@ void main() {
   });
 
   group('.finalizeDecision', () {
-    // TODO
+    test('.did', () {
+      final accumulator = ModerationCauseAccumulator('shinyakato.dev');
+      final decision = accumulator.finalizeDecision(
+        ModerationOptions(
+          userDid: 'did:web:alice.test',
+          enableAdultContent: true,
+          labels: {
+            'gore': LabelPreference.warn,
+          },
+          labelers: [],
+        ),
+      );
+
+      expect(decision.did, 'shinyakato.dev');
+    });
+
+    test('cause is UModerationCauseBlocking', () {
+      final accumulator = ModerationCauseAccumulator('did:web:bob.test');
+      accumulator.addBlocking();
+
+      final decision = accumulator.finalizeDecision(
+        ModerationOptions(
+          userDid: 'did:web:alice.test',
+          enableAdultContent: true,
+          labels: {
+            'gore': LabelPreference.warn,
+          },
+          labelers: [],
+        ),
+      );
+
+      expect(decision.did, 'did:web:bob.test');
+      expect(decision.cause?.data, isA<ModerationCauseBlocking>());
+      expect(decision.additionalCauses, isNull);
+      expect(decision.isAlert, isFalse);
+      expect(decision.isFilter, isTrue);
+      expect(decision.isBlur, isTrue);
+      expect(decision.isBlurMedia, isFalse);
+      expect(decision.isNoOverride, isTrue);
+    });
+
+    test('cause is UModerationCauseBlockedBy', () {
+      final accumulator = ModerationCauseAccumulator('did:web:bob.test');
+      accumulator.addBlockedBy();
+
+      final decision = accumulator.finalizeDecision(
+        ModerationOptions(
+          userDid: 'did:web:alice.test',
+          enableAdultContent: true,
+          labels: {
+            'gore': LabelPreference.warn,
+          },
+          labelers: [],
+        ),
+      );
+
+      expect(decision.did, 'did:web:bob.test');
+      expect(decision.cause?.data, isA<ModerationCauseBlockedBy>());
+      expect(decision.additionalCauses, isNull);
+      expect(decision.isAlert, isFalse);
+      expect(decision.isFilter, isTrue);
+      expect(decision.isBlur, isTrue);
+      expect(decision.isBlurMedia, isFalse);
+      expect(decision.isNoOverride, isTrue);
+    });
+
+    test('cause is UModerationCauseBlockOther', () {
+      final accumulator = ModerationCauseAccumulator('did:web:bob.test');
+      accumulator.addBlockOther();
+
+      final decision = accumulator.finalizeDecision(
+        ModerationOptions(
+          userDid: 'did:web:alice.test',
+          enableAdultContent: true,
+          labels: {
+            'gore': LabelPreference.warn,
+          },
+          labelers: [],
+        ),
+      );
+
+      expect(decision.did, 'did:web:bob.test');
+      expect(decision.cause?.data, isA<ModerationCauseBlockOther>());
+      expect(decision.additionalCauses, isNull);
+      expect(decision.isAlert, isFalse);
+      expect(decision.isFilter, isTrue);
+      expect(decision.isBlur, isTrue);
+      expect(decision.isBlurMedia, isFalse);
+      expect(decision.isNoOverride, isTrue);
+    });
+
+    test('cause is UModerationCauseMuted', () {
+      final accumulator = ModerationCauseAccumulator('did:web:bob.test');
+      accumulator.addMuted();
+
+      final decision = accumulator.finalizeDecision(
+        ModerationOptions(
+          userDid: 'did:web:alice.test',
+          enableAdultContent: true,
+          labels: {
+            'gore': LabelPreference.warn,
+          },
+          labelers: [],
+        ),
+      );
+
+      expect(decision.did, 'did:web:bob.test');
+      expect(decision.cause?.data, isA<ModerationCauseMuted>());
+      expect(decision.additionalCauses, isNull);
+      expect(decision.isAlert, isFalse);
+      expect(decision.isFilter, isTrue);
+      expect(decision.isBlur, isTrue);
+      expect(decision.isBlurMedia, isFalse);
+      expect(decision.isNoOverride, isFalse);
+    });
+
+    test('cause is UModerationCauseLabel', () {
+      final accumulator = ModerationCauseAccumulator('did:web:bob.test');
+
+      final label = Label(
+        src: 'did:web:bob.test',
+        uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
+        value: 'intolerant-race',
+        isNegate: false,
+        createdAt: DateTime.now(),
+      );
+
+      accumulator.addLabel(
+        label,
+        ModerationOptions(
+          userDid: 'did:web:alice.test',
+          enableAdultContent: true,
+          labels: {
+            'intolerant-race': LabelPreference.warn,
+          },
+          labelers: [],
+        ),
+      );
+
+      final decision = accumulator.finalizeDecision(
+        ModerationOptions(
+          userDid: 'did:web:alice.test',
+          enableAdultContent: true,
+          labels: {
+            'intolerant-race': LabelPreference.warn,
+          },
+          labelers: [],
+        ),
+      );
+
+      expect(decision.did, 'did:web:bob.test');
+      expect(decision.cause?.data, isA<ModerationCauseLabel>());
+      expect(decision.additionalCauses, isNull);
+      expect(decision.isAlert, isFalse);
+      expect(decision.isFilter, isFalse);
+      expect(decision.isBlur, isTrue);
+      expect(decision.isBlurMedia, isFalse);
+      expect(decision.isNoOverride, isFalse);
+    });
   });
 }
