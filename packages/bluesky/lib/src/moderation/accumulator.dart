@@ -117,11 +117,6 @@ final class _ModerationCauseAccumulator implements ModerationCauseAccumulator {
         ? null
         : options.labelers.where((e) => e.labeler.did == label.src).firstOrNull;
 
-    if (!isSelf && labeler == null) {
-      // skip labelers not configured by the user
-      return;
-    }
-
     final labelPref = _getLabelPreference(labelDef, label, labeler, options);
     if (labelPref == LabelPreference.ignore) {
       // user has asked to ignore

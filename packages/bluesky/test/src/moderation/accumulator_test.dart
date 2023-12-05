@@ -3,19 +3,26 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto/atproto.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/entities/list_view_basic.dart';
 import 'package:bluesky/src/moderation/accumulator.dart';
+import 'package:bluesky/src/moderation/const/label_preference.dart';
+import 'package:bluesky/src/moderation/const/labels.dart';
+import 'package:bluesky/src/moderation/entities/labeler.dart';
+import 'package:bluesky/src/moderation/entities/labeler_settings.dart';
 import 'package:bluesky/src/moderation/entities/moderation_cause.dart';
 import 'package:bluesky/src/moderation/entities/moderation_cause_block_other.dart';
 import 'package:bluesky/src/moderation/entities/moderation_cause_blocked_by.dart';
 import 'package:bluesky/src/moderation/entities/moderation_cause_blocking.dart';
+import 'package:bluesky/src/moderation/entities/moderation_cause_label.dart';
 import 'package:bluesky/src/moderation/entities/moderation_cause_muted.dart';
+import 'package:bluesky/src/moderation/entities/moderation_cause_source_labeler.dart';
 import 'package:bluesky/src/moderation/entities/moderation_cause_source_list.dart';
 import 'package:bluesky/src/moderation/entities/moderation_cause_source_user.dart';
+import 'package:bluesky/src/moderation/entities/moderation_options.dart';
 
 void main() {
   group('.did', () {
@@ -118,7 +125,351 @@ void main() {
   });
 
   group('.addLabel', () {
-    // TODO
+    test('unknown label', () {
+      final accumulator = ModerationCauseAccumulator('');
+
+      accumulator.addLabel(
+        Label(
+          src: 'did:web:bob.test',
+          uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
+          value: 'test',
+          isNegate: false,
+          createdAt: DateTime.now(),
+        ),
+        ModerationOptions(
+          userDid: 'did:web:alice.test',
+          labels: {},
+          labelers: [],
+        ),
+      );
+
+      expect(accumulator.causes.length, 0);
+    });
+
+    test('ignore pref', () {
+      final accumulator = ModerationCauseAccumulator('');
+
+      accumulator.addLabel(
+        Label(
+          src: 'did:web:bob.test',
+          uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
+          value: 'spoiler',
+          isNegate: false,
+          createdAt: DateTime.now(),
+        ),
+        ModerationOptions(
+          userDid: 'did:web:bob.test',
+          labels: {},
+          labelers: [],
+        ),
+      );
+
+      expect(accumulator.causes.length, 0);
+    });
+
+    test('porn & not self & not enabled adult content', () {
+      final accumulator = ModerationCauseAccumulator('');
+      final label = Label(
+        src: 'did:web:bob.test',
+        uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
+        value: 'porn',
+        isNegate: false,
+        createdAt: DateTime.now(),
+      );
+
+      accumulator.addLabel(
+        label,
+        ModerationOptions(
+          userDid: 'did:web:alice.test',
+          labels: {},
+          labelers: [],
+        ),
+      );
+
+      expect(accumulator.causes.length, 1);
+
+      final cause = accumulator.causes.first;
+      expect(cause, isA<ModerationCause>());
+      expect(cause.data, isA<ModerationCauseLabel>());
+
+      final data = cause.data as ModerationCauseLabel;
+      expect(data.label, label);
+      expect(data.labelDefinition, labelDefinitionPorn);
+      expect(data.setting, LabelPreference.hide);
+      expect(data.priority, 2);
+
+      expect(data.source.data, isA<ModerationCauseSourceUser>());
+    });
+
+    test('porn & not self & enabled adult content', () {
+      final accumulator = ModerationCauseAccumulator('');
+      final label = Label(
+        src: 'did:web:bob.test',
+        uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
+        value: 'porn',
+        isNegate: false,
+        createdAt: DateTime.now(),
+      );
+
+      accumulator.addLabel(
+        label,
+        ModerationOptions(
+          userDid: 'did:web:alice.test',
+          enableAdultContent: true,
+          labels: {
+            'porn': LabelPreference.warn,
+          },
+          labelers: [],
+        ),
+      );
+
+      expect(accumulator.causes.length, 1);
+
+      final cause = accumulator.causes.first;
+      expect(cause, isA<ModerationCause>());
+      expect(cause.data, isA<ModerationCauseLabel>());
+
+      final data = cause.data as ModerationCauseLabel;
+      expect(data.label, label);
+      expect(data.labelDefinition, labelDefinitionPorn);
+      expect(data.setting, LabelPreference.warn);
+      expect(data.priority, 7);
+
+      expect(data.source.data, isA<ModerationCauseSourceUser>());
+    });
+
+    test('porn & self & enabled adult content', () {
+      final accumulator = ModerationCauseAccumulator('did:web:bob.test');
+      final label = Label(
+        src: 'did:web:bob.test',
+        uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
+        value: 'porn',
+        isNegate: false,
+        createdAt: DateTime.now(),
+      );
+
+      accumulator.addLabel(
+        label,
+        ModerationOptions(
+          userDid: 'did:web:alice.test',
+          enableAdultContent: true,
+          labels: {
+            'porn': LabelPreference.warn,
+          },
+          labelers: [],
+        ),
+      );
+
+      expect(accumulator.causes.length, 1);
+
+      final cause = accumulator.causes.first;
+      expect(cause, isA<ModerationCause>());
+      expect(cause.data, isA<ModerationCauseLabel>());
+
+      final data = cause.data as ModerationCauseLabel;
+      expect(data.label, label);
+      expect(data.labelDefinition, labelDefinitionPorn);
+      expect(data.setting, LabelPreference.warn);
+      expect(data.priority, 7);
+
+      expect(data.source.data, isA<ModerationCauseSourceUser>());
+    });
+
+    test('labeler', () {
+      final accumulator = ModerationCauseAccumulator('');
+      final label = Label(
+        src: 'did:web:bob.test',
+        uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
+        value: 'porn',
+        isNegate: false,
+        createdAt: DateTime.now(),
+      );
+
+      final labeler = Labeler(
+        did: 'did:web:bob.test',
+        displayName: 'bob',
+      );
+
+      accumulator.addLabel(
+        label,
+        ModerationOptions(
+          userDid: 'did:web:alice.test',
+          enableAdultContent: true,
+          labels: {
+            'porn': LabelPreference.warn,
+          },
+          labelers: [
+            LabelerSettings(
+              labeler: labeler,
+              labels: {
+                'porn': LabelPreference.warn,
+              },
+            ),
+          ],
+        ),
+      );
+
+      expect(accumulator.causes.length, 1);
+
+      final cause = accumulator.causes.first;
+      expect(cause, isA<ModerationCause>());
+      expect(cause.data, isA<ModerationCauseLabel>());
+
+      final data = cause.data as ModerationCauseLabel;
+      expect(data.label, label);
+      expect(data.labelDefinition, labelDefinitionPorn);
+      expect(data.setting, LabelPreference.warn);
+      expect(data.priority, 7);
+
+      expect(data.source.data, isA<ModerationCauseSourceLabeler>());
+
+      final source = data.source.data as ModerationCauseSourceLabeler;
+      expect(source.labeler, labeler);
+    });
+
+    test('priority 1', () {
+      final accumulator = ModerationCauseAccumulator('');
+      final label = Label(
+        src: 'did:web:bob.test',
+        uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
+        value: '!hide',
+        isNegate: false,
+        createdAt: DateTime.now(),
+      );
+
+      accumulator.addLabel(
+        label,
+        ModerationOptions(
+          userDid: 'did:web:alice.test',
+          labels: {},
+          labelers: [],
+        ),
+      );
+
+      expect(accumulator.causes.length, 1);
+
+      final cause = accumulator.causes.first;
+      expect(cause, isA<ModerationCause>());
+      expect(cause.data, isA<ModerationCauseLabel>());
+
+      final data = cause.data as ModerationCauseLabel;
+      expect(data.label, label);
+      expect(data.labelDefinition, labelDefinitionHide);
+      expect(data.setting, LabelPreference.hide);
+      expect(data.priority, 1);
+
+      expect(data.source.data, isA<ModerationCauseSourceUser>());
+    });
+
+    test('priority 2', () {
+      final accumulator = ModerationCauseAccumulator('');
+      final label = Label(
+        src: 'did:web:bob.test',
+        uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
+        value: 'porn',
+        isNegate: false,
+        createdAt: DateTime.now(),
+      );
+
+      accumulator.addLabel(
+        label,
+        ModerationOptions(
+          userDid: 'did:web:alice.test',
+          labels: {
+            'porn': LabelPreference.hide,
+          },
+          labelers: [],
+        ),
+      );
+
+      expect(accumulator.causes.length, 1);
+
+      final cause = accumulator.causes.first;
+      expect(cause, isA<ModerationCause>());
+      expect(cause.data, isA<ModerationCauseLabel>());
+
+      final data = cause.data as ModerationCauseLabel;
+      expect(data.label, label);
+      expect(data.labelDefinition, labelDefinitionPorn);
+      expect(data.setting, LabelPreference.hide);
+      expect(data.priority, 2);
+
+      expect(data.source.data, isA<ModerationCauseSourceUser>());
+    });
+
+    test('priority 5', () {
+      final accumulator = ModerationCauseAccumulator('');
+      final label = Label(
+        src: 'did:web:bob.test',
+        uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
+        value: 'intolerant-race',
+        isNegate: false,
+        createdAt: DateTime.now(),
+      );
+
+      accumulator.addLabel(
+        label,
+        ModerationOptions(
+          userDid: 'did:web:alice.test',
+          enableAdultContent: true,
+          labels: {
+            'intolerant-race': LabelPreference.warn,
+          },
+          labelers: [],
+        ),
+      );
+
+      expect(accumulator.causes.length, 1);
+
+      final cause = accumulator.causes.first;
+      expect(cause, isA<ModerationCause>());
+      expect(cause.data, isA<ModerationCauseLabel>());
+
+      final data = cause.data as ModerationCauseLabel;
+      expect(data.label, label);
+      expect(data.labelDefinition, labelDefinitionIntolerantRace);
+      expect(data.setting, LabelPreference.warn);
+      expect(data.priority, 5);
+
+      expect(data.source.data, isA<ModerationCauseSourceUser>());
+    });
+
+    test('priority 7', () {
+      final accumulator = ModerationCauseAccumulator('');
+      final label = Label(
+        src: 'did:web:bob.test',
+        uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
+        value: 'gore',
+        isNegate: false,
+        createdAt: DateTime.now(),
+      );
+
+      accumulator.addLabel(
+        label,
+        ModerationOptions(
+          userDid: 'did:web:alice.test',
+          enableAdultContent: true,
+          labels: {
+            'gore': LabelPreference.warn,
+          },
+          labelers: [],
+        ),
+      );
+
+      expect(accumulator.causes.length, 1);
+
+      final cause = accumulator.causes.first;
+      expect(cause, isA<ModerationCause>());
+      expect(cause.data, isA<ModerationCauseLabel>());
+
+      final data = cause.data as ModerationCauseLabel;
+      expect(data.label, label);
+      expect(data.labelDefinition, labelDefinitionGore);
+      expect(data.setting, LabelPreference.warn);
+      expect(data.priority, 7);
+
+      expect(data.source.data, isA<ModerationCauseSourceUser>());
+    });
   });
 
   test('.addMuted', () {
