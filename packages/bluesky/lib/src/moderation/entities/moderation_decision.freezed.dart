@@ -210,7 +210,7 @@ class __$$_ModerationDecisionCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ModerationDecision implements _ModerationDecision {
+class _$_ModerationDecision extends _ModerationDecision {
   const _$_ModerationDecision(
       {this.did,
       @moderationCauseConverter this.cause,
@@ -220,7 +220,8 @@ class _$_ModerationDecision implements _ModerationDecision {
       this.isBlurMedia = false,
       this.isFilter = false,
       this.isNoOverride = false})
-      : _additionalCauses = additionalCauses;
+      : _additionalCauses = additionalCauses,
+        super._();
 
   factory _$_ModerationDecision.fromJson(Map<String, dynamic> json) =>
       _$$_ModerationDecisionFromJson(json);
@@ -310,7 +311,7 @@ class _$_ModerationDecision implements _ModerationDecision {
   }
 }
 
-abstract class _ModerationDecision implements ModerationDecision {
+abstract class _ModerationDecision extends ModerationDecision {
   const factory _ModerationDecision(
       {final String? did,
       @moderationCauseConverter final ModerationCause? cause,
@@ -320,6 +321,7 @@ abstract class _ModerationDecision implements ModerationDecision {
       final bool isBlurMedia,
       final bool isFilter,
       final bool isNoOverride}) = _$_ModerationDecision;
+  const _ModerationDecision._() : super._();
 
   factory _ModerationDecision.fromJson(Map<String, dynamic> json) =
       _$_ModerationDecision.fromJson;

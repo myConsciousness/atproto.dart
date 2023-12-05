@@ -25,6 +25,7 @@ import 'entities/moderation_options.dart';
 import 'types/label_definition_flag.dart';
 import 'types/label_definition_on_warn_behavior.dart';
 import 'types/label_preference.dart';
+import 'utils.dart';
 
 const _moderationCauseSourceUser = ModerationCauseSource.user(
   data: ModerationCauseSourceUser(),
@@ -248,17 +249,8 @@ final class _ModerationCauseAccumulator implements ModerationCauseAccumulator {
 
   List<ModerationCause> get _orderedCausesByPriority => List.from(causes)
     ..sort(
-      (a, b) => _getPriorityFromCause(a).compareTo(_getPriorityFromCause(b)),
+      (a, b) => getPriorityFromCause(a).compareTo(getPriorityFromCause(b)),
     );
-
-  int _getPriorityFromCause(final ModerationCause cause) => switch (cause) {
-        UModerationCauseBlocking() => cause.data.priority,
-        UModerationCauseBlockedBy() => cause.data.priority,
-        UModerationCauseBlockOther() => cause.data.priority,
-        UModerationCauseLabel() => cause.data.priority,
-        UModerationCauseMuted() => cause.data.priority,
-        _ => 8,
-      };
 
   bool _isAlert(final UModerationCauseLabel cause) =>
       _checkOnWarnBehavior(cause, LabelDefinitionOnWarnBehavior.alert);

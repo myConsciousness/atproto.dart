@@ -22,10 +22,10 @@ ModerationUI _$ModerationUIFromJson(Map<String, dynamic> json) {
 mixin _$ModerationUI {
   @moderationCauseConverter
   ModerationCause? get cause => throw _privateConstructorUsedError;
-  bool get filter => throw _privateConstructorUsedError;
-  bool get blur => throw _privateConstructorUsedError;
-  bool get alert => throw _privateConstructorUsedError;
-  bool get noOverride => throw _privateConstructorUsedError;
+  bool get isFilter => throw _privateConstructorUsedError;
+  bool get isBlur => throw _privateConstructorUsedError;
+  bool get isAlert => throw _privateConstructorUsedError;
+  bool get isNoOverride => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,10 +41,10 @@ abstract class $ModerationUICopyWith<$Res> {
   @useResult
   $Res call(
       {@moderationCauseConverter ModerationCause? cause,
-      bool filter,
-      bool blur,
-      bool alert,
-      bool noOverride});
+      bool isFilter,
+      bool isBlur,
+      bool isAlert,
+      bool isNoOverride});
 
   $ModerationCauseCopyWith<$Res>? get cause;
 }
@@ -63,31 +63,31 @@ class _$ModerationUICopyWithImpl<$Res, $Val extends ModerationUI>
   @override
   $Res call({
     Object? cause = freezed,
-    Object? filter = null,
-    Object? blur = null,
-    Object? alert = null,
-    Object? noOverride = null,
+    Object? isFilter = null,
+    Object? isBlur = null,
+    Object? isAlert = null,
+    Object? isNoOverride = null,
   }) {
     return _then(_value.copyWith(
       cause: freezed == cause
           ? _value.cause
           : cause // ignore: cast_nullable_to_non_nullable
               as ModerationCause?,
-      filter: null == filter
-          ? _value.filter
-          : filter // ignore: cast_nullable_to_non_nullable
+      isFilter: null == isFilter
+          ? _value.isFilter
+          : isFilter // ignore: cast_nullable_to_non_nullable
               as bool,
-      blur: null == blur
-          ? _value.blur
-          : blur // ignore: cast_nullable_to_non_nullable
+      isBlur: null == isBlur
+          ? _value.isBlur
+          : isBlur // ignore: cast_nullable_to_non_nullable
               as bool,
-      alert: null == alert
-          ? _value.alert
-          : alert // ignore: cast_nullable_to_non_nullable
+      isAlert: null == isAlert
+          ? _value.isAlert
+          : isAlert // ignore: cast_nullable_to_non_nullable
               as bool,
-      noOverride: null == noOverride
-          ? _value.noOverride
-          : noOverride // ignore: cast_nullable_to_non_nullable
+      isNoOverride: null == isNoOverride
+          ? _value.isNoOverride
+          : isNoOverride // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -115,10 +115,10 @@ abstract class _$$_ModerationUICopyWith<$Res>
   @useResult
   $Res call(
       {@moderationCauseConverter ModerationCause? cause,
-      bool filter,
-      bool blur,
-      bool alert,
-      bool noOverride});
+      bool isFilter,
+      bool isBlur,
+      bool isAlert,
+      bool isNoOverride});
 
   @override
   $ModerationCauseCopyWith<$Res>? get cause;
@@ -136,31 +136,31 @@ class __$$_ModerationUICopyWithImpl<$Res>
   @override
   $Res call({
     Object? cause = freezed,
-    Object? filter = null,
-    Object? blur = null,
-    Object? alert = null,
-    Object? noOverride = null,
+    Object? isFilter = null,
+    Object? isBlur = null,
+    Object? isAlert = null,
+    Object? isNoOverride = null,
   }) {
     return _then(_$_ModerationUI(
       cause: freezed == cause
           ? _value.cause
           : cause // ignore: cast_nullable_to_non_nullable
               as ModerationCause?,
-      filter: null == filter
-          ? _value.filter
-          : filter // ignore: cast_nullable_to_non_nullable
+      isFilter: null == isFilter
+          ? _value.isFilter
+          : isFilter // ignore: cast_nullable_to_non_nullable
               as bool,
-      blur: null == blur
-          ? _value.blur
-          : blur // ignore: cast_nullable_to_non_nullable
+      isBlur: null == isBlur
+          ? _value.isBlur
+          : isBlur // ignore: cast_nullable_to_non_nullable
               as bool,
-      alert: null == alert
-          ? _value.alert
-          : alert // ignore: cast_nullable_to_non_nullable
+      isAlert: null == isAlert
+          ? _value.isAlert
+          : isAlert // ignore: cast_nullable_to_non_nullable
               as bool,
-      noOverride: null == noOverride
-          ? _value.noOverride
-          : noOverride // ignore: cast_nullable_to_non_nullable
+      isNoOverride: null == isNoOverride
+          ? _value.isNoOverride
+          : isNoOverride // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -169,13 +169,14 @@ class __$$_ModerationUICopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ModerationUI implements _ModerationUI {
+class _$_ModerationUI extends _ModerationUI {
   const _$_ModerationUI(
       {@moderationCauseConverter this.cause,
-      this.filter = false,
-      this.blur = false,
-      this.alert = false,
-      this.noOverride = false});
+      this.isFilter = false,
+      this.isBlur = false,
+      this.isAlert = false,
+      this.isNoOverride = false})
+      : super._();
 
   factory _$_ModerationUI.fromJson(Map<String, dynamic> json) =>
       _$$_ModerationUIFromJson(json);
@@ -185,20 +186,20 @@ class _$_ModerationUI implements _ModerationUI {
   final ModerationCause? cause;
   @override
   @JsonKey()
-  final bool filter;
+  final bool isFilter;
   @override
   @JsonKey()
-  final bool blur;
+  final bool isBlur;
   @override
   @JsonKey()
-  final bool alert;
+  final bool isAlert;
   @override
   @JsonKey()
-  final bool noOverride;
+  final bool isNoOverride;
 
   @override
   String toString() {
-    return 'ModerationUI(cause: $cause, filter: $filter, blur: $blur, alert: $alert, noOverride: $noOverride)';
+    return 'ModerationUI(cause: $cause, isFilter: $isFilter, isBlur: $isBlur, isAlert: $isAlert, isNoOverride: $isNoOverride)';
   }
 
   @override
@@ -207,17 +208,18 @@ class _$_ModerationUI implements _ModerationUI {
         (other.runtimeType == runtimeType &&
             other is _$_ModerationUI &&
             (identical(other.cause, cause) || other.cause == cause) &&
-            (identical(other.filter, filter) || other.filter == filter) &&
-            (identical(other.blur, blur) || other.blur == blur) &&
-            (identical(other.alert, alert) || other.alert == alert) &&
-            (identical(other.noOverride, noOverride) ||
-                other.noOverride == noOverride));
+            (identical(other.isFilter, isFilter) ||
+                other.isFilter == isFilter) &&
+            (identical(other.isBlur, isBlur) || other.isBlur == isBlur) &&
+            (identical(other.isAlert, isAlert) || other.isAlert == isAlert) &&
+            (identical(other.isNoOverride, isNoOverride) ||
+                other.isNoOverride == isNoOverride));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, cause, filter, blur, alert, noOverride);
+      Object.hash(runtimeType, cause, isFilter, isBlur, isAlert, isNoOverride);
 
   @JsonKey(ignore: true)
   @override
@@ -233,13 +235,14 @@ class _$_ModerationUI implements _ModerationUI {
   }
 }
 
-abstract class _ModerationUI implements ModerationUI {
+abstract class _ModerationUI extends ModerationUI {
   const factory _ModerationUI(
       {@moderationCauseConverter final ModerationCause? cause,
-      final bool filter,
-      final bool blur,
-      final bool alert,
-      final bool noOverride}) = _$_ModerationUI;
+      final bool isFilter,
+      final bool isBlur,
+      final bool isAlert,
+      final bool isNoOverride}) = _$_ModerationUI;
+  const _ModerationUI._() : super._();
 
   factory _ModerationUI.fromJson(Map<String, dynamic> json) =
       _$_ModerationUI.fromJson;
@@ -248,13 +251,13 @@ abstract class _ModerationUI implements ModerationUI {
   @moderationCauseConverter
   ModerationCause? get cause;
   @override
-  bool get filter;
+  bool get isFilter;
   @override
-  bool get blur;
+  bool get isBlur;
   @override
-  bool get alert;
+  bool get isAlert;
   @override
-  bool get noOverride;
+  bool get isNoOverride;
   @override
   @JsonKey(ignore: true)
   _$$_ModerationUICopyWith<_$_ModerationUI> get copyWith =>

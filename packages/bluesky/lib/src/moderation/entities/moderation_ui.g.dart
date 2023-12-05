@@ -17,10 +17,11 @@ _$_ModerationUI _$$_ModerationUIFromJson(Map json) => $checkedCreate(
               'cause',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>,
                   ModerationCause>(v, moderationCauseConverter.fromJson)),
-          filter: $checkedConvert('filter', (v) => v as bool? ?? false),
-          blur: $checkedConvert('blur', (v) => v as bool? ?? false),
-          alert: $checkedConvert('alert', (v) => v as bool? ?? false),
-          noOverride: $checkedConvert('noOverride', (v) => v as bool? ?? false),
+          isFilter: $checkedConvert('isFilter', (v) => v as bool? ?? false),
+          isBlur: $checkedConvert('isBlur', (v) => v as bool? ?? false),
+          isAlert: $checkedConvert('isAlert', (v) => v as bool? ?? false),
+          isNoOverride:
+              $checkedConvert('isNoOverride', (v) => v as bool? ?? false),
         );
         return val;
       },
@@ -39,10 +40,10 @@ Map<String, dynamic> _$$_ModerationUIToJson(_$_ModerationUI instance) {
       'cause',
       _$JsonConverterToJson<Map<String, dynamic>, ModerationCause>(
           instance.cause, moderationCauseConverter.toJson));
-  val['filter'] = instance.filter;
-  val['blur'] = instance.blur;
-  val['alert'] = instance.alert;
-  val['noOverride'] = instance.noOverride;
+  val['isFilter'] = instance.isFilter;
+  val['isBlur'] = instance.isBlur;
+  val['isAlert'] = instance.isAlert;
+  val['isNoOverride'] = instance.isNoOverride;
   return val;
 }
 

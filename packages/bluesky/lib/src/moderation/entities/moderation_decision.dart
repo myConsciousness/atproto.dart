@@ -11,6 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import 'converter/moderation_cause_converter.dart';
 import 'moderation_cause.dart';
+import 'moderation_ui.dart';
 
 part 'moderation_decision.freezed.dart';
 part 'moderation_decision.g.dart';
@@ -19,6 +20,9 @@ const moderationDecisionNoop = ModerationDecision();
 
 @freezed
 class ModerationDecision with _$ModerationDecision {
+  // ignore: unused_element
+  const ModerationDecision._();
+
   @jsonSerializable
   const factory ModerationDecision({
     String? did,
@@ -31,10 +35,19 @@ class ModerationDecision with _$ModerationDecision {
     @Default(false) bool isNoOverride,
   }) = _ModerationDecision;
 
-  /// Creates a [ModerationDecision] object from a map ([json]).
+  /// Creates a [ModerationDecision] object from a map [json].
   ///
   /// This constructor is used for deserialization of the JSON that
   /// represents a [ModerationDecision] object.
   factory ModerationDecision.fromJson(Map<String, Object?> json) =>
       _$ModerationDecisionFromJson(json);
+
+  /// Convert this object to [ModerationUI].
+  ModerationUI toModerationUI() => ModerationUI(
+        cause: cause,
+        isFilter: isFilter,
+        isBlur: isBlur,
+        isAlert: isAlert,
+        isNoOverride: isNoOverride,
+      );
 }

@@ -17,13 +17,16 @@ part 'moderation_ui.g.dart';
 
 @freezed
 class ModerationUI with _$ModerationUI {
+  // ignore: unused_element
+  const ModerationUI._();
+
   @jsonSerializable
   const factory ModerationUI({
     @moderationCauseConverter ModerationCause? cause,
-    @Default(false) bool filter,
-    @Default(false) bool blur,
-    @Default(false) bool alert,
-    @Default(false) bool noOverride,
+    @Default(false) bool isFilter,
+    @Default(false) bool isBlur,
+    @Default(false) bool isAlert,
+    @Default(false) bool isNoOverride,
   }) = _ModerationUI;
 
   /// Creates a [ModerationUI] object from a map ([json]).
@@ -32,4 +35,10 @@ class ModerationUI with _$ModerationUI {
   /// represents a [ModerationUI] object.
   factory ModerationUI.fromJson(Map<String, Object?> json) =>
       _$ModerationUIFromJson(json);
+
+  /// Returns true if this object has [cause], otherwise false.
+  bool get hasCause => cause != null;
+
+  /// Returns true if this object has not [cause], otherwise false.
+  bool get hasNotCause => !hasCause;
 }
