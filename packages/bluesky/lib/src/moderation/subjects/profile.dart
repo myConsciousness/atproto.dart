@@ -10,7 +10,6 @@ import '../accumulator.dart';
 import '../entities/moderation_decision.dart';
 import '../entities/moderation_options.dart';
 import '../entities/moderation_subject_profile.dart';
-import 'utils.dart';
 
 ModerationDecision decideProfile(
   final ModerationSubjectProfile subject,
@@ -19,7 +18,7 @@ ModerationDecision decideProfile(
   final (did, labels) = _getDecisionFactors(subject);
   final accumulator = ModerationCauseAccumulator(did);
 
-  for (final label in filterProfileLabels(labels)) {
+  for (final label in _filterProfileLabels(labels)) {
     accumulator.addLabel(label, options);
   }
 
@@ -33,3 +32,12 @@ ModerationDecision decideProfile(
       actor: (data) => (data.did, data.labels),
       actorProfile: (data) => (data.did, data.labels),
     );
+
+List<atp.Label> _filterProfileLabels(
+  final List<atp.Label>? labels,
+) =>
+    labels == null
+        ? const []
+        : labels
+            .where((e) => e.uri.endsWith('/app.bsky.actor.profile/self'))
+            .toList();

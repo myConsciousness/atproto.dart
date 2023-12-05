@@ -11,7 +11,6 @@ import '../accumulator.dart';
 import '../entities/moderation_decision.dart';
 import '../entities/moderation_options.dart';
 import '../entities/moderation_subject_profile.dart';
-import 'utils.dart';
 
 ModerationDecision decideAccount(
   final ModerationSubjectProfile subject,
@@ -40,7 +39,7 @@ ModerationDecision decideAccount(
     accumulator.addBlockedBy();
   }
 
-  for (final label in filterProfileLabels(labels)) {
+  for (final label in _filterProfileLabels(labels)) {
     accumulator.addLabel(label, options);
   }
 
@@ -54,3 +53,12 @@ ModerationDecision decideAccount(
       actor: (data) => (data.did, data.viewer, data.labels),
       actorProfile: (data) => (data.did, data.viewer, data.labels),
     );
+
+List<atp.Label> _filterProfileLabels(
+  final List<atp.Label>? labels,
+) =>
+    labels == null
+        ? const []
+        : labels
+            .where((e) => !e.uri.endsWith('/app.bsky.actor.profile/self'))
+            .toList();

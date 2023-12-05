@@ -7,50 +7,43 @@ import '../entities/label_definition.dart';
 import '../types/label_definition_flag.dart';
 import '../types/label_definition_on_warn_behavior.dart';
 import '../types/label_preference.dart';
+import 'known_label.dart';
+import 'known_label_group.dart';
 
-const _groupIdSystem = 'system';
-const _groupIdLegal = 'legal';
-const _groupIdSexual = 'sexual';
-const _groupIdViolence = 'violence';
-const _groupIdIntolerance = 'intolerance';
-const _groupIdRude = 'rude';
-const _groupIdCuration = 'curation';
-const _groupIdSpam = 'spam';
-const _groupIdMisinfo = 'misinfo';
-
-const labels = <String, LabelDefinition>{
-  '!hide': labelDefinitionHide,
-  '!no-promote': labelDefinitionNoPromote,
-  '!warn': labelDefinitionWarn,
-  'dmca-violation': labelDefinitionDmcaViolation,
-  'doxxing': labelDefinitionDoxxing,
-  'porn': labelDefinitionPorn,
-  'sexual': labelDefinitionSexual,
-  'nudity': labelDefinitionNudity,
-  'nsfl': labelDefinitionNsfl,
-  'corpse': labelDefinitionCorpse,
-  'gore': labelDefinitionGore,
-  'torture': labelDefinitionTorture,
-  'self-harm': labelDefinitionSelfHarm,
-  'intolerant-race': labelDefinitionIntolerantRace,
-  'intolerant-gender': labelDefinitionIntolerantGender,
-  'intolerant-sexual-orientation': labelDefinitionIntolerantSexualOrientation,
-  'intolerant-religion': labelDefinitionIntolerantReligion,
-  'intolerant': labelDefinitionIntolerant,
-  'icon-intolerant': labelDefinitionIconIntolerant,
-  'threat': labelDefinitionThreat,
-  'spoiler': labelDefinitionSpoiler,
-  'spam': labelDefinitionSpam,
-  'account-security': labelDefinitionAccountSecurity,
-  'net-abuse': labelDefinitionNetAbuse,
-  'impersonation': labelDefinitionImpersonation,
-  'scam': labelDefinitionScam,
-  'misleading': labelDefinitionMisleading,
+const knownLabels = <KnownLabel, LabelDefinition>{
+  KnownLabel.hide: labelDefinitionHide,
+  KnownLabel.noPromote: labelDefinitionNoPromote,
+  KnownLabel.warn: labelDefinitionWarn,
+  KnownLabel.dmcaViolation: labelDefinitionDmcaViolation,
+  KnownLabel.doxxing: labelDefinitionDoxxing,
+  KnownLabel.porn: labelDefinitionPorn,
+  KnownLabel.sexual: labelDefinitionSexual,
+  KnownLabel.nudity: labelDefinitionNudity,
+  KnownLabel.nsfl: labelDefinitionNsfl,
+  KnownLabel.corpse: labelDefinitionCorpse,
+  KnownLabel.gore: labelDefinitionGore,
+  KnownLabel.torture: labelDefinitionTorture,
+  KnownLabel.selfHarm: labelDefinitionSelfHarm,
+  KnownLabel.intolerantRace: labelDefinitionIntolerantRace,
+  KnownLabel.intolerantGender: labelDefinitionIntolerantGender,
+  KnownLabel.intolerantSexualOrientation:
+      labelDefinitionIntolerantSexualOrientation,
+  KnownLabel.intolerantReligion: labelDefinitionIntolerantReligion,
+  KnownLabel.intolerant: labelDefinitionIntolerant,
+  KnownLabel.iconIntolerant: labelDefinitionIconIntolerant,
+  KnownLabel.threat: labelDefinitionThreat,
+  KnownLabel.spoiler: labelDefinitionSpoiler,
+  KnownLabel.spam: labelDefinitionSpam,
+  KnownLabel.accountSecurity: labelDefinitionAccountSecurity,
+  KnownLabel.netAbuse: labelDefinitionNetAbuse,
+  KnownLabel.impersonation: labelDefinitionImpersonation,
+  KnownLabel.scam: labelDefinitionScam,
+  KnownLabel.misleading: labelDefinitionMisleading,
 };
 
 const labelDefinitionHide = LabelDefinition(
-  id: '!hide',
-  groupId: _groupIdSystem,
+  id: knownLabelHide,
+  groupId: knownLabelGroupSystem,
   preferences: [
     LabelPreference.hide,
   ],
@@ -61,8 +54,8 @@ const labelDefinitionHide = LabelDefinition(
 );
 
 const labelDefinitionNoPromote = LabelDefinition(
-  id: '!no-promote',
-  groupId: _groupIdSystem,
+  id: knownLabelNoPromote,
+  groupId: knownLabelGroupSystem,
   preferences: [
     LabelPreference.hide,
   ],
@@ -71,8 +64,8 @@ const labelDefinitionNoPromote = LabelDefinition(
 );
 
 const labelDefinitionWarn = LabelDefinition(
-  id: '!warn',
-  groupId: _groupIdSystem,
+  id: knownLabelWarn,
+  groupId: knownLabelGroupSystem,
   preferences: [
     LabelPreference.warn,
   ],
@@ -81,8 +74,8 @@ const labelDefinitionWarn = LabelDefinition(
 );
 
 const labelDefinitionDmcaViolation = LabelDefinition(
-  id: 'dmca-violation',
-  groupId: _groupIdLegal,
+  id: knownLabelDmcaViolation,
+  groupId: knownLabelGroupLegal,
   preferences: [
     LabelPreference.hide,
   ],
@@ -93,8 +86,8 @@ const labelDefinitionDmcaViolation = LabelDefinition(
 );
 
 const labelDefinitionDoxxing = LabelDefinition(
-  id: 'doxxing',
-  groupId: _groupIdLegal,
+  id: knownLabelDoxxing,
+  groupId: knownLabelGroupLegal,
   preferences: [
     LabelPreference.hide,
   ],
@@ -105,8 +98,8 @@ const labelDefinitionDoxxing = LabelDefinition(
 );
 
 const labelDefinitionPorn = LabelDefinition(
-  id: 'porn',
-  groupId: _groupIdSexual,
+  id: knownLabelPorn,
+  groupId: knownLabelGroupSexual,
   isConfigurable: true,
   preferences: [
     LabelPreference.ignore,
@@ -120,8 +113,8 @@ const labelDefinitionPorn = LabelDefinition(
 );
 
 const labelDefinitionSexual = LabelDefinition(
-  id: 'sexual',
-  groupId: _groupIdSexual,
+  id: knownLabelSexual,
+  groupId: knownLabelGroupSexual,
   isConfigurable: true,
   preferences: [
     LabelPreference.ignore,
@@ -135,8 +128,8 @@ const labelDefinitionSexual = LabelDefinition(
 );
 
 const labelDefinitionNudity = LabelDefinition(
-  id: 'nudity',
-  groupId: _groupIdSexual,
+  id: knownLabelNudity,
+  groupId: knownLabelGroupSexual,
   isConfigurable: true,
   preferences: [
     LabelPreference.ignore,
@@ -150,8 +143,8 @@ const labelDefinitionNudity = LabelDefinition(
 );
 
 const labelDefinitionNsfl = LabelDefinition(
-  id: 'nsfl',
-  groupId: _groupIdViolence,
+  id: knownLabelNsfl,
+  groupId: knownLabelGroupViolence,
   isConfigurable: true,
   preferences: [
     LabelPreference.ignore,
@@ -165,8 +158,8 @@ const labelDefinitionNsfl = LabelDefinition(
 );
 
 const labelDefinitionCorpse = LabelDefinition(
-  id: 'corpse',
-  groupId: _groupIdViolence,
+  id: knownLabelCorpse,
+  groupId: knownLabelGroupViolence,
   isConfigurable: true,
   preferences: [
     LabelPreference.ignore,
@@ -180,8 +173,8 @@ const labelDefinitionCorpse = LabelDefinition(
 );
 
 const labelDefinitionGore = LabelDefinition(
-  id: 'gore',
-  groupId: _groupIdViolence,
+  id: knownLabelGore,
+  groupId: knownLabelGroupViolence,
   isConfigurable: true,
   preferences: [
     LabelPreference.ignore,
@@ -195,8 +188,8 @@ const labelDefinitionGore = LabelDefinition(
 );
 
 const labelDefinitionTorture = LabelDefinition(
-  id: 'torture',
-  groupId: _groupIdViolence,
+  id: knownLabelTorture,
+  groupId: knownLabelGroupViolence,
   isConfigurable: true,
   preferences: [
     LabelPreference.ignore,
@@ -210,8 +203,8 @@ const labelDefinitionTorture = LabelDefinition(
 );
 
 const labelDefinitionSelfHarm = LabelDefinition(
-  id: 'self-harm',
-  groupId: _groupIdViolence,
+  id: knownLabelSelfHarm,
+  groupId: knownLabelGroupViolence,
   isConfigurable: true,
   preferences: [
     LabelPreference.ignore,
@@ -225,8 +218,8 @@ const labelDefinitionSelfHarm = LabelDefinition(
 );
 
 const labelDefinitionIntolerantRace = LabelDefinition(
-  id: 'intolerant-race',
-  groupId: _groupIdIntolerance,
+  id: knownLabelIntolerantRace,
+  groupId: knownLabelGroupIntolerance,
   isConfigurable: true,
   preferences: [
     LabelPreference.ignore,
@@ -238,8 +231,8 @@ const labelDefinitionIntolerantRace = LabelDefinition(
 );
 
 const labelDefinitionIntolerantGender = LabelDefinition(
-  id: 'intolerant-gender',
-  groupId: _groupIdIntolerance,
+  id: knownLabelIntolerantGender,
+  groupId: knownLabelGroupIntolerance,
   isConfigurable: true,
   preferences: [
     LabelPreference.ignore,
@@ -251,8 +244,8 @@ const labelDefinitionIntolerantGender = LabelDefinition(
 );
 
 const labelDefinitionIntolerantSexualOrientation = LabelDefinition(
-  id: 'intolerant-sexual-orientation',
-  groupId: _groupIdIntolerance,
+  id: knownLabelIntolerantSexualOrientation,
+  groupId: knownLabelGroupIntolerance,
   isConfigurable: true,
   preferences: [
     LabelPreference.ignore,
@@ -264,8 +257,8 @@ const labelDefinitionIntolerantSexualOrientation = LabelDefinition(
 );
 
 const labelDefinitionIntolerantReligion = LabelDefinition(
-  id: 'intolerant-religion',
-  groupId: _groupIdIntolerance,
+  id: knownLabelIntolerantReligion,
+  groupId: knownLabelGroupIntolerance,
   isConfigurable: true,
   preferences: [
     LabelPreference.ignore,
@@ -277,8 +270,8 @@ const labelDefinitionIntolerantReligion = LabelDefinition(
 );
 
 const labelDefinitionIntolerant = LabelDefinition(
-  id: 'intolerant',
-  groupId: _groupIdIntolerance,
+  id: knownLabelIntolerant,
+  groupId: knownLabelGroupIntolerance,
   isConfigurable: true,
   preferences: [
     LabelPreference.ignore,
@@ -290,8 +283,8 @@ const labelDefinitionIntolerant = LabelDefinition(
 );
 
 const labelDefinitionIconIntolerant = LabelDefinition(
-  id: 'icon-intolerant',
-  groupId: _groupIdIntolerance,
+  id: knownLabelIconIntolerant,
+  groupId: knownLabelGroupIntolerance,
   isConfigurable: true,
   preferences: [
     LabelPreference.ignore,
@@ -303,8 +296,8 @@ const labelDefinitionIconIntolerant = LabelDefinition(
 );
 
 const labelDefinitionThreat = LabelDefinition(
-  id: 'threat',
-  groupId: _groupIdRude,
+  id: knownLabelThreat,
+  groupId: knownLabelGroupRude,
   isConfigurable: true,
   preferences: [
     LabelPreference.ignore,
@@ -316,8 +309,8 @@ const labelDefinitionThreat = LabelDefinition(
 );
 
 const labelDefinitionSpoiler = LabelDefinition(
-  id: 'spoiler',
-  groupId: _groupIdCuration,
+  id: knownLabelSpoiler,
+  groupId: knownLabelGroupCuration,
   isConfigurable: true,
   preferences: [
     LabelPreference.ignore,
@@ -329,8 +322,8 @@ const labelDefinitionSpoiler = LabelDefinition(
 );
 
 const labelDefinitionSpam = LabelDefinition(
-  id: 'spam',
-  groupId: _groupIdSpam,
+  id: knownLabelSpam,
+  groupId: knownLabelGroupSpam,
   isConfigurable: true,
   preferences: [
     LabelPreference.ignore,
@@ -342,8 +335,8 @@ const labelDefinitionSpam = LabelDefinition(
 );
 
 const labelDefinitionAccountSecurity = LabelDefinition(
-  id: 'account-security',
-  groupId: _groupIdMisinfo,
+  id: knownLabelAccountSecurity,
+  groupId: knownLabelGroupMisinfo,
   isConfigurable: true,
   preferences: [
     LabelPreference.ignore,
@@ -355,8 +348,8 @@ const labelDefinitionAccountSecurity = LabelDefinition(
 );
 
 const labelDefinitionNetAbuse = LabelDefinition(
-  id: 'net-abuse',
-  groupId: _groupIdMisinfo,
+  id: knownLabelNetAbuse,
+  groupId: knownLabelGroupMisinfo,
   isConfigurable: true,
   preferences: [
     LabelPreference.ignore,
@@ -368,8 +361,8 @@ const labelDefinitionNetAbuse = LabelDefinition(
 );
 
 const labelDefinitionImpersonation = LabelDefinition(
-  id: 'impersonation',
-  groupId: _groupIdMisinfo,
+  id: knownLabelImpersonation,
+  groupId: knownLabelGroupMisinfo,
   isConfigurable: true,
   preferences: [
     LabelPreference.ignore,
@@ -381,8 +374,8 @@ const labelDefinitionImpersonation = LabelDefinition(
 );
 
 const labelDefinitionScam = LabelDefinition(
-  id: 'scam',
-  groupId: _groupIdMisinfo,
+  id: knownLabelScam,
+  groupId: knownLabelGroupMisinfo,
   isConfigurable: true,
   preferences: [
     LabelPreference.ignore,
@@ -394,8 +387,8 @@ const labelDefinitionScam = LabelDefinition(
 );
 
 const labelDefinitionMisleading = LabelDefinition(
-  id: 'misleading',
-  groupId: _groupIdMisinfo,
+  id: knownLabelMisleading,
+  groupId: knownLabelGroupMisinfo,
   isConfigurable: true,
   preferences: [
     LabelPreference.ignore,

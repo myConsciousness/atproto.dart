@@ -7,6 +7,7 @@ import 'package:atproto/atproto.dart' as atp;
 
 // 🌎 Project imports:
 import '../entities/list_view_basic.dart';
+import 'const/known_label.dart';
 import 'const/labels.dart';
 import 'entities/label_definition.dart';
 import 'entities/labeler_settings.dart';
@@ -98,7 +99,8 @@ final class _ModerationCauseAccumulator implements ModerationCauseAccumulator {
     final atp.Label label,
     final ModerationOptions options,
   ) {
-    final LabelDefinition? labelDef = labels[label.value];
+    final knownLabel = KnownLabel.valueOf(label.value);
+    final labelDef = knownLabels[knownLabel];
     if (labelDef == null) return; // ignore labels we don't understand
 
     final isSelf = label.src == did;
