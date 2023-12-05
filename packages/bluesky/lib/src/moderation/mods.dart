@@ -162,8 +162,8 @@ PostModeration moderatePost(
       isAlert: mergedForView.isAlert,
       isNoOverride: mergedForView.isNoOverride,
     ),
-    avatar: ModerationUI(),
-    embed: ModerationUI(),
+    avatar: _decidePostAvatar(account, profile),
+    embed: _decidePostEmbed(mergedQuote, post, account),
   );
 }
 
@@ -171,20 +171,73 @@ ModerationUI _decideProfileAvatar(
   final ModerationDecision account,
   final ModerationDecision profile,
 ) {
+  bool isBlur = false;
+  bool isNoOverride = false;
   if ((account.isBlur || account.isBlurMedia) &&
       account.cause is! UModerationCauseMuted) {
-    return ModerationUI(
-      isBlur: true,
-      isAlert: account.isAlert || profile.isAlert,
-      isNoOverride: account.isNoOverride || profile.isNoOverride,
-    );
+    isBlur = true;
+    isNoOverride = account.isNoOverride || profile.isNoOverride;
   } else if (profile.isBlur || profile.isBlurMedia) {
+    isBlur = true;
+    isNoOverride = account.isNoOverride || profile.isNoOverride;
+  }
+
+  return ModerationUI(
+    isBlur: isBlur,
+    isAlert: account.isAlert || profile.isAlert,
+    isNoOverride: isNoOverride,
+  );
+}
+
+ModerationUI _decidePostAvatar(
+  final ModerationDecision account,
+  final ModerationDecision profile,
+) {
+  bool isBlur = false;
+  if ((account.isBlur || account.isBlurMedia) &&
+      account.cause is! UModerationCauseMuted) {
+    isBlur = true;
+  } else if ((account.isBlur || account.isBlurMedia) &&
+      account.cause is! UModerationCauseMuted) {
+    isBlur = true;
+  }
+
+  return ModerationUI(
+    isBlur: isBlur,
+    isAlert: account.isAlert || profile.isAlert,
+    isNoOverride: account.isNoOverride || profile.isNoOverride,
+  );
+}
+
+ModerationUI? _decidePostEmbed(
+  final ModerationDecision mergedPost,
+  final ModerationDecision post,
+  final ModerationDecision account,
+) {
+  if (!isModerationDecisionNoop(mergedPost, ignoreFilter: true)) {
     return ModerationUI(
-      isBlur: true,
-      isAlert: account.isAlert || profile.isAlert,
-      isNoOverride: account.isNoOverride || profile.isNoOverride,
+      cause: mergedPost.cause,
+      isBlur: mergedPost.isBlur,
+      isAlert: mergedPost.isAlert,
+      isNoOverride: mergedPost.isNoOverride,
     );
   }
 
-  return ModerationUI(isAlert: account.isAlert || profile.isAlert);
+  if (account.isBlurMedia) {
+    return ModerationUI(
+      cause: account.cause,
+      isBlur: true,
+      isNoOverride: account.isNoOverride,
+    );
+  }
+
+  if (post.isBlurMedia) {
+    return ModerationUI(
+      cause: post.cause,
+      isBlur: true,
+      isNoOverride: post.isNoOverride,
+    );
+  }
+
+  return null;
 }

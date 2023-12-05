@@ -23,7 +23,7 @@ mixin _$PostModeration {
   PostModerationDecisions get decisions => throw _privateConstructorUsedError;
   ModerationUI get content => throw _privateConstructorUsedError;
   ModerationUI get avatar => throw _privateConstructorUsedError;
-  ModerationUI get embed => throw _privateConstructorUsedError;
+  ModerationUI? get embed => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,12 +41,12 @@ abstract class $PostModerationCopyWith<$Res> {
       {PostModerationDecisions decisions,
       ModerationUI content,
       ModerationUI avatar,
-      ModerationUI embed});
+      ModerationUI? embed});
 
   $PostModerationDecisionsCopyWith<$Res> get decisions;
   $ModerationUICopyWith<$Res> get content;
   $ModerationUICopyWith<$Res> get avatar;
-  $ModerationUICopyWith<$Res> get embed;
+  $ModerationUICopyWith<$Res>? get embed;
 }
 
 /// @nodoc
@@ -65,7 +65,7 @@ class _$PostModerationCopyWithImpl<$Res, $Val extends PostModeration>
     Object? decisions = null,
     Object? content = null,
     Object? avatar = null,
-    Object? embed = null,
+    Object? embed = freezed,
   }) {
     return _then(_value.copyWith(
       decisions: null == decisions
@@ -80,10 +80,10 @@ class _$PostModerationCopyWithImpl<$Res, $Val extends PostModeration>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as ModerationUI,
-      embed: null == embed
+      embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as ModerationUI,
+              as ModerationUI?,
     ) as $Val);
   }
 
@@ -113,8 +113,12 @@ class _$PostModerationCopyWithImpl<$Res, $Val extends PostModeration>
 
   @override
   @pragma('vm:prefer-inline')
-  $ModerationUICopyWith<$Res> get embed {
-    return $ModerationUICopyWith<$Res>(_value.embed, (value) {
+  $ModerationUICopyWith<$Res>? get embed {
+    if (_value.embed == null) {
+      return null;
+    }
+
+    return $ModerationUICopyWith<$Res>(_value.embed!, (value) {
       return _then(_value.copyWith(embed: value) as $Val);
     });
   }
@@ -132,7 +136,7 @@ abstract class _$$_PostModerationCopyWith<$Res>
       {PostModerationDecisions decisions,
       ModerationUI content,
       ModerationUI avatar,
-      ModerationUI embed});
+      ModerationUI? embed});
 
   @override
   $PostModerationDecisionsCopyWith<$Res> get decisions;
@@ -141,7 +145,7 @@ abstract class _$$_PostModerationCopyWith<$Res>
   @override
   $ModerationUICopyWith<$Res> get avatar;
   @override
-  $ModerationUICopyWith<$Res> get embed;
+  $ModerationUICopyWith<$Res>? get embed;
 }
 
 /// @nodoc
@@ -158,7 +162,7 @@ class __$$_PostModerationCopyWithImpl<$Res>
     Object? decisions = null,
     Object? content = null,
     Object? avatar = null,
-    Object? embed = null,
+    Object? embed = freezed,
   }) {
     return _then(_$_PostModeration(
       decisions: null == decisions
@@ -173,10 +177,10 @@ class __$$_PostModerationCopyWithImpl<$Res>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as ModerationUI,
-      embed: null == embed
+      embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as ModerationUI,
+              as ModerationUI?,
     ));
   }
 }
@@ -201,7 +205,7 @@ class _$_PostModeration implements _PostModeration {
   @override
   final ModerationUI avatar;
   @override
-  final ModerationUI embed;
+  final ModerationUI? embed;
 
   @override
   String toString() {
@@ -244,7 +248,7 @@ abstract class _PostModeration implements PostModeration {
       {required final PostModerationDecisions decisions,
       required final ModerationUI content,
       required final ModerationUI avatar,
-      required final ModerationUI embed}) = _$_PostModeration;
+      required final ModerationUI? embed}) = _$_PostModeration;
 
   factory _PostModeration.fromJson(Map<String, dynamic> json) =
       _$_PostModeration.fromJson;
@@ -256,7 +260,7 @@ abstract class _PostModeration implements PostModeration {
   @override
   ModerationUI get avatar;
   @override
-  ModerationUI get embed;
+  ModerationUI? get embed;
   @override
   @JsonKey(ignore: true)
   _$$_PostModerationCopyWith<_$_PostModeration> get copyWith =>

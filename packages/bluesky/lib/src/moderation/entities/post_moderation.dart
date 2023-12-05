@@ -22,7 +22,7 @@ class PostModeration with _$PostModeration {
     required PostModerationDecisions decisions,
     required ModerationUI content,
     required ModerationUI avatar,
-    required ModerationUI embed,
+    required ModerationUI? embed,
   }) = _PostModeration;
 
   /// Creates a [PostModeration] object from a map ([json]).
