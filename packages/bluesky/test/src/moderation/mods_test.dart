@@ -8,10 +8,10 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/entities/actor.dart';
+import 'package:bluesky/src/moderation/const/label_preference.dart';
 import 'package:bluesky/src/moderation/entities/moderation_options.dart';
 import 'package:bluesky/src/moderation/entities/moderation_subject_profile.dart';
 import 'package:bluesky/src/moderation/mods.dart';
-import 'package:bluesky/src/moderation/const/label_preference.dart';
 
 void main() {
   group('.moderateProfile', () {

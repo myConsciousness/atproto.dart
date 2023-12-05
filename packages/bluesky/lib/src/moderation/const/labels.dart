@@ -4,13 +4,11 @@
 
 // 🌎 Project imports:
 import '../entities/label_definition.dart';
+import 'known_label.dart';
+import 'known_label_group.dart';
 import 'label_definition_flag.dart';
 import 'label_definition_on_warn_behavior.dart';
 import 'label_preference.dart';
-import 'known_label.dart';
-import 'known_label_group.dart';
-
-const knownLabelGroups = {};
 
 const knownLabels = <KnownLabel, LabelDefinition>{
   KnownLabel.hide: labelDefinitionHide,
