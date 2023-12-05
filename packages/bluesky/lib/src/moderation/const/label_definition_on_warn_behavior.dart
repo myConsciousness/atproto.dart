@@ -2,8 +2,11 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'package:freezed_annotation/freezed_annotation.dart';
+
 enum LabelDefinitionOnWarnBehavior {
   blur('blur'),
+  @JsonValue('blur-media')
   blurMedia('blur-media'),
   alert('alert'),
   none('none');

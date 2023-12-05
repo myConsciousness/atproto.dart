@@ -23,9 +23,9 @@ import 'entities/moderation_cause_source_list.dart';
 import 'entities/moderation_cause_source_user.dart';
 import 'entities/moderation_decision.dart';
 import 'entities/moderation_options.dart';
-import 'types/label_definition_flag.dart';
-import 'types/label_definition_on_warn_behavior.dart';
-import 'types/label_preference.dart';
+import 'const/label_definition_flag.dart';
+import 'const/label_definition_on_warn_behavior.dart';
+import 'const/label_preference.dart';
 import 'utils.dart';
 
 const _moderationCauseSourceUser = ModerationCauseSource.user(

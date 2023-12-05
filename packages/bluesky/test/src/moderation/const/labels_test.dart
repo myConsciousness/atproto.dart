@@ -28,7 +28,7 @@ void main() {
         'groupId': 'system',
         'configurable': false,
         'preferences': ['hide'],
-        'flags': ['noOverride'],
+        'flags': ['no-override'],
         'onWarn': 'blur'
       });
     });
@@ -61,7 +61,7 @@ void main() {
         'groupId': 'legal',
         'configurable': false,
         'preferences': ['hide'],
-        'flags': ['noOverride'],
+        'flags': ['no-override'],
         'onWarn': 'blur'
       });
     });
@@ -72,7 +72,7 @@ void main() {
         'groupId': 'legal',
         'configurable': false,
         'preferences': ['hide'],
-        'flags': ['noOverride'],
+        'flags': ['no-override'],
         'onWarn': 'blur'
       });
     });
@@ -84,7 +84,7 @@ void main() {
         'configurable': true,
         'preferences': ['ignore', 'warn', 'hide'],
         'flags': ['adult'],
-        'onWarn': 'blurMedia'
+        'onWarn': 'blur-media'
       });
     });
 
@@ -95,7 +95,7 @@ void main() {
         'configurable': true,
         'preferences': ['ignore', 'warn', 'hide'],
         'flags': ['adult'],
-        'onWarn': 'blurMedia'
+        'onWarn': 'blur-media'
       });
     });
 
@@ -106,7 +106,7 @@ void main() {
         'configurable': true,
         'preferences': ['ignore', 'warn', 'hide'],
         'flags': ['adult'],
-        'onWarn': 'blurMedia'
+        'onWarn': 'blur-media'
       });
     });
 
@@ -117,7 +117,7 @@ void main() {
         'configurable': true,
         'preferences': ['ignore', 'warn', 'hide'],
         'flags': ['adult'],
-        'onWarn': 'blurMedia'
+        'onWarn': 'blur-media'
       });
     });
 
@@ -128,7 +128,7 @@ void main() {
         'configurable': true,
         'preferences': ['ignore', 'warn', 'hide'],
         'flags': ['adult'],
-        'onWarn': 'blurMedia'
+        'onWarn': 'blur-media'
       });
     });
 
@@ -139,7 +139,7 @@ void main() {
         'configurable': true,
         'preferences': ['ignore', 'warn', 'hide'],
         'flags': ['adult'],
-        'onWarn': 'blurMedia'
+        'onWarn': 'blur-media'
       });
     });
 
@@ -150,7 +150,7 @@ void main() {
         'configurable': true,
         'preferences': ['ignore', 'warn', 'hide'],
         'flags': ['adult'],
-        'onWarn': 'blurMedia'
+        'onWarn': 'blur-media'
       });
     });
 
@@ -161,7 +161,7 @@ void main() {
         'configurable': true,
         'preferences': ['ignore', 'warn', 'hide'],
         'flags': ['adult'],
-        'onWarn': 'blurMedia'
+        'onWarn': 'blur-media'
       });
     });
 
@@ -227,7 +227,7 @@ void main() {
         'configurable': true,
         'preferences': ['ignore', 'warn', 'hide'],
         'flags': [],
-        'onWarn': 'blurMedia'
+        'onWarn': 'blur-media'
       });
     });
 

@@ -55,13 +55,13 @@ const _$LabelPreferenceEnumMap = {
 };
 
 const _$LabelDefinitionFlagEnumMap = {
-  LabelDefinitionFlag.noOverride: 'noOverride',
+  LabelDefinitionFlag.noOverride: 'no-override',
   LabelDefinitionFlag.adult: 'adult',
 };
 
 const _$LabelDefinitionOnWarnBehaviorEnumMap = {
   LabelDefinitionOnWarnBehavior.blur: 'blur',
-  LabelDefinitionOnWarnBehavior.blurMedia: 'blurMedia',
+  LabelDefinitionOnWarnBehavior.blurMedia: 'blur-media',
   LabelDefinitionOnWarnBehavior.alert: 'alert',
   LabelDefinitionOnWarnBehavior.none: 'none',
 };
