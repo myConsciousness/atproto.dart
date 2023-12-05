@@ -132,6 +132,9 @@ const comAtprotoAdminDefsSubjectStatusView =
 /// `com.atproto.admin.defs#videoDetails`
 const comAtprotoAdminDefsVideoDetails = 'com.atproto.admin.defs#videoDetails';
 
+/// `com.atproto.admin.deleteAccount`
+const comAtprotoAdminDeleteAccount = 'com.atproto.admin.deleteAccount';
+
 /// `com.atproto.admin.disableAccountInvites`
 const comAtprotoAdminDisableAccountInvites =
     'com.atproto.admin.disableAccountInvites';
@@ -460,6 +463,15 @@ const comAtprotoSyncSubscribeReposTombstone =
 
 /// `com.atproto.temp.fetchLabels`
 const comAtprotoTempFetchLabels = 'com.atproto.temp.fetchLabels';
+
+/// `com.atproto.temp.importRepo`
+const comAtprotoTempImportRepo = 'com.atproto.temp.importRepo';
+
+/// `com.atproto.temp.pushBlob`
+const comAtprotoTempPushBlob = 'com.atproto.temp.pushBlob';
+
+/// `com.atproto.temp.transferAccount`
+const comAtprotoTempTransferAccount = 'com.atproto.temp.transferAccount';
 
 /// `blob`
 const blob = 'blob';
