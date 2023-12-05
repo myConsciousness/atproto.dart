@@ -71,5 +71,5 @@ int getPriorityFromCause(final ModerationCause cause) => switch (cause) {
       UModerationCauseBlockOther() => cause.data.priority,
       UModerationCauseLabel() => cause.data.priority,
       UModerationCauseMuted() => cause.data.priority,
-      _ => -1,
+      _ => 0,
     };
