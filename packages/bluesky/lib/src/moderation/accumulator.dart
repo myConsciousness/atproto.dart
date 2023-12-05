@@ -36,6 +36,12 @@ sealed class ModerationCauseAccumulator {
   factory ModerationCauseAccumulator(final String did) =
       _ModerationCauseAccumulator;
 
+  /// Returns the did.
+  String get did;
+
+  /// Returns the accumulated causes.
+  List<ModerationCause> get causes;
+
   void addBlocking();
   void addBlockingByList(final ListViewBasic blockingByList);
   void addBlockedBy();
@@ -53,7 +59,10 @@ sealed class ModerationCauseAccumulator {
 final class _ModerationCauseAccumulator implements ModerationCauseAccumulator {
   _ModerationCauseAccumulator(this.did);
 
+  @override
   final String did;
+
+  @override
   final causes = <ModerationCause>[];
 
   @override
