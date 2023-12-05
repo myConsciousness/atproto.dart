@@ -23,10 +23,10 @@ class ModerationUI with _$ModerationUI {
   @jsonSerializable
   const factory ModerationUI({
     @moderationCauseConverter ModerationCause? cause,
-    @Default(false) bool isFilter,
-    @Default(false) bool isBlur,
-    @Default(false) bool isAlert,
-    @Default(false) bool isNoOverride,
+    @JsonKey(name: 'filter') @Default(false) bool isFilter,
+    @JsonKey(name: 'blur') @Default(false) bool isBlur,
+    @JsonKey(name: 'alert') @Default(false) bool isAlert,
+    @JsonKey(name: 'noOverride') @Default(false) bool isNoOverride,
   }) = _ModerationUI;
 
   /// Creates a [ModerationUI] object from a map ([json]).

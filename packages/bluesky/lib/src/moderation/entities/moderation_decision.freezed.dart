@@ -26,10 +26,15 @@ mixin _$ModerationDecision {
   @moderationCauseConverter
   List<ModerationCause>? get additionalCauses =>
       throw _privateConstructorUsedError;
+  @JsonKey(name: 'alert')
   bool get isAlert => throw _privateConstructorUsedError;
+  @JsonKey(name: 'blur')
   bool get isBlur => throw _privateConstructorUsedError;
+  @JsonKey(name: 'blurMedia')
   bool get isBlurMedia => throw _privateConstructorUsedError;
+  @JsonKey(name: 'filter')
   bool get isFilter => throw _privateConstructorUsedError;
+  @JsonKey(name: 'noOverride')
   bool get isNoOverride => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -48,11 +53,11 @@ abstract class $ModerationDecisionCopyWith<$Res> {
       {String? did,
       @moderationCauseConverter ModerationCause? cause,
       @moderationCauseConverter List<ModerationCause>? additionalCauses,
-      bool isAlert,
-      bool isBlur,
-      bool isBlurMedia,
-      bool isFilter,
-      bool isNoOverride});
+      @JsonKey(name: 'alert') bool isAlert,
+      @JsonKey(name: 'blur') bool isBlur,
+      @JsonKey(name: 'blurMedia') bool isBlurMedia,
+      @JsonKey(name: 'filter') bool isFilter,
+      @JsonKey(name: 'noOverride') bool isNoOverride});
 
   $ModerationCauseCopyWith<$Res>? get cause;
 }
@@ -140,11 +145,11 @@ abstract class _$$_ModerationDecisionCopyWith<$Res>
       {String? did,
       @moderationCauseConverter ModerationCause? cause,
       @moderationCauseConverter List<ModerationCause>? additionalCauses,
-      bool isAlert,
-      bool isBlur,
-      bool isBlurMedia,
-      bool isFilter,
-      bool isNoOverride});
+      @JsonKey(name: 'alert') bool isAlert,
+      @JsonKey(name: 'blur') bool isBlur,
+      @JsonKey(name: 'blurMedia') bool isBlurMedia,
+      @JsonKey(name: 'filter') bool isFilter,
+      @JsonKey(name: 'noOverride') bool isNoOverride});
 
   @override
   $ModerationCauseCopyWith<$Res>? get cause;
@@ -215,11 +220,11 @@ class _$_ModerationDecision extends _ModerationDecision {
       {this.did,
       @moderationCauseConverter this.cause,
       @moderationCauseConverter final List<ModerationCause>? additionalCauses,
-      this.isAlert = false,
-      this.isBlur = false,
-      this.isBlurMedia = false,
-      this.isFilter = false,
-      this.isNoOverride = false})
+      @JsonKey(name: 'alert') this.isAlert = false,
+      @JsonKey(name: 'blur') this.isBlur = false,
+      @JsonKey(name: 'blurMedia') this.isBlurMedia = false,
+      @JsonKey(name: 'filter') this.isFilter = false,
+      @JsonKey(name: 'noOverride') this.isNoOverride = false})
       : _additionalCauses = additionalCauses,
         super._();
 
@@ -244,19 +249,19 @@ class _$_ModerationDecision extends _ModerationDecision {
   }
 
   @override
-  @JsonKey()
+  @JsonKey(name: 'alert')
   final bool isAlert;
   @override
-  @JsonKey()
+  @JsonKey(name: 'blur')
   final bool isBlur;
   @override
-  @JsonKey()
+  @JsonKey(name: 'blurMedia')
   final bool isBlurMedia;
   @override
-  @JsonKey()
+  @JsonKey(name: 'filter')
   final bool isFilter;
   @override
-  @JsonKey()
+  @JsonKey(name: 'noOverride')
   final bool isNoOverride;
 
   @override
@@ -316,10 +321,11 @@ abstract class _ModerationDecision extends ModerationDecision {
       {final String? did,
       @moderationCauseConverter final ModerationCause? cause,
       @moderationCauseConverter final List<ModerationCause>? additionalCauses,
-      final bool isAlert,
-      final bool isBlur,
-      final bool isBlurMedia,
-      final bool isFilter,
+      @JsonKey(name: 'alert') final bool isAlert,
+      @JsonKey(name: 'blur') final bool isBlur,
+      @JsonKey(name: 'blurMedia') final bool isBlurMedia,
+      @JsonKey(name: 'filter') final bool isFilter,
+      @JsonKey(name: 'noOverride')
       final bool isNoOverride}) = _$_ModerationDecision;
   const _ModerationDecision._() : super._();
 
@@ -335,14 +341,19 @@ abstract class _ModerationDecision extends ModerationDecision {
   @moderationCauseConverter
   List<ModerationCause>? get additionalCauses;
   @override
+  @JsonKey(name: 'alert')
   bool get isAlert;
   @override
+  @JsonKey(name: 'blur')
   bool get isBlur;
   @override
+  @JsonKey(name: 'blurMedia')
   bool get isBlurMedia;
   @override
+  @JsonKey(name: 'filter')
   bool get isFilter;
   @override
+  @JsonKey(name: 'noOverride')
   bool get isNoOverride;
   @override
   @JsonKey(ignore: true)

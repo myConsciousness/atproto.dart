@@ -22,9 +22,13 @@ ModerationUI _$ModerationUIFromJson(Map<String, dynamic> json) {
 mixin _$ModerationUI {
   @moderationCauseConverter
   ModerationCause? get cause => throw _privateConstructorUsedError;
+  @JsonKey(name: 'filter')
   bool get isFilter => throw _privateConstructorUsedError;
+  @JsonKey(name: 'blur')
   bool get isBlur => throw _privateConstructorUsedError;
+  @JsonKey(name: 'alert')
   bool get isAlert => throw _privateConstructorUsedError;
+  @JsonKey(name: 'noOverride')
   bool get isNoOverride => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,10 +45,10 @@ abstract class $ModerationUICopyWith<$Res> {
   @useResult
   $Res call(
       {@moderationCauseConverter ModerationCause? cause,
-      bool isFilter,
-      bool isBlur,
-      bool isAlert,
-      bool isNoOverride});
+      @JsonKey(name: 'filter') bool isFilter,
+      @JsonKey(name: 'blur') bool isBlur,
+      @JsonKey(name: 'alert') bool isAlert,
+      @JsonKey(name: 'noOverride') bool isNoOverride});
 
   $ModerationCauseCopyWith<$Res>? get cause;
 }
@@ -115,10 +119,10 @@ abstract class _$$_ModerationUICopyWith<$Res>
   @useResult
   $Res call(
       {@moderationCauseConverter ModerationCause? cause,
-      bool isFilter,
-      bool isBlur,
-      bool isAlert,
-      bool isNoOverride});
+      @JsonKey(name: 'filter') bool isFilter,
+      @JsonKey(name: 'blur') bool isBlur,
+      @JsonKey(name: 'alert') bool isAlert,
+      @JsonKey(name: 'noOverride') bool isNoOverride});
 
   @override
   $ModerationCauseCopyWith<$Res>? get cause;
@@ -172,10 +176,10 @@ class __$$_ModerationUICopyWithImpl<$Res>
 class _$_ModerationUI extends _ModerationUI {
   const _$_ModerationUI(
       {@moderationCauseConverter this.cause,
-      this.isFilter = false,
-      this.isBlur = false,
-      this.isAlert = false,
-      this.isNoOverride = false})
+      @JsonKey(name: 'filter') this.isFilter = false,
+      @JsonKey(name: 'blur') this.isBlur = false,
+      @JsonKey(name: 'alert') this.isAlert = false,
+      @JsonKey(name: 'noOverride') this.isNoOverride = false})
       : super._();
 
   factory _$_ModerationUI.fromJson(Map<String, dynamic> json) =>
@@ -185,16 +189,16 @@ class _$_ModerationUI extends _ModerationUI {
   @moderationCauseConverter
   final ModerationCause? cause;
   @override
-  @JsonKey()
+  @JsonKey(name: 'filter')
   final bool isFilter;
   @override
-  @JsonKey()
+  @JsonKey(name: 'blur')
   final bool isBlur;
   @override
-  @JsonKey()
+  @JsonKey(name: 'alert')
   final bool isAlert;
   @override
-  @JsonKey()
+  @JsonKey(name: 'noOverride')
   final bool isNoOverride;
 
   @override
@@ -238,10 +242,10 @@ class _$_ModerationUI extends _ModerationUI {
 abstract class _ModerationUI extends ModerationUI {
   const factory _ModerationUI(
       {@moderationCauseConverter final ModerationCause? cause,
-      final bool isFilter,
-      final bool isBlur,
-      final bool isAlert,
-      final bool isNoOverride}) = _$_ModerationUI;
+      @JsonKey(name: 'filter') final bool isFilter,
+      @JsonKey(name: 'blur') final bool isBlur,
+      @JsonKey(name: 'alert') final bool isAlert,
+      @JsonKey(name: 'noOverride') final bool isNoOverride}) = _$_ModerationUI;
   const _ModerationUI._() : super._();
 
   factory _ModerationUI.fromJson(Map<String, dynamic> json) =
@@ -251,12 +255,16 @@ abstract class _ModerationUI extends ModerationUI {
   @moderationCauseConverter
   ModerationCause? get cause;
   @override
+  @JsonKey(name: 'filter')
   bool get isFilter;
   @override
+  @JsonKey(name: 'blur')
   bool get isBlur;
   @override
+  @JsonKey(name: 'alert')
   bool get isAlert;
   @override
+  @JsonKey(name: 'noOverride')
   bool get isNoOverride;
   @override
   @JsonKey(ignore: true)

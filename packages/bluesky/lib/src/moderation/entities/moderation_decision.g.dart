@@ -25,15 +25,21 @@ _$_ModerationDecision _$$_ModerationDecisionFromJson(Map json) =>
                   ?.map((e) => moderationCauseConverter
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
-          isAlert: $checkedConvert('isAlert', (v) => v as bool? ?? false),
-          isBlur: $checkedConvert('isBlur', (v) => v as bool? ?? false),
-          isBlurMedia:
-              $checkedConvert('isBlurMedia', (v) => v as bool? ?? false),
-          isFilter: $checkedConvert('isFilter', (v) => v as bool? ?? false),
+          isAlert: $checkedConvert('alert', (v) => v as bool? ?? false),
+          isBlur: $checkedConvert('blur', (v) => v as bool? ?? false),
+          isBlurMedia: $checkedConvert('blurMedia', (v) => v as bool? ?? false),
+          isFilter: $checkedConvert('filter', (v) => v as bool? ?? false),
           isNoOverride:
-              $checkedConvert('isNoOverride', (v) => v as bool? ?? false),
+              $checkedConvert('noOverride', (v) => v as bool? ?? false),
         );
         return val;
+      },
+      fieldKeyMap: const {
+        'isAlert': 'alert',
+        'isBlur': 'blur',
+        'isBlurMedia': 'blurMedia',
+        'isFilter': 'filter',
+        'isNoOverride': 'noOverride'
       },
     );
 
@@ -54,11 +60,11 @@ Map<String, dynamic> _$$_ModerationDecisionToJson(
           instance.cause, moderationCauseConverter.toJson));
   writeNotNull('additionalCauses',
       instance.additionalCauses?.map(moderationCauseConverter.toJson).toList());
-  val['isAlert'] = instance.isAlert;
-  val['isBlur'] = instance.isBlur;
-  val['isBlurMedia'] = instance.isBlurMedia;
-  val['isFilter'] = instance.isFilter;
-  val['isNoOverride'] = instance.isNoOverride;
+  val['alert'] = instance.isAlert;
+  val['blur'] = instance.isBlur;
+  val['blurMedia'] = instance.isBlurMedia;
+  val['filter'] = instance.isFilter;
+  val['noOverride'] = instance.isNoOverride;
   return val;
 }
 

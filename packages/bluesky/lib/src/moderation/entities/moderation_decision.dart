@@ -28,11 +28,11 @@ class ModerationDecision with _$ModerationDecision {
     String? did,
     @moderationCauseConverter ModerationCause? cause,
     @moderationCauseConverter List<ModerationCause>? additionalCauses,
-    @Default(false) bool isAlert,
-    @Default(false) bool isBlur,
-    @Default(false) bool isBlurMedia,
-    @Default(false) bool isFilter,
-    @Default(false) bool isNoOverride,
+    @JsonKey(name: 'alert') @Default(false) bool isAlert,
+    @JsonKey(name: 'blur') @Default(false) bool isBlur,
+    @JsonKey(name: 'blurMedia') @Default(false) bool isBlurMedia,
+    @JsonKey(name: 'filter') @Default(false) bool isFilter,
+    @JsonKey(name: 'noOverride') @Default(false) bool isNoOverride,
   }) = _ModerationDecision;
 
   /// Creates a [ModerationDecision] object from a map [json].
