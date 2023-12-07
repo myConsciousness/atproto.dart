@@ -22,6 +22,8 @@ ModerationBehaviorScenarioBehaviors
 /// @nodoc
 mixin _$ModerationBehaviorScenarioBehaviors {
   ModerationBehaviorResult? get content => throw _privateConstructorUsedError;
+  ModerationBehaviorResult? get account => throw _privateConstructorUsedError;
+  ModerationBehaviorResult? get profile => throw _privateConstructorUsedError;
   ModerationBehaviorResult? get avatar => throw _privateConstructorUsedError;
   ModerationBehaviorResult? get embed => throw _privateConstructorUsedError;
 
@@ -42,10 +44,14 @@ abstract class $ModerationBehaviorScenarioBehaviorsCopyWith<$Res> {
   @useResult
   $Res call(
       {ModerationBehaviorResult? content,
+      ModerationBehaviorResult? account,
+      ModerationBehaviorResult? profile,
       ModerationBehaviorResult? avatar,
       ModerationBehaviorResult? embed});
 
   $ModerationBehaviorResultCopyWith<$Res>? get content;
+  $ModerationBehaviorResultCopyWith<$Res>? get account;
+  $ModerationBehaviorResultCopyWith<$Res>? get profile;
   $ModerationBehaviorResultCopyWith<$Res>? get avatar;
   $ModerationBehaviorResultCopyWith<$Res>? get embed;
 }
@@ -65,6 +71,8 @@ class _$ModerationBehaviorScenarioBehaviorsCopyWithImpl<$Res,
   @override
   $Res call({
     Object? content = freezed,
+    Object? account = freezed,
+    Object? profile = freezed,
     Object? avatar = freezed,
     Object? embed = freezed,
   }) {
@@ -72,6 +80,14 @@ class _$ModerationBehaviorScenarioBehaviorsCopyWithImpl<$Res,
       content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
+              as ModerationBehaviorResult?,
+      account: freezed == account
+          ? _value.account
+          : account // ignore: cast_nullable_to_non_nullable
+              as ModerationBehaviorResult?,
+      profile: freezed == profile
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
               as ModerationBehaviorResult?,
       avatar: freezed == avatar
           ? _value.avatar
@@ -93,6 +109,30 @@ class _$ModerationBehaviorScenarioBehaviorsCopyWithImpl<$Res,
 
     return $ModerationBehaviorResultCopyWith<$Res>(_value.content!, (value) {
       return _then(_value.copyWith(content: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ModerationBehaviorResultCopyWith<$Res>? get account {
+    if (_value.account == null) {
+      return null;
+    }
+
+    return $ModerationBehaviorResultCopyWith<$Res>(_value.account!, (value) {
+      return _then(_value.copyWith(account: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ModerationBehaviorResultCopyWith<$Res>? get profile {
+    if (_value.profile == null) {
+      return null;
+    }
+
+    return $ModerationBehaviorResultCopyWith<$Res>(_value.profile!, (value) {
+      return _then(_value.copyWith(profile: value) as $Val);
     });
   }
 
@@ -132,11 +172,17 @@ abstract class _$$_ModerationBehaviorScenarioBehaviorsCopyWith<$Res>
   @useResult
   $Res call(
       {ModerationBehaviorResult? content,
+      ModerationBehaviorResult? account,
+      ModerationBehaviorResult? profile,
       ModerationBehaviorResult? avatar,
       ModerationBehaviorResult? embed});
 
   @override
   $ModerationBehaviorResultCopyWith<$Res>? get content;
+  @override
+  $ModerationBehaviorResultCopyWith<$Res>? get account;
+  @override
+  $ModerationBehaviorResultCopyWith<$Res>? get profile;
   @override
   $ModerationBehaviorResultCopyWith<$Res>? get avatar;
   @override
@@ -157,6 +203,8 @@ class __$$_ModerationBehaviorScenarioBehaviorsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? content = freezed,
+    Object? account = freezed,
+    Object? profile = freezed,
     Object? avatar = freezed,
     Object? embed = freezed,
   }) {
@@ -164,6 +212,14 @@ class __$$_ModerationBehaviorScenarioBehaviorsCopyWithImpl<$Res>
       content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
+              as ModerationBehaviorResult?,
+      account: freezed == account
+          ? _value.account
+          : account // ignore: cast_nullable_to_non_nullable
+              as ModerationBehaviorResult?,
+      profile: freezed == profile
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
               as ModerationBehaviorResult?,
       avatar: freezed == avatar
           ? _value.avatar
@@ -183,7 +239,7 @@ class __$$_ModerationBehaviorScenarioBehaviorsCopyWithImpl<$Res>
 class _$_ModerationBehaviorScenarioBehaviors
     implements _ModerationBehaviorScenarioBehaviors {
   const _$_ModerationBehaviorScenarioBehaviors(
-      {this.content, this.avatar, this.embed});
+      {this.content, this.account, this.profile, this.avatar, this.embed});
 
   factory _$_ModerationBehaviorScenarioBehaviors.fromJson(
           Map<String, dynamic> json) =>
@@ -192,13 +248,17 @@ class _$_ModerationBehaviorScenarioBehaviors
   @override
   final ModerationBehaviorResult? content;
   @override
+  final ModerationBehaviorResult? account;
+  @override
+  final ModerationBehaviorResult? profile;
+  @override
   final ModerationBehaviorResult? avatar;
   @override
   final ModerationBehaviorResult? embed;
 
   @override
   String toString() {
-    return 'ModerationBehaviorScenarioBehaviors(content: $content, avatar: $avatar, embed: $embed)';
+    return 'ModerationBehaviorScenarioBehaviors(content: $content, account: $account, profile: $profile, avatar: $avatar, embed: $embed)';
   }
 
   @override
@@ -207,13 +267,16 @@ class _$_ModerationBehaviorScenarioBehaviors
         (other.runtimeType == runtimeType &&
             other is _$_ModerationBehaviorScenarioBehaviors &&
             (identical(other.content, content) || other.content == content) &&
+            (identical(other.account, account) || other.account == account) &&
+            (identical(other.profile, profile) || other.profile == profile) &&
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
             (identical(other.embed, embed) || other.embed == embed));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, content, avatar, embed);
+  int get hashCode =>
+      Object.hash(runtimeType, content, account, profile, avatar, embed);
 
   @JsonKey(ignore: true)
   @override
@@ -235,6 +298,8 @@ abstract class _ModerationBehaviorScenarioBehaviors
     implements ModerationBehaviorScenarioBehaviors {
   const factory _ModerationBehaviorScenarioBehaviors(
           {final ModerationBehaviorResult? content,
+          final ModerationBehaviorResult? account,
+          final ModerationBehaviorResult? profile,
           final ModerationBehaviorResult? avatar,
           final ModerationBehaviorResult? embed}) =
       _$_ModerationBehaviorScenarioBehaviors;
@@ -245,6 +310,10 @@ abstract class _ModerationBehaviorScenarioBehaviors
 
   @override
   ModerationBehaviorResult? get content;
+  @override
+  ModerationBehaviorResult? get account;
+  @override
+  ModerationBehaviorResult? get profile;
   @override
   ModerationBehaviorResult? get avatar;
   @override

@@ -23,6 +23,8 @@ ModerationBehaviorsConfig _$ModerationBehaviorsConfigFromJson(
 mixin _$ModerationBehaviorsConfig {
   @JsonKey(name: 'adultContentEnabled')
   bool get isAdultContentEnabled => throw _privateConstructorUsedError;
+  @JsonKey(name: 'authed')
+  dynamic get isAuthed => throw _privateConstructorUsedError;
   Map<String, LabelPreference>? get settings =>
       throw _privateConstructorUsedError;
 
@@ -40,6 +42,7 @@ abstract class $ModerationBehaviorsConfigCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'adultContentEnabled') bool isAdultContentEnabled,
+      @JsonKey(name: 'authed') dynamic isAuthed,
       Map<String, LabelPreference>? settings});
 }
 
@@ -58,6 +61,7 @@ class _$ModerationBehaviorsConfigCopyWithImpl<$Res,
   @override
   $Res call({
     Object? isAdultContentEnabled = null,
+    Object? isAuthed = freezed,
     Object? settings = freezed,
   }) {
     return _then(_value.copyWith(
@@ -65,6 +69,10 @@ class _$ModerationBehaviorsConfigCopyWithImpl<$Res,
           ? _value.isAdultContentEnabled
           : isAdultContentEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      isAuthed: freezed == isAuthed
+          ? _value.isAuthed
+          : isAuthed // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       settings: freezed == settings
           ? _value.settings
           : settings // ignore: cast_nullable_to_non_nullable
@@ -84,6 +92,7 @@ abstract class _$$_ModerationBehaviorsConfigCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'adultContentEnabled') bool isAdultContentEnabled,
+      @JsonKey(name: 'authed') dynamic isAuthed,
       Map<String, LabelPreference>? settings});
 }
 
@@ -101,6 +110,7 @@ class __$$_ModerationBehaviorsConfigCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isAdultContentEnabled = null,
+    Object? isAuthed = freezed,
     Object? settings = freezed,
   }) {
     return _then(_$_ModerationBehaviorsConfig(
@@ -108,6 +118,7 @@ class __$$_ModerationBehaviorsConfigCopyWithImpl<$Res>
           ? _value.isAdultContentEnabled
           : isAdultContentEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      isAuthed: freezed == isAuthed ? _value.isAuthed! : isAuthed,
       settings: freezed == settings
           ? _value._settings
           : settings // ignore: cast_nullable_to_non_nullable
@@ -122,6 +133,7 @@ class __$$_ModerationBehaviorsConfigCopyWithImpl<$Res>
 class _$_ModerationBehaviorsConfig implements _ModerationBehaviorsConfig {
   const _$_ModerationBehaviorsConfig(
       {@JsonKey(name: 'adultContentEnabled') this.isAdultContentEnabled = false,
+      @JsonKey(name: 'authed') this.isAuthed = true,
       final Map<String, LabelPreference>? settings})
       : _settings = settings;
 
@@ -131,6 +143,9 @@ class _$_ModerationBehaviorsConfig implements _ModerationBehaviorsConfig {
   @override
   @JsonKey(name: 'adultContentEnabled')
   final bool isAdultContentEnabled;
+  @override
+  @JsonKey(name: 'authed')
+  final dynamic isAuthed;
   final Map<String, LabelPreference>? _settings;
   @override
   Map<String, LabelPreference>? get settings {
@@ -143,7 +158,7 @@ class _$_ModerationBehaviorsConfig implements _ModerationBehaviorsConfig {
 
   @override
   String toString() {
-    return 'ModerationBehaviorsConfig(isAdultContentEnabled: $isAdultContentEnabled, settings: $settings)';
+    return 'ModerationBehaviorsConfig(isAdultContentEnabled: $isAdultContentEnabled, isAuthed: $isAuthed, settings: $settings)';
   }
 
   @override
@@ -153,12 +168,16 @@ class _$_ModerationBehaviorsConfig implements _ModerationBehaviorsConfig {
             other is _$_ModerationBehaviorsConfig &&
             (identical(other.isAdultContentEnabled, isAdultContentEnabled) ||
                 other.isAdultContentEnabled == isAdultContentEnabled) &&
+            const DeepCollectionEquality().equals(other.isAuthed, isAuthed) &&
             const DeepCollectionEquality().equals(other._settings, _settings));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, isAdultContentEnabled,
+  int get hashCode => Object.hash(
+      runtimeType,
+      isAdultContentEnabled,
+      const DeepCollectionEquality().hash(isAuthed),
       const DeepCollectionEquality().hash(_settings));
 
   @JsonKey(ignore: true)
@@ -179,6 +198,7 @@ class _$_ModerationBehaviorsConfig implements _ModerationBehaviorsConfig {
 abstract class _ModerationBehaviorsConfig implements ModerationBehaviorsConfig {
   const factory _ModerationBehaviorsConfig(
       {@JsonKey(name: 'adultContentEnabled') final bool isAdultContentEnabled,
+      @JsonKey(name: 'authed') final dynamic isAuthed,
       final Map<String, LabelPreference>?
           settings}) = _$_ModerationBehaviorsConfig;
 
@@ -188,6 +208,9 @@ abstract class _ModerationBehaviorsConfig implements ModerationBehaviorsConfig {
   @override
   @JsonKey(name: 'adultContentEnabled')
   bool get isAdultContentEnabled;
+  @override
+  @JsonKey(name: 'authed')
+  dynamic get isAuthed;
   @override
   Map<String, LabelPreference>? get settings;
   @override

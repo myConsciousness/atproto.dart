@@ -21,6 +21,7 @@ class ModerationBehaviorsConfig with _$ModerationBehaviorsConfig {
     @JsonKey(name: 'adultContentEnabled')
     @Default(false)
     bool isAdultContentEnabled,
+    @JsonKey(name: 'authed') @Default(true) isAuthed,
     Map<String, LabelPreference>? settings,
   }) = _ModerationBehaviorsConfig;
 

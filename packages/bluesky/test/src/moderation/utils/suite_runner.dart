@@ -19,6 +19,7 @@ import 'package:bluesky/src/moderation/entities/labeler.dart';
 import 'package:bluesky/src/moderation/entities/labeler_settings.dart';
 import 'package:bluesky/src/moderation/entities/moderation_options.dart';
 import 'package:bluesky/src/moderation/entities/moderation_subject_post.dart';
+import 'package:bluesky/src/moderation/entities/moderation_subject_profile.dart';
 import 'moderation_behavior_scenario.dart';
 import 'moderation_behavior_scenario_labels.dart';
 import 'moderation_behaviors.dart';
@@ -27,6 +28,16 @@ final class ModerationBehaviorSuiteRunner {
   const ModerationBehaviorSuiteRunner(this.suite);
 
   final ModerationBehaviors suite;
+
+  ModerationSubjectProfile getProfileScenario(
+    final ModerationBehaviorScenario scenario,
+  ) {
+    if (scenario.subject != ScenarioSubjectType.profile) throw Error();
+
+    return ModerationSubjectProfile.actor(
+      data: _getProfileViewBasic(scenario.author, scenario.labels),
+    );
+  }
 
   ModerationSubjectPost getPostScenario(
     final ModerationBehaviorScenario scenario,
@@ -93,7 +104,9 @@ final class ModerationBehaviorSuiteRunner {
     final ModerationBehaviorScenario scenario,
   ) =>
       ModerationOptions(
-        userDid: 'did:web:self.test',
+        userDid: suite.configurations[scenario.cfg]?.isAuthed == false
+            ? ''
+            : 'did:web:self.test',
         isAdultContentEnabled:
             suite.configurations[scenario.cfg]?.isAdultContentEnabled ?? false,
         labels: suite.configurations[scenario.cfg]?.settings ?? const {},

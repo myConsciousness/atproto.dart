@@ -211,9 +211,9 @@ final class _ModerationCauseAccumulator implements ModerationCauseAccumulator {
     final additionalCauses =
         orderedCauses.length > 1 ? orderedCauses.sublist(1) : null;
 
-    if (cause is UModerationCauseBlocking ||
-        cause is UModerationCauseBlockedBy ||
-        cause is UModerationCauseBlockOther) {
+    if (cause.data is ModerationCauseBlocking ||
+        cause.data is ModerationCauseBlockedBy ||
+        cause.data is ModerationCauseBlockOther) {
       //* Blocked User
       return ModerationDecision(
         did: did,
@@ -223,7 +223,7 @@ final class _ModerationCauseAccumulator implements ModerationCauseAccumulator {
         isBlur: true,
         isNoOverride: true,
       );
-    } else if (cause is UModerationCauseMuted) {
+    } else if (cause.data is ModerationCauseMuted) {
       //* Muted User
       return ModerationDecision(
         did: did,
@@ -232,17 +232,19 @@ final class _ModerationCauseAccumulator implements ModerationCauseAccumulator {
         isFilter: true,
         isBlur: true,
       );
-    } else if (cause is UModerationCauseLabel) {
+    } else if (cause.data is ModerationCauseLabel) {
+      final causeData = cause.data as ModerationCauseLabel;
+
       //* Labeled Subject
       return ModerationDecision(
         did: did,
         cause: cause,
         additionalCauses: additionalCauses,
-        isAlert: _isAlert(cause),
-        isBlur: _isBlur(cause),
-        isBlurMedia: _isBlurMedia(cause),
-        isFilter: cause.data.setting == LabelPreference.hide,
-        isNoOverride: _isNoOverride(cause, options),
+        isAlert: _isAlert(causeData),
+        isBlur: _isBlur(causeData),
+        isBlurMedia: _isBlurMedia(causeData),
+        isFilter: causeData.setting == LabelPreference.hide,
+        isNoOverride: _isNoOverride(causeData, options),
       );
     }
 
@@ -258,29 +260,28 @@ final class _ModerationCauseAccumulator implements ModerationCauseAccumulator {
       (a, b) => getPriorityFromCause(a).compareTo(getPriorityFromCause(b)),
     );
 
-  bool _isAlert(final UModerationCauseLabel cause) =>
+  bool _isAlert(final ModerationCauseLabel cause) =>
       _checkOnWarnBehavior(cause, LabelDefinitionOnWarnBehavior.alert);
 
-  bool _isBlur(final UModerationCauseLabel cause) =>
+  bool _isBlur(final ModerationCauseLabel cause) =>
       _checkOnWarnBehavior(cause, LabelDefinitionOnWarnBehavior.blur);
 
-  bool _isBlurMedia(final UModerationCauseLabel cause) =>
+  bool _isBlurMedia(final ModerationCauseLabel cause) =>
       _checkOnWarnBehavior(cause, LabelDefinitionOnWarnBehavior.blurMedia);
 
   bool _checkOnWarnBehavior(
-    final UModerationCauseLabel cause,
+    final ModerationCauseLabel cause,
     LabelDefinitionOnWarnBehavior expected,
   ) =>
-      cause.data.labelDefinition.onWarn == expected;
+      cause.labelDefinition.onWarn == expected;
 
   bool _isNoOverride(
-    final UModerationCauseLabel cause,
+    final ModerationCauseLabel cause,
     final ModerationOptions options,
   ) {
-    if (cause.data.labelDefinition.flags
-        .contains(LabelDefinitionFlag.noOverride)) {
+    if (cause.labelDefinition.flags.contains(LabelDefinitionFlag.noOverride)) {
       return true;
-    } else if (cause.data.labelDefinition.flags
+    } else if (cause.labelDefinition.flags
             .contains(LabelDefinitionFlag.adult) &&
         !options.isAdultContentEnabled) {
       return true;

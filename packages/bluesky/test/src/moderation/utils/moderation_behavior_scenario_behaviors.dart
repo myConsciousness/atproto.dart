@@ -20,6 +20,8 @@ class ModerationBehaviorScenarioBehaviors
   @jsonSerializable
   const factory ModerationBehaviorScenarioBehaviors({
     ModerationBehaviorResult? content,
+    ModerationBehaviorResult? account,
+    ModerationBehaviorResult? profile,
     ModerationBehaviorResult? avatar,
     ModerationBehaviorResult? embed,
   }) = _ModerationBehaviorScenarioBehaviors;

@@ -20,6 +20,18 @@ _$_ModerationBehaviorScenarioBehaviors
                       ? null
                       : ModerationBehaviorResult.fromJson(
                           Map<String, Object?>.from(v as Map))),
+              account: $checkedConvert(
+                  'account',
+                  (v) => v == null
+                      ? null
+                      : ModerationBehaviorResult.fromJson(
+                          Map<String, Object?>.from(v as Map))),
+              profile: $checkedConvert(
+                  'profile',
+                  (v) => v == null
+                      ? null
+                      : ModerationBehaviorResult.fromJson(
+                          Map<String, Object?>.from(v as Map))),
               avatar: $checkedConvert(
                   'avatar',
                   (v) => v == null
@@ -48,6 +60,8 @@ Map<String, dynamic> _$$_ModerationBehaviorScenarioBehaviorsToJson(
   }
 
   writeNotNull('content', instance.content?.toJson());
+  writeNotNull('account', instance.account?.toJson());
+  writeNotNull('profile', instance.profile?.toJson());
   writeNotNull('avatar', instance.avatar?.toJson());
   writeNotNull('embed', instance.embed?.toJson());
   return val;

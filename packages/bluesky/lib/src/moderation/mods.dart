@@ -4,6 +4,8 @@
 
 // 🌎 Project imports:
 import 'entities/moderation_cause.dart';
+import 'entities/moderation_cause_blocked_by.dart';
+import 'entities/moderation_cause_blocking.dart';
 import 'entities/moderation_cause_muted.dart';
 import 'entities/moderation_decision.dart';
 import 'entities/moderation_options.dart';
@@ -32,14 +34,11 @@ ProfileModeration moderateProfile(
   // if the decision is supposed to blur media,
   // - have it apply to the view if it's on the account
   // - otherwise ignore it
-  if (account.isBlurMedia) {
-    account = account.copyWith(isBlur: true);
-  }
+  if (account.isBlurMedia) account = account.copyWith(isBlur: true);
 
   if (!isModerationDecisionNoop(account) && account.did == options.userDid) {
     account = downgradeDecision(account, DecisionDowngradeOption.alert);
   }
-
   if (!isModerationDecisionNoop(profile) && profile.did == options.userDid) {
     profile = downgradeDecision(profile, DecisionDowngradeOption.alert);
   }
@@ -48,9 +47,9 @@ ProfileModeration moderateProfile(
   final avatar = _decideProfileAvatar(account, profile);
 
   // don't blur the account for blocking & muting
-  if (account.cause is UModerationCauseBlocking ||
-      account.cause is UModerationCauseBlockedBy ||
-      account.cause is UModerationCauseMuted) {
+  if (account.cause?.data is ModerationCauseBlocking ||
+      account.cause?.data is ModerationCauseBlockedBy ||
+      account.cause?.data is ModerationCauseMuted) {
     account = account.copyWith(
       isBlur: false,
       isNoOverride: false,

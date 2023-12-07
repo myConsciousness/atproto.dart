@@ -43,7 +43,7 @@ ModerationDecision downgradeDecision(
       DecisionDowngradeOption.alert => decision.copyWith(
           isBlur: false,
           isBlurMedia: false,
-          isAlert: false,
+          isAlert: true,
           isFilter: false,
           isNoOverride: false,
         ),

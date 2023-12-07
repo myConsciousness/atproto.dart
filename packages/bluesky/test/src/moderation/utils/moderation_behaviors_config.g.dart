@@ -16,6 +16,7 @@ _$_ModerationBehaviorsConfig _$$_ModerationBehaviorsConfigFromJson(Map json) =>
         final val = _$_ModerationBehaviorsConfig(
           isAdultContentEnabled: $checkedConvert(
               'adultContentEnabled', (v) => v as bool? ?? false),
+          isAuthed: $checkedConvert('authed', (v) => v ?? true),
           settings: $checkedConvert(
               'settings',
               (v) => (v as Map?)?.map(
@@ -25,7 +26,10 @@ _$_ModerationBehaviorsConfig _$$_ModerationBehaviorsConfigFromJson(Map json) =>
         );
         return val;
       },
-      fieldKeyMap: const {'isAdultContentEnabled': 'adultContentEnabled'},
+      fieldKeyMap: const {
+        'isAdultContentEnabled': 'adultContentEnabled',
+        'isAuthed': 'authed'
+      },
     );
 
 Map<String, dynamic> _$$_ModerationBehaviorsConfigToJson(
@@ -40,6 +44,7 @@ Map<String, dynamic> _$$_ModerationBehaviorsConfigToJson(
     }
   }
 
+  writeNotNull('authed', instance.isAuthed);
   writeNotNull(
       'settings',
       instance.settings
