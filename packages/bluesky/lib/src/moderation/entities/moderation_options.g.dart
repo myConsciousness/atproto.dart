@@ -14,8 +14,8 @@ _$_ModerationOptions _$$_ModerationOptionsFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$_ModerationOptions(
           userDid: $checkedConvert('userDid', (v) => v as String),
-          enableAdultContent:
-              $checkedConvert('enableAdultContent', (v) => v ?? false),
+          isAdultContentEnabled:
+              $checkedConvert('adultContentEnabled', (v) => v ?? false),
           labels: $checkedConvert(
               'labels',
               (v) => (v as Map).map(
@@ -31,6 +31,7 @@ _$_ModerationOptions _$$_ModerationOptionsFromJson(Map json) => $checkedCreate(
         );
         return val;
       },
+      fieldKeyMap: const {'isAdultContentEnabled': 'adultContentEnabled'},
     );
 
 Map<String, dynamic> _$$_ModerationOptionsToJson(
@@ -45,7 +46,7 @@ Map<String, dynamic> _$$_ModerationOptionsToJson(
     }
   }
 
-  writeNotNull('enableAdultContent', instance.enableAdultContent);
+  writeNotNull('adultContentEnabled', instance.isAdultContentEnabled);
   val['labels'] =
       instance.labels.map((k, e) => MapEntry(k, _$LabelPreferenceEnumMap[e]!));
   val['labelers'] = instance.labelers.map((e) => e.toJson()).toList();

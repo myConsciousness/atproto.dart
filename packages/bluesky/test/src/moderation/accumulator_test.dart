@@ -215,7 +215,7 @@ void main() {
         label,
         ModerationOptions(
           userDid: 'did:web:alice.test',
-          enableAdultContent: true,
+          isAdultContentEnabled: true,
           labels: {
             'porn': LabelPreference.warn,
           },
@@ -252,7 +252,7 @@ void main() {
         label,
         ModerationOptions(
           userDid: 'did:web:alice.test',
-          enableAdultContent: true,
+          isAdultContentEnabled: true,
           labels: {
             'porn': LabelPreference.warn,
           },
@@ -294,7 +294,7 @@ void main() {
         label,
         ModerationOptions(
           userDid: 'did:web:alice.test',
-          enableAdultContent: true,
+          isAdultContentEnabled: true,
           labels: {
             'porn': LabelPreference.warn,
           },
@@ -411,7 +411,7 @@ void main() {
         label,
         ModerationOptions(
           userDid: 'did:web:alice.test',
-          enableAdultContent: true,
+          isAdultContentEnabled: true,
           labels: {
             'intolerant-race': LabelPreference.warn,
           },
@@ -448,7 +448,7 @@ void main() {
         label,
         ModerationOptions(
           userDid: 'did:web:alice.test',
-          enableAdultContent: true,
+          isAdultContentEnabled: true,
           labels: {
             'gore': LabelPreference.warn,
           },
@@ -527,7 +527,7 @@ void main() {
       final decision = accumulator.finalizeDecision(
         ModerationOptions(
           userDid: 'did:web:alice.test',
-          enableAdultContent: true,
+          isAdultContentEnabled: true,
           labels: {
             'gore': LabelPreference.warn,
           },
@@ -545,7 +545,7 @@ void main() {
       final decision = accumulator.finalizeDecision(
         ModerationOptions(
           userDid: 'did:web:alice.test',
-          enableAdultContent: true,
+          isAdultContentEnabled: true,
           labels: {
             'gore': LabelPreference.warn,
           },
@@ -570,7 +570,7 @@ void main() {
       final decision = accumulator.finalizeDecision(
         ModerationOptions(
           userDid: 'did:web:alice.test',
-          enableAdultContent: true,
+          isAdultContentEnabled: true,
           labels: {
             'gore': LabelPreference.warn,
           },
@@ -595,7 +595,7 @@ void main() {
       final decision = accumulator.finalizeDecision(
         ModerationOptions(
           userDid: 'did:web:alice.test',
-          enableAdultContent: true,
+          isAdultContentEnabled: true,
           labels: {
             'gore': LabelPreference.warn,
           },
@@ -620,7 +620,7 @@ void main() {
       final decision = accumulator.finalizeDecision(
         ModerationOptions(
           userDid: 'did:web:alice.test',
-          enableAdultContent: true,
+          isAdultContentEnabled: true,
           labels: {
             'gore': LabelPreference.warn,
           },
@@ -653,7 +653,7 @@ void main() {
         label,
         ModerationOptions(
           userDid: 'did:web:alice.test',
-          enableAdultContent: true,
+          isAdultContentEnabled: true,
           labels: {
             'intolerant-race': LabelPreference.warn,
           },
@@ -664,7 +664,7 @@ void main() {
       final decision = accumulator.finalizeDecision(
         ModerationOptions(
           userDid: 'did:web:alice.test',
-          enableAdultContent: true,
+          isAdultContentEnabled: true,
           labels: {
             'intolerant-race': LabelPreference.warn,
           },

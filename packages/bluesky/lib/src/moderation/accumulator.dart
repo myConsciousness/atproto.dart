@@ -151,7 +151,7 @@ final class _ModerationCauseAccumulator implements ModerationCauseAccumulator {
     if (!labelDef.isConfigurable) {
       return labelDef.preferences.first;
     } else if (labelDef.flags.contains(LabelDefinitionFlag.adult) &&
-        !options.enableAdultContent) {
+        !options.isAdultContentEnabled) {
       return LabelPreference.hide;
     } else if (labeler?.labels.containsKey(label.value) ?? false) {
       return labeler!.labels[label.value]!;
@@ -282,7 +282,7 @@ final class _ModerationCauseAccumulator implements ModerationCauseAccumulator {
       return true;
     } else if (cause.data.labelDefinition.flags
             .contains(LabelDefinitionFlag.adult) &&
-        !options.enableAdultContent) {
+        !options.isAdultContentEnabled) {
       return true;
     }
 

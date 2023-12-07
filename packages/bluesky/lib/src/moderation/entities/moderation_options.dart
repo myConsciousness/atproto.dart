@@ -20,7 +20,7 @@ class ModerationOptions with _$ModerationOptions {
   @jsonSerializable
   const factory ModerationOptions({
     required String userDid,
-    @Default(false) enableAdultContent,
+    @JsonKey(name: 'adultContentEnabled') @Default(false) isAdultContentEnabled,
     required Map<String, LabelPreference> labels,
     required List<LabelerSettings> labelers,
   }) = _ModerationOptions;

@@ -3,7 +3,6 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import '../entities/embed_view.dart';
 import 'entities/moderation_cause.dart';
 import 'entities/moderation_decision.dart';
 import 'entities/moderation_options.dart';
@@ -78,7 +77,7 @@ PostModeration moderatePost(
 ) {
   ModerationDecision post = decidePost(subject, options);
   final (author, embed) = subject.when(
-    post: (data) => (data.author, data.embed?.data),
+    post: (data) => (data.author, data.embed),
   );
 
   final profileSubject = ModerationSubjectProfile.actor(data: author);
@@ -87,19 +86,16 @@ PostModeration moderatePost(
 
   ModerationDecision? quote;
   ModerationDecision? quotedAccount;
-  switch (embed) {
-    case UEmbedViewRecord():
-      quote = decideQuotedPost(embed.data, options);
-      quotedAccount = decideQuotedPostAccount(embed.data, options);
-      break;
-    case UEmbedViewRecordWithMedia():
-      quote = decideQuotedPostWithMedia(embed.data, options);
-      quotedAccount = decideQuotedPostWithMediaAccount(embed.data, options);
-      break;
-  }
+  embed?.whenOrNull(record: (data) {
+    quote = decideQuotedPost(data, options);
+    quotedAccount = decideQuotedPostAccount(data, options);
+  }, recordWithMedia: (data) {
+    quote = decideQuotedPostWithMedia(data, options);
+    quotedAccount = decideQuotedPostWithMediaAccount(data, options);
+  });
 
-  if (quote != null && quote.isBlurMedia) {
-    quote = quote.copyWith(isBlur: true);
+  if (quote != null && quote!.isBlurMedia) {
+    quote = quote?.copyWith(isBlur: true);
   }
 
   if (!isModerationDecisionNoop(post) && post.did == options.userDid) {
@@ -113,14 +109,14 @@ PostModeration moderatePost(
   }
   if (quote != null &&
       !isModerationDecisionNoop(quote) &&
-      quote.did == options.userDid) {
-    quote = downgradeDecision(quote, DecisionDowngradeOption.blur);
+      quote?.did == options.userDid) {
+    quote = downgradeDecision(quote!, DecisionDowngradeOption.blur);
   }
   if (quotedAccount != null &&
       !isModerationDecisionNoop(quotedAccount) &&
-      quotedAccount.did == options.userDid) {
+      quotedAccount?.did == options.userDid) {
     quotedAccount = downgradeDecision(
-      quotedAccount,
+      quotedAccount!,
       DecisionDowngradeOption.noop,
     );
   }
@@ -130,8 +126,8 @@ PostModeration moderatePost(
   final mergedForFeed = takeHighestPriorityDecision([
     post,
     account,
-    if (quote != null) quote,
-    if (quotedAccount != null) quotedAccount,
+    if (quote != null) quote!,
+    if (quotedAccount != null) quotedAccount!,
   ]);
 
   // derive view blurring from the post and the post author's account.
@@ -139,8 +135,8 @@ PostModeration moderatePost(
   // account.
   final mergedForView = takeHighestPriorityDecision([post, account]);
   final mergedQuote = takeHighestPriorityDecision([
-    if (quote != null) quote,
-    if (quotedAccount != null) quotedAccount,
+    if (quote != null) quote!,
+    if (quotedAccount != null) quotedAccount!,
   ]);
 
   return PostModeration(

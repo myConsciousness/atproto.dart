@@ -35,7 +35,7 @@ void main() {
         ),
         ModerationOptions(
           userDid: 'did:web:alice.test',
-          enableAdultContent: true,
+          isAdultContentEnabled: true,
           labels: {
             'porn': LabelPreference.hide,
           },
