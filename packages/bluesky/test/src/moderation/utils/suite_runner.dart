@@ -46,12 +46,9 @@ final class ModerationBehaviorSuiteRunner {
         cid: 'fake',
         labels: (scenario.labels.post ?? const [])
             .map(
-              (e) => Label(
-                src: 'did:plc:fake-labeler',
-                uri: 'at://${author.did}/app.bsky.feed.post/fake',
-                value: e,
-                isNegate: false,
-                createdAt: DateTime.now(),
+              (label) => _getLabel(
+                label,
+                'at://${author.did}/app.bsky.feed.post/fake',
               ),
             )
             .toList(),
@@ -69,12 +66,9 @@ final class ModerationBehaviorSuiteRunner {
                       cid: 'fake',
                       labels: scenario.labels.quotedPost
                           ?.map(
-                            (e) => Label(
-                              src: 'did:plc:fake-labeler',
-                              uri: 'at://${author.did}/app.bsky.feed.post/fake',
-                              value: e,
-                              isNegate: false,
-                              createdAt: DateTime.now(),
+                            (label) => _getLabel(
+                              label,
+                              'at://${author.did}/app.bsky.feed.post/fake',
                             ),
                           )
                           .toList(),
@@ -123,29 +117,16 @@ final class ModerationBehaviorSuiteRunner {
 
     if (scenarioLabels.account != null) {
       for (final label in scenarioLabels.account!) {
-        labels.add(
-          Label(
-            src: 'did:plc:fake-labeler',
-            uri: 'did:web:$name',
-            value: label,
-            isNegate: false,
-            createdAt: DateTime.now(),
-          ),
-        );
+        labels.add(_getLabel(label, 'did:web:$name'));
       }
     }
 
     if (scenarioLabels.profile != null) {
       for (final label in scenarioLabels.profile!) {
-        labels.add(
-          Label(
-            src: 'did:plc:fake-labeler',
-            uri: 'at://did:web:$name/app.bsky.actor.profile/self',
-            value: label,
-            isNegate: false,
-            createdAt: DateTime.now(),
-          ),
-        );
+        labels.add(_getLabel(
+          label,
+          'at://did:web:$name/app.bsky.actor.profile/self',
+        ));
       }
     }
 
@@ -178,4 +159,12 @@ final class ModerationBehaviorSuiteRunner {
       ),
     );
   }
+
+  Label _getLabel(final String value, final String uri) => Label(
+        src: 'did:plc:fake-labeler',
+        uri: uri,
+        value: value,
+        isNegate: false,
+        createdAt: DateTime.now(),
+      );
 }

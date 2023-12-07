@@ -60,7 +60,7 @@ bool isModerationDecisionNoop(
   if (decision == null) return true;
   if (decision.isAlert) return false;
   if (decision.isBlur) return false;
-  if (decision.isFilter && !ignoreFilter) return true;
+  if (decision.isFilter && !ignoreFilter) return false;
 
   return true;
 }

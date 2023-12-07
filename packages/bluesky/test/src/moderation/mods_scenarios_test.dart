@@ -72,7 +72,8 @@ void expectToBeModerationResult(
     expect(
       !ignoreCause && actual.cause != null,
       isFalse,
-      reason: '$context expected to be a no-op, got ${actual.cause}',
+      reason: '$context expected to be a no-op, got '
+          '${_toIndentedJson(actual.cause?.toJson() ?? const {})}',
     );
     expect(
       actual.isAlert,
@@ -127,6 +128,9 @@ void expectToBeModerationResult(
     );
   }
 }
+
+String _toIndentedJson(final Map<String, dynamic> json) =>
+    JsonEncoder.withIndent('  ').convert(json);
 
 String _getCauseType(final ModerationCause? cause) =>
     cause?.whenOrNull(
