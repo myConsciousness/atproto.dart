@@ -10,7 +10,7 @@ import 'dart:io';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/moderation/mods.dart';
+import 'package:bluesky/src/moderation/apis.dart';
 import 'utils/moderation_behaviors.dart';
 import 'utils/suite_runner.dart';
 

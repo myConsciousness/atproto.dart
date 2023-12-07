@@ -10,13 +10,13 @@ import 'package:test/test.dart';
 import 'package:bluesky/src/entities/actor.dart';
 import 'package:bluesky/src/entities/post.dart';
 import 'package:bluesky/src/entities/post_record.dart';
+import 'package:bluesky/src/moderation/apis.dart';
 import 'package:bluesky/src/moderation/definitions/label_preference.dart';
 import 'package:bluesky/src/moderation/entities/labeler.dart';
 import 'package:bluesky/src/moderation/entities/labeler_settings.dart';
 import 'package:bluesky/src/moderation/entities/moderation_options.dart';
 import 'package:bluesky/src/moderation/entities/moderation_subject_post.dart';
 import 'package:bluesky/src/moderation/entities/moderation_subject_profile.dart';
-import 'package:bluesky/src/moderation/mods.dart';
 import 'utils/moderation_behavior_result.dart';
 import 'utils/suite_runner.dart';
 
