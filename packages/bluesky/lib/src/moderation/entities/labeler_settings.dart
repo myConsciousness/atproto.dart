@@ -8,7 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../const/label_preference.dart';
+import '../definitions/label_preference.dart';
 import 'labeler.dart';
 import 'moderation_object.dart';
 

@@ -6,7 +6,7 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/moderation/const/label_preference.dart';
+import 'package:bluesky/src/moderation/definitions/label_preference.dart';
 
 void main() {
   test('.name', () {

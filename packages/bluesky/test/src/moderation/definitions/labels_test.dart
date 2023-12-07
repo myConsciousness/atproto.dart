@@ -6,8 +6,8 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/moderation/const/known_label.dart';
-import 'package:bluesky/src/moderation/const/labels.dart';
+import 'package:bluesky/src/moderation/definitions/known_label.dart';
+import 'package:bluesky/src/moderation/definitions/labels.dart';
 
 void main() {
   test('label states', () {

@@ -6,7 +6,7 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/moderation/const/label_definition_on_warn_behavior.dart';
+import 'package:bluesky/src/moderation/definitions/label_definition_on_warn_behavior.dart';
 
 void main() {
   test('.name', () {

@@ -10,7 +10,7 @@ import 'package:test/test.dart';
 import 'package:bluesky/src/entities/actor.dart';
 import 'package:bluesky/src/entities/post.dart';
 import 'package:bluesky/src/entities/post_record.dart';
-import 'package:bluesky/src/moderation/const/label_preference.dart';
+import 'package:bluesky/src/moderation/definitions/label_preference.dart';
 import 'package:bluesky/src/moderation/entities/labeler.dart';
 import 'package:bluesky/src/moderation/entities/labeler_settings.dart';
 import 'package:bluesky/src/moderation/entities/moderation_options.dart';

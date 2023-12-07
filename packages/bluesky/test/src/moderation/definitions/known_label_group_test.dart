@@ -6,7 +6,7 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/moderation/const/known_label_group.dart';
+import 'package:bluesky/src/moderation/definitions/known_label_group.dart';
 
 void main() {
   test('group names', () {

@@ -6,9 +6,9 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/moderation/const/known_label_group.dart';
-import 'package:bluesky/src/moderation/const/label_groups.dart';
-import 'package:bluesky/src/moderation/const/labels.dart';
+import 'package:bluesky/src/moderation/definitions/known_label_group.dart';
+import 'package:bluesky/src/moderation/definitions/label_groups.dart';
+import 'package:bluesky/src/moderation/definitions/labels.dart';
 
 void main() {
   test('group states', () {
