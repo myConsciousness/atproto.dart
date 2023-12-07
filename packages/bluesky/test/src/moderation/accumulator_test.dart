@@ -133,7 +133,6 @@ void main() {
           src: 'did:web:bob.test',
           uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
           value: 'test',
-          isNegate: false,
           createdAt: DateTime.now(),
         ),
         ModerationOptions(
@@ -154,7 +153,6 @@ void main() {
           src: 'did:web:bob.test',
           uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
           value: 'spoiler',
-          isNegate: false,
           createdAt: DateTime.now(),
         ),
         ModerationOptions(
@@ -173,7 +171,6 @@ void main() {
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
         value: 'porn',
-        isNegate: false,
         createdAt: DateTime.now(),
       );
 
@@ -207,7 +204,6 @@ void main() {
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
         value: 'porn',
-        isNegate: false,
         createdAt: DateTime.now(),
       );
 
@@ -244,7 +240,6 @@ void main() {
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
         value: 'porn',
-        isNegate: false,
         createdAt: DateTime.now(),
       );
 
@@ -281,7 +276,6 @@ void main() {
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
         value: 'porn',
-        isNegate: false,
         createdAt: DateTime.now(),
       );
 
@@ -333,7 +327,6 @@ void main() {
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
         value: '!hide',
-        isNegate: false,
         createdAt: DateTime.now(),
       );
 
@@ -367,7 +360,6 @@ void main() {
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
         value: 'porn',
-        isNegate: false,
         createdAt: DateTime.now(),
       );
 
@@ -403,7 +395,6 @@ void main() {
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
         value: 'intolerant-race',
-        isNegate: false,
         createdAt: DateTime.now(),
       );
 
@@ -440,7 +431,6 @@ void main() {
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
         value: 'gore',
-        isNegate: false,
         createdAt: DateTime.now(),
       );
 
@@ -645,7 +635,6 @@ void main() {
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
         value: 'intolerant-race',
-        isNegate: false,
         createdAt: DateTime.now(),
       );
 

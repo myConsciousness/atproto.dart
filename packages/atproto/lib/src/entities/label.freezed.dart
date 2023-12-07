@@ -180,7 +180,7 @@ class _$_Label implements _Label {
       required this.uri,
       this.cid,
       @JsonKey(name: 'val') required this.value,
-      @JsonKey(name: 'neg') required this.isNegate,
+      @JsonKey(name: 'neg') this.isNegate = false,
       @JsonKey(name: 'cts') required this.createdAt});
 
   factory _$_Label.fromJson(Map<String, dynamic> json) =>
@@ -260,7 +260,7 @@ abstract class _Label implements Label {
       required final String uri,
       final String? cid,
       @JsonKey(name: 'val') required final String value,
-      @JsonKey(name: 'neg') required final bool isNegate,
+      @JsonKey(name: 'neg') final bool isNegate,
       @JsonKey(name: 'cts') required final DateTime createdAt}) = _$_Label;
 
   factory _Label.fromJson(Map<String, dynamic> json) = _$_Label.fromJson;

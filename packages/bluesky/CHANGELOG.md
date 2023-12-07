@@ -1,5 +1,11 @@
 # Release Note
 
+## v0.11.0
+
+- Added moderation APIs and exposed `bluesky/moderation` package. ([#1006](https://github.com/myConsciousness/atproto.dart/issues/1006))
+  - `.moderatePost`
+  - `.moderateProfile`
+
 ## v0.10.8
 
 - Added `uri` on `ListItem`. ([#1026](https://github.com/myConsciousness/atproto.dart/issues/1026))

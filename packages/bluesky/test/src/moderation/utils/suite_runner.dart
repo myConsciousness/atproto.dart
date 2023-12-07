@@ -182,7 +182,6 @@ final class ModerationBehaviorSuiteRunner {
         src: 'did:plc:fake-labeler',
         uri: uri,
         value: value,
-        isNegate: false,
         createdAt: DateTime.now(),
       );
 }

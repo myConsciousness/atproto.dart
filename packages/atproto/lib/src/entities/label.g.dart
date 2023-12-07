@@ -17,7 +17,7 @@ _$_Label _$$_LabelFromJson(Map json) => $checkedCreate(
           uri: $checkedConvert('uri', (v) => v as String),
           cid: $checkedConvert('cid', (v) => v as String?),
           value: $checkedConvert('val', (v) => v as String),
-          isNegate: $checkedConvert('neg', (v) => v as bool),
+          isNegate: $checkedConvert('neg', (v) => v as bool? ?? false),
           createdAt: $checkedConvert('cts', (v) => DateTime.parse(v as String)),
         );
         return val;
