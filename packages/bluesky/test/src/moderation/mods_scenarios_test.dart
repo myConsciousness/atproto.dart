@@ -41,17 +41,20 @@ void main() {
         expectToBeModerationResult(
           actual.content,
           scenario.behaviors.content,
+          context: 'post content',
         );
 
         expectToBeModerationResult(
           actual.avatar,
           scenario.behaviors.avatar,
+          context: 'post avatar',
           ignoreCause: true,
         );
 
         expectToBeModerationResult(
           actual.embed ?? ModerationUI(),
           scenario.behaviors.embed,
+          context: 'post embed',
         );
       });
     });
@@ -61,6 +64,7 @@ void main() {
 void expectToBeModerationResult(
   final ModerationUI actual,
   final ModerationBehaviorResult? expected, {
+  required String context,
   bool ignoreCause = false,
 }) {
   final causeType = _getCauseType(actual.cause);
@@ -69,54 +73,57 @@ void expectToBeModerationResult(
     expect(
       !ignoreCause && actual.cause != null,
       isFalse,
-      reason: 'expected to be a no-op, got ${actual.cause}',
+      reason: '$context expected to be a no-op, got ${actual.cause}',
     );
     expect(
       actual.isAlert,
       isFalse,
-      reason: 'expected to be a no-op, got alert=true',
+      reason: '$context expected to be a no-op, got alert=true',
     );
     expect(
       actual.isBlur,
       isFalse,
-      reason: 'expected to be a no-op, got blur=true',
+      reason: '$context expected to be a no-op, got blur=true',
     );
     expect(
       actual.isFilter,
       isFalse,
-      reason: 'expected to be a no-op, got filter=true',
+      reason: '$context expected to be a no-op, got filter=true',
     );
     expect(
       actual.isNoOverride,
       isFalse,
-      reason: 'expected to be a no-op, got noOverride=true',
+      reason: '$context expected to be a no-op, got noOverride=true',
     );
   } else {
     expect(
       !ignoreCause && causeType != expected.cause,
       isFalse,
-      reason: 'expected to be ${expected.cause}, got $causeType',
+      reason: '$context expected to be ${expected.cause}, got $causeType',
     );
     expect(
       actual.isAlert != expected.isAlert,
       isFalse,
-      reason: 'expected to be alert=${expected.isAlert}, got ${actual.isAlert}',
+      reason: '$context expected to be alert=${expected.isAlert}, got '
+          '${actual.isAlert}',
     );
     expect(
       actual.isBlur != expected.isBlur,
       isFalse,
-      reason: 'expected to be blur=${expected.isBlur}, got ${actual.isBlur}',
+      reason: '$context expected to be blur=${expected.isBlur}, got '
+          '${actual.isBlur}',
     );
     expect(
       actual.isFilter != expected.isFilter,
       isFalse,
-      reason: 'expected to be filter=${expected.isFilter}, got '
+      reason: '$context expected to be filter=${expected.isFilter}, got '
           '${actual.isFilter}',
     );
     expect(
       actual.isNoOverride != expected.isNoOverride,
       isFalse,
-      reason: 'expected to be noOverride=${expected.isNoOverride}, got '
+      reason:
+          '$context expected to be noOverride=${expected.isNoOverride}, got '
           '${actual.isNoOverride}',
     );
   }

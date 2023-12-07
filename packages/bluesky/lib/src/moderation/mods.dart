@@ -4,6 +4,7 @@
 
 // 🌎 Project imports:
 import 'entities/moderation_cause.dart';
+import 'entities/moderation_cause_muted.dart';
 import 'entities/moderation_decision.dart';
 import 'entities/moderation_options.dart';
 import 'entities/moderation_subject_post.dart';
@@ -191,10 +192,10 @@ ModerationUI _decidePostAvatar(
 ) {
   bool isBlur = false;
   if ((account.isBlur || account.isBlurMedia) &&
-      account.cause is! UModerationCauseMuted) {
+      account.cause?.data is! ModerationCauseMuted) {
     isBlur = true;
-  } else if ((account.isBlur || account.isBlurMedia) &&
-      account.cause is! UModerationCauseMuted) {
+  } else if ((profile.isBlur || profile.isBlurMedia) &&
+      profile.cause?.data is! ModerationCauseMuted) {
     isBlur = true;
   }
 
