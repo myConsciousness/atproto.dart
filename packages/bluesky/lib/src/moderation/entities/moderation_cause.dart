@@ -6,20 +6,17 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'converter/moderation_cause_converter.dart';
 import 'moderation_cause_block_other.dart';
 import 'moderation_cause_blocked_by.dart';
 import 'moderation_cause_blocking.dart';
 import 'moderation_cause_label.dart';
 import 'moderation_cause_muted.dart';
+import 'moderation_object.dart';
 
 part 'moderation_cause.freezed.dart';
 
-@freezed
+@moderationObject
 class ModerationCause with _$ModerationCause {
-  // ignore: unused_element
-  const ModerationCause._();
-
   const factory ModerationCause.blocking({
     required ModerationCauseBlocking data,
   }) = UModerationCauseBlocking;
@@ -39,10 +36,4 @@ class ModerationCause with _$ModerationCause {
   const factory ModerationCause.muted({
     required ModerationCauseMuted data,
   }) = UModerationCauseMuted;
-
-  const factory ModerationCause.noop({
-    required Map<String, dynamic> data,
-  }) = UModerationCauseNoop;
-
-  Map<String, dynamic> toJson() => moderationCauseConverter.toJson(this);
 }

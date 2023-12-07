@@ -14,10 +14,6 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-PostModeration _$PostModerationFromJson(Map<String, dynamic> json) {
-  return _PostModeration.fromJson(json);
-}
-
 /// @nodoc
 mixin _$PostModeration {
   PostModerationDecisions get decisions => throw _privateConstructorUsedError;
@@ -25,7 +21,6 @@ mixin _$PostModeration {
   ModerationUI get avatar => throw _privateConstructorUsedError;
   ModerationUI get embed => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PostModerationCopyWith<PostModeration> get copyWith =>
       throw _privateConstructorUsedError;
@@ -183,16 +178,12 @@ class __$$_PostModerationCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
 class _$_PostModeration implements _PostModeration {
   const _$_PostModeration(
       {required this.decisions,
       this.content = defaultModerationUI,
       this.avatar = defaultModerationUI,
       this.embed = defaultModerationUI});
-
-  factory _$_PostModeration.fromJson(Map<String, dynamic> json) =>
-      _$$_PostModerationFromJson(json);
 
   @override
   final PostModerationDecisions decisions;
@@ -223,7 +214,6 @@ class _$_PostModeration implements _PostModeration {
             (identical(other.embed, embed) || other.embed == embed));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, decisions, content, avatar, embed);
@@ -233,13 +223,6 @@ class _$_PostModeration implements _PostModeration {
   @pragma('vm:prefer-inline')
   _$$_PostModerationCopyWith<_$_PostModeration> get copyWith =>
       __$$_PostModerationCopyWithImpl<_$_PostModeration>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_PostModerationToJson(
-      this,
-    );
-  }
 }
 
 abstract class _PostModeration implements PostModeration {
@@ -248,9 +231,6 @@ abstract class _PostModeration implements PostModeration {
       final ModerationUI content,
       final ModerationUI avatar,
       final ModerationUI embed}) = _$_PostModeration;
-
-  factory _PostModeration.fromJson(Map<String, dynamic> json) =
-      _$_PostModeration.fromJson;
 
   @override
   PostModerationDecisions get decisions;

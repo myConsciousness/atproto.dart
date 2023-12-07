@@ -14,19 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ModerationCauseBlockOther _$ModerationCauseBlockOtherFromJson(
-    Map<String, dynamic> json) {
-  return _ModerationCauseBlockOther.fromJson(json);
-}
-
 /// @nodoc
 mixin _$ModerationCauseBlockOther {
   String get type => throw _privateConstructorUsedError;
-  @moderationCauseSourceConverter
   ModerationCauseSource get source => throw _privateConstructorUsedError;
   int get priority => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ModerationCauseBlockOtherCopyWith<ModerationCauseBlockOther> get copyWith =>
       throw _privateConstructorUsedError;
@@ -38,10 +31,7 @@ abstract class $ModerationCauseBlockOtherCopyWith<$Res> {
           $Res Function(ModerationCauseBlockOther) then) =
       _$ModerationCauseBlockOtherCopyWithImpl<$Res, ModerationCauseBlockOther>;
   @useResult
-  $Res call(
-      {String type,
-      @moderationCauseSourceConverter ModerationCauseSource source,
-      int priority});
+  $Res call({String type, ModerationCauseSource source, int priority});
 
   $ModerationCauseSourceCopyWith<$Res> get source;
 }
@@ -98,10 +88,7 @@ abstract class _$$_ModerationCauseBlockOtherCopyWith<$Res>
       __$$_ModerationCauseBlockOtherCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String type,
-      @moderationCauseSourceConverter ModerationCauseSource source,
-      int priority});
+  $Res call({String type, ModerationCauseSource source, int priority});
 
   @override
   $ModerationCauseSourceCopyWith<$Res> get source;
@@ -143,21 +130,14 @@ class __$$_ModerationCauseBlockOtherCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
 class _$_ModerationCauseBlockOther implements _ModerationCauseBlockOther {
   const _$_ModerationCauseBlockOther(
-      {this.type = 'block-other',
-      @moderationCauseSourceConverter required this.source,
-      this.priority = 4});
-
-  factory _$_ModerationCauseBlockOther.fromJson(Map<String, dynamic> json) =>
-      _$$_ModerationCauseBlockOtherFromJson(json);
+      {this.type = 'block-other', required this.source, this.priority = 4});
 
   @override
   @JsonKey()
   final String type;
   @override
-  @moderationCauseSourceConverter
   final ModerationCauseSource source;
   @override
   @JsonKey()
@@ -179,7 +159,6 @@ class _$_ModerationCauseBlockOther implements _ModerationCauseBlockOther {
                 other.priority == priority));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, type, source, priority);
 
@@ -189,29 +168,17 @@ class _$_ModerationCauseBlockOther implements _ModerationCauseBlockOther {
   _$$_ModerationCauseBlockOtherCopyWith<_$_ModerationCauseBlockOther>
       get copyWith => __$$_ModerationCauseBlockOtherCopyWithImpl<
           _$_ModerationCauseBlockOther>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_ModerationCauseBlockOtherToJson(
-      this,
-    );
-  }
 }
 
 abstract class _ModerationCauseBlockOther implements ModerationCauseBlockOther {
   const factory _ModerationCauseBlockOther(
       {final String type,
-      @moderationCauseSourceConverter
       required final ModerationCauseSource source,
       final int priority}) = _$_ModerationCauseBlockOther;
-
-  factory _ModerationCauseBlockOther.fromJson(Map<String, dynamic> json) =
-      _$_ModerationCauseBlockOther.fromJson;
 
   @override
   String get type;
   @override
-  @moderationCauseSourceConverter
   ModerationCauseSource get source;
   @override
   int get priority;

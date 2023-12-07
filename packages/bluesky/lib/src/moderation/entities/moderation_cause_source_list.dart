@@ -10,22 +10,14 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../entities/list_view_basic.dart';
+import 'moderation_object.dart';
 
 part 'moderation_cause_source_list.freezed.dart';
-part 'moderation_cause_source_list.g.dart';
 
-@freezed
+@moderationObject
 class ModerationCauseSourceList with _$ModerationCauseSourceList {
-  @jsonSerializable
   const factory ModerationCauseSourceList({
     @Default('list') String type,
     required ListViewBasic list,
   }) = _ModerationCauseSourceList;
-
-  /// Creates a [ModerationCauseSourceList] object from a map ([json]).
-  ///
-  /// This constructor is used for deserialization of the JSON that
-  /// represents a [ModerationCauseSourceList] object.
-  factory ModerationCauseSourceList.fromJson(Map<String, Object?> json) =>
-      _$ModerationCauseSourceListFromJson(json);
 }

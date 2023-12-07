@@ -14,17 +14,11 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ModerationCauseSourceLabeler _$ModerationCauseSourceLabelerFromJson(
-    Map<String, dynamic> json) {
-  return _ModerationCauseSourceLabeler.fromJson(json);
-}
-
 /// @nodoc
 mixin _$ModerationCauseSourceLabeler {
   String get type => throw _privateConstructorUsedError;
   Labeler get labeler => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ModerationCauseSourceLabelerCopyWith<ModerationCauseSourceLabeler>
       get copyWith => throw _privateConstructorUsedError;
@@ -127,13 +121,9 @@ class __$$_ModerationCauseSourceLabelerCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
 class _$_ModerationCauseSourceLabeler implements _ModerationCauseSourceLabeler {
   const _$_ModerationCauseSourceLabeler(
       {this.type = 'labeler', required this.labeler});
-
-  factory _$_ModerationCauseSourceLabeler.fromJson(Map<String, dynamic> json) =>
-      _$$_ModerationCauseSourceLabelerFromJson(json);
 
   @override
   @JsonKey()
@@ -155,7 +145,6 @@ class _$_ModerationCauseSourceLabeler implements _ModerationCauseSourceLabeler {
             (identical(other.labeler, labeler) || other.labeler == labeler));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, type, labeler);
 
@@ -165,13 +154,6 @@ class _$_ModerationCauseSourceLabeler implements _ModerationCauseSourceLabeler {
   _$$_ModerationCauseSourceLabelerCopyWith<_$_ModerationCauseSourceLabeler>
       get copyWith => __$$_ModerationCauseSourceLabelerCopyWithImpl<
           _$_ModerationCauseSourceLabeler>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_ModerationCauseSourceLabelerToJson(
-      this,
-    );
-  }
 }
 
 abstract class _ModerationCauseSourceLabeler
@@ -179,9 +161,6 @@ abstract class _ModerationCauseSourceLabeler
   const factory _ModerationCauseSourceLabeler(
       {final String type,
       required final Labeler labeler}) = _$_ModerationCauseSourceLabeler;
-
-  factory _ModerationCauseSourceLabeler.fromJson(Map<String, dynamic> json) =
-      _$_ModerationCauseSourceLabeler.fromJson;
 
   @override
   String get type;

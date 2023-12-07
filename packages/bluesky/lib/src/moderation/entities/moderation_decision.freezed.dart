@@ -14,30 +14,18 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ModerationDecision _$ModerationDecisionFromJson(Map<String, dynamic> json) {
-  return _ModerationDecision.fromJson(json);
-}
-
 /// @nodoc
 mixin _$ModerationDecision {
   String? get did => throw _privateConstructorUsedError;
-  @moderationCauseConverter
   ModerationCause? get cause => throw _privateConstructorUsedError;
-  @moderationCauseConverter
   List<ModerationCause>? get additionalCauses =>
       throw _privateConstructorUsedError;
-  @JsonKey(name: 'alert')
   bool get isAlert => throw _privateConstructorUsedError;
-  @JsonKey(name: 'blur')
   bool get isBlur => throw _privateConstructorUsedError;
-  @JsonKey(name: 'blurMedia')
   bool get isBlurMedia => throw _privateConstructorUsedError;
-  @JsonKey(name: 'filter')
   bool get isFilter => throw _privateConstructorUsedError;
-  @JsonKey(name: 'noOverride')
   bool get isNoOverride => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ModerationDecisionCopyWith<ModerationDecision> get copyWith =>
       throw _privateConstructorUsedError;
@@ -51,13 +39,13 @@ abstract class $ModerationDecisionCopyWith<$Res> {
   @useResult
   $Res call(
       {String? did,
-      @moderationCauseConverter ModerationCause? cause,
-      @moderationCauseConverter List<ModerationCause>? additionalCauses,
-      @JsonKey(name: 'alert') bool isAlert,
-      @JsonKey(name: 'blur') bool isBlur,
-      @JsonKey(name: 'blurMedia') bool isBlurMedia,
-      @JsonKey(name: 'filter') bool isFilter,
-      @JsonKey(name: 'noOverride') bool isNoOverride});
+      ModerationCause? cause,
+      List<ModerationCause>? additionalCauses,
+      bool isAlert,
+      bool isBlur,
+      bool isBlurMedia,
+      bool isFilter,
+      bool isNoOverride});
 
   $ModerationCauseCopyWith<$Res>? get cause;
 }
@@ -143,13 +131,13 @@ abstract class _$$_ModerationDecisionCopyWith<$Res>
   @useResult
   $Res call(
       {String? did,
-      @moderationCauseConverter ModerationCause? cause,
-      @moderationCauseConverter List<ModerationCause>? additionalCauses,
-      @JsonKey(name: 'alert') bool isAlert,
-      @JsonKey(name: 'blur') bool isBlur,
-      @JsonKey(name: 'blurMedia') bool isBlurMedia,
-      @JsonKey(name: 'filter') bool isFilter,
-      @JsonKey(name: 'noOverride') bool isNoOverride});
+      ModerationCause? cause,
+      List<ModerationCause>? additionalCauses,
+      bool isAlert,
+      bool isBlur,
+      bool isBlurMedia,
+      bool isFilter,
+      bool isNoOverride});
 
   @override
   $ModerationCauseCopyWith<$Res>? get cause;
@@ -214,31 +202,25 @@ class __$$_ModerationDecisionCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
 class _$_ModerationDecision extends _ModerationDecision {
   const _$_ModerationDecision(
       {this.did,
-      @moderationCauseConverter this.cause,
-      @moderationCauseConverter final List<ModerationCause>? additionalCauses,
-      @JsonKey(name: 'alert') this.isAlert = false,
-      @JsonKey(name: 'blur') this.isBlur = false,
-      @JsonKey(name: 'blurMedia') this.isBlurMedia = false,
-      @JsonKey(name: 'filter') this.isFilter = false,
-      @JsonKey(name: 'noOverride') this.isNoOverride = false})
+      this.cause,
+      final List<ModerationCause>? additionalCauses,
+      this.isAlert = false,
+      this.isBlur = false,
+      this.isBlurMedia = false,
+      this.isFilter = false,
+      this.isNoOverride = false})
       : _additionalCauses = additionalCauses,
         super._();
-
-  factory _$_ModerationDecision.fromJson(Map<String, dynamic> json) =>
-      _$$_ModerationDecisionFromJson(json);
 
   @override
   final String? did;
   @override
-  @moderationCauseConverter
   final ModerationCause? cause;
   final List<ModerationCause>? _additionalCauses;
   @override
-  @moderationCauseConverter
   List<ModerationCause>? get additionalCauses {
     final value = _additionalCauses;
     if (value == null) return null;
@@ -249,19 +231,19 @@ class _$_ModerationDecision extends _ModerationDecision {
   }
 
   @override
-  @JsonKey(name: 'alert')
+  @JsonKey()
   final bool isAlert;
   @override
-  @JsonKey(name: 'blur')
+  @JsonKey()
   final bool isBlur;
   @override
-  @JsonKey(name: 'blurMedia')
+  @JsonKey()
   final bool isBlurMedia;
   @override
-  @JsonKey(name: 'filter')
+  @JsonKey()
   final bool isFilter;
   @override
-  @JsonKey(name: 'noOverride')
+  @JsonKey()
   final bool isNoOverride;
 
   @override
@@ -288,7 +270,6 @@ class _$_ModerationDecision extends _ModerationDecision {
                 other.isNoOverride == isNoOverride));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -307,53 +288,35 @@ class _$_ModerationDecision extends _ModerationDecision {
   _$$_ModerationDecisionCopyWith<_$_ModerationDecision> get copyWith =>
       __$$_ModerationDecisionCopyWithImpl<_$_ModerationDecision>(
           this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_ModerationDecisionToJson(
-      this,
-    );
-  }
 }
 
 abstract class _ModerationDecision extends ModerationDecision {
   const factory _ModerationDecision(
       {final String? did,
-      @moderationCauseConverter final ModerationCause? cause,
-      @moderationCauseConverter final List<ModerationCause>? additionalCauses,
-      @JsonKey(name: 'alert') final bool isAlert,
-      @JsonKey(name: 'blur') final bool isBlur,
-      @JsonKey(name: 'blurMedia') final bool isBlurMedia,
-      @JsonKey(name: 'filter') final bool isFilter,
-      @JsonKey(name: 'noOverride')
+      final ModerationCause? cause,
+      final List<ModerationCause>? additionalCauses,
+      final bool isAlert,
+      final bool isBlur,
+      final bool isBlurMedia,
+      final bool isFilter,
       final bool isNoOverride}) = _$_ModerationDecision;
   const _ModerationDecision._() : super._();
-
-  factory _ModerationDecision.fromJson(Map<String, dynamic> json) =
-      _$_ModerationDecision.fromJson;
 
   @override
   String? get did;
   @override
-  @moderationCauseConverter
   ModerationCause? get cause;
   @override
-  @moderationCauseConverter
   List<ModerationCause>? get additionalCauses;
   @override
-  @JsonKey(name: 'alert')
   bool get isAlert;
   @override
-  @JsonKey(name: 'blur')
   bool get isBlur;
   @override
-  @JsonKey(name: 'blurMedia')
   bool get isBlurMedia;
   @override
-  @JsonKey(name: 'filter')
   bool get isFilter;
   @override
-  @JsonKey(name: 'noOverride')
   bool get isNoOverride;
   @override
   @JsonKey(ignore: true)

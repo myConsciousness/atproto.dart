@@ -14,16 +14,11 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-LabelerSettings _$LabelerSettingsFromJson(Map<String, dynamic> json) {
-  return _LabelerSettings.fromJson(json);
-}
-
 /// @nodoc
 mixin _$LabelerSettings {
   Labeler get labeler => throw _privateConstructorUsedError;
   Map<String, LabelPreference> get labels => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LabelerSettingsCopyWith<LabelerSettings> get copyWith =>
       throw _privateConstructorUsedError;
@@ -120,15 +115,11 @@ class __$$_LabelerSettingsCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
 class _$_LabelerSettings implements _LabelerSettings {
   const _$_LabelerSettings(
       {required this.labeler,
       required final Map<String, LabelPreference> labels})
       : _labels = labels;
-
-  factory _$_LabelerSettings.fromJson(Map<String, dynamic> json) =>
-      _$$_LabelerSettingsFromJson(json);
 
   @override
   final Labeler labeler;
@@ -154,7 +145,6 @@ class _$_LabelerSettings implements _LabelerSettings {
             const DeepCollectionEquality().equals(other._labels, _labels));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, labeler, const DeepCollectionEquality().hash(_labels));
@@ -164,22 +154,12 @@ class _$_LabelerSettings implements _LabelerSettings {
   @pragma('vm:prefer-inline')
   _$$_LabelerSettingsCopyWith<_$_LabelerSettings> get copyWith =>
       __$$_LabelerSettingsCopyWithImpl<_$_LabelerSettings>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_LabelerSettingsToJson(
-      this,
-    );
-  }
 }
 
 abstract class _LabelerSettings implements LabelerSettings {
   const factory _LabelerSettings(
       {required final Labeler labeler,
       required final Map<String, LabelPreference> labels}) = _$_LabelerSettings;
-
-  factory _LabelerSettings.fromJson(Map<String, dynamic> json) =
-      _$_LabelerSettings.fromJson;
 
   @override
   Labeler get labeler;

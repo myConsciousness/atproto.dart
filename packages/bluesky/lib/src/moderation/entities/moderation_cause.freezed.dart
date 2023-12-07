@@ -24,7 +24,6 @@ mixin _$ModerationCause {
     required TResult Function(ModerationCauseBlockOther data) blockOther,
     required TResult Function(ModerationCauseLabel data) label,
     required TResult Function(ModerationCauseMuted data) muted,
-    required TResult Function(Map<String, dynamic> data) noop,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,7 +33,6 @@ mixin _$ModerationCause {
     TResult? Function(ModerationCauseBlockOther data)? blockOther,
     TResult? Function(ModerationCauseLabel data)? label,
     TResult? Function(ModerationCauseMuted data)? muted,
-    TResult? Function(Map<String, dynamic> data)? noop,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,7 +42,6 @@ mixin _$ModerationCause {
     TResult Function(ModerationCauseBlockOther data)? blockOther,
     TResult Function(ModerationCauseLabel data)? label,
     TResult Function(ModerationCauseMuted data)? muted,
-    TResult Function(Map<String, dynamic> data)? noop,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,7 +52,6 @@ mixin _$ModerationCause {
     required TResult Function(UModerationCauseBlockOther value) blockOther,
     required TResult Function(UModerationCauseLabel value) label,
     required TResult Function(UModerationCauseMuted value) muted,
-    required TResult Function(UModerationCauseNoop value) noop,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,7 +61,6 @@ mixin _$ModerationCause {
     TResult? Function(UModerationCauseBlockOther value)? blockOther,
     TResult? Function(UModerationCauseLabel value)? label,
     TResult? Function(UModerationCauseMuted value)? muted,
-    TResult? Function(UModerationCauseNoop value)? noop,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,7 +70,6 @@ mixin _$ModerationCause {
     TResult Function(UModerationCauseBlockOther value)? blockOther,
     TResult Function(UModerationCauseLabel value)? label,
     TResult Function(UModerationCauseMuted value)? muted,
-    TResult Function(UModerationCauseNoop value)? noop,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -142,8 +136,8 @@ class __$$UModerationCauseBlockingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseBlocking extends UModerationCauseBlocking {
-  const _$UModerationCauseBlocking({required this.data}) : super._();
+class _$UModerationCauseBlocking implements UModerationCauseBlocking {
+  const _$UModerationCauseBlocking({required this.data});
 
   @override
   final ModerationCauseBlocking data;
@@ -180,7 +174,6 @@ class _$UModerationCauseBlocking extends UModerationCauseBlocking {
     required TResult Function(ModerationCauseBlockOther data) blockOther,
     required TResult Function(ModerationCauseLabel data) label,
     required TResult Function(ModerationCauseMuted data) muted,
-    required TResult Function(Map<String, dynamic> data) noop,
   }) {
     return blocking(data);
   }
@@ -193,7 +186,6 @@ class _$UModerationCauseBlocking extends UModerationCauseBlocking {
     TResult? Function(ModerationCauseBlockOther data)? blockOther,
     TResult? Function(ModerationCauseLabel data)? label,
     TResult? Function(ModerationCauseMuted data)? muted,
-    TResult? Function(Map<String, dynamic> data)? noop,
   }) {
     return blocking?.call(data);
   }
@@ -206,7 +198,6 @@ class _$UModerationCauseBlocking extends UModerationCauseBlocking {
     TResult Function(ModerationCauseBlockOther data)? blockOther,
     TResult Function(ModerationCauseLabel data)? label,
     TResult Function(ModerationCauseMuted data)? muted,
-    TResult Function(Map<String, dynamic> data)? noop,
     required TResult orElse(),
   }) {
     if (blocking != null) {
@@ -223,7 +214,6 @@ class _$UModerationCauseBlocking extends UModerationCauseBlocking {
     required TResult Function(UModerationCauseBlockOther value) blockOther,
     required TResult Function(UModerationCauseLabel value) label,
     required TResult Function(UModerationCauseMuted value) muted,
-    required TResult Function(UModerationCauseNoop value) noop,
   }) {
     return blocking(this);
   }
@@ -236,7 +226,6 @@ class _$UModerationCauseBlocking extends UModerationCauseBlocking {
     TResult? Function(UModerationCauseBlockOther value)? blockOther,
     TResult? Function(UModerationCauseLabel value)? label,
     TResult? Function(UModerationCauseMuted value)? muted,
-    TResult? Function(UModerationCauseNoop value)? noop,
   }) {
     return blocking?.call(this);
   }
@@ -249,7 +238,6 @@ class _$UModerationCauseBlocking extends UModerationCauseBlocking {
     TResult Function(UModerationCauseBlockOther value)? blockOther,
     TResult Function(UModerationCauseLabel value)? label,
     TResult Function(UModerationCauseMuted value)? muted,
-    TResult Function(UModerationCauseNoop value)? noop,
     required TResult orElse(),
   }) {
     if (blocking != null) {
@@ -259,11 +247,10 @@ class _$UModerationCauseBlocking extends UModerationCauseBlocking {
   }
 }
 
-abstract class UModerationCauseBlocking extends ModerationCause {
+abstract class UModerationCauseBlocking implements ModerationCause {
   const factory UModerationCauseBlocking(
           {required final ModerationCauseBlocking data}) =
       _$UModerationCauseBlocking;
-  const UModerationCauseBlocking._() : super._();
 
   @override
   ModerationCauseBlocking get data;
@@ -316,8 +303,8 @@ class __$$UModerationCauseBlockedByCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseBlockedBy extends UModerationCauseBlockedBy {
-  const _$UModerationCauseBlockedBy({required this.data}) : super._();
+class _$UModerationCauseBlockedBy implements UModerationCauseBlockedBy {
+  const _$UModerationCauseBlockedBy({required this.data});
 
   @override
   final ModerationCauseBlockedBy data;
@@ -353,7 +340,6 @@ class _$UModerationCauseBlockedBy extends UModerationCauseBlockedBy {
     required TResult Function(ModerationCauseBlockOther data) blockOther,
     required TResult Function(ModerationCauseLabel data) label,
     required TResult Function(ModerationCauseMuted data) muted,
-    required TResult Function(Map<String, dynamic> data) noop,
   }) {
     return blockedBy(data);
   }
@@ -366,7 +352,6 @@ class _$UModerationCauseBlockedBy extends UModerationCauseBlockedBy {
     TResult? Function(ModerationCauseBlockOther data)? blockOther,
     TResult? Function(ModerationCauseLabel data)? label,
     TResult? Function(ModerationCauseMuted data)? muted,
-    TResult? Function(Map<String, dynamic> data)? noop,
   }) {
     return blockedBy?.call(data);
   }
@@ -379,7 +364,6 @@ class _$UModerationCauseBlockedBy extends UModerationCauseBlockedBy {
     TResult Function(ModerationCauseBlockOther data)? blockOther,
     TResult Function(ModerationCauseLabel data)? label,
     TResult Function(ModerationCauseMuted data)? muted,
-    TResult Function(Map<String, dynamic> data)? noop,
     required TResult orElse(),
   }) {
     if (blockedBy != null) {
@@ -396,7 +380,6 @@ class _$UModerationCauseBlockedBy extends UModerationCauseBlockedBy {
     required TResult Function(UModerationCauseBlockOther value) blockOther,
     required TResult Function(UModerationCauseLabel value) label,
     required TResult Function(UModerationCauseMuted value) muted,
-    required TResult Function(UModerationCauseNoop value) noop,
   }) {
     return blockedBy(this);
   }
@@ -409,7 +392,6 @@ class _$UModerationCauseBlockedBy extends UModerationCauseBlockedBy {
     TResult? Function(UModerationCauseBlockOther value)? blockOther,
     TResult? Function(UModerationCauseLabel value)? label,
     TResult? Function(UModerationCauseMuted value)? muted,
-    TResult? Function(UModerationCauseNoop value)? noop,
   }) {
     return blockedBy?.call(this);
   }
@@ -422,7 +404,6 @@ class _$UModerationCauseBlockedBy extends UModerationCauseBlockedBy {
     TResult Function(UModerationCauseBlockOther value)? blockOther,
     TResult Function(UModerationCauseLabel value)? label,
     TResult Function(UModerationCauseMuted value)? muted,
-    TResult Function(UModerationCauseNoop value)? noop,
     required TResult orElse(),
   }) {
     if (blockedBy != null) {
@@ -432,11 +413,10 @@ class _$UModerationCauseBlockedBy extends UModerationCauseBlockedBy {
   }
 }
 
-abstract class UModerationCauseBlockedBy extends ModerationCause {
+abstract class UModerationCauseBlockedBy implements ModerationCause {
   const factory UModerationCauseBlockedBy(
           {required final ModerationCauseBlockedBy data}) =
       _$UModerationCauseBlockedBy;
-  const UModerationCauseBlockedBy._() : super._();
 
   @override
   ModerationCauseBlockedBy get data;
@@ -490,8 +470,8 @@ class __$$UModerationCauseBlockOtherCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseBlockOther extends UModerationCauseBlockOther {
-  const _$UModerationCauseBlockOther({required this.data}) : super._();
+class _$UModerationCauseBlockOther implements UModerationCauseBlockOther {
+  const _$UModerationCauseBlockOther({required this.data});
 
   @override
   final ModerationCauseBlockOther data;
@@ -527,7 +507,6 @@ class _$UModerationCauseBlockOther extends UModerationCauseBlockOther {
     required TResult Function(ModerationCauseBlockOther data) blockOther,
     required TResult Function(ModerationCauseLabel data) label,
     required TResult Function(ModerationCauseMuted data) muted,
-    required TResult Function(Map<String, dynamic> data) noop,
   }) {
     return blockOther(data);
   }
@@ -540,7 +519,6 @@ class _$UModerationCauseBlockOther extends UModerationCauseBlockOther {
     TResult? Function(ModerationCauseBlockOther data)? blockOther,
     TResult? Function(ModerationCauseLabel data)? label,
     TResult? Function(ModerationCauseMuted data)? muted,
-    TResult? Function(Map<String, dynamic> data)? noop,
   }) {
     return blockOther?.call(data);
   }
@@ -553,7 +531,6 @@ class _$UModerationCauseBlockOther extends UModerationCauseBlockOther {
     TResult Function(ModerationCauseBlockOther data)? blockOther,
     TResult Function(ModerationCauseLabel data)? label,
     TResult Function(ModerationCauseMuted data)? muted,
-    TResult Function(Map<String, dynamic> data)? noop,
     required TResult orElse(),
   }) {
     if (blockOther != null) {
@@ -570,7 +547,6 @@ class _$UModerationCauseBlockOther extends UModerationCauseBlockOther {
     required TResult Function(UModerationCauseBlockOther value) blockOther,
     required TResult Function(UModerationCauseLabel value) label,
     required TResult Function(UModerationCauseMuted value) muted,
-    required TResult Function(UModerationCauseNoop value) noop,
   }) {
     return blockOther(this);
   }
@@ -583,7 +559,6 @@ class _$UModerationCauseBlockOther extends UModerationCauseBlockOther {
     TResult? Function(UModerationCauseBlockOther value)? blockOther,
     TResult? Function(UModerationCauseLabel value)? label,
     TResult? Function(UModerationCauseMuted value)? muted,
-    TResult? Function(UModerationCauseNoop value)? noop,
   }) {
     return blockOther?.call(this);
   }
@@ -596,7 +571,6 @@ class _$UModerationCauseBlockOther extends UModerationCauseBlockOther {
     TResult Function(UModerationCauseBlockOther value)? blockOther,
     TResult Function(UModerationCauseLabel value)? label,
     TResult Function(UModerationCauseMuted value)? muted,
-    TResult Function(UModerationCauseNoop value)? noop,
     required TResult orElse(),
   }) {
     if (blockOther != null) {
@@ -606,11 +580,10 @@ class _$UModerationCauseBlockOther extends UModerationCauseBlockOther {
   }
 }
 
-abstract class UModerationCauseBlockOther extends ModerationCause {
+abstract class UModerationCauseBlockOther implements ModerationCause {
   const factory UModerationCauseBlockOther(
           {required final ModerationCauseBlockOther data}) =
       _$UModerationCauseBlockOther;
-  const UModerationCauseBlockOther._() : super._();
 
   @override
   ModerationCauseBlockOther get data;
@@ -662,8 +635,8 @@ class __$$UModerationCauseLabelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseLabel extends UModerationCauseLabel {
-  const _$UModerationCauseLabel({required this.data}) : super._();
+class _$UModerationCauseLabel implements UModerationCauseLabel {
+  const _$UModerationCauseLabel({required this.data});
 
   @override
   final ModerationCauseLabel data;
@@ -699,7 +672,6 @@ class _$UModerationCauseLabel extends UModerationCauseLabel {
     required TResult Function(ModerationCauseBlockOther data) blockOther,
     required TResult Function(ModerationCauseLabel data) label,
     required TResult Function(ModerationCauseMuted data) muted,
-    required TResult Function(Map<String, dynamic> data) noop,
   }) {
     return label(data);
   }
@@ -712,7 +684,6 @@ class _$UModerationCauseLabel extends UModerationCauseLabel {
     TResult? Function(ModerationCauseBlockOther data)? blockOther,
     TResult? Function(ModerationCauseLabel data)? label,
     TResult? Function(ModerationCauseMuted data)? muted,
-    TResult? Function(Map<String, dynamic> data)? noop,
   }) {
     return label?.call(data);
   }
@@ -725,7 +696,6 @@ class _$UModerationCauseLabel extends UModerationCauseLabel {
     TResult Function(ModerationCauseBlockOther data)? blockOther,
     TResult Function(ModerationCauseLabel data)? label,
     TResult Function(ModerationCauseMuted data)? muted,
-    TResult Function(Map<String, dynamic> data)? noop,
     required TResult orElse(),
   }) {
     if (label != null) {
@@ -742,7 +712,6 @@ class _$UModerationCauseLabel extends UModerationCauseLabel {
     required TResult Function(UModerationCauseBlockOther value) blockOther,
     required TResult Function(UModerationCauseLabel value) label,
     required TResult Function(UModerationCauseMuted value) muted,
-    required TResult Function(UModerationCauseNoop value) noop,
   }) {
     return label(this);
   }
@@ -755,7 +724,6 @@ class _$UModerationCauseLabel extends UModerationCauseLabel {
     TResult? Function(UModerationCauseBlockOther value)? blockOther,
     TResult? Function(UModerationCauseLabel value)? label,
     TResult? Function(UModerationCauseMuted value)? muted,
-    TResult? Function(UModerationCauseNoop value)? noop,
   }) {
     return label?.call(this);
   }
@@ -768,7 +736,6 @@ class _$UModerationCauseLabel extends UModerationCauseLabel {
     TResult Function(UModerationCauseBlockOther value)? blockOther,
     TResult Function(UModerationCauseLabel value)? label,
     TResult Function(UModerationCauseMuted value)? muted,
-    TResult Function(UModerationCauseNoop value)? noop,
     required TResult orElse(),
   }) {
     if (label != null) {
@@ -778,10 +745,9 @@ class _$UModerationCauseLabel extends UModerationCauseLabel {
   }
 }
 
-abstract class UModerationCauseLabel extends ModerationCause {
+abstract class UModerationCauseLabel implements ModerationCause {
   const factory UModerationCauseLabel(
       {required final ModerationCauseLabel data}) = _$UModerationCauseLabel;
-  const UModerationCauseLabel._() : super._();
 
   @override
   ModerationCauseLabel get data;
@@ -833,8 +799,8 @@ class __$$UModerationCauseMutedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseMuted extends UModerationCauseMuted {
-  const _$UModerationCauseMuted({required this.data}) : super._();
+class _$UModerationCauseMuted implements UModerationCauseMuted {
+  const _$UModerationCauseMuted({required this.data});
 
   @override
   final ModerationCauseMuted data;
@@ -870,7 +836,6 @@ class _$UModerationCauseMuted extends UModerationCauseMuted {
     required TResult Function(ModerationCauseBlockOther data) blockOther,
     required TResult Function(ModerationCauseLabel data) label,
     required TResult Function(ModerationCauseMuted data) muted,
-    required TResult Function(Map<String, dynamic> data) noop,
   }) {
     return muted(data);
   }
@@ -883,7 +848,6 @@ class _$UModerationCauseMuted extends UModerationCauseMuted {
     TResult? Function(ModerationCauseBlockOther data)? blockOther,
     TResult? Function(ModerationCauseLabel data)? label,
     TResult? Function(ModerationCauseMuted data)? muted,
-    TResult? Function(Map<String, dynamic> data)? noop,
   }) {
     return muted?.call(data);
   }
@@ -896,7 +860,6 @@ class _$UModerationCauseMuted extends UModerationCauseMuted {
     TResult Function(ModerationCauseBlockOther data)? blockOther,
     TResult Function(ModerationCauseLabel data)? label,
     TResult Function(ModerationCauseMuted data)? muted,
-    TResult Function(Map<String, dynamic> data)? noop,
     required TResult orElse(),
   }) {
     if (muted != null) {
@@ -913,7 +876,6 @@ class _$UModerationCauseMuted extends UModerationCauseMuted {
     required TResult Function(UModerationCauseBlockOther value) blockOther,
     required TResult Function(UModerationCauseLabel value) label,
     required TResult Function(UModerationCauseMuted value) muted,
-    required TResult Function(UModerationCauseNoop value) noop,
   }) {
     return muted(this);
   }
@@ -926,7 +888,6 @@ class _$UModerationCauseMuted extends UModerationCauseMuted {
     TResult? Function(UModerationCauseBlockOther value)? blockOther,
     TResult? Function(UModerationCauseLabel value)? label,
     TResult? Function(UModerationCauseMuted value)? muted,
-    TResult? Function(UModerationCauseNoop value)? noop,
   }) {
     return muted?.call(this);
   }
@@ -939,7 +900,6 @@ class _$UModerationCauseMuted extends UModerationCauseMuted {
     TResult Function(UModerationCauseBlockOther value)? blockOther,
     TResult Function(UModerationCauseLabel value)? label,
     TResult Function(UModerationCauseMuted value)? muted,
-    TResult Function(UModerationCauseNoop value)? noop,
     required TResult orElse(),
   }) {
     if (muted != null) {
@@ -949,183 +909,13 @@ class _$UModerationCauseMuted extends UModerationCauseMuted {
   }
 }
 
-abstract class UModerationCauseMuted extends ModerationCause {
+abstract class UModerationCauseMuted implements ModerationCause {
   const factory UModerationCauseMuted(
       {required final ModerationCauseMuted data}) = _$UModerationCauseMuted;
-  const UModerationCauseMuted._() : super._();
 
   @override
   ModerationCauseMuted get data;
   @JsonKey(ignore: true)
   _$$UModerationCauseMutedCopyWith<_$UModerationCauseMuted> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UModerationCauseNoopCopyWith<$Res> {
-  factory _$$UModerationCauseNoopCopyWith(_$UModerationCauseNoop value,
-          $Res Function(_$UModerationCauseNoop) then) =
-      __$$UModerationCauseNoopCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
-}
-
-/// @nodoc
-class __$$UModerationCauseNoopCopyWithImpl<$Res>
-    extends _$ModerationCauseCopyWithImpl<$Res, _$UModerationCauseNoop>
-    implements _$$UModerationCauseNoopCopyWith<$Res> {
-  __$$UModerationCauseNoopCopyWithImpl(_$UModerationCauseNoop _value,
-      $Res Function(_$UModerationCauseNoop) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationCauseNoop(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$UModerationCauseNoop extends UModerationCauseNoop {
-  const _$UModerationCauseNoop({required final Map<String, dynamic> data})
-      : _data = data,
-        super._();
-
-  final Map<String, dynamic> _data;
-  @override
-  Map<String, dynamic> get data {
-    if (_data is EqualUnmodifiableMapView) return _data;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_data);
-  }
-
-  @override
-  String toString() {
-    return 'ModerationCause.noop(data: $data)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationCauseNoop &&
-            const DeepCollectionEquality().equals(other._data, _data));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationCauseNoopCopyWith<_$UModerationCauseNoop> get copyWith =>
-      __$$UModerationCauseNoopCopyWithImpl<_$UModerationCauseNoop>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModerationCauseBlocking data) blocking,
-    required TResult Function(ModerationCauseBlockedBy data) blockedBy,
-    required TResult Function(ModerationCauseBlockOther data) blockOther,
-    required TResult Function(ModerationCauseLabel data) label,
-    required TResult Function(ModerationCauseMuted data) muted,
-    required TResult Function(Map<String, dynamic> data) noop,
-  }) {
-    return noop(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModerationCauseBlocking data)? blocking,
-    TResult? Function(ModerationCauseBlockedBy data)? blockedBy,
-    TResult? Function(ModerationCauseBlockOther data)? blockOther,
-    TResult? Function(ModerationCauseLabel data)? label,
-    TResult? Function(ModerationCauseMuted data)? muted,
-    TResult? Function(Map<String, dynamic> data)? noop,
-  }) {
-    return noop?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModerationCauseBlocking data)? blocking,
-    TResult Function(ModerationCauseBlockedBy data)? blockedBy,
-    TResult Function(ModerationCauseBlockOther data)? blockOther,
-    TResult Function(ModerationCauseLabel data)? label,
-    TResult Function(ModerationCauseMuted data)? muted,
-    TResult Function(Map<String, dynamic> data)? noop,
-    required TResult orElse(),
-  }) {
-    if (noop != null) {
-      return noop(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationCauseBlocking value) blocking,
-    required TResult Function(UModerationCauseBlockedBy value) blockedBy,
-    required TResult Function(UModerationCauseBlockOther value) blockOther,
-    required TResult Function(UModerationCauseLabel value) label,
-    required TResult Function(UModerationCauseMuted value) muted,
-    required TResult Function(UModerationCauseNoop value) noop,
-  }) {
-    return noop(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationCauseBlocking value)? blocking,
-    TResult? Function(UModerationCauseBlockedBy value)? blockedBy,
-    TResult? Function(UModerationCauseBlockOther value)? blockOther,
-    TResult? Function(UModerationCauseLabel value)? label,
-    TResult? Function(UModerationCauseMuted value)? muted,
-    TResult? Function(UModerationCauseNoop value)? noop,
-  }) {
-    return noop?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationCauseBlocking value)? blocking,
-    TResult Function(UModerationCauseBlockedBy value)? blockedBy,
-    TResult Function(UModerationCauseBlockOther value)? blockOther,
-    TResult Function(UModerationCauseLabel value)? label,
-    TResult Function(UModerationCauseMuted value)? muted,
-    TResult Function(UModerationCauseNoop value)? noop,
-    required TResult orElse(),
-  }) {
-    if (noop != null) {
-      return noop(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UModerationCauseNoop extends ModerationCause {
-  const factory UModerationCauseNoop(
-      {required final Map<String, dynamic> data}) = _$UModerationCauseNoop;
-  const UModerationCauseNoop._() : super._();
-
-  @override
-  Map<String, dynamic> get data;
-  @JsonKey(ignore: true)
-  _$$UModerationCauseNoopCopyWith<_$UModerationCauseNoop> get copyWith =>
       throw _privateConstructorUsedError;
 }

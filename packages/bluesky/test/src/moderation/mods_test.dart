@@ -237,8 +237,8 @@ void main() {
   });
 
   group(
-      'Applies labeler labels according to the per-labeler then global preferences',
-      () {
+      'Applies labeler labels according to the per-labeler then global '
+      'preferences', () {
     test('porn (ignore for labeler, hide for global)', () {
       final actual = moderateProfile(
         ModerationSubjectProfile.actor(

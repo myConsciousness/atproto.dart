@@ -8,10 +8,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../entities/actor.dart';
 import '../../entities/actor_profile.dart';
+import 'moderation_object.dart';
 
 part 'moderation_subject_profile.freezed.dart';
 
-@freezed
+@moderationObject
 class ModerationSubjectProfile with _$ModerationSubjectProfile {
   const factory ModerationSubjectProfile.actor({
     required Actor data,

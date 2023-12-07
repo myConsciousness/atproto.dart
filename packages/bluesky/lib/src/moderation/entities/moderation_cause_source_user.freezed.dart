@@ -14,16 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ModerationCauseSourceUser _$ModerationCauseSourceUserFromJson(
-    Map<String, dynamic> json) {
-  return _ModerationCauseSourceUser.fromJson(json);
-}
-
 /// @nodoc
 mixin _$ModerationCauseSourceUser {
   String get type => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ModerationCauseSourceUserCopyWith<ModerationCauseSourceUser> get copyWith =>
       throw _privateConstructorUsedError;
@@ -101,12 +95,8 @@ class __$$_ModerationCauseSourceUserCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
 class _$_ModerationCauseSourceUser implements _ModerationCauseSourceUser {
   const _$_ModerationCauseSourceUser({this.type = 'user'});
-
-  factory _$_ModerationCauseSourceUser.fromJson(Map<String, dynamic> json) =>
-      _$$_ModerationCauseSourceUserFromJson(json);
 
   @override
   @JsonKey()
@@ -125,7 +115,6 @@ class _$_ModerationCauseSourceUser implements _ModerationCauseSourceUser {
             (identical(other.type, type) || other.type == type));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, type);
 
@@ -135,21 +124,11 @@ class _$_ModerationCauseSourceUser implements _ModerationCauseSourceUser {
   _$$_ModerationCauseSourceUserCopyWith<_$_ModerationCauseSourceUser>
       get copyWith => __$$_ModerationCauseSourceUserCopyWithImpl<
           _$_ModerationCauseSourceUser>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_ModerationCauseSourceUserToJson(
-      this,
-    );
-  }
 }
 
 abstract class _ModerationCauseSourceUser implements ModerationCauseSourceUser {
   const factory _ModerationCauseSourceUser({final String type}) =
       _$_ModerationCauseSourceUser;
-
-  factory _ModerationCauseSourceUser.fromJson(Map<String, dynamic> json) =
-      _$_ModerationCauseSourceUser.fromJson;
 
   @override
   String get type;

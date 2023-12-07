@@ -14,16 +14,11 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Labeler _$LabelerFromJson(Map<String, dynamic> json) {
-  return _Labeler.fromJson(json);
-}
-
 /// @nodoc
 mixin _$Labeler {
   String get did => throw _privateConstructorUsedError;
   String get displayName => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LabelerCopyWith<Labeler> get copyWith => throw _privateConstructorUsedError;
 }
@@ -103,12 +98,8 @@ class __$$_LabelerCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
 class _$_Labeler implements _Labeler {
   const _$_Labeler({required this.did, required this.displayName});
-
-  factory _$_Labeler.fromJson(Map<String, dynamic> json) =>
-      _$$_LabelerFromJson(json);
 
   @override
   final String did;
@@ -130,7 +121,6 @@ class _$_Labeler implements _Labeler {
                 other.displayName == displayName));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, did, displayName);
 
@@ -139,21 +129,12 @@ class _$_Labeler implements _Labeler {
   @pragma('vm:prefer-inline')
   _$$_LabelerCopyWith<_$_Labeler> get copyWith =>
       __$$_LabelerCopyWithImpl<_$_Labeler>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_LabelerToJson(
-      this,
-    );
-  }
 }
 
 abstract class _Labeler implements Labeler {
   const factory _Labeler(
       {required final String did,
       required final String displayName}) = _$_Labeler;
-
-  factory _Labeler.fromJson(Map<String, dynamic> json) = _$_Labeler.fromJson;
 
   @override
   String get did;

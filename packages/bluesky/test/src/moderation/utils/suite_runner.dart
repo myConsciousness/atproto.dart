@@ -2,9 +2,6 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🎯 Dart imports:
-import 'dart:convert';
-
 // 📦 Package imports:
 import 'package:atproto/atproto.dart';
 import 'package:test/test.dart';
@@ -203,7 +200,7 @@ void expectToBeModerationResult(
       !ignoreCause && actual.cause != null,
       isFalse,
       reason: '$context expected to be a no-op, got '
-          '${_toIndentedJson(actual.cause?.toJson() ?? const {})}',
+          '${actual.cause}',
     );
     expect(
       actual.isAlert,
@@ -258,9 +255,6 @@ void expectToBeModerationResult(
     );
   }
 }
-
-String _toIndentedJson(final Map<String, dynamic> json) =>
-    JsonEncoder.withIndent('  ').convert(json);
 
 String _getCauseType(final ModerationCause? cause) =>
     cause?.whenOrNull(

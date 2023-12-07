@@ -14,17 +14,11 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ProfileModerationDecisions _$ProfileModerationDecisionsFromJson(
-    Map<String, dynamic> json) {
-  return _ProfileModerationDecisions.fromJson(json);
-}
-
 /// @nodoc
 mixin _$ProfileModerationDecisions {
   ModerationDecision get account => throw _privateConstructorUsedError;
   ModerationDecision get profile => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ProfileModerationDecisionsCopyWith<ProfileModerationDecisions>
       get copyWith => throw _privateConstructorUsedError;
@@ -137,13 +131,9 @@ class __$$_ProfileModerationDecisionsCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
 class _$_ProfileModerationDecisions implements _ProfileModerationDecisions {
   const _$_ProfileModerationDecisions(
       {required this.account, required this.profile});
-
-  factory _$_ProfileModerationDecisions.fromJson(Map<String, dynamic> json) =>
-      _$$_ProfileModerationDecisionsFromJson(json);
 
   @override
   final ModerationDecision account;
@@ -164,7 +154,6 @@ class _$_ProfileModerationDecisions implements _ProfileModerationDecisions {
             (identical(other.profile, profile) || other.profile == profile));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, account, profile);
 
@@ -174,13 +163,6 @@ class _$_ProfileModerationDecisions implements _ProfileModerationDecisions {
   _$$_ProfileModerationDecisionsCopyWith<_$_ProfileModerationDecisions>
       get copyWith => __$$_ProfileModerationDecisionsCopyWithImpl<
           _$_ProfileModerationDecisions>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_ProfileModerationDecisionsToJson(
-      this,
-    );
-  }
 }
 
 abstract class _ProfileModerationDecisions
@@ -189,9 +171,6 @@ abstract class _ProfileModerationDecisions
           {required final ModerationDecision account,
           required final ModerationDecision profile}) =
       _$_ProfileModerationDecisions;
-
-  factory _ProfileModerationDecisions.fromJson(Map<String, dynamic> json) =
-      _$_ProfileModerationDecisions.fromJson;
 
   @override
   ModerationDecision get account;

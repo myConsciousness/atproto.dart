@@ -14,14 +14,9 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ModerationCauseLabel _$ModerationCauseLabelFromJson(Map<String, dynamic> json) {
-  return _ModerationCauseLabel.fromJson(json);
-}
-
 /// @nodoc
 mixin _$ModerationCauseLabel {
   String get type => throw _privateConstructorUsedError;
-  @moderationCauseSourceConverter
   ModerationCauseSource get source => throw _privateConstructorUsedError;
   Label get label => throw _privateConstructorUsedError;
   @JsonKey(name: 'labelDef')
@@ -29,7 +24,6 @@ mixin _$ModerationCauseLabel {
   LabelPreference get setting => throw _privateConstructorUsedError;
   int get priority => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ModerationCauseLabelCopyWith<ModerationCauseLabel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -43,7 +37,7 @@ abstract class $ModerationCauseLabelCopyWith<$Res> {
   @useResult
   $Res call(
       {String type,
-      @moderationCauseSourceConverter ModerationCauseSource source,
+      ModerationCauseSource source,
       Label label,
       @JsonKey(name: 'labelDef') LabelDefinition labelDefinition,
       LabelPreference setting,
@@ -138,7 +132,7 @@ abstract class _$$_ModerationCauseLabelCopyWith<$Res>
   @useResult
   $Res call(
       {String type,
-      @moderationCauseSourceConverter ModerationCauseSource source,
+      ModerationCauseSource source,
       Label label,
       @JsonKey(name: 'labelDef') LabelDefinition labelDefinition,
       LabelPreference setting,
@@ -201,24 +195,19 @@ class __$$_ModerationCauseLabelCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
 class _$_ModerationCauseLabel implements _ModerationCauseLabel {
   const _$_ModerationCauseLabel(
       {this.type = 'label',
-      @moderationCauseSourceConverter required this.source,
+      required this.source,
       required this.label,
       @JsonKey(name: 'labelDef') required this.labelDefinition,
       required this.setting,
       required this.priority});
 
-  factory _$_ModerationCauseLabel.fromJson(Map<String, dynamic> json) =>
-      _$$_ModerationCauseLabelFromJson(json);
-
   @override
   @JsonKey()
   final String type;
   @override
-  @moderationCauseSourceConverter
   final ModerationCauseSource source;
   @override
   final Label label;
@@ -250,7 +239,6 @@ class _$_ModerationCauseLabel implements _ModerationCauseLabel {
                 other.priority == priority));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, type, source, label, labelDefinition, setting, priority);
@@ -261,32 +249,20 @@ class _$_ModerationCauseLabel implements _ModerationCauseLabel {
   _$$_ModerationCauseLabelCopyWith<_$_ModerationCauseLabel> get copyWith =>
       __$$_ModerationCauseLabelCopyWithImpl<_$_ModerationCauseLabel>(
           this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_ModerationCauseLabelToJson(
-      this,
-    );
-  }
 }
 
 abstract class _ModerationCauseLabel implements ModerationCauseLabel {
   const factory _ModerationCauseLabel(
       {final String type,
-      @moderationCauseSourceConverter
       required final ModerationCauseSource source,
       required final Label label,
       @JsonKey(name: 'labelDef') required final LabelDefinition labelDefinition,
       required final LabelPreference setting,
       required final int priority}) = _$_ModerationCauseLabel;
 
-  factory _ModerationCauseLabel.fromJson(Map<String, dynamic> json) =
-      _$_ModerationCauseLabel.fromJson;
-
   @override
   String get type;
   @override
-  @moderationCauseSourceConverter
   ModerationCauseSource get source;
   @override
   Label get label;

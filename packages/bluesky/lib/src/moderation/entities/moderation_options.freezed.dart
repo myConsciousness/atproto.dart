@@ -14,19 +14,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ModerationOptions _$ModerationOptionsFromJson(Map<String, dynamic> json) {
-  return _ModerationOptions.fromJson(json);
-}
-
 /// @nodoc
 mixin _$ModerationOptions {
   String get userDid => throw _privateConstructorUsedError;
-  @JsonKey(name: 'adultContentEnabled')
   dynamic get isAdultContentEnabled => throw _privateConstructorUsedError;
   Map<String, LabelPreference> get labels => throw _privateConstructorUsedError;
   List<LabelerSettings> get labelers => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ModerationOptionsCopyWith<ModerationOptions> get copyWith =>
       throw _privateConstructorUsedError;
@@ -40,7 +34,7 @@ abstract class $ModerationOptionsCopyWith<$Res> {
   @useResult
   $Res call(
       {String userDid,
-      @JsonKey(name: 'adultContentEnabled') dynamic isAdultContentEnabled,
+      dynamic isAdultContentEnabled,
       Map<String, LabelPreference> labels,
       List<LabelerSettings> labelers});
 }
@@ -94,7 +88,7 @@ abstract class _$$_ModerationOptionsCopyWith<$Res>
   @useResult
   $Res call(
       {String userDid,
-      @JsonKey(name: 'adultContentEnabled') dynamic isAdultContentEnabled,
+      dynamic isAdultContentEnabled,
       Map<String, LabelPreference> labels,
       List<LabelerSettings> labelers});
 }
@@ -137,23 +131,19 @@ class __$$_ModerationOptionsCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
 class _$_ModerationOptions implements _ModerationOptions {
   const _$_ModerationOptions(
       {required this.userDid,
-      @JsonKey(name: 'adultContentEnabled') this.isAdultContentEnabled = false,
+      this.isAdultContentEnabled = false,
       required final Map<String, LabelPreference> labels,
       required final List<LabelerSettings> labelers})
       : _labels = labels,
         _labelers = labelers;
 
-  factory _$_ModerationOptions.fromJson(Map<String, dynamic> json) =>
-      _$$_ModerationOptionsFromJson(json);
-
   @override
   final String userDid;
   @override
-  @JsonKey(name: 'adultContentEnabled')
+  @JsonKey()
   final dynamic isAdultContentEnabled;
   final Map<String, LabelPreference> _labels;
   @override
@@ -188,7 +178,6 @@ class _$_ModerationOptions implements _ModerationOptions {
             const DeepCollectionEquality().equals(other._labelers, _labelers));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -203,29 +192,18 @@ class _$_ModerationOptions implements _ModerationOptions {
   _$$_ModerationOptionsCopyWith<_$_ModerationOptions> get copyWith =>
       __$$_ModerationOptionsCopyWithImpl<_$_ModerationOptions>(
           this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_ModerationOptionsToJson(
-      this,
-    );
-  }
 }
 
 abstract class _ModerationOptions implements ModerationOptions {
   const factory _ModerationOptions(
       {required final String userDid,
-      @JsonKey(name: 'adultContentEnabled') final dynamic isAdultContentEnabled,
+      final dynamic isAdultContentEnabled,
       required final Map<String, LabelPreference> labels,
       required final List<LabelerSettings> labelers}) = _$_ModerationOptions;
-
-  factory _ModerationOptions.fromJson(Map<String, dynamic> json) =
-      _$_ModerationOptions.fromJson;
 
   @override
   String get userDid;
   @override
-  @JsonKey(name: 'adultContentEnabled')
   dynamic get isAdultContentEnabled;
   @override
   Map<String, LabelPreference> get labels;

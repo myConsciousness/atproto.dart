@@ -14,10 +14,6 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ProfileModeration _$ProfileModerationFromJson(Map<String, dynamic> json) {
-  return _ProfileModeration.fromJson(json);
-}
-
 /// @nodoc
 mixin _$ProfileModeration {
   ProfileModerationDecisions get decisions =>
@@ -26,7 +22,6 @@ mixin _$ProfileModeration {
   ModerationUI get profile => throw _privateConstructorUsedError;
   ModerationUI get avatar => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ProfileModerationCopyWith<ProfileModeration> get copyWith =>
       throw _privateConstructorUsedError;
@@ -184,16 +179,12 @@ class __$$_ProfileModerationCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
 class _$_ProfileModeration implements _ProfileModeration {
   const _$_ProfileModeration(
       {required this.decisions,
       this.account = defaultModerationUI,
       this.profile = defaultModerationUI,
       this.avatar = defaultModerationUI});
-
-  factory _$_ProfileModeration.fromJson(Map<String, dynamic> json) =>
-      _$$_ProfileModerationFromJson(json);
 
   @override
   final ProfileModerationDecisions decisions;
@@ -224,7 +215,6 @@ class _$_ProfileModeration implements _ProfileModeration {
             (identical(other.avatar, avatar) || other.avatar == avatar));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, decisions, account, profile, avatar);
@@ -235,13 +225,6 @@ class _$_ProfileModeration implements _ProfileModeration {
   _$$_ProfileModerationCopyWith<_$_ProfileModeration> get copyWith =>
       __$$_ProfileModerationCopyWithImpl<_$_ProfileModeration>(
           this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_ProfileModerationToJson(
-      this,
-    );
-  }
 }
 
 abstract class _ProfileModeration implements ProfileModeration {
@@ -250,9 +233,6 @@ abstract class _ProfileModeration implements ProfileModeration {
       final ModerationUI account,
       final ModerationUI profile,
       final ModerationUI avatar}) = _$_ProfileModeration;
-
-  factory _ProfileModeration.fromJson(Map<String, dynamic> json) =
-      _$_ProfileModeration.fromJson;
 
   @override
   ProfileModerationDecisions get decisions;

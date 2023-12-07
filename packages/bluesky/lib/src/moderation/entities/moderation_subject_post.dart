@@ -7,10 +7,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../entities/post.dart';
+import 'moderation_object.dart';
 
 part 'moderation_subject_post.freezed.dart';
 
-@freezed
+@moderationObject
 class ModerationSubjectPost with _$ModerationSubjectPost {
   const factory ModerationSubjectPost.post({
     required Post data,

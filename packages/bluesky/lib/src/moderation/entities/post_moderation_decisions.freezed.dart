@@ -14,11 +14,6 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-PostModerationDecisions _$PostModerationDecisionsFromJson(
-    Map<String, dynamic> json) {
-  return _PostModerationDecisions.fromJson(json);
-}
-
 /// @nodoc
 mixin _$PostModerationDecisions {
   ModerationDecision get post => throw _privateConstructorUsedError;
@@ -27,7 +22,6 @@ mixin _$PostModerationDecisions {
   ModerationDecision? get quote => throw _privateConstructorUsedError;
   ModerationDecision? get quotedAccount => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PostModerationDecisionsCopyWith<PostModerationDecisions> get copyWith =>
       throw _privateConstructorUsedError;
@@ -218,7 +212,6 @@ class __$$_PostModerationDecisionsCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
 class _$_PostModerationDecisions implements _PostModerationDecisions {
   const _$_PostModerationDecisions(
       {required this.post,
@@ -226,9 +219,6 @@ class _$_PostModerationDecisions implements _PostModerationDecisions {
       required this.profile,
       this.quote,
       this.quotedAccount});
-
-  factory _$_PostModerationDecisions.fromJson(Map<String, dynamic> json) =>
-      _$$_PostModerationDecisionsFromJson(json);
 
   @override
   final ModerationDecision post;
@@ -259,7 +249,6 @@ class _$_PostModerationDecisions implements _PostModerationDecisions {
                 other.quotedAccount == quotedAccount));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, post, account, profile, quote, quotedAccount);
@@ -271,13 +260,6 @@ class _$_PostModerationDecisions implements _PostModerationDecisions {
       get copyWith =>
           __$$_PostModerationDecisionsCopyWithImpl<_$_PostModerationDecisions>(
               this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_PostModerationDecisionsToJson(
-      this,
-    );
-  }
 }
 
 abstract class _PostModerationDecisions implements PostModerationDecisions {
@@ -287,9 +269,6 @@ abstract class _PostModerationDecisions implements PostModerationDecisions {
       required final ModerationDecision profile,
       final ModerationDecision? quote,
       final ModerationDecision? quotedAccount}) = _$_PostModerationDecisions;
-
-  factory _PostModerationDecisions.fromJson(Map<String, dynamic> json) =
-      _$_PostModerationDecisions.fromJson;
 
   @override
   ModerationDecision get post;

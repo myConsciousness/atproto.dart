@@ -14,17 +14,11 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ModerationCauseSourceList _$ModerationCauseSourceListFromJson(
-    Map<String, dynamic> json) {
-  return _ModerationCauseSourceList.fromJson(json);
-}
-
 /// @nodoc
 mixin _$ModerationCauseSourceList {
   String get type => throw _privateConstructorUsedError;
   ListViewBasic get list => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ModerationCauseSourceListCopyWith<ModerationCauseSourceList> get copyWith =>
       throw _privateConstructorUsedError;
@@ -125,12 +119,8 @@ class __$$_ModerationCauseSourceListCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
 class _$_ModerationCauseSourceList implements _ModerationCauseSourceList {
   const _$_ModerationCauseSourceList({this.type = 'list', required this.list});
-
-  factory _$_ModerationCauseSourceList.fromJson(Map<String, dynamic> json) =>
-      _$$_ModerationCauseSourceListFromJson(json);
 
   @override
   @JsonKey()
@@ -152,7 +142,6 @@ class _$_ModerationCauseSourceList implements _ModerationCauseSourceList {
             (identical(other.list, list) || other.list == list));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, type, list);
 
@@ -162,22 +151,12 @@ class _$_ModerationCauseSourceList implements _ModerationCauseSourceList {
   _$$_ModerationCauseSourceListCopyWith<_$_ModerationCauseSourceList>
       get copyWith => __$$_ModerationCauseSourceListCopyWithImpl<
           _$_ModerationCauseSourceList>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_ModerationCauseSourceListToJson(
-      this,
-    );
-  }
 }
 
 abstract class _ModerationCauseSourceList implements ModerationCauseSourceList {
   const factory _ModerationCauseSourceList(
       {final String type,
       required final ListViewBasic list}) = _$_ModerationCauseSourceList;
-
-  factory _ModerationCauseSourceList.fromJson(Map<String, dynamic> json) =
-      _$_ModerationCauseSourceList.fromJson;
 
   @override
   String get type;

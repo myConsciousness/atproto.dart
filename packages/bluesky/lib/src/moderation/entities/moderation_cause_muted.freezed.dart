@@ -14,18 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ModerationCauseMuted _$ModerationCauseMutedFromJson(Map<String, dynamic> json) {
-  return _ModerationCauseMuted.fromJson(json);
-}
-
 /// @nodoc
 mixin _$ModerationCauseMuted {
   String get type => throw _privateConstructorUsedError;
-  @moderationCauseSourceConverter
   ModerationCauseSource get source => throw _privateConstructorUsedError;
   int get priority => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ModerationCauseMutedCopyWith<ModerationCauseMuted> get copyWith =>
       throw _privateConstructorUsedError;
@@ -37,10 +31,7 @@ abstract class $ModerationCauseMutedCopyWith<$Res> {
           $Res Function(ModerationCauseMuted) then) =
       _$ModerationCauseMutedCopyWithImpl<$Res, ModerationCauseMuted>;
   @useResult
-  $Res call(
-      {String type,
-      @moderationCauseSourceConverter ModerationCauseSource source,
-      int priority});
+  $Res call({String type, ModerationCauseSource source, int priority});
 
   $ModerationCauseSourceCopyWith<$Res> get source;
 }
@@ -96,10 +87,7 @@ abstract class _$$_ModerationCauseMutedCopyWith<$Res>
       __$$_ModerationCauseMutedCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String type,
-      @moderationCauseSourceConverter ModerationCauseSource source,
-      int priority});
+  $Res call({String type, ModerationCauseSource source, int priority});
 
   @override
   $ModerationCauseSourceCopyWith<$Res> get source;
@@ -139,21 +127,14 @@ class __$$_ModerationCauseMutedCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
 class _$_ModerationCauseMuted implements _ModerationCauseMuted {
   const _$_ModerationCauseMuted(
-      {this.type = 'muted',
-      @moderationCauseSourceConverter required this.source,
-      this.priority = 6});
-
-  factory _$_ModerationCauseMuted.fromJson(Map<String, dynamic> json) =>
-      _$$_ModerationCauseMutedFromJson(json);
+      {this.type = 'muted', required this.source, this.priority = 6});
 
   @override
   @JsonKey()
   final String type;
   @override
-  @moderationCauseSourceConverter
   final ModerationCauseSource source;
   @override
   @JsonKey()
@@ -175,7 +156,6 @@ class _$_ModerationCauseMuted implements _ModerationCauseMuted {
                 other.priority == priority));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, type, source, priority);
 
@@ -185,29 +165,17 @@ class _$_ModerationCauseMuted implements _ModerationCauseMuted {
   _$$_ModerationCauseMutedCopyWith<_$_ModerationCauseMuted> get copyWith =>
       __$$_ModerationCauseMutedCopyWithImpl<_$_ModerationCauseMuted>(
           this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_ModerationCauseMutedToJson(
-      this,
-    );
-  }
 }
 
 abstract class _ModerationCauseMuted implements ModerationCauseMuted {
   const factory _ModerationCauseMuted(
       {final String type,
-      @moderationCauseSourceConverter
       required final ModerationCauseSource source,
       final int priority}) = _$_ModerationCauseMuted;
-
-  factory _ModerationCauseMuted.fromJson(Map<String, dynamic> json) =
-      _$_ModerationCauseMuted.fromJson;
 
   @override
   String get type;
   @override
-  @moderationCauseSourceConverter
   ModerationCauseSource get source;
   @override
   int get priority;

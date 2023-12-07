@@ -22,7 +22,6 @@ mixin _$ModerationCauseSource {
     required TResult Function(ModerationCauseSourceUser data) user,
     required TResult Function(ModerationCauseSourceList data) list,
     required TResult Function(ModerationCauseSourceLabeler data) labeler,
-    required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,7 +29,6 @@ mixin _$ModerationCauseSource {
     TResult? Function(ModerationCauseSourceUser data)? user,
     TResult? Function(ModerationCauseSourceList data)? list,
     TResult? Function(ModerationCauseSourceLabeler data)? labeler,
-    TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,7 +36,6 @@ mixin _$ModerationCauseSource {
     TResult Function(ModerationCauseSourceUser data)? user,
     TResult Function(ModerationCauseSourceList data)? list,
     TResult Function(ModerationCauseSourceLabeler data)? labeler,
-    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,7 +44,6 @@ mixin _$ModerationCauseSource {
     required TResult Function(UModerationCauseSourceUser value) user,
     required TResult Function(UModerationCauseSourceList value) list,
     required TResult Function(UModerationCauseSourceLabeler value) labeler,
-    required TResult Function(UModerationCauseSourceUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,7 +51,6 @@ mixin _$ModerationCauseSource {
     TResult? Function(UModerationCauseSourceUser value)? user,
     TResult? Function(UModerationCauseSourceList value)? list,
     TResult? Function(UModerationCauseSourceLabeler value)? labeler,
-    TResult? Function(UModerationCauseSourceUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,7 +58,6 @@ mixin _$ModerationCauseSource {
     TResult Function(UModerationCauseSourceUser value)? user,
     TResult Function(UModerationCauseSourceList value)? list,
     TResult Function(UModerationCauseSourceLabeler value)? labeler,
-    TResult Function(UModerationCauseSourceUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,8 +128,8 @@ class __$$UModerationCauseSourceUserCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseSourceUser extends UModerationCauseSourceUser {
-  const _$UModerationCauseSourceUser({required this.data}) : super._();
+class _$UModerationCauseSourceUser implements UModerationCauseSourceUser {
+  const _$UModerationCauseSourceUser({required this.data});
 
   @override
   final ModerationCauseSourceUser data;
@@ -169,7 +163,6 @@ class _$UModerationCauseSourceUser extends UModerationCauseSourceUser {
     required TResult Function(ModerationCauseSourceUser data) user,
     required TResult Function(ModerationCauseSourceList data) list,
     required TResult Function(ModerationCauseSourceLabeler data) labeler,
-    required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return user(data);
   }
@@ -180,7 +173,6 @@ class _$UModerationCauseSourceUser extends UModerationCauseSourceUser {
     TResult? Function(ModerationCauseSourceUser data)? user,
     TResult? Function(ModerationCauseSourceList data)? list,
     TResult? Function(ModerationCauseSourceLabeler data)? labeler,
-    TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return user?.call(data);
   }
@@ -191,7 +183,6 @@ class _$UModerationCauseSourceUser extends UModerationCauseSourceUser {
     TResult Function(ModerationCauseSourceUser data)? user,
     TResult Function(ModerationCauseSourceList data)? list,
     TResult Function(ModerationCauseSourceLabeler data)? labeler,
-    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
     if (user != null) {
@@ -206,7 +197,6 @@ class _$UModerationCauseSourceUser extends UModerationCauseSourceUser {
     required TResult Function(UModerationCauseSourceUser value) user,
     required TResult Function(UModerationCauseSourceList value) list,
     required TResult Function(UModerationCauseSourceLabeler value) labeler,
-    required TResult Function(UModerationCauseSourceUnknown value) unknown,
   }) {
     return user(this);
   }
@@ -217,7 +207,6 @@ class _$UModerationCauseSourceUser extends UModerationCauseSourceUser {
     TResult? Function(UModerationCauseSourceUser value)? user,
     TResult? Function(UModerationCauseSourceList value)? list,
     TResult? Function(UModerationCauseSourceLabeler value)? labeler,
-    TResult? Function(UModerationCauseSourceUnknown value)? unknown,
   }) {
     return user?.call(this);
   }
@@ -228,7 +217,6 @@ class _$UModerationCauseSourceUser extends UModerationCauseSourceUser {
     TResult Function(UModerationCauseSourceUser value)? user,
     TResult Function(UModerationCauseSourceList value)? list,
     TResult Function(UModerationCauseSourceLabeler value)? labeler,
-    TResult Function(UModerationCauseSourceUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (user != null) {
@@ -238,11 +226,10 @@ class _$UModerationCauseSourceUser extends UModerationCauseSourceUser {
   }
 }
 
-abstract class UModerationCauseSourceUser extends ModerationCauseSource {
+abstract class UModerationCauseSourceUser implements ModerationCauseSource {
   const factory UModerationCauseSourceUser(
           {required final ModerationCauseSourceUser data}) =
       _$UModerationCauseSourceUser;
-  const UModerationCauseSourceUser._() : super._();
 
   @override
   ModerationCauseSourceUser get data;
@@ -297,8 +284,8 @@ class __$$UModerationCauseSourceListCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseSourceList extends UModerationCauseSourceList {
-  const _$UModerationCauseSourceList({required this.data}) : super._();
+class _$UModerationCauseSourceList implements UModerationCauseSourceList {
+  const _$UModerationCauseSourceList({required this.data});
 
   @override
   final ModerationCauseSourceList data;
@@ -332,7 +319,6 @@ class _$UModerationCauseSourceList extends UModerationCauseSourceList {
     required TResult Function(ModerationCauseSourceUser data) user,
     required TResult Function(ModerationCauseSourceList data) list,
     required TResult Function(ModerationCauseSourceLabeler data) labeler,
-    required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return list(data);
   }
@@ -343,7 +329,6 @@ class _$UModerationCauseSourceList extends UModerationCauseSourceList {
     TResult? Function(ModerationCauseSourceUser data)? user,
     TResult? Function(ModerationCauseSourceList data)? list,
     TResult? Function(ModerationCauseSourceLabeler data)? labeler,
-    TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return list?.call(data);
   }
@@ -354,7 +339,6 @@ class _$UModerationCauseSourceList extends UModerationCauseSourceList {
     TResult Function(ModerationCauseSourceUser data)? user,
     TResult Function(ModerationCauseSourceList data)? list,
     TResult Function(ModerationCauseSourceLabeler data)? labeler,
-    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
     if (list != null) {
@@ -369,7 +353,6 @@ class _$UModerationCauseSourceList extends UModerationCauseSourceList {
     required TResult Function(UModerationCauseSourceUser value) user,
     required TResult Function(UModerationCauseSourceList value) list,
     required TResult Function(UModerationCauseSourceLabeler value) labeler,
-    required TResult Function(UModerationCauseSourceUnknown value) unknown,
   }) {
     return list(this);
   }
@@ -380,7 +363,6 @@ class _$UModerationCauseSourceList extends UModerationCauseSourceList {
     TResult? Function(UModerationCauseSourceUser value)? user,
     TResult? Function(UModerationCauseSourceList value)? list,
     TResult? Function(UModerationCauseSourceLabeler value)? labeler,
-    TResult? Function(UModerationCauseSourceUnknown value)? unknown,
   }) {
     return list?.call(this);
   }
@@ -391,7 +373,6 @@ class _$UModerationCauseSourceList extends UModerationCauseSourceList {
     TResult Function(UModerationCauseSourceUser value)? user,
     TResult Function(UModerationCauseSourceList value)? list,
     TResult Function(UModerationCauseSourceLabeler value)? labeler,
-    TResult Function(UModerationCauseSourceUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (list != null) {
@@ -401,11 +382,10 @@ class _$UModerationCauseSourceList extends UModerationCauseSourceList {
   }
 }
 
-abstract class UModerationCauseSourceList extends ModerationCauseSource {
+abstract class UModerationCauseSourceList implements ModerationCauseSource {
   const factory UModerationCauseSourceList(
           {required final ModerationCauseSourceList data}) =
       _$UModerationCauseSourceList;
-  const UModerationCauseSourceList._() : super._();
 
   @override
   ModerationCauseSourceList get data;
@@ -460,8 +440,8 @@ class __$$UModerationCauseSourceLabelerCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseSourceLabeler extends UModerationCauseSourceLabeler {
-  const _$UModerationCauseSourceLabeler({required this.data}) : super._();
+class _$UModerationCauseSourceLabeler implements UModerationCauseSourceLabeler {
+  const _$UModerationCauseSourceLabeler({required this.data});
 
   @override
   final ModerationCauseSourceLabeler data;
@@ -495,7 +475,6 @@ class _$UModerationCauseSourceLabeler extends UModerationCauseSourceLabeler {
     required TResult Function(ModerationCauseSourceUser data) user,
     required TResult Function(ModerationCauseSourceList data) list,
     required TResult Function(ModerationCauseSourceLabeler data) labeler,
-    required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return labeler(data);
   }
@@ -506,7 +485,6 @@ class _$UModerationCauseSourceLabeler extends UModerationCauseSourceLabeler {
     TResult? Function(ModerationCauseSourceUser data)? user,
     TResult? Function(ModerationCauseSourceList data)? list,
     TResult? Function(ModerationCauseSourceLabeler data)? labeler,
-    TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return labeler?.call(data);
   }
@@ -517,7 +495,6 @@ class _$UModerationCauseSourceLabeler extends UModerationCauseSourceLabeler {
     TResult Function(ModerationCauseSourceUser data)? user,
     TResult Function(ModerationCauseSourceList data)? list,
     TResult Function(ModerationCauseSourceLabeler data)? labeler,
-    TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
     if (labeler != null) {
@@ -532,7 +509,6 @@ class _$UModerationCauseSourceLabeler extends UModerationCauseSourceLabeler {
     required TResult Function(UModerationCauseSourceUser value) user,
     required TResult Function(UModerationCauseSourceList value) list,
     required TResult Function(UModerationCauseSourceLabeler value) labeler,
-    required TResult Function(UModerationCauseSourceUnknown value) unknown,
   }) {
     return labeler(this);
   }
@@ -543,7 +519,6 @@ class _$UModerationCauseSourceLabeler extends UModerationCauseSourceLabeler {
     TResult? Function(UModerationCauseSourceUser value)? user,
     TResult? Function(UModerationCauseSourceList value)? list,
     TResult? Function(UModerationCauseSourceLabeler value)? labeler,
-    TResult? Function(UModerationCauseSourceUnknown value)? unknown,
   }) {
     return labeler?.call(this);
   }
@@ -554,7 +529,6 @@ class _$UModerationCauseSourceLabeler extends UModerationCauseSourceLabeler {
     TResult Function(UModerationCauseSourceUser value)? user,
     TResult Function(UModerationCauseSourceList value)? list,
     TResult Function(UModerationCauseSourceLabeler value)? labeler,
-    TResult Function(UModerationCauseSourceUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (labeler != null) {
@@ -564,177 +538,14 @@ class _$UModerationCauseSourceLabeler extends UModerationCauseSourceLabeler {
   }
 }
 
-abstract class UModerationCauseSourceLabeler extends ModerationCauseSource {
+abstract class UModerationCauseSourceLabeler implements ModerationCauseSource {
   const factory UModerationCauseSourceLabeler(
           {required final ModerationCauseSourceLabeler data}) =
       _$UModerationCauseSourceLabeler;
-  const UModerationCauseSourceLabeler._() : super._();
 
   @override
   ModerationCauseSourceLabeler get data;
   @JsonKey(ignore: true)
   _$$UModerationCauseSourceLabelerCopyWith<_$UModerationCauseSourceLabeler>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UModerationCauseSourceUnknownCopyWith<$Res> {
-  factory _$$UModerationCauseSourceUnknownCopyWith(
-          _$UModerationCauseSourceUnknown value,
-          $Res Function(_$UModerationCauseSourceUnknown) then) =
-      __$$UModerationCauseSourceUnknownCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
-}
-
-/// @nodoc
-class __$$UModerationCauseSourceUnknownCopyWithImpl<$Res>
-    extends _$ModerationCauseSourceCopyWithImpl<$Res,
-        _$UModerationCauseSourceUnknown>
-    implements _$$UModerationCauseSourceUnknownCopyWith<$Res> {
-  __$$UModerationCauseSourceUnknownCopyWithImpl(
-      _$UModerationCauseSourceUnknown _value,
-      $Res Function(_$UModerationCauseSourceUnknown) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UModerationCauseSourceUnknown(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$UModerationCauseSourceUnknown extends UModerationCauseSourceUnknown {
-  const _$UModerationCauseSourceUnknown(
-      {required final Map<String, dynamic> data})
-      : _data = data,
-        super._();
-
-  final Map<String, dynamic> _data;
-  @override
-  Map<String, dynamic> get data {
-    if (_data is EqualUnmodifiableMapView) return _data;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_data);
-  }
-
-  @override
-  String toString() {
-    return 'ModerationCauseSource.unknown(data: $data)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationCauseSourceUnknown &&
-            const DeepCollectionEquality().equals(other._data, _data));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UModerationCauseSourceUnknownCopyWith<_$UModerationCauseSourceUnknown>
-      get copyWith => __$$UModerationCauseSourceUnknownCopyWithImpl<
-          _$UModerationCauseSourceUnknown>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModerationCauseSourceUser data) user,
-    required TResult Function(ModerationCauseSourceList data) list,
-    required TResult Function(ModerationCauseSourceLabeler data) labeler,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return unknown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ModerationCauseSourceUser data)? user,
-    TResult? Function(ModerationCauseSourceList data)? list,
-    TResult? Function(ModerationCauseSourceLabeler data)? labeler,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return unknown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModerationCauseSourceUser data)? user,
-    TResult Function(ModerationCauseSourceList data)? list,
-    TResult Function(ModerationCauseSourceLabeler data)? labeler,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationCauseSourceUser value) user,
-    required TResult Function(UModerationCauseSourceList value) list,
-    required TResult Function(UModerationCauseSourceLabeler value) labeler,
-    required TResult Function(UModerationCauseSourceUnknown value) unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationCauseSourceUser value)? user,
-    TResult? Function(UModerationCauseSourceList value)? list,
-    TResult? Function(UModerationCauseSourceLabeler value)? labeler,
-    TResult? Function(UModerationCauseSourceUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationCauseSourceUser value)? user,
-    TResult Function(UModerationCauseSourceList value)? list,
-    TResult Function(UModerationCauseSourceLabeler value)? labeler,
-    TResult Function(UModerationCauseSourceUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UModerationCauseSourceUnknown extends ModerationCauseSource {
-  const factory UModerationCauseSourceUnknown(
-          {required final Map<String, dynamic> data}) =
-      _$UModerationCauseSourceUnknown;
-  const UModerationCauseSourceUnknown._() : super._();
-
-  @override
-  Map<String, dynamic> get data;
-  @JsonKey(ignore: true)
-  _$$UModerationCauseSourceUnknownCopyWith<_$UModerationCauseSourceUnknown>
       get copyWith => throw _privateConstructorUsedError;
 }

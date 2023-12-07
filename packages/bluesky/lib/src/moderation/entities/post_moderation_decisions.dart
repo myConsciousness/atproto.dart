@@ -10,13 +10,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'moderation_decision.dart';
+import 'moderation_object.dart';
 
 part 'post_moderation_decisions.freezed.dart';
-part 'post_moderation_decisions.g.dart';
 
-@freezed
+@moderationObject
 class PostModerationDecisions with _$PostModerationDecisions {
-  @jsonSerializable
   const factory PostModerationDecisions({
     required ModerationDecision post,
     required ModerationDecision account,
@@ -24,11 +23,4 @@ class PostModerationDecisions with _$PostModerationDecisions {
     ModerationDecision? quote,
     ModerationDecision? quotedAccount,
   }) = _PostModerationDecisions;
-
-  /// Creates a [PostModerationDecisions] object from a map ([json]).
-  ///
-  /// This constructor is used for deserialization of the JSON that
-  /// represents a [PostModerationDecisions] object.
-  factory PostModerationDecisions.fromJson(Map<String, Object?> json) =>
-      _$PostModerationDecisionsFromJson(json);
 }
