@@ -2,8 +2,12 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
+import 'dart:convert';
+
 // 📦 Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/entities/actor.dart';
@@ -17,9 +21,13 @@ import 'package:bluesky/src/entities/post.dart';
 import 'package:bluesky/src/entities/post_record.dart';
 import 'package:bluesky/src/moderation/entities/labeler.dart';
 import 'package:bluesky/src/moderation/entities/labeler_settings.dart';
+import 'package:bluesky/src/moderation/entities/moderation_cause.dart';
+import 'package:bluesky/src/moderation/entities/moderation_cause_source.dart';
 import 'package:bluesky/src/moderation/entities/moderation_options.dart';
 import 'package:bluesky/src/moderation/entities/moderation_subject_post.dart';
 import 'package:bluesky/src/moderation/entities/moderation_subject_profile.dart';
+import 'package:bluesky/src/moderation/entities/moderation_ui.dart';
+import 'moderation_behavior_result.dart';
 import 'moderation_behavior_scenario.dart';
 import 'moderation_behavior_scenario_labels.dart';
 import 'moderation_behaviors.dart';
@@ -181,3 +189,89 @@ final class ModerationBehaviorSuiteRunner {
         createdAt: DateTime.now(),
       );
 }
+
+void expectToBeModerationResult(
+  final ModerationUI actual,
+  final ModerationBehaviorResult? expected, {
+  required String context,
+  bool ignoreCause = false,
+}) {
+  final causeType = _getCauseType(actual.cause);
+
+  if (expected == null) {
+    expect(
+      !ignoreCause && actual.cause != null,
+      isFalse,
+      reason: '$context expected to be a no-op, got '
+          '${_toIndentedJson(actual.cause?.toJson() ?? const {})}',
+    );
+    expect(
+      actual.isAlert,
+      isFalse,
+      reason: '$context expected to be a no-op, got alert=true',
+    );
+    expect(
+      actual.isBlur,
+      isFalse,
+      reason: '$context expected to be a no-op, got blur=true',
+    );
+    expect(
+      actual.isFilter,
+      isFalse,
+      reason: '$context expected to be a no-op, got filter=true',
+    );
+    expect(
+      actual.isNoOverride,
+      isFalse,
+      reason: '$context expected to be a no-op, got noOverride=true',
+    );
+  } else {
+    expect(
+      ignoreCause || causeType == expected.cause,
+      isTrue,
+      reason: '$context expected to be ${expected.cause}, got $causeType',
+    );
+    expect(
+      actual.isAlert == expected.isAlert,
+      isTrue,
+      reason: '$context expected to be alert=${expected.isAlert}, got '
+          '${actual.isAlert}',
+    );
+    expect(
+      actual.isBlur == expected.isBlur,
+      isTrue,
+      reason: '$context expected to be blur=${expected.isBlur}, got '
+          '${actual.isBlur}',
+    );
+    expect(
+      actual.isFilter == expected.isFilter,
+      isTrue,
+      reason: '$context expected to be filter=${expected.isFilter}, got '
+          '${actual.isFilter}',
+    );
+    expect(
+      actual.isNoOverride == expected.isNoOverride,
+      isTrue,
+      reason:
+          '$context expected to be noOverride=${expected.isNoOverride}, got '
+          '${actual.isNoOverride}',
+    );
+  }
+}
+
+String _toIndentedJson(final Map<String, dynamic> json) =>
+    JsonEncoder.withIndent('  ').convert(json);
+
+String _getCauseType(final ModerationCause? cause) =>
+    cause?.whenOrNull(
+      blocking: (data) => data.source is UModerationCauseSourceList
+          ? 'blocking-by-list'
+          : data.type,
+      blockedBy: (data) => data.type,
+      blockOther: (data) => data.type,
+      label: (data) => 'label:${data.labelDefinition.id}',
+      muted: (data) => data.source is UModerationCauseSourceList
+          ? 'muted-by-list'
+          : data.type,
+    ) ??
+    '';
