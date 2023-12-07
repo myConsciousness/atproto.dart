@@ -19,16 +19,6 @@ part 'label.g.dart';
 @freezed
 class Label with _$Label {
   /// Constructs a [Label] instance.
-  ///
-  /// [src] is the DID of the actor who created this label.
-  /// [uri] is the AT URI of the record, repository (account),
-  /// or other resource which this label applies to.
-  /// [cid] specifies the specific version of 'uri' resource this label applies
-  /// to. It is optional.
-  /// [value] is the short string name of the value or type of this label.
-  /// [isNegate] indicates whether this is a negation label, overwriting
-  /// a previous label.
-  /// [createdAt] is the timestamp when this label was created.
   @jsonSerializable
   const factory Label({
     /// DID of the actor who created this label.
@@ -46,7 +36,7 @@ class Label with _$Label {
     @JsonKey(name: 'val') required String value,
 
     /// If true, this is a negation label, overwriting a previous label.
-    @JsonKey(name: 'neg') required bool isNegate,
+    @JsonKey(name: 'neg') @Default(false) bool isNegate,
 
     /// Timestamp when this label was created.
     @JsonKey(name: 'cts') required DateTime createdAt,

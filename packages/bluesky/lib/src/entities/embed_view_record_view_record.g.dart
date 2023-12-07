@@ -22,6 +22,12 @@ _$_EmbedViewRecordViewRecord _$$_EmbedViewRecordViewRecordFromJson(Map json) =>
               (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
           value: $checkedConvert('value',
               (v) => postRecordConverter.fromJson(v as Map<String, dynamic>)),
+          labels: $checkedConvert(
+              'labels',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  .toList()),
           embeds: $checkedConvert(
               'embeds',
               (v) => (v as List<dynamic>?)
@@ -52,6 +58,7 @@ Map<String, dynamic> _$$_EmbedViewRecordViewRecordToJson(
     }
   }
 
+  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
   writeNotNull(
       'embeds', instance.embeds?.map(embedViewConverter.toJson).toList());
   val['indexedAt'] = instance.indexedAt.toIso8601String();

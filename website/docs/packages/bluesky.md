@@ -23,6 +23,7 @@ If you are having trouble implementing **RichText** in the Bluesky API, check ou
 - ✅ Supports **[All Major Endpoints](../api_support_matrix.md#bluesky)** for [`app.bsky.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky)
 - ✅ **Well Documented** and **Well Tested**
 - ✅ Supports **Powerful Firehose API**
+- ✅ Supports **Powerful Moderation API**
 - ✅ **100% Null Safety**
 - ✅ **Built In [atproto](https://pub.dev/packages/atproto) Features**
 
@@ -918,3 +919,114 @@ To make the name of a property unique, the following methods are possible.
 - Prefix symbols such a `$` (e.g. `$place`)
 - Prefix with the domain name you own (e.g. `shinyakato.dev.place`)
 :::
+
+### Moderation API
+
+```dart
+import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/moderation.dart' as mod;
+
+void main() {
+  // We call the appropriate moderation function for the content
+  // =
+
+  final profileModeration = mod.moderateProfile(profileView, options);
+  final postModeration = mod.moderatePost(postView, options);
+
+  // We then use the output to decide how to affect rendering
+  // =
+
+  if (postModeration.content.isFilter) {
+    // don't render in feeds or similar
+    // in contexts where this is disruptive (eg threads) you should ignore
+    // this and instead check blur
+  }
+
+  if (postModeration.content.isBlur) {
+    // render the whole object behind a cover
+    // (use postModeration.content.cause to explain)
+    if (postModeration.content.isNoOverride) {
+      // do not allow the cover the be removed
+    }
+  }
+
+  if (postModeration.content.isAlert) {
+    // render a warning on the content
+    //(use postModeration.content.cause to explain)
+  }
+
+  if (postModeration.embed.isBlur) {
+    // render the embedded media behind a cover
+    // (use postModeration.embed.cause to explain)
+    if (postModeration.embed.isNoOverride) {
+      // do not allow the cover the be removed
+    }
+  }
+
+  if (postModeration.embed.isAlert) {
+    // render a warning on the embedded media
+    //(use postModeration.embed.cause to explain)
+  }
+
+  if (postModeration.avatar.isBlur) {
+    // render the avatar behind a cover
+  }
+
+  if (postModeration.avatar.isAlert) {
+    // render an alert on the avatar
+  }
+}
+
+// The options passed into `apply()` supply the user's preferences
+// =
+
+mod.ModerationOptions get options => mod.ModerationOptions(
+      // the logged-in user's DID
+      userDid: '...',
+
+      // is adult content allowed?
+      isAdultContentEnabled: true,
+
+      // the global label settings (used on self-labels)
+      labels: {
+        mod.KnownLabel.porn.value: mod.LabelPreference.hide,
+      },
+
+      // the per-labeler settings
+      labelers: [
+        mod.LabelerSettings(
+          labeler: mod.Labeler(
+            did: '...',
+            displayName: 'My mod service',
+          ),
+          labels: {
+            mod.KnownLabel.porn.value: mod.LabelPreference.ignore,
+          },
+        ),
+      ],
+    );
+
+mod.ModerationSubjectProfile get profileView =>
+    mod.ModerationSubjectProfile.actor(
+      data: bsky.Actor(
+        did: 'did:web:bob.test',
+        handle: 'bob.test',
+      ),
+    );
+
+mod.ModerationSubjectPost get postView => mod.ModerationSubjectPost.post(
+      data: bsky.Post(
+        record: bsky.PostRecord(
+          text: 'Hello!',
+          createdAt: DateTime.now(),
+        ),
+        author: bsky.Actor(
+          did: 'did:web:bob.test',
+          handle: 'bob.test',
+        ),
+        uri: bsky.AtUri.parse('at://did:web:bob.test/test/fake'),
+        cid: 'fake',
+        indexedAt: DateTime.now(),
+      ),
+    );
+```
