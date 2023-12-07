@@ -101,4 +101,18 @@ void main() {
     expect(KnownLabel.scam.value, 'scam');
     expect(KnownLabel.misleading.value, 'misleading');
   });
+
+  group('.valueOf', () {
+    test('known value', () {
+      final actual = KnownLabel.valueOf('spam');
+
+      expect(actual, KnownLabel.spam);
+    });
+
+    test('unknown value', () {
+      final actual = KnownLabel.valueOf('!unknown!');
+
+      expect(actual, isNull);
+    });
+  });
 }

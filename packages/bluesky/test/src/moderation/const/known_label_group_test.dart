@@ -44,4 +44,18 @@ void main() {
     expect(KnownLabelGroup.spam.value, 'spam');
     expect(KnownLabelGroup.misinfo.value, 'misinfo');
   });
+
+  group('.valueOf', () {
+    test('known value', () {
+      final actual = KnownLabelGroup.valueOf('spam');
+
+      expect(actual, KnownLabelGroup.spam);
+    });
+
+    test('unknown value', () {
+      final actual = KnownLabelGroup.valueOf('!unknown!');
+
+      expect(actual, isNull);
+    });
+  });
 }
