@@ -2,7 +2,7 @@
 
 ## v0.11.0
 
-- Added moderation APIs and exposed `bluesky/moderation` package. ([#1006](https://github.com/myConsciousness/atproto.dart/issues/1006))
+- Added moderation APIs and exposed `bluesky/moderation` package. See more [details](https://atprotodart.com/docs/packages/bluesky/#moderation-api). ([#1006](https://github.com/myConsciousness/atproto.dart/issues/1006))
   - `.moderatePost`
   - `.moderateProfile`
 
