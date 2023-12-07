@@ -2,6 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// coverage:ignore-file
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
