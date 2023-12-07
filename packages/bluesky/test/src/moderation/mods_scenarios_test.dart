@@ -11,7 +11,6 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/moderation/entities/moderation_cause.dart';
-import 'package:bluesky/src/moderation/entities/moderation_cause_source.dart';
 import 'package:bluesky/src/moderation/entities/moderation_cause_source_list.dart';
 import 'package:bluesky/src/moderation/entities/moderation_ui.dart';
 import 'package:bluesky/src/moderation/mods.dart';

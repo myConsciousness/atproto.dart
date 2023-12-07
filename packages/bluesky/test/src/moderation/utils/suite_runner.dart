@@ -61,12 +61,28 @@ final class ModerationBehaviorSuiteRunner {
                   record: EmbedViewRecordView.record(
                     data: EmbedViewRecordViewRecord(
                       type: 'app.bsky.embed.record#viewRecord',
-                      uri: AtUri.parse('at://${author.did}/app.bsky.post/fake'),
-                      cid: 'fake',
-                      author: author,
                       value: PostRecord(
                         text: 'Quoted post text',
                         createdAt: DateTime.now(),
+                      ),
+                      uri: AtUri.parse('at://${author.did}/app.bsky.post/fake'),
+                      cid: 'fake',
+                      labels: scenario.labels.quotedPost
+                          ?.map(
+                            (e) => Label(
+                              src: 'did:plc:fake-labeler',
+                              uri: 'at://${author.did}/app.bsky.feed.post/fake',
+                              value: e,
+                              isNegate: false,
+                              createdAt: DateTime.now(),
+                            ),
+                          )
+                          .toList(),
+                      author: _getProfileViewBasic(
+                        scenario.quoteAuthor!,
+                        scenario.labels.copyWith(
+                          account: scenario.labels.quotedAccount,
+                        ),
                       ),
                       indexedAt: DateTime.now(),
                     ),

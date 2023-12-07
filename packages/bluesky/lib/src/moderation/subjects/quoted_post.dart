@@ -4,7 +4,6 @@
 
 // 🌎 Project imports:
 import '../../entities/embed_view_record.dart';
-import '../../entities/embed_view_record_view.dart';
 import '../../entities/embed_view_record_view_blocked.dart';
 import '../../entities/embed_view_record_view_record.dart';
 import '../../entities/embed_view_record_with_media.dart';
@@ -18,7 +17,7 @@ ModerationDecision decideQuotedPost(
   final EmbedViewRecord subject,
   final ModerationOptions options,
 ) {
-  if (subject.record is UEmbedViewRecordViewRecord) {
+  if (subject.record.data is EmbedViewRecordViewRecord) {
     final viewRecord = subject.record.data as EmbedViewRecordViewRecord;
     final accumulator = ModerationCauseAccumulator(viewRecord.author.did);
 
@@ -29,7 +28,7 @@ ModerationDecision decideQuotedPost(
     }
 
     return accumulator.finalizeDecision(options);
-  } else if (subject.record is UEmbedViewRecordViewBlocked) {
+  } else if (subject.record.data is EmbedViewRecordViewBlocked) {
     final blockedRecord = subject.record.data as EmbedViewRecordViewBlocked;
     final accumulator = ModerationCauseAccumulator(blockedRecord.author.did);
 
@@ -51,7 +50,7 @@ ModerationDecision decideQuotedPostAccount(
   final EmbedViewRecord subject,
   final ModerationOptions options,
 ) {
-  if (subject.record is UEmbedViewRecordViewRecord) {
+  if (subject.record.data is EmbedViewRecordViewRecord) {
     final viewRecord = subject.record.data as EmbedViewRecordViewRecord;
 
     return decideAccount(
@@ -67,7 +66,7 @@ ModerationDecision decideQuotedPostWithMedia(
   final EmbedViewRecordWithMedia subject,
   final ModerationOptions options,
 ) {
-  if (subject.record.record is UEmbedViewRecordViewRecord) {
+  if (subject.record.record.data is EmbedViewRecordViewRecord) {
     final viewRecord = subject.record.record.data as EmbedViewRecordViewRecord;
     final accumulator = ModerationCauseAccumulator(viewRecord.author.did);
 
@@ -78,7 +77,7 @@ ModerationDecision decideQuotedPostWithMedia(
     }
 
     return accumulator.finalizeDecision(options);
-  } else if (subject.record.record is UEmbedViewRecordViewBlocked) {
+  } else if (subject.record.record.data is EmbedViewRecordViewBlocked) {
     final blockedRecord =
         subject.record.record.data as EmbedViewRecordViewBlocked;
     final accumulator = ModerationCauseAccumulator(blockedRecord.author.did);
@@ -101,7 +100,7 @@ ModerationDecision decideQuotedPostWithMediaAccount(
   final EmbedViewRecordWithMedia subject,
   final ModerationOptions options,
 ) {
-  if (subject.record.record is UEmbedViewRecordViewRecord) {
+  if (subject.record.record.data is EmbedViewRecordViewRecord) {
     final viewRecord = subject.record.record.data as EmbedViewRecordViewRecord;
 
     return decideAccount(
