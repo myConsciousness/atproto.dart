@@ -15,6 +15,8 @@ import 'moderation_cause.dart';
 part 'moderation_ui.freezed.dart';
 part 'moderation_ui.g.dart';
 
+const defaultModerationUI = ModerationUI();
+
 @freezed
 class ModerationUI with _$ModerationUI {
   // ignore: unused_element

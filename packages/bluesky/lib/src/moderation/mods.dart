@@ -4,9 +4,6 @@
 
 // 🌎 Project imports:
 import 'entities/moderation_cause.dart';
-import 'entities/moderation_cause_blocked_by.dart';
-import 'entities/moderation_cause_blocking.dart';
-import 'entities/moderation_cause_muted.dart';
 import 'entities/moderation_decision.dart';
 import 'entities/moderation_options.dart';
 import 'entities/moderation_subject_post.dart';
@@ -47,9 +44,9 @@ ProfileModeration moderateProfile(
   final avatar = _decideProfileAvatar(account, profile);
 
   // don't blur the account for blocking & muting
-  if (account.cause?.data is ModerationCauseBlocking ||
-      account.cause?.data is ModerationCauseBlockedBy ||
-      account.cause?.data is ModerationCauseMuted) {
+  if (account.cause is UModerationCauseBlocking ||
+      account.cause is UModerationCauseBlockedBy ||
+      account.cause is UModerationCauseMuted) {
     account = account.copyWith(
       isBlur: false,
       isNoOverride: false,
@@ -63,10 +60,10 @@ ProfileModeration moderateProfile(
     ),
     account: account.isFilter || account.isBlur || account.isAlert
         ? account.toModerationUI()
-        : null,
+        : defaultModerationUI,
     profile: profile.isFilter || profile.isBlur || profile.isAlert
         ? profile.toModerationUI()
-        : null,
+        : defaultModerationUI,
     avatar: avatar,
   );
 }
@@ -191,10 +188,10 @@ ModerationUI _decidePostAvatar(
 ) {
   bool isBlur = false;
   if ((account.isBlur || account.isBlurMedia) &&
-      account.cause?.data is! ModerationCauseMuted) {
+      account.cause is! UModerationCauseMuted) {
     isBlur = true;
   } else if ((profile.isBlur || profile.isBlurMedia) &&
-      profile.cause?.data is! ModerationCauseMuted) {
+      profile.cause is! UModerationCauseMuted) {
     isBlur = true;
   }
 
@@ -205,7 +202,7 @@ ModerationUI _decidePostAvatar(
   );
 }
 
-ModerationUI? _decidePostEmbed(
+ModerationUI _decidePostEmbed(
   final ModerationDecision mergedPost,
   final ModerationDecision post,
   final ModerationDecision account,
@@ -235,5 +232,5 @@ ModerationUI? _decidePostEmbed(
     );
   }
 
-  return null;
+  return defaultModerationUI;
 }

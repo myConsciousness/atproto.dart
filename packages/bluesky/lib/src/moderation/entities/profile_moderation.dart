@@ -20,9 +20,9 @@ class ProfileModeration with _$ProfileModeration {
   @jsonSerializable
   const factory ProfileModeration({
     required ProfileModerationDecisions decisions,
-    required ModerationUI? account,
-    required ModerationUI? profile,
-    required ModerationUI avatar,
+    @Default(defaultModerationUI) ModerationUI account,
+    @Default(defaultModerationUI) ModerationUI profile,
+    @Default(defaultModerationUI) ModerationUI avatar,
   }) = _ProfileModeration;
 
   /// Creates a [ProfileModeration] object from a map ([json]).

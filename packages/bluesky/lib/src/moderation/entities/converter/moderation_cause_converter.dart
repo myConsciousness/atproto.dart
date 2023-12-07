@@ -46,9 +46,9 @@ final class _ModerationCauseConverter
         );
       }
 
-      return ModerationCause.unknown(data: json);
+      return ModerationCause.noop(data: json);
     } catch (_) {
-      return ModerationCause.unknown(data: json);
+      return ModerationCause.noop(data: json);
     }
   }
 
@@ -59,6 +59,6 @@ final class _ModerationCauseConverter
         blockOther: (data) => data.toJson(),
         label: (data) => data.toJson(),
         muted: (data) => data.toJson(),
-        unknown: (data) => data,
+        noop: (data) => data,
       );
 }

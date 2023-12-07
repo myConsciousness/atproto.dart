@@ -40,13 +40,9 @@ class ModerationCause with _$ModerationCause {
     required ModerationCauseMuted data,
   }) = UModerationCauseMuted;
 
-  /// This constructor is used when the post type is not supported or is not
-  /// expected.
-  ///
-  /// It includes the raw data map for further unknown feature.
-  const factory ModerationCause.unknown({
+  const factory ModerationCause.noop({
     required Map<String, dynamic> data,
-  }) = UModerationCauseUnknown;
+  }) = UModerationCauseNoop;
 
   Map<String, dynamic> toJson() => moderationCauseConverter.toJson(this);
 }

@@ -40,13 +40,13 @@ void main() {
         );
 
         expectToBeModerationResult(
-          actual.account ?? ModerationUI(),
+          actual.account,
           scenario.behaviors.account,
           context: 'account',
         );
 
         expectToBeModerationResult(
-          actual.profile ?? ModerationUI(),
+          actual.profile,
           scenario.behaviors.profile,
           context: 'profile content',
         );
@@ -90,7 +90,7 @@ void main() {
         );
 
         expectToBeModerationResult(
-          actual.embed ?? ModerationUI(),
+          actual.embed,
           scenario.behaviors.embed,
           context: 'post embed',
         );

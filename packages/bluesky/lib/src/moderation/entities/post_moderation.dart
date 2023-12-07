@@ -20,9 +20,9 @@ class PostModeration with _$PostModeration {
   @jsonSerializable
   const factory PostModeration({
     required PostModerationDecisions decisions,
-    required ModerationUI content,
-    required ModerationUI avatar,
-    required ModerationUI? embed,
+    @Default(defaultModerationUI) ModerationUI content,
+    @Default(defaultModerationUI) ModerationUI avatar,
+    @Default(defaultModerationUI) ModerationUI embed,
   }) = _PostModeration;
 
   /// Creates a [PostModeration] object from a map ([json]).

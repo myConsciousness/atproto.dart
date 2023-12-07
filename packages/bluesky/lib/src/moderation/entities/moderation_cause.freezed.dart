@@ -24,7 +24,7 @@ mixin _$ModerationCause {
     required TResult Function(ModerationCauseBlockOther data) blockOther,
     required TResult Function(ModerationCauseLabel data) label,
     required TResult Function(ModerationCauseMuted data) muted,
-    required TResult Function(Map<String, dynamic> data) unknown,
+    required TResult Function(Map<String, dynamic> data) noop,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,7 +34,7 @@ mixin _$ModerationCause {
     TResult? Function(ModerationCauseBlockOther data)? blockOther,
     TResult? Function(ModerationCauseLabel data)? label,
     TResult? Function(ModerationCauseMuted data)? muted,
-    TResult? Function(Map<String, dynamic> data)? unknown,
+    TResult? Function(Map<String, dynamic> data)? noop,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,7 +44,7 @@ mixin _$ModerationCause {
     TResult Function(ModerationCauseBlockOther data)? blockOther,
     TResult Function(ModerationCauseLabel data)? label,
     TResult Function(ModerationCauseMuted data)? muted,
-    TResult Function(Map<String, dynamic> data)? unknown,
+    TResult Function(Map<String, dynamic> data)? noop,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,7 +55,7 @@ mixin _$ModerationCause {
     required TResult Function(UModerationCauseBlockOther value) blockOther,
     required TResult Function(UModerationCauseLabel value) label,
     required TResult Function(UModerationCauseMuted value) muted,
-    required TResult Function(UModerationCauseUnknown value) unknown,
+    required TResult Function(UModerationCauseNoop value) noop,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,7 +65,7 @@ mixin _$ModerationCause {
     TResult? Function(UModerationCauseBlockOther value)? blockOther,
     TResult? Function(UModerationCauseLabel value)? label,
     TResult? Function(UModerationCauseMuted value)? muted,
-    TResult? Function(UModerationCauseUnknown value)? unknown,
+    TResult? Function(UModerationCauseNoop value)? noop,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,7 +75,7 @@ mixin _$ModerationCause {
     TResult Function(UModerationCauseBlockOther value)? blockOther,
     TResult Function(UModerationCauseLabel value)? label,
     TResult Function(UModerationCauseMuted value)? muted,
-    TResult Function(UModerationCauseUnknown value)? unknown,
+    TResult Function(UModerationCauseNoop value)? noop,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -180,7 +180,7 @@ class _$UModerationCauseBlocking extends UModerationCauseBlocking {
     required TResult Function(ModerationCauseBlockOther data) blockOther,
     required TResult Function(ModerationCauseLabel data) label,
     required TResult Function(ModerationCauseMuted data) muted,
-    required TResult Function(Map<String, dynamic> data) unknown,
+    required TResult Function(Map<String, dynamic> data) noop,
   }) {
     return blocking(data);
   }
@@ -193,7 +193,7 @@ class _$UModerationCauseBlocking extends UModerationCauseBlocking {
     TResult? Function(ModerationCauseBlockOther data)? blockOther,
     TResult? Function(ModerationCauseLabel data)? label,
     TResult? Function(ModerationCauseMuted data)? muted,
-    TResult? Function(Map<String, dynamic> data)? unknown,
+    TResult? Function(Map<String, dynamic> data)? noop,
   }) {
     return blocking?.call(data);
   }
@@ -206,7 +206,7 @@ class _$UModerationCauseBlocking extends UModerationCauseBlocking {
     TResult Function(ModerationCauseBlockOther data)? blockOther,
     TResult Function(ModerationCauseLabel data)? label,
     TResult Function(ModerationCauseMuted data)? muted,
-    TResult Function(Map<String, dynamic> data)? unknown,
+    TResult Function(Map<String, dynamic> data)? noop,
     required TResult orElse(),
   }) {
     if (blocking != null) {
@@ -223,7 +223,7 @@ class _$UModerationCauseBlocking extends UModerationCauseBlocking {
     required TResult Function(UModerationCauseBlockOther value) blockOther,
     required TResult Function(UModerationCauseLabel value) label,
     required TResult Function(UModerationCauseMuted value) muted,
-    required TResult Function(UModerationCauseUnknown value) unknown,
+    required TResult Function(UModerationCauseNoop value) noop,
   }) {
     return blocking(this);
   }
@@ -236,7 +236,7 @@ class _$UModerationCauseBlocking extends UModerationCauseBlocking {
     TResult? Function(UModerationCauseBlockOther value)? blockOther,
     TResult? Function(UModerationCauseLabel value)? label,
     TResult? Function(UModerationCauseMuted value)? muted,
-    TResult? Function(UModerationCauseUnknown value)? unknown,
+    TResult? Function(UModerationCauseNoop value)? noop,
   }) {
     return blocking?.call(this);
   }
@@ -249,7 +249,7 @@ class _$UModerationCauseBlocking extends UModerationCauseBlocking {
     TResult Function(UModerationCauseBlockOther value)? blockOther,
     TResult Function(UModerationCauseLabel value)? label,
     TResult Function(UModerationCauseMuted value)? muted,
-    TResult Function(UModerationCauseUnknown value)? unknown,
+    TResult Function(UModerationCauseNoop value)? noop,
     required TResult orElse(),
   }) {
     if (blocking != null) {
@@ -353,7 +353,7 @@ class _$UModerationCauseBlockedBy extends UModerationCauseBlockedBy {
     required TResult Function(ModerationCauseBlockOther data) blockOther,
     required TResult Function(ModerationCauseLabel data) label,
     required TResult Function(ModerationCauseMuted data) muted,
-    required TResult Function(Map<String, dynamic> data) unknown,
+    required TResult Function(Map<String, dynamic> data) noop,
   }) {
     return blockedBy(data);
   }
@@ -366,7 +366,7 @@ class _$UModerationCauseBlockedBy extends UModerationCauseBlockedBy {
     TResult? Function(ModerationCauseBlockOther data)? blockOther,
     TResult? Function(ModerationCauseLabel data)? label,
     TResult? Function(ModerationCauseMuted data)? muted,
-    TResult? Function(Map<String, dynamic> data)? unknown,
+    TResult? Function(Map<String, dynamic> data)? noop,
   }) {
     return blockedBy?.call(data);
   }
@@ -379,7 +379,7 @@ class _$UModerationCauseBlockedBy extends UModerationCauseBlockedBy {
     TResult Function(ModerationCauseBlockOther data)? blockOther,
     TResult Function(ModerationCauseLabel data)? label,
     TResult Function(ModerationCauseMuted data)? muted,
-    TResult Function(Map<String, dynamic> data)? unknown,
+    TResult Function(Map<String, dynamic> data)? noop,
     required TResult orElse(),
   }) {
     if (blockedBy != null) {
@@ -396,7 +396,7 @@ class _$UModerationCauseBlockedBy extends UModerationCauseBlockedBy {
     required TResult Function(UModerationCauseBlockOther value) blockOther,
     required TResult Function(UModerationCauseLabel value) label,
     required TResult Function(UModerationCauseMuted value) muted,
-    required TResult Function(UModerationCauseUnknown value) unknown,
+    required TResult Function(UModerationCauseNoop value) noop,
   }) {
     return blockedBy(this);
   }
@@ -409,7 +409,7 @@ class _$UModerationCauseBlockedBy extends UModerationCauseBlockedBy {
     TResult? Function(UModerationCauseBlockOther value)? blockOther,
     TResult? Function(UModerationCauseLabel value)? label,
     TResult? Function(UModerationCauseMuted value)? muted,
-    TResult? Function(UModerationCauseUnknown value)? unknown,
+    TResult? Function(UModerationCauseNoop value)? noop,
   }) {
     return blockedBy?.call(this);
   }
@@ -422,7 +422,7 @@ class _$UModerationCauseBlockedBy extends UModerationCauseBlockedBy {
     TResult Function(UModerationCauseBlockOther value)? blockOther,
     TResult Function(UModerationCauseLabel value)? label,
     TResult Function(UModerationCauseMuted value)? muted,
-    TResult Function(UModerationCauseUnknown value)? unknown,
+    TResult Function(UModerationCauseNoop value)? noop,
     required TResult orElse(),
   }) {
     if (blockedBy != null) {
@@ -527,7 +527,7 @@ class _$UModerationCauseBlockOther extends UModerationCauseBlockOther {
     required TResult Function(ModerationCauseBlockOther data) blockOther,
     required TResult Function(ModerationCauseLabel data) label,
     required TResult Function(ModerationCauseMuted data) muted,
-    required TResult Function(Map<String, dynamic> data) unknown,
+    required TResult Function(Map<String, dynamic> data) noop,
   }) {
     return blockOther(data);
   }
@@ -540,7 +540,7 @@ class _$UModerationCauseBlockOther extends UModerationCauseBlockOther {
     TResult? Function(ModerationCauseBlockOther data)? blockOther,
     TResult? Function(ModerationCauseLabel data)? label,
     TResult? Function(ModerationCauseMuted data)? muted,
-    TResult? Function(Map<String, dynamic> data)? unknown,
+    TResult? Function(Map<String, dynamic> data)? noop,
   }) {
     return blockOther?.call(data);
   }
@@ -553,7 +553,7 @@ class _$UModerationCauseBlockOther extends UModerationCauseBlockOther {
     TResult Function(ModerationCauseBlockOther data)? blockOther,
     TResult Function(ModerationCauseLabel data)? label,
     TResult Function(ModerationCauseMuted data)? muted,
-    TResult Function(Map<String, dynamic> data)? unknown,
+    TResult Function(Map<String, dynamic> data)? noop,
     required TResult orElse(),
   }) {
     if (blockOther != null) {
@@ -570,7 +570,7 @@ class _$UModerationCauseBlockOther extends UModerationCauseBlockOther {
     required TResult Function(UModerationCauseBlockOther value) blockOther,
     required TResult Function(UModerationCauseLabel value) label,
     required TResult Function(UModerationCauseMuted value) muted,
-    required TResult Function(UModerationCauseUnknown value) unknown,
+    required TResult Function(UModerationCauseNoop value) noop,
   }) {
     return blockOther(this);
   }
@@ -583,7 +583,7 @@ class _$UModerationCauseBlockOther extends UModerationCauseBlockOther {
     TResult? Function(UModerationCauseBlockOther value)? blockOther,
     TResult? Function(UModerationCauseLabel value)? label,
     TResult? Function(UModerationCauseMuted value)? muted,
-    TResult? Function(UModerationCauseUnknown value)? unknown,
+    TResult? Function(UModerationCauseNoop value)? noop,
   }) {
     return blockOther?.call(this);
   }
@@ -596,7 +596,7 @@ class _$UModerationCauseBlockOther extends UModerationCauseBlockOther {
     TResult Function(UModerationCauseBlockOther value)? blockOther,
     TResult Function(UModerationCauseLabel value)? label,
     TResult Function(UModerationCauseMuted value)? muted,
-    TResult Function(UModerationCauseUnknown value)? unknown,
+    TResult Function(UModerationCauseNoop value)? noop,
     required TResult orElse(),
   }) {
     if (blockOther != null) {
@@ -699,7 +699,7 @@ class _$UModerationCauseLabel extends UModerationCauseLabel {
     required TResult Function(ModerationCauseBlockOther data) blockOther,
     required TResult Function(ModerationCauseLabel data) label,
     required TResult Function(ModerationCauseMuted data) muted,
-    required TResult Function(Map<String, dynamic> data) unknown,
+    required TResult Function(Map<String, dynamic> data) noop,
   }) {
     return label(data);
   }
@@ -712,7 +712,7 @@ class _$UModerationCauseLabel extends UModerationCauseLabel {
     TResult? Function(ModerationCauseBlockOther data)? blockOther,
     TResult? Function(ModerationCauseLabel data)? label,
     TResult? Function(ModerationCauseMuted data)? muted,
-    TResult? Function(Map<String, dynamic> data)? unknown,
+    TResult? Function(Map<String, dynamic> data)? noop,
   }) {
     return label?.call(data);
   }
@@ -725,7 +725,7 @@ class _$UModerationCauseLabel extends UModerationCauseLabel {
     TResult Function(ModerationCauseBlockOther data)? blockOther,
     TResult Function(ModerationCauseLabel data)? label,
     TResult Function(ModerationCauseMuted data)? muted,
-    TResult Function(Map<String, dynamic> data)? unknown,
+    TResult Function(Map<String, dynamic> data)? noop,
     required TResult orElse(),
   }) {
     if (label != null) {
@@ -742,7 +742,7 @@ class _$UModerationCauseLabel extends UModerationCauseLabel {
     required TResult Function(UModerationCauseBlockOther value) blockOther,
     required TResult Function(UModerationCauseLabel value) label,
     required TResult Function(UModerationCauseMuted value) muted,
-    required TResult Function(UModerationCauseUnknown value) unknown,
+    required TResult Function(UModerationCauseNoop value) noop,
   }) {
     return label(this);
   }
@@ -755,7 +755,7 @@ class _$UModerationCauseLabel extends UModerationCauseLabel {
     TResult? Function(UModerationCauseBlockOther value)? blockOther,
     TResult? Function(UModerationCauseLabel value)? label,
     TResult? Function(UModerationCauseMuted value)? muted,
-    TResult? Function(UModerationCauseUnknown value)? unknown,
+    TResult? Function(UModerationCauseNoop value)? noop,
   }) {
     return label?.call(this);
   }
@@ -768,7 +768,7 @@ class _$UModerationCauseLabel extends UModerationCauseLabel {
     TResult Function(UModerationCauseBlockOther value)? blockOther,
     TResult Function(UModerationCauseLabel value)? label,
     TResult Function(UModerationCauseMuted value)? muted,
-    TResult Function(UModerationCauseUnknown value)? unknown,
+    TResult Function(UModerationCauseNoop value)? noop,
     required TResult orElse(),
   }) {
     if (label != null) {
@@ -870,7 +870,7 @@ class _$UModerationCauseMuted extends UModerationCauseMuted {
     required TResult Function(ModerationCauseBlockOther data) blockOther,
     required TResult Function(ModerationCauseLabel data) label,
     required TResult Function(ModerationCauseMuted data) muted,
-    required TResult Function(Map<String, dynamic> data) unknown,
+    required TResult Function(Map<String, dynamic> data) noop,
   }) {
     return muted(data);
   }
@@ -883,7 +883,7 @@ class _$UModerationCauseMuted extends UModerationCauseMuted {
     TResult? Function(ModerationCauseBlockOther data)? blockOther,
     TResult? Function(ModerationCauseLabel data)? label,
     TResult? Function(ModerationCauseMuted data)? muted,
-    TResult? Function(Map<String, dynamic> data)? unknown,
+    TResult? Function(Map<String, dynamic> data)? noop,
   }) {
     return muted?.call(data);
   }
@@ -896,7 +896,7 @@ class _$UModerationCauseMuted extends UModerationCauseMuted {
     TResult Function(ModerationCauseBlockOther data)? blockOther,
     TResult Function(ModerationCauseLabel data)? label,
     TResult Function(ModerationCauseMuted data)? muted,
-    TResult Function(Map<String, dynamic> data)? unknown,
+    TResult Function(Map<String, dynamic> data)? noop,
     required TResult orElse(),
   }) {
     if (muted != null) {
@@ -913,7 +913,7 @@ class _$UModerationCauseMuted extends UModerationCauseMuted {
     required TResult Function(UModerationCauseBlockOther value) blockOther,
     required TResult Function(UModerationCauseLabel value) label,
     required TResult Function(UModerationCauseMuted value) muted,
-    required TResult Function(UModerationCauseUnknown value) unknown,
+    required TResult Function(UModerationCauseNoop value) noop,
   }) {
     return muted(this);
   }
@@ -926,7 +926,7 @@ class _$UModerationCauseMuted extends UModerationCauseMuted {
     TResult? Function(UModerationCauseBlockOther value)? blockOther,
     TResult? Function(UModerationCauseLabel value)? label,
     TResult? Function(UModerationCauseMuted value)? muted,
-    TResult? Function(UModerationCauseUnknown value)? unknown,
+    TResult? Function(UModerationCauseNoop value)? noop,
   }) {
     return muted?.call(this);
   }
@@ -939,7 +939,7 @@ class _$UModerationCauseMuted extends UModerationCauseMuted {
     TResult Function(UModerationCauseBlockOther value)? blockOther,
     TResult Function(UModerationCauseLabel value)? label,
     TResult Function(UModerationCauseMuted value)? muted,
-    TResult Function(UModerationCauseUnknown value)? unknown,
+    TResult Function(UModerationCauseNoop value)? noop,
     required TResult orElse(),
   }) {
     if (muted != null) {
@@ -962,20 +962,20 @@ abstract class UModerationCauseMuted extends ModerationCause {
 }
 
 /// @nodoc
-abstract class _$$UModerationCauseUnknownCopyWith<$Res> {
-  factory _$$UModerationCauseUnknownCopyWith(_$UModerationCauseUnknown value,
-          $Res Function(_$UModerationCauseUnknown) then) =
-      __$$UModerationCauseUnknownCopyWithImpl<$Res>;
+abstract class _$$UModerationCauseNoopCopyWith<$Res> {
+  factory _$$UModerationCauseNoopCopyWith(_$UModerationCauseNoop value,
+          $Res Function(_$UModerationCauseNoop) then) =
+      __$$UModerationCauseNoopCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UModerationCauseUnknownCopyWithImpl<$Res>
-    extends _$ModerationCauseCopyWithImpl<$Res, _$UModerationCauseUnknown>
-    implements _$$UModerationCauseUnknownCopyWith<$Res> {
-  __$$UModerationCauseUnknownCopyWithImpl(_$UModerationCauseUnknown _value,
-      $Res Function(_$UModerationCauseUnknown) _then)
+class __$$UModerationCauseNoopCopyWithImpl<$Res>
+    extends _$ModerationCauseCopyWithImpl<$Res, _$UModerationCauseNoop>
+    implements _$$UModerationCauseNoopCopyWith<$Res> {
+  __$$UModerationCauseNoopCopyWithImpl(_$UModerationCauseNoop _value,
+      $Res Function(_$UModerationCauseNoop) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -983,7 +983,7 @@ class __$$UModerationCauseUnknownCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UModerationCauseUnknown(
+    return _then(_$UModerationCauseNoop(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -994,8 +994,8 @@ class __$$UModerationCauseUnknownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseUnknown extends UModerationCauseUnknown {
-  const _$UModerationCauseUnknown({required final Map<String, dynamic> data})
+class _$UModerationCauseNoop extends UModerationCauseNoop {
+  const _$UModerationCauseNoop({required final Map<String, dynamic> data})
       : _data = data,
         super._();
 
@@ -1009,14 +1009,14 @@ class _$UModerationCauseUnknown extends UModerationCauseUnknown {
 
   @override
   String toString() {
-    return 'ModerationCause.unknown(data: $data)';
+    return 'ModerationCause.noop(data: $data)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UModerationCauseUnknown &&
+            other is _$UModerationCauseNoop &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -1027,8 +1027,8 @@ class _$UModerationCauseUnknown extends UModerationCauseUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UModerationCauseUnknownCopyWith<_$UModerationCauseUnknown> get copyWith =>
-      __$$UModerationCauseUnknownCopyWithImpl<_$UModerationCauseUnknown>(
+  _$$UModerationCauseNoopCopyWith<_$UModerationCauseNoop> get copyWith =>
+      __$$UModerationCauseNoopCopyWithImpl<_$UModerationCauseNoop>(
           this, _$identity);
 
   @override
@@ -1039,9 +1039,9 @@ class _$UModerationCauseUnknown extends UModerationCauseUnknown {
     required TResult Function(ModerationCauseBlockOther data) blockOther,
     required TResult Function(ModerationCauseLabel data) label,
     required TResult Function(ModerationCauseMuted data) muted,
-    required TResult Function(Map<String, dynamic> data) unknown,
+    required TResult Function(Map<String, dynamic> data) noop,
   }) {
-    return unknown(data);
+    return noop(data);
   }
 
   @override
@@ -1052,9 +1052,9 @@ class _$UModerationCauseUnknown extends UModerationCauseUnknown {
     TResult? Function(ModerationCauseBlockOther data)? blockOther,
     TResult? Function(ModerationCauseLabel data)? label,
     TResult? Function(ModerationCauseMuted data)? muted,
-    TResult? Function(Map<String, dynamic> data)? unknown,
+    TResult? Function(Map<String, dynamic> data)? noop,
   }) {
-    return unknown?.call(data);
+    return noop?.call(data);
   }
 
   @override
@@ -1065,11 +1065,11 @@ class _$UModerationCauseUnknown extends UModerationCauseUnknown {
     TResult Function(ModerationCauseBlockOther data)? blockOther,
     TResult Function(ModerationCauseLabel data)? label,
     TResult Function(ModerationCauseMuted data)? muted,
-    TResult Function(Map<String, dynamic> data)? unknown,
+    TResult Function(Map<String, dynamic> data)? noop,
     required TResult orElse(),
   }) {
-    if (unknown != null) {
-      return unknown(data);
+    if (noop != null) {
+      return noop(data);
     }
     return orElse();
   }
@@ -1082,9 +1082,9 @@ class _$UModerationCauseUnknown extends UModerationCauseUnknown {
     required TResult Function(UModerationCauseBlockOther value) blockOther,
     required TResult Function(UModerationCauseLabel value) label,
     required TResult Function(UModerationCauseMuted value) muted,
-    required TResult Function(UModerationCauseUnknown value) unknown,
+    required TResult Function(UModerationCauseNoop value) noop,
   }) {
-    return unknown(this);
+    return noop(this);
   }
 
   @override
@@ -1095,9 +1095,9 @@ class _$UModerationCauseUnknown extends UModerationCauseUnknown {
     TResult? Function(UModerationCauseBlockOther value)? blockOther,
     TResult? Function(UModerationCauseLabel value)? label,
     TResult? Function(UModerationCauseMuted value)? muted,
-    TResult? Function(UModerationCauseUnknown value)? unknown,
+    TResult? Function(UModerationCauseNoop value)? noop,
   }) {
-    return unknown?.call(this);
+    return noop?.call(this);
   }
 
   @override
@@ -1108,24 +1108,24 @@ class _$UModerationCauseUnknown extends UModerationCauseUnknown {
     TResult Function(UModerationCauseBlockOther value)? blockOther,
     TResult Function(UModerationCauseLabel value)? label,
     TResult Function(UModerationCauseMuted value)? muted,
-    TResult Function(UModerationCauseUnknown value)? unknown,
+    TResult Function(UModerationCauseNoop value)? noop,
     required TResult orElse(),
   }) {
-    if (unknown != null) {
-      return unknown(this);
+    if (noop != null) {
+      return noop(this);
     }
     return orElse();
   }
 }
 
-abstract class UModerationCauseUnknown extends ModerationCause {
-  const factory UModerationCauseUnknown(
-      {required final Map<String, dynamic> data}) = _$UModerationCauseUnknown;
-  const UModerationCauseUnknown._() : super._();
+abstract class UModerationCauseNoop extends ModerationCause {
+  const factory UModerationCauseNoop(
+      {required final Map<String, dynamic> data}) = _$UModerationCauseNoop;
+  const UModerationCauseNoop._() : super._();
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$UModerationCauseUnknownCopyWith<_$UModerationCauseUnknown> get copyWith =>
+  _$$UModerationCauseNoopCopyWith<_$UModerationCauseNoop> get copyWith =>
       throw _privateConstructorUsedError;
 }
