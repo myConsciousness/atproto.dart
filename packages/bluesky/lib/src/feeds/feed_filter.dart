@@ -13,7 +13,10 @@ enum FeedFilter implements Serializable {
   postsNoReplies('posts_no_replies'),
 
   /// `posts_with_media`
-  postsWithMedia('posts_with_media');
+  postsWithMedia('posts_with_media'),
+
+  /// `posts_and_author_threads`
+  postsAndAuthorThreads('posts_and_author_threads');
 
   @override
   final String value;
