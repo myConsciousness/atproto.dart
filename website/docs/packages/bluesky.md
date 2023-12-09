@@ -926,7 +926,18 @@ To make the name of a property unique, the following methods are possible.
 import 'package:bluesky/bluesky.dart' as bsky;
 import 'package:bluesky/moderation.dart' as mod;
 
-void main() {
+Future<void> main() async {
+  final session = await _session;
+  final bluesky = bsky.Bluesky.fromSession(session);
+
+  final preferences = await bluesky.actors.findPreferences();
+
+  // Moderation options based on user's preferences
+  final options = mod.getModerationOptions(
+    userDid: session.did,
+    preferences: preferences.data.preferences,
+  );
+
   // We call the appropriate moderation function for the content
   // =
 
@@ -976,35 +987,6 @@ void main() {
     // render an alert on the avatar
   }
 }
-
-// The options passed into `apply()` supply the user's preferences
-// =
-
-mod.ModerationOptions get options => mod.ModerationOptions(
-      // the logged-in user's DID
-      userDid: '...',
-
-      // is adult content allowed?
-      isAdultContentEnabled: true,
-
-      // the global label settings (used on self-labels)
-      labels: {
-        mod.KnownLabel.porn.value: mod.LabelPreference.hide,
-      },
-
-      // the per-labeler settings
-      labelers: [
-        mod.LabelerSettings(
-          labeler: mod.Labeler(
-            did: '...',
-            displayName: 'My mod service',
-          ),
-          labels: {
-            mod.KnownLabel.porn.value: mod.LabelPreference.ignore,
-          },
-        ),
-      ],
-    );
 
 mod.ModerationSubjectProfile get profileView =>
     mod.ModerationSubjectProfile.actor(
