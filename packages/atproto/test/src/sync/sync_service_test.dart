@@ -49,30 +49,6 @@ void main() {
       expect(response.data, isA<RepoCommits>());
     });
 
-    test('as JSON', () async {
-      final sync = SyncService(
-        did: 'test',
-        protocol: core.Protocol.https,
-        service: 'test',
-        streamService: 'test',
-        context: core.ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClientFromBytes(
-          findRepoCommitsBytes,
-        ),
-      );
-
-      final response = await sync.findRepoCommitsAsJson(
-        did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
-        sinceCommitCid: 'baaaaaaa',
-      );
-
-      expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<Map<String, dynamic>>());
-    });
-
     test('when unauthorized', () async {
       final sync = SyncService(
         did: 'test',
@@ -146,33 +122,6 @@ void main() {
 
       expect(response, isA<core.XRPCResponse>());
       expect(response.data, isA<RepoBlocks>());
-    });
-
-    test('as JSON', () async {
-      final sync = SyncService(
-        did: 'test',
-        protocol: core.Protocol.https,
-        service: 'test',
-        streamService: 'test',
-        context: core.ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClientFromBytes(
-          findRepoBlocksBytes,
-        ),
-      );
-
-      final response = await sync.findRepoBlocksAsJson(
-        did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
-        commitCids: [
-          'bafyreifpxpcr3cel5kzvb6cldz7qierfqitnovjdfnnqkrdblwgfd2gll4',
-          'bafyreihon2v5wgr24e54mkgju4whi5qnz6xtq34lancgfkbkfr6esd7utu'
-        ],
-      );
-
-      expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {
@@ -254,29 +203,6 @@ void main() {
       expect(response.data, isA<RepoLatestCommit>());
     });
 
-    test('as JSON', () async {
-      final sync = SyncService(
-        did: 'test',
-        protocol: core.Protocol.https,
-        service: 'test',
-        streamService: 'test',
-        context: core.ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/sync/data/find_latest_commit.json',
-        ),
-      );
-
-      final response = await sync.findLatestCommitAsJson(
-        did: 'did:plc:jb3pkzwuhnmq65ktmib27eli',
-      );
-
-      expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<Map<String, dynamic>>());
-    });
-
     test('when unauthorized', () async {
       final sync = SyncService(
         did: 'test',
@@ -350,31 +276,6 @@ void main() {
       expect(response.data, isA<RepoCommit>());
     });
 
-    test('as JSON', () async {
-      final sync = SyncService(
-        did: 'test',
-        protocol: core.Protocol.https,
-        service: 'test',
-        streamService: 'test',
-        context: core.ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClientFromBytes(
-          findRecordBytes,
-        ),
-      );
-
-      final response = await sync.findRecordAsJson(
-        uri: core.AtUri.parse(
-          'at://did:plc:r64txawptxlk3hx6k7r2kyh3/app.bsky.feed.post/3jxyyfht47g2h',
-        ),
-      );
-
-      expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<Map<String, dynamic>>());
-    });
-
     test('when unauthorized', () async {
       final sync = SyncService(
         did: 'test',
@@ -446,27 +347,6 @@ void main() {
 
       expect(response, isA<core.XRPCResponse>());
       expect(response.data, isA<Repos>());
-    });
-
-    test('as JSON', () async {
-      final sync = SyncService(
-        did: 'test',
-        protocol: core.Protocol.https,
-        service: 'test',
-        streamService: 'test',
-        context: core.ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/sync/data/find_repos.json',
-        ),
-      );
-
-      final response = await sync.findReposAsJson();
-
-      expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {
@@ -775,27 +655,6 @@ void main() {
 
       expect(response, isA<core.XRPCResponse>());
       expect(response.data, isA<BlobRefs>());
-    });
-
-    test('as JSON', () async {
-      final sync = SyncService(
-        did: 'test',
-        protocol: core.Protocol.https,
-        service: 'test',
-        streamService: 'test',
-        context: core.ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/sync/data/find_blobs.json',
-        ),
-      );
-
-      final response = await sync.findReposAsJson();
-
-      expect(response, isA<core.XRPCResponse>());
-      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {

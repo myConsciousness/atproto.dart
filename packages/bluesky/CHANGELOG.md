@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.12.0
+
+- Removed all `.find*AsJson` and `.paginate*AsJson`. ([#1033](https://github.com/myConsciousness/atproto.dart/issues/1033))
+
 ## v0.11.1
 
 - Added `postsAndAuthorThreads` on `FeedFilter`. ([#1029](https://github.com/myConsciousness/atproto.dart/issues/1029))

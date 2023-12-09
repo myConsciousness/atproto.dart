@@ -95,47 +95,6 @@ sealed class SyncService {
     core.ProgressStatus? progress,
   });
 
-  /// Gets the did's repo, optionally catching up from a specific revision
-  /// as JSON representation.
-  ///
-  /// Response data available from this endpoint is unsorted.
-  ///
-  /// This endpoint also retrieves information on all commits made by the
-  /// Repo associated with a particular DID. This means that depending on
-  /// the target Repo to be retrieved, a very data-intensive Car may need to be
-  /// decoded, and this process may take several minutes or more. At this time,
-  /// the [progress] callback can be used to check how much data has been
-  /// processed at this time.
-  ///
-  /// This method does not convert response data into a [RepoCommits] object,
-  /// so this may improve runtime performance.
-  ///
-  /// If you want to get it as a [RepoCommits] object,
-  /// use [findRepoCommits].
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The DID of the repo.
-  ///
-  /// - [sinceCommitCid]: The revision of the repo to catch up from.
-  ///
-  /// - [progress]: When the amount of data to be processed is large,
-  ///               this callback can be used to check the progress of
-  ///               processing.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.getRepo
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getRepo.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRepoCommitsAsJson({
-    required String did,
-    String? sinceCommitCid,
-    core.ProgressStatus? progress,
-  });
-
   /// Gets blocks from a given repo.
   ///
   /// ## Parameters
@@ -152,32 +111,6 @@ sealed class SyncService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getBlocks.json
   Future<core.XRPCResponse<RepoBlocks>> findRepoBlocks({
-    required String did,
-    required List<String> commitCids,
-  });
-
-  /// Gets blocks from a given repo in JSON representation.
-  ///
-  /// This method does not convert response data into a [RepoBlocks] object,
-  /// so this may improve runtime performance.
-  ///
-  /// If you want to get it as a [RepoBlocks] object,
-  /// use [findRepoBlocks].
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The DID of the repo.
-  ///
-  /// - [commitCids]: CID array of commits.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.getBlocks
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getBlocks.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRepoBlocksAsJson({
     required String did,
     required List<String> commitCids,
   });
@@ -199,29 +132,6 @@ sealed class SyncService {
     required String did,
   });
 
-  /// Gets the current commit CID & revision of the repo.
-  ///
-  /// This method does not convert response data into a [RepoLatestCommit]
-  /// object, so this may improve runtime performance.
-  ///
-  /// If you want to get it as a [RepoLatestCommit] object,
-  /// use [findLatestCommit].
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The DID of the repo.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.getLatestCommit
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getLatestCommit.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> findLatestCommitAsJson({
-    required String did,
-  });
-
   /// Gets blocks needed for existence or non-existence of record.
   ///
   /// ## Parameters
@@ -238,33 +148,6 @@ sealed class SyncService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getRecord.json
   Future<core.XRPCResponse<RepoCommit>> findRecord({
-    required core.AtUri uri,
-    String? commitCid,
-  });
-
-  /// Gets blocks needed for existence or non-existence of record in JSON
-  /// representation.
-  ///
-  /// This method does not convert response data into a [RepoCommit] object,
-  /// so this may improve runtime performance.
-  ///
-  /// If you want to get it as a [RepoCommit] object,
-  /// use [findRecord].
-  ///
-  /// ## Parameters
-  ///
-  /// - [uri]: AT URI of specific record.
-  ///
-  /// - [commitCid]: An optional past commit CID.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.getRecord
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getRecord.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRecordAsJson({
     required core.AtUri uri,
     String? commitCid,
   });
@@ -290,34 +173,6 @@ sealed class SyncService {
     String? cursor,
   });
 
-  /// List dids and root cids of hosted repos in JSON
-  /// representation.
-  ///
-  /// This method does not convert response data into a [Repos] object,
-  /// so this may improve runtime performance.
-  ///
-  /// If you want to get it as a [Repos] object,
-  /// use [findRepos].
-  ///
-  /// ## Parameters
-  ///
-  /// - [limit]: The size of repos to be fetched.
-  ///            Defaults to 500. From 1 to 1000.
-  ///
-  /// - [cursor]: The paginate cursor.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.listRepos
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listRepos.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> findReposAsJson({
-    int? limit,
-    String? cursor,
-  });
-
   /// Get a pagination for listing dids and root cids of hosted repos.
   ///
   /// ## Parameters
@@ -335,28 +190,6 @@ sealed class SyncService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listRepos.json
   core.Pagination<Repos> paginateRepos({
-    int? limit,
-    String? cursor,
-  });
-
-  /// Get a pagination for listing dids and root cids of hosted repos
-  /// as JSON representation.
-  ///
-  /// ## Parameters
-  ///
-  /// - [limit]: The size of repos to be fetched.
-  ///            Defaults to 500. From 1 to 1000.
-  ///
-  /// - [cursor]: The paginate cursor.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.listRepos
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listRepos.json
-  core.Pagination<Map<String, dynamic>> paginateReposAsJson({
     int? limit,
     String? cursor,
   });
@@ -445,33 +278,6 @@ sealed class SyncService {
     String? cursor,
   });
 
-  /// Get a blob associated with a given repo as JSON representation.
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The DID of the repo.
-  ///
-  /// - [sinceCid]: Optional revision of the repo to list blobs since.
-  ///
-  /// - [limit]: The size of blobs to be fetched.
-  ///            Defaults to 500. From 1 to 1000.
-  ///
-  /// - [cursor]: The pagination cursor.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.listBlobs
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listBlobs.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> findBlobsAsJson({
-    required String did,
-    String? sinceCid,
-    int? limit,
-    String? cursor,
-  });
-
   /// Returns a pagination to get a blob associated with a given repo.
   ///
   /// ## Parameters
@@ -493,34 +299,6 @@ sealed class SyncService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listBlobs.json
   core.Pagination<BlobRefs> paginateBlobs({
-    required String did,
-    String? sinceCid,
-    int? limit,
-    String? cursor,
-  });
-
-  /// Returns a pagination to get a blob associated with a given repo as
-  /// JSON representation.
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The DID of the repo.
-  ///
-  /// - [sinceCid]: Optional revision of the repo to list blobs since.
-  ///
-  /// - [limit]: The size of blobs to be fetched.
-  ///            Defaults to 500. From 1 to 1000.
-  ///
-  /// - [cursor]: The pagination cursor.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.listBlobs
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listBlobs.json
-  core.Pagination<Map<String, dynamic>> paginateBlobsAsJson({
     required String did,
     String? sinceCid,
     int? limit,
@@ -569,18 +347,6 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
       );
 
   @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRepoCommitsAsJson({
-    required String did,
-    String? sinceCommitCid,
-    core.ProgressStatus? progress,
-  }) async =>
-      await _findRepoCommits(
-        did: did,
-        sinceCommitCid: sinceCommitCid,
-        progress: progress,
-      );
-
-  @override
   Future<core.XRPCResponse<RepoBlocks>> findRepoBlocks({
     required String did,
     required List<String> commitCids,
@@ -589,16 +355,6 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
         did: did,
         commitCids: commitCids,
         to: RepoBlocks.fromJson,
-      );
-
-  @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRepoBlocksAsJson({
-    required String did,
-    required List<String> commitCids,
-  }) async =>
-      await _findRepoBlocks(
-        did: did,
-        commitCids: commitCids,
       );
 
   @override
@@ -611,12 +367,6 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
       );
 
   @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> findLatestCommitAsJson({
-    required String did,
-  }) async =>
-      await _findLatestCommit(did: did);
-
-  @override
   Future<core.XRPCResponse<RepoCommit>> findRecord({
     required core.AtUri uri,
     String? commitCid,
@@ -625,16 +375,6 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
         uri: uri,
         commitCid: commitCid,
         to: RepoCommit.fromJson,
-      );
-
-  @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRecordAsJson({
-    required core.AtUri uri,
-    String? commitCid,
-  }) async =>
-      await _findRecord(
-        uri: uri,
-        commitCid: commitCid,
       );
 
   @override
@@ -649,16 +389,6 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
       );
 
   @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> findReposAsJson({
-    int? limit,
-    String? cursor,
-  }) async =>
-      await _findRepos(
-        limit: limit,
-        cursor: cursor,
-      );
-
-  @override
   core.Pagination<Repos> paginateRepos({
     int? limit,
     String? cursor,
@@ -667,16 +397,6 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
         limit: limit,
         cursor: cursor,
         to: Repos.fromJson,
-      );
-
-  @override
-  core.Pagination<Map<String, dynamic>> paginateReposAsJson({
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateRepos(
-        limit: limit,
-        cursor: cursor,
       );
 
   @override
@@ -731,20 +451,6 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
       );
 
   @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> findBlobsAsJson({
-    required String did,
-    String? sinceCid,
-    int? limit,
-    String? cursor,
-  }) async =>
-      await _findBlobs(
-        did: did,
-        sinceCid: sinceCid,
-        limit: limit,
-        cursor: cursor,
-      );
-
-  @override
   core.Pagination<BlobRefs> paginateBlobs({
     required String did,
     String? sinceCid,
@@ -757,20 +463,6 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
         limit: limit,
         cursor: cursor,
         to: BlobRefs.fromJson,
-      );
-
-  @override
-  core.Pagination<Map<String, dynamic>> paginateBlobsAsJson({
-    required String did,
-    String? sinceCid,
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateBlobs(
-        did: did,
-        sinceCid: sinceCid,
-        limit: limit,
-        cursor: cursor,
       );
 
   Future<core.XRPCResponse<T>> _findRepoCommits<T>({

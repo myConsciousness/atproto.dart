@@ -200,31 +200,6 @@ void main() {
       expect(response.data, isA<Follows>());
     });
 
-    test('as JSON', () async {
-      final graphs = GraphsService(
-        atproto: ATProto.fromSession(session),
-        did: '',
-        protocol: Protocol.https,
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/graphs/data/find_follows.json',
-        ),
-      );
-
-      final response = await graphs.findFollowsAsJson(
-        actor: 'shinyakato.dev',
-        limit: 10,
-        cursor: '1234',
-      );
-
-      expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Map<String, dynamic>>());
-    });
-
     test('when unauthorized', () async {
       final graphs = GraphsService(
         atproto: ATProto.fromSession(session),
@@ -300,31 +275,6 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<Followers>());
-    });
-
-    test('as JSON', () async {
-      final graphs = GraphsService(
-        atproto: ATProto.fromSession(session),
-        did: '',
-        protocol: Protocol.https,
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/graphs/data/find_followers.json',
-        ),
-      );
-
-      final response = await graphs.findFollowersAsJson(
-        actor: 'shinyakato.dev',
-        limit: 10,
-        cursor: '1234',
-      );
-
-      expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {
@@ -563,30 +513,6 @@ void main() {
       expect(response.data, isA<Mutes>());
     });
 
-    test('as JSON', () async {
-      final graphs = GraphsService(
-        atproto: ATProto.fromSession(session),
-        did: '',
-        protocol: Protocol.https,
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/graphs/data/find_mutes.json',
-        ),
-      );
-
-      final response = await graphs.findMutesAsJson(
-        limit: 10,
-        cursor: '1234',
-      );
-
-      expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Map<String, dynamic>>());
-    });
-
     test('when unauthorized', () async {
       final graphs = GraphsService(
         atproto: ATProto.fromSession(session),
@@ -817,30 +743,6 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<Blocks>());
-    });
-
-    test('as JSON', () async {
-      final graphs = GraphsService(
-        atproto: ATProto.fromSession(session),
-        did: '',
-        protocol: Protocol.https,
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/graphs/data/find_blocks.json',
-        ),
-      );
-
-      final response = await graphs.findBlocksAsJson(
-        limit: 10,
-        cursor: '1234',
-      );
-
-      expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {
@@ -1201,31 +1103,6 @@ void main() {
       expect(response.data, isA<Lists>());
     });
 
-    test('as JSON', () async {
-      final graphs = GraphsService(
-        atproto: ATProto.fromSession(session),
-        did: '',
-        protocol: Protocol.https,
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/graphs/data/find_lists.json',
-        ),
-      );
-
-      final response = await graphs.findListsAsJson(
-        actor: 'shinyakato.dev',
-        limit: 10,
-        cursor: '1234',
-      );
-
-      expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Map<String, dynamic>>());
-    });
-
     test('when unauthorized', () async {
       final graphs = GraphsService(
         atproto: ATProto.fromSession(session),
@@ -1303,33 +1180,6 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<ListItems>());
-    });
-
-    test('as JSON', () async {
-      final graphs = GraphsService(
-        atproto: ATProto.fromSession(session),
-        did: '',
-        protocol: Protocol.https,
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/graphs/data/find_list_items.json',
-        ),
-      );
-
-      final response = await graphs.findListItemsAsJson(
-        list: AtUri.parse(
-          'at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.list/3jvqbvdsijh2p',
-        ),
-        limit: 10,
-        cursor: '1234',
-      );
-
-      expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {
@@ -1589,30 +1439,6 @@ void main() {
       expect(response.data, isA<Lists>());
     });
 
-    test('as JSON', () async {
-      final graphs = GraphsService(
-        atproto: ATProto.fromSession(session),
-        did: '',
-        protocol: Protocol.https,
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/graphs/data/find_muting_lists.json',
-        ),
-      );
-
-      final response = await graphs.findMutingListsAsJson(
-        limit: 10,
-        cursor: '1234',
-      );
-
-      expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Map<String, dynamic>>());
-    });
-
     test('when unauthorized', () async {
       final graphs = GraphsService(
         atproto: ATProto.fromSession(session),
@@ -1859,29 +1685,6 @@ void main() {
       expect(response.data.suggestions, isA<List<ActorProfile>>());
     });
 
-    test('as JSON', () async {
-      final graphs = GraphsService(
-        atproto: ATProto.fromSession(session),
-        did: '',
-        protocol: Protocol.https,
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/graphs/data/find_suggested_follows.json',
-        ),
-      );
-
-      final response = await graphs.findSuggestedFollowsAsJson(
-        actor: 'shinyakato.dev',
-      );
-
-      expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Map<String, dynamic>>());
-    });
-
     test('when unauthorized', () async {
       final graphs = GraphsService(
         atproto: ATProto.fromSession(session),
@@ -1952,30 +1755,6 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<Lists>());
-    });
-
-    test('as JSON', () async {
-      final graphs = GraphsService(
-        atproto: ATProto.fromSession(session),
-        did: '',
-        protocol: Protocol.https,
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/graphs/data/find_block_lists.json',
-        ),
-      );
-
-      final response = await graphs.findBlockListsAsJson(
-        limit: 10,
-        cursor: '1234',
-      );
-
-      expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {

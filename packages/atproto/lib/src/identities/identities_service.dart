@@ -45,28 +45,6 @@ sealed class IdentitiesService {
     required String handle,
   });
 
-  /// Provides the DID of a repo in JSON representation.
-  ///
-  /// This method does not convert response data into a [DID] object, so this
-  /// may improve runtime performance.
-  ///
-  /// If you want to get it as a [DID] object, use [findDID].
-  ///
-  /// ## Parameters
-  ///
-  /// - [handle]: The handle to resolve.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.identity.resolveHandle
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/identity/resolveHandle.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> findDIDAsJson({
-    required String handle,
-  });
-
   /// Updates the handle of the account.
   ///
   /// ## Parameters
@@ -105,12 +83,6 @@ final class _IdentitiesService extends ATProtoBaseService
         handle: handle,
         to: DID.fromJson,
       );
-
-  @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> findDIDAsJson({
-    required String handle,
-  }) async =>
-      await _findDID(handle: handle);
 
   @override
   Future<core.XRPCResponse<core.EmptyData>> updateHandle({

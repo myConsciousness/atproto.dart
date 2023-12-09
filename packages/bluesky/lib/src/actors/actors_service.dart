@@ -61,37 +61,6 @@ sealed class ActorsService {
     String? cursor,
   });
 
-  /// Find Users matching search criteria in JSON
-  /// representation.
-  ///
-  /// This method does not convert response data into a [Actors] object,
-  /// so this may improve runtime performance.
-  ///
-  /// If you want to get it as a [Actors] object,
-  /// use [searchActors].
-  ///
-  /// ## Parameters
-  ///
-  /// - [term]: Search criteria.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.actor.search
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/search.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> searchActorsAsJson({
-    required String term,
-    int? limit,
-    String? cursor,
-  });
-
   /// Get a pagination for users matching search criteria.
   ///
   /// ## Parameters
@@ -116,31 +85,6 @@ sealed class ActorsService {
     String? cursor,
   });
 
-  /// Get a pagination for users matching search criteria as
-  /// JSON representation.
-  ///
-  /// ## Parameters
-  ///
-  /// - [term]: Search criteria.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.actor.search
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/search.json
-  core.Pagination<Map<String, dynamic>> paginateActorsAsJson({
-    required String term,
-    int? limit,
-    String? cursor,
-  });
-
   /// Find a specific user profile based on handle or DID.
   ///
   /// ## Parameters
@@ -158,43 +102,12 @@ sealed class ActorsService {
     required String actor,
   });
 
-  /// Find a specific user profile based on handle or DID in JSON
-  /// representation.
-  ///
-  /// This method does not convert response data into a [ActorProfile] object,
-  /// so this may improve runtime performance.
-  ///
-  /// If you want to get it as a [ActorProfile] object,
-  /// use [findProfile].
-  ///
-  /// ## Parameters
-  ///
-  /// - [actor]: The user handle or DID you want to get.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.actor.getProfile
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfile.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> findProfileAsJson({
-    required String actor,
-  });
-
   /// This is the easiest way to retrieve a profile record for
   /// authenticated users.
   ///
   /// This endpoint is useful for retrieving information when
   /// updating a profile.
   Future<core.XRPCResponse<ProfileRecord>> findProfileRecord();
-
-  /// This is the easiest way to retrieve a profile record as JSON for
-  /// authenticated users.
-  ///
-  /// This endpoint is useful for retrieving information when
-  /// updating a profile.
-  Future<core.XRPCResponse<Map<String, dynamic>>> findProfileRecordAsJson();
 
   /// Find user profiles based on handles or DIDs.
   ///
@@ -210,30 +123,6 @@ sealed class ActorsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfiles.json
   Future<core.XRPCResponse<ActorProfiles>> findProfiles({
-    required List<String> actors,
-  });
-
-  /// Find user profiles based on handles or DIDs in JSON
-  /// representation.
-  ///
-  /// This method does not convert response data into a [ActorProfiles] object,
-  /// so this may improve runtime performance.
-  ///
-  /// If you want to get it as a [ActorProfiles] object,
-  /// use [findProfiles].
-  ///
-  /// ## Parameters
-  ///
-  /// - [actors]: The list contained user handles or DID you want to get.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.actor.getProfiles
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfiles.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> findProfilesAsJson({
     required List<String> actors,
   });
 
@@ -254,34 +143,6 @@ sealed class ActorsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getSuggestions.json
   Future<core.XRPCResponse<Actors>> findSuggestions({
-    int? limit,
-    String? cursor,
-  });
-
-  /// Get a list of actors suggested for following in JSON
-  /// representation.
-  ///
-  /// This method does not convert response data into a [Actors] object,
-  /// so this may improve runtime performance.
-  ///
-  /// If you want to get it as a [Actors] object,
-  /// use [findSuggestions].
-  ///
-  /// ## Parameters
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.actor.getSuggestions
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getSuggestions.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> findSuggestionsAsJson({
     int? limit,
     String? cursor,
   });
@@ -308,34 +169,6 @@ sealed class ActorsService {
     String? cursor,
   });
 
-  /// Get a list of actors suggested for following in JSON
-  /// representation.
-  ///
-  /// This method does not convert response data into a [Actors] object,
-  /// so this may improve runtime performance.
-  ///
-  /// If you want to get it as a [Actors] object,
-  /// use [findSuggestions].
-  ///
-  /// ## Parameters
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.actor.getSuggestions
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getSuggestions.json
-  core.Pagination<Map<String, dynamic>> paginateSuggestionsAsJson({
-    int? limit,
-    String? cursor,
-  });
-
   /// Find user suggestions for a search term.
   ///
   /// ## Parameters
@@ -353,34 +186,6 @@ sealed class ActorsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/searchActorsTypeahead.json
   Future<core.XRPCResponse<ActorsTypeahead>> searchTypeahead({
-    required String term,
-    int? limit,
-  });
-
-  /// Find user suggestions for a search term in JSON
-  /// representation.
-  ///
-  /// This method does not convert response data into a [ActorsTypeahead]
-  /// object, so this may improve runtime performance.
-  ///
-  /// If you want to get it as a [ActorsTypeahead] object,
-  /// use [searchTypeahead].
-  ///
-  /// ## Parameters
-  ///
-  /// - [term]: The search term.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.actor.searchActorsTypeahead
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/searchActorsTypeahead.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> searchTypeaheadAsJson({
     required String term,
     int? limit,
   });
@@ -424,23 +229,6 @@ sealed class ActorsService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getPreferences.json
   Future<core.XRPCResponse<Preferences>> findPreferences();
-
-  /// Get private preferences attached to the account in JSON representation.
-  ///
-  /// This method does not convert response data into a [Preferences] object,
-  /// so this may improve runtime performance.
-  ///
-  /// If you want to get it as a [Preferences] object,
-  /// use [findPreferences].
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.actor.getPreferences
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getPreferences.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> findPreferencesAsJson();
 
   /// Sets the private preferences attached to the account.
   ///
@@ -486,18 +274,6 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
       );
 
   @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> searchActorsAsJson({
-    required String term,
-    int? limit,
-    String? cursor,
-  }) async =>
-      await _searchActors(
-        term: term,
-        limit: limit,
-        cursor: cursor,
-      );
-
-  @override
   core.Pagination<Actors> paginateActors({
     required String term,
     int? limit,
@@ -511,18 +287,6 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
       );
 
   @override
-  core.Pagination<Map<String, dynamic>> paginateActorsAsJson({
-    required String term,
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateActors(
-        term: term,
-        limit: limit,
-        cursor: cursor,
-      );
-
-  @override
   Future<core.XRPCResponse<ActorProfile>> findProfile({
     required String actor,
   }) async =>
@@ -532,21 +296,11 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
       );
 
   @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> findProfileAsJson({
-    required String actor,
-  }) async =>
-      await _findProfile(actor: actor);
-
-  @override
   Future<core.XRPCResponse<ProfileRecord>> findProfileRecord() async =>
       await super.findRecord(
         selfUri,
         ProfileRecord.fromJson,
       );
-
-  @override
-  Future<core.XRPCResponse<Map<String, dynamic>>>
-      findProfileRecordAsJson() async => await super.findRecord(selfUri);
 
   @override
   Future<core.XRPCResponse<ActorProfiles>> findProfiles({
@@ -558,12 +312,6 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
       );
 
   @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> findProfilesAsJson({
-    required List<String> actors,
-  }) async =>
-      await _findProfiles(actors: actors);
-
-  @override
   Future<core.XRPCResponse<Actors>> findSuggestions({
     int? limit,
     String? cursor,
@@ -572,16 +320,6 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
         limit: limit,
         cursor: cursor,
         to: Actors.fromJson,
-      );
-
-  @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> findSuggestionsAsJson({
-    int? limit,
-    String? cursor,
-  }) async =>
-      await _findSuggestions(
-        limit: limit,
-        cursor: cursor,
       );
 
   @override
@@ -596,16 +334,6 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
       );
 
   @override
-  core.Pagination<Map<String, dynamic>> paginateSuggestionsAsJson({
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateSuggestions(
-        limit: limit,
-        cursor: cursor,
-      );
-
-  @override
   Future<core.XRPCResponse<ActorsTypeahead>> searchTypeahead({
     required String term,
     int? limit,
@@ -614,16 +342,6 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
         term: term,
         limit: limit,
         to: ActorsTypeahead.fromJson,
-      );
-
-  @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> searchTypeaheadAsJson({
-    required String term,
-    int? limit,
-  }) async =>
-      await _searchTypeahead(
-        term: term,
-        limit: limit,
       );
 
   @override
@@ -652,10 +370,6 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
   @override
   Future<core.XRPCResponse<Preferences>> findPreferences() async =>
       await _findPreferences(to: Preferences.fromJson);
-
-  @override
-  Future<core.XRPCResponse<Map<String, dynamic>>>
-      findPreferencesAsJson() async => await _findPreferences();
 
   @override
   Future<core.XRPCResponse<atp.EmptyData>> updatePreferences(

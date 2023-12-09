@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.9.0
+
+- Removed all `.find*AsJson` and `.paginate*AsJson`. ([#1033](https://github.com/myConsciousness/atproto.dart/issues/1033))
+
 ## v0.8.4
 
 - Changed `isNegate` of `Label` object to false by default. ([#1006](https://github.com/myConsciousness/atproto.dart/issues/1006))
