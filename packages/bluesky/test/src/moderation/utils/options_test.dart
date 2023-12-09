@@ -33,14 +33,9 @@ void main() {
           preferences: runner.getContentLabelPreferences(scenario),
         );
 
-        expect(
-          actual.isAdultContentEnabled,
-          scenario.behaviors.isAdultContentEnabled,
-        );
-        expect(
-          actual.labels,
-          scenario.behaviors.labels,
-        );
+        final expected = scenario.behaviors;
+        expect(actual.isAdultContentEnabled, expected.isAdultContentEnabled);
+        expect(actual.labels, expected.labels);
       });
     });
   });
