@@ -36,6 +36,7 @@ void main() {
         );
 
         final expected = scenario.behaviors;
+        expect(actual.userDid, 'did:web:shinyakato.dev');
         expect(actual.isAdultContentEnabled, expected.isAdultContentEnabled);
         expect(actual.labels, expected.labels);
         expect(actual.labelers, labelers);
