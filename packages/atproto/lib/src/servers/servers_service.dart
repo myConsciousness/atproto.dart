@@ -48,23 +48,6 @@ sealed class ServersService {
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/getSession.json
   Future<core.XRPCResponse<CurrentSession>> findCurrentSession();
 
-  /// Get information about the current session in JSON representation.
-  ///
-  /// This method does not convert response data into a [CurrentSession] object,
-  /// so this may improve runtime performance.
-  ///
-  /// If you want to get it as a [CurrentSession] object,
-  /// use [findCurrentSession].
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.server.getSession
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/getSession.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> findCurrentSessionAsJson();
-
   /// Create an account.
   ///
   /// ## Parameters
@@ -190,32 +173,6 @@ sealed class ServersService {
     bool? createAvailable,
   });
 
-  /// Get all invite codes for a given account in JSON representation.
-  ///
-  /// This method does not convert response data into a [InviteCodes] object,
-  /// so this may improve runtime performance.
-  ///
-  /// If you want to get it as a [InviteCodes] object,
-  /// use [findInviteCodes].
-  ///
-  /// ## Parameters
-  ///
-  /// - [includeUsed]: Whether to include used codes.
-  ///
-  /// - [createAvailable]: Whether to generate new code.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.server.getAccountInviteCodes
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/getAccountInviteCodes.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> findInviteCodesAsJson({
-    bool? includeUsed,
-    bool? createAvailable,
-  });
-
   /// Initiate a user account password reset via email.
   ///
   /// ## Parameters
@@ -300,23 +257,6 @@ sealed class ServersService {
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/listAppPasswords.json
   Future<core.XRPCResponse<AppPasswords>> findAppPasswords();
 
-  /// List all app-specific passwords in JSON representation.
-  ///
-  /// This method does not convert response data into a [AppPasswords] object,
-  /// so this may improve runtime performance.
-  ///
-  /// If you want to get it as a [AppPasswords] object,
-  /// use [findAppPasswords].
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.server.listAppPasswords
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/listAppPasswords.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> findAppPasswordsAsJson();
-
   /// Get a document describing the service's accounts configuration.
   ///
   /// ## Lexicon
@@ -327,24 +267,6 @@ sealed class ServersService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/describeServer.json
   Future<core.XRPCResponse<ServerInfo>> findServerInfo();
-
-  /// Get a document describing the service's accounts configuration in
-  /// JSON representation.
-  ///
-  /// This method does not convert response data into a [ServerInfo] object, so
-  /// this may improve runtime performance.
-  ///
-  /// If you want to get it as a [ServerInfo] object,
-  /// use [findServerInfo].
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.server.describeServer
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/describeServer.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> findServerInfoAsJson();
 
   /// Request a token in order to update email.
   ///
@@ -437,10 +359,6 @@ final class _ServersService extends ATProtoBaseService
       await _findCurrentSession(to: CurrentSession.fromJson);
 
   @override
-  Future<core.XRPCResponse<Map<String, dynamic>>>
-      findCurrentSessionAsJson() async => await _findCurrentSession();
-
-  @override
   Future<core.XRPCResponse<Account>> createAccount({
     required String handle,
     required String email,
@@ -521,16 +439,6 @@ final class _ServersService extends ATProtoBaseService
       );
 
   @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> findInviteCodesAsJson({
-    bool? includeUsed,
-    bool? createAvailable,
-  }) async =>
-      await _findInviteCodes(
-        includeUsed: includeUsed,
-        createAvailable: createAvailable,
-      );
-
-  @override
   Future<core.XRPCResponse<core.EmptyData>> requestPasswordReset({
     required String email,
   }) async =>
@@ -584,16 +492,8 @@ final class _ServersService extends ATProtoBaseService
       await _findAppPasswords(to: AppPasswords.fromJson);
 
   @override
-  Future<core.XRPCResponse<Map<String, dynamic>>>
-      findAppPasswordsAsJson() async => await _findAppPasswords();
-
-  @override
   Future<core.XRPCResponse<ServerInfo>> findServerInfo() async =>
       await _findServerInfo(to: ServerInfo.fromJson);
-
-  @override
-  Future<core.XRPCResponse<Map<String, dynamic>>>
-      findServerInfoAsJson() async => await _findServerInfo();
 
   @override
   Future<core.XRPCResponse<EmailUpdate>> requestEmailUpdate() async =>

@@ -41,30 +41,6 @@ void main() {
       expect(response.data, isA<Notifications>());
     });
 
-    test('as JSON', () async {
-      final notifications = NotificationsService(
-        atproto: ATProto.fromSession(session),
-        did: '',
-        protocol: Protocol.https,
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/notifications/data/find_notifications.json',
-        ),
-      );
-
-      final response = await notifications.findNotificationsAsJson(
-        limit: 10,
-        cursor: '1234',
-      );
-
-      expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Map<String, dynamic>>());
-    });
-
     test('grouping', () async {
       final notifications = NotificationsService(
         atproto: ATProto.fromSession(session),
@@ -158,27 +134,6 @@ void main() {
 
       expect(response, isA<XRPCResponse>());
       expect(response.data, isA<Count>());
-    });
-
-    test('as JSON', () async {
-      final notifications = NotificationsService(
-        atproto: ATProto.fromSession(session),
-        did: '',
-        protocol: Protocol.https,
-        service: 'test',
-        context: ClientContext(
-          accessJwt: '1234',
-          timeout: Duration.zero,
-        ),
-        mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/notifications/data/find_unread_count.json',
-        ),
-      );
-
-      final response = await notifications.findUnreadCountAsJson();
-
-      expect(response, isA<XRPCResponse>());
-      expect(response.data, isA<Map<String, dynamic>>());
     });
 
     test('when unauthorized', () async {

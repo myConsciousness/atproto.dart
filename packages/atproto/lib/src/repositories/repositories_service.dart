@@ -89,32 +89,6 @@ sealed class RepositoriesService {
     String? cid,
   });
 
-  /// Get a record in JSON representation.
-  ///
-  /// This method does not convert response data into a [Record] object, so this
-  /// may improve runtime performance.
-  ///
-  /// If you want to get it as a [Record] object, use [findRecord].
-  ///
-  /// ## Parameters
-  ///
-  /// - [uri]: The AT URI of record.
-  ///
-  /// - [cid]: The CID of the version of the record. If not specified,
-  ///          then return the most recent version.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.repo.getRecord
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/getRecord.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRecordAsJson({
-    required core.AtUri uri,
-    String? cid,
-  });
-
   /// List a range of records in a collection.
   ///
   /// ## Parameters
@@ -151,47 +125,6 @@ sealed class RepositoriesService {
     String? cursor,
   });
 
-  /// List a range of records in a collection in JSON representation.
-  ///
-  /// This method does not convert response data into a [Records] object, so
-  /// this may improve runtime performance.
-  ///
-  /// If you want to get it as a [Records] object, use [findRecords].
-  ///
-  /// ## Parameters
-  ///
-  /// - [repo]: The handle or DID of the repo.
-  ///
-  /// - [collection]: The NSID of the record type.
-  ///
-  /// - [limit]: The number of records to return.
-  ///            From 1 to 100. The default is 50.
-  ///
-  /// - [cursor]: Pagination cursor.
-  ///
-  /// - [rkeyStart]: The lowest sort-ordered rkey to start from (exclusive).
-  ///
-  /// - [rkeyEnd]: The highest sort-ordered rkey to stop at (exclusive).
-  ///
-  /// - [reverse]: Reverse the order of the returned records?
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.repo.listRecords
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/listRecords.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRecordsAsJson({
-    required String repo,
-    required core.NSID collection,
-    int? limit,
-    bool? reverse,
-    String? rkeyStart,
-    String? rkeyEnd,
-    String? cursor,
-  });
-
   /// Get a pagination for listing a range of records in a collection.
   ///
   /// ## Parameters
@@ -219,48 +152,6 @@ sealed class RepositoriesService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/listRecords.json
   core.Pagination<Records> paginateRecords({
-    required String repo,
-    required core.NSID collection,
-    int? limit,
-    bool? reverse,
-    String? rkeyStart,
-    String? rkeyEnd,
-    String? cursor,
-  });
-
-  /// Get a pagination for listing a range of records in a collection
-  /// as JSON representation.
-  ///
-  /// This method does not convert response data into a [Records] object, so
-  /// this may improve runtime performance.
-  ///
-  /// If you want to get it as a [Records] object, use [findRecords].
-  ///
-  /// ## Parameters
-  ///
-  /// - [repo]: The handle or DID of the repo.
-  ///
-  /// - [collection]: The NSID of the record type.
-  ///
-  /// - [limit]: The number of records to return.
-  ///            From 1 to 100. The default is 50.
-  ///
-  /// - [cursor]: Pagination cursor.
-  ///
-  /// - [rkeyStart]: The lowest sort-ordered rkey to start from (exclusive).
-  ///
-  /// - [rkeyEnd]: The highest sort-ordered rkey to stop at (exclusive).
-  ///
-  /// - [reverse]: Reverse the order of the returned records?
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.repo.listRecords
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/listRecords.json
-  core.Pagination<Map<String, dynamic>> paginateRecordsAsJson({
     required String repo,
     required core.NSID collection,
     int? limit,
@@ -353,29 +244,6 @@ sealed class RepositoriesService {
   ///
   /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/describeRepo.json
   Future<core.XRPCResponse<RepoInfo>> findRepoInfo({
-    required String repo,
-  });
-
-  /// Get information about the repo, including the list of collections in
-  /// JSON representation.
-  ///
-  /// This method does not convert response data into a [RepoInfo] object, so
-  /// this may improve runtime performance.
-  ///
-  /// If you want to get it as a [RepoInfo] object, use [findRepoInfo].
-  ///
-  /// ## Parameters
-  ///
-  /// - [repo]: The handle or DID of the repo.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.repo.describeRepo
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/describeRepo.json
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRepoInfoAsJson({
     required String repo,
   });
 
@@ -499,16 +367,6 @@ final class _RepositoriesService extends ATProtoBaseService
       );
 
   @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRecordAsJson({
-    required core.AtUri uri,
-    String? cid,
-  }) async =>
-      await _findRecord(
-        uri: uri,
-        cid: cid,
-      );
-
-  @override
   Future<core.XRPCResponse<Records>> findRecords({
     required String repo,
     required core.NSID collection,
@@ -530,26 +388,6 @@ final class _RepositoriesService extends ATProtoBaseService
       );
 
   @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRecordsAsJson({
-    required String repo,
-    required core.NSID collection,
-    int? limit,
-    bool? reverse,
-    String? rkeyStart,
-    String? rkeyEnd,
-    String? cursor,
-  }) async =>
-      await _findRecords(
-        repo: repo,
-        collection: collection,
-        limit: limit,
-        reverse: reverse,
-        rkeyStart: rkeyStart,
-        rkeyEnd: rkeyEnd,
-        cursor: cursor,
-      );
-
-  @override
   core.Pagination<Records> paginateRecords({
     required String repo,
     required core.NSID collection,
@@ -568,26 +406,6 @@ final class _RepositoriesService extends ATProtoBaseService
         rkeyEnd: rkeyEnd,
         cursor: cursor,
         to: Records.fromJson,
-      );
-
-  @override
-  core.Pagination<Map<String, dynamic>> paginateRecordsAsJson({
-    required String repo,
-    required core.NSID collection,
-    int? limit,
-    bool? reverse,
-    String? rkeyStart,
-    String? rkeyEnd,
-    String? cursor,
-  }) =>
-      _paginateRecords(
-        repo: repo,
-        collection: collection,
-        limit: limit,
-        reverse: reverse,
-        rkeyStart: rkeyStart,
-        rkeyEnd: rkeyEnd,
-        cursor: cursor,
       );
 
   @override
@@ -645,12 +463,6 @@ final class _RepositoriesService extends ATProtoBaseService
         repo: repo,
         to: RepoInfo.fromJson,
       );
-
-  @override
-  Future<core.XRPCResponse<Map<String, dynamic>>> findRepoInfoAsJson({
-    required String repo,
-  }) async =>
-      await _findRepoInfo(repo: repo);
 
   @override
   Future<core.XRPCResponse<core.EmptyData>> updateBulk({
