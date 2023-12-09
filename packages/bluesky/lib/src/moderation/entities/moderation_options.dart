@@ -18,7 +18,7 @@ part 'moderation_options.freezed.dart';
 class ModerationOptions with _$ModerationOptions {
   const factory ModerationOptions({
     required String userDid,
-    @Default(false) isAdultContentEnabled,
+    @Default(false) bool isAdultContentEnabled,
     required Map<String, LabelPreference> labels,
     required List<LabelerSettings> labelers,
   }) = _ModerationOptions;

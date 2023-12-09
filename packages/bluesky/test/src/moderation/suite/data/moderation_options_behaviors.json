@@ -1,0 +1,236 @@
+{
+  "scenarios": {
+    "default options": {
+      "behaviors": {
+        "labels": {
+          "porn": "hide",
+          "sexual": "warn",
+          "nudity": "warn",
+          "nsfl": "warn",
+          "corpse": "warn",
+          "gore": "warn",
+          "torture": "warn",
+          "self-harm": "warn",
+          "intolerant-race": "hide",
+          "intolerant-gender": "hide",
+          "intolerant-sexual-orientation": "hide",
+          "intolerant-religion": "hide",
+          "intolerant": "hide",
+          "icon-intolerant": "hide",
+          "spam": "hide",
+          "impersonation": "hide",
+          "scam": "warn"
+        }
+      }
+    },
+    "adultContentEnabled = true": {
+      "adultContentEnabled": true,
+      "behaviors": {
+        "adultContentEnabled": true
+      }
+    },
+    "nsfw = warn": {
+      "labels": [
+        {
+          "label": "nsfw",
+          "visibility": "warn"
+        }
+      ],
+      "behaviors": {
+        "labels": {
+          "porn": "warn",
+          "sexual": "warn",
+          "nudity": "warn",
+          "nsfl": "warn",
+          "corpse": "warn",
+          "gore": "warn",
+          "torture": "warn",
+          "self-harm": "warn",
+          "intolerant-race": "hide",
+          "intolerant-gender": "hide",
+          "intolerant-sexual-orientation": "hide",
+          "intolerant-religion": "hide",
+          "intolerant": "hide",
+          "icon-intolerant": "hide",
+          "spam": "hide",
+          "impersonation": "hide",
+          "scam": "warn"
+        }
+      }
+    },
+    "nudity = hide": {
+      "labels": [
+        {
+          "label": "nudity",
+          "visibility": "hide"
+        }
+      ],
+      "behaviors": {
+        "labels": {
+          "porn": "hide",
+          "sexual": "warn",
+          "nudity": "hide",
+          "nsfl": "warn",
+          "corpse": "warn",
+          "gore": "warn",
+          "torture": "warn",
+          "self-harm": "warn",
+          "intolerant-race": "hide",
+          "intolerant-gender": "hide",
+          "intolerant-sexual-orientation": "hide",
+          "intolerant-religion": "hide",
+          "intolerant": "hide",
+          "icon-intolerant": "hide",
+          "spam": "hide",
+          "impersonation": "hide",
+          "scam": "warn"
+        }
+      }
+    },
+    "suggestive = show": {
+      "labels": [
+        {
+          "label": "suggestive",
+          "visibility": "show"
+        }
+      ],
+      "behaviors": {
+        "labels": {
+          "porn": "hide",
+          "sexual": "ignore",
+          "nudity": "warn",
+          "nsfl": "warn",
+          "corpse": "warn",
+          "gore": "warn",
+          "torture": "warn",
+          "self-harm": "warn",
+          "intolerant-race": "hide",
+          "intolerant-gender": "hide",
+          "intolerant-sexual-orientation": "hide",
+          "intolerant-religion": "hide",
+          "intolerant": "hide",
+          "icon-intolerant": "hide",
+          "spam": "hide",
+          "impersonation": "hide",
+          "scam": "warn"
+        }
+      }
+    },
+    "gore = ignore": {
+      "labels": [
+        {
+          "label": "gore",
+          "visibility": "ignore"
+        }
+      ],
+      "behaviors": {
+        "labels": {
+          "porn": "hide",
+          "sexual": "warn",
+          "nudity": "warn",
+          "nsfl": "ignore",
+          "corpse": "ignore",
+          "gore": "ignore",
+          "torture": "ignore",
+          "self-harm": "ignore",
+          "intolerant-race": "hide",
+          "intolerant-gender": "hide",
+          "intolerant-sexual-orientation": "hide",
+          "intolerant-religion": "hide",
+          "intolerant": "hide",
+          "icon-intolerant": "hide",
+          "spam": "hide",
+          "impersonation": "hide",
+          "scam": "warn"
+        }
+      }
+    },
+    "hate = warn": {
+      "labels": [
+        {
+          "label": "hate",
+          "visibility": "warn"
+        }
+      ],
+      "behaviors": {
+        "labels": {
+          "porn": "hide",
+          "sexual": "warn",
+          "nudity": "warn",
+          "nsfl": "warn",
+          "corpse": "warn",
+          "gore": "warn",
+          "torture": "warn",
+          "self-harm": "warn",
+          "intolerant-race": "warn",
+          "intolerant-gender": "warn",
+          "intolerant-sexual-orientation": "warn",
+          "intolerant-religion": "warn",
+          "intolerant": "warn",
+          "icon-intolerant": "warn",
+          "spam": "hide",
+          "impersonation": "hide",
+          "scam": "warn"
+        }
+      }
+    },
+    "spam = show": {
+      "labels": [
+        {
+          "label": "spam",
+          "visibility": "show"
+        }
+      ],
+      "behaviors": {
+        "labels": {
+          "porn": "hide",
+          "sexual": "warn",
+          "nudity": "warn",
+          "nsfl": "warn",
+          "corpse": "warn",
+          "gore": "warn",
+          "torture": "warn",
+          "self-harm": "warn",
+          "intolerant-race": "hide",
+          "intolerant-gender": "hide",
+          "intolerant-sexual-orientation": "hide",
+          "intolerant-religion": "hide",
+          "intolerant": "hide",
+          "icon-intolerant": "hide",
+          "spam": "ignore",
+          "impersonation": "hide",
+          "scam": "warn"
+        }
+      }
+    },
+    "impersonation = ignore": {
+      "labels": [
+        {
+          "label": "impersonation",
+          "visibility": "ignore"
+        }
+      ],
+      "behaviors": {
+        "labels": {
+          "porn": "hide",
+          "sexual": "warn",
+          "nudity": "warn",
+          "nsfl": "warn",
+          "corpse": "warn",
+          "gore": "warn",
+          "torture": "warn",
+          "self-harm": "warn",
+          "intolerant-race": "hide",
+          "intolerant-gender": "hide",
+          "intolerant-sexual-orientation": "hide",
+          "intolerant-religion": "hide",
+          "intolerant": "hide",
+          "icon-intolerant": "hide",
+          "spam": "hide",
+          "impersonation": "ignore",
+          "scam": "warn"
+        }
+      }
+    }
+  }
+}

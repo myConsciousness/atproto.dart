@@ -3,6 +3,8 @@
 ## v0.11.1
 
 - Added `postsAndAuthorThreads` on `FeedFilter`. ([#1029](https://github.com/myConsciousness/atproto.dart/issues/1029))
+- Added `.getModerateOptions` function. You can easily get options for `moderatePost` and `moderateProfile` based on user preferences. ([#1030](https://github.com/myConsciousness/atproto.dart/issues/1030))
+- Added `ignore` on `ContentLabelVisibility` and deprecated `show` element.
 
 ## v0.11.0
 

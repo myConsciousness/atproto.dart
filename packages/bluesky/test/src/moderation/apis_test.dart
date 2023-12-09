@@ -2,6 +2,10 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
+import 'dart:convert';
+import 'dart:io';
+
 // 📦 Package imports:
 import 'package:atproto/atproto.dart';
 import 'package:test/test.dart';
@@ -17,8 +21,14 @@ import 'package:bluesky/src/moderation/entities/labeler_settings.dart';
 import 'package:bluesky/src/moderation/entities/moderation_options.dart';
 import 'package:bluesky/src/moderation/entities/moderation_subject_post.dart';
 import 'package:bluesky/src/moderation/entities/moderation_subject_profile.dart';
-import 'utils/moderation_behavior_result.dart';
-import 'utils/suite_runner.dart';
+import 'suite/moderation_behavior_result.dart';
+import 'suite/moderation_behaviors.dart';
+import 'suite/runner/moderation_behaviors_suite_runner.dart';
+
+const _profileModerationBehaviorsSuite =
+    'test/src/moderation/suite/data/profile_moderation_behaviors.json';
+const _postModerationBehaviorsSuite =
+    'test/src/moderation/suite/data/post_moderation_behaviors.json';
 
 void main() {
   group('Applies self-labels on profiles according to the global preferences',
@@ -366,6 +376,80 @@ void main() {
         context: 'post avatar',
         ignoreCause: true,
       );
+    });
+  });
+
+  group('Profile moderation behaviors', () {
+    final file = File(_profileModerationBehaviorsSuite);
+    final suite = ModerationBehaviors.fromJson(
+      jsonDecode(file.readAsStringSync()),
+    );
+
+    final runner = ModerationBehaviorSuiteRunner(suite);
+
+    suite.scenarios.forEach((description, scenario) {
+      test(description, () {
+        final actual = moderateProfile(
+          runner.getProfileScenario(scenario),
+          runner.getModerationOptions(scenario),
+        );
+
+        expectToBeModerationResult(
+          actual.account,
+          scenario.behaviors.account,
+          context: 'account',
+        );
+
+        expectToBeModerationResult(
+          actual.profile,
+          scenario.behaviors.profile,
+          context: 'profile content',
+        );
+
+        expectToBeModerationResult(
+          actual.avatar,
+          scenario.behaviors.avatar,
+          context: 'profile avatar',
+          ignoreCause: true,
+        );
+      });
+    });
+  });
+
+  group('Post moderation behaviors', () {
+    final file = File(_postModerationBehaviorsSuite);
+    final suite = ModerationBehaviors.fromJson(
+      jsonDecode(file.readAsStringSync()),
+    );
+
+    final runner = ModerationBehaviorSuiteRunner(suite);
+
+    suite.scenarios.forEach((description, scenario) {
+      test(description, () {
+        final actual = moderatePost(
+          runner.getPostScenario(scenario),
+          runner.getModerationOptions(scenario),
+        );
+
+        expectToBeModerationResult(
+          actual.content,
+          scenario.behaviors.content,
+          context: 'post content',
+        );
+
+        expectToBeModerationResult(
+          actual.avatar,
+          scenario.behaviors.avatar,
+          context: 'post avatar',
+          ignoreCause: true,
+        );
+
+        expectToBeModerationResult(
+          actual.embed,
+          scenario.behaviors.embed,
+          context: 'post embed',
+        );
+      });
     });
   });
 }

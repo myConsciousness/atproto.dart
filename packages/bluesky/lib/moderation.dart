@@ -41,3 +41,7 @@ export 'package:bluesky/src/moderation/definitions/known_label_group.dart'
     show KnownLabelGroup;
 export 'package:bluesky/src/moderation/definitions/labels.dart';
 export 'package:bluesky/src/moderation/definitions/label_groups.dart';
+
+/// Utils
+export 'package:bluesky/src/moderation/utils/options.dart'
+    show getModerationOptions;
