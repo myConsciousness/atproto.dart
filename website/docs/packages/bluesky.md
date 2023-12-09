@@ -927,14 +927,13 @@ import 'package:bluesky/bluesky.dart' as bsky;
 import 'package:bluesky/moderation.dart' as mod;
 
 Future<void> main() async {
-  final session = await _session;
-  final bluesky = bsky.Bluesky.fromSession(session);
+  final bluesky = bsky.Bluesky.fromSession(await _session);
 
   final preferences = await bluesky.actors.findPreferences();
 
   // Moderation options based on user's preferences
   final options = mod.getModerationOptions(
-    userDid: session.did,
+    userDid: bluesky.session.did,
     preferences: preferences.data.preferences,
   );
 
