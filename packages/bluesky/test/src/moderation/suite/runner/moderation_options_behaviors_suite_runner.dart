@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
+import 'package:bluesky/moderation.dart';
 import 'package:bluesky/src/entities/adult_content_preference.dart';
 import 'package:bluesky/src/entities/content_label_preference.dart';
 import 'package:bluesky/src/entities/preference.dart';
@@ -26,6 +27,19 @@ final class ModerationOptionsBehaviorsSuiteRunner {
       [
         ...?scenario.labels?.map(_getContentLabelPreference).toList(),
         _getAdultContentPreference(scenario.isAdultContentEnabled),
+      ];
+
+  List<LabelerSettings> getLabelers(
+    final ModerationOptionsBehaviorScenario scenario,
+  ) =>
+      const [
+        LabelerSettings(
+          labeler: Labeler(
+            did: '',
+            displayName: 'Bluesky Social',
+          ),
+          labels: {},
+        ),
       ];
 
   Preference _getContentLabelPreference(

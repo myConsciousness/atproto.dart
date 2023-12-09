@@ -28,14 +28,17 @@ void main() {
 
     suite.scenarios.forEach((description, scenario) {
       test(description, () {
+        final labelers = runner.getLabelers(scenario);
         final actual = getModerationOptions(
           userDid: 'did:web:shinyakato.dev',
           preferences: runner.getContentLabelPreferences(scenario),
+          labelers: labelers,
         );
 
         final expected = scenario.behaviors;
         expect(actual.isAdultContentEnabled, expected.isAdultContentEnabled);
         expect(actual.labels, expected.labels);
+        expect(actual.labelers, labelers);
       });
     });
   });
