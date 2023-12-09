@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.8.4
+
+- Changed `isNegate` of `Label` object to false by default. ([#1006](https://github.com/myConsciousness/atproto.dart/issues/1006))
+
 ## v0.8.3
 
 - Upgraded `atproto_core`. ([#1009](https://github.com/myConsciousness/atproto.dart/issues/1009))

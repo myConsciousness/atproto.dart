@@ -28,6 +28,10 @@ mixin _$PostViewer {
   @atUriConverter
   AtUri? get like => throw _privateConstructorUsedError;
 
+  /// Is reply disabled?
+  @JsonKey(name: 'replyDisabled')
+  bool get isReplyDisabled => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PostViewerCopyWith<PostViewer> get copyWith =>
@@ -40,7 +44,10 @@ abstract class $PostViewerCopyWith<$Res> {
           PostViewer value, $Res Function(PostViewer) then) =
       _$PostViewerCopyWithImpl<$Res, PostViewer>;
   @useResult
-  $Res call({@atUriConverter AtUri? repost, @atUriConverter AtUri? like});
+  $Res call(
+      {@atUriConverter AtUri? repost,
+      @atUriConverter AtUri? like,
+      @JsonKey(name: 'replyDisabled') bool isReplyDisabled});
 }
 
 /// @nodoc
@@ -58,6 +65,7 @@ class _$PostViewerCopyWithImpl<$Res, $Val extends PostViewer>
   $Res call({
     Object? repost = freezed,
     Object? like = freezed,
+    Object? isReplyDisabled = null,
   }) {
     return _then(_value.copyWith(
       repost: freezed == repost
@@ -68,6 +76,10 @@ class _$PostViewerCopyWithImpl<$Res, $Val extends PostViewer>
           ? _value.like
           : like // ignore: cast_nullable_to_non_nullable
               as AtUri?,
+      isReplyDisabled: null == isReplyDisabled
+          ? _value.isReplyDisabled
+          : isReplyDisabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -80,7 +92,10 @@ abstract class _$$_PostViewerCopyWith<$Res>
       __$$_PostViewerCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@atUriConverter AtUri? repost, @atUriConverter AtUri? like});
+  $Res call(
+      {@atUriConverter AtUri? repost,
+      @atUriConverter AtUri? like,
+      @JsonKey(name: 'replyDisabled') bool isReplyDisabled});
 }
 
 /// @nodoc
@@ -96,6 +111,7 @@ class __$$_PostViewerCopyWithImpl<$Res>
   $Res call({
     Object? repost = freezed,
     Object? like = freezed,
+    Object? isReplyDisabled = null,
   }) {
     return _then(_$_PostViewer(
       repost: freezed == repost
@@ -106,6 +122,10 @@ class __$$_PostViewerCopyWithImpl<$Res>
           ? _value.like
           : like // ignore: cast_nullable_to_non_nullable
               as AtUri?,
+      isReplyDisabled: null == isReplyDisabled
+          ? _value.isReplyDisabled
+          : isReplyDisabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -114,7 +134,10 @@ class __$$_PostViewerCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$_PostViewer extends _PostViewer {
-  const _$_PostViewer({@atUriConverter this.repost, @atUriConverter this.like})
+  const _$_PostViewer(
+      {@atUriConverter this.repost,
+      @atUriConverter this.like,
+      @JsonKey(name: 'replyDisabled') this.isReplyDisabled = false})
       : super._();
 
   factory _$_PostViewer.fromJson(Map<String, dynamic> json) =>
@@ -130,9 +153,14 @@ class _$_PostViewer extends _PostViewer {
   @atUriConverter
   final AtUri? like;
 
+  /// Is reply disabled?
+  @override
+  @JsonKey(name: 'replyDisabled')
+  final bool isReplyDisabled;
+
   @override
   String toString() {
-    return 'PostViewer(repost: $repost, like: $like)';
+    return 'PostViewer(repost: $repost, like: $like, isReplyDisabled: $isReplyDisabled)';
   }
 
   @override
@@ -141,12 +169,14 @@ class _$_PostViewer extends _PostViewer {
         (other.runtimeType == runtimeType &&
             other is _$_PostViewer &&
             (identical(other.repost, repost) || other.repost == repost) &&
-            (identical(other.like, like) || other.like == like));
+            (identical(other.like, like) || other.like == like) &&
+            (identical(other.isReplyDisabled, isReplyDisabled) ||
+                other.isReplyDisabled == isReplyDisabled));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, repost, like);
+  int get hashCode => Object.hash(runtimeType, repost, like, isReplyDisabled);
 
   @JsonKey(ignore: true)
   @override
@@ -164,8 +194,10 @@ class _$_PostViewer extends _PostViewer {
 
 abstract class _PostViewer extends PostViewer {
   const factory _PostViewer(
-      {@atUriConverter final AtUri? repost,
-      @atUriConverter final AtUri? like}) = _$_PostViewer;
+          {@atUriConverter final AtUri? repost,
+          @atUriConverter final AtUri? like,
+          @JsonKey(name: 'replyDisabled') final bool isReplyDisabled}) =
+      _$_PostViewer;
   const _PostViewer._() : super._();
 
   factory _PostViewer.fromJson(Map<String, dynamic> json) =
@@ -181,6 +213,11 @@ abstract class _PostViewer extends PostViewer {
   /// May contain the URI of the like by the authenticated user.
   @atUriConverter
   AtUri? get like;
+  @override
+
+  /// Is reply disabled?
+  @JsonKey(name: 'replyDisabled')
+  bool get isReplyDisabled;
   @override
   @JsonKey(ignore: true)
   _$$_PostViewerCopyWith<_$_PostViewer> get copyWith =>

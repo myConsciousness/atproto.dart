@@ -25,6 +25,7 @@ mixin _$Post {
   String get type => throw _privateConstructorUsedError;
 
   /// The record containing the content of the post.
+  @postRecordConverter
   PostRecord get record => throw _privateConstructorUsedError;
 
   /// The author who created the post.
@@ -74,7 +75,7 @@ abstract class $PostCopyWith<$Res> {
   @useResult
   $Res call(
       {@typeKey String type,
-      PostRecord record,
+      @postRecordConverter PostRecord record,
       Actor author,
       @atUriConverter AtUri uri,
       String cid,
@@ -221,7 +222,7 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
   @useResult
   $Res call(
       {@typeKey String type,
-      PostRecord record,
+      @postRecordConverter PostRecord record,
       Actor author,
       @atUriConverter AtUri uri,
       String cid,
@@ -330,7 +331,7 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
 class _$_Post extends _Post {
   const _$_Post(
       {@typeKey this.type = appBskyFeedDefsPostView,
-      required this.record,
+      @postRecordConverter required this.record,
       required this.author,
       @atUriConverter required this.uri,
       required this.cid,
@@ -355,6 +356,7 @@ class _$_Post extends _Post {
 
   /// The record containing the content of the post.
   @override
+  @postRecordConverter
   final PostRecord record;
 
   /// The author who created the post.
@@ -489,7 +491,7 @@ class _$_Post extends _Post {
 abstract class _Post extends Post {
   const factory _Post(
       {@typeKey final String type,
-      required final PostRecord record,
+      @postRecordConverter required final PostRecord record,
       required final Actor author,
       @atUriConverter required final AtUri uri,
       required final String cid,
@@ -513,6 +515,7 @@ abstract class _Post extends Post {
   @override
 
   /// The record containing the content of the post.
+  @postRecordConverter
   PostRecord get record;
   @override
 

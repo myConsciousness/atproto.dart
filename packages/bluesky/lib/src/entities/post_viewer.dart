@@ -33,6 +33,9 @@ class PostViewer with _$PostViewer {
 
     /// May contain the URI of the like by the authenticated user.
     @atUriConverter AtUri? like,
+
+    /// Is reply disabled?
+    @JsonKey(name: 'replyDisabled') @Default(false) bool isReplyDisabled,
   }) = _PostViewer;
 
   /// Creates a new instance of [PostViewer] from a map of [json] data.
@@ -57,4 +60,7 @@ class PostViewer with _$PostViewer {
   /// Returns true if the authenticated user has not liked yet this record,
   /// otherwise false.
   bool get isNotLiked => !isLiked;
+
+  /// Returns true if this post is not reply disabled, otherwise false.
+  bool get isNotReplyDisabled => !isReplyDisabled;
 }

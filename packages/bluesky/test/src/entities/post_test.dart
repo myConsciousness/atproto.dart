@@ -261,4 +261,124 @@ void main() {
       expect(post.isNotLiked, isTrue);
     });
   });
+
+  group('.isReplyDisabled', () {
+    test('when disabled', () {
+      final post = Post(
+        record: PostRecord(
+          text: 'test',
+          createdAt: DateTime.now(),
+        ),
+        author: Actor(
+          did: 'xxxxxx',
+          handle: 'shinyakato.dev',
+          viewer: ActorViewer(
+            isMuted: false,
+            isBlockedBy: false,
+          ),
+        ),
+        uri: AtUri.parse(
+          'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
+        ),
+        cid: 'aaaa',
+        replyCount: 0,
+        repostCount: 0,
+        likeCount: 0,
+        viewer: PostViewer(
+          isReplyDisabled: true,
+        ),
+        indexedAt: DateTime.now(),
+      );
+
+      expect(post.isReplyDisabled, isTrue);
+    });
+
+    test('when not disabled', () {
+      final post = Post(
+        record: PostRecord(
+          text: 'test',
+          createdAt: DateTime.now(),
+        ),
+        author: Actor(
+          did: 'xxxxxx',
+          handle: 'shinyakato.dev',
+          viewer: ActorViewer(
+            isMuted: false,
+            isBlockedBy: false,
+          ),
+        ),
+        uri: AtUri.parse(
+          'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
+        ),
+        cid: 'aaaa',
+        replyCount: 0,
+        repostCount: 0,
+        likeCount: 0,
+        viewer: PostViewer(),
+        indexedAt: DateTime.now(),
+      );
+
+      expect(post.isReplyDisabled, isFalse);
+    });
+  });
+
+  group('.isNotReplyDisabled', () {
+    test('when disabled', () {
+      final post = Post(
+        record: PostRecord(
+          text: 'test',
+          createdAt: DateTime.now(),
+        ),
+        author: Actor(
+          did: 'xxxxxx',
+          handle: 'shinyakato.dev',
+          viewer: ActorViewer(
+            isMuted: false,
+            isBlockedBy: false,
+          ),
+        ),
+        uri: AtUri.parse(
+          'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
+        ),
+        cid: 'aaaa',
+        replyCount: 0,
+        repostCount: 0,
+        likeCount: 0,
+        viewer: PostViewer(
+          isReplyDisabled: true,
+        ),
+        indexedAt: DateTime.now(),
+      );
+
+      expect(post.isNotReplyDisabled, isFalse);
+    });
+
+    test('when not disabled', () {
+      final post = Post(
+        record: PostRecord(
+          text: 'test',
+          createdAt: DateTime.now(),
+        ),
+        author: Actor(
+          did: 'xxxxxx',
+          handle: 'shinyakato.dev',
+          viewer: ActorViewer(
+            isMuted: false,
+            isBlockedBy: false,
+          ),
+        ),
+        uri: AtUri.parse(
+          'at://did:plc:tulukgm6whdikfqxjy5payxr/app.bsky.feed.post/3jzvem5m6d42v',
+        ),
+        cid: 'aaaa',
+        replyCount: 0,
+        repostCount: 0,
+        likeCount: 0,
+        viewer: PostViewer(),
+        indexedAt: DateTime.now(),
+      );
+
+      expect(post.isNotReplyDisabled, isTrue);
+    });
+  });
 }

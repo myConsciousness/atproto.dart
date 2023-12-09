@@ -1,5 +1,29 @@
 # Release Note
 
+## v0.11.0
+
+- Added moderation APIs and exposed `bluesky/moderation` package. See more [details](https://atprotodart.com/docs/packages/bluesky/#moderation-api). ([#1006](https://github.com/myConsciousness/atproto.dart/issues/1006))
+  - `.moderatePost`
+  - `.moderateProfile`
+
+## v0.10.8
+
+- Added `uri` on `ListItem`. ([#1026](https://github.com/myConsciousness/atproto.dart/issues/1026))
+
+## v0.10.7
+
+- Removed `entities` field on `PostRecord`. Instead of this field, `entities` is merged internally to `facets` field.
+
+## v0.10.6
+
+- Added deprecated `entities` field on `PostRecord`. ([#1020](https://github.com/myConsciousness/atproto.dart/issues/1020))
+  - `LegacyFacet`
+  - `TextSlice`
+
+## v0.10.5
+
+- Added `.isReplyDisabled` and `.isNotReplyDisabled` properties on `PostViewer`. ([#1019](https://github.com/myConsciousness/atproto.dart/issues/1019))
+
 ## v0.10.4
 
 - Added `.findLinkPreview` function. ThiIts returns preview information for a given URL. ([#1009](https://github.com/myConsciousness/atproto.dart/issues/1009))

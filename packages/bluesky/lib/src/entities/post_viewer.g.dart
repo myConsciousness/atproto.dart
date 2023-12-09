@@ -21,9 +21,12 @@ _$_PostViewer _$$_PostViewerFromJson(Map json) => $checkedCreate(
               'like',
               (v) => _$JsonConverterFromJson<String, AtUri>(
                   v, atUriConverter.fromJson)),
+          isReplyDisabled:
+              $checkedConvert('replyDisabled', (v) => v as bool? ?? false),
         );
         return val;
       },
+      fieldKeyMap: const {'isReplyDisabled': 'replyDisabled'},
     );
 
 Map<String, dynamic> _$$_PostViewerToJson(_$_PostViewer instance) {
@@ -43,6 +46,7 @@ Map<String, dynamic> _$$_PostViewerToJson(_$_PostViewer instance) {
       'like',
       _$JsonConverterToJson<String, AtUri>(
           instance.like, atUriConverter.toJson));
+  val['replyDisabled'] = instance.isReplyDisabled;
   return val;
 }
 

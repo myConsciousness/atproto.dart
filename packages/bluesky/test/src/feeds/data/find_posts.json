@@ -25,7 +25,9 @@
       "replyCount": 8,
       "repostCount": 0,
       "likeCount": 7,
-      "viewer": {},
+      "viewer": {
+        "replyDisabled": true
+      },
       "labels": [],
       "indexedAt": "2023-04-24T13:50:20.078Z"
     }
