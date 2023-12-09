@@ -24,10 +24,10 @@ import 'package:bluesky/src/moderation/entities/moderation_options.dart';
 import 'package:bluesky/src/moderation/entities/moderation_subject_post.dart';
 import 'package:bluesky/src/moderation/entities/moderation_subject_profile.dart';
 import 'package:bluesky/src/moderation/entities/moderation_ui.dart';
-import 'moderation_behavior_result.dart';
-import 'moderation_behavior_scenario.dart';
-import 'moderation_behavior_scenario_labels.dart';
-import 'moderation_behaviors.dart';
+import '../moderation_behavior_result.dart';
+import '../moderation_behavior_scenario.dart';
+import '../moderation_behavior_scenario_labels.dart';
+import '../moderation_behaviors.dart';
 
 final class ModerationBehaviorSuiteRunner {
   const ModerationBehaviorSuiteRunner(this.suite);

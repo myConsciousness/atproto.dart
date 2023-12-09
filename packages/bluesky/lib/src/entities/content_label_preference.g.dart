@@ -35,6 +35,7 @@ Map<String, dynamic> _$$_ContentLabelPreferenceToJson(
 
 const _$ContentLabelVisibilityEnumMap = {
   ContentLabelVisibility.show: 'show',
+  ContentLabelVisibility.ignore: 'ignore',
   ContentLabelVisibility.warn: 'warn',
   ContentLabelVisibility.hide: 'hide',
 };

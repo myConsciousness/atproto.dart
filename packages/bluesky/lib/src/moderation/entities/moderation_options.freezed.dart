@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ModerationOptions {
   String get userDid => throw _privateConstructorUsedError;
-  dynamic get isAdultContentEnabled => throw _privateConstructorUsedError;
+  bool get isAdultContentEnabled => throw _privateConstructorUsedError;
   Map<String, LabelPreference> get labels => throw _privateConstructorUsedError;
   List<LabelerSettings> get labelers => throw _privateConstructorUsedError;
 
@@ -34,7 +34,7 @@ abstract class $ModerationOptionsCopyWith<$Res> {
   @useResult
   $Res call(
       {String userDid,
-      dynamic isAdultContentEnabled,
+      bool isAdultContentEnabled,
       Map<String, LabelPreference> labels,
       List<LabelerSettings> labelers});
 }
@@ -53,7 +53,7 @@ class _$ModerationOptionsCopyWithImpl<$Res, $Val extends ModerationOptions>
   @override
   $Res call({
     Object? userDid = null,
-    Object? isAdultContentEnabled = freezed,
+    Object? isAdultContentEnabled = null,
     Object? labels = null,
     Object? labelers = null,
   }) {
@@ -62,10 +62,10 @@ class _$ModerationOptionsCopyWithImpl<$Res, $Val extends ModerationOptions>
           ? _value.userDid
           : userDid // ignore: cast_nullable_to_non_nullable
               as String,
-      isAdultContentEnabled: freezed == isAdultContentEnabled
+      isAdultContentEnabled: null == isAdultContentEnabled
           ? _value.isAdultContentEnabled
           : isAdultContentEnabled // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as bool,
       labels: null == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -88,7 +88,7 @@ abstract class _$$_ModerationOptionsCopyWith<$Res>
   @useResult
   $Res call(
       {String userDid,
-      dynamic isAdultContentEnabled,
+      bool isAdultContentEnabled,
       Map<String, LabelPreference> labels,
       List<LabelerSettings> labelers});
 }
@@ -105,7 +105,7 @@ class __$$_ModerationOptionsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? userDid = null,
-    Object? isAdultContentEnabled = freezed,
+    Object? isAdultContentEnabled = null,
     Object? labels = null,
     Object? labelers = null,
   }) {
@@ -114,9 +114,10 @@ class __$$_ModerationOptionsCopyWithImpl<$Res>
           ? _value.userDid
           : userDid // ignore: cast_nullable_to_non_nullable
               as String,
-      isAdultContentEnabled: freezed == isAdultContentEnabled
-          ? _value.isAdultContentEnabled!
-          : isAdultContentEnabled,
+      isAdultContentEnabled: null == isAdultContentEnabled
+          ? _value.isAdultContentEnabled
+          : isAdultContentEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
       labels: null == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -144,7 +145,7 @@ class _$_ModerationOptions implements _ModerationOptions {
   final String userDid;
   @override
   @JsonKey()
-  final dynamic isAdultContentEnabled;
+  final bool isAdultContentEnabled;
   final Map<String, LabelPreference> _labels;
   @override
   Map<String, LabelPreference> get labels {
@@ -172,8 +173,8 @@ class _$_ModerationOptions implements _ModerationOptions {
         (other.runtimeType == runtimeType &&
             other is _$_ModerationOptions &&
             (identical(other.userDid, userDid) || other.userDid == userDid) &&
-            const DeepCollectionEquality()
-                .equals(other.isAdultContentEnabled, isAdultContentEnabled) &&
+            (identical(other.isAdultContentEnabled, isAdultContentEnabled) ||
+                other.isAdultContentEnabled == isAdultContentEnabled) &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
             const DeepCollectionEquality().equals(other._labelers, _labelers));
   }
@@ -182,7 +183,7 @@ class _$_ModerationOptions implements _ModerationOptions {
   int get hashCode => Object.hash(
       runtimeType,
       userDid,
-      const DeepCollectionEquality().hash(isAdultContentEnabled),
+      isAdultContentEnabled,
       const DeepCollectionEquality().hash(_labels),
       const DeepCollectionEquality().hash(_labelers));
 
@@ -197,14 +198,14 @@ class _$_ModerationOptions implements _ModerationOptions {
 abstract class _ModerationOptions implements ModerationOptions {
   const factory _ModerationOptions(
       {required final String userDid,
-      final dynamic isAdultContentEnabled,
+      final bool isAdultContentEnabled,
       required final Map<String, LabelPreference> labels,
       required final List<LabelerSettings> labelers}) = _$_ModerationOptions;
 
   @override
   String get userDid;
   @override
-  dynamic get isAdultContentEnabled;
+  bool get isAdultContentEnabled;
   @override
   Map<String, LabelPreference> get labels;
   @override
