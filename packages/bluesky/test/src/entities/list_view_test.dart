@@ -7,9 +7,9 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
+import 'package:bluesky/src/ids.g.dart';
 import 'package:bluesky/src/services/entities/actor.dart';
 import 'package:bluesky/src/services/entities/actor_viewer.dart';
-import 'package:bluesky/src/services/entities/keys/ids.g.dart';
 import 'package:bluesky/src/services/entities/list_view.dart';
 import 'package:bluesky/src/services/entities/list_viewer.dart';
 

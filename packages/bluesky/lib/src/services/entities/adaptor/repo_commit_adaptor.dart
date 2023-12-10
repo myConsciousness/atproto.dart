@@ -10,13 +10,13 @@ import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
+import '../../../ids.g.dart' as ids;
 import '../../extensions/at_uri_extension.dart';
 import '../block_list_record.dart';
 import '../block_record.dart';
 import '../converter/post_record_converter.dart';
 import '../follow_record.dart';
 import '../generator_record.dart';
-import '../keys/ids.g.dart' as ids;
 import '../like_record.dart';
 import '../list_item_record.dart';
 import '../list_record.dart';

@@ -7,10 +7,10 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../ids.g.dart' as ids;
 import '../embed_external.dart';
 import '../embed_images.dart';
 import '../embed_media.dart';
-import '../keys/ids.g.dart' as ids;
 
 const embedMediaConverter = _EmbedMediaConverter();
 

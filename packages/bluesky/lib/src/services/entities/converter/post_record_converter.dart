@@ -9,7 +9,7 @@ import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../keys/ids.g.dart' as ids;
+import '../../../ids.g.dart' as ids;
 import '../post_record.dart';
 
 const postRecordConverter = _PostRecordConverter();

@@ -7,10 +7,10 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../ids.g.dart' as ids;
 import '../adult_content_preference.dart';
 import '../content_label_preference.dart';
 import '../feed_view_preference.dart';
-import '../keys/ids.g.dart' as ids;
 import '../personal_details_preference.dart';
 import '../preference.dart';
 import '../saved_feeds_preference.dart';

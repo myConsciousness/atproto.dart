@@ -185,7 +185,7 @@ export 'package:atproto_core/atproto_core.dart'
         isValidAppPassword;
 export 'package:bluesky/src/services/actors_service.dart';
 export 'package:bluesky/src/bluesky.dart';
-export 'package:bluesky/src/bluesky_service.dart';
+export 'package:bluesky/src/services/service.dart';
 export 'package:bluesky/src/services/entities/actor.dart';
 export 'package:bluesky/src/services/entities/actor_feeds.dart';
 export 'package:bluesky/src/services/entities/actor_profile.dart';

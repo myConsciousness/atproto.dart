@@ -7,7 +7,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../keys/ids.g.dart' as ids;
+import '../../../ids.g.dart' as ids;
 import '../reason.dart';
 import '../reason_repost.dart';
 

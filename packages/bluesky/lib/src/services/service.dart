@@ -7,11 +7,11 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import 'services/actors_service.dart';
-import 'services/feeds_service.dart';
-import 'services/graphs_service.dart';
-import 'services/notifications_service.dart';
-import 'services/unspecced_service.dart';
+import 'actors_service.dart';
+import 'feeds_service.dart';
+import 'graphs_service.dart';
+import 'notifications_service.dart';
+import 'unspecced_service.dart';
 
 sealed class BlueskyService {
   /// Returns the new instance of [BlueskyService].

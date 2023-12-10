@@ -7,12 +7,12 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../ids.g.dart' as ids;
 import '../embed_view_record_view.dart';
 import '../embed_view_record_view_blocked.dart';
 import '../embed_view_record_view_not_found.dart';
 import '../embed_view_record_view_record.dart';
 import '../feed_generator_view.dart';
-import '../keys/ids.g.dart' as ids;
 import '../list_view.dart';
 
 const embedViewRecordViewConverter = _EmbedViewRecordViewConverter();

@@ -9,8 +9,8 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../ids.g.dart';
 import 'actor_viewer.dart';
-import 'keys/ids.g.dart';
 
 part 'blocked_author.freezed.dart';
 part 'blocked_author.g.dart';

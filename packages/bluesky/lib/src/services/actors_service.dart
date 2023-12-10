@@ -7,7 +7,7 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../bluesky_base_service.dart';
+import 'base_service.dart';
 import 'entities/actor_profile.dart';
 import 'entities/actor_profiles.dart';
 import 'entities/actors.dart';

@@ -10,7 +10,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'keys/ids.g.dart';
+import '../../ids.g.dart';
 
 part 'profile_record.freezed.dart';
 part 'profile_record.g.dart';

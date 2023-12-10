@@ -9,8 +9,8 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../ids.g.dart';
 import 'converter/thread_rule_converter.dart';
-import 'keys/ids.g.dart';
 import 'thread_rule.dart';
 
 part 'threadgate_record.freezed.dart';

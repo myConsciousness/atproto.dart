@@ -7,11 +7,11 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../ids.g.dart' as ids;
 import '../facet_feature.dart';
 import '../facet_link.dart';
 import '../facet_mention.dart';
 import '../facet_tag.dart';
-import '../keys/ids.g.dart' as ids;
 
 const facetFeatureConverter = _FacetFeatureConverter();
 

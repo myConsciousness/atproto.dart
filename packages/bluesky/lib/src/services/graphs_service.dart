@@ -7,12 +7,12 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../bluesky_base_service.dart';
+import '../ids.g.dart' as ids;
+import 'base_service.dart';
 import 'entities/blocks.dart';
 import 'entities/facet.dart';
 import 'entities/followers.dart';
 import 'entities/follows.dart';
-import 'entities/keys/ids.g.dart' as ids;
 import 'entities/list_items.dart';
 import 'entities/lists.dart';
 import 'entities/mutes.dart';

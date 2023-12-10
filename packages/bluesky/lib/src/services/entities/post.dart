@@ -10,12 +10,12 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../ids.g.dart';
 import 'actor.dart';
 import 'converter/embed_view_converter.dart';
 import 'converter/post_record_converter.dart';
 import 'defaults.dart';
 import 'embed_view.dart';
-import 'keys/ids.g.dart';
 import 'post_record.dart';
 import 'post_viewer.dart';
 
