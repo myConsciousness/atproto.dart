@@ -6,7 +6,7 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import 'services.dart';
+import 'services/services.dart';
 import 'services/identities_service.dart';
 import 'services/labels_service.dart';
 import 'services/moderation_service.dart';
