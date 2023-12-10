@@ -38,9 +38,8 @@ const blob = 'blob';""")
 
     final ids = buffer.toString();
 
-    File('./packages/$package/lib/src/services/entities/keys/ids.g.dart')
-        .writeAsStringSync(
-            '''// Copyright 2023 Shinya Kato. All rights reserved.
+    File('./packages/$package/lib/src/ids.g.dart').writeAsStringSync(
+        '''// Copyright 2023 Shinya Kato. All rights reserved.
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
