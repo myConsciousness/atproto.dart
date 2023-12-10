@@ -11,9 +11,6 @@ import '../../../ids.g.dart' as ids;
 import '../labels.dart';
 import '../self_labels.dart';
 
-// 🌎 Project imports:
-
-
 const labelsConverter = _LabelsConverter();
 
 final class _LabelsConverter
