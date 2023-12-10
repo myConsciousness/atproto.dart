@@ -15,14 +15,6 @@ void expectHttpException(Function fn) {
   );
 }
 
-/// Checks if [fn] throws [xrpc.XRPCException].
-void expectXRPCException(Function fn) {
-  expect(
-    () async => await fn.call(),
-    throwsA(isA<xrpc.XRPCException>()),
-  );
-}
-
 /// Checks if [fn] throws [xrpc.UnauthorizedException].
 void expectUnauthorizedException(final Function fn) {
   expect(
@@ -36,14 +28,6 @@ void expectRateLimitExceededException(final Function fn) {
   expect(
     () async => await fn.call(),
     throwsA(isA<xrpc.RateLimitExceededException>()),
-  );
-}
-
-/// Checks if [fn] throws [xrpc.InvalidRequestException].
-void expectInvalidRequestException(final Function fn) {
-  expect(
-    () async => await fn.call(),
-    throwsA(isA<xrpc.InvalidRequestException>()),
   );
 }
 
