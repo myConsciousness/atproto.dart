@@ -9,10 +9,10 @@ import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/entities/count.dart';
-import 'package:bluesky/src/entities/grouped_notifications.dart';
-import 'package:bluesky/src/entities/notifications.dart';
-import 'package:bluesky/src/notifications/notifications_service.dart';
+import 'package:bluesky/src/services/entities/count.dart';
+import 'package:bluesky/src/services/entities/grouped_notifications.dart';
+import 'package:bluesky/src/services/entities/notifications.dart';
+import 'package:bluesky/src/services/notifications_service.dart';
 import '../session.dart';
 
 void main() {

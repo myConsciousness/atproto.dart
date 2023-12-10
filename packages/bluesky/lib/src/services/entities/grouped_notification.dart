@@ -10,7 +10,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../notifications/grouped_notification_reason.dart';
+import '../constants/grouped_notification_reason.dart';
 import 'actor.dart';
 
 part 'grouped_notification.freezed.dart';

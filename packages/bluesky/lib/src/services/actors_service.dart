@@ -8,13 +8,13 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../bluesky_base_service.dart';
-import '../entities/actor_profile.dart';
-import '../entities/actor_profiles.dart';
-import '../entities/actors.dart';
-import '../entities/actors_typeahead.dart';
-import '../entities/preference.dart';
-import '../entities/preferences.dart';
-import '../entities/profile_record.dart';
+import 'entities/actor_profile.dart';
+import 'entities/actor_profiles.dart';
+import 'entities/actors.dart';
+import 'entities/actors_typeahead.dart';
+import 'entities/preference.dart';
+import 'entities/preferences.dart';
+import 'entities/profile_record.dart';
 
 sealed class ActorsService {
   /// Returns the new instance of [ActorsService].

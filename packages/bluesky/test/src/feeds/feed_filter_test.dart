@@ -6,7 +6,7 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/feeds/feed_filter.dart';
+import 'package:bluesky/src/services/constants/feed_filter.dart';
 
 void main() {
   test('.name', () {

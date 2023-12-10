@@ -7,7 +7,7 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/bluesky.dart';
-import 'package:bluesky/src/entities/keys/ids.g.dart';
+import 'package:bluesky/src/services/entities/keys/ids.g.dart';
 
 void main() {
   group('.moderatedLists', () {

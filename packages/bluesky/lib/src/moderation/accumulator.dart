@@ -6,7 +6,7 @@
 import 'package:atproto/atproto.dart' as atp;
 
 // 🌎 Project imports:
-import '../entities/list_view_basic.dart';
+import '../services/entities/list_view_basic.dart';
 import 'definitions/known_label.dart';
 import 'definitions/label_definition_flag.dart';
 import 'definitions/label_definition_on_warn_behavior.dart';

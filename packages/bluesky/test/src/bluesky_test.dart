@@ -7,12 +7,12 @@ import 'package:atproto/atproto.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/actors/actors_service.dart';
 import 'package:bluesky/src/bluesky.dart';
-import 'package:bluesky/src/feeds/feeds_service.dart';
-import 'package:bluesky/src/graphs/graphs_service.dart';
-import 'package:bluesky/src/notifications/notifications_service.dart';
-import 'package:bluesky/src/unspecced/unspecced_service.dart';
+import 'package:bluesky/src/services/actors_service.dart';
+import 'package:bluesky/src/services/feeds_service.dart';
+import 'package:bluesky/src/services/graphs_service.dart';
+import 'package:bluesky/src/services/notifications_service.dart';
+import 'package:bluesky/src/services/unspecced_service.dart';
 
 void main() {
   group('.session', () {

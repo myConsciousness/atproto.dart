@@ -6,7 +6,7 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/notifications/notification_reason.dart';
+import 'package:bluesky/src/services/constants/notification_reason.dart';
 
 void main() {
   test('.name', () {

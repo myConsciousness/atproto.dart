@@ -8,8 +8,8 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../bluesky_base_service.dart';
-import '../entities/count.dart';
-import '../entities/notifications.dart';
+import 'entities/count.dart';
+import 'entities/notifications.dart';
 
 sealed class NotificationsService {
   /// Returns the new instance of [NotificationsService].

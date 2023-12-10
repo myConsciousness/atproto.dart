@@ -3,11 +3,11 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import '../../entities/embed_view_record.dart';
-import '../../entities/embed_view_record_view.dart';
-import '../../entities/embed_view_record_view_blocked.dart';
-import '../../entities/embed_view_record_view_record.dart';
-import '../../entities/embed_view_record_with_media.dart';
+import '../../services/entities/embed_view_record.dart';
+import '../../services/entities/embed_view_record_view.dart';
+import '../../services/entities/embed_view_record_view_blocked.dart';
+import '../../services/entities/embed_view_record_view_record.dart';
+import '../../services/entities/embed_view_record_with_media.dart';
 import '../accumulator.dart';
 import '../entities/moderation_decision.dart';
 import '../entities/moderation_options.dart';

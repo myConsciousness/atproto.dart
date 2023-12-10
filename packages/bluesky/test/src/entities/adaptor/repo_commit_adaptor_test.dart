@@ -8,21 +8,21 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/entities/adaptor/repo_commit_adaptor.dart';
-import 'package:bluesky/src/entities/adaptor/repo_commit_create.dart';
-import 'package:bluesky/src/entities/adaptor/repo_commit_delete.dart';
-import 'package:bluesky/src/entities/adaptor/repo_commit_update.dart';
-import 'package:bluesky/src/entities/block_list_record.dart';
-import 'package:bluesky/src/entities/block_record.dart';
-import 'package:bluesky/src/entities/follow_record.dart';
-import 'package:bluesky/src/entities/generator_record.dart';
-import 'package:bluesky/src/entities/like_record.dart';
-import 'package:bluesky/src/entities/list_item_record.dart';
-import 'package:bluesky/src/entities/list_record.dart';
-import 'package:bluesky/src/entities/post_record.dart';
-import 'package:bluesky/src/entities/profile_record.dart';
-import 'package:bluesky/src/entities/repost_record.dart';
-import 'package:bluesky/src/entities/threadgate_record.dart';
+import 'package:bluesky/src/services/entities/adaptor/repo_commit_adaptor.dart';
+import 'package:bluesky/src/services/entities/adaptor/repo_commit_create.dart';
+import 'package:bluesky/src/services/entities/adaptor/repo_commit_delete.dart';
+import 'package:bluesky/src/services/entities/adaptor/repo_commit_update.dart';
+import 'package:bluesky/src/services/entities/block_list_record.dart';
+import 'package:bluesky/src/services/entities/block_record.dart';
+import 'package:bluesky/src/services/entities/follow_record.dart';
+import 'package:bluesky/src/services/entities/generator_record.dart';
+import 'package:bluesky/src/services/entities/like_record.dart';
+import 'package:bluesky/src/services/entities/list_item_record.dart';
+import 'package:bluesky/src/services/entities/list_record.dart';
+import 'package:bluesky/src/services/entities/post_record.dart';
+import 'package:bluesky/src/services/entities/profile_record.dart';
+import 'package:bluesky/src/services/entities/repost_record.dart';
+import 'package:bluesky/src/services/entities/threadgate_record.dart';
 
 void main() {
   group('.onCreatePost', () {

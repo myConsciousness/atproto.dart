@@ -6,8 +6,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../entities/actor.dart';
-import '../../entities/actor_profile.dart';
+import '../../services/entities/actor.dart';
+import '../../services/entities/actor_profile.dart';
 import 'moderation_object.dart';
 
 part 'moderation_subject_profile.freezed.dart';

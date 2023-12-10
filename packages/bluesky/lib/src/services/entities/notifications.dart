@@ -6,9 +6,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../notifications/group_by.dart';
-import '../notifications/notification_reason_filter.dart';
-import '../notifications/notifications_grouper.dart';
+import '../utils/group_by.dart';
+import '../utils/notification_reason_filter.dart';
+import '../utils/notifications_grouper.dart';
 import 'grouped_notifications.dart';
 import 'notification.dart';
 

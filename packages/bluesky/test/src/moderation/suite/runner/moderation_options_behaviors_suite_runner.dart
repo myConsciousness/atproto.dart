@@ -4,9 +4,9 @@
 
 // 🌎 Project imports:
 import 'package:bluesky/moderation.dart';
-import 'package:bluesky/src/entities/adult_content_preference.dart';
-import 'package:bluesky/src/entities/content_label_preference.dart';
-import 'package:bluesky/src/entities/preference.dart';
+import 'package:bluesky/src/services/entities/adult_content_preference.dart';
+import 'package:bluesky/src/services/entities/content_label_preference.dart';
+import 'package:bluesky/src/services/entities/preference.dart';
 import '../moderation_options_behavior_scenario.dart';
 import '../moderation_options_behavior_scenario_label.dart';
 import '../moderation_options_behaviors.dart';

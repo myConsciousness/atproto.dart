@@ -11,12 +11,12 @@ import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/entities/feed.dart';
-import 'package:bluesky/src/entities/feed_generators.dart';
-import 'package:bluesky/src/entities/skeleton_actors_by_query.dart';
-import 'package:bluesky/src/entities/skeleton_feed.dart';
-import 'package:bluesky/src/entities/skeleton_posts_by_query.dart';
-import 'package:bluesky/src/unspecced/unspecced_service.dart';
+import 'package:bluesky/src/services/entities/feed.dart';
+import 'package:bluesky/src/services/entities/feed_generators.dart';
+import 'package:bluesky/src/services/entities/skeleton_actors_by_query.dart';
+import 'package:bluesky/src/services/entities/skeleton_feed.dart';
+import 'package:bluesky/src/services/entities/skeleton_posts_by_query.dart';
+import 'package:bluesky/src/services/unspecced_service.dart';
 import '../session.dart';
 
 void main() {

@@ -3,21 +3,21 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'entities/moderation_cause.dart';
-import 'entities/moderation_decision.dart';
-import 'entities/moderation_options.dart';
-import 'entities/moderation_subject_post.dart';
-import 'entities/moderation_subject_profile.dart';
-import 'entities/moderation_ui.dart';
-import 'entities/post_moderation.dart';
-import 'entities/post_moderation_decisions.dart';
-import 'entities/profile_moderation.dart';
-import 'entities/profile_moderation_decisions.dart';
-import 'subjects/account.dart';
-import 'subjects/post.dart';
-import 'subjects/profile.dart';
-import 'subjects/quoted_post.dart';
-import 'utils.dart';
+import 'moderation/entities/moderation_cause.dart';
+import 'moderation/entities/moderation_decision.dart';
+import 'moderation/entities/moderation_options.dart';
+import 'moderation/entities/moderation_subject_post.dart';
+import 'moderation/entities/moderation_subject_profile.dart';
+import 'moderation/entities/moderation_ui.dart';
+import 'moderation/entities/post_moderation.dart';
+import 'moderation/entities/post_moderation_decisions.dart';
+import 'moderation/entities/profile_moderation.dart';
+import 'moderation/entities/profile_moderation_decisions.dart';
+import 'moderation/subjects/account.dart';
+import 'moderation/subjects/post.dart';
+import 'moderation/subjects/profile.dart';
+import 'moderation/subjects/quoted_post.dart';
+import 'moderation/utils.dart';
 
 ProfileModeration moderateProfile(
   final ModerationSubjectProfile subject,

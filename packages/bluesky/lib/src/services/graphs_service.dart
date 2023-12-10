@@ -8,18 +8,18 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../bluesky_base_service.dart';
-import '../entities/blocks.dart';
-import '../entities/facet.dart';
-import '../entities/followers.dart';
-import '../entities/follows.dart';
-import '../entities/keys/ids.g.dart' as ids;
-import '../entities/list_items.dart';
-import '../entities/lists.dart';
-import '../entities/mutes.dart';
-import '../entities/suggested_follows.dart';
-import '../params/list_item_param.dart';
-import '../params/list_param.dart';
-import '../params/repo_param.dart';
+import 'entities/blocks.dart';
+import 'entities/facet.dart';
+import 'entities/followers.dart';
+import 'entities/follows.dart';
+import 'entities/keys/ids.g.dart' as ids;
+import 'entities/list_items.dart';
+import 'entities/lists.dart';
+import 'entities/mutes.dart';
+import 'entities/suggested_follows.dart';
+import 'params/list_item_param.dart';
+import 'params/list_param.dart';
+import 'params/repo_param.dart';
 
 sealed class GraphsService {
   /// Returns the new instance of [GraphsService].

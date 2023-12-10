@@ -6,11 +6,11 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
+import '../constants/grouped_notification_reason.dart';
+import '../constants/notification_reason.dart';
 import '../entities/keys/ids.g.dart' as ids;
 import '../entities/notification.dart';
 import '../entities/notifications.dart';
-import 'grouped_notification_reason.dart';
-import 'notification_reason.dart';
 
 sealed class NotificationReasonFilter {
   // ignore: unused_element

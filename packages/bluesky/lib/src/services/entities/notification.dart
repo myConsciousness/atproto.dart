@@ -10,8 +10,10 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../notifications/notification_reason.dart';
+import '../constants/notification_reason.dart';
 import 'actor.dart';
+
+// 🌎 Project imports:
 
 part 'notification.freezed.dart';
 part 'notification.g.dart';

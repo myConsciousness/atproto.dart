@@ -8,11 +8,11 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../bluesky_base_service.dart';
-import '../entities/feed.dart';
-import '../entities/feed_generators.dart';
-import '../entities/skeleton_actors_by_query.dart';
-import '../entities/skeleton_feed.dart';
-import '../entities/skeleton_posts_by_query.dart';
+import 'entities/feed.dart';
+import 'entities/feed_generators.dart';
+import 'entities/skeleton_actors_by_query.dart';
+import 'entities/skeleton_feed.dart';
+import 'entities/skeleton_posts_by_query.dart';
 
 sealed class UnspeccedService {
   /// Returns the new instance of [UnspeccedService].

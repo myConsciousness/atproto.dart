@@ -8,10 +8,10 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/entities/notifications.dart';
-import 'package:bluesky/src/notifications/grouped_notification_reason.dart';
-import 'package:bluesky/src/notifications/notification_reason_filter.dart';
-import 'package:bluesky/src/notifications/notifications_grouper.dart';
+import 'package:bluesky/src/services/constants/grouped_notification_reason.dart';
+import 'package:bluesky/src/services/entities/notifications.dart';
+import 'package:bluesky/src/services/utils/notification_reason_filter.dart';
+import 'package:bluesky/src/services/utils/notifications_grouper.dart';
 
 const _grouper = NotificationsGrouper();
 

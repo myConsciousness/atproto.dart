@@ -8,26 +8,26 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../bluesky_base_service.dart';
-import '../entities/actor_feeds.dart';
-import '../entities/embed.dart';
-import '../entities/facet.dart';
-import '../entities/feed.dart';
-import '../entities/feed_generator.dart';
-import '../entities/feed_generator_info.dart';
-import '../entities/feed_generators.dart';
-import '../entities/likes.dart';
-import '../entities/post_thread.dart';
-import '../entities/posts.dart';
-import '../entities/posts_by_query.dart';
-import '../entities/reply_ref.dart';
-import '../entities/reposted_by.dart';
-import '../entities/skeleton_feed.dart';
-import '../entities/thread_rule.dart';
-import '../params/generator_param.dart';
-import '../params/post_param.dart';
-import '../params/strong_ref_param.dart';
-import '../params/thread_param.dart';
-import 'feed_filter.dart';
+import 'constants/feed_filter.dart';
+import 'entities/actor_feeds.dart';
+import 'entities/embed.dart';
+import 'entities/facet.dart';
+import 'entities/feed.dart';
+import 'entities/feed_generator.dart';
+import 'entities/feed_generator_info.dart';
+import 'entities/feed_generators.dart';
+import 'entities/likes.dart';
+import 'entities/post_thread.dart';
+import 'entities/posts.dart';
+import 'entities/posts_by_query.dart';
+import 'entities/reply_ref.dart';
+import 'entities/reposted_by.dart';
+import 'entities/skeleton_feed.dart';
+import 'entities/thread_rule.dart';
+import 'params/generator_param.dart';
+import 'params/post_param.dart';
+import 'params/strong_ref_param.dart';
+import 'params/thread_param.dart';
 
 sealed class FeedsService {
   /// Returns the new instance of [FeedsService].

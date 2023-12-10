@@ -10,7 +10,7 @@ import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../../extension/at_uri_extension.dart';
+import '../../extensions/at_uri_extension.dart';
 import '../block_list_record.dart';
 import '../block_record.dart';
 import '../converter/post_record_converter.dart';

@@ -7,9 +7,9 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/entities/grouped_notification.dart';
-import 'package:bluesky/src/extension/grouped_notification_extension.dart';
-import 'package:bluesky/src/notifications/grouped_notification_reason.dart';
+import 'package:bluesky/src/services/constants/grouped_notification_reason.dart';
+import 'package:bluesky/src/services/entities/grouped_notification.dart';
+import 'package:bluesky/src/services/extensions/grouped_notification_extension.dart';
 
 void main() {
   group('.uri', () {

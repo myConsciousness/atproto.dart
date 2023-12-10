@@ -7,7 +7,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/entities/adaptor/repo_commit_create.dart';
+import 'package:bluesky/src/services/entities/adaptor/repo_commit_create.dart';
 
 void main() {
   test('.toStrongRef', () {

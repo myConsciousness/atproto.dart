@@ -9,7 +9,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/entities/content_label_preference.dart';
+import 'package:bluesky/src/services/entities/content_label_preference.dart';
 
 part 'moderation_options_behavior_scenario_label.freezed.dart';
 part 'moderation_options_behavior_scenario_label.g.dart';

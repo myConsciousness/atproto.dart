@@ -7,8 +7,8 @@ import 'package:atproto/atproto.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/entities/embed_record.dart';
-import 'package:bluesky/src/extension/strong_ref_extension.dart';
+import 'package:bluesky/src/services/entities/embed_record.dart';
+import 'package:bluesky/src/services/extensions/strong_ref_extension.dart';
 
 void main() {
   test('.toEmbedRecord', () {

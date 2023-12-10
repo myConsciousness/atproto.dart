@@ -7,9 +7,9 @@ import 'package:atproto/atproto.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/entities/embed.dart';
-import 'package:bluesky/src/entities/image.dart';
-import 'package:bluesky/src/extension/blob_extension.dart';
+import 'package:bluesky/src/services/entities/embed.dart';
+import 'package:bluesky/src/services/entities/image.dart';
+import 'package:bluesky/src/services/extensions/blob_extension.dart';
 
 void main() {
   test('.toImage', () {

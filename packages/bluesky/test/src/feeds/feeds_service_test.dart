@@ -9,22 +9,22 @@ import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/entities/actor_feeds.dart';
-import 'package:bluesky/src/entities/feed.dart';
-import 'package:bluesky/src/entities/feed_generator.dart';
-import 'package:bluesky/src/entities/feed_generator_info.dart';
-import 'package:bluesky/src/entities/feed_generators.dart';
-import 'package:bluesky/src/entities/likes.dart';
-import 'package:bluesky/src/entities/post_thread.dart';
-import 'package:bluesky/src/entities/posts.dart';
-import 'package:bluesky/src/entities/posts_by_query.dart';
-import 'package:bluesky/src/entities/reposted_by.dart';
-import 'package:bluesky/src/entities/skeleton_feed.dart';
-import 'package:bluesky/src/feeds/feeds_service.dart';
-import 'package:bluesky/src/params/generator_param.dart';
-import 'package:bluesky/src/params/post_param.dart';
-import 'package:bluesky/src/params/strong_ref_param.dart';
-import 'package:bluesky/src/params/thread_param.dart';
+import 'package:bluesky/src/services/entities/actor_feeds.dart';
+import 'package:bluesky/src/services/entities/feed.dart';
+import 'package:bluesky/src/services/entities/feed_generator.dart';
+import 'package:bluesky/src/services/entities/feed_generator_info.dart';
+import 'package:bluesky/src/services/entities/feed_generators.dart';
+import 'package:bluesky/src/services/entities/likes.dart';
+import 'package:bluesky/src/services/entities/post_thread.dart';
+import 'package:bluesky/src/services/entities/posts.dart';
+import 'package:bluesky/src/services/entities/posts_by_query.dart';
+import 'package:bluesky/src/services/entities/reposted_by.dart';
+import 'package:bluesky/src/services/entities/skeleton_feed.dart';
+import 'package:bluesky/src/services/feeds_service.dart';
+import 'package:bluesky/src/services/params/generator_param.dart';
+import 'package:bluesky/src/services/params/post_param.dart';
+import 'package:bluesky/src/services/params/strong_ref_param.dart';
+import 'package:bluesky/src/services/params/thread_param.dart';
 import '../session.dart';
 
 void main() {

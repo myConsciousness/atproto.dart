@@ -9,15 +9,15 @@ import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/actors/actors_service.dart';
-import 'package:bluesky/src/entities/actor_profile.dart';
-import 'package:bluesky/src/entities/actor_profiles.dart';
-import 'package:bluesky/src/entities/actors.dart';
-import 'package:bluesky/src/entities/actors_typeahead.dart';
-import 'package:bluesky/src/entities/preference.dart';
-import 'package:bluesky/src/entities/preferences.dart';
-import 'package:bluesky/src/entities/profile_record.dart';
-import 'package:bluesky/src/entities/thread_view_preference.dart';
+import 'package:bluesky/src/services/actors_service.dart';
+import 'package:bluesky/src/services/entities/actor_profile.dart';
+import 'package:bluesky/src/services/entities/actor_profiles.dart';
+import 'package:bluesky/src/services/entities/actors.dart';
+import 'package:bluesky/src/services/entities/actors_typeahead.dart';
+import 'package:bluesky/src/services/entities/preference.dart';
+import 'package:bluesky/src/services/entities/preferences.dart';
+import 'package:bluesky/src/services/entities/profile_record.dart';
+import 'package:bluesky/src/services/entities/thread_view_preference.dart';
 import '../session.dart';
 
 void main() {

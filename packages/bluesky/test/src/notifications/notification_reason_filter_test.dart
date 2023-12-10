@@ -7,12 +7,12 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/entities/actor.dart';
-import 'package:bluesky/src/entities/notification.dart';
-import 'package:bluesky/src/entities/notifications.dart';
-import 'package:bluesky/src/notifications/grouped_notification_reason.dart';
-import 'package:bluesky/src/notifications/notification_reason.dart';
-import 'package:bluesky/src/notifications/notification_reason_filter.dart';
+import 'package:bluesky/src/services/constants/grouped_notification_reason.dart';
+import 'package:bluesky/src/services/constants/notification_reason.dart';
+import 'package:bluesky/src/services/entities/actor.dart';
+import 'package:bluesky/src/services/entities/notification.dart';
+import 'package:bluesky/src/services/entities/notifications.dart';
+import 'package:bluesky/src/services/utils/notification_reason_filter.dart';
 
 final _baseNotification = Notification(
   cid: 'aaaa',

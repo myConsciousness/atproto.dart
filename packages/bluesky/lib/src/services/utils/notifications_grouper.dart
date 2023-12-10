@@ -6,14 +6,14 @@
 import 'package:atproto/atproto.dart' as atp;
 
 // 🌎 Project imports:
+import '../constants/grouped_notification_reason.dart';
+import '../constants/notification_reason.dart';
 import '../entities/actor.dart';
 import '../entities/grouped_notifications.dart';
 import '../entities/keys/ids.g.dart' as ids;
 import '../entities/notification.dart';
 import '../entities/notifications.dart';
 import 'group_by.dart';
-import 'grouped_notification_reason.dart';
-import 'notification_reason.dart';
 import 'notification_reason_filter.dart';
 
 const _groupableReasons = <NotificationReason>[

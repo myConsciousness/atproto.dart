@@ -7,7 +7,7 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import 'entities/keys/ids.g.dart' as ids;
+import 'services/entities/keys/ids.g.dart' as ids;
 
 base class BlueskyBaseService extends core.BaseXRPCService {
   /// Returns the new instance of [BlueskyBaseService].

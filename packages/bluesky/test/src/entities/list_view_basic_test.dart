@@ -7,8 +7,8 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/entities/list_view_basic.dart';
-import 'package:bluesky/src/entities/list_viewer.dart';
+import 'package:bluesky/src/services/entities/list_view_basic.dart';
+import 'package:bluesky/src/services/entities/list_viewer.dart';
 
 void main() {
   group('.isMuted', () {
