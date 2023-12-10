@@ -7,9 +7,12 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../ids.dart' as ids;
+import '../../../ids.g.dart' as ids;
 import '../labels.dart';
 import '../self_labels.dart';
+
+// 🌎 Project imports:
+
 
 const labelsConverter = _LabelsConverter();
 

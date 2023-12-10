@@ -8,8 +8,8 @@ import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:atproto/src/entities/did.dart';
-import 'package:atproto/src/identities/identities_service.dart';
+import 'package:atproto/src/services/entities/did.dart';
+import 'package:atproto/src/services/identities_service.dart';
 
 void main() {
   group('.findDID', () {

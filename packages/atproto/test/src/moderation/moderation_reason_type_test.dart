@@ -6,7 +6,7 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:atproto/src/moderation/moderation_reason_type.dart';
+import 'package:atproto/src/services/constants/moderation_reason_type.dart';
 
 void main() {
   test('.name', () {

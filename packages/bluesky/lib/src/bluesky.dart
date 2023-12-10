@@ -11,7 +11,7 @@ import 'services/actors_service.dart';
 import 'services/feeds_service.dart';
 import 'services/graphs_service.dart';
 import 'services/notifications_service.dart';
-import 'services/service.dart';
+import 'services/services.dart';
 import 'services/unspecced_service.dart';
 
 sealed class Bluesky {

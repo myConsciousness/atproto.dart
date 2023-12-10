@@ -9,7 +9,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../entities/keys/ids.g.dart' as ids;
+import '../../ids.g.dart' as ids;
 
 enum ModerationReasonType implements Serializable {
   /// spam

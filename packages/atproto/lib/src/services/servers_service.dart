@@ -6,17 +6,17 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../atproto_base_service.dart';
-import '../entities/account.dart';
-import '../entities/app_password.dart';
-import '../entities/app_passwords.dart';
-import '../entities/created_invite_code.dart';
-import '../entities/created_invite_codes.dart';
-import '../entities/current_session.dart';
-import '../entities/email_update.dart';
-import '../entities/invite_codes.dart';
-import '../entities/server_info.dart';
-import '../entities/signing_key.dart';
+import 'base_service.dart';
+import 'entities/account.dart';
+import 'entities/app_password.dart';
+import 'entities/app_passwords.dart';
+import 'entities/created_invite_code.dart';
+import 'entities/created_invite_codes.dart';
+import 'entities/current_session.dart';
+import 'entities/email_update.dart';
+import 'entities/invite_codes.dart';
+import 'entities/server_info.dart';
+import 'entities/signing_key.dart';
 
 sealed class ServersService {
   /// Returns the new instance of [ServersService].

@@ -8,17 +8,17 @@ import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:atproto/src/entities/account.dart';
-import 'package:atproto/src/entities/app_password.dart';
-import 'package:atproto/src/entities/app_passwords.dart';
-import 'package:atproto/src/entities/created_invite_code.dart';
-import 'package:atproto/src/entities/created_invite_codes.dart';
-import 'package:atproto/src/entities/current_session.dart';
-import 'package:atproto/src/entities/email_update.dart';
-import 'package:atproto/src/entities/invite_codes.dart';
-import 'package:atproto/src/entities/server_info.dart';
-import 'package:atproto/src/entities/signing_key.dart';
-import 'package:atproto/src/servers/servers_service.dart';
+import 'package:atproto/src/services/entities/account.dart';
+import 'package:atproto/src/services/entities/app_password.dart';
+import 'package:atproto/src/services/entities/app_passwords.dart';
+import 'package:atproto/src/services/entities/created_invite_code.dart';
+import 'package:atproto/src/services/entities/created_invite_codes.dart';
+import 'package:atproto/src/services/entities/current_session.dart';
+import 'package:atproto/src/services/entities/email_update.dart';
+import 'package:atproto/src/services/entities/invite_codes.dart';
+import 'package:atproto/src/services/entities/server_info.dart';
+import 'package:atproto/src/services/entities/signing_key.dart';
+import 'package:atproto/src/services/servers_service.dart';
 
 void main() {
   group('.findCurrentSession', () {

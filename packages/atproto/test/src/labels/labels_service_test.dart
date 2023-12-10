@@ -8,8 +8,8 @@ import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:atproto/src/entities/labels_by_query.dart';
-import 'package:atproto/src/labels/labels_service.dart';
+import 'package:atproto/src/services/entities/labels_by_query.dart';
+import 'package:atproto/src/services/labels_service.dart';
 
 void main() {
   group('.searchLabels', () {

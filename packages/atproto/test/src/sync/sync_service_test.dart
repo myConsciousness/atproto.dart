@@ -12,13 +12,13 @@ import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:atproto/src/entities/blob_refs.dart';
-import 'package:atproto/src/entities/repo_blocks.dart';
-import 'package:atproto/src/entities/repo_commit.dart';
-import 'package:atproto/src/entities/repo_commits.dart';
-import 'package:atproto/src/entities/repo_latest_commit.dart';
-import 'package:atproto/src/entities/repos.dart';
-import 'package:atproto/src/sync/sync_service.dart';
+import 'package:atproto/src/services/entities/blob_refs.dart';
+import 'package:atproto/src/services/entities/repo_blocks.dart';
+import 'package:atproto/src/services/entities/repo_commit.dart';
+import 'package:atproto/src/services/entities/repo_commits.dart';
+import 'package:atproto/src/services/entities/repo_latest_commit.dart';
+import 'package:atproto/src/services/entities/repos.dart';
+import 'package:atproto/src/services/sync_service.dart';
 import 'data/find_record.dart';
 import 'data/find_repo_blocks.dart';
 import 'data/find_repo_commits.dart';

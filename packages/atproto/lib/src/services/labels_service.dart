@@ -6,10 +6,10 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../adaptor/subscribe_label_updates_adaptor.dart';
-import '../atproto_base_service.dart';
-import '../entities/labels_by_query.dart';
-import '../entities/subscribed_label.dart';
+import 'base_service.dart';
+import 'entities/adaptor/subscribe_label_updates_adaptor.dart';
+import 'entities/labels_by_query.dart';
+import 'entities/subscribed_label.dart';
 
 sealed class LabelsService {
   /// Returns the new instance of [LabelsService].

@@ -9,16 +9,16 @@ import 'dart:typed_data';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../atproto_base_service.dart';
-import '../entities/batch_action.dart';
-import '../entities/blob_data.dart';
-import '../entities/create_action.dart';
-import '../entities/delete_action.dart';
-import '../entities/record.dart';
-import '../entities/records.dart';
-import '../entities/repo_info.dart';
-import '../entities/strong_ref.dart';
-import '../entities/update_action.dart';
+import 'base_service.dart';
+import 'entities/batch_action.dart';
+import 'entities/blob_data.dart';
+import 'entities/create_action.dart';
+import 'entities/delete_action.dart';
+import 'entities/record.dart';
+import 'entities/records.dart';
+import 'entities/repo_info.dart';
+import 'entities/strong_ref.dart';
+import 'entities/update_action.dart';
 
 sealed class RepositoriesService {
   /// Returns the new instance of [RepositoriesService].

@@ -6,10 +6,10 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../atproto_base_service.dart';
-import '../entities/report.dart';
-import '../entities/report_subject.dart';
-import 'moderation_reason_type.dart';
+import 'base_service.dart';
+import 'constants/moderation_reason_type.dart';
+import 'entities/report.dart';
+import 'entities/report_subject.dart';
 
 sealed class ModerationService {
   /// Returns the new instance of [ModerationService].

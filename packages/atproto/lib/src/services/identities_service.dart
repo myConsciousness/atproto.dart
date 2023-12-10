@@ -6,8 +6,8 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../atproto_base_service.dart';
-import '../entities/did.dart';
+import '../base_service.dart';
+import 'entities/did.dart';
 
 sealed class IdentitiesService {
   /// Returns the new instance of [IdentitiesService].

@@ -11,16 +11,16 @@ import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:atproto/src/entities/batch_action.dart';
-import 'package:atproto/src/entities/blob_data.dart';
-import 'package:atproto/src/entities/create_action.dart';
-import 'package:atproto/src/entities/delete_action.dart';
-import 'package:atproto/src/entities/record.dart';
-import 'package:atproto/src/entities/records.dart';
-import 'package:atproto/src/entities/repo_info.dart';
-import 'package:atproto/src/entities/strong_ref.dart';
-import 'package:atproto/src/entities/update_action.dart';
-import 'package:atproto/src/repositories/repositories_service.dart';
+import 'package:atproto/src/services/entities/batch_action.dart';
+import 'package:atproto/src/services/entities/blob_data.dart';
+import 'package:atproto/src/services/entities/create_action.dart';
+import 'package:atproto/src/services/entities/delete_action.dart';
+import 'package:atproto/src/services/entities/record.dart';
+import 'package:atproto/src/services/entities/records.dart';
+import 'package:atproto/src/services/entities/repo_info.dart';
+import 'package:atproto/src/services/entities/strong_ref.dart';
+import 'package:atproto/src/services/entities/update_action.dart';
+import 'package:atproto/src/services/repositories_service.dart';
 
 void main() {
   group('.createRecord', () {

@@ -9,18 +9,18 @@ import 'dart:typed_data';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../adaptor/repo_blocks_adaptor.dart';
-import '../adaptor/repo_commit_adaptor.dart';
-import '../adaptor/repo_commits_adaptor.dart';
-import '../adaptor/subscribe_repo_updates_adaptor.dart';
-import '../atproto_base_service.dart';
-import '../entities/blob_refs.dart';
-import '../entities/repo_blocks.dart';
-import '../entities/repo_commit.dart';
-import '../entities/repo_commits.dart';
-import '../entities/repo_latest_commit.dart';
-import '../entities/repos.dart';
-import '../entities/subscribed_repo.dart';
+import 'base_service.dart';
+import 'entities/adaptor/repo_blocks_adaptor.dart';
+import 'entities/adaptor/repo_commit_adaptor.dart';
+import 'entities/adaptor/repo_commits_adaptor.dart';
+import 'entities/adaptor/subscribe_repo_updates_adaptor.dart';
+import 'entities/blob_refs.dart';
+import 'entities/repo_blocks.dart';
+import 'entities/repo_commit.dart';
+import 'entities/repo_commits.dart';
+import 'entities/repo_latest_commit.dart';
+import 'entities/repos.dart';
+import 'entities/subscribed_repo.dart';
 
 sealed class SyncService {
   /// Returns the new instance of [SyncService].

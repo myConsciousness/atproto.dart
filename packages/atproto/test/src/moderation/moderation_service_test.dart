@@ -8,11 +8,11 @@ import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:atproto/src/entities/repo_ref.dart';
-import 'package:atproto/src/entities/report.dart';
-import 'package:atproto/src/entities/report_subject.dart';
-import 'package:atproto/src/entities/strong_ref.dart';
-import 'package:atproto/src/moderation/moderation_service.dart';
+import 'package:atproto/src/services/entities/repo_ref.dart';
+import 'package:atproto/src/services/entities/report.dart';
+import 'package:atproto/src/services/entities/report_subject.dart';
+import 'package:atproto/src/services/entities/strong_ref.dart';
+import 'package:atproto/src/services/moderation_service.dart';
 
 void main() {
   group('.createReport', () {
