@@ -8,7 +8,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/services/entities/adaptor/repo_commit_adaptor.dart';
 import 'package:bluesky/src/services/entities/adaptor/repo_commit_create.dart';
 import 'package:bluesky/src/services/entities/adaptor/repo_commit_delete.dart';
 import 'package:bluesky/src/services/entities/adaptor/repo_commit_update.dart';
@@ -23,6 +22,7 @@ import 'package:bluesky/src/services/entities/post_record.dart';
 import 'package:bluesky/src/services/entities/profile_record.dart';
 import 'package:bluesky/src/services/entities/repost_record.dart';
 import 'package:bluesky/src/services/entities/threadgate_record.dart';
+import 'package:bluesky/src/services/utils/repo_commit_adaptor.dart';
 
 void main() {
   group('.onCreatePost', () {

@@ -10,23 +10,23 @@ import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../../../ids.g.dart' as ids;
-import '../../extensions/at_uri_extension.dart';
-import '../block_list_record.dart';
-import '../block_record.dart';
-import '../converter/post_record_converter.dart';
-import '../follow_record.dart';
-import '../generator_record.dart';
-import '../like_record.dart';
-import '../list_item_record.dart';
-import '../list_record.dart';
-import '../post_record.dart';
-import '../profile_record.dart';
-import '../repost_record.dart';
-import '../threadgate_record.dart';
-import 'repo_commit_create.dart';
-import 'repo_commit_delete.dart';
-import 'repo_commit_update.dart';
+import '../../ids.g.dart' as ids;
+import '../entities/adaptor/repo_commit_create.dart';
+import '../entities/adaptor/repo_commit_delete.dart';
+import '../entities/adaptor/repo_commit_update.dart';
+import '../entities/block_list_record.dart';
+import '../entities/block_record.dart';
+import '../entities/converter/post_record_converter.dart';
+import '../entities/follow_record.dart';
+import '../entities/generator_record.dart';
+import '../entities/like_record.dart';
+import '../entities/list_item_record.dart';
+import '../entities/list_record.dart';
+import '../entities/post_record.dart';
+import '../entities/profile_record.dart';
+import '../entities/repost_record.dart';
+import '../entities/threadgate_record.dart';
+import '../extensions/at_uri_extension.dart';
 
 /// Action on create records.
 typedef RepoCommitOnCreate<T> = FutureOr<void> Function(

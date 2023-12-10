@@ -193,7 +193,7 @@ export 'package:bluesky/src/services/entities/actor_profiles.dart';
 export 'package:bluesky/src/services/entities/actor_viewer.dart';
 export 'package:bluesky/src/services/entities/actors.dart';
 export 'package:bluesky/src/services/entities/actors_typeahead.dart';
-export 'package:bluesky/src/services/entities/adaptor/repo_commit_adaptor.dart';
+export 'package:bluesky/src/services/utils/repo_commit_adaptor.dart';
 export 'package:bluesky/src/services/entities/adaptor/repo_commit_create.dart';
 export 'package:bluesky/src/services/entities/adaptor/repo_commit_delete.dart';
 export 'package:bluesky/src/services/entities/adaptor/repo_commit_update.dart';
