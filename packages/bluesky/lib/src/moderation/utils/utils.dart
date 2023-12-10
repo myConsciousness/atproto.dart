@@ -3,8 +3,8 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'entities/moderation_cause.dart';
-import 'entities/moderation_decision.dart';
+import '../entities/moderation_cause.dart';
+import '../entities/moderation_decision.dart';
 
 ModerationDecision takeHighestPriorityDecision(
   final List<ModerationDecision> decisions,

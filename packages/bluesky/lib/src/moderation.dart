@@ -17,7 +17,7 @@ import 'moderation/subjects/account.dart';
 import 'moderation/subjects/post.dart';
 import 'moderation/subjects/profile.dart';
 import 'moderation/subjects/quoted_post.dart';
-import 'moderation/utils.dart';
+import 'moderation/utils/utils.dart';
 
 ProfileModeration moderateProfile(
   final ModerationSubjectProfile subject,

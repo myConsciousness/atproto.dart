@@ -26,7 +26,7 @@ import 'entities/moderation_cause_source_list.dart';
 import 'entities/moderation_cause_source_user.dart';
 import 'entities/moderation_decision.dart';
 import 'entities/moderation_options.dart';
-import 'utils.dart';
+import 'utils/utils.dart';
 
 const _moderationCauseSourceUser = ModerationCauseSource.user(
   data: ModerationCauseSourceUser(),
