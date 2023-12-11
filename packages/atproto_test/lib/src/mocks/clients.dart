@@ -6,13 +6,13 @@
 import 'dart:convert';
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:http/http.dart' as http;
 import 'package:universal_io/io.dart';
-import 'package:xrpc/xrpc.dart' as xrpc;
 
-/// Returns the mocked [xrpc.GetClient]
+/// Returns the mocked [core.GetClient]
 /// based on [resourcePath] and [statusCode].
-xrpc.GetClient createMockedGetClient(
+core.GetClient createMockedGetClient(
   final String resourcePath, {
   final int statusCode = 200,
 }) =>
@@ -21,9 +21,9 @@ xrpc.GetClient createMockedGetClient(
       statusCode: statusCode,
     );
 
-/// Returns the mocked [xrpc.GetClient]
+/// Returns the mocked [core.GetClient]
 /// based on [json] and [statusCode].
-xrpc.GetClient createMockedGetClientFromJson(
+core.GetClient createMockedGetClientFromJson(
   final Map<String, dynamic> json, {
   final int statusCode = 200,
 }) =>
@@ -32,9 +32,9 @@ xrpc.GetClient createMockedGetClientFromJson(
       statusCode: statusCode,
     );
 
-/// Returns the mocked [xrpc.GetClient]
+/// Returns the mocked [core.GetClient]
 /// based on [bytes] and [statusCode].
-xrpc.GetClient createMockedGetClientFromBytes(
+core.GetClient createMockedGetClientFromBytes(
   final List<int> bytes, {
   final int statusCode = 200,
 }) {
@@ -55,9 +55,9 @@ xrpc.GetClient createMockedGetClientFromBytes(
   return mockedClient;
 }
 
-/// Returns the mocked [xrpc.PostClient]
+/// Returns the mocked [core.PostClient]
 /// based on [resourcePath] and [statusCode].
-xrpc.PostClient createMockedPostClient(
+core.PostClient createMockedPostClient(
   final String resourcePath, {
   final int statusCode = 200,
 }) =>
@@ -66,9 +66,9 @@ xrpc.PostClient createMockedPostClient(
       statusCode: statusCode,
     );
 
-/// Returns the mocked [xrpc.PostClient]
+/// Returns the mocked [core.PostClient]
 /// based on [json] and [statusCode].
-xrpc.PostClient createMockedPostClientFromJson(
+core.PostClient createMockedPostClientFromJson(
   final Map<String, dynamic> json, {
   final int statusCode = 200,
 }) =>
@@ -77,9 +77,9 @@ xrpc.PostClient createMockedPostClientFromJson(
       statusCode: statusCode,
     );
 
-/// Returns the mocked [xrpc.PostClient]
+/// Returns the mocked [core.PostClient]
 /// based on [bytes] and [statusCode].
-xrpc.PostClient createMockedPostClientFromBytes(
+core.PostClient createMockedPostClientFromBytes(
   final List<int> bytes, {
   final int statusCode = 200,
 }) {
