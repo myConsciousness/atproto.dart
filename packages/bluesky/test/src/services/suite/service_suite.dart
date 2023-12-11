@@ -90,7 +90,7 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
   ) =>
       atp.ATProto.fromSession(
         session,
-        service: 'fake.com',
+        service: service,
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,
       );
@@ -101,13 +101,10 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
   ) =>
       ActorsService(
         atproto: _getAtproto(mockedGetClient, mockedPostClient),
-        did: 'did:web:shinyakato.dev',
+        did: did,
         protocol: core.Protocol.https,
-        service: 'bluesky.social',
-        context: core.ClientContext(
-          accessJwt: 'fake access jwt',
-          timeout: const Duration(seconds: 30),
-        ),
+        service: service,
+        context: clientContext,
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,
       );
@@ -118,13 +115,10 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
   ) =>
       FeedsService(
         atproto: _getAtproto(mockedGetClient, mockedPostClient),
-        did: 'did:web:shinyakato.dev',
+        did: did,
         protocol: core.Protocol.https,
-        service: 'bluesky.social',
-        context: core.ClientContext(
-          accessJwt: 'fake access jwt',
-          timeout: const Duration(seconds: 30),
-        ),
+        service: service,
+        context: clientContext,
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,
       );
@@ -135,13 +129,10 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
   ) =>
       GraphsService(
         atproto: _getAtproto(mockedGetClient, mockedPostClient),
-        did: 'did:web:shinyakato.dev',
+        did: did,
         protocol: core.Protocol.https,
-        service: 'bluesky.social',
-        context: core.ClientContext(
-          accessJwt: 'fake access jwt',
-          timeout: const Duration(seconds: 30),
-        ),
+        service: service,
+        context: clientContext,
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,
       );
@@ -152,13 +143,10 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
   ) =>
       NotificationsService(
         atproto: _getAtproto(mockedGetClient, mockedPostClient),
-        did: 'did:web:shinyakato.dev',
+        did: did,
         protocol: core.Protocol.https,
-        service: 'bluesky.social',
-        context: core.ClientContext(
-          accessJwt: 'fake access jwt',
-          timeout: const Duration(seconds: 30),
-        ),
+        service: service,
+        context: clientContext,
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,
       );
@@ -169,13 +157,10 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
   ) =>
       UnspeccedService(
         atproto: _getAtproto(mockedGetClient, mockedPostClient),
-        did: 'did:web:shinyakato.dev',
+        did: did,
         protocol: core.Protocol.https,
-        service: 'bluesky.social',
-        context: core.ClientContext(
-          accessJwt: 'fake access jwt',
-          timeout: const Duration(seconds: 30),
-        ),
+        service: service,
+        context: clientContext,
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,
       );
