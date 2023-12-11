@@ -8,16 +8,16 @@ import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/services/embed_service.dart';
 import 'package:bluesky/src/services/entities/link_preview.dart';
+import 'package:bluesky/src/services/utils/link_preview.dart';
 
 void main() {
-  group('.findFeed', () {
-    test('normal case', () async {
+  group('.findLinkPreview', () {
+    test('success', () async {
       final response = await findLinkPreview(
         Uri.https('shinyakato.dev'),
         mockedGetClient: atp_test.createMockedGetClient(
-          'test/src/embed/data/find_link_preview.json',
+          'test/src/services/utils/data/find_link_preview.json',
         ),
       );
 
@@ -30,7 +30,7 @@ void main() {
         () async => await findLinkPreview(
           Uri.https('atprotodart.com'),
           mockedGetClient: atp_test.createMockedGetClient(
-            'test/src/data/error.json',
+            'test/src/services/utils/data/find_link_preview_error.json',
             statusCode: 401,
           ),
         ),

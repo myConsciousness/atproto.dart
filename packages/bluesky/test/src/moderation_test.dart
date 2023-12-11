@@ -21,9 +21,9 @@ import 'package:bluesky/src/moderation/entities/moderation_subject_profile.dart'
 import 'package:bluesky/src/services/entities/actor.dart';
 import 'package:bluesky/src/services/entities/post.dart';
 import 'package:bluesky/src/services/entities/post_record.dart';
-import 'suite/moderation_behavior_result.dart';
-import 'suite/moderation_behaviors.dart';
-import 'suite/runner/moderation_behaviors_suite_runner.dart';
+import 'moderation/suite/moderation_behavior_result.dart';
+import 'moderation/suite/moderation_behaviors.dart';
+import 'moderation/suite/runner/moderation_behaviors_suite_runner.dart';
 
 const _profileModerationBehaviorsSuite =
     'test/src/moderation/suite/data/profile_moderation_behaviors.json';
