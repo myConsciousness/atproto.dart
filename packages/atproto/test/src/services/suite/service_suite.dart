@@ -108,14 +108,27 @@ void testSync<D>(
       bytes,
     );
 
+void testSyncStream(
+  final Future<core.XRPCResponse<core.Subscription>> Function(
+    atp_test.MockValues m,
+    SyncService s,
+  ) endpoint, {
+  required String id,
+}) =>
+    atp_test.testServiceSubscription<SyncService>(
+      _runner,
+      endpoint,
+      id,
+    );
+
 final class _ServiceRunner extends atp_test.ServiceRunner {
   const _ServiceRunner();
 
   @override
-  S getServiceImpl<S>(
-    core.GetClient getClient,
-    core.PostClient postClient,
-  ) {
+  S getServiceImpl<S>([
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
+  ]) {
     if (S == IdentitiesService) {
       return _getIdentitiesService(getClient, postClient) as S;
     } else if (S == LabelsService) {
@@ -134,8 +147,8 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
   }
 
   IdentitiesService _getIdentitiesService(
-    final core.GetClient mockedGetClient,
-    final core.PostClient mockedPostClient,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   ) =>
       IdentitiesService(
         did: did,
@@ -147,22 +160,22 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
       );
 
   LabelsService _getLabelsService(
-    final core.GetClient mockedGetClient,
-    final core.PostClient mockedPostClient,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   ) =>
       LabelsService(
         did: did,
         protocol: core.Protocol.https,
         service: service,
-        streamService: service,
+        streamService: streamService,
         context: clientContext,
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,
       );
 
   ModerationService _getModerationService(
-    final core.GetClient mockedGetClient,
-    final core.PostClient mockedPostClient,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   ) =>
       ModerationService(
         did: did,
@@ -174,8 +187,8 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
       );
 
   RepositoriesService _getRepositoriesService(
-    final core.GetClient mockedGetClient,
-    final core.PostClient mockedPostClient,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   ) =>
       RepositoriesService(
         did: did,
@@ -187,8 +200,8 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
       );
 
   ServersService _getServersService(
-    final core.GetClient mockedGetClient,
-    final core.PostClient mockedPostClient,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   ) =>
       ServersService(
         did: did,
@@ -200,14 +213,14 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
       );
 
   SyncService _getSyncService(
-    final core.GetClient mockedGetClient,
-    final core.PostClient mockedPostClient,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   ) =>
       SyncService(
         did: did,
         protocol: core.Protocol.https,
         service: service,
-        streamService: service,
+        streamService: streamService,
         context: clientContext,
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,

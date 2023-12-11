@@ -13,6 +13,7 @@ abstract class ServiceRunner {
   const ServiceRunner();
 
   String get service => 'bsky.social';
+  String get streamService => 'bsky.network';
   String get did => 'did:web:shinyakato.dev';
 
   core.Session get session => const core.Session(
@@ -27,16 +28,21 @@ abstract class ServiceRunner {
         timeout: const Duration(seconds: 30),
       );
 
-  S getServiceImpl<S>(
-    final core.GetClient getClient,
-    final core.PostClient postClient,
-  );
+  S getServiceImpl<S>([
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
+  ]);
 
   S getService<S>(
     final String lexiconId, {
     int statusCode = 200,
     final List<int>? bytes,
+    bool useMockedClient = true,
   }) {
+    if (!useMockedClient) {
+      return getServiceImpl();
+    }
+
     final getClient = bytes == null
         ? createMockedGetClient(
             _getResourcePath(lexiconId, statusCode),

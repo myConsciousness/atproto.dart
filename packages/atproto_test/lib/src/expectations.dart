@@ -93,3 +93,31 @@ void testService<S, D>(
     });
   });
 }
+
+void testServiceSubscription<S>(
+  final ServiceRunner runner,
+  final Future<core.XRPCResponse<core.Subscription>> Function(
+    MockValues m,
+    S s,
+  ) endpoint,
+  final String lexiconId,
+) {
+  group(lexiconId, () {
+    test('connect 1 minute', () async {
+      final subscription = await endpoint.call(
+        _mockValues,
+        runner.getService<S>(lexiconId, useMockedClient: false),
+      );
+
+      final oneMinuteLater = DateTime.now().add(Duration(minutes: 1));
+
+      await for (final _ in subscription.data.stream.handleError(print)) {
+        if (DateTime.now().isAfter(oneMinuteLater)) {
+          await subscription.data.close();
+
+          break;
+        }
+      }
+    }, timeout: Timeout(Duration(minutes: 2)));
+  });
+}

@@ -95,10 +95,10 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
   const _ServiceRunner();
 
   @override
-  S getServiceImpl<S>(
-    core.GetClient getClient,
-    core.PostClient postClient,
-  ) {
+  S getServiceImpl<S>([
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
+  ]) {
     if (S == ActorsService) {
       return _getActorsService(getClient, postClient) as S;
     } else if (S == FeedsService) {
@@ -115,8 +115,8 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
   }
 
   atp.ATProto _getAtproto(
-    final core.GetClient mockedGetClient,
-    final core.PostClient mockedPostClient,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   ) =>
       atp.ATProto.fromSession(
         session,
@@ -126,8 +126,8 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
       );
 
   ActorsService _getActorsService(
-    final core.GetClient mockedGetClient,
-    final core.PostClient mockedPostClient,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   ) =>
       ActorsService(
         atproto: _getAtproto(mockedGetClient, mockedPostClient),
@@ -140,8 +140,8 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
       );
 
   FeedsService _getFeedsService(
-    final core.GetClient mockedGetClient,
-    final core.PostClient mockedPostClient,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   ) =>
       FeedsService(
         atproto: _getAtproto(mockedGetClient, mockedPostClient),
@@ -154,8 +154,8 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
       );
 
   GraphsService _getGraphsService(
-    final core.GetClient mockedGetClient,
-    final core.PostClient mockedPostClient,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   ) =>
       GraphsService(
         atproto: _getAtproto(mockedGetClient, mockedPostClient),
@@ -168,8 +168,8 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
       );
 
   NotificationsService _getNotificationsService(
-    final core.GetClient mockedGetClient,
-    final core.PostClient mockedPostClient,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   ) =>
       NotificationsService(
         atproto: _getAtproto(mockedGetClient, mockedPostClient),
@@ -182,8 +182,8 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
       );
 
   UnspeccedService _getUnspeccedService(
-    final core.GetClient mockedGetClient,
-    final core.PostClient mockedPostClient,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
   ) =>
       UnspeccedService(
         atproto: _getAtproto(mockedGetClient, mockedPostClient),
