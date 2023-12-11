@@ -35,36 +35,33 @@ abstract class ServiceRunner {
   S getService<S>(
     final String lexiconId, {
     int statusCode = 200,
+    final List<int>? bytes,
   }) {
-    final path = statusCode == 200
-        ? getServiceResourcePath(lexiconId)
-        : getServiceErrorResourcePath();
+    final getClient = bytes == null
+        ? createMockedGetClient(
+            _getResourcePath(lexiconId, statusCode),
+            statusCode: statusCode,
+          )
+        : createMockedGetClientFromBytes(
+            bytes,
+            statusCode: statusCode,
+          );
 
-    final getClient = createMockedGetClient(
-      path,
-      statusCode: statusCode,
-    );
-    final postClient = createMockedPostClient(
-      path,
-      statusCode: statusCode,
-    );
+    final postClient = bytes == null
+        ? createMockedPostClient(
+            _getResourcePath(lexiconId, statusCode),
+            statusCode: statusCode,
+          )
+        : createMockedPostClientFromBytes(
+            bytes,
+            statusCode: statusCode,
+          );
 
     return getServiceImpl(getClient, postClient);
   }
 
-  S getServiceFromBytes<S>(
-    final List<int> bytes, {
-    int statusCode = 200,
-  }) {
-    final getClient = statusCode == 200
-        ? createMockedGetClientFromBytes(bytes, statusCode: statusCode)
-        : createMockedGetClient(getServiceErrorResourcePath(),
-            statusCode: statusCode);
-    final postClient = statusCode == 200
-        ? createMockedPostClientFromBytes(bytes, statusCode: statusCode)
-        : createMockedPostClient(getServiceErrorResourcePath(),
-            statusCode: statusCode);
-
-    return getServiceImpl(getClient, postClient);
-  }
+  String _getResourcePath(final String lexiconId, int statusCode) =>
+      statusCode == 200
+          ? getServiceResourcePath(lexiconId)
+          : getServiceErrorResourcePath();
 }
