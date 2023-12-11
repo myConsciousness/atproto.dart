@@ -3,92 +3,109 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 
 // 🌎 Project imports:
-import 'package:bluesky/src/services/actors_service.dart';
-import 'package:bluesky/src/services/feeds_service.dart';
-import 'package:bluesky/src/services/graphs_service.dart';
-import 'package:bluesky/src/services/notifications_service.dart';
-import 'package:bluesky/src/services/unspecced_service.dart';
+import 'package:atproto/src/services/identities_service.dart';
+import 'package:atproto/src/services/labels_service.dart';
+import 'package:atproto/src/services/moderation_service.dart';
+import 'package:atproto/src/services/repositories_service.dart';
+import 'package:atproto/src/services/servers_service.dart';
+import 'package:atproto/src/services/sync_service.dart';
 
 const _runner = _ServiceRunner();
 
-void testActor<D>(
+void testIdentity<D>(
   final Future<core.XRPCResponse> Function(
     atp_test.MockValues m,
-    ActorsService s,
+    IdentitiesService s,
   ) endpoint, {
   required String id,
   String? label,
 }) =>
-    atp_test.testService<ActorsService, D>(
+    atp_test.testService<IdentitiesService, D>(
       _runner,
       endpoint,
       id,
       label,
     );
 
-void testFeed<D>(
+void testLabel<D>(
   final Future<core.XRPCResponse> Function(
     atp_test.MockValues m,
-    FeedsService s,
+    LabelsService s,
   ) endpoint, {
   required String id,
   String? label,
 }) =>
-    atp_test.testService<FeedsService, D>(
+    atp_test.testService<LabelsService, D>(
       _runner,
       endpoint,
       id,
       label,
     );
 
-void testGraph<D>(
+void testModeration<D>(
   final Future<core.XRPCResponse> Function(
     atp_test.MockValues m,
-    GraphsService s,
+    ModerationService s,
   ) endpoint, {
   required String id,
   String? label,
 }) =>
-    atp_test.testService<GraphsService, D>(
+    atp_test.testService<ModerationService, D>(
       _runner,
       endpoint,
       id,
       label,
     );
 
-void testNotification<D>(
+void testRepository<D>(
   final Future<core.XRPCResponse> Function(
     atp_test.MockValues m,
-    NotificationsService s,
+    RepositoriesService s,
   ) endpoint, {
   required String id,
   String? label,
 }) =>
-    atp_test.testService<NotificationsService, D>(
+    atp_test.testService<RepositoriesService, D>(
       _runner,
       endpoint,
       id,
       label,
     );
 
-void testUnspecced<D>(
+void testServer<D>(
   final Future<core.XRPCResponse> Function(
     atp_test.MockValues m,
-    UnspeccedService s,
+    ServersService s,
   ) endpoint, {
   required String id,
   String? label,
 }) =>
-    atp_test.testService<UnspeccedService, D>(
+    atp_test.testService<ServersService, D>(
       _runner,
       endpoint,
       id,
       label,
+    );
+
+void testSync<D>(
+  final Future<core.XRPCResponse> Function(
+    atp_test.MockValues m,
+    SyncService s,
+  ) endpoint, {
+  required String id,
+  String? label,
+  List<int>? bytes,
+}) =>
+    atp_test.testService<SyncService, D>(
+      _runner,
+      endpoint,
+      id,
+      label,
+      bytes,
     );
 
 final class _ServiceRunner extends atp_test.ServiceRunner {
@@ -99,38 +116,28 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     core.GetClient getClient,
     core.PostClient postClient,
   ) {
-    if (S == ActorsService) {
-      return _getActorsService(getClient, postClient) as S;
-    } else if (S == FeedsService) {
-      return _getFeedsService(getClient, postClient) as S;
-    } else if (S == GraphsService) {
-      return _getGraphsService(getClient, postClient) as S;
-    } else if (S == NotificationsService) {
-      return _getNotificationsService(getClient, postClient) as S;
-    } else if (S == UnspeccedService) {
-      return _getUnspeccedService(getClient, postClient) as S;
+    if (S == IdentitiesService) {
+      return _getIdentitiesService(getClient, postClient) as S;
+    } else if (S == LabelsService) {
+      return _getLabelsService(getClient, postClient) as S;
+    } else if (S == ModerationService) {
+      return _getModerationService(getClient, postClient) as S;
+    } else if (S == RepositoriesService) {
+      return _getRepositoriesService(getClient, postClient) as S;
+    } else if (S == ServersService) {
+      return _getServersService(getClient, postClient) as S;
+    } else if (S == SyncService) {
+      return _getSyncService(getClient, postClient) as S;
     }
 
     throw UnsupportedError('Unsupported Service: $S');
   }
 
-  atp.ATProto _getAtproto(
+  IdentitiesService _getIdentitiesService(
     final core.GetClient mockedGetClient,
     final core.PostClient mockedPostClient,
   ) =>
-      atp.ATProto.fromSession(
-        session,
-        service: service,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
-
-  ActorsService _getActorsService(
-    final core.GetClient mockedGetClient,
-    final core.PostClient mockedPostClient,
-  ) =>
-      ActorsService(
-        atproto: _getAtproto(mockedGetClient, mockedPostClient),
+      IdentitiesService(
         did: did,
         protocol: core.Protocol.https,
         service: service,
@@ -139,12 +146,25 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
         mockedPostClient: mockedPostClient,
       );
 
-  FeedsService _getFeedsService(
+  LabelsService _getLabelsService(
     final core.GetClient mockedGetClient,
     final core.PostClient mockedPostClient,
   ) =>
-      FeedsService(
-        atproto: _getAtproto(mockedGetClient, mockedPostClient),
+      LabelsService(
+        did: did,
+        protocol: core.Protocol.https,
+        service: service,
+        streamService: service,
+        context: clientContext,
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
+      );
+
+  ModerationService _getModerationService(
+    final core.GetClient mockedGetClient,
+    final core.PostClient mockedPostClient,
+  ) =>
+      ModerationService(
         did: did,
         protocol: core.Protocol.https,
         service: service,
@@ -153,12 +173,11 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
         mockedPostClient: mockedPostClient,
       );
 
-  GraphsService _getGraphsService(
+  RepositoriesService _getRepositoriesService(
     final core.GetClient mockedGetClient,
     final core.PostClient mockedPostClient,
   ) =>
-      GraphsService(
-        atproto: _getAtproto(mockedGetClient, mockedPostClient),
+      RepositoriesService(
         did: did,
         protocol: core.Protocol.https,
         service: service,
@@ -167,12 +186,11 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
         mockedPostClient: mockedPostClient,
       );
 
-  NotificationsService _getNotificationsService(
+  ServersService _getServersService(
     final core.GetClient mockedGetClient,
     final core.PostClient mockedPostClient,
   ) =>
-      NotificationsService(
-        atproto: _getAtproto(mockedGetClient, mockedPostClient),
+      ServersService(
         did: did,
         protocol: core.Protocol.https,
         service: service,
@@ -181,15 +199,15 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
         mockedPostClient: mockedPostClient,
       );
 
-  UnspeccedService _getUnspeccedService(
+  SyncService _getSyncService(
     final core.GetClient mockedGetClient,
     final core.PostClient mockedPostClient,
   ) =>
-      UnspeccedService(
-        atproto: _getAtproto(mockedGetClient, mockedPostClient),
+      SyncService(
         did: did,
         protocol: core.Protocol.https,
         service: service,
+        streamService: service,
         context: clientContext,
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,

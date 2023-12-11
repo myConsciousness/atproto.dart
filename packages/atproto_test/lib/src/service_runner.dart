@@ -51,4 +51,20 @@ abstract class ServiceRunner {
 
     return getServiceImpl(getClient, postClient);
   }
+
+  S getServiceFromBytes<S>(
+    final List<int> bytes, {
+    int statusCode = 200,
+  }) {
+    final getClient = statusCode == 200
+        ? createMockedGetClientFromBytes(bytes, statusCode: statusCode)
+        : createMockedGetClient(getServiceErrorResourcePath(),
+            statusCode: statusCode);
+    final postClient = statusCode == 200
+        ? createMockedPostClientFromBytes(bytes, statusCode: statusCode)
+        : createMockedPostClient(getServiceErrorResourcePath(),
+            statusCode: statusCode);
+
+    return getServiceImpl(getClient, postClient);
+  }
 }

@@ -14,27 +14,27 @@ import 'suite/service_suite.dart';
 void main() {
   testUnspecced<Feed>(
     // ignore: deprecated_member_use_from_same_package
-    (r, s) => s.findPopularFeed(),
+    (m, s) => s.findPopularFeed(),
     id: appBskyUnspeccedGetPopular,
   );
 
   testUnspecced<FeedGenerators>(
-    (r, s) => s.findPopularFeedGenerators(),
+    (m, s) => s.findPopularFeedGenerators(),
     id: appBskyUnspeccedGetPopularFeedGenerators,
   );
 
   testUnspecced<SkeletonFeed>(
-    (r, s) => s.findTimelineSkeleton(),
+    (m, s) => s.findTimelineSkeleton(),
     id: appBskyUnspeccedGetTimelineSkeleton,
   );
 
   testUnspecced<SkeletonPostsByQuery>(
-    (r, s) => s.searchPostsByQuerySkeleton(r.query),
+    (m, s) => s.searchPostsByQuerySkeleton(m.query),
     id: appBskyUnspeccedSearchPostsSkeleton,
   );
 
   testUnspecced<SkeletonActorsByQuery>(
-    (r, s) => s.searchActorsByQuerySkeleton(r.query),
+    (m, s) => s.searchActorsByQuerySkeleton(m.query),
     id: appBskyUnspeccedSearchActorsSkeleton,
   );
 }

@@ -51,12 +51,16 @@ void testService<S, D>(
     S s,
   ) endpoint,
   final String lexiconId,
-) {
-  group(lexiconId, () {
+  final String? label, [
+  final List<int>? bytes,
+]) {
+  group(label == null ? lexiconId : '$lexiconId [$label]', () {
     test('success', () async {
       final actual = await endpoint.call(
         _mockValues,
-        runner.getService<S>(lexiconId),
+        bytes != null
+            ? runner.getServiceFromBytes<S>(bytes)
+            : runner.getService<S>(lexiconId),
       );
 
       expect(actual, isA<core.XRPCResponse>());
@@ -67,7 +71,9 @@ void testService<S, D>(
       expectUnauthorizedException(
         () async => await endpoint.call(
           _mockValues,
-          runner.getService<S>(lexiconId, statusCode: 401),
+          bytes != null
+              ? runner.getServiceFromBytes<S>(bytes, statusCode: 401)
+              : runner.getService<S>(lexiconId, statusCode: 401),
         ),
       );
     });
@@ -76,7 +82,9 @@ void testService<S, D>(
       expectRateLimitExceededException(
         () async => await endpoint.call(
           _mockValues,
-          runner.getService<S>(lexiconId, statusCode: 429),
+          bytes != null
+              ? runner.getServiceFromBytes<S>(bytes, statusCode: 429)
+              : runner.getService<S>(lexiconId, statusCode: 429),
         ),
       );
     });
@@ -85,7 +93,9 @@ void testService<S, D>(
       expectInternalServerErrorException(
         () async => await endpoint.call(
           _mockValues,
-          runner.getService<S>(lexiconId, statusCode: 500),
+          bytes != null
+              ? runner.getServiceFromBytes<S>(bytes, statusCode: 500)
+              : runner.getService<S>(lexiconId, statusCode: 500),
         ),
       );
     });

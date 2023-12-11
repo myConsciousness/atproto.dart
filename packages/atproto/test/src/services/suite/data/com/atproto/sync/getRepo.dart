@@ -2,7 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-const findRepoCommitsBytes = [
+const getRepoBytes = [
   58,
   162,
   101,

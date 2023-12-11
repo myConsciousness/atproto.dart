@@ -8,6 +8,15 @@ import 'package:atproto_core/atproto_core.dart' as core;
 final class MockValues {
   const MockValues();
 
+  core.NSID get collection => core.NSID.create(
+        'test.atproto.com',
+        'fake',
+      );
+
+  String get email => 'info@shinyakato.dev';
+  String get password => 'fake';
+  String get token => 'fake';
+
   String get did => 'did:web:shinyakato.dev';
   String get actor => 'shinyakato.dev';
   String get displayName => 'Shinya Kato';

@@ -13,22 +13,22 @@ import 'suite/service_suite.dart';
 
 void main() {
   testNotification<Notifications>(
-    (r, s) => s.findNotifications(),
+    (m, s) => s.findNotifications(),
     id: appBskyNotificationListNotifications,
   );
 
   testNotification<Count>(
-    (r, s) => s.findUnreadCount(),
+    (m, s) => s.findUnreadCount(),
     id: appBskyNotificationGetUnreadCount,
   );
 
   testNotification<core.EmptyData>(
-    (r, s) => s.updateNotificationsAsRead(),
+    (m, s) => s.updateNotificationsAsRead(),
     id: appBskyNotificationUpdateSeen,
   );
 
   testNotification<core.EmptyData>(
-    (r, s) => s.createPushRegistration(
+    (m, s) => s.createPushRegistration(
       serviceDid: 'did:web:bob.test',
       token: 'fake',
       platform: core.Platform.web,

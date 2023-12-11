@@ -2,7 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-const findRepoBlocksBytes = [
+const getBlocksBytes = [
   17,
   162,
   101,

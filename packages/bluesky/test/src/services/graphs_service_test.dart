@@ -19,95 +19,95 @@ import 'suite/service_suite.dart';
 
 void main() {
   testGraph<atp.StrongRef>(
-    (r, s) => s.createFollow(did: r.did),
+    (m, s) => s.createFollow(did: m.did),
     id: appBskyGraphFollow,
   );
 
   testGraph<Follows>(
-    (r, s) => s.findFollows(actor: r.actor),
+    (m, s) => s.findFollows(actor: m.actor),
     id: appBskyGraphGetFollows,
   );
 
   testGraph<Followers>(
-    (r, s) => s.findFollowers(actor: r.actor),
+    (m, s) => s.findFollowers(actor: m.actor),
     id: appBskyGraphGetFollowers,
   );
 
   testGraph<core.EmptyData>(
-    (r, s) => s.createMute(actor: r.actor),
+    (m, s) => s.createMute(actor: m.actor),
     id: appBskyGraphMuteActor,
   );
 
   testGraph<core.EmptyData>(
-    (r, s) => s.deleteMute(actor: r.actor),
+    (m, s) => s.deleteMute(actor: m.actor),
     id: appBskyGraphUnmuteActor,
   );
 
   testGraph<Mutes>(
-    (r, s) => s.findMutes(),
+    (m, s) => s.findMutes(),
     id: appBskyGraphGetMutes,
   );
 
   testGraph<Blocks>(
-    (r, s) => s.findBlocks(),
+    (m, s) => s.findBlocks(),
     id: appBskyGraphGetBlocks,
   );
 
   testGraph<atp.StrongRef>(
-    (r, s) => s.createBlock(did: r.did),
+    (m, s) => s.createBlock(did: m.did),
     id: appBskyGraphBlock,
   );
 
   testGraph<atp.StrongRef>(
-    (r, s) => s.createList(
+    (m, s) => s.createList(
       purpose: appBskyGraphDefsModlist,
-      name: r.name,
+      name: m.name,
     ),
     id: appBskyGraphList,
   );
 
   testGraph<Lists>(
-    (r, s) => s.findLists(actor: r.actor),
+    (m, s) => s.findLists(actor: m.actor),
     id: appBskyGraphGetLists,
   );
 
   testGraph<Lists>(
-    (r, s) => s.findBlockLists(),
+    (m, s) => s.findBlockLists(),
     id: appBskyGraphGetListBlocks,
   );
 
   testGraph<ListItems>(
-    (r, s) => s.findListItems(list: r.uri),
+    (m, s) => s.findListItems(list: m.uri),
     id: appBskyGraphGetList,
   );
 
   testGraph<atp.StrongRef>(
-    (r, s) => s.createListItem(subject: r.did, list: r.uri),
+    (m, s) => s.createListItem(subject: m.did, list: m.uri),
     id: appBskyGraphListitem,
   );
 
   testGraph<Lists>(
-    (r, s) => s.findMutingLists(),
+    (m, s) => s.findMutingLists(),
     id: appBskyGraphGetListMutes,
   );
 
   testGraph<core.EmptyData>(
-    (r, s) => s.createMuteActorList(list: r.uri),
+    (m, s) => s.createMuteActorList(list: m.uri),
     id: appBskyGraphMuteActorList,
   );
 
   testGraph<core.EmptyData>(
-    (r, s) => s.deleteMuteActorList(list: r.uri),
+    (m, s) => s.deleteMuteActorList(list: m.uri),
     id: appBskyGraphUnmuteActorList,
   );
 
   testGraph<SuggestedFollows>(
-    (r, s) => s.findSuggestedFollows(actor: r.actor),
+    (m, s) => s.findSuggestedFollows(actor: m.actor),
     id: appBskyGraphGetSuggestedFollowsByActor,
   );
 
   testGraph<atp.StrongRef>(
-    (r, s) => s.createBlockList(listUri: r.uri),
+    (m, s) => s.createBlockList(listUri: m.uri),
     id: appBskyGraphListblock,
   );
 }

@@ -22,110 +22,110 @@ import 'suite/service_suite.dart';
 
 void main() {
   testFeed<atp.StrongRef>(
-    (r, s) => s.createPost(text: r.text),
+    (m, s) => s.createPost(text: m.text),
     id: appBskyFeedPost,
   );
 
   testFeed<atp.StrongRef>(
-    (r, s) => s.createRepost(cid: r.cid, uri: r.uri),
+    (m, s) => s.createRepost(cid: m.cid, uri: m.uri),
     id: appBskyFeedPost,
   );
 
   testFeed<Feed>(
-    (r, s) => s.findTimeline(),
+    (m, s) => s.findTimeline(),
     id: appBskyFeedGetTimeline,
   );
 
   testFeed<atp.StrongRef>(
-    (r, s) => s.createLike(cid: r.cid, uri: r.uri),
+    (m, s) => s.createLike(cid: m.cid, uri: m.uri),
     id: appBskyFeedPost,
   );
 
   testFeed<Feed>(
-    (r, s) => s.findFeed(actor: r.actor),
+    (m, s) => s.findFeed(actor: m.actor),
     id: appBskyFeedGetTimeline,
   );
 
   testFeed<Feed>(
-    (r, s) => s.findCustomFeed(generatorUri: r.uri),
+    (m, s) => s.findCustomFeed(generatorUri: m.uri),
     id: appBskyFeedGetFeed,
   );
 
   testFeed<SkeletonFeed>(
-    (r, s) => s.findFeedSkeleton(generatorUri: r.uri),
+    (m, s) => s.findFeedSkeleton(generatorUri: m.uri),
     id: appBskyFeedGetFeedSkeleton,
   );
 
   testFeed<ActorFeeds>(
-    (r, s) => s.findActorFeeds(actor: r.actor),
+    (m, s) => s.findActorFeeds(actor: m.actor),
     id: appBskyFeedGetActorFeeds,
   );
 
   testFeed<Likes>(
-    (r, s) => s.findLikes(uri: r.uri),
+    (m, s) => s.findLikes(uri: m.uri),
     id: appBskyFeedGetLikes,
   );
 
   testFeed<RepostedBy>(
-    (r, s) => s.findRepostedBy(uri: r.uri),
+    (m, s) => s.findRepostedBy(uri: m.uri),
     id: appBskyFeedGetRepostedBy,
   );
 
   testFeed<PostThread>(
-    (r, s) => s.findPostThread(uri: r.uri),
+    (m, s) => s.findPostThread(uri: m.uri),
     id: appBskyFeedGetPostThread,
   );
 
   testFeed<Posts>(
-    (r, s) => s.findPosts(uris: [r.uri]),
+    (m, s) => s.findPosts(uris: [m.uri]),
     id: appBskyFeedGetPosts,
   );
 
   testFeed<atp.StrongRef>(
-    (r, s) => s.createGenerator(
-      did: r.did,
-      displayName: r.displayName,
+    (m, s) => s.createGenerator(
+      did: m.did,
+      displayName: m.displayName,
     ),
     id: appBskyFeedGenerator,
   );
 
   testFeed<FeedGenerator>(
-    (r, s) => s.findGenerator(uri: r.uri),
+    (m, s) => s.findGenerator(uri: m.uri),
     id: appBskyFeedGetFeedGenerator,
   );
 
   testFeed<FeedGenerators>(
-    (r, s) => s.findGenerators(uris: [r.uri]),
+    (m, s) => s.findGenerators(uris: [m.uri]),
     id: appBskyFeedGetFeedGenerators,
   );
 
   testFeed<FeedGeneratorInfo>(
-    (r, s) => s.findGeneratorInfo(),
+    (m, s) => s.findGeneratorInfo(),
     id: appBskyFeedDescribeFeedGenerator,
   );
 
   testFeed<Feed>(
-    (r, s) => s.findActorLikes(actor: r.actor),
+    (m, s) => s.findActorLikes(actor: m.actor),
     id: appBskyFeedGetActorLikes,
   );
 
   testFeed<FeedGenerators>(
-    (r, s) => s.findSuggestedFeeds(),
+    (m, s) => s.findSuggestedFeeds(),
     id: appBskyFeedGetSuggestedFeeds,
   );
 
   testFeed<Feed>(
-    (r, s) => s.findListFeed(list: r.uri),
+    (m, s) => s.findListFeed(list: m.uri),
     id: appBskyFeedGetListFeed,
   );
 
   testFeed<atp.StrongRef>(
-    (r, s) => s.createThreadgate(postUri: r.uri),
+    (m, s) => s.createThreadgate(postUri: m.uri),
     id: appBskyFeedThreadgate,
   );
 
   testFeed<PostsByQuery>(
-    (r, s) => s.searchPostsByQuery(r.query),
+    (m, s) => s.searchPostsByQuery(m.query),
     id: appBskyFeedSearchPosts,
   );
 }
