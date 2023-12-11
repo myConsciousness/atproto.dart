@@ -19,9 +19,9 @@ import 'package:atproto/src/services/entities/repo_commits.dart';
 import 'package:atproto/src/services/entities/repo_latest_commit.dart';
 import 'package:atproto/src/services/entities/repos.dart';
 import 'package:atproto/src/services/sync_service.dart';
-import 'suite/data/com/atproto/sync/getBlocks.dart';
-import 'suite/data/com/atproto/sync/getRecord.dart';
-import 'suite/data/com/atproto/sync/getRepo.dart';
+import 'suite/data/com/atproto/sync/get_blocks.dart';
+import 'suite/data/com/atproto/sync/get_record.dart';
+import 'suite/data/com/atproto/sync/get_repo.dart';
 import 'suite/service_suite.dart';
 
 void main() {
