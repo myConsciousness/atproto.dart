@@ -9,7 +9,7 @@ import 'package:bluesky/src/services/entities/feed_generators.dart';
 import 'package:bluesky/src/services/entities/skeleton_actors_by_query.dart';
 import 'package:bluesky/src/services/entities/skeleton_feed.dart';
 import 'package:bluesky/src/services/entities/skeleton_posts_by_query.dart';
-import 'suite/service_runner.dart';
+import 'suite/service_suite.dart';
 
 void main() {
   testUnspecced<Feed>(

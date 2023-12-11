@@ -9,7 +9,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:bluesky/src/ids.g.dart';
 import 'package:bluesky/src/services/entities/count.dart';
 import 'package:bluesky/src/services/entities/notifications.dart';
-import 'suite/service_runner.dart';
+import 'suite/service_suite.dart';
 
 void main() {
   testNotification<Notifications>(

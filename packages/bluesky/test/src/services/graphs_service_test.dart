@@ -15,7 +15,7 @@ import 'package:bluesky/src/services/entities/list_items.dart';
 import 'package:bluesky/src/services/entities/lists.dart';
 import 'package:bluesky/src/services/entities/mutes.dart';
 import 'package:bluesky/src/services/entities/suggested_follows.dart';
-import 'suite/service_runner.dart';
+import 'suite/service_suite.dart';
 
 void main() {
   testGraph<atp.StrongRef>(

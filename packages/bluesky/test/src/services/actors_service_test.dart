@@ -13,7 +13,7 @@ import 'package:bluesky/src/services/entities/actor_profiles.dart';
 import 'package:bluesky/src/services/entities/actors.dart';
 import 'package:bluesky/src/services/entities/actors_typeahead.dart';
 import 'package:bluesky/src/services/entities/preferences.dart';
-import 'suite/service_runner.dart';
+import 'suite/service_suite.dart';
 
 void main() {
   testActor<Actors>(

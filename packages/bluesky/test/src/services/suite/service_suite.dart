@@ -14,7 +14,7 @@ import 'package:bluesky/src/services/graphs_service.dart';
 import 'package:bluesky/src/services/notifications_service.dart';
 import 'package:bluesky/src/services/unspecced_service.dart';
 
-const _runner = ServiceRunner();
+const _runner = _ServiceRunner();
 
 void testActor<D>(
   final Future<core.XRPCResponse> Function(
@@ -61,19 +61,8 @@ void testUnspecced<D>(
 }) =>
     atp_test.testService<UnspeccedService, D>(_runner, endpoint, id);
 
-final class ServiceRunner extends atp_test.ServiceRunner {
-  const ServiceRunner();
-
-  atp.ATProto _getAtproto(
-    final core.GetClient mockedGetClient,
-    final core.PostClient mockedPostClient,
-  ) =>
-      atp.ATProto.fromSession(
-        session,
-        service: 'fake.com',
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
+final class _ServiceRunner extends atp_test.ServiceRunner {
+  const _ServiceRunner();
 
   @override
   S getServiceImpl<S>(
@@ -94,6 +83,17 @@ final class ServiceRunner extends atp_test.ServiceRunner {
 
     throw UnsupportedError('Unsupported Service: $S');
   }
+
+  atp.ATProto _getAtproto(
+    final core.GetClient mockedGetClient,
+    final core.PostClient mockedPostClient,
+  ) =>
+      atp.ATProto.fromSession(
+        session,
+        service: 'fake.com',
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
+      );
 
   ActorsService _getActorsService(
     final core.GetClient mockedGetClient,

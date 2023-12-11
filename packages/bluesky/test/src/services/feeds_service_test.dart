@@ -18,7 +18,7 @@ import 'package:bluesky/src/services/entities/posts.dart';
 import 'package:bluesky/src/services/entities/posts_by_query.dart';
 import 'package:bluesky/src/services/entities/reposted_by.dart';
 import 'package:bluesky/src/services/entities/skeleton_feed.dart';
-import 'suite/service_runner.dart';
+import 'suite/service_suite.dart';
 
 void main() {
   testFeed<atp.StrongRef>(
