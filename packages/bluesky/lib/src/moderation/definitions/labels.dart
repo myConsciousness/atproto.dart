@@ -14,6 +14,7 @@ const knownLabels = <KnownLabel, LabelDefinition>{
   KnownLabel.hide: labelDefinitionHide,
   KnownLabel.noPromote: labelDefinitionNoPromote,
   KnownLabel.warn: labelDefinitionWarn,
+  KnownLabel.noUnauthenticated: labelDefinitionNoUnauthenticated,
   KnownLabel.dmcaViolation: labelDefinitionDmcaViolation,
   KnownLabel.doxxing: labelDefinitionDoxxing,
   KnownLabel.porn: labelDefinitionPorn,
@@ -70,6 +71,19 @@ const labelDefinitionWarn = LabelDefinition(
     LabelPreference.warn,
   ],
   flags: [],
+  onWarn: LabelDefinitionOnWarnBehavior.blur,
+);
+
+const labelDefinitionNoUnauthenticated = LabelDefinition(
+  id: knownLabelNoUnauthenticated,
+  groupId: knownLabelGroupSystem,
+  preferences: [
+    LabelPreference.hide,
+  ],
+  flags: [
+    LabelDefinitionFlag.noOverride,
+    LabelDefinitionFlag.unauthed,
+  ],
   onWarn: LabelDefinitionOnWarnBehavior.blur,
 );
 

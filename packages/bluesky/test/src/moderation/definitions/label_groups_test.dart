@@ -31,6 +31,7 @@ void main() {
           labelDefinitionHide.toJson(),
           labelDefinitionNoPromote.toJson(),
           labelDefinitionWarn.toJson(),
+          labelDefinitionNoUnauthenticated.toJson(),
         ]
       });
     });

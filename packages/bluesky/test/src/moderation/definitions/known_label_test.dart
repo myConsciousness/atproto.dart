@@ -13,6 +13,7 @@ void main() {
     expect(knownLabelHide, '!hide');
     expect(knownLabelNoPromote, '!no-promote');
     expect(knownLabelWarn, '!warn');
+    expect(knownLabelNoUnauthenticated, '!no-unauthenticated');
     expect(knownLabelDmcaViolation, 'dmca-violation');
     expect(knownLabelDoxxing, 'doxxing');
     expect(knownLabelPorn, 'porn');
@@ -44,6 +45,7 @@ void main() {
     expect(KnownLabel.hide.name, 'hide');
     expect(KnownLabel.noPromote.name, 'noPromote');
     expect(KnownLabel.warn.name, 'warn');
+    expect(KnownLabel.noUnauthenticated.name, 'noUnauthenticated');
     expect(KnownLabel.dmcaViolation.name, 'dmcaViolation');
     expect(KnownLabel.doxxing.name, 'doxxing');
     expect(KnownLabel.porn.name, 'porn');
@@ -75,6 +77,7 @@ void main() {
     expect(KnownLabel.hide.value, '!hide');
     expect(KnownLabel.noPromote.value, '!no-promote');
     expect(KnownLabel.warn.value, '!warn');
+    expect(KnownLabel.noUnauthenticated.value, '!no-unauthenticated');
     expect(KnownLabel.dmcaViolation.value, 'dmca-violation');
     expect(KnownLabel.doxxing.value, 'doxxing');
     expect(KnownLabel.porn.value, 'porn');

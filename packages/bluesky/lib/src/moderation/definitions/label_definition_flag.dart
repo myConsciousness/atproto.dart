@@ -8,7 +8,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 enum LabelDefinitionFlag {
   @JsonValue('no-override')
   noOverride('no-override'),
-  adult('adult');
+  adult('adult'),
+  unauthed('unauthed');
 
   final String value;
 
