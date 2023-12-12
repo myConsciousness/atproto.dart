@@ -10,9 +10,6 @@ description: Utility for Bluesky's RichText.
 
 This package automatically extracts basic entities from text, such as `handles (@)` and `links (http|https)`, and generates facets that conform to the Bluesky API specification.
 
-In addition, `hashtags (#)` and `cashtags ($)`, which are not implemented in Bluesky Social, can be extracted as **Custom Entity** with any regular expression of the user's choice.
-This feature allows you to implement a post function specific to your app.
-
 In **[bluesky_text](https://pub.dartlang.org/packages/bluesky_text)**, text elements are counted as **Unicode Grapheme Clusters**.
 In other words, multibyte characters includes emojis are also counted as a single character.
 

@@ -61,6 +61,7 @@ The library is **cross-platform** and is **already used in many applications**. 
 - ✅ Supports **[All Major Endpoints](https://atprotodart.com/docs/api_support_matrix#bluesky)** for [`app.bsky.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky)
 - ✅ **Well Documented** and **Well Tested**
 - ✅ Supports **Powerful Firehose API**
+- ✅ Supports **Powerful Moderation API**
 - ✅ **100% Null Safety**
 - ✅ **Built In [atproto](https://pub.dev/packages/atproto) Features**
 
@@ -111,6 +112,7 @@ See **[official documents](https://atprotodart.com/docs/packages/bluesky)** from
 - **[Pagination](https://atprotodart.com/docs/packages/bluesky/#pagination)**
 - **[Advanced Pagination](https://atprotodart.com/docs/packages/bluesky/#advanced-pagination)**
 - **[Unspecced Inputs](https://atprotodart.com/docs/packages/bluesky/#unspecced-inputs)**
+- **[Moderation API](https://atprotodart.com/docs/packages/bluesky/#moderation-api)**
 
 ## 1.5. Contribution 🏆
 

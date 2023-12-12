@@ -1,5 +1,23 @@
 # Release Note
 
+## v0.6.3
+
+- Added `cardyb.bsky.app` as `defaultLinkPreviewService`. ([#1009](https://github.com/myConsciousness/atproto.dart/issues/1009))
+
+## v0.6.2
+
+- Added `AuthType.authOptional`. ([#1012](https://github.com/myConsciousness/atproto.dart/issues/1012))
+
+## v0.6.1
+
+- Added `BaseHttpService.post`. ([#999](https://github.com/myConsciousness/atproto.dart/issues/999))
+- Fixed a bug that service names were not specified correctly when using stream endpoints.
+
+## v0.6.0
+
+- Added HTTP specific client. ([#989](https://github.com/myConsciousness/atproto.dart/issues/989))
+- Renamed from `UserContext` to `AuthType`.
+
 ## v0.5.9
 
 - Added `.deleteSession` function. ([#963](https://github.com/myConsciousness/atproto.dart/issues/963))

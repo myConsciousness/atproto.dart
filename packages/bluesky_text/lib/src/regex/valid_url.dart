@@ -23,6 +23,8 @@ const validUrl = '(' // $1 total match
 
 final validUrlRegex = RegExp(validUrl, caseSensitive: false);
 
+bool isValidUrl(final String input) => validUrlRegex.hasMatch(input);
+
 extension ValidUrlRegexExtension on RegExpMatch {
   String get url => group(3) ?? '';
   String get protocol => group(4) ?? '';

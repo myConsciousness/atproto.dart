@@ -135,7 +135,7 @@ See more details about **[bluesky](https://pub.dev/packages/bluesky)** in **[Pac
 | [GET app.bsky.feed.getActorFeeds](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorFeeds.json)                 | [findActorFeeds](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findActorFeeds.html)         |       ✅       |     ✅      |
 | [GET app.bsky.feed.getFeedGenerator](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedGenerator.json)           | [findGenerator](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findGenerator.html)           |       ✅       |     ❌      |
 | [GET app.bsky.feed.getFeedGenerators](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedGenerators.json)         | [findGenerators](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findGenerators.html)         |       ✅       |     ❌      |
-| [GET app.bsky.feed.getFeed](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeed.json)                             | [findCustomFeed](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findCustomFeed.html)         |       ✅       |     ✅      |
+| [GET app.bsky.feed.getFeed](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeed.json)                             | [findCustomFeed](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findCustomFeed.html)         |       ❌       |     ✅      |
 | [GET app.bsky.feed.getFeedSkeleton](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedSkeleton.json)             | [findFeedSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findFeedSkeleton.html)     |       ✅       |     ✅      |
 | [GET app.bsky.feed.describeFeedGenerator](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/describeFeedGenerator.json) | [findGeneratorInfo](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findGeneratorInfo.html)   |       ✅       |     ❌      |
 | [GET app.bsky.feed.getActorLikes](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorLikes.json)                 | [findActorLikes](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService/findActorLikes.html)         |       ✅       |     ✅      |
@@ -191,6 +191,20 @@ See more details about **[bluesky](https://pub.dev/packages/bluesky)** in **[Pac
 | [GET app.bsky.unspecced.getTimelineSkeleton](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getTimelineSkeleton.json)           | [findTimelineSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/findTimelineSkeleton.html)               |       ✅       |     ✅      |
 | [GET app.bsky.unspecced.searchPostsSkeleton](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/searchPostsSkeleton.json)           | [searchPostsByQuerySkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/searchPostsByQuerySkeleton.html)   |       ✅       |     ✅      |
 | [GET app.bsky.unspecced.searchActorsSkeleton](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/searchActorsSkeleton.json)         | [searchActorsByQuerySkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/searchActorsByQuerySkeleton.html) |       ✅       |     ✅      |
+
+## **[DID PLC](https://pub.dev/packages/did_plc)**
+
+**[did_plc](https://pub.dev/packages/bluesky)** supports the endpoints for [DID PLC Directory](https://web.plc.directory).
+
+| **Endpoint**         | **Method Name**                                                                                      | Auth Required | Pagination |
+| -------------------- | ---------------------------------------------------------------------------------------------------- | :-----------: | :--------: |
+| GET /:did:           | [findDocument](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findDocument.html)           |       ❌       |     ❌      |
+| GET /:did:/data      | [findDocumentData](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findDocumentData.html)   |       ❌       |     ❌      |
+| GET /:did:/log       | [findOperationLog](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findOperationLog.html)   |       ❌       |     ❌      |
+| GET /:did:/log/audit | [findAuditableLog](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findAuditableLog.html)   |       ❌       |     ❌      |
+| GET /:did:/log/last  | [findLastOperation](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findLastOperation.html) |       ❌       |     ❌      |
+| GET health           | [health](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/health.html)                       |       ❌       |     ❌      |
+| GET export           | [export](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/export.html)                       |       ❌       |     ✅      |
 
 ## **[bluesky_cli](https://pub.dev/packages/bluesky_cli)**
 

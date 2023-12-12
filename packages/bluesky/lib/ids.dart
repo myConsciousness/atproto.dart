@@ -3,4 +3,4 @@
 // modification, are permitted provided the conditions.
 
 export 'package:atproto/ids.dart';
-export 'package:bluesky/src/entities/keys/ids.g.dart';
+export 'package:bluesky/src/ids.g.dart';

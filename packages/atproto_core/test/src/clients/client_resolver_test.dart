@@ -6,36 +6,54 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
+import 'package:atproto_core/src/clients/auth_type.dart';
 import 'package:atproto_core/src/clients/client.dart';
 import 'package:atproto_core/src/clients/client_resolver.dart';
-import 'package:atproto_core/src/clients/user_context.dart';
 
 void main() {
   group('.execute', () {
     test('auth required client', () {
-      final resolver = ClientResolver('aaaaa');
+      final resolver = ClientResolver(AuthRequiredClient('aaa'));
 
       expect(
-        resolver.execute(UserContext.authRequired),
+        resolver.execute(AuthType.authRequired),
         isA<AuthRequiredClient>(),
       );
     });
 
     test('anonymous client', () {
-      final resolver = ClientResolver('');
+      final resolver = ClientResolver(null);
 
       expect(
-        resolver.execute(UserContext.anonymousOnly),
+        resolver.execute(AuthType.anonymous),
         isA<AnonymousClient>(),
       );
     });
 
     test('auth required client without token', () {
-      final resolver = ClientResolver('');
+      final resolver = ClientResolver(null);
 
       expect(
-        () => resolver.execute(UserContext.authRequired),
+        () => resolver.execute(AuthType.authRequired),
         throwsA(isA<UnsupportedError>()),
+      );
+    });
+
+    test('auth optional with token', () {
+      final resolver = ClientResolver(AuthRequiredClient('aaa'));
+
+      expect(
+        resolver.execute(AuthType.authOptional),
+        isA<AuthRequiredClient>(),
+      );
+    });
+
+    test('auth optional without token', () {
+      final resolver = ClientResolver(null);
+
+      expect(
+        resolver.execute(AuthType.authOptional),
+        isA<AnonymousClient>(),
       );
     });
   });

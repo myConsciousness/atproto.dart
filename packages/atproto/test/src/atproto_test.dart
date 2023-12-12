@@ -8,12 +8,12 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:atproto/src/atproto.dart';
-import 'package:atproto/src/identities/identities_service.dart';
-import 'package:atproto/src/labels/labels_service.dart';
-import 'package:atproto/src/moderation/moderation_service.dart';
-import 'package:atproto/src/repositories/repositories_service.dart';
-import 'package:atproto/src/servers/servers_service.dart';
-import 'package:atproto/src/sync/sync_service.dart';
+import 'package:atproto/src/services/identities_service.dart';
+import 'package:atproto/src/services/labels_service.dart';
+import 'package:atproto/src/services/moderation_service.dart';
+import 'package:atproto/src/services/repositories_service.dart';
+import 'package:atproto/src/services/servers_service.dart';
+import 'package:atproto/src/services/sync_service.dart';
 
 void main() {
   group('.session', () {

@@ -1,14 +1,15 @@
 name: bluesky_post
 description: A server app using the shelf package and Docker.
-version: 4.0.0
+version: 5.0.0
 publish_to: none
 environment:
   sdk: ^3.0.0
 
 dependencies:
   actions_toolkit_dart: ^0.5.1
-  bluesky: ^0.8.0
-  bluesky_text: ^0.3.0
+  bluesky: ^0.10.4
+  bluesky_text: ^0.6.2
+  http: ^1.1.0
 
 dev_dependencies:
   lints: ^2.0.1

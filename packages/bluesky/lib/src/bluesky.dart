@@ -7,12 +7,12 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import 'actors/actors_service.dart';
-import 'bluesky_service.dart';
-import 'feeds/feeds_service.dart';
-import 'graphs/graphs_service.dart';
-import 'notifications/notifications_service.dart';
-import 'unspecced/unspecced_service.dart';
+import 'services/actors_service.dart';
+import 'services/feeds_service.dart';
+import 'services/graphs_service.dart';
+import 'services/notifications_service.dart';
+import 'services/services.dart';
+import 'services/unspecced_service.dart';
 
 sealed class Bluesky {
   /// Returns the new instance of [Bluesky].
@@ -20,6 +20,7 @@ sealed class Bluesky {
     final atp.Session session, {
     core.Protocol protocol = core.defaultProtocol,
     String service = core.defaultService,
+    String streamService = core.defaultStreamService,
     Duration timeout = core.defaultTimeout,
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
@@ -29,6 +30,7 @@ sealed class Bluesky {
         session: session,
         protocol: protocol,
         service: service,
+        streamService: streamService,
         timeout: timeout,
         retryConfig: retryConfig,
         mockedGetClient: mockedGetClient,
@@ -39,6 +41,7 @@ sealed class Bluesky {
   factory Bluesky.anonymous({
     core.Protocol protocol = core.defaultProtocol,
     String service = core.defaultService,
+    String streamService = core.defaultStreamService,
     Duration timeout = core.defaultTimeout,
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
@@ -47,6 +50,7 @@ sealed class Bluesky {
       _Bluesky(
         protocol: protocol,
         service: service,
+        streamService: streamService,
         timeout: timeout,
         retryConfig: retryConfig,
         mockedGetClient: mockedGetClient,
@@ -99,6 +103,7 @@ final class _Bluesky implements Bluesky {
     this.session,
     required core.Protocol protocol,
     required String service,
+    required String streamService,
     required Duration timeout,
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
@@ -108,6 +113,7 @@ final class _Bluesky implements Bluesky {
               ? atp.ATProto.anonymous(
                   protocol: protocol,
                   service: service,
+                  streamService: streamService,
                   timeout: timeout,
                   retryConfig: retryConfig,
                   mockedGetClient: mockedGetClient,
@@ -117,6 +123,7 @@ final class _Bluesky implements Bluesky {
                   session,
                   protocol: protocol,
                   service: service,
+                  streamService: streamService,
                   timeout: timeout,
                   retryConfig: retryConfig,
                   mockedGetClient: mockedGetClient,

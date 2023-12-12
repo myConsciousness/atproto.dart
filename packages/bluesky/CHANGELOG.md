@@ -1,8 +1,66 @@
 # Release Note
 
-## v0.9.4
+## v0.12.1
+
+- Add `!no-unauthenticated` imperative label. ([#1038](https://github.com/myConsciousness/atproto.dart/issues/1038))
+
+## v0.12.0
+
+- Removed all `.find*AsJson` and `.paginate*AsJson`. ([#1033](https://github.com/myConsciousness/atproto.dart/issues/1033))
+- Added `.threadgate` field on `Post` object. ([#1036](https://github.com/myConsciousness/atproto.dart/issues/1036))
+
+## v0.11.1
+
+- Added `postsAndAuthorThreads` on `FeedFilter`. ([#1029](https://github.com/myConsciousness/atproto.dart/issues/1029))
+- Added `.getModerateOptions` function. You can easily get options for `moderatePost` and `moderateProfile` based on user preferences. ([#1030](https://github.com/myConsciousness/atproto.dart/issues/1030))
+- Added `ignore` on `ContentLabelVisibility` and deprecated `show` element.
+
+## v0.11.0
+
+- Added moderation APIs and exposed `bluesky/moderation` package. See more [details](https://atprotodart.com/docs/packages/bluesky/#moderation-api). ([#1006](https://github.com/myConsciousness/atproto.dart/issues/1006))
+  - `.moderatePost`
+  - `.moderateProfile`
+
+## v0.10.8
+
+- Added `uri` on `ListItem`. ([#1026](https://github.com/myConsciousness/atproto.dart/issues/1026))
+
+## v0.10.7
+
+- Removed `entities` field on `PostRecord`. Instead of this field, `entities` is merged internally to `facets` field.
+
+## v0.10.6
+
+- Added deprecated `entities` field on `PostRecord`. ([#1020](https://github.com/myConsciousness/atproto.dart/issues/1020))
+  - `LegacyFacet`
+  - `TextSlice`
+
+## v0.10.5
+
+- Added `.isReplyDisabled` and `.isNotReplyDisabled` properties on `PostViewer`. ([#1019](https://github.com/myConsciousness/atproto.dart/issues/1019))
+
+## v0.10.4
+
+- Added `.findLinkPreview` function. ThiIts returns preview information for a given URL. ([#1009](https://github.com/myConsciousness/atproto.dart/issues/1009))
+
+## v0.10.3
+
+- Fixed a bug that occurred in [#1010](https://github.com/myConsciousness/atproto.dart/issues/1010). getCustomFeed behaves differently depending on whether or not an access token is given. ([#1012](https://github.com/myConsciousness/atproto.dart/issues/1012))
+
+## v0.10.2
+
+- Changed auth type from access to anonymous for `app.bsky.feed.getFeed`. ([#1010](https://github.com/myConsciousness/atproto.dart/issues/1010))
+
+## v0.10.1
+
+- Upgraded `atproto_core`. ([#999](https://github.com/myConsciousness/atproto.dart/issues/999))
+- Fixed a bug that service names were not specified correctly when using stream endpoints.
+- Added `.streamService` property on `ATProto`. Defaults to `bsky.network`.
+
+## v0.10.0
 
 - Added `.didDoc` on `CurrentSession`. ([#983](https://github.com/myConsciousness/atproto.dart/issues/983))
+- Upgraded `atproto_core`. ([#989](https://github.com/myConsciousness/atproto.dart/issues/989))
 
 ## v0.9.3
 

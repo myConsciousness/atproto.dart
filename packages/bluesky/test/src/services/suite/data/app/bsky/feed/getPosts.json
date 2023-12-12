@@ -1,0 +1,90 @@
+{
+  "posts": [
+    {
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "text": "eu queria um fone de ouvido com fio, não me dou bem com fone sem fios, tenho um da samsung que só fica caindo e eu não consigo enfiar ele todo na orelha pois ela é pititiquinha",
+        "createdAt": "2023-04-24T13:50:19.672Z"
+      },
+      "author": {
+        "did": "did:plc:d3zpokjdspr22chfrc427eis",
+        "handle": "luy.gay",
+        "displayName": "luy 🦋",
+        "avatar": "https://cdn.bsky.social/imgproxy/iWeJaZIxcw1gXlNudENlFDQHzb6ZuGEp9JGlYBlRRLs/rs:fill:1000:1000:1:0/plain/bafkreiaamsjmwczz7rd2d4pololrfdw2za7cj4zwiqbgz7q6sp4yqgvscm@jpeg",
+        "viewer": {
+          "muted": false,
+          "blockedBy": false,
+          "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jriwhw4uws2d",
+          "followedBy": "at://did:plc:d3zpokjdspr22chfrc427eis/app.bsky.graph.follow/3jt4vdct4s22h"
+        },
+        "labels": []
+      },
+      "uri": "at://did:plc:d3zpokjdspr22chfrc427eis/app.bsky.feed.post/3ju4p6u2i3a2g",
+      "cid": "bafyreigsrxui256rn6lxwgzhswg3qc3e3t2vnlej3ddlq4w5ebg7fd2voq",
+      "embed": null,
+      "replyCount": 8,
+      "repostCount": 0,
+      "likeCount": 7,
+      "viewer": {
+        "replyDisabled": true
+      },
+      "labels": [],
+      "threadgate": {
+        "uri": "at://did:plc:wpyvghtrmnflwxmknbz67vct/app.bsky.feed.threadgate/3kgcs7ns2le2j",
+        "cid": "bafyreiasko57dc5k53vj4pcllkf3dah2w25nkqksygacu5okducmixadxi",
+        "record": {
+          "post": "at://did:plc:wpyvghtrmnflwxmknbz67vct/app.bsky.feed.post/3kgcs7ns2le2j",
+          "$type": "app.bsky.feed.threadgate",
+          "allow": [
+            {
+              "list": "at://did:plc:wpyvghtrmnflwxmknbz67vct/app.bsky.graph.list/3kawdjs5scm26",
+              "$type": "app.bsky.feed.threadgate#listRule"
+            },
+            {
+              "list": "at://did:plc:wpyvghtrmnflwxmknbz67vct/app.bsky.graph.list/3kb5c7o4kew27",
+              "$type": "app.bsky.feed.threadgate#listRule"
+            },
+            {
+              "list": "at://did:plc:wpyvghtrmnflwxmknbz67vct/app.bsky.graph.list/3k7pxniagkb2k",
+              "$type": "app.bsky.feed.threadgate#listRule"
+            }
+          ],
+          "createdAt": "2023-12-12T01:33:53.974Z"
+        },
+        "lists": [
+          {
+            "uri": "at://did:plc:wpyvghtrmnflwxmknbz67vct/app.bsky.graph.list/3kawdjs5scm26",
+            "cid": "bafyreigaigog2d2wkywp2ft3clukrxdk6xvrc4slidzo7vavsp6cvttbx4",
+            "name": "test facet",
+            "purpose": "app.bsky.graph.defs#curatelist",
+            "indexedAt": "2023-10-04T11:33:14.620Z",
+            "viewer": {
+              "muted": false
+            }
+          },
+          {
+            "uri": "at://did:plc:wpyvghtrmnflwxmknbz67vct/app.bsky.graph.list/3kb5c7o4kew27",
+            "cid": "bafyreig6excifsjmb7wtotiy3fz42sguktdulzsfz3wmdmvm4mcfao6ory",
+            "name": "aaaa",
+            "purpose": "app.bsky.graph.defs#curatelist",
+            "indexedAt": "2023-10-07T05:58:19.338Z",
+            "viewer": {
+              "muted": false
+            }
+          },
+          {
+            "uri": "at://did:plc:wpyvghtrmnflwxmknbz67vct/app.bsky.graph.list/3k7pxniagkb2k",
+            "cid": "bafyreid5g3xxqwdpdwrsje2ddorwdatzkjukuatiu4rxvrly33yvzo3jpm",
+            "name": "test2",
+            "purpose": "app.bsky.graph.defs#curatelist",
+            "indexedAt": "2023-09-19T05:19:19.355Z",
+            "viewer": {
+              "muted": false
+            }
+          }
+        ]
+      },
+      "indexedAt": "2023-04-24T13:50:20.078Z"
+    }
+  ]
+}

@@ -28,6 +28,8 @@ final class MarkdownLinksExtractor {
     final entities = <MarkdownLinkEntity>[];
 
     for (final match in markdownLinkRegex.allMatches(text.value)) {
+      if (!isValidUrl(match.markdownLinkUrl)) continue;
+
       final linkText = match.markdownLinkText;
       final urlMatch = validUrlRegex.firstMatch(
         text.value.substring(match.start),
