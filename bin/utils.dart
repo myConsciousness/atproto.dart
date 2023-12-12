@@ -4,6 +4,8 @@
 
 import 'dart:io';
 
+import 'package:github/github.dart';
+
 /// The path to `packages` directory.
 const packagesPath = './packages';
 
@@ -18,6 +20,11 @@ const lexiconsRoot = [
   'com/atproto',
   'app/bsky',
 ];
+
+final officialRepositorySlug = RepositorySlug(
+  'bluesky-social',
+  'atproto',
+);
 
 /// Returns the package names.
 final packageNames = Directory(packagesPath)
