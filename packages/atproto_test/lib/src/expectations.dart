@@ -71,14 +71,6 @@ void testService<S, D>(
   final PaginationCallback<S, D>? pagination,
   final BulkCallback<S>? bulk,
 }) {
-  if (_isSubscription(lexiconId)) {
-    return _testSubscription(
-      runner,
-      endpoint as SubscriptionCallback,
-      lexiconId,
-    );
-  }
-
   _test<S, D>(runner, endpoint, lexiconId, label, bytes: bytes);
 
   if (bulk != null) {
@@ -162,9 +154,9 @@ void _testInternalServerError<S>(
   });
 }
 
-void _testSubscription<S, D>(
+void testSubscription<S, D>(
   final ServiceRunner runner,
-  final SubscriptionCallback endpoint,
+  final SubscriptionCallback<S, D> endpoint,
   final String lexiconId,
 ) {
   group(lexiconId, () {
@@ -175,7 +167,7 @@ void _testSubscription<S, D>(
       );
 
       expect(subscription, isA<core.XRPCResponse>());
-      expect(subscription.data, isA<D>());
+      expect(subscription.data, isA<core.Subscription<D>>());
 
       final oneMinuteLater = DateTime.now().add(Duration(minutes: 1));
 
@@ -264,6 +256,3 @@ void _testBulk<S, D>(
     _testInternalServerError<S>(runner, endpoint, lexiconId);
   });
 }
-
-bool _isSubscription(final String lexiconId) =>
-    lexiconId.split('.').last.startsWith('subscribe');

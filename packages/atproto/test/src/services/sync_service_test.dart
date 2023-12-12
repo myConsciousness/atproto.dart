@@ -24,7 +24,7 @@ import 'suite/data/com/atproto/sync/get_repo.dart';
 import 'suite/service_suite.dart';
 
 void main() {
-  testSync<core.Subscription<SubscribedRepo>>(
+  testSyncSubscription<SubscribedRepo>(
     (m, s) => s.subscribeRepoUpdates(),
     id: comAtprotoSyncSubscribeRepos,
   );

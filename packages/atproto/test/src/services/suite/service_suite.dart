@@ -102,6 +102,16 @@ void testSync<D>(
       pagination: pagination,
     );
 
+void testSyncSubscription<D>(
+  final atp_test.SubscriptionCallback<SyncService, D> endpoint, {
+  required String id,
+}) =>
+    atp_test.testSubscription<SyncService, D>(
+      _runner,
+      endpoint,
+      id,
+    );
+
 final class _ServiceRunner extends atp_test.ServiceRunner {
   const _ServiceRunner();
 
