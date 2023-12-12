@@ -17,78 +17,77 @@ import 'package:bluesky/src/services/unspecced_service.dart';
 const _runner = _ServiceRunner();
 
 void testActor<D>(
-  final Future<core.XRPCResponse> Function(
-    atp_test.MockValues m,
-    ActorsService s,
-  ) endpoint, {
+  final atp_test.ServiceCallback<ActorsService, D> endpoint, {
   required String id,
   String? label,
+  atp_test.PaginationCallback<ActorsService, D>? pagination,
 }) =>
     atp_test.testService<ActorsService, D>(
       _runner,
       endpoint,
       id,
       label,
+      pagination: pagination,
     );
 
 void testFeed<D>(
-  final Future<core.XRPCResponse> Function(
-    atp_test.MockValues m,
-    FeedsService s,
-  ) endpoint, {
+  final atp_test.ServiceCallback<FeedsService, D> endpoint, {
   required String id,
   String? label,
+  atp_test.PaginationCallback<FeedsService, D>? pagination,
+  atp_test.BulkCallback<FeedsService>? bulk,
 }) =>
     atp_test.testService<FeedsService, D>(
       _runner,
       endpoint,
       id,
       label,
+      pagination: pagination,
+      bulk: bulk,
     );
 
 void testGraph<D>(
-  final Future<core.XRPCResponse> Function(
-    atp_test.MockValues m,
-    GraphsService s,
-  ) endpoint, {
+  final atp_test.ServiceCallback<GraphsService, D> endpoint, {
   required String id,
   String? label,
+  atp_test.PaginationCallback<GraphsService, D>? pagination,
+  atp_test.BulkCallback<GraphsService>? bulk,
 }) =>
     atp_test.testService<GraphsService, D>(
       _runner,
       endpoint,
       id,
       label,
+      pagination: pagination,
+      bulk: bulk,
     );
 
 void testNotification<D>(
-  final Future<core.XRPCResponse> Function(
-    atp_test.MockValues m,
-    NotificationsService s,
-  ) endpoint, {
+  final atp_test.ServiceCallback<NotificationsService, D> endpoint, {
   required String id,
   String? label,
+  atp_test.PaginationCallback<NotificationsService, D>? pagination,
 }) =>
     atp_test.testService<NotificationsService, D>(
       _runner,
       endpoint,
       id,
       label,
+      pagination: pagination,
     );
 
 void testUnspecced<D>(
-  final Future<core.XRPCResponse> Function(
-    atp_test.MockValues m,
-    UnspeccedService s,
-  ) endpoint, {
+  final atp_test.ServiceCallback<UnspeccedService, D> endpoint, {
   required String id,
   String? label,
+  atp_test.PaginationCallback<UnspeccedService, D>? pagination,
 }) =>
     atp_test.testService<UnspeccedService, D>(
       _runner,
       endpoint,
       id,
       label,
+      pagination: pagination,
     );
 
 final class _ServiceRunner extends atp_test.ServiceRunner {

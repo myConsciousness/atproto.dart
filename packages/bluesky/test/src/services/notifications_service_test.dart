@@ -14,6 +14,7 @@ import 'suite/service_suite.dart';
 void main() {
   testNotification<Notifications>(
     (m, s) => s.findNotifications(),
+    pagination: (m, s) => s.paginateNotifications(),
     id: appBskyNotificationListNotifications,
   );
 

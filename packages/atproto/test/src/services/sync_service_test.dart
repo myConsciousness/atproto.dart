@@ -24,7 +24,7 @@ import 'suite/data/com/atproto/sync/get_repo.dart';
 import 'suite/service_suite.dart';
 
 void main() {
-  testSyncStream<core.Subscription<SubscribedRepo>>(
+  testSyncSubscription<SubscribedRepo>(
     (m, s) => s.subscribeRepoUpdates(),
     id: comAtprotoSyncSubscribeRepos,
   );
@@ -54,6 +54,7 @@ void main() {
 
   testSync<Repos>(
     (m, s) => s.findRepos(),
+    pagination: (m, s) => s.paginateRepos(),
     id: comAtprotoSyncListRepos,
   );
 
@@ -76,6 +77,7 @@ void main() {
 
   testSync<BlobRefs>(
     (m, s) => s.findBlobs(did: m.did),
+    pagination: (m, s) => s.paginateBlobs(did: m.did),
     id: comAtprotoSyncListBlobs,
   );
 }
