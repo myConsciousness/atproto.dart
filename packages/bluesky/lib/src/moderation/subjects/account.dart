@@ -6,7 +6,7 @@
 import 'package:atproto/atproto.dart' as atp;
 
 // 🌎 Project imports:
-import '../../entities/actor_viewer.dart';
+import '../../services/entities/actor_viewer.dart';
 import '../accumulator.dart';
 import '../entities/moderation_decision.dart';
 import '../entities/moderation_options.dart';

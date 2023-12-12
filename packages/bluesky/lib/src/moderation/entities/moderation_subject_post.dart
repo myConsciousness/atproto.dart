@@ -6,7 +6,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../entities/post.dart';
+import '../../services/entities/post.dart';
 import 'moderation_object.dart';
 
 part 'moderation_subject_post.freezed.dart';

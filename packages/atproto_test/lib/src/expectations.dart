@@ -3,54 +3,124 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:test/test.dart';
-import 'package:xrpc/http.dart' as http;
-import 'package:xrpc/xrpc.dart' as xrpc;
 
-/// Checks if [fn] throws [http.HttpException].
+// 🌎 Project imports:
+import 'mocks/values.dart';
+import 'service_runner.dart';
+
+const _mockValues = MockValues();
+
+/// Checks if [fn] throws [core.HttpException].
 void expectHttpException(Function fn) {
   expect(
     () async => await fn.call(),
-    throwsA(isA<http.HttpException>()),
+    throwsA(isA<core.HttpException>()),
   );
 }
 
-/// Checks if [fn] throws [xrpc.XRPCException].
-void expectXRPCException(Function fn) {
-  expect(
-    () async => await fn.call(),
-    throwsA(isA<xrpc.XRPCException>()),
-  );
-}
-
-/// Checks if [fn] throws [xrpc.UnauthorizedException].
+/// Checks if [fn] throws [core.UnauthorizedException].
 void expectUnauthorizedException(final Function fn) {
   expect(
     () async => await fn.call(),
-    throwsA(isA<xrpc.UnauthorizedException>()),
+    throwsA(isA<core.UnauthorizedException>()),
   );
 }
 
-/// Checks if [fn] throws [xrpc.RateLimitExceededException].
+/// Checks if [fn] throws [core.RateLimitExceededException].
 void expectRateLimitExceededException(final Function fn) {
   expect(
     () async => await fn.call(),
-    throwsA(isA<xrpc.RateLimitExceededException>()),
+    throwsA(isA<core.RateLimitExceededException>()),
   );
 }
 
-/// Checks if [fn] throws [xrpc.InvalidRequestException].
-void expectInvalidRequestException(final Function fn) {
-  expect(
-    () async => await fn.call(),
-    throwsA(isA<xrpc.InvalidRequestException>()),
-  );
-}
-
-/// Checks if [fn] throws [xrpc.InternalServerErrorException].
+/// Checks if [fn] throws [core.InternalServerErrorException].
 void expectInternalServerErrorException(final Function fn) {
   expect(
     () async => await fn.call(),
-    throwsA(isA<xrpc.InternalServerErrorException>()),
+    throwsA(isA<core.InternalServerErrorException>()),
   );
+}
+
+void testService<S, D>(
+  final ServiceRunner runner,
+  final Future<core.XRPCResponse> Function(
+    MockValues m,
+    S s,
+  ) endpoint,
+  final String lexiconId,
+  final String? label, [
+  final List<int>? bytes,
+]) {
+  group(label == null ? lexiconId : '$lexiconId [$label]', () {
+    test('success', () async {
+      final actual = await endpoint.call(
+        _mockValues,
+        runner.getService<S>(lexiconId, bytes: bytes),
+      );
+
+      expect(actual, isA<core.XRPCResponse>());
+      expect(actual.data, isA<D>());
+    });
+
+    test('unauthorized error', () {
+      expectUnauthorizedException(
+        () async => await endpoint.call(
+          _mockValues,
+          runner.getService<S>(lexiconId, statusCode: 401),
+        ),
+      );
+    });
+
+    test('rate limit exceeded error', () {
+      expectRateLimitExceededException(
+        () async => await endpoint.call(
+          _mockValues,
+          runner.getService<S>(lexiconId, statusCode: 429),
+        ),
+      );
+    });
+
+    test('internal server error', () {
+      expectInternalServerErrorException(
+        () async => await endpoint.call(
+          _mockValues,
+          runner.getService<S>(lexiconId, statusCode: 500),
+        ),
+      );
+    });
+  });
+}
+
+void testSubscriptionService<S, D>(
+  final ServiceRunner runner,
+  final Future<core.XRPCResponse<core.Subscription>> Function(
+    MockValues m,
+    S s,
+  ) endpoint,
+  final String lexiconId,
+) {
+  group(lexiconId, () {
+    test('connect 1 minute', () async {
+      final subscription = await endpoint.call(
+        _mockValues,
+        runner.getService<S>(lexiconId, useMockedClient: false),
+      );
+
+      expect(subscription, isA<core.XRPCResponse>());
+      expect(subscription.data, isA<D>());
+
+      final oneMinuteLater = DateTime.now().add(Duration(minutes: 1));
+
+      await for (final _ in subscription.data.stream.handleError(print)) {
+        if (DateTime.now().isAfter(oneMinuteLater)) {
+          await subscription.data.close();
+
+          break;
+        }
+      }
+    }, timeout: Timeout(Duration(minutes: 2)));
+  });
 }

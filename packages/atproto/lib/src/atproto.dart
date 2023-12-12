@@ -6,13 +6,13 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import 'atproto_service.dart';
-import 'identities/identities_service.dart';
-import 'labels/labels_service.dart';
-import 'moderation/moderation_service.dart';
-import 'repositories/repositories_service.dart';
-import 'servers/servers_service.dart';
-import 'sync/sync_service.dart';
+import 'services/identities_service.dart';
+import 'services/labels_service.dart';
+import 'services/moderation_service.dart';
+import 'services/repositories_service.dart';
+import 'services/servers_service.dart';
+import 'services/services.dart';
+import 'services/sync_service.dart';
 
 sealed class ATProto {
   /// Returns the new instance of [ATProto].

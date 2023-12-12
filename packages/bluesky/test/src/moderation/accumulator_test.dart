@@ -7,7 +7,6 @@ import 'package:atproto/atproto.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/entities/list_view_basic.dart';
 import 'package:bluesky/src/moderation/accumulator.dart';
 import 'package:bluesky/src/moderation/definitions/label_preference.dart';
 import 'package:bluesky/src/moderation/definitions/labels.dart';
@@ -23,6 +22,7 @@ import 'package:bluesky/src/moderation/entities/moderation_cause_source_labeler.
 import 'package:bluesky/src/moderation/entities/moderation_cause_source_list.dart';
 import 'package:bluesky/src/moderation/entities/moderation_cause_source_user.dart';
 import 'package:bluesky/src/moderation/entities/moderation_options.dart';
+import 'package:bluesky/src/services/entities/list_view_basic.dart';
 
 void main() {
   group('.did', () {

@@ -3,8 +3,7 @@
 // modification, are permitted provided the conditions.
 
 /// API
-export 'package:bluesky/src/moderation/apis.dart'
-    show moderateProfile, moderatePost;
+export 'package:bluesky/src/moderation.dart' show moderateProfile, moderatePost;
 
 /// Entities
 export 'package:bluesky/src/moderation/entities/moderation_options.dart';
