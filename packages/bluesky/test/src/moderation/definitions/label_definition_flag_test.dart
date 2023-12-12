@@ -12,10 +12,12 @@ void main() {
   test('.name', () {
     expect(LabelDefinitionFlag.noOverride.name, 'noOverride');
     expect(LabelDefinitionFlag.adult.name, 'adult');
+    expect(LabelDefinitionFlag.unauthed.name, 'unauthed');
   });
 
   test('.value', () {
     expect(LabelDefinitionFlag.noOverride.value, 'no-override');
     expect(LabelDefinitionFlag.adult.value, 'adult');
+    expect(LabelDefinitionFlag.unauthed.value, 'unauthed');
   });
 }

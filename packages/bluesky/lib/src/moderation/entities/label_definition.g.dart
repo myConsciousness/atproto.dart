@@ -57,6 +57,7 @@ const _$LabelPreferenceEnumMap = {
 const _$LabelDefinitionFlagEnumMap = {
   LabelDefinitionFlag.noOverride: 'no-override',
   LabelDefinitionFlag.adult: 'adult',
+  LabelDefinitionFlag.unauthed: 'unauthed',
 };
 
 const _$LabelDefinitionOnWarnBehaviorEnumMap = {

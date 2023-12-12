@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.12.1
+
+- Add `!no-unauthenticated` imperative label. ([#1038](https://github.com/myConsciousness/atproto.dart/issues/1038))
+
 ## v0.12.0
 
 - Removed all `.find*AsJson` and `.paginate*AsJson`. ([#1033](https://github.com/myConsciousness/atproto.dart/issues/1033))

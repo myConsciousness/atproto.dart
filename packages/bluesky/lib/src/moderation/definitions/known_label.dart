@@ -5,6 +5,7 @@
 const knownLabelHide = '!hide';
 const knownLabelNoPromote = '!no-promote';
 const knownLabelWarn = '!warn';
+const knownLabelNoUnauthenticated = '!no-unauthenticated';
 const knownLabelDmcaViolation = 'dmca-violation';
 const knownLabelDoxxing = 'doxxing';
 const knownLabelPorn = 'porn';
@@ -39,6 +40,9 @@ enum KnownLabel {
 
   /// `!warn`
   warn(knownLabelWarn),
+
+  /// `!no-unauthenticated`
+  noUnauthenticated(knownLabelNoUnauthenticated),
 
   /// `dmca-violation`
   dmcaViolation(knownLabelDmcaViolation),

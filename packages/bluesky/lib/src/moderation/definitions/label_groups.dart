@@ -25,6 +25,7 @@ const labelGroupDefinitionSystem = LabelGroupDefinition(
     labelDefinitionHide,
     labelDefinitionNoPromote,
     labelDefinitionWarn,
+    labelDefinitionNoUnauthenticated,
   ],
 );
 

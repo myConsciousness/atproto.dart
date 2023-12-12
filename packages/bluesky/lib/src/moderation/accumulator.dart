@@ -123,6 +123,12 @@ final class _ModerationCauseAccumulator implements ModerationCauseAccumulator {
       return;
     }
 
+    if (labelDef.flags.contains(LabelDefinitionFlag.unauthed) &&
+        options.userDid.isNotEmpty) {
+      // ignore 'unauthed' labels when the user is authed
+      return;
+    }
+
     causes.add(
       ModerationCause.label(
         data: ModerationCauseLabel(
