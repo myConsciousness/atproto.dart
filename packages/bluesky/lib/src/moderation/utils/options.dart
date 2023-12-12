@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import '../../services/entities/content_label_preference.dart';
+import '../../services/constants/content_label_visibility.dart';
 import '../../services/entities/preference.dart';
 import '../definitions/label_preference.dart';
 import '../entities/label_preferences.dart';

@@ -10,6 +10,7 @@ import 'package:bluesky/src/services/constants/content_label_visibility.dart';
 
 void main() {
   test('.name', () {
+    // ignore: deprecated_member_use_from_same_package
     expect(ContentLabelVisibility.show.name, 'show');
     expect(ContentLabelVisibility.ignore.name, 'ignore');
     expect(ContentLabelVisibility.warn.name, 'warn');
