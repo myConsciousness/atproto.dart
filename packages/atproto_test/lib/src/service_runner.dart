@@ -43,27 +43,26 @@ abstract class ServiceRunner {
       return getServiceImpl();
     }
 
-    final getClient = bytes == null
-        ? createMockedGetClient(
-            _getResourcePath(lexiconId, statusCode),
-            statusCode: statusCode,
-          )
-        : createMockedGetClientFromBytes(
-            bytes,
-            statusCode: statusCode,
-          );
-
-    final postClient = bytes == null
-        ? createMockedPostClient(
-            _getResourcePath(lexiconId, statusCode),
-            statusCode: statusCode,
-          )
-        : createMockedPostClientFromBytes(
-            bytes,
-            statusCode: statusCode,
-          );
-
-    return getServiceImpl(getClient, postClient);
+    return getServiceImpl(
+      bytes == null
+          ? createMockedGetClient(
+              _getResourcePath(lexiconId, statusCode),
+              statusCode: statusCode,
+            )
+          : createMockedGetClientFromBytes(
+              bytes,
+              statusCode: statusCode,
+            ),
+      bytes == null
+          ? createMockedPostClient(
+              _getResourcePath(lexiconId, statusCode),
+              statusCode: statusCode,
+            )
+          : createMockedPostClientFromBytes(
+              bytes,
+              statusCode: statusCode,
+            ),
+    );
   }
 
   String _getResourcePath(final String lexiconId, int statusCode) =>

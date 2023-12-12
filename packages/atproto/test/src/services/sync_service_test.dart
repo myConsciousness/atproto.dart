@@ -17,13 +17,14 @@ import 'package:atproto/src/services/entities/repo_commit.dart';
 import 'package:atproto/src/services/entities/repo_commits.dart';
 import 'package:atproto/src/services/entities/repo_latest_commit.dart';
 import 'package:atproto/src/services/entities/repos.dart';
+import 'package:atproto/src/services/entities/subscribed_repo.dart';
 import 'suite/data/com/atproto/sync/get_blocks.dart';
 import 'suite/data/com/atproto/sync/get_record.dart';
 import 'suite/data/com/atproto/sync/get_repo.dart';
 import 'suite/service_suite.dart';
 
 void main() {
-  testSyncStream(
+  testSyncStream<core.Subscription<SubscribedRepo>>(
     (m, s) => s.subscribeRepoUpdates(),
     id: comAtprotoSyncSubscribeRepos,
   );

@@ -108,14 +108,14 @@ void testSync<D>(
       bytes,
     );
 
-void testSyncStream(
+void testSyncStream<D>(
   final Future<core.XRPCResponse<core.Subscription>> Function(
     atp_test.MockValues m,
     SyncService s,
   ) endpoint, {
   required String id,
 }) =>
-    atp_test.testServiceSubscription<SyncService>(
+    atp_test.testSubscriptionService<SyncService, D>(
       _runner,
       endpoint,
       id,

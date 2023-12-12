@@ -94,7 +94,7 @@ void testService<S, D>(
   });
 }
 
-void testServiceSubscription<S>(
+void testSubscriptionService<S, D>(
   final ServiceRunner runner,
   final Future<core.XRPCResponse<core.Subscription>> Function(
     MockValues m,
@@ -108,6 +108,9 @@ void testServiceSubscription<S>(
         _mockValues,
         runner.getService<S>(lexiconId, useMockedClient: false),
       );
+
+      expect(subscription, isA<core.XRPCResponse>());
+      expect(subscription.data, isA<D>());
 
       final oneMinuteLater = DateTime.now().add(Duration(minutes: 1));
 
