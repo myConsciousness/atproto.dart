@@ -3,6 +3,7 @@
 ## v0.12.0
 
 - Removed all `.find*AsJson` and `.paginate*AsJson`. ([#1033](https://github.com/myConsciousness/atproto.dart/issues/1033))
+- Added `.threadgate` field on `Post` object. ([#1036](https://github.com/myConsciousness/atproto.dart/issues/1036))
 
 ## v0.11.1
 

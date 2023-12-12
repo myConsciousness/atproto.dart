@@ -214,6 +214,7 @@ export 'package:bluesky/src/services/entities/thread_mention_rule.dart';
 export 'package:bluesky/src/services/entities/thread_following_rule.dart';
 export 'package:bluesky/src/services/entities/thread_list_rule.dart';
 export 'package:bluesky/src/services/entities/threadgate_record.dart';
+export 'package:bluesky/src/services/entities/threadgate_view.dart';
 export 'package:bluesky/src/services/entities/embed_external.dart';
 export 'package:bluesky/src/services/entities/embed_external_thumbnail.dart';
 export 'package:bluesky/src/services/entities/embed_images.dart';

@@ -57,8 +57,8 @@ mixin _$Post {
   /// The labels associated with the post, if any.
   List<Label>? get labels => throw _privateConstructorUsedError;
 
-  /// Additional non-inline tags describing this post.
-  List<String>? get tags => throw _privateConstructorUsedError;
+  /// The threadgate option.
+  ThreadgateView? get threadgate => throw _privateConstructorUsedError;
 
   /// The date and time the post was indexed.
   DateTime get indexedAt => throw _privateConstructorUsedError;
@@ -85,13 +85,14 @@ abstract class $PostCopyWith<$Res> {
       int likeCount,
       PostViewer viewer,
       List<Label>? labels,
-      List<String>? tags,
+      ThreadgateView? threadgate,
       DateTime indexedAt});
 
   $PostRecordCopyWith<$Res> get record;
   $ActorCopyWith<$Res> get author;
   $EmbedViewCopyWith<$Res>? get embed;
   $PostViewerCopyWith<$Res> get viewer;
+  $ThreadgateViewCopyWith<$Res>? get threadgate;
 }
 
 /// @nodoc
@@ -118,7 +119,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? likeCount = null,
     Object? viewer = null,
     Object? labels = freezed,
-    Object? tags = freezed,
+    Object? threadgate = freezed,
     Object? indexedAt = null,
   }) {
     return _then(_value.copyWith(
@@ -166,10 +167,10 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
-      tags: freezed == tags
-          ? _value.tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+      threadgate: freezed == threadgate
+          ? _value.threadgate
+          : threadgate // ignore: cast_nullable_to_non_nullable
+              as ThreadgateView?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -212,6 +213,18 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
       return _then(_value.copyWith(viewer: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ThreadgateViewCopyWith<$Res>? get threadgate {
+    if (_value.threadgate == null) {
+      return null;
+    }
+
+    return $ThreadgateViewCopyWith<$Res>(_value.threadgate!, (value) {
+      return _then(_value.copyWith(threadgate: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -232,7 +245,7 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       int likeCount,
       PostViewer viewer,
       List<Label>? labels,
-      List<String>? tags,
+      ThreadgateView? threadgate,
       DateTime indexedAt});
 
   @override
@@ -243,6 +256,8 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
   $EmbedViewCopyWith<$Res>? get embed;
   @override
   $PostViewerCopyWith<$Res> get viewer;
+  @override
+  $ThreadgateViewCopyWith<$Res>? get threadgate;
 }
 
 /// @nodoc
@@ -265,7 +280,7 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
     Object? likeCount = null,
     Object? viewer = null,
     Object? labels = freezed,
-    Object? tags = freezed,
+    Object? threadgate = freezed,
     Object? indexedAt = null,
   }) {
     return _then(_$_Post(
@@ -313,10 +328,10 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
-      tags: freezed == tags
-          ? _value._tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+      threadgate: freezed == threadgate
+          ? _value.threadgate
+          : threadgate // ignore: cast_nullable_to_non_nullable
+              as ThreadgateView?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -341,10 +356,9 @@ class _$_Post extends _Post {
       this.likeCount = 0,
       this.viewer = defaultPostViewer,
       final List<Label>? labels,
-      final List<String>? tags,
+      this.threadgate,
       required this.indexedAt})
       : _labels = labels,
-        _tags = tags,
         super._();
 
   factory _$_Post.fromJson(Map<String, dynamic> json) => _$$_PostFromJson(json);
@@ -410,18 +424,9 @@ class _$_Post extends _Post {
     return EqualUnmodifiableListView(value);
   }
 
-  /// Additional non-inline tags describing this post.
-  final List<String>? _tags;
-
-  /// Additional non-inline tags describing this post.
+  /// The threadgate option.
   @override
-  List<String>? get tags {
-    final value = _tags;
-    if (value == null) return null;
-    if (_tags is EqualUnmodifiableListView) return _tags;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
+  final ThreadgateView? threadgate;
 
   /// The date and time the post was indexed.
   @override
@@ -429,7 +434,7 @@ class _$_Post extends _Post {
 
   @override
   String toString() {
-    return 'Post(type: $type, record: $record, author: $author, uri: $uri, cid: $cid, embed: $embed, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, viewer: $viewer, labels: $labels, tags: $tags, indexedAt: $indexedAt)';
+    return 'Post(type: $type, record: $record, author: $author, uri: $uri, cid: $cid, embed: $embed, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, viewer: $viewer, labels: $labels, threadgate: $threadgate, indexedAt: $indexedAt)';
   }
 
   @override
@@ -451,7 +456,8 @@ class _$_Post extends _Post {
                 other.likeCount == likeCount) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
-            const DeepCollectionEquality().equals(other._tags, _tags) &&
+            (identical(other.threadgate, threadgate) ||
+                other.threadgate == threadgate) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt));
   }
@@ -471,7 +477,7 @@ class _$_Post extends _Post {
       likeCount,
       viewer,
       const DeepCollectionEquality().hash(_labels),
-      const DeepCollectionEquality().hash(_tags),
+      threadgate,
       indexedAt);
 
   @JsonKey(ignore: true)
@@ -501,7 +507,7 @@ abstract class _Post extends Post {
       final int likeCount,
       final PostViewer viewer,
       final List<Label>? labels,
-      final List<String>? tags,
+      final ThreadgateView? threadgate,
       required final DateTime indexedAt}) = _$_Post;
   const _Post._() : super._();
 
@@ -557,8 +563,8 @@ abstract class _Post extends Post {
   List<Label>? get labels;
   @override
 
-  /// Additional non-inline tags describing this post.
-  List<String>? get tags;
+  /// The threadgate option.
+  ThreadgateView? get threadgate;
   @override
 
   /// The date and time the post was indexed.

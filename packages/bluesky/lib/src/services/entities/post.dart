@@ -18,6 +18,7 @@ import 'defaults.dart';
 import 'embed_view.dart';
 import 'post_record.dart';
 import 'post_viewer.dart';
+import 'threadgate_view.dart';
 
 part 'post.freezed.dart';
 part 'post.g.dart';
@@ -73,8 +74,8 @@ class Post with _$Post {
     /// The labels associated with the post, if any.
     List<Label>? labels,
 
-    /// Additional non-inline tags describing this post.
-    List<String>? tags,
+    /// The threadgate option.
+    ThreadgateView? threadgate,
 
     /// The date and time the post was indexed.
     required DateTime indexedAt,

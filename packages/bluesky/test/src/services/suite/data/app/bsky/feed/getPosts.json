@@ -29,6 +29,61 @@
         "replyDisabled": true
       },
       "labels": [],
+      "threadgate": {
+        "uri": "at://did:plc:wpyvghtrmnflwxmknbz67vct/app.bsky.feed.threadgate/3kgcs7ns2le2j",
+        "cid": "bafyreiasko57dc5k53vj4pcllkf3dah2w25nkqksygacu5okducmixadxi",
+        "record": {
+          "post": "at://did:plc:wpyvghtrmnflwxmknbz67vct/app.bsky.feed.post/3kgcs7ns2le2j",
+          "$type": "app.bsky.feed.threadgate",
+          "allow": [
+            {
+              "list": "at://did:plc:wpyvghtrmnflwxmknbz67vct/app.bsky.graph.list/3kawdjs5scm26",
+              "$type": "app.bsky.feed.threadgate#listRule"
+            },
+            {
+              "list": "at://did:plc:wpyvghtrmnflwxmknbz67vct/app.bsky.graph.list/3kb5c7o4kew27",
+              "$type": "app.bsky.feed.threadgate#listRule"
+            },
+            {
+              "list": "at://did:plc:wpyvghtrmnflwxmknbz67vct/app.bsky.graph.list/3k7pxniagkb2k",
+              "$type": "app.bsky.feed.threadgate#listRule"
+            }
+          ],
+          "createdAt": "2023-12-12T01:33:53.974Z"
+        },
+        "lists": [
+          {
+            "uri": "at://did:plc:wpyvghtrmnflwxmknbz67vct/app.bsky.graph.list/3kawdjs5scm26",
+            "cid": "bafyreigaigog2d2wkywp2ft3clukrxdk6xvrc4slidzo7vavsp6cvttbx4",
+            "name": "test facet",
+            "purpose": "app.bsky.graph.defs#curatelist",
+            "indexedAt": "2023-10-04T11:33:14.620Z",
+            "viewer": {
+              "muted": false
+            }
+          },
+          {
+            "uri": "at://did:plc:wpyvghtrmnflwxmknbz67vct/app.bsky.graph.list/3kb5c7o4kew27",
+            "cid": "bafyreig6excifsjmb7wtotiy3fz42sguktdulzsfz3wmdmvm4mcfao6ory",
+            "name": "aaaa",
+            "purpose": "app.bsky.graph.defs#curatelist",
+            "indexedAt": "2023-10-07T05:58:19.338Z",
+            "viewer": {
+              "muted": false
+            }
+          },
+          {
+            "uri": "at://did:plc:wpyvghtrmnflwxmknbz67vct/app.bsky.graph.list/3k7pxniagkb2k",
+            "cid": "bafyreid5g3xxqwdpdwrsje2ddorwdatzkjukuatiu4rxvrly33yvzo3jpm",
+            "name": "test2",
+            "purpose": "app.bsky.graph.defs#curatelist",
+            "indexedAt": "2023-09-19T05:19:19.355Z",
+            "viewer": {
+              "muted": false
+            }
+          }
+        ]
+      },
       "indexedAt": "2023-04-24T13:50:20.078Z"
     }
   ]
