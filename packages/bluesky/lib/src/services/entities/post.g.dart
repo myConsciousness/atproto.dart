@@ -40,8 +40,12 @@ _$_Post _$$_PostFromJson(Map json) => $checkedCreate(
                   ?.map((e) =>
                       Label.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
-          tags: $checkedConvert('tags',
-              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          threadgate: $checkedConvert(
+              'threadgate',
+              (v) => v == null
+                  ? null
+                  : ThreadgateView.fromJson(
+                      Map<String, Object?>.from(v as Map))),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
         );
@@ -74,7 +78,7 @@ Map<String, dynamic> _$$_PostToJson(_$_Post instance) {
   val['likeCount'] = instance.likeCount;
   val['viewer'] = instance.viewer.toJson();
   writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
-  writeNotNull('tags', instance.tags);
+  writeNotNull('threadgate', instance.threadgate?.toJson());
   val['indexedAt'] = instance.indexedAt.toIso8601String();
   return val;
 }
