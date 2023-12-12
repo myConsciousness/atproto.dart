@@ -17,108 +17,89 @@ import 'package:atproto/src/services/sync_service.dart';
 const _runner = _ServiceRunner();
 
 void testIdentity<D>(
-  final Future<core.XRPCResponse> Function(
-    atp_test.MockValues m,
-    IdentitiesService s,
-  ) endpoint, {
+  final atp_test.ServiceCallback<IdentitiesService, D> endpoint, {
   required String id,
   String? label,
+  atp_test.PaginationCallback<IdentitiesService, D>? pagination,
 }) =>
     atp_test.testService<IdentitiesService, D>(
       _runner,
       endpoint,
       id,
       label,
+      pagination: pagination,
     );
 
 void testLabel<D>(
-  final Future<core.XRPCResponse> Function(
-    atp_test.MockValues m,
-    LabelsService s,
-  ) endpoint, {
+  final atp_test.ServiceCallback<LabelsService, D> endpoint, {
   required String id,
   String? label,
+  atp_test.PaginationCallback<LabelsService, D>? pagination,
 }) =>
     atp_test.testService<LabelsService, D>(
       _runner,
       endpoint,
       id,
       label,
+      pagination: pagination,
     );
 
 void testModeration<D>(
-  final Future<core.XRPCResponse> Function(
-    atp_test.MockValues m,
-    ModerationService s,
-  ) endpoint, {
+  final atp_test.ServiceCallback<ModerationService, D> endpoint, {
   required String id,
   String? label,
+  atp_test.PaginationCallback<ModerationService, D>? pagination,
 }) =>
     atp_test.testService<ModerationService, D>(
       _runner,
       endpoint,
       id,
       label,
+      pagination: pagination,
     );
 
 void testRepository<D>(
-  final Future<core.XRPCResponse> Function(
-    atp_test.MockValues m,
-    RepositoriesService s,
-  ) endpoint, {
+  final atp_test.ServiceCallback<RepositoriesService, D> endpoint, {
   required String id,
   String? label,
+  atp_test.PaginationCallback<RepositoriesService, D>? pagination,
 }) =>
     atp_test.testService<RepositoriesService, D>(
       _runner,
       endpoint,
       id,
       label,
+      pagination: pagination,
     );
 
 void testServer<D>(
-  final Future<core.XRPCResponse> Function(
-    atp_test.MockValues m,
-    ServersService s,
-  ) endpoint, {
+  final atp_test.ServiceCallback<ServersService, D> endpoint, {
   required String id,
   String? label,
+  atp_test.PaginationCallback<ServersService, D>? pagination,
 }) =>
     atp_test.testService<ServersService, D>(
       _runner,
       endpoint,
       id,
       label,
+      pagination: pagination,
     );
 
 void testSync<D>(
-  final Future<core.XRPCResponse> Function(
-    atp_test.MockValues m,
-    SyncService s,
-  ) endpoint, {
+  final atp_test.ServiceCallback<SyncService, D> endpoint, {
   required String id,
   String? label,
   List<int>? bytes,
+  atp_test.PaginationCallback<SyncService, D>? pagination,
 }) =>
     atp_test.testService<SyncService, D>(
       _runner,
       endpoint,
       id,
       label,
-      bytes,
-    );
-
-void testSyncStream<D>(
-  final Future<core.XRPCResponse<core.Subscription>> Function(
-    atp_test.MockValues m,
-    SyncService s,
-  ) endpoint, {
-  required String id,
-}) =>
-    atp_test.testSubscriptionService<SyncService, D>(
-      _runner,
-      endpoint,
-      id,
+      bytes: bytes,
+      pagination: pagination,
     );
 
 final class _ServiceRunner extends atp_test.ServiceRunner {
