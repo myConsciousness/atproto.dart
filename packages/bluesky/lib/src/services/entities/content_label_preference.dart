@@ -10,6 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
+import '../constants/content_label_visibility.dart';
 
 part 'content_label_preference.freezed.dart';
 part 'content_label_preference.g.dart';
@@ -48,21 +49,4 @@ class ContentLabelPreference with _$ContentLabelPreference {
   /// include all the keys corresponding to the parameters of this class.
   factory ContentLabelPreference.fromJson(Map<String, Object?> json) =>
       _$ContentLabelPreferenceFromJson(json);
-}
-
-/// The [ContentLabelVisibility] enum defines the visibility preference for a
-/// certain content label in the interface.
-enum ContentLabelVisibility {
-  /// Indicates that the content with this label will be shown normally.
-  @Deprecated('Legacy element. Use "ignore" instead')
-  show,
-
-  /// Indicates that the content with this label will be shown normally.
-  ignore,
-
-  /// Indicates that the content with this label will be shown with a warning.
-  warn,
-
-  /// Indicates that the content with this label will be hidden.
-  hide,
 }

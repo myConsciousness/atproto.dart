@@ -279,6 +279,7 @@ export 'package:bluesky/src/services/entities/posts.dart';
 export 'package:bluesky/src/services/entities/posts_by_query.dart';
 export 'package:bluesky/src/services/entities/preference.dart';
 export 'package:bluesky/src/services/constants/feed_filter.dart';
+export 'package:bluesky/src/services/constants/content_label_visibility.dart';
 export 'package:bluesky/src/services/entities/preferences.dart';
 export 'package:bluesky/src/services/entities/profile_record.dart';
 export 'package:bluesky/src/services/entities/reason.dart';
