@@ -20,42 +20,36 @@ void testIdentity<D>(
   final atp_test.ServiceCallback<IdentitiesService, D> endpoint, {
   required String id,
   String? label,
-  atp_test.PaginationCallback<IdentitiesService, D>? pagination,
 }) =>
     atp_test.testService<IdentitiesService, D>(
       _runner,
       endpoint,
       id,
       label,
-      pagination: pagination,
     );
 
 void testLabel<D>(
   final atp_test.ServiceCallback<LabelsService, D> endpoint, {
   required String id,
   String? label,
-  atp_test.PaginationCallback<LabelsService, D>? pagination,
 }) =>
     atp_test.testService<LabelsService, D>(
       _runner,
       endpoint,
       id,
       label,
-      pagination: pagination,
     );
 
 void testModeration<D>(
   final atp_test.ServiceCallback<ModerationService, D> endpoint, {
   required String id,
   String? label,
-  atp_test.PaginationCallback<ModerationService, D>? pagination,
 }) =>
     atp_test.testService<ModerationService, D>(
       _runner,
       endpoint,
       id,
       label,
-      pagination: pagination,
     );
 
 void testRepository<D>(
@@ -76,14 +70,12 @@ void testServer<D>(
   final atp_test.ServiceCallback<ServersService, D> endpoint, {
   required String id,
   String? label,
-  atp_test.PaginationCallback<ServersService, D>? pagination,
 }) =>
     atp_test.testService<ServersService, D>(
       _runner,
       endpoint,
       id,
       label,
-      pagination: pagination,
     );
 
 void testSync<D>(

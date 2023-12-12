@@ -36,6 +36,10 @@ void main() {
       repo: m.actor,
       collection: m.collection,
     ),
+    pagination: (m, s) => s.paginateRecords(
+      repo: m.actor,
+      collection: m.collection,
+    ),
     id: comAtprotoRepoListRecords,
   );
 
