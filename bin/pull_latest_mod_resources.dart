@@ -10,6 +10,7 @@ import 'package:http/http.dart' as http;
 import 'utils.dart';
 
 const _root = 'packages/api/definitions';
+const _labels = 'labels.json';
 const _postModerationBehaviors = 'post-moderation-behaviors.json';
 const _profileModerationBehaviors = 'profile-moderation-behaviors.json';
 
@@ -25,6 +26,27 @@ Future<void> main(List<String> args) async {
     ),
   );
 
+  await _pullLatestLabels(github);
+  await _pullLatestModerationBehaviors(github);
+}
+
+Future<void> _pullLatestLabels(final GitHub github) async {
+  final labelsFile = await github.repositories.getContents(
+    officialRepositorySlug,
+    '$_root/$_labels',
+  );
+
+  final url = labelsFile.file?.downloadUrl;
+  if (url != null) {
+    final response = await http.get(
+      Uri.parse(labelsFile.file!.downloadUrl!),
+    );
+
+    _writeModerationSuiteData(response, _labels);
+  }
+}
+
+Future<void> _pullLatestModerationBehaviors(final GitHub github) async {
   for (final behaviorsFileName in _moderationBehaviorsFileNames) {
     final behaviorsFile = await github.repositories.getContents(
       officialRepositorySlug,
@@ -42,8 +64,14 @@ Future<void> main(List<String> args) async {
         onMatch: (_) => '_',
       );
 
-      File('packages/bluesky/test/src/moderation/suite/data/$suiteFileName')
-          .writeAsBytesSync(response.bodyBytes);
+      _writeModerationSuiteData(response, suiteFileName);
     }
   }
 }
+
+void _writeModerationSuiteData(
+  final http.Response response,
+  final String fileName,
+) =>
+    File('packages/bluesky/test/src/moderation/suite/data/$fileName')
+        .writeAsBytesSync(response.bodyBytes);
