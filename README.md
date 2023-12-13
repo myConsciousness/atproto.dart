@@ -14,7 +14,7 @@
 [![GitHub Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=ff69b4)](https://github.com/sponsors/myConsciousness)
 [![GitHub Sponsor](https://img.shields.io/static/v1?label=Maintainer&message=myConsciousness&logo=GitHub&color=00acee)](https://github.com/myConsciousness)
 [![melos](https://img.shields.io/badge/maintained%20with-melos-f700ff.svg?style=flat-square)](https://github.com/invertase/melos)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f088b033-6670-455e-baa2-1cbb9577ebaa/deploy-status)](https://app.netlify.com/sites/jade-haupia-45bdc2/deploys)
+[![Reference](https://api.netlify.com/api/v1/badges/f088b033-6670-455e-baa2-1cbb9577ebaa/deploy-status)](https://atprotodart.com)
 
 [![Test/Analyzer](https://github.com/myConsciousness/atproto.dart/actions/workflows/cicd.yml/badge.svg)](https://github.com/myConsciousness/atproto.dart/actions/workflows/cicd.yml)
 [![codecov](https://codecov.io/gh/myConsciousness/atproto.dart/branch/main/graph/badge.svg?token=J5GT1PF9Y3)](https://codecov.io/gh/myConsciousness/atproto.dart)
@@ -29,34 +29,22 @@
 
 ---
 
-<!-- TOC -->
-
-- [1. Guide 🌎](#1-guide-)
-  - [1.1. Packages \& Tools](#11-packages--tools)
-    - [1.1.1. Dart \& Flutter](#111-dart--flutter)
-    - [1.1.2. Flutter](#112-flutter)
-    - [1.1.3. CLI](#113-cli)
-    - [1.1.4. GitHub Actions](#114-github-actions)
-  - [1.3. Melos Commands](#13-melos-commands)
-  - [1.4. Contribution 🏆](#14-contribution-)
-  - [1.5. Contributors ✨](#15-contributors-)
-  - [1.6. Support ❤️](#16-support-️)
-  - [1.7. License 🔑](#17-license-)
-  - [1.8. More Information 🧐](#18-more-information-)
-
-<!-- /TOC -->
 # 1. Guide 🌎
 
-The packages in this monorepo will **_minimize your learning time_** about AT Protocol and Bluesky things,
-and **_maximize your Dart/Flutter development productivity_** with  AT Protocol and Bluesky things.
+Welcome to **[atproto.dart](https://atprotodart.com)**, this project will **_maximize your development productivity_** about [AT Protocol](https://atproto.com) and [Bluesky](https://blueskyweb.xyz) things.
 
 **_Give a ⭐ on [this repository](https://github.com/myConsciousness/atproto.dart) to activate a project!_**
 
-![github_star](https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/give_a_star.gif)
+## 1.1. Motivation
 
-## 1.1. Packages & Tools
+[AT Protocol](https://atproto.com) and [Bluesky](https://blueskyweb.xyz) are awesome.
 
-### 1.1.1. Dart & Flutter
+This wonderful platform needs a standard and highly integrated SDK.
+**[atproto.dart](https://atprotodart.com)** provides the best development experience in such matters for Dart/Flutter devs.
+
+## 1.2. Packages & Tools
+
+### 1.2.1. Dart Packages
 
 | Name                                                                                                  |                                                                   pub.dev                                                                    | Description                                                                                                                                                   |
 | ----------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -72,47 +60,46 @@ and **_maximize your Dart/Flutter development productivity_** with  AT Protocol 
 | **[bluesky_text](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_text)**   |  [![pub package](https://img.shields.io/pub/v/bluesky_text.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky_text)  | Provides the easiest and most powerful way to analyze the text on Bluesky Social.                                                                             |
 | **[bluesky](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky)**             |       [![pub package](https://img.shields.io/pub/v/bluesky.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky)       | Provide the easiest and powerful way to use [app.bsky](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky) lexicons in Dart/Flutter.       |
 
-### 1.1.2. Flutter
-
-| Name                                                                                                  |                                                                   pub.dev                                                                    | Description                                                                          |
-| ----------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------ |
-| **[bluesky_cards](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_cards)** | [![pub package](https://img.shields.io/pub/v/bluesky_cards.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky_cards) | Provide a widget to output Bluesky Social's post content beautifully in Flutter app. |
-
-### 1.1.3. CLI
+### 1.2.2. CLI Tool
 
 | Name                                                                                              |                                                                 pub.dev                                                                  | Description                                                         |
 | ------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------- |
 | **[bluesky_cli](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_cli)** | [![pub package](https://img.shields.io/pub/v/bluesky_cli.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky_cli) | CLI tool to easily use Bluesky Social's APIs from the command line. |
 
-### 1.1.4. GitHub Actions
+### 1.2.3. GitHub Actions Workflow
 
 | Name                                                                                                |                                                                                        Marketplace                                                                                        | Description                                                                    |
 | --------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------ |
 | **[bluesky_post](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_post)** | [![bluesky-post](https://img.shields.io/static/v1?label=actions&message=myConsciousness/bluesky-post&logo=GitHub&color=00acee)](https://github.com/marketplace/actions/send-bluesky-post) | Use this action to send a post to Bluesky Social from GitHub actions workflow. |
 
-## 1.3. Melos Commands
+## 1.3. Developer Quickstart
 
 This project consists of several packages and is managed using [Melos](https://github.com/invertase/melos).
+The [Melos](https://github.com/invertase/melos) commands makes it easy to set up this project.
 
-First you need to install [Melos](https://github.com/invertase/melos) with following command.
+First you need to clone this project and install [Melos](https://github.com/invertase/melos) with following command.
 
 ```bash
 dart pub global activate melos
 ```
 
-Then, the Melos commands available for this project are:
+Then you just execute `setup` command as follows.
+The `setup` command easily solves all the initial setup when cloning this huge project.
 
-| Command                 | Description                                                                                                                        |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| **melos get**           | Run `pub get` command in this project.                                                                                             |
-| **melos analyze**       | Run `dart analyze` in all packages.                                                                                                |
-| **melos format**        | Run `dart format` in all packages.                                                                                                 |
-| **melos import_sorter** | Run `dart run import_sorter:main` in all packages.                                                                                 |
-| **melos build_runner**  | Run `build_runner` and `melos format` in all packages. You can generate `*.g.dart` and `*.freezed.dart` objects with this command. |
-| **melos test**          | Run all Dart & Flutter tests in this project.                                                                                      |
-| **melos test:dart**     | Run Dart tests for a specific package in this project.                                                                             |
-| **melos test:flutter**  | Run Flutter tests for a specific package in this project.                                                                          |
-| **melos publish_all**   | Run publish for all packages, create a git tag and push it to origin.                                                              |
+```bash
+melos setup
+```
+
+### 1.3.1. Useful Commands
+
+| Command           | Description                                                                                                             |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| **melos setup**   | Set up the atproto.dart project when cloned. Run `dart pub get` and `dart run build_runner build` in all Dart packages. |
+| **melos get**     | Run `dart pub get` command in all packages.                                                                             |
+| **melos analyze** | Run `dart analyze` in all packages.                                                                                     |
+| **melos format**  | Run `dart format` and `dart run import_sorter:main` in all packages.                                                    |
+| **melos build**   | Run `dart run build_runner build` in all packages.                                                                      |
+| **melos test**    | Run all Dart tests in this project.                                                                                     |
 
 ## 1.4. Contribution 🏆
 
@@ -187,7 +174,7 @@ You can also support this project by **becoming a sponsor** on GitHub:
 
 ## 1.7. License 🔑
 
-The source code provided in this monorepo is is provided under the `BSD-3` license.
+The source code provided in this monorepo is provided under the `BSD-3` license.
 
 ```license
 Copyright 2023 Shinya Kato. All rights reserved.
