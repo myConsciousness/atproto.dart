@@ -26,7 +26,7 @@ mixin _$LabelDefinition {
   bool get isConfigurable => throw _privateConstructorUsedError;
   List<LabelPreference> get preferences => throw _privateConstructorUsedError;
   List<LabelDefinitionFlag> get flags => throw _privateConstructorUsedError;
-  LabelDefinitionOnWarnBehavior get onWarn =>
+  LabelDefinitionOnWarnBehavior? get onWarn =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -47,7 +47,7 @@ abstract class $LabelDefinitionCopyWith<$Res> {
       @JsonKey(name: 'configurable') bool isConfigurable,
       List<LabelPreference> preferences,
       List<LabelDefinitionFlag> flags,
-      LabelDefinitionOnWarnBehavior onWarn});
+      LabelDefinitionOnWarnBehavior? onWarn});
 }
 
 /// @nodoc
@@ -68,7 +68,7 @@ class _$LabelDefinitionCopyWithImpl<$Res, $Val extends LabelDefinition>
     Object? isConfigurable = null,
     Object? preferences = null,
     Object? flags = null,
-    Object? onWarn = null,
+    Object? onWarn = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -91,10 +91,10 @@ class _$LabelDefinitionCopyWithImpl<$Res, $Val extends LabelDefinition>
           ? _value.flags
           : flags // ignore: cast_nullable_to_non_nullable
               as List<LabelDefinitionFlag>,
-      onWarn: null == onWarn
+      onWarn: freezed == onWarn
           ? _value.onWarn
           : onWarn // ignore: cast_nullable_to_non_nullable
-              as LabelDefinitionOnWarnBehavior,
+              as LabelDefinitionOnWarnBehavior?,
     ) as $Val);
   }
 }
@@ -113,7 +113,7 @@ abstract class _$$_LabelDefinitionCopyWith<$Res>
       @JsonKey(name: 'configurable') bool isConfigurable,
       List<LabelPreference> preferences,
       List<LabelDefinitionFlag> flags,
-      LabelDefinitionOnWarnBehavior onWarn});
+      LabelDefinitionOnWarnBehavior? onWarn});
 }
 
 /// @nodoc
@@ -132,7 +132,7 @@ class __$$_LabelDefinitionCopyWithImpl<$Res>
     Object? isConfigurable = null,
     Object? preferences = null,
     Object? flags = null,
-    Object? onWarn = null,
+    Object? onWarn = freezed,
   }) {
     return _then(_$_LabelDefinition(
       id: null == id
@@ -155,10 +155,10 @@ class __$$_LabelDefinitionCopyWithImpl<$Res>
           ? _value._flags
           : flags // ignore: cast_nullable_to_non_nullable
               as List<LabelDefinitionFlag>,
-      onWarn: null == onWarn
+      onWarn: freezed == onWarn
           ? _value.onWarn
           : onWarn // ignore: cast_nullable_to_non_nullable
-              as LabelDefinitionOnWarnBehavior,
+              as LabelDefinitionOnWarnBehavior?,
     ));
   }
 }
@@ -204,7 +204,7 @@ class _$_LabelDefinition implements _LabelDefinition {
   }
 
   @override
-  final LabelDefinitionOnWarnBehavior onWarn;
+  final LabelDefinitionOnWarnBehavior? onWarn;
 
   @override
   String toString() {
@@ -258,7 +258,7 @@ abstract class _LabelDefinition implements LabelDefinition {
           @JsonKey(name: 'configurable') final bool isConfigurable,
           required final List<LabelPreference> preferences,
           required final List<LabelDefinitionFlag> flags,
-          required final LabelDefinitionOnWarnBehavior onWarn}) =
+          required final LabelDefinitionOnWarnBehavior? onWarn}) =
       _$_LabelDefinition;
 
   factory _LabelDefinition.fromJson(Map<String, dynamic> json) =
@@ -276,7 +276,7 @@ abstract class _LabelDefinition implements LabelDefinition {
   @override
   List<LabelDefinitionFlag> get flags;
   @override
-  LabelDefinitionOnWarnBehavior get onWarn;
+  LabelDefinitionOnWarnBehavior? get onWarn;
   @override
   @JsonKey(ignore: true)
   _$$_LabelDefinitionCopyWith<_$_LabelDefinition> get copyWith =>

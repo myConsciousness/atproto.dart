@@ -73,5 +73,5 @@ void _writeModerationSuiteData(
   final http.Response response,
   final String fileName,
 ) =>
-    File('packages/bluesky/test/src/moderation/suite/data/$fileName')
+    File('$moderationResourcesPath/$fileName')
         .writeAsBytesSync(response.bodyBytes);

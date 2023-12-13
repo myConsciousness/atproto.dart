@@ -15,6 +15,11 @@ const pubspecFileName = 'pubspec.yaml';
 /// The path to `lexicons` directory.
 const lexiconsPath = './lexicons';
 
+const moderationResourcesPath =
+    'packages/bluesky/test/src/moderation/suite/data';
+const moderationDefinitionsPath =
+    'packages/bluesky/lib/src/moderation/definitions';
+
 /// The collection of lexicons root.
 const lexiconsRoot = [
   'com/atproto',

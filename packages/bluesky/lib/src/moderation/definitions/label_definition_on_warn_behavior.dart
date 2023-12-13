@@ -2,15 +2,25 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 📦 Package imports:
+// coverage:ignore-file
+// ignore_for_file: type=lint
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// **************************************************************************
+// Moderation Definitions Generator
+// **************************************************************************
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 enum LabelDefinitionOnWarnBehavior {
+  @JsonValue('blur')
   blur('blur'),
+
   @JsonValue('blur-media')
   blurMedia('blur-media'),
-  alert('alert'),
-  none('none');
+
+  @JsonValue('alert')
+  alert('alert');
 
   final String value;
 

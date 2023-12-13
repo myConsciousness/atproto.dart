@@ -13,13 +13,11 @@ void main() {
     expect(LabelDefinitionOnWarnBehavior.blur.name, 'blur');
     expect(LabelDefinitionOnWarnBehavior.blurMedia.name, 'blurMedia');
     expect(LabelDefinitionOnWarnBehavior.alert.name, 'alert');
-    expect(LabelDefinitionOnWarnBehavior.none.name, 'none');
   });
 
   test('.value', () {
     expect(LabelDefinitionOnWarnBehavior.blur.value, 'blur');
     expect(LabelDefinitionOnWarnBehavior.blurMedia.value, 'blur-media');
     expect(LabelDefinitionOnWarnBehavior.alert.value, 'alert');
-    expect(LabelDefinitionOnWarnBehavior.none.value, 'none');
   });
 }

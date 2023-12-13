@@ -26,7 +26,7 @@ class LabelDefinition with _$LabelDefinition {
     @JsonKey(name: 'configurable') @Default(false) bool isConfigurable,
     required List<LabelPreference> preferences,
     required List<LabelDefinitionFlag> flags,
-    required LabelDefinitionOnWarnBehavior onWarn,
+    required LabelDefinitionOnWarnBehavior? onWarn,
   }) = _LabelDefinition;
 
   /// Creates a [LabelDefinition] object from a map ([json]).

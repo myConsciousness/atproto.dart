@@ -40,7 +40,6 @@ void main() {
         'configurable': false,
         'preferences': ['hide'],
         'flags': [],
-        'onWarn': 'none'
       });
     });
 
@@ -150,7 +149,7 @@ void main() {
         'configurable': true,
         'preferences': ['ignore', 'warn', 'hide'],
         'flags': ['adult'],
-        'onWarn': 'blur-media'
+        'onWarn': 'blur'
       });
     });
 
