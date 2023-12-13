@@ -52,12 +52,6 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Melos Activate
-        run: dart pub global activate melos
-
-      - name: Build
-        run: melos build
-
       - name: Check format
         run: dart format --set-exit-if-changed .
 
