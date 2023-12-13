@@ -141,11 +141,11 @@ class _$ThreadParamCopyWithImpl<$Res, $Val extends ThreadParam>
 }
 
 /// @nodoc
-abstract class _$$_ThreadParamCopyWith<$Res>
+abstract class _$$ThreadParamImplCopyWith<$Res>
     implements $ThreadParamCopyWith<$Res> {
-  factory _$$_ThreadParamCopyWith(
-          _$_ThreadParam value, $Res Function(_$_ThreadParam) then) =
-      __$$_ThreadParamCopyWithImpl<$Res>;
+  factory _$$ThreadParamImplCopyWith(
+          _$ThreadParamImpl value, $Res Function(_$ThreadParamImpl) then) =
+      __$$ThreadParamImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -165,11 +165,11 @@ abstract class _$$_ThreadParamCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ThreadParamCopyWithImpl<$Res>
-    extends _$ThreadParamCopyWithImpl<$Res, _$_ThreadParam>
-    implements _$$_ThreadParamCopyWith<$Res> {
-  __$$_ThreadParamCopyWithImpl(
-      _$_ThreadParam _value, $Res Function(_$_ThreadParam) _then)
+class __$$ThreadParamImplCopyWithImpl<$Res>
+    extends _$ThreadParamCopyWithImpl<$Res, _$ThreadParamImpl>
+    implements _$$ThreadParamImplCopyWith<$Res> {
+  __$$ThreadParamImplCopyWithImpl(
+      _$ThreadParamImpl _value, $Res Function(_$ThreadParamImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -184,7 +184,7 @@ class __$$_ThreadParamCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? unspecced = null,
   }) {
-    return _then(_$_ThreadParam(
+    return _then(_$ThreadParamImpl(
       text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -224,8 +224,8 @@ class __$$_ThreadParamCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ThreadParam implements _ThreadParam {
-  const _$_ThreadParam(
+class _$ThreadParamImpl implements _ThreadParam {
+  const _$ThreadParamImpl(
       {required this.text,
       final List<Facet>? facets,
       @embedConverter this.embed,
@@ -239,8 +239,8 @@ class _$_ThreadParam implements _ThreadParam {
         _tags = tags,
         _unspecced = unspecced;
 
-  factory _$_ThreadParam.fromJson(Map<String, dynamic> json) =>
-      _$$_ThreadParamFromJson(json);
+  factory _$ThreadParamImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ThreadParamImplFromJson(json);
 
   @override
   final String text;
@@ -300,7 +300,7 @@ class _$_ThreadParam implements _ThreadParam {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ThreadParam &&
+            other is _$ThreadParamImpl &&
             (identical(other.text, text) || other.text == text) &&
             const DeepCollectionEquality().equals(other._facets, _facets) &&
             (identical(other.embed, embed) || other.embed == embed) &&
@@ -330,12 +330,12 @@ class _$_ThreadParam implements _ThreadParam {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ThreadParamCopyWith<_$_ThreadParam> get copyWith =>
-      __$$_ThreadParamCopyWithImpl<_$_ThreadParam>(this, _$identity);
+  _$$ThreadParamImplCopyWith<_$ThreadParamImpl> get copyWith =>
+      __$$ThreadParamImplCopyWithImpl<_$ThreadParamImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ThreadParamToJson(
+    return _$$ThreadParamImplToJson(
       this,
     );
   }
@@ -350,10 +350,10 @@ abstract class _ThreadParam implements ThreadParam {
       @labelsConverter final Labels? labels,
       final List<String>? tags,
       final DateTime? createdAt,
-      final Map<String, dynamic> unspecced}) = _$_ThreadParam;
+      final Map<String, dynamic> unspecced}) = _$ThreadParamImpl;
 
   factory _ThreadParam.fromJson(Map<String, dynamic> json) =
-      _$_ThreadParam.fromJson;
+      _$ThreadParamImpl.fromJson;
 
   @override
   String get text;
@@ -375,6 +375,6 @@ abstract class _ThreadParam implements ThreadParam {
   Map<String, dynamic> get unspecced;
   @override
   @JsonKey(ignore: true)
-  _$$_ThreadParamCopyWith<_$_ThreadParam> get copyWith =>
+  _$$ThreadParamImplCopyWith<_$ThreadParamImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

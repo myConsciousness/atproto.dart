@@ -140,11 +140,11 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
 }
 
 /// @nodoc
-abstract class _$$_ListViewBasicCopyWith<$Res>
+abstract class _$$ListViewBasicImplCopyWith<$Res>
     implements $ListViewBasicCopyWith<$Res> {
-  factory _$$_ListViewBasicCopyWith(
-          _$_ListViewBasic value, $Res Function(_$_ListViewBasic) then) =
-      __$$_ListViewBasicCopyWithImpl<$Res>;
+  factory _$$ListViewBasicImplCopyWith(
+          _$ListViewBasicImpl value, $Res Function(_$ListViewBasicImpl) then) =
+      __$$ListViewBasicImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -162,11 +162,11 @@ abstract class _$$_ListViewBasicCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ListViewBasicCopyWithImpl<$Res>
-    extends _$ListViewBasicCopyWithImpl<$Res, _$_ListViewBasic>
-    implements _$$_ListViewBasicCopyWith<$Res> {
-  __$$_ListViewBasicCopyWithImpl(
-      _$_ListViewBasic _value, $Res Function(_$_ListViewBasic) _then)
+class __$$ListViewBasicImplCopyWithImpl<$Res>
+    extends _$ListViewBasicCopyWithImpl<$Res, _$ListViewBasicImpl>
+    implements _$$ListViewBasicImplCopyWith<$Res> {
+  __$$ListViewBasicImplCopyWithImpl(
+      _$ListViewBasicImpl _value, $Res Function(_$ListViewBasicImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -181,7 +181,7 @@ class __$$_ListViewBasicCopyWithImpl<$Res>
     Object? viewer = null,
     Object? indexedAt = null,
   }) {
-    return _then(_$_ListViewBasic(
+    return _then(_$ListViewBasicImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -221,8 +221,8 @@ class __$$_ListViewBasicCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ListViewBasic extends _ListViewBasic {
-  const _$_ListViewBasic(
+class _$ListViewBasicImpl extends _ListViewBasic {
+  const _$ListViewBasicImpl(
       {@typeKey this.type = appBskyGraphDefsListViewBasic,
       this.purpose = appBskyGraphDefsModlist,
       @atUriConverter required this.uri,
@@ -233,8 +233,8 @@ class _$_ListViewBasic extends _ListViewBasic {
       required this.indexedAt})
       : super._();
 
-  factory _$_ListViewBasic.fromJson(Map<String, dynamic> json) =>
-      _$$_ListViewBasicFromJson(json);
+  factory _$ListViewBasicImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ListViewBasicImplFromJson(json);
 
   /// The type of the list, by default it is
   /// [appBskyGraphDefsListViewBasic].
@@ -282,7 +282,7 @@ class _$_ListViewBasic extends _ListViewBasic {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ListViewBasic &&
+            other is _$ListViewBasicImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.purpose, purpose) || other.purpose == purpose) &&
             (identical(other.uri, uri) || other.uri == uri) &&
@@ -302,12 +302,12 @@ class _$_ListViewBasic extends _ListViewBasic {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ListViewBasicCopyWith<_$_ListViewBasic> get copyWith =>
-      __$$_ListViewBasicCopyWithImpl<_$_ListViewBasic>(this, _$identity);
+  _$$ListViewBasicImplCopyWith<_$ListViewBasicImpl> get copyWith =>
+      __$$ListViewBasicImplCopyWithImpl<_$ListViewBasicImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ListViewBasicToJson(
+    return _$$ListViewBasicImplToJson(
       this,
     );
   }
@@ -322,11 +322,11 @@ abstract class _ListViewBasic extends ListViewBasic {
       required final String name,
       final String? avatar,
       final ListViewer viewer,
-      required final DateTime indexedAt}) = _$_ListViewBasic;
+      required final DateTime indexedAt}) = _$ListViewBasicImpl;
   const _ListViewBasic._() : super._();
 
   factory _ListViewBasic.fromJson(Map<String, dynamic> json) =
-      _$_ListViewBasic.fromJson;
+      _$ListViewBasicImpl.fromJson;
 
   @override
 
@@ -365,6 +365,6 @@ abstract class _ListViewBasic extends ListViewBasic {
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_ListViewBasicCopyWith<_$_ListViewBasic> get copyWith =>
+  _$$ListViewBasicImplCopyWith<_$ListViewBasicImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

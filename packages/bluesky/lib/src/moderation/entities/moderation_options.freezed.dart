@@ -79,11 +79,11 @@ class _$ModerationOptionsCopyWithImpl<$Res, $Val extends ModerationOptions>
 }
 
 /// @nodoc
-abstract class _$$_ModerationOptionsCopyWith<$Res>
+abstract class _$$ModerationOptionsImplCopyWith<$Res>
     implements $ModerationOptionsCopyWith<$Res> {
-  factory _$$_ModerationOptionsCopyWith(_$_ModerationOptions value,
-          $Res Function(_$_ModerationOptions) then) =
-      __$$_ModerationOptionsCopyWithImpl<$Res>;
+  factory _$$ModerationOptionsImplCopyWith(_$ModerationOptionsImpl value,
+          $Res Function(_$ModerationOptionsImpl) then) =
+      __$$ModerationOptionsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -94,11 +94,11 @@ abstract class _$$_ModerationOptionsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ModerationOptionsCopyWithImpl<$Res>
-    extends _$ModerationOptionsCopyWithImpl<$Res, _$_ModerationOptions>
-    implements _$$_ModerationOptionsCopyWith<$Res> {
-  __$$_ModerationOptionsCopyWithImpl(
-      _$_ModerationOptions _value, $Res Function(_$_ModerationOptions) _then)
+class __$$ModerationOptionsImplCopyWithImpl<$Res>
+    extends _$ModerationOptionsCopyWithImpl<$Res, _$ModerationOptionsImpl>
+    implements _$$ModerationOptionsImplCopyWith<$Res> {
+  __$$ModerationOptionsImplCopyWithImpl(_$ModerationOptionsImpl _value,
+      $Res Function(_$ModerationOptionsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -109,7 +109,7 @@ class __$$_ModerationOptionsCopyWithImpl<$Res>
     Object? labels = null,
     Object? labelers = null,
   }) {
-    return _then(_$_ModerationOptions(
+    return _then(_$ModerationOptionsImpl(
       userDid: null == userDid
           ? _value.userDid
           : userDid // ignore: cast_nullable_to_non_nullable
@@ -132,8 +132,8 @@ class __$$_ModerationOptionsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ModerationOptions implements _ModerationOptions {
-  const _$_ModerationOptions(
+class _$ModerationOptionsImpl implements _ModerationOptions {
+  const _$ModerationOptionsImpl(
       {required this.userDid,
       this.isAdultContentEnabled = false,
       required final Map<String, LabelPreference> labels,
@@ -171,7 +171,7 @@ class _$_ModerationOptions implements _ModerationOptions {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ModerationOptions &&
+            other is _$ModerationOptionsImpl &&
             (identical(other.userDid, userDid) || other.userDid == userDid) &&
             (identical(other.isAdultContentEnabled, isAdultContentEnabled) ||
                 other.isAdultContentEnabled == isAdultContentEnabled) &&
@@ -190,8 +190,8 @@ class _$_ModerationOptions implements _ModerationOptions {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ModerationOptionsCopyWith<_$_ModerationOptions> get copyWith =>
-      __$$_ModerationOptionsCopyWithImpl<_$_ModerationOptions>(
+  _$$ModerationOptionsImplCopyWith<_$ModerationOptionsImpl> get copyWith =>
+      __$$ModerationOptionsImplCopyWithImpl<_$ModerationOptionsImpl>(
           this, _$identity);
 }
 
@@ -200,7 +200,7 @@ abstract class _ModerationOptions implements ModerationOptions {
       {required final String userDid,
       final bool isAdultContentEnabled,
       required final Map<String, LabelPreference> labels,
-      required final List<LabelerSettings> labelers}) = _$_ModerationOptions;
+      required final List<LabelerSettings> labelers}) = _$ModerationOptionsImpl;
 
   @override
   String get userDid;
@@ -212,6 +212,6 @@ abstract class _ModerationOptions implements ModerationOptions {
   List<LabelerSettings> get labelers;
   @override
   @JsonKey(ignore: true)
-  _$$_ModerationOptionsCopyWith<_$_ModerationOptions> get copyWith =>
+  _$$ModerationOptionsImplCopyWith<_$ModerationOptionsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

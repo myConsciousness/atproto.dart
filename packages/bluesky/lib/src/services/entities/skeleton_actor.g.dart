@@ -8,18 +8,18 @@ part of 'skeleton_actor.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SkeletonActor _$$_SkeletonActorFromJson(Map json) => $checkedCreate(
-      r'_$_SkeletonActor',
+_$SkeletonActorImpl _$$SkeletonActorImplFromJson(Map json) => $checkedCreate(
+      r'_$SkeletonActorImpl',
       json,
       ($checkedConvert) {
-        final val = _$_SkeletonActor(
+        final val = _$SkeletonActorImpl(
           did: $checkedConvert('did', (v) => v as String),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$_SkeletonActorToJson(_$_SkeletonActor instance) =>
+Map<String, dynamic> _$$SkeletonActorImplToJson(_$SkeletonActorImpl instance) =>
     <String, dynamic>{
       'did': instance.did,
     };

@@ -88,10 +88,10 @@ class _$ThreadRuleCopyWithImpl<$Res, $Val extends ThreadRule>
 }
 
 /// @nodoc
-abstract class _$$UThreadRuleMentionCopyWith<$Res> {
-  factory _$$UThreadRuleMentionCopyWith(_$UThreadRuleMention value,
-          $Res Function(_$UThreadRuleMention) then) =
-      __$$UThreadRuleMentionCopyWithImpl<$Res>;
+abstract class _$$UThreadRuleMentionImplCopyWith<$Res> {
+  factory _$$UThreadRuleMentionImplCopyWith(_$UThreadRuleMentionImpl value,
+          $Res Function(_$UThreadRuleMentionImpl) then) =
+      __$$UThreadRuleMentionImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ThreadMentionRule data});
 
@@ -99,11 +99,11 @@ abstract class _$$UThreadRuleMentionCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UThreadRuleMentionCopyWithImpl<$Res>
-    extends _$ThreadRuleCopyWithImpl<$Res, _$UThreadRuleMention>
-    implements _$$UThreadRuleMentionCopyWith<$Res> {
-  __$$UThreadRuleMentionCopyWithImpl(
-      _$UThreadRuleMention _value, $Res Function(_$UThreadRuleMention) _then)
+class __$$UThreadRuleMentionImplCopyWithImpl<$Res>
+    extends _$ThreadRuleCopyWithImpl<$Res, _$UThreadRuleMentionImpl>
+    implements _$$UThreadRuleMentionImplCopyWith<$Res> {
+  __$$UThreadRuleMentionImplCopyWithImpl(_$UThreadRuleMentionImpl _value,
+      $Res Function(_$UThreadRuleMentionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +111,7 @@ class __$$UThreadRuleMentionCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UThreadRuleMention(
+    return _then(_$UThreadRuleMentionImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -130,8 +130,8 @@ class __$$UThreadRuleMentionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UThreadRuleMention extends UThreadRuleMention {
-  const _$UThreadRuleMention({required this.data}) : super._();
+class _$UThreadRuleMentionImpl extends UThreadRuleMention {
+  const _$UThreadRuleMentionImpl({required this.data}) : super._();
 
   @override
   final ThreadMentionRule data;
@@ -145,7 +145,7 @@ class _$UThreadRuleMention extends UThreadRuleMention {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UThreadRuleMention &&
+            other is _$UThreadRuleMentionImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -155,8 +155,8 @@ class _$UThreadRuleMention extends UThreadRuleMention {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UThreadRuleMentionCopyWith<_$UThreadRuleMention> get copyWith =>
-      __$$UThreadRuleMentionCopyWithImpl<_$UThreadRuleMention>(
+  _$$UThreadRuleMentionImplCopyWith<_$UThreadRuleMentionImpl> get copyWith =>
+      __$$UThreadRuleMentionImplCopyWithImpl<_$UThreadRuleMentionImpl>(
           this, _$identity);
 
   @override
@@ -236,21 +236,21 @@ class _$UThreadRuleMention extends UThreadRuleMention {
 
 abstract class UThreadRuleMention extends ThreadRule {
   const factory UThreadRuleMention({required final ThreadMentionRule data}) =
-      _$UThreadRuleMention;
+      _$UThreadRuleMentionImpl;
   const UThreadRuleMention._() : super._();
 
   @override
   ThreadMentionRule get data;
   @JsonKey(ignore: true)
-  _$$UThreadRuleMentionCopyWith<_$UThreadRuleMention> get copyWith =>
+  _$$UThreadRuleMentionImplCopyWith<_$UThreadRuleMentionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UThreadRuleFollowingCopyWith<$Res> {
-  factory _$$UThreadRuleFollowingCopyWith(_$UThreadRuleFollowing value,
-          $Res Function(_$UThreadRuleFollowing) then) =
-      __$$UThreadRuleFollowingCopyWithImpl<$Res>;
+abstract class _$$UThreadRuleFollowingImplCopyWith<$Res> {
+  factory _$$UThreadRuleFollowingImplCopyWith(_$UThreadRuleFollowingImpl value,
+          $Res Function(_$UThreadRuleFollowingImpl) then) =
+      __$$UThreadRuleFollowingImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ThreadFollowingRule data});
 
@@ -258,11 +258,11 @@ abstract class _$$UThreadRuleFollowingCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UThreadRuleFollowingCopyWithImpl<$Res>
-    extends _$ThreadRuleCopyWithImpl<$Res, _$UThreadRuleFollowing>
-    implements _$$UThreadRuleFollowingCopyWith<$Res> {
-  __$$UThreadRuleFollowingCopyWithImpl(_$UThreadRuleFollowing _value,
-      $Res Function(_$UThreadRuleFollowing) _then)
+class __$$UThreadRuleFollowingImplCopyWithImpl<$Res>
+    extends _$ThreadRuleCopyWithImpl<$Res, _$UThreadRuleFollowingImpl>
+    implements _$$UThreadRuleFollowingImplCopyWith<$Res> {
+  __$$UThreadRuleFollowingImplCopyWithImpl(_$UThreadRuleFollowingImpl _value,
+      $Res Function(_$UThreadRuleFollowingImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -270,7 +270,7 @@ class __$$UThreadRuleFollowingCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UThreadRuleFollowing(
+    return _then(_$UThreadRuleFollowingImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -289,8 +289,8 @@ class __$$UThreadRuleFollowingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UThreadRuleFollowing extends UThreadRuleFollowing {
-  const _$UThreadRuleFollowing({required this.data}) : super._();
+class _$UThreadRuleFollowingImpl extends UThreadRuleFollowing {
+  const _$UThreadRuleFollowingImpl({required this.data}) : super._();
 
   @override
   final ThreadFollowingRule data;
@@ -304,7 +304,7 @@ class _$UThreadRuleFollowing extends UThreadRuleFollowing {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UThreadRuleFollowing &&
+            other is _$UThreadRuleFollowingImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -314,9 +314,10 @@ class _$UThreadRuleFollowing extends UThreadRuleFollowing {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UThreadRuleFollowingCopyWith<_$UThreadRuleFollowing> get copyWith =>
-      __$$UThreadRuleFollowingCopyWithImpl<_$UThreadRuleFollowing>(
-          this, _$identity);
+  _$$UThreadRuleFollowingImplCopyWith<_$UThreadRuleFollowingImpl>
+      get copyWith =>
+          __$$UThreadRuleFollowingImplCopyWithImpl<_$UThreadRuleFollowingImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -395,21 +396,21 @@ class _$UThreadRuleFollowing extends UThreadRuleFollowing {
 
 abstract class UThreadRuleFollowing extends ThreadRule {
   const factory UThreadRuleFollowing(
-      {required final ThreadFollowingRule data}) = _$UThreadRuleFollowing;
+      {required final ThreadFollowingRule data}) = _$UThreadRuleFollowingImpl;
   const UThreadRuleFollowing._() : super._();
 
   @override
   ThreadFollowingRule get data;
   @JsonKey(ignore: true)
-  _$$UThreadRuleFollowingCopyWith<_$UThreadRuleFollowing> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UThreadRuleFollowingImplCopyWith<_$UThreadRuleFollowingImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UThreadRuleListCopyWith<$Res> {
-  factory _$$UThreadRuleListCopyWith(
-          _$UThreadRuleList value, $Res Function(_$UThreadRuleList) then) =
-      __$$UThreadRuleListCopyWithImpl<$Res>;
+abstract class _$$UThreadRuleListImplCopyWith<$Res> {
+  factory _$$UThreadRuleListImplCopyWith(_$UThreadRuleListImpl value,
+          $Res Function(_$UThreadRuleListImpl) then) =
+      __$$UThreadRuleListImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ThreadListRule data});
 
@@ -417,11 +418,11 @@ abstract class _$$UThreadRuleListCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UThreadRuleListCopyWithImpl<$Res>
-    extends _$ThreadRuleCopyWithImpl<$Res, _$UThreadRuleList>
-    implements _$$UThreadRuleListCopyWith<$Res> {
-  __$$UThreadRuleListCopyWithImpl(
-      _$UThreadRuleList _value, $Res Function(_$UThreadRuleList) _then)
+class __$$UThreadRuleListImplCopyWithImpl<$Res>
+    extends _$ThreadRuleCopyWithImpl<$Res, _$UThreadRuleListImpl>
+    implements _$$UThreadRuleListImplCopyWith<$Res> {
+  __$$UThreadRuleListImplCopyWithImpl(
+      _$UThreadRuleListImpl _value, $Res Function(_$UThreadRuleListImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -429,7 +430,7 @@ class __$$UThreadRuleListCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UThreadRuleList(
+    return _then(_$UThreadRuleListImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -448,8 +449,8 @@ class __$$UThreadRuleListCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UThreadRuleList extends UThreadRuleList {
-  const _$UThreadRuleList({required this.data}) : super._();
+class _$UThreadRuleListImpl extends UThreadRuleList {
+  const _$UThreadRuleListImpl({required this.data}) : super._();
 
   @override
   final ThreadListRule data;
@@ -463,7 +464,7 @@ class _$UThreadRuleList extends UThreadRuleList {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UThreadRuleList &&
+            other is _$UThreadRuleListImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -473,8 +474,9 @@ class _$UThreadRuleList extends UThreadRuleList {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UThreadRuleListCopyWith<_$UThreadRuleList> get copyWith =>
-      __$$UThreadRuleListCopyWithImpl<_$UThreadRuleList>(this, _$identity);
+  _$$UThreadRuleListImplCopyWith<_$UThreadRuleListImpl> get copyWith =>
+      __$$UThreadRuleListImplCopyWithImpl<_$UThreadRuleListImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -553,31 +555,31 @@ class _$UThreadRuleList extends UThreadRuleList {
 
 abstract class UThreadRuleList extends ThreadRule {
   const factory UThreadRuleList({required final ThreadListRule data}) =
-      _$UThreadRuleList;
+      _$UThreadRuleListImpl;
   const UThreadRuleList._() : super._();
 
   @override
   ThreadListRule get data;
   @JsonKey(ignore: true)
-  _$$UThreadRuleListCopyWith<_$UThreadRuleList> get copyWith =>
+  _$$UThreadRuleListImplCopyWith<_$UThreadRuleListImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UThreadRuleUnknownCopyWith<$Res> {
-  factory _$$UThreadRuleUnknownCopyWith(_$UThreadRuleUnknown value,
-          $Res Function(_$UThreadRuleUnknown) then) =
-      __$$UThreadRuleUnknownCopyWithImpl<$Res>;
+abstract class _$$UThreadRuleUnknownImplCopyWith<$Res> {
+  factory _$$UThreadRuleUnknownImplCopyWith(_$UThreadRuleUnknownImpl value,
+          $Res Function(_$UThreadRuleUnknownImpl) then) =
+      __$$UThreadRuleUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UThreadRuleUnknownCopyWithImpl<$Res>
-    extends _$ThreadRuleCopyWithImpl<$Res, _$UThreadRuleUnknown>
-    implements _$$UThreadRuleUnknownCopyWith<$Res> {
-  __$$UThreadRuleUnknownCopyWithImpl(
-      _$UThreadRuleUnknown _value, $Res Function(_$UThreadRuleUnknown) _then)
+class __$$UThreadRuleUnknownImplCopyWithImpl<$Res>
+    extends _$ThreadRuleCopyWithImpl<$Res, _$UThreadRuleUnknownImpl>
+    implements _$$UThreadRuleUnknownImplCopyWith<$Res> {
+  __$$UThreadRuleUnknownImplCopyWithImpl(_$UThreadRuleUnknownImpl _value,
+      $Res Function(_$UThreadRuleUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -585,7 +587,7 @@ class __$$UThreadRuleUnknownCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UThreadRuleUnknown(
+    return _then(_$UThreadRuleUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -596,8 +598,8 @@ class __$$UThreadRuleUnknownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UThreadRuleUnknown extends UThreadRuleUnknown {
-  const _$UThreadRuleUnknown({required final Map<String, dynamic> data})
+class _$UThreadRuleUnknownImpl extends UThreadRuleUnknown {
+  const _$UThreadRuleUnknownImpl({required final Map<String, dynamic> data})
       : _data = data,
         super._();
 
@@ -618,7 +620,7 @@ class _$UThreadRuleUnknown extends UThreadRuleUnknown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UThreadRuleUnknown &&
+            other is _$UThreadRuleUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -629,8 +631,8 @@ class _$UThreadRuleUnknown extends UThreadRuleUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UThreadRuleUnknownCopyWith<_$UThreadRuleUnknown> get copyWith =>
-      __$$UThreadRuleUnknownCopyWithImpl<_$UThreadRuleUnknown>(
+  _$$UThreadRuleUnknownImplCopyWith<_$UThreadRuleUnknownImpl> get copyWith =>
+      __$$UThreadRuleUnknownImplCopyWithImpl<_$UThreadRuleUnknownImpl>(
           this, _$identity);
 
   @override
@@ -710,12 +712,12 @@ class _$UThreadRuleUnknown extends UThreadRuleUnknown {
 
 abstract class UThreadRuleUnknown extends ThreadRule {
   const factory UThreadRuleUnknown({required final Map<String, dynamic> data}) =
-      _$UThreadRuleUnknown;
+      _$UThreadRuleUnknownImpl;
   const UThreadRuleUnknown._() : super._();
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$UThreadRuleUnknownCopyWith<_$UThreadRuleUnknown> get copyWith =>
+  _$$UThreadRuleUnknownImplCopyWith<_$UThreadRuleUnknownImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

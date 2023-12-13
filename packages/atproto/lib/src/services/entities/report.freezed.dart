@@ -109,9 +109,10 @@ class _$ReportCopyWithImpl<$Res, $Val extends Report>
 }
 
 /// @nodoc
-abstract class _$$_ReportCopyWith<$Res> implements $ReportCopyWith<$Res> {
-  factory _$$_ReportCopyWith(_$_Report value, $Res Function(_$_Report) then) =
-      __$$_ReportCopyWithImpl<$Res>;
+abstract class _$$ReportImplCopyWith<$Res> implements $ReportCopyWith<$Res> {
+  factory _$$ReportImplCopyWith(
+          _$ReportImpl value, $Res Function(_$ReportImpl) then) =
+      __$$ReportImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -126,10 +127,11 @@ abstract class _$$_ReportCopyWith<$Res> implements $ReportCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ReportCopyWithImpl<$Res>
-    extends _$ReportCopyWithImpl<$Res, _$_Report>
-    implements _$$_ReportCopyWith<$Res> {
-  __$$_ReportCopyWithImpl(_$_Report _value, $Res Function(_$_Report) _then)
+class __$$ReportImplCopyWithImpl<$Res>
+    extends _$ReportCopyWithImpl<$Res, _$ReportImpl>
+    implements _$$ReportImplCopyWith<$Res> {
+  __$$ReportImplCopyWithImpl(
+      _$ReportImpl _value, $Res Function(_$ReportImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -141,7 +143,7 @@ class __$$_ReportCopyWithImpl<$Res>
     Object? reportedBy = null,
     Object? createdAt = null,
   }) {
-    return _then(_$_Report(
+    return _then(_$ReportImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -168,16 +170,16 @@ class __$$_ReportCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Report implements _Report {
-  const _$_Report(
+class _$ReportImpl implements _Report {
+  const _$ReportImpl(
       {required this.id,
       required this.reasonType,
       @reportSubjectConverter required this.subject,
       required this.reportedBy,
       required this.createdAt});
 
-  factory _$_Report.fromJson(Map<String, dynamic> json) =>
-      _$$_ReportFromJson(json);
+  factory _$ReportImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ReportImplFromJson(json);
 
   /// The unique ID of the report.
   @override
@@ -209,7 +211,7 @@ class _$_Report implements _Report {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Report &&
+            other is _$ReportImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.reasonType, reasonType) ||
                 other.reasonType == reasonType) &&
@@ -228,12 +230,12 @@ class _$_Report implements _Report {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ReportCopyWith<_$_Report> get copyWith =>
-      __$$_ReportCopyWithImpl<_$_Report>(this, _$identity);
+  _$$ReportImplCopyWith<_$ReportImpl> get copyWith =>
+      __$$ReportImplCopyWithImpl<_$ReportImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ReportToJson(
+    return _$$ReportImplToJson(
       this,
     );
   }
@@ -245,9 +247,9 @@ abstract class _Report implements Report {
       required final ModerationReasonType reasonType,
       @reportSubjectConverter required final ReportSubject subject,
       required final String reportedBy,
-      required final DateTime createdAt}) = _$_Report;
+      required final DateTime createdAt}) = _$ReportImpl;
 
-  factory _Report.fromJson(Map<String, dynamic> json) = _$_Report.fromJson;
+  factory _Report.fromJson(Map<String, dynamic> json) = _$ReportImpl.fromJson;
 
   @override
 
@@ -272,6 +274,6 @@ abstract class _Report implements Report {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$_ReportCopyWith<_$_Report> get copyWith =>
+  _$$ReportImplCopyWith<_$ReportImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

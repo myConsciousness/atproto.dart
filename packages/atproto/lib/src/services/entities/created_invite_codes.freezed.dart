@@ -63,22 +63,22 @@ class _$CreatedInviteCodesCopyWithImpl<$Res, $Val extends CreatedInviteCodes>
 }
 
 /// @nodoc
-abstract class _$$_CreatedInviteCodesCopyWith<$Res>
+abstract class _$$CreatedInviteCodesImplCopyWith<$Res>
     implements $CreatedInviteCodesCopyWith<$Res> {
-  factory _$$_CreatedInviteCodesCopyWith(_$_CreatedInviteCodes value,
-          $Res Function(_$_CreatedInviteCodes) then) =
-      __$$_CreatedInviteCodesCopyWithImpl<$Res>;
+  factory _$$CreatedInviteCodesImplCopyWith(_$CreatedInviteCodesImpl value,
+          $Res Function(_$CreatedInviteCodesImpl) then) =
+      __$$CreatedInviteCodesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<AccountCodes> codes});
 }
 
 /// @nodoc
-class __$$_CreatedInviteCodesCopyWithImpl<$Res>
-    extends _$CreatedInviteCodesCopyWithImpl<$Res, _$_CreatedInviteCodes>
-    implements _$$_CreatedInviteCodesCopyWith<$Res> {
-  __$$_CreatedInviteCodesCopyWithImpl(
-      _$_CreatedInviteCodes _value, $Res Function(_$_CreatedInviteCodes) _then)
+class __$$CreatedInviteCodesImplCopyWithImpl<$Res>
+    extends _$CreatedInviteCodesCopyWithImpl<$Res, _$CreatedInviteCodesImpl>
+    implements _$$CreatedInviteCodesImplCopyWith<$Res> {
+  __$$CreatedInviteCodesImplCopyWithImpl(_$CreatedInviteCodesImpl _value,
+      $Res Function(_$CreatedInviteCodesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -86,7 +86,7 @@ class __$$_CreatedInviteCodesCopyWithImpl<$Res>
   $Res call({
     Object? codes = null,
   }) {
-    return _then(_$_CreatedInviteCodes(
+    return _then(_$CreatedInviteCodesImpl(
       codes: null == codes
           ? _value._codes
           : codes // ignore: cast_nullable_to_non_nullable
@@ -97,12 +97,12 @@ class __$$_CreatedInviteCodesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CreatedInviteCodes implements _CreatedInviteCodes {
-  const _$_CreatedInviteCodes({required final List<AccountCodes> codes})
+class _$CreatedInviteCodesImpl implements _CreatedInviteCodes {
+  const _$CreatedInviteCodesImpl({required final List<AccountCodes> codes})
       : _codes = codes;
 
-  factory _$_CreatedInviteCodes.fromJson(Map<String, dynamic> json) =>
-      _$$_CreatedInviteCodesFromJson(json);
+  factory _$CreatedInviteCodesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CreatedInviteCodesImplFromJson(json);
 
   /// The list of invitation codes.
   final List<AccountCodes> _codes;
@@ -124,7 +124,7 @@ class _$_CreatedInviteCodes implements _CreatedInviteCodes {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CreatedInviteCodes &&
+            other is _$CreatedInviteCodesImpl &&
             const DeepCollectionEquality().equals(other._codes, _codes));
   }
 
@@ -136,13 +136,13 @@ class _$_CreatedInviteCodes implements _CreatedInviteCodes {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CreatedInviteCodesCopyWith<_$_CreatedInviteCodes> get copyWith =>
-      __$$_CreatedInviteCodesCopyWithImpl<_$_CreatedInviteCodes>(
+  _$$CreatedInviteCodesImplCopyWith<_$CreatedInviteCodesImpl> get copyWith =>
+      __$$CreatedInviteCodesImplCopyWithImpl<_$CreatedInviteCodesImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CreatedInviteCodesToJson(
+    return _$$CreatedInviteCodesImplToJson(
       this,
     );
   }
@@ -150,10 +150,10 @@ class _$_CreatedInviteCodes implements _CreatedInviteCodes {
 
 abstract class _CreatedInviteCodes implements CreatedInviteCodes {
   const factory _CreatedInviteCodes({required final List<AccountCodes> codes}) =
-      _$_CreatedInviteCodes;
+      _$CreatedInviteCodesImpl;
 
   factory _CreatedInviteCodes.fromJson(Map<String, dynamic> json) =
-      _$_CreatedInviteCodes.fromJson;
+      _$CreatedInviteCodesImpl.fromJson;
 
   @override
 
@@ -161,6 +161,6 @@ abstract class _CreatedInviteCodes implements CreatedInviteCodes {
   List<AccountCodes> get codes;
   @override
   @JsonKey(ignore: true)
-  _$$_CreatedInviteCodesCopyWith<_$_CreatedInviteCodes> get copyWith =>
+  _$$CreatedInviteCodesImplCopyWith<_$CreatedInviteCodesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -63,22 +63,22 @@ class _$InviteCodesCopyWithImpl<$Res, $Val extends InviteCodes>
 }
 
 /// @nodoc
-abstract class _$$_InviteCodesCopyWith<$Res>
+abstract class _$$InviteCodesImplCopyWith<$Res>
     implements $InviteCodesCopyWith<$Res> {
-  factory _$$_InviteCodesCopyWith(
-          _$_InviteCodes value, $Res Function(_$_InviteCodes) then) =
-      __$$_InviteCodesCopyWithImpl<$Res>;
+  factory _$$InviteCodesImplCopyWith(
+          _$InviteCodesImpl value, $Res Function(_$InviteCodesImpl) then) =
+      __$$InviteCodesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<InviteCode> codes});
 }
 
 /// @nodoc
-class __$$_InviteCodesCopyWithImpl<$Res>
-    extends _$InviteCodesCopyWithImpl<$Res, _$_InviteCodes>
-    implements _$$_InviteCodesCopyWith<$Res> {
-  __$$_InviteCodesCopyWithImpl(
-      _$_InviteCodes _value, $Res Function(_$_InviteCodes) _then)
+class __$$InviteCodesImplCopyWithImpl<$Res>
+    extends _$InviteCodesCopyWithImpl<$Res, _$InviteCodesImpl>
+    implements _$$InviteCodesImplCopyWith<$Res> {
+  __$$InviteCodesImplCopyWithImpl(
+      _$InviteCodesImpl _value, $Res Function(_$InviteCodesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -86,7 +86,7 @@ class __$$_InviteCodesCopyWithImpl<$Res>
   $Res call({
     Object? codes = null,
   }) {
-    return _then(_$_InviteCodes(
+    return _then(_$InviteCodesImpl(
       codes: null == codes
           ? _value._codes
           : codes // ignore: cast_nullable_to_non_nullable
@@ -97,12 +97,12 @@ class __$$_InviteCodesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_InviteCodes implements _InviteCodes {
-  const _$_InviteCodes({required final List<InviteCode> codes})
+class _$InviteCodesImpl implements _InviteCodes {
+  const _$InviteCodesImpl({required final List<InviteCode> codes})
       : _codes = codes;
 
-  factory _$_InviteCodes.fromJson(Map<String, dynamic> json) =>
-      _$$_InviteCodesFromJson(json);
+  factory _$InviteCodesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$InviteCodesImplFromJson(json);
 
   /// A list of invitation codes.
   final List<InviteCode> _codes;
@@ -124,7 +124,7 @@ class _$_InviteCodes implements _InviteCodes {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_InviteCodes &&
+            other is _$InviteCodesImpl &&
             const DeepCollectionEquality().equals(other._codes, _codes));
   }
 
@@ -136,12 +136,12 @@ class _$_InviteCodes implements _InviteCodes {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InviteCodesCopyWith<_$_InviteCodes> get copyWith =>
-      __$$_InviteCodesCopyWithImpl<_$_InviteCodes>(this, _$identity);
+  _$$InviteCodesImplCopyWith<_$InviteCodesImpl> get copyWith =>
+      __$$InviteCodesImplCopyWithImpl<_$InviteCodesImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_InviteCodesToJson(
+    return _$$InviteCodesImplToJson(
       this,
     );
   }
@@ -149,10 +149,10 @@ class _$_InviteCodes implements _InviteCodes {
 
 abstract class _InviteCodes implements InviteCodes {
   const factory _InviteCodes({required final List<InviteCode> codes}) =
-      _$_InviteCodes;
+      _$InviteCodesImpl;
 
   factory _InviteCodes.fromJson(Map<String, dynamic> json) =
-      _$_InviteCodes.fromJson;
+      _$InviteCodesImpl.fromJson;
 
   @override
 
@@ -160,6 +160,6 @@ abstract class _InviteCodes implements InviteCodes {
   List<InviteCode> get codes;
   @override
   @JsonKey(ignore: true)
-  _$$_InviteCodesCopyWith<_$_InviteCodes> get copyWith =>
+  _$$InviteCodesImplCopyWith<_$InviteCodesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

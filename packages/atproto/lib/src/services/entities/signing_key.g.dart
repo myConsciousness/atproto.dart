@@ -8,18 +8,18 @@ part of 'signing_key.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SigningKey _$$_SigningKeyFromJson(Map json) => $checkedCreate(
-      r'_$_SigningKey',
+_$SigningKeyImpl _$$SigningKeyImplFromJson(Map json) => $checkedCreate(
+      r'_$SigningKeyImpl',
       json,
       ($checkedConvert) {
-        final val = _$_SigningKey(
+        final val = _$SigningKeyImpl(
           signingKey: $checkedConvert('signingKey', (v) => v as String),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$_SigningKeyToJson(_$_SigningKey instance) =>
+Map<String, dynamic> _$$SigningKeyImplToJson(_$SigningKeyImpl instance) =>
     <String, dynamic>{
       'signingKey': instance.signingKey,
     };

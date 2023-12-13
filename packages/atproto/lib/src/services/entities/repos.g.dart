@@ -8,11 +8,11 @@ part of 'repos.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Repos _$$_ReposFromJson(Map json) => $checkedCreate(
-      r'_$_Repos',
+_$ReposImpl _$$ReposImplFromJson(Map json) => $checkedCreate(
+      r'_$ReposImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Repos(
+        final val = _$ReposImpl(
           repos: $checkedConvert(
               'repos',
               (v) => (v as List<dynamic>)
@@ -25,7 +25,8 @@ _$_Repos _$$_ReposFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_ReposToJson(_$_Repos instance) => <String, dynamic>{
+Map<String, dynamic> _$$ReposImplToJson(_$ReposImpl instance) =>
+    <String, dynamic>{
       'repos': instance.repos.map((e) => e.toJson()).toList(),
       'cursor': instance.cursor,
     };

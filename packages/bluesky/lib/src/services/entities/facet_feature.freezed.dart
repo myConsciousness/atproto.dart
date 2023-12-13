@@ -88,10 +88,10 @@ class _$FacetFeatureCopyWithImpl<$Res, $Val extends FacetFeature>
 }
 
 /// @nodoc
-abstract class _$$UFacetFeatureMentionCopyWith<$Res> {
-  factory _$$UFacetFeatureMentionCopyWith(_$UFacetFeatureMention value,
-          $Res Function(_$UFacetFeatureMention) then) =
-      __$$UFacetFeatureMentionCopyWithImpl<$Res>;
+abstract class _$$UFacetFeatureMentionImplCopyWith<$Res> {
+  factory _$$UFacetFeatureMentionImplCopyWith(_$UFacetFeatureMentionImpl value,
+          $Res Function(_$UFacetFeatureMentionImpl) then) =
+      __$$UFacetFeatureMentionImplCopyWithImpl<$Res>;
   @useResult
   $Res call({FacetMention data});
 
@@ -99,11 +99,11 @@ abstract class _$$UFacetFeatureMentionCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UFacetFeatureMentionCopyWithImpl<$Res>
-    extends _$FacetFeatureCopyWithImpl<$Res, _$UFacetFeatureMention>
-    implements _$$UFacetFeatureMentionCopyWith<$Res> {
-  __$$UFacetFeatureMentionCopyWithImpl(_$UFacetFeatureMention _value,
-      $Res Function(_$UFacetFeatureMention) _then)
+class __$$UFacetFeatureMentionImplCopyWithImpl<$Res>
+    extends _$FacetFeatureCopyWithImpl<$Res, _$UFacetFeatureMentionImpl>
+    implements _$$UFacetFeatureMentionImplCopyWith<$Res> {
+  __$$UFacetFeatureMentionImplCopyWithImpl(_$UFacetFeatureMentionImpl _value,
+      $Res Function(_$UFacetFeatureMentionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +111,7 @@ class __$$UFacetFeatureMentionCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UFacetFeatureMention(
+    return _then(_$UFacetFeatureMentionImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -130,8 +130,8 @@ class __$$UFacetFeatureMentionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UFacetFeatureMention implements UFacetFeatureMention {
-  const _$UFacetFeatureMention({required this.data});
+class _$UFacetFeatureMentionImpl implements UFacetFeatureMention {
+  const _$UFacetFeatureMentionImpl({required this.data});
 
   @override
   final FacetMention data;
@@ -145,7 +145,7 @@ class _$UFacetFeatureMention implements UFacetFeatureMention {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UFacetFeatureMention &&
+            other is _$UFacetFeatureMentionImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -155,9 +155,10 @@ class _$UFacetFeatureMention implements UFacetFeatureMention {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UFacetFeatureMentionCopyWith<_$UFacetFeatureMention> get copyWith =>
-      __$$UFacetFeatureMentionCopyWithImpl<_$UFacetFeatureMention>(
-          this, _$identity);
+  _$$UFacetFeatureMentionImplCopyWith<_$UFacetFeatureMentionImpl>
+      get copyWith =>
+          __$$UFacetFeatureMentionImplCopyWithImpl<_$UFacetFeatureMentionImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -236,20 +237,20 @@ class _$UFacetFeatureMention implements UFacetFeatureMention {
 
 abstract class UFacetFeatureMention implements FacetFeature {
   const factory UFacetFeatureMention({required final FacetMention data}) =
-      _$UFacetFeatureMention;
+      _$UFacetFeatureMentionImpl;
 
   @override
   FacetMention get data;
   @JsonKey(ignore: true)
-  _$$UFacetFeatureMentionCopyWith<_$UFacetFeatureMention> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UFacetFeatureMentionImplCopyWith<_$UFacetFeatureMentionImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UFacetFeatureLinkCopyWith<$Res> {
-  factory _$$UFacetFeatureLinkCopyWith(
-          _$UFacetFeatureLink value, $Res Function(_$UFacetFeatureLink) then) =
-      __$$UFacetFeatureLinkCopyWithImpl<$Res>;
+abstract class _$$UFacetFeatureLinkImplCopyWith<$Res> {
+  factory _$$UFacetFeatureLinkImplCopyWith(_$UFacetFeatureLinkImpl value,
+          $Res Function(_$UFacetFeatureLinkImpl) then) =
+      __$$UFacetFeatureLinkImplCopyWithImpl<$Res>;
   @useResult
   $Res call({FacetLink data});
 
@@ -257,11 +258,11 @@ abstract class _$$UFacetFeatureLinkCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UFacetFeatureLinkCopyWithImpl<$Res>
-    extends _$FacetFeatureCopyWithImpl<$Res, _$UFacetFeatureLink>
-    implements _$$UFacetFeatureLinkCopyWith<$Res> {
-  __$$UFacetFeatureLinkCopyWithImpl(
-      _$UFacetFeatureLink _value, $Res Function(_$UFacetFeatureLink) _then)
+class __$$UFacetFeatureLinkImplCopyWithImpl<$Res>
+    extends _$FacetFeatureCopyWithImpl<$Res, _$UFacetFeatureLinkImpl>
+    implements _$$UFacetFeatureLinkImplCopyWith<$Res> {
+  __$$UFacetFeatureLinkImplCopyWithImpl(_$UFacetFeatureLinkImpl _value,
+      $Res Function(_$UFacetFeatureLinkImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -269,7 +270,7 @@ class __$$UFacetFeatureLinkCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UFacetFeatureLink(
+    return _then(_$UFacetFeatureLinkImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -288,8 +289,8 @@ class __$$UFacetFeatureLinkCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UFacetFeatureLink implements UFacetFeatureLink {
-  const _$UFacetFeatureLink({required this.data});
+class _$UFacetFeatureLinkImpl implements UFacetFeatureLink {
+  const _$UFacetFeatureLinkImpl({required this.data});
 
   @override
   final FacetLink data;
@@ -303,7 +304,7 @@ class _$UFacetFeatureLink implements UFacetFeatureLink {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UFacetFeatureLink &&
+            other is _$UFacetFeatureLinkImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -313,8 +314,9 @@ class _$UFacetFeatureLink implements UFacetFeatureLink {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UFacetFeatureLinkCopyWith<_$UFacetFeatureLink> get copyWith =>
-      __$$UFacetFeatureLinkCopyWithImpl<_$UFacetFeatureLink>(this, _$identity);
+  _$$UFacetFeatureLinkImplCopyWith<_$UFacetFeatureLinkImpl> get copyWith =>
+      __$$UFacetFeatureLinkImplCopyWithImpl<_$UFacetFeatureLinkImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -393,20 +395,20 @@ class _$UFacetFeatureLink implements UFacetFeatureLink {
 
 abstract class UFacetFeatureLink implements FacetFeature {
   const factory UFacetFeatureLink({required final FacetLink data}) =
-      _$UFacetFeatureLink;
+      _$UFacetFeatureLinkImpl;
 
   @override
   FacetLink get data;
   @JsonKey(ignore: true)
-  _$$UFacetFeatureLinkCopyWith<_$UFacetFeatureLink> get copyWith =>
+  _$$UFacetFeatureLinkImplCopyWith<_$UFacetFeatureLinkImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UFacetFeatureTagCopyWith<$Res> {
-  factory _$$UFacetFeatureTagCopyWith(
-          _$UFacetFeatureTag value, $Res Function(_$UFacetFeatureTag) then) =
-      __$$UFacetFeatureTagCopyWithImpl<$Res>;
+abstract class _$$UFacetFeatureTagImplCopyWith<$Res> {
+  factory _$$UFacetFeatureTagImplCopyWith(_$UFacetFeatureTagImpl value,
+          $Res Function(_$UFacetFeatureTagImpl) then) =
+      __$$UFacetFeatureTagImplCopyWithImpl<$Res>;
   @useResult
   $Res call({FacetTag data});
 
@@ -414,11 +416,11 @@ abstract class _$$UFacetFeatureTagCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UFacetFeatureTagCopyWithImpl<$Res>
-    extends _$FacetFeatureCopyWithImpl<$Res, _$UFacetFeatureTag>
-    implements _$$UFacetFeatureTagCopyWith<$Res> {
-  __$$UFacetFeatureTagCopyWithImpl(
-      _$UFacetFeatureTag _value, $Res Function(_$UFacetFeatureTag) _then)
+class __$$UFacetFeatureTagImplCopyWithImpl<$Res>
+    extends _$FacetFeatureCopyWithImpl<$Res, _$UFacetFeatureTagImpl>
+    implements _$$UFacetFeatureTagImplCopyWith<$Res> {
+  __$$UFacetFeatureTagImplCopyWithImpl(_$UFacetFeatureTagImpl _value,
+      $Res Function(_$UFacetFeatureTagImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -426,7 +428,7 @@ class __$$UFacetFeatureTagCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UFacetFeatureTag(
+    return _then(_$UFacetFeatureTagImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -445,8 +447,8 @@ class __$$UFacetFeatureTagCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UFacetFeatureTag implements UFacetFeatureTag {
-  const _$UFacetFeatureTag({required this.data});
+class _$UFacetFeatureTagImpl implements UFacetFeatureTag {
+  const _$UFacetFeatureTagImpl({required this.data});
 
   @override
   final FacetTag data;
@@ -460,7 +462,7 @@ class _$UFacetFeatureTag implements UFacetFeatureTag {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UFacetFeatureTag &&
+            other is _$UFacetFeatureTagImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -470,8 +472,9 @@ class _$UFacetFeatureTag implements UFacetFeatureTag {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UFacetFeatureTagCopyWith<_$UFacetFeatureTag> get copyWith =>
-      __$$UFacetFeatureTagCopyWithImpl<_$UFacetFeatureTag>(this, _$identity);
+  _$$UFacetFeatureTagImplCopyWith<_$UFacetFeatureTagImpl> get copyWith =>
+      __$$UFacetFeatureTagImplCopyWithImpl<_$UFacetFeatureTagImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -550,30 +553,30 @@ class _$UFacetFeatureTag implements UFacetFeatureTag {
 
 abstract class UFacetFeatureTag implements FacetFeature {
   const factory UFacetFeatureTag({required final FacetTag data}) =
-      _$UFacetFeatureTag;
+      _$UFacetFeatureTagImpl;
 
   @override
   FacetTag get data;
   @JsonKey(ignore: true)
-  _$$UFacetFeatureTagCopyWith<_$UFacetFeatureTag> get copyWith =>
+  _$$UFacetFeatureTagImplCopyWith<_$UFacetFeatureTagImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UFacetFeatureUnknownCopyWith<$Res> {
-  factory _$$UFacetFeatureUnknownCopyWith(_$UFacetFeatureUnknown value,
-          $Res Function(_$UFacetFeatureUnknown) then) =
-      __$$UFacetFeatureUnknownCopyWithImpl<$Res>;
+abstract class _$$UFacetFeatureUnknownImplCopyWith<$Res> {
+  factory _$$UFacetFeatureUnknownImplCopyWith(_$UFacetFeatureUnknownImpl value,
+          $Res Function(_$UFacetFeatureUnknownImpl) then) =
+      __$$UFacetFeatureUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UFacetFeatureUnknownCopyWithImpl<$Res>
-    extends _$FacetFeatureCopyWithImpl<$Res, _$UFacetFeatureUnknown>
-    implements _$$UFacetFeatureUnknownCopyWith<$Res> {
-  __$$UFacetFeatureUnknownCopyWithImpl(_$UFacetFeatureUnknown _value,
-      $Res Function(_$UFacetFeatureUnknown) _then)
+class __$$UFacetFeatureUnknownImplCopyWithImpl<$Res>
+    extends _$FacetFeatureCopyWithImpl<$Res, _$UFacetFeatureUnknownImpl>
+    implements _$$UFacetFeatureUnknownImplCopyWith<$Res> {
+  __$$UFacetFeatureUnknownImplCopyWithImpl(_$UFacetFeatureUnknownImpl _value,
+      $Res Function(_$UFacetFeatureUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -581,7 +584,7 @@ class __$$UFacetFeatureUnknownCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UFacetFeatureUnknown(
+    return _then(_$UFacetFeatureUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -592,8 +595,8 @@ class __$$UFacetFeatureUnknownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UFacetFeatureUnknown implements UFacetFeatureUnknown {
-  const _$UFacetFeatureUnknown({required final Map<String, dynamic> data})
+class _$UFacetFeatureUnknownImpl implements UFacetFeatureUnknown {
+  const _$UFacetFeatureUnknownImpl({required final Map<String, dynamic> data})
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -613,7 +616,7 @@ class _$UFacetFeatureUnknown implements UFacetFeatureUnknown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UFacetFeatureUnknown &&
+            other is _$UFacetFeatureUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -624,9 +627,10 @@ class _$UFacetFeatureUnknown implements UFacetFeatureUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UFacetFeatureUnknownCopyWith<_$UFacetFeatureUnknown> get copyWith =>
-      __$$UFacetFeatureUnknownCopyWithImpl<_$UFacetFeatureUnknown>(
-          this, _$identity);
+  _$$UFacetFeatureUnknownImplCopyWith<_$UFacetFeatureUnknownImpl>
+      get copyWith =>
+          __$$UFacetFeatureUnknownImplCopyWithImpl<_$UFacetFeatureUnknownImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -705,11 +709,11 @@ class _$UFacetFeatureUnknown implements UFacetFeatureUnknown {
 
 abstract class UFacetFeatureUnknown implements FacetFeature {
   const factory UFacetFeatureUnknown(
-      {required final Map<String, dynamic> data}) = _$UFacetFeatureUnknown;
+      {required final Map<String, dynamic> data}) = _$UFacetFeatureUnknownImpl;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$UFacetFeatureUnknownCopyWith<_$UFacetFeatureUnknown> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UFacetFeatureUnknownImplCopyWith<_$UFacetFeatureUnknownImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -69,19 +69,21 @@ class _$BlocksCopyWithImpl<$Res, $Val extends Blocks>
 }
 
 /// @nodoc
-abstract class _$$_BlocksCopyWith<$Res> implements $BlocksCopyWith<$Res> {
-  factory _$$_BlocksCopyWith(_$_Blocks value, $Res Function(_$_Blocks) then) =
-      __$$_BlocksCopyWithImpl<$Res>;
+abstract class _$$BlocksImplCopyWith<$Res> implements $BlocksCopyWith<$Res> {
+  factory _$$BlocksImplCopyWith(
+          _$BlocksImpl value, $Res Function(_$BlocksImpl) then) =
+      __$$BlocksImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Actor> blocks, String? cursor});
 }
 
 /// @nodoc
-class __$$_BlocksCopyWithImpl<$Res>
-    extends _$BlocksCopyWithImpl<$Res, _$_Blocks>
-    implements _$$_BlocksCopyWith<$Res> {
-  __$$_BlocksCopyWithImpl(_$_Blocks _value, $Res Function(_$_Blocks) _then)
+class __$$BlocksImplCopyWithImpl<$Res>
+    extends _$BlocksCopyWithImpl<$Res, _$BlocksImpl>
+    implements _$$BlocksImplCopyWith<$Res> {
+  __$$BlocksImplCopyWithImpl(
+      _$BlocksImpl _value, $Res Function(_$BlocksImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -90,7 +92,7 @@ class __$$_BlocksCopyWithImpl<$Res>
     Object? blocks = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$_Blocks(
+    return _then(_$BlocksImpl(
       blocks: null == blocks
           ? _value._blocks
           : blocks // ignore: cast_nullable_to_non_nullable
@@ -106,12 +108,12 @@ class __$$_BlocksCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_Blocks implements _Blocks {
-  const _$_Blocks({required final List<Actor> blocks, this.cursor})
+class _$BlocksImpl implements _Blocks {
+  const _$BlocksImpl({required final List<Actor> blocks, this.cursor})
       : _blocks = blocks;
 
-  factory _$_Blocks.fromJson(Map<String, dynamic> json) =>
-      _$$_BlocksFromJson(json);
+  factory _$BlocksImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BlocksImplFromJson(json);
 
   /// The list of blocked actors.
   final List<Actor> _blocks;
@@ -137,7 +139,7 @@ class _$_Blocks implements _Blocks {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Blocks &&
+            other is _$BlocksImpl &&
             const DeepCollectionEquality().equals(other._blocks, _blocks) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -150,12 +152,12 @@ class _$_Blocks implements _Blocks {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BlocksCopyWith<_$_Blocks> get copyWith =>
-      __$$_BlocksCopyWithImpl<_$_Blocks>(this, _$identity);
+  _$$BlocksImplCopyWith<_$BlocksImpl> get copyWith =>
+      __$$BlocksImplCopyWithImpl<_$BlocksImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BlocksToJson(
+    return _$$BlocksImplToJson(
       this,
     );
   }
@@ -163,9 +165,9 @@ class _$_Blocks implements _Blocks {
 
 abstract class _Blocks implements Blocks {
   const factory _Blocks(
-      {required final List<Actor> blocks, final String? cursor}) = _$_Blocks;
+      {required final List<Actor> blocks, final String? cursor}) = _$BlocksImpl;
 
-  factory _Blocks.fromJson(Map<String, dynamic> json) = _$_Blocks.fromJson;
+  factory _Blocks.fromJson(Map<String, dynamic> json) = _$BlocksImpl.fromJson;
 
   @override
 
@@ -177,6 +179,6 @@ abstract class _Blocks implements Blocks {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$_BlocksCopyWith<_$_Blocks> get copyWith =>
+  _$$BlocksImplCopyWith<_$BlocksImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

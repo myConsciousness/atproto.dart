@@ -89,11 +89,11 @@ class _$SavedFeedsPreferenceCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_SavedFeedsPreferenceCopyWith<$Res>
+abstract class _$$SavedFeedsPreferenceImplCopyWith<$Res>
     implements $SavedFeedsPreferenceCopyWith<$Res> {
-  factory _$$_SavedFeedsPreferenceCopyWith(_$_SavedFeedsPreference value,
-          $Res Function(_$_SavedFeedsPreference) then) =
-      __$$_SavedFeedsPreferenceCopyWithImpl<$Res>;
+  factory _$$SavedFeedsPreferenceImplCopyWith(_$SavedFeedsPreferenceImpl value,
+          $Res Function(_$SavedFeedsPreferenceImpl) then) =
+      __$$SavedFeedsPreferenceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -103,11 +103,11 @@ abstract class _$$_SavedFeedsPreferenceCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SavedFeedsPreferenceCopyWithImpl<$Res>
-    extends _$SavedFeedsPreferenceCopyWithImpl<$Res, _$_SavedFeedsPreference>
-    implements _$$_SavedFeedsPreferenceCopyWith<$Res> {
-  __$$_SavedFeedsPreferenceCopyWithImpl(_$_SavedFeedsPreference _value,
-      $Res Function(_$_SavedFeedsPreference) _then)
+class __$$SavedFeedsPreferenceImplCopyWithImpl<$Res>
+    extends _$SavedFeedsPreferenceCopyWithImpl<$Res, _$SavedFeedsPreferenceImpl>
+    implements _$$SavedFeedsPreferenceImplCopyWith<$Res> {
+  __$$SavedFeedsPreferenceImplCopyWithImpl(_$SavedFeedsPreferenceImpl _value,
+      $Res Function(_$SavedFeedsPreferenceImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -117,7 +117,7 @@ class __$$_SavedFeedsPreferenceCopyWithImpl<$Res>
     Object? pinnedUris = null,
     Object? savedUris = null,
   }) {
-    return _then(_$_SavedFeedsPreference(
+    return _then(_$SavedFeedsPreferenceImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -137,8 +137,8 @@ class __$$_SavedFeedsPreferenceCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_SavedFeedsPreference implements _SavedFeedsPreference {
-  const _$_SavedFeedsPreference(
+class _$SavedFeedsPreferenceImpl implements _SavedFeedsPreference {
+  const _$SavedFeedsPreferenceImpl(
       {@typeKey this.type = appBskyActorDefsSavedFeedsPref,
       @JsonKey(name: 'pinned')
       @atUriConverter
@@ -149,8 +149,8 @@ class _$_SavedFeedsPreference implements _SavedFeedsPreference {
       : _pinnedUris = pinnedUris,
         _savedUris = savedUris;
 
-  factory _$_SavedFeedsPreference.fromJson(Map<String, dynamic> json) =>
-      _$$_SavedFeedsPreferenceFromJson(json);
+  factory _$SavedFeedsPreferenceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SavedFeedsPreferenceImplFromJson(json);
 
   /// A string that represents the type of the object.
   /// By default, it is [appBskyActorDefsSavedFeedsPref].
@@ -193,7 +193,7 @@ class _$_SavedFeedsPreference implements _SavedFeedsPreference {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SavedFeedsPreference &&
+            other is _$SavedFeedsPreferenceImpl &&
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality()
                 .equals(other._pinnedUris, _pinnedUris) &&
@@ -212,13 +212,14 @@ class _$_SavedFeedsPreference implements _SavedFeedsPreference {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SavedFeedsPreferenceCopyWith<_$_SavedFeedsPreference> get copyWith =>
-      __$$_SavedFeedsPreferenceCopyWithImpl<_$_SavedFeedsPreference>(
-          this, _$identity);
+  _$$SavedFeedsPreferenceImplCopyWith<_$SavedFeedsPreferenceImpl>
+      get copyWith =>
+          __$$SavedFeedsPreferenceImplCopyWithImpl<_$SavedFeedsPreferenceImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SavedFeedsPreferenceToJson(
+    return _$$SavedFeedsPreferenceImplToJson(
       this,
     );
   }
@@ -232,10 +233,10 @@ abstract class _SavedFeedsPreference implements SavedFeedsPreference {
       required final List<AtUri> pinnedUris,
       @atUriConverter
       @JsonKey(name: 'saved')
-      required final List<AtUri> savedUris}) = _$_SavedFeedsPreference;
+      required final List<AtUri> savedUris}) = _$SavedFeedsPreferenceImpl;
 
   factory _SavedFeedsPreference.fromJson(Map<String, dynamic> json) =
-      _$_SavedFeedsPreference.fromJson;
+      _$SavedFeedsPreferenceImpl.fromJson;
 
   @override
 
@@ -257,6 +258,6 @@ abstract class _SavedFeedsPreference implements SavedFeedsPreference {
   List<AtUri> get savedUris;
   @override
   @JsonKey(ignore: true)
-  _$$_SavedFeedsPreferenceCopyWith<_$_SavedFeedsPreference> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SavedFeedsPreferenceImplCopyWith<_$SavedFeedsPreferenceImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

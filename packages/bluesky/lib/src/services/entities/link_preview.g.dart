@@ -8,11 +8,11 @@ part of 'link_preview.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LinkPreview _$$_LinkPreviewFromJson(Map json) => $checkedCreate(
-      r'_$_LinkPreview',
+_$LinkPreviewImpl _$$LinkPreviewImplFromJson(Map json) => $checkedCreate(
+      r'_$LinkPreviewImpl',
       json,
       ($checkedConvert) {
-        final val = _$_LinkPreview(
+        final val = _$LinkPreviewImpl(
           url: $checkedConvert('url', (v) => v as String),
           title: $checkedConvert('title', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String),
@@ -22,7 +22,7 @@ _$_LinkPreview _$$_LinkPreviewFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_LinkPreviewToJson(_$_LinkPreview instance) =>
+Map<String, dynamic> _$$LinkPreviewImplToJson(_$LinkPreviewImpl instance) =>
     <String, dynamic>{
       'url': instance.url,
       'title': instance.title,

@@ -8,12 +8,12 @@ part of 'subscribed_repo_migrate.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SubscribedRepoMigrate _$$_SubscribedRepoMigrateFromJson(Map json) =>
+_$SubscribedRepoMigrateImpl _$$SubscribedRepoMigrateImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$_SubscribedRepoMigrate',
+      r'_$SubscribedRepoMigrateImpl',
       json,
       ($checkedConvert) {
-        final val = _$_SubscribedRepoMigrate(
+        final val = _$SubscribedRepoMigrateImpl(
           did: $checkedConvert('did', (v) => v as String),
           migrateTo: $checkedConvert('migrateTo', (v) => v as String?),
           cursor: $checkedConvert('seq', (v) => v as int),
@@ -25,8 +25,8 @@ _$_SubscribedRepoMigrate _$$_SubscribedRepoMigrateFromJson(Map json) =>
       fieldKeyMap: const {'cursor': 'seq', 'createdAt': 'time'},
     );
 
-Map<String, dynamic> _$$_SubscribedRepoMigrateToJson(
-    _$_SubscribedRepoMigrate instance) {
+Map<String, dynamic> _$$SubscribedRepoMigrateImplToJson(
+    _$SubscribedRepoMigrateImpl instance) {
   final val = <String, dynamic>{
     'did': instance.did,
   };

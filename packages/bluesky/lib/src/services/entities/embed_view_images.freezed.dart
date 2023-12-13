@@ -72,22 +72,22 @@ class _$EmbedViewImagesCopyWithImpl<$Res, $Val extends EmbedViewImages>
 }
 
 /// @nodoc
-abstract class _$$_EmbedViewImagesCopyWith<$Res>
+abstract class _$$EmbedViewImagesImplCopyWith<$Res>
     implements $EmbedViewImagesCopyWith<$Res> {
-  factory _$$_EmbedViewImagesCopyWith(
-          _$_EmbedViewImages value, $Res Function(_$_EmbedViewImages) then) =
-      __$$_EmbedViewImagesCopyWithImpl<$Res>;
+  factory _$$EmbedViewImagesImplCopyWith(_$EmbedViewImagesImpl value,
+          $Res Function(_$EmbedViewImagesImpl) then) =
+      __$$EmbedViewImagesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String? type, List<EmbedViewImagesView> images});
 }
 
 /// @nodoc
-class __$$_EmbedViewImagesCopyWithImpl<$Res>
-    extends _$EmbedViewImagesCopyWithImpl<$Res, _$_EmbedViewImages>
-    implements _$$_EmbedViewImagesCopyWith<$Res> {
-  __$$_EmbedViewImagesCopyWithImpl(
-      _$_EmbedViewImages _value, $Res Function(_$_EmbedViewImages) _then)
+class __$$EmbedViewImagesImplCopyWithImpl<$Res>
+    extends _$EmbedViewImagesCopyWithImpl<$Res, _$EmbedViewImagesImpl>
+    implements _$$EmbedViewImagesImplCopyWith<$Res> {
+  __$$EmbedViewImagesImplCopyWithImpl(
+      _$EmbedViewImagesImpl _value, $Res Function(_$EmbedViewImagesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -96,7 +96,7 @@ class __$$_EmbedViewImagesCopyWithImpl<$Res>
     Object? type = freezed,
     Object? images = null,
   }) {
-    return _then(_$_EmbedViewImages(
+    return _then(_$EmbedViewImagesImpl(
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -111,13 +111,13 @@ class __$$_EmbedViewImagesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EmbedViewImages implements _EmbedViewImages {
-  const _$_EmbedViewImages(
+class _$EmbedViewImagesImpl implements _EmbedViewImages {
+  const _$EmbedViewImagesImpl(
       {@typeKey this.type, required final List<EmbedViewImagesView> images})
       : _images = images;
 
-  factory _$_EmbedViewImages.fromJson(Map<String, dynamic> json) =>
-      _$$_EmbedViewImagesFromJson(json);
+  factory _$EmbedViewImagesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmbedViewImagesImplFromJson(json);
 
   /// An optional string that represents the type of the embedded images view.
   @override
@@ -144,7 +144,7 @@ class _$_EmbedViewImages implements _EmbedViewImages {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EmbedViewImages &&
+            other is _$EmbedViewImagesImpl &&
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._images, _images));
   }
@@ -157,12 +157,13 @@ class _$_EmbedViewImages implements _EmbedViewImages {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EmbedViewImagesCopyWith<_$_EmbedViewImages> get copyWith =>
-      __$$_EmbedViewImagesCopyWithImpl<_$_EmbedViewImages>(this, _$identity);
+  _$$EmbedViewImagesImplCopyWith<_$EmbedViewImagesImpl> get copyWith =>
+      __$$EmbedViewImagesImplCopyWithImpl<_$EmbedViewImagesImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EmbedViewImagesToJson(
+    return _$$EmbedViewImagesImplToJson(
       this,
     );
   }
@@ -171,10 +172,10 @@ class _$_EmbedViewImages implements _EmbedViewImages {
 abstract class _EmbedViewImages implements EmbedViewImages {
   const factory _EmbedViewImages(
       {@typeKey final String? type,
-      required final List<EmbedViewImagesView> images}) = _$_EmbedViewImages;
+      required final List<EmbedViewImagesView> images}) = _$EmbedViewImagesImpl;
 
   factory _EmbedViewImages.fromJson(Map<String, dynamic> json) =
-      _$_EmbedViewImages.fromJson;
+      _$EmbedViewImagesImpl.fromJson;
 
   @override
 
@@ -187,6 +188,6 @@ abstract class _EmbedViewImages implements EmbedViewImages {
   List<EmbedViewImagesView> get images;
   @override
   @JsonKey(ignore: true)
-  _$$_EmbedViewImagesCopyWith<_$_EmbedViewImages> get copyWith =>
+  _$$EmbedViewImagesImplCopyWith<_$EmbedViewImagesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

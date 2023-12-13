@@ -8,11 +8,11 @@ part of 'post_viewer.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PostViewer _$$_PostViewerFromJson(Map json) => $checkedCreate(
-      r'_$_PostViewer',
+_$PostViewerImpl _$$PostViewerImplFromJson(Map json) => $checkedCreate(
+      r'_$PostViewerImpl',
       json,
       ($checkedConvert) {
-        final val = _$_PostViewer(
+        final val = _$PostViewerImpl(
           repost: $checkedConvert(
               'repost',
               (v) => _$JsonConverterFromJson<String, AtUri>(
@@ -29,7 +29,7 @@ _$_PostViewer _$$_PostViewerFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'isReplyDisabled': 'replyDisabled'},
     );
 
-Map<String, dynamic> _$$_PostViewerToJson(_$_PostViewer instance) {
+Map<String, dynamic> _$$PostViewerImplToJson(_$PostViewerImpl instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {

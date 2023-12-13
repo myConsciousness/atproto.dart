@@ -8,12 +8,13 @@ part of 'moderation_behavior_result.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ModerationBehaviorResult _$$_ModerationBehaviorResultFromJson(Map json) =>
+_$ModerationBehaviorResultImpl _$$ModerationBehaviorResultImplFromJson(
+        Map json) =>
     $checkedCreate(
-      r'_$_ModerationBehaviorResult',
+      r'_$ModerationBehaviorResultImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ModerationBehaviorResult(
+        final val = _$ModerationBehaviorResultImpl(
           cause: $checkedConvert('cause', (v) => v as String?),
           isFilter: $checkedConvert('filter', (v) => v as bool? ?? false),
           isBlur: $checkedConvert('blur', (v) => v as bool? ?? false),
@@ -31,8 +32,8 @@ _$_ModerationBehaviorResult _$$_ModerationBehaviorResultFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$_ModerationBehaviorResultToJson(
-    _$_ModerationBehaviorResult instance) {
+Map<String, dynamic> _$$ModerationBehaviorResultImplToJson(
+    _$ModerationBehaviorResultImpl instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {

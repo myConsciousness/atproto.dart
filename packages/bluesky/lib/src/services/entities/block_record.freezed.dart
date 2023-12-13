@@ -85,11 +85,11 @@ class _$BlockRecordCopyWithImpl<$Res, $Val extends BlockRecord>
 }
 
 /// @nodoc
-abstract class _$$_BlockRecordCopyWith<$Res>
+abstract class _$$BlockRecordImplCopyWith<$Res>
     implements $BlockRecordCopyWith<$Res> {
-  factory _$$_BlockRecordCopyWith(
-          _$_BlockRecord value, $Res Function(_$_BlockRecord) then) =
-      __$$_BlockRecordCopyWithImpl<$Res>;
+  factory _$$BlockRecordImplCopyWith(
+          _$BlockRecordImpl value, $Res Function(_$BlockRecordImpl) then) =
+      __$$BlockRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -99,11 +99,11 @@ abstract class _$$_BlockRecordCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_BlockRecordCopyWithImpl<$Res>
-    extends _$BlockRecordCopyWithImpl<$Res, _$_BlockRecord>
-    implements _$$_BlockRecordCopyWith<$Res> {
-  __$$_BlockRecordCopyWithImpl(
-      _$_BlockRecord _value, $Res Function(_$_BlockRecord) _then)
+class __$$BlockRecordImplCopyWithImpl<$Res>
+    extends _$BlockRecordCopyWithImpl<$Res, _$BlockRecordImpl>
+    implements _$$BlockRecordImplCopyWith<$Res> {
+  __$$BlockRecordImplCopyWithImpl(
+      _$BlockRecordImpl _value, $Res Function(_$BlockRecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -113,7 +113,7 @@ class __$$_BlockRecordCopyWithImpl<$Res>
     Object? did = null,
     Object? createdAt = null,
   }) {
-    return _then(_$_BlockRecord(
+    return _then(_$BlockRecordImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -133,14 +133,14 @@ class __$$_BlockRecordCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_BlockRecord implements _BlockRecord {
-  const _$_BlockRecord(
+class _$BlockRecordImpl implements _BlockRecord {
+  const _$BlockRecordImpl(
       {@typeKey this.type = appBskyGraphBlock,
       @JsonKey(name: 'subject') required this.did,
       required this.createdAt});
 
-  factory _$_BlockRecord.fromJson(Map<String, dynamic> json) =>
-      _$$_BlockRecordFromJson(json);
+  factory _$BlockRecordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BlockRecordImplFromJson(json);
 
   /// The type of the record.
   /// By default, it is `appBskyGraphBlock`.
@@ -166,7 +166,7 @@ class _$_BlockRecord implements _BlockRecord {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BlockRecord &&
+            other is _$BlockRecordImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.createdAt, createdAt) ||
@@ -180,12 +180,12 @@ class _$_BlockRecord implements _BlockRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BlockRecordCopyWith<_$_BlockRecord> get copyWith =>
-      __$$_BlockRecordCopyWithImpl<_$_BlockRecord>(this, _$identity);
+  _$$BlockRecordImplCopyWith<_$BlockRecordImpl> get copyWith =>
+      __$$BlockRecordImplCopyWithImpl<_$BlockRecordImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BlockRecordToJson(
+    return _$$BlockRecordImplToJson(
       this,
     );
   }
@@ -195,10 +195,10 @@ abstract class _BlockRecord implements BlockRecord {
   const factory _BlockRecord(
       {@typeKey final String type,
       @JsonKey(name: 'subject') required final String did,
-      required final DateTime createdAt}) = _$_BlockRecord;
+      required final DateTime createdAt}) = _$BlockRecordImpl;
 
   factory _BlockRecord.fromJson(Map<String, dynamic> json) =
-      _$_BlockRecord.fromJson;
+      _$BlockRecordImpl.fromJson;
 
   @override
 
@@ -217,6 +217,6 @@ abstract class _BlockRecord implements BlockRecord {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$_BlockRecordCopyWith<_$_BlockRecord> get copyWith =>
+  _$$BlockRecordImplCopyWith<_$BlockRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

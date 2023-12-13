@@ -87,10 +87,10 @@ class _$ReplyPostCopyWithImpl<$Res, $Val extends ReplyPost>
 }
 
 /// @nodoc
-abstract class _$$UReplyPostRecordCopyWith<$Res> {
-  factory _$$UReplyPostRecordCopyWith(
-          _$UReplyPostRecord value, $Res Function(_$UReplyPostRecord) then) =
-      __$$UReplyPostRecordCopyWithImpl<$Res>;
+abstract class _$$UReplyPostRecordImplCopyWith<$Res> {
+  factory _$$UReplyPostRecordImplCopyWith(_$UReplyPostRecordImpl value,
+          $Res Function(_$UReplyPostRecordImpl) then) =
+      __$$UReplyPostRecordImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Post data});
 
@@ -98,11 +98,11 @@ abstract class _$$UReplyPostRecordCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UReplyPostRecordCopyWithImpl<$Res>
-    extends _$ReplyPostCopyWithImpl<$Res, _$UReplyPostRecord>
-    implements _$$UReplyPostRecordCopyWith<$Res> {
-  __$$UReplyPostRecordCopyWithImpl(
-      _$UReplyPostRecord _value, $Res Function(_$UReplyPostRecord) _then)
+class __$$UReplyPostRecordImplCopyWithImpl<$Res>
+    extends _$ReplyPostCopyWithImpl<$Res, _$UReplyPostRecordImpl>
+    implements _$$UReplyPostRecordImplCopyWith<$Res> {
+  __$$UReplyPostRecordImplCopyWithImpl(_$UReplyPostRecordImpl _value,
+      $Res Function(_$UReplyPostRecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -110,7 +110,7 @@ class __$$UReplyPostRecordCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UReplyPostRecord(
+    return _then(_$UReplyPostRecordImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -129,8 +129,8 @@ class __$$UReplyPostRecordCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UReplyPostRecord implements UReplyPostRecord {
-  const _$UReplyPostRecord({required this.data});
+class _$UReplyPostRecordImpl implements UReplyPostRecord {
+  const _$UReplyPostRecordImpl({required this.data});
 
   @override
   final Post data;
@@ -144,7 +144,7 @@ class _$UReplyPostRecord implements UReplyPostRecord {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UReplyPostRecord &&
+            other is _$UReplyPostRecordImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -154,8 +154,9 @@ class _$UReplyPostRecord implements UReplyPostRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UReplyPostRecordCopyWith<_$UReplyPostRecord> get copyWith =>
-      __$$UReplyPostRecordCopyWithImpl<_$UReplyPostRecord>(this, _$identity);
+  _$$UReplyPostRecordImplCopyWith<_$UReplyPostRecordImpl> get copyWith =>
+      __$$UReplyPostRecordImplCopyWithImpl<_$UReplyPostRecordImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -234,20 +235,20 @@ class _$UReplyPostRecord implements UReplyPostRecord {
 
 abstract class UReplyPostRecord implements ReplyPost {
   const factory UReplyPostRecord({required final Post data}) =
-      _$UReplyPostRecord;
+      _$UReplyPostRecordImpl;
 
   @override
   Post get data;
   @JsonKey(ignore: true)
-  _$$UReplyPostRecordCopyWith<_$UReplyPostRecord> get copyWith =>
+  _$$UReplyPostRecordImplCopyWith<_$UReplyPostRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UReplyPostNotFoundCopyWith<$Res> {
-  factory _$$UReplyPostNotFoundCopyWith(_$UReplyPostNotFound value,
-          $Res Function(_$UReplyPostNotFound) then) =
-      __$$UReplyPostNotFoundCopyWithImpl<$Res>;
+abstract class _$$UReplyPostNotFoundImplCopyWith<$Res> {
+  factory _$$UReplyPostNotFoundImplCopyWith(_$UReplyPostNotFoundImpl value,
+          $Res Function(_$UReplyPostNotFoundImpl) then) =
+      __$$UReplyPostNotFoundImplCopyWithImpl<$Res>;
   @useResult
   $Res call({NotFoundPost data});
 
@@ -255,11 +256,11 @@ abstract class _$$UReplyPostNotFoundCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UReplyPostNotFoundCopyWithImpl<$Res>
-    extends _$ReplyPostCopyWithImpl<$Res, _$UReplyPostNotFound>
-    implements _$$UReplyPostNotFoundCopyWith<$Res> {
-  __$$UReplyPostNotFoundCopyWithImpl(
-      _$UReplyPostNotFound _value, $Res Function(_$UReplyPostNotFound) _then)
+class __$$UReplyPostNotFoundImplCopyWithImpl<$Res>
+    extends _$ReplyPostCopyWithImpl<$Res, _$UReplyPostNotFoundImpl>
+    implements _$$UReplyPostNotFoundImplCopyWith<$Res> {
+  __$$UReplyPostNotFoundImplCopyWithImpl(_$UReplyPostNotFoundImpl _value,
+      $Res Function(_$UReplyPostNotFoundImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -267,7 +268,7 @@ class __$$UReplyPostNotFoundCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UReplyPostNotFound(
+    return _then(_$UReplyPostNotFoundImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -286,8 +287,8 @@ class __$$UReplyPostNotFoundCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UReplyPostNotFound implements UReplyPostNotFound {
-  const _$UReplyPostNotFound({required this.data});
+class _$UReplyPostNotFoundImpl implements UReplyPostNotFound {
+  const _$UReplyPostNotFoundImpl({required this.data});
 
   @override
   final NotFoundPost data;
@@ -301,7 +302,7 @@ class _$UReplyPostNotFound implements UReplyPostNotFound {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UReplyPostNotFound &&
+            other is _$UReplyPostNotFoundImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -311,8 +312,8 @@ class _$UReplyPostNotFound implements UReplyPostNotFound {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UReplyPostNotFoundCopyWith<_$UReplyPostNotFound> get copyWith =>
-      __$$UReplyPostNotFoundCopyWithImpl<_$UReplyPostNotFound>(
+  _$$UReplyPostNotFoundImplCopyWith<_$UReplyPostNotFoundImpl> get copyWith =>
+      __$$UReplyPostNotFoundImplCopyWithImpl<_$UReplyPostNotFoundImpl>(
           this, _$identity);
 
   @override
@@ -392,20 +393,20 @@ class _$UReplyPostNotFound implements UReplyPostNotFound {
 
 abstract class UReplyPostNotFound implements ReplyPost {
   const factory UReplyPostNotFound({required final NotFoundPost data}) =
-      _$UReplyPostNotFound;
+      _$UReplyPostNotFoundImpl;
 
   @override
   NotFoundPost get data;
   @JsonKey(ignore: true)
-  _$$UReplyPostNotFoundCopyWith<_$UReplyPostNotFound> get copyWith =>
+  _$$UReplyPostNotFoundImplCopyWith<_$UReplyPostNotFoundImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UReplyPostBlockedCopyWith<$Res> {
-  factory _$$UReplyPostBlockedCopyWith(
-          _$UReplyPostBlocked value, $Res Function(_$UReplyPostBlocked) then) =
-      __$$UReplyPostBlockedCopyWithImpl<$Res>;
+abstract class _$$UReplyPostBlockedImplCopyWith<$Res> {
+  factory _$$UReplyPostBlockedImplCopyWith(_$UReplyPostBlockedImpl value,
+          $Res Function(_$UReplyPostBlockedImpl) then) =
+      __$$UReplyPostBlockedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BlockedPost data});
 
@@ -413,11 +414,11 @@ abstract class _$$UReplyPostBlockedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UReplyPostBlockedCopyWithImpl<$Res>
-    extends _$ReplyPostCopyWithImpl<$Res, _$UReplyPostBlocked>
-    implements _$$UReplyPostBlockedCopyWith<$Res> {
-  __$$UReplyPostBlockedCopyWithImpl(
-      _$UReplyPostBlocked _value, $Res Function(_$UReplyPostBlocked) _then)
+class __$$UReplyPostBlockedImplCopyWithImpl<$Res>
+    extends _$ReplyPostCopyWithImpl<$Res, _$UReplyPostBlockedImpl>
+    implements _$$UReplyPostBlockedImplCopyWith<$Res> {
+  __$$UReplyPostBlockedImplCopyWithImpl(_$UReplyPostBlockedImpl _value,
+      $Res Function(_$UReplyPostBlockedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -425,7 +426,7 @@ class __$$UReplyPostBlockedCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UReplyPostBlocked(
+    return _then(_$UReplyPostBlockedImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -444,8 +445,8 @@ class __$$UReplyPostBlockedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UReplyPostBlocked implements UReplyPostBlocked {
-  const _$UReplyPostBlocked({required this.data});
+class _$UReplyPostBlockedImpl implements UReplyPostBlocked {
+  const _$UReplyPostBlockedImpl({required this.data});
 
   @override
   final BlockedPost data;
@@ -459,7 +460,7 @@ class _$UReplyPostBlocked implements UReplyPostBlocked {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UReplyPostBlocked &&
+            other is _$UReplyPostBlockedImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -469,8 +470,9 @@ class _$UReplyPostBlocked implements UReplyPostBlocked {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UReplyPostBlockedCopyWith<_$UReplyPostBlocked> get copyWith =>
-      __$$UReplyPostBlockedCopyWithImpl<_$UReplyPostBlocked>(this, _$identity);
+  _$$UReplyPostBlockedImplCopyWith<_$UReplyPostBlockedImpl> get copyWith =>
+      __$$UReplyPostBlockedImplCopyWithImpl<_$UReplyPostBlockedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -549,30 +551,30 @@ class _$UReplyPostBlocked implements UReplyPostBlocked {
 
 abstract class UReplyPostBlocked implements ReplyPost {
   const factory UReplyPostBlocked({required final BlockedPost data}) =
-      _$UReplyPostBlocked;
+      _$UReplyPostBlockedImpl;
 
   @override
   BlockedPost get data;
   @JsonKey(ignore: true)
-  _$$UReplyPostBlockedCopyWith<_$UReplyPostBlocked> get copyWith =>
+  _$$UReplyPostBlockedImplCopyWith<_$UReplyPostBlockedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UReplyPostUnknownCopyWith<$Res> {
-  factory _$$UReplyPostUnknownCopyWith(
-          _$UReplyPostUnknown value, $Res Function(_$UReplyPostUnknown) then) =
-      __$$UReplyPostUnknownCopyWithImpl<$Res>;
+abstract class _$$UReplyPostUnknownImplCopyWith<$Res> {
+  factory _$$UReplyPostUnknownImplCopyWith(_$UReplyPostUnknownImpl value,
+          $Res Function(_$UReplyPostUnknownImpl) then) =
+      __$$UReplyPostUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UReplyPostUnknownCopyWithImpl<$Res>
-    extends _$ReplyPostCopyWithImpl<$Res, _$UReplyPostUnknown>
-    implements _$$UReplyPostUnknownCopyWith<$Res> {
-  __$$UReplyPostUnknownCopyWithImpl(
-      _$UReplyPostUnknown _value, $Res Function(_$UReplyPostUnknown) _then)
+class __$$UReplyPostUnknownImplCopyWithImpl<$Res>
+    extends _$ReplyPostCopyWithImpl<$Res, _$UReplyPostUnknownImpl>
+    implements _$$UReplyPostUnknownImplCopyWith<$Res> {
+  __$$UReplyPostUnknownImplCopyWithImpl(_$UReplyPostUnknownImpl _value,
+      $Res Function(_$UReplyPostUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -580,7 +582,7 @@ class __$$UReplyPostUnknownCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UReplyPostUnknown(
+    return _then(_$UReplyPostUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -591,8 +593,8 @@ class __$$UReplyPostUnknownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UReplyPostUnknown implements UReplyPostUnknown {
-  const _$UReplyPostUnknown({required final Map<String, dynamic> data})
+class _$UReplyPostUnknownImpl implements UReplyPostUnknown {
+  const _$UReplyPostUnknownImpl({required final Map<String, dynamic> data})
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -612,7 +614,7 @@ class _$UReplyPostUnknown implements UReplyPostUnknown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UReplyPostUnknown &&
+            other is _$UReplyPostUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -623,8 +625,9 @@ class _$UReplyPostUnknown implements UReplyPostUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UReplyPostUnknownCopyWith<_$UReplyPostUnknown> get copyWith =>
-      __$$UReplyPostUnknownCopyWithImpl<_$UReplyPostUnknown>(this, _$identity);
+  _$$UReplyPostUnknownImplCopyWith<_$UReplyPostUnknownImpl> get copyWith =>
+      __$$UReplyPostUnknownImplCopyWithImpl<_$UReplyPostUnknownImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -703,11 +706,11 @@ class _$UReplyPostUnknown implements UReplyPostUnknown {
 
 abstract class UReplyPostUnknown implements ReplyPost {
   const factory UReplyPostUnknown({required final Map<String, dynamic> data}) =
-      _$UReplyPostUnknown;
+      _$UReplyPostUnknownImpl;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$UReplyPostUnknownCopyWith<_$UReplyPostUnknown> get copyWith =>
+  _$$UReplyPostUnknownImplCopyWith<_$UReplyPostUnknownImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

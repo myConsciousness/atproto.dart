@@ -173,11 +173,11 @@ class _$ActorProfileCopyWithImpl<$Res, $Val extends ActorProfile>
 }
 
 /// @nodoc
-abstract class _$$_ActorProfileCopyWith<$Res>
+abstract class _$$ActorProfileImplCopyWith<$Res>
     implements $ActorProfileCopyWith<$Res> {
-  factory _$$_ActorProfileCopyWith(
-          _$_ActorProfile value, $Res Function(_$_ActorProfile) then) =
-      __$$_ActorProfileCopyWithImpl<$Res>;
+  factory _$$ActorProfileImplCopyWith(
+          _$ActorProfileImpl value, $Res Function(_$ActorProfileImpl) then) =
+      __$$ActorProfileImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -199,11 +199,11 @@ abstract class _$$_ActorProfileCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ActorProfileCopyWithImpl<$Res>
-    extends _$ActorProfileCopyWithImpl<$Res, _$_ActorProfile>
-    implements _$$_ActorProfileCopyWith<$Res> {
-  __$$_ActorProfileCopyWithImpl(
-      _$_ActorProfile _value, $Res Function(_$_ActorProfile) _then)
+class __$$ActorProfileImplCopyWithImpl<$Res>
+    extends _$ActorProfileCopyWithImpl<$Res, _$ActorProfileImpl>
+    implements _$$ActorProfileImplCopyWith<$Res> {
+  __$$ActorProfileImplCopyWithImpl(
+      _$ActorProfileImpl _value, $Res Function(_$ActorProfileImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -222,7 +222,7 @@ class __$$_ActorProfileCopyWithImpl<$Res>
     Object? labels = freezed,
     Object? indexedAt = freezed,
   }) {
-    return _then(_$_ActorProfile(
+    return _then(_$ActorProfileImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -278,8 +278,8 @@ class __$$_ActorProfileCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ActorProfile extends _ActorProfile {
-  const _$_ActorProfile(
+class _$ActorProfileImpl extends _ActorProfile {
+  const _$ActorProfileImpl(
       {required this.did,
       required this.handle,
       this.displayName,
@@ -295,8 +295,8 @@ class _$_ActorProfile extends _ActorProfile {
       : _labels = labels,
         super._();
 
-  factory _$_ActorProfile.fromJson(Map<String, dynamic> json) =>
-      _$$_ActorProfileFromJson(json);
+  factory _$ActorProfileImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ActorProfileImplFromJson(json);
 
   /// The unique identifier of the actor.
   @override
@@ -368,7 +368,7 @@ class _$_ActorProfile extends _ActorProfile {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActorProfile &&
+            other is _$ActorProfileImpl &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.displayName, displayName) ||
@@ -409,12 +409,12 @@ class _$_ActorProfile extends _ActorProfile {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ActorProfileCopyWith<_$_ActorProfile> get copyWith =>
-      __$$_ActorProfileCopyWithImpl<_$_ActorProfile>(this, _$identity);
+  _$$ActorProfileImplCopyWith<_$ActorProfileImpl> get copyWith =>
+      __$$ActorProfileImplCopyWithImpl<_$ActorProfileImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ActorProfileToJson(
+    return _$$ActorProfileImplToJson(
       this,
     );
   }
@@ -433,11 +433,11 @@ abstract class _ActorProfile extends ActorProfile {
       final int postsCount,
       final ActorViewer viewer,
       final List<Label>? labels,
-      final DateTime? indexedAt}) = _$_ActorProfile;
+      final DateTime? indexedAt}) = _$ActorProfileImpl;
   const _ActorProfile._() : super._();
 
   factory _ActorProfile.fromJson(Map<String, dynamic> json) =
-      _$_ActorProfile.fromJson;
+      _$ActorProfileImpl.fromJson;
 
   @override
 
@@ -489,6 +489,6 @@ abstract class _ActorProfile extends ActorProfile {
   DateTime? get indexedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_ActorProfileCopyWith<_$_ActorProfile> get copyWith =>
+  _$$ActorProfileImplCopyWith<_$ActorProfileImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

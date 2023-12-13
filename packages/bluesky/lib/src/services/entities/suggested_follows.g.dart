@@ -8,11 +8,12 @@ part of 'suggested_follows.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SuggestedFollows _$$_SuggestedFollowsFromJson(Map json) => $checkedCreate(
-      r'_$_SuggestedFollows',
+_$SuggestedFollowsImpl _$$SuggestedFollowsImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$SuggestedFollowsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_SuggestedFollows(
+        final val = _$SuggestedFollowsImpl(
           suggestions: $checkedConvert(
               'suggestions',
               (v) => (v as List<dynamic>)
@@ -24,7 +25,8 @@ _$_SuggestedFollows _$$_SuggestedFollowsFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_SuggestedFollowsToJson(_$_SuggestedFollows instance) =>
+Map<String, dynamic> _$$SuggestedFollowsImplToJson(
+        _$SuggestedFollowsImpl instance) =>
     <String, dynamic>{
       'suggestions': instance.suggestions.map((e) => e.toJson()).toList(),
     };

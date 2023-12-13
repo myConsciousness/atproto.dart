@@ -84,11 +84,11 @@ class _$BlockListRecordCopyWithImpl<$Res, $Val extends BlockListRecord>
 }
 
 /// @nodoc
-abstract class _$$_BlockListRecordCopyWith<$Res>
+abstract class _$$BlockListRecordImplCopyWith<$Res>
     implements $BlockListRecordCopyWith<$Res> {
-  factory _$$_BlockListRecordCopyWith(
-          _$_BlockListRecord value, $Res Function(_$_BlockListRecord) then) =
-      __$$_BlockListRecordCopyWithImpl<$Res>;
+  factory _$$BlockListRecordImplCopyWith(_$BlockListRecordImpl value,
+          $Res Function(_$BlockListRecordImpl) then) =
+      __$$BlockListRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -98,11 +98,11 @@ abstract class _$$_BlockListRecordCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_BlockListRecordCopyWithImpl<$Res>
-    extends _$BlockListRecordCopyWithImpl<$Res, _$_BlockListRecord>
-    implements _$$_BlockListRecordCopyWith<$Res> {
-  __$$_BlockListRecordCopyWithImpl(
-      _$_BlockListRecord _value, $Res Function(_$_BlockListRecord) _then)
+class __$$BlockListRecordImplCopyWithImpl<$Res>
+    extends _$BlockListRecordCopyWithImpl<$Res, _$BlockListRecordImpl>
+    implements _$$BlockListRecordImplCopyWith<$Res> {
+  __$$BlockListRecordImplCopyWithImpl(
+      _$BlockListRecordImpl _value, $Res Function(_$BlockListRecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +112,7 @@ class __$$_BlockListRecordCopyWithImpl<$Res>
     Object? subject = null,
     Object? createdAt = null,
   }) {
-    return _then(_$_BlockListRecord(
+    return _then(_$BlockListRecordImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -132,14 +132,14 @@ class __$$_BlockListRecordCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_BlockListRecord implements _BlockListRecord {
-  const _$_BlockListRecord(
+class _$BlockListRecordImpl implements _BlockListRecord {
+  const _$BlockListRecordImpl(
       {@typeKey this.type = appBskyGraphListblock,
       @atUriConverter required this.subject,
       required this.createdAt});
 
-  factory _$_BlockListRecord.fromJson(Map<String, dynamic> json) =>
-      _$$_BlockListRecordFromJson(json);
+  factory _$BlockListRecordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BlockListRecordImplFromJson(json);
 
   /// The type of the list, by default it is [appBskyGraphListblock].
   @override
@@ -164,7 +164,7 @@ class _$_BlockListRecord implements _BlockListRecord {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BlockListRecord &&
+            other is _$BlockListRecordImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.createdAt, createdAt) ||
@@ -178,12 +178,13 @@ class _$_BlockListRecord implements _BlockListRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BlockListRecordCopyWith<_$_BlockListRecord> get copyWith =>
-      __$$_BlockListRecordCopyWithImpl<_$_BlockListRecord>(this, _$identity);
+  _$$BlockListRecordImplCopyWith<_$BlockListRecordImpl> get copyWith =>
+      __$$BlockListRecordImplCopyWithImpl<_$BlockListRecordImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BlockListRecordToJson(
+    return _$$BlockListRecordImplToJson(
       this,
     );
   }
@@ -193,10 +194,10 @@ abstract class _BlockListRecord implements BlockListRecord {
   const factory _BlockListRecord(
       {@typeKey final String type,
       @atUriConverter required final AtUri subject,
-      required final DateTime createdAt}) = _$_BlockListRecord;
+      required final DateTime createdAt}) = _$BlockListRecordImpl;
 
   factory _BlockListRecord.fromJson(Map<String, dynamic> json) =
-      _$_BlockListRecord.fromJson;
+      _$BlockListRecordImpl.fromJson;
 
   @override
 
@@ -214,6 +215,6 @@ abstract class _BlockListRecord implements BlockListRecord {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$_BlockListRecordCopyWith<_$_BlockListRecord> get copyWith =>
+  _$$BlockListRecordImplCopyWith<_$BlockListRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

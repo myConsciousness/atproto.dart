@@ -98,10 +98,11 @@ class _$SubscribedLabelCopyWithImpl<$Res, $Val extends SubscribedLabel>
 }
 
 /// @nodoc
-abstract class _$$USubscribedLabelLabelsCopyWith<$Res> {
-  factory _$$USubscribedLabelLabelsCopyWith(_$USubscribedLabelLabels value,
-          $Res Function(_$USubscribedLabelLabels) then) =
-      __$$USubscribedLabelLabelsCopyWithImpl<$Res>;
+abstract class _$$USubscribedLabelLabelsImplCopyWith<$Res> {
+  factory _$$USubscribedLabelLabelsImplCopyWith(
+          _$USubscribedLabelLabelsImpl value,
+          $Res Function(_$USubscribedLabelLabelsImpl) then) =
+      __$$USubscribedLabelLabelsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({SubscribedLabelLabels data});
 
@@ -109,11 +110,12 @@ abstract class _$$USubscribedLabelLabelsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$USubscribedLabelLabelsCopyWithImpl<$Res>
-    extends _$SubscribedLabelCopyWithImpl<$Res, _$USubscribedLabelLabels>
-    implements _$$USubscribedLabelLabelsCopyWith<$Res> {
-  __$$USubscribedLabelLabelsCopyWithImpl(_$USubscribedLabelLabels _value,
-      $Res Function(_$USubscribedLabelLabels) _then)
+class __$$USubscribedLabelLabelsImplCopyWithImpl<$Res>
+    extends _$SubscribedLabelCopyWithImpl<$Res, _$USubscribedLabelLabelsImpl>
+    implements _$$USubscribedLabelLabelsImplCopyWith<$Res> {
+  __$$USubscribedLabelLabelsImplCopyWithImpl(
+      _$USubscribedLabelLabelsImpl _value,
+      $Res Function(_$USubscribedLabelLabelsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -121,7 +123,7 @@ class __$$USubscribedLabelLabelsCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$USubscribedLabelLabels(
+    return _then(_$USubscribedLabelLabelsImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -140,12 +142,12 @@ class __$$USubscribedLabelLabelsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$USubscribedLabelLabels implements USubscribedLabelLabels {
-  const _$USubscribedLabelLabels({required this.data, final String? $type})
+class _$USubscribedLabelLabelsImpl implements USubscribedLabelLabels {
+  const _$USubscribedLabelLabelsImpl({required this.data, final String? $type})
       : $type = $type ?? 'labels';
 
-  factory _$USubscribedLabelLabels.fromJson(Map<String, dynamic> json) =>
-      _$$USubscribedLabelLabelsFromJson(json);
+  factory _$USubscribedLabelLabelsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$USubscribedLabelLabelsImplFromJson(json);
 
   @override
   final SubscribedLabelLabels data;
@@ -162,7 +164,7 @@ class _$USubscribedLabelLabels implements USubscribedLabelLabels {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$USubscribedLabelLabels &&
+            other is _$USubscribedLabelLabelsImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -173,9 +175,9 @@ class _$USubscribedLabelLabels implements USubscribedLabelLabels {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$USubscribedLabelLabelsCopyWith<_$USubscribedLabelLabels> get copyWith =>
-      __$$USubscribedLabelLabelsCopyWithImpl<_$USubscribedLabelLabels>(
-          this, _$identity);
+  _$$USubscribedLabelLabelsImplCopyWith<_$USubscribedLabelLabelsImpl>
+      get copyWith => __$$USubscribedLabelLabelsImplCopyWithImpl<
+          _$USubscribedLabelLabelsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -247,7 +249,7 @@ class _$USubscribedLabelLabels implements USubscribedLabelLabels {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$USubscribedLabelLabelsToJson(
+    return _$$USubscribedLabelLabelsImplToJson(
       this,
     );
   }
@@ -255,23 +257,24 @@ class _$USubscribedLabelLabels implements USubscribedLabelLabels {
 
 abstract class USubscribedLabelLabels implements SubscribedLabel {
   const factory USubscribedLabelLabels(
-      {required final SubscribedLabelLabels data}) = _$USubscribedLabelLabels;
+          {required final SubscribedLabelLabels data}) =
+      _$USubscribedLabelLabelsImpl;
 
   factory USubscribedLabelLabels.fromJson(Map<String, dynamic> json) =
-      _$USubscribedLabelLabels.fromJson;
+      _$USubscribedLabelLabelsImpl.fromJson;
 
   @override
   SubscribedLabelLabels get data;
   @JsonKey(ignore: true)
-  _$$USubscribedLabelLabelsCopyWith<_$USubscribedLabelLabels> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$USubscribedLabelLabelsImplCopyWith<_$USubscribedLabelLabelsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$USubscribedLabelInfoCopyWith<$Res> {
-  factory _$$USubscribedLabelInfoCopyWith(_$USubscribedLabelInfo value,
-          $Res Function(_$USubscribedLabelInfo) then) =
-      __$$USubscribedLabelInfoCopyWithImpl<$Res>;
+abstract class _$$USubscribedLabelInfoImplCopyWith<$Res> {
+  factory _$$USubscribedLabelInfoImplCopyWith(_$USubscribedLabelInfoImpl value,
+          $Res Function(_$USubscribedLabelInfoImpl) then) =
+      __$$USubscribedLabelInfoImplCopyWithImpl<$Res>;
   @useResult
   $Res call({SubscribedLabelInfo data});
 
@@ -279,11 +282,11 @@ abstract class _$$USubscribedLabelInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$USubscribedLabelInfoCopyWithImpl<$Res>
-    extends _$SubscribedLabelCopyWithImpl<$Res, _$USubscribedLabelInfo>
-    implements _$$USubscribedLabelInfoCopyWith<$Res> {
-  __$$USubscribedLabelInfoCopyWithImpl(_$USubscribedLabelInfo _value,
-      $Res Function(_$USubscribedLabelInfo) _then)
+class __$$USubscribedLabelInfoImplCopyWithImpl<$Res>
+    extends _$SubscribedLabelCopyWithImpl<$Res, _$USubscribedLabelInfoImpl>
+    implements _$$USubscribedLabelInfoImplCopyWith<$Res> {
+  __$$USubscribedLabelInfoImplCopyWithImpl(_$USubscribedLabelInfoImpl _value,
+      $Res Function(_$USubscribedLabelInfoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -291,7 +294,7 @@ class __$$USubscribedLabelInfoCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$USubscribedLabelInfo(
+    return _then(_$USubscribedLabelInfoImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -310,12 +313,12 @@ class __$$USubscribedLabelInfoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$USubscribedLabelInfo implements USubscribedLabelInfo {
-  const _$USubscribedLabelInfo({required this.data, final String? $type})
+class _$USubscribedLabelInfoImpl implements USubscribedLabelInfo {
+  const _$USubscribedLabelInfoImpl({required this.data, final String? $type})
       : $type = $type ?? 'info';
 
-  factory _$USubscribedLabelInfo.fromJson(Map<String, dynamic> json) =>
-      _$$USubscribedLabelInfoFromJson(json);
+  factory _$USubscribedLabelInfoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$USubscribedLabelInfoImplFromJson(json);
 
   @override
   final SubscribedLabelInfo data;
@@ -332,7 +335,7 @@ class _$USubscribedLabelInfo implements USubscribedLabelInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$USubscribedLabelInfo &&
+            other is _$USubscribedLabelInfoImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -343,9 +346,10 @@ class _$USubscribedLabelInfo implements USubscribedLabelInfo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$USubscribedLabelInfoCopyWith<_$USubscribedLabelInfo> get copyWith =>
-      __$$USubscribedLabelInfoCopyWithImpl<_$USubscribedLabelInfo>(
-          this, _$identity);
+  _$$USubscribedLabelInfoImplCopyWith<_$USubscribedLabelInfoImpl>
+      get copyWith =>
+          __$$USubscribedLabelInfoImplCopyWithImpl<_$USubscribedLabelInfoImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -417,7 +421,7 @@ class _$USubscribedLabelInfo implements USubscribedLabelInfo {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$USubscribedLabelInfoToJson(
+    return _$$USubscribedLabelInfoImplToJson(
       this,
     );
   }
@@ -425,33 +429,35 @@ class _$USubscribedLabelInfo implements USubscribedLabelInfo {
 
 abstract class USubscribedLabelInfo implements SubscribedLabel {
   const factory USubscribedLabelInfo(
-      {required final SubscribedLabelInfo data}) = _$USubscribedLabelInfo;
+      {required final SubscribedLabelInfo data}) = _$USubscribedLabelInfoImpl;
 
   factory USubscribedLabelInfo.fromJson(Map<String, dynamic> json) =
-      _$USubscribedLabelInfo.fromJson;
+      _$USubscribedLabelInfoImpl.fromJson;
 
   @override
   SubscribedLabelInfo get data;
   @JsonKey(ignore: true)
-  _$$USubscribedLabelInfoCopyWith<_$USubscribedLabelInfo> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$USubscribedLabelInfoImplCopyWith<_$USubscribedLabelInfoImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$USubscribedLabelUnknownCopyWith<$Res> {
-  factory _$$USubscribedLabelUnknownCopyWith(_$USubscribedLabelUnknown value,
-          $Res Function(_$USubscribedLabelUnknown) then) =
-      __$$USubscribedLabelUnknownCopyWithImpl<$Res>;
+abstract class _$$USubscribedLabelUnknownImplCopyWith<$Res> {
+  factory _$$USubscribedLabelUnknownImplCopyWith(
+          _$USubscribedLabelUnknownImpl value,
+          $Res Function(_$USubscribedLabelUnknownImpl) then) =
+      __$$USubscribedLabelUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$USubscribedLabelUnknownCopyWithImpl<$Res>
-    extends _$SubscribedLabelCopyWithImpl<$Res, _$USubscribedLabelUnknown>
-    implements _$$USubscribedLabelUnknownCopyWith<$Res> {
-  __$$USubscribedLabelUnknownCopyWithImpl(_$USubscribedLabelUnknown _value,
-      $Res Function(_$USubscribedLabelUnknown) _then)
+class __$$USubscribedLabelUnknownImplCopyWithImpl<$Res>
+    extends _$SubscribedLabelCopyWithImpl<$Res, _$USubscribedLabelUnknownImpl>
+    implements _$$USubscribedLabelUnknownImplCopyWith<$Res> {
+  __$$USubscribedLabelUnknownImplCopyWithImpl(
+      _$USubscribedLabelUnknownImpl _value,
+      $Res Function(_$USubscribedLabelUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -459,7 +465,7 @@ class __$$USubscribedLabelUnknownCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$USubscribedLabelUnknown(
+    return _then(_$USubscribedLabelUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -470,14 +476,14 @@ class __$$USubscribedLabelUnknownCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$USubscribedLabelUnknown implements USubscribedLabelUnknown {
-  const _$USubscribedLabelUnknown(
+class _$USubscribedLabelUnknownImpl implements USubscribedLabelUnknown {
+  const _$USubscribedLabelUnknownImpl(
       {required final Map<String, dynamic> data, final String? $type})
       : _data = data,
         $type = $type ?? 'unknown';
 
-  factory _$USubscribedLabelUnknown.fromJson(Map<String, dynamic> json) =>
-      _$$USubscribedLabelUnknownFromJson(json);
+  factory _$USubscribedLabelUnknownImpl.fromJson(Map<String, dynamic> json) =>
+      _$$USubscribedLabelUnknownImplFromJson(json);
 
   final Map<String, dynamic> _data;
   @override
@@ -499,7 +505,7 @@ class _$USubscribedLabelUnknown implements USubscribedLabelUnknown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$USubscribedLabelUnknown &&
+            other is _$USubscribedLabelUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -511,9 +517,9 @@ class _$USubscribedLabelUnknown implements USubscribedLabelUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$USubscribedLabelUnknownCopyWith<_$USubscribedLabelUnknown> get copyWith =>
-      __$$USubscribedLabelUnknownCopyWithImpl<_$USubscribedLabelUnknown>(
-          this, _$identity);
+  _$$USubscribedLabelUnknownImplCopyWith<_$USubscribedLabelUnknownImpl>
+      get copyWith => __$$USubscribedLabelUnknownImplCopyWithImpl<
+          _$USubscribedLabelUnknownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -585,7 +591,7 @@ class _$USubscribedLabelUnknown implements USubscribedLabelUnknown {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$USubscribedLabelUnknownToJson(
+    return _$$USubscribedLabelUnknownImplToJson(
       this,
     );
   }
@@ -593,14 +599,15 @@ class _$USubscribedLabelUnknown implements USubscribedLabelUnknown {
 
 abstract class USubscribedLabelUnknown implements SubscribedLabel {
   const factory USubscribedLabelUnknown(
-      {required final Map<String, dynamic> data}) = _$USubscribedLabelUnknown;
+          {required final Map<String, dynamic> data}) =
+      _$USubscribedLabelUnknownImpl;
 
   factory USubscribedLabelUnknown.fromJson(Map<String, dynamic> json) =
-      _$USubscribedLabelUnknown.fromJson;
+      _$USubscribedLabelUnknownImpl.fromJson;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$USubscribedLabelUnknownCopyWith<_$USubscribedLabelUnknown> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$USubscribedLabelUnknownImplCopyWith<_$USubscribedLabelUnknownImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

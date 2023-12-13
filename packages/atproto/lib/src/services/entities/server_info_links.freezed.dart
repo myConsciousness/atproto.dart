@@ -71,22 +71,22 @@ class _$ServerInfoLinksCopyWithImpl<$Res, $Val extends ServerInfoLinks>
 }
 
 /// @nodoc
-abstract class _$$_ServerInfoLinksCopyWith<$Res>
+abstract class _$$ServerInfoLinksImplCopyWith<$Res>
     implements $ServerInfoLinksCopyWith<$Res> {
-  factory _$$_ServerInfoLinksCopyWith(
-          _$_ServerInfoLinks value, $Res Function(_$_ServerInfoLinks) then) =
-      __$$_ServerInfoLinksCopyWithImpl<$Res>;
+  factory _$$ServerInfoLinksImplCopyWith(_$ServerInfoLinksImpl value,
+          $Res Function(_$ServerInfoLinksImpl) then) =
+      __$$ServerInfoLinksImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? privacyPolicy, String? termsOfService});
 }
 
 /// @nodoc
-class __$$_ServerInfoLinksCopyWithImpl<$Res>
-    extends _$ServerInfoLinksCopyWithImpl<$Res, _$_ServerInfoLinks>
-    implements _$$_ServerInfoLinksCopyWith<$Res> {
-  __$$_ServerInfoLinksCopyWithImpl(
-      _$_ServerInfoLinks _value, $Res Function(_$_ServerInfoLinks) _then)
+class __$$ServerInfoLinksImplCopyWithImpl<$Res>
+    extends _$ServerInfoLinksCopyWithImpl<$Res, _$ServerInfoLinksImpl>
+    implements _$$ServerInfoLinksImplCopyWith<$Res> {
+  __$$ServerInfoLinksImplCopyWithImpl(
+      _$ServerInfoLinksImpl _value, $Res Function(_$ServerInfoLinksImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,7 +95,7 @@ class __$$_ServerInfoLinksCopyWithImpl<$Res>
     Object? privacyPolicy = freezed,
     Object? termsOfService = freezed,
   }) {
-    return _then(_$_ServerInfoLinks(
+    return _then(_$ServerInfoLinksImpl(
       privacyPolicy: freezed == privacyPolicy
           ? _value.privacyPolicy
           : privacyPolicy // ignore: cast_nullable_to_non_nullable
@@ -111,11 +111,11 @@ class __$$_ServerInfoLinksCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ServerInfoLinks implements _ServerInfoLinks {
-  const _$_ServerInfoLinks({this.privacyPolicy, this.termsOfService});
+class _$ServerInfoLinksImpl implements _ServerInfoLinks {
+  const _$ServerInfoLinksImpl({this.privacyPolicy, this.termsOfService});
 
-  factory _$_ServerInfoLinks.fromJson(Map<String, dynamic> json) =>
-      _$$_ServerInfoLinksFromJson(json);
+  factory _$ServerInfoLinksImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ServerInfoLinksImplFromJson(json);
 
   /// The URL to the privacy policy, if available.
   @override
@@ -134,7 +134,7 @@ class _$_ServerInfoLinks implements _ServerInfoLinks {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ServerInfoLinks &&
+            other is _$ServerInfoLinksImpl &&
             (identical(other.privacyPolicy, privacyPolicy) ||
                 other.privacyPolicy == privacyPolicy) &&
             (identical(other.termsOfService, termsOfService) ||
@@ -148,12 +148,13 @@ class _$_ServerInfoLinks implements _ServerInfoLinks {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ServerInfoLinksCopyWith<_$_ServerInfoLinks> get copyWith =>
-      __$$_ServerInfoLinksCopyWithImpl<_$_ServerInfoLinks>(this, _$identity);
+  _$$ServerInfoLinksImplCopyWith<_$ServerInfoLinksImpl> get copyWith =>
+      __$$ServerInfoLinksImplCopyWithImpl<_$ServerInfoLinksImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ServerInfoLinksToJson(
+    return _$$ServerInfoLinksImplToJson(
       this,
     );
   }
@@ -162,10 +163,10 @@ class _$_ServerInfoLinks implements _ServerInfoLinks {
 abstract class _ServerInfoLinks implements ServerInfoLinks {
   const factory _ServerInfoLinks(
       {final String? privacyPolicy,
-      final String? termsOfService}) = _$_ServerInfoLinks;
+      final String? termsOfService}) = _$ServerInfoLinksImpl;
 
   factory _ServerInfoLinks.fromJson(Map<String, dynamic> json) =
-      _$_ServerInfoLinks.fromJson;
+      _$ServerInfoLinksImpl.fromJson;
 
   @override
 
@@ -177,6 +178,6 @@ abstract class _ServerInfoLinks implements ServerInfoLinks {
   String? get termsOfService;
   @override
   @JsonKey(ignore: true)
-  _$$_ServerInfoLinksCopyWith<_$_ServerInfoLinks> get copyWith =>
+  _$$ServerInfoLinksImplCopyWith<_$ServerInfoLinksImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

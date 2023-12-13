@@ -8,17 +8,18 @@ part of 'count.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Count _$$_CountFromJson(Map json) => $checkedCreate(
-      r'_$_Count',
+_$CountImpl _$$CountImplFromJson(Map json) => $checkedCreate(
+      r'_$CountImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Count(
+        final val = _$CountImpl(
           count: $checkedConvert('count', (v) => v as int),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$_CountToJson(_$_Count instance) => <String, dynamic>{
+Map<String, dynamic> _$$CountImplToJson(_$CountImpl instance) =>
+    <String, dynamic>{
       'count': instance.count,
     };

@@ -102,9 +102,10 @@ class _$ImageCopyWithImpl<$Res, $Val extends Image>
 }
 
 /// @nodoc
-abstract class _$$_ImageCopyWith<$Res> implements $ImageCopyWith<$Res> {
-  factory _$$_ImageCopyWith(_$_Image value, $Res Function(_$_Image) then) =
-      __$$_ImageCopyWithImpl<$Res>;
+abstract class _$$ImageImplCopyWith<$Res> implements $ImageCopyWith<$Res> {
+  factory _$$ImageImplCopyWith(
+          _$ImageImpl value, $Res Function(_$ImageImpl) then) =
+      __$$ImageImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -117,9 +118,11 @@ abstract class _$$_ImageCopyWith<$Res> implements $ImageCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ImageCopyWithImpl<$Res> extends _$ImageCopyWithImpl<$Res, _$_Image>
-    implements _$$_ImageCopyWith<$Res> {
-  __$$_ImageCopyWithImpl(_$_Image _value, $Res Function(_$_Image) _then)
+class __$$ImageImplCopyWithImpl<$Res>
+    extends _$ImageCopyWithImpl<$Res, _$ImageImpl>
+    implements _$$ImageImplCopyWith<$Res> {
+  __$$ImageImplCopyWithImpl(
+      _$ImageImpl _value, $Res Function(_$ImageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -129,7 +132,7 @@ class __$$_ImageCopyWithImpl<$Res> extends _$ImageCopyWithImpl<$Res, _$_Image>
     Object? image = null,
     Object? aspectRatio = freezed,
   }) {
-    return _then(_$_Image(
+    return _then(_$ImageImpl(
       alt: null == alt
           ? _value.alt
           : alt // ignore: cast_nullable_to_non_nullable
@@ -149,14 +152,14 @@ class __$$_ImageCopyWithImpl<$Res> extends _$ImageCopyWithImpl<$Res, _$_Image>
 /// @nodoc
 
 @jsonSerializable
-class _$_Image implements _Image {
-  const _$_Image(
+class _$ImageImpl implements _Image {
+  const _$ImageImpl(
       {required this.alt,
       @blobConverter required this.image,
       this.aspectRatio});
 
-  factory _$_Image.fromJson(Map<String, dynamic> json) =>
-      _$$_ImageFromJson(json);
+  factory _$ImageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ImageImplFromJson(json);
 
   /// The alternative text for the image.
   @override
@@ -180,7 +183,7 @@ class _$_Image implements _Image {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Image &&
+            other is _$ImageImpl &&
             (identical(other.alt, alt) || other.alt == alt) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.aspectRatio, aspectRatio) ||
@@ -194,12 +197,12 @@ class _$_Image implements _Image {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ImageCopyWith<_$_Image> get copyWith =>
-      __$$_ImageCopyWithImpl<_$_Image>(this, _$identity);
+  _$$ImageImplCopyWith<_$ImageImpl> get copyWith =>
+      __$$ImageImplCopyWithImpl<_$ImageImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ImageToJson(
+    return _$$ImageImplToJson(
       this,
     );
   }
@@ -209,9 +212,9 @@ abstract class _Image implements Image {
   const factory _Image(
       {required final String alt,
       @blobConverter required final Blob image,
-      final ImageAspectRatio? aspectRatio}) = _$_Image;
+      final ImageAspectRatio? aspectRatio}) = _$ImageImpl;
 
-  factory _Image.fromJson(Map<String, dynamic> json) = _$_Image.fromJson;
+  factory _Image.fromJson(Map<String, dynamic> json) = _$ImageImpl.fromJson;
 
   @override
 
@@ -228,6 +231,6 @@ abstract class _Image implements Image {
   ImageAspectRatio? get aspectRatio;
   @override
   @JsonKey(ignore: true)
-  _$$_ImageCopyWith<_$_Image> get copyWith =>
+  _$$ImageImplCopyWith<_$ImageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -95,12 +95,12 @@ class _$ModerationBehaviorScenarioLabelsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ModerationBehaviorScenarioLabelsCopyWith<$Res>
+abstract class _$$ModerationBehaviorScenarioLabelsImplCopyWith<$Res>
     implements $ModerationBehaviorScenarioLabelsCopyWith<$Res> {
-  factory _$$_ModerationBehaviorScenarioLabelsCopyWith(
-          _$_ModerationBehaviorScenarioLabels value,
-          $Res Function(_$_ModerationBehaviorScenarioLabels) then) =
-      __$$_ModerationBehaviorScenarioLabelsCopyWithImpl<$Res>;
+  factory _$$ModerationBehaviorScenarioLabelsImplCopyWith(
+          _$ModerationBehaviorScenarioLabelsImpl value,
+          $Res Function(_$ModerationBehaviorScenarioLabelsImpl) then) =
+      __$$ModerationBehaviorScenarioLabelsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -112,13 +112,13 @@ abstract class _$$_ModerationBehaviorScenarioLabelsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ModerationBehaviorScenarioLabelsCopyWithImpl<$Res>
+class __$$ModerationBehaviorScenarioLabelsImplCopyWithImpl<$Res>
     extends _$ModerationBehaviorScenarioLabelsCopyWithImpl<$Res,
-        _$_ModerationBehaviorScenarioLabels>
-    implements _$$_ModerationBehaviorScenarioLabelsCopyWith<$Res> {
-  __$$_ModerationBehaviorScenarioLabelsCopyWithImpl(
-      _$_ModerationBehaviorScenarioLabels _value,
-      $Res Function(_$_ModerationBehaviorScenarioLabels) _then)
+        _$ModerationBehaviorScenarioLabelsImpl>
+    implements _$$ModerationBehaviorScenarioLabelsImplCopyWith<$Res> {
+  __$$ModerationBehaviorScenarioLabelsImplCopyWithImpl(
+      _$ModerationBehaviorScenarioLabelsImpl _value,
+      $Res Function(_$ModerationBehaviorScenarioLabelsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -130,7 +130,7 @@ class __$$_ModerationBehaviorScenarioLabelsCopyWithImpl<$Res>
     Object? quotedPost = freezed,
     Object? quotedAccount = freezed,
   }) {
-    return _then(_$_ModerationBehaviorScenarioLabels(
+    return _then(_$ModerationBehaviorScenarioLabelsImpl(
       post: freezed == post
           ? _value._post
           : post // ignore: cast_nullable_to_non_nullable
@@ -158,9 +158,9 @@ class __$$_ModerationBehaviorScenarioLabelsCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ModerationBehaviorScenarioLabels
+class _$ModerationBehaviorScenarioLabelsImpl
     implements _ModerationBehaviorScenarioLabels {
-  const _$_ModerationBehaviorScenarioLabels(
+  const _$ModerationBehaviorScenarioLabelsImpl(
       {final List<String>? post,
       final List<String>? profile,
       final List<String>? account,
@@ -172,9 +172,9 @@ class _$_ModerationBehaviorScenarioLabels
         _quotedPost = quotedPost,
         _quotedAccount = quotedAccount;
 
-  factory _$_ModerationBehaviorScenarioLabels.fromJson(
+  factory _$ModerationBehaviorScenarioLabelsImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$_ModerationBehaviorScenarioLabelsFromJson(json);
+      _$$ModerationBehaviorScenarioLabelsImplFromJson(json);
 
   final List<String>? _post;
   @override
@@ -235,7 +235,7 @@ class _$_ModerationBehaviorScenarioLabels
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ModerationBehaviorScenarioLabels &&
+            other is _$ModerationBehaviorScenarioLabelsImpl &&
             const DeepCollectionEquality().equals(other._post, _post) &&
             const DeepCollectionEquality().equals(other._profile, _profile) &&
             const DeepCollectionEquality().equals(other._account, _account) &&
@@ -258,14 +258,14 @@ class _$_ModerationBehaviorScenarioLabels
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ModerationBehaviorScenarioLabelsCopyWith<
-          _$_ModerationBehaviorScenarioLabels>
-      get copyWith => __$$_ModerationBehaviorScenarioLabelsCopyWithImpl<
-          _$_ModerationBehaviorScenarioLabels>(this, _$identity);
+  _$$ModerationBehaviorScenarioLabelsImplCopyWith<
+          _$ModerationBehaviorScenarioLabelsImpl>
+      get copyWith => __$$ModerationBehaviorScenarioLabelsImplCopyWithImpl<
+          _$ModerationBehaviorScenarioLabelsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ModerationBehaviorScenarioLabelsToJson(
+    return _$$ModerationBehaviorScenarioLabelsImplToJson(
       this,
     );
   }
@@ -274,14 +274,16 @@ class _$_ModerationBehaviorScenarioLabels
 abstract class _ModerationBehaviorScenarioLabels
     implements ModerationBehaviorScenarioLabels {
   const factory _ModerationBehaviorScenarioLabels(
-      {final List<String>? post,
-      final List<String>? profile,
-      final List<String>? account,
-      final List<String>? quotedPost,
-      final List<String>? quotedAccount}) = _$_ModerationBehaviorScenarioLabels;
+          {final List<String>? post,
+          final List<String>? profile,
+          final List<String>? account,
+          final List<String>? quotedPost,
+          final List<String>? quotedAccount}) =
+      _$ModerationBehaviorScenarioLabelsImpl;
 
   factory _ModerationBehaviorScenarioLabels.fromJson(
-      Map<String, dynamic> json) = _$_ModerationBehaviorScenarioLabels.fromJson;
+          Map<String, dynamic> json) =
+      _$ModerationBehaviorScenarioLabelsImpl.fromJson;
 
   @override
   List<String>? get post;
@@ -295,7 +297,7 @@ abstract class _ModerationBehaviorScenarioLabels
   List<String>? get quotedAccount;
   @override
   @JsonKey(ignore: true)
-  _$$_ModerationBehaviorScenarioLabelsCopyWith<
-          _$_ModerationBehaviorScenarioLabels>
+  _$$ModerationBehaviorScenarioLabelsImplCopyWith<
+          _$ModerationBehaviorScenarioLabelsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

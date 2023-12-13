@@ -71,22 +71,22 @@ class _$FeedGeneratorsCopyWithImpl<$Res, $Val extends FeedGenerators>
 }
 
 /// @nodoc
-abstract class _$$_FeedGeneratorsCopyWith<$Res>
+abstract class _$$FeedGeneratorsImplCopyWith<$Res>
     implements $FeedGeneratorsCopyWith<$Res> {
-  factory _$$_FeedGeneratorsCopyWith(
-          _$_FeedGenerators value, $Res Function(_$_FeedGenerators) then) =
-      __$$_FeedGeneratorsCopyWithImpl<$Res>;
+  factory _$$FeedGeneratorsImplCopyWith(_$FeedGeneratorsImpl value,
+          $Res Function(_$FeedGeneratorsImpl) then) =
+      __$$FeedGeneratorsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<FeedGeneratorView> feeds, String? cursor});
 }
 
 /// @nodoc
-class __$$_FeedGeneratorsCopyWithImpl<$Res>
-    extends _$FeedGeneratorsCopyWithImpl<$Res, _$_FeedGenerators>
-    implements _$$_FeedGeneratorsCopyWith<$Res> {
-  __$$_FeedGeneratorsCopyWithImpl(
-      _$_FeedGenerators _value, $Res Function(_$_FeedGenerators) _then)
+class __$$FeedGeneratorsImplCopyWithImpl<$Res>
+    extends _$FeedGeneratorsCopyWithImpl<$Res, _$FeedGeneratorsImpl>
+    implements _$$FeedGeneratorsImplCopyWith<$Res> {
+  __$$FeedGeneratorsImplCopyWithImpl(
+      _$FeedGeneratorsImpl _value, $Res Function(_$FeedGeneratorsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,7 +95,7 @@ class __$$_FeedGeneratorsCopyWithImpl<$Res>
     Object? feeds = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$_FeedGenerators(
+    return _then(_$FeedGeneratorsImpl(
       feeds: null == feeds
           ? _value._feeds
           : feeds // ignore: cast_nullable_to_non_nullable
@@ -111,13 +111,13 @@ class __$$_FeedGeneratorsCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_FeedGenerators implements _FeedGenerators {
-  const _$_FeedGenerators(
+class _$FeedGeneratorsImpl implements _FeedGenerators {
+  const _$FeedGeneratorsImpl(
       {required final List<FeedGeneratorView> feeds, this.cursor})
       : _feeds = feeds;
 
-  factory _$_FeedGenerators.fromJson(Map<String, dynamic> json) =>
-      _$$_FeedGeneratorsFromJson(json);
+  factory _$FeedGeneratorsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedGeneratorsImplFromJson(json);
 
   /// List of feed generator views.
   final List<FeedGeneratorView> _feeds;
@@ -143,7 +143,7 @@ class _$_FeedGenerators implements _FeedGenerators {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FeedGenerators &&
+            other is _$FeedGeneratorsImpl &&
             const DeepCollectionEquality().equals(other._feeds, _feeds) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -156,12 +156,13 @@ class _$_FeedGenerators implements _FeedGenerators {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FeedGeneratorsCopyWith<_$_FeedGenerators> get copyWith =>
-      __$$_FeedGeneratorsCopyWithImpl<_$_FeedGenerators>(this, _$identity);
+  _$$FeedGeneratorsImplCopyWith<_$FeedGeneratorsImpl> get copyWith =>
+      __$$FeedGeneratorsImplCopyWithImpl<_$FeedGeneratorsImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FeedGeneratorsToJson(
+    return _$$FeedGeneratorsImplToJson(
       this,
     );
   }
@@ -170,10 +171,10 @@ class _$_FeedGenerators implements _FeedGenerators {
 abstract class _FeedGenerators implements FeedGenerators {
   const factory _FeedGenerators(
       {required final List<FeedGeneratorView> feeds,
-      final String? cursor}) = _$_FeedGenerators;
+      final String? cursor}) = _$FeedGeneratorsImpl;
 
   factory _FeedGenerators.fromJson(Map<String, dynamic> json) =
-      _$_FeedGenerators.fromJson;
+      _$FeedGeneratorsImpl.fromJson;
 
   @override
 
@@ -185,6 +186,6 @@ abstract class _FeedGenerators implements FeedGenerators {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$_FeedGeneratorsCopyWith<_$_FeedGenerators> get copyWith =>
+  _$$FeedGeneratorsImplCopyWith<_$FeedGeneratorsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

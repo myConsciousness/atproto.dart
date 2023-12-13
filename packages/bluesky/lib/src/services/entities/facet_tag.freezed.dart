@@ -72,21 +72,22 @@ class _$FacetTagCopyWithImpl<$Res, $Val extends FacetTag>
 }
 
 /// @nodoc
-abstract class _$$_FacetTagCopyWith<$Res> implements $FacetTagCopyWith<$Res> {
-  factory _$$_FacetTagCopyWith(
-          _$_FacetTag value, $Res Function(_$_FacetTag) then) =
-      __$$_FacetTagCopyWithImpl<$Res>;
+abstract class _$$FacetTagImplCopyWith<$Res>
+    implements $FacetTagCopyWith<$Res> {
+  factory _$$FacetTagImplCopyWith(
+          _$FacetTagImpl value, $Res Function(_$FacetTagImpl) then) =
+      __$$FacetTagImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, String tag});
 }
 
 /// @nodoc
-class __$$_FacetTagCopyWithImpl<$Res>
-    extends _$FacetTagCopyWithImpl<$Res, _$_FacetTag>
-    implements _$$_FacetTagCopyWith<$Res> {
-  __$$_FacetTagCopyWithImpl(
-      _$_FacetTag _value, $Res Function(_$_FacetTag) _then)
+class __$$FacetTagImplCopyWithImpl<$Res>
+    extends _$FacetTagCopyWithImpl<$Res, _$FacetTagImpl>
+    implements _$$FacetTagImplCopyWith<$Res> {
+  __$$FacetTagImplCopyWithImpl(
+      _$FacetTagImpl _value, $Res Function(_$FacetTagImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,7 +96,7 @@ class __$$_FacetTagCopyWithImpl<$Res>
     Object? type = null,
     Object? tag = null,
   }) {
-    return _then(_$_FacetTag(
+    return _then(_$FacetTagImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -110,12 +111,12 @@ class __$$_FacetTagCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FacetTag implements _FacetTag {
-  const _$_FacetTag(
+class _$FacetTagImpl implements _FacetTag {
+  const _$FacetTagImpl(
       {@typeKey this.type = appBskyRichtextFacetTag, required this.tag});
 
-  factory _$_FacetTag.fromJson(Map<String, dynamic> json) =>
-      _$$_FacetTagFromJson(json);
+  factory _$FacetTagImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FacetTagImplFromJson(json);
 
   /// Specifies the type of facet. Defaults to
   /// [appBskyRichtextFacetTag].
@@ -136,7 +137,7 @@ class _$_FacetTag implements _FacetTag {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FacetTag &&
+            other is _$FacetTagImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.tag, tag) || other.tag == tag));
   }
@@ -148,12 +149,12 @@ class _$_FacetTag implements _FacetTag {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FacetTagCopyWith<_$_FacetTag> get copyWith =>
-      __$$_FacetTagCopyWithImpl<_$_FacetTag>(this, _$identity);
+  _$$FacetTagImplCopyWith<_$FacetTagImpl> get copyWith =>
+      __$$FacetTagImplCopyWithImpl<_$FacetTagImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FacetTagToJson(
+    return _$$FacetTagImplToJson(
       this,
     );
   }
@@ -161,9 +162,10 @@ class _$_FacetTag implements _FacetTag {
 
 abstract class _FacetTag implements FacetTag {
   const factory _FacetTag(
-      {@typeKey final String type, required final String tag}) = _$_FacetTag;
+      {@typeKey final String type, required final String tag}) = _$FacetTagImpl;
 
-  factory _FacetTag.fromJson(Map<String, dynamic> json) = _$_FacetTag.fromJson;
+  factory _FacetTag.fromJson(Map<String, dynamic> json) =
+      _$FacetTagImpl.fromJson;
 
   @override
 
@@ -177,6 +179,6 @@ abstract class _FacetTag implements FacetTag {
   String get tag;
   @override
   @JsonKey(ignore: true)
-  _$$_FacetTagCopyWith<_$_FacetTag> get copyWith =>
+  _$$FacetTagImplCopyWith<_$FacetTagImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

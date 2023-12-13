@@ -83,11 +83,11 @@ class _$EmbedRecordCopyWithImpl<$Res, $Val extends EmbedRecord>
 }
 
 /// @nodoc
-abstract class _$$_EmbedRecordCopyWith<$Res>
+abstract class _$$EmbedRecordImplCopyWith<$Res>
     implements $EmbedRecordCopyWith<$Res> {
-  factory _$$_EmbedRecordCopyWith(
-          _$_EmbedRecord value, $Res Function(_$_EmbedRecord) then) =
-      __$$_EmbedRecordCopyWithImpl<$Res>;
+  factory _$$EmbedRecordImplCopyWith(
+          _$EmbedRecordImpl value, $Res Function(_$EmbedRecordImpl) then) =
+      __$$EmbedRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, @JsonKey(name: 'record') StrongRef ref});
@@ -97,11 +97,11 @@ abstract class _$$_EmbedRecordCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EmbedRecordCopyWithImpl<$Res>
-    extends _$EmbedRecordCopyWithImpl<$Res, _$_EmbedRecord>
-    implements _$$_EmbedRecordCopyWith<$Res> {
-  __$$_EmbedRecordCopyWithImpl(
-      _$_EmbedRecord _value, $Res Function(_$_EmbedRecord) _then)
+class __$$EmbedRecordImplCopyWithImpl<$Res>
+    extends _$EmbedRecordCopyWithImpl<$Res, _$EmbedRecordImpl>
+    implements _$$EmbedRecordImplCopyWith<$Res> {
+  __$$EmbedRecordImplCopyWithImpl(
+      _$EmbedRecordImpl _value, $Res Function(_$EmbedRecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -110,7 +110,7 @@ class __$$_EmbedRecordCopyWithImpl<$Res>
     Object? type = null,
     Object? ref = null,
   }) {
-    return _then(_$_EmbedRecord(
+    return _then(_$EmbedRecordImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -125,13 +125,13 @@ class __$$_EmbedRecordCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EmbedRecord implements _EmbedRecord {
-  const _$_EmbedRecord(
+class _$EmbedRecordImpl implements _EmbedRecord {
+  const _$EmbedRecordImpl(
       {@typeKey this.type = appBskyEmbedRecord,
       @JsonKey(name: 'record') required this.ref});
 
-  factory _$_EmbedRecord.fromJson(Map<String, dynamic> json) =>
-      _$$_EmbedRecordFromJson(json);
+  factory _$EmbedRecordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmbedRecordImplFromJson(json);
 
   /// The type of the embedded content, defaulted to [appBskyEmbedRecord].
   @override
@@ -152,7 +152,7 @@ class _$_EmbedRecord implements _EmbedRecord {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EmbedRecord &&
+            other is _$EmbedRecordImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.ref, ref) || other.ref == ref));
   }
@@ -164,12 +164,12 @@ class _$_EmbedRecord implements _EmbedRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EmbedRecordCopyWith<_$_EmbedRecord> get copyWith =>
-      __$$_EmbedRecordCopyWithImpl<_$_EmbedRecord>(this, _$identity);
+  _$$EmbedRecordImplCopyWith<_$EmbedRecordImpl> get copyWith =>
+      __$$EmbedRecordImplCopyWithImpl<_$EmbedRecordImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EmbedRecordToJson(
+    return _$$EmbedRecordImplToJson(
       this,
     );
   }
@@ -177,11 +177,12 @@ class _$_EmbedRecord implements _EmbedRecord {
 
 abstract class _EmbedRecord implements EmbedRecord {
   const factory _EmbedRecord(
-      {@typeKey final String type,
-      @JsonKey(name: 'record') required final StrongRef ref}) = _$_EmbedRecord;
+          {@typeKey final String type,
+          @JsonKey(name: 'record') required final StrongRef ref}) =
+      _$EmbedRecordImpl;
 
   factory _EmbedRecord.fromJson(Map<String, dynamic> json) =
-      _$_EmbedRecord.fromJson;
+      _$EmbedRecordImpl.fromJson;
 
   @override
 
@@ -195,6 +196,6 @@ abstract class _EmbedRecord implements EmbedRecord {
   StrongRef get ref;
   @override
   @JsonKey(ignore: true)
-  _$$_EmbedRecordCopyWith<_$_EmbedRecord> get copyWith =>
+  _$$EmbedRecordImplCopyWith<_$EmbedRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

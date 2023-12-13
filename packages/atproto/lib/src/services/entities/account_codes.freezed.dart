@@ -71,22 +71,22 @@ class _$AccountCodesCopyWithImpl<$Res, $Val extends AccountCodes>
 }
 
 /// @nodoc
-abstract class _$$_AccountCodesCopyWith<$Res>
+abstract class _$$AccountCodesImplCopyWith<$Res>
     implements $AccountCodesCopyWith<$Res> {
-  factory _$$_AccountCodesCopyWith(
-          _$_AccountCodes value, $Res Function(_$_AccountCodes) then) =
-      __$$_AccountCodesCopyWithImpl<$Res>;
+  factory _$$AccountCodesImplCopyWith(
+          _$AccountCodesImpl value, $Res Function(_$AccountCodesImpl) then) =
+      __$$AccountCodesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String account, List<String> codes});
 }
 
 /// @nodoc
-class __$$_AccountCodesCopyWithImpl<$Res>
-    extends _$AccountCodesCopyWithImpl<$Res, _$_AccountCodes>
-    implements _$$_AccountCodesCopyWith<$Res> {
-  __$$_AccountCodesCopyWithImpl(
-      _$_AccountCodes _value, $Res Function(_$_AccountCodes) _then)
+class __$$AccountCodesImplCopyWithImpl<$Res>
+    extends _$AccountCodesCopyWithImpl<$Res, _$AccountCodesImpl>
+    implements _$$AccountCodesImplCopyWith<$Res> {
+  __$$AccountCodesImplCopyWithImpl(
+      _$AccountCodesImpl _value, $Res Function(_$AccountCodesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,7 +95,7 @@ class __$$_AccountCodesCopyWithImpl<$Res>
     Object? account = null,
     Object? codes = null,
   }) {
-    return _then(_$_AccountCodes(
+    return _then(_$AccountCodesImpl(
       account: null == account
           ? _value.account
           : account // ignore: cast_nullable_to_non_nullable
@@ -110,13 +110,13 @@ class __$$_AccountCodesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AccountCodes implements _AccountCodes {
-  const _$_AccountCodes(
+class _$AccountCodesImpl implements _AccountCodes {
+  const _$AccountCodesImpl(
       {required this.account, required final List<String> codes})
       : _codes = codes;
 
-  factory _$_AccountCodes.fromJson(Map<String, dynamic> json) =>
-      _$$_AccountCodesFromJson(json);
+  factory _$AccountCodesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AccountCodesImplFromJson(json);
 
   /// A unique identifier for a user.
   @override
@@ -142,7 +142,7 @@ class _$_AccountCodes implements _AccountCodes {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AccountCodes &&
+            other is _$AccountCodesImpl &&
             (identical(other.account, account) || other.account == account) &&
             const DeepCollectionEquality().equals(other._codes, _codes));
   }
@@ -155,12 +155,12 @@ class _$_AccountCodes implements _AccountCodes {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AccountCodesCopyWith<_$_AccountCodes> get copyWith =>
-      __$$_AccountCodesCopyWithImpl<_$_AccountCodes>(this, _$identity);
+  _$$AccountCodesImplCopyWith<_$AccountCodesImpl> get copyWith =>
+      __$$AccountCodesImplCopyWithImpl<_$AccountCodesImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AccountCodesToJson(
+    return _$$AccountCodesImplToJson(
       this,
     );
   }
@@ -169,10 +169,10 @@ class _$_AccountCodes implements _AccountCodes {
 abstract class _AccountCodes implements AccountCodes {
   const factory _AccountCodes(
       {required final String account,
-      required final List<String> codes}) = _$_AccountCodes;
+      required final List<String> codes}) = _$AccountCodesImpl;
 
   factory _AccountCodes.fromJson(Map<String, dynamic> json) =
-      _$_AccountCodes.fromJson;
+      _$AccountCodesImpl.fromJson;
 
   @override
 
@@ -184,6 +184,6 @@ abstract class _AccountCodes implements AccountCodes {
   List<String> get codes;
   @override
   @JsonKey(ignore: true)
-  _$$_AccountCodesCopyWith<_$_AccountCodes> get copyWith =>
+  _$$AccountCodesImplCopyWith<_$AccountCodesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

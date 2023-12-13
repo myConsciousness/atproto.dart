@@ -8,11 +8,11 @@ part of 'account_codes.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AccountCodes _$$_AccountCodesFromJson(Map json) => $checkedCreate(
-      r'_$_AccountCodes',
+_$AccountCodesImpl _$$AccountCodesImplFromJson(Map json) => $checkedCreate(
+      r'_$AccountCodesImpl',
       json,
       ($checkedConvert) {
-        final val = _$_AccountCodes(
+        final val = _$AccountCodesImpl(
           account: $checkedConvert('account', (v) => v as String),
           codes: $checkedConvert('codes',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
@@ -21,7 +21,7 @@ _$_AccountCodes _$$_AccountCodesFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_AccountCodesToJson(_$_AccountCodes instance) =>
+Map<String, dynamic> _$$AccountCodesImplToJson(_$AccountCodesImpl instance) =>
     <String, dynamic>{
       'account': instance.account,
       'codes': instance.codes,
