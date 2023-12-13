@@ -74,12 +74,12 @@ class _$ModerationCauseSourceListCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ModerationCauseSourceListCopyWith<$Res>
+abstract class _$$ModerationCauseSourceListImplCopyWith<$Res>
     implements $ModerationCauseSourceListCopyWith<$Res> {
-  factory _$$_ModerationCauseSourceListCopyWith(
-          _$_ModerationCauseSourceList value,
-          $Res Function(_$_ModerationCauseSourceList) then) =
-      __$$_ModerationCauseSourceListCopyWithImpl<$Res>;
+  factory _$$ModerationCauseSourceListImplCopyWith(
+          _$ModerationCauseSourceListImpl value,
+          $Res Function(_$ModerationCauseSourceListImpl) then) =
+      __$$ModerationCauseSourceListImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String type, ListViewBasic list});
@@ -89,13 +89,13 @@ abstract class _$$_ModerationCauseSourceListCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ModerationCauseSourceListCopyWithImpl<$Res>
+class __$$ModerationCauseSourceListImplCopyWithImpl<$Res>
     extends _$ModerationCauseSourceListCopyWithImpl<$Res,
-        _$_ModerationCauseSourceList>
-    implements _$$_ModerationCauseSourceListCopyWith<$Res> {
-  __$$_ModerationCauseSourceListCopyWithImpl(
-      _$_ModerationCauseSourceList _value,
-      $Res Function(_$_ModerationCauseSourceList) _then)
+        _$ModerationCauseSourceListImpl>
+    implements _$$ModerationCauseSourceListImplCopyWith<$Res> {
+  __$$ModerationCauseSourceListImplCopyWithImpl(
+      _$ModerationCauseSourceListImpl _value,
+      $Res Function(_$ModerationCauseSourceListImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -104,7 +104,7 @@ class __$$_ModerationCauseSourceListCopyWithImpl<$Res>
     Object? type = null,
     Object? list = null,
   }) {
-    return _then(_$_ModerationCauseSourceList(
+    return _then(_$ModerationCauseSourceListImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -119,8 +119,9 @@ class __$$_ModerationCauseSourceListCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ModerationCauseSourceList implements _ModerationCauseSourceList {
-  const _$_ModerationCauseSourceList({this.type = 'list', required this.list});
+class _$ModerationCauseSourceListImpl implements _ModerationCauseSourceList {
+  const _$ModerationCauseSourceListImpl(
+      {this.type = 'list', required this.list});
 
   @override
   @JsonKey()
@@ -137,7 +138,7 @@ class _$_ModerationCauseSourceList implements _ModerationCauseSourceList {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ModerationCauseSourceList &&
+            other is _$ModerationCauseSourceListImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.list, list) || other.list == list));
   }
@@ -148,15 +149,15 @@ class _$_ModerationCauseSourceList implements _ModerationCauseSourceList {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ModerationCauseSourceListCopyWith<_$_ModerationCauseSourceList>
-      get copyWith => __$$_ModerationCauseSourceListCopyWithImpl<
-          _$_ModerationCauseSourceList>(this, _$identity);
+  _$$ModerationCauseSourceListImplCopyWith<_$ModerationCauseSourceListImpl>
+      get copyWith => __$$ModerationCauseSourceListImplCopyWithImpl<
+          _$ModerationCauseSourceListImpl>(this, _$identity);
 }
 
 abstract class _ModerationCauseSourceList implements ModerationCauseSourceList {
   const factory _ModerationCauseSourceList(
       {final String type,
-      required final ListViewBasic list}) = _$_ModerationCauseSourceList;
+      required final ListViewBasic list}) = _$ModerationCauseSourceListImpl;
 
   @override
   String get type;
@@ -164,6 +165,6 @@ abstract class _ModerationCauseSourceList implements ModerationCauseSourceList {
   ListViewBasic get list;
   @override
   @JsonKey(ignore: true)
-  _$$_ModerationCauseSourceListCopyWith<_$_ModerationCauseSourceList>
+  _$$ModerationCauseSourceListImplCopyWith<_$ModerationCauseSourceListImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -72,22 +72,22 @@ class _$ActorFeedsCopyWithImpl<$Res, $Val extends ActorFeeds>
 }
 
 /// @nodoc
-abstract class _$$_ActorFeedsCopyWith<$Res>
+abstract class _$$ActorFeedsImplCopyWith<$Res>
     implements $ActorFeedsCopyWith<$Res> {
-  factory _$$_ActorFeedsCopyWith(
-          _$_ActorFeeds value, $Res Function(_$_ActorFeeds) then) =
-      __$$_ActorFeedsCopyWithImpl<$Res>;
+  factory _$$ActorFeedsImplCopyWith(
+          _$ActorFeedsImpl value, $Res Function(_$ActorFeedsImpl) then) =
+      __$$ActorFeedsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<FeedGeneratorView> feeds, String? cursor});
 }
 
 /// @nodoc
-class __$$_ActorFeedsCopyWithImpl<$Res>
-    extends _$ActorFeedsCopyWithImpl<$Res, _$_ActorFeeds>
-    implements _$$_ActorFeedsCopyWith<$Res> {
-  __$$_ActorFeedsCopyWithImpl(
-      _$_ActorFeeds _value, $Res Function(_$_ActorFeeds) _then)
+class __$$ActorFeedsImplCopyWithImpl<$Res>
+    extends _$ActorFeedsCopyWithImpl<$Res, _$ActorFeedsImpl>
+    implements _$$ActorFeedsImplCopyWith<$Res> {
+  __$$ActorFeedsImplCopyWithImpl(
+      _$ActorFeedsImpl _value, $Res Function(_$ActorFeedsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -96,7 +96,7 @@ class __$$_ActorFeedsCopyWithImpl<$Res>
     Object? feeds = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$_ActorFeeds(
+    return _then(_$ActorFeedsImpl(
       feeds: null == feeds
           ? _value._feeds
           : feeds // ignore: cast_nullable_to_non_nullable
@@ -112,13 +112,13 @@ class __$$_ActorFeedsCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ActorFeeds implements _ActorFeeds {
-  const _$_ActorFeeds(
+class _$ActorFeedsImpl implements _ActorFeeds {
+  const _$ActorFeedsImpl(
       {required final List<FeedGeneratorView> feeds, this.cursor})
       : _feeds = feeds;
 
-  factory _$_ActorFeeds.fromJson(Map<String, dynamic> json) =>
-      _$$_ActorFeedsFromJson(json);
+  factory _$ActorFeedsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ActorFeedsImplFromJson(json);
 
   /// The list of feed generator views representing the actor's feeds.
   final List<FeedGeneratorView> _feeds;
@@ -145,7 +145,7 @@ class _$_ActorFeeds implements _ActorFeeds {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActorFeeds &&
+            other is _$ActorFeedsImpl &&
             const DeepCollectionEquality().equals(other._feeds, _feeds) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -158,12 +158,12 @@ class _$_ActorFeeds implements _ActorFeeds {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ActorFeedsCopyWith<_$_ActorFeeds> get copyWith =>
-      __$$_ActorFeedsCopyWithImpl<_$_ActorFeeds>(this, _$identity);
+  _$$ActorFeedsImplCopyWith<_$ActorFeedsImpl> get copyWith =>
+      __$$ActorFeedsImplCopyWithImpl<_$ActorFeedsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ActorFeedsToJson(
+    return _$$ActorFeedsImplToJson(
       this,
     );
   }
@@ -172,10 +172,10 @@ class _$_ActorFeeds implements _ActorFeeds {
 abstract class _ActorFeeds implements ActorFeeds {
   const factory _ActorFeeds(
       {required final List<FeedGeneratorView> feeds,
-      final String? cursor}) = _$_ActorFeeds;
+      final String? cursor}) = _$ActorFeedsImpl;
 
   factory _ActorFeeds.fromJson(Map<String, dynamic> json) =
-      _$_ActorFeeds.fromJson;
+      _$ActorFeedsImpl.fromJson;
 
   @override
 
@@ -188,6 +188,6 @@ abstract class _ActorFeeds implements ActorFeeds {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$_ActorFeedsCopyWith<_$_ActorFeeds> get copyWith =>
+  _$$ActorFeedsImplCopyWith<_$ActorFeedsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -69,20 +69,21 @@ class _$RecordsCopyWithImpl<$Res, $Val extends Records>
 }
 
 /// @nodoc
-abstract class _$$_RecordsCopyWith<$Res> implements $RecordsCopyWith<$Res> {
-  factory _$$_RecordsCopyWith(
-          _$_Records value, $Res Function(_$_Records) then) =
-      __$$_RecordsCopyWithImpl<$Res>;
+abstract class _$$RecordsImplCopyWith<$Res> implements $RecordsCopyWith<$Res> {
+  factory _$$RecordsImplCopyWith(
+          _$RecordsImpl value, $Res Function(_$RecordsImpl) then) =
+      __$$RecordsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Record> records, String? cursor});
 }
 
 /// @nodoc
-class __$$_RecordsCopyWithImpl<$Res>
-    extends _$RecordsCopyWithImpl<$Res, _$_Records>
-    implements _$$_RecordsCopyWith<$Res> {
-  __$$_RecordsCopyWithImpl(_$_Records _value, $Res Function(_$_Records) _then)
+class __$$RecordsImplCopyWithImpl<$Res>
+    extends _$RecordsCopyWithImpl<$Res, _$RecordsImpl>
+    implements _$$RecordsImplCopyWith<$Res> {
+  __$$RecordsImplCopyWithImpl(
+      _$RecordsImpl _value, $Res Function(_$RecordsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -91,7 +92,7 @@ class __$$_RecordsCopyWithImpl<$Res>
     Object? records = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$_Records(
+    return _then(_$RecordsImpl(
       records: null == records
           ? _value._records
           : records // ignore: cast_nullable_to_non_nullable
@@ -106,12 +107,12 @@ class __$$_RecordsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Records implements _Records {
-  const _$_Records({required final List<Record> records, this.cursor})
+class _$RecordsImpl implements _Records {
+  const _$RecordsImpl({required final List<Record> records, this.cursor})
       : _records = records;
 
-  factory _$_Records.fromJson(Map<String, dynamic> json) =>
-      _$$_RecordsFromJson(json);
+  factory _$RecordsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RecordsImplFromJson(json);
 
   /// The list of [Record] objects.
   final List<Record> _records;
@@ -137,7 +138,7 @@ class _$_Records implements _Records {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Records &&
+            other is _$RecordsImpl &&
             const DeepCollectionEquality().equals(other._records, _records) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -150,12 +151,12 @@ class _$_Records implements _Records {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RecordsCopyWith<_$_Records> get copyWith =>
-      __$$_RecordsCopyWithImpl<_$_Records>(this, _$identity);
+  _$$RecordsImplCopyWith<_$RecordsImpl> get copyWith =>
+      __$$RecordsImplCopyWithImpl<_$RecordsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RecordsToJson(
+    return _$$RecordsImplToJson(
       this,
     );
   }
@@ -163,9 +164,10 @@ class _$_Records implements _Records {
 
 abstract class _Records implements Records {
   const factory _Records(
-      {required final List<Record> records, final String? cursor}) = _$_Records;
+      {required final List<Record> records,
+      final String? cursor}) = _$RecordsImpl;
 
-  factory _Records.fromJson(Map<String, dynamic> json) = _$_Records.fromJson;
+  factory _Records.fromJson(Map<String, dynamic> json) = _$RecordsImpl.fromJson;
 
   @override
 
@@ -177,6 +179,6 @@ abstract class _Records implements Records {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$_RecordsCopyWith<_$_Records> get copyWith =>
+  _$$RecordsImplCopyWith<_$RecordsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

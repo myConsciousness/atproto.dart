@@ -85,11 +85,11 @@ class _$StrongRefParamCopyWithImpl<$Res, $Val extends StrongRefParam>
 }
 
 /// @nodoc
-abstract class _$$_StrongRefParamCopyWith<$Res>
+abstract class _$$StrongRefParamImplCopyWith<$Res>
     implements $StrongRefParamCopyWith<$Res> {
-  factory _$$_StrongRefParamCopyWith(
-          _$_StrongRefParam value, $Res Function(_$_StrongRefParam) then) =
-      __$$_StrongRefParamCopyWithImpl<$Res>;
+  factory _$$StrongRefParamImplCopyWith(_$StrongRefParamImpl value,
+          $Res Function(_$StrongRefParamImpl) then) =
+      __$$StrongRefParamImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -100,11 +100,11 @@ abstract class _$$_StrongRefParamCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_StrongRefParamCopyWithImpl<$Res>
-    extends _$StrongRefParamCopyWithImpl<$Res, _$_StrongRefParam>
-    implements _$$_StrongRefParamCopyWith<$Res> {
-  __$$_StrongRefParamCopyWithImpl(
-      _$_StrongRefParam _value, $Res Function(_$_StrongRefParam) _then)
+class __$$StrongRefParamImplCopyWithImpl<$Res>
+    extends _$StrongRefParamCopyWithImpl<$Res, _$StrongRefParamImpl>
+    implements _$$StrongRefParamImplCopyWith<$Res> {
+  __$$StrongRefParamImplCopyWithImpl(
+      _$StrongRefParamImpl _value, $Res Function(_$StrongRefParamImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -115,7 +115,7 @@ class __$$_StrongRefParamCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? unspecced = null,
   }) {
-    return _then(_$_StrongRefParam(
+    return _then(_$StrongRefParamImpl(
       cid: null == cid
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
@@ -139,16 +139,16 @@ class __$$_StrongRefParamCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_StrongRefParam implements _StrongRefParam {
-  const _$_StrongRefParam(
+class _$StrongRefParamImpl implements _StrongRefParam {
+  const _$StrongRefParamImpl(
       {required this.cid,
       @atUriConverter required this.uri,
       this.createdAt,
       final Map<String, dynamic> unspecced = emptyJson})
       : _unspecced = unspecced;
 
-  factory _$_StrongRefParam.fromJson(Map<String, dynamic> json) =>
-      _$$_StrongRefParamFromJson(json);
+  factory _$StrongRefParamImpl.fromJson(Map<String, dynamic> json) =>
+      _$$StrongRefParamImplFromJson(json);
 
   @override
   final String cid;
@@ -175,7 +175,7 @@ class _$_StrongRefParam implements _StrongRefParam {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_StrongRefParam &&
+            other is _$StrongRefParamImpl &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.createdAt, createdAt) ||
@@ -192,12 +192,13 @@ class _$_StrongRefParam implements _StrongRefParam {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StrongRefParamCopyWith<_$_StrongRefParam> get copyWith =>
-      __$$_StrongRefParamCopyWithImpl<_$_StrongRefParam>(this, _$identity);
+  _$$StrongRefParamImplCopyWith<_$StrongRefParamImpl> get copyWith =>
+      __$$StrongRefParamImplCopyWithImpl<_$StrongRefParamImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_StrongRefParamToJson(
+    return _$$StrongRefParamImplToJson(
       this,
     );
   }
@@ -208,10 +209,10 @@ abstract class _StrongRefParam implements StrongRefParam {
       {required final String cid,
       @atUriConverter required final AtUri uri,
       final DateTime? createdAt,
-      final Map<String, dynamic> unspecced}) = _$_StrongRefParam;
+      final Map<String, dynamic> unspecced}) = _$StrongRefParamImpl;
 
   factory _StrongRefParam.fromJson(Map<String, dynamic> json) =
-      _$_StrongRefParam.fromJson;
+      _$StrongRefParamImpl.fromJson;
 
   @override
   String get cid;
@@ -224,6 +225,6 @@ abstract class _StrongRefParam implements StrongRefParam {
   Map<String, dynamic> get unspecced;
   @override
   @JsonKey(ignore: true)
-  _$$_StrongRefParamCopyWith<_$_StrongRefParam> get copyWith =>
+  _$$StrongRefParamImplCopyWith<_$StrongRefParamImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -8,12 +8,12 @@ part of 'moderation_behaviors.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ModerationBehaviors _$$_ModerationBehaviorsFromJson(Map json) =>
+_$ModerationBehaviorsImpl _$$ModerationBehaviorsImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$_ModerationBehaviors',
+      r'_$ModerationBehaviorsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ModerationBehaviors(
+        final val = _$ModerationBehaviorsImpl(
           users: $checkedConvert(
               'users',
               (v) => (v as Map).map(
@@ -43,8 +43,8 @@ _$_ModerationBehaviors _$$_ModerationBehaviorsFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$_ModerationBehaviorsToJson(
-        _$_ModerationBehaviors instance) =>
+Map<String, dynamic> _$$ModerationBehaviorsImplToJson(
+        _$ModerationBehaviorsImpl instance) =>
     <String, dynamic>{
       'users': instance.users.map((k, e) => MapEntry(k, e.toJson())),
       'configurations':

@@ -136,9 +136,10 @@ class _$ActorCopyWithImpl<$Res, $Val extends Actor>
 }
 
 /// @nodoc
-abstract class _$$_ActorCopyWith<$Res> implements $ActorCopyWith<$Res> {
-  factory _$$_ActorCopyWith(_$_Actor value, $Res Function(_$_Actor) then) =
-      __$$_ActorCopyWithImpl<$Res>;
+abstract class _$$ActorImplCopyWith<$Res> implements $ActorCopyWith<$Res> {
+  factory _$$ActorImplCopyWith(
+          _$ActorImpl value, $Res Function(_$ActorImpl) then) =
+      __$$ActorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -156,9 +157,11 @@ abstract class _$$_ActorCopyWith<$Res> implements $ActorCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ActorCopyWithImpl<$Res> extends _$ActorCopyWithImpl<$Res, _$_Actor>
-    implements _$$_ActorCopyWith<$Res> {
-  __$$_ActorCopyWithImpl(_$_Actor _value, $Res Function(_$_Actor) _then)
+class __$$ActorImplCopyWithImpl<$Res>
+    extends _$ActorCopyWithImpl<$Res, _$ActorImpl>
+    implements _$$ActorImplCopyWith<$Res> {
+  __$$ActorImplCopyWithImpl(
+      _$ActorImpl _value, $Res Function(_$ActorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -173,7 +176,7 @@ class __$$_ActorCopyWithImpl<$Res> extends _$ActorCopyWithImpl<$Res, _$_Actor>
     Object? labels = freezed,
     Object? indexedAt = freezed,
   }) {
-    return _then(_$_Actor(
+    return _then(_$ActorImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -213,8 +216,8 @@ class __$$_ActorCopyWithImpl<$Res> extends _$ActorCopyWithImpl<$Res, _$_Actor>
 /// @nodoc
 
 @jsonSerializable
-class _$_Actor extends _Actor {
-  const _$_Actor(
+class _$ActorImpl extends _Actor {
+  const _$ActorImpl(
       {required this.did,
       required this.handle,
       this.displayName,
@@ -226,8 +229,8 @@ class _$_Actor extends _Actor {
       : _labels = labels,
         super._();
 
-  factory _$_Actor.fromJson(Map<String, dynamic> json) =>
-      _$$_ActorFromJson(json);
+  factory _$ActorImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ActorImplFromJson(json);
 
   /// The decentralized identifier of the actor.
   @override
@@ -281,7 +284,7 @@ class _$_Actor extends _Actor {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Actor &&
+            other is _$ActorImpl &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.displayName, displayName) ||
@@ -311,12 +314,12 @@ class _$_Actor extends _Actor {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ActorCopyWith<_$_Actor> get copyWith =>
-      __$$_ActorCopyWithImpl<_$_Actor>(this, _$identity);
+  _$$ActorImplCopyWith<_$ActorImpl> get copyWith =>
+      __$$ActorImplCopyWithImpl<_$ActorImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ActorToJson(
+    return _$$ActorImplToJson(
       this,
     );
   }
@@ -331,10 +334,10 @@ abstract class _Actor extends Actor {
       final String? avatar,
       final ActorViewer viewer,
       final List<Label>? labels,
-      final DateTime? indexedAt}) = _$_Actor;
+      final DateTime? indexedAt}) = _$ActorImpl;
   const _Actor._() : super._();
 
-  factory _Actor.fromJson(Map<String, dynamic> json) = _$_Actor.fromJson;
+  factory _Actor.fromJson(Map<String, dynamic> json) = _$ActorImpl.fromJson;
 
   @override
 
@@ -371,6 +374,6 @@ abstract class _Actor extends Actor {
   DateTime? get indexedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_ActorCopyWith<_$_Actor> get copyWith =>
+  _$$ActorImplCopyWith<_$ActorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

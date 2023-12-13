@@ -8,11 +8,11 @@ part of 'facet.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Facet _$$_FacetFromJson(Map json) => $checkedCreate(
-      r'_$_Facet',
+_$FacetImpl _$$FacetImplFromJson(Map json) => $checkedCreate(
+      r'_$FacetImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Facet(
+        final val = _$FacetImpl(
           type: $checkedConvert(r'$type', (v) => v as String?),
           index: $checkedConvert('index',
               (v) => ByteSlice.fromJson(Map<String, Object?>.from(v as Map))),
@@ -28,7 +28,7 @@ _$_Facet _$$_FacetFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$_FacetToJson(_$_Facet instance) {
+Map<String, dynamic> _$$FacetImplToJson(_$FacetImpl instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {

@@ -69,18 +69,20 @@ class _$FeedCopyWithImpl<$Res, $Val extends Feed>
 }
 
 /// @nodoc
-abstract class _$$_FeedCopyWith<$Res> implements $FeedCopyWith<$Res> {
-  factory _$$_FeedCopyWith(_$_Feed value, $Res Function(_$_Feed) then) =
-      __$$_FeedCopyWithImpl<$Res>;
+abstract class _$$FeedImplCopyWith<$Res> implements $FeedCopyWith<$Res> {
+  factory _$$FeedImplCopyWith(
+          _$FeedImpl value, $Res Function(_$FeedImpl) then) =
+      __$$FeedImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<FeedView> feed, String? cursor});
 }
 
 /// @nodoc
-class __$$_FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res, _$_Feed>
-    implements _$$_FeedCopyWith<$Res> {
-  __$$_FeedCopyWithImpl(_$_Feed _value, $Res Function(_$_Feed) _then)
+class __$$FeedImplCopyWithImpl<$Res>
+    extends _$FeedCopyWithImpl<$Res, _$FeedImpl>
+    implements _$$FeedImplCopyWith<$Res> {
+  __$$FeedImplCopyWithImpl(_$FeedImpl _value, $Res Function(_$FeedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -89,7 +91,7 @@ class __$$_FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res, _$_Feed>
     Object? feed = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$_Feed(
+    return _then(_$FeedImpl(
       feed: null == feed
           ? _value._feed
           : feed // ignore: cast_nullable_to_non_nullable
@@ -105,11 +107,12 @@ class __$$_FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res, _$_Feed>
 /// @nodoc
 
 @jsonSerializable
-class _$_Feed implements _Feed {
-  const _$_Feed({required final List<FeedView> feed, this.cursor})
+class _$FeedImpl implements _Feed {
+  const _$FeedImpl({required final List<FeedView> feed, this.cursor})
       : _feed = feed;
 
-  factory _$_Feed.fromJson(Map<String, dynamic> json) => _$$_FeedFromJson(json);
+  factory _$FeedImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedImplFromJson(json);
 
   /// List of feed view objects.
   final List<FeedView> _feed;
@@ -135,7 +138,7 @@ class _$_Feed implements _Feed {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Feed &&
+            other is _$FeedImpl &&
             const DeepCollectionEquality().equals(other._feed, _feed) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -148,12 +151,12 @@ class _$_Feed implements _Feed {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FeedCopyWith<_$_Feed> get copyWith =>
-      __$$_FeedCopyWithImpl<_$_Feed>(this, _$identity);
+  _$$FeedImplCopyWith<_$FeedImpl> get copyWith =>
+      __$$FeedImplCopyWithImpl<_$FeedImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FeedToJson(
+    return _$$FeedImplToJson(
       this,
     );
   }
@@ -161,9 +164,9 @@ class _$_Feed implements _Feed {
 
 abstract class _Feed implements Feed {
   const factory _Feed(
-      {required final List<FeedView> feed, final String? cursor}) = _$_Feed;
+      {required final List<FeedView> feed, final String? cursor}) = _$FeedImpl;
 
-  factory _Feed.fromJson(Map<String, dynamic> json) = _$_Feed.fromJson;
+  factory _Feed.fromJson(Map<String, dynamic> json) = _$FeedImpl.fromJson;
 
   @override
 
@@ -175,5 +178,6 @@ abstract class _Feed implements Feed {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$_FeedCopyWith<_$_Feed> get copyWith => throw _privateConstructorUsedError;
+  _$$FeedImplCopyWith<_$FeedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

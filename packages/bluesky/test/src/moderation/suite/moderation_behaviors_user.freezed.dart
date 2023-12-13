@@ -98,11 +98,11 @@ class _$ModerationBehaviorsUserCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ModerationBehaviorsCopyWith<$Res>
+abstract class _$$ModerationBehaviorsImplCopyWith<$Res>
     implements $ModerationBehaviorsUserCopyWith<$Res> {
-  factory _$$_ModerationBehaviorsCopyWith(_$_ModerationBehaviors value,
-          $Res Function(_$_ModerationBehaviors) then) =
-      __$$_ModerationBehaviorsCopyWithImpl<$Res>;
+  factory _$$ModerationBehaviorsImplCopyWith(_$ModerationBehaviorsImpl value,
+          $Res Function(_$ModerationBehaviorsImpl) then) =
+      __$$ModerationBehaviorsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -114,11 +114,12 @@ abstract class _$$_ModerationBehaviorsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ModerationBehaviorsCopyWithImpl<$Res>
-    extends _$ModerationBehaviorsUserCopyWithImpl<$Res, _$_ModerationBehaviors>
-    implements _$$_ModerationBehaviorsCopyWith<$Res> {
-  __$$_ModerationBehaviorsCopyWithImpl(_$_ModerationBehaviors _value,
-      $Res Function(_$_ModerationBehaviors) _then)
+class __$$ModerationBehaviorsImplCopyWithImpl<$Res>
+    extends _$ModerationBehaviorsUserCopyWithImpl<$Res,
+        _$ModerationBehaviorsImpl>
+    implements _$$ModerationBehaviorsImplCopyWith<$Res> {
+  __$$ModerationBehaviorsImplCopyWithImpl(_$ModerationBehaviorsImpl _value,
+      $Res Function(_$ModerationBehaviorsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -130,7 +131,7 @@ class __$$_ModerationBehaviorsCopyWithImpl<$Res>
     Object? isMuted = null,
     Object? isMutedByList = null,
   }) {
-    return _then(_$_ModerationBehaviors(
+    return _then(_$ModerationBehaviorsImpl(
       isBlocking: null == isBlocking
           ? _value.isBlocking
           : isBlocking // ignore: cast_nullable_to_non_nullable
@@ -158,16 +159,16 @@ class __$$_ModerationBehaviorsCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ModerationBehaviors implements _ModerationBehaviors {
-  const _$_ModerationBehaviors(
+class _$ModerationBehaviorsImpl implements _ModerationBehaviors {
+  const _$ModerationBehaviorsImpl(
       {@JsonKey(name: 'blocking') this.isBlocking = false,
       @JsonKey(name: 'blockingByList') this.isBlockingByList = false,
       @JsonKey(name: 'blockedBy') this.isBlockedBy = false,
       @JsonKey(name: 'muted') this.isMuted = false,
       @JsonKey(name: 'mutedByList') this.isMutedByList = false});
 
-  factory _$_ModerationBehaviors.fromJson(Map<String, dynamic> json) =>
-      _$$_ModerationBehaviorsFromJson(json);
+  factory _$ModerationBehaviorsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ModerationBehaviorsImplFromJson(json);
 
   @override
   @JsonKey(name: 'blocking')
@@ -194,7 +195,7 @@ class _$_ModerationBehaviors implements _ModerationBehaviors {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ModerationBehaviors &&
+            other is _$ModerationBehaviorsImpl &&
             (identical(other.isBlocking, isBlocking) ||
                 other.isBlocking == isBlocking) &&
             (identical(other.isBlockingByList, isBlockingByList) ||
@@ -214,13 +215,13 @@ class _$_ModerationBehaviors implements _ModerationBehaviors {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ModerationBehaviorsCopyWith<_$_ModerationBehaviors> get copyWith =>
-      __$$_ModerationBehaviorsCopyWithImpl<_$_ModerationBehaviors>(
+  _$$ModerationBehaviorsImplCopyWith<_$ModerationBehaviorsImpl> get copyWith =>
+      __$$ModerationBehaviorsImplCopyWithImpl<_$ModerationBehaviorsImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ModerationBehaviorsToJson(
+    return _$$ModerationBehaviorsImplToJson(
       this,
     );
   }
@@ -233,10 +234,10 @@ abstract class _ModerationBehaviors implements ModerationBehaviorsUser {
           @JsonKey(name: 'blockedBy') final bool isBlockedBy,
           @JsonKey(name: 'muted') final bool isMuted,
           @JsonKey(name: 'mutedByList') final bool isMutedByList}) =
-      _$_ModerationBehaviors;
+      _$ModerationBehaviorsImpl;
 
   factory _ModerationBehaviors.fromJson(Map<String, dynamic> json) =
-      _$_ModerationBehaviors.fromJson;
+      _$ModerationBehaviorsImpl.fromJson;
 
   @override
   @JsonKey(name: 'blocking')
@@ -255,6 +256,6 @@ abstract class _ModerationBehaviors implements ModerationBehaviorsUser {
   bool get isMutedByList;
   @override
   @JsonKey(ignore: true)
-  _$$_ModerationBehaviorsCopyWith<_$_ModerationBehaviors> get copyWith =>
+  _$$ModerationBehaviorsImplCopyWith<_$ModerationBehaviorsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

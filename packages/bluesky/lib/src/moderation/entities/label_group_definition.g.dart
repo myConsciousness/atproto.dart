@@ -8,12 +8,12 @@ part of 'label_group_definition.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LabelGroupDefinition _$$_LabelGroupDefinitionFromJson(Map json) =>
+_$LabelGroupDefinitionImpl _$$LabelGroupDefinitionImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$_LabelGroupDefinition',
+      r'_$LabelGroupDefinitionImpl',
       json,
       ($checkedConvert) {
-        final val = _$_LabelGroupDefinition(
+        final val = _$LabelGroupDefinitionImpl(
           id: $checkedConvert('id', (v) => v as String),
           isConfigurable:
               $checkedConvert('configurable', (v) => v as bool? ?? false),
@@ -29,8 +29,8 @@ _$_LabelGroupDefinition _$$_LabelGroupDefinitionFromJson(Map json) =>
       fieldKeyMap: const {'isConfigurable': 'configurable'},
     );
 
-Map<String, dynamic> _$$_LabelGroupDefinitionToJson(
-        _$_LabelGroupDefinition instance) =>
+Map<String, dynamic> _$$LabelGroupDefinitionImplToJson(
+        _$LabelGroupDefinitionImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'configurable': instance.isConfigurable,

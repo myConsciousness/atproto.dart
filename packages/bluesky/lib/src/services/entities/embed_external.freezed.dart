@@ -84,11 +84,11 @@ class _$EmbedExternalCopyWithImpl<$Res, $Val extends EmbedExternal>
 }
 
 /// @nodoc
-abstract class _$$_EmbedExternalCopyWith<$Res>
+abstract class _$$EmbedExternalImplCopyWith<$Res>
     implements $EmbedExternalCopyWith<$Res> {
-  factory _$$_EmbedExternalCopyWith(
-          _$_EmbedExternal value, $Res Function(_$_EmbedExternal) then) =
-      __$$_EmbedExternalCopyWithImpl<$Res>;
+  factory _$$EmbedExternalImplCopyWith(
+          _$EmbedExternalImpl value, $Res Function(_$EmbedExternalImpl) then) =
+      __$$EmbedExternalImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, EmbedExternalThumbnail external});
@@ -98,11 +98,11 @@ abstract class _$$_EmbedExternalCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EmbedExternalCopyWithImpl<$Res>
-    extends _$EmbedExternalCopyWithImpl<$Res, _$_EmbedExternal>
-    implements _$$_EmbedExternalCopyWith<$Res> {
-  __$$_EmbedExternalCopyWithImpl(
-      _$_EmbedExternal _value, $Res Function(_$_EmbedExternal) _then)
+class __$$EmbedExternalImplCopyWithImpl<$Res>
+    extends _$EmbedExternalCopyWithImpl<$Res, _$EmbedExternalImpl>
+    implements _$$EmbedExternalImplCopyWith<$Res> {
+  __$$EmbedExternalImplCopyWithImpl(
+      _$EmbedExternalImpl _value, $Res Function(_$EmbedExternalImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +111,7 @@ class __$$_EmbedExternalCopyWithImpl<$Res>
     Object? type = null,
     Object? external = null,
   }) {
-    return _then(_$_EmbedExternal(
+    return _then(_$EmbedExternalImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -126,12 +126,12 @@ class __$$_EmbedExternalCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EmbedExternal implements _EmbedExternal {
-  const _$_EmbedExternal(
+class _$EmbedExternalImpl implements _EmbedExternal {
+  const _$EmbedExternalImpl(
       {@typeKey this.type = appBskyEmbedExternal, required this.external});
 
-  factory _$_EmbedExternal.fromJson(Map<String, dynamic> json) =>
-      _$$_EmbedExternalFromJson(json);
+  factory _$EmbedExternalImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmbedExternalImplFromJson(json);
 
   /// The type of the embedded content, defaulted to
   /// [appBskyEmbedExternal].
@@ -153,7 +153,7 @@ class _$_EmbedExternal implements _EmbedExternal {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EmbedExternal &&
+            other is _$EmbedExternalImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.external, external) ||
                 other.external == external));
@@ -166,12 +166,12 @@ class _$_EmbedExternal implements _EmbedExternal {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EmbedExternalCopyWith<_$_EmbedExternal> get copyWith =>
-      __$$_EmbedExternalCopyWithImpl<_$_EmbedExternal>(this, _$identity);
+  _$$EmbedExternalImplCopyWith<_$EmbedExternalImpl> get copyWith =>
+      __$$EmbedExternalImplCopyWithImpl<_$EmbedExternalImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EmbedExternalToJson(
+    return _$$EmbedExternalImplToJson(
       this,
     );
   }
@@ -180,10 +180,10 @@ class _$_EmbedExternal implements _EmbedExternal {
 abstract class _EmbedExternal implements EmbedExternal {
   const factory _EmbedExternal(
       {@typeKey final String type,
-      required final EmbedExternalThumbnail external}) = _$_EmbedExternal;
+      required final EmbedExternalThumbnail external}) = _$EmbedExternalImpl;
 
   factory _EmbedExternal.fromJson(Map<String, dynamic> json) =
-      _$_EmbedExternal.fromJson;
+      _$EmbedExternalImpl.fromJson;
 
   @override
 
@@ -198,6 +198,6 @@ abstract class _EmbedExternal implements EmbedExternal {
   EmbedExternalThumbnail get external;
   @override
   @JsonKey(ignore: true)
-  _$$_EmbedExternalCopyWith<_$_EmbedExternal> get copyWith =>
+  _$$EmbedExternalImplCopyWith<_$EmbedExternalImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

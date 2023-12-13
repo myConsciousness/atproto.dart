@@ -8,12 +8,12 @@ part of 'post_thread_view_record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PostThreadViewRecord _$$_PostThreadViewRecordFromJson(Map json) =>
+_$PostThreadViewRecordImpl _$$PostThreadViewRecordImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$_PostThreadViewRecord',
+      r'_$PostThreadViewRecordImpl',
       json,
       ($checkedConvert) {
-        final val = _$_PostThreadViewRecord(
+        final val = _$PostThreadViewRecordImpl(
           type: $checkedConvert(r'$type', (v) => v as String),
           post: $checkedConvert('post',
               (v) => Post.fromJson(Map<String, Object?>.from(v as Map))),
@@ -34,8 +34,8 @@ _$_PostThreadViewRecord _$$_PostThreadViewRecordFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$_PostThreadViewRecordToJson(
-        _$_PostThreadViewRecord instance) =>
+Map<String, dynamic> _$$PostThreadViewRecordImplToJson(
+        _$PostThreadViewRecordImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'post': instance.post.toJson(),

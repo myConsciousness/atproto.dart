@@ -139,10 +139,11 @@ class _$ListParamCopyWithImpl<$Res, $Val extends ListParam>
 }
 
 /// @nodoc
-abstract class _$$_ListParamCopyWith<$Res> implements $ListParamCopyWith<$Res> {
-  factory _$$_ListParamCopyWith(
-          _$_ListParam value, $Res Function(_$_ListParam) then) =
-      __$$_ListParamCopyWithImpl<$Res>;
+abstract class _$$ListParamImplCopyWith<$Res>
+    implements $ListParamCopyWith<$Res> {
+  factory _$$ListParamImplCopyWith(
+          _$ListParamImpl value, $Res Function(_$ListParamImpl) then) =
+      __$$ListParamImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -162,11 +163,11 @@ abstract class _$$_ListParamCopyWith<$Res> implements $ListParamCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ListParamCopyWithImpl<$Res>
-    extends _$ListParamCopyWithImpl<$Res, _$_ListParam>
-    implements _$$_ListParamCopyWith<$Res> {
-  __$$_ListParamCopyWithImpl(
-      _$_ListParam _value, $Res Function(_$_ListParam) _then)
+class __$$ListParamImplCopyWithImpl<$Res>
+    extends _$ListParamCopyWithImpl<$Res, _$ListParamImpl>
+    implements _$$ListParamImplCopyWith<$Res> {
+  __$$ListParamImplCopyWithImpl(
+      _$ListParamImpl _value, $Res Function(_$ListParamImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -181,7 +182,7 @@ class __$$_ListParamCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? unspecced = null,
   }) {
-    return _then(_$_ListParam(
+    return _then(_$ListParamImpl(
       purpose: null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
@@ -221,8 +222,8 @@ class __$$_ListParamCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ListParam implements _ListParam {
-  const _$_ListParam(
+class _$ListParamImpl implements _ListParam {
+  const _$ListParamImpl(
       {required this.purpose,
       required this.name,
       this.description,
@@ -234,8 +235,8 @@ class _$_ListParam implements _ListParam {
       : _descriptionFacets = descriptionFacets,
         _unspecced = unspecced;
 
-  factory _$_ListParam.fromJson(Map<String, dynamic> json) =>
-      _$$_ListParamFromJson(json);
+  factory _$ListParamImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ListParamImplFromJson(json);
 
   @override
   final String purpose;
@@ -279,7 +280,7 @@ class _$_ListParam implements _ListParam {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ListParam &&
+            other is _$ListParamImpl &&
             (identical(other.purpose, purpose) || other.purpose == purpose) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
@@ -310,12 +311,12 @@ class _$_ListParam implements _ListParam {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ListParamCopyWith<_$_ListParam> get copyWith =>
-      __$$_ListParamCopyWithImpl<_$_ListParam>(this, _$identity);
+  _$$ListParamImplCopyWith<_$ListParamImpl> get copyWith =>
+      __$$ListParamImplCopyWithImpl<_$ListParamImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ListParamToJson(
+    return _$$ListParamImplToJson(
       this,
     );
   }
@@ -330,10 +331,10 @@ abstract class _ListParam implements ListParam {
       final Blob? avatar,
       @labelsConverter final Labels? labels,
       final DateTime? createdAt,
-      final Map<String, dynamic> unspecced}) = _$_ListParam;
+      final Map<String, dynamic> unspecced}) = _$ListParamImpl;
 
   factory _ListParam.fromJson(Map<String, dynamic> json) =
-      _$_ListParam.fromJson;
+      _$ListParamImpl.fromJson;
 
   @override
   String get purpose;
@@ -354,6 +355,6 @@ abstract class _ListParam implements ListParam {
   Map<String, dynamic> get unspecced;
   @override
   @JsonKey(ignore: true)
-  _$$_ListParamCopyWith<_$_ListParam> get copyWith =>
+  _$$ListParamImplCopyWith<_$ListParamImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

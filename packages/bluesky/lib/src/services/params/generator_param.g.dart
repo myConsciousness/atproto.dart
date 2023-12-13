@@ -8,11 +8,11 @@ part of 'generator_param.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_GeneratorParam _$$_GeneratorParamFromJson(Map json) => $checkedCreate(
-      r'_$_GeneratorParam',
+_$GeneratorParamImpl _$$GeneratorParamImplFromJson(Map json) => $checkedCreate(
+      r'_$GeneratorParamImpl',
       json,
       ($checkedConvert) {
-        final val = _$_GeneratorParam(
+        final val = _$GeneratorParamImpl(
           did: $checkedConvert('did', (v) => v as String),
           displayName: $checkedConvert('displayName', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String?),
@@ -45,7 +45,8 @@ _$_GeneratorParam _$$_GeneratorParamFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_GeneratorParamToJson(_$_GeneratorParam instance) {
+Map<String, dynamic> _$$GeneratorParamImplToJson(
+    _$GeneratorParamImpl instance) {
   final val = <String, dynamic>{
     'did': instance.did,
     'displayName': instance.displayName,

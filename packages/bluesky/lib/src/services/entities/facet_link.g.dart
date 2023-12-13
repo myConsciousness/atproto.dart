@@ -8,11 +8,11 @@ part of 'facet_link.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_FacetLink _$$_FacetLinkFromJson(Map json) => $checkedCreate(
-      r'_$_FacetLink',
+_$FacetLinkImpl _$$FacetLinkImplFromJson(Map json) => $checkedCreate(
+      r'_$FacetLinkImpl',
       json,
       ($checkedConvert) {
-        final val = _$_FacetLink(
+        final val = _$FacetLinkImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyRichtextFacetLink),
           uri: $checkedConvert('uri', (v) => v as String),
@@ -22,7 +22,7 @@ _$_FacetLink _$$_FacetLinkFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$_FacetLinkToJson(_$_FacetLink instance) =>
+Map<String, dynamic> _$$FacetLinkImplToJson(_$FacetLinkImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'uri': instance.uri,

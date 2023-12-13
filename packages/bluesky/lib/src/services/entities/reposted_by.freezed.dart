@@ -81,11 +81,11 @@ class _$RepostedByCopyWithImpl<$Res, $Val extends RepostedBy>
 }
 
 /// @nodoc
-abstract class _$$_RepostedByCopyWith<$Res>
+abstract class _$$RepostedByImplCopyWith<$Res>
     implements $RepostedByCopyWith<$Res> {
-  factory _$$_RepostedByCopyWith(
-          _$_RepostedBy value, $Res Function(_$_RepostedBy) then) =
-      __$$_RepostedByCopyWithImpl<$Res>;
+  factory _$$RepostedByImplCopyWith(
+          _$RepostedByImpl value, $Res Function(_$RepostedByImpl) then) =
+      __$$RepostedByImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -93,11 +93,11 @@ abstract class _$$_RepostedByCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_RepostedByCopyWithImpl<$Res>
-    extends _$RepostedByCopyWithImpl<$Res, _$_RepostedBy>
-    implements _$$_RepostedByCopyWith<$Res> {
-  __$$_RepostedByCopyWithImpl(
-      _$_RepostedBy _value, $Res Function(_$_RepostedBy) _then)
+class __$$RepostedByImplCopyWithImpl<$Res>
+    extends _$RepostedByCopyWithImpl<$Res, _$RepostedByImpl>
+    implements _$$RepostedByImplCopyWith<$Res> {
+  __$$RepostedByImplCopyWithImpl(
+      _$RepostedByImpl _value, $Res Function(_$RepostedByImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -107,7 +107,7 @@ class __$$_RepostedByCopyWithImpl<$Res>
     Object? uri = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$_RepostedBy(
+    return _then(_$RepostedByImpl(
       repostedBy: null == repostedBy
           ? _value._repostedBy
           : repostedBy // ignore: cast_nullable_to_non_nullable
@@ -126,15 +126,15 @@ class __$$_RepostedByCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RepostedBy implements _RepostedBy {
-  const _$_RepostedBy(
+class _$RepostedByImpl implements _RepostedBy {
+  const _$RepostedByImpl(
       {required final List<Actor> repostedBy,
       @atUriConverter required this.uri,
       this.cursor})
       : _repostedBy = repostedBy;
 
-  factory _$_RepostedBy.fromJson(Map<String, dynamic> json) =>
-      _$$_RepostedByFromJson(json);
+  factory _$RepostedByImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RepostedByImplFromJson(json);
 
   /// A list of actors who have reposted a post.
   final List<Actor> _repostedBy;
@@ -165,7 +165,7 @@ class _$_RepostedBy implements _RepostedBy {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RepostedBy &&
+            other is _$RepostedByImpl &&
             const DeepCollectionEquality()
                 .equals(other._repostedBy, _repostedBy) &&
             (identical(other.uri, uri) || other.uri == uri) &&
@@ -180,12 +180,12 @@ class _$_RepostedBy implements _RepostedBy {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RepostedByCopyWith<_$_RepostedBy> get copyWith =>
-      __$$_RepostedByCopyWithImpl<_$_RepostedBy>(this, _$identity);
+  _$$RepostedByImplCopyWith<_$RepostedByImpl> get copyWith =>
+      __$$RepostedByImplCopyWithImpl<_$RepostedByImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RepostedByToJson(
+    return _$$RepostedByImplToJson(
       this,
     );
   }
@@ -195,10 +195,10 @@ abstract class _RepostedBy implements RepostedBy {
   const factory _RepostedBy(
       {required final List<Actor> repostedBy,
       @atUriConverter required final AtUri uri,
-      final String? cursor}) = _$_RepostedBy;
+      final String? cursor}) = _$RepostedByImpl;
 
   factory _RepostedBy.fromJson(Map<String, dynamic> json) =
-      _$_RepostedBy.fromJson;
+      _$RepostedByImpl.fromJson;
 
   @override
 
@@ -215,6 +215,6 @@ abstract class _RepostedBy implements RepostedBy {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$_RepostedByCopyWith<_$_RepostedBy> get copyWith =>
+  _$$RepostedByImplCopyWith<_$RepostedByImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

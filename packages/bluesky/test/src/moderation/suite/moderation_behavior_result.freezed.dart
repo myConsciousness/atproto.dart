@@ -97,12 +97,12 @@ class _$ModerationBehaviorResultCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ModerationBehaviorResultCopyWith<$Res>
+abstract class _$$ModerationBehaviorResultImplCopyWith<$Res>
     implements $ModerationBehaviorResultCopyWith<$Res> {
-  factory _$$_ModerationBehaviorResultCopyWith(
-          _$_ModerationBehaviorResult value,
-          $Res Function(_$_ModerationBehaviorResult) then) =
-      __$$_ModerationBehaviorResultCopyWithImpl<$Res>;
+  factory _$$ModerationBehaviorResultImplCopyWith(
+          _$ModerationBehaviorResultImpl value,
+          $Res Function(_$ModerationBehaviorResultImpl) then) =
+      __$$ModerationBehaviorResultImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -114,12 +114,13 @@ abstract class _$$_ModerationBehaviorResultCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ModerationBehaviorResultCopyWithImpl<$Res>
+class __$$ModerationBehaviorResultImplCopyWithImpl<$Res>
     extends _$ModerationBehaviorResultCopyWithImpl<$Res,
-        _$_ModerationBehaviorResult>
-    implements _$$_ModerationBehaviorResultCopyWith<$Res> {
-  __$$_ModerationBehaviorResultCopyWithImpl(_$_ModerationBehaviorResult _value,
-      $Res Function(_$_ModerationBehaviorResult) _then)
+        _$ModerationBehaviorResultImpl>
+    implements _$$ModerationBehaviorResultImplCopyWith<$Res> {
+  __$$ModerationBehaviorResultImplCopyWithImpl(
+      _$ModerationBehaviorResultImpl _value,
+      $Res Function(_$ModerationBehaviorResultImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -131,7 +132,7 @@ class __$$_ModerationBehaviorResultCopyWithImpl<$Res>
     Object? isAlert = null,
     Object? isNoOverride = null,
   }) {
-    return _then(_$_ModerationBehaviorResult(
+    return _then(_$ModerationBehaviorResultImpl(
       cause: freezed == cause
           ? _value.cause
           : cause // ignore: cast_nullable_to_non_nullable
@@ -159,16 +160,16 @@ class __$$_ModerationBehaviorResultCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ModerationBehaviorResult implements _ModerationBehaviorResult {
-  const _$_ModerationBehaviorResult(
+class _$ModerationBehaviorResultImpl implements _ModerationBehaviorResult {
+  const _$ModerationBehaviorResultImpl(
       {this.cause,
       @JsonKey(name: 'filter') this.isFilter = false,
       @JsonKey(name: 'blur') this.isBlur = false,
       @JsonKey(name: 'alert') this.isAlert = false,
       @JsonKey(name: 'noOverride') this.isNoOverride = false});
 
-  factory _$_ModerationBehaviorResult.fromJson(Map<String, dynamic> json) =>
-      _$$_ModerationBehaviorResultFromJson(json);
+  factory _$ModerationBehaviorResultImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ModerationBehaviorResultImplFromJson(json);
 
   @override
   final String? cause;
@@ -194,7 +195,7 @@ class _$_ModerationBehaviorResult implements _ModerationBehaviorResult {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ModerationBehaviorResult &&
+            other is _$ModerationBehaviorResultImpl &&
             (identical(other.cause, cause) || other.cause == cause) &&
             (identical(other.isFilter, isFilter) ||
                 other.isFilter == isFilter) &&
@@ -212,13 +213,13 @@ class _$_ModerationBehaviorResult implements _ModerationBehaviorResult {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ModerationBehaviorResultCopyWith<_$_ModerationBehaviorResult>
-      get copyWith => __$$_ModerationBehaviorResultCopyWithImpl<
-          _$_ModerationBehaviorResult>(this, _$identity);
+  _$$ModerationBehaviorResultImplCopyWith<_$ModerationBehaviorResultImpl>
+      get copyWith => __$$ModerationBehaviorResultImplCopyWithImpl<
+          _$ModerationBehaviorResultImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ModerationBehaviorResultToJson(
+    return _$$ModerationBehaviorResultImplToJson(
       this,
     );
   }
@@ -231,10 +232,10 @@ abstract class _ModerationBehaviorResult implements ModerationBehaviorResult {
           @JsonKey(name: 'blur') final bool isBlur,
           @JsonKey(name: 'alert') final bool isAlert,
           @JsonKey(name: 'noOverride') final bool isNoOverride}) =
-      _$_ModerationBehaviorResult;
+      _$ModerationBehaviorResultImpl;
 
   factory _ModerationBehaviorResult.fromJson(Map<String, dynamic> json) =
-      _$_ModerationBehaviorResult.fromJson;
+      _$ModerationBehaviorResultImpl.fromJson;
 
   @override
   String? get cause;
@@ -252,6 +253,6 @@ abstract class _ModerationBehaviorResult implements ModerationBehaviorResult {
   bool get isNoOverride;
   @override
   @JsonKey(ignore: true)
-  _$$_ModerationBehaviorResultCopyWith<_$_ModerationBehaviorResult>
+  _$$ModerationBehaviorResultImplCopyWith<_$ModerationBehaviorResultImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

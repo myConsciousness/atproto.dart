@@ -73,22 +73,22 @@ class _$EmbedImagesCopyWithImpl<$Res, $Val extends EmbedImages>
 }
 
 /// @nodoc
-abstract class _$$_EmbedImagesCopyWith<$Res>
+abstract class _$$EmbedImagesImplCopyWith<$Res>
     implements $EmbedImagesCopyWith<$Res> {
-  factory _$$_EmbedImagesCopyWith(
-          _$_EmbedImages value, $Res Function(_$_EmbedImages) then) =
-      __$$_EmbedImagesCopyWithImpl<$Res>;
+  factory _$$EmbedImagesImplCopyWith(
+          _$EmbedImagesImpl value, $Res Function(_$EmbedImagesImpl) then) =
+      __$$EmbedImagesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, List<Image> images});
 }
 
 /// @nodoc
-class __$$_EmbedImagesCopyWithImpl<$Res>
-    extends _$EmbedImagesCopyWithImpl<$Res, _$_EmbedImages>
-    implements _$$_EmbedImagesCopyWith<$Res> {
-  __$$_EmbedImagesCopyWithImpl(
-      _$_EmbedImages _value, $Res Function(_$_EmbedImages) _then)
+class __$$EmbedImagesImplCopyWithImpl<$Res>
+    extends _$EmbedImagesCopyWithImpl<$Res, _$EmbedImagesImpl>
+    implements _$$EmbedImagesImplCopyWith<$Res> {
+  __$$EmbedImagesImplCopyWithImpl(
+      _$EmbedImagesImpl _value, $Res Function(_$EmbedImagesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,7 +97,7 @@ class __$$_EmbedImagesCopyWithImpl<$Res>
     Object? type = null,
     Object? images = null,
   }) {
-    return _then(_$_EmbedImages(
+    return _then(_$EmbedImagesImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -112,14 +112,14 @@ class __$$_EmbedImagesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EmbedImages implements _EmbedImages {
-  const _$_EmbedImages(
+class _$EmbedImagesImpl implements _EmbedImages {
+  const _$EmbedImagesImpl(
       {@typeKey this.type = appBskyEmbedImages,
       required final List<Image> images})
       : _images = images;
 
-  factory _$_EmbedImages.fromJson(Map<String, dynamic> json) =>
-      _$$_EmbedImagesFromJson(json);
+  factory _$EmbedImagesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmbedImagesImplFromJson(json);
 
   /// The type of the embedded content, defaulted to
   /// [appBskyEmbedImages].
@@ -147,7 +147,7 @@ class _$_EmbedImages implements _EmbedImages {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EmbedImages &&
+            other is _$EmbedImagesImpl &&
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._images, _images));
   }
@@ -160,12 +160,12 @@ class _$_EmbedImages implements _EmbedImages {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EmbedImagesCopyWith<_$_EmbedImages> get copyWith =>
-      __$$_EmbedImagesCopyWithImpl<_$_EmbedImages>(this, _$identity);
+  _$$EmbedImagesImplCopyWith<_$EmbedImagesImpl> get copyWith =>
+      __$$EmbedImagesImplCopyWithImpl<_$EmbedImagesImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EmbedImagesToJson(
+    return _$$EmbedImagesImplToJson(
       this,
     );
   }
@@ -174,10 +174,10 @@ class _$_EmbedImages implements _EmbedImages {
 abstract class _EmbedImages implements EmbedImages {
   const factory _EmbedImages(
       {@typeKey final String type,
-      required final List<Image> images}) = _$_EmbedImages;
+      required final List<Image> images}) = _$EmbedImagesImpl;
 
   factory _EmbedImages.fromJson(Map<String, dynamic> json) =
-      _$_EmbedImages.fromJson;
+      _$EmbedImagesImpl.fromJson;
 
   @override
 
@@ -191,6 +191,6 @@ abstract class _EmbedImages implements EmbedImages {
   List<Image> get images;
   @override
   @JsonKey(ignore: true)
-  _$$_EmbedImagesCopyWith<_$_EmbedImages> get copyWith =>
+  _$$EmbedImagesImplCopyWith<_$EmbedImagesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

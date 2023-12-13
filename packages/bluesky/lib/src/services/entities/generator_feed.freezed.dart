@@ -64,22 +64,22 @@ class _$GeneratorFeedCopyWithImpl<$Res, $Val extends GeneratorFeed>
 }
 
 /// @nodoc
-abstract class _$$_GeneratorFeedCopyWith<$Res>
+abstract class _$$GeneratorFeedImplCopyWith<$Res>
     implements $GeneratorFeedCopyWith<$Res> {
-  factory _$$_GeneratorFeedCopyWith(
-          _$_GeneratorFeed value, $Res Function(_$_GeneratorFeed) then) =
-      __$$_GeneratorFeedCopyWithImpl<$Res>;
+  factory _$$GeneratorFeedImplCopyWith(
+          _$GeneratorFeedImpl value, $Res Function(_$GeneratorFeedImpl) then) =
+      __$$GeneratorFeedImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@atUriConverter AtUri uri});
 }
 
 /// @nodoc
-class __$$_GeneratorFeedCopyWithImpl<$Res>
-    extends _$GeneratorFeedCopyWithImpl<$Res, _$_GeneratorFeed>
-    implements _$$_GeneratorFeedCopyWith<$Res> {
-  __$$_GeneratorFeedCopyWithImpl(
-      _$_GeneratorFeed _value, $Res Function(_$_GeneratorFeed) _then)
+class __$$GeneratorFeedImplCopyWithImpl<$Res>
+    extends _$GeneratorFeedCopyWithImpl<$Res, _$GeneratorFeedImpl>
+    implements _$$GeneratorFeedImplCopyWith<$Res> {
+  __$$GeneratorFeedImplCopyWithImpl(
+      _$GeneratorFeedImpl _value, $Res Function(_$GeneratorFeedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +87,7 @@ class __$$_GeneratorFeedCopyWithImpl<$Res>
   $Res call({
     Object? uri = null,
   }) {
-    return _then(_$_GeneratorFeed(
+    return _then(_$GeneratorFeedImpl(
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -99,11 +99,11 @@ class __$$_GeneratorFeedCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_GeneratorFeed implements _GeneratorFeed {
-  const _$_GeneratorFeed({@atUriConverter required this.uri});
+class _$GeneratorFeedImpl implements _GeneratorFeed {
+  const _$GeneratorFeedImpl({@atUriConverter required this.uri});
 
-  factory _$_GeneratorFeed.fromJson(Map<String, dynamic> json) =>
-      _$$_GeneratorFeedFromJson(json);
+  factory _$GeneratorFeedImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GeneratorFeedImplFromJson(json);
 
   /// The URI of the feed.
   @override
@@ -119,7 +119,7 @@ class _$_GeneratorFeed implements _GeneratorFeed {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GeneratorFeed &&
+            other is _$GeneratorFeedImpl &&
             (identical(other.uri, uri) || other.uri == uri));
   }
 
@@ -130,12 +130,12 @@ class _$_GeneratorFeed implements _GeneratorFeed {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GeneratorFeedCopyWith<_$_GeneratorFeed> get copyWith =>
-      __$$_GeneratorFeedCopyWithImpl<_$_GeneratorFeed>(this, _$identity);
+  _$$GeneratorFeedImplCopyWith<_$GeneratorFeedImpl> get copyWith =>
+      __$$GeneratorFeedImplCopyWithImpl<_$GeneratorFeedImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GeneratorFeedToJson(
+    return _$$GeneratorFeedImplToJson(
       this,
     );
   }
@@ -143,10 +143,10 @@ class _$_GeneratorFeed implements _GeneratorFeed {
 
 abstract class _GeneratorFeed implements GeneratorFeed {
   const factory _GeneratorFeed({@atUriConverter required final AtUri uri}) =
-      _$_GeneratorFeed;
+      _$GeneratorFeedImpl;
 
   factory _GeneratorFeed.fromJson(Map<String, dynamic> json) =
-      _$_GeneratorFeed.fromJson;
+      _$GeneratorFeedImpl.fromJson;
 
   @override
 
@@ -155,6 +155,6 @@ abstract class _GeneratorFeed implements GeneratorFeed {
   AtUri get uri;
   @override
   @JsonKey(ignore: true)
-  _$$_GeneratorFeedCopyWith<_$_GeneratorFeed> get copyWith =>
+  _$$GeneratorFeedImplCopyWith<_$GeneratorFeedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -156,11 +156,11 @@ class _$ListRecordCopyWithImpl<$Res, $Val extends ListRecord>
 }
 
 /// @nodoc
-abstract class _$$_ListRecordCopyWith<$Res>
+abstract class _$$ListRecordImplCopyWith<$Res>
     implements $ListRecordCopyWith<$Res> {
-  factory _$$_ListRecordCopyWith(
-          _$_ListRecord value, $Res Function(_$_ListRecord) then) =
-      __$$_ListRecordCopyWithImpl<$Res>;
+  factory _$$ListRecordImplCopyWith(
+          _$ListRecordImpl value, $Res Function(_$ListRecordImpl) then) =
+      __$$ListRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -180,11 +180,11 @@ abstract class _$$_ListRecordCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ListRecordCopyWithImpl<$Res>
-    extends _$ListRecordCopyWithImpl<$Res, _$_ListRecord>
-    implements _$$_ListRecordCopyWith<$Res> {
-  __$$_ListRecordCopyWithImpl(
-      _$_ListRecord _value, $Res Function(_$_ListRecord) _then)
+class __$$ListRecordImplCopyWithImpl<$Res>
+    extends _$ListRecordCopyWithImpl<$Res, _$ListRecordImpl>
+    implements _$$ListRecordImplCopyWith<$Res> {
+  __$$ListRecordImplCopyWithImpl(
+      _$ListRecordImpl _value, $Res Function(_$ListRecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -199,7 +199,7 @@ class __$$_ListRecordCopyWithImpl<$Res>
     Object? labels = freezed,
     Object? createdAt = null,
   }) {
-    return _then(_$_ListRecord(
+    return _then(_$ListRecordImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -239,8 +239,8 @@ class __$$_ListRecordCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ListRecord implements _ListRecord {
-  const _$_ListRecord(
+class _$ListRecordImpl implements _ListRecord {
+  const _$ListRecordImpl(
       {@typeKey this.type = appBskyGraphList,
       required this.name,
       required this.purpose,
@@ -251,8 +251,8 @@ class _$_ListRecord implements _ListRecord {
       required this.createdAt})
       : _descriptionFacets = descriptionFacets;
 
-  factory _$_ListRecord.fromJson(Map<String, dynamic> json) =>
-      _$$_ListRecordFromJson(json);
+  factory _$ListRecordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ListRecordImplFromJson(json);
 
   /// The type of the list, by default it is [appBskyGraphList].
   @override
@@ -307,7 +307,7 @@ class _$_ListRecord implements _ListRecord {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ListRecord &&
+            other is _$ListRecordImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.purpose, purpose) || other.purpose == purpose) &&
@@ -337,12 +337,12 @@ class _$_ListRecord implements _ListRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ListRecordCopyWith<_$_ListRecord> get copyWith =>
-      __$$_ListRecordCopyWithImpl<_$_ListRecord>(this, _$identity);
+  _$$ListRecordImplCopyWith<_$ListRecordImpl> get copyWith =>
+      __$$ListRecordImplCopyWithImpl<_$ListRecordImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ListRecordToJson(
+    return _$$ListRecordImplToJson(
       this,
     );
   }
@@ -357,10 +357,10 @@ abstract class _ListRecord implements ListRecord {
       final List<Facet>? descriptionFacets,
       final Blob? avatar,
       @labelsConverter final Labels? labels,
-      required final DateTime createdAt}) = _$_ListRecord;
+      required final DateTime createdAt}) = _$ListRecordImpl;
 
   factory _ListRecord.fromJson(Map<String, dynamic> json) =
-      _$_ListRecord.fromJson;
+      _$ListRecordImpl.fromJson;
 
   @override
 
@@ -398,6 +398,6 @@ abstract class _ListRecord implements ListRecord {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$_ListRecordCopyWith<_$_ListRecord> get copyWith =>
+  _$$ListRecordImplCopyWith<_$ListRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

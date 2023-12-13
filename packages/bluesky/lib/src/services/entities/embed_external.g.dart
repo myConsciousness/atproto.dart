@@ -8,11 +8,11 @@ part of 'embed_external.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_EmbedExternal _$$_EmbedExternalFromJson(Map json) => $checkedCreate(
-      r'_$_EmbedExternal',
+_$EmbedExternalImpl _$$EmbedExternalImplFromJson(Map json) => $checkedCreate(
+      r'_$EmbedExternalImpl',
       json,
       ($checkedConvert) {
-        final val = _$_EmbedExternal(
+        final val = _$EmbedExternalImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyEmbedExternal),
           external: $checkedConvert(
@@ -25,7 +25,7 @@ _$_EmbedExternal _$$_EmbedExternalFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$_EmbedExternalToJson(_$_EmbedExternal instance) =>
+Map<String, dynamic> _$$EmbedExternalImplToJson(_$EmbedExternalImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'external': instance.external.toJson(),

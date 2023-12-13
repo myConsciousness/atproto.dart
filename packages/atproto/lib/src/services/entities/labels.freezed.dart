@@ -75,10 +75,10 @@ class _$LabelsCopyWithImpl<$Res, $Val extends Labels>
 }
 
 /// @nodoc
-abstract class _$$ULabelsSelLabelsCopyWith<$Res> {
-  factory _$$ULabelsSelLabelsCopyWith(
-          _$ULabelsSelLabels value, $Res Function(_$ULabelsSelLabels) then) =
-      __$$ULabelsSelLabelsCopyWithImpl<$Res>;
+abstract class _$$ULabelsSelLabelsImplCopyWith<$Res> {
+  factory _$$ULabelsSelLabelsImplCopyWith(_$ULabelsSelLabelsImpl value,
+          $Res Function(_$ULabelsSelLabelsImpl) then) =
+      __$$ULabelsSelLabelsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({SelfLabels data});
 
@@ -86,11 +86,11 @@ abstract class _$$ULabelsSelLabelsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULabelsSelLabelsCopyWithImpl<$Res>
-    extends _$LabelsCopyWithImpl<$Res, _$ULabelsSelLabels>
-    implements _$$ULabelsSelLabelsCopyWith<$Res> {
-  __$$ULabelsSelLabelsCopyWithImpl(
-      _$ULabelsSelLabels _value, $Res Function(_$ULabelsSelLabels) _then)
+class __$$ULabelsSelLabelsImplCopyWithImpl<$Res>
+    extends _$LabelsCopyWithImpl<$Res, _$ULabelsSelLabelsImpl>
+    implements _$$ULabelsSelLabelsImplCopyWith<$Res> {
+  __$$ULabelsSelLabelsImplCopyWithImpl(_$ULabelsSelLabelsImpl _value,
+      $Res Function(_$ULabelsSelLabelsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$ULabelsSelLabelsCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULabelsSelLabels(
+    return _then(_$ULabelsSelLabelsImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -117,8 +117,8 @@ class __$$ULabelsSelLabelsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULabelsSelLabels extends ULabelsSelLabels {
-  const _$ULabelsSelLabels({required this.data}) : super._();
+class _$ULabelsSelLabelsImpl extends ULabelsSelLabels {
+  const _$ULabelsSelLabelsImpl({required this.data}) : super._();
 
   @override
   final SelfLabels data;
@@ -132,7 +132,7 @@ class _$ULabelsSelLabels extends ULabelsSelLabels {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULabelsSelLabels &&
+            other is _$ULabelsSelLabelsImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -142,8 +142,9 @@ class _$ULabelsSelLabels extends ULabelsSelLabels {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULabelsSelLabelsCopyWith<_$ULabelsSelLabels> get copyWith =>
-      __$$ULabelsSelLabelsCopyWithImpl<_$ULabelsSelLabels>(this, _$identity);
+  _$$ULabelsSelLabelsImplCopyWith<_$ULabelsSelLabelsImpl> get copyWith =>
+      __$$ULabelsSelLabelsImplCopyWithImpl<_$ULabelsSelLabelsImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -210,31 +211,31 @@ class _$ULabelsSelLabels extends ULabelsSelLabels {
 
 abstract class ULabelsSelLabels extends Labels {
   const factory ULabelsSelLabels({required final SelfLabels data}) =
-      _$ULabelsSelLabels;
+      _$ULabelsSelLabelsImpl;
   const ULabelsSelLabels._() : super._();
 
   @override
   SelfLabels get data;
   @JsonKey(ignore: true)
-  _$$ULabelsSelLabelsCopyWith<_$ULabelsSelLabels> get copyWith =>
+  _$$ULabelsSelLabelsImplCopyWith<_$ULabelsSelLabelsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ULabelsUnknownCopyWith<$Res> {
-  factory _$$ULabelsUnknownCopyWith(
-          _$ULabelsUnknown value, $Res Function(_$ULabelsUnknown) then) =
-      __$$ULabelsUnknownCopyWithImpl<$Res>;
+abstract class _$$ULabelsUnknownImplCopyWith<$Res> {
+  factory _$$ULabelsUnknownImplCopyWith(_$ULabelsUnknownImpl value,
+          $Res Function(_$ULabelsUnknownImpl) then) =
+      __$$ULabelsUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$ULabelsUnknownCopyWithImpl<$Res>
-    extends _$LabelsCopyWithImpl<$Res, _$ULabelsUnknown>
-    implements _$$ULabelsUnknownCopyWith<$Res> {
-  __$$ULabelsUnknownCopyWithImpl(
-      _$ULabelsUnknown _value, $Res Function(_$ULabelsUnknown) _then)
+class __$$ULabelsUnknownImplCopyWithImpl<$Res>
+    extends _$LabelsCopyWithImpl<$Res, _$ULabelsUnknownImpl>
+    implements _$$ULabelsUnknownImplCopyWith<$Res> {
+  __$$ULabelsUnknownImplCopyWithImpl(
+      _$ULabelsUnknownImpl _value, $Res Function(_$ULabelsUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -242,7 +243,7 @@ class __$$ULabelsUnknownCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULabelsUnknown(
+    return _then(_$ULabelsUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -253,8 +254,8 @@ class __$$ULabelsUnknownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULabelsUnknown extends ULabelsUnknown {
-  const _$ULabelsUnknown({required final Map<String, dynamic> data})
+class _$ULabelsUnknownImpl extends ULabelsUnknown {
+  const _$ULabelsUnknownImpl({required final Map<String, dynamic> data})
       : _data = data,
         super._();
 
@@ -275,7 +276,7 @@ class _$ULabelsUnknown extends ULabelsUnknown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULabelsUnknown &&
+            other is _$ULabelsUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -286,8 +287,9 @@ class _$ULabelsUnknown extends ULabelsUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULabelsUnknownCopyWith<_$ULabelsUnknown> get copyWith =>
-      __$$ULabelsUnknownCopyWithImpl<_$ULabelsUnknown>(this, _$identity);
+  _$$ULabelsUnknownImplCopyWith<_$ULabelsUnknownImpl> get copyWith =>
+      __$$ULabelsUnknownImplCopyWithImpl<_$ULabelsUnknownImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -354,12 +356,12 @@ class _$ULabelsUnknown extends ULabelsUnknown {
 
 abstract class ULabelsUnknown extends Labels {
   const factory ULabelsUnknown({required final Map<String, dynamic> data}) =
-      _$ULabelsUnknown;
+      _$ULabelsUnknownImpl;
   const ULabelsUnknown._() : super._();
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$ULabelsUnknownCopyWith<_$ULabelsUnknown> get copyWith =>
+  _$$ULabelsUnknownImplCopyWith<_$ULabelsUnknownImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

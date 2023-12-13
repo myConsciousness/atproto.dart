@@ -8,12 +8,12 @@ part of 'content_label_preference.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ContentLabelPreference _$$_ContentLabelPreferenceFromJson(Map json) =>
+_$ContentLabelPreferenceImpl _$$ContentLabelPreferenceImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$_ContentLabelPreference',
+      r'_$ContentLabelPreferenceImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ContentLabelPreference(
+        final val = _$ContentLabelPreferenceImpl(
           type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyActorDefsContentLabelPref),
           label: $checkedConvert('label', (v) => v as String),
@@ -25,8 +25,8 @@ _$_ContentLabelPreference _$$_ContentLabelPreferenceFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$_ContentLabelPreferenceToJson(
-        _$_ContentLabelPreference instance) =>
+Map<String, dynamic> _$$ContentLabelPreferenceImplToJson(
+        _$ContentLabelPreferenceImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'label': instance.label,

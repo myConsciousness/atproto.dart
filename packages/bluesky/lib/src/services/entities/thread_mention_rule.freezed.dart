@@ -64,22 +64,22 @@ class _$ThreadMentionRuleCopyWithImpl<$Res, $Val extends ThreadMentionRule>
 }
 
 /// @nodoc
-abstract class _$$_ThreadMentionRuleCopyWith<$Res>
+abstract class _$$ThreadMentionRuleImplCopyWith<$Res>
     implements $ThreadMentionRuleCopyWith<$Res> {
-  factory _$$_ThreadMentionRuleCopyWith(_$_ThreadMentionRule value,
-          $Res Function(_$_ThreadMentionRule) then) =
-      __$$_ThreadMentionRuleCopyWithImpl<$Res>;
+  factory _$$ThreadMentionRuleImplCopyWith(_$ThreadMentionRuleImpl value,
+          $Res Function(_$ThreadMentionRuleImpl) then) =
+      __$$ThreadMentionRuleImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type});
 }
 
 /// @nodoc
-class __$$_ThreadMentionRuleCopyWithImpl<$Res>
-    extends _$ThreadMentionRuleCopyWithImpl<$Res, _$_ThreadMentionRule>
-    implements _$$_ThreadMentionRuleCopyWith<$Res> {
-  __$$_ThreadMentionRuleCopyWithImpl(
-      _$_ThreadMentionRule _value, $Res Function(_$_ThreadMentionRule) _then)
+class __$$ThreadMentionRuleImplCopyWithImpl<$Res>
+    extends _$ThreadMentionRuleCopyWithImpl<$Res, _$ThreadMentionRuleImpl>
+    implements _$$ThreadMentionRuleImplCopyWith<$Res> {
+  __$$ThreadMentionRuleImplCopyWithImpl(_$ThreadMentionRuleImpl _value,
+      $Res Function(_$ThreadMentionRuleImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +87,7 @@ class __$$_ThreadMentionRuleCopyWithImpl<$Res>
   $Res call({
     Object? type = null,
   }) {
-    return _then(_$_ThreadMentionRule(
+    return _then(_$ThreadMentionRuleImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -99,12 +99,12 @@ class __$$_ThreadMentionRuleCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ThreadMentionRule implements _ThreadMentionRule {
-  const _$_ThreadMentionRule(
+class _$ThreadMentionRuleImpl implements _ThreadMentionRule {
+  const _$ThreadMentionRuleImpl(
       {@typeKey this.type = appBskyFeedThreadgateMentionRule});
 
-  factory _$_ThreadMentionRule.fromJson(Map<String, dynamic> json) =>
-      _$$_ThreadMentionRuleFromJson(json);
+  factory _$ThreadMentionRuleImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ThreadMentionRuleImplFromJson(json);
 
   /// Represents the type of this object.
   @override
@@ -120,7 +120,7 @@ class _$_ThreadMentionRule implements _ThreadMentionRule {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ThreadMentionRule &&
+            other is _$ThreadMentionRuleImpl &&
             (identical(other.type, type) || other.type == type));
   }
 
@@ -131,13 +131,13 @@ class _$_ThreadMentionRule implements _ThreadMentionRule {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ThreadMentionRuleCopyWith<_$_ThreadMentionRule> get copyWith =>
-      __$$_ThreadMentionRuleCopyWithImpl<_$_ThreadMentionRule>(
+  _$$ThreadMentionRuleImplCopyWith<_$ThreadMentionRuleImpl> get copyWith =>
+      __$$ThreadMentionRuleImplCopyWithImpl<_$ThreadMentionRuleImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ThreadMentionRuleToJson(
+    return _$$ThreadMentionRuleImplToJson(
       this,
     );
   }
@@ -145,10 +145,10 @@ class _$_ThreadMentionRule implements _ThreadMentionRule {
 
 abstract class _ThreadMentionRule implements ThreadMentionRule {
   const factory _ThreadMentionRule({@typeKey final String type}) =
-      _$_ThreadMentionRule;
+      _$ThreadMentionRuleImpl;
 
   factory _ThreadMentionRule.fromJson(Map<String, dynamic> json) =
-      _$_ThreadMentionRule.fromJson;
+      _$ThreadMentionRuleImpl.fromJson;
 
   @override
 
@@ -157,6 +157,6 @@ abstract class _ThreadMentionRule implements ThreadMentionRule {
   String get type;
   @override
   @JsonKey(ignore: true)
-  _$$_ThreadMentionRuleCopyWith<_$_ThreadMentionRule> get copyWith =>
+  _$$ThreadMentionRuleImplCopyWith<_$ThreadMentionRuleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

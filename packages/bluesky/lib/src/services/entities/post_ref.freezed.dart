@@ -88,10 +88,10 @@ class _$PostRefCopyWithImpl<$Res, $Val extends PostRef>
 }
 
 /// @nodoc
-abstract class _$$_PostRefCopyWith<$Res> implements $PostRefCopyWith<$Res> {
-  factory _$$_PostRefCopyWith(
-          _$_PostRef value, $Res Function(_$_PostRef) then) =
-      __$$_PostRefCopyWithImpl<$Res>;
+abstract class _$$PostRefImplCopyWith<$Res> implements $PostRefCopyWith<$Res> {
+  factory _$$PostRefImplCopyWith(
+          _$PostRefImpl value, $Res Function(_$PostRefImpl) then) =
+      __$$PostRefImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({StrongRef root, StrongRef parent});
@@ -103,10 +103,11 @@ abstract class _$$_PostRefCopyWith<$Res> implements $PostRefCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_PostRefCopyWithImpl<$Res>
-    extends _$PostRefCopyWithImpl<$Res, _$_PostRef>
-    implements _$$_PostRefCopyWith<$Res> {
-  __$$_PostRefCopyWithImpl(_$_PostRef _value, $Res Function(_$_PostRef) _then)
+class __$$PostRefImplCopyWithImpl<$Res>
+    extends _$PostRefCopyWithImpl<$Res, _$PostRefImpl>
+    implements _$$PostRefImplCopyWith<$Res> {
+  __$$PostRefImplCopyWithImpl(
+      _$PostRefImpl _value, $Res Function(_$PostRefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -115,7 +116,7 @@ class __$$_PostRefCopyWithImpl<$Res>
     Object? root = null,
     Object? parent = null,
   }) {
-    return _then(_$_PostRef(
+    return _then(_$PostRefImpl(
       root: null == root
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
@@ -130,11 +131,11 @@ class __$$_PostRefCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PostRef implements _PostRef {
-  const _$_PostRef({required this.root, required this.parent});
+class _$PostRefImpl implements _PostRef {
+  const _$PostRefImpl({required this.root, required this.parent});
 
-  factory _$_PostRef.fromJson(Map<String, dynamic> json) =>
-      _$$_PostRefFromJson(json);
+  factory _$PostRefImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostRefImplFromJson(json);
 
   /// Represents the root post in the thread.
   @override
@@ -153,7 +154,7 @@ class _$_PostRef implements _PostRef {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PostRef &&
+            other is _$PostRefImpl &&
             (identical(other.root, root) || other.root == root) &&
             (identical(other.parent, parent) || other.parent == parent));
   }
@@ -165,12 +166,12 @@ class _$_PostRef implements _PostRef {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PostRefCopyWith<_$_PostRef> get copyWith =>
-      __$$_PostRefCopyWithImpl<_$_PostRef>(this, _$identity);
+  _$$PostRefImplCopyWith<_$PostRefImpl> get copyWith =>
+      __$$PostRefImplCopyWithImpl<_$PostRefImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PostRefToJson(
+    return _$$PostRefImplToJson(
       this,
     );
   }
@@ -179,9 +180,9 @@ class _$_PostRef implements _PostRef {
 abstract class _PostRef implements PostRef {
   const factory _PostRef(
       {required final StrongRef root,
-      required final StrongRef parent}) = _$_PostRef;
+      required final StrongRef parent}) = _$PostRefImpl;
 
-  factory _PostRef.fromJson(Map<String, dynamic> json) = _$_PostRef.fromJson;
+  factory _PostRef.fromJson(Map<String, dynamic> json) = _$PostRefImpl.fromJson;
 
   @override
 
@@ -193,6 +194,6 @@ abstract class _PostRef implements PostRef {
   StrongRef get parent;
   @override
   @JsonKey(ignore: true)
-  _$$_PostRefCopyWith<_$_PostRef> get copyWith =>
+  _$$PostRefImplCopyWith<_$PostRefImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

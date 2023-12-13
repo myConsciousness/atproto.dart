@@ -64,22 +64,22 @@ class _$ActorProfilesCopyWithImpl<$Res, $Val extends ActorProfiles>
 }
 
 /// @nodoc
-abstract class _$$_ActorProfilesCopyWith<$Res>
+abstract class _$$ActorProfilesImplCopyWith<$Res>
     implements $ActorProfilesCopyWith<$Res> {
-  factory _$$_ActorProfilesCopyWith(
-          _$_ActorProfiles value, $Res Function(_$_ActorProfiles) then) =
-      __$$_ActorProfilesCopyWithImpl<$Res>;
+  factory _$$ActorProfilesImplCopyWith(
+          _$ActorProfilesImpl value, $Res Function(_$ActorProfilesImpl) then) =
+      __$$ActorProfilesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<ActorProfile> profiles});
 }
 
 /// @nodoc
-class __$$_ActorProfilesCopyWithImpl<$Res>
-    extends _$ActorProfilesCopyWithImpl<$Res, _$_ActorProfiles>
-    implements _$$_ActorProfilesCopyWith<$Res> {
-  __$$_ActorProfilesCopyWithImpl(
-      _$_ActorProfiles _value, $Res Function(_$_ActorProfiles) _then)
+class __$$ActorProfilesImplCopyWithImpl<$Res>
+    extends _$ActorProfilesCopyWithImpl<$Res, _$ActorProfilesImpl>
+    implements _$$ActorProfilesImplCopyWith<$Res> {
+  __$$ActorProfilesImplCopyWithImpl(
+      _$ActorProfilesImpl _value, $Res Function(_$ActorProfilesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +87,7 @@ class __$$_ActorProfilesCopyWithImpl<$Res>
   $Res call({
     Object? profiles = null,
   }) {
-    return _then(_$_ActorProfiles(
+    return _then(_$ActorProfilesImpl(
       profiles: null == profiles
           ? _value._profiles
           : profiles // ignore: cast_nullable_to_non_nullable
@@ -98,12 +98,12 @@ class __$$_ActorProfilesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ActorProfiles implements _ActorProfiles {
-  const _$_ActorProfiles({required final List<ActorProfile> profiles})
+class _$ActorProfilesImpl implements _ActorProfiles {
+  const _$ActorProfilesImpl({required final List<ActorProfile> profiles})
       : _profiles = profiles;
 
-  factory _$_ActorProfiles.fromJson(Map<String, dynamic> json) =>
-      _$$_ActorProfilesFromJson(json);
+  factory _$ActorProfilesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ActorProfilesImplFromJson(json);
 
   /// A list of [ActorProfile] objects representing the profiles of
   /// different actors.
@@ -127,7 +127,7 @@ class _$_ActorProfiles implements _ActorProfiles {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActorProfiles &&
+            other is _$ActorProfilesImpl &&
             const DeepCollectionEquality().equals(other._profiles, _profiles));
   }
 
@@ -139,12 +139,12 @@ class _$_ActorProfiles implements _ActorProfiles {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ActorProfilesCopyWith<_$_ActorProfiles> get copyWith =>
-      __$$_ActorProfilesCopyWithImpl<_$_ActorProfiles>(this, _$identity);
+  _$$ActorProfilesImplCopyWith<_$ActorProfilesImpl> get copyWith =>
+      __$$ActorProfilesImplCopyWithImpl<_$ActorProfilesImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ActorProfilesToJson(
+    return _$$ActorProfilesImplToJson(
       this,
     );
   }
@@ -152,10 +152,10 @@ class _$_ActorProfiles implements _ActorProfiles {
 
 abstract class _ActorProfiles implements ActorProfiles {
   const factory _ActorProfiles({required final List<ActorProfile> profiles}) =
-      _$_ActorProfiles;
+      _$ActorProfilesImpl;
 
   factory _ActorProfiles.fromJson(Map<String, dynamic> json) =
-      _$_ActorProfiles.fromJson;
+      _$ActorProfilesImpl.fromJson;
 
   @override
 
@@ -164,6 +164,6 @@ abstract class _ActorProfiles implements ActorProfiles {
   List<ActorProfile> get profiles;
   @override
   @JsonKey(ignore: true)
-  _$$_ActorProfilesCopyWith<_$_ActorProfiles> get copyWith =>
+  _$$ActorProfilesImplCopyWith<_$ActorProfilesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

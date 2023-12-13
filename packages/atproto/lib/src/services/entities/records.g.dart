@@ -8,11 +8,11 @@ part of 'records.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Records _$$_RecordsFromJson(Map json) => $checkedCreate(
-      r'_$_Records',
+_$RecordsImpl _$$RecordsImplFromJson(Map json) => $checkedCreate(
+      r'_$RecordsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Records(
+        final val = _$RecordsImpl(
           records: $checkedConvert(
               'records',
               (v) => (v as List<dynamic>)
@@ -25,7 +25,7 @@ _$_Records _$$_RecordsFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_RecordsToJson(_$_Records instance) =>
+Map<String, dynamic> _$$RecordsImplToJson(_$RecordsImpl instance) =>
     <String, dynamic>{
       'records': instance.records.map((e) => e.toJson()).toList(),
       'cursor': instance.cursor,

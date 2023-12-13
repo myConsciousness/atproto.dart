@@ -106,10 +106,11 @@ class _$PreferenceCopyWithImpl<$Res, $Val extends Preference>
 }
 
 /// @nodoc
-abstract class _$$UPreferenceAdultContentCopyWith<$Res> {
-  factory _$$UPreferenceAdultContentCopyWith(_$UPreferenceAdultContent value,
-          $Res Function(_$UPreferenceAdultContent) then) =
-      __$$UPreferenceAdultContentCopyWithImpl<$Res>;
+abstract class _$$UPreferenceAdultContentImplCopyWith<$Res> {
+  factory _$$UPreferenceAdultContentImplCopyWith(
+          _$UPreferenceAdultContentImpl value,
+          $Res Function(_$UPreferenceAdultContentImpl) then) =
+      __$$UPreferenceAdultContentImplCopyWithImpl<$Res>;
   @useResult
   $Res call({AdultContentPreference data});
 
@@ -117,11 +118,12 @@ abstract class _$$UPreferenceAdultContentCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UPreferenceAdultContentCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceAdultContent>
-    implements _$$UPreferenceAdultContentCopyWith<$Res> {
-  __$$UPreferenceAdultContentCopyWithImpl(_$UPreferenceAdultContent _value,
-      $Res Function(_$UPreferenceAdultContent) _then)
+class __$$UPreferenceAdultContentImplCopyWithImpl<$Res>
+    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceAdultContentImpl>
+    implements _$$UPreferenceAdultContentImplCopyWith<$Res> {
+  __$$UPreferenceAdultContentImplCopyWithImpl(
+      _$UPreferenceAdultContentImpl _value,
+      $Res Function(_$UPreferenceAdultContentImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -129,7 +131,7 @@ class __$$UPreferenceAdultContentCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPreferenceAdultContent(
+    return _then(_$UPreferenceAdultContentImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -148,8 +150,8 @@ class __$$UPreferenceAdultContentCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UPreferenceAdultContent extends UPreferenceAdultContent {
-  const _$UPreferenceAdultContent({required this.data}) : super._();
+class _$UPreferenceAdultContentImpl extends UPreferenceAdultContent {
+  const _$UPreferenceAdultContentImpl({required this.data}) : super._();
 
   @override
   final AdultContentPreference data;
@@ -163,7 +165,7 @@ class _$UPreferenceAdultContent extends UPreferenceAdultContent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPreferenceAdultContent &&
+            other is _$UPreferenceAdultContentImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -173,9 +175,9 @@ class _$UPreferenceAdultContent extends UPreferenceAdultContent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UPreferenceAdultContentCopyWith<_$UPreferenceAdultContent> get copyWith =>
-      __$$UPreferenceAdultContentCopyWithImpl<_$UPreferenceAdultContent>(
-          this, _$identity);
+  _$$UPreferenceAdultContentImplCopyWith<_$UPreferenceAdultContentImpl>
+      get copyWith => __$$UPreferenceAdultContentImplCopyWithImpl<
+          _$UPreferenceAdultContentImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -272,21 +274,23 @@ class _$UPreferenceAdultContent extends UPreferenceAdultContent {
 
 abstract class UPreferenceAdultContent extends Preference {
   const factory UPreferenceAdultContent(
-      {required final AdultContentPreference data}) = _$UPreferenceAdultContent;
+          {required final AdultContentPreference data}) =
+      _$UPreferenceAdultContentImpl;
   const UPreferenceAdultContent._() : super._();
 
   @override
   AdultContentPreference get data;
   @JsonKey(ignore: true)
-  _$$UPreferenceAdultContentCopyWith<_$UPreferenceAdultContent> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UPreferenceAdultContentImplCopyWith<_$UPreferenceAdultContentImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UPreferenceContentLabelCopyWith<$Res> {
-  factory _$$UPreferenceContentLabelCopyWith(_$UPreferenceContentLabel value,
-          $Res Function(_$UPreferenceContentLabel) then) =
-      __$$UPreferenceContentLabelCopyWithImpl<$Res>;
+abstract class _$$UPreferenceContentLabelImplCopyWith<$Res> {
+  factory _$$UPreferenceContentLabelImplCopyWith(
+          _$UPreferenceContentLabelImpl value,
+          $Res Function(_$UPreferenceContentLabelImpl) then) =
+      __$$UPreferenceContentLabelImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ContentLabelPreference data});
 
@@ -294,11 +298,12 @@ abstract class _$$UPreferenceContentLabelCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UPreferenceContentLabelCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceContentLabel>
-    implements _$$UPreferenceContentLabelCopyWith<$Res> {
-  __$$UPreferenceContentLabelCopyWithImpl(_$UPreferenceContentLabel _value,
-      $Res Function(_$UPreferenceContentLabel) _then)
+class __$$UPreferenceContentLabelImplCopyWithImpl<$Res>
+    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceContentLabelImpl>
+    implements _$$UPreferenceContentLabelImplCopyWith<$Res> {
+  __$$UPreferenceContentLabelImplCopyWithImpl(
+      _$UPreferenceContentLabelImpl _value,
+      $Res Function(_$UPreferenceContentLabelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -306,7 +311,7 @@ class __$$UPreferenceContentLabelCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPreferenceContentLabel(
+    return _then(_$UPreferenceContentLabelImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -325,8 +330,8 @@ class __$$UPreferenceContentLabelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UPreferenceContentLabel extends UPreferenceContentLabel {
-  const _$UPreferenceContentLabel({required this.data}) : super._();
+class _$UPreferenceContentLabelImpl extends UPreferenceContentLabel {
+  const _$UPreferenceContentLabelImpl({required this.data}) : super._();
 
   @override
   final ContentLabelPreference data;
@@ -340,7 +345,7 @@ class _$UPreferenceContentLabel extends UPreferenceContentLabel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPreferenceContentLabel &&
+            other is _$UPreferenceContentLabelImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -350,9 +355,9 @@ class _$UPreferenceContentLabel extends UPreferenceContentLabel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UPreferenceContentLabelCopyWith<_$UPreferenceContentLabel> get copyWith =>
-      __$$UPreferenceContentLabelCopyWithImpl<_$UPreferenceContentLabel>(
-          this, _$identity);
+  _$$UPreferenceContentLabelImplCopyWith<_$UPreferenceContentLabelImpl>
+      get copyWith => __$$UPreferenceContentLabelImplCopyWithImpl<
+          _$UPreferenceContentLabelImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -449,21 +454,23 @@ class _$UPreferenceContentLabel extends UPreferenceContentLabel {
 
 abstract class UPreferenceContentLabel extends Preference {
   const factory UPreferenceContentLabel(
-      {required final ContentLabelPreference data}) = _$UPreferenceContentLabel;
+          {required final ContentLabelPreference data}) =
+      _$UPreferenceContentLabelImpl;
   const UPreferenceContentLabel._() : super._();
 
   @override
   ContentLabelPreference get data;
   @JsonKey(ignore: true)
-  _$$UPreferenceContentLabelCopyWith<_$UPreferenceContentLabel> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UPreferenceContentLabelImplCopyWith<_$UPreferenceContentLabelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UPreferenceSavedFeedsCopyWith<$Res> {
-  factory _$$UPreferenceSavedFeedsCopyWith(_$UPreferenceSavedFeeds value,
-          $Res Function(_$UPreferenceSavedFeeds) then) =
-      __$$UPreferenceSavedFeedsCopyWithImpl<$Res>;
+abstract class _$$UPreferenceSavedFeedsImplCopyWith<$Res> {
+  factory _$$UPreferenceSavedFeedsImplCopyWith(
+          _$UPreferenceSavedFeedsImpl value,
+          $Res Function(_$UPreferenceSavedFeedsImpl) then) =
+      __$$UPreferenceSavedFeedsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({SavedFeedsPreference data});
 
@@ -471,11 +478,11 @@ abstract class _$$UPreferenceSavedFeedsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UPreferenceSavedFeedsCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceSavedFeeds>
-    implements _$$UPreferenceSavedFeedsCopyWith<$Res> {
-  __$$UPreferenceSavedFeedsCopyWithImpl(_$UPreferenceSavedFeeds _value,
-      $Res Function(_$UPreferenceSavedFeeds) _then)
+class __$$UPreferenceSavedFeedsImplCopyWithImpl<$Res>
+    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceSavedFeedsImpl>
+    implements _$$UPreferenceSavedFeedsImplCopyWith<$Res> {
+  __$$UPreferenceSavedFeedsImplCopyWithImpl(_$UPreferenceSavedFeedsImpl _value,
+      $Res Function(_$UPreferenceSavedFeedsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -483,7 +490,7 @@ class __$$UPreferenceSavedFeedsCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPreferenceSavedFeeds(
+    return _then(_$UPreferenceSavedFeedsImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -502,8 +509,8 @@ class __$$UPreferenceSavedFeedsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UPreferenceSavedFeeds extends UPreferenceSavedFeeds {
-  const _$UPreferenceSavedFeeds({required this.data}) : super._();
+class _$UPreferenceSavedFeedsImpl extends UPreferenceSavedFeeds {
+  const _$UPreferenceSavedFeedsImpl({required this.data}) : super._();
 
   @override
   final SavedFeedsPreference data;
@@ -517,7 +524,7 @@ class _$UPreferenceSavedFeeds extends UPreferenceSavedFeeds {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPreferenceSavedFeeds &&
+            other is _$UPreferenceSavedFeedsImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -527,9 +534,9 @@ class _$UPreferenceSavedFeeds extends UPreferenceSavedFeeds {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UPreferenceSavedFeedsCopyWith<_$UPreferenceSavedFeeds> get copyWith =>
-      __$$UPreferenceSavedFeedsCopyWithImpl<_$UPreferenceSavedFeeds>(
-          this, _$identity);
+  _$$UPreferenceSavedFeedsImplCopyWith<_$UPreferenceSavedFeedsImpl>
+      get copyWith => __$$UPreferenceSavedFeedsImplCopyWithImpl<
+          _$UPreferenceSavedFeedsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -626,22 +633,22 @@ class _$UPreferenceSavedFeeds extends UPreferenceSavedFeeds {
 
 abstract class UPreferenceSavedFeeds extends Preference {
   const factory UPreferenceSavedFeeds(
-      {required final SavedFeedsPreference data}) = _$UPreferenceSavedFeeds;
+      {required final SavedFeedsPreference data}) = _$UPreferenceSavedFeedsImpl;
   const UPreferenceSavedFeeds._() : super._();
 
   @override
   SavedFeedsPreference get data;
   @JsonKey(ignore: true)
-  _$$UPreferenceSavedFeedsCopyWith<_$UPreferenceSavedFeeds> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UPreferenceSavedFeedsImplCopyWith<_$UPreferenceSavedFeedsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UPreferencePersonalDetailsCopyWith<$Res> {
-  factory _$$UPreferencePersonalDetailsCopyWith(
-          _$UPreferencePersonalDetails value,
-          $Res Function(_$UPreferencePersonalDetails) then) =
-      __$$UPreferencePersonalDetailsCopyWithImpl<$Res>;
+abstract class _$$UPreferencePersonalDetailsImplCopyWith<$Res> {
+  factory _$$UPreferencePersonalDetailsImplCopyWith(
+          _$UPreferencePersonalDetailsImpl value,
+          $Res Function(_$UPreferencePersonalDetailsImpl) then) =
+      __$$UPreferencePersonalDetailsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({PersonalDetailsPreference data});
 
@@ -649,12 +656,12 @@ abstract class _$$UPreferencePersonalDetailsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UPreferencePersonalDetailsCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$UPreferencePersonalDetails>
-    implements _$$UPreferencePersonalDetailsCopyWith<$Res> {
-  __$$UPreferencePersonalDetailsCopyWithImpl(
-      _$UPreferencePersonalDetails _value,
-      $Res Function(_$UPreferencePersonalDetails) _then)
+class __$$UPreferencePersonalDetailsImplCopyWithImpl<$Res>
+    extends _$PreferenceCopyWithImpl<$Res, _$UPreferencePersonalDetailsImpl>
+    implements _$$UPreferencePersonalDetailsImplCopyWith<$Res> {
+  __$$UPreferencePersonalDetailsImplCopyWithImpl(
+      _$UPreferencePersonalDetailsImpl _value,
+      $Res Function(_$UPreferencePersonalDetailsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -662,7 +669,7 @@ class __$$UPreferencePersonalDetailsCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPreferencePersonalDetails(
+    return _then(_$UPreferencePersonalDetailsImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -681,8 +688,8 @@ class __$$UPreferencePersonalDetailsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UPreferencePersonalDetails extends UPreferencePersonalDetails {
-  const _$UPreferencePersonalDetails({required this.data}) : super._();
+class _$UPreferencePersonalDetailsImpl extends UPreferencePersonalDetails {
+  const _$UPreferencePersonalDetailsImpl({required this.data}) : super._();
 
   @override
   final PersonalDetailsPreference data;
@@ -696,7 +703,7 @@ class _$UPreferencePersonalDetails extends UPreferencePersonalDetails {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPreferencePersonalDetails &&
+            other is _$UPreferencePersonalDetailsImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -706,9 +713,9 @@ class _$UPreferencePersonalDetails extends UPreferencePersonalDetails {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UPreferencePersonalDetailsCopyWith<_$UPreferencePersonalDetails>
-      get copyWith => __$$UPreferencePersonalDetailsCopyWithImpl<
-          _$UPreferencePersonalDetails>(this, _$identity);
+  _$$UPreferencePersonalDetailsImplCopyWith<_$UPreferencePersonalDetailsImpl>
+      get copyWith => __$$UPreferencePersonalDetailsImplCopyWithImpl<
+          _$UPreferencePersonalDetailsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -806,21 +813,21 @@ class _$UPreferencePersonalDetails extends UPreferencePersonalDetails {
 abstract class UPreferencePersonalDetails extends Preference {
   const factory UPreferencePersonalDetails(
           {required final PersonalDetailsPreference data}) =
-      _$UPreferencePersonalDetails;
+      _$UPreferencePersonalDetailsImpl;
   const UPreferencePersonalDetails._() : super._();
 
   @override
   PersonalDetailsPreference get data;
   @JsonKey(ignore: true)
-  _$$UPreferencePersonalDetailsCopyWith<_$UPreferencePersonalDetails>
+  _$$UPreferencePersonalDetailsImplCopyWith<_$UPreferencePersonalDetailsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UPreferenceFeedViewCopyWith<$Res> {
-  factory _$$UPreferenceFeedViewCopyWith(_$UPreferenceFeedView value,
-          $Res Function(_$UPreferenceFeedView) then) =
-      __$$UPreferenceFeedViewCopyWithImpl<$Res>;
+abstract class _$$UPreferenceFeedViewImplCopyWith<$Res> {
+  factory _$$UPreferenceFeedViewImplCopyWith(_$UPreferenceFeedViewImpl value,
+          $Res Function(_$UPreferenceFeedViewImpl) then) =
+      __$$UPreferenceFeedViewImplCopyWithImpl<$Res>;
   @useResult
   $Res call({FeedViewPreference data});
 
@@ -828,11 +835,11 @@ abstract class _$$UPreferenceFeedViewCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UPreferenceFeedViewCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceFeedView>
-    implements _$$UPreferenceFeedViewCopyWith<$Res> {
-  __$$UPreferenceFeedViewCopyWithImpl(
-      _$UPreferenceFeedView _value, $Res Function(_$UPreferenceFeedView) _then)
+class __$$UPreferenceFeedViewImplCopyWithImpl<$Res>
+    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceFeedViewImpl>
+    implements _$$UPreferenceFeedViewImplCopyWith<$Res> {
+  __$$UPreferenceFeedViewImplCopyWithImpl(_$UPreferenceFeedViewImpl _value,
+      $Res Function(_$UPreferenceFeedViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -840,7 +847,7 @@ class __$$UPreferenceFeedViewCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPreferenceFeedView(
+    return _then(_$UPreferenceFeedViewImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -859,8 +866,8 @@ class __$$UPreferenceFeedViewCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UPreferenceFeedView extends UPreferenceFeedView {
-  const _$UPreferenceFeedView({required this.data}) : super._();
+class _$UPreferenceFeedViewImpl extends UPreferenceFeedView {
+  const _$UPreferenceFeedViewImpl({required this.data}) : super._();
 
   @override
   final FeedViewPreference data;
@@ -874,7 +881,7 @@ class _$UPreferenceFeedView extends UPreferenceFeedView {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPreferenceFeedView &&
+            other is _$UPreferenceFeedViewImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -884,8 +891,8 @@ class _$UPreferenceFeedView extends UPreferenceFeedView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UPreferenceFeedViewCopyWith<_$UPreferenceFeedView> get copyWith =>
-      __$$UPreferenceFeedViewCopyWithImpl<_$UPreferenceFeedView>(
+  _$$UPreferenceFeedViewImplCopyWith<_$UPreferenceFeedViewImpl> get copyWith =>
+      __$$UPreferenceFeedViewImplCopyWithImpl<_$UPreferenceFeedViewImpl>(
           this, _$identity);
 
   @override
@@ -983,21 +990,22 @@ class _$UPreferenceFeedView extends UPreferenceFeedView {
 
 abstract class UPreferenceFeedView extends Preference {
   const factory UPreferenceFeedView({required final FeedViewPreference data}) =
-      _$UPreferenceFeedView;
+      _$UPreferenceFeedViewImpl;
   const UPreferenceFeedView._() : super._();
 
   @override
   FeedViewPreference get data;
   @JsonKey(ignore: true)
-  _$$UPreferenceFeedViewCopyWith<_$UPreferenceFeedView> get copyWith =>
+  _$$UPreferenceFeedViewImplCopyWith<_$UPreferenceFeedViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UPreferenceThreadViewCopyWith<$Res> {
-  factory _$$UPreferenceThreadViewCopyWith(_$UPreferenceThreadView value,
-          $Res Function(_$UPreferenceThreadView) then) =
-      __$$UPreferenceThreadViewCopyWithImpl<$Res>;
+abstract class _$$UPreferenceThreadViewImplCopyWith<$Res> {
+  factory _$$UPreferenceThreadViewImplCopyWith(
+          _$UPreferenceThreadViewImpl value,
+          $Res Function(_$UPreferenceThreadViewImpl) then) =
+      __$$UPreferenceThreadViewImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ThreadViewPreference data});
 
@@ -1005,11 +1013,11 @@ abstract class _$$UPreferenceThreadViewCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UPreferenceThreadViewCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceThreadView>
-    implements _$$UPreferenceThreadViewCopyWith<$Res> {
-  __$$UPreferenceThreadViewCopyWithImpl(_$UPreferenceThreadView _value,
-      $Res Function(_$UPreferenceThreadView) _then)
+class __$$UPreferenceThreadViewImplCopyWithImpl<$Res>
+    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceThreadViewImpl>
+    implements _$$UPreferenceThreadViewImplCopyWith<$Res> {
+  __$$UPreferenceThreadViewImplCopyWithImpl(_$UPreferenceThreadViewImpl _value,
+      $Res Function(_$UPreferenceThreadViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1017,7 +1025,7 @@ class __$$UPreferenceThreadViewCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPreferenceThreadView(
+    return _then(_$UPreferenceThreadViewImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -1036,8 +1044,8 @@ class __$$UPreferenceThreadViewCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UPreferenceThreadView extends UPreferenceThreadView {
-  const _$UPreferenceThreadView({required this.data}) : super._();
+class _$UPreferenceThreadViewImpl extends UPreferenceThreadView {
+  const _$UPreferenceThreadViewImpl({required this.data}) : super._();
 
   @override
   final ThreadViewPreference data;
@@ -1051,7 +1059,7 @@ class _$UPreferenceThreadView extends UPreferenceThreadView {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPreferenceThreadView &&
+            other is _$UPreferenceThreadViewImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -1061,9 +1069,9 @@ class _$UPreferenceThreadView extends UPreferenceThreadView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UPreferenceThreadViewCopyWith<_$UPreferenceThreadView> get copyWith =>
-      __$$UPreferenceThreadViewCopyWithImpl<_$UPreferenceThreadView>(
-          this, _$identity);
+  _$$UPreferenceThreadViewImplCopyWith<_$UPreferenceThreadViewImpl>
+      get copyWith => __$$UPreferenceThreadViewImplCopyWithImpl<
+          _$UPreferenceThreadViewImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1160,31 +1168,31 @@ class _$UPreferenceThreadView extends UPreferenceThreadView {
 
 abstract class UPreferenceThreadView extends Preference {
   const factory UPreferenceThreadView(
-      {required final ThreadViewPreference data}) = _$UPreferenceThreadView;
+      {required final ThreadViewPreference data}) = _$UPreferenceThreadViewImpl;
   const UPreferenceThreadView._() : super._();
 
   @override
   ThreadViewPreference get data;
   @JsonKey(ignore: true)
-  _$$UPreferenceThreadViewCopyWith<_$UPreferenceThreadView> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UPreferenceThreadViewImplCopyWith<_$UPreferenceThreadViewImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UPreferenceUnknownCopyWith<$Res> {
-  factory _$$UPreferenceUnknownCopyWith(_$UPreferenceUnknown value,
-          $Res Function(_$UPreferenceUnknown) then) =
-      __$$UPreferenceUnknownCopyWithImpl<$Res>;
+abstract class _$$UPreferenceUnknownImplCopyWith<$Res> {
+  factory _$$UPreferenceUnknownImplCopyWith(_$UPreferenceUnknownImpl value,
+          $Res Function(_$UPreferenceUnknownImpl) then) =
+      __$$UPreferenceUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UPreferenceUnknownCopyWithImpl<$Res>
-    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceUnknown>
-    implements _$$UPreferenceUnknownCopyWith<$Res> {
-  __$$UPreferenceUnknownCopyWithImpl(
-      _$UPreferenceUnknown _value, $Res Function(_$UPreferenceUnknown) _then)
+class __$$UPreferenceUnknownImplCopyWithImpl<$Res>
+    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceUnknownImpl>
+    implements _$$UPreferenceUnknownImplCopyWith<$Res> {
+  __$$UPreferenceUnknownImplCopyWithImpl(_$UPreferenceUnknownImpl _value,
+      $Res Function(_$UPreferenceUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1192,7 +1200,7 @@ class __$$UPreferenceUnknownCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPreferenceUnknown(
+    return _then(_$UPreferenceUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -1203,8 +1211,8 @@ class __$$UPreferenceUnknownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UPreferenceUnknown extends UPreferenceUnknown {
-  const _$UPreferenceUnknown({required final Map<String, dynamic> data})
+class _$UPreferenceUnknownImpl extends UPreferenceUnknown {
+  const _$UPreferenceUnknownImpl({required final Map<String, dynamic> data})
       : _data = data,
         super._();
 
@@ -1225,7 +1233,7 @@ class _$UPreferenceUnknown extends UPreferenceUnknown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPreferenceUnknown &&
+            other is _$UPreferenceUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -1236,8 +1244,8 @@ class _$UPreferenceUnknown extends UPreferenceUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UPreferenceUnknownCopyWith<_$UPreferenceUnknown> get copyWith =>
-      __$$UPreferenceUnknownCopyWithImpl<_$UPreferenceUnknown>(
+  _$$UPreferenceUnknownImplCopyWith<_$UPreferenceUnknownImpl> get copyWith =>
+      __$$UPreferenceUnknownImplCopyWithImpl<_$UPreferenceUnknownImpl>(
           this, _$identity);
 
   @override
@@ -1335,12 +1343,12 @@ class _$UPreferenceUnknown extends UPreferenceUnknown {
 
 abstract class UPreferenceUnknown extends Preference {
   const factory UPreferenceUnknown({required final Map<String, dynamic> data}) =
-      _$UPreferenceUnknown;
+      _$UPreferenceUnknownImpl;
   const UPreferenceUnknown._() : super._();
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$UPreferenceUnknownCopyWith<_$UPreferenceUnknown> get copyWith =>
+  _$$UPreferenceUnknownImplCopyWith<_$UPreferenceUnknownImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

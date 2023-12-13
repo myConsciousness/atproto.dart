@@ -91,11 +91,11 @@ class _$BlockedAuthorCopyWithImpl<$Res, $Val extends BlockedAuthor>
 }
 
 /// @nodoc
-abstract class _$$_BlockedAuthorCopyWith<$Res>
+abstract class _$$BlockedAuthorImplCopyWith<$Res>
     implements $BlockedAuthorCopyWith<$Res> {
-  factory _$$_BlockedAuthorCopyWith(
-          _$_BlockedAuthor value, $Res Function(_$_BlockedAuthor) then) =
-      __$$_BlockedAuthorCopyWithImpl<$Res>;
+  factory _$$BlockedAuthorImplCopyWith(
+          _$BlockedAuthorImpl value, $Res Function(_$BlockedAuthorImpl) then) =
+      __$$BlockedAuthorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, String did, ActorViewer viewer});
@@ -105,11 +105,11 @@ abstract class _$$_BlockedAuthorCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_BlockedAuthorCopyWithImpl<$Res>
-    extends _$BlockedAuthorCopyWithImpl<$Res, _$_BlockedAuthor>
-    implements _$$_BlockedAuthorCopyWith<$Res> {
-  __$$_BlockedAuthorCopyWithImpl(
-      _$_BlockedAuthor _value, $Res Function(_$_BlockedAuthor) _then)
+class __$$BlockedAuthorImplCopyWithImpl<$Res>
+    extends _$BlockedAuthorCopyWithImpl<$Res, _$BlockedAuthorImpl>
+    implements _$$BlockedAuthorImplCopyWith<$Res> {
+  __$$BlockedAuthorImplCopyWithImpl(
+      _$BlockedAuthorImpl _value, $Res Function(_$BlockedAuthorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -119,7 +119,7 @@ class __$$_BlockedAuthorCopyWithImpl<$Res>
     Object? did = null,
     Object? viewer = null,
   }) {
-    return _then(_$_BlockedAuthor(
+    return _then(_$BlockedAuthorImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -138,14 +138,14 @@ class __$$_BlockedAuthorCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_BlockedAuthor implements _BlockedAuthor {
-  const _$_BlockedAuthor(
+class _$BlockedAuthorImpl implements _BlockedAuthor {
+  const _$BlockedAuthorImpl(
       {@typeKey this.type = appBskyFeedDefsBlockedAuthor,
       required this.did,
       required this.viewer});
 
-  factory _$_BlockedAuthor.fromJson(Map<String, dynamic> json) =>
-      _$$_BlockedAuthorFromJson(json);
+  factory _$BlockedAuthorImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BlockedAuthorImplFromJson(json);
 
   /// The type of the record.
   /// By default, it is [appBskyFeedDefsBlockedAuthor].
@@ -170,7 +170,7 @@ class _$_BlockedAuthor implements _BlockedAuthor {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BlockedAuthor &&
+            other is _$BlockedAuthorImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.viewer, viewer) || other.viewer == viewer));
@@ -183,12 +183,12 @@ class _$_BlockedAuthor implements _BlockedAuthor {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BlockedAuthorCopyWith<_$_BlockedAuthor> get copyWith =>
-      __$$_BlockedAuthorCopyWithImpl<_$_BlockedAuthor>(this, _$identity);
+  _$$BlockedAuthorImplCopyWith<_$BlockedAuthorImpl> get copyWith =>
+      __$$BlockedAuthorImplCopyWithImpl<_$BlockedAuthorImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BlockedAuthorToJson(
+    return _$$BlockedAuthorImplToJson(
       this,
     );
   }
@@ -198,10 +198,10 @@ abstract class _BlockedAuthor implements BlockedAuthor {
   const factory _BlockedAuthor(
       {@typeKey final String type,
       required final String did,
-      required final ActorViewer viewer}) = _$_BlockedAuthor;
+      required final ActorViewer viewer}) = _$BlockedAuthorImpl;
 
   factory _BlockedAuthor.fromJson(Map<String, dynamic> json) =
-      _$_BlockedAuthor.fromJson;
+      _$BlockedAuthorImpl.fromJson;
 
   @override
 
@@ -219,6 +219,6 @@ abstract class _BlockedAuthor implements BlockedAuthor {
   ActorViewer get viewer;
   @override
   @JsonKey(ignore: true)
-  _$$_BlockedAuthorCopyWith<_$_BlockedAuthor> get copyWith =>
+  _$$BlockedAuthorImplCopyWith<_$BlockedAuthorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

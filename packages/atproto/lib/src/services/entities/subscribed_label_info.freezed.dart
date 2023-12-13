@@ -71,22 +71,22 @@ class _$SubscribedLabelInfoCopyWithImpl<$Res, $Val extends SubscribedLabelInfo>
 }
 
 /// @nodoc
-abstract class _$$_SubscribedLabelInfoCopyWith<$Res>
+abstract class _$$SubscribedLabelInfoImplCopyWith<$Res>
     implements $SubscribedLabelInfoCopyWith<$Res> {
-  factory _$$_SubscribedLabelInfoCopyWith(_$_SubscribedLabelInfo value,
-          $Res Function(_$_SubscribedLabelInfo) then) =
-      __$$_SubscribedLabelInfoCopyWithImpl<$Res>;
+  factory _$$SubscribedLabelInfoImplCopyWith(_$SubscribedLabelInfoImpl value,
+          $Res Function(_$SubscribedLabelInfoImpl) then) =
+      __$$SubscribedLabelInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String? message});
 }
 
 /// @nodoc
-class __$$_SubscribedLabelInfoCopyWithImpl<$Res>
-    extends _$SubscribedLabelInfoCopyWithImpl<$Res, _$_SubscribedLabelInfo>
-    implements _$$_SubscribedLabelInfoCopyWith<$Res> {
-  __$$_SubscribedLabelInfoCopyWithImpl(_$_SubscribedLabelInfo _value,
-      $Res Function(_$_SubscribedLabelInfo) _then)
+class __$$SubscribedLabelInfoImplCopyWithImpl<$Res>
+    extends _$SubscribedLabelInfoCopyWithImpl<$Res, _$SubscribedLabelInfoImpl>
+    implements _$$SubscribedLabelInfoImplCopyWith<$Res> {
+  __$$SubscribedLabelInfoImplCopyWithImpl(_$SubscribedLabelInfoImpl _value,
+      $Res Function(_$SubscribedLabelInfoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,7 +95,7 @@ class __$$_SubscribedLabelInfoCopyWithImpl<$Res>
     Object? name = null,
     Object? message = freezed,
   }) {
-    return _then(_$_SubscribedLabelInfo(
+    return _then(_$SubscribedLabelInfoImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -111,11 +111,11 @@ class __$$_SubscribedLabelInfoCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_SubscribedLabelInfo implements _SubscribedLabelInfo {
-  const _$_SubscribedLabelInfo({required this.name, this.message});
+class _$SubscribedLabelInfoImpl implements _SubscribedLabelInfo {
+  const _$SubscribedLabelInfoImpl({required this.name, this.message});
 
-  factory _$_SubscribedLabelInfo.fromJson(Map<String, dynamic> json) =>
-      _$$_SubscribedLabelInfoFromJson(json);
+  factory _$SubscribedLabelInfoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SubscribedLabelInfoImplFromJson(json);
 
   /// The name of the subscribed repository.
   @override
@@ -134,7 +134,7 @@ class _$_SubscribedLabelInfo implements _SubscribedLabelInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SubscribedLabelInfo &&
+            other is _$SubscribedLabelInfoImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.message, message) || other.message == message));
   }
@@ -146,13 +146,13 @@ class _$_SubscribedLabelInfo implements _SubscribedLabelInfo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SubscribedLabelInfoCopyWith<_$_SubscribedLabelInfo> get copyWith =>
-      __$$_SubscribedLabelInfoCopyWithImpl<_$_SubscribedLabelInfo>(
+  _$$SubscribedLabelInfoImplCopyWith<_$SubscribedLabelInfoImpl> get copyWith =>
+      __$$SubscribedLabelInfoImplCopyWithImpl<_$SubscribedLabelInfoImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SubscribedLabelInfoToJson(
+    return _$$SubscribedLabelInfoImplToJson(
       this,
     );
   }
@@ -161,10 +161,10 @@ class _$_SubscribedLabelInfo implements _SubscribedLabelInfo {
 abstract class _SubscribedLabelInfo implements SubscribedLabelInfo {
   const factory _SubscribedLabelInfo(
       {required final String name,
-      final String? message}) = _$_SubscribedLabelInfo;
+      final String? message}) = _$SubscribedLabelInfoImpl;
 
   factory _SubscribedLabelInfo.fromJson(Map<String, dynamic> json) =
-      _$_SubscribedLabelInfo.fromJson;
+      _$SubscribedLabelInfoImpl.fromJson;
 
   @override
 
@@ -176,6 +176,6 @@ abstract class _SubscribedLabelInfo implements SubscribedLabelInfo {
   String? get message;
   @override
   @JsonKey(ignore: true)
-  _$$_SubscribedLabelInfoCopyWith<_$_SubscribedLabelInfo> get copyWith =>
+  _$$SubscribedLabelInfoImplCopyWith<_$SubscribedLabelInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

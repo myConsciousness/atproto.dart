@@ -73,11 +73,11 @@ class _$LabelerSettingsCopyWithImpl<$Res, $Val extends LabelerSettings>
 }
 
 /// @nodoc
-abstract class _$$_LabelerSettingsCopyWith<$Res>
+abstract class _$$LabelerSettingsImplCopyWith<$Res>
     implements $LabelerSettingsCopyWith<$Res> {
-  factory _$$_LabelerSettingsCopyWith(
-          _$_LabelerSettings value, $Res Function(_$_LabelerSettings) then) =
-      __$$_LabelerSettingsCopyWithImpl<$Res>;
+  factory _$$LabelerSettingsImplCopyWith(_$LabelerSettingsImpl value,
+          $Res Function(_$LabelerSettingsImpl) then) =
+      __$$LabelerSettingsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Labeler labeler, Map<String, LabelPreference> labels});
@@ -87,11 +87,11 @@ abstract class _$$_LabelerSettingsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LabelerSettingsCopyWithImpl<$Res>
-    extends _$LabelerSettingsCopyWithImpl<$Res, _$_LabelerSettings>
-    implements _$$_LabelerSettingsCopyWith<$Res> {
-  __$$_LabelerSettingsCopyWithImpl(
-      _$_LabelerSettings _value, $Res Function(_$_LabelerSettings) _then)
+class __$$LabelerSettingsImplCopyWithImpl<$Res>
+    extends _$LabelerSettingsCopyWithImpl<$Res, _$LabelerSettingsImpl>
+    implements _$$LabelerSettingsImplCopyWith<$Res> {
+  __$$LabelerSettingsImplCopyWithImpl(
+      _$LabelerSettingsImpl _value, $Res Function(_$LabelerSettingsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -100,7 +100,7 @@ class __$$_LabelerSettingsCopyWithImpl<$Res>
     Object? labeler = null,
     Object? labels = null,
   }) {
-    return _then(_$_LabelerSettings(
+    return _then(_$LabelerSettingsImpl(
       labeler: null == labeler
           ? _value.labeler
           : labeler // ignore: cast_nullable_to_non_nullable
@@ -115,8 +115,8 @@ class __$$_LabelerSettingsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LabelerSettings implements _LabelerSettings {
-  const _$_LabelerSettings(
+class _$LabelerSettingsImpl implements _LabelerSettings {
+  const _$LabelerSettingsImpl(
       {required this.labeler,
       required final Map<String, LabelPreference> labels})
       : _labels = labels;
@@ -140,7 +140,7 @@ class _$_LabelerSettings implements _LabelerSettings {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LabelerSettings &&
+            other is _$LabelerSettingsImpl &&
             (identical(other.labeler, labeler) || other.labeler == labeler) &&
             const DeepCollectionEquality().equals(other._labels, _labels));
   }
@@ -152,14 +152,16 @@ class _$_LabelerSettings implements _LabelerSettings {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LabelerSettingsCopyWith<_$_LabelerSettings> get copyWith =>
-      __$$_LabelerSettingsCopyWithImpl<_$_LabelerSettings>(this, _$identity);
+  _$$LabelerSettingsImplCopyWith<_$LabelerSettingsImpl> get copyWith =>
+      __$$LabelerSettingsImplCopyWithImpl<_$LabelerSettingsImpl>(
+          this, _$identity);
 }
 
 abstract class _LabelerSettings implements LabelerSettings {
   const factory _LabelerSettings(
-      {required final Labeler labeler,
-      required final Map<String, LabelPreference> labels}) = _$_LabelerSettings;
+          {required final Labeler labeler,
+          required final Map<String, LabelPreference> labels}) =
+      _$LabelerSettingsImpl;
 
   @override
   Labeler get labeler;
@@ -167,6 +169,6 @@ abstract class _LabelerSettings implements LabelerSettings {
   Map<String, LabelPreference> get labels;
   @override
   @JsonKey(ignore: true)
-  _$$_LabelerSettingsCopyWith<_$_LabelerSettings> get copyWith =>
+  _$$LabelerSettingsImplCopyWith<_$LabelerSettingsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -8,11 +8,11 @@ part of 'skeleton_feed.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SkeletonFeed _$$_SkeletonFeedFromJson(Map json) => $checkedCreate(
-      r'_$_SkeletonFeed',
+_$SkeletonFeedImpl _$$SkeletonFeedImplFromJson(Map json) => $checkedCreate(
+      r'_$SkeletonFeedImpl',
       json,
       ($checkedConvert) {
-        final val = _$_SkeletonFeed(
+        final val = _$SkeletonFeedImpl(
           feed: $checkedConvert(
               'feed',
               (v) => (v as List<dynamic>)
@@ -25,7 +25,7 @@ _$_SkeletonFeed _$$_SkeletonFeedFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_SkeletonFeedToJson(_$_SkeletonFeed instance) {
+Map<String, dynamic> _$$SkeletonFeedImplToJson(_$SkeletonFeedImpl instance) {
   final val = <String, dynamic>{
     'feed': instance.feed.map((e) => e.toJson()).toList(),
   };

@@ -89,11 +89,11 @@ class _$FeedGeneratorCopyWithImpl<$Res, $Val extends FeedGenerator>
 }
 
 /// @nodoc
-abstract class _$$_FeedGeneratorCopyWith<$Res>
+abstract class _$$FeedGeneratorImplCopyWith<$Res>
     implements $FeedGeneratorCopyWith<$Res> {
-  factory _$$_FeedGeneratorCopyWith(
-          _$_FeedGenerator value, $Res Function(_$_FeedGenerator) then) =
-      __$$_FeedGeneratorCopyWithImpl<$Res>;
+  factory _$$FeedGeneratorImplCopyWith(
+          _$FeedGeneratorImpl value, $Res Function(_$FeedGeneratorImpl) then) =
+      __$$FeedGeneratorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({FeedGeneratorView view, bool isOnline, bool isValid});
@@ -103,11 +103,11 @@ abstract class _$$_FeedGeneratorCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_FeedGeneratorCopyWithImpl<$Res>
-    extends _$FeedGeneratorCopyWithImpl<$Res, _$_FeedGenerator>
-    implements _$$_FeedGeneratorCopyWith<$Res> {
-  __$$_FeedGeneratorCopyWithImpl(
-      _$_FeedGenerator _value, $Res Function(_$_FeedGenerator) _then)
+class __$$FeedGeneratorImplCopyWithImpl<$Res>
+    extends _$FeedGeneratorCopyWithImpl<$Res, _$FeedGeneratorImpl>
+    implements _$$FeedGeneratorImplCopyWith<$Res> {
+  __$$FeedGeneratorImplCopyWithImpl(
+      _$FeedGeneratorImpl _value, $Res Function(_$FeedGeneratorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -117,7 +117,7 @@ class __$$_FeedGeneratorCopyWithImpl<$Res>
     Object? isOnline = null,
     Object? isValid = null,
   }) {
-    return _then(_$_FeedGenerator(
+    return _then(_$FeedGeneratorImpl(
       view: null == view
           ? _value.view
           : view // ignore: cast_nullable_to_non_nullable
@@ -137,12 +137,12 @@ class __$$_FeedGeneratorCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_FeedGenerator implements _FeedGenerator {
-  const _$_FeedGenerator(
+class _$FeedGeneratorImpl implements _FeedGenerator {
+  const _$FeedGeneratorImpl(
       {required this.view, required this.isOnline, required this.isValid});
 
-  factory _$_FeedGenerator.fromJson(Map<String, dynamic> json) =>
-      _$$_FeedGeneratorFromJson(json);
+  factory _$FeedGeneratorImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedGeneratorImplFromJson(json);
 
   /// Represents the view of the feed generator.
   @override
@@ -165,7 +165,7 @@ class _$_FeedGenerator implements _FeedGenerator {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FeedGenerator &&
+            other is _$FeedGeneratorImpl &&
             (identical(other.view, view) || other.view == view) &&
             (identical(other.isOnline, isOnline) ||
                 other.isOnline == isOnline) &&
@@ -179,12 +179,12 @@ class _$_FeedGenerator implements _FeedGenerator {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FeedGeneratorCopyWith<_$_FeedGenerator> get copyWith =>
-      __$$_FeedGeneratorCopyWithImpl<_$_FeedGenerator>(this, _$identity);
+  _$$FeedGeneratorImplCopyWith<_$FeedGeneratorImpl> get copyWith =>
+      __$$FeedGeneratorImplCopyWithImpl<_$FeedGeneratorImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FeedGeneratorToJson(
+    return _$$FeedGeneratorImplToJson(
       this,
     );
   }
@@ -194,10 +194,10 @@ abstract class _FeedGenerator implements FeedGenerator {
   const factory _FeedGenerator(
       {required final FeedGeneratorView view,
       required final bool isOnline,
-      required final bool isValid}) = _$_FeedGenerator;
+      required final bool isValid}) = _$FeedGeneratorImpl;
 
   factory _FeedGenerator.fromJson(Map<String, dynamic> json) =
-      _$_FeedGenerator.fromJson;
+      _$FeedGeneratorImpl.fromJson;
 
   @override
 
@@ -213,6 +213,6 @@ abstract class _FeedGenerator implements FeedGenerator {
   bool get isValid;
   @override
   @JsonKey(ignore: true)
-  _$$_FeedGeneratorCopyWith<_$_FeedGenerator> get copyWith =>
+  _$$FeedGeneratorImplCopyWith<_$FeedGeneratorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

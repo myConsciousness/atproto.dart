@@ -76,11 +76,11 @@ class _$ThreadListRuleCopyWithImpl<$Res, $Val extends ThreadListRule>
 }
 
 /// @nodoc
-abstract class _$$_ThreadListRuleCopyWith<$Res>
+abstract class _$$ThreadListRuleImplCopyWith<$Res>
     implements $ThreadListRuleCopyWith<$Res> {
-  factory _$$_ThreadListRuleCopyWith(
-          _$_ThreadListRule value, $Res Function(_$_ThreadListRule) then) =
-      __$$_ThreadListRuleCopyWithImpl<$Res>;
+  factory _$$ThreadListRuleImplCopyWith(_$ThreadListRuleImpl value,
+          $Res Function(_$ThreadListRuleImpl) then) =
+      __$$ThreadListRuleImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -89,11 +89,11 @@ abstract class _$$_ThreadListRuleCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ThreadListRuleCopyWithImpl<$Res>
-    extends _$ThreadListRuleCopyWithImpl<$Res, _$_ThreadListRule>
-    implements _$$_ThreadListRuleCopyWith<$Res> {
-  __$$_ThreadListRuleCopyWithImpl(
-      _$_ThreadListRule _value, $Res Function(_$_ThreadListRule) _then)
+class __$$ThreadListRuleImplCopyWithImpl<$Res>
+    extends _$ThreadListRuleCopyWithImpl<$Res, _$ThreadListRuleImpl>
+    implements _$$ThreadListRuleImplCopyWith<$Res> {
+  __$$ThreadListRuleImplCopyWithImpl(
+      _$ThreadListRuleImpl _value, $Res Function(_$ThreadListRuleImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -102,7 +102,7 @@ class __$$_ThreadListRuleCopyWithImpl<$Res>
     Object? type = null,
     Object? listUri = null,
   }) {
-    return _then(_$_ThreadListRule(
+    return _then(_$ThreadListRuleImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -118,13 +118,13 @@ class __$$_ThreadListRuleCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ThreadListRule implements _ThreadListRule {
-  const _$_ThreadListRule(
+class _$ThreadListRuleImpl implements _ThreadListRule {
+  const _$ThreadListRuleImpl(
       {@typeKey this.type = appBskyFeedThreadgateListRule,
       @JsonKey(name: 'list') @atUriConverter required this.listUri});
 
-  factory _$_ThreadListRule.fromJson(Map<String, dynamic> json) =>
-      _$$_ThreadListRuleFromJson(json);
+  factory _$ThreadListRuleImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ThreadListRuleImplFromJson(json);
 
   /// Represents the type of this object.
   @override
@@ -146,7 +146,7 @@ class _$_ThreadListRule implements _ThreadListRule {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ThreadListRule &&
+            other is _$ThreadListRuleImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.listUri, listUri) || other.listUri == listUri));
   }
@@ -158,12 +158,13 @@ class _$_ThreadListRule implements _ThreadListRule {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ThreadListRuleCopyWith<_$_ThreadListRule> get copyWith =>
-      __$$_ThreadListRuleCopyWithImpl<_$_ThreadListRule>(this, _$identity);
+  _$$ThreadListRuleImplCopyWith<_$ThreadListRuleImpl> get copyWith =>
+      __$$ThreadListRuleImplCopyWithImpl<_$ThreadListRuleImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ThreadListRuleToJson(
+    return _$$ThreadListRuleImplToJson(
       this,
     );
   }
@@ -174,10 +175,10 @@ abstract class _ThreadListRule implements ThreadListRule {
       {@typeKey final String type,
       @JsonKey(name: 'list')
       @atUriConverter
-      required final AtUri listUri}) = _$_ThreadListRule;
+      required final AtUri listUri}) = _$ThreadListRuleImpl;
 
   factory _ThreadListRule.fromJson(Map<String, dynamic> json) =
-      _$_ThreadListRule.fromJson;
+      _$ThreadListRuleImpl.fromJson;
 
   @override
 
@@ -192,6 +193,6 @@ abstract class _ThreadListRule implements ThreadListRule {
   AtUri get listUri;
   @override
   @JsonKey(ignore: true)
-  _$$_ThreadListRuleCopyWith<_$_ThreadListRule> get copyWith =>
+  _$$ThreadListRuleImplCopyWith<_$ThreadListRuleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
