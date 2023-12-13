@@ -39,7 +39,7 @@ scripts:
 
   build_runner:
     run: |
-      melos exec -c 10 -- \
+      melos exec --depends-on="build_runner" -c 1 -- \
         dart run build_runner build --delete-conflicting-outputs
     description: Run build_runner and melos format in all packages.
 

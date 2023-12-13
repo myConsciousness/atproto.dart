@@ -51,6 +51,9 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Build
+        run: dart run build_runner build --delete-conflicting-outputs
+
       - name: Check format
         run: dart format --set-exit-if-changed .
 
