@@ -6,7 +6,7 @@ on:
     - cron: "0 */3 * * *"
 
 jobs:
-  build:
+  pull-lexicons:
     runs-on: ubuntu-latest
 
     steps:
