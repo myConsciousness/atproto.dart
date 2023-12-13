@@ -28,6 +28,7 @@ jobs:
         package_path:
           - packages/at_identifier
           - packages/nsid
+          - packages/lexicon
           - packages/at_uri
           - packages/xrpc
           - packages/multiformats
