@@ -6,6 +6,12 @@ dart test
 cd ../nsid || exit
 dart test
 
+cd ../lexicon || exit
+dart test
+
+cd ../multiformats || exit
+dart test
+
 cd ../xrpc || exit
 dart test
 
@@ -13,6 +19,9 @@ cd ../at_uri || exit
 dart test
 
 cd ../atproto_core || exit
+dart test
+
+cd ../did_plc || exit
 dart test
 
 cd ../atproto || exit
