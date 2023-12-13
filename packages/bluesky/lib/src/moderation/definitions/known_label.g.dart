@@ -2,6 +2,14 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// coverage:ignore-file
+// ignore_for_file: type=lint
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// **************************************************************************
+// Moderation Definitions Generator
+// **************************************************************************
+
 const knownLabelHide = '!hide';
 const knownLabelNoPromote = '!no-promote';
 const knownLabelWarn = '!warn';
@@ -116,16 +124,15 @@ enum KnownLabel {
   /// `misleading`
   misleading(knownLabelMisleading);
 
-  /// The label name in the system.
+  /// The value in the system.
   final String value;
 
   const KnownLabel(this.value);
 
-  /// Returns the known label associated with [value].
   static KnownLabel? valueOf(final String value) {
-    for (final $value in values) {
-      if ($value.value == value) {
-        return $value;
+    for (final v in values) {
+      if (v.value == value) {
+        return v;
       }
     }
 

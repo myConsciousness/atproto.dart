@@ -1,4 +1,4 @@
-name: Auto Mirror Lexicons
+name: Pull Latest Lexicons
 
 on:
   workflow_dispatch:
@@ -17,41 +17,51 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git fetch origin
-          if git show-ref --quiet refs/remotes/origin/auto-mirror-lexicons; then
-            git push origin --delete auto-mirror-lexicons
+          if git show-ref --quiet refs/remotes/origin/pull-latest-lexicons; then
+            git push origin --delete pull-latest-lexicons
           fi
 
       - name: Create New Branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git switch -c auto-mirror-lexicons
-          git push -u origin auto-mirror-lexicons
+          git switch -c pull-latest-lexicons
+          git push -u origin pull-latest-lexicons
 
       - uses: dart-lang/setup-dart@v1.3
       - name: Install dependencies
         run: dart pub get
 
-      - name: Auto Mirror Lexicons
-        run: dart run ./bin/mirror_lexicons.dart
+      - name: Pull Latest Lexicons
+        run: dart run ./bin/pull_latest_lexicons.dart
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
 
       - name: Generate Lexicon IDs
         run: dart run ./bin/generate_lexicon_ids.dart
 
-      - name: Activate Melos
-        run: dart pub global activate melos
+      - name: Build
+        run: |
+          cd packages/atproto
+          dart run build_runner build
+          cd ../bluesky
+          dart run build_runner build
+          cd ../../
 
-      - name: Format All
-        run: melos format
+      - name: Format
+        run: |
+          cd packages/atproto
+          dart format .
+          cd ../bluesky
+          dart format .
+          cd ../../
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
-          commit-message: "[Scheduled] Auto Mirror Lexicons"
-          title: "[Scheduled] Auto Mirror Lexicons"
-          branch: auto-mirror-lexicons
+          commit-message: "[Scheduled] Pull Latest Lexicons"
+          title: "[Scheduled] Pull Latest Lexicons"
+          branch: pull-latest-lexicons
           base: main
           labels: Github Actions
           assignees: "${{ github.actor }}"

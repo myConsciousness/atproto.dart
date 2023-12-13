@@ -2,14 +2,26 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// coverage:ignore-file
+// ignore_for_file: type=lint
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// **************************************************************************
+// Moderation Definitions Generator
+// **************************************************************************
+
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 enum LabelDefinitionFlag {
   @JsonValue('no-override')
   noOverride('no-override'),
-  adult('adult'),
-  unauthed('unauthed');
+
+  @JsonValue('unauthed')
+  unauthed('unauthed'),
+
+  @JsonValue('adult')
+  adult('adult');
 
   final String value;
 

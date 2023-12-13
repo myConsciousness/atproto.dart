@@ -2,6 +2,14 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// coverage:ignore-file
+// ignore_for_file: type=lint
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// **************************************************************************
+// Moderation Definitions Generator
+// **************************************************************************
+
 const knownLabelGroupSystem = 'system';
 const knownLabelGroupLegal = 'legal';
 const knownLabelGroupSexual = 'sexual';
@@ -40,16 +48,15 @@ enum KnownLabelGroup {
   /// `misinfo`
   misinfo(knownLabelGroupMisinfo);
 
-  /// The label name in the system.
+  /// The value in the system.
   final String value;
 
   const KnownLabelGroup(this.value);
 
-  /// Returns the known label group associated with [value].
   static KnownLabelGroup? valueOf(final String value) {
-    for (final $value in values) {
-      if ($value.value == value) {
-        return $value;
+    for (final v in values) {
+      if (v.value == value) {
+        return v;
       }
     }
 

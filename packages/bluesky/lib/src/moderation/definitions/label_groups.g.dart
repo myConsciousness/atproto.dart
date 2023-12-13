@@ -2,10 +2,18 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// coverage:ignore-file
+// ignore_for_file: type=lint
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// **************************************************************************
+// Moderation Definitions Generator
+// **************************************************************************
+
 // 🌎 Project imports:
 import '../entities/label_group_definition.dart';
-import 'known_label_group.dart';
-import 'labels.dart';
+import 'known_label_group.g.dart';
+import 'labels.g.dart';
 
 const knownLabelGroups = <KnownLabelGroup, LabelGroupDefinition>{
   KnownLabelGroup.system: labelGroupDefinitionSystem,
@@ -21,6 +29,7 @@ const knownLabelGroups = <KnownLabelGroup, LabelGroupDefinition>{
 
 const labelGroupDefinitionSystem = LabelGroupDefinition(
   id: knownLabelGroupSystem,
+  isConfigurable: false,
   labels: [
     labelDefinitionHide,
     labelDefinitionNoPromote,
@@ -31,6 +40,7 @@ const labelGroupDefinitionSystem = LabelGroupDefinition(
 
 const labelGroupDefinitionLegal = LabelGroupDefinition(
   id: knownLabelGroupLegal,
+  isConfigurable: false,
   labels: [
     labelDefinitionDmcaViolation,
     labelDefinitionDoxxing,

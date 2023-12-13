@@ -5,7 +5,7 @@
 // 🌎 Project imports:
 import '../../services/constants/content_label_visibility.dart';
 import '../../services/entities/preference.dart';
-import '../definitions/label_preference.dart';
+import '../definitions/label_preference.g.dart';
 import '../entities/label_preferences.dart';
 import '../entities/labeler.dart';
 import '../entities/labeler_settings.dart';

@@ -9,32 +9,27 @@ import 'package:http/http.dart' as http;
 
 import 'utils.dart';
 
-final _repositorySlug = RepositorySlug(
-  'bluesky-social',
-  'atproto',
-);
-
 Future<void> main(List<String> args) async {
+  final github = GitHub(
+    auth: Authentication.withToken(
+      Platform.environment['GITHUB_TOKEN'],
+    ),
+  );
+
   for (final root in lexiconsRoot) {
     //! Refresh every time.
     Directory('lexicons/$root')
       ..deleteSync(recursive: true)
       ..createSync();
 
-    final github = GitHub(
-      auth: Authentication.withToken(
-        Platform.environment['GITHUB_TOKEN'],
-      ),
-    );
-
     final lexiconDirectories = await github.repositories.getContents(
-      _repositorySlug,
+      officialRepositorySlug,
       'lexicons/$root',
     );
 
     for (final lexiconDirectory in lexiconDirectories.tree!) {
       final lexiconFiles = await github.repositories.getContents(
-        _repositorySlug,
+        officialRepositorySlug,
         lexiconDirectory.path!,
       );
 

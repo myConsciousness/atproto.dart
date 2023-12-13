@@ -65,7 +65,7 @@ Map<String, dynamic> _$$_LabelPreferencesToJson(_$_LabelPreferences instance) =>
     };
 
 const _$LabelPreferenceEnumMap = {
-  LabelPreference.ignore: 'ignore',
-  LabelPreference.warn: 'warn',
   LabelPreference.hide: 'hide',
+  LabelPreference.warn: 'warn',
+  LabelPreference.ignore: 'ignore',
 };

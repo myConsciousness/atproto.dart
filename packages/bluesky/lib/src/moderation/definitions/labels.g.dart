@@ -2,13 +2,21 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// coverage:ignore-file
+// ignore_for_file: type=lint
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// **************************************************************************
+// Moderation Definitions Generator
+// **************************************************************************
+
 // 🌎 Project imports:
 import '../entities/label_definition.dart';
-import 'known_label.dart';
-import 'known_label_group.dart';
-import 'label_definition_flag.dart';
-import 'label_definition_on_warn_behavior.dart';
-import 'label_preference.dart';
+import 'known_label.g.dart';
+import 'known_label_group.g.dart';
+import 'label_definition_flag.g.dart';
+import 'label_definition_on_warn_behavior.g.dart';
+import 'label_preference.g.dart';
 
 const knownLabels = <KnownLabel, LabelDefinition>{
   KnownLabel.hide: labelDefinitionHide,
@@ -45,6 +53,7 @@ const knownLabels = <KnownLabel, LabelDefinition>{
 const labelDefinitionHide = LabelDefinition(
   id: knownLabelHide,
   groupId: knownLabelGroupSystem,
+  isConfigurable: false,
   preferences: [
     LabelPreference.hide,
   ],
@@ -57,16 +66,18 @@ const labelDefinitionHide = LabelDefinition(
 const labelDefinitionNoPromote = LabelDefinition(
   id: knownLabelNoPromote,
   groupId: knownLabelGroupSystem,
+  isConfigurable: false,
   preferences: [
     LabelPreference.hide,
   ],
   flags: [],
-  onWarn: LabelDefinitionOnWarnBehavior.none,
+  onWarn: null,
 );
 
 const labelDefinitionWarn = LabelDefinition(
   id: knownLabelWarn,
   groupId: knownLabelGroupSystem,
+  isConfigurable: false,
   preferences: [
     LabelPreference.warn,
   ],
@@ -77,6 +88,7 @@ const labelDefinitionWarn = LabelDefinition(
 const labelDefinitionNoUnauthenticated = LabelDefinition(
   id: knownLabelNoUnauthenticated,
   groupId: knownLabelGroupSystem,
+  isConfigurable: false,
   preferences: [
     LabelPreference.hide,
   ],
@@ -90,6 +102,7 @@ const labelDefinitionNoUnauthenticated = LabelDefinition(
 const labelDefinitionDmcaViolation = LabelDefinition(
   id: knownLabelDmcaViolation,
   groupId: knownLabelGroupLegal,
+  isConfigurable: false,
   preferences: [
     LabelPreference.hide,
   ],
@@ -102,6 +115,7 @@ const labelDefinitionDmcaViolation = LabelDefinition(
 const labelDefinitionDoxxing = LabelDefinition(
   id: knownLabelDoxxing,
   groupId: knownLabelGroupLegal,
+  isConfigurable: false,
   preferences: [
     LabelPreference.hide,
   ],
@@ -213,7 +227,7 @@ const labelDefinitionTorture = LabelDefinition(
   flags: [
     LabelDefinitionFlag.adult,
   ],
-  onWarn: LabelDefinitionOnWarnBehavior.blurMedia,
+  onWarn: LabelDefinitionOnWarnBehavior.blur,
 );
 
 const labelDefinitionSelfHarm = LabelDefinition(
