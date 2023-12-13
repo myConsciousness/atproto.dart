@@ -6,7 +6,7 @@ on:
     - cron: "0 */12 * * *"
 
 jobs:
-  build:
+  pull-mod-resources:
     runs-on: ubuntu-latest
 
     steps:

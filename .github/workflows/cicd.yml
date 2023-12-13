@@ -14,7 +14,7 @@ on:
     - cron: "0 10 * * *"
 
 jobs:
-  build:
+  tacos:
     runs-on: ubuntu-latest
 
     defaults:
@@ -50,6 +50,12 @@ jobs:
         run: echo "PUB_CACHE="$HOME/.pub-cache"" >> $GITHUB_ENV
       - name: Install dependencies
         run: flutter pub get
+
+      - name: Melos Activate
+        run: dart pub global activate melos
+
+      - name: Build
+        run: melos build_runner
 
       - name: Check format
         run: dart format --set-exit-if-changed .
