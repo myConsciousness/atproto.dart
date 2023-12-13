@@ -88,10 +88,11 @@ class _$ListItemsCopyWithImpl<$Res, $Val extends ListItems>
 }
 
 /// @nodoc
-abstract class _$$_ListItemsCopyWith<$Res> implements $ListItemsCopyWith<$Res> {
-  factory _$$_ListItemsCopyWith(
-          _$_ListItems value, $Res Function(_$_ListItems) then) =
-      __$$_ListItemsCopyWithImpl<$Res>;
+abstract class _$$ListItemsImplCopyWith<$Res>
+    implements $ListItemsCopyWith<$Res> {
+  factory _$$ListItemsImplCopyWith(
+          _$ListItemsImpl value, $Res Function(_$ListItemsImpl) then) =
+      __$$ListItemsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ListView list, List<ListItem> items, String? cursor});
@@ -101,11 +102,11 @@ abstract class _$$_ListItemsCopyWith<$Res> implements $ListItemsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ListItemsCopyWithImpl<$Res>
-    extends _$ListItemsCopyWithImpl<$Res, _$_ListItems>
-    implements _$$_ListItemsCopyWith<$Res> {
-  __$$_ListItemsCopyWithImpl(
-      _$_ListItems _value, $Res Function(_$_ListItems) _then)
+class __$$ListItemsImplCopyWithImpl<$Res>
+    extends _$ListItemsCopyWithImpl<$Res, _$ListItemsImpl>
+    implements _$$ListItemsImplCopyWith<$Res> {
+  __$$ListItemsImplCopyWithImpl(
+      _$ListItemsImpl _value, $Res Function(_$ListItemsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -115,7 +116,7 @@ class __$$_ListItemsCopyWithImpl<$Res>
     Object? items = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$_ListItems(
+    return _then(_$ListItemsImpl(
       list: null == list
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
@@ -134,13 +135,13 @@ class __$$_ListItemsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ListItems implements _ListItems {
-  const _$_ListItems(
+class _$ListItemsImpl implements _ListItems {
+  const _$ListItemsImpl(
       {required this.list, required final List<ListItem> items, this.cursor})
       : _items = items;
 
-  factory _$_ListItems.fromJson(Map<String, dynamic> json) =>
-      _$$_ListItemsFromJson(json);
+  factory _$ListItemsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ListItemsImplFromJson(json);
 
   /// An instance of [ListView] which represents the list.
   @override
@@ -170,7 +171,7 @@ class _$_ListItems implements _ListItems {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ListItems &&
+            other is _$ListItemsImpl &&
             (identical(other.list, list) || other.list == list) &&
             const DeepCollectionEquality().equals(other._items, _items) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
@@ -184,12 +185,12 @@ class _$_ListItems implements _ListItems {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ListItemsCopyWith<_$_ListItems> get copyWith =>
-      __$$_ListItemsCopyWithImpl<_$_ListItems>(this, _$identity);
+  _$$ListItemsImplCopyWith<_$ListItemsImpl> get copyWith =>
+      __$$ListItemsImplCopyWithImpl<_$ListItemsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ListItemsToJson(
+    return _$$ListItemsImplToJson(
       this,
     );
   }
@@ -199,10 +200,10 @@ abstract class _ListItems implements ListItems {
   const factory _ListItems(
       {required final ListView list,
       required final List<ListItem> items,
-      final String? cursor}) = _$_ListItems;
+      final String? cursor}) = _$ListItemsImpl;
 
   factory _ListItems.fromJson(Map<String, dynamic> json) =
-      _$_ListItems.fromJson;
+      _$ListItemsImpl.fromJson;
 
   @override
 
@@ -218,6 +219,6 @@ abstract class _ListItems implements ListItems {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$_ListItemsCopyWith<_$_ListItems> get copyWith =>
+  _$$ListItemsImplCopyWith<_$ListItemsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

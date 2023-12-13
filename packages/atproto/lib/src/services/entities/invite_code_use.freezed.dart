@@ -71,22 +71,22 @@ class _$InviteCodeUseCopyWithImpl<$Res, $Val extends InviteCodeUse>
 }
 
 /// @nodoc
-abstract class _$$_InviteCodeUseCopyWith<$Res>
+abstract class _$$InviteCodeUseImplCopyWith<$Res>
     implements $InviteCodeUseCopyWith<$Res> {
-  factory _$$_InviteCodeUseCopyWith(
-          _$_InviteCodeUse value, $Res Function(_$_InviteCodeUse) then) =
-      __$$_InviteCodeUseCopyWithImpl<$Res>;
+  factory _$$InviteCodeUseImplCopyWith(
+          _$InviteCodeUseImpl value, $Res Function(_$InviteCodeUseImpl) then) =
+      __$$InviteCodeUseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String usedBy, DateTime usedAt});
 }
 
 /// @nodoc
-class __$$_InviteCodeUseCopyWithImpl<$Res>
-    extends _$InviteCodeUseCopyWithImpl<$Res, _$_InviteCodeUse>
-    implements _$$_InviteCodeUseCopyWith<$Res> {
-  __$$_InviteCodeUseCopyWithImpl(
-      _$_InviteCodeUse _value, $Res Function(_$_InviteCodeUse) _then)
+class __$$InviteCodeUseImplCopyWithImpl<$Res>
+    extends _$InviteCodeUseCopyWithImpl<$Res, _$InviteCodeUseImpl>
+    implements _$$InviteCodeUseImplCopyWith<$Res> {
+  __$$InviteCodeUseImplCopyWithImpl(
+      _$InviteCodeUseImpl _value, $Res Function(_$InviteCodeUseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,7 +95,7 @@ class __$$_InviteCodeUseCopyWithImpl<$Res>
     Object? usedBy = null,
     Object? usedAt = null,
   }) {
-    return _then(_$_InviteCodeUse(
+    return _then(_$InviteCodeUseImpl(
       usedBy: null == usedBy
           ? _value.usedBy
           : usedBy // ignore: cast_nullable_to_non_nullable
@@ -110,11 +110,11 @@ class __$$_InviteCodeUseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_InviteCodeUse implements _InviteCodeUse {
-  const _$_InviteCodeUse({required this.usedBy, required this.usedAt});
+class _$InviteCodeUseImpl implements _InviteCodeUse {
+  const _$InviteCodeUseImpl({required this.usedBy, required this.usedAt});
 
-  factory _$_InviteCodeUse.fromJson(Map<String, dynamic> json) =>
-      _$$_InviteCodeUseFromJson(json);
+  factory _$InviteCodeUseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$InviteCodeUseImplFromJson(json);
 
   /// The user who used the invite code.
   @override
@@ -133,7 +133,7 @@ class _$_InviteCodeUse implements _InviteCodeUse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_InviteCodeUse &&
+            other is _$InviteCodeUseImpl &&
             (identical(other.usedBy, usedBy) || other.usedBy == usedBy) &&
             (identical(other.usedAt, usedAt) || other.usedAt == usedAt));
   }
@@ -145,12 +145,12 @@ class _$_InviteCodeUse implements _InviteCodeUse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InviteCodeUseCopyWith<_$_InviteCodeUse> get copyWith =>
-      __$$_InviteCodeUseCopyWithImpl<_$_InviteCodeUse>(this, _$identity);
+  _$$InviteCodeUseImplCopyWith<_$InviteCodeUseImpl> get copyWith =>
+      __$$InviteCodeUseImplCopyWithImpl<_$InviteCodeUseImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_InviteCodeUseToJson(
+    return _$$InviteCodeUseImplToJson(
       this,
     );
   }
@@ -159,10 +159,10 @@ class _$_InviteCodeUse implements _InviteCodeUse {
 abstract class _InviteCodeUse implements InviteCodeUse {
   const factory _InviteCodeUse(
       {required final String usedBy,
-      required final DateTime usedAt}) = _$_InviteCodeUse;
+      required final DateTime usedAt}) = _$InviteCodeUseImpl;
 
   factory _InviteCodeUse.fromJson(Map<String, dynamic> json) =
-      _$_InviteCodeUse.fromJson;
+      _$InviteCodeUseImpl.fromJson;
 
   @override
 
@@ -174,6 +174,6 @@ abstract class _InviteCodeUse implements InviteCodeUse {
   DateTime get usedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_InviteCodeUseCopyWith<_$_InviteCodeUse> get copyWith =>
+  _$$InviteCodeUseImplCopyWith<_$InviteCodeUseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

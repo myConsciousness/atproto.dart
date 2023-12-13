@@ -71,21 +71,22 @@ class _$FacetLinkCopyWithImpl<$Res, $Val extends FacetLink>
 }
 
 /// @nodoc
-abstract class _$$_FacetLinkCopyWith<$Res> implements $FacetLinkCopyWith<$Res> {
-  factory _$$_FacetLinkCopyWith(
-          _$_FacetLink value, $Res Function(_$_FacetLink) then) =
-      __$$_FacetLinkCopyWithImpl<$Res>;
+abstract class _$$FacetLinkImplCopyWith<$Res>
+    implements $FacetLinkCopyWith<$Res> {
+  factory _$$FacetLinkImplCopyWith(
+          _$FacetLinkImpl value, $Res Function(_$FacetLinkImpl) then) =
+      __$$FacetLinkImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, String uri});
 }
 
 /// @nodoc
-class __$$_FacetLinkCopyWithImpl<$Res>
-    extends _$FacetLinkCopyWithImpl<$Res, _$_FacetLink>
-    implements _$$_FacetLinkCopyWith<$Res> {
-  __$$_FacetLinkCopyWithImpl(
-      _$_FacetLink _value, $Res Function(_$_FacetLink) _then)
+class __$$FacetLinkImplCopyWithImpl<$Res>
+    extends _$FacetLinkCopyWithImpl<$Res, _$FacetLinkImpl>
+    implements _$$FacetLinkImplCopyWith<$Res> {
+  __$$FacetLinkImplCopyWithImpl(
+      _$FacetLinkImpl _value, $Res Function(_$FacetLinkImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -94,7 +95,7 @@ class __$$_FacetLinkCopyWithImpl<$Res>
     Object? type = null,
     Object? uri = null,
   }) {
-    return _then(_$_FacetLink(
+    return _then(_$FacetLinkImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -109,12 +110,12 @@ class __$$_FacetLinkCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FacetLink implements _FacetLink {
-  const _$_FacetLink(
+class _$FacetLinkImpl implements _FacetLink {
+  const _$FacetLinkImpl(
       {@typeKey this.type = appBskyRichtextFacetLink, required this.uri});
 
-  factory _$_FacetLink.fromJson(Map<String, dynamic> json) =>
-      _$$_FacetLinkFromJson(json);
+  factory _$FacetLinkImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FacetLinkImplFromJson(json);
 
   /// Specifies the type of facet. Defaults to [appBskyRichtextFacetLink].
   @override
@@ -134,7 +135,7 @@ class _$_FacetLink implements _FacetLink {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FacetLink &&
+            other is _$FacetLinkImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri));
   }
@@ -146,12 +147,12 @@ class _$_FacetLink implements _FacetLink {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FacetLinkCopyWith<_$_FacetLink> get copyWith =>
-      __$$_FacetLinkCopyWithImpl<_$_FacetLink>(this, _$identity);
+  _$$FacetLinkImplCopyWith<_$FacetLinkImpl> get copyWith =>
+      __$$FacetLinkImplCopyWithImpl<_$FacetLinkImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FacetLinkToJson(
+    return _$$FacetLinkImplToJson(
       this,
     );
   }
@@ -159,10 +160,11 @@ class _$_FacetLink implements _FacetLink {
 
 abstract class _FacetLink implements FacetLink {
   const factory _FacetLink(
-      {@typeKey final String type, required final String uri}) = _$_FacetLink;
+      {@typeKey final String type,
+      required final String uri}) = _$FacetLinkImpl;
 
   factory _FacetLink.fromJson(Map<String, dynamic> json) =
-      _$_FacetLink.fromJson;
+      _$FacetLinkImpl.fromJson;
 
   @override
 
@@ -175,6 +177,6 @@ abstract class _FacetLink implements FacetLink {
   String get uri;
   @override
   @JsonKey(ignore: true)
-  _$$_FacetLinkCopyWith<_$_FacetLink> get copyWith =>
+  _$$FacetLinkImplCopyWith<_$FacetLinkImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

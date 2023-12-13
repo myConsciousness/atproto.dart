@@ -69,18 +69,21 @@ class _$MutesCopyWithImpl<$Res, $Val extends Mutes>
 }
 
 /// @nodoc
-abstract class _$$_MutesCopyWith<$Res> implements $MutesCopyWith<$Res> {
-  factory _$$_MutesCopyWith(_$_Mutes value, $Res Function(_$_Mutes) then) =
-      __$$_MutesCopyWithImpl<$Res>;
+abstract class _$$MutesImplCopyWith<$Res> implements $MutesCopyWith<$Res> {
+  factory _$$MutesImplCopyWith(
+          _$MutesImpl value, $Res Function(_$MutesImpl) then) =
+      __$$MutesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Actor> mutes, String? cursor});
 }
 
 /// @nodoc
-class __$$_MutesCopyWithImpl<$Res> extends _$MutesCopyWithImpl<$Res, _$_Mutes>
-    implements _$$_MutesCopyWith<$Res> {
-  __$$_MutesCopyWithImpl(_$_Mutes _value, $Res Function(_$_Mutes) _then)
+class __$$MutesImplCopyWithImpl<$Res>
+    extends _$MutesCopyWithImpl<$Res, _$MutesImpl>
+    implements _$$MutesImplCopyWith<$Res> {
+  __$$MutesImplCopyWithImpl(
+      _$MutesImpl _value, $Res Function(_$MutesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -89,7 +92,7 @@ class __$$_MutesCopyWithImpl<$Res> extends _$MutesCopyWithImpl<$Res, _$_Mutes>
     Object? mutes = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$_Mutes(
+    return _then(_$MutesImpl(
       mutes: null == mutes
           ? _value._mutes
           : mutes // ignore: cast_nullable_to_non_nullable
@@ -104,12 +107,12 @@ class __$$_MutesCopyWithImpl<$Res> extends _$MutesCopyWithImpl<$Res, _$_Mutes>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Mutes implements _Mutes {
-  const _$_Mutes({required final List<Actor> mutes, this.cursor})
+class _$MutesImpl implements _Mutes {
+  const _$MutesImpl({required final List<Actor> mutes, this.cursor})
       : _mutes = mutes;
 
-  factory _$_Mutes.fromJson(Map<String, dynamic> json) =>
-      _$$_MutesFromJson(json);
+  factory _$MutesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MutesImplFromJson(json);
 
   /// A required list of muted [Actor] objects.
   final List<Actor> _mutes;
@@ -135,7 +138,7 @@ class _$_Mutes implements _Mutes {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Mutes &&
+            other is _$MutesImpl &&
             const DeepCollectionEquality().equals(other._mutes, _mutes) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -148,12 +151,12 @@ class _$_Mutes implements _Mutes {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MutesCopyWith<_$_Mutes> get copyWith =>
-      __$$_MutesCopyWithImpl<_$_Mutes>(this, _$identity);
+  _$$MutesImplCopyWith<_$MutesImpl> get copyWith =>
+      __$$MutesImplCopyWithImpl<_$MutesImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MutesToJson(
+    return _$$MutesImplToJson(
       this,
     );
   }
@@ -161,9 +164,9 @@ class _$_Mutes implements _Mutes {
 
 abstract class _Mutes implements Mutes {
   const factory _Mutes(
-      {required final List<Actor> mutes, final String? cursor}) = _$_Mutes;
+      {required final List<Actor> mutes, final String? cursor}) = _$MutesImpl;
 
-  factory _Mutes.fromJson(Map<String, dynamic> json) = _$_Mutes.fromJson;
+  factory _Mutes.fromJson(Map<String, dynamic> json) = _$MutesImpl.fromJson;
 
   @override
 
@@ -175,6 +178,6 @@ abstract class _Mutes implements Mutes {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$_MutesCopyWith<_$_Mutes> get copyWith =>
+  _$$MutesImplCopyWith<_$MutesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

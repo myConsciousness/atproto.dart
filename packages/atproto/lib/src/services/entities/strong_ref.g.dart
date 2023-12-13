@@ -8,11 +8,11 @@ part of 'strong_ref.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_StrongRef _$$_StrongRefFromJson(Map json) => $checkedCreate(
-      r'_$_StrongRef',
+_$StrongRefImpl _$$StrongRefImplFromJson(Map json) => $checkedCreate(
+      r'_$StrongRefImpl',
       json,
       ($checkedConvert) {
-        final val = _$_StrongRef(
+        final val = _$StrongRefImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? comAtprotoRepoStrongRef),
           cid: $checkedConvert('cid', (v) => v as String),
@@ -24,7 +24,7 @@ _$_StrongRef _$$_StrongRefFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$_StrongRefToJson(_$_StrongRef instance) =>
+Map<String, dynamic> _$$StrongRefImplToJson(_$StrongRefImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'cid': instance.cid,

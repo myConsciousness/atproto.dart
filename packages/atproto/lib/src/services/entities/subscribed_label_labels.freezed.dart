@@ -74,22 +74,24 @@ class _$SubscribedLabelLabelsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_SubscribedLabelLabelsCopyWith<$Res>
+abstract class _$$SubscribedLabelLabelsImplCopyWith<$Res>
     implements $SubscribedLabelLabelsCopyWith<$Res> {
-  factory _$$_SubscribedLabelLabelsCopyWith(_$_SubscribedLabelLabels value,
-          $Res Function(_$_SubscribedLabelLabels) then) =
-      __$$_SubscribedLabelLabelsCopyWithImpl<$Res>;
+  factory _$$SubscribedLabelLabelsImplCopyWith(
+          _$SubscribedLabelLabelsImpl value,
+          $Res Function(_$SubscribedLabelLabelsImpl) then) =
+      __$$SubscribedLabelLabelsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@JsonKey(name: 'seq') int sequence, List<Label> labels});
 }
 
 /// @nodoc
-class __$$_SubscribedLabelLabelsCopyWithImpl<$Res>
-    extends _$SubscribedLabelLabelsCopyWithImpl<$Res, _$_SubscribedLabelLabels>
-    implements _$$_SubscribedLabelLabelsCopyWith<$Res> {
-  __$$_SubscribedLabelLabelsCopyWithImpl(_$_SubscribedLabelLabels _value,
-      $Res Function(_$_SubscribedLabelLabels) _then)
+class __$$SubscribedLabelLabelsImplCopyWithImpl<$Res>
+    extends _$SubscribedLabelLabelsCopyWithImpl<$Res,
+        _$SubscribedLabelLabelsImpl>
+    implements _$$SubscribedLabelLabelsImplCopyWith<$Res> {
+  __$$SubscribedLabelLabelsImplCopyWithImpl(_$SubscribedLabelLabelsImpl _value,
+      $Res Function(_$SubscribedLabelLabelsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +100,7 @@ class __$$_SubscribedLabelLabelsCopyWithImpl<$Res>
     Object? sequence = null,
     Object? labels = null,
   }) {
-    return _then(_$_SubscribedLabelLabels(
+    return _then(_$SubscribedLabelLabelsImpl(
       sequence: null == sequence
           ? _value.sequence
           : sequence // ignore: cast_nullable_to_non_nullable
@@ -114,14 +116,14 @@ class __$$_SubscribedLabelLabelsCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_SubscribedLabelLabels implements _SubscribedLabelLabels {
-  const _$_SubscribedLabelLabels(
+class _$SubscribedLabelLabelsImpl implements _SubscribedLabelLabels {
+  const _$SubscribedLabelLabelsImpl(
       {@JsonKey(name: 'seq') required this.sequence,
       required final List<Label> labels})
       : _labels = labels;
 
-  factory _$_SubscribedLabelLabels.fromJson(Map<String, dynamic> json) =>
-      _$$_SubscribedLabelLabelsFromJson(json);
+  factory _$SubscribedLabelLabelsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SubscribedLabelLabelsImplFromJson(json);
 
   /// The revision.
   @override
@@ -148,7 +150,7 @@ class _$_SubscribedLabelLabels implements _SubscribedLabelLabels {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SubscribedLabelLabels &&
+            other is _$SubscribedLabelLabelsImpl &&
             (identical(other.sequence, sequence) ||
                 other.sequence == sequence) &&
             const DeepCollectionEquality().equals(other._labels, _labels));
@@ -162,13 +164,13 @@ class _$_SubscribedLabelLabels implements _SubscribedLabelLabels {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SubscribedLabelLabelsCopyWith<_$_SubscribedLabelLabels> get copyWith =>
-      __$$_SubscribedLabelLabelsCopyWithImpl<_$_SubscribedLabelLabels>(
-          this, _$identity);
+  _$$SubscribedLabelLabelsImplCopyWith<_$SubscribedLabelLabelsImpl>
+      get copyWith => __$$SubscribedLabelLabelsImplCopyWithImpl<
+          _$SubscribedLabelLabelsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SubscribedLabelLabelsToJson(
+    return _$$SubscribedLabelLabelsImplToJson(
       this,
     );
   }
@@ -177,10 +179,10 @@ class _$_SubscribedLabelLabels implements _SubscribedLabelLabels {
 abstract class _SubscribedLabelLabels implements SubscribedLabelLabels {
   const factory _SubscribedLabelLabels(
       {@JsonKey(name: 'seq') required final int sequence,
-      required final List<Label> labels}) = _$_SubscribedLabelLabels;
+      required final List<Label> labels}) = _$SubscribedLabelLabelsImpl;
 
   factory _SubscribedLabelLabels.fromJson(Map<String, dynamic> json) =
-      _$_SubscribedLabelLabels.fromJson;
+      _$SubscribedLabelLabelsImpl.fromJson;
 
   @override
 
@@ -193,6 +195,6 @@ abstract class _SubscribedLabelLabels implements SubscribedLabelLabels {
   List<Label> get labels;
   @override
   @JsonKey(ignore: true)
-  _$$_SubscribedLabelLabelsCopyWith<_$_SubscribedLabelLabels> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SubscribedLabelLabelsImplCopyWith<_$SubscribedLabelLabelsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

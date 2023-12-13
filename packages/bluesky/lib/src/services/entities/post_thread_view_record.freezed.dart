@@ -118,11 +118,11 @@ class _$PostThreadViewRecordCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_PostThreadViewRecordCopyWith<$Res>
+abstract class _$$PostThreadViewRecordImplCopyWith<$Res>
     implements $PostThreadViewRecordCopyWith<$Res> {
-  factory _$$_PostThreadViewRecordCopyWith(_$_PostThreadViewRecord value,
-          $Res Function(_$_PostThreadViewRecord) then) =
-      __$$_PostThreadViewRecordCopyWithImpl<$Res>;
+  factory _$$PostThreadViewRecordImplCopyWith(_$PostThreadViewRecordImpl value,
+          $Res Function(_$PostThreadViewRecordImpl) then) =
+      __$$PostThreadViewRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -138,11 +138,11 @@ abstract class _$$_PostThreadViewRecordCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PostThreadViewRecordCopyWithImpl<$Res>
-    extends _$PostThreadViewRecordCopyWithImpl<$Res, _$_PostThreadViewRecord>
-    implements _$$_PostThreadViewRecordCopyWith<$Res> {
-  __$$_PostThreadViewRecordCopyWithImpl(_$_PostThreadViewRecord _value,
-      $Res Function(_$_PostThreadViewRecord) _then)
+class __$$PostThreadViewRecordImplCopyWithImpl<$Res>
+    extends _$PostThreadViewRecordCopyWithImpl<$Res, _$PostThreadViewRecordImpl>
+    implements _$$PostThreadViewRecordImplCopyWith<$Res> {
+  __$$PostThreadViewRecordImplCopyWithImpl(_$PostThreadViewRecordImpl _value,
+      $Res Function(_$PostThreadViewRecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -153,7 +153,7 @@ class __$$_PostThreadViewRecordCopyWithImpl<$Res>
     Object? parent = freezed,
     Object? replies = freezed,
   }) {
-    return _then(_$_PostThreadViewRecord(
+    return _then(_$PostThreadViewRecordImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -176,16 +176,16 @@ class __$$_PostThreadViewRecordCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PostThreadViewRecord implements _PostThreadViewRecord {
-  const _$_PostThreadViewRecord(
+class _$PostThreadViewRecordImpl implements _PostThreadViewRecord {
+  const _$PostThreadViewRecordImpl(
       {@typeKey required this.type,
       required this.post,
       @postThreadViewConverter this.parent,
       @postThreadViewConverter final List<PostThreadView>? replies})
       : _replies = replies;
 
-  factory _$_PostThreadViewRecord.fromJson(Map<String, dynamic> json) =>
-      _$$_PostThreadViewRecordFromJson(json);
+  factory _$PostThreadViewRecordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostThreadViewRecordImplFromJson(json);
 
   /// Represents the type of the thread view record.
   @override
@@ -224,7 +224,7 @@ class _$_PostThreadViewRecord implements _PostThreadViewRecord {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PostThreadViewRecord &&
+            other is _$PostThreadViewRecordImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.post, post) || other.post == post) &&
             (identical(other.parent, parent) || other.parent == parent) &&
@@ -239,13 +239,14 @@ class _$_PostThreadViewRecord implements _PostThreadViewRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PostThreadViewRecordCopyWith<_$_PostThreadViewRecord> get copyWith =>
-      __$$_PostThreadViewRecordCopyWithImpl<_$_PostThreadViewRecord>(
-          this, _$identity);
+  _$$PostThreadViewRecordImplCopyWith<_$PostThreadViewRecordImpl>
+      get copyWith =>
+          __$$PostThreadViewRecordImplCopyWithImpl<_$PostThreadViewRecordImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PostThreadViewRecordToJson(
+    return _$$PostThreadViewRecordImplToJson(
       this,
     );
   }
@@ -257,10 +258,10 @@ abstract class _PostThreadViewRecord implements PostThreadViewRecord {
           required final Post post,
           @postThreadViewConverter final PostThreadView? parent,
           @postThreadViewConverter final List<PostThreadView>? replies}) =
-      _$_PostThreadViewRecord;
+      _$PostThreadViewRecordImpl;
 
   factory _PostThreadViewRecord.fromJson(Map<String, dynamic> json) =
-      _$_PostThreadViewRecord.fromJson;
+      _$PostThreadViewRecordImpl.fromJson;
 
   @override
 
@@ -283,6 +284,6 @@ abstract class _PostThreadViewRecord implements PostThreadViewRecord {
   List<PostThreadView>? get replies;
   @override
   @JsonKey(ignore: true)
-  _$$_PostThreadViewRecordCopyWith<_$_PostThreadViewRecord> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$PostThreadViewRecordImplCopyWith<_$PostThreadViewRecordImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

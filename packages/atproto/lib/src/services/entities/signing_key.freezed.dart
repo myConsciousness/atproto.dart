@@ -63,22 +63,22 @@ class _$SigningKeyCopyWithImpl<$Res, $Val extends SigningKey>
 }
 
 /// @nodoc
-abstract class _$$_SigningKeyCopyWith<$Res>
+abstract class _$$SigningKeyImplCopyWith<$Res>
     implements $SigningKeyCopyWith<$Res> {
-  factory _$$_SigningKeyCopyWith(
-          _$_SigningKey value, $Res Function(_$_SigningKey) then) =
-      __$$_SigningKeyCopyWithImpl<$Res>;
+  factory _$$SigningKeyImplCopyWith(
+          _$SigningKeyImpl value, $Res Function(_$SigningKeyImpl) then) =
+      __$$SigningKeyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String signingKey});
 }
 
 /// @nodoc
-class __$$_SigningKeyCopyWithImpl<$Res>
-    extends _$SigningKeyCopyWithImpl<$Res, _$_SigningKey>
-    implements _$$_SigningKeyCopyWith<$Res> {
-  __$$_SigningKeyCopyWithImpl(
-      _$_SigningKey _value, $Res Function(_$_SigningKey) _then)
+class __$$SigningKeyImplCopyWithImpl<$Res>
+    extends _$SigningKeyCopyWithImpl<$Res, _$SigningKeyImpl>
+    implements _$$SigningKeyImplCopyWith<$Res> {
+  __$$SigningKeyImplCopyWithImpl(
+      _$SigningKeyImpl _value, $Res Function(_$SigningKeyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -86,7 +86,7 @@ class __$$_SigningKeyCopyWithImpl<$Res>
   $Res call({
     Object? signingKey = null,
   }) {
-    return _then(_$_SigningKey(
+    return _then(_$SigningKeyImpl(
       signingKey: null == signingKey
           ? _value.signingKey
           : signingKey // ignore: cast_nullable_to_non_nullable
@@ -97,11 +97,11 @@ class __$$_SigningKeyCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SigningKey implements _SigningKey {
-  const _$_SigningKey({required this.signingKey});
+class _$SigningKeyImpl implements _SigningKey {
+  const _$SigningKeyImpl({required this.signingKey});
 
-  factory _$_SigningKey.fromJson(Map<String, dynamic> json) =>
-      _$$_SigningKeyFromJson(json);
+  factory _$SigningKeyImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SigningKeyImplFromJson(json);
 
   /// Public signing key in the form of a did:key.
   @override
@@ -116,7 +116,7 @@ class _$_SigningKey implements _SigningKey {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SigningKey &&
+            other is _$SigningKeyImpl &&
             (identical(other.signingKey, signingKey) ||
                 other.signingKey == signingKey));
   }
@@ -128,22 +128,23 @@ class _$_SigningKey implements _SigningKey {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SigningKeyCopyWith<_$_SigningKey> get copyWith =>
-      __$$_SigningKeyCopyWithImpl<_$_SigningKey>(this, _$identity);
+  _$$SigningKeyImplCopyWith<_$SigningKeyImpl> get copyWith =>
+      __$$SigningKeyImplCopyWithImpl<_$SigningKeyImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SigningKeyToJson(
+    return _$$SigningKeyImplToJson(
       this,
     );
   }
 }
 
 abstract class _SigningKey implements SigningKey {
-  const factory _SigningKey({required final String signingKey}) = _$_SigningKey;
+  const factory _SigningKey({required final String signingKey}) =
+      _$SigningKeyImpl;
 
   factory _SigningKey.fromJson(Map<String, dynamic> json) =
-      _$_SigningKey.fromJson;
+      _$SigningKeyImpl.fromJson;
 
   @override
 
@@ -151,6 +152,6 @@ abstract class _SigningKey implements SigningKey {
   String get signingKey;
   @override
   @JsonKey(ignore: true)
-  _$$_SigningKeyCopyWith<_$_SigningKey> get copyWith =>
+  _$$SigningKeyImplCopyWith<_$SigningKeyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -8,11 +8,12 @@ part of 'block_list_record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_BlockListRecord _$$_BlockListRecordFromJson(Map json) => $checkedCreate(
-      r'_$_BlockListRecord',
+_$BlockListRecordImpl _$$BlockListRecordImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$BlockListRecordImpl',
       json,
       ($checkedConvert) {
-        final val = _$_BlockListRecord(
+        final val = _$BlockListRecordImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyGraphListblock),
           subject: $checkedConvert(
@@ -25,7 +26,8 @@ _$_BlockListRecord _$$_BlockListRecordFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$_BlockListRecordToJson(_$_BlockListRecord instance) =>
+Map<String, dynamic> _$$BlockListRecordImplToJson(
+        _$BlockListRecordImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'subject': atUriConverter.toJson(instance.subject),

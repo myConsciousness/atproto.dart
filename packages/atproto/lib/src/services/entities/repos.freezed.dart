@@ -69,18 +69,21 @@ class _$ReposCopyWithImpl<$Res, $Val extends Repos>
 }
 
 /// @nodoc
-abstract class _$$_ReposCopyWith<$Res> implements $ReposCopyWith<$Res> {
-  factory _$$_ReposCopyWith(_$_Repos value, $Res Function(_$_Repos) then) =
-      __$$_ReposCopyWithImpl<$Res>;
+abstract class _$$ReposImplCopyWith<$Res> implements $ReposCopyWith<$Res> {
+  factory _$$ReposImplCopyWith(
+          _$ReposImpl value, $Res Function(_$ReposImpl) then) =
+      __$$ReposImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Repo> repos, String? cursor});
 }
 
 /// @nodoc
-class __$$_ReposCopyWithImpl<$Res> extends _$ReposCopyWithImpl<$Res, _$_Repos>
-    implements _$$_ReposCopyWith<$Res> {
-  __$$_ReposCopyWithImpl(_$_Repos _value, $Res Function(_$_Repos) _then)
+class __$$ReposImplCopyWithImpl<$Res>
+    extends _$ReposCopyWithImpl<$Res, _$ReposImpl>
+    implements _$$ReposImplCopyWith<$Res> {
+  __$$ReposImplCopyWithImpl(
+      _$ReposImpl _value, $Res Function(_$ReposImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -89,7 +92,7 @@ class __$$_ReposCopyWithImpl<$Res> extends _$ReposCopyWithImpl<$Res, _$_Repos>
     Object? repos = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$_Repos(
+    return _then(_$ReposImpl(
       repos: null == repos
           ? _value._repos
           : repos // ignore: cast_nullable_to_non_nullable
@@ -104,12 +107,12 @@ class __$$_ReposCopyWithImpl<$Res> extends _$ReposCopyWithImpl<$Res, _$_Repos>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Repos implements _Repos {
-  const _$_Repos({required final List<Repo> repos, this.cursor})
+class _$ReposImpl implements _Repos {
+  const _$ReposImpl({required final List<Repo> repos, this.cursor})
       : _repos = repos;
 
-  factory _$_Repos.fromJson(Map<String, dynamic> json) =>
-      _$$_ReposFromJson(json);
+  factory _$ReposImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ReposImplFromJson(json);
 
   /// The list of repositories, represented as [Repo] instances.
   final List<Repo> _repos;
@@ -135,7 +138,7 @@ class _$_Repos implements _Repos {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Repos &&
+            other is _$ReposImpl &&
             const DeepCollectionEquality().equals(other._repos, _repos) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -148,12 +151,12 @@ class _$_Repos implements _Repos {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ReposCopyWith<_$_Repos> get copyWith =>
-      __$$_ReposCopyWithImpl<_$_Repos>(this, _$identity);
+  _$$ReposImplCopyWith<_$ReposImpl> get copyWith =>
+      __$$ReposImplCopyWithImpl<_$ReposImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ReposToJson(
+    return _$$ReposImplToJson(
       this,
     );
   }
@@ -161,9 +164,9 @@ class _$_Repos implements _Repos {
 
 abstract class _Repos implements Repos {
   const factory _Repos(
-      {required final List<Repo> repos, final String? cursor}) = _$_Repos;
+      {required final List<Repo> repos, final String? cursor}) = _$ReposImpl;
 
-  factory _Repos.fromJson(Map<String, dynamic> json) = _$_Repos.fromJson;
+  factory _Repos.fromJson(Map<String, dynamic> json) = _$ReposImpl.fromJson;
 
   @override
 
@@ -175,6 +178,6 @@ abstract class _Repos implements Repos {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$_ReposCopyWith<_$_Repos> get copyWith =>
+  _$$ReposImplCopyWith<_$ReposImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

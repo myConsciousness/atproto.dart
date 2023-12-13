@@ -61,20 +61,21 @@ class _$LabelerCopyWithImpl<$Res, $Val extends Labeler>
 }
 
 /// @nodoc
-abstract class _$$_LabelerCopyWith<$Res> implements $LabelerCopyWith<$Res> {
-  factory _$$_LabelerCopyWith(
-          _$_Labeler value, $Res Function(_$_Labeler) then) =
-      __$$_LabelerCopyWithImpl<$Res>;
+abstract class _$$LabelerImplCopyWith<$Res> implements $LabelerCopyWith<$Res> {
+  factory _$$LabelerImplCopyWith(
+          _$LabelerImpl value, $Res Function(_$LabelerImpl) then) =
+      __$$LabelerImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String did, String displayName});
 }
 
 /// @nodoc
-class __$$_LabelerCopyWithImpl<$Res>
-    extends _$LabelerCopyWithImpl<$Res, _$_Labeler>
-    implements _$$_LabelerCopyWith<$Res> {
-  __$$_LabelerCopyWithImpl(_$_Labeler _value, $Res Function(_$_Labeler) _then)
+class __$$LabelerImplCopyWithImpl<$Res>
+    extends _$LabelerCopyWithImpl<$Res, _$LabelerImpl>
+    implements _$$LabelerImplCopyWith<$Res> {
+  __$$LabelerImplCopyWithImpl(
+      _$LabelerImpl _value, $Res Function(_$LabelerImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -83,7 +84,7 @@ class __$$_LabelerCopyWithImpl<$Res>
     Object? did = null,
     Object? displayName = null,
   }) {
-    return _then(_$_Labeler(
+    return _then(_$LabelerImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -98,8 +99,8 @@ class __$$_LabelerCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Labeler implements _Labeler {
-  const _$_Labeler({required this.did, required this.displayName});
+class _$LabelerImpl implements _Labeler {
+  const _$LabelerImpl({required this.did, required this.displayName});
 
   @override
   final String did;
@@ -115,7 +116,7 @@ class _$_Labeler implements _Labeler {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Labeler &&
+            other is _$LabelerImpl &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName));
@@ -127,14 +128,14 @@ class _$_Labeler implements _Labeler {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LabelerCopyWith<_$_Labeler> get copyWith =>
-      __$$_LabelerCopyWithImpl<_$_Labeler>(this, _$identity);
+  _$$LabelerImplCopyWith<_$LabelerImpl> get copyWith =>
+      __$$LabelerImplCopyWithImpl<_$LabelerImpl>(this, _$identity);
 }
 
 abstract class _Labeler implements Labeler {
   const factory _Labeler(
       {required final String did,
-      required final String displayName}) = _$_Labeler;
+      required final String displayName}) = _$LabelerImpl;
 
   @override
   String get did;
@@ -142,6 +143,6 @@ abstract class _Labeler implements Labeler {
   String get displayName;
   @override
   @JsonKey(ignore: true)
-  _$$_LabelerCopyWith<_$_Labeler> get copyWith =>
+  _$$LabelerImplCopyWith<_$LabelerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

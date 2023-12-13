@@ -8,11 +8,11 @@ part of 'notification.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Notification _$$_NotificationFromJson(Map json) => $checkedCreate(
-      r'_$_Notification',
+_$NotificationImpl _$$NotificationImplFromJson(Map json) => $checkedCreate(
+      r'_$NotificationImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Notification(
+        final val = _$NotificationImpl(
           cid: $checkedConvert('cid', (v) => v as String),
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),
@@ -43,7 +43,7 @@ _$_Notification _$$_NotificationFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_NotificationToJson(_$_Notification instance) {
+Map<String, dynamic> _$$NotificationImplToJson(_$NotificationImpl instance) {
   final val = <String, dynamic>{
     'cid': instance.cid,
     'uri': atUriConverter.toJson(instance.uri),

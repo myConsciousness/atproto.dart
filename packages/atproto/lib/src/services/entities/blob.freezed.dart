@@ -96,9 +96,10 @@ class _$BlobCopyWithImpl<$Res, $Val extends Blob>
 }
 
 /// @nodoc
-abstract class _$$_BlobCopyWith<$Res> implements $BlobCopyWith<$Res> {
-  factory _$$_BlobCopyWith(_$_Blob value, $Res Function(_$_Blob) then) =
-      __$$_BlobCopyWithImpl<$Res>;
+abstract class _$$BlobImplCopyWith<$Res> implements $BlobCopyWith<$Res> {
+  factory _$$BlobImplCopyWith(
+          _$BlobImpl value, $Res Function(_$BlobImpl) then) =
+      __$$BlobImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, String mimeType, int size, BlobRef ref});
@@ -108,9 +109,10 @@ abstract class _$$_BlobCopyWith<$Res> implements $BlobCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_BlobCopyWithImpl<$Res> extends _$BlobCopyWithImpl<$Res, _$_Blob>
-    implements _$$_BlobCopyWith<$Res> {
-  __$$_BlobCopyWithImpl(_$_Blob _value, $Res Function(_$_Blob) _then)
+class __$$BlobImplCopyWithImpl<$Res>
+    extends _$BlobCopyWithImpl<$Res, _$BlobImpl>
+    implements _$$BlobImplCopyWith<$Res> {
+  __$$BlobImplCopyWithImpl(_$BlobImpl _value, $Res Function(_$BlobImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -121,7 +123,7 @@ class __$$_BlobCopyWithImpl<$Res> extends _$BlobCopyWithImpl<$Res, _$_Blob>
     Object? size = null,
     Object? ref = null,
   }) {
-    return _then(_$_Blob(
+    return _then(_$BlobImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -144,14 +146,15 @@ class __$$_BlobCopyWithImpl<$Res> extends _$BlobCopyWithImpl<$Res, _$_Blob>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Blob implements _Blob {
-  const _$_Blob(
+class _$BlobImpl implements _Blob {
+  const _$BlobImpl(
       {@typeKey this.type = blob,
       required this.mimeType,
       required this.size,
       required this.ref});
 
-  factory _$_Blob.fromJson(Map<String, dynamic> json) => _$$_BlobFromJson(json);
+  factory _$BlobImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BlobImplFromJson(json);
 
   /// The type of the blob. Default is [blob].
   @override
@@ -179,7 +182,7 @@ class _$_Blob implements _Blob {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Blob &&
+            other is _$BlobImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.mimeType, mimeType) ||
                 other.mimeType == mimeType) &&
@@ -194,12 +197,12 @@ class _$_Blob implements _Blob {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BlobCopyWith<_$_Blob> get copyWith =>
-      __$$_BlobCopyWithImpl<_$_Blob>(this, _$identity);
+  _$$BlobImplCopyWith<_$BlobImpl> get copyWith =>
+      __$$BlobImplCopyWithImpl<_$BlobImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BlobToJson(
+    return _$$BlobImplToJson(
       this,
     );
   }
@@ -210,9 +213,9 @@ abstract class _Blob implements Blob {
       {@typeKey final String type,
       required final String mimeType,
       required final int size,
-      required final BlobRef ref}) = _$_Blob;
+      required final BlobRef ref}) = _$BlobImpl;
 
-  factory _Blob.fromJson(Map<String, dynamic> json) = _$_Blob.fromJson;
+  factory _Blob.fromJson(Map<String, dynamic> json) = _$BlobImpl.fromJson;
 
   @override
 
@@ -233,5 +236,6 @@ abstract class _Blob implements Blob {
   BlobRef get ref;
   @override
   @JsonKey(ignore: true)
-  _$$_BlobCopyWith<_$_Blob> get copyWith => throw _privateConstructorUsedError;
+  _$$BlobImplCopyWith<_$BlobImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -124,11 +124,11 @@ class _$FeedViewPreferenceCopyWithImpl<$Res, $Val extends FeedViewPreference>
 }
 
 /// @nodoc
-abstract class _$$_FeedViewPreferenceCopyWith<$Res>
+abstract class _$$FeedViewPreferenceImplCopyWith<$Res>
     implements $FeedViewPreferenceCopyWith<$Res> {
-  factory _$$_FeedViewPreferenceCopyWith(_$_FeedViewPreference value,
-          $Res Function(_$_FeedViewPreference) then) =
-      __$$_FeedViewPreferenceCopyWithImpl<$Res>;
+  factory _$$FeedViewPreferenceImplCopyWith(_$FeedViewPreferenceImpl value,
+          $Res Function(_$FeedViewPreferenceImpl) then) =
+      __$$FeedViewPreferenceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -142,11 +142,11 @@ abstract class _$$_FeedViewPreferenceCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_FeedViewPreferenceCopyWithImpl<$Res>
-    extends _$FeedViewPreferenceCopyWithImpl<$Res, _$_FeedViewPreference>
-    implements _$$_FeedViewPreferenceCopyWith<$Res> {
-  __$$_FeedViewPreferenceCopyWithImpl(
-      _$_FeedViewPreference _value, $Res Function(_$_FeedViewPreference) _then)
+class __$$FeedViewPreferenceImplCopyWithImpl<$Res>
+    extends _$FeedViewPreferenceCopyWithImpl<$Res, _$FeedViewPreferenceImpl>
+    implements _$$FeedViewPreferenceImplCopyWith<$Res> {
+  __$$FeedViewPreferenceImplCopyWithImpl(_$FeedViewPreferenceImpl _value,
+      $Res Function(_$FeedViewPreferenceImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -160,7 +160,7 @@ class __$$_FeedViewPreferenceCopyWithImpl<$Res>
     Object? isHideReposts = null,
     Object? isHideQuotePosts = null,
   }) {
-    return _then(_$_FeedViewPreference(
+    return _then(_$FeedViewPreferenceImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -196,8 +196,8 @@ class __$$_FeedViewPreferenceCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_FeedViewPreference implements _FeedViewPreference {
-  const _$_FeedViewPreference(
+class _$FeedViewPreferenceImpl implements _FeedViewPreference {
+  const _$FeedViewPreferenceImpl(
       {@typeKey this.type = appBskyActorDefsFeedViewPref,
       required this.feed,
       @JsonKey(name: 'hideReplies') this.isHideReplies = false,
@@ -207,8 +207,8 @@ class _$_FeedViewPreference implements _FeedViewPreference {
       @JsonKey(name: 'hideReposts') this.isHideReposts = false,
       @JsonKey(name: 'hideQuotePosts') this.isHideQuotePosts = false});
 
-  factory _$_FeedViewPreference.fromJson(Map<String, dynamic> json) =>
-      _$$_FeedViewPreferenceFromJson(json);
+  factory _$FeedViewPreferenceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedViewPreferenceImplFromJson(json);
 
   /// A string that represents the type of the object.
   /// By default, it is [appBskyActorDefsFeedViewPref].
@@ -254,7 +254,7 @@ class _$_FeedViewPreference implements _FeedViewPreference {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FeedViewPreference &&
+            other is _$FeedViewPreferenceImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.feed, feed) || other.feed == feed) &&
             (identical(other.isHideReplies, isHideReplies) ||
@@ -285,13 +285,13 @@ class _$_FeedViewPreference implements _FeedViewPreference {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FeedViewPreferenceCopyWith<_$_FeedViewPreference> get copyWith =>
-      __$$_FeedViewPreferenceCopyWithImpl<_$_FeedViewPreference>(
+  _$$FeedViewPreferenceImplCopyWith<_$FeedViewPreferenceImpl> get copyWith =>
+      __$$FeedViewPreferenceImplCopyWithImpl<_$FeedViewPreferenceImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FeedViewPreferenceToJson(
+    return _$$FeedViewPreferenceImplToJson(
       this,
     );
   }
@@ -307,10 +307,10 @@ abstract class _FeedViewPreference implements FeedViewPreference {
           final int hideRepliesByLikeCount,
           @JsonKey(name: 'hideReposts') final bool isHideReposts,
           @JsonKey(name: 'hideQuotePosts') final bool isHideQuotePosts}) =
-      _$_FeedViewPreference;
+      _$FeedViewPreferenceImpl;
 
   factory _FeedViewPreference.fromJson(Map<String, dynamic> json) =
-      _$_FeedViewPreference.fromJson;
+      _$FeedViewPreferenceImpl.fromJson;
 
   @override
 
@@ -348,6 +348,6 @@ abstract class _FeedViewPreference implements FeedViewPreference {
   bool get isHideQuotePosts;
   @override
   @JsonKey(ignore: true)
-  _$$_FeedViewPreferenceCopyWith<_$_FeedViewPreference> get copyWith =>
+  _$$FeedViewPreferenceImplCopyWith<_$FeedViewPreferenceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

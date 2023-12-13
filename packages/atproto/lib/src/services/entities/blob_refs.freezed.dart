@@ -70,21 +70,22 @@ class _$BlobRefsCopyWithImpl<$Res, $Val extends BlobRefs>
 }
 
 /// @nodoc
-abstract class _$$_BlobRefsCopyWith<$Res> implements $BlobRefsCopyWith<$Res> {
-  factory _$$_BlobRefsCopyWith(
-          _$_BlobRefs value, $Res Function(_$_BlobRefs) then) =
-      __$$_BlobRefsCopyWithImpl<$Res>;
+abstract class _$$BlobRefsImplCopyWith<$Res>
+    implements $BlobRefsCopyWith<$Res> {
+  factory _$$BlobRefsImplCopyWith(
+          _$BlobRefsImpl value, $Res Function(_$BlobRefsImpl) then) =
+      __$$BlobRefsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<String> cids, String? cursor});
 }
 
 /// @nodoc
-class __$$_BlobRefsCopyWithImpl<$Res>
-    extends _$BlobRefsCopyWithImpl<$Res, _$_BlobRefs>
-    implements _$$_BlobRefsCopyWith<$Res> {
-  __$$_BlobRefsCopyWithImpl(
-      _$_BlobRefs _value, $Res Function(_$_BlobRefs) _then)
+class __$$BlobRefsImplCopyWithImpl<$Res>
+    extends _$BlobRefsCopyWithImpl<$Res, _$BlobRefsImpl>
+    implements _$$BlobRefsImplCopyWith<$Res> {
+  __$$BlobRefsImplCopyWithImpl(
+      _$BlobRefsImpl _value, $Res Function(_$BlobRefsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +94,7 @@ class __$$_BlobRefsCopyWithImpl<$Res>
     Object? cids = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$_BlobRefs(
+    return _then(_$BlobRefsImpl(
       cids: null == cids
           ? _value._cids
           : cids // ignore: cast_nullable_to_non_nullable
@@ -108,12 +109,12 @@ class __$$_BlobRefsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_BlobRefs implements _BlobRefs {
-  const _$_BlobRefs({required final List<String> cids, this.cursor})
+class _$BlobRefsImpl implements _BlobRefs {
+  const _$BlobRefsImpl({required final List<String> cids, this.cursor})
       : _cids = cids;
 
-  factory _$_BlobRefs.fromJson(Map<String, dynamic> json) =>
-      _$$_BlobRefsFromJson(json);
+  factory _$BlobRefsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BlobRefsImplFromJson(json);
 
   /// Blob links.
   final List<String> _cids;
@@ -139,7 +140,7 @@ class _$_BlobRefs implements _BlobRefs {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BlobRefs &&
+            other is _$BlobRefsImpl &&
             const DeepCollectionEquality().equals(other._cids, _cids) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -152,12 +153,12 @@ class _$_BlobRefs implements _BlobRefs {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BlobRefsCopyWith<_$_BlobRefs> get copyWith =>
-      __$$_BlobRefsCopyWithImpl<_$_BlobRefs>(this, _$identity);
+  _$$BlobRefsImplCopyWith<_$BlobRefsImpl> get copyWith =>
+      __$$BlobRefsImplCopyWithImpl<_$BlobRefsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BlobRefsToJson(
+    return _$$BlobRefsImplToJson(
       this,
     );
   }
@@ -165,9 +166,11 @@ class _$_BlobRefs implements _BlobRefs {
 
 abstract class _BlobRefs implements BlobRefs {
   const factory _BlobRefs(
-      {required final List<String> cids, final String? cursor}) = _$_BlobRefs;
+      {required final List<String> cids,
+      final String? cursor}) = _$BlobRefsImpl;
 
-  factory _BlobRefs.fromJson(Map<String, dynamic> json) = _$_BlobRefs.fromJson;
+  factory _BlobRefs.fromJson(Map<String, dynamic> json) =
+      _$BlobRefsImpl.fromJson;
 
   @override
 
@@ -179,6 +182,6 @@ abstract class _BlobRefs implements BlobRefs {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$_BlobRefsCopyWith<_$_BlobRefs> get copyWith =>
+  _$$BlobRefsImplCopyWith<_$BlobRefsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

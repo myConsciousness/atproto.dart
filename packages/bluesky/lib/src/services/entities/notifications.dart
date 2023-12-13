@@ -36,6 +36,9 @@ class Notifications with _$Notifications {
 
     /// Might be used for pagination purposes.
     String? cursor,
+
+    /// The date and time the user saw this notification.
+    DateTime? seenAt,
   }) = _Notifications;
 
   /// Creates a new instance of [Notifications] from a map of [json] data.

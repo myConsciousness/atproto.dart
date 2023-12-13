@@ -73,21 +73,22 @@ class _$RepoParamCopyWithImpl<$Res, $Val extends RepoParam>
 }
 
 /// @nodoc
-abstract class _$$_RepoParamCopyWith<$Res> implements $RepoParamCopyWith<$Res> {
-  factory _$$_RepoParamCopyWith(
-          _$_RepoParam value, $Res Function(_$_RepoParam) then) =
-      __$$_RepoParamCopyWithImpl<$Res>;
+abstract class _$$RepoParamImplCopyWith<$Res>
+    implements $RepoParamCopyWith<$Res> {
+  factory _$$RepoParamImplCopyWith(
+          _$RepoParamImpl value, $Res Function(_$RepoParamImpl) then) =
+      __$$RepoParamImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String did, DateTime? createdAt, Map<String, dynamic> unspecced});
 }
 
 /// @nodoc
-class __$$_RepoParamCopyWithImpl<$Res>
-    extends _$RepoParamCopyWithImpl<$Res, _$_RepoParam>
-    implements _$$_RepoParamCopyWith<$Res> {
-  __$$_RepoParamCopyWithImpl(
-      _$_RepoParam _value, $Res Function(_$_RepoParam) _then)
+class __$$RepoParamImplCopyWithImpl<$Res>
+    extends _$RepoParamCopyWithImpl<$Res, _$RepoParamImpl>
+    implements _$$RepoParamImplCopyWith<$Res> {
+  __$$RepoParamImplCopyWithImpl(
+      _$RepoParamImpl _value, $Res Function(_$RepoParamImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,7 +98,7 @@ class __$$_RepoParamCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? unspecced = null,
   }) {
-    return _then(_$_RepoParam(
+    return _then(_$RepoParamImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -117,15 +118,15 @@ class __$$_RepoParamCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_RepoParam implements _RepoParam {
-  const _$_RepoParam(
+class _$RepoParamImpl implements _RepoParam {
+  const _$RepoParamImpl(
       {required this.did,
       this.createdAt,
       final Map<String, dynamic> unspecced = emptyJson})
       : _unspecced = unspecced;
 
-  factory _$_RepoParam.fromJson(Map<String, dynamic> json) =>
-      _$$_RepoParamFromJson(json);
+  factory _$RepoParamImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RepoParamImplFromJson(json);
 
   @override
   final String did;
@@ -149,7 +150,7 @@ class _$_RepoParam implements _RepoParam {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RepoParam &&
+            other is _$RepoParamImpl &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -165,12 +166,12 @@ class _$_RepoParam implements _RepoParam {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RepoParamCopyWith<_$_RepoParam> get copyWith =>
-      __$$_RepoParamCopyWithImpl<_$_RepoParam>(this, _$identity);
+  _$$RepoParamImplCopyWith<_$RepoParamImpl> get copyWith =>
+      __$$RepoParamImplCopyWithImpl<_$RepoParamImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RepoParamToJson(
+    return _$$RepoParamImplToJson(
       this,
     );
   }
@@ -180,10 +181,10 @@ abstract class _RepoParam implements RepoParam {
   const factory _RepoParam(
       {required final String did,
       final DateTime? createdAt,
-      final Map<String, dynamic> unspecced}) = _$_RepoParam;
+      final Map<String, dynamic> unspecced}) = _$RepoParamImpl;
 
   factory _RepoParam.fromJson(Map<String, dynamic> json) =
-      _$_RepoParam.fromJson;
+      _$RepoParamImpl.fromJson;
 
   @override
   String get did;
@@ -193,6 +194,6 @@ abstract class _RepoParam implements RepoParam {
   Map<String, dynamic> get unspecced;
   @override
   @JsonKey(ignore: true)
-  _$$_RepoParamCopyWith<_$_RepoParam> get copyWith =>
+  _$$RepoParamImplCopyWith<_$RepoParamImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

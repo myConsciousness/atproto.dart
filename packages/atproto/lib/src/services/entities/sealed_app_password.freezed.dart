@@ -71,22 +71,22 @@ class _$SealedAppPasswordCopyWithImpl<$Res, $Val extends SealedAppPassword>
 }
 
 /// @nodoc
-abstract class _$$_SealedAppPasswordCopyWith<$Res>
+abstract class _$$SealedAppPasswordImplCopyWith<$Res>
     implements $SealedAppPasswordCopyWith<$Res> {
-  factory _$$_SealedAppPasswordCopyWith(_$_SealedAppPassword value,
-          $Res Function(_$_SealedAppPassword) then) =
-      __$$_SealedAppPasswordCopyWithImpl<$Res>;
+  factory _$$SealedAppPasswordImplCopyWith(_$SealedAppPasswordImpl value,
+          $Res Function(_$SealedAppPasswordImpl) then) =
+      __$$SealedAppPasswordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, DateTime createdAt});
 }
 
 /// @nodoc
-class __$$_SealedAppPasswordCopyWithImpl<$Res>
-    extends _$SealedAppPasswordCopyWithImpl<$Res, _$_SealedAppPassword>
-    implements _$$_SealedAppPasswordCopyWith<$Res> {
-  __$$_SealedAppPasswordCopyWithImpl(
-      _$_SealedAppPassword _value, $Res Function(_$_SealedAppPassword) _then)
+class __$$SealedAppPasswordImplCopyWithImpl<$Res>
+    extends _$SealedAppPasswordCopyWithImpl<$Res, _$SealedAppPasswordImpl>
+    implements _$$SealedAppPasswordImplCopyWith<$Res> {
+  __$$SealedAppPasswordImplCopyWithImpl(_$SealedAppPasswordImpl _value,
+      $Res Function(_$SealedAppPasswordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,7 +95,7 @@ class __$$_SealedAppPasswordCopyWithImpl<$Res>
     Object? name = null,
     Object? createdAt = null,
   }) {
-    return _then(_$_SealedAppPassword(
+    return _then(_$SealedAppPasswordImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -110,11 +110,11 @@ class __$$_SealedAppPasswordCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SealedAppPassword implements _SealedAppPassword {
-  const _$_SealedAppPassword({required this.name, required this.createdAt});
+class _$SealedAppPasswordImpl implements _SealedAppPassword {
+  const _$SealedAppPasswordImpl({required this.name, required this.createdAt});
 
-  factory _$_SealedAppPassword.fromJson(Map<String, dynamic> json) =>
-      _$$_SealedAppPasswordFromJson(json);
+  factory _$SealedAppPasswordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SealedAppPasswordImplFromJson(json);
 
   /// The name of the application password.
   @override
@@ -133,7 +133,7 @@ class _$_SealedAppPassword implements _SealedAppPassword {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SealedAppPassword &&
+            other is _$SealedAppPasswordImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
@@ -146,13 +146,13 @@ class _$_SealedAppPassword implements _SealedAppPassword {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SealedAppPasswordCopyWith<_$_SealedAppPassword> get copyWith =>
-      __$$_SealedAppPasswordCopyWithImpl<_$_SealedAppPassword>(
+  _$$SealedAppPasswordImplCopyWith<_$SealedAppPasswordImpl> get copyWith =>
+      __$$SealedAppPasswordImplCopyWithImpl<_$SealedAppPasswordImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SealedAppPasswordToJson(
+    return _$$SealedAppPasswordImplToJson(
       this,
     );
   }
@@ -161,10 +161,10 @@ class _$_SealedAppPassword implements _SealedAppPassword {
 abstract class _SealedAppPassword implements SealedAppPassword {
   const factory _SealedAppPassword(
       {required final String name,
-      required final DateTime createdAt}) = _$_SealedAppPassword;
+      required final DateTime createdAt}) = _$SealedAppPasswordImpl;
 
   factory _SealedAppPassword.fromJson(Map<String, dynamic> json) =
-      _$_SealedAppPassword.fromJson;
+      _$SealedAppPasswordImpl.fromJson;
 
   @override
 
@@ -176,6 +176,6 @@ abstract class _SealedAppPassword implements SealedAppPassword {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$_SealedAppPasswordCopyWith<_$_SealedAppPassword> get copyWith =>
+  _$$SealedAppPasswordImplCopyWith<_$SealedAppPasswordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

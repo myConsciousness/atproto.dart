@@ -82,11 +82,11 @@ class _$EmbedViewImagesViewCopyWithImpl<$Res, $Val extends EmbedViewImagesView>
 }
 
 /// @nodoc
-abstract class _$$_EmbedViewImagesViewCopyWith<$Res>
+abstract class _$$EmbedViewImagesViewImplCopyWith<$Res>
     implements $EmbedViewImagesViewCopyWith<$Res> {
-  factory _$$_EmbedViewImagesViewCopyWith(_$_EmbedViewImagesView value,
-          $Res Function(_$_EmbedViewImagesView) then) =
-      __$$_EmbedViewImagesViewCopyWithImpl<$Res>;
+  factory _$$EmbedViewImagesViewImplCopyWith(_$EmbedViewImagesViewImpl value,
+          $Res Function(_$EmbedViewImagesViewImpl) then) =
+      __$$EmbedViewImagesViewImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -94,11 +94,11 @@ abstract class _$$_EmbedViewImagesViewCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EmbedViewImagesViewCopyWithImpl<$Res>
-    extends _$EmbedViewImagesViewCopyWithImpl<$Res, _$_EmbedViewImagesView>
-    implements _$$_EmbedViewImagesViewCopyWith<$Res> {
-  __$$_EmbedViewImagesViewCopyWithImpl(_$_EmbedViewImagesView _value,
-      $Res Function(_$_EmbedViewImagesView) _then)
+class __$$EmbedViewImagesViewImplCopyWithImpl<$Res>
+    extends _$EmbedViewImagesViewCopyWithImpl<$Res, _$EmbedViewImagesViewImpl>
+    implements _$$EmbedViewImagesViewImplCopyWith<$Res> {
+  __$$EmbedViewImagesViewImplCopyWithImpl(_$EmbedViewImagesViewImpl _value,
+      $Res Function(_$EmbedViewImagesViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,7 +108,7 @@ class __$$_EmbedViewImagesViewCopyWithImpl<$Res>
     Object? fullsize = null,
     Object? alt = null,
   }) {
-    return _then(_$_EmbedViewImagesView(
+    return _then(_$EmbedViewImagesViewImpl(
       thumbnail: null == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
@@ -127,14 +127,14 @@ class __$$_EmbedViewImagesViewCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EmbedViewImagesView implements _EmbedViewImagesView {
-  const _$_EmbedViewImagesView(
+class _$EmbedViewImagesViewImpl implements _EmbedViewImagesView {
+  const _$EmbedViewImagesViewImpl(
       {@JsonKey(name: 'thumb') required this.thumbnail,
       required this.fullsize,
       required this.alt});
 
-  factory _$_EmbedViewImagesView.fromJson(Map<String, dynamic> json) =>
-      _$$_EmbedViewImagesViewFromJson(json);
+  factory _$EmbedViewImagesViewImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmbedViewImagesViewImplFromJson(json);
 
   /// A string that represents the URL of the thumbnail-sized version of
   /// the image.
@@ -159,7 +159,7 @@ class _$_EmbedViewImagesView implements _EmbedViewImagesView {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EmbedViewImagesView &&
+            other is _$EmbedViewImagesViewImpl &&
             (identical(other.thumbnail, thumbnail) ||
                 other.thumbnail == thumbnail) &&
             (identical(other.fullsize, fullsize) ||
@@ -174,13 +174,13 @@ class _$_EmbedViewImagesView implements _EmbedViewImagesView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EmbedViewImagesViewCopyWith<_$_EmbedViewImagesView> get copyWith =>
-      __$$_EmbedViewImagesViewCopyWithImpl<_$_EmbedViewImagesView>(
+  _$$EmbedViewImagesViewImplCopyWith<_$EmbedViewImagesViewImpl> get copyWith =>
+      __$$EmbedViewImagesViewImplCopyWithImpl<_$EmbedViewImagesViewImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EmbedViewImagesViewToJson(
+    return _$$EmbedViewImagesViewImplToJson(
       this,
     );
   }
@@ -190,10 +190,10 @@ abstract class _EmbedViewImagesView implements EmbedViewImagesView {
   const factory _EmbedViewImagesView(
       {@JsonKey(name: 'thumb') required final String thumbnail,
       required final String fullsize,
-      required final String alt}) = _$_EmbedViewImagesView;
+      required final String alt}) = _$EmbedViewImagesViewImpl;
 
   factory _EmbedViewImagesView.fromJson(Map<String, dynamic> json) =
-      _$_EmbedViewImagesView.fromJson;
+      _$EmbedViewImagesViewImpl.fromJson;
 
   @override
 
@@ -211,6 +211,6 @@ abstract class _EmbedViewImagesView implements EmbedViewImagesView {
   String get alt;
   @override
   @JsonKey(ignore: true)
-  _$$_EmbedViewImagesViewCopyWith<_$_EmbedViewImagesView> get copyWith =>
+  _$$EmbedViewImagesViewImplCopyWith<_$EmbedViewImagesViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

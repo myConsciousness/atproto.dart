@@ -175,10 +175,11 @@ class _$ListViewCopyWithImpl<$Res, $Val extends ListView>
 }
 
 /// @nodoc
-abstract class _$$_ListViewCopyWith<$Res> implements $ListViewCopyWith<$Res> {
-  factory _$$_ListViewCopyWith(
-          _$_ListView value, $Res Function(_$_ListView) then) =
-      __$$_ListViewCopyWithImpl<$Res>;
+abstract class _$$ListViewImplCopyWith<$Res>
+    implements $ListViewCopyWith<$Res> {
+  factory _$$ListViewImplCopyWith(
+          _$ListViewImpl value, $Res Function(_$ListViewImpl) then) =
+      __$$ListViewImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -201,11 +202,11 @@ abstract class _$$_ListViewCopyWith<$Res> implements $ListViewCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ListViewCopyWithImpl<$Res>
-    extends _$ListViewCopyWithImpl<$Res, _$_ListView>
-    implements _$$_ListViewCopyWith<$Res> {
-  __$$_ListViewCopyWithImpl(
-      _$_ListView _value, $Res Function(_$_ListView) _then)
+class __$$ListViewImplCopyWithImpl<$Res>
+    extends _$ListViewCopyWithImpl<$Res, _$ListViewImpl>
+    implements _$$ListViewImplCopyWith<$Res> {
+  __$$ListViewImplCopyWithImpl(
+      _$ListViewImpl _value, $Res Function(_$ListViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -223,7 +224,7 @@ class __$$_ListViewCopyWithImpl<$Res>
     Object? viewer = null,
     Object? indexedAt = null,
   }) {
-    return _then(_$_ListView(
+    return _then(_$ListViewImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -275,8 +276,8 @@ class __$$_ListViewCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ListView extends _ListView {
-  const _$_ListView(
+class _$ListViewImpl extends _ListView {
+  const _$ListViewImpl(
       {@typeKey this.type = appBskyGraphDefsListView,
       required this.purpose,
       @atUriConverter required this.uri,
@@ -291,8 +292,8 @@ class _$_ListView extends _ListView {
       : _descriptionFacets = descriptionFacets,
         super._();
 
-  factory _$_ListView.fromJson(Map<String, dynamic> json) =>
-      _$$_ListViewFromJson(json);
+  factory _$ListViewImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ListViewImplFromJson(json);
 
   /// The type of the list, by default it is [appBskyGraphDefsListView].
   @override
@@ -361,7 +362,7 @@ class _$_ListView extends _ListView {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ListView &&
+            other is _$ListViewImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.purpose, purpose) || other.purpose == purpose) &&
             (identical(other.uri, uri) || other.uri == uri) &&
@@ -398,12 +399,12 @@ class _$_ListView extends _ListView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ListViewCopyWith<_$_ListView> get copyWith =>
-      __$$_ListViewCopyWithImpl<_$_ListView>(this, _$identity);
+  _$$ListViewImplCopyWith<_$ListViewImpl> get copyWith =>
+      __$$ListViewImplCopyWithImpl<_$ListViewImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ListViewToJson(
+    return _$$ListViewImplToJson(
       this,
     );
   }
@@ -421,10 +422,11 @@ abstract class _ListView extends ListView {
       final String? avatar,
       @JsonKey(name: 'creator') required final Actor createdBy,
       final ListViewer viewer,
-      required final DateTime indexedAt}) = _$_ListView;
+      required final DateTime indexedAt}) = _$ListViewImpl;
   const _ListView._() : super._();
 
-  factory _ListView.fromJson(Map<String, dynamic> json) = _$_ListView.fromJson;
+  factory _ListView.fromJson(Map<String, dynamic> json) =
+      _$ListViewImpl.fromJson;
 
   @override
 
@@ -475,6 +477,6 @@ abstract class _ListView extends ListView {
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_ListViewCopyWith<_$_ListView> get copyWith =>
+  _$$ListViewImplCopyWith<_$ListViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

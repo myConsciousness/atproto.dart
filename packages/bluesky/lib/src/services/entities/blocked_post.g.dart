@@ -8,11 +8,11 @@ part of 'blocked_post.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_BlockedPost _$$_BlockedPostFromJson(Map json) => $checkedCreate(
-      r'_$_BlockedPost',
+_$BlockedPostImpl _$$BlockedPostImplFromJson(Map json) => $checkedCreate(
+      r'_$BlockedPostImpl',
       json,
       ($checkedConvert) {
-        final val = _$_BlockedPost(
+        final val = _$BlockedPostImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsBlockedPost),
           uri: $checkedConvert(
@@ -28,7 +28,7 @@ _$_BlockedPost _$$_BlockedPostFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$_BlockedPostToJson(_$_BlockedPost instance) =>
+Map<String, dynamic> _$$BlockedPostImplToJson(_$BlockedPostImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'uri': atUriConverter.toJson(instance.uri),

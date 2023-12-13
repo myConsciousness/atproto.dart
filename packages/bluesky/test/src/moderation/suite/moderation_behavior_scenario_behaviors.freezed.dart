@@ -162,12 +162,12 @@ class _$ModerationBehaviorScenarioBehaviorsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ModerationBehaviorScenarioBehaviorsCopyWith<$Res>
+abstract class _$$ModerationBehaviorScenarioBehaviorsImplCopyWith<$Res>
     implements $ModerationBehaviorScenarioBehaviorsCopyWith<$Res> {
-  factory _$$_ModerationBehaviorScenarioBehaviorsCopyWith(
-          _$_ModerationBehaviorScenarioBehaviors value,
-          $Res Function(_$_ModerationBehaviorScenarioBehaviors) then) =
-      __$$_ModerationBehaviorScenarioBehaviorsCopyWithImpl<$Res>;
+  factory _$$ModerationBehaviorScenarioBehaviorsImplCopyWith(
+          _$ModerationBehaviorScenarioBehaviorsImpl value,
+          $Res Function(_$ModerationBehaviorScenarioBehaviorsImpl) then) =
+      __$$ModerationBehaviorScenarioBehaviorsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -190,13 +190,13 @@ abstract class _$$_ModerationBehaviorScenarioBehaviorsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ModerationBehaviorScenarioBehaviorsCopyWithImpl<$Res>
+class __$$ModerationBehaviorScenarioBehaviorsImplCopyWithImpl<$Res>
     extends _$ModerationBehaviorScenarioBehaviorsCopyWithImpl<$Res,
-        _$_ModerationBehaviorScenarioBehaviors>
-    implements _$$_ModerationBehaviorScenarioBehaviorsCopyWith<$Res> {
-  __$$_ModerationBehaviorScenarioBehaviorsCopyWithImpl(
-      _$_ModerationBehaviorScenarioBehaviors _value,
-      $Res Function(_$_ModerationBehaviorScenarioBehaviors) _then)
+        _$ModerationBehaviorScenarioBehaviorsImpl>
+    implements _$$ModerationBehaviorScenarioBehaviorsImplCopyWith<$Res> {
+  __$$ModerationBehaviorScenarioBehaviorsImplCopyWithImpl(
+      _$ModerationBehaviorScenarioBehaviorsImpl _value,
+      $Res Function(_$ModerationBehaviorScenarioBehaviorsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -208,7 +208,7 @@ class __$$_ModerationBehaviorScenarioBehaviorsCopyWithImpl<$Res>
     Object? avatar = freezed,
     Object? embed = freezed,
   }) {
-    return _then(_$_ModerationBehaviorScenarioBehaviors(
+    return _then(_$ModerationBehaviorScenarioBehaviorsImpl(
       content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
@@ -236,14 +236,14 @@ class __$$_ModerationBehaviorScenarioBehaviorsCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ModerationBehaviorScenarioBehaviors
+class _$ModerationBehaviorScenarioBehaviorsImpl
     implements _ModerationBehaviorScenarioBehaviors {
-  const _$_ModerationBehaviorScenarioBehaviors(
+  const _$ModerationBehaviorScenarioBehaviorsImpl(
       {this.content, this.account, this.profile, this.avatar, this.embed});
 
-  factory _$_ModerationBehaviorScenarioBehaviors.fromJson(
+  factory _$ModerationBehaviorScenarioBehaviorsImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$_ModerationBehaviorScenarioBehaviorsFromJson(json);
+      _$$ModerationBehaviorScenarioBehaviorsImplFromJson(json);
 
   @override
   final ModerationBehaviorResult? content;
@@ -265,7 +265,7 @@ class _$_ModerationBehaviorScenarioBehaviors
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ModerationBehaviorScenarioBehaviors &&
+            other is _$ModerationBehaviorScenarioBehaviorsImpl &&
             (identical(other.content, content) || other.content == content) &&
             (identical(other.account, account) || other.account == account) &&
             (identical(other.profile, profile) || other.profile == profile) &&
@@ -281,14 +281,14 @@ class _$_ModerationBehaviorScenarioBehaviors
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ModerationBehaviorScenarioBehaviorsCopyWith<
-          _$_ModerationBehaviorScenarioBehaviors>
-      get copyWith => __$$_ModerationBehaviorScenarioBehaviorsCopyWithImpl<
-          _$_ModerationBehaviorScenarioBehaviors>(this, _$identity);
+  _$$ModerationBehaviorScenarioBehaviorsImplCopyWith<
+          _$ModerationBehaviorScenarioBehaviorsImpl>
+      get copyWith => __$$ModerationBehaviorScenarioBehaviorsImplCopyWithImpl<
+          _$ModerationBehaviorScenarioBehaviorsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ModerationBehaviorScenarioBehaviorsToJson(
+    return _$$ModerationBehaviorScenarioBehaviorsImplToJson(
       this,
     );
   }
@@ -302,11 +302,11 @@ abstract class _ModerationBehaviorScenarioBehaviors
           final ModerationBehaviorResult? profile,
           final ModerationBehaviorResult? avatar,
           final ModerationBehaviorResult? embed}) =
-      _$_ModerationBehaviorScenarioBehaviors;
+      _$ModerationBehaviorScenarioBehaviorsImpl;
 
   factory _ModerationBehaviorScenarioBehaviors.fromJson(
           Map<String, dynamic> json) =
-      _$_ModerationBehaviorScenarioBehaviors.fromJson;
+      _$ModerationBehaviorScenarioBehaviorsImpl.fromJson;
 
   @override
   ModerationBehaviorResult? get content;
@@ -320,7 +320,7 @@ abstract class _ModerationBehaviorScenarioBehaviors
   ModerationBehaviorResult? get embed;
   @override
   @JsonKey(ignore: true)
-  _$$_ModerationBehaviorScenarioBehaviorsCopyWith<
-          _$_ModerationBehaviorScenarioBehaviors>
+  _$$ModerationBehaviorScenarioBehaviorsImplCopyWith<
+          _$ModerationBehaviorScenarioBehaviorsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

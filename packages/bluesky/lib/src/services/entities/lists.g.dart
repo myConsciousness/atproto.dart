@@ -8,11 +8,11 @@ part of 'lists.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Lists _$$_ListsFromJson(Map json) => $checkedCreate(
-      r'_$_Lists',
+_$ListsImpl _$$ListsImplFromJson(Map json) => $checkedCreate(
+      r'_$ListsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Lists(
+        final val = _$ListsImpl(
           lists: $checkedConvert(
               'lists',
               (v) => (v as List<dynamic>)
@@ -25,7 +25,7 @@ _$_Lists _$$_ListsFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_ListsToJson(_$_Lists instance) {
+Map<String, dynamic> _$$ListsImplToJson(_$ListsImpl instance) {
   final val = <String, dynamic>{
     'lists': instance.lists.map((e) => e.toJson()).toList(),
   };

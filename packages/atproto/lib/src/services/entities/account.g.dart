@@ -8,11 +8,11 @@ part of 'account.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Account _$$_AccountFromJson(Map json) => $checkedCreate(
-      r'_$_Account',
+_$AccountImpl _$$AccountImplFromJson(Map json) => $checkedCreate(
+      r'_$AccountImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Account(
+        final val = _$AccountImpl(
           accessJwt: $checkedConvert('accessJwt', (v) => v as String),
           refreshJwt: $checkedConvert('refreshJwt', (v) => v as String),
           handle: $checkedConvert('handle', (v) => v as String),
@@ -27,7 +27,7 @@ _$_Account _$$_AccountFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_AccountToJson(_$_Account instance) =>
+Map<String, dynamic> _$$AccountImplToJson(_$AccountImpl instance) =>
     <String, dynamic>{
       'accessJwt': instance.accessJwt,
       'refreshJwt': instance.refreshJwt,

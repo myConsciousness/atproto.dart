@@ -96,11 +96,12 @@ class _$EmbedViewExternalViewCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_EmbedViewExternalViewCopyWith<$Res>
+abstract class _$$EmbedViewExternalViewImplCopyWith<$Res>
     implements $EmbedViewExternalViewCopyWith<$Res> {
-  factory _$$_EmbedViewExternalViewCopyWith(_$_EmbedViewExternalView value,
-          $Res Function(_$_EmbedViewExternalView) then) =
-      __$$_EmbedViewExternalViewCopyWithImpl<$Res>;
+  factory _$$EmbedViewExternalViewImplCopyWith(
+          _$EmbedViewExternalViewImpl value,
+          $Res Function(_$EmbedViewExternalViewImpl) then) =
+      __$$EmbedViewExternalViewImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -111,11 +112,12 @@ abstract class _$$_EmbedViewExternalViewCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EmbedViewExternalViewCopyWithImpl<$Res>
-    extends _$EmbedViewExternalViewCopyWithImpl<$Res, _$_EmbedViewExternalView>
-    implements _$$_EmbedViewExternalViewCopyWith<$Res> {
-  __$$_EmbedViewExternalViewCopyWithImpl(_$_EmbedViewExternalView _value,
-      $Res Function(_$_EmbedViewExternalView) _then)
+class __$$EmbedViewExternalViewImplCopyWithImpl<$Res>
+    extends _$EmbedViewExternalViewCopyWithImpl<$Res,
+        _$EmbedViewExternalViewImpl>
+    implements _$$EmbedViewExternalViewImplCopyWith<$Res> {
+  __$$EmbedViewExternalViewImplCopyWithImpl(_$EmbedViewExternalViewImpl _value,
+      $Res Function(_$EmbedViewExternalViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -126,7 +128,7 @@ class __$$_EmbedViewExternalViewCopyWithImpl<$Res>
     Object? description = null,
     Object? thumbnail = freezed,
   }) {
-    return _then(_$_EmbedViewExternalView(
+    return _then(_$EmbedViewExternalViewImpl(
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -150,15 +152,15 @@ class __$$_EmbedViewExternalViewCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_EmbedViewExternalView implements _EmbedViewExternalView {
-  const _$_EmbedViewExternalView(
+class _$EmbedViewExternalViewImpl implements _EmbedViewExternalView {
+  const _$EmbedViewExternalViewImpl(
       {required this.uri,
       required this.title,
       required this.description,
       @JsonKey(name: 'thumb') this.thumbnail});
 
-  factory _$_EmbedViewExternalView.fromJson(Map<String, dynamic> json) =>
-      _$$_EmbedViewExternalViewFromJson(json);
+  factory _$EmbedViewExternalViewImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmbedViewExternalViewImplFromJson(json);
 
   /// A string that represents the Uniform Resource Identifier (URI) of
   /// the external content.
@@ -188,7 +190,7 @@ class _$_EmbedViewExternalView implements _EmbedViewExternalView {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EmbedViewExternalView &&
+            other is _$EmbedViewExternalViewImpl &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
@@ -205,13 +207,13 @@ class _$_EmbedViewExternalView implements _EmbedViewExternalView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EmbedViewExternalViewCopyWith<_$_EmbedViewExternalView> get copyWith =>
-      __$$_EmbedViewExternalViewCopyWithImpl<_$_EmbedViewExternalView>(
-          this, _$identity);
+  _$$EmbedViewExternalViewImplCopyWith<_$EmbedViewExternalViewImpl>
+      get copyWith => __$$EmbedViewExternalViewImplCopyWithImpl<
+          _$EmbedViewExternalViewImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EmbedViewExternalViewToJson(
+    return _$$EmbedViewExternalViewImplToJson(
       this,
     );
   }
@@ -223,10 +225,10 @@ abstract class _EmbedViewExternalView implements EmbedViewExternalView {
           required final String title,
           required final String description,
           @JsonKey(name: 'thumb') final String? thumbnail}) =
-      _$_EmbedViewExternalView;
+      _$EmbedViewExternalViewImpl;
 
   factory _EmbedViewExternalView.fromJson(Map<String, dynamic> json) =
-      _$_EmbedViewExternalView.fromJson;
+      _$EmbedViewExternalViewImpl.fromJson;
 
   @override
 
@@ -249,6 +251,6 @@ abstract class _EmbedViewExternalView implements EmbedViewExternalView {
   String? get thumbnail;
   @override
   @JsonKey(ignore: true)
-  _$$_EmbedViewExternalViewCopyWith<_$_EmbedViewExternalView> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$EmbedViewExternalViewImplCopyWith<_$EmbedViewExternalViewImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

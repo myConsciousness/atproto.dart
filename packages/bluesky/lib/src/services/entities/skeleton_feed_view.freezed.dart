@@ -90,11 +90,11 @@ class _$SkeletonFeedViewCopyWithImpl<$Res, $Val extends SkeletonFeedView>
 }
 
 /// @nodoc
-abstract class _$$_SkeletonFeedViewCopyWith<$Res>
+abstract class _$$SkeletonFeedViewImplCopyWith<$Res>
     implements $SkeletonFeedViewCopyWith<$Res> {
-  factory _$$_SkeletonFeedViewCopyWith(
-          _$_SkeletonFeedView value, $Res Function(_$_SkeletonFeedView) then) =
-      __$$_SkeletonFeedViewCopyWithImpl<$Res>;
+  factory _$$SkeletonFeedViewImplCopyWith(_$SkeletonFeedViewImpl value,
+          $Res Function(_$SkeletonFeedViewImpl) then) =
+      __$$SkeletonFeedViewImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -106,11 +106,11 @@ abstract class _$$_SkeletonFeedViewCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SkeletonFeedViewCopyWithImpl<$Res>
-    extends _$SkeletonFeedViewCopyWithImpl<$Res, _$_SkeletonFeedView>
-    implements _$$_SkeletonFeedViewCopyWith<$Res> {
-  __$$_SkeletonFeedViewCopyWithImpl(
-      _$_SkeletonFeedView _value, $Res Function(_$_SkeletonFeedView) _then)
+class __$$SkeletonFeedViewImplCopyWithImpl<$Res>
+    extends _$SkeletonFeedViewCopyWithImpl<$Res, _$SkeletonFeedViewImpl>
+    implements _$$SkeletonFeedViewImplCopyWith<$Res> {
+  __$$SkeletonFeedViewImplCopyWithImpl(_$SkeletonFeedViewImpl _value,
+      $Res Function(_$SkeletonFeedViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -119,7 +119,7 @@ class __$$_SkeletonFeedViewCopyWithImpl<$Res>
     Object? post = null,
     Object? reason = freezed,
   }) {
-    return _then(_$_SkeletonFeedView(
+    return _then(_$SkeletonFeedViewImpl(
       post: null == post
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
@@ -135,13 +135,13 @@ class __$$_SkeletonFeedViewCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_SkeletonFeedView implements _SkeletonFeedView {
-  const _$_SkeletonFeedView(
+class _$SkeletonFeedViewImpl implements _SkeletonFeedView {
+  const _$SkeletonFeedViewImpl(
       {@atUriConverter required this.post,
       @skeletonReasonConverter this.reason});
 
-  factory _$_SkeletonFeedView.fromJson(Map<String, dynamic> json) =>
-      _$$_SkeletonFeedViewFromJson(json);
+  factory _$SkeletonFeedViewImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SkeletonFeedViewImplFromJson(json);
 
   /// The URI of the post represented as an [AtUri] object.
   @override
@@ -163,7 +163,7 @@ class _$_SkeletonFeedView implements _SkeletonFeedView {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SkeletonFeedView &&
+            other is _$SkeletonFeedViewImpl &&
             (identical(other.post, post) || other.post == post) &&
             (identical(other.reason, reason) || other.reason == reason));
   }
@@ -175,12 +175,13 @@ class _$_SkeletonFeedView implements _SkeletonFeedView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SkeletonFeedViewCopyWith<_$_SkeletonFeedView> get copyWith =>
-      __$$_SkeletonFeedViewCopyWithImpl<_$_SkeletonFeedView>(this, _$identity);
+  _$$SkeletonFeedViewImplCopyWith<_$SkeletonFeedViewImpl> get copyWith =>
+      __$$SkeletonFeedViewImplCopyWithImpl<_$SkeletonFeedViewImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SkeletonFeedViewToJson(
+    return _$$SkeletonFeedViewImplToJson(
       this,
     );
   }
@@ -190,10 +191,10 @@ abstract class _SkeletonFeedView implements SkeletonFeedView {
   const factory _SkeletonFeedView(
           {@atUriConverter required final AtUri post,
           @skeletonReasonConverter final SkeletonReason? reason}) =
-      _$_SkeletonFeedView;
+      _$SkeletonFeedViewImpl;
 
   factory _SkeletonFeedView.fromJson(Map<String, dynamic> json) =
-      _$_SkeletonFeedView.fromJson;
+      _$SkeletonFeedViewImpl.fromJson;
 
   @override
 
@@ -208,6 +209,6 @@ abstract class _SkeletonFeedView implements SkeletonFeedView {
   SkeletonReason? get reason;
   @override
   @JsonKey(ignore: true)
-  _$$_SkeletonFeedViewCopyWith<_$_SkeletonFeedView> get copyWith =>
+  _$$SkeletonFeedViewImplCopyWith<_$SkeletonFeedViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

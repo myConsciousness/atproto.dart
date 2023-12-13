@@ -8,11 +8,11 @@ part of 'blocked_author.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_BlockedAuthor _$$_BlockedAuthorFromJson(Map json) => $checkedCreate(
-      r'_$_BlockedAuthor',
+_$BlockedAuthorImpl _$$BlockedAuthorImplFromJson(Map json) => $checkedCreate(
+      r'_$BlockedAuthorImpl',
       json,
       ($checkedConvert) {
-        final val = _$_BlockedAuthor(
+        final val = _$BlockedAuthorImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsBlockedAuthor),
           did: $checkedConvert('did', (v) => v as String),
@@ -24,7 +24,7 @@ _$_BlockedAuthor _$$_BlockedAuthorFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$_BlockedAuthorToJson(_$_BlockedAuthor instance) =>
+Map<String, dynamic> _$$BlockedAuthorImplToJson(_$BlockedAuthorImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'did': instance.did,

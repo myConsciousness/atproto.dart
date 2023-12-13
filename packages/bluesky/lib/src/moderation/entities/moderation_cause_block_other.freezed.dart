@@ -80,12 +80,12 @@ class _$ModerationCauseBlockOtherCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ModerationCauseBlockOtherCopyWith<$Res>
+abstract class _$$ModerationCauseBlockOtherImplCopyWith<$Res>
     implements $ModerationCauseBlockOtherCopyWith<$Res> {
-  factory _$$_ModerationCauseBlockOtherCopyWith(
-          _$_ModerationCauseBlockOther value,
-          $Res Function(_$_ModerationCauseBlockOther) then) =
-      __$$_ModerationCauseBlockOtherCopyWithImpl<$Res>;
+  factory _$$ModerationCauseBlockOtherImplCopyWith(
+          _$ModerationCauseBlockOtherImpl value,
+          $Res Function(_$ModerationCauseBlockOtherImpl) then) =
+      __$$ModerationCauseBlockOtherImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String type, ModerationCauseSource source, int priority});
@@ -95,13 +95,13 @@ abstract class _$$_ModerationCauseBlockOtherCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ModerationCauseBlockOtherCopyWithImpl<$Res>
+class __$$ModerationCauseBlockOtherImplCopyWithImpl<$Res>
     extends _$ModerationCauseBlockOtherCopyWithImpl<$Res,
-        _$_ModerationCauseBlockOther>
-    implements _$$_ModerationCauseBlockOtherCopyWith<$Res> {
-  __$$_ModerationCauseBlockOtherCopyWithImpl(
-      _$_ModerationCauseBlockOther _value,
-      $Res Function(_$_ModerationCauseBlockOther) _then)
+        _$ModerationCauseBlockOtherImpl>
+    implements _$$ModerationCauseBlockOtherImplCopyWith<$Res> {
+  __$$ModerationCauseBlockOtherImplCopyWithImpl(
+      _$ModerationCauseBlockOtherImpl _value,
+      $Res Function(_$ModerationCauseBlockOtherImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +111,7 @@ class __$$_ModerationCauseBlockOtherCopyWithImpl<$Res>
     Object? source = null,
     Object? priority = null,
   }) {
-    return _then(_$_ModerationCauseBlockOther(
+    return _then(_$ModerationCauseBlockOtherImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -130,8 +130,8 @@ class __$$_ModerationCauseBlockOtherCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ModerationCauseBlockOther implements _ModerationCauseBlockOther {
-  const _$_ModerationCauseBlockOther(
+class _$ModerationCauseBlockOtherImpl implements _ModerationCauseBlockOther {
+  const _$ModerationCauseBlockOtherImpl(
       {this.type = 'block-other', required this.source, this.priority = 4});
 
   @override
@@ -152,7 +152,7 @@ class _$_ModerationCauseBlockOther implements _ModerationCauseBlockOther {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ModerationCauseBlockOther &&
+            other is _$ModerationCauseBlockOtherImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.source, source) || other.source == source) &&
             (identical(other.priority, priority) ||
@@ -165,16 +165,16 @@ class _$_ModerationCauseBlockOther implements _ModerationCauseBlockOther {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ModerationCauseBlockOtherCopyWith<_$_ModerationCauseBlockOther>
-      get copyWith => __$$_ModerationCauseBlockOtherCopyWithImpl<
-          _$_ModerationCauseBlockOther>(this, _$identity);
+  _$$ModerationCauseBlockOtherImplCopyWith<_$ModerationCauseBlockOtherImpl>
+      get copyWith => __$$ModerationCauseBlockOtherImplCopyWithImpl<
+          _$ModerationCauseBlockOtherImpl>(this, _$identity);
 }
 
 abstract class _ModerationCauseBlockOther implements ModerationCauseBlockOther {
   const factory _ModerationCauseBlockOther(
       {final String type,
       required final ModerationCauseSource source,
-      final int priority}) = _$_ModerationCauseBlockOther;
+      final int priority}) = _$ModerationCauseBlockOtherImpl;
 
   @override
   String get type;
@@ -184,6 +184,6 @@ abstract class _ModerationCauseBlockOther implements ModerationCauseBlockOther {
   int get priority;
   @override
   @JsonKey(ignore: true)
-  _$$_ModerationCauseBlockOtherCopyWith<_$_ModerationCauseBlockOther>
+  _$$ModerationCauseBlockOtherImplCopyWith<_$ModerationCauseBlockOtherImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

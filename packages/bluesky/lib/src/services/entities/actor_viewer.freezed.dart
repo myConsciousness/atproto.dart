@@ -150,11 +150,11 @@ class _$ActorViewerCopyWithImpl<$Res, $Val extends ActorViewer>
 }
 
 /// @nodoc
-abstract class _$$_ActorViewerCopyWith<$Res>
+abstract class _$$ActorViewerImplCopyWith<$Res>
     implements $ActorViewerCopyWith<$Res> {
-  factory _$$_ActorViewerCopyWith(
-          _$_ActorViewer value, $Res Function(_$_ActorViewer) then) =
-      __$$_ActorViewerCopyWithImpl<$Res>;
+  factory _$$ActorViewerImplCopyWith(
+          _$ActorViewerImpl value, $Res Function(_$ActorViewerImpl) then) =
+      __$$ActorViewerImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -173,11 +173,11 @@ abstract class _$$_ActorViewerCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ActorViewerCopyWithImpl<$Res>
-    extends _$ActorViewerCopyWithImpl<$Res, _$_ActorViewer>
-    implements _$$_ActorViewerCopyWith<$Res> {
-  __$$_ActorViewerCopyWithImpl(
-      _$_ActorViewer _value, $Res Function(_$_ActorViewer) _then)
+class __$$ActorViewerImplCopyWithImpl<$Res>
+    extends _$ActorViewerCopyWithImpl<$Res, _$ActorViewerImpl>
+    implements _$$ActorViewerImplCopyWith<$Res> {
+  __$$ActorViewerImplCopyWithImpl(
+      _$ActorViewerImpl _value, $Res Function(_$ActorViewerImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -191,7 +191,7 @@ class __$$_ActorViewerCopyWithImpl<$Res>
     Object? following = freezed,
     Object? followedBy = freezed,
   }) {
-    return _then(_$_ActorViewer(
+    return _then(_$ActorViewerImpl(
       isMuted: null == isMuted
           ? _value.isMuted
           : isMuted // ignore: cast_nullable_to_non_nullable
@@ -227,8 +227,8 @@ class __$$_ActorViewerCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ActorViewer extends _ActorViewer {
-  const _$_ActorViewer(
+class _$ActorViewerImpl extends _ActorViewer {
+  const _$ActorViewerImpl(
       {@JsonKey(name: 'muted') this.isMuted = false,
       @JsonKey(name: 'blockedBy') this.isBlockedBy = false,
       this.mutedByList,
@@ -238,8 +238,8 @@ class _$_ActorViewer extends _ActorViewer {
       @atUriConverter this.followedBy})
       : super._();
 
-  factory _$_ActorViewer.fromJson(Map<String, dynamic> json) =>
-      _$$_ActorViewerFromJson(json);
+  factory _$ActorViewerImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ActorViewerImplFromJson(json);
 
   /// Indicates if the authenticated user has muted the actor.
   @override
@@ -283,7 +283,7 @@ class _$_ActorViewer extends _ActorViewer {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActorViewer &&
+            other is _$ActorViewerImpl &&
             (identical(other.isMuted, isMuted) || other.isMuted == isMuted) &&
             (identical(other.isBlockedBy, isBlockedBy) ||
                 other.isBlockedBy == isBlockedBy) &&
@@ -307,12 +307,12 @@ class _$_ActorViewer extends _ActorViewer {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ActorViewerCopyWith<_$_ActorViewer> get copyWith =>
-      __$$_ActorViewerCopyWithImpl<_$_ActorViewer>(this, _$identity);
+  _$$ActorViewerImplCopyWith<_$ActorViewerImpl> get copyWith =>
+      __$$ActorViewerImplCopyWithImpl<_$ActorViewerImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ActorViewerToJson(
+    return _$$ActorViewerImplToJson(
       this,
     );
   }
@@ -326,11 +326,11 @@ abstract class _ActorViewer extends ActorViewer {
       final ListViewBasic? blockingByList,
       @atUriConverter final AtUri? blocking,
       @atUriConverter final AtUri? following,
-      @atUriConverter final AtUri? followedBy}) = _$_ActorViewer;
+      @atUriConverter final AtUri? followedBy}) = _$ActorViewerImpl;
   const _ActorViewer._() : super._();
 
   factory _ActorViewer.fromJson(Map<String, dynamic> json) =
-      _$_ActorViewer.fromJson;
+      _$ActorViewerImpl.fromJson;
 
   @override
 
@@ -367,6 +367,6 @@ abstract class _ActorViewer extends ActorViewer {
   AtUri? get followedBy;
   @override
   @JsonKey(ignore: true)
-  _$$_ActorViewerCopyWith<_$_ActorViewer> get copyWith =>
+  _$$ActorViewerImplCopyWith<_$ActorViewerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

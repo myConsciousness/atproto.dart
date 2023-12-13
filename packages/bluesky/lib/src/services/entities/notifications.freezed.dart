@@ -26,6 +26,9 @@ mixin _$Notifications {
   /// Might be used for pagination purposes.
   String? get cursor => throw _privateConstructorUsedError;
 
+  /// The date and time the user saw this notification.
+  DateTime? get seenAt => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $NotificationsCopyWith<Notifications> get copyWith =>
@@ -38,7 +41,8 @@ abstract class $NotificationsCopyWith<$Res> {
           Notifications value, $Res Function(Notifications) then) =
       _$NotificationsCopyWithImpl<$Res, Notifications>;
   @useResult
-  $Res call({List<Notification> notifications, String? cursor});
+  $Res call(
+      {List<Notification> notifications, String? cursor, DateTime? seenAt});
 }
 
 /// @nodoc
@@ -56,6 +60,7 @@ class _$NotificationsCopyWithImpl<$Res, $Val extends Notifications>
   $Res call({
     Object? notifications = null,
     Object? cursor = freezed,
+    Object? seenAt = freezed,
   }) {
     return _then(_value.copyWith(
       notifications: null == notifications
@@ -66,6 +71,10 @@ class _$NotificationsCopyWithImpl<$Res, $Val extends Notifications>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
+      seenAt: freezed == seenAt
+          ? _value.seenAt
+          : seenAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -78,7 +87,8 @@ abstract class _$$_NotificationsCopyWith<$Res>
       __$$_NotificationsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Notification> notifications, String? cursor});
+  $Res call(
+      {List<Notification> notifications, String? cursor, DateTime? seenAt});
 }
 
 /// @nodoc
@@ -94,6 +104,7 @@ class __$$_NotificationsCopyWithImpl<$Res>
   $Res call({
     Object? notifications = null,
     Object? cursor = freezed,
+    Object? seenAt = freezed,
   }) {
     return _then(_$_Notifications(
       notifications: null == notifications
@@ -104,6 +115,10 @@ class __$$_NotificationsCopyWithImpl<$Res>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
+      seenAt: freezed == seenAt
+          ? _value.seenAt
+          : seenAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -112,7 +127,9 @@ class __$$_NotificationsCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Notifications extends _Notifications {
   const _$_Notifications(
-      {required final List<Notification> notifications, this.cursor})
+      {required final List<Notification> notifications,
+      this.cursor,
+      this.seenAt})
       : _notifications = notifications,
         super._();
 
@@ -134,9 +151,13 @@ class _$_Notifications extends _Notifications {
   @override
   final String? cursor;
 
+  /// The date and time the user saw this notification.
+  @override
+  final DateTime? seenAt;
+
   @override
   String toString() {
-    return 'Notifications(notifications: $notifications, cursor: $cursor)';
+    return 'Notifications(notifications: $notifications, cursor: $cursor, seenAt: $seenAt)';
   }
 
   @override
@@ -146,13 +167,14 @@ class _$_Notifications extends _Notifications {
             other is _$_Notifications &&
             const DeepCollectionEquality()
                 .equals(other._notifications, _notifications) &&
-            (identical(other.cursor, cursor) || other.cursor == cursor));
+            (identical(other.cursor, cursor) || other.cursor == cursor) &&
+            (identical(other.seenAt, seenAt) || other.seenAt == seenAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_notifications), cursor);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_notifications), cursor, seenAt);
 
   @JsonKey(ignore: true)
   @override
@@ -171,7 +193,8 @@ class _$_Notifications extends _Notifications {
 abstract class _Notifications extends Notifications {
   const factory _Notifications(
       {required final List<Notification> notifications,
-      final String? cursor}) = _$_Notifications;
+      final String? cursor,
+      final DateTime? seenAt}) = _$_Notifications;
   const _Notifications._() : super._();
 
   factory _Notifications.fromJson(Map<String, dynamic> json) =
@@ -185,6 +208,10 @@ abstract class _Notifications extends Notifications {
 
   /// Might be used for pagination purposes.
   String? get cursor;
+  @override
+
+  /// The date and time the user saw this notification.
+  DateTime? get seenAt;
   @override
   @JsonKey(ignore: true)
   _$$_NotificationsCopyWith<_$_Notifications> get copyWith =>
