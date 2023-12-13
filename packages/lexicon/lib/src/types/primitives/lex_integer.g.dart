@@ -8,19 +8,19 @@ part of 'lex_integer.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LexInteger _$$_LexIntegerFromJson(Map json) => $checkedCreate(
-      r'_$_LexInteger',
+_$LexIntegerImpl _$$LexIntegerImplFromJson(Map json) => $checkedCreate(
+      r'_$LexIntegerImpl',
       json,
       ($checkedConvert) {
-        final val = _$_LexInteger(
+        final val = _$LexIntegerImpl(
           type: $checkedConvert('type', (v) => v as String? ?? 'integer'),
           description: $checkedConvert('description', (v) => v as String?),
-          defaultValue: $checkedConvert('default', (v) => v as bool?),
+          defaultValue: $checkedConvert('default', (v) => v as int?),
           minimum: $checkedConvert('minimum', (v) => v as int?),
           maximum: $checkedConvert('maximum', (v) => v as int?),
           enumValues: $checkedConvert('enum',
               (v) => (v as List<dynamic>?)?.map((e) => e as int).toList()),
-          constValue: $checkedConvert('const', (v) => v as bool?),
+          constValue: $checkedConvert('const', (v) => v as int?),
         );
         return val;
       },
@@ -31,7 +31,7 @@ _$_LexInteger _$$_LexIntegerFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_LexIntegerToJson(_$_LexInteger instance) {
+Map<String, dynamic> _$$LexIntegerImplToJson(_$LexIntegerImpl instance) {
   final val = <String, dynamic>{
     'type': instance.type,
   };

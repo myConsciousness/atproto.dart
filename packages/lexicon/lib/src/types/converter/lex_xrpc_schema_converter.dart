@@ -2,8 +2,10 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import '../complex/lex_object.dart';
 import '../references/lex_ref.dart';
 import '../references/lex_ref_union.dart';
@@ -23,7 +25,6 @@ class LexXrpcSchemaConverter
         return LexXrpcSchema.object(
           data: LexObject.fromJson(json),
         );
-
       case 'ref':
         return LexXrpcSchema.refVariant(
           data: LexRefVariant.ref(
@@ -36,7 +37,6 @@ class LexXrpcSchemaConverter
             data: LexRefUnion.fromJson(json),
           ),
         );
-
       default:
         throw UnsupportedError('Unsupported type [$type]');
     }

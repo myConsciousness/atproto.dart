@@ -8,13 +8,13 @@ part of 'lex_xrpc_subscription_message.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LexXrpcSubscriptionMessage _$$_LexXrpcSubscriptionMessageFromJson(
+_$LexXrpcSubscriptionMessageImpl _$$LexXrpcSubscriptionMessageImplFromJson(
         Map json) =>
     $checkedCreate(
-      r'_$_LexXrpcSubscriptionMessage',
+      r'_$LexXrpcSubscriptionMessageImpl',
       json,
       ($checkedConvert) {
-        final val = _$_LexXrpcSubscriptionMessage(
+        final val = _$LexXrpcSubscriptionMessageImpl(
           description: $checkedConvert('description', (v) => v as String?),
           schema: $checkedConvert(
               'schema',
@@ -26,8 +26,8 @@ _$_LexXrpcSubscriptionMessage _$$_LexXrpcSubscriptionMessageFromJson(
       },
     );
 
-Map<String, dynamic> _$$_LexXrpcSubscriptionMessageToJson(
-    _$_LexXrpcSubscriptionMessage instance) {
+Map<String, dynamic> _$$LexXrpcSubscriptionMessageImplToJson(
+    _$LexXrpcSubscriptionMessageImpl instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {

@@ -8,11 +8,11 @@ part of 'lexicon_doc.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LexiconDoc _$$_LexiconDocFromJson(Map json) => $checkedCreate(
-      r'_$_LexiconDoc',
+_$LexiconDocImpl _$$LexiconDocImplFromJson(Map json) => $checkedCreate(
+      r'_$LexiconDocImpl',
       json,
       ($checkedConvert) {
-        final val = _$_LexiconDoc(
+        final val = _$LexiconDocImpl(
           lexicon: $checkedConvert('lexicon', (v) => v as int),
           id: $checkedConvert(
               'id', (v) => const NsidConverter().fromJson(v as String)),
@@ -20,14 +20,18 @@ _$_LexiconDoc _$$_LexiconDocFromJson(Map json) => $checkedCreate(
           description: $checkedConvert('description', (v) => v as String?),
           defs: $checkedConvert(
               'defs',
-              (v) => const LexUserTypeRecordConverter()
-                  .fromJson(v as Map<String, dynamic>)),
+              (v) => (v as Map).map(
+                    (k, e) => MapEntry(
+                        k as String,
+                        const LexUserTypeConverter()
+                            .fromJson(e as Map<String, dynamic>)),
+                  )),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$_LexiconDocToJson(_$_LexiconDoc instance) {
+Map<String, dynamic> _$$LexiconDocImplToJson(_$LexiconDocImpl instance) {
   final val = <String, dynamic>{
     'lexicon': instance.lexicon,
     'id': const NsidConverter().toJson(instance.id),
@@ -41,6 +45,7 @@ Map<String, dynamic> _$$_LexiconDocToJson(_$_LexiconDoc instance) {
 
   writeNotNull('revision', instance.revision);
   writeNotNull('description', instance.description);
-  val['defs'] = const LexUserTypeRecordConverter().toJson(instance.defs);
+  val['defs'] = instance.defs
+      .map((k, e) => MapEntry(k, const LexUserTypeConverter().toJson(e)));
   return val;
 }

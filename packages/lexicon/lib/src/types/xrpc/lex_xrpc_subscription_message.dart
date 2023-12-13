@@ -7,6 +7,7 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import '../converter/lex_xrpc_schema_converter.dart';
 import 'lex_xrpc_schema.dart';
 

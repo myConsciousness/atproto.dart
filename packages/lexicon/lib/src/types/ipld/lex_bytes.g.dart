@@ -8,11 +8,11 @@ part of 'lex_bytes.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LexBytes _$$_LexBytesFromJson(Map json) => $checkedCreate(
-      r'_$_LexBytes',
+_$LexBytesImpl _$$LexBytesImplFromJson(Map json) => $checkedCreate(
+      r'_$LexBytesImpl',
       json,
       ($checkedConvert) {
-        final val = _$_LexBytes(
+        final val = _$LexBytesImpl(
           type: $checkedConvert('type', (v) => v as String? ?? 'bytes'),
           description: $checkedConvert('description', (v) => v as String?),
           maxLength: $checkedConvert('maxLength', (v) => v as int?),
@@ -22,7 +22,7 @@ _$_LexBytes _$$_LexBytesFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_LexBytesToJson(_$_LexBytes instance) {
+Map<String, dynamic> _$$LexBytesImplToJson(_$LexBytesImpl instance) {
   final val = <String, dynamic>{
     'type': instance.type,
   };

@@ -68,22 +68,22 @@ class _$LexCidLinkCopyWithImpl<$Res, $Val extends LexCidLink>
 }
 
 /// @nodoc
-abstract class _$$_LexCidLinkCopyWith<$Res>
+abstract class _$$LexCidLinkImplCopyWith<$Res>
     implements $LexCidLinkCopyWith<$Res> {
-  factory _$$_LexCidLinkCopyWith(
-          _$_LexCidLink value, $Res Function(_$_LexCidLink) then) =
-      __$$_LexCidLinkCopyWithImpl<$Res>;
+  factory _$$LexCidLinkImplCopyWith(
+          _$LexCidLinkImpl value, $Res Function(_$LexCidLinkImpl) then) =
+      __$$LexCidLinkImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String type, String? description});
 }
 
 /// @nodoc
-class __$$_LexCidLinkCopyWithImpl<$Res>
-    extends _$LexCidLinkCopyWithImpl<$Res, _$_LexCidLink>
-    implements _$$_LexCidLinkCopyWith<$Res> {
-  __$$_LexCidLinkCopyWithImpl(
-      _$_LexCidLink _value, $Res Function(_$_LexCidLink) _then)
+class __$$LexCidLinkImplCopyWithImpl<$Res>
+    extends _$LexCidLinkCopyWithImpl<$Res, _$LexCidLinkImpl>
+    implements _$$LexCidLinkImplCopyWith<$Res> {
+  __$$LexCidLinkImplCopyWithImpl(
+      _$LexCidLinkImpl _value, $Res Function(_$LexCidLinkImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_LexCidLinkCopyWithImpl<$Res>
     Object? type = null,
     Object? description = freezed,
   }) {
-    return _then(_$_LexCidLink(
+    return _then(_$LexCidLinkImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -108,11 +108,11 @@ class __$$_LexCidLinkCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexCidLink implements _LexCidLink {
-  const _$_LexCidLink({this.type = 'cid-link', this.description});
+class _$LexCidLinkImpl implements _LexCidLink {
+  const _$LexCidLinkImpl({this.type = 'cid-link', this.description});
 
-  factory _$_LexCidLink.fromJson(Map<String, dynamic> json) =>
-      _$$_LexCidLinkFromJson(json);
+  factory _$LexCidLinkImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LexCidLinkImplFromJson(json);
 
   @override
   @JsonKey()
@@ -129,7 +129,7 @@ class _$_LexCidLink implements _LexCidLink {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexCidLink &&
+            other is _$LexCidLinkImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description));
@@ -142,12 +142,12 @@ class _$_LexCidLink implements _LexCidLink {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexCidLinkCopyWith<_$_LexCidLink> get copyWith =>
-      __$$_LexCidLinkCopyWithImpl<_$_LexCidLink>(this, _$identity);
+  _$$LexCidLinkImplCopyWith<_$LexCidLinkImpl> get copyWith =>
+      __$$LexCidLinkImplCopyWithImpl<_$LexCidLinkImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LexCidLinkToJson(
+    return _$$LexCidLinkImplToJson(
       this,
     );
   }
@@ -155,10 +155,10 @@ class _$_LexCidLink implements _LexCidLink {
 
 abstract class _LexCidLink implements LexCidLink {
   const factory _LexCidLink({final String type, final String? description}) =
-      _$_LexCidLink;
+      _$LexCidLinkImpl;
 
   factory _LexCidLink.fromJson(Map<String, dynamic> json) =
-      _$_LexCidLink.fromJson;
+      _$LexCidLinkImpl.fromJson;
 
   @override
   String get type;
@@ -166,6 +166,6 @@ abstract class _LexCidLink implements LexCidLink {
   String? get description;
   @override
   @JsonKey(ignore: true)
-  _$$_LexCidLinkCopyWith<_$_LexCidLink> get copyWith =>
+  _$$LexCidLinkImplCopyWith<_$LexCidLinkImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

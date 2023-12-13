@@ -7,6 +7,7 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import '../converter/lex_primitive_converter.dart';
 import '../primitives/lex_primitive.dart';
 
@@ -19,7 +20,7 @@ class LexPrimitiveArray with _$LexPrimitiveArray {
   const factory LexPrimitiveArray({
     @Default('array') String type,
     String? description,
-    @LexPrimitiveConverter() required List<LexPrimitive> items,
+    @LexPrimitiveConverter() required LexPrimitive items,
     int? minLength,
     int? maxLength,
   }) = _LexPrimitiveArray;

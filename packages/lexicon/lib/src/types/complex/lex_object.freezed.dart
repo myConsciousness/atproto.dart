@@ -26,8 +26,9 @@ mixin _$LexObject {
   List<String>? get requiredProperties => throw _privateConstructorUsedError;
   @JsonKey(name: 'nullable')
   List<String>? get nullableProperties => throw _privateConstructorUsedError;
-  @LexObjectPropertyRecordConverter()
-  LexObjectPropertyRecord? get properties => throw _privateConstructorUsedError;
+  @LexObjectPropertyConverter()
+  Map<String, LexObjectProperty>? get properties =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,9 +46,8 @@ abstract class $LexObjectCopyWith<$Res> {
       String? description,
       @JsonKey(name: 'required') List<String>? requiredProperties,
       @JsonKey(name: 'nullable') List<String>? nullableProperties,
-      @LexObjectPropertyRecordConverter() LexObjectPropertyRecord? properties});
-
-  $LexObjectPropertyRecordCopyWith<$Res>? get properties;
+      @LexObjectPropertyConverter()
+      Map<String, LexObjectProperty>? properties});
 }
 
 /// @nodoc
@@ -89,28 +89,17 @@ class _$LexObjectCopyWithImpl<$Res, $Val extends LexObject>
       properties: freezed == properties
           ? _value.properties
           : properties // ignore: cast_nullable_to_non_nullable
-              as LexObjectPropertyRecord?,
+              as Map<String, LexObjectProperty>?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $LexObjectPropertyRecordCopyWith<$Res>? get properties {
-    if (_value.properties == null) {
-      return null;
-    }
-
-    return $LexObjectPropertyRecordCopyWith<$Res>(_value.properties!, (value) {
-      return _then(_value.copyWith(properties: value) as $Val);
-    });
   }
 }
 
 /// @nodoc
-abstract class _$$_LexObjectCopyWith<$Res> implements $LexObjectCopyWith<$Res> {
-  factory _$$_LexObjectCopyWith(
-          _$_LexObject value, $Res Function(_$_LexObject) then) =
-      __$$_LexObjectCopyWithImpl<$Res>;
+abstract class _$$LexObjectImplCopyWith<$Res>
+    implements $LexObjectCopyWith<$Res> {
+  factory _$$LexObjectImplCopyWith(
+          _$LexObjectImpl value, $Res Function(_$LexObjectImpl) then) =
+      __$$LexObjectImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -118,18 +107,16 @@ abstract class _$$_LexObjectCopyWith<$Res> implements $LexObjectCopyWith<$Res> {
       String? description,
       @JsonKey(name: 'required') List<String>? requiredProperties,
       @JsonKey(name: 'nullable') List<String>? nullableProperties,
-      @LexObjectPropertyRecordConverter() LexObjectPropertyRecord? properties});
-
-  @override
-  $LexObjectPropertyRecordCopyWith<$Res>? get properties;
+      @LexObjectPropertyConverter()
+      Map<String, LexObjectProperty>? properties});
 }
 
 /// @nodoc
-class __$$_LexObjectCopyWithImpl<$Res>
-    extends _$LexObjectCopyWithImpl<$Res, _$_LexObject>
-    implements _$$_LexObjectCopyWith<$Res> {
-  __$$_LexObjectCopyWithImpl(
-      _$_LexObject _value, $Res Function(_$_LexObject) _then)
+class __$$LexObjectImplCopyWithImpl<$Res>
+    extends _$LexObjectCopyWithImpl<$Res, _$LexObjectImpl>
+    implements _$$LexObjectImplCopyWith<$Res> {
+  __$$LexObjectImplCopyWithImpl(
+      _$LexObjectImpl _value, $Res Function(_$LexObjectImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -141,7 +128,7 @@ class __$$_LexObjectCopyWithImpl<$Res>
     Object? nullableProperties = freezed,
     Object? properties = freezed,
   }) {
-    return _then(_$_LexObject(
+    return _then(_$LexObjectImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -159,9 +146,9 @@ class __$$_LexObjectCopyWithImpl<$Res>
           : nullableProperties // ignore: cast_nullable_to_non_nullable
               as List<String>?,
       properties: freezed == properties
-          ? _value.properties
+          ? _value._properties
           : properties // ignore: cast_nullable_to_non_nullable
-              as LexObjectPropertyRecord?,
+              as Map<String, LexObjectProperty>?,
     ));
   }
 }
@@ -169,18 +156,20 @@ class __$$_LexObjectCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexObject implements _LexObject {
-  const _$_LexObject(
+class _$LexObjectImpl implements _LexObject {
+  const _$LexObjectImpl(
       {this.type = 'object',
       this.description,
       @JsonKey(name: 'required') final List<String>? requiredProperties,
       @JsonKey(name: 'nullable') final List<String>? nullableProperties,
-      @LexObjectPropertyRecordConverter() this.properties})
+      @LexObjectPropertyConverter()
+      final Map<String, LexObjectProperty>? properties})
       : _requiredProperties = requiredProperties,
-        _nullableProperties = nullableProperties;
+        _nullableProperties = nullableProperties,
+        _properties = properties;
 
-  factory _$_LexObject.fromJson(Map<String, dynamic> json) =>
-      _$$_LexObjectFromJson(json);
+  factory _$LexObjectImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LexObjectImplFromJson(json);
 
   @override
   @JsonKey()
@@ -211,9 +200,16 @@ class _$_LexObject implements _LexObject {
     return EqualUnmodifiableListView(value);
   }
 
+  final Map<String, LexObjectProperty>? _properties;
   @override
-  @LexObjectPropertyRecordConverter()
-  final LexObjectPropertyRecord? properties;
+  @LexObjectPropertyConverter()
+  Map<String, LexObjectProperty>? get properties {
+    final value = _properties;
+    if (value == null) return null;
+    if (_properties is EqualUnmodifiableMapView) return _properties;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
@@ -224,7 +220,7 @@ class _$_LexObject implements _LexObject {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexObject &&
+            other is _$LexObjectImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -232,8 +228,8 @@ class _$_LexObject implements _LexObject {
                 .equals(other._requiredProperties, _requiredProperties) &&
             const DeepCollectionEquality()
                 .equals(other._nullableProperties, _nullableProperties) &&
-            (identical(other.properties, properties) ||
-                other.properties == properties));
+            const DeepCollectionEquality()
+                .equals(other._properties, _properties));
   }
 
   @JsonKey(ignore: true)
@@ -244,17 +240,17 @@ class _$_LexObject implements _LexObject {
       description,
       const DeepCollectionEquality().hash(_requiredProperties),
       const DeepCollectionEquality().hash(_nullableProperties),
-      properties);
+      const DeepCollectionEquality().hash(_properties));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexObjectCopyWith<_$_LexObject> get copyWith =>
-      __$$_LexObjectCopyWithImpl<_$_LexObject>(this, _$identity);
+  _$$LexObjectImplCopyWith<_$LexObjectImpl> get copyWith =>
+      __$$LexObjectImplCopyWithImpl<_$LexObjectImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LexObjectToJson(
+    return _$$LexObjectImplToJson(
       this,
     );
   }
@@ -266,11 +262,11 @@ abstract class _LexObject implements LexObject {
       final String? description,
       @JsonKey(name: 'required') final List<String>? requiredProperties,
       @JsonKey(name: 'nullable') final List<String>? nullableProperties,
-      @LexObjectPropertyRecordConverter()
-      final LexObjectPropertyRecord? properties}) = _$_LexObject;
+      @LexObjectPropertyConverter()
+      final Map<String, LexObjectProperty>? properties}) = _$LexObjectImpl;
 
   factory _LexObject.fromJson(Map<String, dynamic> json) =
-      _$_LexObject.fromJson;
+      _$LexObjectImpl.fromJson;
 
   @override
   String get type;
@@ -283,10 +279,10 @@ abstract class _LexObject implements LexObject {
   @JsonKey(name: 'nullable')
   List<String>? get nullableProperties;
   @override
-  @LexObjectPropertyRecordConverter()
-  LexObjectPropertyRecord? get properties;
+  @LexObjectPropertyConverter()
+  Map<String, LexObjectProperty>? get properties;
   @override
   @JsonKey(ignore: true)
-  _$$_LexObjectCopyWith<_$_LexObject> get copyWith =>
+  _$$LexObjectImplCopyWith<_$LexObjectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

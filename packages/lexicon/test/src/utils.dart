@@ -2,6 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+String toPath(final String lexiconId) => lexiconId.replaceAll('.', '/');
+
 bool equals(dynamic obj1, dynamic obj2) {
   if (obj1 is Map && obj2 is Map) {
     return _compareMaps(

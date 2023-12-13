@@ -24,8 +24,8 @@ mixin _$LexXrpcParameters {
   String? get description => throw _privateConstructorUsedError;
   @JsonKey(name: 'required')
   List<String>? get requiredProperties => throw _privateConstructorUsedError;
-  @LexXrpcParametersPropertyRecordConverter()
-  LexXrpcParametersPropertyRecord? get properties =>
+  @LexXrpcParametersPropertyConverter()
+  Map<String, LexXrpcParametersProperty>? get properties =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,10 +44,8 @@ abstract class $LexXrpcParametersCopyWith<$Res> {
       {String type,
       String? description,
       @JsonKey(name: 'required') List<String>? requiredProperties,
-      @LexXrpcParametersPropertyRecordConverter()
-      LexXrpcParametersPropertyRecord? properties});
-
-  $LexXrpcParametersPropertyRecordCopyWith<$Res>? get properties;
+      @LexXrpcParametersPropertyConverter()
+      Map<String, LexXrpcParametersProperty>? properties});
 }
 
 /// @nodoc
@@ -84,49 +82,33 @@ class _$LexXrpcParametersCopyWithImpl<$Res, $Val extends LexXrpcParameters>
       properties: freezed == properties
           ? _value.properties
           : properties // ignore: cast_nullable_to_non_nullable
-              as LexXrpcParametersPropertyRecord?,
+              as Map<String, LexXrpcParametersProperty>?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $LexXrpcParametersPropertyRecordCopyWith<$Res>? get properties {
-    if (_value.properties == null) {
-      return null;
-    }
-
-    return $LexXrpcParametersPropertyRecordCopyWith<$Res>(_value.properties!,
-        (value) {
-      return _then(_value.copyWith(properties: value) as $Val);
-    });
   }
 }
 
 /// @nodoc
-abstract class _$$_LexXrpcParametersCopyWith<$Res>
+abstract class _$$LexXrpcParametersImplCopyWith<$Res>
     implements $LexXrpcParametersCopyWith<$Res> {
-  factory _$$_LexXrpcParametersCopyWith(_$_LexXrpcParameters value,
-          $Res Function(_$_LexXrpcParameters) then) =
-      __$$_LexXrpcParametersCopyWithImpl<$Res>;
+  factory _$$LexXrpcParametersImplCopyWith(_$LexXrpcParametersImpl value,
+          $Res Function(_$LexXrpcParametersImpl) then) =
+      __$$LexXrpcParametersImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {String type,
       String? description,
       @JsonKey(name: 'required') List<String>? requiredProperties,
-      @LexXrpcParametersPropertyRecordConverter()
-      LexXrpcParametersPropertyRecord? properties});
-
-  @override
-  $LexXrpcParametersPropertyRecordCopyWith<$Res>? get properties;
+      @LexXrpcParametersPropertyConverter()
+      Map<String, LexXrpcParametersProperty>? properties});
 }
 
 /// @nodoc
-class __$$_LexXrpcParametersCopyWithImpl<$Res>
-    extends _$LexXrpcParametersCopyWithImpl<$Res, _$_LexXrpcParameters>
-    implements _$$_LexXrpcParametersCopyWith<$Res> {
-  __$$_LexXrpcParametersCopyWithImpl(
-      _$_LexXrpcParameters _value, $Res Function(_$_LexXrpcParameters) _then)
+class __$$LexXrpcParametersImplCopyWithImpl<$Res>
+    extends _$LexXrpcParametersCopyWithImpl<$Res, _$LexXrpcParametersImpl>
+    implements _$$LexXrpcParametersImplCopyWith<$Res> {
+  __$$LexXrpcParametersImplCopyWithImpl(_$LexXrpcParametersImpl _value,
+      $Res Function(_$LexXrpcParametersImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -137,7 +119,7 @@ class __$$_LexXrpcParametersCopyWithImpl<$Res>
     Object? requiredProperties = freezed,
     Object? properties = freezed,
   }) {
-    return _then(_$_LexXrpcParameters(
+    return _then(_$LexXrpcParametersImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -151,9 +133,9 @@ class __$$_LexXrpcParametersCopyWithImpl<$Res>
           : requiredProperties // ignore: cast_nullable_to_non_nullable
               as List<String>?,
       properties: freezed == properties
-          ? _value.properties
+          ? _value._properties
           : properties // ignore: cast_nullable_to_non_nullable
-              as LexXrpcParametersPropertyRecord?,
+              as Map<String, LexXrpcParametersProperty>?,
     ));
   }
 }
@@ -161,16 +143,18 @@ class __$$_LexXrpcParametersCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexXrpcParameters implements _LexXrpcParameters {
-  const _$_LexXrpcParameters(
+class _$LexXrpcParametersImpl implements _LexXrpcParameters {
+  const _$LexXrpcParametersImpl(
       {this.type = 'params',
       this.description,
       @JsonKey(name: 'required') final List<String>? requiredProperties,
-      @LexXrpcParametersPropertyRecordConverter() this.properties})
-      : _requiredProperties = requiredProperties;
+      @LexXrpcParametersPropertyConverter()
+      final Map<String, LexXrpcParametersProperty>? properties})
+      : _requiredProperties = requiredProperties,
+        _properties = properties;
 
-  factory _$_LexXrpcParameters.fromJson(Map<String, dynamic> json) =>
-      _$$_LexXrpcParametersFromJson(json);
+  factory _$LexXrpcParametersImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LexXrpcParametersImplFromJson(json);
 
   @override
   @JsonKey()
@@ -189,9 +173,16 @@ class _$_LexXrpcParameters implements _LexXrpcParameters {
     return EqualUnmodifiableListView(value);
   }
 
+  final Map<String, LexXrpcParametersProperty>? _properties;
   @override
-  @LexXrpcParametersPropertyRecordConverter()
-  final LexXrpcParametersPropertyRecord? properties;
+  @LexXrpcParametersPropertyConverter()
+  Map<String, LexXrpcParametersProperty>? get properties {
+    final value = _properties;
+    if (value == null) return null;
+    if (_properties is EqualUnmodifiableMapView) return _properties;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
@@ -202,31 +193,35 @@ class _$_LexXrpcParameters implements _LexXrpcParameters {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexXrpcParameters &&
+            other is _$LexXrpcParametersImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             const DeepCollectionEquality()
                 .equals(other._requiredProperties, _requiredProperties) &&
-            (identical(other.properties, properties) ||
-                other.properties == properties));
+            const DeepCollectionEquality()
+                .equals(other._properties, _properties));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, description,
-      const DeepCollectionEquality().hash(_requiredProperties), properties);
+  int get hashCode => Object.hash(
+      runtimeType,
+      type,
+      description,
+      const DeepCollectionEquality().hash(_requiredProperties),
+      const DeepCollectionEquality().hash(_properties));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexXrpcParametersCopyWith<_$_LexXrpcParameters> get copyWith =>
-      __$$_LexXrpcParametersCopyWithImpl<_$_LexXrpcParameters>(
+  _$$LexXrpcParametersImplCopyWith<_$LexXrpcParametersImpl> get copyWith =>
+      __$$LexXrpcParametersImplCopyWithImpl<_$LexXrpcParametersImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LexXrpcParametersToJson(
+    return _$$LexXrpcParametersImplToJson(
       this,
     );
   }
@@ -237,12 +232,12 @@ abstract class _LexXrpcParameters implements LexXrpcParameters {
           {final String type,
           final String? description,
           @JsonKey(name: 'required') final List<String>? requiredProperties,
-          @LexXrpcParametersPropertyRecordConverter()
-          final LexXrpcParametersPropertyRecord? properties}) =
-      _$_LexXrpcParameters;
+          @LexXrpcParametersPropertyConverter()
+          final Map<String, LexXrpcParametersProperty>? properties}) =
+      _$LexXrpcParametersImpl;
 
   factory _LexXrpcParameters.fromJson(Map<String, dynamic> json) =
-      _$_LexXrpcParameters.fromJson;
+      _$LexXrpcParametersImpl.fromJson;
 
   @override
   String get type;
@@ -252,10 +247,10 @@ abstract class _LexXrpcParameters implements LexXrpcParameters {
   @JsonKey(name: 'required')
   List<String>? get requiredProperties;
   @override
-  @LexXrpcParametersPropertyRecordConverter()
-  LexXrpcParametersPropertyRecord? get properties;
+  @LexXrpcParametersPropertyConverter()
+  Map<String, LexXrpcParametersProperty>? get properties;
   @override
   @JsonKey(ignore: true)
-  _$$_LexXrpcParametersCopyWith<_$_LexXrpcParameters> get copyWith =>
+  _$$LexXrpcParametersImplCopyWith<_$LexXrpcParametersImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

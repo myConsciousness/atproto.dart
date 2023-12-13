@@ -25,8 +25,8 @@ mixin _$LexiconDoc {
   NSID get id => throw _privateConstructorUsedError;
   int? get revision => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  @LexUserTypeRecordConverter()
-  LexUserTypeRecord get defs => throw _privateConstructorUsedError;
+  @LexUserTypeConverter()
+  Map<String, LexUserType> get defs => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,9 +45,7 @@ abstract class $LexiconDocCopyWith<$Res> {
       @NsidConverter() NSID id,
       int? revision,
       String? description,
-      @LexUserTypeRecordConverter() LexUserTypeRecord defs});
-
-  $LexUserTypeRecordCopyWith<$Res> get defs;
+      @LexUserTypeConverter() Map<String, LexUserType> defs});
 }
 
 /// @nodoc
@@ -89,25 +87,17 @@ class _$LexiconDocCopyWithImpl<$Res, $Val extends LexiconDoc>
       defs: null == defs
           ? _value.defs
           : defs // ignore: cast_nullable_to_non_nullable
-              as LexUserTypeRecord,
+              as Map<String, LexUserType>,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $LexUserTypeRecordCopyWith<$Res> get defs {
-    return $LexUserTypeRecordCopyWith<$Res>(_value.defs, (value) {
-      return _then(_value.copyWith(defs: value) as $Val);
-    });
   }
 }
 
 /// @nodoc
-abstract class _$$_LexiconDocCopyWith<$Res>
+abstract class _$$LexiconDocImplCopyWith<$Res>
     implements $LexiconDocCopyWith<$Res> {
-  factory _$$_LexiconDocCopyWith(
-          _$_LexiconDoc value, $Res Function(_$_LexiconDoc) then) =
-      __$$_LexiconDocCopyWithImpl<$Res>;
+  factory _$$LexiconDocImplCopyWith(
+          _$LexiconDocImpl value, $Res Function(_$LexiconDocImpl) then) =
+      __$$LexiconDocImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -115,18 +105,15 @@ abstract class _$$_LexiconDocCopyWith<$Res>
       @NsidConverter() NSID id,
       int? revision,
       String? description,
-      @LexUserTypeRecordConverter() LexUserTypeRecord defs});
-
-  @override
-  $LexUserTypeRecordCopyWith<$Res> get defs;
+      @LexUserTypeConverter() Map<String, LexUserType> defs});
 }
 
 /// @nodoc
-class __$$_LexiconDocCopyWithImpl<$Res>
-    extends _$LexiconDocCopyWithImpl<$Res, _$_LexiconDoc>
-    implements _$$_LexiconDocCopyWith<$Res> {
-  __$$_LexiconDocCopyWithImpl(
-      _$_LexiconDoc _value, $Res Function(_$_LexiconDoc) _then)
+class __$$LexiconDocImplCopyWithImpl<$Res>
+    extends _$LexiconDocCopyWithImpl<$Res, _$LexiconDocImpl>
+    implements _$$LexiconDocImplCopyWith<$Res> {
+  __$$LexiconDocImplCopyWithImpl(
+      _$LexiconDocImpl _value, $Res Function(_$LexiconDocImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -138,7 +125,7 @@ class __$$_LexiconDocCopyWithImpl<$Res>
     Object? description = freezed,
     Object? defs = null,
   }) {
-    return _then(_$_LexiconDoc(
+    return _then(_$LexiconDocImpl(
       lexicon: null == lexicon
           ? _value.lexicon
           : lexicon // ignore: cast_nullable_to_non_nullable
@@ -156,9 +143,9 @@ class __$$_LexiconDocCopyWithImpl<$Res>
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
       defs: null == defs
-          ? _value.defs
+          ? _value._defs
           : defs // ignore: cast_nullable_to_non_nullable
-              as LexUserTypeRecord,
+              as Map<String, LexUserType>,
     ));
   }
 }
@@ -166,16 +153,17 @@ class __$$_LexiconDocCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexiconDoc implements _LexiconDoc {
-  const _$_LexiconDoc(
+class _$LexiconDocImpl implements _LexiconDoc {
+  const _$LexiconDocImpl(
       {required this.lexicon,
       @NsidConverter() required this.id,
       this.revision,
       this.description,
-      @LexUserTypeRecordConverter() required this.defs});
+      @LexUserTypeConverter() required final Map<String, LexUserType> defs})
+      : _defs = defs;
 
-  factory _$_LexiconDoc.fromJson(Map<String, dynamic> json) =>
-      _$$_LexiconDocFromJson(json);
+  factory _$LexiconDocImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LexiconDocImplFromJson(json);
 
   @override
   final int lexicon;
@@ -186,9 +174,14 @@ class _$_LexiconDoc implements _LexiconDoc {
   final int? revision;
   @override
   final String? description;
+  final Map<String, LexUserType> _defs;
   @override
-  @LexUserTypeRecordConverter()
-  final LexUserTypeRecord defs;
+  @LexUserTypeConverter()
+  Map<String, LexUserType> get defs {
+    if (_defs is EqualUnmodifiableMapView) return _defs;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_defs);
+  }
 
   @override
   String toString() {
@@ -199,30 +192,30 @@ class _$_LexiconDoc implements _LexiconDoc {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexiconDoc &&
+            other is _$LexiconDocImpl &&
             (identical(other.lexicon, lexicon) || other.lexicon == lexicon) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.revision, revision) ||
                 other.revision == revision) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.defs, defs) || other.defs == defs));
+            const DeepCollectionEquality().equals(other._defs, _defs));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, lexicon, id, revision, description, defs);
+  int get hashCode => Object.hash(runtimeType, lexicon, id, revision,
+      description, const DeepCollectionEquality().hash(_defs));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexiconDocCopyWith<_$_LexiconDoc> get copyWith =>
-      __$$_LexiconDocCopyWithImpl<_$_LexiconDoc>(this, _$identity);
+  _$$LexiconDocImplCopyWith<_$LexiconDocImpl> get copyWith =>
+      __$$LexiconDocImplCopyWithImpl<_$LexiconDocImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LexiconDocToJson(
+    return _$$LexiconDocImplToJson(
       this,
     );
   }
@@ -234,11 +227,11 @@ abstract class _LexiconDoc implements LexiconDoc {
       @NsidConverter() required final NSID id,
       final int? revision,
       final String? description,
-      @LexUserTypeRecordConverter()
-      required final LexUserTypeRecord defs}) = _$_LexiconDoc;
+      @LexUserTypeConverter()
+      required final Map<String, LexUserType> defs}) = _$LexiconDocImpl;
 
   factory _LexiconDoc.fromJson(Map<String, dynamic> json) =
-      _$_LexiconDoc.fromJson;
+      _$LexiconDocImpl.fromJson;
 
   @override
   int get lexicon;
@@ -250,10 +243,10 @@ abstract class _LexiconDoc implements LexiconDoc {
   @override
   String? get description;
   @override
-  @LexUserTypeRecordConverter()
-  LexUserTypeRecord get defs;
+  @LexUserTypeConverter()
+  Map<String, LexUserType> get defs;
   @override
   @JsonKey(ignore: true)
-  _$$_LexiconDocCopyWith<_$_LexiconDoc> get copyWith =>
+  _$$LexiconDocImplCopyWith<_$LexiconDocImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

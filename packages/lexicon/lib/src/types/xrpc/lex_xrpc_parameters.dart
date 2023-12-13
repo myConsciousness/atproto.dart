@@ -7,8 +7,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../converter/lex_xrpc_parameters_property_record_converter.dart';
-import 'lex_xrpc_parameters_property_record.dart';
+// 🌎 Project imports:
+import '../converter/lex_xrpc_parameters_property_converter.dart';
+import 'lex_xrpc_parameters_property.dart';
 
 part 'lex_xrpc_parameters.freezed.dart';
 part 'lex_xrpc_parameters.g.dart';
@@ -20,8 +21,8 @@ class LexXrpcParameters with _$LexXrpcParameters {
     @Default('params') String type,
     String? description,
     @JsonKey(name: 'required') List<String>? requiredProperties,
-    @LexXrpcParametersPropertyRecordConverter()
-    LexXrpcParametersPropertyRecord? properties,
+    @LexXrpcParametersPropertyConverter()
+    Map<String, LexXrpcParametersProperty>? properties,
   }) = _LexXrpcParameters;
 
   factory LexXrpcParameters.fromJson(Map<String, Object?> json) =>

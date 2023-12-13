@@ -24,7 +24,7 @@ mixin _$LexString {
   LexStringFormat? get format => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   @JsonKey(name: 'default')
-  bool? get defaultValue => throw _privateConstructorUsedError;
+  String? get defaultValue => throw _privateConstructorUsedError;
   int? get minLength => throw _privateConstructorUsedError;
   int? get maxLength => throw _privateConstructorUsedError;
   int? get minGraphemes => throw _privateConstructorUsedError;
@@ -32,7 +32,7 @@ mixin _$LexString {
   @JsonKey(name: 'enum')
   List<String>? get enumValues => throw _privateConstructorUsedError;
   @JsonKey(name: 'const')
-  bool? get constValue => throw _privateConstructorUsedError;
+  String? get constValue => throw _privateConstructorUsedError;
   List<String>? get knownValues => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -50,13 +50,13 @@ abstract class $LexStringCopyWith<$Res> {
       {String type,
       LexStringFormat? format,
       String? description,
-      @JsonKey(name: 'default') bool? defaultValue,
+      @JsonKey(name: 'default') String? defaultValue,
       int? minLength,
       int? maxLength,
       int? minGraphemes,
       int? maxGraphemes,
       @JsonKey(name: 'enum') List<String>? enumValues,
-      @JsonKey(name: 'const') bool? constValue,
+      @JsonKey(name: 'const') String? constValue,
       List<String>? knownValues});
 }
 
@@ -101,7 +101,7 @@ class _$LexStringCopyWithImpl<$Res, $Val extends LexString>
       defaultValue: freezed == defaultValue
           ? _value.defaultValue
           : defaultValue // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as String?,
       minLength: freezed == minLength
           ? _value.minLength
           : minLength // ignore: cast_nullable_to_non_nullable
@@ -125,7 +125,7 @@ class _$LexStringCopyWithImpl<$Res, $Val extends LexString>
       constValue: freezed == constValue
           ? _value.constValue
           : constValue // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as String?,
       knownValues: freezed == knownValues
           ? _value.knownValues
           : knownValues // ignore: cast_nullable_to_non_nullable
@@ -135,32 +135,33 @@ class _$LexStringCopyWithImpl<$Res, $Val extends LexString>
 }
 
 /// @nodoc
-abstract class _$$_LexStringCopyWith<$Res> implements $LexStringCopyWith<$Res> {
-  factory _$$_LexStringCopyWith(
-          _$_LexString value, $Res Function(_$_LexString) then) =
-      __$$_LexStringCopyWithImpl<$Res>;
+abstract class _$$LexStringImplCopyWith<$Res>
+    implements $LexStringCopyWith<$Res> {
+  factory _$$LexStringImplCopyWith(
+          _$LexStringImpl value, $Res Function(_$LexStringImpl) then) =
+      __$$LexStringImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {String type,
       LexStringFormat? format,
       String? description,
-      @JsonKey(name: 'default') bool? defaultValue,
+      @JsonKey(name: 'default') String? defaultValue,
       int? minLength,
       int? maxLength,
       int? minGraphemes,
       int? maxGraphemes,
       @JsonKey(name: 'enum') List<String>? enumValues,
-      @JsonKey(name: 'const') bool? constValue,
+      @JsonKey(name: 'const') String? constValue,
       List<String>? knownValues});
 }
 
 /// @nodoc
-class __$$_LexStringCopyWithImpl<$Res>
-    extends _$LexStringCopyWithImpl<$Res, _$_LexString>
-    implements _$$_LexStringCopyWith<$Res> {
-  __$$_LexStringCopyWithImpl(
-      _$_LexString _value, $Res Function(_$_LexString) _then)
+class __$$LexStringImplCopyWithImpl<$Res>
+    extends _$LexStringCopyWithImpl<$Res, _$LexStringImpl>
+    implements _$$LexStringImplCopyWith<$Res> {
+  __$$LexStringImplCopyWithImpl(
+      _$LexStringImpl _value, $Res Function(_$LexStringImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -178,7 +179,7 @@ class __$$_LexStringCopyWithImpl<$Res>
     Object? constValue = freezed,
     Object? knownValues = freezed,
   }) {
-    return _then(_$_LexString(
+    return _then(_$LexStringImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -194,7 +195,7 @@ class __$$_LexStringCopyWithImpl<$Res>
       defaultValue: freezed == defaultValue
           ? _value.defaultValue
           : defaultValue // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as String?,
       minLength: freezed == minLength
           ? _value.minLength
           : minLength // ignore: cast_nullable_to_non_nullable
@@ -218,7 +219,7 @@ class __$$_LexStringCopyWithImpl<$Res>
       constValue: freezed == constValue
           ? _value.constValue
           : constValue // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as String?,
       knownValues: freezed == knownValues
           ? _value._knownValues
           : knownValues // ignore: cast_nullable_to_non_nullable
@@ -230,8 +231,8 @@ class __$$_LexStringCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexString implements _LexString {
-  const _$_LexString(
+class _$LexStringImpl implements _LexString {
+  const _$LexStringImpl(
       {this.type = 'string',
       this.format,
       this.description,
@@ -246,8 +247,8 @@ class _$_LexString implements _LexString {
       : _enumValues = enumValues,
         _knownValues = knownValues;
 
-  factory _$_LexString.fromJson(Map<String, dynamic> json) =>
-      _$$_LexStringFromJson(json);
+  factory _$LexStringImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LexStringImplFromJson(json);
 
   @override
   @JsonKey()
@@ -258,7 +259,7 @@ class _$_LexString implements _LexString {
   final String? description;
   @override
   @JsonKey(name: 'default')
-  final bool? defaultValue;
+  final String? defaultValue;
   @override
   final int? minLength;
   @override
@@ -280,7 +281,7 @@ class _$_LexString implements _LexString {
 
   @override
   @JsonKey(name: 'const')
-  final bool? constValue;
+  final String? constValue;
   final List<String>? _knownValues;
   @override
   List<String>? get knownValues {
@@ -300,7 +301,7 @@ class _$_LexString implements _LexString {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexString &&
+            other is _$LexStringImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.format, format) || other.format == format) &&
             (identical(other.description, description) ||
@@ -342,12 +343,12 @@ class _$_LexString implements _LexString {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexStringCopyWith<_$_LexString> get copyWith =>
-      __$$_LexStringCopyWithImpl<_$_LexString>(this, _$identity);
+  _$$LexStringImplCopyWith<_$LexStringImpl> get copyWith =>
+      __$$LexStringImplCopyWithImpl<_$LexStringImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LexStringToJson(
+    return _$$LexStringImplToJson(
       this,
     );
   }
@@ -358,17 +359,17 @@ abstract class _LexString implements LexString {
       {final String type,
       final LexStringFormat? format,
       final String? description,
-      @JsonKey(name: 'default') final bool? defaultValue,
+      @JsonKey(name: 'default') final String? defaultValue,
       final int? minLength,
       final int? maxLength,
       final int? minGraphemes,
       final int? maxGraphemes,
       @JsonKey(name: 'enum') final List<String>? enumValues,
-      @JsonKey(name: 'const') final bool? constValue,
-      final List<String>? knownValues}) = _$_LexString;
+      @JsonKey(name: 'const') final String? constValue,
+      final List<String>? knownValues}) = _$LexStringImpl;
 
   factory _LexString.fromJson(Map<String, dynamic> json) =
-      _$_LexString.fromJson;
+      _$LexStringImpl.fromJson;
 
   @override
   String get type;
@@ -378,7 +379,7 @@ abstract class _LexString implements LexString {
   String? get description;
   @override
   @JsonKey(name: 'default')
-  bool? get defaultValue;
+  String? get defaultValue;
   @override
   int? get minLength;
   @override
@@ -392,11 +393,11 @@ abstract class _LexString implements LexString {
   List<String>? get enumValues;
   @override
   @JsonKey(name: 'const')
-  bool? get constValue;
+  String? get constValue;
   @override
   List<String>? get knownValues;
   @override
   @JsonKey(ignore: true)
-  _$$_LexStringCopyWith<_$_LexString> get copyWith =>
+  _$$LexStringImplCopyWith<_$LexStringImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

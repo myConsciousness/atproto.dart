@@ -7,8 +7,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../converter/lex_object_property_record_converter.dart';
-import 'lex_object_property_record.dart';
+// 🌎 Project imports:
+import '../converter/lex_object_property_converter.dart';
+import 'lex_object_property.dart';
 
 part 'lex_object.freezed.dart';
 part 'lex_object.g.dart';
@@ -21,7 +22,7 @@ class LexObject with _$LexObject {
     String? description,
     @JsonKey(name: 'required') List<String>? requiredProperties,
     @JsonKey(name: 'nullable') List<String>? nullableProperties,
-    @LexObjectPropertyRecordConverter() LexObjectPropertyRecord? properties,
+    @LexObjectPropertyConverter() Map<String, LexObjectProperty>? properties,
   }) = _LexObject;
 
   factory LexObject.fromJson(Map<String, Object?> json) =>

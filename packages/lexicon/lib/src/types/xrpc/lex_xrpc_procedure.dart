@@ -7,6 +7,7 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import 'lex_xrpc_body.dart';
 import 'lex_xrpc_error.dart';
 import 'lex_xrpc_parameters.dart';

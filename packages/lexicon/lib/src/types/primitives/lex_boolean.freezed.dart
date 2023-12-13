@@ -86,11 +86,11 @@ class _$LexBooleanCopyWithImpl<$Res, $Val extends LexBoolean>
 }
 
 /// @nodoc
-abstract class _$$_LexBooleanCopyWith<$Res>
+abstract class _$$LexBooleanImplCopyWith<$Res>
     implements $LexBooleanCopyWith<$Res> {
-  factory _$$_LexBooleanCopyWith(
-          _$_LexBoolean value, $Res Function(_$_LexBoolean) then) =
-      __$$_LexBooleanCopyWithImpl<$Res>;
+  factory _$$LexBooleanImplCopyWith(
+          _$LexBooleanImpl value, $Res Function(_$LexBooleanImpl) then) =
+      __$$LexBooleanImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -101,11 +101,11 @@ abstract class _$$_LexBooleanCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LexBooleanCopyWithImpl<$Res>
-    extends _$LexBooleanCopyWithImpl<$Res, _$_LexBoolean>
-    implements _$$_LexBooleanCopyWith<$Res> {
-  __$$_LexBooleanCopyWithImpl(
-      _$_LexBoolean _value, $Res Function(_$_LexBoolean) _then)
+class __$$LexBooleanImplCopyWithImpl<$Res>
+    extends _$LexBooleanCopyWithImpl<$Res, _$LexBooleanImpl>
+    implements _$$LexBooleanImplCopyWith<$Res> {
+  __$$LexBooleanImplCopyWithImpl(
+      _$LexBooleanImpl _value, $Res Function(_$LexBooleanImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -116,7 +116,7 @@ class __$$_LexBooleanCopyWithImpl<$Res>
     Object? defaultValue = freezed,
     Object? constValue = freezed,
   }) {
-    return _then(_$_LexBoolean(
+    return _then(_$LexBooleanImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -140,15 +140,15 @@ class __$$_LexBooleanCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexBoolean implements _LexBoolean {
-  const _$_LexBoolean(
+class _$LexBooleanImpl implements _LexBoolean {
+  const _$LexBooleanImpl(
       {this.type = 'boolean',
       this.description,
       @JsonKey(name: 'default') this.defaultValue,
       @JsonKey(name: 'const') this.constValue});
 
-  factory _$_LexBoolean.fromJson(Map<String, dynamic> json) =>
-      _$$_LexBooleanFromJson(json);
+  factory _$LexBooleanImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LexBooleanImplFromJson(json);
 
   @override
   @JsonKey()
@@ -171,7 +171,7 @@ class _$_LexBoolean implements _LexBoolean {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexBoolean &&
+            other is _$LexBooleanImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -189,12 +189,12 @@ class _$_LexBoolean implements _LexBoolean {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexBooleanCopyWith<_$_LexBoolean> get copyWith =>
-      __$$_LexBooleanCopyWithImpl<_$_LexBoolean>(this, _$identity);
+  _$$LexBooleanImplCopyWith<_$LexBooleanImpl> get copyWith =>
+      __$$LexBooleanImplCopyWithImpl<_$LexBooleanImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LexBooleanToJson(
+    return _$$LexBooleanImplToJson(
       this,
     );
   }
@@ -205,10 +205,10 @@ abstract class _LexBoolean implements LexBoolean {
       {final String type,
       final String? description,
       @JsonKey(name: 'default') final bool? defaultValue,
-      @JsonKey(name: 'const') final bool? constValue}) = _$_LexBoolean;
+      @JsonKey(name: 'const') final bool? constValue}) = _$LexBooleanImpl;
 
   factory _LexBoolean.fromJson(Map<String, dynamic> json) =
-      _$_LexBoolean.fromJson;
+      _$LexBooleanImpl.fromJson;
 
   @override
   String get type;
@@ -222,6 +222,6 @@ abstract class _LexBoolean implements LexBoolean {
   bool? get constValue;
   @override
   @JsonKey(ignore: true)
-  _$$_LexBooleanCopyWith<_$_LexBoolean> get copyWith =>
+  _$$LexBooleanImplCopyWith<_$LexBooleanImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

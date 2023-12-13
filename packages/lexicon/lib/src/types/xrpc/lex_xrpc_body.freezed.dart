@@ -92,11 +92,11 @@ class _$LexXrpcBodyCopyWithImpl<$Res, $Val extends LexXrpcBody>
 }
 
 /// @nodoc
-abstract class _$$_LexXrpcBodyCopyWith<$Res>
+abstract class _$$LexXrpcBodyImplCopyWith<$Res>
     implements $LexXrpcBodyCopyWith<$Res> {
-  factory _$$_LexXrpcBodyCopyWith(
-          _$_LexXrpcBody value, $Res Function(_$_LexXrpcBody) then) =
-      __$$_LexXrpcBodyCopyWithImpl<$Res>;
+  factory _$$LexXrpcBodyImplCopyWith(
+          _$LexXrpcBodyImpl value, $Res Function(_$LexXrpcBodyImpl) then) =
+      __$$LexXrpcBodyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -109,11 +109,11 @@ abstract class _$$_LexXrpcBodyCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LexXrpcBodyCopyWithImpl<$Res>
-    extends _$LexXrpcBodyCopyWithImpl<$Res, _$_LexXrpcBody>
-    implements _$$_LexXrpcBodyCopyWith<$Res> {
-  __$$_LexXrpcBodyCopyWithImpl(
-      _$_LexXrpcBody _value, $Res Function(_$_LexXrpcBody) _then)
+class __$$LexXrpcBodyImplCopyWithImpl<$Res>
+    extends _$LexXrpcBodyCopyWithImpl<$Res, _$LexXrpcBodyImpl>
+    implements _$$LexXrpcBodyImplCopyWith<$Res> {
+  __$$LexXrpcBodyImplCopyWithImpl(
+      _$LexXrpcBodyImpl _value, $Res Function(_$LexXrpcBodyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -123,7 +123,7 @@ class __$$_LexXrpcBodyCopyWithImpl<$Res>
     Object? encoding = null,
     Object? schema = freezed,
   }) {
-    return _then(_$_LexXrpcBody(
+    return _then(_$LexXrpcBodyImpl(
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -143,14 +143,14 @@ class __$$_LexXrpcBodyCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexXrpcBody implements _LexXrpcBody {
-  const _$_LexXrpcBody(
+class _$LexXrpcBodyImpl implements _LexXrpcBody {
+  const _$LexXrpcBodyImpl(
       {this.description,
       required this.encoding,
       @LexXrpcSchemaConverter() this.schema});
 
-  factory _$_LexXrpcBody.fromJson(Map<String, dynamic> json) =>
-      _$$_LexXrpcBodyFromJson(json);
+  factory _$LexXrpcBodyImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LexXrpcBodyImplFromJson(json);
 
   @override
   final String? description;
@@ -169,7 +169,7 @@ class _$_LexXrpcBody implements _LexXrpcBody {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexXrpcBody &&
+            other is _$LexXrpcBodyImpl &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.encoding, encoding) ||
@@ -184,12 +184,12 @@ class _$_LexXrpcBody implements _LexXrpcBody {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexXrpcBodyCopyWith<_$_LexXrpcBody> get copyWith =>
-      __$$_LexXrpcBodyCopyWithImpl<_$_LexXrpcBody>(this, _$identity);
+  _$$LexXrpcBodyImplCopyWith<_$LexXrpcBodyImpl> get copyWith =>
+      __$$LexXrpcBodyImplCopyWithImpl<_$LexXrpcBodyImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LexXrpcBodyToJson(
+    return _$$LexXrpcBodyImplToJson(
       this,
     );
   }
@@ -197,12 +197,13 @@ class _$_LexXrpcBody implements _LexXrpcBody {
 
 abstract class _LexXrpcBody implements LexXrpcBody {
   const factory _LexXrpcBody(
-      {final String? description,
-      required final String encoding,
-      @LexXrpcSchemaConverter() final LexXrpcSchema? schema}) = _$_LexXrpcBody;
+          {final String? description,
+          required final String encoding,
+          @LexXrpcSchemaConverter() final LexXrpcSchema? schema}) =
+      _$LexXrpcBodyImpl;
 
   factory _LexXrpcBody.fromJson(Map<String, dynamic> json) =
-      _$_LexXrpcBody.fromJson;
+      _$LexXrpcBodyImpl.fromJson;
 
   @override
   String? get description;
@@ -213,6 +214,6 @@ abstract class _LexXrpcBody implements LexXrpcBody {
   LexXrpcSchema? get schema;
   @override
   @JsonKey(ignore: true)
-  _$$_LexXrpcBodyCopyWith<_$_LexXrpcBody> get copyWith =>
+  _$$LexXrpcBodyImplCopyWith<_$LexXrpcBodyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

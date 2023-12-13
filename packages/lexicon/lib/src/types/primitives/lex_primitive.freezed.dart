@@ -88,10 +88,10 @@ class _$LexPrimitiveCopyWithImpl<$Res, $Val extends LexPrimitive>
 }
 
 /// @nodoc
-abstract class _$$_LexBooleanCopyWith<$Res> {
-  factory _$$_LexBooleanCopyWith(
-          _$_LexBoolean value, $Res Function(_$_LexBoolean) then) =
-      __$$_LexBooleanCopyWithImpl<$Res>;
+abstract class _$$LexBooleanImplCopyWith<$Res> {
+  factory _$$LexBooleanImplCopyWith(
+          _$LexBooleanImpl value, $Res Function(_$LexBooleanImpl) then) =
+      __$$LexBooleanImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexBoolean data});
 
@@ -99,11 +99,11 @@ abstract class _$$_LexBooleanCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LexBooleanCopyWithImpl<$Res>
-    extends _$LexPrimitiveCopyWithImpl<$Res, _$_LexBoolean>
-    implements _$$_LexBooleanCopyWith<$Res> {
-  __$$_LexBooleanCopyWithImpl(
-      _$_LexBoolean _value, $Res Function(_$_LexBoolean) _then)
+class __$$LexBooleanImplCopyWithImpl<$Res>
+    extends _$LexPrimitiveCopyWithImpl<$Res, _$LexBooleanImpl>
+    implements _$$LexBooleanImplCopyWith<$Res> {
+  __$$LexBooleanImplCopyWithImpl(
+      _$LexBooleanImpl _value, $Res Function(_$LexBooleanImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +111,7 @@ class __$$_LexBooleanCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_LexBoolean(
+    return _then(_$LexBooleanImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -130,8 +130,8 @@ class __$$_LexBooleanCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexBoolean implements _LexBoolean {
-  const _$_LexBoolean({required this.data});
+class _$LexBooleanImpl implements _LexBoolean {
+  const _$LexBooleanImpl({required this.data});
 
   @override
   final LexBoolean data;
@@ -145,7 +145,7 @@ class _$_LexBoolean implements _LexBoolean {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexBoolean &&
+            other is _$LexBooleanImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -155,8 +155,8 @@ class _$_LexBoolean implements _LexBoolean {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexBooleanCopyWith<_$_LexBoolean> get copyWith =>
-      __$$_LexBooleanCopyWithImpl<_$_LexBoolean>(this, _$identity);
+  _$$LexBooleanImplCopyWith<_$LexBooleanImpl> get copyWith =>
+      __$$LexBooleanImplCopyWithImpl<_$LexBooleanImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -234,20 +234,21 @@ class _$_LexBoolean implements _LexBoolean {
 }
 
 abstract class _LexBoolean implements LexPrimitive {
-  const factory _LexBoolean({required final LexBoolean data}) = _$_LexBoolean;
+  const factory _LexBoolean({required final LexBoolean data}) =
+      _$LexBooleanImpl;
 
   @override
   LexBoolean get data;
   @JsonKey(ignore: true)
-  _$$_LexBooleanCopyWith<_$_LexBoolean> get copyWith =>
+  _$$LexBooleanImplCopyWith<_$LexBooleanImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LexIntegerCopyWith<$Res> {
-  factory _$$_LexIntegerCopyWith(
-          _$_LexInteger value, $Res Function(_$_LexInteger) then) =
-      __$$_LexIntegerCopyWithImpl<$Res>;
+abstract class _$$LexIntegerImplCopyWith<$Res> {
+  factory _$$LexIntegerImplCopyWith(
+          _$LexIntegerImpl value, $Res Function(_$LexIntegerImpl) then) =
+      __$$LexIntegerImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexInteger data});
 
@@ -255,11 +256,11 @@ abstract class _$$_LexIntegerCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LexIntegerCopyWithImpl<$Res>
-    extends _$LexPrimitiveCopyWithImpl<$Res, _$_LexInteger>
-    implements _$$_LexIntegerCopyWith<$Res> {
-  __$$_LexIntegerCopyWithImpl(
-      _$_LexInteger _value, $Res Function(_$_LexInteger) _then)
+class __$$LexIntegerImplCopyWithImpl<$Res>
+    extends _$LexPrimitiveCopyWithImpl<$Res, _$LexIntegerImpl>
+    implements _$$LexIntegerImplCopyWith<$Res> {
+  __$$LexIntegerImplCopyWithImpl(
+      _$LexIntegerImpl _value, $Res Function(_$LexIntegerImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -267,7 +268,7 @@ class __$$_LexIntegerCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_LexInteger(
+    return _then(_$LexIntegerImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -286,8 +287,8 @@ class __$$_LexIntegerCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexInteger implements _LexInteger {
-  const _$_LexInteger({required this.data});
+class _$LexIntegerImpl implements _LexInteger {
+  const _$LexIntegerImpl({required this.data});
 
   @override
   final LexInteger data;
@@ -301,7 +302,7 @@ class _$_LexInteger implements _LexInteger {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexInteger &&
+            other is _$LexIntegerImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -311,8 +312,8 @@ class _$_LexInteger implements _LexInteger {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexIntegerCopyWith<_$_LexInteger> get copyWith =>
-      __$$_LexIntegerCopyWithImpl<_$_LexInteger>(this, _$identity);
+  _$$LexIntegerImplCopyWith<_$LexIntegerImpl> get copyWith =>
+      __$$LexIntegerImplCopyWithImpl<_$LexIntegerImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -390,20 +391,21 @@ class _$_LexInteger implements _LexInteger {
 }
 
 abstract class _LexInteger implements LexPrimitive {
-  const factory _LexInteger({required final LexInteger data}) = _$_LexInteger;
+  const factory _LexInteger({required final LexInteger data}) =
+      _$LexIntegerImpl;
 
   @override
   LexInteger get data;
   @JsonKey(ignore: true)
-  _$$_LexIntegerCopyWith<_$_LexInteger> get copyWith =>
+  _$$LexIntegerImplCopyWith<_$LexIntegerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LexStringCopyWith<$Res> {
-  factory _$$_LexStringCopyWith(
-          _$_LexString value, $Res Function(_$_LexString) then) =
-      __$$_LexStringCopyWithImpl<$Res>;
+abstract class _$$LexStringImplCopyWith<$Res> {
+  factory _$$LexStringImplCopyWith(
+          _$LexStringImpl value, $Res Function(_$LexStringImpl) then) =
+      __$$LexStringImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexString data});
 
@@ -411,11 +413,11 @@ abstract class _$$_LexStringCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LexStringCopyWithImpl<$Res>
-    extends _$LexPrimitiveCopyWithImpl<$Res, _$_LexString>
-    implements _$$_LexStringCopyWith<$Res> {
-  __$$_LexStringCopyWithImpl(
-      _$_LexString _value, $Res Function(_$_LexString) _then)
+class __$$LexStringImplCopyWithImpl<$Res>
+    extends _$LexPrimitiveCopyWithImpl<$Res, _$LexStringImpl>
+    implements _$$LexStringImplCopyWith<$Res> {
+  __$$LexStringImplCopyWithImpl(
+      _$LexStringImpl _value, $Res Function(_$LexStringImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -423,7 +425,7 @@ class __$$_LexStringCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_LexString(
+    return _then(_$LexStringImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -442,8 +444,8 @@ class __$$_LexStringCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexString implements _LexString {
-  const _$_LexString({required this.data});
+class _$LexStringImpl implements _LexString {
+  const _$LexStringImpl({required this.data});
 
   @override
   final LexString data;
@@ -457,7 +459,7 @@ class _$_LexString implements _LexString {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexString &&
+            other is _$LexStringImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -467,8 +469,8 @@ class _$_LexString implements _LexString {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexStringCopyWith<_$_LexString> get copyWith =>
-      __$$_LexStringCopyWithImpl<_$_LexString>(this, _$identity);
+  _$$LexStringImplCopyWith<_$LexStringImpl> get copyWith =>
+      __$$LexStringImplCopyWithImpl<_$LexStringImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -546,20 +548,20 @@ class _$_LexString implements _LexString {
 }
 
 abstract class _LexString implements LexPrimitive {
-  const factory _LexString({required final LexString data}) = _$_LexString;
+  const factory _LexString({required final LexString data}) = _$LexStringImpl;
 
   @override
   LexString get data;
   @JsonKey(ignore: true)
-  _$$_LexStringCopyWith<_$_LexString> get copyWith =>
+  _$$LexStringImplCopyWith<_$LexStringImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LexUnknownCopyWith<$Res> {
-  factory _$$_LexUnknownCopyWith(
-          _$_LexUnknown value, $Res Function(_$_LexUnknown) then) =
-      __$$_LexUnknownCopyWithImpl<$Res>;
+abstract class _$$LexUnknownImplCopyWith<$Res> {
+  factory _$$LexUnknownImplCopyWith(
+          _$LexUnknownImpl value, $Res Function(_$LexUnknownImpl) then) =
+      __$$LexUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexUnknown data});
 
@@ -567,11 +569,11 @@ abstract class _$$_LexUnknownCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LexUnknownCopyWithImpl<$Res>
-    extends _$LexPrimitiveCopyWithImpl<$Res, _$_LexUnknown>
-    implements _$$_LexUnknownCopyWith<$Res> {
-  __$$_LexUnknownCopyWithImpl(
-      _$_LexUnknown _value, $Res Function(_$_LexUnknown) _then)
+class __$$LexUnknownImplCopyWithImpl<$Res>
+    extends _$LexPrimitiveCopyWithImpl<$Res, _$LexUnknownImpl>
+    implements _$$LexUnknownImplCopyWith<$Res> {
+  __$$LexUnknownImplCopyWithImpl(
+      _$LexUnknownImpl _value, $Res Function(_$LexUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -579,7 +581,7 @@ class __$$_LexUnknownCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_LexUnknown(
+    return _then(_$LexUnknownImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -598,8 +600,8 @@ class __$$_LexUnknownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexUnknown implements _LexUnknown {
-  const _$_LexUnknown({required this.data});
+class _$LexUnknownImpl implements _LexUnknown {
+  const _$LexUnknownImpl({required this.data});
 
   @override
   final LexUnknown data;
@@ -613,7 +615,7 @@ class _$_LexUnknown implements _LexUnknown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexUnknown &&
+            other is _$LexUnknownImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -623,8 +625,8 @@ class _$_LexUnknown implements _LexUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexUnknownCopyWith<_$_LexUnknown> get copyWith =>
-      __$$_LexUnknownCopyWithImpl<_$_LexUnknown>(this, _$identity);
+  _$$LexUnknownImplCopyWith<_$LexUnknownImpl> get copyWith =>
+      __$$LexUnknownImplCopyWithImpl<_$LexUnknownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -702,11 +704,12 @@ class _$_LexUnknown implements _LexUnknown {
 }
 
 abstract class _LexUnknown implements LexPrimitive {
-  const factory _LexUnknown({required final LexUnknown data}) = _$_LexUnknown;
+  const factory _LexUnknown({required final LexUnknown data}) =
+      _$LexUnknownImpl;
 
   @override
   LexUnknown get data;
   @JsonKey(ignore: true)
-  _$$_LexUnknownCopyWith<_$_LexUnknown> get copyWith =>
+  _$$LexUnknownImplCopyWith<_$LexUnknownImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

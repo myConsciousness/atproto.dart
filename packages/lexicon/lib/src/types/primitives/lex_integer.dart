@@ -16,11 +16,11 @@ class LexInteger with _$LexInteger {
   const factory LexInteger({
     @Default('integer') String type,
     String? description,
-    @JsonKey(name: 'default') bool? defaultValue,
+    @JsonKey(name: 'default') int? defaultValue,
     int? minimum,
     int? maximum,
     @JsonKey(name: 'enum') List<int>? enumValues,
-    @JsonKey(name: 'const') bool? constValue,
+    @JsonKey(name: 'const') int? constValue,
   }) = _LexInteger;
 
   factory LexInteger.fromJson(Map<String, Object?> json) =>

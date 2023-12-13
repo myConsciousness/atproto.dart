@@ -8,17 +8,15 @@ part of 'lex_array.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LexArray _$$_LexArrayFromJson(Map json) => $checkedCreate(
-      r'_$_LexArray',
+_$LexArrayImpl _$$LexArrayImplFromJson(Map json) => $checkedCreate(
+      r'_$LexArrayImpl',
       json,
       ($checkedConvert) {
-        final val = _$_LexArray(
+        final val = _$LexArrayImpl(
           type: $checkedConvert('type', (v) => v as String? ?? 'array'),
           description: $checkedConvert('description', (v) => v as String?),
           items: $checkedConvert(
-              'items',
-              (v) => const LexArrayItemsConverter()
-                  .fromJson(v as Map<String, dynamic>)),
+              'items', (v) => Map<String, dynamic>.from(v as Map)),
           minLength: $checkedConvert('minLength', (v) => v as int?),
           maxLength: $checkedConvert('maxLength', (v) => v as int?),
         );
@@ -26,7 +24,7 @@ _$_LexArray _$$_LexArrayFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_LexArrayToJson(_$_LexArray instance) {
+Map<String, dynamic> _$$LexArrayImplToJson(_$LexArrayImpl instance) {
   final val = <String, dynamic>{
     'type': instance.type,
   };
@@ -38,7 +36,7 @@ Map<String, dynamic> _$$_LexArrayToJson(_$_LexArray instance) {
   }
 
   writeNotNull('description', instance.description);
-  val['items'] = const LexArrayItemsConverter().toJson(instance.items);
+  val['items'] = instance.items;
   writeNotNull('minLength', instance.minLength);
   writeNotNull('maxLength', instance.maxLength);
   return val;

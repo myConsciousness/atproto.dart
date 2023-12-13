@@ -79,21 +79,22 @@ class _$LexBytesCopyWithImpl<$Res, $Val extends LexBytes>
 }
 
 /// @nodoc
-abstract class _$$_LexBytesCopyWith<$Res> implements $LexBytesCopyWith<$Res> {
-  factory _$$_LexBytesCopyWith(
-          _$_LexBytes value, $Res Function(_$_LexBytes) then) =
-      __$$_LexBytesCopyWithImpl<$Res>;
+abstract class _$$LexBytesImplCopyWith<$Res>
+    implements $LexBytesCopyWith<$Res> {
+  factory _$$LexBytesImplCopyWith(
+          _$LexBytesImpl value, $Res Function(_$LexBytesImpl) then) =
+      __$$LexBytesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String type, String? description, int? maxLength, int? minLength});
 }
 
 /// @nodoc
-class __$$_LexBytesCopyWithImpl<$Res>
-    extends _$LexBytesCopyWithImpl<$Res, _$_LexBytes>
-    implements _$$_LexBytesCopyWith<$Res> {
-  __$$_LexBytesCopyWithImpl(
-      _$_LexBytes _value, $Res Function(_$_LexBytes) _then)
+class __$$LexBytesImplCopyWithImpl<$Res>
+    extends _$LexBytesCopyWithImpl<$Res, _$LexBytesImpl>
+    implements _$$LexBytesImplCopyWith<$Res> {
+  __$$LexBytesImplCopyWithImpl(
+      _$LexBytesImpl _value, $Res Function(_$LexBytesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -104,7 +105,7 @@ class __$$_LexBytesCopyWithImpl<$Res>
     Object? maxLength = freezed,
     Object? minLength = freezed,
   }) {
-    return _then(_$_LexBytes(
+    return _then(_$LexBytesImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -128,12 +129,12 @@ class __$$_LexBytesCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexBytes implements _LexBytes {
-  const _$_LexBytes(
+class _$LexBytesImpl implements _LexBytes {
+  const _$LexBytesImpl(
       {this.type = 'bytes', this.description, this.maxLength, this.minLength});
 
-  factory _$_LexBytes.fromJson(Map<String, dynamic> json) =>
-      _$$_LexBytesFromJson(json);
+  factory _$LexBytesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LexBytesImplFromJson(json);
 
   @override
   @JsonKey()
@@ -154,7 +155,7 @@ class _$_LexBytes implements _LexBytes {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexBytes &&
+            other is _$LexBytesImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -172,12 +173,12 @@ class _$_LexBytes implements _LexBytes {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexBytesCopyWith<_$_LexBytes> get copyWith =>
-      __$$_LexBytesCopyWithImpl<_$_LexBytes>(this, _$identity);
+  _$$LexBytesImplCopyWith<_$LexBytesImpl> get copyWith =>
+      __$$LexBytesImplCopyWithImpl<_$LexBytesImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LexBytesToJson(
+    return _$$LexBytesImplToJson(
       this,
     );
   }
@@ -188,9 +189,10 @@ abstract class _LexBytes implements LexBytes {
       {final String type,
       final String? description,
       final int? maxLength,
-      final int? minLength}) = _$_LexBytes;
+      final int? minLength}) = _$LexBytesImpl;
 
-  factory _LexBytes.fromJson(Map<String, dynamic> json) = _$_LexBytes.fromJson;
+  factory _LexBytes.fromJson(Map<String, dynamic> json) =
+      _$LexBytesImpl.fromJson;
 
   @override
   String get type;
@@ -202,6 +204,6 @@ abstract class _LexBytes implements LexBytes {
   int? get minLength;
   @override
   @JsonKey(ignore: true)
-  _$$_LexBytesCopyWith<_$_LexBytes> get copyWith =>
+  _$$LexBytesImplCopyWith<_$LexBytesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

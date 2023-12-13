@@ -76,9 +76,10 @@ class _$LexRefVariantCopyWithImpl<$Res, $Val extends LexRefVariant>
 }
 
 /// @nodoc
-abstract class _$$_LexRefCopyWith<$Res> {
-  factory _$$_LexRefCopyWith(_$_LexRef value, $Res Function(_$_LexRef) then) =
-      __$$_LexRefCopyWithImpl<$Res>;
+abstract class _$$LexRefImplCopyWith<$Res> {
+  factory _$$LexRefImplCopyWith(
+          _$LexRefImpl value, $Res Function(_$LexRefImpl) then) =
+      __$$LexRefImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexRef data});
 
@@ -86,10 +87,11 @@ abstract class _$$_LexRefCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LexRefCopyWithImpl<$Res>
-    extends _$LexRefVariantCopyWithImpl<$Res, _$_LexRef>
-    implements _$$_LexRefCopyWith<$Res> {
-  __$$_LexRefCopyWithImpl(_$_LexRef _value, $Res Function(_$_LexRef) _then)
+class __$$LexRefImplCopyWithImpl<$Res>
+    extends _$LexRefVariantCopyWithImpl<$Res, _$LexRefImpl>
+    implements _$$LexRefImplCopyWith<$Res> {
+  __$$LexRefImplCopyWithImpl(
+      _$LexRefImpl _value, $Res Function(_$LexRefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,7 +99,7 @@ class __$$_LexRefCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_LexRef(
+    return _then(_$LexRefImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -116,8 +118,8 @@ class __$$_LexRefCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexRef implements _LexRef {
-  const _$_LexRef({required this.data});
+class _$LexRefImpl implements _LexRef {
+  const _$LexRefImpl({required this.data});
 
   @override
   final LexRef data;
@@ -131,7 +133,7 @@ class _$_LexRef implements _LexRef {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexRef &&
+            other is _$LexRefImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -141,8 +143,8 @@ class _$_LexRef implements _LexRef {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexRefCopyWith<_$_LexRef> get copyWith =>
-      __$$_LexRefCopyWithImpl<_$_LexRef>(this, _$identity);
+  _$$LexRefImplCopyWith<_$LexRefImpl> get copyWith =>
+      __$$LexRefImplCopyWithImpl<_$LexRefImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -208,20 +210,20 @@ class _$_LexRef implements _LexRef {
 }
 
 abstract class _LexRef implements LexRefVariant {
-  const factory _LexRef({required final LexRef data}) = _$_LexRef;
+  const factory _LexRef({required final LexRef data}) = _$LexRefImpl;
 
   @override
   LexRef get data;
   @JsonKey(ignore: true)
-  _$$_LexRefCopyWith<_$_LexRef> get copyWith =>
+  _$$LexRefImplCopyWith<_$LexRefImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LexRefUnionCopyWith<$Res> {
-  factory _$$_LexRefUnionCopyWith(
-          _$_LexRefUnion value, $Res Function(_$_LexRefUnion) then) =
-      __$$_LexRefUnionCopyWithImpl<$Res>;
+abstract class _$$LexRefUnionImplCopyWith<$Res> {
+  factory _$$LexRefUnionImplCopyWith(
+          _$LexRefUnionImpl value, $Res Function(_$LexRefUnionImpl) then) =
+      __$$LexRefUnionImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexRefUnion data});
 
@@ -229,11 +231,11 @@ abstract class _$$_LexRefUnionCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LexRefUnionCopyWithImpl<$Res>
-    extends _$LexRefVariantCopyWithImpl<$Res, _$_LexRefUnion>
-    implements _$$_LexRefUnionCopyWith<$Res> {
-  __$$_LexRefUnionCopyWithImpl(
-      _$_LexRefUnion _value, $Res Function(_$_LexRefUnion) _then)
+class __$$LexRefUnionImplCopyWithImpl<$Res>
+    extends _$LexRefVariantCopyWithImpl<$Res, _$LexRefUnionImpl>
+    implements _$$LexRefUnionImplCopyWith<$Res> {
+  __$$LexRefUnionImplCopyWithImpl(
+      _$LexRefUnionImpl _value, $Res Function(_$LexRefUnionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -241,7 +243,7 @@ class __$$_LexRefUnionCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_LexRefUnion(
+    return _then(_$LexRefUnionImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -260,8 +262,8 @@ class __$$_LexRefUnionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexRefUnion implements _LexRefUnion {
-  const _$_LexRefUnion({required this.data});
+class _$LexRefUnionImpl implements _LexRefUnion {
+  const _$LexRefUnionImpl({required this.data});
 
   @override
   final LexRefUnion data;
@@ -275,7 +277,7 @@ class _$_LexRefUnion implements _LexRefUnion {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexRefUnion &&
+            other is _$LexRefUnionImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -285,8 +287,8 @@ class _$_LexRefUnion implements _LexRefUnion {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexRefUnionCopyWith<_$_LexRefUnion> get copyWith =>
-      __$$_LexRefUnionCopyWithImpl<_$_LexRefUnion>(this, _$identity);
+  _$$LexRefUnionImplCopyWith<_$LexRefUnionImpl> get copyWith =>
+      __$$LexRefUnionImplCopyWithImpl<_$LexRefUnionImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -353,11 +355,11 @@ class _$_LexRefUnion implements _LexRefUnion {
 
 abstract class _LexRefUnion implements LexRefVariant {
   const factory _LexRefUnion({required final LexRefUnion data}) =
-      _$_LexRefUnion;
+      _$LexRefUnionImpl;
 
   @override
   LexRefUnion get data;
   @JsonKey(ignore: true)
-  _$$_LexRefUnionCopyWith<_$_LexRefUnion> get copyWith =>
+  _$$LexRefUnionImplCopyWith<_$LexRefUnionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

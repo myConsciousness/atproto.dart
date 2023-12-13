@@ -2,8 +2,10 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import '../primitives/lex_boolean.dart';
 import '../primitives/lex_integer.dart';
 import '../primitives/lex_primitive.dart';

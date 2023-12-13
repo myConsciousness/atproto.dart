@@ -7,6 +7,7 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import 'lex_boolean.dart';
 import 'lex_integer.dart';
 import 'lex_string.dart';

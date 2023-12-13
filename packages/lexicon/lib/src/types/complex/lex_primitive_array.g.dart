@@ -8,19 +8,18 @@ part of 'lex_primitive_array.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LexPrimitiveArray _$$_LexPrimitiveArrayFromJson(Map json) => $checkedCreate(
-      r'_$_LexPrimitiveArray',
+_$LexPrimitiveArrayImpl _$$LexPrimitiveArrayImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$LexPrimitiveArrayImpl',
       json,
       ($checkedConvert) {
-        final val = _$_LexPrimitiveArray(
+        final val = _$LexPrimitiveArrayImpl(
           type: $checkedConvert('type', (v) => v as String? ?? 'array'),
           description: $checkedConvert('description', (v) => v as String?),
           items: $checkedConvert(
               'items',
-              (v) => (v as List<dynamic>)
-                  .map((e) => const LexPrimitiveConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
+              (v) => const LexPrimitiveConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           minLength: $checkedConvert('minLength', (v) => v as int?),
           maxLength: $checkedConvert('maxLength', (v) => v as int?),
         );
@@ -28,8 +27,8 @@ _$_LexPrimitiveArray _$$_LexPrimitiveArrayFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_LexPrimitiveArrayToJson(
-    _$_LexPrimitiveArray instance) {
+Map<String, dynamic> _$$LexPrimitiveArrayImplToJson(
+    _$LexPrimitiveArrayImpl instance) {
   final val = <String, dynamic>{
     'type': instance.type,
   };
@@ -41,8 +40,7 @@ Map<String, dynamic> _$$_LexPrimitiveArrayToJson(
   }
 
   writeNotNull('description', instance.description);
-  val['items'] =
-      instance.items.map(const LexPrimitiveConverter().toJson).toList();
+  val['items'] = const LexPrimitiveConverter().toJson(instance.items);
   writeNotNull('minLength', instance.minLength);
   writeNotNull('maxLength', instance.maxLength);
   return val;

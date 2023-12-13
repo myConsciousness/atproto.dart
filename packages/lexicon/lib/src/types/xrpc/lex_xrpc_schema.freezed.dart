@@ -76,10 +76,10 @@ class _$LexXrpcSchemaCopyWithImpl<$Res, $Val extends LexXrpcSchema>
 }
 
 /// @nodoc
-abstract class _$$_LexRefVariantCopyWith<$Res> {
-  factory _$$_LexRefVariantCopyWith(
-          _$_LexRefVariant value, $Res Function(_$_LexRefVariant) then) =
-      __$$_LexRefVariantCopyWithImpl<$Res>;
+abstract class _$$LexRefVariantImplCopyWith<$Res> {
+  factory _$$LexRefVariantImplCopyWith(
+          _$LexRefVariantImpl value, $Res Function(_$LexRefVariantImpl) then) =
+      __$$LexRefVariantImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexRefVariant data});
 
@@ -87,11 +87,11 @@ abstract class _$$_LexRefVariantCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LexRefVariantCopyWithImpl<$Res>
-    extends _$LexXrpcSchemaCopyWithImpl<$Res, _$_LexRefVariant>
-    implements _$$_LexRefVariantCopyWith<$Res> {
-  __$$_LexRefVariantCopyWithImpl(
-      _$_LexRefVariant _value, $Res Function(_$_LexRefVariant) _then)
+class __$$LexRefVariantImplCopyWithImpl<$Res>
+    extends _$LexXrpcSchemaCopyWithImpl<$Res, _$LexRefVariantImpl>
+    implements _$$LexRefVariantImplCopyWith<$Res> {
+  __$$LexRefVariantImplCopyWithImpl(
+      _$LexRefVariantImpl _value, $Res Function(_$LexRefVariantImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$_LexRefVariantCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_LexRefVariant(
+    return _then(_$LexRefVariantImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -118,8 +118,8 @@ class __$$_LexRefVariantCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexRefVariant implements _LexRefVariant {
-  const _$_LexRefVariant({required this.data});
+class _$LexRefVariantImpl implements _LexRefVariant {
+  const _$LexRefVariantImpl({required this.data});
 
   @override
   final LexRefVariant data;
@@ -133,7 +133,7 @@ class _$_LexRefVariant implements _LexRefVariant {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexRefVariant &&
+            other is _$LexRefVariantImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -143,8 +143,8 @@ class _$_LexRefVariant implements _LexRefVariant {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexRefVariantCopyWith<_$_LexRefVariant> get copyWith =>
-      __$$_LexRefVariantCopyWithImpl<_$_LexRefVariant>(this, _$identity);
+  _$$LexRefVariantImplCopyWith<_$LexRefVariantImpl> get copyWith =>
+      __$$LexRefVariantImplCopyWithImpl<_$LexRefVariantImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -211,20 +211,20 @@ class _$_LexRefVariant implements _LexRefVariant {
 
 abstract class _LexRefVariant implements LexXrpcSchema {
   const factory _LexRefVariant({required final LexRefVariant data}) =
-      _$_LexRefVariant;
+      _$LexRefVariantImpl;
 
   @override
   LexRefVariant get data;
   @JsonKey(ignore: true)
-  _$$_LexRefVariantCopyWith<_$_LexRefVariant> get copyWith =>
+  _$$LexRefVariantImplCopyWith<_$LexRefVariantImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LexObjectCopyWith<$Res> {
-  factory _$$_LexObjectCopyWith(
-          _$_LexObject value, $Res Function(_$_LexObject) then) =
-      __$$_LexObjectCopyWithImpl<$Res>;
+abstract class _$$LexObjectImplCopyWith<$Res> {
+  factory _$$LexObjectImplCopyWith(
+          _$LexObjectImpl value, $Res Function(_$LexObjectImpl) then) =
+      __$$LexObjectImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexObject data});
 
@@ -232,11 +232,11 @@ abstract class _$$_LexObjectCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LexObjectCopyWithImpl<$Res>
-    extends _$LexXrpcSchemaCopyWithImpl<$Res, _$_LexObject>
-    implements _$$_LexObjectCopyWith<$Res> {
-  __$$_LexObjectCopyWithImpl(
-      _$_LexObject _value, $Res Function(_$_LexObject) _then)
+class __$$LexObjectImplCopyWithImpl<$Res>
+    extends _$LexXrpcSchemaCopyWithImpl<$Res, _$LexObjectImpl>
+    implements _$$LexObjectImplCopyWith<$Res> {
+  __$$LexObjectImplCopyWithImpl(
+      _$LexObjectImpl _value, $Res Function(_$LexObjectImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -244,7 +244,7 @@ class __$$_LexObjectCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_LexObject(
+    return _then(_$LexObjectImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -263,8 +263,8 @@ class __$$_LexObjectCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexObject implements _LexObject {
-  const _$_LexObject({required this.data});
+class _$LexObjectImpl implements _LexObject {
+  const _$LexObjectImpl({required this.data});
 
   @override
   final LexObject data;
@@ -278,7 +278,7 @@ class _$_LexObject implements _LexObject {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexObject &&
+            other is _$LexObjectImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -288,8 +288,8 @@ class _$_LexObject implements _LexObject {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexObjectCopyWith<_$_LexObject> get copyWith =>
-      __$$_LexObjectCopyWithImpl<_$_LexObject>(this, _$identity);
+  _$$LexObjectImplCopyWith<_$LexObjectImpl> get copyWith =>
+      __$$LexObjectImplCopyWithImpl<_$LexObjectImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -355,11 +355,11 @@ class _$_LexObject implements _LexObject {
 }
 
 abstract class _LexObject implements LexXrpcSchema {
-  const factory _LexObject({required final LexObject data}) = _$_LexObject;
+  const factory _LexObject({required final LexObject data}) = _$LexObjectImpl;
 
   @override
   LexObject get data;
   @JsonKey(ignore: true)
-  _$$_LexObjectCopyWith<_$_LexObject> get copyWith =>
+  _$$LexObjectImplCopyWith<_$LexObjectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

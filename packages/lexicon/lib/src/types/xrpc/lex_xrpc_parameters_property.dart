@@ -7,6 +7,7 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import '../complex/lex_primitive_array.dart';
 import '../primitives/lex_primitive.dart';
 

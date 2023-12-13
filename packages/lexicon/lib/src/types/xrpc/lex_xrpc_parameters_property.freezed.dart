@@ -77,10 +77,10 @@ class _$LexXrpcParametersPropertyCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_LexPrimitiveArrayCopyWith<$Res> {
-  factory _$$_LexPrimitiveArrayCopyWith(_$_LexPrimitiveArray value,
-          $Res Function(_$_LexPrimitiveArray) then) =
-      __$$_LexPrimitiveArrayCopyWithImpl<$Res>;
+abstract class _$$LexPrimitiveArrayImplCopyWith<$Res> {
+  factory _$$LexPrimitiveArrayImplCopyWith(_$LexPrimitiveArrayImpl value,
+          $Res Function(_$LexPrimitiveArrayImpl) then) =
+      __$$LexPrimitiveArrayImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexPrimitiveArray data});
 
@@ -88,11 +88,12 @@ abstract class _$$_LexPrimitiveArrayCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LexPrimitiveArrayCopyWithImpl<$Res>
-    extends _$LexXrpcParametersPropertyCopyWithImpl<$Res, _$_LexPrimitiveArray>
-    implements _$$_LexPrimitiveArrayCopyWith<$Res> {
-  __$$_LexPrimitiveArrayCopyWithImpl(
-      _$_LexPrimitiveArray _value, $Res Function(_$_LexPrimitiveArray) _then)
+class __$$LexPrimitiveArrayImplCopyWithImpl<$Res>
+    extends _$LexXrpcParametersPropertyCopyWithImpl<$Res,
+        _$LexPrimitiveArrayImpl>
+    implements _$$LexPrimitiveArrayImplCopyWith<$Res> {
+  __$$LexPrimitiveArrayImplCopyWithImpl(_$LexPrimitiveArrayImpl _value,
+      $Res Function(_$LexPrimitiveArrayImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -100,7 +101,7 @@ class __$$_LexPrimitiveArrayCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_LexPrimitiveArray(
+    return _then(_$LexPrimitiveArrayImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -119,8 +120,8 @@ class __$$_LexPrimitiveArrayCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexPrimitiveArray extends _LexPrimitiveArray {
-  const _$_LexPrimitiveArray({required this.data}) : super._();
+class _$LexPrimitiveArrayImpl extends _LexPrimitiveArray {
+  const _$LexPrimitiveArrayImpl({required this.data}) : super._();
 
   @override
   final LexPrimitiveArray data;
@@ -134,7 +135,7 @@ class _$_LexPrimitiveArray extends _LexPrimitiveArray {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexPrimitiveArray &&
+            other is _$LexPrimitiveArrayImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -144,8 +145,8 @@ class _$_LexPrimitiveArray extends _LexPrimitiveArray {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexPrimitiveArrayCopyWith<_$_LexPrimitiveArray> get copyWith =>
-      __$$_LexPrimitiveArrayCopyWithImpl<_$_LexPrimitiveArray>(
+  _$$LexPrimitiveArrayImplCopyWith<_$LexPrimitiveArrayImpl> get copyWith =>
+      __$$LexPrimitiveArrayImplCopyWithImpl<_$LexPrimitiveArrayImpl>(
           this, _$identity);
 
   @override
@@ -213,21 +214,21 @@ class _$_LexPrimitiveArray extends _LexPrimitiveArray {
 
 abstract class _LexPrimitiveArray extends LexXrpcParametersProperty {
   const factory _LexPrimitiveArray({required final LexPrimitiveArray data}) =
-      _$_LexPrimitiveArray;
+      _$LexPrimitiveArrayImpl;
   const _LexPrimitiveArray._() : super._();
 
   @override
   LexPrimitiveArray get data;
   @JsonKey(ignore: true)
-  _$$_LexPrimitiveArrayCopyWith<_$_LexPrimitiveArray> get copyWith =>
+  _$$LexPrimitiveArrayImplCopyWith<_$LexPrimitiveArrayImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LexPrimitiveCopyWith<$Res> {
-  factory _$$_LexPrimitiveCopyWith(
-          _$_LexPrimitive value, $Res Function(_$_LexPrimitive) then) =
-      __$$_LexPrimitiveCopyWithImpl<$Res>;
+abstract class _$$LexPrimitiveImplCopyWith<$Res> {
+  factory _$$LexPrimitiveImplCopyWith(
+          _$LexPrimitiveImpl value, $Res Function(_$LexPrimitiveImpl) then) =
+      __$$LexPrimitiveImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexPrimitive data});
 
@@ -235,11 +236,11 @@ abstract class _$$_LexPrimitiveCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LexPrimitiveCopyWithImpl<$Res>
-    extends _$LexXrpcParametersPropertyCopyWithImpl<$Res, _$_LexPrimitive>
-    implements _$$_LexPrimitiveCopyWith<$Res> {
-  __$$_LexPrimitiveCopyWithImpl(
-      _$_LexPrimitive _value, $Res Function(_$_LexPrimitive) _then)
+class __$$LexPrimitiveImplCopyWithImpl<$Res>
+    extends _$LexXrpcParametersPropertyCopyWithImpl<$Res, _$LexPrimitiveImpl>
+    implements _$$LexPrimitiveImplCopyWith<$Res> {
+  __$$LexPrimitiveImplCopyWithImpl(
+      _$LexPrimitiveImpl _value, $Res Function(_$LexPrimitiveImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -247,7 +248,7 @@ class __$$_LexPrimitiveCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_LexPrimitive(
+    return _then(_$LexPrimitiveImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -266,8 +267,8 @@ class __$$_LexPrimitiveCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexPrimitive extends _LexPrimitive {
-  const _$_LexPrimitive({required this.data}) : super._();
+class _$LexPrimitiveImpl extends _LexPrimitive {
+  const _$LexPrimitiveImpl({required this.data}) : super._();
 
   @override
   final LexPrimitive data;
@@ -281,7 +282,7 @@ class _$_LexPrimitive extends _LexPrimitive {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexPrimitive &&
+            other is _$LexPrimitiveImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -291,8 +292,8 @@ class _$_LexPrimitive extends _LexPrimitive {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexPrimitiveCopyWith<_$_LexPrimitive> get copyWith =>
-      __$$_LexPrimitiveCopyWithImpl<_$_LexPrimitive>(this, _$identity);
+  _$$LexPrimitiveImplCopyWith<_$LexPrimitiveImpl> get copyWith =>
+      __$$LexPrimitiveImplCopyWithImpl<_$LexPrimitiveImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -359,12 +360,12 @@ class _$_LexPrimitive extends _LexPrimitive {
 
 abstract class _LexPrimitive extends LexXrpcParametersProperty {
   const factory _LexPrimitive({required final LexPrimitive data}) =
-      _$_LexPrimitive;
+      _$LexPrimitiveImpl;
   const _LexPrimitive._() : super._();
 
   @override
   LexPrimitive get data;
   @JsonKey(ignore: true)
-  _$$_LexPrimitiveCopyWith<_$_LexPrimitive> get copyWith =>
+  _$$LexPrimitiveImplCopyWith<_$LexPrimitiveImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

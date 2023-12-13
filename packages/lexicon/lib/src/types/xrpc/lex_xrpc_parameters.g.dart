@@ -8,28 +8,32 @@ part of 'lex_xrpc_parameters.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LexXrpcParameters _$$_LexXrpcParametersFromJson(Map json) => $checkedCreate(
-      r'_$_LexXrpcParameters',
+_$LexXrpcParametersImpl _$$LexXrpcParametersImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$LexXrpcParametersImpl',
       json,
       ($checkedConvert) {
-        final val = _$_LexXrpcParameters(
+        final val = _$LexXrpcParametersImpl(
           type: $checkedConvert('type', (v) => v as String? ?? 'params'),
           description: $checkedConvert('description', (v) => v as String?),
           requiredProperties: $checkedConvert('required',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           properties: $checkedConvert(
               'properties',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
-                      LexXrpcParametersPropertyRecord?>(v,
-                  const LexXrpcParametersPropertyRecordConverter().fromJson)),
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(
+                        k as String,
+                        const LexXrpcParametersPropertyConverter()
+                            .fromJson(e as Map<String, dynamic>)),
+                  )),
         );
         return val;
       },
       fieldKeyMap: const {'requiredProperties': 'required'},
     );
 
-Map<String, dynamic> _$$_LexXrpcParametersToJson(
-    _$_LexXrpcParameters instance) {
+Map<String, dynamic> _$$LexXrpcParametersImplToJson(
+    _$LexXrpcParametersImpl instance) {
   final val = <String, dynamic>{
     'type': instance.type,
   };
@@ -44,13 +48,7 @@ Map<String, dynamic> _$$_LexXrpcParametersToJson(
   writeNotNull('required', instance.requiredProperties);
   writeNotNull(
       'properties',
-      const LexXrpcParametersPropertyRecordConverter()
-          .toJson(instance.properties));
+      instance.properties?.map((k, e) =>
+          MapEntry(k, const LexXrpcParametersPropertyConverter().toJson(e))));
   return val;
 }
-
-Value? _$JsonConverterFromJson<Json, Value>(
-  Object? json,
-  Value? Function(Json json) fromJson,
-) =>
-    json == null ? null : fromJson(json as Json);
