@@ -14,7 +14,7 @@ on:
     - cron: "0 10 * * *"
 
 jobs:
-  matrix-test:
+  tacos:
     runs-on: ubuntu-latest
 
     defaults:
