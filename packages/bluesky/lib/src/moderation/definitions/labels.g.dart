@@ -10,12 +10,13 @@
 // Moderation Definitions Generator
 // **************************************************************************
 
+// 🌎 Project imports:
 import '../entities/label_definition.dart';
-import 'known_label.dart';
-import 'known_label_group.dart';
-import 'label_definition_flag.dart';
-import 'label_definition_on_warn_behavior.dart';
-import 'label_preference.dart';
+import 'known_label.g.dart';
+import 'known_label_group.g.dart';
+import 'label_definition_flag.g.dart';
+import 'label_definition_on_warn_behavior.g.dart';
+import 'label_preference.g.dart';
 
 const knownLabels = <KnownLabel, LabelDefinition>{
   KnownLabel.hide: labelDefinitionHide,

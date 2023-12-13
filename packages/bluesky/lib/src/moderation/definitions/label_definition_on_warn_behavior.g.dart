@@ -10,19 +10,20 @@
 // Moderation Definitions Generator
 // **************************************************************************
 
+// 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-enum LabelPreference {
-  @JsonValue('hide')
-  hide('hide'),
+enum LabelDefinitionOnWarnBehavior {
+  @JsonValue('blur')
+  blur('blur'),
 
-  @JsonValue('warn')
-  warn('warn'),
+  @JsonValue('blur-media')
+  blurMedia('blur-media'),
 
-  @JsonValue('ignore')
-  ignore('ignore');
+  @JsonValue('alert')
+  alert('alert');
 
   final String value;
 
-  const LabelPreference(this.value);
+  const LabelDefinitionOnWarnBehavior(this.value);
 }

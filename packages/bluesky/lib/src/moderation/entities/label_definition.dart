@@ -10,9 +10,9 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../definitions/label_definition_flag.dart';
-import '../definitions/label_definition_on_warn_behavior.dart';
-import '../definitions/label_preference.dart';
+import '../definitions/label_definition_flag.g.dart';
+import '../definitions/label_definition_on_warn_behavior.g.dart';
+import '../definitions/label_preference.g.dart';
 
 part 'label_definition.freezed.dart';
 part 'label_definition.g.dart';

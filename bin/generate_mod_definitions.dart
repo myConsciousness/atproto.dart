@@ -7,7 +7,7 @@ import 'dart:io';
 
 import 'utils.dart';
 
-const _extension = '.dart';
+const _extension = '.g.dart';
 const _knownLabelFileName = 'known_label$_extension';
 const _knownLabelGroupFileName = 'known_label_group$_extension';
 const _preferenceFileName = 'label_preference$_extension';
@@ -178,11 +178,11 @@ String _generateLabels(final List labelDefs) {
   return '''$_header
 
 import '../entities/label_definition.dart';
-import 'known_label.dart';
-import 'known_label_group.dart';
-import 'label_definition_flag.dart';
-import 'label_definition_on_warn_behavior.dart';
-import 'label_preference.dart';
+import 'known_label.g.dart';
+import 'known_label_group.g.dart';
+import 'label_definition_flag.g.dart';
+import 'label_definition_on_warn_behavior.g.dart';
+import 'label_preference.g.dart';
 
 const knownLabels = <KnownLabel, LabelDefinition>{
 $knownLabels
@@ -208,8 +208,8 @@ String _generateLabelGroups(final List labelDefs) {
   return '''$_header
 
 import '../entities/label_group_definition.dart';
-import 'known_label_group.dart';
-import 'labels.dart';
+import 'known_label_group.g.dart';
+import 'labels.g.dart';
 
 const knownLabelGroups = <KnownLabelGroup, LabelGroupDefinition>{
 $knownLabelGroups

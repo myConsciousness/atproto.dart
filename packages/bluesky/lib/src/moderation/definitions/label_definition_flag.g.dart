@@ -10,19 +10,20 @@
 // Moderation Definitions Generator
 // **************************************************************************
 
+// 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-enum LabelDefinitionOnWarnBehavior {
-  @JsonValue('blur')
-  blur('blur'),
+enum LabelDefinitionFlag {
+  @JsonValue('no-override')
+  noOverride('no-override'),
 
-  @JsonValue('blur-media')
-  blurMedia('blur-media'),
+  @JsonValue('unauthed')
+  unauthed('unauthed'),
 
-  @JsonValue('alert')
-  alert('alert');
+  @JsonValue('adult')
+  adult('adult');
 
   final String value;
 
-  const LabelDefinitionOnWarnBehavior(this.value);
+  const LabelDefinitionFlag(this.value);
 }

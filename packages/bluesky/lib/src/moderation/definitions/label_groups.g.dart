@@ -10,9 +10,10 @@
 // Moderation Definitions Generator
 // **************************************************************************
 
+// 🌎 Project imports:
 import '../entities/label_group_definition.dart';
-import 'known_label_group.dart';
-import 'labels.dart';
+import 'known_label_group.g.dart';
+import 'labels.g.dart';
 
 const knownLabelGroups = <KnownLabelGroup, LabelGroupDefinition>{
   KnownLabelGroup.system: labelGroupDefinitionSystem,

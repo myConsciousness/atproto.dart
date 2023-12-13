@@ -10,19 +10,20 @@
 // Moderation Definitions Generator
 // **************************************************************************
 
+// 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-enum LabelDefinitionFlag {
-  @JsonValue('no-override')
-  noOverride('no-override'),
+enum LabelPreference {
+  @JsonValue('hide')
+  hide('hide'),
 
-  @JsonValue('unauthed')
-  unauthed('unauthed'),
+  @JsonValue('warn')
+  warn('warn'),
 
-  @JsonValue('adult')
-  adult('adult');
+  @JsonValue('ignore')
+  ignore('ignore');
 
   final String value;
 
-  const LabelDefinitionFlag(this.value);
+  const LabelPreference(this.value);
 }

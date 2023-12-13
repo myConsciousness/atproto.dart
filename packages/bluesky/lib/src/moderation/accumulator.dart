@@ -7,11 +7,11 @@ import 'package:atproto/atproto.dart' as atp;
 
 // 🌎 Project imports:
 import '../services/entities/list_view_basic.dart';
-import 'definitions/known_label.dart';
-import 'definitions/label_definition_flag.dart';
-import 'definitions/label_definition_on_warn_behavior.dart';
-import 'definitions/label_preference.dart';
-import 'definitions/labels.dart';
+import 'definitions/known_label.g.dart';
+import 'definitions/label_definition_flag.g.dart';
+import 'definitions/label_definition_on_warn_behavior.g.dart';
+import 'definitions/label_preference.g.dart';
+import 'definitions/labels.g.dart';
 import 'entities/label_definition.dart';
 import 'entities/labeler_settings.dart';
 import 'entities/moderation_cause.dart';

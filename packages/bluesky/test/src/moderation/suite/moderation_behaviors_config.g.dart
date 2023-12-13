@@ -53,7 +53,7 @@ Map<String, dynamic> _$$_ModerationBehaviorsConfigToJson(
 }
 
 const _$LabelPreferenceEnumMap = {
-  LabelPreference.ignore: 'ignore',
-  LabelPreference.warn: 'warn',
   LabelPreference.hide: 'hide',
+  LabelPreference.warn: 'warn',
+  LabelPreference.ignore: 'ignore',
 };
