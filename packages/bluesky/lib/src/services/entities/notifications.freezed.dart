@@ -26,6 +26,9 @@ mixin _$Notifications {
   /// Might be used for pagination purposes.
   String? get cursor => throw _privateConstructorUsedError;
 
+  /// The date and time the user saw this notification.
+  DateTime? get seenAt => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $NotificationsCopyWith<Notifications> get copyWith =>
@@ -38,7 +41,8 @@ abstract class $NotificationsCopyWith<$Res> {
           Notifications value, $Res Function(Notifications) then) =
       _$NotificationsCopyWithImpl<$Res, Notifications>;
   @useResult
-  $Res call({List<Notification> notifications, String? cursor});
+  $Res call(
+      {List<Notification> notifications, String? cursor, DateTime? seenAt});
 }
 
 /// @nodoc
@@ -56,6 +60,7 @@ class _$NotificationsCopyWithImpl<$Res, $Val extends Notifications>
   $Res call({
     Object? notifications = null,
     Object? cursor = freezed,
+    Object? seenAt = freezed,
   }) {
     return _then(_value.copyWith(
       notifications: null == notifications
@@ -66,27 +71,32 @@ class _$NotificationsCopyWithImpl<$Res, $Val extends Notifications>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
+      seenAt: freezed == seenAt
+          ? _value.seenAt
+          : seenAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$NotificationsImplCopyWith<$Res>
+abstract class _$$_NotificationsCopyWith<$Res>
     implements $NotificationsCopyWith<$Res> {
-  factory _$$NotificationsImplCopyWith(
-          _$NotificationsImpl value, $Res Function(_$NotificationsImpl) then) =
-      __$$NotificationsImplCopyWithImpl<$Res>;
+  factory _$$_NotificationsCopyWith(
+          _$_Notifications value, $Res Function(_$_Notifications) then) =
+      __$$_NotificationsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Notification> notifications, String? cursor});
+  $Res call(
+      {List<Notification> notifications, String? cursor, DateTime? seenAt});
 }
 
 /// @nodoc
-class __$$NotificationsImplCopyWithImpl<$Res>
-    extends _$NotificationsCopyWithImpl<$Res, _$NotificationsImpl>
-    implements _$$NotificationsImplCopyWith<$Res> {
-  __$$NotificationsImplCopyWithImpl(
-      _$NotificationsImpl _value, $Res Function(_$NotificationsImpl) _then)
+class __$$_NotificationsCopyWithImpl<$Res>
+    extends _$NotificationsCopyWithImpl<$Res, _$_Notifications>
+    implements _$$_NotificationsCopyWith<$Res> {
+  __$$_NotificationsCopyWithImpl(
+      _$_Notifications _value, $Res Function(_$_Notifications) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -94,8 +104,9 @@ class __$$NotificationsImplCopyWithImpl<$Res>
   $Res call({
     Object? notifications = null,
     Object? cursor = freezed,
+    Object? seenAt = freezed,
   }) {
-    return _then(_$NotificationsImpl(
+    return _then(_$_Notifications(
       notifications: null == notifications
           ? _value._notifications
           : notifications // ignore: cast_nullable_to_non_nullable
@@ -104,20 +115,26 @@ class __$$NotificationsImplCopyWithImpl<$Res>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
+      seenAt: freezed == seenAt
+          ? _value.seenAt
+          : seenAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$NotificationsImpl extends _Notifications {
-  const _$NotificationsImpl(
-      {required final List<Notification> notifications, this.cursor})
+class _$_Notifications extends _Notifications {
+  const _$_Notifications(
+      {required final List<Notification> notifications,
+      this.cursor,
+      this.seenAt})
       : _notifications = notifications,
         super._();
 
-  factory _$NotificationsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$NotificationsImplFromJson(json);
+  factory _$_Notifications.fromJson(Map<String, dynamic> json) =>
+      _$$_NotificationsFromJson(json);
 
   /// List of notifications.
   final List<Notification> _notifications;
@@ -134,35 +151,40 @@ class _$NotificationsImpl extends _Notifications {
   @override
   final String? cursor;
 
+  /// The date and time the user saw this notification.
+  @override
+  final DateTime? seenAt;
+
   @override
   String toString() {
-    return 'Notifications(notifications: $notifications, cursor: $cursor)';
+    return 'Notifications(notifications: $notifications, cursor: $cursor, seenAt: $seenAt)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NotificationsImpl &&
+            other is _$_Notifications &&
             const DeepCollectionEquality()
                 .equals(other._notifications, _notifications) &&
-            (identical(other.cursor, cursor) || other.cursor == cursor));
+            (identical(other.cursor, cursor) || other.cursor == cursor) &&
+            (identical(other.seenAt, seenAt) || other.seenAt == seenAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_notifications), cursor);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_notifications), cursor, seenAt);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$NotificationsImplCopyWith<_$NotificationsImpl> get copyWith =>
-      __$$NotificationsImplCopyWithImpl<_$NotificationsImpl>(this, _$identity);
+  _$$_NotificationsCopyWith<_$_Notifications> get copyWith =>
+      __$$_NotificationsCopyWithImpl<_$_Notifications>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$NotificationsImplToJson(
+    return _$$_NotificationsToJson(
       this,
     );
   }
@@ -171,11 +193,12 @@ class _$NotificationsImpl extends _Notifications {
 abstract class _Notifications extends Notifications {
   const factory _Notifications(
       {required final List<Notification> notifications,
-      final String? cursor}) = _$NotificationsImpl;
+      final String? cursor,
+      final DateTime? seenAt}) = _$_Notifications;
   const _Notifications._() : super._();
 
   factory _Notifications.fromJson(Map<String, dynamic> json) =
-      _$NotificationsImpl.fromJson;
+      _$_Notifications.fromJson;
 
   @override
 
@@ -186,7 +209,11 @@ abstract class _Notifications extends Notifications {
   /// Might be used for pagination purposes.
   String? get cursor;
   @override
+
+  /// The date and time the user saw this notification.
+  DateTime? get seenAt;
+  @override
   @JsonKey(ignore: true)
-  _$$NotificationsImplCopyWith<_$NotificationsImpl> get copyWith =>
+  _$$_NotificationsCopyWith<_$_Notifications> get copyWith =>
       throw _privateConstructorUsedError;
 }
