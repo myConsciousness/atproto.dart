@@ -6,8 +6,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:nsid/nsid.dart';
 
-class NsidConverter implements JsonConverter<NSID, String> {
-  const NsidConverter();
+const nsidConverter = _NsidConverter();
+
+final class _NsidConverter implements JsonConverter<NSID, String> {
+  const _NsidConverter();
 
   @override
   NSID fromJson(String json) => NSID.parse(json);

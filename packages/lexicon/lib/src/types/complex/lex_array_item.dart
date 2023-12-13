@@ -22,19 +22,19 @@ class LexArrayItem with _$LexArrayItem {
 
   const factory LexArrayItem.primitive({
     required LexPrimitive data,
-  }) = _LexPrimitive;
+  }) = ULexArrayItemPrimitive;
 
   const factory LexArrayItem.ipld({
     required LexIpld data,
-  }) = _LexIpld;
+  }) = ULexArrayItemIpld;
 
   const factory LexArrayItem.blob({
     required LexBlob data,
-  }) = _LexBlob;
+  }) = ULexArrayItemBlob;
 
   const factory LexArrayItem.refVariant({
     required LexRefVariant data,
-  }) = _LexRefVariant;
+  }) = ULexArrayItemRefVariant;
 
   Map<String, dynamic> toJson() => when(
         primitive: (data) => data.when(

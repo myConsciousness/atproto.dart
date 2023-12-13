@@ -17,9 +17,9 @@ part 'lex_ipld.freezed.dart';
 class LexIpld with _$LexIpld {
   const factory LexIpld.bytes({
     required LexBytes data,
-  }) = _LexBytes;
+  }) = ULexIpldBytes;
 
   const factory LexIpld.cidLink({
     required LexCidLink data,
-  }) = _LexCidLink;
+  }) = ULexIpldCidLink;
 }

@@ -14,9 +14,12 @@ import '../primitives/lex_string.dart';
 import '../primitives/lex_unknown.dart';
 import '../xrpc/lex_xrpc_parameters_property.dart';
 
-class LexXrpcParametersPropertyConverter
+const lexXrpcParametersPropertyConverter =
+    _LexXrpcParametersPropertyConverter();
+
+final class _LexXrpcParametersPropertyConverter
     implements JsonConverter<LexXrpcParametersProperty, Map<String, dynamic>> {
-  const LexXrpcParametersPropertyConverter();
+  const _LexXrpcParametersPropertyConverter();
 
   @override
   LexXrpcParametersProperty fromJson(Map<String, dynamic> json) {

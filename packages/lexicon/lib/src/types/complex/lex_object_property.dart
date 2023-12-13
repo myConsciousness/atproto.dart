@@ -23,23 +23,23 @@ class LexObjectProperty with _$LexObjectProperty {
 
   const factory LexObjectProperty.refVariant({
     required LexRefVariant data,
-  }) = _LexRefVariant;
+  }) = ULexObjectPropertyRefVariant;
 
   const factory LexObjectProperty.ipld({
     required LexIpld data,
-  }) = _LexIpld;
+  }) = ULexObjectPropertyIpld;
 
   const factory LexObjectProperty.array({
     required LexArray data,
-  }) = _LexArray;
+  }) = ULexObjectPropertyArray;
 
   const factory LexObjectProperty.blob({
     required LexBlob data,
-  }) = _LexBlob;
+  }) = ULexObjectPropertyBlob;
 
   const factory LexObjectProperty.primitive({
     required LexPrimitive data,
-  }) = _LexPrimitive;
+  }) = ULexObjectPropertyPrimitive;
 
   Map<String, dynamic> toJson() => when(
         refVariant: (data) => data.when(

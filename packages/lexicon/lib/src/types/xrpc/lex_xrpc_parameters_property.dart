@@ -20,11 +20,11 @@ class LexXrpcParametersProperty with _$LexXrpcParametersProperty {
 
   const factory LexXrpcParametersProperty.primitiveArray({
     required LexPrimitiveArray data,
-  }) = _LexPrimitiveArray;
+  }) = ULexXrpcParametersPropertyPrimitiveArray;
 
   const factory LexXrpcParametersProperty.primitive({
     required LexPrimitive data,
-  }) = _LexPrimitive;
+  }) = ULexXrpcParametersPropertyPrimitive;
 
   Map<String, dynamic> toJson() => when(
         primitiveArray: (data) => data.toJson(),

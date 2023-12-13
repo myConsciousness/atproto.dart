@@ -12,9 +12,11 @@ import '../references/lex_ref_union.dart';
 import '../references/lex_ref_variant.dart';
 import '../xrpc/lex_xrpc_schema.dart';
 
-class LexXrpcSchemaConverter
+const lexXrpcSchemaConverter = _LexXrpcSchemaConverter();
+
+final class _LexXrpcSchemaConverter
     implements JsonConverter<LexXrpcSchema, Map<String, dynamic>> {
-  const LexXrpcSchemaConverter();
+  const _LexXrpcSchemaConverter();
 
   @override
   LexXrpcSchema fromJson(Map<String, dynamic> json) {

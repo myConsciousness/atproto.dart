@@ -22,9 +22,11 @@ import '../xrpc/lex_xrpc_procedure.dart';
 import '../xrpc/lex_xrpc_query.dart';
 import '../xrpc/lex_xrpc_subscription.dart';
 
-class LexUserTypeConverter
+const lexUserTypeConverter = _LexUserTypeConverter();
+
+final class _LexUserTypeConverter
     implements JsonConverter<LexUserType, Map<String, dynamic>> {
-  const LexUserTypeConverter();
+  const _LexUserTypeConverter();
 
   @override
   LexUserType fromJson(Map<String, dynamic> json) {

@@ -17,9 +17,9 @@ part 'lex_ref_variant.freezed.dart';
 class LexRefVariant with _$LexRefVariant {
   const factory LexRefVariant.ref({
     required LexRef data,
-  }) = _LexRef;
+  }) = ULexRefVariantRef;
 
   const factory LexRefVariant.refUnion({
     required LexRefUnion data,
-  }) = _LexRefUnion;
+  }) = ULexRefVariantRefUnion;
 }

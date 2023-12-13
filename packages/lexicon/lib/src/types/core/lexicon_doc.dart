@@ -21,10 +21,10 @@ class LexiconDoc with _$LexiconDoc {
   @JsonSerializable(includeIfNull: false)
   const factory LexiconDoc({
     required int lexicon,
-    @NsidConverter() required NSID id,
+    @nsidConverter required NSID id,
     int? revision,
     String? description,
-    @LexUserTypeConverter() required Map<String, LexUserType> defs,
+    @lexUserTypeConverter required Map<String, LexUserType> defs,
   }) = _LexiconDoc;
 
   factory LexiconDoc.fromJson(Map<String, Object?> json) =>

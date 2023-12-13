@@ -12,9 +12,11 @@ import '../primitives/lex_primitive.dart';
 import '../primitives/lex_string.dart';
 import '../primitives/lex_unknown.dart';
 
-class LexPrimitiveConverter
+const lexPrimitiveConverter = _LexPrimitiveConverter();
+
+final class _LexPrimitiveConverter
     implements JsonConverter<LexPrimitive, Map<String, dynamic>> {
-  const LexPrimitiveConverter();
+  const _LexPrimitiveConverter();
 
   @override
   LexPrimitive fromJson(Map<String, dynamic> json) {

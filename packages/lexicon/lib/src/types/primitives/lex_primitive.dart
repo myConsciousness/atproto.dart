@@ -19,17 +19,17 @@ part 'lex_primitive.freezed.dart';
 class LexPrimitive with _$LexPrimitive {
   const factory LexPrimitive.boolean({
     required LexBoolean data,
-  }) = _LexBoolean;
+  }) = ULexPrimitiveBoolean;
 
   const factory LexPrimitive.integer({
     required LexInteger data,
-  }) = _LexInteger;
+  }) = ULexPrimitiveInteger;
 
   const factory LexPrimitive.string({
     required LexString data,
-  }) = _LexString;
+  }) = ULexPrimitiveString;
 
   const factory LexPrimitive.unknown({
     required LexUnknown data,
-  }) = _LexUnknown;
+  }) = ULexPrimitiveUnknown;
 }

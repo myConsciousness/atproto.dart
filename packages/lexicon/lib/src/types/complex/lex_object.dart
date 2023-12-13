@@ -22,7 +22,7 @@ class LexObject with _$LexObject {
     String? description,
     @JsonKey(name: 'required') List<String>? requiredProperties,
     @JsonKey(name: 'nullable') List<String>? nullableProperties,
-    @LexObjectPropertyConverter() Map<String, LexObjectProperty>? properties,
+    @lexObjectPropertyConverter Map<String, LexObjectProperty>? properties,
   }) = _LexObject;
 
   factory LexObject.fromJson(Map<String, Object?> json) =>

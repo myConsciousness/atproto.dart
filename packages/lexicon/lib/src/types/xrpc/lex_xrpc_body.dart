@@ -20,7 +20,7 @@ class LexXrpcBody with _$LexXrpcBody {
   const factory LexXrpcBody({
     String? description,
     required String encoding,
-    @LexXrpcSchemaConverter() LexXrpcSchema? schema,
+    @lexXrpcSchemaConverter LexXrpcSchema? schema,
   }) = _LexXrpcBody;
 
   factory LexXrpcBody.fromJson(Map<String, Object?> json) =>
