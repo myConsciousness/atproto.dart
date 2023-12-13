@@ -1,6 +1,6 @@
 # Release Note
 
-## v0.12.2
+## v0.12.3
 
 - Apply automatic generation of moderation sources. ([#1040](https://github.com/myConsciousness/atproto.dart/issues/1040))
 - Add `seenAt` property on `Notifications` object. ([#1046](https://github.com/myConsciousness/atproto.dart/issues/1046))
