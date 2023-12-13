@@ -99,6 +99,7 @@ String _generateEnum(
 
   return '''$_header
 
+// 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 enum $enumName {
@@ -107,23 +108,6 @@ $elements
   final String value;
 
   const $enumName(this.value);
-}''';
-}
-
-String _generateFlags(final List labelDefs) {
-  final collection = _getLabelCollection(labelDefs, 'flags');
-
-  final preferences = StringBuffer();
-  for (final preference in collection) {
-    preferences.writeln('  $preference,');
-  }
-
-  return '''$_header
-
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-enum LabelPreference {
-$collection
 }''';
 }
 
@@ -177,6 +161,7 @@ String _generateLabels(final List labelDefs) {
 
   return '''$_header
 
+// 🌎 Project imports:
 import '../entities/label_definition.dart';
 import 'known_label.g.dart';
 import 'known_label_group.g.dart';
@@ -207,6 +192,7 @@ String _generateLabelGroups(final List labelDefs) {
 
   return '''$_header
 
+// 🌎 Project imports:
 import '../entities/label_group_definition.dart';
 import 'known_label_group.g.dart';
 import 'labels.g.dart';
