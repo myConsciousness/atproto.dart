@@ -1,0 +1,65 @@
+name: Pull Latest Moderation Resources
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */12 * * *"
+
+jobs:
+  pull-mod-resources:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Delete Old Branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git fetch origin
+          if git show-ref --quiet refs/remotes/origin/pull-latest-mod-resources; then
+            git push origin --delete pull-latest-mod-resources
+          fi
+
+      - name: Create New Branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git switch -c pull-latest-mod-resources
+          git push -u origin pull-latest-mod-resources
+
+      - uses: dart-lang/setup-dart@v1.3
+      - name: Install dependencies
+        run: dart pub get
+
+      - name: Pull Latest Moderation Resources
+        run: dart run ./bin/pull_latest_mod_resources.dart
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+
+      - name: Generate Moderation Definitions
+        run: dart run ./bin/generate_mod_definitions.dart
+
+      - name: Build
+        run: |
+          cd packages/bluesky
+          dart run build_runner build --delete-conflicting-outputs
+          cd ../../
+
+      - name: Format
+        run: |
+          cd packages/bluesky
+          dart format .
+          cd ../../
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: "[Scheduled] Pull Latest Moderation Resources"
+          title: "[Scheduled] Pull Latest Moderation Resources"
+          branch: pull-latest-mod-resources
+          base: main
+          labels: Github Actions
+          assignees: "${{ github.actor }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -31,15 +31,15 @@ export 'package:bluesky/src/moderation/entities/label_group_definition.dart';
 export 'package:bluesky/src/moderation/entities/labeler.dart';
 
 /// Definitions
-export 'package:bluesky/src/moderation/definitions/label_preference.dart';
-export 'package:bluesky/src/moderation/definitions/label_definition_flag.dart';
-export 'package:bluesky/src/moderation/definitions/label_definition_on_warn_behavior.dart';
-export 'package:bluesky/src/moderation/definitions/known_label.dart'
+export 'package:bluesky/src/moderation/definitions/label_preference.g.dart';
+export 'package:bluesky/src/moderation/definitions/label_definition_flag.g.dart';
+export 'package:bluesky/src/moderation/definitions/label_definition_on_warn_behavior.g.dart';
+export 'package:bluesky/src/moderation/definitions/known_label.g.dart'
     show KnownLabel;
-export 'package:bluesky/src/moderation/definitions/known_label_group.dart'
+export 'package:bluesky/src/moderation/definitions/known_label_group.g.dart'
     show KnownLabelGroup;
-export 'package:bluesky/src/moderation/definitions/labels.dart';
-export 'package:bluesky/src/moderation/definitions/label_groups.dart';
+export 'package:bluesky/src/moderation/definitions/labels.g.dart';
+export 'package:bluesky/src/moderation/definitions/label_groups.g.dart';
 
 /// Utils
 export 'package:bluesky/src/moderation/utils/options.dart'

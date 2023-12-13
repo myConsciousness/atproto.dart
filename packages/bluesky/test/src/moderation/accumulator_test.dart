@@ -8,8 +8,8 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/moderation/accumulator.dart';
-import 'package:bluesky/src/moderation/definitions/label_preference.dart';
-import 'package:bluesky/src/moderation/definitions/labels.dart';
+import 'package:bluesky/src/moderation/definitions/label_preference.g.dart';
+import 'package:bluesky/src/moderation/definitions/labels.g.dart';
 import 'package:bluesky/src/moderation/entities/labeler.dart';
 import 'package:bluesky/src/moderation/entities/labeler_settings.dart';
 import 'package:bluesky/src/moderation/entities/moderation_cause.dart';

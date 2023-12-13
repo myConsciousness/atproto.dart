@@ -4,6 +4,8 @@
 
 import 'dart:io';
 
+import 'package:github/github.dart';
+
 /// The path to `packages` directory.
 const packagesPath = './packages';
 
@@ -13,11 +15,21 @@ const pubspecFileName = 'pubspec.yaml';
 /// The path to `lexicons` directory.
 const lexiconsPath = './lexicons';
 
+const moderationResourcesPath =
+    'packages/bluesky/test/src/moderation/suite/data';
+const moderationDefinitionsPath =
+    'packages/bluesky/lib/src/moderation/definitions';
+
 /// The collection of lexicons root.
 const lexiconsRoot = [
   'com/atproto',
   'app/bsky',
 ];
+
+final officialRepositorySlug = RepositorySlug(
+  'bluesky-social',
+  'atproto',
+);
 
 /// Returns the package names.
 final packageNames = Directory(packagesPath)
