@@ -133,12 +133,3 @@ app.*.symbols
 !.vscode/settings.json
 
 coverage.lcov
-
-# Generated codes
-*.freezed.dart
-*.g.dart
-# Generated codes but they are necessary
-!packages/atproto/lib/src/ids.g.dart
-!packages/bluesky/lib/src/ids.g.dart
-!packages/bluesky/lib/src/moderation/definitions/*.g.dart
-!packages/bluesky_cli/lib/src/version.g.dart
