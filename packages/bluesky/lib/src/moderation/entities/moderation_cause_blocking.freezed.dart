@@ -80,11 +80,12 @@ class _$ModerationCauseBlockingCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ModerationCauseBlockingCopyWith<$Res>
+abstract class _$$ModerationCauseBlockingImplCopyWith<$Res>
     implements $ModerationCauseBlockingCopyWith<$Res> {
-  factory _$$_ModerationCauseBlockingCopyWith(_$_ModerationCauseBlocking value,
-          $Res Function(_$_ModerationCauseBlocking) then) =
-      __$$_ModerationCauseBlockingCopyWithImpl<$Res>;
+  factory _$$ModerationCauseBlockingImplCopyWith(
+          _$ModerationCauseBlockingImpl value,
+          $Res Function(_$ModerationCauseBlockingImpl) then) =
+      __$$ModerationCauseBlockingImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String type, ModerationCauseSource source, int priority});
@@ -94,12 +95,13 @@ abstract class _$$_ModerationCauseBlockingCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ModerationCauseBlockingCopyWithImpl<$Res>
+class __$$ModerationCauseBlockingImplCopyWithImpl<$Res>
     extends _$ModerationCauseBlockingCopyWithImpl<$Res,
-        _$_ModerationCauseBlocking>
-    implements _$$_ModerationCauseBlockingCopyWith<$Res> {
-  __$$_ModerationCauseBlockingCopyWithImpl(_$_ModerationCauseBlocking _value,
-      $Res Function(_$_ModerationCauseBlocking) _then)
+        _$ModerationCauseBlockingImpl>
+    implements _$$ModerationCauseBlockingImplCopyWith<$Res> {
+  __$$ModerationCauseBlockingImplCopyWithImpl(
+      _$ModerationCauseBlockingImpl _value,
+      $Res Function(_$ModerationCauseBlockingImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -109,7 +111,7 @@ class __$$_ModerationCauseBlockingCopyWithImpl<$Res>
     Object? source = null,
     Object? priority = null,
   }) {
-    return _then(_$_ModerationCauseBlocking(
+    return _then(_$ModerationCauseBlockingImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -128,8 +130,8 @@ class __$$_ModerationCauseBlockingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ModerationCauseBlocking implements _ModerationCauseBlocking {
-  const _$_ModerationCauseBlocking(
+class _$ModerationCauseBlockingImpl implements _ModerationCauseBlocking {
+  const _$ModerationCauseBlockingImpl(
       {this.type = 'blocking', required this.source, this.priority = 3});
 
   @override
@@ -150,7 +152,7 @@ class _$_ModerationCauseBlocking implements _ModerationCauseBlocking {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ModerationCauseBlocking &&
+            other is _$ModerationCauseBlockingImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.source, source) || other.source == source) &&
             (identical(other.priority, priority) ||
@@ -163,17 +165,16 @@ class _$_ModerationCauseBlocking implements _ModerationCauseBlocking {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ModerationCauseBlockingCopyWith<_$_ModerationCauseBlocking>
-      get copyWith =>
-          __$$_ModerationCauseBlockingCopyWithImpl<_$_ModerationCauseBlocking>(
-              this, _$identity);
+  _$$ModerationCauseBlockingImplCopyWith<_$ModerationCauseBlockingImpl>
+      get copyWith => __$$ModerationCauseBlockingImplCopyWithImpl<
+          _$ModerationCauseBlockingImpl>(this, _$identity);
 }
 
 abstract class _ModerationCauseBlocking implements ModerationCauseBlocking {
   const factory _ModerationCauseBlocking(
       {final String type,
       required final ModerationCauseSource source,
-      final int priority}) = _$_ModerationCauseBlocking;
+      final int priority}) = _$ModerationCauseBlockingImpl;
 
   @override
   String get type;
@@ -183,6 +184,6 @@ abstract class _ModerationCauseBlocking implements ModerationCauseBlocking {
   int get priority;
   @override
   @JsonKey(ignore: true)
-  _$$_ModerationCauseBlockingCopyWith<_$_ModerationCauseBlocking>
+  _$$ModerationCauseBlockingImplCopyWith<_$ModerationCauseBlockingImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

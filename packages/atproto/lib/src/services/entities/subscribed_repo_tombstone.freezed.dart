@@ -86,11 +86,12 @@ class _$SubscribedRepoTombstoneCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_SubscribedRepoTombstoneCopyWith<$Res>
+abstract class _$$SubscribedRepoTombstoneImplCopyWith<$Res>
     implements $SubscribedRepoTombstoneCopyWith<$Res> {
-  factory _$$_SubscribedRepoTombstoneCopyWith(_$_SubscribedRepoTombstone value,
-          $Res Function(_$_SubscribedRepoTombstone) then) =
-      __$$_SubscribedRepoTombstoneCopyWithImpl<$Res>;
+  factory _$$SubscribedRepoTombstoneImplCopyWith(
+          _$SubscribedRepoTombstoneImpl value,
+          $Res Function(_$SubscribedRepoTombstoneImpl) then) =
+      __$$SubscribedRepoTombstoneImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -100,12 +101,13 @@ abstract class _$$_SubscribedRepoTombstoneCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SubscribedRepoTombstoneCopyWithImpl<$Res>
+class __$$SubscribedRepoTombstoneImplCopyWithImpl<$Res>
     extends _$SubscribedRepoTombstoneCopyWithImpl<$Res,
-        _$_SubscribedRepoTombstone>
-    implements _$$_SubscribedRepoTombstoneCopyWith<$Res> {
-  __$$_SubscribedRepoTombstoneCopyWithImpl(_$_SubscribedRepoTombstone _value,
-      $Res Function(_$_SubscribedRepoTombstone) _then)
+        _$SubscribedRepoTombstoneImpl>
+    implements _$$SubscribedRepoTombstoneImplCopyWith<$Res> {
+  __$$SubscribedRepoTombstoneImplCopyWithImpl(
+      _$SubscribedRepoTombstoneImpl _value,
+      $Res Function(_$SubscribedRepoTombstoneImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -115,7 +117,7 @@ class __$$_SubscribedRepoTombstoneCopyWithImpl<$Res>
     Object? cursor = null,
     Object? createdAt = null,
   }) {
-    return _then(_$_SubscribedRepoTombstone(
+    return _then(_$SubscribedRepoTombstoneImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -134,14 +136,14 @@ class __$$_SubscribedRepoTombstoneCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SubscribedRepoTombstone implements _SubscribedRepoTombstone {
-  const _$_SubscribedRepoTombstone(
+class _$SubscribedRepoTombstoneImpl implements _SubscribedRepoTombstone {
+  const _$SubscribedRepoTombstoneImpl(
       {required this.did,
       @JsonKey(name: 'seq') required this.cursor,
       @JsonKey(name: 'time') required this.createdAt});
 
-  factory _$_SubscribedRepoTombstone.fromJson(Map<String, dynamic> json) =>
-      _$$_SubscribedRepoTombstoneFromJson(json);
+  factory _$SubscribedRepoTombstoneImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SubscribedRepoTombstoneImplFromJson(json);
 
   /// The identifier of the subscribed repository.
   @override
@@ -166,7 +168,7 @@ class _$_SubscribedRepoTombstone implements _SubscribedRepoTombstone {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SubscribedRepoTombstone &&
+            other is _$SubscribedRepoTombstoneImpl &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
             (identical(other.createdAt, createdAt) ||
@@ -180,14 +182,13 @@ class _$_SubscribedRepoTombstone implements _SubscribedRepoTombstone {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SubscribedRepoTombstoneCopyWith<_$_SubscribedRepoTombstone>
-      get copyWith =>
-          __$$_SubscribedRepoTombstoneCopyWithImpl<_$_SubscribedRepoTombstone>(
-              this, _$identity);
+  _$$SubscribedRepoTombstoneImplCopyWith<_$SubscribedRepoTombstoneImpl>
+      get copyWith => __$$SubscribedRepoTombstoneImplCopyWithImpl<
+          _$SubscribedRepoTombstoneImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SubscribedRepoTombstoneToJson(
+    return _$$SubscribedRepoTombstoneImplToJson(
       this,
     );
   }
@@ -198,10 +199,10 @@ abstract class _SubscribedRepoTombstone implements SubscribedRepoTombstone {
           {required final String did,
           @JsonKey(name: 'seq') required final int cursor,
           @JsonKey(name: 'time') required final DateTime createdAt}) =
-      _$_SubscribedRepoTombstone;
+      _$SubscribedRepoTombstoneImpl;
 
   factory _SubscribedRepoTombstone.fromJson(Map<String, dynamic> json) =
-      _$_SubscribedRepoTombstone.fromJson;
+      _$SubscribedRepoTombstoneImpl.fromJson;
 
   @override
 
@@ -219,6 +220,6 @@ abstract class _SubscribedRepoTombstone implements SubscribedRepoTombstone {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$_SubscribedRepoTombstoneCopyWith<_$_SubscribedRepoTombstone>
+  _$$SubscribedRepoTombstoneImplCopyWith<_$SubscribedRepoTombstoneImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

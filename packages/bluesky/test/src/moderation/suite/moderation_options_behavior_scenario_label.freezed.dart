@@ -74,25 +74,25 @@ class _$ModerationOptionsBehaviorScenarioLabelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ModerationOptionsBehaviorScenarioLabelCopyWith<$Res>
+abstract class _$$ModerationOptionsBehaviorScenarioLabelImplCopyWith<$Res>
     implements $ModerationOptionsBehaviorScenarioLabelCopyWith<$Res> {
-  factory _$$_ModerationOptionsBehaviorScenarioLabelCopyWith(
-          _$_ModerationOptionsBehaviorScenarioLabel value,
-          $Res Function(_$_ModerationOptionsBehaviorScenarioLabel) then) =
-      __$$_ModerationOptionsBehaviorScenarioLabelCopyWithImpl<$Res>;
+  factory _$$ModerationOptionsBehaviorScenarioLabelImplCopyWith(
+          _$ModerationOptionsBehaviorScenarioLabelImpl value,
+          $Res Function(_$ModerationOptionsBehaviorScenarioLabelImpl) then) =
+      __$$ModerationOptionsBehaviorScenarioLabelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String label, ContentLabelVisibility visibility});
 }
 
 /// @nodoc
-class __$$_ModerationOptionsBehaviorScenarioLabelCopyWithImpl<$Res>
+class __$$ModerationOptionsBehaviorScenarioLabelImplCopyWithImpl<$Res>
     extends _$ModerationOptionsBehaviorScenarioLabelCopyWithImpl<$Res,
-        _$_ModerationOptionsBehaviorScenarioLabel>
-    implements _$$_ModerationOptionsBehaviorScenarioLabelCopyWith<$Res> {
-  __$$_ModerationOptionsBehaviorScenarioLabelCopyWithImpl(
-      _$_ModerationOptionsBehaviorScenarioLabel _value,
-      $Res Function(_$_ModerationOptionsBehaviorScenarioLabel) _then)
+        _$ModerationOptionsBehaviorScenarioLabelImpl>
+    implements _$$ModerationOptionsBehaviorScenarioLabelImplCopyWith<$Res> {
+  __$$ModerationOptionsBehaviorScenarioLabelImplCopyWithImpl(
+      _$ModerationOptionsBehaviorScenarioLabelImpl _value,
+      $Res Function(_$ModerationOptionsBehaviorScenarioLabelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -101,7 +101,7 @@ class __$$_ModerationOptionsBehaviorScenarioLabelCopyWithImpl<$Res>
     Object? label = null,
     Object? visibility = null,
   }) {
-    return _then(_$_ModerationOptionsBehaviorScenarioLabel(
+    return _then(_$ModerationOptionsBehaviorScenarioLabelImpl(
       label: null == label
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
@@ -117,14 +117,14 @@ class __$$_ModerationOptionsBehaviorScenarioLabelCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ModerationOptionsBehaviorScenarioLabel
+class _$ModerationOptionsBehaviorScenarioLabelImpl
     implements _ModerationOptionsBehaviorScenarioLabel {
-  const _$_ModerationOptionsBehaviorScenarioLabel(
+  const _$ModerationOptionsBehaviorScenarioLabelImpl(
       {required this.label, required this.visibility});
 
-  factory _$_ModerationOptionsBehaviorScenarioLabel.fromJson(
+  factory _$ModerationOptionsBehaviorScenarioLabelImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$_ModerationOptionsBehaviorScenarioLabelFromJson(json);
+      _$$ModerationOptionsBehaviorScenarioLabelImplFromJson(json);
 
   @override
   final String label;
@@ -140,7 +140,7 @@ class _$_ModerationOptionsBehaviorScenarioLabel
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ModerationOptionsBehaviorScenarioLabel &&
+            other is _$ModerationOptionsBehaviorScenarioLabelImpl &&
             (identical(other.label, label) || other.label == label) &&
             (identical(other.visibility, visibility) ||
                 other.visibility == visibility));
@@ -153,14 +153,15 @@ class _$_ModerationOptionsBehaviorScenarioLabel
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ModerationOptionsBehaviorScenarioLabelCopyWith<
-          _$_ModerationOptionsBehaviorScenarioLabel>
-      get copyWith => __$$_ModerationOptionsBehaviorScenarioLabelCopyWithImpl<
-          _$_ModerationOptionsBehaviorScenarioLabel>(this, _$identity);
+  _$$ModerationOptionsBehaviorScenarioLabelImplCopyWith<
+          _$ModerationOptionsBehaviorScenarioLabelImpl>
+      get copyWith =>
+          __$$ModerationOptionsBehaviorScenarioLabelImplCopyWithImpl<
+              _$ModerationOptionsBehaviorScenarioLabelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ModerationOptionsBehaviorScenarioLabelToJson(
+    return _$$ModerationOptionsBehaviorScenarioLabelImplToJson(
       this,
     );
   }
@@ -171,11 +172,11 @@ abstract class _ModerationOptionsBehaviorScenarioLabel
   const factory _ModerationOptionsBehaviorScenarioLabel(
           {required final String label,
           required final ContentLabelVisibility visibility}) =
-      _$_ModerationOptionsBehaviorScenarioLabel;
+      _$ModerationOptionsBehaviorScenarioLabelImpl;
 
   factory _ModerationOptionsBehaviorScenarioLabel.fromJson(
           Map<String, dynamic> json) =
-      _$_ModerationOptionsBehaviorScenarioLabel.fromJson;
+      _$ModerationOptionsBehaviorScenarioLabelImpl.fromJson;
 
   @override
   String get label;
@@ -183,7 +184,7 @@ abstract class _ModerationOptionsBehaviorScenarioLabel
   ContentLabelVisibility get visibility;
   @override
   @JsonKey(ignore: true)
-  _$$_ModerationOptionsBehaviorScenarioLabelCopyWith<
-          _$_ModerationOptionsBehaviorScenarioLabel>
+  _$$ModerationOptionsBehaviorScenarioLabelImplCopyWith<
+          _$ModerationOptionsBehaviorScenarioLabelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

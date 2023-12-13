@@ -8,12 +8,13 @@ part of 'parsed_verification_method.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ParsedVerificationMethod _$$_ParsedVerificationMethodFromJson(Map json) =>
+_$ParsedVerificationMethodImpl _$$ParsedVerificationMethodImplFromJson(
+        Map json) =>
     $checkedCreate(
-      r'_$_ParsedVerificationMethod',
+      r'_$ParsedVerificationMethodImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ParsedVerificationMethod(
+        final val = _$ParsedVerificationMethodImpl(
           id: $checkedConvert('id', (v) => v as String),
           type: $checkedConvert('type', (v) => v as String),
           controller: $checkedConvert('controller', (v) => v as String),
@@ -24,8 +25,8 @@ _$_ParsedVerificationMethod _$$_ParsedVerificationMethodFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$_ParsedVerificationMethodToJson(
-        _$_ParsedVerificationMethod instance) =>
+Map<String, dynamic> _$$ParsedVerificationMethodImplToJson(
+        _$ParsedVerificationMethodImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'type': instance.type,

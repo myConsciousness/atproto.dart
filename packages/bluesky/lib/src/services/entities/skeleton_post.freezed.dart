@@ -64,22 +64,22 @@ class _$SkeletonPostCopyWithImpl<$Res, $Val extends SkeletonPost>
 }
 
 /// @nodoc
-abstract class _$$_SkeletonPostCopyWith<$Res>
+abstract class _$$SkeletonPostImplCopyWith<$Res>
     implements $SkeletonPostCopyWith<$Res> {
-  factory _$$_SkeletonPostCopyWith(
-          _$_SkeletonPost value, $Res Function(_$_SkeletonPost) then) =
-      __$$_SkeletonPostCopyWithImpl<$Res>;
+  factory _$$SkeletonPostImplCopyWith(
+          _$SkeletonPostImpl value, $Res Function(_$SkeletonPostImpl) then) =
+      __$$SkeletonPostImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@atUriConverter AtUri uri});
 }
 
 /// @nodoc
-class __$$_SkeletonPostCopyWithImpl<$Res>
-    extends _$SkeletonPostCopyWithImpl<$Res, _$_SkeletonPost>
-    implements _$$_SkeletonPostCopyWith<$Res> {
-  __$$_SkeletonPostCopyWithImpl(
-      _$_SkeletonPost _value, $Res Function(_$_SkeletonPost) _then)
+class __$$SkeletonPostImplCopyWithImpl<$Res>
+    extends _$SkeletonPostCopyWithImpl<$Res, _$SkeletonPostImpl>
+    implements _$$SkeletonPostImplCopyWith<$Res> {
+  __$$SkeletonPostImplCopyWithImpl(
+      _$SkeletonPostImpl _value, $Res Function(_$SkeletonPostImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +87,7 @@ class __$$_SkeletonPostCopyWithImpl<$Res>
   $Res call({
     Object? uri = null,
   }) {
-    return _then(_$_SkeletonPost(
+    return _then(_$SkeletonPostImpl(
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -98,11 +98,11 @@ class __$$_SkeletonPostCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SkeletonPost implements _SkeletonPost {
-  const _$_SkeletonPost({@atUriConverter required this.uri});
+class _$SkeletonPostImpl implements _SkeletonPost {
+  const _$SkeletonPostImpl({@atUriConverter required this.uri});
 
-  factory _$_SkeletonPost.fromJson(Map<String, dynamic> json) =>
-      _$$_SkeletonPostFromJson(json);
+  factory _$SkeletonPostImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SkeletonPostImplFromJson(json);
 
   /// The post uri.
   @override
@@ -118,7 +118,7 @@ class _$_SkeletonPost implements _SkeletonPost {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SkeletonPost &&
+            other is _$SkeletonPostImpl &&
             (identical(other.uri, uri) || other.uri == uri));
   }
 
@@ -129,12 +129,12 @@ class _$_SkeletonPost implements _SkeletonPost {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SkeletonPostCopyWith<_$_SkeletonPost> get copyWith =>
-      __$$_SkeletonPostCopyWithImpl<_$_SkeletonPost>(this, _$identity);
+  _$$SkeletonPostImplCopyWith<_$SkeletonPostImpl> get copyWith =>
+      __$$SkeletonPostImplCopyWithImpl<_$SkeletonPostImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SkeletonPostToJson(
+    return _$$SkeletonPostImplToJson(
       this,
     );
   }
@@ -142,10 +142,10 @@ class _$_SkeletonPost implements _SkeletonPost {
 
 abstract class _SkeletonPost implements SkeletonPost {
   const factory _SkeletonPost({@atUriConverter required final AtUri uri}) =
-      _$_SkeletonPost;
+      _$SkeletonPostImpl;
 
   factory _SkeletonPost.fromJson(Map<String, dynamic> json) =
-      _$_SkeletonPost.fromJson;
+      _$SkeletonPostImpl.fromJson;
 
   @override
 
@@ -154,6 +154,6 @@ abstract class _SkeletonPost implements SkeletonPost {
   AtUri get uri;
   @override
   @JsonKey(ignore: true)
-  _$$_SkeletonPostCopyWith<_$_SkeletonPost> get copyWith =>
+  _$$SkeletonPostImplCopyWith<_$SkeletonPostImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

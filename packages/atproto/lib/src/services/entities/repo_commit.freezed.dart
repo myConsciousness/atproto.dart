@@ -71,22 +71,22 @@ class _$RepoCommitCopyWithImpl<$Res, $Val extends RepoCommit>
 }
 
 /// @nodoc
-abstract class _$$_RepoCommitCopyWith<$Res>
+abstract class _$$RepoCommitImplCopyWith<$Res>
     implements $RepoCommitCopyWith<$Res> {
-  factory _$$_RepoCommitCopyWith(
-          _$_RepoCommit value, $Res Function(_$_RepoCommit) then) =
-      __$$_RepoCommitCopyWithImpl<$Res>;
+  factory _$$RepoCommitImplCopyWith(
+          _$RepoCommitImpl value, $Res Function(_$RepoCommitImpl) then) =
+      __$$RepoCommitImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String cid, Map<String, dynamic> commit});
 }
 
 /// @nodoc
-class __$$_RepoCommitCopyWithImpl<$Res>
-    extends _$RepoCommitCopyWithImpl<$Res, _$_RepoCommit>
-    implements _$$_RepoCommitCopyWith<$Res> {
-  __$$_RepoCommitCopyWithImpl(
-      _$_RepoCommit _value, $Res Function(_$_RepoCommit) _then)
+class __$$RepoCommitImplCopyWithImpl<$Res>
+    extends _$RepoCommitCopyWithImpl<$Res, _$RepoCommitImpl>
+    implements _$$RepoCommitImplCopyWith<$Res> {
+  __$$RepoCommitImplCopyWithImpl(
+      _$RepoCommitImpl _value, $Res Function(_$RepoCommitImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,7 +95,7 @@ class __$$_RepoCommitCopyWithImpl<$Res>
     Object? cid = null,
     Object? commit = null,
   }) {
-    return _then(_$_RepoCommit(
+    return _then(_$RepoCommitImpl(
       cid: null == cid
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
@@ -110,13 +110,13 @@ class __$$_RepoCommitCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RepoCommit implements _RepoCommit {
-  const _$_RepoCommit(
+class _$RepoCommitImpl implements _RepoCommit {
+  const _$RepoCommitImpl(
       {required this.cid, required final Map<String, dynamic> commit})
       : _commit = commit;
 
-  factory _$_RepoCommit.fromJson(Map<String, dynamic> json) =>
-      _$$_RepoCommitFromJson(json);
+  factory _$RepoCommitImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RepoCommitImplFromJson(json);
 
   /// The Content Identifier (CID) of the commit.
   @override
@@ -142,7 +142,7 @@ class _$_RepoCommit implements _RepoCommit {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RepoCommit &&
+            other is _$RepoCommitImpl &&
             (identical(other.cid, cid) || other.cid == cid) &&
             const DeepCollectionEquality().equals(other._commit, _commit));
   }
@@ -155,12 +155,12 @@ class _$_RepoCommit implements _RepoCommit {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RepoCommitCopyWith<_$_RepoCommit> get copyWith =>
-      __$$_RepoCommitCopyWithImpl<_$_RepoCommit>(this, _$identity);
+  _$$RepoCommitImplCopyWith<_$RepoCommitImpl> get copyWith =>
+      __$$RepoCommitImplCopyWithImpl<_$RepoCommitImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RepoCommitToJson(
+    return _$$RepoCommitImplToJson(
       this,
     );
   }
@@ -169,10 +169,10 @@ class _$_RepoCommit implements _RepoCommit {
 abstract class _RepoCommit implements RepoCommit {
   const factory _RepoCommit(
       {required final String cid,
-      required final Map<String, dynamic> commit}) = _$_RepoCommit;
+      required final Map<String, dynamic> commit}) = _$RepoCommitImpl;
 
   factory _RepoCommit.fromJson(Map<String, dynamic> json) =
-      _$_RepoCommit.fromJson;
+      _$RepoCommitImpl.fromJson;
 
   @override
 
@@ -184,6 +184,6 @@ abstract class _RepoCommit implements RepoCommit {
   Map<String, dynamic> get commit;
   @override
   @JsonKey(ignore: true)
-  _$$_RepoCommitCopyWith<_$_RepoCommit> get copyWith =>
+  _$$RepoCommitImplCopyWith<_$RepoCommitImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -90,12 +90,12 @@ class _$ParsedVerificationMethodCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ParsedVerificationMethodCopyWith<$Res>
+abstract class _$$ParsedVerificationMethodImplCopyWith<$Res>
     implements $ParsedVerificationMethodCopyWith<$Res> {
-  factory _$$_ParsedVerificationMethodCopyWith(
-          _$_ParsedVerificationMethod value,
-          $Res Function(_$_ParsedVerificationMethod) then) =
-      __$$_ParsedVerificationMethodCopyWithImpl<$Res>;
+  factory _$$ParsedVerificationMethodImplCopyWith(
+          _$ParsedVerificationMethodImpl value,
+          $Res Function(_$ParsedVerificationMethodImpl) then) =
+      __$$ParsedVerificationMethodImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -103,12 +103,13 @@ abstract class _$$_ParsedVerificationMethodCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ParsedVerificationMethodCopyWithImpl<$Res>
+class __$$ParsedVerificationMethodImplCopyWithImpl<$Res>
     extends _$ParsedVerificationMethodCopyWithImpl<$Res,
-        _$_ParsedVerificationMethod>
-    implements _$$_ParsedVerificationMethodCopyWith<$Res> {
-  __$$_ParsedVerificationMethodCopyWithImpl(_$_ParsedVerificationMethod _value,
-      $Res Function(_$_ParsedVerificationMethod) _then)
+        _$ParsedVerificationMethodImpl>
+    implements _$$ParsedVerificationMethodImplCopyWith<$Res> {
+  __$$ParsedVerificationMethodImplCopyWithImpl(
+      _$ParsedVerificationMethodImpl _value,
+      $Res Function(_$ParsedVerificationMethodImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -119,7 +120,7 @@ class __$$_ParsedVerificationMethodCopyWithImpl<$Res>
     Object? controller = null,
     Object? publicKeyMultibase = null,
   }) {
-    return _then(_$_ParsedVerificationMethod(
+    return _then(_$ParsedVerificationMethodImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -142,15 +143,15 @@ class __$$_ParsedVerificationMethodCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ParsedVerificationMethod implements _ParsedVerificationMethod {
-  const _$_ParsedVerificationMethod(
+class _$ParsedVerificationMethodImpl implements _ParsedVerificationMethod {
+  const _$ParsedVerificationMethodImpl(
       {required this.id,
       required this.type,
       required this.controller,
       required this.publicKeyMultibase});
 
-  factory _$_ParsedVerificationMethod.fromJson(Map<String, dynamic> json) =>
-      _$$_ParsedVerificationMethodFromJson(json);
+  factory _$ParsedVerificationMethodImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ParsedVerificationMethodImplFromJson(json);
 
   /// The unique identifier for the verification method.
   @override
@@ -177,7 +178,7 @@ class _$_ParsedVerificationMethod implements _ParsedVerificationMethod {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ParsedVerificationMethod &&
+            other is _$ParsedVerificationMethodImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.controller, controller) ||
@@ -194,13 +195,13 @@ class _$_ParsedVerificationMethod implements _ParsedVerificationMethod {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ParsedVerificationMethodCopyWith<_$_ParsedVerificationMethod>
-      get copyWith => __$$_ParsedVerificationMethodCopyWithImpl<
-          _$_ParsedVerificationMethod>(this, _$identity);
+  _$$ParsedVerificationMethodImplCopyWith<_$ParsedVerificationMethodImpl>
+      get copyWith => __$$ParsedVerificationMethodImplCopyWithImpl<
+          _$ParsedVerificationMethodImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ParsedVerificationMethodToJson(
+    return _$$ParsedVerificationMethodImplToJson(
       this,
     );
   }
@@ -208,13 +209,14 @@ class _$_ParsedVerificationMethod implements _ParsedVerificationMethod {
 
 abstract class _ParsedVerificationMethod implements ParsedVerificationMethod {
   const factory _ParsedVerificationMethod(
-      {required final String id,
-      required final String type,
-      required final String controller,
-      required final String publicKeyMultibase}) = _$_ParsedVerificationMethod;
+          {required final String id,
+          required final String type,
+          required final String controller,
+          required final String publicKeyMultibase}) =
+      _$ParsedVerificationMethodImpl;
 
   factory _ParsedVerificationMethod.fromJson(Map<String, dynamic> json) =
-      _$_ParsedVerificationMethod.fromJson;
+      _$ParsedVerificationMethodImpl.fromJson;
 
   @override
 
@@ -234,6 +236,6 @@ abstract class _ParsedVerificationMethod implements ParsedVerificationMethod {
   String get publicKeyMultibase;
   @override
   @JsonKey(ignore: true)
-  _$$_ParsedVerificationMethodCopyWith<_$_ParsedVerificationMethod>
+  _$$ParsedVerificationMethodImplCopyWith<_$ParsedVerificationMethodImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

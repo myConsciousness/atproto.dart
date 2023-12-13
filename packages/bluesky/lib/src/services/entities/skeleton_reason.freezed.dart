@@ -76,10 +76,11 @@ class _$SkeletonReasonCopyWithImpl<$Res, $Val extends SkeletonReason>
 }
 
 /// @nodoc
-abstract class _$$USkeletonReasonRepostCopyWith<$Res> {
-  factory _$$USkeletonReasonRepostCopyWith(_$USkeletonReasonRepost value,
-          $Res Function(_$USkeletonReasonRepost) then) =
-      __$$USkeletonReasonRepostCopyWithImpl<$Res>;
+abstract class _$$USkeletonReasonRepostImplCopyWith<$Res> {
+  factory _$$USkeletonReasonRepostImplCopyWith(
+          _$USkeletonReasonRepostImpl value,
+          $Res Function(_$USkeletonReasonRepostImpl) then) =
+      __$$USkeletonReasonRepostImplCopyWithImpl<$Res>;
   @useResult
   $Res call({SkeletonReasonRepost data});
 
@@ -87,11 +88,11 @@ abstract class _$$USkeletonReasonRepostCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$USkeletonReasonRepostCopyWithImpl<$Res>
-    extends _$SkeletonReasonCopyWithImpl<$Res, _$USkeletonReasonRepost>
-    implements _$$USkeletonReasonRepostCopyWith<$Res> {
-  __$$USkeletonReasonRepostCopyWithImpl(_$USkeletonReasonRepost _value,
-      $Res Function(_$USkeletonReasonRepost) _then)
+class __$$USkeletonReasonRepostImplCopyWithImpl<$Res>
+    extends _$SkeletonReasonCopyWithImpl<$Res, _$USkeletonReasonRepostImpl>
+    implements _$$USkeletonReasonRepostImplCopyWith<$Res> {
+  __$$USkeletonReasonRepostImplCopyWithImpl(_$USkeletonReasonRepostImpl _value,
+      $Res Function(_$USkeletonReasonRepostImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +100,7 @@ class __$$USkeletonReasonRepostCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$USkeletonReasonRepost(
+    return _then(_$USkeletonReasonRepostImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -118,8 +119,8 @@ class __$$USkeletonReasonRepostCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$USkeletonReasonRepost implements USkeletonReasonRepost {
-  _$USkeletonReasonRepost({required this.data});
+class _$USkeletonReasonRepostImpl implements USkeletonReasonRepost {
+  _$USkeletonReasonRepostImpl({required this.data});
 
   @override
   final SkeletonReasonRepost data;
@@ -133,7 +134,7 @@ class _$USkeletonReasonRepost implements USkeletonReasonRepost {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$USkeletonReasonRepost &&
+            other is _$USkeletonReasonRepostImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -143,9 +144,9 @@ class _$USkeletonReasonRepost implements USkeletonReasonRepost {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$USkeletonReasonRepostCopyWith<_$USkeletonReasonRepost> get copyWith =>
-      __$$USkeletonReasonRepostCopyWithImpl<_$USkeletonReasonRepost>(
-          this, _$identity);
+  _$$USkeletonReasonRepostImplCopyWith<_$USkeletonReasonRepostImpl>
+      get copyWith => __$$USkeletonReasonRepostImplCopyWithImpl<
+          _$USkeletonReasonRepostImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -212,30 +213,32 @@ class _$USkeletonReasonRepost implements USkeletonReasonRepost {
 
 abstract class USkeletonReasonRepost implements SkeletonReason {
   factory USkeletonReasonRepost({required final SkeletonReasonRepost data}) =
-      _$USkeletonReasonRepost;
+      _$USkeletonReasonRepostImpl;
 
   @override
   SkeletonReasonRepost get data;
   @JsonKey(ignore: true)
-  _$$USkeletonReasonRepostCopyWith<_$USkeletonReasonRepost> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$USkeletonReasonRepostImplCopyWith<_$USkeletonReasonRepostImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$USkeletonReasonUnknownCopyWith<$Res> {
-  factory _$$USkeletonReasonUnknownCopyWith(_$USkeletonReasonUnknown value,
-          $Res Function(_$USkeletonReasonUnknown) then) =
-      __$$USkeletonReasonUnknownCopyWithImpl<$Res>;
+abstract class _$$USkeletonReasonUnknownImplCopyWith<$Res> {
+  factory _$$USkeletonReasonUnknownImplCopyWith(
+          _$USkeletonReasonUnknownImpl value,
+          $Res Function(_$USkeletonReasonUnknownImpl) then) =
+      __$$USkeletonReasonUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$USkeletonReasonUnknownCopyWithImpl<$Res>
-    extends _$SkeletonReasonCopyWithImpl<$Res, _$USkeletonReasonUnknown>
-    implements _$$USkeletonReasonUnknownCopyWith<$Res> {
-  __$$USkeletonReasonUnknownCopyWithImpl(_$USkeletonReasonUnknown _value,
-      $Res Function(_$USkeletonReasonUnknown) _then)
+class __$$USkeletonReasonUnknownImplCopyWithImpl<$Res>
+    extends _$SkeletonReasonCopyWithImpl<$Res, _$USkeletonReasonUnknownImpl>
+    implements _$$USkeletonReasonUnknownImplCopyWith<$Res> {
+  __$$USkeletonReasonUnknownImplCopyWithImpl(
+      _$USkeletonReasonUnknownImpl _value,
+      $Res Function(_$USkeletonReasonUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -243,7 +246,7 @@ class __$$USkeletonReasonUnknownCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$USkeletonReasonUnknown(
+    return _then(_$USkeletonReasonUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -254,8 +257,8 @@ class __$$USkeletonReasonUnknownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$USkeletonReasonUnknown implements USkeletonReasonUnknown {
-  _$USkeletonReasonUnknown({required final Map<String, dynamic> data})
+class _$USkeletonReasonUnknownImpl implements USkeletonReasonUnknown {
+  _$USkeletonReasonUnknownImpl({required final Map<String, dynamic> data})
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -275,7 +278,7 @@ class _$USkeletonReasonUnknown implements USkeletonReasonUnknown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$USkeletonReasonUnknown &&
+            other is _$USkeletonReasonUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -286,9 +289,9 @@ class _$USkeletonReasonUnknown implements USkeletonReasonUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$USkeletonReasonUnknownCopyWith<_$USkeletonReasonUnknown> get copyWith =>
-      __$$USkeletonReasonUnknownCopyWithImpl<_$USkeletonReasonUnknown>(
-          this, _$identity);
+  _$$USkeletonReasonUnknownImplCopyWith<_$USkeletonReasonUnknownImpl>
+      get copyWith => __$$USkeletonReasonUnknownImplCopyWithImpl<
+          _$USkeletonReasonUnknownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -355,11 +358,11 @@ class _$USkeletonReasonUnknown implements USkeletonReasonUnknown {
 
 abstract class USkeletonReasonUnknown implements SkeletonReason {
   factory USkeletonReasonUnknown({required final Map<String, dynamic> data}) =
-      _$USkeletonReasonUnknown;
+      _$USkeletonReasonUnknownImpl;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$USkeletonReasonUnknownCopyWith<_$USkeletonReasonUnknown> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$USkeletonReasonUnknownImplCopyWith<_$USkeletonReasonUnknownImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -78,18 +78,20 @@ class _$RepoCopyWithImpl<$Res, $Val extends Repo>
 }
 
 /// @nodoc
-abstract class _$$_RepoCopyWith<$Res> implements $RepoCopyWith<$Res> {
-  factory _$$_RepoCopyWith(_$_Repo value, $Res Function(_$_Repo) then) =
-      __$$_RepoCopyWithImpl<$Res>;
+abstract class _$$RepoImplCopyWith<$Res> implements $RepoCopyWith<$Res> {
+  factory _$$RepoImplCopyWith(
+          _$RepoImpl value, $Res Function(_$RepoImpl) then) =
+      __$$RepoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String did, @JsonKey(name: 'head') String headCid, String rev});
 }
 
 /// @nodoc
-class __$$_RepoCopyWithImpl<$Res> extends _$RepoCopyWithImpl<$Res, _$_Repo>
-    implements _$$_RepoCopyWith<$Res> {
-  __$$_RepoCopyWithImpl(_$_Repo _value, $Res Function(_$_Repo) _then)
+class __$$RepoImplCopyWithImpl<$Res>
+    extends _$RepoCopyWithImpl<$Res, _$RepoImpl>
+    implements _$$RepoImplCopyWith<$Res> {
+  __$$RepoImplCopyWithImpl(_$RepoImpl _value, $Res Function(_$RepoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +101,7 @@ class __$$_RepoCopyWithImpl<$Res> extends _$RepoCopyWithImpl<$Res, _$_Repo>
     Object? headCid = null,
     Object? rev = null,
   }) {
-    return _then(_$_Repo(
+    return _then(_$RepoImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -118,13 +120,14 @@ class __$$_RepoCopyWithImpl<$Res> extends _$RepoCopyWithImpl<$Res, _$_Repo>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Repo implements _Repo {
-  const _$_Repo(
+class _$RepoImpl implements _Repo {
+  const _$RepoImpl(
       {required this.did,
       @JsonKey(name: 'head') required this.headCid,
       required this.rev});
 
-  factory _$_Repo.fromJson(Map<String, dynamic> json) => _$$_RepoFromJson(json);
+  factory _$RepoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RepoImplFromJson(json);
 
   /// The DID of the repository.
   @override
@@ -148,7 +151,7 @@ class _$_Repo implements _Repo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Repo &&
+            other is _$RepoImpl &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.headCid, headCid) || other.headCid == headCid) &&
             (identical(other.rev, rev) || other.rev == rev));
@@ -161,12 +164,12 @@ class _$_Repo implements _Repo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RepoCopyWith<_$_Repo> get copyWith =>
-      __$$_RepoCopyWithImpl<_$_Repo>(this, _$identity);
+  _$$RepoImplCopyWith<_$RepoImpl> get copyWith =>
+      __$$RepoImplCopyWithImpl<_$RepoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RepoToJson(
+    return _$$RepoImplToJson(
       this,
     );
   }
@@ -176,9 +179,9 @@ abstract class _Repo implements Repo {
   const factory _Repo(
       {required final String did,
       @JsonKey(name: 'head') required final String headCid,
-      required final String rev}) = _$_Repo;
+      required final String rev}) = _$RepoImpl;
 
-  factory _Repo.fromJson(Map<String, dynamic> json) = _$_Repo.fromJson;
+  factory _Repo.fromJson(Map<String, dynamic> json) = _$RepoImpl.fromJson;
 
   @override
 
@@ -195,5 +198,6 @@ abstract class _Repo implements Repo {
   String get rev;
   @override
   @JsonKey(ignore: true)
-  _$$_RepoCopyWith<_$_Repo> get copyWith => throw _privateConstructorUsedError;
+  _$$RepoImplCopyWith<_$RepoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -75,25 +75,25 @@ class _$PersonalDetailsPreferenceCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_PersonalDetailsPreferenceCopyWith<$Res>
+abstract class _$$PersonalDetailsPreferenceImplCopyWith<$Res>
     implements $PersonalDetailsPreferenceCopyWith<$Res> {
-  factory _$$_PersonalDetailsPreferenceCopyWith(
-          _$_PersonalDetailsPreference value,
-          $Res Function(_$_PersonalDetailsPreference) then) =
-      __$$_PersonalDetailsPreferenceCopyWithImpl<$Res>;
+  factory _$$PersonalDetailsPreferenceImplCopyWith(
+          _$PersonalDetailsPreferenceImpl value,
+          $Res Function(_$PersonalDetailsPreferenceImpl) then) =
+      __$$PersonalDetailsPreferenceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, DateTime? birthDate});
 }
 
 /// @nodoc
-class __$$_PersonalDetailsPreferenceCopyWithImpl<$Res>
+class __$$PersonalDetailsPreferenceImplCopyWithImpl<$Res>
     extends _$PersonalDetailsPreferenceCopyWithImpl<$Res,
-        _$_PersonalDetailsPreference>
-    implements _$$_PersonalDetailsPreferenceCopyWith<$Res> {
-  __$$_PersonalDetailsPreferenceCopyWithImpl(
-      _$_PersonalDetailsPreference _value,
-      $Res Function(_$_PersonalDetailsPreference) _then)
+        _$PersonalDetailsPreferenceImpl>
+    implements _$$PersonalDetailsPreferenceImplCopyWith<$Res> {
+  __$$PersonalDetailsPreferenceImplCopyWithImpl(
+      _$PersonalDetailsPreferenceImpl _value,
+      $Res Function(_$PersonalDetailsPreferenceImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -102,7 +102,7 @@ class __$$_PersonalDetailsPreferenceCopyWithImpl<$Res>
     Object? type = null,
     Object? birthDate = freezed,
   }) {
-    return _then(_$_PersonalDetailsPreference(
+    return _then(_$PersonalDetailsPreferenceImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -118,13 +118,13 @@ class __$$_PersonalDetailsPreferenceCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_PersonalDetailsPreference implements _PersonalDetailsPreference {
-  const _$_PersonalDetailsPreference(
+class _$PersonalDetailsPreferenceImpl implements _PersonalDetailsPreference {
+  const _$PersonalDetailsPreferenceImpl(
       {@typeKey this.type = appBskyActorDefsPersonalDetailsPref,
       this.birthDate});
 
-  factory _$_PersonalDetailsPreference.fromJson(Map<String, dynamic> json) =>
-      _$$_PersonalDetailsPreferenceFromJson(json);
+  factory _$PersonalDetailsPreferenceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PersonalDetailsPreferenceImplFromJson(json);
 
   /// A string that represents the type of the object.
   /// By default, it is [appBskyActorDefsPersonalDetailsPref].
@@ -145,7 +145,7 @@ class _$_PersonalDetailsPreference implements _PersonalDetailsPreference {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PersonalDetailsPreference &&
+            other is _$PersonalDetailsPreferenceImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.birthDate, birthDate) ||
                 other.birthDate == birthDate));
@@ -158,13 +158,13 @@ class _$_PersonalDetailsPreference implements _PersonalDetailsPreference {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PersonalDetailsPreferenceCopyWith<_$_PersonalDetailsPreference>
-      get copyWith => __$$_PersonalDetailsPreferenceCopyWithImpl<
-          _$_PersonalDetailsPreference>(this, _$identity);
+  _$$PersonalDetailsPreferenceImplCopyWith<_$PersonalDetailsPreferenceImpl>
+      get copyWith => __$$PersonalDetailsPreferenceImplCopyWithImpl<
+          _$PersonalDetailsPreferenceImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PersonalDetailsPreferenceToJson(
+    return _$$PersonalDetailsPreferenceImplToJson(
       this,
     );
   }
@@ -173,10 +173,10 @@ class _$_PersonalDetailsPreference implements _PersonalDetailsPreference {
 abstract class _PersonalDetailsPreference implements PersonalDetailsPreference {
   const factory _PersonalDetailsPreference(
       {@typeKey final String type,
-      final DateTime? birthDate}) = _$_PersonalDetailsPreference;
+      final DateTime? birthDate}) = _$PersonalDetailsPreferenceImpl;
 
   factory _PersonalDetailsPreference.fromJson(Map<String, dynamic> json) =
-      _$_PersonalDetailsPreference.fromJson;
+      _$PersonalDetailsPreferenceImpl.fromJson;
 
   @override
 
@@ -190,6 +190,6 @@ abstract class _PersonalDetailsPreference implements PersonalDetailsPreference {
   DateTime? get birthDate;
   @override
   @JsonKey(ignore: true)
-  _$$_PersonalDetailsPreferenceCopyWith<_$_PersonalDetailsPreference>
+  _$$PersonalDetailsPreferenceImplCopyWith<_$PersonalDetailsPreferenceImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

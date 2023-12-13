@@ -74,11 +74,11 @@ class _$ListViewerCopyWithImpl<$Res, $Val extends ListViewer>
 }
 
 /// @nodoc
-abstract class _$$_ListViewerCopyWith<$Res>
+abstract class _$$ListViewerImplCopyWith<$Res>
     implements $ListViewerCopyWith<$Res> {
-  factory _$$_ListViewerCopyWith(
-          _$_ListViewer value, $Res Function(_$_ListViewer) then) =
-      __$$_ListViewerCopyWithImpl<$Res>;
+  factory _$$ListViewerImplCopyWith(
+          _$ListViewerImpl value, $Res Function(_$ListViewerImpl) then) =
+      __$$ListViewerImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -86,11 +86,11 @@ abstract class _$$_ListViewerCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ListViewerCopyWithImpl<$Res>
-    extends _$ListViewerCopyWithImpl<$Res, _$_ListViewer>
-    implements _$$_ListViewerCopyWith<$Res> {
-  __$$_ListViewerCopyWithImpl(
-      _$_ListViewer _value, $Res Function(_$_ListViewer) _then)
+class __$$ListViewerImplCopyWithImpl<$Res>
+    extends _$ListViewerCopyWithImpl<$Res, _$ListViewerImpl>
+    implements _$$ListViewerImplCopyWith<$Res> {
+  __$$ListViewerImplCopyWithImpl(
+      _$ListViewerImpl _value, $Res Function(_$ListViewerImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$_ListViewerCopyWithImpl<$Res>
     Object? isMuted = null,
     Object? blocked = freezed,
   }) {
-    return _then(_$_ListViewer(
+    return _then(_$ListViewerImpl(
       isMuted: null == isMuted
           ? _value.isMuted
           : isMuted // ignore: cast_nullable_to_non_nullable
@@ -115,14 +115,14 @@ class __$$_ListViewerCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ListViewer extends _ListViewer {
-  const _$_ListViewer(
+class _$ListViewerImpl extends _ListViewer {
+  const _$ListViewerImpl(
       {@JsonKey(name: 'muted') this.isMuted = false,
       @atUriConverter this.blocked})
       : super._();
 
-  factory _$_ListViewer.fromJson(Map<String, dynamic> json) =>
-      _$$_ListViewerFromJson(json);
+  factory _$ListViewerImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ListViewerImplFromJson(json);
 
   /// Represents whether the viewer has muted the list.
   @override
@@ -143,7 +143,7 @@ class _$_ListViewer extends _ListViewer {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ListViewer &&
+            other is _$ListViewerImpl &&
             (identical(other.isMuted, isMuted) || other.isMuted == isMuted) &&
             (identical(other.blocked, blocked) || other.blocked == blocked));
   }
@@ -155,12 +155,12 @@ class _$_ListViewer extends _ListViewer {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ListViewerCopyWith<_$_ListViewer> get copyWith =>
-      __$$_ListViewerCopyWithImpl<_$_ListViewer>(this, _$identity);
+  _$$ListViewerImplCopyWith<_$ListViewerImpl> get copyWith =>
+      __$$ListViewerImplCopyWithImpl<_$ListViewerImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ListViewerToJson(
+    return _$$ListViewerImplToJson(
       this,
     );
   }
@@ -169,11 +169,11 @@ class _$_ListViewer extends _ListViewer {
 abstract class _ListViewer extends ListViewer {
   const factory _ListViewer(
       {@JsonKey(name: 'muted') final bool isMuted,
-      @atUriConverter final AtUri? blocked}) = _$_ListViewer;
+      @atUriConverter final AtUri? blocked}) = _$ListViewerImpl;
   const _ListViewer._() : super._();
 
   factory _ListViewer.fromJson(Map<String, dynamic> json) =
-      _$_ListViewer.fromJson;
+      _$ListViewerImpl.fromJson;
 
   @override
 
@@ -187,6 +187,6 @@ abstract class _ListViewer extends ListViewer {
   AtUri? get blocked;
   @override
   @JsonKey(ignore: true)
-  _$$_ListViewerCopyWith<_$_ListViewer> get copyWith =>
+  _$$ListViewerImplCopyWith<_$ListViewerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

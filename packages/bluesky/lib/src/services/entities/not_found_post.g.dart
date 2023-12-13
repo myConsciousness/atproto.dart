@@ -8,11 +8,11 @@ part of 'not_found_post.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_NotFoundPost _$$_NotFoundPostFromJson(Map json) => $checkedCreate(
-      r'_$_NotFoundPost',
+_$NotFoundPostImpl _$$NotFoundPostImplFromJson(Map json) => $checkedCreate(
+      r'_$NotFoundPostImpl',
       json,
       ($checkedConvert) {
-        final val = _$_NotFoundPost(
+        final val = _$NotFoundPostImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsNotFoundPost),
           uri: $checkedConvert(
@@ -24,7 +24,7 @@ _$_NotFoundPost _$$_NotFoundPostFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type', 'isNotFound': 'notFound'},
     );
 
-Map<String, dynamic> _$$_NotFoundPostToJson(_$_NotFoundPost instance) =>
+Map<String, dynamic> _$$NotFoundPostImplToJson(_$NotFoundPostImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'uri': atUriConverter.toJson(instance.uri),

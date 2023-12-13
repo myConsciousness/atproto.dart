@@ -95,11 +95,12 @@ class _$SubscribedRepoMigrateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_SubscribedRepoMigrateCopyWith<$Res>
+abstract class _$$SubscribedRepoMigrateImplCopyWith<$Res>
     implements $SubscribedRepoMigrateCopyWith<$Res> {
-  factory _$$_SubscribedRepoMigrateCopyWith(_$_SubscribedRepoMigrate value,
-          $Res Function(_$_SubscribedRepoMigrate) then) =
-      __$$_SubscribedRepoMigrateCopyWithImpl<$Res>;
+  factory _$$SubscribedRepoMigrateImplCopyWith(
+          _$SubscribedRepoMigrateImpl value,
+          $Res Function(_$SubscribedRepoMigrateImpl) then) =
+      __$$SubscribedRepoMigrateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -110,11 +111,12 @@ abstract class _$$_SubscribedRepoMigrateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SubscribedRepoMigrateCopyWithImpl<$Res>
-    extends _$SubscribedRepoMigrateCopyWithImpl<$Res, _$_SubscribedRepoMigrate>
-    implements _$$_SubscribedRepoMigrateCopyWith<$Res> {
-  __$$_SubscribedRepoMigrateCopyWithImpl(_$_SubscribedRepoMigrate _value,
-      $Res Function(_$_SubscribedRepoMigrate) _then)
+class __$$SubscribedRepoMigrateImplCopyWithImpl<$Res>
+    extends _$SubscribedRepoMigrateCopyWithImpl<$Res,
+        _$SubscribedRepoMigrateImpl>
+    implements _$$SubscribedRepoMigrateImplCopyWith<$Res> {
+  __$$SubscribedRepoMigrateImplCopyWithImpl(_$SubscribedRepoMigrateImpl _value,
+      $Res Function(_$SubscribedRepoMigrateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -125,7 +127,7 @@ class __$$_SubscribedRepoMigrateCopyWithImpl<$Res>
     Object? cursor = null,
     Object? createdAt = null,
   }) {
-    return _then(_$_SubscribedRepoMigrate(
+    return _then(_$SubscribedRepoMigrateImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -149,15 +151,15 @@ class __$$_SubscribedRepoMigrateCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_SubscribedRepoMigrate implements _SubscribedRepoMigrate {
-  const _$_SubscribedRepoMigrate(
+class _$SubscribedRepoMigrateImpl implements _SubscribedRepoMigrate {
+  const _$SubscribedRepoMigrateImpl(
       {required this.did,
       this.migrateTo,
       @JsonKey(name: 'seq') required this.cursor,
       @JsonKey(name: 'time') required this.createdAt});
 
-  factory _$_SubscribedRepoMigrate.fromJson(Map<String, dynamic> json) =>
-      _$$_SubscribedRepoMigrateFromJson(json);
+  factory _$SubscribedRepoMigrateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SubscribedRepoMigrateImplFromJson(json);
 
   /// The identifier of the subscribed repository.
   @override
@@ -186,7 +188,7 @@ class _$_SubscribedRepoMigrate implements _SubscribedRepoMigrate {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SubscribedRepoMigrate &&
+            other is _$SubscribedRepoMigrateImpl &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.migrateTo, migrateTo) ||
                 other.migrateTo == migrateTo) &&
@@ -203,13 +205,13 @@ class _$_SubscribedRepoMigrate implements _SubscribedRepoMigrate {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SubscribedRepoMigrateCopyWith<_$_SubscribedRepoMigrate> get copyWith =>
-      __$$_SubscribedRepoMigrateCopyWithImpl<_$_SubscribedRepoMigrate>(
-          this, _$identity);
+  _$$SubscribedRepoMigrateImplCopyWith<_$SubscribedRepoMigrateImpl>
+      get copyWith => __$$SubscribedRepoMigrateImplCopyWithImpl<
+          _$SubscribedRepoMigrateImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SubscribedRepoMigrateToJson(
+    return _$$SubscribedRepoMigrateImplToJson(
       this,
     );
   }
@@ -221,10 +223,10 @@ abstract class _SubscribedRepoMigrate implements SubscribedRepoMigrate {
           final String? migrateTo,
           @JsonKey(name: 'seq') required final int cursor,
           @JsonKey(name: 'time') required final DateTime createdAt}) =
-      _$_SubscribedRepoMigrate;
+      _$SubscribedRepoMigrateImpl;
 
   factory _SubscribedRepoMigrate.fromJson(Map<String, dynamic> json) =
-      _$_SubscribedRepoMigrate.fromJson;
+      _$SubscribedRepoMigrateImpl.fromJson;
 
   @override
 
@@ -246,6 +248,6 @@ abstract class _SubscribedRepoMigrate implements SubscribedRepoMigrate {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$_SubscribedRepoMigrateCopyWith<_$_SubscribedRepoMigrate> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SubscribedRepoMigrateImplCopyWith<_$SubscribedRepoMigrateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

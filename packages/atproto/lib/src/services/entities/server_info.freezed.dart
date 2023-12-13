@@ -97,11 +97,11 @@ class _$ServerInfoCopyWithImpl<$Res, $Val extends ServerInfo>
 }
 
 /// @nodoc
-abstract class _$$_ServerInfoCopyWith<$Res>
+abstract class _$$ServerInfoImplCopyWith<$Res>
     implements $ServerInfoCopyWith<$Res> {
-  factory _$$_ServerInfoCopyWith(
-          _$_ServerInfo value, $Res Function(_$_ServerInfo) then) =
-      __$$_ServerInfoCopyWithImpl<$Res>;
+  factory _$$ServerInfoImplCopyWith(
+          _$ServerInfoImpl value, $Res Function(_$ServerInfoImpl) then) =
+      __$$ServerInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -114,11 +114,11 @@ abstract class _$$_ServerInfoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ServerInfoCopyWithImpl<$Res>
-    extends _$ServerInfoCopyWithImpl<$Res, _$_ServerInfo>
-    implements _$$_ServerInfoCopyWith<$Res> {
-  __$$_ServerInfoCopyWithImpl(
-      _$_ServerInfo _value, $Res Function(_$_ServerInfo) _then)
+class __$$ServerInfoImplCopyWithImpl<$Res>
+    extends _$ServerInfoCopyWithImpl<$Res, _$ServerInfoImpl>
+    implements _$$ServerInfoImplCopyWith<$Res> {
+  __$$ServerInfoImplCopyWithImpl(
+      _$ServerInfoImpl _value, $Res Function(_$ServerInfoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -128,7 +128,7 @@ class __$$_ServerInfoCopyWithImpl<$Res>
     Object? isInviteCodeRequired = null,
     Object? links = freezed,
   }) {
-    return _then(_$_ServerInfo(
+    return _then(_$ServerInfoImpl(
       availableUserDomains: null == availableUserDomains
           ? _value._availableUserDomains
           : availableUserDomains // ignore: cast_nullable_to_non_nullable
@@ -148,15 +148,15 @@ class __$$_ServerInfoCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ServerInfo implements _ServerInfo {
-  const _$_ServerInfo(
+class _$ServerInfoImpl implements _ServerInfo {
+  const _$ServerInfoImpl(
       {required final List<String> availableUserDomains,
       @JsonKey(name: 'inviteCodeRequired') required this.isInviteCodeRequired,
       this.links})
       : _availableUserDomains = availableUserDomains;
 
-  factory _$_ServerInfo.fromJson(Map<String, dynamic> json) =>
-      _$$_ServerInfoFromJson(json);
+  factory _$ServerInfoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ServerInfoImplFromJson(json);
 
   /// List of user domains available in the server.
   final List<String> _availableUserDomains;
@@ -188,7 +188,7 @@ class _$_ServerInfo implements _ServerInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ServerInfo &&
+            other is _$ServerInfoImpl &&
             const DeepCollectionEquality()
                 .equals(other._availableUserDomains, _availableUserDomains) &&
             (identical(other.isInviteCodeRequired, isInviteCodeRequired) ||
@@ -207,12 +207,12 @@ class _$_ServerInfo implements _ServerInfo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ServerInfoCopyWith<_$_ServerInfo> get copyWith =>
-      __$$_ServerInfoCopyWithImpl<_$_ServerInfo>(this, _$identity);
+  _$$ServerInfoImplCopyWith<_$ServerInfoImpl> get copyWith =>
+      __$$ServerInfoImplCopyWithImpl<_$ServerInfoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ServerInfoToJson(
+    return _$$ServerInfoImplToJson(
       this,
     );
   }
@@ -223,10 +223,10 @@ abstract class _ServerInfo implements ServerInfo {
       {required final List<String> availableUserDomains,
       @JsonKey(name: 'inviteCodeRequired')
       required final bool isInviteCodeRequired,
-      final ServerInfoLinks? links}) = _$_ServerInfo;
+      final ServerInfoLinks? links}) = _$ServerInfoImpl;
 
   factory _ServerInfo.fromJson(Map<String, dynamic> json) =
-      _$_ServerInfo.fromJson;
+      _$ServerInfoImpl.fromJson;
 
   @override
 
@@ -243,6 +243,6 @@ abstract class _ServerInfo implements ServerInfo {
   ServerInfoLinks? get links;
   @override
   @JsonKey(ignore: true)
-  _$$_ServerInfoCopyWith<_$_ServerInfo> get copyWith =>
+  _$$ServerInfoImplCopyWith<_$ServerInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -8,11 +8,11 @@ part of 'thread_list_rule.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ThreadListRule _$$_ThreadListRuleFromJson(Map json) => $checkedCreate(
-      r'_$_ThreadListRule',
+_$ThreadListRuleImpl _$$ThreadListRuleImplFromJson(Map json) => $checkedCreate(
+      r'_$ThreadListRuleImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ThreadListRule(
+        final val = _$ThreadListRuleImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedThreadgateListRule),
           listUri: $checkedConvert(
@@ -23,7 +23,8 @@ _$_ThreadListRule _$$_ThreadListRuleFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type', 'listUri': 'list'},
     );
 
-Map<String, dynamic> _$$_ThreadListRuleToJson(_$_ThreadListRule instance) =>
+Map<String, dynamic> _$$ThreadListRuleImplToJson(
+        _$ThreadListRuleImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'list': atUriConverter.toJson(instance.listUri),

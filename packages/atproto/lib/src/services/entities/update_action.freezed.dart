@@ -95,11 +95,11 @@ class _$UpdateActionCopyWithImpl<$Res, $Val extends UpdateAction>
 }
 
 /// @nodoc
-abstract class _$$_UpdateActionCopyWith<$Res>
+abstract class _$$UpdateActionImplCopyWith<$Res>
     implements $UpdateActionCopyWith<$Res> {
-  factory _$$_UpdateActionCopyWith(
-          _$_UpdateAction value, $Res Function(_$_UpdateAction) then) =
-      __$$_UpdateActionCopyWithImpl<$Res>;
+  factory _$$UpdateActionImplCopyWith(
+          _$UpdateActionImpl value, $Res Function(_$UpdateActionImpl) then) =
+      __$$UpdateActionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -110,11 +110,11 @@ abstract class _$$_UpdateActionCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_UpdateActionCopyWithImpl<$Res>
-    extends _$UpdateActionCopyWithImpl<$Res, _$_UpdateAction>
-    implements _$$_UpdateActionCopyWith<$Res> {
-  __$$_UpdateActionCopyWithImpl(
-      _$_UpdateAction _value, $Res Function(_$_UpdateAction) _then)
+class __$$UpdateActionImplCopyWithImpl<$Res>
+    extends _$UpdateActionCopyWithImpl<$Res, _$UpdateActionImpl>
+    implements _$$UpdateActionImplCopyWith<$Res> {
+  __$$UpdateActionImplCopyWithImpl(
+      _$UpdateActionImpl _value, $Res Function(_$UpdateActionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -125,7 +125,7 @@ class __$$_UpdateActionCopyWithImpl<$Res>
     Object? rkey = freezed,
     Object? record = null,
   }) {
-    return _then(_$_UpdateAction(
+    return _then(_$UpdateActionImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -149,16 +149,16 @@ class __$$_UpdateActionCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_UpdateAction implements _UpdateAction {
-  const _$_UpdateAction(
+class _$UpdateActionImpl implements _UpdateAction {
+  const _$UpdateActionImpl(
       {@typeKey this.type = comAtprotoRepoApplyWritesUpdate,
       @nsidConverter required this.collection,
       this.rkey,
       @JsonKey(name: 'value') required final Map<String, dynamic> record})
       : _record = record;
 
-  factory _$_UpdateAction.fromJson(Map<String, dynamic> json) =>
-      _$$_UpdateActionFromJson(json);
+  factory _$UpdateActionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UpdateActionImplFromJson(json);
 
   /// The type of action. It defaults to
   /// [comAtprotoRepoApplyWritesUpdate].
@@ -196,7 +196,7 @@ class _$_UpdateAction implements _UpdateAction {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UpdateAction &&
+            other is _$UpdateActionImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.collection, collection) ||
                 other.collection == collection) &&
@@ -212,12 +212,12 @@ class _$_UpdateAction implements _UpdateAction {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UpdateActionCopyWith<_$_UpdateAction> get copyWith =>
-      __$$_UpdateActionCopyWithImpl<_$_UpdateAction>(this, _$identity);
+  _$$UpdateActionImplCopyWith<_$UpdateActionImpl> get copyWith =>
+      __$$UpdateActionImplCopyWithImpl<_$UpdateActionImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UpdateActionToJson(
+    return _$$UpdateActionImplToJson(
       this,
     );
   }
@@ -229,10 +229,10 @@ abstract class _UpdateAction implements UpdateAction {
           @nsidConverter required final NSID collection,
           final String? rkey,
           @JsonKey(name: 'value') required final Map<String, dynamic> record}) =
-      _$_UpdateAction;
+      _$UpdateActionImpl;
 
   factory _UpdateAction.fromJson(Map<String, dynamic> json) =
-      _$_UpdateAction.fromJson;
+      _$UpdateActionImpl.fromJson;
 
   @override
 
@@ -256,6 +256,6 @@ abstract class _UpdateAction implements UpdateAction {
   Map<String, dynamic> get record;
   @override
   @JsonKey(ignore: true)
-  _$$_UpdateActionCopyWith<_$_UpdateAction> get copyWith =>
+  _$$UpdateActionImplCopyWith<_$UpdateActionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -8,12 +8,12 @@ part of 'subscribed_label.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$USubscribedLabelLabels _$$USubscribedLabelLabelsFromJson(Map json) =>
+_$USubscribedLabelLabelsImpl _$$USubscribedLabelLabelsImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$USubscribedLabelLabels',
+      r'_$USubscribedLabelLabelsImpl',
       json,
       ($checkedConvert) {
-        final val = _$USubscribedLabelLabels(
+        final val = _$USubscribedLabelLabelsImpl(
           data: $checkedConvert(
               'data',
               (v) => SubscribedLabelLabels.fromJson(
@@ -25,19 +25,19 @@ _$USubscribedLabelLabels _$$USubscribedLabelLabelsFromJson(Map json) =>
       fieldKeyMap: const {r'$type': 'runtimeType'},
     );
 
-Map<String, dynamic> _$$USubscribedLabelLabelsToJson(
-        _$USubscribedLabelLabels instance) =>
+Map<String, dynamic> _$$USubscribedLabelLabelsImplToJson(
+        _$USubscribedLabelLabelsImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$USubscribedLabelInfo _$$USubscribedLabelInfoFromJson(Map json) =>
+_$USubscribedLabelInfoImpl _$$USubscribedLabelInfoImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$USubscribedLabelInfo',
+      r'_$USubscribedLabelInfoImpl',
       json,
       ($checkedConvert) {
-        final val = _$USubscribedLabelInfo(
+        final val = _$USubscribedLabelInfoImpl(
           data: $checkedConvert(
               'data',
               (v) => SubscribedLabelInfo.fromJson(
@@ -49,19 +49,20 @@ _$USubscribedLabelInfo _$$USubscribedLabelInfoFromJson(Map json) =>
       fieldKeyMap: const {r'$type': 'runtimeType'},
     );
 
-Map<String, dynamic> _$$USubscribedLabelInfoToJson(
-        _$USubscribedLabelInfo instance) =>
+Map<String, dynamic> _$$USubscribedLabelInfoImplToJson(
+        _$USubscribedLabelInfoImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$USubscribedLabelUnknown _$$USubscribedLabelUnknownFromJson(Map json) =>
+_$USubscribedLabelUnknownImpl _$$USubscribedLabelUnknownImplFromJson(
+        Map json) =>
     $checkedCreate(
-      r'_$USubscribedLabelUnknown',
+      r'_$USubscribedLabelUnknownImpl',
       json,
       ($checkedConvert) {
-        final val = _$USubscribedLabelUnknown(
+        final val = _$USubscribedLabelUnknownImpl(
           data: $checkedConvert(
               'data', (v) => Map<String, dynamic>.from(v as Map)),
           $type: $checkedConvert('runtimeType', (v) => v as String?),
@@ -71,8 +72,8 @@ _$USubscribedLabelUnknown _$$USubscribedLabelUnknownFromJson(Map json) =>
       fieldKeyMap: const {r'$type': 'runtimeType'},
     );
 
-Map<String, dynamic> _$$USubscribedLabelUnknownToJson(
-        _$USubscribedLabelUnknown instance) =>
+Map<String, dynamic> _$$USubscribedLabelUnknownImplToJson(
+        _$USubscribedLabelUnknownImpl instance) =>
     <String, dynamic>{
       'data': instance.data,
       'runtimeType': instance.$type,

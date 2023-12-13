@@ -8,11 +8,11 @@ part of 'self_labels.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SelfLabels _$$_SelfLabelsFromJson(Map json) => $checkedCreate(
-      r'_$_SelfLabels',
+_$SelfLabelsImpl _$$SelfLabelsImplFromJson(Map json) => $checkedCreate(
+      r'_$SelfLabelsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_SelfLabels(
+        final val = _$SelfLabelsImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? comAtprotoLabelDefsSelfLabels),
           values: $checkedConvert(
@@ -27,7 +27,7 @@ _$_SelfLabels _$$_SelfLabelsFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$_SelfLabelsToJson(_$_SelfLabels instance) =>
+Map<String, dynamic> _$$SelfLabelsImplToJson(_$SelfLabelsImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'values': instance.values.map((e) => e.toJson()).toList(),

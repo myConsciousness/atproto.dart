@@ -85,11 +85,11 @@ class _$ListItemParamCopyWithImpl<$Res, $Val extends ListItemParam>
 }
 
 /// @nodoc
-abstract class _$$_ListItemParamCopyWith<$Res>
+abstract class _$$ListItemParamImplCopyWith<$Res>
     implements $ListItemParamCopyWith<$Res> {
-  factory _$$_ListItemParamCopyWith(
-          _$_ListItemParam value, $Res Function(_$_ListItemParam) then) =
-      __$$_ListItemParamCopyWithImpl<$Res>;
+  factory _$$ListItemParamImplCopyWith(
+          _$ListItemParamImpl value, $Res Function(_$ListItemParamImpl) then) =
+      __$$ListItemParamImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -100,11 +100,11 @@ abstract class _$$_ListItemParamCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ListItemParamCopyWithImpl<$Res>
-    extends _$ListItemParamCopyWithImpl<$Res, _$_ListItemParam>
-    implements _$$_ListItemParamCopyWith<$Res> {
-  __$$_ListItemParamCopyWithImpl(
-      _$_ListItemParam _value, $Res Function(_$_ListItemParam) _then)
+class __$$ListItemParamImplCopyWithImpl<$Res>
+    extends _$ListItemParamCopyWithImpl<$Res, _$ListItemParamImpl>
+    implements _$$ListItemParamImplCopyWith<$Res> {
+  __$$ListItemParamImplCopyWithImpl(
+      _$ListItemParamImpl _value, $Res Function(_$ListItemParamImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -115,7 +115,7 @@ class __$$_ListItemParamCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? unspecced = null,
   }) {
-    return _then(_$_ListItemParam(
+    return _then(_$ListItemParamImpl(
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -139,16 +139,16 @@ class __$$_ListItemParamCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ListItemParam implements _ListItemParam {
-  const _$_ListItemParam(
+class _$ListItemParamImpl implements _ListItemParam {
+  const _$ListItemParamImpl(
       {required this.subject,
       @atUriConverter required this.list,
       this.createdAt,
       final Map<String, dynamic> unspecced = emptyJson})
       : _unspecced = unspecced;
 
-  factory _$_ListItemParam.fromJson(Map<String, dynamic> json) =>
-      _$$_ListItemParamFromJson(json);
+  factory _$ListItemParamImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ListItemParamImplFromJson(json);
 
   @override
   final String subject;
@@ -175,7 +175,7 @@ class _$_ListItemParam implements _ListItemParam {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ListItemParam &&
+            other is _$ListItemParamImpl &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.list, list) || other.list == list) &&
             (identical(other.createdAt, createdAt) ||
@@ -192,12 +192,12 @@ class _$_ListItemParam implements _ListItemParam {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ListItemParamCopyWith<_$_ListItemParam> get copyWith =>
-      __$$_ListItemParamCopyWithImpl<_$_ListItemParam>(this, _$identity);
+  _$$ListItemParamImplCopyWith<_$ListItemParamImpl> get copyWith =>
+      __$$ListItemParamImplCopyWithImpl<_$ListItemParamImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ListItemParamToJson(
+    return _$$ListItemParamImplToJson(
       this,
     );
   }
@@ -208,10 +208,10 @@ abstract class _ListItemParam implements ListItemParam {
       {required final String subject,
       @atUriConverter required final AtUri list,
       final DateTime? createdAt,
-      final Map<String, dynamic> unspecced}) = _$_ListItemParam;
+      final Map<String, dynamic> unspecced}) = _$ListItemParamImpl;
 
   factory _ListItemParam.fromJson(Map<String, dynamic> json) =
-      _$_ListItemParam.fromJson;
+      _$ListItemParamImpl.fromJson;
 
   @override
   String get subject;
@@ -224,6 +224,6 @@ abstract class _ListItemParam implements ListItemParam {
   Map<String, dynamic> get unspecced;
   @override
   @JsonKey(ignore: true)
-  _$$_ListItemParamCopyWith<_$_ListItemParam> get copyWith =>
+  _$$ListItemParamImplCopyWith<_$ListItemParamImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

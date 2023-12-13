@@ -65,22 +65,22 @@ class _$FeedGeneratorViewerCopyWithImpl<$Res, $Val extends FeedGeneratorViewer>
 }
 
 /// @nodoc
-abstract class _$$_FeedGeneratorViewerCopyWith<$Res>
+abstract class _$$FeedGeneratorViewerImplCopyWith<$Res>
     implements $FeedGeneratorViewerCopyWith<$Res> {
-  factory _$$_FeedGeneratorViewerCopyWith(_$_FeedGeneratorViewer value,
-          $Res Function(_$_FeedGeneratorViewer) then) =
-      __$$_FeedGeneratorViewerCopyWithImpl<$Res>;
+  factory _$$FeedGeneratorViewerImplCopyWith(_$FeedGeneratorViewerImpl value,
+          $Res Function(_$FeedGeneratorViewerImpl) then) =
+      __$$FeedGeneratorViewerImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@atUriConverter AtUri? like});
 }
 
 /// @nodoc
-class __$$_FeedGeneratorViewerCopyWithImpl<$Res>
-    extends _$FeedGeneratorViewerCopyWithImpl<$Res, _$_FeedGeneratorViewer>
-    implements _$$_FeedGeneratorViewerCopyWith<$Res> {
-  __$$_FeedGeneratorViewerCopyWithImpl(_$_FeedGeneratorViewer _value,
-      $Res Function(_$_FeedGeneratorViewer) _then)
+class __$$FeedGeneratorViewerImplCopyWithImpl<$Res>
+    extends _$FeedGeneratorViewerCopyWithImpl<$Res, _$FeedGeneratorViewerImpl>
+    implements _$$FeedGeneratorViewerImplCopyWith<$Res> {
+  __$$FeedGeneratorViewerImplCopyWithImpl(_$FeedGeneratorViewerImpl _value,
+      $Res Function(_$FeedGeneratorViewerImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -88,7 +88,7 @@ class __$$_FeedGeneratorViewerCopyWithImpl<$Res>
   $Res call({
     Object? like = freezed,
   }) {
-    return _then(_$_FeedGeneratorViewer(
+    return _then(_$FeedGeneratorViewerImpl(
       like: freezed == like
           ? _value.like
           : like // ignore: cast_nullable_to_non_nullable
@@ -100,11 +100,11 @@ class __$$_FeedGeneratorViewerCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_FeedGeneratorViewer implements _FeedGeneratorViewer {
-  const _$_FeedGeneratorViewer({@atUriConverter this.like});
+class _$FeedGeneratorViewerImpl implements _FeedGeneratorViewer {
+  const _$FeedGeneratorViewerImpl({@atUriConverter this.like});
 
-  factory _$_FeedGeneratorViewer.fromJson(Map<String, dynamic> json) =>
-      _$$_FeedGeneratorViewerFromJson(json);
+  factory _$FeedGeneratorViewerImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedGeneratorViewerImplFromJson(json);
 
   /// Represents the URI of the 'like' action performed by the viewer.
   /// Optional.
@@ -121,7 +121,7 @@ class _$_FeedGeneratorViewer implements _FeedGeneratorViewer {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FeedGeneratorViewer &&
+            other is _$FeedGeneratorViewerImpl &&
             (identical(other.like, like) || other.like == like));
   }
 
@@ -132,13 +132,13 @@ class _$_FeedGeneratorViewer implements _FeedGeneratorViewer {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FeedGeneratorViewerCopyWith<_$_FeedGeneratorViewer> get copyWith =>
-      __$$_FeedGeneratorViewerCopyWithImpl<_$_FeedGeneratorViewer>(
+  _$$FeedGeneratorViewerImplCopyWith<_$FeedGeneratorViewerImpl> get copyWith =>
+      __$$FeedGeneratorViewerImplCopyWithImpl<_$FeedGeneratorViewerImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FeedGeneratorViewerToJson(
+    return _$$FeedGeneratorViewerImplToJson(
       this,
     );
   }
@@ -146,10 +146,10 @@ class _$_FeedGeneratorViewer implements _FeedGeneratorViewer {
 
 abstract class _FeedGeneratorViewer implements FeedGeneratorViewer {
   const factory _FeedGeneratorViewer({@atUriConverter final AtUri? like}) =
-      _$_FeedGeneratorViewer;
+      _$FeedGeneratorViewerImpl;
 
   factory _FeedGeneratorViewer.fromJson(Map<String, dynamic> json) =
-      _$_FeedGeneratorViewer.fromJson;
+      _$FeedGeneratorViewerImpl.fromJson;
 
   @override
 
@@ -159,6 +159,6 @@ abstract class _FeedGeneratorViewer implements FeedGeneratorViewer {
   AtUri? get like;
   @override
   @JsonKey(ignore: true)
-  _$$_FeedGeneratorViewerCopyWith<_$_FeedGeneratorViewer> get copyWith =>
+  _$$FeedGeneratorViewerImplCopyWith<_$FeedGeneratorViewerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

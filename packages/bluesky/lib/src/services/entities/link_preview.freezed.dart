@@ -87,22 +87,22 @@ class _$LinkPreviewCopyWithImpl<$Res, $Val extends LinkPreview>
 }
 
 /// @nodoc
-abstract class _$$_LinkPreviewCopyWith<$Res>
+abstract class _$$LinkPreviewImplCopyWith<$Res>
     implements $LinkPreviewCopyWith<$Res> {
-  factory _$$_LinkPreviewCopyWith(
-          _$_LinkPreview value, $Res Function(_$_LinkPreview) then) =
-      __$$_LinkPreviewCopyWithImpl<$Res>;
+  factory _$$LinkPreviewImplCopyWith(
+          _$LinkPreviewImpl value, $Res Function(_$LinkPreviewImpl) then) =
+      __$$LinkPreviewImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String url, String title, String description, String image});
 }
 
 /// @nodoc
-class __$$_LinkPreviewCopyWithImpl<$Res>
-    extends _$LinkPreviewCopyWithImpl<$Res, _$_LinkPreview>
-    implements _$$_LinkPreviewCopyWith<$Res> {
-  __$$_LinkPreviewCopyWithImpl(
-      _$_LinkPreview _value, $Res Function(_$_LinkPreview) _then)
+class __$$LinkPreviewImplCopyWithImpl<$Res>
+    extends _$LinkPreviewCopyWithImpl<$Res, _$LinkPreviewImpl>
+    implements _$$LinkPreviewImplCopyWith<$Res> {
+  __$$LinkPreviewImplCopyWithImpl(
+      _$LinkPreviewImpl _value, $Res Function(_$LinkPreviewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -113,7 +113,7 @@ class __$$_LinkPreviewCopyWithImpl<$Res>
     Object? description = null,
     Object? image = null,
   }) {
-    return _then(_$_LinkPreview(
+    return _then(_$LinkPreviewImpl(
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -136,15 +136,15 @@ class __$$_LinkPreviewCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LinkPreview implements _LinkPreview {
-  const _$_LinkPreview(
+class _$LinkPreviewImpl implements _LinkPreview {
+  const _$LinkPreviewImpl(
       {required this.url,
       required this.title,
       required this.description,
       required this.image});
 
-  factory _$_LinkPreview.fromJson(Map<String, dynamic> json) =>
-      _$$_LinkPreviewFromJson(json);
+  factory _$LinkPreviewImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LinkPreviewImplFromJson(json);
 
   /// The preview url if the link.
   @override
@@ -171,7 +171,7 @@ class _$_LinkPreview implements _LinkPreview {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LinkPreview &&
+            other is _$LinkPreviewImpl &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
@@ -186,12 +186,12 @@ class _$_LinkPreview implements _LinkPreview {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LinkPreviewCopyWith<_$_LinkPreview> get copyWith =>
-      __$$_LinkPreviewCopyWithImpl<_$_LinkPreview>(this, _$identity);
+  _$$LinkPreviewImplCopyWith<_$LinkPreviewImpl> get copyWith =>
+      __$$LinkPreviewImplCopyWithImpl<_$LinkPreviewImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LinkPreviewToJson(
+    return _$$LinkPreviewImplToJson(
       this,
     );
   }
@@ -202,10 +202,10 @@ abstract class _LinkPreview implements LinkPreview {
       {required final String url,
       required final String title,
       required final String description,
-      required final String image}) = _$_LinkPreview;
+      required final String image}) = _$LinkPreviewImpl;
 
   factory _LinkPreview.fromJson(Map<String, dynamic> json) =
-      _$_LinkPreview.fromJson;
+      _$LinkPreviewImpl.fromJson;
 
   @override
 
@@ -225,6 +225,6 @@ abstract class _LinkPreview implements LinkPreview {
   String get image;
   @override
   @JsonKey(ignore: true)
-  _$$_LinkPreviewCopyWith<_$_LinkPreview> get copyWith =>
+  _$$LinkPreviewImplCopyWith<_$LinkPreviewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

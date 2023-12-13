@@ -80,11 +80,11 @@ class _$ModerationCauseMutedCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ModerationCauseMutedCopyWith<$Res>
+abstract class _$$ModerationCauseMutedImplCopyWith<$Res>
     implements $ModerationCauseMutedCopyWith<$Res> {
-  factory _$$_ModerationCauseMutedCopyWith(_$_ModerationCauseMuted value,
-          $Res Function(_$_ModerationCauseMuted) then) =
-      __$$_ModerationCauseMutedCopyWithImpl<$Res>;
+  factory _$$ModerationCauseMutedImplCopyWith(_$ModerationCauseMutedImpl value,
+          $Res Function(_$ModerationCauseMutedImpl) then) =
+      __$$ModerationCauseMutedImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String type, ModerationCauseSource source, int priority});
@@ -94,11 +94,11 @@ abstract class _$$_ModerationCauseMutedCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ModerationCauseMutedCopyWithImpl<$Res>
-    extends _$ModerationCauseMutedCopyWithImpl<$Res, _$_ModerationCauseMuted>
-    implements _$$_ModerationCauseMutedCopyWith<$Res> {
-  __$$_ModerationCauseMutedCopyWithImpl(_$_ModerationCauseMuted _value,
-      $Res Function(_$_ModerationCauseMuted) _then)
+class __$$ModerationCauseMutedImplCopyWithImpl<$Res>
+    extends _$ModerationCauseMutedCopyWithImpl<$Res, _$ModerationCauseMutedImpl>
+    implements _$$ModerationCauseMutedImplCopyWith<$Res> {
+  __$$ModerationCauseMutedImplCopyWithImpl(_$ModerationCauseMutedImpl _value,
+      $Res Function(_$ModerationCauseMutedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,7 +108,7 @@ class __$$_ModerationCauseMutedCopyWithImpl<$Res>
     Object? source = null,
     Object? priority = null,
   }) {
-    return _then(_$_ModerationCauseMuted(
+    return _then(_$ModerationCauseMutedImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -127,8 +127,8 @@ class __$$_ModerationCauseMutedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ModerationCauseMuted implements _ModerationCauseMuted {
-  const _$_ModerationCauseMuted(
+class _$ModerationCauseMutedImpl implements _ModerationCauseMuted {
+  const _$ModerationCauseMutedImpl(
       {this.type = 'muted', required this.source, this.priority = 6});
 
   @override
@@ -149,7 +149,7 @@ class _$_ModerationCauseMuted implements _ModerationCauseMuted {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ModerationCauseMuted &&
+            other is _$ModerationCauseMutedImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.source, source) || other.source == source) &&
             (identical(other.priority, priority) ||
@@ -162,16 +162,17 @@ class _$_ModerationCauseMuted implements _ModerationCauseMuted {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ModerationCauseMutedCopyWith<_$_ModerationCauseMuted> get copyWith =>
-      __$$_ModerationCauseMutedCopyWithImpl<_$_ModerationCauseMuted>(
-          this, _$identity);
+  _$$ModerationCauseMutedImplCopyWith<_$ModerationCauseMutedImpl>
+      get copyWith =>
+          __$$ModerationCauseMutedImplCopyWithImpl<_$ModerationCauseMutedImpl>(
+              this, _$identity);
 }
 
 abstract class _ModerationCauseMuted implements ModerationCauseMuted {
   const factory _ModerationCauseMuted(
       {final String type,
       required final ModerationCauseSource source,
-      final int priority}) = _$_ModerationCauseMuted;
+      final int priority}) = _$ModerationCauseMutedImpl;
 
   @override
   String get type;
@@ -181,6 +182,6 @@ abstract class _ModerationCauseMuted implements ModerationCauseMuted {
   int get priority;
   @override
   @JsonKey(ignore: true)
-  _$$_ModerationCauseMutedCopyWith<_$_ModerationCauseMuted> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ModerationCauseMutedImplCopyWith<_$ModerationCauseMutedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

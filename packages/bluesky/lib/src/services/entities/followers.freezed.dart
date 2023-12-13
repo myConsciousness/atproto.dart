@@ -88,10 +88,11 @@ class _$FollowersCopyWithImpl<$Res, $Val extends Followers>
 }
 
 /// @nodoc
-abstract class _$$_FollowersCopyWith<$Res> implements $FollowersCopyWith<$Res> {
-  factory _$$_FollowersCopyWith(
-          _$_Followers value, $Res Function(_$_Followers) then) =
-      __$$_FollowersCopyWithImpl<$Res>;
+abstract class _$$FollowersImplCopyWith<$Res>
+    implements $FollowersCopyWith<$Res> {
+  factory _$$FollowersImplCopyWith(
+          _$FollowersImpl value, $Res Function(_$FollowersImpl) then) =
+      __$$FollowersImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Actor subject, List<Actor> followers, String? cursor});
@@ -101,11 +102,11 @@ abstract class _$$_FollowersCopyWith<$Res> implements $FollowersCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_FollowersCopyWithImpl<$Res>
-    extends _$FollowersCopyWithImpl<$Res, _$_Followers>
-    implements _$$_FollowersCopyWith<$Res> {
-  __$$_FollowersCopyWithImpl(
-      _$_Followers _value, $Res Function(_$_Followers) _then)
+class __$$FollowersImplCopyWithImpl<$Res>
+    extends _$FollowersCopyWithImpl<$Res, _$FollowersImpl>
+    implements _$$FollowersImplCopyWith<$Res> {
+  __$$FollowersImplCopyWithImpl(
+      _$FollowersImpl _value, $Res Function(_$FollowersImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -115,7 +116,7 @@ class __$$_FollowersCopyWithImpl<$Res>
     Object? followers = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$_Followers(
+    return _then(_$FollowersImpl(
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -134,15 +135,15 @@ class __$$_FollowersCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Followers implements _Followers {
-  const _$_Followers(
+class _$FollowersImpl implements _Followers {
+  const _$FollowersImpl(
       {required this.subject,
       required final List<Actor> followers,
       this.cursor})
       : _followers = followers;
 
-  factory _$_Followers.fromJson(Map<String, dynamic> json) =>
-      _$$_FollowersFromJson(json);
+  factory _$FollowersImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FollowersImplFromJson(json);
 
   /// The actor that is being followed.
   @override
@@ -172,7 +173,7 @@ class _$_Followers implements _Followers {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Followers &&
+            other is _$FollowersImpl &&
             (identical(other.subject, subject) || other.subject == subject) &&
             const DeepCollectionEquality()
                 .equals(other._followers, _followers) &&
@@ -187,12 +188,12 @@ class _$_Followers implements _Followers {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FollowersCopyWith<_$_Followers> get copyWith =>
-      __$$_FollowersCopyWithImpl<_$_Followers>(this, _$identity);
+  _$$FollowersImplCopyWith<_$FollowersImpl> get copyWith =>
+      __$$FollowersImplCopyWithImpl<_$FollowersImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FollowersToJson(
+    return _$$FollowersImplToJson(
       this,
     );
   }
@@ -202,10 +203,10 @@ abstract class _Followers implements Followers {
   const factory _Followers(
       {required final Actor subject,
       required final List<Actor> followers,
-      final String? cursor}) = _$_Followers;
+      final String? cursor}) = _$FollowersImpl;
 
   factory _Followers.fromJson(Map<String, dynamic> json) =
-      _$_Followers.fromJson;
+      _$FollowersImpl.fromJson;
 
   @override
 
@@ -221,6 +222,6 @@ abstract class _Followers implements Followers {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$_FollowersCopyWith<_$_Followers> get copyWith =>
+  _$$FollowersImplCopyWith<_$FollowersImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

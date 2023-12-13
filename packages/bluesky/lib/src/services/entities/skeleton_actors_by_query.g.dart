@@ -8,12 +8,12 @@ part of 'skeleton_actors_by_query.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SkeletonActorsByQuery _$$_SkeletonActorsByQueryFromJson(Map json) =>
+_$SkeletonActorsByQueryImpl _$$SkeletonActorsByQueryImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$_SkeletonActorsByQuery',
+      r'_$SkeletonActorsByQueryImpl',
       json,
       ($checkedConvert) {
-        final val = _$_SkeletonActorsByQuery(
+        final val = _$SkeletonActorsByQueryImpl(
           actors: $checkedConvert(
               'actors',
               (v) => (v as List<dynamic>)
@@ -27,8 +27,8 @@ _$_SkeletonActorsByQuery _$$_SkeletonActorsByQueryFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$_SkeletonActorsByQueryToJson(
-        _$_SkeletonActorsByQuery instance) =>
+Map<String, dynamic> _$$SkeletonActorsByQueryImplToJson(
+        _$SkeletonActorsByQueryImpl instance) =>
     <String, dynamic>{
       'actors': instance.actors.map((e) => e.toJson()).toList(),
       'hitsTotal': instance.hitsTotal,

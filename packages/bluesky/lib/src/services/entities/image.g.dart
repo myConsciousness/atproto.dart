@@ -8,11 +8,11 @@ part of 'image.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Image _$$_ImageFromJson(Map json) => $checkedCreate(
-      r'_$_Image',
+_$ImageImpl _$$ImageImplFromJson(Map json) => $checkedCreate(
+      r'_$ImageImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Image(
+        final val = _$ImageImpl(
           alt: $checkedConvert('alt', (v) => v as String),
           image: $checkedConvert('image',
               (v) => blobConverter.fromJson(v as Map<String, dynamic>)),
@@ -27,7 +27,7 @@ _$_Image _$$_ImageFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_ImageToJson(_$_Image instance) {
+Map<String, dynamic> _$$ImageImplToJson(_$ImageImpl instance) {
   final val = <String, dynamic>{
     'alt': instance.alt,
     'image': blobConverter.toJson(instance.image),

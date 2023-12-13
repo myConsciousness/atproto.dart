@@ -134,11 +134,11 @@ class _$SubscribedRepoCommitCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_SubscribedRepoCommitCopyWith<$Res>
+abstract class _$$SubscribedRepoCommitImplCopyWith<$Res>
     implements $SubscribedRepoCommitCopyWith<$Res> {
-  factory _$$_SubscribedRepoCommitCopyWith(_$_SubscribedRepoCommit value,
-          $Res Function(_$_SubscribedRepoCommit) then) =
-      __$$_SubscribedRepoCommitCopyWithImpl<$Res>;
+  factory _$$SubscribedRepoCommitImplCopyWith(_$SubscribedRepoCommitImpl value,
+          $Res Function(_$SubscribedRepoCommitImpl) then) =
+      __$$SubscribedRepoCommitImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -153,11 +153,11 @@ abstract class _$$_SubscribedRepoCommitCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SubscribedRepoCommitCopyWithImpl<$Res>
-    extends _$SubscribedRepoCommitCopyWithImpl<$Res, _$_SubscribedRepoCommit>
-    implements _$$_SubscribedRepoCommitCopyWith<$Res> {
-  __$$_SubscribedRepoCommitCopyWithImpl(_$_SubscribedRepoCommit _value,
-      $Res Function(_$_SubscribedRepoCommit) _then)
+class __$$SubscribedRepoCommitImplCopyWithImpl<$Res>
+    extends _$SubscribedRepoCommitCopyWithImpl<$Res, _$SubscribedRepoCommitImpl>
+    implements _$$SubscribedRepoCommitImplCopyWith<$Res> {
+  __$$SubscribedRepoCommitImplCopyWithImpl(_$SubscribedRepoCommitImpl _value,
+      $Res Function(_$SubscribedRepoCommitImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -172,7 +172,7 @@ class __$$_SubscribedRepoCommitCopyWithImpl<$Res>
     Object? isTooBig = null,
     Object? createdAt = null,
   }) {
-    return _then(_$_SubscribedRepoCommit(
+    return _then(_$SubscribedRepoCommitImpl(
       ops: null == ops
           ? _value._ops
           : ops // ignore: cast_nullable_to_non_nullable
@@ -212,8 +212,8 @@ class __$$_SubscribedRepoCommitCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_SubscribedRepoCommit implements _SubscribedRepoCommit {
-  const _$_SubscribedRepoCommit(
+class _$SubscribedRepoCommitImpl implements _SubscribedRepoCommit {
+  const _$SubscribedRepoCommitImpl(
       {required final List<RepoOp> ops,
       @JsonKey(name: 'repo') required this.did,
       @JsonKey(name: 'seq') required this.cursor,
@@ -224,8 +224,8 @@ class _$_SubscribedRepoCommit implements _SubscribedRepoCommit {
       @JsonKey(name: 'time') required this.createdAt})
       : _ops = ops;
 
-  factory _$_SubscribedRepoCommit.fromJson(Map<String, dynamic> json) =>
-      _$$_SubscribedRepoCommitFromJson(json);
+  factory _$SubscribedRepoCommitImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SubscribedRepoCommitImplFromJson(json);
 
   /// List of repository operations included in this commit.
   final List<RepoOp> _ops;
@@ -281,7 +281,7 @@ class _$_SubscribedRepoCommit implements _SubscribedRepoCommit {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SubscribedRepoCommit &&
+            other is _$SubscribedRepoCommitImpl &&
             const DeepCollectionEquality().equals(other._ops, _ops) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
@@ -311,13 +311,14 @@ class _$_SubscribedRepoCommit implements _SubscribedRepoCommit {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SubscribedRepoCommitCopyWith<_$_SubscribedRepoCommit> get copyWith =>
-      __$$_SubscribedRepoCommitCopyWithImpl<_$_SubscribedRepoCommit>(
-          this, _$identity);
+  _$$SubscribedRepoCommitImplCopyWith<_$SubscribedRepoCommitImpl>
+      get copyWith =>
+          __$$SubscribedRepoCommitImplCopyWithImpl<_$SubscribedRepoCommitImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SubscribedRepoCommitToJson(
+    return _$$SubscribedRepoCommitImplToJson(
       this,
     );
   }
@@ -333,10 +334,10 @@ abstract class _SubscribedRepoCommit implements SubscribedRepoCommit {
           @JsonKey(name: 'rebase') required final bool isRebase,
           @JsonKey(name: 'tooBig') required final bool isTooBig,
           @JsonKey(name: 'time') required final DateTime createdAt}) =
-      _$_SubscribedRepoCommit;
+      _$SubscribedRepoCommitImpl;
 
   factory _SubscribedRepoCommit.fromJson(Map<String, dynamic> json) =
-      _$_SubscribedRepoCommit.fromJson;
+      _$SubscribedRepoCommitImpl.fromJson;
 
   @override
 
@@ -378,6 +379,6 @@ abstract class _SubscribedRepoCommit implements SubscribedRepoCommit {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$_SubscribedRepoCommitCopyWith<_$_SubscribedRepoCommit> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SubscribedRepoCommitImplCopyWith<_$SubscribedRepoCommitImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

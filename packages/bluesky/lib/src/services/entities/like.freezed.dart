@@ -87,9 +87,10 @@ class _$LikeCopyWithImpl<$Res, $Val extends Like>
 }
 
 /// @nodoc
-abstract class _$$_LikeCopyWith<$Res> implements $LikeCopyWith<$Res> {
-  factory _$$_LikeCopyWith(_$_Like value, $Res Function(_$_Like) then) =
-      __$$_LikeCopyWithImpl<$Res>;
+abstract class _$$LikeImplCopyWith<$Res> implements $LikeCopyWith<$Res> {
+  factory _$$LikeImplCopyWith(
+          _$LikeImpl value, $Res Function(_$LikeImpl) then) =
+      __$$LikeImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Actor actor, DateTime createdAt, DateTime indexedAt});
@@ -99,9 +100,10 @@ abstract class _$$_LikeCopyWith<$Res> implements $LikeCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LikeCopyWithImpl<$Res> extends _$LikeCopyWithImpl<$Res, _$_Like>
-    implements _$$_LikeCopyWith<$Res> {
-  __$$_LikeCopyWithImpl(_$_Like _value, $Res Function(_$_Like) _then)
+class __$$LikeImplCopyWithImpl<$Res>
+    extends _$LikeCopyWithImpl<$Res, _$LikeImpl>
+    implements _$$LikeImplCopyWith<$Res> {
+  __$$LikeImplCopyWithImpl(_$LikeImpl _value, $Res Function(_$LikeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +113,7 @@ class __$$_LikeCopyWithImpl<$Res> extends _$LikeCopyWithImpl<$Res, _$_Like>
     Object? createdAt = null,
     Object? indexedAt = null,
   }) {
-    return _then(_$_Like(
+    return _then(_$LikeImpl(
       actor: null == actor
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
@@ -130,11 +132,12 @@ class __$$_LikeCopyWithImpl<$Res> extends _$LikeCopyWithImpl<$Res, _$_Like>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Like implements _Like {
-  const _$_Like(
+class _$LikeImpl implements _Like {
+  const _$LikeImpl(
       {required this.actor, required this.createdAt, required this.indexedAt});
 
-  factory _$_Like.fromJson(Map<String, dynamic> json) => _$$_LikeFromJson(json);
+  factory _$LikeImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LikeImplFromJson(json);
 
   /// The actor who performed the 'like' action.
   @override
@@ -157,7 +160,7 @@ class _$_Like implements _Like {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Like &&
+            other is _$LikeImpl &&
             (identical(other.actor, actor) || other.actor == actor) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -172,12 +175,12 @@ class _$_Like implements _Like {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LikeCopyWith<_$_Like> get copyWith =>
-      __$$_LikeCopyWithImpl<_$_Like>(this, _$identity);
+  _$$LikeImplCopyWith<_$LikeImpl> get copyWith =>
+      __$$LikeImplCopyWithImpl<_$LikeImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LikeToJson(
+    return _$$LikeImplToJson(
       this,
     );
   }
@@ -187,9 +190,9 @@ abstract class _Like implements Like {
   const factory _Like(
       {required final Actor actor,
       required final DateTime createdAt,
-      required final DateTime indexedAt}) = _$_Like;
+      required final DateTime indexedAt}) = _$LikeImpl;
 
-  factory _Like.fromJson(Map<String, dynamic> json) = _$_Like.fromJson;
+  factory _Like.fromJson(Map<String, dynamic> json) = _$LikeImpl.fromJson;
 
   @override
 
@@ -205,5 +208,6 @@ abstract class _Like implements Like {
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_LikeCopyWith<_$_Like> get copyWith => throw _privateConstructorUsedError;
+  _$$LikeImplCopyWith<_$LikeImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -94,11 +94,11 @@ class _$SubscribedRepoHandleCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_SubscribedRepoHandleCopyWith<$Res>
+abstract class _$$SubscribedRepoHandleImplCopyWith<$Res>
     implements $SubscribedRepoHandleCopyWith<$Res> {
-  factory _$$_SubscribedRepoHandleCopyWith(_$_SubscribedRepoHandle value,
-          $Res Function(_$_SubscribedRepoHandle) then) =
-      __$$_SubscribedRepoHandleCopyWithImpl<$Res>;
+  factory _$$SubscribedRepoHandleImplCopyWith(_$SubscribedRepoHandleImpl value,
+          $Res Function(_$SubscribedRepoHandleImpl) then) =
+      __$$SubscribedRepoHandleImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -109,11 +109,11 @@ abstract class _$$_SubscribedRepoHandleCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SubscribedRepoHandleCopyWithImpl<$Res>
-    extends _$SubscribedRepoHandleCopyWithImpl<$Res, _$_SubscribedRepoHandle>
-    implements _$$_SubscribedRepoHandleCopyWith<$Res> {
-  __$$_SubscribedRepoHandleCopyWithImpl(_$_SubscribedRepoHandle _value,
-      $Res Function(_$_SubscribedRepoHandle) _then)
+class __$$SubscribedRepoHandleImplCopyWithImpl<$Res>
+    extends _$SubscribedRepoHandleCopyWithImpl<$Res, _$SubscribedRepoHandleImpl>
+    implements _$$SubscribedRepoHandleImplCopyWith<$Res> {
+  __$$SubscribedRepoHandleImplCopyWithImpl(_$SubscribedRepoHandleImpl _value,
+      $Res Function(_$SubscribedRepoHandleImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -124,7 +124,7 @@ class __$$_SubscribedRepoHandleCopyWithImpl<$Res>
     Object? cursor = null,
     Object? createdAt = null,
   }) {
-    return _then(_$_SubscribedRepoHandle(
+    return _then(_$SubscribedRepoHandleImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -147,15 +147,15 @@ class __$$_SubscribedRepoHandleCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SubscribedRepoHandle implements _SubscribedRepoHandle {
-  const _$_SubscribedRepoHandle(
+class _$SubscribedRepoHandleImpl implements _SubscribedRepoHandle {
+  const _$SubscribedRepoHandleImpl(
       {required this.did,
       required this.handle,
       @JsonKey(name: 'seq') required this.cursor,
       @JsonKey(name: 'time') required this.createdAt});
 
-  factory _$_SubscribedRepoHandle.fromJson(Map<String, dynamic> json) =>
-      _$$_SubscribedRepoHandleFromJson(json);
+  factory _$SubscribedRepoHandleImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SubscribedRepoHandleImplFromJson(json);
 
   /// Decentralized Identifier (DID) of the repository.
   @override
@@ -184,7 +184,7 @@ class _$_SubscribedRepoHandle implements _SubscribedRepoHandle {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SubscribedRepoHandle &&
+            other is _$SubscribedRepoHandleImpl &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
@@ -199,13 +199,14 @@ class _$_SubscribedRepoHandle implements _SubscribedRepoHandle {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SubscribedRepoHandleCopyWith<_$_SubscribedRepoHandle> get copyWith =>
-      __$$_SubscribedRepoHandleCopyWithImpl<_$_SubscribedRepoHandle>(
-          this, _$identity);
+  _$$SubscribedRepoHandleImplCopyWith<_$SubscribedRepoHandleImpl>
+      get copyWith =>
+          __$$SubscribedRepoHandleImplCopyWithImpl<_$SubscribedRepoHandleImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SubscribedRepoHandleToJson(
+    return _$$SubscribedRepoHandleImplToJson(
       this,
     );
   }
@@ -217,10 +218,10 @@ abstract class _SubscribedRepoHandle implements SubscribedRepoHandle {
           required final String handle,
           @JsonKey(name: 'seq') required final int cursor,
           @JsonKey(name: 'time') required final DateTime createdAt}) =
-      _$_SubscribedRepoHandle;
+      _$SubscribedRepoHandleImpl;
 
   factory _SubscribedRepoHandle.fromJson(Map<String, dynamic> json) =
-      _$_SubscribedRepoHandle.fromJson;
+      _$SubscribedRepoHandleImpl.fromJson;
 
   @override
 
@@ -242,6 +243,6 @@ abstract class _SubscribedRepoHandle implements SubscribedRepoHandle {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$_SubscribedRepoHandleCopyWith<_$_SubscribedRepoHandle> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SubscribedRepoHandleImplCopyWith<_$SubscribedRepoHandleImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

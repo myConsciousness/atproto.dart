@@ -82,22 +82,24 @@ class _$SkeletonActorsByQueryCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_SkeletonActorsByQueryCopyWith<$Res>
+abstract class _$$SkeletonActorsByQueryImplCopyWith<$Res>
     implements $SkeletonActorsByQueryCopyWith<$Res> {
-  factory _$$_SkeletonActorsByQueryCopyWith(_$_SkeletonActorsByQuery value,
-          $Res Function(_$_SkeletonActorsByQuery) then) =
-      __$$_SkeletonActorsByQueryCopyWithImpl<$Res>;
+  factory _$$SkeletonActorsByQueryImplCopyWith(
+          _$SkeletonActorsByQueryImpl value,
+          $Res Function(_$SkeletonActorsByQueryImpl) then) =
+      __$$SkeletonActorsByQueryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<SkeletonActor> actors, int hitsTotal, String? cursor});
 }
 
 /// @nodoc
-class __$$_SkeletonActorsByQueryCopyWithImpl<$Res>
-    extends _$SkeletonActorsByQueryCopyWithImpl<$Res, _$_SkeletonActorsByQuery>
-    implements _$$_SkeletonActorsByQueryCopyWith<$Res> {
-  __$$_SkeletonActorsByQueryCopyWithImpl(_$_SkeletonActorsByQuery _value,
-      $Res Function(_$_SkeletonActorsByQuery) _then)
+class __$$SkeletonActorsByQueryImplCopyWithImpl<$Res>
+    extends _$SkeletonActorsByQueryCopyWithImpl<$Res,
+        _$SkeletonActorsByQueryImpl>
+    implements _$$SkeletonActorsByQueryImplCopyWith<$Res> {
+  __$$SkeletonActorsByQueryImplCopyWithImpl(_$SkeletonActorsByQueryImpl _value,
+      $Res Function(_$SkeletonActorsByQueryImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -107,7 +109,7 @@ class __$$_SkeletonActorsByQueryCopyWithImpl<$Res>
     Object? hitsTotal = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$_SkeletonActorsByQuery(
+    return _then(_$SkeletonActorsByQueryImpl(
       actors: null == actors
           ? _value._actors
           : actors // ignore: cast_nullable_to_non_nullable
@@ -126,15 +128,15 @@ class __$$_SkeletonActorsByQueryCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SkeletonActorsByQuery implements _SkeletonActorsByQuery {
-  const _$_SkeletonActorsByQuery(
+class _$SkeletonActorsByQueryImpl implements _SkeletonActorsByQuery {
+  const _$SkeletonActorsByQueryImpl(
       {required final List<SkeletonActor> actors,
       this.hitsTotal = 0,
       this.cursor})
       : _actors = actors;
 
-  factory _$_SkeletonActorsByQuery.fromJson(Map<String, dynamic> json) =>
-      _$$_SkeletonActorsByQueryFromJson(json);
+  factory _$SkeletonActorsByQueryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SkeletonActorsByQueryImplFromJson(json);
 
   /// The list of [SkeletonActor] instances.
   final List<SkeletonActor> _actors;
@@ -166,7 +168,7 @@ class _$_SkeletonActorsByQuery implements _SkeletonActorsByQuery {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SkeletonActorsByQuery &&
+            other is _$SkeletonActorsByQueryImpl &&
             const DeepCollectionEquality().equals(other._actors, _actors) &&
             (identical(other.hitsTotal, hitsTotal) ||
                 other.hitsTotal == hitsTotal) &&
@@ -181,13 +183,13 @@ class _$_SkeletonActorsByQuery implements _SkeletonActorsByQuery {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SkeletonActorsByQueryCopyWith<_$_SkeletonActorsByQuery> get copyWith =>
-      __$$_SkeletonActorsByQueryCopyWithImpl<_$_SkeletonActorsByQuery>(
-          this, _$identity);
+  _$$SkeletonActorsByQueryImplCopyWith<_$SkeletonActorsByQueryImpl>
+      get copyWith => __$$SkeletonActorsByQueryImplCopyWithImpl<
+          _$SkeletonActorsByQueryImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SkeletonActorsByQueryToJson(
+    return _$$SkeletonActorsByQueryImplToJson(
       this,
     );
   }
@@ -197,10 +199,10 @@ abstract class _SkeletonActorsByQuery implements SkeletonActorsByQuery {
   const factory _SkeletonActorsByQuery(
       {required final List<SkeletonActor> actors,
       final int hitsTotal,
-      final String? cursor}) = _$_SkeletonActorsByQuery;
+      final String? cursor}) = _$SkeletonActorsByQueryImpl;
 
   factory _SkeletonActorsByQuery.fromJson(Map<String, dynamic> json) =
-      _$_SkeletonActorsByQuery.fromJson;
+      _$SkeletonActorsByQueryImpl.fromJson;
 
   @override
 
@@ -217,6 +219,6 @@ abstract class _SkeletonActorsByQuery implements SkeletonActorsByQuery {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$_SkeletonActorsByQueryCopyWith<_$_SkeletonActorsByQuery> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SkeletonActorsByQueryImplCopyWith<_$SkeletonActorsByQueryImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

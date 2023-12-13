@@ -116,11 +116,11 @@ class _$ThreadgateViewCopyWithImpl<$Res, $Val extends ThreadgateView>
 }
 
 /// @nodoc
-abstract class _$$_ThreadgateViewCopyWith<$Res>
+abstract class _$$ThreadgateViewImplCopyWith<$Res>
     implements $ThreadgateViewCopyWith<$Res> {
-  factory _$$_ThreadgateViewCopyWith(
-          _$_ThreadgateView value, $Res Function(_$_ThreadgateView) then) =
-      __$$_ThreadgateViewCopyWithImpl<$Res>;
+  factory _$$ThreadgateViewImplCopyWith(_$ThreadgateViewImpl value,
+          $Res Function(_$ThreadgateViewImpl) then) =
+      __$$ThreadgateViewImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -135,11 +135,11 @@ abstract class _$$_ThreadgateViewCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ThreadgateViewCopyWithImpl<$Res>
-    extends _$ThreadgateViewCopyWithImpl<$Res, _$_ThreadgateView>
-    implements _$$_ThreadgateViewCopyWith<$Res> {
-  __$$_ThreadgateViewCopyWithImpl(
-      _$_ThreadgateView _value, $Res Function(_$_ThreadgateView) _then)
+class __$$ThreadgateViewImplCopyWithImpl<$Res>
+    extends _$ThreadgateViewCopyWithImpl<$Res, _$ThreadgateViewImpl>
+    implements _$$ThreadgateViewImplCopyWith<$Res> {
+  __$$ThreadgateViewImplCopyWithImpl(
+      _$ThreadgateViewImpl _value, $Res Function(_$ThreadgateViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -151,7 +151,7 @@ class __$$_ThreadgateViewCopyWithImpl<$Res>
     Object? record = freezed,
     Object? lists = freezed,
   }) {
-    return _then(_$_ThreadgateView(
+    return _then(_$ThreadgateViewImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -179,8 +179,8 @@ class __$$_ThreadgateViewCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ThreadgateView implements _ThreadgateView {
-  const _$_ThreadgateView(
+class _$ThreadgateViewImpl implements _ThreadgateView {
+  const _$ThreadgateViewImpl(
       {@typeKey this.type = appBskyFeedDefsThreadgateView,
       @atUriConverter this.uri,
       this.cid,
@@ -188,8 +188,8 @@ class _$_ThreadgateView implements _ThreadgateView {
       final List<ListViewBasic>? lists})
       : _lists = lists;
 
-  factory _$_ThreadgateView.fromJson(Map<String, dynamic> json) =>
-      _$$_ThreadgateViewFromJson(json);
+  factory _$ThreadgateViewImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ThreadgateViewImplFromJson(json);
 
   /// The type of the threadgate view.
   @override
@@ -231,7 +231,7 @@ class _$_ThreadgateView implements _ThreadgateView {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ThreadgateView &&
+            other is _$ThreadgateViewImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
@@ -247,12 +247,13 @@ class _$_ThreadgateView implements _ThreadgateView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ThreadgateViewCopyWith<_$_ThreadgateView> get copyWith =>
-      __$$_ThreadgateViewCopyWithImpl<_$_ThreadgateView>(this, _$identity);
+  _$$ThreadgateViewImplCopyWith<_$ThreadgateViewImpl> get copyWith =>
+      __$$ThreadgateViewImplCopyWithImpl<_$ThreadgateViewImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ThreadgateViewToJson(
+    return _$$ThreadgateViewImplToJson(
       this,
     );
   }
@@ -264,10 +265,10 @@ abstract class _ThreadgateView implements ThreadgateView {
       @atUriConverter final AtUri? uri,
       final String? cid,
       final ThreadgateRecord? record,
-      final List<ListViewBasic>? lists}) = _$_ThreadgateView;
+      final List<ListViewBasic>? lists}) = _$ThreadgateViewImpl;
 
   factory _ThreadgateView.fromJson(Map<String, dynamic> json) =
-      _$_ThreadgateView.fromJson;
+      _$ThreadgateViewImpl.fromJson;
 
   @override
 
@@ -293,6 +294,6 @@ abstract class _ThreadgateView implements ThreadgateView {
   List<ListViewBasic>? get lists;
   @override
   @JsonKey(ignore: true)
-  _$$_ThreadgateViewCopyWith<_$_ThreadgateView> get copyWith =>
+  _$$ThreadgateViewImplCopyWith<_$ThreadgateViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

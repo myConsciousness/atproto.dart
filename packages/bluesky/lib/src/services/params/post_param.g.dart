@@ -8,11 +8,11 @@ part of 'post_param.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PostParam _$$_PostParamFromJson(Map json) => $checkedCreate(
-      r'_$_PostParam',
+_$PostParamImpl _$$PostParamImplFromJson(Map json) => $checkedCreate(
+      r'_$PostParamImpl',
       json,
       ($checkedConvert) {
-        final val = _$_PostParam(
+        final val = _$PostParamImpl(
           text: $checkedConvert('text', (v) => v as String),
           reply: $checkedConvert(
               'reply',
@@ -51,7 +51,7 @@ _$_PostParam _$$_PostParamFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_PostParamToJson(_$_PostParam instance) {
+Map<String, dynamic> _$$PostParamImplToJson(_$PostParamImpl instance) {
   final val = <String, dynamic>{
     'text': instance.text,
   };
