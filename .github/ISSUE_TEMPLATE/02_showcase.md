@@ -12,16 +12,7 @@ These are the information needed to list your app on the **[Showcase page](https
 
 ## Service URLs
 
-- **Web:**
-- **App Store (iOS):**
-- **Play Store (Android):**
-
 ## Platforms
-
-- [ ] Web Client
-- [ ] Desktop Client
-- [ ] Mobile Client
-- [ ] Console Tool
 
 ## Others
 

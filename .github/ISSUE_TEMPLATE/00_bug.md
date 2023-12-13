@@ -6,21 +6,6 @@ labels: "bug,untriaged"
 assignees: "myConsciousness"
 ---
 
-## Packages/Tools
-
-- [ ] **at_identifier** (version: )
-- [ ] **nsid** (version: )
-- [ ] **at_uri** (version: )
-- [ ] **xrpc** (version: )
-- [ ] **multiformats** (version: )
-- [ ] **atproto_core** (version: )
-- [ ] **did_plc** (version: )
-- [ ] **atproto** (version: )
-- [ ] **bluesky** (version: )
-- [ ] **bluesky_text** (version: )
-- [ ] **bluesky_cli** (version: )
-- [ ] **bluesky_post** (version: )
-
 ## Bug Behavior
 
 ## Expected Behavior
