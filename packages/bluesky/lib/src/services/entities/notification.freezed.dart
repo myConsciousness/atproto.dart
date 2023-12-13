@@ -148,11 +148,11 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
 }
 
 /// @nodoc
-abstract class _$$_NotificationCopyWith<$Res>
+abstract class _$$NotificationImplCopyWith<$Res>
     implements $NotificationCopyWith<$Res> {
-  factory _$$_NotificationCopyWith(
-          _$_Notification value, $Res Function(_$_Notification) then) =
-      __$$_NotificationCopyWithImpl<$Res>;
+  factory _$$NotificationImplCopyWith(
+          _$NotificationImpl value, $Res Function(_$NotificationImpl) then) =
+      __$$NotificationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -171,11 +171,11 @@ abstract class _$$_NotificationCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_NotificationCopyWithImpl<$Res>
-    extends _$NotificationCopyWithImpl<$Res, _$_Notification>
-    implements _$$_NotificationCopyWith<$Res> {
-  __$$_NotificationCopyWithImpl(
-      _$_Notification _value, $Res Function(_$_Notification) _then)
+class __$$NotificationImplCopyWithImpl<$Res>
+    extends _$NotificationCopyWithImpl<$Res, _$NotificationImpl>
+    implements _$$NotificationImplCopyWith<$Res> {
+  __$$NotificationImplCopyWithImpl(
+      _$NotificationImpl _value, $Res Function(_$NotificationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -191,7 +191,7 @@ class __$$_NotificationCopyWithImpl<$Res>
     Object? labels = freezed,
     Object? indexedAt = null,
   }) {
-    return _then(_$_Notification(
+    return _then(_$NotificationImpl(
       cid: null == cid
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
@@ -235,8 +235,8 @@ class __$$_NotificationCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_Notification implements _Notification {
-  const _$_Notification(
+class _$NotificationImpl implements _Notification {
+  const _$NotificationImpl(
       {required this.cid,
       @atUriConverter required this.uri,
       required this.author,
@@ -249,8 +249,8 @@ class _$_Notification implements _Notification {
       : _record = record,
         _labels = labels;
 
-  factory _$_Notification.fromJson(Map<String, dynamic> json) =>
-      _$$_NotificationFromJson(json);
+  factory _$NotificationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NotificationImplFromJson(json);
 
   /// Unique identifier of the notification.
   @override
@@ -317,7 +317,7 @@ class _$_Notification implements _Notification {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Notification &&
+            other is _$NotificationImpl &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.author, author) || other.author == author) &&
@@ -348,12 +348,12 @@ class _$_Notification implements _Notification {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NotificationCopyWith<_$_Notification> get copyWith =>
-      __$$_NotificationCopyWithImpl<_$_Notification>(this, _$identity);
+  _$$NotificationImplCopyWith<_$NotificationImpl> get copyWith =>
+      __$$NotificationImplCopyWithImpl<_$NotificationImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NotificationToJson(
+    return _$$NotificationImplToJson(
       this,
     );
   }
@@ -369,10 +369,10 @@ abstract class _Notification implements Notification {
       required final bool isRead,
       final Map<String, dynamic>? record,
       final List<Label>? labels,
-      required final DateTime indexedAt}) = _$_Notification;
+      required final DateTime indexedAt}) = _$NotificationImpl;
 
   factory _Notification.fromJson(Map<String, dynamic> json) =
-      _$_Notification.fromJson;
+      _$NotificationImpl.fromJson;
 
   @override
 
@@ -414,6 +414,6 @@ abstract class _Notification implements Notification {
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_NotificationCopyWith<_$_Notification> get copyWith =>
+  _$$NotificationImplCopyWith<_$NotificationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

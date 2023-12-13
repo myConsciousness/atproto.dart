@@ -110,10 +110,11 @@ class _$RepoInfoCopyWithImpl<$Res, $Val extends RepoInfo>
 }
 
 /// @nodoc
-abstract class _$$_RepoInfoCopyWith<$Res> implements $RepoInfoCopyWith<$Res> {
-  factory _$$_RepoInfoCopyWith(
-          _$_RepoInfo value, $Res Function(_$_RepoInfo) then) =
-      __$$_RepoInfoCopyWithImpl<$Res>;
+abstract class _$$RepoInfoImplCopyWith<$Res>
+    implements $RepoInfoCopyWith<$Res> {
+  factory _$$RepoInfoImplCopyWith(
+          _$RepoInfoImpl value, $Res Function(_$RepoInfoImpl) then) =
+      __$$RepoInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -128,11 +129,11 @@ abstract class _$$_RepoInfoCopyWith<$Res> implements $RepoInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_RepoInfoCopyWithImpl<$Res>
-    extends _$RepoInfoCopyWithImpl<$Res, _$_RepoInfo>
-    implements _$$_RepoInfoCopyWith<$Res> {
-  __$$_RepoInfoCopyWithImpl(
-      _$_RepoInfo _value, $Res Function(_$_RepoInfo) _then)
+class __$$RepoInfoImplCopyWithImpl<$Res>
+    extends _$RepoInfoCopyWithImpl<$Res, _$RepoInfoImpl>
+    implements _$$RepoInfoImplCopyWith<$Res> {
+  __$$RepoInfoImplCopyWithImpl(
+      _$RepoInfoImpl _value, $Res Function(_$RepoInfoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -144,7 +145,7 @@ class __$$_RepoInfoCopyWithImpl<$Res>
     Object? collections = null,
     Object? hasCorrectHandle = null,
   }) {
-    return _then(_$_RepoInfo(
+    return _then(_$RepoInfoImpl(
       handle: null == handle
           ? _value.handle
           : handle // ignore: cast_nullable_to_non_nullable
@@ -171,8 +172,8 @@ class __$$_RepoInfoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RepoInfo implements _RepoInfo {
-  const _$_RepoInfo(
+class _$RepoInfoImpl implements _RepoInfo {
+  const _$RepoInfoImpl(
       {required this.handle,
       required this.did,
       required this.didDoc,
@@ -180,8 +181,8 @@ class _$_RepoInfo implements _RepoInfo {
       @JsonKey(name: 'handleIsCorrect') required this.hasCorrectHandle})
       : _collections = collections;
 
-  factory _$_RepoInfo.fromJson(Map<String, dynamic> json) =>
-      _$$_RepoInfoFromJson(json);
+  factory _$RepoInfoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RepoInfoImplFromJson(json);
 
   /// The handle identifier of the repository.
   @override
@@ -220,7 +221,7 @@ class _$_RepoInfo implements _RepoInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RepoInfo &&
+            other is _$RepoInfoImpl &&
             (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.didDoc, didDoc) || other.didDoc == didDoc) &&
@@ -238,12 +239,12 @@ class _$_RepoInfo implements _RepoInfo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RepoInfoCopyWith<_$_RepoInfo> get copyWith =>
-      __$$_RepoInfoCopyWithImpl<_$_RepoInfo>(this, _$identity);
+  _$$RepoInfoImplCopyWith<_$RepoInfoImpl> get copyWith =>
+      __$$RepoInfoImplCopyWithImpl<_$RepoInfoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RepoInfoToJson(
+    return _$$RepoInfoImplToJson(
       this,
     );
   }
@@ -256,9 +257,10 @@ abstract class _RepoInfo implements RepoInfo {
       required final ParsedDidDoc didDoc,
       required final List<String> collections,
       @JsonKey(name: 'handleIsCorrect')
-      required final bool hasCorrectHandle}) = _$_RepoInfo;
+      required final bool hasCorrectHandle}) = _$RepoInfoImpl;
 
-  factory _RepoInfo.fromJson(Map<String, dynamic> json) = _$_RepoInfo.fromJson;
+  factory _RepoInfo.fromJson(Map<String, dynamic> json) =
+      _$RepoInfoImpl.fromJson;
 
   @override
 
@@ -283,6 +285,6 @@ abstract class _RepoInfo implements RepoInfo {
   bool get hasCorrectHandle;
   @override
   @JsonKey(ignore: true)
-  _$$_RepoInfoCopyWith<_$_RepoInfo> get copyWith =>
+  _$$RepoInfoImplCopyWith<_$RepoInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -8,11 +8,11 @@ part of 'follows.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Follows _$$_FollowsFromJson(Map json) => $checkedCreate(
-      r'_$_Follows',
+_$FollowsImpl _$$FollowsImplFromJson(Map json) => $checkedCreate(
+      r'_$FollowsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Follows(
+        final val = _$FollowsImpl(
           subject: $checkedConvert('subject',
               (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
           follows: $checkedConvert(
@@ -27,7 +27,7 @@ _$_Follows _$$_FollowsFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_FollowsToJson(_$_Follows instance) =>
+Map<String, dynamic> _$$FollowsImplToJson(_$FollowsImpl instance) =>
     <String, dynamic>{
       'subject': instance.subject.toJson(),
       'follows': instance.follows.map((e) => e.toJson()).toList(),

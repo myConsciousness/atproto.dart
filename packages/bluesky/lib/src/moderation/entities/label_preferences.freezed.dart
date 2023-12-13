@@ -105,11 +105,11 @@ class _$LabelPreferencesCopyWithImpl<$Res, $Val extends LabelPreferences>
 }
 
 /// @nodoc
-abstract class _$$_LabelPreferencesCopyWith<$Res>
+abstract class _$$LabelPreferencesImplCopyWith<$Res>
     implements $LabelPreferencesCopyWith<$Res> {
-  factory _$$_LabelPreferencesCopyWith(
-          _$_LabelPreferences value, $Res Function(_$_LabelPreferences) then) =
-      __$$_LabelPreferencesCopyWithImpl<$Res>;
+  factory _$$LabelPreferencesImplCopyWith(_$LabelPreferencesImpl value,
+          $Res Function(_$LabelPreferencesImpl) then) =
+      __$$LabelPreferencesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -123,11 +123,11 @@ abstract class _$$_LabelPreferencesCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LabelPreferencesCopyWithImpl<$Res>
-    extends _$LabelPreferencesCopyWithImpl<$Res, _$_LabelPreferences>
-    implements _$$_LabelPreferencesCopyWith<$Res> {
-  __$$_LabelPreferencesCopyWithImpl(
-      _$_LabelPreferences _value, $Res Function(_$_LabelPreferences) _then)
+class __$$LabelPreferencesImplCopyWithImpl<$Res>
+    extends _$LabelPreferencesCopyWithImpl<$Res, _$LabelPreferencesImpl>
+    implements _$$LabelPreferencesImplCopyWith<$Res> {
+  __$$LabelPreferencesImplCopyWithImpl(_$LabelPreferencesImpl _value,
+      $Res Function(_$LabelPreferencesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -141,7 +141,7 @@ class __$$_LabelPreferencesCopyWithImpl<$Res>
     Object? spam = null,
     Object? impersonation = null,
   }) {
-    return _then(_$_LabelPreferences(
+    return _then(_$LabelPreferencesImpl(
       nsfw: null == nsfw
           ? _value.nsfw
           : nsfw // ignore: cast_nullable_to_non_nullable
@@ -177,8 +177,8 @@ class __$$_LabelPreferencesCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_LabelPreferences implements _LabelPreferences {
-  const _$_LabelPreferences(
+class _$LabelPreferencesImpl implements _LabelPreferences {
+  const _$LabelPreferencesImpl(
       {this.nsfw = LabelPreference.hide,
       this.nudity = LabelPreference.warn,
       this.suggestive = LabelPreference.warn,
@@ -187,8 +187,8 @@ class _$_LabelPreferences implements _LabelPreferences {
       this.spam = LabelPreference.hide,
       this.impersonation = LabelPreference.hide});
 
-  factory _$_LabelPreferences.fromJson(Map<String, dynamic> json) =>
-      _$$_LabelPreferencesFromJson(json);
+  factory _$LabelPreferencesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LabelPreferencesImplFromJson(json);
 
   @override
   @JsonKey()
@@ -221,7 +221,7 @@ class _$_LabelPreferences implements _LabelPreferences {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LabelPreferences &&
+            other is _$LabelPreferencesImpl &&
             (identical(other.nsfw, nsfw) || other.nsfw == nsfw) &&
             (identical(other.nudity, nudity) || other.nudity == nudity) &&
             (identical(other.suggestive, suggestive) ||
@@ -241,12 +241,13 @@ class _$_LabelPreferences implements _LabelPreferences {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LabelPreferencesCopyWith<_$_LabelPreferences> get copyWith =>
-      __$$_LabelPreferencesCopyWithImpl<_$_LabelPreferences>(this, _$identity);
+  _$$LabelPreferencesImplCopyWith<_$LabelPreferencesImpl> get copyWith =>
+      __$$LabelPreferencesImplCopyWithImpl<_$LabelPreferencesImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LabelPreferencesToJson(
+    return _$$LabelPreferencesImplToJson(
       this,
     );
   }
@@ -260,10 +261,10 @@ abstract class _LabelPreferences implements LabelPreferences {
       final LabelPreference gore,
       final LabelPreference hate,
       final LabelPreference spam,
-      final LabelPreference impersonation}) = _$_LabelPreferences;
+      final LabelPreference impersonation}) = _$LabelPreferencesImpl;
 
   factory _LabelPreferences.fromJson(Map<String, dynamic> json) =
-      _$_LabelPreferences.fromJson;
+      _$LabelPreferencesImpl.fromJson;
 
   @override
   LabelPreference get nsfw;
@@ -281,6 +282,6 @@ abstract class _LabelPreferences implements LabelPreferences {
   LabelPreference get impersonation;
   @override
   @JsonKey(ignore: true)
-  _$$_LabelPreferencesCopyWith<_$_LabelPreferences> get copyWith =>
+  _$$LabelPreferencesImplCopyWith<_$LabelPreferencesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

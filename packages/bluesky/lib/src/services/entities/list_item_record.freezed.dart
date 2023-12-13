@@ -94,11 +94,11 @@ class _$ListItemRecordCopyWithImpl<$Res, $Val extends ListItemRecord>
 }
 
 /// @nodoc
-abstract class _$$_ListItemRecordCopyWith<$Res>
+abstract class _$$ListItemRecordImplCopyWith<$Res>
     implements $ListItemRecordCopyWith<$Res> {
-  factory _$$_ListItemRecordCopyWith(
-          _$_ListItemRecord value, $Res Function(_$_ListItemRecord) then) =
-      __$$_ListItemRecordCopyWithImpl<$Res>;
+  factory _$$ListItemRecordImplCopyWith(_$ListItemRecordImpl value,
+          $Res Function(_$ListItemRecordImpl) then) =
+      __$$ListItemRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -109,11 +109,11 @@ abstract class _$$_ListItemRecordCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ListItemRecordCopyWithImpl<$Res>
-    extends _$ListItemRecordCopyWithImpl<$Res, _$_ListItemRecord>
-    implements _$$_ListItemRecordCopyWith<$Res> {
-  __$$_ListItemRecordCopyWithImpl(
-      _$_ListItemRecord _value, $Res Function(_$_ListItemRecord) _then)
+class __$$ListItemRecordImplCopyWithImpl<$Res>
+    extends _$ListItemRecordCopyWithImpl<$Res, _$ListItemRecordImpl>
+    implements _$$ListItemRecordImplCopyWith<$Res> {
+  __$$ListItemRecordImplCopyWithImpl(
+      _$ListItemRecordImpl _value, $Res Function(_$ListItemRecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -124,7 +124,7 @@ class __$$_ListItemRecordCopyWithImpl<$Res>
     Object? did = null,
     Object? createdAt = null,
   }) {
-    return _then(_$_ListItemRecord(
+    return _then(_$ListItemRecordImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -148,15 +148,15 @@ class __$$_ListItemRecordCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ListItemRecord implements _ListItemRecord {
-  const _$_ListItemRecord(
+class _$ListItemRecordImpl implements _ListItemRecord {
+  const _$ListItemRecordImpl(
       {@typeKey this.type = appBskyGraphListitem,
       @atUriConverter required this.list,
       @JsonKey(name: 'subject') required this.did,
       required this.createdAt});
 
-  factory _$_ListItemRecord.fromJson(Map<String, dynamic> json) =>
-      _$$_ListItemRecordFromJson(json);
+  factory _$ListItemRecordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ListItemRecordImplFromJson(json);
 
   /// The type of the item. Default is [appBskyGraphListitem].
   @override
@@ -186,7 +186,7 @@ class _$_ListItemRecord implements _ListItemRecord {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ListItemRecord &&
+            other is _$ListItemRecordImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.list, list) || other.list == list) &&
             (identical(other.did, did) || other.did == did) &&
@@ -201,12 +201,13 @@ class _$_ListItemRecord implements _ListItemRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ListItemRecordCopyWith<_$_ListItemRecord> get copyWith =>
-      __$$_ListItemRecordCopyWithImpl<_$_ListItemRecord>(this, _$identity);
+  _$$ListItemRecordImplCopyWith<_$ListItemRecordImpl> get copyWith =>
+      __$$ListItemRecordImplCopyWithImpl<_$ListItemRecordImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ListItemRecordToJson(
+    return _$$ListItemRecordImplToJson(
       this,
     );
   }
@@ -217,10 +218,10 @@ abstract class _ListItemRecord implements ListItemRecord {
       {@typeKey final String type,
       @atUriConverter required final AtUri list,
       @JsonKey(name: 'subject') required final String did,
-      required final DateTime createdAt}) = _$_ListItemRecord;
+      required final DateTime createdAt}) = _$ListItemRecordImpl;
 
   factory _ListItemRecord.fromJson(Map<String, dynamic> json) =
-      _$_ListItemRecord.fromJson;
+      _$ListItemRecordImpl.fromJson;
 
   @override
 
@@ -243,6 +244,6 @@ abstract class _ListItemRecord implements ListItemRecord {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$_ListItemRecordCopyWith<_$_ListItemRecord> get copyWith =>
+  _$$ListItemRecordImplCopyWith<_$ListItemRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

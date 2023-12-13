@@ -8,12 +8,12 @@ part of 'skeleton_posts_by_query.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SkeletonPostsByQuery _$$_SkeletonPostsByQueryFromJson(Map json) =>
+_$SkeletonPostsByQueryImpl _$$SkeletonPostsByQueryImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$_SkeletonPostsByQuery',
+      r'_$SkeletonPostsByQueryImpl',
       json,
       ($checkedConvert) {
-        final val = _$_SkeletonPostsByQuery(
+        final val = _$SkeletonPostsByQueryImpl(
           posts: $checkedConvert(
               'posts',
               (v) => (v as List<dynamic>)
@@ -27,8 +27,8 @@ _$_SkeletonPostsByQuery _$$_SkeletonPostsByQueryFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$_SkeletonPostsByQueryToJson(
-        _$_SkeletonPostsByQuery instance) =>
+Map<String, dynamic> _$$SkeletonPostsByQueryImplToJson(
+        _$SkeletonPostsByQueryImpl instance) =>
     <String, dynamic>{
       'posts': instance.posts.map((e) => e.toJson()).toList(),
       'hitsTotal': instance.hitsTotal,

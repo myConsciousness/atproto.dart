@@ -72,21 +72,22 @@ class _$SelfLabelCopyWithImpl<$Res, $Val extends SelfLabel>
 }
 
 /// @nodoc
-abstract class _$$_SelfLabelCopyWith<$Res> implements $SelfLabelCopyWith<$Res> {
-  factory _$$_SelfLabelCopyWith(
-          _$_SelfLabel value, $Res Function(_$_SelfLabel) then) =
-      __$$_SelfLabelCopyWithImpl<$Res>;
+abstract class _$$SelfLabelImplCopyWith<$Res>
+    implements $SelfLabelCopyWith<$Res> {
+  factory _$$SelfLabelImplCopyWith(
+          _$SelfLabelImpl value, $Res Function(_$SelfLabelImpl) then) =
+      __$$SelfLabelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, @JsonKey(name: 'val') String value});
 }
 
 /// @nodoc
-class __$$_SelfLabelCopyWithImpl<$Res>
-    extends _$SelfLabelCopyWithImpl<$Res, _$_SelfLabel>
-    implements _$$_SelfLabelCopyWith<$Res> {
-  __$$_SelfLabelCopyWithImpl(
-      _$_SelfLabel _value, $Res Function(_$_SelfLabel) _then)
+class __$$SelfLabelImplCopyWithImpl<$Res>
+    extends _$SelfLabelCopyWithImpl<$Res, _$SelfLabelImpl>
+    implements _$$SelfLabelImplCopyWith<$Res> {
+  __$$SelfLabelImplCopyWithImpl(
+      _$SelfLabelImpl _value, $Res Function(_$SelfLabelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,7 +96,7 @@ class __$$_SelfLabelCopyWithImpl<$Res>
     Object? type = null,
     Object? value = null,
   }) {
-    return _then(_$_SelfLabel(
+    return _then(_$SelfLabelImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -110,13 +111,13 @@ class __$$_SelfLabelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SelfLabel implements _SelfLabel {
-  const _$_SelfLabel(
+class _$SelfLabelImpl implements _SelfLabel {
+  const _$SelfLabelImpl(
       {@typeKey this.type = comAtprotoLabelDefsSelfLabel,
       @JsonKey(name: 'val') required this.value});
 
-  factory _$_SelfLabel.fromJson(Map<String, dynamic> json) =>
-      _$$_SelfLabelFromJson(json);
+  factory _$SelfLabelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SelfLabelImplFromJson(json);
 
   /// [comAtprotoLabelDefsSelfLabel]
   @override
@@ -137,7 +138,7 @@ class _$_SelfLabel implements _SelfLabel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SelfLabel &&
+            other is _$SelfLabelImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.value, value) || other.value == value));
   }
@@ -149,12 +150,12 @@ class _$_SelfLabel implements _SelfLabel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SelfLabelCopyWith<_$_SelfLabel> get copyWith =>
-      __$$_SelfLabelCopyWithImpl<_$_SelfLabel>(this, _$identity);
+  _$$SelfLabelImplCopyWith<_$SelfLabelImpl> get copyWith =>
+      __$$SelfLabelImplCopyWithImpl<_$SelfLabelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SelfLabelToJson(
+    return _$$SelfLabelImplToJson(
       this,
     );
   }
@@ -163,10 +164,10 @@ class _$_SelfLabel implements _SelfLabel {
 abstract class _SelfLabel implements SelfLabel {
   const factory _SelfLabel(
       {@typeKey final String type,
-      @JsonKey(name: 'val') required final String value}) = _$_SelfLabel;
+      @JsonKey(name: 'val') required final String value}) = _$SelfLabelImpl;
 
   factory _SelfLabel.fromJson(Map<String, dynamic> json) =
-      _$_SelfLabel.fromJson;
+      _$SelfLabelImpl.fromJson;
 
   @override
 
@@ -180,6 +181,6 @@ abstract class _SelfLabel implements SelfLabel {
   String get value;
   @override
   @JsonKey(ignore: true)
-  _$$_SelfLabelCopyWith<_$_SelfLabel> get copyWith =>
+  _$$SelfLabelImplCopyWith<_$SelfLabelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

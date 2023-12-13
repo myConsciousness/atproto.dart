@@ -8,11 +8,11 @@ part of 'like.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Like _$$_LikeFromJson(Map json) => $checkedCreate(
-      r'_$_Like',
+_$LikeImpl _$$LikeImplFromJson(Map json) => $checkedCreate(
+      r'_$LikeImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Like(
+        final val = _$LikeImpl(
           actor: $checkedConvert('actor',
               (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
           createdAt:
@@ -24,7 +24,8 @@ _$_Like _$$_LikeFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_LikeToJson(_$_Like instance) => <String, dynamic>{
+Map<String, dynamic> _$$LikeImplToJson(_$LikeImpl instance) =>
+    <String, dynamic>{
       'actor': instance.actor.toJson(),
       'createdAt': instance.createdAt.toIso8601String(),
       'indexedAt': instance.indexedAt.toIso8601String(),

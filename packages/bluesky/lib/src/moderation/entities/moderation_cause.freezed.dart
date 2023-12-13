@@ -94,10 +94,11 @@ class _$ModerationCauseCopyWithImpl<$Res, $Val extends ModerationCause>
 }
 
 /// @nodoc
-abstract class _$$UModerationCauseBlockingCopyWith<$Res> {
-  factory _$$UModerationCauseBlockingCopyWith(_$UModerationCauseBlocking value,
-          $Res Function(_$UModerationCauseBlocking) then) =
-      __$$UModerationCauseBlockingCopyWithImpl<$Res>;
+abstract class _$$UModerationCauseBlockingImplCopyWith<$Res> {
+  factory _$$UModerationCauseBlockingImplCopyWith(
+          _$UModerationCauseBlockingImpl value,
+          $Res Function(_$UModerationCauseBlockingImpl) then) =
+      __$$UModerationCauseBlockingImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ModerationCauseBlocking data});
 
@@ -105,11 +106,12 @@ abstract class _$$UModerationCauseBlockingCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UModerationCauseBlockingCopyWithImpl<$Res>
-    extends _$ModerationCauseCopyWithImpl<$Res, _$UModerationCauseBlocking>
-    implements _$$UModerationCauseBlockingCopyWith<$Res> {
-  __$$UModerationCauseBlockingCopyWithImpl(_$UModerationCauseBlocking _value,
-      $Res Function(_$UModerationCauseBlocking) _then)
+class __$$UModerationCauseBlockingImplCopyWithImpl<$Res>
+    extends _$ModerationCauseCopyWithImpl<$Res, _$UModerationCauseBlockingImpl>
+    implements _$$UModerationCauseBlockingImplCopyWith<$Res> {
+  __$$UModerationCauseBlockingImplCopyWithImpl(
+      _$UModerationCauseBlockingImpl _value,
+      $Res Function(_$UModerationCauseBlockingImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -117,7 +119,7 @@ class __$$UModerationCauseBlockingCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UModerationCauseBlocking(
+    return _then(_$UModerationCauseBlockingImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -136,8 +138,8 @@ class __$$UModerationCauseBlockingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseBlocking implements UModerationCauseBlocking {
-  const _$UModerationCauseBlocking({required this.data});
+class _$UModerationCauseBlockingImpl implements UModerationCauseBlocking {
+  const _$UModerationCauseBlockingImpl({required this.data});
 
   @override
   final ModerationCauseBlocking data;
@@ -151,7 +153,7 @@ class _$UModerationCauseBlocking implements UModerationCauseBlocking {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UModerationCauseBlocking &&
+            other is _$UModerationCauseBlockingImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -161,10 +163,9 @@ class _$UModerationCauseBlocking implements UModerationCauseBlocking {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UModerationCauseBlockingCopyWith<_$UModerationCauseBlocking>
-      get copyWith =>
-          __$$UModerationCauseBlockingCopyWithImpl<_$UModerationCauseBlocking>(
-              this, _$identity);
+  _$$UModerationCauseBlockingImplCopyWith<_$UModerationCauseBlockingImpl>
+      get copyWith => __$$UModerationCauseBlockingImplCopyWithImpl<
+          _$UModerationCauseBlockingImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -250,21 +251,21 @@ class _$UModerationCauseBlocking implements UModerationCauseBlocking {
 abstract class UModerationCauseBlocking implements ModerationCause {
   const factory UModerationCauseBlocking(
           {required final ModerationCauseBlocking data}) =
-      _$UModerationCauseBlocking;
+      _$UModerationCauseBlockingImpl;
 
   @override
   ModerationCauseBlocking get data;
   @JsonKey(ignore: true)
-  _$$UModerationCauseBlockingCopyWith<_$UModerationCauseBlocking>
+  _$$UModerationCauseBlockingImplCopyWith<_$UModerationCauseBlockingImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UModerationCauseBlockedByCopyWith<$Res> {
-  factory _$$UModerationCauseBlockedByCopyWith(
-          _$UModerationCauseBlockedBy value,
-          $Res Function(_$UModerationCauseBlockedBy) then) =
-      __$$UModerationCauseBlockedByCopyWithImpl<$Res>;
+abstract class _$$UModerationCauseBlockedByImplCopyWith<$Res> {
+  factory _$$UModerationCauseBlockedByImplCopyWith(
+          _$UModerationCauseBlockedByImpl value,
+          $Res Function(_$UModerationCauseBlockedByImpl) then) =
+      __$$UModerationCauseBlockedByImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ModerationCauseBlockedBy data});
 
@@ -272,11 +273,12 @@ abstract class _$$UModerationCauseBlockedByCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UModerationCauseBlockedByCopyWithImpl<$Res>
-    extends _$ModerationCauseCopyWithImpl<$Res, _$UModerationCauseBlockedBy>
-    implements _$$UModerationCauseBlockedByCopyWith<$Res> {
-  __$$UModerationCauseBlockedByCopyWithImpl(_$UModerationCauseBlockedBy _value,
-      $Res Function(_$UModerationCauseBlockedBy) _then)
+class __$$UModerationCauseBlockedByImplCopyWithImpl<$Res>
+    extends _$ModerationCauseCopyWithImpl<$Res, _$UModerationCauseBlockedByImpl>
+    implements _$$UModerationCauseBlockedByImplCopyWith<$Res> {
+  __$$UModerationCauseBlockedByImplCopyWithImpl(
+      _$UModerationCauseBlockedByImpl _value,
+      $Res Function(_$UModerationCauseBlockedByImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -284,7 +286,7 @@ class __$$UModerationCauseBlockedByCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UModerationCauseBlockedBy(
+    return _then(_$UModerationCauseBlockedByImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -303,8 +305,8 @@ class __$$UModerationCauseBlockedByCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseBlockedBy implements UModerationCauseBlockedBy {
-  const _$UModerationCauseBlockedBy({required this.data});
+class _$UModerationCauseBlockedByImpl implements UModerationCauseBlockedBy {
+  const _$UModerationCauseBlockedByImpl({required this.data});
 
   @override
   final ModerationCauseBlockedBy data;
@@ -318,7 +320,7 @@ class _$UModerationCauseBlockedBy implements UModerationCauseBlockedBy {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UModerationCauseBlockedBy &&
+            other is _$UModerationCauseBlockedByImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -328,9 +330,9 @@ class _$UModerationCauseBlockedBy implements UModerationCauseBlockedBy {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UModerationCauseBlockedByCopyWith<_$UModerationCauseBlockedBy>
-      get copyWith => __$$UModerationCauseBlockedByCopyWithImpl<
-          _$UModerationCauseBlockedBy>(this, _$identity);
+  _$$UModerationCauseBlockedByImplCopyWith<_$UModerationCauseBlockedByImpl>
+      get copyWith => __$$UModerationCauseBlockedByImplCopyWithImpl<
+          _$UModerationCauseBlockedByImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -416,21 +418,21 @@ class _$UModerationCauseBlockedBy implements UModerationCauseBlockedBy {
 abstract class UModerationCauseBlockedBy implements ModerationCause {
   const factory UModerationCauseBlockedBy(
           {required final ModerationCauseBlockedBy data}) =
-      _$UModerationCauseBlockedBy;
+      _$UModerationCauseBlockedByImpl;
 
   @override
   ModerationCauseBlockedBy get data;
   @JsonKey(ignore: true)
-  _$$UModerationCauseBlockedByCopyWith<_$UModerationCauseBlockedBy>
+  _$$UModerationCauseBlockedByImplCopyWith<_$UModerationCauseBlockedByImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UModerationCauseBlockOtherCopyWith<$Res> {
-  factory _$$UModerationCauseBlockOtherCopyWith(
-          _$UModerationCauseBlockOther value,
-          $Res Function(_$UModerationCauseBlockOther) then) =
-      __$$UModerationCauseBlockOtherCopyWithImpl<$Res>;
+abstract class _$$UModerationCauseBlockOtherImplCopyWith<$Res> {
+  factory _$$UModerationCauseBlockOtherImplCopyWith(
+          _$UModerationCauseBlockOtherImpl value,
+          $Res Function(_$UModerationCauseBlockOtherImpl) then) =
+      __$$UModerationCauseBlockOtherImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ModerationCauseBlockOther data});
 
@@ -438,12 +440,13 @@ abstract class _$$UModerationCauseBlockOtherCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UModerationCauseBlockOtherCopyWithImpl<$Res>
-    extends _$ModerationCauseCopyWithImpl<$Res, _$UModerationCauseBlockOther>
-    implements _$$UModerationCauseBlockOtherCopyWith<$Res> {
-  __$$UModerationCauseBlockOtherCopyWithImpl(
-      _$UModerationCauseBlockOther _value,
-      $Res Function(_$UModerationCauseBlockOther) _then)
+class __$$UModerationCauseBlockOtherImplCopyWithImpl<$Res>
+    extends _$ModerationCauseCopyWithImpl<$Res,
+        _$UModerationCauseBlockOtherImpl>
+    implements _$$UModerationCauseBlockOtherImplCopyWith<$Res> {
+  __$$UModerationCauseBlockOtherImplCopyWithImpl(
+      _$UModerationCauseBlockOtherImpl _value,
+      $Res Function(_$UModerationCauseBlockOtherImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -451,7 +454,7 @@ class __$$UModerationCauseBlockOtherCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UModerationCauseBlockOther(
+    return _then(_$UModerationCauseBlockOtherImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -470,8 +473,8 @@ class __$$UModerationCauseBlockOtherCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseBlockOther implements UModerationCauseBlockOther {
-  const _$UModerationCauseBlockOther({required this.data});
+class _$UModerationCauseBlockOtherImpl implements UModerationCauseBlockOther {
+  const _$UModerationCauseBlockOtherImpl({required this.data});
 
   @override
   final ModerationCauseBlockOther data;
@@ -485,7 +488,7 @@ class _$UModerationCauseBlockOther implements UModerationCauseBlockOther {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UModerationCauseBlockOther &&
+            other is _$UModerationCauseBlockOtherImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -495,9 +498,9 @@ class _$UModerationCauseBlockOther implements UModerationCauseBlockOther {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UModerationCauseBlockOtherCopyWith<_$UModerationCauseBlockOther>
-      get copyWith => __$$UModerationCauseBlockOtherCopyWithImpl<
-          _$UModerationCauseBlockOther>(this, _$identity);
+  _$$UModerationCauseBlockOtherImplCopyWith<_$UModerationCauseBlockOtherImpl>
+      get copyWith => __$$UModerationCauseBlockOtherImplCopyWithImpl<
+          _$UModerationCauseBlockOtherImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -583,20 +586,21 @@ class _$UModerationCauseBlockOther implements UModerationCauseBlockOther {
 abstract class UModerationCauseBlockOther implements ModerationCause {
   const factory UModerationCauseBlockOther(
           {required final ModerationCauseBlockOther data}) =
-      _$UModerationCauseBlockOther;
+      _$UModerationCauseBlockOtherImpl;
 
   @override
   ModerationCauseBlockOther get data;
   @JsonKey(ignore: true)
-  _$$UModerationCauseBlockOtherCopyWith<_$UModerationCauseBlockOther>
+  _$$UModerationCauseBlockOtherImplCopyWith<_$UModerationCauseBlockOtherImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UModerationCauseLabelCopyWith<$Res> {
-  factory _$$UModerationCauseLabelCopyWith(_$UModerationCauseLabel value,
-          $Res Function(_$UModerationCauseLabel) then) =
-      __$$UModerationCauseLabelCopyWithImpl<$Res>;
+abstract class _$$UModerationCauseLabelImplCopyWith<$Res> {
+  factory _$$UModerationCauseLabelImplCopyWith(
+          _$UModerationCauseLabelImpl value,
+          $Res Function(_$UModerationCauseLabelImpl) then) =
+      __$$UModerationCauseLabelImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ModerationCauseLabel data});
 
@@ -604,11 +608,11 @@ abstract class _$$UModerationCauseLabelCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UModerationCauseLabelCopyWithImpl<$Res>
-    extends _$ModerationCauseCopyWithImpl<$Res, _$UModerationCauseLabel>
-    implements _$$UModerationCauseLabelCopyWith<$Res> {
-  __$$UModerationCauseLabelCopyWithImpl(_$UModerationCauseLabel _value,
-      $Res Function(_$UModerationCauseLabel) _then)
+class __$$UModerationCauseLabelImplCopyWithImpl<$Res>
+    extends _$ModerationCauseCopyWithImpl<$Res, _$UModerationCauseLabelImpl>
+    implements _$$UModerationCauseLabelImplCopyWith<$Res> {
+  __$$UModerationCauseLabelImplCopyWithImpl(_$UModerationCauseLabelImpl _value,
+      $Res Function(_$UModerationCauseLabelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -616,7 +620,7 @@ class __$$UModerationCauseLabelCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UModerationCauseLabel(
+    return _then(_$UModerationCauseLabelImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -635,8 +639,8 @@ class __$$UModerationCauseLabelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseLabel implements UModerationCauseLabel {
-  const _$UModerationCauseLabel({required this.data});
+class _$UModerationCauseLabelImpl implements UModerationCauseLabel {
+  const _$UModerationCauseLabelImpl({required this.data});
 
   @override
   final ModerationCauseLabel data;
@@ -650,7 +654,7 @@ class _$UModerationCauseLabel implements UModerationCauseLabel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UModerationCauseLabel &&
+            other is _$UModerationCauseLabelImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -660,9 +664,9 @@ class _$UModerationCauseLabel implements UModerationCauseLabel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UModerationCauseLabelCopyWith<_$UModerationCauseLabel> get copyWith =>
-      __$$UModerationCauseLabelCopyWithImpl<_$UModerationCauseLabel>(
-          this, _$identity);
+  _$$UModerationCauseLabelImplCopyWith<_$UModerationCauseLabelImpl>
+      get copyWith => __$$UModerationCauseLabelImplCopyWithImpl<
+          _$UModerationCauseLabelImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -747,20 +751,21 @@ class _$UModerationCauseLabel implements UModerationCauseLabel {
 
 abstract class UModerationCauseLabel implements ModerationCause {
   const factory UModerationCauseLabel(
-      {required final ModerationCauseLabel data}) = _$UModerationCauseLabel;
+      {required final ModerationCauseLabel data}) = _$UModerationCauseLabelImpl;
 
   @override
   ModerationCauseLabel get data;
   @JsonKey(ignore: true)
-  _$$UModerationCauseLabelCopyWith<_$UModerationCauseLabel> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UModerationCauseLabelImplCopyWith<_$UModerationCauseLabelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UModerationCauseMutedCopyWith<$Res> {
-  factory _$$UModerationCauseMutedCopyWith(_$UModerationCauseMuted value,
-          $Res Function(_$UModerationCauseMuted) then) =
-      __$$UModerationCauseMutedCopyWithImpl<$Res>;
+abstract class _$$UModerationCauseMutedImplCopyWith<$Res> {
+  factory _$$UModerationCauseMutedImplCopyWith(
+          _$UModerationCauseMutedImpl value,
+          $Res Function(_$UModerationCauseMutedImpl) then) =
+      __$$UModerationCauseMutedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ModerationCauseMuted data});
 
@@ -768,11 +773,11 @@ abstract class _$$UModerationCauseMutedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UModerationCauseMutedCopyWithImpl<$Res>
-    extends _$ModerationCauseCopyWithImpl<$Res, _$UModerationCauseMuted>
-    implements _$$UModerationCauseMutedCopyWith<$Res> {
-  __$$UModerationCauseMutedCopyWithImpl(_$UModerationCauseMuted _value,
-      $Res Function(_$UModerationCauseMuted) _then)
+class __$$UModerationCauseMutedImplCopyWithImpl<$Res>
+    extends _$ModerationCauseCopyWithImpl<$Res, _$UModerationCauseMutedImpl>
+    implements _$$UModerationCauseMutedImplCopyWith<$Res> {
+  __$$UModerationCauseMutedImplCopyWithImpl(_$UModerationCauseMutedImpl _value,
+      $Res Function(_$UModerationCauseMutedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -780,7 +785,7 @@ class __$$UModerationCauseMutedCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UModerationCauseMuted(
+    return _then(_$UModerationCauseMutedImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -799,8 +804,8 @@ class __$$UModerationCauseMutedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseMuted implements UModerationCauseMuted {
-  const _$UModerationCauseMuted({required this.data});
+class _$UModerationCauseMutedImpl implements UModerationCauseMuted {
+  const _$UModerationCauseMutedImpl({required this.data});
 
   @override
   final ModerationCauseMuted data;
@@ -814,7 +819,7 @@ class _$UModerationCauseMuted implements UModerationCauseMuted {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UModerationCauseMuted &&
+            other is _$UModerationCauseMutedImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -824,9 +829,9 @@ class _$UModerationCauseMuted implements UModerationCauseMuted {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UModerationCauseMutedCopyWith<_$UModerationCauseMuted> get copyWith =>
-      __$$UModerationCauseMutedCopyWithImpl<_$UModerationCauseMuted>(
-          this, _$identity);
+  _$$UModerationCauseMutedImplCopyWith<_$UModerationCauseMutedImpl>
+      get copyWith => __$$UModerationCauseMutedImplCopyWithImpl<
+          _$UModerationCauseMutedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -911,11 +916,11 @@ class _$UModerationCauseMuted implements UModerationCauseMuted {
 
 abstract class UModerationCauseMuted implements ModerationCause {
   const factory UModerationCauseMuted(
-      {required final ModerationCauseMuted data}) = _$UModerationCauseMuted;
+      {required final ModerationCauseMuted data}) = _$UModerationCauseMutedImpl;
 
   @override
   ModerationCauseMuted get data;
   @JsonKey(ignore: true)
-  _$$UModerationCauseMutedCopyWith<_$UModerationCauseMuted> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UModerationCauseMutedImplCopyWith<_$UModerationCauseMutedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

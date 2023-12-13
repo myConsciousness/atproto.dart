@@ -60,18 +60,18 @@ class _$DIDCopyWithImpl<$Res, $Val extends DID> implements $DIDCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_DIDCopyWith<$Res> implements $DIDCopyWith<$Res> {
-  factory _$$_DIDCopyWith(_$_DID value, $Res Function(_$_DID) then) =
-      __$$_DIDCopyWithImpl<$Res>;
+abstract class _$$DIDImplCopyWith<$Res> implements $DIDCopyWith<$Res> {
+  factory _$$DIDImplCopyWith(_$DIDImpl value, $Res Function(_$DIDImpl) then) =
+      __$$DIDImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String did});
 }
 
 /// @nodoc
-class __$$_DIDCopyWithImpl<$Res> extends _$DIDCopyWithImpl<$Res, _$_DID>
-    implements _$$_DIDCopyWith<$Res> {
-  __$$_DIDCopyWithImpl(_$_DID _value, $Res Function(_$_DID) _then)
+class __$$DIDImplCopyWithImpl<$Res> extends _$DIDCopyWithImpl<$Res, _$DIDImpl>
+    implements _$$DIDImplCopyWith<$Res> {
+  __$$DIDImplCopyWithImpl(_$DIDImpl _value, $Res Function(_$DIDImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -79,7 +79,7 @@ class __$$_DIDCopyWithImpl<$Res> extends _$DIDCopyWithImpl<$Res, _$_DID>
   $Res call({
     Object? did = null,
   }) {
-    return _then(_$_DID(
+    return _then(_$DIDImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -90,10 +90,11 @@ class __$$_DIDCopyWithImpl<$Res> extends _$DIDCopyWithImpl<$Res, _$_DID>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DID implements _DID {
-  const _$_DID({required this.did});
+class _$DIDImpl implements _DID {
+  const _$DIDImpl({required this.did});
 
-  factory _$_DID.fromJson(Map<String, dynamic> json) => _$$_DIDFromJson(json);
+  factory _$DIDImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DIDImplFromJson(json);
 
   /// The Decentralized Identifier.
   @override
@@ -108,7 +109,7 @@ class _$_DID implements _DID {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DID &&
+            other is _$DIDImpl &&
             (identical(other.did, did) || other.did == did));
   }
 
@@ -119,21 +120,21 @@ class _$_DID implements _DID {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DIDCopyWith<_$_DID> get copyWith =>
-      __$$_DIDCopyWithImpl<_$_DID>(this, _$identity);
+  _$$DIDImplCopyWith<_$DIDImpl> get copyWith =>
+      __$$DIDImplCopyWithImpl<_$DIDImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DIDToJson(
+    return _$$DIDImplToJson(
       this,
     );
   }
 }
 
 abstract class _DID implements DID {
-  const factory _DID({required final String did}) = _$_DID;
+  const factory _DID({required final String did}) = _$DIDImpl;
 
-  factory _DID.fromJson(Map<String, dynamic> json) = _$_DID.fromJson;
+  factory _DID.fromJson(Map<String, dynamic> json) = _$DIDImpl.fromJson;
 
   @override
 
@@ -141,5 +142,6 @@ abstract class _DID implements DID {
   String get did;
   @override
   @JsonKey(ignore: true)
-  _$$_DIDCopyWith<_$_DID> get copyWith => throw _privateConstructorUsedError;
+  _$$DIDImplCopyWith<_$DIDImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

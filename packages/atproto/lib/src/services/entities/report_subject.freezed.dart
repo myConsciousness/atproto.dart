@@ -82,10 +82,11 @@ class _$ReportSubjectCopyWithImpl<$Res, $Val extends ReportSubject>
 }
 
 /// @nodoc
-abstract class _$$UReportSubjectRepoRefCopyWith<$Res> {
-  factory _$$UReportSubjectRepoRefCopyWith(_$UReportSubjectRepoRef value,
-          $Res Function(_$UReportSubjectRepoRef) then) =
-      __$$UReportSubjectRepoRefCopyWithImpl<$Res>;
+abstract class _$$UReportSubjectRepoRefImplCopyWith<$Res> {
+  factory _$$UReportSubjectRepoRefImplCopyWith(
+          _$UReportSubjectRepoRefImpl value,
+          $Res Function(_$UReportSubjectRepoRefImpl) then) =
+      __$$UReportSubjectRepoRefImplCopyWithImpl<$Res>;
   @useResult
   $Res call({RepoRef data});
 
@@ -93,11 +94,11 @@ abstract class _$$UReportSubjectRepoRefCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UReportSubjectRepoRefCopyWithImpl<$Res>
-    extends _$ReportSubjectCopyWithImpl<$Res, _$UReportSubjectRepoRef>
-    implements _$$UReportSubjectRepoRefCopyWith<$Res> {
-  __$$UReportSubjectRepoRefCopyWithImpl(_$UReportSubjectRepoRef _value,
-      $Res Function(_$UReportSubjectRepoRef) _then)
+class __$$UReportSubjectRepoRefImplCopyWithImpl<$Res>
+    extends _$ReportSubjectCopyWithImpl<$Res, _$UReportSubjectRepoRefImpl>
+    implements _$$UReportSubjectRepoRefImplCopyWith<$Res> {
+  __$$UReportSubjectRepoRefImplCopyWithImpl(_$UReportSubjectRepoRefImpl _value,
+      $Res Function(_$UReportSubjectRepoRefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -105,7 +106,7 @@ class __$$UReportSubjectRepoRefCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UReportSubjectRepoRef(
+    return _then(_$UReportSubjectRepoRefImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -124,8 +125,8 @@ class __$$UReportSubjectRepoRefCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UReportSubjectRepoRef extends UReportSubjectRepoRef {
-  const _$UReportSubjectRepoRef({required this.data}) : super._();
+class _$UReportSubjectRepoRefImpl extends UReportSubjectRepoRef {
+  const _$UReportSubjectRepoRefImpl({required this.data}) : super._();
 
   @override
   final RepoRef data;
@@ -139,7 +140,7 @@ class _$UReportSubjectRepoRef extends UReportSubjectRepoRef {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UReportSubjectRepoRef &&
+            other is _$UReportSubjectRepoRefImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -149,9 +150,9 @@ class _$UReportSubjectRepoRef extends UReportSubjectRepoRef {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UReportSubjectRepoRefCopyWith<_$UReportSubjectRepoRef> get copyWith =>
-      __$$UReportSubjectRepoRefCopyWithImpl<_$UReportSubjectRepoRef>(
-          this, _$identity);
+  _$$UReportSubjectRepoRefImplCopyWith<_$UReportSubjectRepoRefImpl>
+      get copyWith => __$$UReportSubjectRepoRefImplCopyWithImpl<
+          _$UReportSubjectRepoRefImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -224,21 +225,22 @@ class _$UReportSubjectRepoRef extends UReportSubjectRepoRef {
 
 abstract class UReportSubjectRepoRef extends ReportSubject {
   const factory UReportSubjectRepoRef({required final RepoRef data}) =
-      _$UReportSubjectRepoRef;
+      _$UReportSubjectRepoRefImpl;
   const UReportSubjectRepoRef._() : super._();
 
   @override
   RepoRef get data;
   @JsonKey(ignore: true)
-  _$$UReportSubjectRepoRefCopyWith<_$UReportSubjectRepoRef> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UReportSubjectRepoRefImplCopyWith<_$UReportSubjectRepoRefImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UReportSubjectStrongRefCopyWith<$Res> {
-  factory _$$UReportSubjectStrongRefCopyWith(_$UReportSubjectStrongRef value,
-          $Res Function(_$UReportSubjectStrongRef) then) =
-      __$$UReportSubjectStrongRefCopyWithImpl<$Res>;
+abstract class _$$UReportSubjectStrongRefImplCopyWith<$Res> {
+  factory _$$UReportSubjectStrongRefImplCopyWith(
+          _$UReportSubjectStrongRefImpl value,
+          $Res Function(_$UReportSubjectStrongRefImpl) then) =
+      __$$UReportSubjectStrongRefImplCopyWithImpl<$Res>;
   @useResult
   $Res call({StrongRef data});
 
@@ -246,11 +248,12 @@ abstract class _$$UReportSubjectStrongRefCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UReportSubjectStrongRefCopyWithImpl<$Res>
-    extends _$ReportSubjectCopyWithImpl<$Res, _$UReportSubjectStrongRef>
-    implements _$$UReportSubjectStrongRefCopyWith<$Res> {
-  __$$UReportSubjectStrongRefCopyWithImpl(_$UReportSubjectStrongRef _value,
-      $Res Function(_$UReportSubjectStrongRef) _then)
+class __$$UReportSubjectStrongRefImplCopyWithImpl<$Res>
+    extends _$ReportSubjectCopyWithImpl<$Res, _$UReportSubjectStrongRefImpl>
+    implements _$$UReportSubjectStrongRefImplCopyWith<$Res> {
+  __$$UReportSubjectStrongRefImplCopyWithImpl(
+      _$UReportSubjectStrongRefImpl _value,
+      $Res Function(_$UReportSubjectStrongRefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -258,7 +261,7 @@ class __$$UReportSubjectStrongRefCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UReportSubjectStrongRef(
+    return _then(_$UReportSubjectStrongRefImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -277,8 +280,8 @@ class __$$UReportSubjectStrongRefCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UReportSubjectStrongRef extends UReportSubjectStrongRef {
-  const _$UReportSubjectStrongRef({required this.data}) : super._();
+class _$UReportSubjectStrongRefImpl extends UReportSubjectStrongRef {
+  const _$UReportSubjectStrongRefImpl({required this.data}) : super._();
 
   @override
   final StrongRef data;
@@ -292,7 +295,7 @@ class _$UReportSubjectStrongRef extends UReportSubjectStrongRef {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UReportSubjectStrongRef &&
+            other is _$UReportSubjectStrongRefImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -302,9 +305,9 @@ class _$UReportSubjectStrongRef extends UReportSubjectStrongRef {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UReportSubjectStrongRefCopyWith<_$UReportSubjectStrongRef> get copyWith =>
-      __$$UReportSubjectStrongRefCopyWithImpl<_$UReportSubjectStrongRef>(
-          this, _$identity);
+  _$$UReportSubjectStrongRefImplCopyWith<_$UReportSubjectStrongRefImpl>
+      get copyWith => __$$UReportSubjectStrongRefImplCopyWithImpl<
+          _$UReportSubjectStrongRefImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -377,31 +380,32 @@ class _$UReportSubjectStrongRef extends UReportSubjectStrongRef {
 
 abstract class UReportSubjectStrongRef extends ReportSubject {
   const factory UReportSubjectStrongRef({required final StrongRef data}) =
-      _$UReportSubjectStrongRef;
+      _$UReportSubjectStrongRefImpl;
   const UReportSubjectStrongRef._() : super._();
 
   @override
   StrongRef get data;
   @JsonKey(ignore: true)
-  _$$UReportSubjectStrongRefCopyWith<_$UReportSubjectStrongRef> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UReportSubjectStrongRefImplCopyWith<_$UReportSubjectStrongRefImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UReportSubjectUnknownCopyWith<$Res> {
-  factory _$$UReportSubjectUnknownCopyWith(_$UReportSubjectUnknown value,
-          $Res Function(_$UReportSubjectUnknown) then) =
-      __$$UReportSubjectUnknownCopyWithImpl<$Res>;
+abstract class _$$UReportSubjectUnknownImplCopyWith<$Res> {
+  factory _$$UReportSubjectUnknownImplCopyWith(
+          _$UReportSubjectUnknownImpl value,
+          $Res Function(_$UReportSubjectUnknownImpl) then) =
+      __$$UReportSubjectUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UReportSubjectUnknownCopyWithImpl<$Res>
-    extends _$ReportSubjectCopyWithImpl<$Res, _$UReportSubjectUnknown>
-    implements _$$UReportSubjectUnknownCopyWith<$Res> {
-  __$$UReportSubjectUnknownCopyWithImpl(_$UReportSubjectUnknown _value,
-      $Res Function(_$UReportSubjectUnknown) _then)
+class __$$UReportSubjectUnknownImplCopyWithImpl<$Res>
+    extends _$ReportSubjectCopyWithImpl<$Res, _$UReportSubjectUnknownImpl>
+    implements _$$UReportSubjectUnknownImplCopyWith<$Res> {
+  __$$UReportSubjectUnknownImplCopyWithImpl(_$UReportSubjectUnknownImpl _value,
+      $Res Function(_$UReportSubjectUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -409,7 +413,7 @@ class __$$UReportSubjectUnknownCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UReportSubjectUnknown(
+    return _then(_$UReportSubjectUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -420,8 +424,8 @@ class __$$UReportSubjectUnknownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UReportSubjectUnknown extends UReportSubjectUnknown {
-  const _$UReportSubjectUnknown({required final Map<String, dynamic> data})
+class _$UReportSubjectUnknownImpl extends UReportSubjectUnknown {
+  const _$UReportSubjectUnknownImpl({required final Map<String, dynamic> data})
       : _data = data,
         super._();
 
@@ -442,7 +446,7 @@ class _$UReportSubjectUnknown extends UReportSubjectUnknown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UReportSubjectUnknown &&
+            other is _$UReportSubjectUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -453,9 +457,9 @@ class _$UReportSubjectUnknown extends UReportSubjectUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UReportSubjectUnknownCopyWith<_$UReportSubjectUnknown> get copyWith =>
-      __$$UReportSubjectUnknownCopyWithImpl<_$UReportSubjectUnknown>(
-          this, _$identity);
+  _$$UReportSubjectUnknownImplCopyWith<_$UReportSubjectUnknownImpl>
+      get copyWith => __$$UReportSubjectUnknownImplCopyWithImpl<
+          _$UReportSubjectUnknownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -528,12 +532,12 @@ class _$UReportSubjectUnknown extends UReportSubjectUnknown {
 
 abstract class UReportSubjectUnknown extends ReportSubject {
   const factory UReportSubjectUnknown(
-      {required final Map<String, dynamic> data}) = _$UReportSubjectUnknown;
+      {required final Map<String, dynamic> data}) = _$UReportSubjectUnknownImpl;
   const UReportSubjectUnknown._() : super._();
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$UReportSubjectUnknownCopyWith<_$UReportSubjectUnknown> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UReportSubjectUnknownImplCopyWith<_$UReportSubjectUnknownImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

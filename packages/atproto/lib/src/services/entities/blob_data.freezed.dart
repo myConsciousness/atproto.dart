@@ -72,10 +72,11 @@ class _$BlobDataCopyWithImpl<$Res, $Val extends BlobData>
 }
 
 /// @nodoc
-abstract class _$$_BlobDataCopyWith<$Res> implements $BlobDataCopyWith<$Res> {
-  factory _$$_BlobDataCopyWith(
-          _$_BlobData value, $Res Function(_$_BlobData) then) =
-      __$$_BlobDataCopyWithImpl<$Res>;
+abstract class _$$BlobDataImplCopyWith<$Res>
+    implements $BlobDataCopyWith<$Res> {
+  factory _$$BlobDataImplCopyWith(
+          _$BlobDataImpl value, $Res Function(_$BlobDataImpl) then) =
+      __$$BlobDataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Blob blob});
@@ -85,11 +86,11 @@ abstract class _$$_BlobDataCopyWith<$Res> implements $BlobDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_BlobDataCopyWithImpl<$Res>
-    extends _$BlobDataCopyWithImpl<$Res, _$_BlobData>
-    implements _$$_BlobDataCopyWith<$Res> {
-  __$$_BlobDataCopyWithImpl(
-      _$_BlobData _value, $Res Function(_$_BlobData) _then)
+class __$$BlobDataImplCopyWithImpl<$Res>
+    extends _$BlobDataCopyWithImpl<$Res, _$BlobDataImpl>
+    implements _$$BlobDataImplCopyWith<$Res> {
+  __$$BlobDataImplCopyWithImpl(
+      _$BlobDataImpl _value, $Res Function(_$BlobDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,7 +98,7 @@ class __$$_BlobDataCopyWithImpl<$Res>
   $Res call({
     Object? blob = null,
   }) {
-    return _then(_$_BlobData(
+    return _then(_$BlobDataImpl(
       blob: null == blob
           ? _value.blob
           : blob // ignore: cast_nullable_to_non_nullable
@@ -108,11 +109,11 @@ class __$$_BlobDataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_BlobData implements _BlobData {
-  const _$_BlobData({required this.blob});
+class _$BlobDataImpl implements _BlobData {
+  const _$BlobDataImpl({required this.blob});
 
-  factory _$_BlobData.fromJson(Map<String, dynamic> json) =>
-      _$$_BlobDataFromJson(json);
+  factory _$BlobDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BlobDataImplFromJson(json);
 
   /// The blob data.
   @override
@@ -127,7 +128,7 @@ class _$_BlobData implements _BlobData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BlobData &&
+            other is _$BlobDataImpl &&
             (identical(other.blob, blob) || other.blob == blob));
   }
 
@@ -138,21 +139,22 @@ class _$_BlobData implements _BlobData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BlobDataCopyWith<_$_BlobData> get copyWith =>
-      __$$_BlobDataCopyWithImpl<_$_BlobData>(this, _$identity);
+  _$$BlobDataImplCopyWith<_$BlobDataImpl> get copyWith =>
+      __$$BlobDataImplCopyWithImpl<_$BlobDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BlobDataToJson(
+    return _$$BlobDataImplToJson(
       this,
     );
   }
 }
 
 abstract class _BlobData implements BlobData {
-  const factory _BlobData({required final Blob blob}) = _$_BlobData;
+  const factory _BlobData({required final Blob blob}) = _$BlobDataImpl;
 
-  factory _BlobData.fromJson(Map<String, dynamic> json) = _$_BlobData.fromJson;
+  factory _BlobData.fromJson(Map<String, dynamic> json) =
+      _$BlobDataImpl.fromJson;
 
   @override
 
@@ -160,6 +162,6 @@ abstract class _BlobData implements BlobData {
   Blob get blob;
   @override
   @JsonKey(ignore: true)
-  _$$_BlobDataCopyWith<_$_BlobData> get copyWith =>
+  _$$BlobDataImplCopyWith<_$BlobDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

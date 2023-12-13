@@ -140,11 +140,11 @@ class _$GeneratorParamCopyWithImpl<$Res, $Val extends GeneratorParam>
 }
 
 /// @nodoc
-abstract class _$$_GeneratorParamCopyWith<$Res>
+abstract class _$$GeneratorParamImplCopyWith<$Res>
     implements $GeneratorParamCopyWith<$Res> {
-  factory _$$_GeneratorParamCopyWith(
-          _$_GeneratorParam value, $Res Function(_$_GeneratorParam) then) =
-      __$$_GeneratorParamCopyWithImpl<$Res>;
+  factory _$$GeneratorParamImplCopyWith(_$GeneratorParamImpl value,
+          $Res Function(_$GeneratorParamImpl) then) =
+      __$$GeneratorParamImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -164,11 +164,11 @@ abstract class _$$_GeneratorParamCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_GeneratorParamCopyWithImpl<$Res>
-    extends _$GeneratorParamCopyWithImpl<$Res, _$_GeneratorParam>
-    implements _$$_GeneratorParamCopyWith<$Res> {
-  __$$_GeneratorParamCopyWithImpl(
-      _$_GeneratorParam _value, $Res Function(_$_GeneratorParam) _then)
+class __$$GeneratorParamImplCopyWithImpl<$Res>
+    extends _$GeneratorParamCopyWithImpl<$Res, _$GeneratorParamImpl>
+    implements _$$GeneratorParamImplCopyWith<$Res> {
+  __$$GeneratorParamImplCopyWithImpl(
+      _$GeneratorParamImpl _value, $Res Function(_$GeneratorParamImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -183,7 +183,7 @@ class __$$_GeneratorParamCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? unspecced = null,
   }) {
-    return _then(_$_GeneratorParam(
+    return _then(_$GeneratorParamImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -223,8 +223,8 @@ class __$$_GeneratorParamCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_GeneratorParam implements _GeneratorParam {
-  const _$_GeneratorParam(
+class _$GeneratorParamImpl implements _GeneratorParam {
+  const _$GeneratorParamImpl(
       {required this.did,
       required this.displayName,
       this.description,
@@ -236,8 +236,8 @@ class _$_GeneratorParam implements _GeneratorParam {
       : _descriptionFacets = descriptionFacets,
         _unspecced = unspecced;
 
-  factory _$_GeneratorParam.fromJson(Map<String, dynamic> json) =>
-      _$$_GeneratorParamFromJson(json);
+  factory _$GeneratorParamImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GeneratorParamImplFromJson(json);
 
   @override
   final String did;
@@ -281,7 +281,7 @@ class _$_GeneratorParam implements _GeneratorParam {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GeneratorParam &&
+            other is _$GeneratorParamImpl &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
@@ -313,12 +313,13 @@ class _$_GeneratorParam implements _GeneratorParam {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GeneratorParamCopyWith<_$_GeneratorParam> get copyWith =>
-      __$$_GeneratorParamCopyWithImpl<_$_GeneratorParam>(this, _$identity);
+  _$$GeneratorParamImplCopyWith<_$GeneratorParamImpl> get copyWith =>
+      __$$GeneratorParamImplCopyWithImpl<_$GeneratorParamImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GeneratorParamToJson(
+    return _$$GeneratorParamImplToJson(
       this,
     );
   }
@@ -333,10 +334,10 @@ abstract class _GeneratorParam implements GeneratorParam {
       final Blob? avatar,
       @labelsConverter final Labels? labels,
       final DateTime? createdAt,
-      final Map<String, dynamic> unspecced}) = _$_GeneratorParam;
+      final Map<String, dynamic> unspecced}) = _$GeneratorParamImpl;
 
   factory _GeneratorParam.fromJson(Map<String, dynamic> json) =
-      _$_GeneratorParam.fromJson;
+      _$GeneratorParamImpl.fromJson;
 
   @override
   String get did;
@@ -357,6 +358,6 @@ abstract class _GeneratorParam implements GeneratorParam {
   Map<String, dynamic> get unspecced;
   @override
   @JsonKey(ignore: true)
-  _$$_GeneratorParamCopyWith<_$_GeneratorParam> get copyWith =>
+  _$$GeneratorParamImplCopyWith<_$GeneratorParamImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

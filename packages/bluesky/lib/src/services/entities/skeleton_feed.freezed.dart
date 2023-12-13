@@ -73,22 +73,22 @@ class _$SkeletonFeedCopyWithImpl<$Res, $Val extends SkeletonFeed>
 }
 
 /// @nodoc
-abstract class _$$_SkeletonFeedCopyWith<$Res>
+abstract class _$$SkeletonFeedImplCopyWith<$Res>
     implements $SkeletonFeedCopyWith<$Res> {
-  factory _$$_SkeletonFeedCopyWith(
-          _$_SkeletonFeed value, $Res Function(_$_SkeletonFeed) then) =
-      __$$_SkeletonFeedCopyWithImpl<$Res>;
+  factory _$$SkeletonFeedImplCopyWith(
+          _$SkeletonFeedImpl value, $Res Function(_$SkeletonFeedImpl) then) =
+      __$$SkeletonFeedImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<SkeletonFeedView> feed, String? cursor});
 }
 
 /// @nodoc
-class __$$_SkeletonFeedCopyWithImpl<$Res>
-    extends _$SkeletonFeedCopyWithImpl<$Res, _$_SkeletonFeed>
-    implements _$$_SkeletonFeedCopyWith<$Res> {
-  __$$_SkeletonFeedCopyWithImpl(
-      _$_SkeletonFeed _value, $Res Function(_$_SkeletonFeed) _then)
+class __$$SkeletonFeedImplCopyWithImpl<$Res>
+    extends _$SkeletonFeedCopyWithImpl<$Res, _$SkeletonFeedImpl>
+    implements _$$SkeletonFeedImplCopyWith<$Res> {
+  __$$SkeletonFeedImplCopyWithImpl(
+      _$SkeletonFeedImpl _value, $Res Function(_$SkeletonFeedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,7 +97,7 @@ class __$$_SkeletonFeedCopyWithImpl<$Res>
     Object? feed = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$_SkeletonFeed(
+    return _then(_$SkeletonFeedImpl(
       feed: null == feed
           ? _value._feed
           : feed // ignore: cast_nullable_to_non_nullable
@@ -113,13 +113,13 @@ class __$$_SkeletonFeedCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_SkeletonFeed implements _SkeletonFeed {
-  const _$_SkeletonFeed(
+class _$SkeletonFeedImpl implements _SkeletonFeed {
+  const _$SkeletonFeedImpl(
       {required final List<SkeletonFeedView> feed, this.cursor})
       : _feed = feed;
 
-  factory _$_SkeletonFeed.fromJson(Map<String, dynamic> json) =>
-      _$$_SkeletonFeedFromJson(json);
+  factory _$SkeletonFeedImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SkeletonFeedImplFromJson(json);
 
   /// A list of [SkeletonFeedView] objects, each representing a
   /// reference to a post in the skeleton feed.
@@ -148,7 +148,7 @@ class _$_SkeletonFeed implements _SkeletonFeed {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SkeletonFeed &&
+            other is _$SkeletonFeedImpl &&
             const DeepCollectionEquality().equals(other._feed, _feed) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -161,12 +161,12 @@ class _$_SkeletonFeed implements _SkeletonFeed {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SkeletonFeedCopyWith<_$_SkeletonFeed> get copyWith =>
-      __$$_SkeletonFeedCopyWithImpl<_$_SkeletonFeed>(this, _$identity);
+  _$$SkeletonFeedImplCopyWith<_$SkeletonFeedImpl> get copyWith =>
+      __$$SkeletonFeedImplCopyWithImpl<_$SkeletonFeedImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SkeletonFeedToJson(
+    return _$$SkeletonFeedImplToJson(
       this,
     );
   }
@@ -175,10 +175,10 @@ class _$_SkeletonFeed implements _SkeletonFeed {
 abstract class _SkeletonFeed implements SkeletonFeed {
   const factory _SkeletonFeed(
       {required final List<SkeletonFeedView> feed,
-      final String? cursor}) = _$_SkeletonFeed;
+      final String? cursor}) = _$SkeletonFeedImpl;
 
   factory _SkeletonFeed.fromJson(Map<String, dynamic> json) =
-      _$_SkeletonFeed.fromJson;
+      _$SkeletonFeedImpl.fromJson;
 
   @override
 
@@ -192,6 +192,6 @@ abstract class _SkeletonFeed implements SkeletonFeed {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$_SkeletonFeedCopyWith<_$_SkeletonFeed> get copyWith =>
+  _$$SkeletonFeedImplCopyWith<_$SkeletonFeedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

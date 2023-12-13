@@ -8,11 +8,12 @@ part of 'sealed_app_password.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SealedAppPassword _$$_SealedAppPasswordFromJson(Map json) => $checkedCreate(
-      r'_$_SealedAppPassword',
+_$SealedAppPasswordImpl _$$SealedAppPasswordImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$SealedAppPasswordImpl',
       json,
       ($checkedConvert) {
-        final val = _$_SealedAppPassword(
+        final val = _$SealedAppPasswordImpl(
           name: $checkedConvert('name', (v) => v as String),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
@@ -21,8 +22,8 @@ _$_SealedAppPassword _$$_SealedAppPasswordFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_SealedAppPasswordToJson(
-        _$_SealedAppPassword instance) =>
+Map<String, dynamic> _$$SealedAppPasswordImplToJson(
+        _$SealedAppPasswordImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'createdAt': instance.createdAt.toIso8601String(),

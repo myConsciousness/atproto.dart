@@ -71,22 +71,22 @@ class _$SubscribedRepoInfoCopyWithImpl<$Res, $Val extends SubscribedRepoInfo>
 }
 
 /// @nodoc
-abstract class _$$_SubscribedRepoInfoCopyWith<$Res>
+abstract class _$$SubscribedRepoInfoImplCopyWith<$Res>
     implements $SubscribedRepoInfoCopyWith<$Res> {
-  factory _$$_SubscribedRepoInfoCopyWith(_$_SubscribedRepoInfo value,
-          $Res Function(_$_SubscribedRepoInfo) then) =
-      __$$_SubscribedRepoInfoCopyWithImpl<$Res>;
+  factory _$$SubscribedRepoInfoImplCopyWith(_$SubscribedRepoInfoImpl value,
+          $Res Function(_$SubscribedRepoInfoImpl) then) =
+      __$$SubscribedRepoInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String? message});
 }
 
 /// @nodoc
-class __$$_SubscribedRepoInfoCopyWithImpl<$Res>
-    extends _$SubscribedRepoInfoCopyWithImpl<$Res, _$_SubscribedRepoInfo>
-    implements _$$_SubscribedRepoInfoCopyWith<$Res> {
-  __$$_SubscribedRepoInfoCopyWithImpl(
-      _$_SubscribedRepoInfo _value, $Res Function(_$_SubscribedRepoInfo) _then)
+class __$$SubscribedRepoInfoImplCopyWithImpl<$Res>
+    extends _$SubscribedRepoInfoCopyWithImpl<$Res, _$SubscribedRepoInfoImpl>
+    implements _$$SubscribedRepoInfoImplCopyWith<$Res> {
+  __$$SubscribedRepoInfoImplCopyWithImpl(_$SubscribedRepoInfoImpl _value,
+      $Res Function(_$SubscribedRepoInfoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,7 +95,7 @@ class __$$_SubscribedRepoInfoCopyWithImpl<$Res>
     Object? name = null,
     Object? message = freezed,
   }) {
-    return _then(_$_SubscribedRepoInfo(
+    return _then(_$SubscribedRepoInfoImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -111,11 +111,11 @@ class __$$_SubscribedRepoInfoCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_SubscribedRepoInfo implements _SubscribedRepoInfo {
-  const _$_SubscribedRepoInfo({required this.name, this.message});
+class _$SubscribedRepoInfoImpl implements _SubscribedRepoInfo {
+  const _$SubscribedRepoInfoImpl({required this.name, this.message});
 
-  factory _$_SubscribedRepoInfo.fromJson(Map<String, dynamic> json) =>
-      _$$_SubscribedRepoInfoFromJson(json);
+  factory _$SubscribedRepoInfoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SubscribedRepoInfoImplFromJson(json);
 
   /// The name of the subscribed repository.
   @override
@@ -134,7 +134,7 @@ class _$_SubscribedRepoInfo implements _SubscribedRepoInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SubscribedRepoInfo &&
+            other is _$SubscribedRepoInfoImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.message, message) || other.message == message));
   }
@@ -146,13 +146,13 @@ class _$_SubscribedRepoInfo implements _SubscribedRepoInfo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SubscribedRepoInfoCopyWith<_$_SubscribedRepoInfo> get copyWith =>
-      __$$_SubscribedRepoInfoCopyWithImpl<_$_SubscribedRepoInfo>(
+  _$$SubscribedRepoInfoImplCopyWith<_$SubscribedRepoInfoImpl> get copyWith =>
+      __$$SubscribedRepoInfoImplCopyWithImpl<_$SubscribedRepoInfoImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SubscribedRepoInfoToJson(
+    return _$$SubscribedRepoInfoImplToJson(
       this,
     );
   }
@@ -161,10 +161,10 @@ class _$_SubscribedRepoInfo implements _SubscribedRepoInfo {
 abstract class _SubscribedRepoInfo implements SubscribedRepoInfo {
   const factory _SubscribedRepoInfo(
       {required final String name,
-      final String? message}) = _$_SubscribedRepoInfo;
+      final String? message}) = _$SubscribedRepoInfoImpl;
 
   factory _SubscribedRepoInfo.fromJson(Map<String, dynamic> json) =
-      _$_SubscribedRepoInfo.fromJson;
+      _$SubscribedRepoInfoImpl.fromJson;
 
   @override
 
@@ -176,6 +176,6 @@ abstract class _SubscribedRepoInfo implements SubscribedRepoInfo {
   String? get message;
   @override
   @JsonKey(ignore: true)
-  _$$_SubscribedRepoInfoCopyWith<_$_SubscribedRepoInfo> get copyWith =>
+  _$$SubscribedRepoInfoImplCopyWith<_$SubscribedRepoInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

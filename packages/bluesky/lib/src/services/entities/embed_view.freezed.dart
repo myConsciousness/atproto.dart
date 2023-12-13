@@ -93,10 +93,10 @@ class _$EmbedViewCopyWithImpl<$Res, $Val extends EmbedView>
 }
 
 /// @nodoc
-abstract class _$$UEmbedViewRecordCopyWith<$Res> {
-  factory _$$UEmbedViewRecordCopyWith(
-          _$UEmbedViewRecord value, $Res Function(_$UEmbedViewRecord) then) =
-      __$$UEmbedViewRecordCopyWithImpl<$Res>;
+abstract class _$$UEmbedViewRecordImplCopyWith<$Res> {
+  factory _$$UEmbedViewRecordImplCopyWith(_$UEmbedViewRecordImpl value,
+          $Res Function(_$UEmbedViewRecordImpl) then) =
+      __$$UEmbedViewRecordImplCopyWithImpl<$Res>;
   @useResult
   $Res call({EmbedViewRecord data});
 
@@ -104,11 +104,11 @@ abstract class _$$UEmbedViewRecordCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEmbedViewRecordCopyWithImpl<$Res>
-    extends _$EmbedViewCopyWithImpl<$Res, _$UEmbedViewRecord>
-    implements _$$UEmbedViewRecordCopyWith<$Res> {
-  __$$UEmbedViewRecordCopyWithImpl(
-      _$UEmbedViewRecord _value, $Res Function(_$UEmbedViewRecord) _then)
+class __$$UEmbedViewRecordImplCopyWithImpl<$Res>
+    extends _$EmbedViewCopyWithImpl<$Res, _$UEmbedViewRecordImpl>
+    implements _$$UEmbedViewRecordImplCopyWith<$Res> {
+  __$$UEmbedViewRecordImplCopyWithImpl(_$UEmbedViewRecordImpl _value,
+      $Res Function(_$UEmbedViewRecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -116,7 +116,7 @@ class __$$UEmbedViewRecordCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedViewRecord(
+    return _then(_$UEmbedViewRecordImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -135,8 +135,8 @@ class __$$UEmbedViewRecordCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEmbedViewRecord implements UEmbedViewRecord {
-  const _$UEmbedViewRecord({required this.data});
+class _$UEmbedViewRecordImpl implements UEmbedViewRecord {
+  const _$UEmbedViewRecordImpl({required this.data});
 
   @override
   final EmbedViewRecord data;
@@ -150,7 +150,7 @@ class _$UEmbedViewRecord implements UEmbedViewRecord {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedViewRecord &&
+            other is _$UEmbedViewRecordImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -160,8 +160,9 @@ class _$UEmbedViewRecord implements UEmbedViewRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEmbedViewRecordCopyWith<_$UEmbedViewRecord> get copyWith =>
-      __$$UEmbedViewRecordCopyWithImpl<_$UEmbedViewRecord>(this, _$identity);
+  _$$UEmbedViewRecordImplCopyWith<_$UEmbedViewRecordImpl> get copyWith =>
+      __$$UEmbedViewRecordImplCopyWithImpl<_$UEmbedViewRecordImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -246,20 +247,20 @@ class _$UEmbedViewRecord implements UEmbedViewRecord {
 
 abstract class UEmbedViewRecord implements EmbedView {
   const factory UEmbedViewRecord({required final EmbedViewRecord data}) =
-      _$UEmbedViewRecord;
+      _$UEmbedViewRecordImpl;
 
   @override
   EmbedViewRecord get data;
   @JsonKey(ignore: true)
-  _$$UEmbedViewRecordCopyWith<_$UEmbedViewRecord> get copyWith =>
+  _$$UEmbedViewRecordImplCopyWith<_$UEmbedViewRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEmbedViewImagesCopyWith<$Res> {
-  factory _$$UEmbedViewImagesCopyWith(
-          _$UEmbedViewImages value, $Res Function(_$UEmbedViewImages) then) =
-      __$$UEmbedViewImagesCopyWithImpl<$Res>;
+abstract class _$$UEmbedViewImagesImplCopyWith<$Res> {
+  factory _$$UEmbedViewImagesImplCopyWith(_$UEmbedViewImagesImpl value,
+          $Res Function(_$UEmbedViewImagesImpl) then) =
+      __$$UEmbedViewImagesImplCopyWithImpl<$Res>;
   @useResult
   $Res call({EmbedViewImages data});
 
@@ -267,11 +268,11 @@ abstract class _$$UEmbedViewImagesCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEmbedViewImagesCopyWithImpl<$Res>
-    extends _$EmbedViewCopyWithImpl<$Res, _$UEmbedViewImages>
-    implements _$$UEmbedViewImagesCopyWith<$Res> {
-  __$$UEmbedViewImagesCopyWithImpl(
-      _$UEmbedViewImages _value, $Res Function(_$UEmbedViewImages) _then)
+class __$$UEmbedViewImagesImplCopyWithImpl<$Res>
+    extends _$EmbedViewCopyWithImpl<$Res, _$UEmbedViewImagesImpl>
+    implements _$$UEmbedViewImagesImplCopyWith<$Res> {
+  __$$UEmbedViewImagesImplCopyWithImpl(_$UEmbedViewImagesImpl _value,
+      $Res Function(_$UEmbedViewImagesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -279,7 +280,7 @@ class __$$UEmbedViewImagesCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedViewImages(
+    return _then(_$UEmbedViewImagesImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -298,8 +299,8 @@ class __$$UEmbedViewImagesCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEmbedViewImages implements UEmbedViewImages {
-  const _$UEmbedViewImages({required this.data});
+class _$UEmbedViewImagesImpl implements UEmbedViewImages {
+  const _$UEmbedViewImagesImpl({required this.data});
 
   @override
   final EmbedViewImages data;
@@ -313,7 +314,7 @@ class _$UEmbedViewImages implements UEmbedViewImages {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedViewImages &&
+            other is _$UEmbedViewImagesImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -323,8 +324,9 @@ class _$UEmbedViewImages implements UEmbedViewImages {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEmbedViewImagesCopyWith<_$UEmbedViewImages> get copyWith =>
-      __$$UEmbedViewImagesCopyWithImpl<_$UEmbedViewImages>(this, _$identity);
+  _$$UEmbedViewImagesImplCopyWith<_$UEmbedViewImagesImpl> get copyWith =>
+      __$$UEmbedViewImagesImplCopyWithImpl<_$UEmbedViewImagesImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -409,20 +411,20 @@ class _$UEmbedViewImages implements UEmbedViewImages {
 
 abstract class UEmbedViewImages implements EmbedView {
   const factory UEmbedViewImages({required final EmbedViewImages data}) =
-      _$UEmbedViewImages;
+      _$UEmbedViewImagesImpl;
 
   @override
   EmbedViewImages get data;
   @JsonKey(ignore: true)
-  _$$UEmbedViewImagesCopyWith<_$UEmbedViewImages> get copyWith =>
+  _$$UEmbedViewImagesImplCopyWith<_$UEmbedViewImagesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEmbedViewExternalCopyWith<$Res> {
-  factory _$$UEmbedViewExternalCopyWith(_$UEmbedViewExternal value,
-          $Res Function(_$UEmbedViewExternal) then) =
-      __$$UEmbedViewExternalCopyWithImpl<$Res>;
+abstract class _$$UEmbedViewExternalImplCopyWith<$Res> {
+  factory _$$UEmbedViewExternalImplCopyWith(_$UEmbedViewExternalImpl value,
+          $Res Function(_$UEmbedViewExternalImpl) then) =
+      __$$UEmbedViewExternalImplCopyWithImpl<$Res>;
   @useResult
   $Res call({EmbedViewExternal data});
 
@@ -430,11 +432,11 @@ abstract class _$$UEmbedViewExternalCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEmbedViewExternalCopyWithImpl<$Res>
-    extends _$EmbedViewCopyWithImpl<$Res, _$UEmbedViewExternal>
-    implements _$$UEmbedViewExternalCopyWith<$Res> {
-  __$$UEmbedViewExternalCopyWithImpl(
-      _$UEmbedViewExternal _value, $Res Function(_$UEmbedViewExternal) _then)
+class __$$UEmbedViewExternalImplCopyWithImpl<$Res>
+    extends _$EmbedViewCopyWithImpl<$Res, _$UEmbedViewExternalImpl>
+    implements _$$UEmbedViewExternalImplCopyWith<$Res> {
+  __$$UEmbedViewExternalImplCopyWithImpl(_$UEmbedViewExternalImpl _value,
+      $Res Function(_$UEmbedViewExternalImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -442,7 +444,7 @@ class __$$UEmbedViewExternalCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedViewExternal(
+    return _then(_$UEmbedViewExternalImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -461,8 +463,8 @@ class __$$UEmbedViewExternalCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEmbedViewExternal implements UEmbedViewExternal {
-  const _$UEmbedViewExternal({required this.data});
+class _$UEmbedViewExternalImpl implements UEmbedViewExternal {
+  const _$UEmbedViewExternalImpl({required this.data});
 
   @override
   final EmbedViewExternal data;
@@ -476,7 +478,7 @@ class _$UEmbedViewExternal implements UEmbedViewExternal {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedViewExternal &&
+            other is _$UEmbedViewExternalImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -486,8 +488,8 @@ class _$UEmbedViewExternal implements UEmbedViewExternal {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEmbedViewExternalCopyWith<_$UEmbedViewExternal> get copyWith =>
-      __$$UEmbedViewExternalCopyWithImpl<_$UEmbedViewExternal>(
+  _$$UEmbedViewExternalImplCopyWith<_$UEmbedViewExternalImpl> get copyWith =>
+      __$$UEmbedViewExternalImplCopyWithImpl<_$UEmbedViewExternalImpl>(
           this, _$identity);
 
   @override
@@ -573,21 +575,21 @@ class _$UEmbedViewExternal implements UEmbedViewExternal {
 
 abstract class UEmbedViewExternal implements EmbedView {
   const factory UEmbedViewExternal({required final EmbedViewExternal data}) =
-      _$UEmbedViewExternal;
+      _$UEmbedViewExternalImpl;
 
   @override
   EmbedViewExternal get data;
   @JsonKey(ignore: true)
-  _$$UEmbedViewExternalCopyWith<_$UEmbedViewExternal> get copyWith =>
+  _$$UEmbedViewExternalImplCopyWith<_$UEmbedViewExternalImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEmbedViewRecordWithMediaCopyWith<$Res> {
-  factory _$$UEmbedViewRecordWithMediaCopyWith(
-          _$UEmbedViewRecordWithMedia value,
-          $Res Function(_$UEmbedViewRecordWithMedia) then) =
-      __$$UEmbedViewRecordWithMediaCopyWithImpl<$Res>;
+abstract class _$$UEmbedViewRecordWithMediaImplCopyWith<$Res> {
+  factory _$$UEmbedViewRecordWithMediaImplCopyWith(
+          _$UEmbedViewRecordWithMediaImpl value,
+          $Res Function(_$UEmbedViewRecordWithMediaImpl) then) =
+      __$$UEmbedViewRecordWithMediaImplCopyWithImpl<$Res>;
   @useResult
   $Res call({EmbedViewRecordWithMedia data});
 
@@ -595,11 +597,12 @@ abstract class _$$UEmbedViewRecordWithMediaCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEmbedViewRecordWithMediaCopyWithImpl<$Res>
-    extends _$EmbedViewCopyWithImpl<$Res, _$UEmbedViewRecordWithMedia>
-    implements _$$UEmbedViewRecordWithMediaCopyWith<$Res> {
-  __$$UEmbedViewRecordWithMediaCopyWithImpl(_$UEmbedViewRecordWithMedia _value,
-      $Res Function(_$UEmbedViewRecordWithMedia) _then)
+class __$$UEmbedViewRecordWithMediaImplCopyWithImpl<$Res>
+    extends _$EmbedViewCopyWithImpl<$Res, _$UEmbedViewRecordWithMediaImpl>
+    implements _$$UEmbedViewRecordWithMediaImplCopyWith<$Res> {
+  __$$UEmbedViewRecordWithMediaImplCopyWithImpl(
+      _$UEmbedViewRecordWithMediaImpl _value,
+      $Res Function(_$UEmbedViewRecordWithMediaImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -607,7 +610,7 @@ class __$$UEmbedViewRecordWithMediaCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedViewRecordWithMedia(
+    return _then(_$UEmbedViewRecordWithMediaImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -626,8 +629,8 @@ class __$$UEmbedViewRecordWithMediaCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEmbedViewRecordWithMedia implements UEmbedViewRecordWithMedia {
-  const _$UEmbedViewRecordWithMedia({required this.data});
+class _$UEmbedViewRecordWithMediaImpl implements UEmbedViewRecordWithMedia {
+  const _$UEmbedViewRecordWithMediaImpl({required this.data});
 
   @override
   final EmbedViewRecordWithMedia data;
@@ -641,7 +644,7 @@ class _$UEmbedViewRecordWithMedia implements UEmbedViewRecordWithMedia {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedViewRecordWithMedia &&
+            other is _$UEmbedViewRecordWithMediaImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -651,9 +654,9 @@ class _$UEmbedViewRecordWithMedia implements UEmbedViewRecordWithMedia {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEmbedViewRecordWithMediaCopyWith<_$UEmbedViewRecordWithMedia>
-      get copyWith => __$$UEmbedViewRecordWithMediaCopyWithImpl<
-          _$UEmbedViewRecordWithMedia>(this, _$identity);
+  _$$UEmbedViewRecordWithMediaImplCopyWith<_$UEmbedViewRecordWithMediaImpl>
+      get copyWith => __$$UEmbedViewRecordWithMediaImplCopyWithImpl<
+          _$UEmbedViewRecordWithMediaImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -739,30 +742,30 @@ class _$UEmbedViewRecordWithMedia implements UEmbedViewRecordWithMedia {
 abstract class UEmbedViewRecordWithMedia implements EmbedView {
   const factory UEmbedViewRecordWithMedia(
           {required final EmbedViewRecordWithMedia data}) =
-      _$UEmbedViewRecordWithMedia;
+      _$UEmbedViewRecordWithMediaImpl;
 
   @override
   EmbedViewRecordWithMedia get data;
   @JsonKey(ignore: true)
-  _$$UEmbedViewRecordWithMediaCopyWith<_$UEmbedViewRecordWithMedia>
+  _$$UEmbedViewRecordWithMediaImplCopyWith<_$UEmbedViewRecordWithMediaImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEmbedViewUnknownCopyWith<$Res> {
-  factory _$$UEmbedViewUnknownCopyWith(
-          _$UEmbedViewUnknown value, $Res Function(_$UEmbedViewUnknown) then) =
-      __$$UEmbedViewUnknownCopyWithImpl<$Res>;
+abstract class _$$UEmbedViewUnknownImplCopyWith<$Res> {
+  factory _$$UEmbedViewUnknownImplCopyWith(_$UEmbedViewUnknownImpl value,
+          $Res Function(_$UEmbedViewUnknownImpl) then) =
+      __$$UEmbedViewUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UEmbedViewUnknownCopyWithImpl<$Res>
-    extends _$EmbedViewCopyWithImpl<$Res, _$UEmbedViewUnknown>
-    implements _$$UEmbedViewUnknownCopyWith<$Res> {
-  __$$UEmbedViewUnknownCopyWithImpl(
-      _$UEmbedViewUnknown _value, $Res Function(_$UEmbedViewUnknown) _then)
+class __$$UEmbedViewUnknownImplCopyWithImpl<$Res>
+    extends _$EmbedViewCopyWithImpl<$Res, _$UEmbedViewUnknownImpl>
+    implements _$$UEmbedViewUnknownImplCopyWith<$Res> {
+  __$$UEmbedViewUnknownImplCopyWithImpl(_$UEmbedViewUnknownImpl _value,
+      $Res Function(_$UEmbedViewUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -770,7 +773,7 @@ class __$$UEmbedViewUnknownCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedViewUnknown(
+    return _then(_$UEmbedViewUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -781,8 +784,8 @@ class __$$UEmbedViewUnknownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEmbedViewUnknown implements UEmbedViewUnknown {
-  const _$UEmbedViewUnknown({required final Map<String, dynamic> data})
+class _$UEmbedViewUnknownImpl implements UEmbedViewUnknown {
+  const _$UEmbedViewUnknownImpl({required final Map<String, dynamic> data})
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -802,7 +805,7 @@ class _$UEmbedViewUnknown implements UEmbedViewUnknown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedViewUnknown &&
+            other is _$UEmbedViewUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -813,8 +816,9 @@ class _$UEmbedViewUnknown implements UEmbedViewUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEmbedViewUnknownCopyWith<_$UEmbedViewUnknown> get copyWith =>
-      __$$UEmbedViewUnknownCopyWithImpl<_$UEmbedViewUnknown>(this, _$identity);
+  _$$UEmbedViewUnknownImplCopyWith<_$UEmbedViewUnknownImpl> get copyWith =>
+      __$$UEmbedViewUnknownImplCopyWithImpl<_$UEmbedViewUnknownImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -899,11 +903,11 @@ class _$UEmbedViewUnknown implements UEmbedViewUnknown {
 
 abstract class UEmbedViewUnknown implements EmbedView {
   const factory UEmbedViewUnknown({required final Map<String, dynamic> data}) =
-      _$UEmbedViewUnknown;
+      _$UEmbedViewUnknownImpl;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$UEmbedViewUnknownCopyWith<_$UEmbedViewUnknown> get copyWith =>
+  _$$UEmbedViewUnknownImplCopyWith<_$UEmbedViewUnknownImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

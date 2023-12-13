@@ -73,22 +73,22 @@ class _$DeleteActionCopyWithImpl<$Res, $Val extends DeleteAction>
 }
 
 /// @nodoc
-abstract class _$$_DeleteActionCopyWith<$Res>
+abstract class _$$DeleteActionImplCopyWith<$Res>
     implements $DeleteActionCopyWith<$Res> {
-  factory _$$_DeleteActionCopyWith(
-          _$_DeleteAction value, $Res Function(_$_DeleteAction) then) =
-      __$$_DeleteActionCopyWithImpl<$Res>;
+  factory _$$DeleteActionImplCopyWith(
+          _$DeleteActionImpl value, $Res Function(_$DeleteActionImpl) then) =
+      __$$DeleteActionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, @atUriConverter AtUri uri});
 }
 
 /// @nodoc
-class __$$_DeleteActionCopyWithImpl<$Res>
-    extends _$DeleteActionCopyWithImpl<$Res, _$_DeleteAction>
-    implements _$$_DeleteActionCopyWith<$Res> {
-  __$$_DeleteActionCopyWithImpl(
-      _$_DeleteAction _value, $Res Function(_$_DeleteAction) _then)
+class __$$DeleteActionImplCopyWithImpl<$Res>
+    extends _$DeleteActionCopyWithImpl<$Res, _$DeleteActionImpl>
+    implements _$$DeleteActionImplCopyWith<$Res> {
+  __$$DeleteActionImplCopyWithImpl(
+      _$DeleteActionImpl _value, $Res Function(_$DeleteActionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,7 +97,7 @@ class __$$_DeleteActionCopyWithImpl<$Res>
     Object? type = null,
     Object? uri = null,
   }) {
-    return _then(_$_DeleteAction(
+    return _then(_$DeleteActionImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -113,13 +113,13 @@ class __$$_DeleteActionCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_DeleteAction implements _DeleteAction {
-  const _$_DeleteAction(
+class _$DeleteActionImpl implements _DeleteAction {
+  const _$DeleteActionImpl(
       {@typeKey this.type = comAtprotoRepoApplyWritesDelete,
       @atUriConverter required this.uri});
 
-  factory _$_DeleteAction.fromJson(Map<String, dynamic> json) =>
-      _$$_DeleteActionFromJson(json);
+  factory _$DeleteActionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DeleteActionImplFromJson(json);
 
   /// The type of the action.
   @override
@@ -140,7 +140,7 @@ class _$_DeleteAction implements _DeleteAction {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DeleteAction &&
+            other is _$DeleteActionImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri));
   }
@@ -152,12 +152,12 @@ class _$_DeleteAction implements _DeleteAction {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeleteActionCopyWith<_$_DeleteAction> get copyWith =>
-      __$$_DeleteActionCopyWithImpl<_$_DeleteAction>(this, _$identity);
+  _$$DeleteActionImplCopyWith<_$DeleteActionImpl> get copyWith =>
+      __$$DeleteActionImplCopyWithImpl<_$DeleteActionImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DeleteActionToJson(
+    return _$$DeleteActionImplToJson(
       this,
     );
   }
@@ -166,10 +166,10 @@ class _$_DeleteAction implements _DeleteAction {
 abstract class _DeleteAction implements DeleteAction {
   const factory _DeleteAction(
       {@typeKey final String type,
-      @atUriConverter required final AtUri uri}) = _$_DeleteAction;
+      @atUriConverter required final AtUri uri}) = _$DeleteActionImpl;
 
   factory _DeleteAction.fromJson(Map<String, dynamic> json) =
-      _$_DeleteAction.fromJson;
+      _$DeleteActionImpl.fromJson;
 
   @override
 
@@ -183,6 +183,6 @@ abstract class _DeleteAction implements DeleteAction {
   AtUri get uri;
   @override
   @JsonKey(ignore: true)
-  _$$_DeleteActionCopyWith<_$_DeleteAction> get copyWith =>
+  _$$DeleteActionImplCopyWith<_$DeleteActionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

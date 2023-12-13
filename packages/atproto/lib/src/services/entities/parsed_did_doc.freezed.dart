@@ -105,11 +105,11 @@ class _$ParsedDidDocCopyWithImpl<$Res, $Val extends ParsedDidDoc>
 }
 
 /// @nodoc
-abstract class _$$_ParsedDidDocCopyWith<$Res>
+abstract class _$$ParsedDidDocImplCopyWith<$Res>
     implements $ParsedDidDocCopyWith<$Res> {
-  factory _$$_ParsedDidDocCopyWith(
-          _$_ParsedDidDoc value, $Res Function(_$_ParsedDidDoc) then) =
-      __$$_ParsedDidDocCopyWithImpl<$Res>;
+  factory _$$ParsedDidDocImplCopyWith(
+          _$ParsedDidDocImpl value, $Res Function(_$ParsedDidDocImpl) then) =
+      __$$ParsedDidDocImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -122,11 +122,11 @@ abstract class _$$_ParsedDidDocCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ParsedDidDocCopyWithImpl<$Res>
-    extends _$ParsedDidDocCopyWithImpl<$Res, _$_ParsedDidDoc>
-    implements _$$_ParsedDidDocCopyWith<$Res> {
-  __$$_ParsedDidDocCopyWithImpl(
-      _$_ParsedDidDoc _value, $Res Function(_$_ParsedDidDoc) _then)
+class __$$ParsedDidDocImplCopyWithImpl<$Res>
+    extends _$ParsedDidDocCopyWithImpl<$Res, _$ParsedDidDocImpl>
+    implements _$$ParsedDidDocImplCopyWith<$Res> {
+  __$$ParsedDidDocImplCopyWithImpl(
+      _$ParsedDidDocImpl _value, $Res Function(_$ParsedDidDocImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -138,7 +138,7 @@ class __$$_ParsedDidDocCopyWithImpl<$Res>
     Object? verificationMethods = null,
     Object? services = null,
   }) {
-    return _then(_$_ParsedDidDoc(
+    return _then(_$ParsedDidDocImpl(
       context: null == context
           ? _value._context
           : context // ignore: cast_nullable_to_non_nullable
@@ -165,8 +165,8 @@ class __$$_ParsedDidDocCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ParsedDidDoc implements _ParsedDidDoc {
-  const _$_ParsedDidDoc(
+class _$ParsedDidDocImpl implements _ParsedDidDoc {
+  const _$ParsedDidDocImpl(
       {@JsonKey(name: '@context') required final List<String> context,
       required this.id,
       required final List<String> alsoKnownAs,
@@ -178,8 +178,8 @@ class _$_ParsedDidDoc implements _ParsedDidDoc {
         _verificationMethods = verificationMethods,
         _services = services;
 
-  factory _$_ParsedDidDoc.fromJson(Map<String, dynamic> json) =>
-      _$$_ParsedDidDocFromJson(json);
+  factory _$ParsedDidDocImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ParsedDidDocImplFromJson(json);
 
   /// Contexts for the document. It's an array of strings.
   final List<String> _context;
@@ -242,7 +242,7 @@ class _$_ParsedDidDoc implements _ParsedDidDoc {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ParsedDidDoc &&
+            other is _$ParsedDidDocImpl &&
             const DeepCollectionEquality().equals(other._context, _context) &&
             (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality()
@@ -265,12 +265,12 @@ class _$_ParsedDidDoc implements _ParsedDidDoc {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ParsedDidDocCopyWith<_$_ParsedDidDoc> get copyWith =>
-      __$$_ParsedDidDocCopyWithImpl<_$_ParsedDidDoc>(this, _$identity);
+  _$$ParsedDidDocImplCopyWith<_$ParsedDidDocImpl> get copyWith =>
+      __$$ParsedDidDocImplCopyWithImpl<_$ParsedDidDocImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ParsedDidDocToJson(
+    return _$$ParsedDidDocImplToJson(
       this,
     );
   }
@@ -284,10 +284,10 @@ abstract class _ParsedDidDoc implements ParsedDidDoc {
       @JsonKey(name: 'verificationMethod')
       required final List<ParsedVerificationMethod> verificationMethods,
       @JsonKey(name: 'service')
-      required final List<ParsedService> services}) = _$_ParsedDidDoc;
+      required final List<ParsedService> services}) = _$ParsedDidDocImpl;
 
   factory _ParsedDidDoc.fromJson(Map<String, dynamic> json) =
-      _$_ParsedDidDoc.fromJson;
+      _$ParsedDidDocImpl.fromJson;
 
   @override
 
@@ -314,6 +314,6 @@ abstract class _ParsedDidDoc implements ParsedDidDoc {
   List<ParsedService> get services;
   @override
   @JsonKey(ignore: true)
-  _$$_ParsedDidDocCopyWith<_$_ParsedDidDoc> get copyWith =>
+  _$$ParsedDidDocImplCopyWith<_$ParsedDidDocImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

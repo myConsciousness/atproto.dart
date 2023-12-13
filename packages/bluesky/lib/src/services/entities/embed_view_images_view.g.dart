@@ -8,12 +8,12 @@ part of 'embed_view_images_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_EmbedViewImagesView _$$_EmbedViewImagesViewFromJson(Map json) =>
+_$EmbedViewImagesViewImpl _$$EmbedViewImagesViewImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$_EmbedViewImagesView',
+      r'_$EmbedViewImagesViewImpl',
       json,
       ($checkedConvert) {
-        final val = _$_EmbedViewImagesView(
+        final val = _$EmbedViewImagesViewImpl(
           thumbnail: $checkedConvert('thumb', (v) => v as String),
           fullsize: $checkedConvert('fullsize', (v) => v as String),
           alt: $checkedConvert('alt', (v) => v as String),
@@ -23,8 +23,8 @@ _$_EmbedViewImagesView _$$_EmbedViewImagesViewFromJson(Map json) =>
       fieldKeyMap: const {'thumbnail': 'thumb'},
     );
 
-Map<String, dynamic> _$$_EmbedViewImagesViewToJson(
-        _$_EmbedViewImagesView instance) =>
+Map<String, dynamic> _$$EmbedViewImagesViewImplToJson(
+        _$EmbedViewImagesViewImpl instance) =>
     <String, dynamic>{
       'thumb': instance.thumbnail,
       'fullsize': instance.fullsize,

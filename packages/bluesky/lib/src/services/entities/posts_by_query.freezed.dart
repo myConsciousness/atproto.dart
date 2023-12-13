@@ -80,22 +80,22 @@ class _$PostsByQueryCopyWithImpl<$Res, $Val extends PostsByQuery>
 }
 
 /// @nodoc
-abstract class _$$_PostsByQueryCopyWith<$Res>
+abstract class _$$PostsByQueryImplCopyWith<$Res>
     implements $PostsByQueryCopyWith<$Res> {
-  factory _$$_PostsByQueryCopyWith(
-          _$_PostsByQuery value, $Res Function(_$_PostsByQuery) then) =
-      __$$_PostsByQueryCopyWithImpl<$Res>;
+  factory _$$PostsByQueryImplCopyWith(
+          _$PostsByQueryImpl value, $Res Function(_$PostsByQueryImpl) then) =
+      __$$PostsByQueryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Post> posts, int hitsTotal, String? cursor});
 }
 
 /// @nodoc
-class __$$_PostsByQueryCopyWithImpl<$Res>
-    extends _$PostsByQueryCopyWithImpl<$Res, _$_PostsByQuery>
-    implements _$$_PostsByQueryCopyWith<$Res> {
-  __$$_PostsByQueryCopyWithImpl(
-      _$_PostsByQuery _value, $Res Function(_$_PostsByQuery) _then)
+class __$$PostsByQueryImplCopyWithImpl<$Res>
+    extends _$PostsByQueryCopyWithImpl<$Res, _$PostsByQueryImpl>
+    implements _$$PostsByQueryImplCopyWith<$Res> {
+  __$$PostsByQueryImplCopyWithImpl(
+      _$PostsByQueryImpl _value, $Res Function(_$PostsByQueryImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -105,7 +105,7 @@ class __$$_PostsByQueryCopyWithImpl<$Res>
     Object? hitsTotal = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$_PostsByQuery(
+    return _then(_$PostsByQueryImpl(
       posts: null == posts
           ? _value._posts
           : posts // ignore: cast_nullable_to_non_nullable
@@ -124,13 +124,13 @@ class __$$_PostsByQueryCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PostsByQuery implements _PostsByQuery {
-  const _$_PostsByQuery(
+class _$PostsByQueryImpl implements _PostsByQuery {
+  const _$PostsByQueryImpl(
       {required final List<Post> posts, this.hitsTotal = 0, this.cursor})
       : _posts = posts;
 
-  factory _$_PostsByQuery.fromJson(Map<String, dynamic> json) =>
-      _$$_PostsByQueryFromJson(json);
+  factory _$PostsByQueryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostsByQueryImplFromJson(json);
 
   /// The list of [Post] instances.
   final List<Post> _posts;
@@ -162,7 +162,7 @@ class _$_PostsByQuery implements _PostsByQuery {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PostsByQuery &&
+            other is _$PostsByQueryImpl &&
             const DeepCollectionEquality().equals(other._posts, _posts) &&
             (identical(other.hitsTotal, hitsTotal) ||
                 other.hitsTotal == hitsTotal) &&
@@ -177,12 +177,12 @@ class _$_PostsByQuery implements _PostsByQuery {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PostsByQueryCopyWith<_$_PostsByQuery> get copyWith =>
-      __$$_PostsByQueryCopyWithImpl<_$_PostsByQuery>(this, _$identity);
+  _$$PostsByQueryImplCopyWith<_$PostsByQueryImpl> get copyWith =>
+      __$$PostsByQueryImplCopyWithImpl<_$PostsByQueryImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PostsByQueryToJson(
+    return _$$PostsByQueryImplToJson(
       this,
     );
   }
@@ -192,10 +192,10 @@ abstract class _PostsByQuery implements PostsByQuery {
   const factory _PostsByQuery(
       {required final List<Post> posts,
       final int hitsTotal,
-      final String? cursor}) = _$_PostsByQuery;
+      final String? cursor}) = _$PostsByQueryImpl;
 
   factory _PostsByQuery.fromJson(Map<String, dynamic> json) =
-      _$_PostsByQuery.fromJson;
+      _$PostsByQueryImpl.fromJson;
 
   @override
 
@@ -212,6 +212,6 @@ abstract class _PostsByQuery implements PostsByQuery {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$_PostsByQueryCopyWith<_$_PostsByQuery> get copyWith =>
+  _$$PostsByQueryImplCopyWith<_$PostsByQueryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

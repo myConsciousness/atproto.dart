@@ -8,11 +8,11 @@ part of 'blob_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_BlobData _$$_BlobDataFromJson(Map json) => $checkedCreate(
-      r'_$_BlobData',
+_$BlobDataImpl _$$BlobDataImplFromJson(Map json) => $checkedCreate(
+      r'_$BlobDataImpl',
       json,
       ($checkedConvert) {
-        final val = _$_BlobData(
+        final val = _$BlobDataImpl(
           blob: $checkedConvert('blob',
               (v) => Blob.fromJson(Map<String, Object?>.from(v as Map))),
         );
@@ -20,7 +20,7 @@ _$_BlobData _$$_BlobDataFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_BlobDataToJson(_$_BlobData instance) =>
+Map<String, dynamic> _$$BlobDataImplToJson(_$BlobDataImpl instance) =>
     <String, dynamic>{
       'blob': instance.blob.toJson(),
     };

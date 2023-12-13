@@ -109,12 +109,12 @@ class _$EmbedViewRecordViewBlockedCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_EmbedViewRecordViewBlockedCopyWith<$Res>
+abstract class _$$EmbedViewRecordViewBlockedImplCopyWith<$Res>
     implements $EmbedViewRecordViewBlockedCopyWith<$Res> {
-  factory _$$_EmbedViewRecordViewBlockedCopyWith(
-          _$_EmbedViewRecordViewBlocked value,
-          $Res Function(_$_EmbedViewRecordViewBlocked) then) =
-      __$$_EmbedViewRecordViewBlockedCopyWithImpl<$Res>;
+  factory _$$EmbedViewRecordViewBlockedImplCopyWith(
+          _$EmbedViewRecordViewBlockedImpl value,
+          $Res Function(_$EmbedViewRecordViewBlockedImpl) then) =
+      __$$EmbedViewRecordViewBlockedImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -128,13 +128,13 @@ abstract class _$$_EmbedViewRecordViewBlockedCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EmbedViewRecordViewBlockedCopyWithImpl<$Res>
+class __$$EmbedViewRecordViewBlockedImplCopyWithImpl<$Res>
     extends _$EmbedViewRecordViewBlockedCopyWithImpl<$Res,
-        _$_EmbedViewRecordViewBlocked>
-    implements _$$_EmbedViewRecordViewBlockedCopyWith<$Res> {
-  __$$_EmbedViewRecordViewBlockedCopyWithImpl(
-      _$_EmbedViewRecordViewBlocked _value,
-      $Res Function(_$_EmbedViewRecordViewBlocked) _then)
+        _$EmbedViewRecordViewBlockedImpl>
+    implements _$$EmbedViewRecordViewBlockedImplCopyWith<$Res> {
+  __$$EmbedViewRecordViewBlockedImplCopyWithImpl(
+      _$EmbedViewRecordViewBlockedImpl _value,
+      $Res Function(_$EmbedViewRecordViewBlockedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -145,7 +145,7 @@ class __$$_EmbedViewRecordViewBlockedCopyWithImpl<$Res>
     Object? isBlocked = null,
     Object? author = null,
   }) {
-    return _then(_$_EmbedViewRecordViewBlocked(
+    return _then(_$EmbedViewRecordViewBlockedImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -168,15 +168,16 @@ class __$$_EmbedViewRecordViewBlockedCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EmbedViewRecordViewBlocked implements _EmbedViewRecordViewBlocked {
-  const _$_EmbedViewRecordViewBlocked(
+class _$EmbedViewRecordViewBlockedImpl implements _EmbedViewRecordViewBlocked {
+  const _$EmbedViewRecordViewBlockedImpl(
       {@typeKey this.type = appBskyEmbedRecordViewBlocked,
       @atUriConverter required this.uri,
       @JsonKey(name: 'blocked') required this.isBlocked,
       required this.author});
 
-  factory _$_EmbedViewRecordViewBlocked.fromJson(Map<String, dynamic> json) =>
-      _$$_EmbedViewRecordViewBlockedFromJson(json);
+  factory _$EmbedViewRecordViewBlockedImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$EmbedViewRecordViewBlockedImplFromJson(json);
 
   /// A string that represents the type of the blocked record view.
   @override
@@ -208,7 +209,7 @@ class _$_EmbedViewRecordViewBlocked implements _EmbedViewRecordViewBlocked {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EmbedViewRecordViewBlocked &&
+            other is _$EmbedViewRecordViewBlockedImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.isBlocked, isBlocked) ||
@@ -223,13 +224,13 @@ class _$_EmbedViewRecordViewBlocked implements _EmbedViewRecordViewBlocked {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EmbedViewRecordViewBlockedCopyWith<_$_EmbedViewRecordViewBlocked>
-      get copyWith => __$$_EmbedViewRecordViewBlockedCopyWithImpl<
-          _$_EmbedViewRecordViewBlocked>(this, _$identity);
+  _$$EmbedViewRecordViewBlockedImplCopyWith<_$EmbedViewRecordViewBlockedImpl>
+      get copyWith => __$$EmbedViewRecordViewBlockedImplCopyWithImpl<
+          _$EmbedViewRecordViewBlockedImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EmbedViewRecordViewBlockedToJson(
+    return _$$EmbedViewRecordViewBlockedImplToJson(
       this,
     );
   }
@@ -241,10 +242,10 @@ abstract class _EmbedViewRecordViewBlocked
       {@typeKey final String type,
       @atUriConverter required final AtUri uri,
       @JsonKey(name: 'blocked') required final bool isBlocked,
-      required final BlockedAuthor author}) = _$_EmbedViewRecordViewBlocked;
+      required final BlockedAuthor author}) = _$EmbedViewRecordViewBlockedImpl;
 
   factory _EmbedViewRecordViewBlocked.fromJson(Map<String, dynamic> json) =
-      _$_EmbedViewRecordViewBlocked.fromJson;
+      _$EmbedViewRecordViewBlockedImpl.fromJson;
 
   @override
 
@@ -269,6 +270,6 @@ abstract class _EmbedViewRecordViewBlocked
   BlockedAuthor get author;
   @override
   @JsonKey(ignore: true)
-  _$$_EmbedViewRecordViewBlockedCopyWith<_$_EmbedViewRecordViewBlocked>
+  _$$EmbedViewRecordViewBlockedImplCopyWith<_$EmbedViewRecordViewBlockedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

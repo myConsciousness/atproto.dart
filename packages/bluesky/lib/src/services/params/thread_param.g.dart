@@ -8,11 +8,11 @@ part of 'thread_param.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ThreadParam _$$_ThreadParamFromJson(Map json) => $checkedCreate(
-      r'_$_ThreadParam',
+_$ThreadParamImpl _$$ThreadParamImplFromJson(Map json) => $checkedCreate(
+      r'_$ThreadParamImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ThreadParam(
+        final val = _$ThreadParamImpl(
           text: $checkedConvert('text', (v) => v as String),
           facets: $checkedConvert(
               'facets',
@@ -46,7 +46,7 @@ _$_ThreadParam _$$_ThreadParamFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_ThreadParamToJson(_$_ThreadParam instance) {
+Map<String, dynamic> _$$ThreadParamImplToJson(_$ThreadParamImpl instance) {
   final val = <String, dynamic>{
     'text': instance.text,
   };

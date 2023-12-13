@@ -156,11 +156,11 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
 }
 
 /// @nodoc
-abstract class _$$_GeneratorRecordCopyWith<$Res>
+abstract class _$$GeneratorRecordImplCopyWith<$Res>
     implements $GeneratorRecordCopyWith<$Res> {
-  factory _$$_GeneratorRecordCopyWith(
-          _$_GeneratorRecord value, $Res Function(_$_GeneratorRecord) then) =
-      __$$_GeneratorRecordCopyWithImpl<$Res>;
+  factory _$$GeneratorRecordImplCopyWith(_$GeneratorRecordImpl value,
+          $Res Function(_$GeneratorRecordImpl) then) =
+      __$$GeneratorRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -180,11 +180,11 @@ abstract class _$$_GeneratorRecordCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_GeneratorRecordCopyWithImpl<$Res>
-    extends _$GeneratorRecordCopyWithImpl<$Res, _$_GeneratorRecord>
-    implements _$$_GeneratorRecordCopyWith<$Res> {
-  __$$_GeneratorRecordCopyWithImpl(
-      _$_GeneratorRecord _value, $Res Function(_$_GeneratorRecord) _then)
+class __$$GeneratorRecordImplCopyWithImpl<$Res>
+    extends _$GeneratorRecordCopyWithImpl<$Res, _$GeneratorRecordImpl>
+    implements _$$GeneratorRecordImplCopyWith<$Res> {
+  __$$GeneratorRecordImplCopyWithImpl(
+      _$GeneratorRecordImpl _value, $Res Function(_$GeneratorRecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -199,7 +199,7 @@ class __$$_GeneratorRecordCopyWithImpl<$Res>
     Object? labels = freezed,
     Object? createdAt = null,
   }) {
-    return _then(_$_GeneratorRecord(
+    return _then(_$GeneratorRecordImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -239,8 +239,8 @@ class __$$_GeneratorRecordCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_GeneratorRecord implements _GeneratorRecord {
-  const _$_GeneratorRecord(
+class _$GeneratorRecordImpl implements _GeneratorRecord {
+  const _$GeneratorRecordImpl(
       {@typeKey this.type = appBskyFeedGenerator,
       required this.did,
       required this.displayName,
@@ -251,8 +251,8 @@ class _$_GeneratorRecord implements _GeneratorRecord {
       required this.createdAt})
       : _descriptionFacets = descriptionFacets;
 
-  factory _$_GeneratorRecord.fromJson(Map<String, dynamic> json) =>
-      _$$_GeneratorRecordFromJson(json);
+  factory _$GeneratorRecordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GeneratorRecordImplFromJson(json);
 
   /// The type of the generator. Defaults to [appBskyFeedGenerator].
   @override
@@ -307,7 +307,7 @@ class _$_GeneratorRecord implements _GeneratorRecord {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GeneratorRecord &&
+            other is _$GeneratorRecordImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.displayName, displayName) ||
@@ -338,12 +338,13 @@ class _$_GeneratorRecord implements _GeneratorRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GeneratorRecordCopyWith<_$_GeneratorRecord> get copyWith =>
-      __$$_GeneratorRecordCopyWithImpl<_$_GeneratorRecord>(this, _$identity);
+  _$$GeneratorRecordImplCopyWith<_$GeneratorRecordImpl> get copyWith =>
+      __$$GeneratorRecordImplCopyWithImpl<_$GeneratorRecordImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GeneratorRecordToJson(
+    return _$$GeneratorRecordImplToJson(
       this,
     );
   }
@@ -358,10 +359,10 @@ abstract class _GeneratorRecord implements GeneratorRecord {
       final List<Facet>? descriptionFacets,
       final Blob? avatar,
       @labelsConverter final Labels? labels,
-      required final DateTime createdAt}) = _$_GeneratorRecord;
+      required final DateTime createdAt}) = _$GeneratorRecordImpl;
 
   factory _GeneratorRecord.fromJson(Map<String, dynamic> json) =
-      _$_GeneratorRecord.fromJson;
+      _$GeneratorRecordImpl.fromJson;
 
   @override
 
@@ -399,6 +400,6 @@ abstract class _GeneratorRecord implements GeneratorRecord {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$_GeneratorRecordCopyWith<_$_GeneratorRecord> get copyWith =>
+  _$$GeneratorRecordImplCopyWith<_$GeneratorRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

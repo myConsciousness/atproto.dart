@@ -188,11 +188,11 @@ class _$FeedGeneratorViewCopyWithImpl<$Res, $Val extends FeedGeneratorView>
 }
 
 /// @nodoc
-abstract class _$$_FeedGeneratorViewCopyWith<$Res>
+abstract class _$$FeedGeneratorViewImplCopyWith<$Res>
     implements $FeedGeneratorViewCopyWith<$Res> {
-  factory _$$_FeedGeneratorViewCopyWith(_$_FeedGeneratorView value,
-          $Res Function(_$_FeedGeneratorView) then) =
-      __$$_FeedGeneratorViewCopyWithImpl<$Res>;
+  factory _$$FeedGeneratorViewImplCopyWith(_$FeedGeneratorViewImpl value,
+          $Res Function(_$FeedGeneratorViewImpl) then) =
+      __$$FeedGeneratorViewImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -216,11 +216,11 @@ abstract class _$$_FeedGeneratorViewCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_FeedGeneratorViewCopyWithImpl<$Res>
-    extends _$FeedGeneratorViewCopyWithImpl<$Res, _$_FeedGeneratorView>
-    implements _$$_FeedGeneratorViewCopyWith<$Res> {
-  __$$_FeedGeneratorViewCopyWithImpl(
-      _$_FeedGeneratorView _value, $Res Function(_$_FeedGeneratorView) _then)
+class __$$FeedGeneratorViewImplCopyWithImpl<$Res>
+    extends _$FeedGeneratorViewCopyWithImpl<$Res, _$FeedGeneratorViewImpl>
+    implements _$$FeedGeneratorViewImplCopyWith<$Res> {
+  __$$FeedGeneratorViewImplCopyWithImpl(_$FeedGeneratorViewImpl _value,
+      $Res Function(_$FeedGeneratorViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -239,7 +239,7 @@ class __$$_FeedGeneratorViewCopyWithImpl<$Res>
     Object? viewer = null,
     Object? indexedAt = null,
   }) {
-    return _then(_$_FeedGeneratorView(
+    return _then(_$FeedGeneratorViewImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -295,8 +295,8 @@ class __$$_FeedGeneratorViewCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_FeedGeneratorView implements _FeedGeneratorView {
-  const _$_FeedGeneratorView(
+class _$FeedGeneratorViewImpl implements _FeedGeneratorView {
+  const _$FeedGeneratorViewImpl(
       {@typeKey this.type = appBskyFeedDefsGeneratorView,
       @atUriConverter required this.uri,
       required this.cid,
@@ -311,8 +311,8 @@ class _$_FeedGeneratorView implements _FeedGeneratorView {
       required this.indexedAt})
       : _descriptionFacets = descriptionFacets;
 
-  factory _$_FeedGeneratorView.fromJson(Map<String, dynamic> json) =>
-      _$$_FeedGeneratorViewFromJson(json);
+  factory _$FeedGeneratorViewImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedGeneratorViewImplFromJson(json);
 
   /// Represents the type of the feed generator view. Defaults to
   /// [appBskyFeedDefsGeneratorView].
@@ -388,7 +388,7 @@ class _$_FeedGeneratorView implements _FeedGeneratorView {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FeedGeneratorView &&
+            other is _$FeedGeneratorViewImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
@@ -429,13 +429,13 @@ class _$_FeedGeneratorView implements _FeedGeneratorView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FeedGeneratorViewCopyWith<_$_FeedGeneratorView> get copyWith =>
-      __$$_FeedGeneratorViewCopyWithImpl<_$_FeedGeneratorView>(
+  _$$FeedGeneratorViewImplCopyWith<_$FeedGeneratorViewImpl> get copyWith =>
+      __$$FeedGeneratorViewImplCopyWithImpl<_$FeedGeneratorViewImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FeedGeneratorViewToJson(
+    return _$$FeedGeneratorViewImplToJson(
       this,
     );
   }
@@ -454,10 +454,10 @@ abstract class _FeedGeneratorView implements FeedGeneratorView {
       final String? avatar,
       required final int likeCount,
       required final FeedGeneratorViewer viewer,
-      required final DateTime indexedAt}) = _$_FeedGeneratorView;
+      required final DateTime indexedAt}) = _$FeedGeneratorViewImpl;
 
   factory _FeedGeneratorView.fromJson(Map<String, dynamic> json) =
-      _$_FeedGeneratorView.fromJson;
+      _$FeedGeneratorViewImpl.fromJson;
 
   @override
 
@@ -515,6 +515,6 @@ abstract class _FeedGeneratorView implements FeedGeneratorView {
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_FeedGeneratorViewCopyWith<_$_FeedGeneratorView> get copyWith =>
+  _$$FeedGeneratorViewImplCopyWith<_$FeedGeneratorViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

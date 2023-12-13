@@ -8,11 +8,11 @@ part of 'blob.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Blob _$$_BlobFromJson(Map json) => $checkedCreate(
-      r'_$_Blob',
+_$BlobImpl _$$BlobImplFromJson(Map json) => $checkedCreate(
+      r'_$BlobImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Blob(
+        final val = _$BlobImpl(
           type: $checkedConvert(r'$type', (v) => v as String? ?? blob),
           mimeType: $checkedConvert('mimeType', (v) => v as String),
           size: $checkedConvert('size', (v) => v as int),
@@ -24,7 +24,8 @@ _$_Blob _$$_BlobFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$_BlobToJson(_$_Blob instance) => <String, dynamic>{
+Map<String, dynamic> _$$BlobImplToJson(_$BlobImpl instance) =>
+    <String, dynamic>{
       r'$type': instance.type,
       'mimeType': instance.mimeType,
       'size': instance.size,

@@ -8,11 +8,11 @@ part of 'parsed_service.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ParsedService _$$_ParsedServiceFromJson(Map json) => $checkedCreate(
-      r'_$_ParsedService',
+_$ParsedServiceImpl _$$ParsedServiceImplFromJson(Map json) => $checkedCreate(
+      r'_$ParsedServiceImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ParsedService(
+        final val = _$ParsedServiceImpl(
           id: $checkedConvert('id', (v) => v as String),
           type: $checkedConvert('type', (v) => v as String),
           endpoint: $checkedConvert('serviceEndpoint', (v) => v as String),
@@ -22,7 +22,7 @@ _$_ParsedService _$$_ParsedServiceFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'endpoint': 'serviceEndpoint'},
     );
 
-Map<String, dynamic> _$$_ParsedServiceToJson(_$_ParsedService instance) =>
+Map<String, dynamic> _$$ParsedServiceImplToJson(_$ParsedServiceImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'type': instance.type,

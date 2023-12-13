@@ -112,9 +112,10 @@ class _$LabelCopyWithImpl<$Res, $Val extends Label>
 }
 
 /// @nodoc
-abstract class _$$_LabelCopyWith<$Res> implements $LabelCopyWith<$Res> {
-  factory _$$_LabelCopyWith(_$_Label value, $Res Function(_$_Label) then) =
-      __$$_LabelCopyWithImpl<$Res>;
+abstract class _$$LabelImplCopyWith<$Res> implements $LabelCopyWith<$Res> {
+  factory _$$LabelImplCopyWith(
+          _$LabelImpl value, $Res Function(_$LabelImpl) then) =
+      __$$LabelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -127,9 +128,11 @@ abstract class _$$_LabelCopyWith<$Res> implements $LabelCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LabelCopyWithImpl<$Res> extends _$LabelCopyWithImpl<$Res, _$_Label>
-    implements _$$_LabelCopyWith<$Res> {
-  __$$_LabelCopyWithImpl(_$_Label _value, $Res Function(_$_Label) _then)
+class __$$LabelImplCopyWithImpl<$Res>
+    extends _$LabelCopyWithImpl<$Res, _$LabelImpl>
+    implements _$$LabelImplCopyWith<$Res> {
+  __$$LabelImplCopyWithImpl(
+      _$LabelImpl _value, $Res Function(_$LabelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -142,7 +145,7 @@ class __$$_LabelCopyWithImpl<$Res> extends _$LabelCopyWithImpl<$Res, _$_Label>
     Object? isNegate = null,
     Object? createdAt = null,
   }) {
-    return _then(_$_Label(
+    return _then(_$LabelImpl(
       src: null == src
           ? _value.src
           : src // ignore: cast_nullable_to_non_nullable
@@ -174,8 +177,8 @@ class __$$_LabelCopyWithImpl<$Res> extends _$LabelCopyWithImpl<$Res, _$_Label>
 /// @nodoc
 
 @jsonSerializable
-class _$_Label implements _Label {
-  const _$_Label(
+class _$LabelImpl implements _Label {
+  const _$LabelImpl(
       {required this.src,
       required this.uri,
       this.cid,
@@ -183,8 +186,8 @@ class _$_Label implements _Label {
       @JsonKey(name: 'neg') this.isNegate = false,
       @JsonKey(name: 'cts') required this.createdAt});
 
-  factory _$_Label.fromJson(Map<String, dynamic> json) =>
-      _$$_LabelFromJson(json);
+  factory _$LabelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LabelImplFromJson(json);
 
   /// DID of the actor who created this label.
   @override
@@ -224,7 +227,7 @@ class _$_Label implements _Label {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Label &&
+            other is _$LabelImpl &&
             (identical(other.src, src) || other.src == src) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
@@ -243,12 +246,12 @@ class _$_Label implements _Label {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LabelCopyWith<_$_Label> get copyWith =>
-      __$$_LabelCopyWithImpl<_$_Label>(this, _$identity);
+  _$$LabelImplCopyWith<_$LabelImpl> get copyWith =>
+      __$$LabelImplCopyWithImpl<_$LabelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LabelToJson(
+    return _$$LabelImplToJson(
       this,
     );
   }
@@ -261,9 +264,9 @@ abstract class _Label implements Label {
       final String? cid,
       @JsonKey(name: 'val') required final String value,
       @JsonKey(name: 'neg') final bool isNegate,
-      @JsonKey(name: 'cts') required final DateTime createdAt}) = _$_Label;
+      @JsonKey(name: 'cts') required final DateTime createdAt}) = _$LabelImpl;
 
-  factory _Label.fromJson(Map<String, dynamic> json) = _$_Label.fromJson;
+  factory _Label.fromJson(Map<String, dynamic> json) = _$LabelImpl.fromJson;
 
   @override
 
@@ -296,6 +299,6 @@ abstract class _Label implements Label {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$_LabelCopyWith<_$_Label> get copyWith =>
+  _$$LabelImplCopyWith<_$LabelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
