@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.12.2
+
+- Apply automatic generation of moderation sources. ([#1040](https://github.com/myConsciousness/atproto.dart/issues/1040))
+
 ## v0.12.1
 
 - Add `!no-unauthenticated` imperative label. ([#1038](https://github.com/myConsciousness/atproto.dart/issues/1038))

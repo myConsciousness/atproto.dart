@@ -40,11 +40,21 @@ jobs:
       - name: Generate Lexicon IDs
         run: dart run ./bin/generate_lexicon_ids.dart
 
-      - name: Activate Melos
-        run: dart pub global activate melos
+      - name: Build
+        run: |
+          cd packages/atproto
+          dart run build_runner build
+          cd ../bluesky
+          dart run build_runner build
+          cd ../../
 
-      - name: Format All
-        run: melos format
+      - name: Format
+        run: |
+          cd packages/atproto
+          dart format .
+          cd ../bluesky
+          dart format .
+          cd ../../
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3

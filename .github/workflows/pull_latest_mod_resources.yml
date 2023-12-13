@@ -37,6 +37,21 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
 
+      - name: Generate Moderation Definitions
+        run: dart run ./bin/generate_mod_definitions.dart
+
+      - name: Build
+        run: |
+          cd packages/bluesky
+          dart run build_runner build
+          cd ../../
+
+      - name: Format
+        run: |
+          cd packages/bluesky
+          dart format .
+          cd ../../
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
