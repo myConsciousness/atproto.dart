@@ -60,5 +60,7 @@ List<atp.Label> _filterProfileLabels(
     labels == null
         ? const []
         : labels
-            .where((e) => !e.uri.endsWith('/app.bsky.actor.profile/self'))
+            .where((e) =>
+                !e.uri.endsWith('/app.bsky.actor.profile/self') ||
+                e.value == '!no-unauthenticated')
             .toList();
