@@ -135,10 +135,11 @@ class _$LexStringCopyWithImpl<$Res, $Val extends LexString>
 }
 
 /// @nodoc
-abstract class _$$_LexStringCopyWith<$Res> implements $LexStringCopyWith<$Res> {
-  factory _$$_LexStringCopyWith(
-          _$_LexString value, $Res Function(_$_LexString) then) =
-      __$$_LexStringCopyWithImpl<$Res>;
+abstract class _$$LexStringImplCopyWith<$Res>
+    implements $LexStringCopyWith<$Res> {
+  factory _$$LexStringImplCopyWith(
+          _$LexStringImpl value, $Res Function(_$LexStringImpl) then) =
+      __$$LexStringImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -156,11 +157,11 @@ abstract class _$$_LexStringCopyWith<$Res> implements $LexStringCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LexStringCopyWithImpl<$Res>
-    extends _$LexStringCopyWithImpl<$Res, _$_LexString>
-    implements _$$_LexStringCopyWith<$Res> {
-  __$$_LexStringCopyWithImpl(
-      _$_LexString _value, $Res Function(_$_LexString) _then)
+class __$$LexStringImplCopyWithImpl<$Res>
+    extends _$LexStringCopyWithImpl<$Res, _$LexStringImpl>
+    implements _$$LexStringImplCopyWith<$Res> {
+  __$$LexStringImplCopyWithImpl(
+      _$LexStringImpl _value, $Res Function(_$LexStringImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -178,7 +179,7 @@ class __$$_LexStringCopyWithImpl<$Res>
     Object? constValue = freezed,
     Object? knownValues = freezed,
   }) {
-    return _then(_$_LexString(
+    return _then(_$LexStringImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -230,8 +231,8 @@ class __$$_LexStringCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexString implements _LexString {
-  const _$_LexString(
+class _$LexStringImpl implements _LexString {
+  const _$LexStringImpl(
       {this.type = 'string',
       this.format,
       this.description,
@@ -246,8 +247,8 @@ class _$_LexString implements _LexString {
       : _enumValues = enumValues,
         _knownValues = knownValues;
 
-  factory _$_LexString.fromJson(Map<String, dynamic> json) =>
-      _$$_LexStringFromJson(json);
+  factory _$LexStringImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LexStringImplFromJson(json);
 
   @override
   @JsonKey()
@@ -300,7 +301,7 @@ class _$_LexString implements _LexString {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexString &&
+            other is _$LexStringImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.format, format) || other.format == format) &&
             (identical(other.description, description) ||
@@ -342,12 +343,12 @@ class _$_LexString implements _LexString {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexStringCopyWith<_$_LexString> get copyWith =>
-      __$$_LexStringCopyWithImpl<_$_LexString>(this, _$identity);
+  _$$LexStringImplCopyWith<_$LexStringImpl> get copyWith =>
+      __$$LexStringImplCopyWithImpl<_$LexStringImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LexStringToJson(
+    return _$$LexStringImplToJson(
       this,
     );
   }
@@ -365,10 +366,10 @@ abstract class _LexString implements LexString {
       final int? maxGraphemes,
       @JsonKey(name: 'enum') final List<String>? enumValues,
       @JsonKey(name: 'const') final String? constValue,
-      final List<String>? knownValues}) = _$_LexString;
+      final List<String>? knownValues}) = _$LexStringImpl;
 
   factory _LexString.fromJson(Map<String, dynamic> json) =
-      _$_LexString.fromJson;
+      _$LexStringImpl.fromJson;
 
   @override
   String get type;
@@ -397,6 +398,6 @@ abstract class _LexString implements LexString {
   List<String>? get knownValues;
   @override
   @JsonKey(ignore: true)
-  _$$_LexStringCopyWith<_$_LexString> get copyWith =>
+  _$$LexStringImplCopyWith<_$LexStringImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

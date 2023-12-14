@@ -94,10 +94,11 @@ class _$LexObjectCopyWithImpl<$Res, $Val extends LexObject>
 }
 
 /// @nodoc
-abstract class _$$_LexObjectCopyWith<$Res> implements $LexObjectCopyWith<$Res> {
-  factory _$$_LexObjectCopyWith(
-          _$_LexObject value, $Res Function(_$_LexObject) then) =
-      __$$_LexObjectCopyWithImpl<$Res>;
+abstract class _$$LexObjectImplCopyWith<$Res>
+    implements $LexObjectCopyWith<$Res> {
+  factory _$$LexObjectImplCopyWith(
+          _$LexObjectImpl value, $Res Function(_$LexObjectImpl) then) =
+      __$$LexObjectImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -109,11 +110,11 @@ abstract class _$$_LexObjectCopyWith<$Res> implements $LexObjectCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LexObjectCopyWithImpl<$Res>
-    extends _$LexObjectCopyWithImpl<$Res, _$_LexObject>
-    implements _$$_LexObjectCopyWith<$Res> {
-  __$$_LexObjectCopyWithImpl(
-      _$_LexObject _value, $Res Function(_$_LexObject) _then)
+class __$$LexObjectImplCopyWithImpl<$Res>
+    extends _$LexObjectCopyWithImpl<$Res, _$LexObjectImpl>
+    implements _$$LexObjectImplCopyWith<$Res> {
+  __$$LexObjectImplCopyWithImpl(
+      _$LexObjectImpl _value, $Res Function(_$LexObjectImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -125,7 +126,7 @@ class __$$_LexObjectCopyWithImpl<$Res>
     Object? nullableProperties = freezed,
     Object? properties = freezed,
   }) {
-    return _then(_$_LexObject(
+    return _then(_$LexObjectImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -153,8 +154,8 @@ class __$$_LexObjectCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexObject implements _LexObject {
-  const _$_LexObject(
+class _$LexObjectImpl implements _LexObject {
+  const _$LexObjectImpl(
       {this.type = 'object',
       this.description,
       @JsonKey(name: 'required') final List<String>? requiredProperties,
@@ -165,8 +166,8 @@ class _$_LexObject implements _LexObject {
         _nullableProperties = nullableProperties,
         _properties = properties;
 
-  factory _$_LexObject.fromJson(Map<String, dynamic> json) =>
-      _$$_LexObjectFromJson(json);
+  factory _$LexObjectImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LexObjectImplFromJson(json);
 
   @override
   @JsonKey()
@@ -217,7 +218,7 @@ class _$_LexObject implements _LexObject {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexObject &&
+            other is _$LexObjectImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -242,12 +243,12 @@ class _$_LexObject implements _LexObject {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexObjectCopyWith<_$_LexObject> get copyWith =>
-      __$$_LexObjectCopyWithImpl<_$_LexObject>(this, _$identity);
+  _$$LexObjectImplCopyWith<_$LexObjectImpl> get copyWith =>
+      __$$LexObjectImplCopyWithImpl<_$LexObjectImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LexObjectToJson(
+    return _$$LexObjectImplToJson(
       this,
     );
   }
@@ -260,10 +261,10 @@ abstract class _LexObject implements LexObject {
       @JsonKey(name: 'required') final List<String>? requiredProperties,
       @JsonKey(name: 'nullable') final List<String>? nullableProperties,
       @lexObjectPropertyConverter
-      final Map<String, LexObjectProperty>? properties}) = _$_LexObject;
+      final Map<String, LexObjectProperty>? properties}) = _$LexObjectImpl;
 
   factory _LexObject.fromJson(Map<String, dynamic> json) =
-      _$_LexObject.fromJson;
+      _$LexObjectImpl.fromJson;
 
   @override
   String get type;
@@ -280,6 +281,6 @@ abstract class _LexObject implements LexObject {
   Map<String, LexObjectProperty>? get properties;
   @override
   @JsonKey(ignore: true)
-  _$$_LexObjectCopyWith<_$_LexObject> get copyWith =>
+  _$$LexObjectImplCopyWith<_$LexObjectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

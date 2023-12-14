@@ -15,7 +15,8 @@ enum LexStringFormat {
   @JsonValue('at-identifier')
   atIdentifier('at-identifier'),
   nsid('nsid'),
-  cid('cid');
+  cid('cid'),
+  language('language');
 
   /// The format value.
   final String value;
