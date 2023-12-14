@@ -63,22 +63,22 @@ class _$RepoBlocksCopyWithImpl<$Res, $Val extends RepoBlocks>
 }
 
 /// @nodoc
-abstract class _$$_RepoBlocksCopyWith<$Res>
+abstract class _$$RepoBlocksImplCopyWith<$Res>
     implements $RepoBlocksCopyWith<$Res> {
-  factory _$$_RepoBlocksCopyWith(
-          _$_RepoBlocks value, $Res Function(_$_RepoBlocks) then) =
-      __$$_RepoBlocksCopyWithImpl<$Res>;
+  factory _$$RepoBlocksImplCopyWith(
+          _$RepoBlocksImpl value, $Res Function(_$RepoBlocksImpl) then) =
+      __$$RepoBlocksImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<RepoBlock> blocks});
 }
 
 /// @nodoc
-class __$$_RepoBlocksCopyWithImpl<$Res>
-    extends _$RepoBlocksCopyWithImpl<$Res, _$_RepoBlocks>
-    implements _$$_RepoBlocksCopyWith<$Res> {
-  __$$_RepoBlocksCopyWithImpl(
-      _$_RepoBlocks _value, $Res Function(_$_RepoBlocks) _then)
+class __$$RepoBlocksImplCopyWithImpl<$Res>
+    extends _$RepoBlocksCopyWithImpl<$Res, _$RepoBlocksImpl>
+    implements _$$RepoBlocksImplCopyWith<$Res> {
+  __$$RepoBlocksImplCopyWithImpl(
+      _$RepoBlocksImpl _value, $Res Function(_$RepoBlocksImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -86,7 +86,7 @@ class __$$_RepoBlocksCopyWithImpl<$Res>
   $Res call({
     Object? blocks = null,
   }) {
-    return _then(_$_RepoBlocks(
+    return _then(_$RepoBlocksImpl(
       blocks: null == blocks
           ? _value._blocks
           : blocks // ignore: cast_nullable_to_non_nullable
@@ -97,12 +97,12 @@ class __$$_RepoBlocksCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RepoBlocks implements _RepoBlocks {
-  const _$_RepoBlocks({required final List<RepoBlock> blocks})
+class _$RepoBlocksImpl implements _RepoBlocks {
+  const _$RepoBlocksImpl({required final List<RepoBlock> blocks})
       : _blocks = blocks;
 
-  factory _$_RepoBlocks.fromJson(Map<String, dynamic> json) =>
-      _$$_RepoBlocksFromJson(json);
+  factory _$RepoBlocksImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RepoBlocksImplFromJson(json);
 
   /// The list of [RepoBlock] objects.
   final List<RepoBlock> _blocks;
@@ -124,7 +124,7 @@ class _$_RepoBlocks implements _RepoBlocks {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RepoBlocks &&
+            other is _$RepoBlocksImpl &&
             const DeepCollectionEquality().equals(other._blocks, _blocks));
   }
 
@@ -136,12 +136,12 @@ class _$_RepoBlocks implements _RepoBlocks {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RepoBlocksCopyWith<_$_RepoBlocks> get copyWith =>
-      __$$_RepoBlocksCopyWithImpl<_$_RepoBlocks>(this, _$identity);
+  _$$RepoBlocksImplCopyWith<_$RepoBlocksImpl> get copyWith =>
+      __$$RepoBlocksImplCopyWithImpl<_$RepoBlocksImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RepoBlocksToJson(
+    return _$$RepoBlocksImplToJson(
       this,
     );
   }
@@ -149,10 +149,10 @@ class _$_RepoBlocks implements _RepoBlocks {
 
 abstract class _RepoBlocks implements RepoBlocks {
   const factory _RepoBlocks({required final List<RepoBlock> blocks}) =
-      _$_RepoBlocks;
+      _$RepoBlocksImpl;
 
   factory _RepoBlocks.fromJson(Map<String, dynamic> json) =
-      _$_RepoBlocks.fromJson;
+      _$RepoBlocksImpl.fromJson;
 
   @override
 
@@ -160,6 +160,6 @@ abstract class _RepoBlocks implements RepoBlocks {
   List<RepoBlock> get blocks;
   @override
   @JsonKey(ignore: true)
-  _$$_RepoBlocksCopyWith<_$_RepoBlocks> get copyWith =>
+  _$$RepoBlocksImplCopyWith<_$RepoBlocksImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

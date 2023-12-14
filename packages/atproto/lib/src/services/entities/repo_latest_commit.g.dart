@@ -8,11 +8,12 @@ part of 'repo_latest_commit.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RepoLatestCommit _$$_RepoLatestCommitFromJson(Map json) => $checkedCreate(
-      r'_$_RepoLatestCommit',
+_$RepoLatestCommitImpl _$$RepoLatestCommitImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$RepoLatestCommitImpl',
       json,
       ($checkedConvert) {
-        final val = _$_RepoLatestCommit(
+        final val = _$RepoLatestCommitImpl(
           cid: $checkedConvert('cid', (v) => v as String),
           rev: $checkedConvert('rev', (v) => v as String),
         );
@@ -20,7 +21,8 @@ _$_RepoLatestCommit _$$_RepoLatestCommitFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_RepoLatestCommitToJson(_$_RepoLatestCommit instance) =>
+Map<String, dynamic> _$$RepoLatestCommitImplToJson(
+        _$RepoLatestCommitImpl instance) =>
     <String, dynamic>{
       'cid': instance.cid,
       'rev': instance.rev,

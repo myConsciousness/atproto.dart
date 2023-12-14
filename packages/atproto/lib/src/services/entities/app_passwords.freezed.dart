@@ -63,22 +63,22 @@ class _$AppPasswordsCopyWithImpl<$Res, $Val extends AppPasswords>
 }
 
 /// @nodoc
-abstract class _$$_AppPasswordsCopyWith<$Res>
+abstract class _$$AppPasswordsImplCopyWith<$Res>
     implements $AppPasswordsCopyWith<$Res> {
-  factory _$$_AppPasswordsCopyWith(
-          _$_AppPasswords value, $Res Function(_$_AppPasswords) then) =
-      __$$_AppPasswordsCopyWithImpl<$Res>;
+  factory _$$AppPasswordsImplCopyWith(
+          _$AppPasswordsImpl value, $Res Function(_$AppPasswordsImpl) then) =
+      __$$AppPasswordsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<SealedAppPassword> passwords});
 }
 
 /// @nodoc
-class __$$_AppPasswordsCopyWithImpl<$Res>
-    extends _$AppPasswordsCopyWithImpl<$Res, _$_AppPasswords>
-    implements _$$_AppPasswordsCopyWith<$Res> {
-  __$$_AppPasswordsCopyWithImpl(
-      _$_AppPasswords _value, $Res Function(_$_AppPasswords) _then)
+class __$$AppPasswordsImplCopyWithImpl<$Res>
+    extends _$AppPasswordsCopyWithImpl<$Res, _$AppPasswordsImpl>
+    implements _$$AppPasswordsImplCopyWith<$Res> {
+  __$$AppPasswordsImplCopyWithImpl(
+      _$AppPasswordsImpl _value, $Res Function(_$AppPasswordsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -86,7 +86,7 @@ class __$$_AppPasswordsCopyWithImpl<$Res>
   $Res call({
     Object? passwords = null,
   }) {
-    return _then(_$_AppPasswords(
+    return _then(_$AppPasswordsImpl(
       passwords: null == passwords
           ? _value._passwords
           : passwords // ignore: cast_nullable_to_non_nullable
@@ -97,12 +97,12 @@ class __$$_AppPasswordsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AppPasswords implements _AppPasswords {
-  const _$_AppPasswords({required final List<SealedAppPassword> passwords})
+class _$AppPasswordsImpl implements _AppPasswords {
+  const _$AppPasswordsImpl({required final List<SealedAppPassword> passwords})
       : _passwords = passwords;
 
-  factory _$_AppPasswords.fromJson(Map<String, dynamic> json) =>
-      _$$_AppPasswordsFromJson(json);
+  factory _$AppPasswordsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AppPasswordsImplFromJson(json);
 
   /// A list of passwords for applications.
   final List<SealedAppPassword> _passwords;
@@ -124,7 +124,7 @@ class _$_AppPasswords implements _AppPasswords {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AppPasswords &&
+            other is _$AppPasswordsImpl &&
             const DeepCollectionEquality()
                 .equals(other._passwords, _passwords));
   }
@@ -137,12 +137,12 @@ class _$_AppPasswords implements _AppPasswords {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AppPasswordsCopyWith<_$_AppPasswords> get copyWith =>
-      __$$_AppPasswordsCopyWithImpl<_$_AppPasswords>(this, _$identity);
+  _$$AppPasswordsImplCopyWith<_$AppPasswordsImpl> get copyWith =>
+      __$$AppPasswordsImplCopyWithImpl<_$AppPasswordsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AppPasswordsToJson(
+    return _$$AppPasswordsImplToJson(
       this,
     );
   }
@@ -150,10 +150,10 @@ class _$_AppPasswords implements _AppPasswords {
 
 abstract class _AppPasswords implements AppPasswords {
   const factory _AppPasswords(
-      {required final List<SealedAppPassword> passwords}) = _$_AppPasswords;
+      {required final List<SealedAppPassword> passwords}) = _$AppPasswordsImpl;
 
   factory _AppPasswords.fromJson(Map<String, dynamic> json) =
-      _$_AppPasswords.fromJson;
+      _$AppPasswordsImpl.fromJson;
 
   @override
 
@@ -161,6 +161,6 @@ abstract class _AppPasswords implements AppPasswords {
   List<SealedAppPassword> get passwords;
   @override
   @JsonKey(ignore: true)
-  _$$_AppPasswordsCopyWith<_$_AppPasswords> get copyWith =>
+  _$$AppPasswordsImplCopyWith<_$AppPasswordsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -8,11 +8,11 @@ part of 'server_info.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ServerInfo _$$_ServerInfoFromJson(Map json) => $checkedCreate(
-      r'_$_ServerInfo',
+_$ServerInfoImpl _$$ServerInfoImplFromJson(Map json) => $checkedCreate(
+      r'_$ServerInfoImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ServerInfo(
+        final val = _$ServerInfoImpl(
           availableUserDomains: $checkedConvert('availableUserDomains',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           isInviteCodeRequired:
@@ -29,7 +29,7 @@ _$_ServerInfo _$$_ServerInfoFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'isInviteCodeRequired': 'inviteCodeRequired'},
     );
 
-Map<String, dynamic> _$$_ServerInfoToJson(_$_ServerInfo instance) {
+Map<String, dynamic> _$$ServerInfoImplToJson(_$ServerInfoImpl instance) {
   final val = <String, dynamic>{
     'availableUserDomains': instance.availableUserDomains,
     'inviteCodeRequired': instance.isInviteCodeRequired,

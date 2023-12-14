@@ -95,11 +95,11 @@ class _$CreateActionCopyWithImpl<$Res, $Val extends CreateAction>
 }
 
 /// @nodoc
-abstract class _$$_CreateActionCopyWith<$Res>
+abstract class _$$CreateActionImplCopyWith<$Res>
     implements $CreateActionCopyWith<$Res> {
-  factory _$$_CreateActionCopyWith(
-          _$_CreateAction value, $Res Function(_$_CreateAction) then) =
-      __$$_CreateActionCopyWithImpl<$Res>;
+  factory _$$CreateActionImplCopyWith(
+          _$CreateActionImpl value, $Res Function(_$CreateActionImpl) then) =
+      __$$CreateActionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -110,11 +110,11 @@ abstract class _$$_CreateActionCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_CreateActionCopyWithImpl<$Res>
-    extends _$CreateActionCopyWithImpl<$Res, _$_CreateAction>
-    implements _$$_CreateActionCopyWith<$Res> {
-  __$$_CreateActionCopyWithImpl(
-      _$_CreateAction _value, $Res Function(_$_CreateAction) _then)
+class __$$CreateActionImplCopyWithImpl<$Res>
+    extends _$CreateActionCopyWithImpl<$Res, _$CreateActionImpl>
+    implements _$$CreateActionImplCopyWith<$Res> {
+  __$$CreateActionImplCopyWithImpl(
+      _$CreateActionImpl _value, $Res Function(_$CreateActionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -125,7 +125,7 @@ class __$$_CreateActionCopyWithImpl<$Res>
     Object? rkey = freezed,
     Object? record = null,
   }) {
-    return _then(_$_CreateAction(
+    return _then(_$CreateActionImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -149,16 +149,16 @@ class __$$_CreateActionCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_CreateAction implements _CreateAction {
-  const _$_CreateAction(
+class _$CreateActionImpl implements _CreateAction {
+  const _$CreateActionImpl(
       {@typeKey this.type = comAtprotoRepoApplyWritesCreate,
       @nsidConverter required this.collection,
       this.rkey,
       @JsonKey(name: 'value') required final Map<String, dynamic> record})
       : _record = record;
 
-  factory _$_CreateAction.fromJson(Map<String, dynamic> json) =>
-      _$$_CreateActionFromJson(json);
+  factory _$CreateActionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CreateActionImplFromJson(json);
 
   /// The type of the action. Default is
   /// [comAtprotoRepoApplyWritesCreate].
@@ -196,7 +196,7 @@ class _$_CreateAction implements _CreateAction {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CreateAction &&
+            other is _$CreateActionImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.collection, collection) ||
                 other.collection == collection) &&
@@ -212,12 +212,12 @@ class _$_CreateAction implements _CreateAction {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CreateActionCopyWith<_$_CreateAction> get copyWith =>
-      __$$_CreateActionCopyWithImpl<_$_CreateAction>(this, _$identity);
+  _$$CreateActionImplCopyWith<_$CreateActionImpl> get copyWith =>
+      __$$CreateActionImplCopyWithImpl<_$CreateActionImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CreateActionToJson(
+    return _$$CreateActionImplToJson(
       this,
     );
   }
@@ -229,10 +229,10 @@ abstract class _CreateAction implements CreateAction {
           @nsidConverter required final NSID collection,
           final String? rkey,
           @JsonKey(name: 'value') required final Map<String, dynamic> record}) =
-      _$_CreateAction;
+      _$CreateActionImpl;
 
   factory _CreateAction.fromJson(Map<String, dynamic> json) =
-      _$_CreateAction.fromJson;
+      _$CreateActionImpl.fromJson;
 
   @override
 
@@ -256,6 +256,6 @@ abstract class _CreateAction implements CreateAction {
   Map<String, dynamic> get record;
   @override
   @JsonKey(ignore: true)
-  _$$_CreateActionCopyWith<_$_CreateAction> get copyWith =>
+  _$$CreateActionImplCopyWith<_$CreateActionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

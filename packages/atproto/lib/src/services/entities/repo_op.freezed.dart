@@ -91,9 +91,10 @@ class _$RepoOpCopyWithImpl<$Res, $Val extends RepoOp>
 }
 
 /// @nodoc
-abstract class _$$_RepoOpCopyWith<$Res> implements $RepoOpCopyWith<$Res> {
-  factory _$$_RepoOpCopyWith(_$_RepoOp value, $Res Function(_$_RepoOp) then) =
-      __$$_RepoOpCopyWithImpl<$Res>;
+abstract class _$$RepoOpImplCopyWith<$Res> implements $RepoOpCopyWith<$Res> {
+  factory _$$RepoOpImplCopyWith(
+          _$RepoOpImpl value, $Res Function(_$RepoOpImpl) then) =
+      __$$RepoOpImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -104,10 +105,11 @@ abstract class _$$_RepoOpCopyWith<$Res> implements $RepoOpCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_RepoOpCopyWithImpl<$Res>
-    extends _$RepoOpCopyWithImpl<$Res, _$_RepoOp>
-    implements _$$_RepoOpCopyWith<$Res> {
-  __$$_RepoOpCopyWithImpl(_$_RepoOp _value, $Res Function(_$_RepoOp) _then)
+class __$$RepoOpImplCopyWithImpl<$Res>
+    extends _$RepoOpCopyWithImpl<$Res, _$RepoOpImpl>
+    implements _$$RepoOpImplCopyWith<$Res> {
+  __$$RepoOpImplCopyWithImpl(
+      _$RepoOpImpl _value, $Res Function(_$RepoOpImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -118,7 +120,7 @@ class __$$_RepoOpCopyWithImpl<$Res>
     Object? cid = freezed,
     Object? record = freezed,
   }) {
-    return _then(_$_RepoOp(
+    return _then(_$RepoOpImpl(
       action: null == action
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
@@ -141,16 +143,16 @@ class __$$_RepoOpCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RepoOp implements _RepoOp {
-  const _$_RepoOp(
+class _$RepoOpImpl implements _RepoOp {
+  const _$RepoOpImpl(
       {required this.action,
       @atUriConverter required this.uri,
       this.cid,
       final Map<String, dynamic>? record})
       : _record = record;
 
-  factory _$_RepoOp.fromJson(Map<String, dynamic> json) =>
-      _$$_RepoOpFromJson(json);
+  factory _$RepoOpImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RepoOpImplFromJson(json);
 
   /// The action to be performed on the repository.
   @override
@@ -189,7 +191,7 @@ class _$_RepoOp implements _RepoOp {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RepoOp &&
+            other is _$RepoOpImpl &&
             (identical(other.action, action) || other.action == action) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
@@ -204,12 +206,12 @@ class _$_RepoOp implements _RepoOp {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RepoOpCopyWith<_$_RepoOp> get copyWith =>
-      __$$_RepoOpCopyWithImpl<_$_RepoOp>(this, _$identity);
+  _$$RepoOpImplCopyWith<_$RepoOpImpl> get copyWith =>
+      __$$RepoOpImplCopyWithImpl<_$RepoOpImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RepoOpToJson(
+    return _$$RepoOpImplToJson(
       this,
     );
   }
@@ -220,9 +222,9 @@ abstract class _RepoOp implements RepoOp {
       {required final RepoAction action,
       @atUriConverter required final AtUri uri,
       final String? cid,
-      final Map<String, dynamic>? record}) = _$_RepoOp;
+      final Map<String, dynamic>? record}) = _$RepoOpImpl;
 
-  factory _RepoOp.fromJson(Map<String, dynamic> json) = _$_RepoOp.fromJson;
+  factory _RepoOp.fromJson(Map<String, dynamic> json) = _$RepoOpImpl.fromJson;
 
   @override
 
@@ -244,6 +246,6 @@ abstract class _RepoOp implements RepoOp {
   Map<String, dynamic>? get record;
   @override
   @JsonKey(ignore: true)
-  _$$_RepoOpCopyWith<_$_RepoOp> get copyWith =>
+  _$$RepoOpImplCopyWith<_$RepoOpImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

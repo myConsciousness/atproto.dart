@@ -101,11 +101,11 @@ class _$CurrentSessionCopyWithImpl<$Res, $Val extends CurrentSession>
 }
 
 /// @nodoc
-abstract class _$$_CurrentSessionCopyWith<$Res>
+abstract class _$$CurrentSessionImplCopyWith<$Res>
     implements $CurrentSessionCopyWith<$Res> {
-  factory _$$_CurrentSessionCopyWith(
-          _$_CurrentSession value, $Res Function(_$_CurrentSession) then) =
-      __$$_CurrentSessionCopyWithImpl<$Res>;
+  factory _$$CurrentSessionImplCopyWith(_$CurrentSessionImpl value,
+          $Res Function(_$CurrentSessionImpl) then) =
+      __$$CurrentSessionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -117,11 +117,11 @@ abstract class _$$_CurrentSessionCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_CurrentSessionCopyWithImpl<$Res>
-    extends _$CurrentSessionCopyWithImpl<$Res, _$_CurrentSession>
-    implements _$$_CurrentSessionCopyWith<$Res> {
-  __$$_CurrentSessionCopyWithImpl(
-      _$_CurrentSession _value, $Res Function(_$_CurrentSession) _then)
+class __$$CurrentSessionImplCopyWithImpl<$Res>
+    extends _$CurrentSessionCopyWithImpl<$Res, _$CurrentSessionImpl>
+    implements _$$CurrentSessionImplCopyWith<$Res> {
+  __$$CurrentSessionImplCopyWithImpl(
+      _$CurrentSessionImpl _value, $Res Function(_$CurrentSessionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -133,7 +133,7 @@ class __$$_CurrentSessionCopyWithImpl<$Res>
     Object? isEmailConfirmed = null,
     Object? didDoc = freezed,
   }) {
-    return _then(_$_CurrentSession(
+    return _then(_$CurrentSessionImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -161,8 +161,8 @@ class __$$_CurrentSessionCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_CurrentSession implements _CurrentSession {
-  const _$_CurrentSession(
+class _$CurrentSessionImpl implements _CurrentSession {
+  const _$CurrentSessionImpl(
       {required this.did,
       required this.handle,
       this.email,
@@ -170,8 +170,8 @@ class _$_CurrentSession implements _CurrentSession {
       final Map<String, dynamic>? didDoc})
       : _didDoc = didDoc;
 
-  factory _$_CurrentSession.fromJson(Map<String, dynamic> json) =>
-      _$$_CurrentSessionFromJson(json);
+  factory _$CurrentSessionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CurrentSessionImplFromJson(json);
 
   /// The decentralized identifier (DID) for the user in the current session.
   @override
@@ -212,7 +212,7 @@ class _$_CurrentSession implements _CurrentSession {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CurrentSession &&
+            other is _$CurrentSessionImpl &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.email, email) || other.email == email) &&
@@ -229,12 +229,13 @@ class _$_CurrentSession implements _CurrentSession {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CurrentSessionCopyWith<_$_CurrentSession> get copyWith =>
-      __$$_CurrentSessionCopyWithImpl<_$_CurrentSession>(this, _$identity);
+  _$$CurrentSessionImplCopyWith<_$CurrentSessionImpl> get copyWith =>
+      __$$CurrentSessionImplCopyWithImpl<_$CurrentSessionImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CurrentSessionToJson(
+    return _$$CurrentSessionImplToJson(
       this,
     );
   }
@@ -246,10 +247,10 @@ abstract class _CurrentSession implements CurrentSession {
       required final String handle,
       final String? email,
       @JsonKey(name: 'emailConfirmed') final bool isEmailConfirmed,
-      final Map<String, dynamic>? didDoc}) = _$_CurrentSession;
+      final Map<String, dynamic>? didDoc}) = _$CurrentSessionImpl;
 
   factory _CurrentSession.fromJson(Map<String, dynamic> json) =
-      _$_CurrentSession.fromJson;
+      _$CurrentSessionImpl.fromJson;
 
   @override
 
@@ -274,6 +275,6 @@ abstract class _CurrentSession implements CurrentSession {
   Map<String, dynamic>? get didDoc;
   @override
   @JsonKey(ignore: true)
-  _$$_CurrentSessionCopyWith<_$_CurrentSession> get copyWith =>
+  _$$CurrentSessionImplCopyWith<_$CurrentSessionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
