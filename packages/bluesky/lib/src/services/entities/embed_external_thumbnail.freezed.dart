@@ -110,11 +110,12 @@ class _$EmbedExternalThumbnailCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_EmbedExternalThumbnailCopyWith<$Res>
+abstract class _$$EmbedExternalThumbnailImplCopyWith<$Res>
     implements $EmbedExternalThumbnailCopyWith<$Res> {
-  factory _$$_EmbedExternalThumbnailCopyWith(_$_EmbedExternalThumbnail value,
-          $Res Function(_$_EmbedExternalThumbnail) then) =
-      __$$_EmbedExternalThumbnailCopyWithImpl<$Res>;
+  factory _$$EmbedExternalThumbnailImplCopyWith(
+          _$EmbedExternalThumbnailImpl value,
+          $Res Function(_$EmbedExternalThumbnailImpl) then) =
+      __$$EmbedExternalThumbnailImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -128,12 +129,13 @@ abstract class _$$_EmbedExternalThumbnailCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EmbedExternalThumbnailCopyWithImpl<$Res>
+class __$$EmbedExternalThumbnailImplCopyWithImpl<$Res>
     extends _$EmbedExternalThumbnailCopyWithImpl<$Res,
-        _$_EmbedExternalThumbnail>
-    implements _$$_EmbedExternalThumbnailCopyWith<$Res> {
-  __$$_EmbedExternalThumbnailCopyWithImpl(_$_EmbedExternalThumbnail _value,
-      $Res Function(_$_EmbedExternalThumbnail) _then)
+        _$EmbedExternalThumbnailImpl>
+    implements _$$EmbedExternalThumbnailImplCopyWith<$Res> {
+  __$$EmbedExternalThumbnailImplCopyWithImpl(
+      _$EmbedExternalThumbnailImpl _value,
+      $Res Function(_$EmbedExternalThumbnailImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -144,7 +146,7 @@ class __$$_EmbedExternalThumbnailCopyWithImpl<$Res>
     Object? description = null,
     Object? blob = freezed,
   }) {
-    return _then(_$_EmbedExternalThumbnail(
+    return _then(_$EmbedExternalThumbnailImpl(
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -168,15 +170,15 @@ class __$$_EmbedExternalThumbnailCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_EmbedExternalThumbnail implements _EmbedExternalThumbnail {
-  const _$_EmbedExternalThumbnail(
+class _$EmbedExternalThumbnailImpl implements _EmbedExternalThumbnail {
+  const _$EmbedExternalThumbnailImpl(
       {required this.uri,
       required this.title,
       required this.description,
       @blobConverter @JsonKey(name: 'thumb') this.blob});
 
-  factory _$_EmbedExternalThumbnail.fromJson(Map<String, dynamic> json) =>
-      _$$_EmbedExternalThumbnailFromJson(json);
+  factory _$EmbedExternalThumbnailImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmbedExternalThumbnailImplFromJson(json);
 
   /// The Uniform Resource Identifier (URI) of the external resource.
   @override
@@ -206,7 +208,7 @@ class _$_EmbedExternalThumbnail implements _EmbedExternalThumbnail {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EmbedExternalThumbnail &&
+            other is _$EmbedExternalThumbnailImpl &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
@@ -221,13 +223,13 @@ class _$_EmbedExternalThumbnail implements _EmbedExternalThumbnail {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EmbedExternalThumbnailCopyWith<_$_EmbedExternalThumbnail> get copyWith =>
-      __$$_EmbedExternalThumbnailCopyWithImpl<_$_EmbedExternalThumbnail>(
-          this, _$identity);
+  _$$EmbedExternalThumbnailImplCopyWith<_$EmbedExternalThumbnailImpl>
+      get copyWith => __$$EmbedExternalThumbnailImplCopyWithImpl<
+          _$EmbedExternalThumbnailImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EmbedExternalThumbnailToJson(
+    return _$$EmbedExternalThumbnailImplToJson(
       this,
     );
   }
@@ -239,10 +241,10 @@ abstract class _EmbedExternalThumbnail implements EmbedExternalThumbnail {
           required final String title,
           required final String description,
           @blobConverter @JsonKey(name: 'thumb') final Blob? blob}) =
-      _$_EmbedExternalThumbnail;
+      _$EmbedExternalThumbnailImpl;
 
   factory _EmbedExternalThumbnail.fromJson(Map<String, dynamic> json) =
-      _$_EmbedExternalThumbnail.fromJson;
+      _$EmbedExternalThumbnailImpl.fromJson;
 
   @override
 
@@ -265,6 +267,6 @@ abstract class _EmbedExternalThumbnail implements EmbedExternalThumbnail {
   Blob? get blob;
   @override
   @JsonKey(ignore: true)
-  _$$_EmbedExternalThumbnailCopyWith<_$_EmbedExternalThumbnail> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$EmbedExternalThumbnailImplCopyWith<_$EmbedExternalThumbnailImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -122,10 +122,11 @@ class _$SubscribedRepoCopyWithImpl<$Res, $Val extends SubscribedRepo>
 }
 
 /// @nodoc
-abstract class _$$USubscribedRepoCommitCopyWith<$Res> {
-  factory _$$USubscribedRepoCommitCopyWith(_$USubscribedRepoCommit value,
-          $Res Function(_$USubscribedRepoCommit) then) =
-      __$$USubscribedRepoCommitCopyWithImpl<$Res>;
+abstract class _$$USubscribedRepoCommitImplCopyWith<$Res> {
+  factory _$$USubscribedRepoCommitImplCopyWith(
+          _$USubscribedRepoCommitImpl value,
+          $Res Function(_$USubscribedRepoCommitImpl) then) =
+      __$$USubscribedRepoCommitImplCopyWithImpl<$Res>;
   @useResult
   $Res call({SubscribedRepoCommit data});
 
@@ -133,11 +134,11 @@ abstract class _$$USubscribedRepoCommitCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$USubscribedRepoCommitCopyWithImpl<$Res>
-    extends _$SubscribedRepoCopyWithImpl<$Res, _$USubscribedRepoCommit>
-    implements _$$USubscribedRepoCommitCopyWith<$Res> {
-  __$$USubscribedRepoCommitCopyWithImpl(_$USubscribedRepoCommit _value,
-      $Res Function(_$USubscribedRepoCommit) _then)
+class __$$USubscribedRepoCommitImplCopyWithImpl<$Res>
+    extends _$SubscribedRepoCopyWithImpl<$Res, _$USubscribedRepoCommitImpl>
+    implements _$$USubscribedRepoCommitImplCopyWith<$Res> {
+  __$$USubscribedRepoCommitImplCopyWithImpl(_$USubscribedRepoCommitImpl _value,
+      $Res Function(_$USubscribedRepoCommitImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -145,7 +146,7 @@ class __$$USubscribedRepoCommitCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$USubscribedRepoCommit(
+    return _then(_$USubscribedRepoCommitImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -164,12 +165,12 @@ class __$$USubscribedRepoCommitCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$USubscribedRepoCommit implements USubscribedRepoCommit {
-  const _$USubscribedRepoCommit({required this.data, final String? $type})
+class _$USubscribedRepoCommitImpl implements USubscribedRepoCommit {
+  const _$USubscribedRepoCommitImpl({required this.data, final String? $type})
       : $type = $type ?? 'commit';
 
-  factory _$USubscribedRepoCommit.fromJson(Map<String, dynamic> json) =>
-      _$$USubscribedRepoCommitFromJson(json);
+  factory _$USubscribedRepoCommitImpl.fromJson(Map<String, dynamic> json) =>
+      _$$USubscribedRepoCommitImplFromJson(json);
 
   @override
   final SubscribedRepoCommit data;
@@ -186,7 +187,7 @@ class _$USubscribedRepoCommit implements USubscribedRepoCommit {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$USubscribedRepoCommit &&
+            other is _$USubscribedRepoCommitImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -197,9 +198,9 @@ class _$USubscribedRepoCommit implements USubscribedRepoCommit {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$USubscribedRepoCommitCopyWith<_$USubscribedRepoCommit> get copyWith =>
-      __$$USubscribedRepoCommitCopyWithImpl<_$USubscribedRepoCommit>(
-          this, _$identity);
+  _$$USubscribedRepoCommitImplCopyWith<_$USubscribedRepoCommitImpl>
+      get copyWith => __$$USubscribedRepoCommitImplCopyWithImpl<
+          _$USubscribedRepoCommitImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -289,7 +290,7 @@ class _$USubscribedRepoCommit implements USubscribedRepoCommit {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$USubscribedRepoCommitToJson(
+    return _$$USubscribedRepoCommitImplToJson(
       this,
     );
   }
@@ -297,23 +298,24 @@ class _$USubscribedRepoCommit implements USubscribedRepoCommit {
 
 abstract class USubscribedRepoCommit implements SubscribedRepo {
   const factory USubscribedRepoCommit(
-      {required final SubscribedRepoCommit data}) = _$USubscribedRepoCommit;
+      {required final SubscribedRepoCommit data}) = _$USubscribedRepoCommitImpl;
 
   factory USubscribedRepoCommit.fromJson(Map<String, dynamic> json) =
-      _$USubscribedRepoCommit.fromJson;
+      _$USubscribedRepoCommitImpl.fromJson;
 
   @override
   SubscribedRepoCommit get data;
   @JsonKey(ignore: true)
-  _$$USubscribedRepoCommitCopyWith<_$USubscribedRepoCommit> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$USubscribedRepoCommitImplCopyWith<_$USubscribedRepoCommitImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$USubscribedRepoHandleCopyWith<$Res> {
-  factory _$$USubscribedRepoHandleCopyWith(_$USubscribedRepoHandle value,
-          $Res Function(_$USubscribedRepoHandle) then) =
-      __$$USubscribedRepoHandleCopyWithImpl<$Res>;
+abstract class _$$USubscribedRepoHandleImplCopyWith<$Res> {
+  factory _$$USubscribedRepoHandleImplCopyWith(
+          _$USubscribedRepoHandleImpl value,
+          $Res Function(_$USubscribedRepoHandleImpl) then) =
+      __$$USubscribedRepoHandleImplCopyWithImpl<$Res>;
   @useResult
   $Res call({SubscribedRepoHandle data});
 
@@ -321,11 +323,11 @@ abstract class _$$USubscribedRepoHandleCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$USubscribedRepoHandleCopyWithImpl<$Res>
-    extends _$SubscribedRepoCopyWithImpl<$Res, _$USubscribedRepoHandle>
-    implements _$$USubscribedRepoHandleCopyWith<$Res> {
-  __$$USubscribedRepoHandleCopyWithImpl(_$USubscribedRepoHandle _value,
-      $Res Function(_$USubscribedRepoHandle) _then)
+class __$$USubscribedRepoHandleImplCopyWithImpl<$Res>
+    extends _$SubscribedRepoCopyWithImpl<$Res, _$USubscribedRepoHandleImpl>
+    implements _$$USubscribedRepoHandleImplCopyWith<$Res> {
+  __$$USubscribedRepoHandleImplCopyWithImpl(_$USubscribedRepoHandleImpl _value,
+      $Res Function(_$USubscribedRepoHandleImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -333,7 +335,7 @@ class __$$USubscribedRepoHandleCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$USubscribedRepoHandle(
+    return _then(_$USubscribedRepoHandleImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -352,12 +354,12 @@ class __$$USubscribedRepoHandleCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$USubscribedRepoHandle implements USubscribedRepoHandle {
-  const _$USubscribedRepoHandle({required this.data, final String? $type})
+class _$USubscribedRepoHandleImpl implements USubscribedRepoHandle {
+  const _$USubscribedRepoHandleImpl({required this.data, final String? $type})
       : $type = $type ?? 'handle';
 
-  factory _$USubscribedRepoHandle.fromJson(Map<String, dynamic> json) =>
-      _$$USubscribedRepoHandleFromJson(json);
+  factory _$USubscribedRepoHandleImpl.fromJson(Map<String, dynamic> json) =>
+      _$$USubscribedRepoHandleImplFromJson(json);
 
   @override
   final SubscribedRepoHandle data;
@@ -374,7 +376,7 @@ class _$USubscribedRepoHandle implements USubscribedRepoHandle {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$USubscribedRepoHandle &&
+            other is _$USubscribedRepoHandleImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -385,9 +387,9 @@ class _$USubscribedRepoHandle implements USubscribedRepoHandle {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$USubscribedRepoHandleCopyWith<_$USubscribedRepoHandle> get copyWith =>
-      __$$USubscribedRepoHandleCopyWithImpl<_$USubscribedRepoHandle>(
-          this, _$identity);
+  _$$USubscribedRepoHandleImplCopyWith<_$USubscribedRepoHandleImpl>
+      get copyWith => __$$USubscribedRepoHandleImplCopyWithImpl<
+          _$USubscribedRepoHandleImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -477,7 +479,7 @@ class _$USubscribedRepoHandle implements USubscribedRepoHandle {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$USubscribedRepoHandleToJson(
+    return _$$USubscribedRepoHandleImplToJson(
       this,
     );
   }
@@ -485,23 +487,24 @@ class _$USubscribedRepoHandle implements USubscribedRepoHandle {
 
 abstract class USubscribedRepoHandle implements SubscribedRepo {
   const factory USubscribedRepoHandle(
-      {required final SubscribedRepoHandle data}) = _$USubscribedRepoHandle;
+      {required final SubscribedRepoHandle data}) = _$USubscribedRepoHandleImpl;
 
   factory USubscribedRepoHandle.fromJson(Map<String, dynamic> json) =
-      _$USubscribedRepoHandle.fromJson;
+      _$USubscribedRepoHandleImpl.fromJson;
 
   @override
   SubscribedRepoHandle get data;
   @JsonKey(ignore: true)
-  _$$USubscribedRepoHandleCopyWith<_$USubscribedRepoHandle> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$USubscribedRepoHandleImplCopyWith<_$USubscribedRepoHandleImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$USubscribedRepoMigrateCopyWith<$Res> {
-  factory _$$USubscribedRepoMigrateCopyWith(_$USubscribedRepoMigrate value,
-          $Res Function(_$USubscribedRepoMigrate) then) =
-      __$$USubscribedRepoMigrateCopyWithImpl<$Res>;
+abstract class _$$USubscribedRepoMigrateImplCopyWith<$Res> {
+  factory _$$USubscribedRepoMigrateImplCopyWith(
+          _$USubscribedRepoMigrateImpl value,
+          $Res Function(_$USubscribedRepoMigrateImpl) then) =
+      __$$USubscribedRepoMigrateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({SubscribedRepoMigrate data});
 
@@ -509,11 +512,12 @@ abstract class _$$USubscribedRepoMigrateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$USubscribedRepoMigrateCopyWithImpl<$Res>
-    extends _$SubscribedRepoCopyWithImpl<$Res, _$USubscribedRepoMigrate>
-    implements _$$USubscribedRepoMigrateCopyWith<$Res> {
-  __$$USubscribedRepoMigrateCopyWithImpl(_$USubscribedRepoMigrate _value,
-      $Res Function(_$USubscribedRepoMigrate) _then)
+class __$$USubscribedRepoMigrateImplCopyWithImpl<$Res>
+    extends _$SubscribedRepoCopyWithImpl<$Res, _$USubscribedRepoMigrateImpl>
+    implements _$$USubscribedRepoMigrateImplCopyWith<$Res> {
+  __$$USubscribedRepoMigrateImplCopyWithImpl(
+      _$USubscribedRepoMigrateImpl _value,
+      $Res Function(_$USubscribedRepoMigrateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -521,7 +525,7 @@ class __$$USubscribedRepoMigrateCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$USubscribedRepoMigrate(
+    return _then(_$USubscribedRepoMigrateImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -540,12 +544,12 @@ class __$$USubscribedRepoMigrateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$USubscribedRepoMigrate implements USubscribedRepoMigrate {
-  const _$USubscribedRepoMigrate({required this.data, final String? $type})
+class _$USubscribedRepoMigrateImpl implements USubscribedRepoMigrate {
+  const _$USubscribedRepoMigrateImpl({required this.data, final String? $type})
       : $type = $type ?? 'migrate';
 
-  factory _$USubscribedRepoMigrate.fromJson(Map<String, dynamic> json) =>
-      _$$USubscribedRepoMigrateFromJson(json);
+  factory _$USubscribedRepoMigrateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$USubscribedRepoMigrateImplFromJson(json);
 
   @override
   final SubscribedRepoMigrate data;
@@ -562,7 +566,7 @@ class _$USubscribedRepoMigrate implements USubscribedRepoMigrate {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$USubscribedRepoMigrate &&
+            other is _$USubscribedRepoMigrateImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -573,9 +577,9 @@ class _$USubscribedRepoMigrate implements USubscribedRepoMigrate {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$USubscribedRepoMigrateCopyWith<_$USubscribedRepoMigrate> get copyWith =>
-      __$$USubscribedRepoMigrateCopyWithImpl<_$USubscribedRepoMigrate>(
-          this, _$identity);
+  _$$USubscribedRepoMigrateImplCopyWith<_$USubscribedRepoMigrateImpl>
+      get copyWith => __$$USubscribedRepoMigrateImplCopyWithImpl<
+          _$USubscribedRepoMigrateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -665,7 +669,7 @@ class _$USubscribedRepoMigrate implements USubscribedRepoMigrate {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$USubscribedRepoMigrateToJson(
+    return _$$USubscribedRepoMigrateImplToJson(
       this,
     );
   }
@@ -673,23 +677,25 @@ class _$USubscribedRepoMigrate implements USubscribedRepoMigrate {
 
 abstract class USubscribedRepoMigrate implements SubscribedRepo {
   const factory USubscribedRepoMigrate(
-      {required final SubscribedRepoMigrate data}) = _$USubscribedRepoMigrate;
+          {required final SubscribedRepoMigrate data}) =
+      _$USubscribedRepoMigrateImpl;
 
   factory USubscribedRepoMigrate.fromJson(Map<String, dynamic> json) =
-      _$USubscribedRepoMigrate.fromJson;
+      _$USubscribedRepoMigrateImpl.fromJson;
 
   @override
   SubscribedRepoMigrate get data;
   @JsonKey(ignore: true)
-  _$$USubscribedRepoMigrateCopyWith<_$USubscribedRepoMigrate> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$USubscribedRepoMigrateImplCopyWith<_$USubscribedRepoMigrateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$USubscribedRepoTombstoneCopyWith<$Res> {
-  factory _$$USubscribedRepoTombstoneCopyWith(_$USubscribedRepoTombstone value,
-          $Res Function(_$USubscribedRepoTombstone) then) =
-      __$$USubscribedRepoTombstoneCopyWithImpl<$Res>;
+abstract class _$$USubscribedRepoTombstoneImplCopyWith<$Res> {
+  factory _$$USubscribedRepoTombstoneImplCopyWith(
+          _$USubscribedRepoTombstoneImpl value,
+          $Res Function(_$USubscribedRepoTombstoneImpl) then) =
+      __$$USubscribedRepoTombstoneImplCopyWithImpl<$Res>;
   @useResult
   $Res call({SubscribedRepoTombstone data});
 
@@ -697,11 +703,12 @@ abstract class _$$USubscribedRepoTombstoneCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$USubscribedRepoTombstoneCopyWithImpl<$Res>
-    extends _$SubscribedRepoCopyWithImpl<$Res, _$USubscribedRepoTombstone>
-    implements _$$USubscribedRepoTombstoneCopyWith<$Res> {
-  __$$USubscribedRepoTombstoneCopyWithImpl(_$USubscribedRepoTombstone _value,
-      $Res Function(_$USubscribedRepoTombstone) _then)
+class __$$USubscribedRepoTombstoneImplCopyWithImpl<$Res>
+    extends _$SubscribedRepoCopyWithImpl<$Res, _$USubscribedRepoTombstoneImpl>
+    implements _$$USubscribedRepoTombstoneImplCopyWith<$Res> {
+  __$$USubscribedRepoTombstoneImplCopyWithImpl(
+      _$USubscribedRepoTombstoneImpl _value,
+      $Res Function(_$USubscribedRepoTombstoneImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -709,7 +716,7 @@ class __$$USubscribedRepoTombstoneCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$USubscribedRepoTombstone(
+    return _then(_$USubscribedRepoTombstoneImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -728,12 +735,13 @@ class __$$USubscribedRepoTombstoneCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$USubscribedRepoTombstone implements USubscribedRepoTombstone {
-  const _$USubscribedRepoTombstone({required this.data, final String? $type})
+class _$USubscribedRepoTombstoneImpl implements USubscribedRepoTombstone {
+  const _$USubscribedRepoTombstoneImpl(
+      {required this.data, final String? $type})
       : $type = $type ?? 'tombstone';
 
-  factory _$USubscribedRepoTombstone.fromJson(Map<String, dynamic> json) =>
-      _$$USubscribedRepoTombstoneFromJson(json);
+  factory _$USubscribedRepoTombstoneImpl.fromJson(Map<String, dynamic> json) =>
+      _$$USubscribedRepoTombstoneImplFromJson(json);
 
   @override
   final SubscribedRepoTombstone data;
@@ -750,7 +758,7 @@ class _$USubscribedRepoTombstone implements USubscribedRepoTombstone {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$USubscribedRepoTombstone &&
+            other is _$USubscribedRepoTombstoneImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -761,10 +769,9 @@ class _$USubscribedRepoTombstone implements USubscribedRepoTombstone {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$USubscribedRepoTombstoneCopyWith<_$USubscribedRepoTombstone>
-      get copyWith =>
-          __$$USubscribedRepoTombstoneCopyWithImpl<_$USubscribedRepoTombstone>(
-              this, _$identity);
+  _$$USubscribedRepoTombstoneImplCopyWith<_$USubscribedRepoTombstoneImpl>
+      get copyWith => __$$USubscribedRepoTombstoneImplCopyWithImpl<
+          _$USubscribedRepoTombstoneImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -854,7 +861,7 @@ class _$USubscribedRepoTombstone implements USubscribedRepoTombstone {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$USubscribedRepoTombstoneToJson(
+    return _$$USubscribedRepoTombstoneImplToJson(
       this,
     );
   }
@@ -863,23 +870,23 @@ class _$USubscribedRepoTombstone implements USubscribedRepoTombstone {
 abstract class USubscribedRepoTombstone implements SubscribedRepo {
   const factory USubscribedRepoTombstone(
           {required final SubscribedRepoTombstone data}) =
-      _$USubscribedRepoTombstone;
+      _$USubscribedRepoTombstoneImpl;
 
   factory USubscribedRepoTombstone.fromJson(Map<String, dynamic> json) =
-      _$USubscribedRepoTombstone.fromJson;
+      _$USubscribedRepoTombstoneImpl.fromJson;
 
   @override
   SubscribedRepoTombstone get data;
   @JsonKey(ignore: true)
-  _$$USubscribedRepoTombstoneCopyWith<_$USubscribedRepoTombstone>
+  _$$USubscribedRepoTombstoneImplCopyWith<_$USubscribedRepoTombstoneImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$USubscribedRepoInfoCopyWith<$Res> {
-  factory _$$USubscribedRepoInfoCopyWith(_$USubscribedRepoInfo value,
-          $Res Function(_$USubscribedRepoInfo) then) =
-      __$$USubscribedRepoInfoCopyWithImpl<$Res>;
+abstract class _$$USubscribedRepoInfoImplCopyWith<$Res> {
+  factory _$$USubscribedRepoInfoImplCopyWith(_$USubscribedRepoInfoImpl value,
+          $Res Function(_$USubscribedRepoInfoImpl) then) =
+      __$$USubscribedRepoInfoImplCopyWithImpl<$Res>;
   @useResult
   $Res call({SubscribedRepoInfo data});
 
@@ -887,11 +894,11 @@ abstract class _$$USubscribedRepoInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$USubscribedRepoInfoCopyWithImpl<$Res>
-    extends _$SubscribedRepoCopyWithImpl<$Res, _$USubscribedRepoInfo>
-    implements _$$USubscribedRepoInfoCopyWith<$Res> {
-  __$$USubscribedRepoInfoCopyWithImpl(
-      _$USubscribedRepoInfo _value, $Res Function(_$USubscribedRepoInfo) _then)
+class __$$USubscribedRepoInfoImplCopyWithImpl<$Res>
+    extends _$SubscribedRepoCopyWithImpl<$Res, _$USubscribedRepoInfoImpl>
+    implements _$$USubscribedRepoInfoImplCopyWith<$Res> {
+  __$$USubscribedRepoInfoImplCopyWithImpl(_$USubscribedRepoInfoImpl _value,
+      $Res Function(_$USubscribedRepoInfoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -899,7 +906,7 @@ class __$$USubscribedRepoInfoCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$USubscribedRepoInfo(
+    return _then(_$USubscribedRepoInfoImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -918,12 +925,12 @@ class __$$USubscribedRepoInfoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$USubscribedRepoInfo implements USubscribedRepoInfo {
-  const _$USubscribedRepoInfo({required this.data, final String? $type})
+class _$USubscribedRepoInfoImpl implements USubscribedRepoInfo {
+  const _$USubscribedRepoInfoImpl({required this.data, final String? $type})
       : $type = $type ?? 'info';
 
-  factory _$USubscribedRepoInfo.fromJson(Map<String, dynamic> json) =>
-      _$$USubscribedRepoInfoFromJson(json);
+  factory _$USubscribedRepoInfoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$USubscribedRepoInfoImplFromJson(json);
 
   @override
   final SubscribedRepoInfo data;
@@ -940,7 +947,7 @@ class _$USubscribedRepoInfo implements USubscribedRepoInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$USubscribedRepoInfo &&
+            other is _$USubscribedRepoInfoImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -951,8 +958,8 @@ class _$USubscribedRepoInfo implements USubscribedRepoInfo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$USubscribedRepoInfoCopyWith<_$USubscribedRepoInfo> get copyWith =>
-      __$$USubscribedRepoInfoCopyWithImpl<_$USubscribedRepoInfo>(
+  _$$USubscribedRepoInfoImplCopyWith<_$USubscribedRepoInfoImpl> get copyWith =>
+      __$$USubscribedRepoInfoImplCopyWithImpl<_$USubscribedRepoInfoImpl>(
           this, _$identity);
 
   @override
@@ -1043,7 +1050,7 @@ class _$USubscribedRepoInfo implements USubscribedRepoInfo {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$USubscribedRepoInfoToJson(
+    return _$$USubscribedRepoInfoImplToJson(
       this,
     );
   }
@@ -1051,33 +1058,35 @@ class _$USubscribedRepoInfo implements USubscribedRepoInfo {
 
 abstract class USubscribedRepoInfo implements SubscribedRepo {
   const factory USubscribedRepoInfo({required final SubscribedRepoInfo data}) =
-      _$USubscribedRepoInfo;
+      _$USubscribedRepoInfoImpl;
 
   factory USubscribedRepoInfo.fromJson(Map<String, dynamic> json) =
-      _$USubscribedRepoInfo.fromJson;
+      _$USubscribedRepoInfoImpl.fromJson;
 
   @override
   SubscribedRepoInfo get data;
   @JsonKey(ignore: true)
-  _$$USubscribedRepoInfoCopyWith<_$USubscribedRepoInfo> get copyWith =>
+  _$$USubscribedRepoInfoImplCopyWith<_$USubscribedRepoInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$USubscribedRepoUnknownCopyWith<$Res> {
-  factory _$$USubscribedRepoUnknownCopyWith(_$USubscribedRepoUnknown value,
-          $Res Function(_$USubscribedRepoUnknown) then) =
-      __$$USubscribedRepoUnknownCopyWithImpl<$Res>;
+abstract class _$$USubscribedRepoUnknownImplCopyWith<$Res> {
+  factory _$$USubscribedRepoUnknownImplCopyWith(
+          _$USubscribedRepoUnknownImpl value,
+          $Res Function(_$USubscribedRepoUnknownImpl) then) =
+      __$$USubscribedRepoUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$USubscribedRepoUnknownCopyWithImpl<$Res>
-    extends _$SubscribedRepoCopyWithImpl<$Res, _$USubscribedRepoUnknown>
-    implements _$$USubscribedRepoUnknownCopyWith<$Res> {
-  __$$USubscribedRepoUnknownCopyWithImpl(_$USubscribedRepoUnknown _value,
-      $Res Function(_$USubscribedRepoUnknown) _then)
+class __$$USubscribedRepoUnknownImplCopyWithImpl<$Res>
+    extends _$SubscribedRepoCopyWithImpl<$Res, _$USubscribedRepoUnknownImpl>
+    implements _$$USubscribedRepoUnknownImplCopyWith<$Res> {
+  __$$USubscribedRepoUnknownImplCopyWithImpl(
+      _$USubscribedRepoUnknownImpl _value,
+      $Res Function(_$USubscribedRepoUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1085,7 +1094,7 @@ class __$$USubscribedRepoUnknownCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$USubscribedRepoUnknown(
+    return _then(_$USubscribedRepoUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -1096,14 +1105,14 @@ class __$$USubscribedRepoUnknownCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$USubscribedRepoUnknown implements USubscribedRepoUnknown {
-  const _$USubscribedRepoUnknown(
+class _$USubscribedRepoUnknownImpl implements USubscribedRepoUnknown {
+  const _$USubscribedRepoUnknownImpl(
       {required final Map<String, dynamic> data, final String? $type})
       : _data = data,
         $type = $type ?? 'unknown';
 
-  factory _$USubscribedRepoUnknown.fromJson(Map<String, dynamic> json) =>
-      _$$USubscribedRepoUnknownFromJson(json);
+  factory _$USubscribedRepoUnknownImpl.fromJson(Map<String, dynamic> json) =>
+      _$$USubscribedRepoUnknownImplFromJson(json);
 
   final Map<String, dynamic> _data;
   @override
@@ -1125,7 +1134,7 @@ class _$USubscribedRepoUnknown implements USubscribedRepoUnknown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$USubscribedRepoUnknown &&
+            other is _$USubscribedRepoUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -1137,9 +1146,9 @@ class _$USubscribedRepoUnknown implements USubscribedRepoUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$USubscribedRepoUnknownCopyWith<_$USubscribedRepoUnknown> get copyWith =>
-      __$$USubscribedRepoUnknownCopyWithImpl<_$USubscribedRepoUnknown>(
-          this, _$identity);
+  _$$USubscribedRepoUnknownImplCopyWith<_$USubscribedRepoUnknownImpl>
+      get copyWith => __$$USubscribedRepoUnknownImplCopyWithImpl<
+          _$USubscribedRepoUnknownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1229,7 +1238,7 @@ class _$USubscribedRepoUnknown implements USubscribedRepoUnknown {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$USubscribedRepoUnknownToJson(
+    return _$$USubscribedRepoUnknownImplToJson(
       this,
     );
   }
@@ -1237,14 +1246,15 @@ class _$USubscribedRepoUnknown implements USubscribedRepoUnknown {
 
 abstract class USubscribedRepoUnknown implements SubscribedRepo {
   const factory USubscribedRepoUnknown(
-      {required final Map<String, dynamic> data}) = _$USubscribedRepoUnknown;
+          {required final Map<String, dynamic> data}) =
+      _$USubscribedRepoUnknownImpl;
 
   factory USubscribedRepoUnknown.fromJson(Map<String, dynamic> json) =
-      _$USubscribedRepoUnknown.fromJson;
+      _$USubscribedRepoUnknownImpl.fromJson;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$USubscribedRepoUnknownCopyWith<_$USubscribedRepoUnknown> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$USubscribedRepoUnknownImplCopyWith<_$USubscribedRepoUnknownImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -96,11 +96,11 @@ class _$ThreadgateRecordCopyWithImpl<$Res, $Val extends ThreadgateRecord>
 }
 
 /// @nodoc
-abstract class _$$_ThreadgateRecordCopyWith<$Res>
+abstract class _$$ThreadgateRecordImplCopyWith<$Res>
     implements $ThreadgateRecordCopyWith<$Res> {
-  factory _$$_ThreadgateRecordCopyWith(
-          _$_ThreadgateRecord value, $Res Function(_$_ThreadgateRecord) then) =
-      __$$_ThreadgateRecordCopyWithImpl<$Res>;
+  factory _$$ThreadgateRecordImplCopyWith(_$ThreadgateRecordImpl value,
+          $Res Function(_$ThreadgateRecordImpl) then) =
+      __$$ThreadgateRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -111,11 +111,11 @@ abstract class _$$_ThreadgateRecordCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ThreadgateRecordCopyWithImpl<$Res>
-    extends _$ThreadgateRecordCopyWithImpl<$Res, _$_ThreadgateRecord>
-    implements _$$_ThreadgateRecordCopyWith<$Res> {
-  __$$_ThreadgateRecordCopyWithImpl(
-      _$_ThreadgateRecord _value, $Res Function(_$_ThreadgateRecord) _then)
+class __$$ThreadgateRecordImplCopyWithImpl<$Res>
+    extends _$ThreadgateRecordCopyWithImpl<$Res, _$ThreadgateRecordImpl>
+    implements _$$ThreadgateRecordImplCopyWith<$Res> {
+  __$$ThreadgateRecordImplCopyWithImpl(_$ThreadgateRecordImpl _value,
+      $Res Function(_$ThreadgateRecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -126,7 +126,7 @@ class __$$_ThreadgateRecordCopyWithImpl<$Res>
     Object? allowRules = freezed,
     Object? createdAt = null,
   }) {
-    return _then(_$_ThreadgateRecord(
+    return _then(_$ThreadgateRecordImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -150,8 +150,8 @@ class __$$_ThreadgateRecordCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ThreadgateRecord implements _ThreadgateRecord {
-  const _$_ThreadgateRecord(
+class _$ThreadgateRecordImpl implements _ThreadgateRecord {
+  const _$ThreadgateRecordImpl(
       {@typeKey this.type = appBskyFeedThreadgate,
       @atUriConverter @JsonKey(name: 'post') required this.postUri,
       @threadRuleConverter
@@ -160,8 +160,8 @@ class _$_ThreadgateRecord implements _ThreadgateRecord {
       required this.createdAt})
       : _allowRules = allowRules;
 
-  factory _$_ThreadgateRecord.fromJson(Map<String, dynamic> json) =>
-      _$$_ThreadgateRecordFromJson(json);
+  factory _$ThreadgateRecordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ThreadgateRecordImplFromJson(json);
 
   /// The type of the threadgate record.
   @override
@@ -202,7 +202,7 @@ class _$_ThreadgateRecord implements _ThreadgateRecord {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ThreadgateRecord &&
+            other is _$ThreadgateRecordImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.postUri, postUri) || other.postUri == postUri) &&
             const DeepCollectionEquality()
@@ -219,12 +219,13 @@ class _$_ThreadgateRecord implements _ThreadgateRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ThreadgateRecordCopyWith<_$_ThreadgateRecord> get copyWith =>
-      __$$_ThreadgateRecordCopyWithImpl<_$_ThreadgateRecord>(this, _$identity);
+  _$$ThreadgateRecordImplCopyWith<_$ThreadgateRecordImpl> get copyWith =>
+      __$$ThreadgateRecordImplCopyWithImpl<_$ThreadgateRecordImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ThreadgateRecordToJson(
+    return _$$ThreadgateRecordImplToJson(
       this,
     );
   }
@@ -237,10 +238,10 @@ abstract class _ThreadgateRecord implements ThreadgateRecord {
       @threadRuleConverter
       @JsonKey(name: 'allow')
       final List<ThreadRule>? allowRules,
-      required final DateTime createdAt}) = _$_ThreadgateRecord;
+      required final DateTime createdAt}) = _$ThreadgateRecordImpl;
 
   factory _ThreadgateRecord.fromJson(Map<String, dynamic> json) =
-      _$_ThreadgateRecord.fromJson;
+      _$ThreadgateRecordImpl.fromJson;
 
   @override
 
@@ -265,6 +266,6 @@ abstract class _ThreadgateRecord implements ThreadgateRecord {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$_ThreadgateRecordCopyWith<_$_ThreadgateRecord> get copyWith =>
+  _$$ThreadgateRecordImplCopyWith<_$ThreadgateRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -8,11 +8,11 @@ part of 'threadgate_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ThreadgateView _$$_ThreadgateViewFromJson(Map json) => $checkedCreate(
-      r'_$_ThreadgateView',
+_$ThreadgateViewImpl _$$ThreadgateViewImplFromJson(Map json) => $checkedCreate(
+      r'_$ThreadgateViewImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ThreadgateView(
+        final val = _$ThreadgateViewImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsThreadgateView),
           uri: $checkedConvert(
@@ -38,7 +38,8 @@ _$_ThreadgateView _$$_ThreadgateViewFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$_ThreadgateViewToJson(_$_ThreadgateView instance) {
+Map<String, dynamic> _$$ThreadgateViewImplToJson(
+    _$ThreadgateViewImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
   };

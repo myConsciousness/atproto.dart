@@ -141,11 +141,12 @@ class _$PostModerationDecisionsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_PostModerationDecisionsCopyWith<$Res>
+abstract class _$$PostModerationDecisionsImplCopyWith<$Res>
     implements $PostModerationDecisionsCopyWith<$Res> {
-  factory _$$_PostModerationDecisionsCopyWith(_$_PostModerationDecisions value,
-          $Res Function(_$_PostModerationDecisions) then) =
-      __$$_PostModerationDecisionsCopyWithImpl<$Res>;
+  factory _$$PostModerationDecisionsImplCopyWith(
+          _$PostModerationDecisionsImpl value,
+          $Res Function(_$PostModerationDecisionsImpl) then) =
+      __$$PostModerationDecisionsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -168,12 +169,13 @@ abstract class _$$_PostModerationDecisionsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PostModerationDecisionsCopyWithImpl<$Res>
+class __$$PostModerationDecisionsImplCopyWithImpl<$Res>
     extends _$PostModerationDecisionsCopyWithImpl<$Res,
-        _$_PostModerationDecisions>
-    implements _$$_PostModerationDecisionsCopyWith<$Res> {
-  __$$_PostModerationDecisionsCopyWithImpl(_$_PostModerationDecisions _value,
-      $Res Function(_$_PostModerationDecisions) _then)
+        _$PostModerationDecisionsImpl>
+    implements _$$PostModerationDecisionsImplCopyWith<$Res> {
+  __$$PostModerationDecisionsImplCopyWithImpl(
+      _$PostModerationDecisionsImpl _value,
+      $Res Function(_$PostModerationDecisionsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -185,7 +187,7 @@ class __$$_PostModerationDecisionsCopyWithImpl<$Res>
     Object? quote = freezed,
     Object? quotedAccount = freezed,
   }) {
-    return _then(_$_PostModerationDecisions(
+    return _then(_$PostModerationDecisionsImpl(
       post: null == post
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
@@ -212,8 +214,8 @@ class __$$_PostModerationDecisionsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PostModerationDecisions implements _PostModerationDecisions {
-  const _$_PostModerationDecisions(
+class _$PostModerationDecisionsImpl implements _PostModerationDecisions {
+  const _$PostModerationDecisionsImpl(
       {required this.post,
       required this.account,
       required this.profile,
@@ -240,7 +242,7 @@ class _$_PostModerationDecisions implements _PostModerationDecisions {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PostModerationDecisions &&
+            other is _$PostModerationDecisionsImpl &&
             (identical(other.post, post) || other.post == post) &&
             (identical(other.account, account) || other.account == account) &&
             (identical(other.profile, profile) || other.profile == profile) &&
@@ -256,10 +258,9 @@ class _$_PostModerationDecisions implements _PostModerationDecisions {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PostModerationDecisionsCopyWith<_$_PostModerationDecisions>
-      get copyWith =>
-          __$$_PostModerationDecisionsCopyWithImpl<_$_PostModerationDecisions>(
-              this, _$identity);
+  _$$PostModerationDecisionsImplCopyWith<_$PostModerationDecisionsImpl>
+      get copyWith => __$$PostModerationDecisionsImplCopyWithImpl<
+          _$PostModerationDecisionsImpl>(this, _$identity);
 }
 
 abstract class _PostModerationDecisions implements PostModerationDecisions {
@@ -268,7 +269,7 @@ abstract class _PostModerationDecisions implements PostModerationDecisions {
       required final ModerationDecision account,
       required final ModerationDecision profile,
       final ModerationDecision? quote,
-      final ModerationDecision? quotedAccount}) = _$_PostModerationDecisions;
+      final ModerationDecision? quotedAccount}) = _$PostModerationDecisionsImpl;
 
   @override
   ModerationDecision get post;
@@ -282,6 +283,6 @@ abstract class _PostModerationDecisions implements PostModerationDecisions {
   ModerationDecision? get quotedAccount;
   @override
   @JsonKey(ignore: true)
-  _$$_PostModerationDecisionsCopyWith<_$_PostModerationDecisions>
+  _$$PostModerationDecisionsImplCopyWith<_$PostModerationDecisionsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

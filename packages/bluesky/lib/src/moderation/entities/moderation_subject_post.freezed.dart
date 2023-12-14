@@ -100,12 +100,12 @@ class _$ModerationSubjectPostCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$UModerationSubjectPostPostCopyWith<$Res>
+abstract class _$$UModerationSubjectPostPostImplCopyWith<$Res>
     implements $ModerationSubjectPostCopyWith<$Res> {
-  factory _$$UModerationSubjectPostPostCopyWith(
-          _$UModerationSubjectPostPost value,
-          $Res Function(_$UModerationSubjectPostPost) then) =
-      __$$UModerationSubjectPostPostCopyWithImpl<$Res>;
+  factory _$$UModerationSubjectPostPostImplCopyWith(
+          _$UModerationSubjectPostPostImpl value,
+          $Res Function(_$UModerationSubjectPostPostImpl) then) =
+      __$$UModerationSubjectPostPostImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Post data});
@@ -115,13 +115,13 @@ abstract class _$$UModerationSubjectPostPostCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$UModerationSubjectPostPostCopyWithImpl<$Res>
+class __$$UModerationSubjectPostPostImplCopyWithImpl<$Res>
     extends _$ModerationSubjectPostCopyWithImpl<$Res,
-        _$UModerationSubjectPostPost>
-    implements _$$UModerationSubjectPostPostCopyWith<$Res> {
-  __$$UModerationSubjectPostPostCopyWithImpl(
-      _$UModerationSubjectPostPost _value,
-      $Res Function(_$UModerationSubjectPostPost) _then)
+        _$UModerationSubjectPostPostImpl>
+    implements _$$UModerationSubjectPostPostImplCopyWith<$Res> {
+  __$$UModerationSubjectPostPostImplCopyWithImpl(
+      _$UModerationSubjectPostPostImpl _value,
+      $Res Function(_$UModerationSubjectPostPostImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -129,7 +129,7 @@ class __$$UModerationSubjectPostPostCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UModerationSubjectPostPost(
+    return _then(_$UModerationSubjectPostPostImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -140,8 +140,8 @@ class __$$UModerationSubjectPostPostCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationSubjectPostPost implements UModerationSubjectPostPost {
-  const _$UModerationSubjectPostPost({required this.data});
+class _$UModerationSubjectPostPostImpl implements UModerationSubjectPostPost {
+  const _$UModerationSubjectPostPostImpl({required this.data});
 
   @override
   final Post data;
@@ -155,7 +155,7 @@ class _$UModerationSubjectPostPost implements UModerationSubjectPostPost {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UModerationSubjectPostPost &&
+            other is _$UModerationSubjectPostPostImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -165,9 +165,9 @@ class _$UModerationSubjectPostPost implements UModerationSubjectPostPost {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UModerationSubjectPostPostCopyWith<_$UModerationSubjectPostPost>
-      get copyWith => __$$UModerationSubjectPostPostCopyWithImpl<
-          _$UModerationSubjectPostPost>(this, _$identity);
+  _$$UModerationSubjectPostPostImplCopyWith<_$UModerationSubjectPostPostImpl>
+      get copyWith => __$$UModerationSubjectPostPostImplCopyWithImpl<
+          _$UModerationSubjectPostPostImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -228,12 +228,12 @@ class _$UModerationSubjectPostPost implements UModerationSubjectPostPost {
 
 abstract class UModerationSubjectPostPost implements ModerationSubjectPost {
   const factory UModerationSubjectPostPost({required final Post data}) =
-      _$UModerationSubjectPostPost;
+      _$UModerationSubjectPostPostImpl;
 
   @override
   Post get data;
   @override
   @JsonKey(ignore: true)
-  _$$UModerationSubjectPostPostCopyWith<_$UModerationSubjectPostPost>
+  _$$UModerationSubjectPostPostImplCopyWith<_$UModerationSubjectPostPostImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

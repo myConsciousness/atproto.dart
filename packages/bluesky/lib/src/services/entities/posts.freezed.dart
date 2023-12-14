@@ -61,18 +61,21 @@ class _$PostsCopyWithImpl<$Res, $Val extends Posts>
 }
 
 /// @nodoc
-abstract class _$$_PostsCopyWith<$Res> implements $PostsCopyWith<$Res> {
-  factory _$$_PostsCopyWith(_$_Posts value, $Res Function(_$_Posts) then) =
-      __$$_PostsCopyWithImpl<$Res>;
+abstract class _$$PostsImplCopyWith<$Res> implements $PostsCopyWith<$Res> {
+  factory _$$PostsImplCopyWith(
+          _$PostsImpl value, $Res Function(_$PostsImpl) then) =
+      __$$PostsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Post> posts});
 }
 
 /// @nodoc
-class __$$_PostsCopyWithImpl<$Res> extends _$PostsCopyWithImpl<$Res, _$_Posts>
-    implements _$$_PostsCopyWith<$Res> {
-  __$$_PostsCopyWithImpl(_$_Posts _value, $Res Function(_$_Posts) _then)
+class __$$PostsImplCopyWithImpl<$Res>
+    extends _$PostsCopyWithImpl<$Res, _$PostsImpl>
+    implements _$$PostsImplCopyWith<$Res> {
+  __$$PostsImplCopyWithImpl(
+      _$PostsImpl _value, $Res Function(_$PostsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -80,7 +83,7 @@ class __$$_PostsCopyWithImpl<$Res> extends _$PostsCopyWithImpl<$Res, _$_Posts>
   $Res call({
     Object? posts = null,
   }) {
-    return _then(_$_Posts(
+    return _then(_$PostsImpl(
       posts: null == posts
           ? _value._posts
           : posts // ignore: cast_nullable_to_non_nullable
@@ -91,11 +94,11 @@ class __$$_PostsCopyWithImpl<$Res> extends _$PostsCopyWithImpl<$Res, _$_Posts>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Posts implements _Posts {
-  const _$_Posts({required final List<Post> posts}) : _posts = posts;
+class _$PostsImpl implements _Posts {
+  const _$PostsImpl({required final List<Post> posts}) : _posts = posts;
 
-  factory _$_Posts.fromJson(Map<String, dynamic> json) =>
-      _$$_PostsFromJson(json);
+  factory _$PostsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostsImplFromJson(json);
 
   /// The list of [Post] instances.
   final List<Post> _posts;
@@ -117,7 +120,7 @@ class _$_Posts implements _Posts {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Posts &&
+            other is _$PostsImpl &&
             const DeepCollectionEquality().equals(other._posts, _posts));
   }
 
@@ -129,21 +132,21 @@ class _$_Posts implements _Posts {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PostsCopyWith<_$_Posts> get copyWith =>
-      __$$_PostsCopyWithImpl<_$_Posts>(this, _$identity);
+  _$$PostsImplCopyWith<_$PostsImpl> get copyWith =>
+      __$$PostsImplCopyWithImpl<_$PostsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PostsToJson(
+    return _$$PostsImplToJson(
       this,
     );
   }
 }
 
 abstract class _Posts implements Posts {
-  const factory _Posts({required final List<Post> posts}) = _$_Posts;
+  const factory _Posts({required final List<Post> posts}) = _$PostsImpl;
 
-  factory _Posts.fromJson(Map<String, dynamic> json) = _$_Posts.fromJson;
+  factory _Posts.fromJson(Map<String, dynamic> json) = _$PostsImpl.fromJson;
 
   @override
 
@@ -151,6 +154,6 @@ abstract class _Posts implements Posts {
   List<Post> get posts;
   @override
   @JsonKey(ignore: true)
-  _$$_PostsCopyWith<_$_Posts> get copyWith =>
+  _$$PostsImplCopyWith<_$PostsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

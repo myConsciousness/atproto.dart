@@ -8,11 +8,11 @@ part of 'post_ref.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PostRef _$$_PostRefFromJson(Map json) => $checkedCreate(
-      r'_$_PostRef',
+_$PostRefImpl _$$PostRefImplFromJson(Map json) => $checkedCreate(
+      r'_$PostRefImpl',
       json,
       ($checkedConvert) {
-        final val = _$_PostRef(
+        final val = _$PostRefImpl(
           root: $checkedConvert('root',
               (v) => StrongRef.fromJson(Map<String, Object?>.from(v as Map))),
           parent: $checkedConvert('parent',
@@ -22,7 +22,7 @@ _$_PostRef _$$_PostRefFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_PostRefToJson(_$_PostRef instance) =>
+Map<String, dynamic> _$$PostRefImplToJson(_$PostRefImpl instance) =>
     <String, dynamic>{
       'root': instance.root.toJson(),
       'parent': instance.parent.toJson(),

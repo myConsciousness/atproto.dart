@@ -116,11 +116,11 @@ class _$PostModerationCopyWithImpl<$Res, $Val extends PostModeration>
 }
 
 /// @nodoc
-abstract class _$$_PostModerationCopyWith<$Res>
+abstract class _$$PostModerationImplCopyWith<$Res>
     implements $PostModerationCopyWith<$Res> {
-  factory _$$_PostModerationCopyWith(
-          _$_PostModeration value, $Res Function(_$_PostModeration) then) =
-      __$$_PostModerationCopyWithImpl<$Res>;
+  factory _$$PostModerationImplCopyWith(_$PostModerationImpl value,
+          $Res Function(_$PostModerationImpl) then) =
+      __$$PostModerationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -140,11 +140,11 @@ abstract class _$$_PostModerationCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PostModerationCopyWithImpl<$Res>
-    extends _$PostModerationCopyWithImpl<$Res, _$_PostModeration>
-    implements _$$_PostModerationCopyWith<$Res> {
-  __$$_PostModerationCopyWithImpl(
-      _$_PostModeration _value, $Res Function(_$_PostModeration) _then)
+class __$$PostModerationImplCopyWithImpl<$Res>
+    extends _$PostModerationCopyWithImpl<$Res, _$PostModerationImpl>
+    implements _$$PostModerationImplCopyWith<$Res> {
+  __$$PostModerationImplCopyWithImpl(
+      _$PostModerationImpl _value, $Res Function(_$PostModerationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -155,7 +155,7 @@ class __$$_PostModerationCopyWithImpl<$Res>
     Object? avatar = null,
     Object? embed = null,
   }) {
-    return _then(_$_PostModeration(
+    return _then(_$PostModerationImpl(
       decisions: null == decisions
           ? _value.decisions
           : decisions // ignore: cast_nullable_to_non_nullable
@@ -178,8 +178,8 @@ class __$$_PostModerationCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PostModeration implements _PostModeration {
-  const _$_PostModeration(
+class _$PostModerationImpl implements _PostModeration {
+  const _$PostModerationImpl(
       {required this.decisions,
       this.content = defaultModerationUI,
       this.avatar = defaultModerationUI,
@@ -206,7 +206,7 @@ class _$_PostModeration implements _PostModeration {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PostModeration &&
+            other is _$PostModerationImpl &&
             (identical(other.decisions, decisions) ||
                 other.decisions == decisions) &&
             (identical(other.content, content) || other.content == content) &&
@@ -221,8 +221,9 @@ class _$_PostModeration implements _PostModeration {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PostModerationCopyWith<_$_PostModeration> get copyWith =>
-      __$$_PostModerationCopyWithImpl<_$_PostModeration>(this, _$identity);
+  _$$PostModerationImplCopyWith<_$PostModerationImpl> get copyWith =>
+      __$$PostModerationImplCopyWithImpl<_$PostModerationImpl>(
+          this, _$identity);
 }
 
 abstract class _PostModeration implements PostModeration {
@@ -230,7 +231,7 @@ abstract class _PostModeration implements PostModeration {
       {required final PostModerationDecisions decisions,
       final ModerationUI content,
       final ModerationUI avatar,
-      final ModerationUI embed}) = _$_PostModeration;
+      final ModerationUI embed}) = _$PostModerationImpl;
 
   @override
   PostModerationDecisions get decisions;
@@ -242,6 +243,6 @@ abstract class _PostModeration implements PostModeration {
   ModerationUI get embed;
   @override
   @JsonKey(ignore: true)
-  _$$_PostModerationCopyWith<_$_PostModeration> get copyWith =>
+  _$$PostModerationImplCopyWith<_$PostModerationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

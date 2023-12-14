@@ -8,12 +8,12 @@ part of 'embed_view_external_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_EmbedViewExternalView _$$_EmbedViewExternalViewFromJson(Map json) =>
+_$EmbedViewExternalViewImpl _$$EmbedViewExternalViewImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$_EmbedViewExternalView',
+      r'_$EmbedViewExternalViewImpl',
       json,
       ($checkedConvert) {
-        final val = _$_EmbedViewExternalView(
+        final val = _$EmbedViewExternalViewImpl(
           uri: $checkedConvert('uri', (v) => v as String),
           title: $checkedConvert('title', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String),
@@ -24,8 +24,8 @@ _$_EmbedViewExternalView _$$_EmbedViewExternalViewFromJson(Map json) =>
       fieldKeyMap: const {'thumbnail': 'thumb'},
     );
 
-Map<String, dynamic> _$$_EmbedViewExternalViewToJson(
-    _$_EmbedViewExternalView instance) {
+Map<String, dynamic> _$$EmbedViewExternalViewImplToJson(
+    _$EmbedViewExternalViewImpl instance) {
   final val = <String, dynamic>{
     'uri': instance.uri,
     'title': instance.title,

@@ -8,13 +8,13 @@ part of 'embed_view_record_view_not_found.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_EmbedViewRecordViewNotFound _$$_EmbedViewRecordViewNotFoundFromJson(
+_$EmbedViewRecordViewNotFoundImpl _$$EmbedViewRecordViewNotFoundImplFromJson(
         Map json) =>
     $checkedCreate(
-      r'_$_EmbedViewRecordViewNotFound',
+      r'_$EmbedViewRecordViewNotFoundImpl',
       json,
       ($checkedConvert) {
-        final val = _$_EmbedViewRecordViewNotFound(
+        final val = _$EmbedViewRecordViewNotFoundImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyEmbedRecordViewNotFound),
           uri: $checkedConvert(
@@ -26,8 +26,8 @@ _$_EmbedViewRecordViewNotFound _$$_EmbedViewRecordViewNotFoundFromJson(
       fieldKeyMap: const {'type': r'$type', 'isNotFound': 'notFound'},
     );
 
-Map<String, dynamic> _$$_EmbedViewRecordViewNotFoundToJson(
-        _$_EmbedViewRecordViewNotFound instance) =>
+Map<String, dynamic> _$$EmbedViewRecordViewNotFoundImplToJson(
+        _$EmbedViewRecordViewNotFoundImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'uri': atUriConverter.toJson(instance.uri),

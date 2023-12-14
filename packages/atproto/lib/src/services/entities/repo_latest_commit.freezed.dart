@@ -71,22 +71,22 @@ class _$RepoLatestCommitCopyWithImpl<$Res, $Val extends RepoLatestCommit>
 }
 
 /// @nodoc
-abstract class _$$_RepoLatestCommitCopyWith<$Res>
+abstract class _$$RepoLatestCommitImplCopyWith<$Res>
     implements $RepoLatestCommitCopyWith<$Res> {
-  factory _$$_RepoLatestCommitCopyWith(
-          _$_RepoLatestCommit value, $Res Function(_$_RepoLatestCommit) then) =
-      __$$_RepoLatestCommitCopyWithImpl<$Res>;
+  factory _$$RepoLatestCommitImplCopyWith(_$RepoLatestCommitImpl value,
+          $Res Function(_$RepoLatestCommitImpl) then) =
+      __$$RepoLatestCommitImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String cid, String rev});
 }
 
 /// @nodoc
-class __$$_RepoLatestCommitCopyWithImpl<$Res>
-    extends _$RepoLatestCommitCopyWithImpl<$Res, _$_RepoLatestCommit>
-    implements _$$_RepoLatestCommitCopyWith<$Res> {
-  __$$_RepoLatestCommitCopyWithImpl(
-      _$_RepoLatestCommit _value, $Res Function(_$_RepoLatestCommit) _then)
+class __$$RepoLatestCommitImplCopyWithImpl<$Res>
+    extends _$RepoLatestCommitCopyWithImpl<$Res, _$RepoLatestCommitImpl>
+    implements _$$RepoLatestCommitImplCopyWith<$Res> {
+  __$$RepoLatestCommitImplCopyWithImpl(_$RepoLatestCommitImpl _value,
+      $Res Function(_$RepoLatestCommitImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,7 +95,7 @@ class __$$_RepoLatestCommitCopyWithImpl<$Res>
     Object? cid = null,
     Object? rev = null,
   }) {
-    return _then(_$_RepoLatestCommit(
+    return _then(_$RepoLatestCommitImpl(
       cid: null == cid
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
@@ -110,11 +110,11 @@ class __$$_RepoLatestCommitCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RepoLatestCommit implements _RepoLatestCommit {
-  const _$_RepoLatestCommit({required this.cid, required this.rev});
+class _$RepoLatestCommitImpl implements _RepoLatestCommit {
+  const _$RepoLatestCommitImpl({required this.cid, required this.rev});
 
-  factory _$_RepoLatestCommit.fromJson(Map<String, dynamic> json) =>
-      _$$_RepoLatestCommitFromJson(json);
+  factory _$RepoLatestCommitImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RepoLatestCommitImplFromJson(json);
 
   /// The latest Content Identifier (CID) of the repository.
   @override
@@ -133,7 +133,7 @@ class _$_RepoLatestCommit implements _RepoLatestCommit {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RepoLatestCommit &&
+            other is _$RepoLatestCommitImpl &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.rev, rev) || other.rev == rev));
   }
@@ -145,12 +145,13 @@ class _$_RepoLatestCommit implements _RepoLatestCommit {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RepoLatestCommitCopyWith<_$_RepoLatestCommit> get copyWith =>
-      __$$_RepoLatestCommitCopyWithImpl<_$_RepoLatestCommit>(this, _$identity);
+  _$$RepoLatestCommitImplCopyWith<_$RepoLatestCommitImpl> get copyWith =>
+      __$$RepoLatestCommitImplCopyWithImpl<_$RepoLatestCommitImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RepoLatestCommitToJson(
+    return _$$RepoLatestCommitImplToJson(
       this,
     );
   }
@@ -159,10 +160,10 @@ class _$_RepoLatestCommit implements _RepoLatestCommit {
 abstract class _RepoLatestCommit implements RepoLatestCommit {
   const factory _RepoLatestCommit(
       {required final String cid,
-      required final String rev}) = _$_RepoLatestCommit;
+      required final String rev}) = _$RepoLatestCommitImpl;
 
   factory _RepoLatestCommit.fromJson(Map<String, dynamic> json) =
-      _$_RepoLatestCommit.fromJson;
+      _$RepoLatestCommitImpl.fromJson;
 
   @override
 
@@ -174,6 +175,6 @@ abstract class _RepoLatestCommit implements RepoLatestCommit {
   String get rev;
   @override
   @JsonKey(ignore: true)
-  _$$_RepoLatestCommitCopyWith<_$_RepoLatestCommit> get copyWith =>
+  _$$RepoLatestCommitImplCopyWith<_$RepoLatestCommitImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

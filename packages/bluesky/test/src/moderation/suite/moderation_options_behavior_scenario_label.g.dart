@@ -8,13 +8,13 @@ part of 'moderation_options_behavior_scenario_label.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ModerationOptionsBehaviorScenarioLabel
-    _$$_ModerationOptionsBehaviorScenarioLabelFromJson(Map json) =>
+_$ModerationOptionsBehaviorScenarioLabelImpl
+    _$$ModerationOptionsBehaviorScenarioLabelImplFromJson(Map json) =>
         $checkedCreate(
-          r'_$_ModerationOptionsBehaviorScenarioLabel',
+          r'_$ModerationOptionsBehaviorScenarioLabelImpl',
           json,
           ($checkedConvert) {
-            final val = _$_ModerationOptionsBehaviorScenarioLabel(
+            final val = _$ModerationOptionsBehaviorScenarioLabelImpl(
               label: $checkedConvert('label', (v) => v as String),
               visibility: $checkedConvert('visibility',
                   (v) => $enumDecode(_$ContentLabelVisibilityEnumMap, v)),
@@ -23,8 +23,8 @@ _$_ModerationOptionsBehaviorScenarioLabel
           },
         );
 
-Map<String, dynamic> _$$_ModerationOptionsBehaviorScenarioLabelToJson(
-        _$_ModerationOptionsBehaviorScenarioLabel instance) =>
+Map<String, dynamic> _$$ModerationOptionsBehaviorScenarioLabelImplToJson(
+        _$ModerationOptionsBehaviorScenarioLabelImpl instance) =>
     <String, dynamic>{
       'label': instance.label,
       'visibility': _$ContentLabelVisibilityEnumMap[instance.visibility]!,

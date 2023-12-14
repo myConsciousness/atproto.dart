@@ -72,22 +72,22 @@ class _$SelfLabelsCopyWithImpl<$Res, $Val extends SelfLabels>
 }
 
 /// @nodoc
-abstract class _$$_SelfLabelsCopyWith<$Res>
+abstract class _$$SelfLabelsImplCopyWith<$Res>
     implements $SelfLabelsCopyWith<$Res> {
-  factory _$$_SelfLabelsCopyWith(
-          _$_SelfLabels value, $Res Function(_$_SelfLabels) then) =
-      __$$_SelfLabelsCopyWithImpl<$Res>;
+  factory _$$SelfLabelsImplCopyWith(
+          _$SelfLabelsImpl value, $Res Function(_$SelfLabelsImpl) then) =
+      __$$SelfLabelsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, List<SelfLabel> values});
 }
 
 /// @nodoc
-class __$$_SelfLabelsCopyWithImpl<$Res>
-    extends _$SelfLabelsCopyWithImpl<$Res, _$_SelfLabels>
-    implements _$$_SelfLabelsCopyWith<$Res> {
-  __$$_SelfLabelsCopyWithImpl(
-      _$_SelfLabels _value, $Res Function(_$_SelfLabels) _then)
+class __$$SelfLabelsImplCopyWithImpl<$Res>
+    extends _$SelfLabelsCopyWithImpl<$Res, _$SelfLabelsImpl>
+    implements _$$SelfLabelsImplCopyWith<$Res> {
+  __$$SelfLabelsImplCopyWithImpl(
+      _$SelfLabelsImpl _value, $Res Function(_$SelfLabelsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -96,7 +96,7 @@ class __$$_SelfLabelsCopyWithImpl<$Res>
     Object? type = null,
     Object? values = null,
   }) {
-    return _then(_$_SelfLabels(
+    return _then(_$SelfLabelsImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -111,14 +111,14 @@ class __$$_SelfLabelsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SelfLabels implements _SelfLabels {
-  const _$_SelfLabels(
+class _$SelfLabelsImpl implements _SelfLabels {
+  const _$SelfLabelsImpl(
       {@typeKey this.type = comAtprotoLabelDefsSelfLabels,
       required final List<SelfLabel> values})
       : _values = values;
 
-  factory _$_SelfLabels.fromJson(Map<String, dynamic> json) =>
-      _$$_SelfLabelsFromJson(json);
+  factory _$SelfLabelsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SelfLabelsImplFromJson(json);
 
   /// [comAtprotoLabelDefsSelfLabels]
   @override
@@ -145,7 +145,7 @@ class _$_SelfLabels implements _SelfLabels {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SelfLabels &&
+            other is _$SelfLabelsImpl &&
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._values, _values));
   }
@@ -158,12 +158,12 @@ class _$_SelfLabels implements _SelfLabels {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SelfLabelsCopyWith<_$_SelfLabels> get copyWith =>
-      __$$_SelfLabelsCopyWithImpl<_$_SelfLabels>(this, _$identity);
+  _$$SelfLabelsImplCopyWith<_$SelfLabelsImpl> get copyWith =>
+      __$$SelfLabelsImplCopyWithImpl<_$SelfLabelsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SelfLabelsToJson(
+    return _$$SelfLabelsImplToJson(
       this,
     );
   }
@@ -172,10 +172,10 @@ class _$_SelfLabels implements _SelfLabels {
 abstract class _SelfLabels implements SelfLabels {
   const factory _SelfLabels(
       {@typeKey final String type,
-      required final List<SelfLabel> values}) = _$_SelfLabels;
+      required final List<SelfLabel> values}) = _$SelfLabelsImpl;
 
   factory _SelfLabels.fromJson(Map<String, dynamic> json) =
-      _$_SelfLabels.fromJson;
+      _$SelfLabelsImpl.fromJson;
 
   @override
 
@@ -188,6 +188,6 @@ abstract class _SelfLabels implements SelfLabels {
   List<SelfLabel> get values;
   @override
   @JsonKey(ignore: true)
-  _$$_SelfLabelsCopyWith<_$_SelfLabels> get copyWith =>
+  _$$SelfLabelsImplCopyWith<_$SelfLabelsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

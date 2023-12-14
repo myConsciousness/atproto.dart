@@ -64,22 +64,22 @@ class _$PreferencesCopyWithImpl<$Res, $Val extends Preferences>
 }
 
 /// @nodoc
-abstract class _$$_PreferencesCopyWith<$Res>
+abstract class _$$PreferencesImplCopyWith<$Res>
     implements $PreferencesCopyWith<$Res> {
-  factory _$$_PreferencesCopyWith(
-          _$_Preferences value, $Res Function(_$_Preferences) then) =
-      __$$_PreferencesCopyWithImpl<$Res>;
+  factory _$$PreferencesImplCopyWith(
+          _$PreferencesImpl value, $Res Function(_$PreferencesImpl) then) =
+      __$$PreferencesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@preferenceConverter List<Preference> preferences});
 }
 
 /// @nodoc
-class __$$_PreferencesCopyWithImpl<$Res>
-    extends _$PreferencesCopyWithImpl<$Res, _$_Preferences>
-    implements _$$_PreferencesCopyWith<$Res> {
-  __$$_PreferencesCopyWithImpl(
-      _$_Preferences _value, $Res Function(_$_Preferences) _then)
+class __$$PreferencesImplCopyWithImpl<$Res>
+    extends _$PreferencesCopyWithImpl<$Res, _$PreferencesImpl>
+    implements _$$PreferencesImplCopyWith<$Res> {
+  __$$PreferencesImplCopyWithImpl(
+      _$PreferencesImpl _value, $Res Function(_$PreferencesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +87,7 @@ class __$$_PreferencesCopyWithImpl<$Res>
   $Res call({
     Object? preferences = null,
   }) {
-    return _then(_$_Preferences(
+    return _then(_$PreferencesImpl(
       preferences: null == preferences
           ? _value._preferences
           : preferences // ignore: cast_nullable_to_non_nullable
@@ -98,13 +98,13 @@ class __$$_PreferencesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Preferences implements _Preferences {
-  const _$_Preferences(
+class _$PreferencesImpl implements _Preferences {
+  const _$PreferencesImpl(
       {@preferenceConverter required final List<Preference> preferences})
       : _preferences = preferences;
 
-  factory _$_Preferences.fromJson(Map<String, dynamic> json) =>
-      _$$_PreferencesFromJson(json);
+  factory _$PreferencesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PreferencesImplFromJson(json);
 
   /// The list of user [Preference] instances.
   final List<Preference> _preferences;
@@ -127,7 +127,7 @@ class _$_Preferences implements _Preferences {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Preferences &&
+            other is _$PreferencesImpl &&
             const DeepCollectionEquality()
                 .equals(other._preferences, _preferences));
   }
@@ -140,12 +140,12 @@ class _$_Preferences implements _Preferences {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PreferencesCopyWith<_$_Preferences> get copyWith =>
-      __$$_PreferencesCopyWithImpl<_$_Preferences>(this, _$identity);
+  _$$PreferencesImplCopyWith<_$PreferencesImpl> get copyWith =>
+      __$$PreferencesImplCopyWithImpl<_$PreferencesImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PreferencesToJson(
+    return _$$PreferencesImplToJson(
       this,
     );
   }
@@ -154,10 +154,10 @@ class _$_Preferences implements _Preferences {
 abstract class _Preferences implements Preferences {
   const factory _Preferences(
           {@preferenceConverter required final List<Preference> preferences}) =
-      _$_Preferences;
+      _$PreferencesImpl;
 
   factory _Preferences.fromJson(Map<String, dynamic> json) =
-      _$_Preferences.fromJson;
+      _$PreferencesImpl.fromJson;
 
   @override
 
@@ -166,6 +166,6 @@ abstract class _Preferences implements Preferences {
   List<Preference> get preferences;
   @override
   @JsonKey(ignore: true)
-  _$$_PreferencesCopyWith<_$_Preferences> get copyWith =>
+  _$$PreferencesImplCopyWith<_$PreferencesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

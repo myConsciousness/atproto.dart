@@ -84,11 +84,11 @@ class _$FollowRecordCopyWithImpl<$Res, $Val extends FollowRecord>
 }
 
 /// @nodoc
-abstract class _$$_FollowRecordCopyWith<$Res>
+abstract class _$$FollowRecordImplCopyWith<$Res>
     implements $FollowRecordCopyWith<$Res> {
-  factory _$$_FollowRecordCopyWith(
-          _$_FollowRecord value, $Res Function(_$_FollowRecord) then) =
-      __$$_FollowRecordCopyWithImpl<$Res>;
+  factory _$$FollowRecordImplCopyWith(
+          _$FollowRecordImpl value, $Res Function(_$FollowRecordImpl) then) =
+      __$$FollowRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -98,11 +98,11 @@ abstract class _$$_FollowRecordCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_FollowRecordCopyWithImpl<$Res>
-    extends _$FollowRecordCopyWithImpl<$Res, _$_FollowRecord>
-    implements _$$_FollowRecordCopyWith<$Res> {
-  __$$_FollowRecordCopyWithImpl(
-      _$_FollowRecord _value, $Res Function(_$_FollowRecord) _then)
+class __$$FollowRecordImplCopyWithImpl<$Res>
+    extends _$FollowRecordCopyWithImpl<$Res, _$FollowRecordImpl>
+    implements _$$FollowRecordImplCopyWith<$Res> {
+  __$$FollowRecordImplCopyWithImpl(
+      _$FollowRecordImpl _value, $Res Function(_$FollowRecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +112,7 @@ class __$$_FollowRecordCopyWithImpl<$Res>
     Object? did = null,
     Object? createdAt = null,
   }) {
-    return _then(_$_FollowRecord(
+    return _then(_$FollowRecordImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -132,14 +132,14 @@ class __$$_FollowRecordCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_FollowRecord implements _FollowRecord {
-  const _$_FollowRecord(
+class _$FollowRecordImpl implements _FollowRecord {
+  const _$FollowRecordImpl(
       {@typeKey this.type = appBskyGraphFollow,
       @JsonKey(name: 'subject') required this.did,
       required this.createdAt});
 
-  factory _$_FollowRecord.fromJson(Map<String, dynamic> json) =>
-      _$$_FollowRecordFromJson(json);
+  factory _$FollowRecordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FollowRecordImplFromJson(json);
 
   /// Type of the record. Defaults to `appBskyGraphFollow`.
   @override
@@ -164,7 +164,7 @@ class _$_FollowRecord implements _FollowRecord {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FollowRecord &&
+            other is _$FollowRecordImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.createdAt, createdAt) ||
@@ -178,12 +178,12 @@ class _$_FollowRecord implements _FollowRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FollowRecordCopyWith<_$_FollowRecord> get copyWith =>
-      __$$_FollowRecordCopyWithImpl<_$_FollowRecord>(this, _$identity);
+  _$$FollowRecordImplCopyWith<_$FollowRecordImpl> get copyWith =>
+      __$$FollowRecordImplCopyWithImpl<_$FollowRecordImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FollowRecordToJson(
+    return _$$FollowRecordImplToJson(
       this,
     );
   }
@@ -193,10 +193,10 @@ abstract class _FollowRecord implements FollowRecord {
   const factory _FollowRecord(
       {@typeKey final String type,
       @JsonKey(name: 'subject') required final String did,
-      required final DateTime createdAt}) = _$_FollowRecord;
+      required final DateTime createdAt}) = _$FollowRecordImpl;
 
   factory _FollowRecord.fromJson(Map<String, dynamic> json) =
-      _$_FollowRecord.fromJson;
+      _$FollowRecordImpl.fromJson;
 
   @override
 
@@ -214,6 +214,6 @@ abstract class _FollowRecord implements FollowRecord {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$_FollowRecordCopyWith<_$_FollowRecord> get copyWith =>
+  _$$FollowRecordImplCopyWith<_$FollowRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

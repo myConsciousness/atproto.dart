@@ -93,11 +93,11 @@ class _$FeedGeneratorInfoCopyWithImpl<$Res, $Val extends FeedGeneratorInfo>
 }
 
 /// @nodoc
-abstract class _$$_FeedGeneratorInfoCopyWith<$Res>
+abstract class _$$FeedGeneratorInfoImplCopyWith<$Res>
     implements $FeedGeneratorInfoCopyWith<$Res> {
-  factory _$$_FeedGeneratorInfoCopyWith(_$_FeedGeneratorInfo value,
-          $Res Function(_$_FeedGeneratorInfo) then) =
-      __$$_FeedGeneratorInfoCopyWithImpl<$Res>;
+  factory _$$FeedGeneratorInfoImplCopyWith(_$FeedGeneratorInfoImpl value,
+          $Res Function(_$FeedGeneratorInfoImpl) then) =
+      __$$FeedGeneratorInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String did, List<GeneratorFeed> feeds, GeneratorLinks? links});
@@ -107,11 +107,11 @@ abstract class _$$_FeedGeneratorInfoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_FeedGeneratorInfoCopyWithImpl<$Res>
-    extends _$FeedGeneratorInfoCopyWithImpl<$Res, _$_FeedGeneratorInfo>
-    implements _$$_FeedGeneratorInfoCopyWith<$Res> {
-  __$$_FeedGeneratorInfoCopyWithImpl(
-      _$_FeedGeneratorInfo _value, $Res Function(_$_FeedGeneratorInfo) _then)
+class __$$FeedGeneratorInfoImplCopyWithImpl<$Res>
+    extends _$FeedGeneratorInfoCopyWithImpl<$Res, _$FeedGeneratorInfoImpl>
+    implements _$$FeedGeneratorInfoImplCopyWith<$Res> {
+  __$$FeedGeneratorInfoImplCopyWithImpl(_$FeedGeneratorInfoImpl _value,
+      $Res Function(_$FeedGeneratorInfoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -121,7 +121,7 @@ class __$$_FeedGeneratorInfoCopyWithImpl<$Res>
     Object? feeds = null,
     Object? links = freezed,
   }) {
-    return _then(_$_FeedGeneratorInfo(
+    return _then(_$FeedGeneratorInfoImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -141,13 +141,13 @@ class __$$_FeedGeneratorInfoCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_FeedGeneratorInfo implements _FeedGeneratorInfo {
-  const _$_FeedGeneratorInfo(
+class _$FeedGeneratorInfoImpl implements _FeedGeneratorInfo {
+  const _$FeedGeneratorInfoImpl(
       {required this.did, required final List<GeneratorFeed> feeds, this.links})
       : _feeds = feeds;
 
-  factory _$_FeedGeneratorInfo.fromJson(Map<String, dynamic> json) =>
-      _$$_FeedGeneratorInfoFromJson(json);
+  factory _$FeedGeneratorInfoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedGeneratorInfoImplFromJson(json);
 
   /// Represents the decentralized identifier (DID) of the feed generator.
   @override
@@ -177,7 +177,7 @@ class _$_FeedGeneratorInfo implements _FeedGeneratorInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FeedGeneratorInfo &&
+            other is _$FeedGeneratorInfoImpl &&
             (identical(other.did, did) || other.did == did) &&
             const DeepCollectionEquality().equals(other._feeds, _feeds) &&
             (identical(other.links, links) || other.links == links));
@@ -191,13 +191,13 @@ class _$_FeedGeneratorInfo implements _FeedGeneratorInfo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FeedGeneratorInfoCopyWith<_$_FeedGeneratorInfo> get copyWith =>
-      __$$_FeedGeneratorInfoCopyWithImpl<_$_FeedGeneratorInfo>(
+  _$$FeedGeneratorInfoImplCopyWith<_$FeedGeneratorInfoImpl> get copyWith =>
+      __$$FeedGeneratorInfoImplCopyWithImpl<_$FeedGeneratorInfoImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FeedGeneratorInfoToJson(
+    return _$$FeedGeneratorInfoImplToJson(
       this,
     );
   }
@@ -207,10 +207,10 @@ abstract class _FeedGeneratorInfo implements FeedGeneratorInfo {
   const factory _FeedGeneratorInfo(
       {required final String did,
       required final List<GeneratorFeed> feeds,
-      final GeneratorLinks? links}) = _$_FeedGeneratorInfo;
+      final GeneratorLinks? links}) = _$FeedGeneratorInfoImpl;
 
   factory _FeedGeneratorInfo.fromJson(Map<String, dynamic> json) =
-      _$_FeedGeneratorInfo.fromJson;
+      _$FeedGeneratorInfoImpl.fromJson;
 
   @override
 
@@ -226,6 +226,6 @@ abstract class _FeedGeneratorInfo implements FeedGeneratorInfo {
   GeneratorLinks? get links;
   @override
   @JsonKey(ignore: true)
-  _$$_FeedGeneratorInfoCopyWith<_$_FeedGeneratorInfo> get copyWith =>
+  _$$FeedGeneratorInfoImplCopyWith<_$FeedGeneratorInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

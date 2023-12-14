@@ -8,11 +8,11 @@ part of 'repo_ref.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RepoRef _$$_RepoRefFromJson(Map json) => $checkedCreate(
-      r'_$_RepoRef',
+_$RepoRefImpl _$$RepoRefImplFromJson(Map json) => $checkedCreate(
+      r'_$RepoRefImpl',
       json,
       ($checkedConvert) {
-        final val = _$_RepoRef(
+        final val = _$RepoRefImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? comAtprotoAdminDefsRepoRef),
           did: $checkedConvert('did', (v) => v as String),
@@ -22,7 +22,7 @@ _$_RepoRef _$$_RepoRefFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$_RepoRefToJson(_$_RepoRef instance) =>
+Map<String, dynamic> _$$RepoRefImplToJson(_$RepoRefImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'did': instance.did,

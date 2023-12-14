@@ -65,22 +65,22 @@ class _$EmailUpdateCopyWithImpl<$Res, $Val extends EmailUpdate>
 }
 
 /// @nodoc
-abstract class _$$_EmailUpdateCopyWith<$Res>
+abstract class _$$EmailUpdateImplCopyWith<$Res>
     implements $EmailUpdateCopyWith<$Res> {
-  factory _$$_EmailUpdateCopyWith(
-          _$_EmailUpdate value, $Res Function(_$_EmailUpdate) then) =
-      __$$_EmailUpdateCopyWithImpl<$Res>;
+  factory _$$EmailUpdateImplCopyWith(
+          _$EmailUpdateImpl value, $Res Function(_$EmailUpdateImpl) then) =
+      __$$EmailUpdateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@JsonKey(name: 'tokenRequired') bool isTokenRequired});
 }
 
 /// @nodoc
-class __$$_EmailUpdateCopyWithImpl<$Res>
-    extends _$EmailUpdateCopyWithImpl<$Res, _$_EmailUpdate>
-    implements _$$_EmailUpdateCopyWith<$Res> {
-  __$$_EmailUpdateCopyWithImpl(
-      _$_EmailUpdate _value, $Res Function(_$_EmailUpdate) _then)
+class __$$EmailUpdateImplCopyWithImpl<$Res>
+    extends _$EmailUpdateCopyWithImpl<$Res, _$EmailUpdateImpl>
+    implements _$$EmailUpdateImplCopyWith<$Res> {
+  __$$EmailUpdateImplCopyWithImpl(
+      _$EmailUpdateImpl _value, $Res Function(_$EmailUpdateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -88,7 +88,7 @@ class __$$_EmailUpdateCopyWithImpl<$Res>
   $Res call({
     Object? isTokenRequired = null,
   }) {
-    return _then(_$_EmailUpdate(
+    return _then(_$EmailUpdateImpl(
       isTokenRequired: null == isTokenRequired
           ? _value.isTokenRequired
           : isTokenRequired // ignore: cast_nullable_to_non_nullable
@@ -99,12 +99,12 @@ class __$$_EmailUpdateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EmailUpdate implements _EmailUpdate {
-  const _$_EmailUpdate(
+class _$EmailUpdateImpl implements _EmailUpdate {
+  const _$EmailUpdateImpl(
       {@JsonKey(name: 'tokenRequired') required this.isTokenRequired});
 
-  factory _$_EmailUpdate.fromJson(Map<String, dynamic> json) =>
-      _$$_EmailUpdateFromJson(json);
+  factory _$EmailUpdateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmailUpdateImplFromJson(json);
 
   /// A flag indicating whether or not the issued token is required to update
   /// the email address.
@@ -121,7 +121,7 @@ class _$_EmailUpdate implements _EmailUpdate {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EmailUpdate &&
+            other is _$EmailUpdateImpl &&
             (identical(other.isTokenRequired, isTokenRequired) ||
                 other.isTokenRequired == isTokenRequired));
   }
@@ -133,12 +133,12 @@ class _$_EmailUpdate implements _EmailUpdate {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EmailUpdateCopyWith<_$_EmailUpdate> get copyWith =>
-      __$$_EmailUpdateCopyWithImpl<_$_EmailUpdate>(this, _$identity);
+  _$$EmailUpdateImplCopyWith<_$EmailUpdateImpl> get copyWith =>
+      __$$EmailUpdateImplCopyWithImpl<_$EmailUpdateImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EmailUpdateToJson(
+    return _$$EmailUpdateImplToJson(
       this,
     );
   }
@@ -147,10 +147,10 @@ class _$_EmailUpdate implements _EmailUpdate {
 abstract class _EmailUpdate implements EmailUpdate {
   const factory _EmailUpdate(
       {@JsonKey(name: 'tokenRequired')
-      required final bool isTokenRequired}) = _$_EmailUpdate;
+      required final bool isTokenRequired}) = _$EmailUpdateImpl;
 
   factory _EmailUpdate.fromJson(Map<String, dynamic> json) =
-      _$_EmailUpdate.fromJson;
+      _$EmailUpdateImpl.fromJson;
 
   @override
 
@@ -160,6 +160,6 @@ abstract class _EmailUpdate implements EmailUpdate {
   bool get isTokenRequired;
   @override
   @JsonKey(ignore: true)
-  _$$_EmailUpdateCopyWith<_$_EmailUpdate> get copyWith =>
+  _$$EmailUpdateImplCopyWith<_$EmailUpdateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -83,11 +83,11 @@ class _$ParsedServiceCopyWithImpl<$Res, $Val extends ParsedService>
 }
 
 /// @nodoc
-abstract class _$$_ParsedServiceCopyWith<$Res>
+abstract class _$$ParsedServiceImplCopyWith<$Res>
     implements $ParsedServiceCopyWith<$Res> {
-  factory _$$_ParsedServiceCopyWith(
-          _$_ParsedService value, $Res Function(_$_ParsedService) then) =
-      __$$_ParsedServiceCopyWithImpl<$Res>;
+  factory _$$ParsedServiceImplCopyWith(
+          _$ParsedServiceImpl value, $Res Function(_$ParsedServiceImpl) then) =
+      __$$ParsedServiceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -97,11 +97,11 @@ abstract class _$$_ParsedServiceCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ParsedServiceCopyWithImpl<$Res>
-    extends _$ParsedServiceCopyWithImpl<$Res, _$_ParsedService>
-    implements _$$_ParsedServiceCopyWith<$Res> {
-  __$$_ParsedServiceCopyWithImpl(
-      _$_ParsedService _value, $Res Function(_$_ParsedService) _then)
+class __$$ParsedServiceImplCopyWithImpl<$Res>
+    extends _$ParsedServiceCopyWithImpl<$Res, _$ParsedServiceImpl>
+    implements _$$ParsedServiceImplCopyWith<$Res> {
+  __$$ParsedServiceImplCopyWithImpl(
+      _$ParsedServiceImpl _value, $Res Function(_$ParsedServiceImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +111,7 @@ class __$$_ParsedServiceCopyWithImpl<$Res>
     Object? type = null,
     Object? endpoint = null,
   }) {
-    return _then(_$_ParsedService(
+    return _then(_$ParsedServiceImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -130,14 +130,14 @@ class __$$_ParsedServiceCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ParsedService implements _ParsedService {
-  const _$_ParsedService(
+class _$ParsedServiceImpl implements _ParsedService {
+  const _$ParsedServiceImpl(
       {required this.id,
       required this.type,
       @JsonKey(name: 'serviceEndpoint') required this.endpoint});
 
-  factory _$_ParsedService.fromJson(Map<String, dynamic> json) =>
-      _$$_ParsedServiceFromJson(json);
+  factory _$ParsedServiceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ParsedServiceImplFromJson(json);
 
   /// The unique identifier for the service.
   @override
@@ -161,7 +161,7 @@ class _$_ParsedService implements _ParsedService {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ParsedService &&
+            other is _$ParsedServiceImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.endpoint, endpoint) ||
@@ -175,12 +175,12 @@ class _$_ParsedService implements _ParsedService {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ParsedServiceCopyWith<_$_ParsedService> get copyWith =>
-      __$$_ParsedServiceCopyWithImpl<_$_ParsedService>(this, _$identity);
+  _$$ParsedServiceImplCopyWith<_$ParsedServiceImpl> get copyWith =>
+      __$$ParsedServiceImplCopyWithImpl<_$ParsedServiceImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ParsedServiceToJson(
+    return _$$ParsedServiceImplToJson(
       this,
     );
   }
@@ -191,10 +191,10 @@ abstract class _ParsedService implements ParsedService {
           {required final String id,
           required final String type,
           @JsonKey(name: 'serviceEndpoint') required final String endpoint}) =
-      _$_ParsedService;
+      _$ParsedServiceImpl;
 
   factory _ParsedService.fromJson(Map<String, dynamic> json) =
-      _$_ParsedService.fromJson;
+      _$ParsedServiceImpl.fromJson;
 
   @override
 
@@ -211,6 +211,6 @@ abstract class _ParsedService implements ParsedService {
   String get endpoint;
   @override
   @JsonKey(ignore: true)
-  _$$_ParsedServiceCopyWith<_$_ParsedService> get copyWith =>
+  _$$ParsedServiceImplCopyWith<_$ParsedServiceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

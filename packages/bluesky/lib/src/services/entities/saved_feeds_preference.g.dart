@@ -8,12 +8,12 @@ part of 'saved_feeds_preference.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SavedFeedsPreference _$$_SavedFeedsPreferenceFromJson(Map json) =>
+_$SavedFeedsPreferenceImpl _$$SavedFeedsPreferenceImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$_SavedFeedsPreference',
+      r'_$SavedFeedsPreferenceImpl',
       json,
       ($checkedConvert) {
-        final val = _$_SavedFeedsPreference(
+        final val = _$SavedFeedsPreferenceImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyActorDefsSavedFeedsPref),
           pinnedUris: $checkedConvert(
@@ -36,8 +36,8 @@ _$_SavedFeedsPreference _$$_SavedFeedsPreferenceFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$_SavedFeedsPreferenceToJson(
-        _$_SavedFeedsPreference instance) =>
+Map<String, dynamic> _$$SavedFeedsPreferenceImplToJson(
+        _$SavedFeedsPreferenceImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'pinned': instance.pinnedUris.map(atUriConverter.toJson).toList(),

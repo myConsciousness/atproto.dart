@@ -66,25 +66,25 @@ class _$ModerationOptionsBehaviorsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ModerationOptionsBehaviorsCopyWith<$Res>
+abstract class _$$ModerationOptionsBehaviorsImplCopyWith<$Res>
     implements $ModerationOptionsBehaviorsCopyWith<$Res> {
-  factory _$$_ModerationOptionsBehaviorsCopyWith(
-          _$_ModerationOptionsBehaviors value,
-          $Res Function(_$_ModerationOptionsBehaviors) then) =
-      __$$_ModerationOptionsBehaviorsCopyWithImpl<$Res>;
+  factory _$$ModerationOptionsBehaviorsImplCopyWith(
+          _$ModerationOptionsBehaviorsImpl value,
+          $Res Function(_$ModerationOptionsBehaviorsImpl) then) =
+      __$$ModerationOptionsBehaviorsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Map<String, ModerationOptionsBehaviorScenario> scenarios});
 }
 
 /// @nodoc
-class __$$_ModerationOptionsBehaviorsCopyWithImpl<$Res>
+class __$$ModerationOptionsBehaviorsImplCopyWithImpl<$Res>
     extends _$ModerationOptionsBehaviorsCopyWithImpl<$Res,
-        _$_ModerationOptionsBehaviors>
-    implements _$$_ModerationOptionsBehaviorsCopyWith<$Res> {
-  __$$_ModerationOptionsBehaviorsCopyWithImpl(
-      _$_ModerationOptionsBehaviors _value,
-      $Res Function(_$_ModerationOptionsBehaviors) _then)
+        _$ModerationOptionsBehaviorsImpl>
+    implements _$$ModerationOptionsBehaviorsImplCopyWith<$Res> {
+  __$$ModerationOptionsBehaviorsImplCopyWithImpl(
+      _$ModerationOptionsBehaviorsImpl _value,
+      $Res Function(_$ModerationOptionsBehaviorsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_ModerationOptionsBehaviorsCopyWithImpl<$Res>
   $Res call({
     Object? scenarios = null,
   }) {
-    return _then(_$_ModerationOptionsBehaviors(
+    return _then(_$ModerationOptionsBehaviorsImpl(
       scenarios: null == scenarios
           ? _value._scenarios
           : scenarios // ignore: cast_nullable_to_non_nullable
@@ -104,13 +104,14 @@ class __$$_ModerationOptionsBehaviorsCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ModerationOptionsBehaviors implements _ModerationOptionsBehaviors {
-  const _$_ModerationOptionsBehaviors(
+class _$ModerationOptionsBehaviorsImpl implements _ModerationOptionsBehaviors {
+  const _$ModerationOptionsBehaviorsImpl(
       {required final Map<String, ModerationOptionsBehaviorScenario> scenarios})
       : _scenarios = scenarios;
 
-  factory _$_ModerationOptionsBehaviors.fromJson(Map<String, dynamic> json) =>
-      _$$_ModerationOptionsBehaviorsFromJson(json);
+  factory _$ModerationOptionsBehaviorsImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ModerationOptionsBehaviorsImplFromJson(json);
 
   final Map<String, ModerationOptionsBehaviorScenario> _scenarios;
   @override
@@ -129,7 +130,7 @@ class _$_ModerationOptionsBehaviors implements _ModerationOptionsBehaviors {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ModerationOptionsBehaviors &&
+            other is _$ModerationOptionsBehaviorsImpl &&
             const DeepCollectionEquality()
                 .equals(other._scenarios, _scenarios));
   }
@@ -142,13 +143,13 @@ class _$_ModerationOptionsBehaviors implements _ModerationOptionsBehaviors {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ModerationOptionsBehaviorsCopyWith<_$_ModerationOptionsBehaviors>
-      get copyWith => __$$_ModerationOptionsBehaviorsCopyWithImpl<
-          _$_ModerationOptionsBehaviors>(this, _$identity);
+  _$$ModerationOptionsBehaviorsImplCopyWith<_$ModerationOptionsBehaviorsImpl>
+      get copyWith => __$$ModerationOptionsBehaviorsImplCopyWithImpl<
+          _$ModerationOptionsBehaviorsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ModerationOptionsBehaviorsToJson(
+    return _$$ModerationOptionsBehaviorsImplToJson(
       this,
     );
   }
@@ -158,15 +159,15 @@ abstract class _ModerationOptionsBehaviors
     implements ModerationOptionsBehaviors {
   const factory _ModerationOptionsBehaviors(
       {required final Map<String, ModerationOptionsBehaviorScenario>
-          scenarios}) = _$_ModerationOptionsBehaviors;
+          scenarios}) = _$ModerationOptionsBehaviorsImpl;
 
   factory _ModerationOptionsBehaviors.fromJson(Map<String, dynamic> json) =
-      _$_ModerationOptionsBehaviors.fromJson;
+      _$ModerationOptionsBehaviorsImpl.fromJson;
 
   @override
   Map<String, ModerationOptionsBehaviorScenario> get scenarios;
   @override
   @JsonKey(ignore: true)
-  _$$_ModerationOptionsBehaviorsCopyWith<_$_ModerationOptionsBehaviors>
+  _$$ModerationOptionsBehaviorsImplCopyWith<_$ModerationOptionsBehaviorsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

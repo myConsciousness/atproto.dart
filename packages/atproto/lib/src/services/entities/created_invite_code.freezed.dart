@@ -63,22 +63,22 @@ class _$CreatedInviteCodeCopyWithImpl<$Res, $Val extends CreatedInviteCode>
 }
 
 /// @nodoc
-abstract class _$$_CreatedInviteCodeCopyWith<$Res>
+abstract class _$$CreatedInviteCodeImplCopyWith<$Res>
     implements $CreatedInviteCodeCopyWith<$Res> {
-  factory _$$_CreatedInviteCodeCopyWith(_$_CreatedInviteCode value,
-          $Res Function(_$_CreatedInviteCode) then) =
-      __$$_CreatedInviteCodeCopyWithImpl<$Res>;
+  factory _$$CreatedInviteCodeImplCopyWith(_$CreatedInviteCodeImpl value,
+          $Res Function(_$CreatedInviteCodeImpl) then) =
+      __$$CreatedInviteCodeImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String code});
 }
 
 /// @nodoc
-class __$$_CreatedInviteCodeCopyWithImpl<$Res>
-    extends _$CreatedInviteCodeCopyWithImpl<$Res, _$_CreatedInviteCode>
-    implements _$$_CreatedInviteCodeCopyWith<$Res> {
-  __$$_CreatedInviteCodeCopyWithImpl(
-      _$_CreatedInviteCode _value, $Res Function(_$_CreatedInviteCode) _then)
+class __$$CreatedInviteCodeImplCopyWithImpl<$Res>
+    extends _$CreatedInviteCodeCopyWithImpl<$Res, _$CreatedInviteCodeImpl>
+    implements _$$CreatedInviteCodeImplCopyWith<$Res> {
+  __$$CreatedInviteCodeImplCopyWithImpl(_$CreatedInviteCodeImpl _value,
+      $Res Function(_$CreatedInviteCodeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -86,7 +86,7 @@ class __$$_CreatedInviteCodeCopyWithImpl<$Res>
   $Res call({
     Object? code = null,
   }) {
-    return _then(_$_CreatedInviteCode(
+    return _then(_$CreatedInviteCodeImpl(
       code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -97,11 +97,11 @@ class __$$_CreatedInviteCodeCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CreatedInviteCode implements _CreatedInviteCode {
-  const _$_CreatedInviteCode({required this.code});
+class _$CreatedInviteCodeImpl implements _CreatedInviteCode {
+  const _$CreatedInviteCodeImpl({required this.code});
 
-  factory _$_CreatedInviteCode.fromJson(Map<String, dynamic> json) =>
-      _$$_CreatedInviteCodeFromJson(json);
+  factory _$CreatedInviteCodeImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CreatedInviteCodeImplFromJson(json);
 
   /// The invitation code.
   @override
@@ -116,7 +116,7 @@ class _$_CreatedInviteCode implements _CreatedInviteCode {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CreatedInviteCode &&
+            other is _$CreatedInviteCodeImpl &&
             (identical(other.code, code) || other.code == code));
   }
 
@@ -127,13 +127,13 @@ class _$_CreatedInviteCode implements _CreatedInviteCode {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CreatedInviteCodeCopyWith<_$_CreatedInviteCode> get copyWith =>
-      __$$_CreatedInviteCodeCopyWithImpl<_$_CreatedInviteCode>(
+  _$$CreatedInviteCodeImplCopyWith<_$CreatedInviteCodeImpl> get copyWith =>
+      __$$CreatedInviteCodeImplCopyWithImpl<_$CreatedInviteCodeImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CreatedInviteCodeToJson(
+    return _$$CreatedInviteCodeImplToJson(
       this,
     );
   }
@@ -141,10 +141,10 @@ class _$_CreatedInviteCode implements _CreatedInviteCode {
 
 abstract class _CreatedInviteCode implements CreatedInviteCode {
   const factory _CreatedInviteCode({required final String code}) =
-      _$_CreatedInviteCode;
+      _$CreatedInviteCodeImpl;
 
   factory _CreatedInviteCode.fromJson(Map<String, dynamic> json) =
-      _$_CreatedInviteCode.fromJson;
+      _$CreatedInviteCodeImpl.fromJson;
 
   @override
 
@@ -152,6 +152,6 @@ abstract class _CreatedInviteCode implements CreatedInviteCode {
   String get code;
   @override
   @JsonKey(ignore: true)
-  _$$_CreatedInviteCodeCopyWith<_$_CreatedInviteCode> get copyWith =>
+  _$$CreatedInviteCodeImplCopyWith<_$CreatedInviteCodeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

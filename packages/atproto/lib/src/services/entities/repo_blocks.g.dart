@@ -8,11 +8,11 @@ part of 'repo_blocks.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RepoBlocks _$$_RepoBlocksFromJson(Map json) => $checkedCreate(
-      r'_$_RepoBlocks',
+_$RepoBlocksImpl _$$RepoBlocksImplFromJson(Map json) => $checkedCreate(
+      r'_$RepoBlocksImpl',
       json,
       ($checkedConvert) {
-        final val = _$_RepoBlocks(
+        final val = _$RepoBlocksImpl(
           blocks: $checkedConvert(
               'blocks',
               (v) => (v as List<dynamic>)
@@ -24,7 +24,7 @@ _$_RepoBlocks _$$_RepoBlocksFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_RepoBlocksToJson(_$_RepoBlocks instance) =>
+Map<String, dynamic> _$$RepoBlocksImplToJson(_$RepoBlocksImpl instance) =>
     <String, dynamic>{
       'blocks': instance.blocks.map((e) => e.toJson()).toList(),
     };

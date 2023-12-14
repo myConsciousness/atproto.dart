@@ -8,11 +8,11 @@ part of 'app_passwords.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AppPasswords _$$_AppPasswordsFromJson(Map json) => $checkedCreate(
-      r'_$_AppPasswords',
+_$AppPasswordsImpl _$$AppPasswordsImplFromJson(Map json) => $checkedCreate(
+      r'_$AppPasswordsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_AppPasswords(
+        final val = _$AppPasswordsImpl(
           passwords: $checkedConvert(
               'passwords',
               (v) => (v as List<dynamic>)
@@ -24,7 +24,7 @@ _$_AppPasswords _$$_AppPasswordsFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_AppPasswordsToJson(_$_AppPasswords instance) =>
+Map<String, dynamic> _$$AppPasswordsImplToJson(_$AppPasswordsImpl instance) =>
     <String, dynamic>{
       'passwords': instance.passwords.map((e) => e.toJson()).toList(),
     };

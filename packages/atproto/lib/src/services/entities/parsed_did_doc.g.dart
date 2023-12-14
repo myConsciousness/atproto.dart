@@ -8,11 +8,11 @@ part of 'parsed_did_doc.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ParsedDidDoc _$$_ParsedDidDocFromJson(Map json) => $checkedCreate(
-      r'_$_ParsedDidDoc',
+_$ParsedDidDocImpl _$$ParsedDidDocImplFromJson(Map json) => $checkedCreate(
+      r'_$ParsedDidDocImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ParsedDidDoc(
+        final val = _$ParsedDidDocImpl(
           context: $checkedConvert('@context',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           id: $checkedConvert('id', (v) => v as String),
@@ -40,7 +40,7 @@ _$_ParsedDidDoc _$$_ParsedDidDocFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_ParsedDidDocToJson(_$_ParsedDidDoc instance) =>
+Map<String, dynamic> _$$ParsedDidDocImplToJson(_$ParsedDidDocImpl instance) =>
     <String, dynamic>{
       '@context': instance.context,
       'id': instance.id,

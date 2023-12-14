@@ -8,12 +8,12 @@ part of 'moderation_behaviors_user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ModerationBehaviors _$$_ModerationBehaviorsFromJson(Map json) =>
+_$ModerationBehaviorsImpl _$$ModerationBehaviorsImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$_ModerationBehaviors',
+      r'_$ModerationBehaviorsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ModerationBehaviors(
+        final val = _$ModerationBehaviorsImpl(
           isBlocking: $checkedConvert('blocking', (v) => v as bool? ?? false),
           isBlockingByList:
               $checkedConvert('blockingByList', (v) => v as bool? ?? false),
@@ -33,8 +33,8 @@ _$_ModerationBehaviors _$$_ModerationBehaviorsFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$_ModerationBehaviorsToJson(
-        _$_ModerationBehaviors instance) =>
+Map<String, dynamic> _$$ModerationBehaviorsImplToJson(
+        _$ModerationBehaviorsImpl instance) =>
     <String, dynamic>{
       'blocking': instance.isBlocking,
       'blockingByList': instance.isBlockingByList,

@@ -79,11 +79,11 @@ class _$ModerationSubjectProfileCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$UModerationSubjectProfileActorCopyWith<$Res> {
-  factory _$$UModerationSubjectProfileActorCopyWith(
-          _$UModerationSubjectProfileActor value,
-          $Res Function(_$UModerationSubjectProfileActor) then) =
-      __$$UModerationSubjectProfileActorCopyWithImpl<$Res>;
+abstract class _$$UModerationSubjectProfileActorImplCopyWith<$Res> {
+  factory _$$UModerationSubjectProfileActorImplCopyWith(
+          _$UModerationSubjectProfileActorImpl value,
+          $Res Function(_$UModerationSubjectProfileActorImpl) then) =
+      __$$UModerationSubjectProfileActorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Actor data});
 
@@ -91,13 +91,13 @@ abstract class _$$UModerationSubjectProfileActorCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UModerationSubjectProfileActorCopyWithImpl<$Res>
+class __$$UModerationSubjectProfileActorImplCopyWithImpl<$Res>
     extends _$ModerationSubjectProfileCopyWithImpl<$Res,
-        _$UModerationSubjectProfileActor>
-    implements _$$UModerationSubjectProfileActorCopyWith<$Res> {
-  __$$UModerationSubjectProfileActorCopyWithImpl(
-      _$UModerationSubjectProfileActor _value,
-      $Res Function(_$UModerationSubjectProfileActor) _then)
+        _$UModerationSubjectProfileActorImpl>
+    implements _$$UModerationSubjectProfileActorImplCopyWith<$Res> {
+  __$$UModerationSubjectProfileActorImplCopyWithImpl(
+      _$UModerationSubjectProfileActorImpl _value,
+      $Res Function(_$UModerationSubjectProfileActorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -105,7 +105,7 @@ class __$$UModerationSubjectProfileActorCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UModerationSubjectProfileActor(
+    return _then(_$UModerationSubjectProfileActorImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -124,9 +124,9 @@ class __$$UModerationSubjectProfileActorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationSubjectProfileActor
+class _$UModerationSubjectProfileActorImpl
     implements UModerationSubjectProfileActor {
-  const _$UModerationSubjectProfileActor({required this.data});
+  const _$UModerationSubjectProfileActorImpl({required this.data});
 
   @override
   final Actor data;
@@ -140,7 +140,7 @@ class _$UModerationSubjectProfileActor
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UModerationSubjectProfileActor &&
+            other is _$UModerationSubjectProfileActorImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -150,9 +150,10 @@ class _$UModerationSubjectProfileActor
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UModerationSubjectProfileActorCopyWith<_$UModerationSubjectProfileActor>
-      get copyWith => __$$UModerationSubjectProfileActorCopyWithImpl<
-          _$UModerationSubjectProfileActor>(this, _$identity);
+  _$$UModerationSubjectProfileActorImplCopyWith<
+          _$UModerationSubjectProfileActorImpl>
+      get copyWith => __$$UModerationSubjectProfileActorImplCopyWithImpl<
+          _$UModerationSubjectProfileActorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -222,21 +223,22 @@ class _$UModerationSubjectProfileActor
 abstract class UModerationSubjectProfileActor
     implements ModerationSubjectProfile {
   const factory UModerationSubjectProfileActor({required final Actor data}) =
-      _$UModerationSubjectProfileActor;
+      _$UModerationSubjectProfileActorImpl;
 
   @override
   Actor get data;
   @JsonKey(ignore: true)
-  _$$UModerationSubjectProfileActorCopyWith<_$UModerationSubjectProfileActor>
+  _$$UModerationSubjectProfileActorImplCopyWith<
+          _$UModerationSubjectProfileActorImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UModerationSubjectProfileActorProfileCopyWith<$Res> {
-  factory _$$UModerationSubjectProfileActorProfileCopyWith(
-          _$UModerationSubjectProfileActorProfile value,
-          $Res Function(_$UModerationSubjectProfileActorProfile) then) =
-      __$$UModerationSubjectProfileActorProfileCopyWithImpl<$Res>;
+abstract class _$$UModerationSubjectProfileActorProfileImplCopyWith<$Res> {
+  factory _$$UModerationSubjectProfileActorProfileImplCopyWith(
+          _$UModerationSubjectProfileActorProfileImpl value,
+          $Res Function(_$UModerationSubjectProfileActorProfileImpl) then) =
+      __$$UModerationSubjectProfileActorProfileImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ActorProfile data});
 
@@ -244,13 +246,13 @@ abstract class _$$UModerationSubjectProfileActorProfileCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UModerationSubjectProfileActorProfileCopyWithImpl<$Res>
+class __$$UModerationSubjectProfileActorProfileImplCopyWithImpl<$Res>
     extends _$ModerationSubjectProfileCopyWithImpl<$Res,
-        _$UModerationSubjectProfileActorProfile>
-    implements _$$UModerationSubjectProfileActorProfileCopyWith<$Res> {
-  __$$UModerationSubjectProfileActorProfileCopyWithImpl(
-      _$UModerationSubjectProfileActorProfile _value,
-      $Res Function(_$UModerationSubjectProfileActorProfile) _then)
+        _$UModerationSubjectProfileActorProfileImpl>
+    implements _$$UModerationSubjectProfileActorProfileImplCopyWith<$Res> {
+  __$$UModerationSubjectProfileActorProfileImplCopyWithImpl(
+      _$UModerationSubjectProfileActorProfileImpl _value,
+      $Res Function(_$UModerationSubjectProfileActorProfileImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -258,7 +260,7 @@ class __$$UModerationSubjectProfileActorProfileCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UModerationSubjectProfileActorProfile(
+    return _then(_$UModerationSubjectProfileActorProfileImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -277,9 +279,9 @@ class __$$UModerationSubjectProfileActorProfileCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationSubjectProfileActorProfile
+class _$UModerationSubjectProfileActorProfileImpl
     implements UModerationSubjectProfileActorProfile {
-  const _$UModerationSubjectProfileActorProfile({required this.data});
+  const _$UModerationSubjectProfileActorProfileImpl({required this.data});
 
   @override
   final ActorProfile data;
@@ -293,7 +295,7 @@ class _$UModerationSubjectProfileActorProfile
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UModerationSubjectProfileActorProfile &&
+            other is _$UModerationSubjectProfileActorProfileImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -303,10 +305,10 @@ class _$UModerationSubjectProfileActorProfile
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UModerationSubjectProfileActorProfileCopyWith<
-          _$UModerationSubjectProfileActorProfile>
-      get copyWith => __$$UModerationSubjectProfileActorProfileCopyWithImpl<
-          _$UModerationSubjectProfileActorProfile>(this, _$identity);
+  _$$UModerationSubjectProfileActorProfileImplCopyWith<
+          _$UModerationSubjectProfileActorProfileImpl>
+      get copyWith => __$$UModerationSubjectProfileActorProfileImplCopyWithImpl<
+          _$UModerationSubjectProfileActorProfileImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -377,12 +379,12 @@ abstract class UModerationSubjectProfileActorProfile
     implements ModerationSubjectProfile {
   const factory UModerationSubjectProfileActorProfile(
           {required final ActorProfile data}) =
-      _$UModerationSubjectProfileActorProfile;
+      _$UModerationSubjectProfileActorProfileImpl;
 
   @override
   ActorProfile get data;
   @JsonKey(ignore: true)
-  _$$UModerationSubjectProfileActorProfileCopyWith<
-          _$UModerationSubjectProfileActorProfile>
+  _$$UModerationSubjectProfileActorProfileImplCopyWith<
+          _$UModerationSubjectProfileActorProfileImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
