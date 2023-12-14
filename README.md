@@ -35,9 +35,10 @@
   - [2.2. CLI Tool](#22-cli-tool)
   - [2.3. GitHub Actions Workflow](#23-github-actions-workflow)
 - [3. Developer Quickstart 🏎️](#3-developer-quickstart-️)
-  - [3.1. Install Melos](#31-install-melos)
-  - [3.2. Setup Project](#32-setup-project)
-  - [3.3. Useful Commands](#33-useful-commands)
+  - [3.1. Clone Project](#31-clone-project)
+  - [3.2. Install Melos](#32-install-melos)
+  - [3.3. Setup Project](#33-setup-project)
+  - [3.4. Useful Commands](#34-useful-commands)
 - [4. Who is using atproto.dart? 👀](#4-who-is-using-atprotodart-)
 - [5. Contribution 🏆](#5-contribution-)
 - [6. Contributors ✨](#6-contributors-)
@@ -60,7 +61,7 @@ This wonderful platform needs a standard and highly integrated SDK.
 
 ### 2.1. Dart Packages
 
-| Package                                                                                                                                                                             |                                                                   pub.dev                                                                    |                                                                               Docs                                                                                |
+| Package                                                                                                                                                                          |                                                                   pub.dev                                                                    |                                                                               Docs                                                                                |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | **[at_identifier](https://github.com/myConsciousness/atproto.dart/tree/main/packages/at_identifier)**: core library for the standard syntax in AT Protocol                       | [![pub package](https://img.shields.io/pub/v/at_identifier.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/at_identifier) |                               [README](https://github.com/myConsciousness/atproto.dart/tree/main/packages/at_identifier/README.md)                                |
 | **[nsid](https://github.com/myConsciousness/atproto.dart/tree/main/packages/nsid)**: core parsing library for the standard [NSID](https://atproto.com/specs/nsid)                |          [![pub package](https://img.shields.io/pub/v/nsid.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/nsid)          |                                    [README](https://github.com/myConsciousness/atproto.dart/tree/main/packages/nsid/README.md)                                    |
@@ -68,7 +69,7 @@ This wonderful platform needs a standard and highly integrated SDK.
 | **[xrpc](https://github.com/myConsciousness/atproto.dart/tree/main/packages/xrpc)**: core HTTP client library for [XRPC](https://atproto.com/specs/xrpc) communication           |          [![pub package](https://img.shields.io/pub/v/xrpc.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/xrpc)          |                                    [README](https://github.com/myConsciousness/atproto.dart/tree/main/packages/xrpc/README.md)                                    |
 | **[multiformats](https://github.com/myConsciousness/atproto.dart/tree/main/packages/multiformats)**: core parsing library for [IPFS](https://ipfs.tech)-related things           |  [![pub package](https://img.shields.io/pub/v/multiformats.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/multiformats)  |                                [README](https://github.com/myConsciousness/atproto.dart/tree/main/packages/multiformats/README.md)                                |
 | **[atproto_core](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_core)**: core library used by AT Protocol related clients                            |  [![pub package](https://img.shields.io/pub/v/atproto_core.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/atproto_core)  |                                [README](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_core/README.md)                                |
-| **[lexicon](https://github.com/myConsciousness/atproto.dart/tree/main/packages/lexicon)**: core parsing library for the standard [Lexicon](https://atproto.com/guides/lexicon)                                         |       [![pub package](https://img.shields.io/pub/v/lexicon.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/lexicon)       |                                  [README](https://github.com/myConsciousness/atproto.dart/tree/main/packages/lexicon/README.md)                                   |
+| **[lexicon](https://github.com/myConsciousness/atproto.dart/tree/main/packages/lexicon)**: core parsing library for the standard [Lexicon](https://atproto.com/guides/lexicon)   |       [![pub package](https://img.shields.io/pub/v/lexicon.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/lexicon)       |                                  [README](https://github.com/myConsciousness/atproto.dart/tree/main/packages/lexicon/README.md)                                   |
 | **[did_plc](https://github.com/myConsciousness/atproto.dart/tree/main/packages/did_plc)**: client library for [plc.directory](https://web.plc.directory) endpoints               |       [![pub package](https://img.shields.io/pub/v/did_plc.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/did_plc)       |                                  [README](https://github.com/myConsciousness/atproto.dart/tree/main/packages/did_plc/README.md)                                   |
 | **[atproto](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto)**: client library for `com.atproto.*` endpoints                                          |       [![pub package](https://img.shields.io/pub/v/atproto.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/atproto)       |      [README](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto/README.md) / [GUIDE](https://atprotodart.com/docs/packages/atproto)      |
 | **[bluesky](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky)**: client library for `com.atproto.*` and `app.bsky.*` endpoints                         |       [![pub package](https://img.shields.io/pub/v/bluesky.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky)       |      [README](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky/README.md) / [GUIDE](https://atprotodart.com/docs/packages/bluesky)      |
@@ -82,7 +83,7 @@ This wonderful platform needs a standard and highly integrated SDK.
 
 ### 2.3. GitHub Actions Workflow
 
-| Workflow                                                                                                                                                            |                                                                                        Marketplace                                                                                        |                                                Docs                                                 |
+| Workflow                                                                                                                                                        |                                                                                        Marketplace                                                                                        |                                                Docs                                                 |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------: |
 | **[bluesky_post](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_post)**: workflow for scheduled post to Bluesky from GitHub Actions | [![bluesky-post](https://img.shields.io/static/v1?label=actions&message=myConsciousness/bluesky-post&logo=GitHub&color=00acee)](https://github.com/marketplace/actions/send-bluesky-post) | [README](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_post/README.md) |
 
@@ -91,7 +92,13 @@ This wonderful platform needs a standard and highly integrated SDK.
 This project consists of several packages and is managed using [Melos](https://github.com/invertase/melos).
 The [Melos](https://github.com/invertase/melos) commands makes it easy to set up this project.
 
-### 3.1. Install Melos
+### 3.1. Clone Project
+
+```bash
+git clone https://github.com/myConsciousness/atproto.dart.git
+```
+
+### 3.2. Install Melos
 
 First you need to clone this project and install [Melos](https://github.com/invertase/melos) with following command.
 
@@ -99,7 +106,7 @@ First you need to clone this project and install [Melos](https://github.com/inve
 dart pub global activate melos
 ```
 
-### 3.2. Setup Project
+### 3.3. Setup Project
 
 Then you just execute `setup` command as follows.
 The `setup` command easily solves all the initial setup when cloning this huge project.
@@ -108,7 +115,7 @@ The `setup` command easily solves all the initial setup when cloning this huge p
 melos setup
 ```
 
-### 3.3. Useful Commands
+### 3.4. Useful Commands
 
 | Command           | Description                                                                                                             |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------- |
