@@ -93,11 +93,11 @@ class _$LexiconDocCopyWithImpl<$Res, $Val extends LexiconDoc>
 }
 
 /// @nodoc
-abstract class _$$_LexiconDocCopyWith<$Res>
+abstract class _$$LexiconDocImplCopyWith<$Res>
     implements $LexiconDocCopyWith<$Res> {
-  factory _$$_LexiconDocCopyWith(
-          _$_LexiconDoc value, $Res Function(_$_LexiconDoc) then) =
-      __$$_LexiconDocCopyWithImpl<$Res>;
+  factory _$$LexiconDocImplCopyWith(
+          _$LexiconDocImpl value, $Res Function(_$LexiconDocImpl) then) =
+      __$$LexiconDocImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -109,11 +109,11 @@ abstract class _$$_LexiconDocCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LexiconDocCopyWithImpl<$Res>
-    extends _$LexiconDocCopyWithImpl<$Res, _$_LexiconDoc>
-    implements _$$_LexiconDocCopyWith<$Res> {
-  __$$_LexiconDocCopyWithImpl(
-      _$_LexiconDoc _value, $Res Function(_$_LexiconDoc) _then)
+class __$$LexiconDocImplCopyWithImpl<$Res>
+    extends _$LexiconDocCopyWithImpl<$Res, _$LexiconDocImpl>
+    implements _$$LexiconDocImplCopyWith<$Res> {
+  __$$LexiconDocImplCopyWithImpl(
+      _$LexiconDocImpl _value, $Res Function(_$LexiconDocImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -125,7 +125,7 @@ class __$$_LexiconDocCopyWithImpl<$Res>
     Object? description = freezed,
     Object? defs = null,
   }) {
-    return _then(_$_LexiconDoc(
+    return _then(_$LexiconDocImpl(
       lexicon: null == lexicon
           ? _value.lexicon
           : lexicon // ignore: cast_nullable_to_non_nullable
@@ -153,8 +153,8 @@ class __$$_LexiconDocCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexiconDoc implements _LexiconDoc {
-  const _$_LexiconDoc(
+class _$LexiconDocImpl implements _LexiconDoc {
+  const _$LexiconDocImpl(
       {required this.lexicon,
       @nsidConverter required this.id,
       this.revision,
@@ -162,8 +162,8 @@ class _$_LexiconDoc implements _LexiconDoc {
       @lexUserTypeConverter required final Map<String, LexUserType> defs})
       : _defs = defs;
 
-  factory _$_LexiconDoc.fromJson(Map<String, dynamic> json) =>
-      _$$_LexiconDocFromJson(json);
+  factory _$LexiconDocImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LexiconDocImplFromJson(json);
 
   @override
   final int lexicon;
@@ -192,7 +192,7 @@ class _$_LexiconDoc implements _LexiconDoc {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexiconDoc &&
+            other is _$LexiconDocImpl &&
             (identical(other.lexicon, lexicon) || other.lexicon == lexicon) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.revision, revision) ||
@@ -210,12 +210,12 @@ class _$_LexiconDoc implements _LexiconDoc {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexiconDocCopyWith<_$_LexiconDoc> get copyWith =>
-      __$$_LexiconDocCopyWithImpl<_$_LexiconDoc>(this, _$identity);
+  _$$LexiconDocImplCopyWith<_$LexiconDocImpl> get copyWith =>
+      __$$LexiconDocImplCopyWithImpl<_$LexiconDocImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LexiconDocToJson(
+    return _$$LexiconDocImplToJson(
       this,
     );
   }
@@ -228,10 +228,10 @@ abstract class _LexiconDoc implements LexiconDoc {
           final int? revision,
           final String? description,
           @lexUserTypeConverter required final Map<String, LexUserType> defs}) =
-      _$_LexiconDoc;
+      _$LexiconDocImpl;
 
   factory _LexiconDoc.fromJson(Map<String, dynamic> json) =
-      _$_LexiconDoc.fromJson;
+      _$LexiconDocImpl.fromJson;
 
   @override
   int get lexicon;
@@ -247,6 +247,6 @@ abstract class _LexiconDoc implements LexiconDoc {
   Map<String, LexUserType> get defs;
   @override
   @JsonKey(ignore: true)
-  _$$_LexiconDocCopyWith<_$_LexiconDoc> get copyWith =>
+  _$$LexiconDocImplCopyWith<_$LexiconDocImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

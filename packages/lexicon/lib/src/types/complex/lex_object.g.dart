@@ -8,11 +8,11 @@ part of 'lex_object.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LexObject _$$_LexObjectFromJson(Map json) => $checkedCreate(
-      r'_$_LexObject',
+_$LexObjectImpl _$$LexObjectImplFromJson(Map json) => $checkedCreate(
+      r'_$LexObjectImpl',
       json,
       ($checkedConvert) {
-        final val = _$_LexObject(
+        final val = _$LexObjectImpl(
           type: $checkedConvert('type', (v) => v as String? ?? 'object'),
           description: $checkedConvert('description', (v) => v as String?),
           requiredProperties: $checkedConvert('required',
@@ -36,7 +36,7 @@ _$_LexObject _$$_LexObjectFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_LexObjectToJson(_$_LexObject instance) {
+Map<String, dynamic> _$$LexObjectImplToJson(_$LexObjectImpl instance) {
   final val = <String, dynamic>{
     'type': instance.type,
   };

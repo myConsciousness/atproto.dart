@@ -8,11 +8,11 @@ part of 'lex_record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LexRecord _$$_LexRecordFromJson(Map json) => $checkedCreate(
-      r'_$_LexRecord',
+_$LexRecordImpl _$$LexRecordImplFromJson(Map json) => $checkedCreate(
+      r'_$LexRecordImpl',
       json,
       ($checkedConvert) {
-        final val = _$_LexRecord(
+        final val = _$LexRecordImpl(
           type: $checkedConvert('type', (v) => v as String? ?? 'record'),
           description: $checkedConvert('description', (v) => v as String?),
           key: $checkedConvert('key', (v) => v as String?),
@@ -23,7 +23,7 @@ _$_LexRecord _$$_LexRecordFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_LexRecordToJson(_$_LexRecord instance) {
+Map<String, dynamic> _$$LexRecordImplToJson(_$LexRecordImpl instance) {
   final val = <String, dynamic>{
     'type': instance.type,
   };

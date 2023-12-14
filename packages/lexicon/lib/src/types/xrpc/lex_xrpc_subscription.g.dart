@@ -8,12 +8,12 @@ part of 'lex_xrpc_subscription.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LexXrpcSubscription _$$_LexXrpcSubscriptionFromJson(Map json) =>
+_$LexXrpcSubscriptionImpl _$$LexXrpcSubscriptionImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$_LexXrpcSubscription',
+      r'_$LexXrpcSubscriptionImpl',
       json,
       ($checkedConvert) {
-        final val = _$_LexXrpcSubscription(
+        final val = _$LexXrpcSubscriptionImpl(
           type: $checkedConvert('type', (v) => v as String? ?? 'subscription'),
           description: $checkedConvert('description', (v) => v as String?),
           parameters: $checkedConvert(
@@ -45,8 +45,8 @@ _$_LexXrpcSubscription _$$_LexXrpcSubscriptionFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$_LexXrpcSubscriptionToJson(
-    _$_LexXrpcSubscription instance) {
+Map<String, dynamic> _$$LexXrpcSubscriptionImplToJson(
+    _$LexXrpcSubscriptionImpl instance) {
   final val = <String, dynamic>{
     'type': instance.type,
   };

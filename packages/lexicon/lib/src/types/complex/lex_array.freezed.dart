@@ -22,7 +22,8 @@ LexArray _$LexArrayFromJson(Map<String, dynamic> json) {
 mixin _$LexArray {
   String get type => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  Map<String, dynamic> get items => throw _privateConstructorUsedError;
+  @lexArrayItemConverter
+  LexArrayItem get items => throw _privateConstructorUsedError;
   int? get minLength => throw _privateConstructorUsedError;
   int? get maxLength => throw _privateConstructorUsedError;
 
@@ -40,9 +41,11 @@ abstract class $LexArrayCopyWith<$Res> {
   $Res call(
       {String type,
       String? description,
-      Map<String, dynamic> items,
+      @lexArrayItemConverter LexArrayItem items,
       int? minLength,
       int? maxLength});
+
+  $LexArrayItemCopyWith<$Res> get items;
 }
 
 /// @nodoc
@@ -76,7 +79,7 @@ class _$LexArrayCopyWithImpl<$Res, $Val extends LexArray>
       items: null == items
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as LexArrayItem,
       minLength: freezed == minLength
           ? _value.minLength
           : minLength // ignore: cast_nullable_to_non_nullable
@@ -87,29 +90,41 @@ class _$LexArrayCopyWithImpl<$Res, $Val extends LexArray>
               as int?,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LexArrayItemCopyWith<$Res> get items {
+    return $LexArrayItemCopyWith<$Res>(_value.items, (value) {
+      return _then(_value.copyWith(items: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$$_LexArrayCopyWith<$Res> implements $LexArrayCopyWith<$Res> {
-  factory _$$_LexArrayCopyWith(
-          _$_LexArray value, $Res Function(_$_LexArray) then) =
-      __$$_LexArrayCopyWithImpl<$Res>;
+abstract class _$$LexArrayImplCopyWith<$Res>
+    implements $LexArrayCopyWith<$Res> {
+  factory _$$LexArrayImplCopyWith(
+          _$LexArrayImpl value, $Res Function(_$LexArrayImpl) then) =
+      __$$LexArrayImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {String type,
       String? description,
-      Map<String, dynamic> items,
+      @lexArrayItemConverter LexArrayItem items,
       int? minLength,
       int? maxLength});
+
+  @override
+  $LexArrayItemCopyWith<$Res> get items;
 }
 
 /// @nodoc
-class __$$_LexArrayCopyWithImpl<$Res>
-    extends _$LexArrayCopyWithImpl<$Res, _$_LexArray>
-    implements _$$_LexArrayCopyWith<$Res> {
-  __$$_LexArrayCopyWithImpl(
-      _$_LexArray _value, $Res Function(_$_LexArray) _then)
+class __$$LexArrayImplCopyWithImpl<$Res>
+    extends _$LexArrayCopyWithImpl<$Res, _$LexArrayImpl>
+    implements _$$LexArrayImplCopyWith<$Res> {
+  __$$LexArrayImplCopyWithImpl(
+      _$LexArrayImpl _value, $Res Function(_$LexArrayImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -121,7 +136,7 @@ class __$$_LexArrayCopyWithImpl<$Res>
     Object? minLength = freezed,
     Object? maxLength = freezed,
   }) {
-    return _then(_$_LexArray(
+    return _then(_$LexArrayImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -131,9 +146,9 @@ class __$$_LexArrayCopyWithImpl<$Res>
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
       items: null == items
-          ? _value._items
+          ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as LexArrayItem,
       minLength: freezed == minLength
           ? _value.minLength
           : minLength // ignore: cast_nullable_to_non_nullable
@@ -149,31 +164,25 @@ class __$$_LexArrayCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexArray implements _LexArray {
-  const _$_LexArray(
+class _$LexArrayImpl implements _LexArray {
+  const _$LexArrayImpl(
       {this.type = 'array',
       this.description,
-      required final Map<String, dynamic> items,
+      @lexArrayItemConverter required this.items,
       this.minLength,
-      this.maxLength})
-      : _items = items;
+      this.maxLength});
 
-  factory _$_LexArray.fromJson(Map<String, dynamic> json) =>
-      _$$_LexArrayFromJson(json);
+  factory _$LexArrayImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LexArrayImplFromJson(json);
 
   @override
   @JsonKey()
   final String type;
   @override
   final String? description;
-  final Map<String, dynamic> _items;
   @override
-  Map<String, dynamic> get items {
-    if (_items is EqualUnmodifiableMapView) return _items;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_items);
-  }
-
+  @lexArrayItemConverter
+  final LexArrayItem items;
   @override
   final int? minLength;
   @override
@@ -188,11 +197,11 @@ class _$_LexArray implements _LexArray {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexArray &&
+            other is _$LexArrayImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            const DeepCollectionEquality().equals(other._items, _items) &&
+            (identical(other.items, items) || other.items == items) &&
             (identical(other.minLength, minLength) ||
                 other.minLength == minLength) &&
             (identical(other.maxLength, maxLength) ||
@@ -201,18 +210,18 @@ class _$_LexArray implements _LexArray {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, description,
-      const DeepCollectionEquality().hash(_items), minLength, maxLength);
+  int get hashCode =>
+      Object.hash(runtimeType, type, description, items, minLength, maxLength);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexArrayCopyWith<_$_LexArray> get copyWith =>
-      __$$_LexArrayCopyWithImpl<_$_LexArray>(this, _$identity);
+  _$$LexArrayImplCopyWith<_$LexArrayImpl> get copyWith =>
+      __$$LexArrayImplCopyWithImpl<_$LexArrayImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LexArrayToJson(
+    return _$$LexArrayImplToJson(
       this,
     );
   }
@@ -222,24 +231,26 @@ abstract class _LexArray implements LexArray {
   const factory _LexArray(
       {final String type,
       final String? description,
-      required final Map<String, dynamic> items,
+      @lexArrayItemConverter required final LexArrayItem items,
       final int? minLength,
-      final int? maxLength}) = _$_LexArray;
+      final int? maxLength}) = _$LexArrayImpl;
 
-  factory _LexArray.fromJson(Map<String, dynamic> json) = _$_LexArray.fromJson;
+  factory _LexArray.fromJson(Map<String, dynamic> json) =
+      _$LexArrayImpl.fromJson;
 
   @override
   String get type;
   @override
   String? get description;
   @override
-  Map<String, dynamic> get items;
+  @lexArrayItemConverter
+  LexArrayItem get items;
   @override
   int? get minLength;
   @override
   int? get maxLength;
   @override
   @JsonKey(ignore: true)
-  _$$_LexArrayCopyWith<_$_LexArray> get copyWith =>
+  _$$LexArrayImplCopyWith<_$LexArrayImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
