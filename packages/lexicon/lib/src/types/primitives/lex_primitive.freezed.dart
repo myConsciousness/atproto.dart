@@ -88,10 +88,10 @@ class _$LexPrimitiveCopyWithImpl<$Res, $Val extends LexPrimitive>
 }
 
 /// @nodoc
-abstract class _$$ULexPrimitiveBooleanCopyWith<$Res> {
-  factory _$$ULexPrimitiveBooleanCopyWith(_$ULexPrimitiveBoolean value,
-          $Res Function(_$ULexPrimitiveBoolean) then) =
-      __$$ULexPrimitiveBooleanCopyWithImpl<$Res>;
+abstract class _$$ULexPrimitiveBooleanImplCopyWith<$Res> {
+  factory _$$ULexPrimitiveBooleanImplCopyWith(_$ULexPrimitiveBooleanImpl value,
+          $Res Function(_$ULexPrimitiveBooleanImpl) then) =
+      __$$ULexPrimitiveBooleanImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexBoolean data});
 
@@ -99,11 +99,11 @@ abstract class _$$ULexPrimitiveBooleanCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULexPrimitiveBooleanCopyWithImpl<$Res>
-    extends _$LexPrimitiveCopyWithImpl<$Res, _$ULexPrimitiveBoolean>
-    implements _$$ULexPrimitiveBooleanCopyWith<$Res> {
-  __$$ULexPrimitiveBooleanCopyWithImpl(_$ULexPrimitiveBoolean _value,
-      $Res Function(_$ULexPrimitiveBoolean) _then)
+class __$$ULexPrimitiveBooleanImplCopyWithImpl<$Res>
+    extends _$LexPrimitiveCopyWithImpl<$Res, _$ULexPrimitiveBooleanImpl>
+    implements _$$ULexPrimitiveBooleanImplCopyWith<$Res> {
+  __$$ULexPrimitiveBooleanImplCopyWithImpl(_$ULexPrimitiveBooleanImpl _value,
+      $Res Function(_$ULexPrimitiveBooleanImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +111,7 @@ class __$$ULexPrimitiveBooleanCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULexPrimitiveBoolean(
+    return _then(_$ULexPrimitiveBooleanImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -130,8 +130,8 @@ class __$$ULexPrimitiveBooleanCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULexPrimitiveBoolean implements ULexPrimitiveBoolean {
-  const _$ULexPrimitiveBoolean({required this.data});
+class _$ULexPrimitiveBooleanImpl extends ULexPrimitiveBoolean {
+  const _$ULexPrimitiveBooleanImpl({required this.data}) : super._();
 
   @override
   final LexBoolean data;
@@ -145,7 +145,7 @@ class _$ULexPrimitiveBoolean implements ULexPrimitiveBoolean {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULexPrimitiveBoolean &&
+            other is _$ULexPrimitiveBooleanImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -155,9 +155,10 @@ class _$ULexPrimitiveBoolean implements ULexPrimitiveBoolean {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULexPrimitiveBooleanCopyWith<_$ULexPrimitiveBoolean> get copyWith =>
-      __$$ULexPrimitiveBooleanCopyWithImpl<_$ULexPrimitiveBoolean>(
-          this, _$identity);
+  _$$ULexPrimitiveBooleanImplCopyWith<_$ULexPrimitiveBooleanImpl>
+      get copyWith =>
+          __$$ULexPrimitiveBooleanImplCopyWithImpl<_$ULexPrimitiveBooleanImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -234,22 +235,23 @@ class _$ULexPrimitiveBoolean implements ULexPrimitiveBoolean {
   }
 }
 
-abstract class ULexPrimitiveBoolean implements LexPrimitive {
+abstract class ULexPrimitiveBoolean extends LexPrimitive {
   const factory ULexPrimitiveBoolean({required final LexBoolean data}) =
-      _$ULexPrimitiveBoolean;
+      _$ULexPrimitiveBooleanImpl;
+  const ULexPrimitiveBoolean._() : super._();
 
   @override
   LexBoolean get data;
   @JsonKey(ignore: true)
-  _$$ULexPrimitiveBooleanCopyWith<_$ULexPrimitiveBoolean> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ULexPrimitiveBooleanImplCopyWith<_$ULexPrimitiveBooleanImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ULexPrimitiveIntegerCopyWith<$Res> {
-  factory _$$ULexPrimitiveIntegerCopyWith(_$ULexPrimitiveInteger value,
-          $Res Function(_$ULexPrimitiveInteger) then) =
-      __$$ULexPrimitiveIntegerCopyWithImpl<$Res>;
+abstract class _$$ULexPrimitiveIntegerImplCopyWith<$Res> {
+  factory _$$ULexPrimitiveIntegerImplCopyWith(_$ULexPrimitiveIntegerImpl value,
+          $Res Function(_$ULexPrimitiveIntegerImpl) then) =
+      __$$ULexPrimitiveIntegerImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexInteger data});
 
@@ -257,11 +259,11 @@ abstract class _$$ULexPrimitiveIntegerCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULexPrimitiveIntegerCopyWithImpl<$Res>
-    extends _$LexPrimitiveCopyWithImpl<$Res, _$ULexPrimitiveInteger>
-    implements _$$ULexPrimitiveIntegerCopyWith<$Res> {
-  __$$ULexPrimitiveIntegerCopyWithImpl(_$ULexPrimitiveInteger _value,
-      $Res Function(_$ULexPrimitiveInteger) _then)
+class __$$ULexPrimitiveIntegerImplCopyWithImpl<$Res>
+    extends _$LexPrimitiveCopyWithImpl<$Res, _$ULexPrimitiveIntegerImpl>
+    implements _$$ULexPrimitiveIntegerImplCopyWith<$Res> {
+  __$$ULexPrimitiveIntegerImplCopyWithImpl(_$ULexPrimitiveIntegerImpl _value,
+      $Res Function(_$ULexPrimitiveIntegerImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -269,7 +271,7 @@ class __$$ULexPrimitiveIntegerCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULexPrimitiveInteger(
+    return _then(_$ULexPrimitiveIntegerImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -288,8 +290,8 @@ class __$$ULexPrimitiveIntegerCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULexPrimitiveInteger implements ULexPrimitiveInteger {
-  const _$ULexPrimitiveInteger({required this.data});
+class _$ULexPrimitiveIntegerImpl extends ULexPrimitiveInteger {
+  const _$ULexPrimitiveIntegerImpl({required this.data}) : super._();
 
   @override
   final LexInteger data;
@@ -303,7 +305,7 @@ class _$ULexPrimitiveInteger implements ULexPrimitiveInteger {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULexPrimitiveInteger &&
+            other is _$ULexPrimitiveIntegerImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -313,9 +315,10 @@ class _$ULexPrimitiveInteger implements ULexPrimitiveInteger {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULexPrimitiveIntegerCopyWith<_$ULexPrimitiveInteger> get copyWith =>
-      __$$ULexPrimitiveIntegerCopyWithImpl<_$ULexPrimitiveInteger>(
-          this, _$identity);
+  _$$ULexPrimitiveIntegerImplCopyWith<_$ULexPrimitiveIntegerImpl>
+      get copyWith =>
+          __$$ULexPrimitiveIntegerImplCopyWithImpl<_$ULexPrimitiveIntegerImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -392,22 +395,23 @@ class _$ULexPrimitiveInteger implements ULexPrimitiveInteger {
   }
 }
 
-abstract class ULexPrimitiveInteger implements LexPrimitive {
+abstract class ULexPrimitiveInteger extends LexPrimitive {
   const factory ULexPrimitiveInteger({required final LexInteger data}) =
-      _$ULexPrimitiveInteger;
+      _$ULexPrimitiveIntegerImpl;
+  const ULexPrimitiveInteger._() : super._();
 
   @override
   LexInteger get data;
   @JsonKey(ignore: true)
-  _$$ULexPrimitiveIntegerCopyWith<_$ULexPrimitiveInteger> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ULexPrimitiveIntegerImplCopyWith<_$ULexPrimitiveIntegerImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ULexPrimitiveStringCopyWith<$Res> {
-  factory _$$ULexPrimitiveStringCopyWith(_$ULexPrimitiveString value,
-          $Res Function(_$ULexPrimitiveString) then) =
-      __$$ULexPrimitiveStringCopyWithImpl<$Res>;
+abstract class _$$ULexPrimitiveStringImplCopyWith<$Res> {
+  factory _$$ULexPrimitiveStringImplCopyWith(_$ULexPrimitiveStringImpl value,
+          $Res Function(_$ULexPrimitiveStringImpl) then) =
+      __$$ULexPrimitiveStringImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexString data});
 
@@ -415,11 +419,11 @@ abstract class _$$ULexPrimitiveStringCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULexPrimitiveStringCopyWithImpl<$Res>
-    extends _$LexPrimitiveCopyWithImpl<$Res, _$ULexPrimitiveString>
-    implements _$$ULexPrimitiveStringCopyWith<$Res> {
-  __$$ULexPrimitiveStringCopyWithImpl(
-      _$ULexPrimitiveString _value, $Res Function(_$ULexPrimitiveString) _then)
+class __$$ULexPrimitiveStringImplCopyWithImpl<$Res>
+    extends _$LexPrimitiveCopyWithImpl<$Res, _$ULexPrimitiveStringImpl>
+    implements _$$ULexPrimitiveStringImplCopyWith<$Res> {
+  __$$ULexPrimitiveStringImplCopyWithImpl(_$ULexPrimitiveStringImpl _value,
+      $Res Function(_$ULexPrimitiveStringImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -427,7 +431,7 @@ class __$$ULexPrimitiveStringCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULexPrimitiveString(
+    return _then(_$ULexPrimitiveStringImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -446,8 +450,8 @@ class __$$ULexPrimitiveStringCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULexPrimitiveString implements ULexPrimitiveString {
-  const _$ULexPrimitiveString({required this.data});
+class _$ULexPrimitiveStringImpl extends ULexPrimitiveString {
+  const _$ULexPrimitiveStringImpl({required this.data}) : super._();
 
   @override
   final LexString data;
@@ -461,7 +465,7 @@ class _$ULexPrimitiveString implements ULexPrimitiveString {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULexPrimitiveString &&
+            other is _$ULexPrimitiveStringImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -471,8 +475,8 @@ class _$ULexPrimitiveString implements ULexPrimitiveString {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULexPrimitiveStringCopyWith<_$ULexPrimitiveString> get copyWith =>
-      __$$ULexPrimitiveStringCopyWithImpl<_$ULexPrimitiveString>(
+  _$$ULexPrimitiveStringImplCopyWith<_$ULexPrimitiveStringImpl> get copyWith =>
+      __$$ULexPrimitiveStringImplCopyWithImpl<_$ULexPrimitiveStringImpl>(
           this, _$identity);
 
   @override
@@ -550,22 +554,23 @@ class _$ULexPrimitiveString implements ULexPrimitiveString {
   }
 }
 
-abstract class ULexPrimitiveString implements LexPrimitive {
+abstract class ULexPrimitiveString extends LexPrimitive {
   const factory ULexPrimitiveString({required final LexString data}) =
-      _$ULexPrimitiveString;
+      _$ULexPrimitiveStringImpl;
+  const ULexPrimitiveString._() : super._();
 
   @override
   LexString get data;
   @JsonKey(ignore: true)
-  _$$ULexPrimitiveStringCopyWith<_$ULexPrimitiveString> get copyWith =>
+  _$$ULexPrimitiveStringImplCopyWith<_$ULexPrimitiveStringImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ULexPrimitiveUnknownCopyWith<$Res> {
-  factory _$$ULexPrimitiveUnknownCopyWith(_$ULexPrimitiveUnknown value,
-          $Res Function(_$ULexPrimitiveUnknown) then) =
-      __$$ULexPrimitiveUnknownCopyWithImpl<$Res>;
+abstract class _$$ULexPrimitiveUnknownImplCopyWith<$Res> {
+  factory _$$ULexPrimitiveUnknownImplCopyWith(_$ULexPrimitiveUnknownImpl value,
+          $Res Function(_$ULexPrimitiveUnknownImpl) then) =
+      __$$ULexPrimitiveUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexUnknown data});
 
@@ -573,11 +578,11 @@ abstract class _$$ULexPrimitiveUnknownCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULexPrimitiveUnknownCopyWithImpl<$Res>
-    extends _$LexPrimitiveCopyWithImpl<$Res, _$ULexPrimitiveUnknown>
-    implements _$$ULexPrimitiveUnknownCopyWith<$Res> {
-  __$$ULexPrimitiveUnknownCopyWithImpl(_$ULexPrimitiveUnknown _value,
-      $Res Function(_$ULexPrimitiveUnknown) _then)
+class __$$ULexPrimitiveUnknownImplCopyWithImpl<$Res>
+    extends _$LexPrimitiveCopyWithImpl<$Res, _$ULexPrimitiveUnknownImpl>
+    implements _$$ULexPrimitiveUnknownImplCopyWith<$Res> {
+  __$$ULexPrimitiveUnknownImplCopyWithImpl(_$ULexPrimitiveUnknownImpl _value,
+      $Res Function(_$ULexPrimitiveUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -585,7 +590,7 @@ class __$$ULexPrimitiveUnknownCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULexPrimitiveUnknown(
+    return _then(_$ULexPrimitiveUnknownImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -604,8 +609,8 @@ class __$$ULexPrimitiveUnknownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULexPrimitiveUnknown implements ULexPrimitiveUnknown {
-  const _$ULexPrimitiveUnknown({required this.data});
+class _$ULexPrimitiveUnknownImpl extends ULexPrimitiveUnknown {
+  const _$ULexPrimitiveUnknownImpl({required this.data}) : super._();
 
   @override
   final LexUnknown data;
@@ -619,7 +624,7 @@ class _$ULexPrimitiveUnknown implements ULexPrimitiveUnknown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULexPrimitiveUnknown &&
+            other is _$ULexPrimitiveUnknownImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -629,9 +634,10 @@ class _$ULexPrimitiveUnknown implements ULexPrimitiveUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULexPrimitiveUnknownCopyWith<_$ULexPrimitiveUnknown> get copyWith =>
-      __$$ULexPrimitiveUnknownCopyWithImpl<_$ULexPrimitiveUnknown>(
-          this, _$identity);
+  _$$ULexPrimitiveUnknownImplCopyWith<_$ULexPrimitiveUnknownImpl>
+      get copyWith =>
+          __$$ULexPrimitiveUnknownImplCopyWithImpl<_$ULexPrimitiveUnknownImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -708,13 +714,14 @@ class _$ULexPrimitiveUnknown implements ULexPrimitiveUnknown {
   }
 }
 
-abstract class ULexPrimitiveUnknown implements LexPrimitive {
+abstract class ULexPrimitiveUnknown extends LexPrimitive {
   const factory ULexPrimitiveUnknown({required final LexUnknown data}) =
-      _$ULexPrimitiveUnknown;
+      _$ULexPrimitiveUnknownImpl;
+  const ULexPrimitiveUnknown._() : super._();
 
   @override
   LexUnknown get data;
   @JsonKey(ignore: true)
-  _$$ULexPrimitiveUnknownCopyWith<_$ULexPrimitiveUnknown> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ULexPrimitiveUnknownImplCopyWith<_$ULexPrimitiveUnknownImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

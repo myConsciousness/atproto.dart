@@ -125,11 +125,11 @@ class _$LexXrpcSubscriptionCopyWithImpl<$Res, $Val extends LexXrpcSubscription>
 }
 
 /// @nodoc
-abstract class _$$_LexXrpcSubscriptionCopyWith<$Res>
+abstract class _$$LexXrpcSubscriptionImplCopyWith<$Res>
     implements $LexXrpcSubscriptionCopyWith<$Res> {
-  factory _$$_LexXrpcSubscriptionCopyWith(_$_LexXrpcSubscription value,
-          $Res Function(_$_LexXrpcSubscription) then) =
-      __$$_LexXrpcSubscriptionCopyWithImpl<$Res>;
+  factory _$$LexXrpcSubscriptionImplCopyWith(_$LexXrpcSubscriptionImpl value,
+          $Res Function(_$LexXrpcSubscriptionImpl) then) =
+      __$$LexXrpcSubscriptionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -147,11 +147,11 @@ abstract class _$$_LexXrpcSubscriptionCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LexXrpcSubscriptionCopyWithImpl<$Res>
-    extends _$LexXrpcSubscriptionCopyWithImpl<$Res, _$_LexXrpcSubscription>
-    implements _$$_LexXrpcSubscriptionCopyWith<$Res> {
-  __$$_LexXrpcSubscriptionCopyWithImpl(_$_LexXrpcSubscription _value,
-      $Res Function(_$_LexXrpcSubscription) _then)
+class __$$LexXrpcSubscriptionImplCopyWithImpl<$Res>
+    extends _$LexXrpcSubscriptionCopyWithImpl<$Res, _$LexXrpcSubscriptionImpl>
+    implements _$$LexXrpcSubscriptionImplCopyWith<$Res> {
+  __$$LexXrpcSubscriptionImplCopyWithImpl(_$LexXrpcSubscriptionImpl _value,
+      $Res Function(_$LexXrpcSubscriptionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -164,7 +164,7 @@ class __$$_LexXrpcSubscriptionCopyWithImpl<$Res>
     Object? infos = freezed,
     Object? errors = freezed,
   }) {
-    return _then(_$_LexXrpcSubscription(
+    return _then(_$LexXrpcSubscriptionImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -196,8 +196,8 @@ class __$$_LexXrpcSubscriptionCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexXrpcSubscription implements _LexXrpcSubscription {
-  const _$_LexXrpcSubscription(
+class _$LexXrpcSubscriptionImpl implements _LexXrpcSubscription {
+  const _$LexXrpcSubscriptionImpl(
       {this.type = 'subscription',
       this.description,
       this.parameters,
@@ -207,8 +207,8 @@ class _$_LexXrpcSubscription implements _LexXrpcSubscription {
       : _infos = infos,
         _errors = errors;
 
-  factory _$_LexXrpcSubscription.fromJson(Map<String, dynamic> json) =>
-      _$$_LexXrpcSubscriptionFromJson(json);
+  factory _$LexXrpcSubscriptionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LexXrpcSubscriptionImplFromJson(json);
 
   @override
   @JsonKey()
@@ -248,7 +248,7 @@ class _$_LexXrpcSubscription implements _LexXrpcSubscription {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexXrpcSubscription &&
+            other is _$LexXrpcSubscriptionImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -273,13 +273,13 @@ class _$_LexXrpcSubscription implements _LexXrpcSubscription {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexXrpcSubscriptionCopyWith<_$_LexXrpcSubscription> get copyWith =>
-      __$$_LexXrpcSubscriptionCopyWithImpl<_$_LexXrpcSubscription>(
+  _$$LexXrpcSubscriptionImplCopyWith<_$LexXrpcSubscriptionImpl> get copyWith =>
+      __$$LexXrpcSubscriptionImplCopyWithImpl<_$LexXrpcSubscriptionImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LexXrpcSubscriptionToJson(
+    return _$$LexXrpcSubscriptionImplToJson(
       this,
     );
   }
@@ -292,10 +292,10 @@ abstract class _LexXrpcSubscription implements LexXrpcSubscription {
       final LexXrpcParameters? parameters,
       final LexXrpcSubscriptionMessage? message,
       final List<LexXrpcError>? infos,
-      final List<LexXrpcError>? errors}) = _$_LexXrpcSubscription;
+      final List<LexXrpcError>? errors}) = _$LexXrpcSubscriptionImpl;
 
   factory _LexXrpcSubscription.fromJson(Map<String, dynamic> json) =
-      _$_LexXrpcSubscription.fromJson;
+      _$LexXrpcSubscriptionImpl.fromJson;
 
   @override
   String get type;
@@ -311,6 +311,6 @@ abstract class _LexXrpcSubscription implements LexXrpcSubscription {
   List<LexXrpcError>? get errors;
   @override
   @JsonKey(ignore: true)
-  _$$_LexXrpcSubscriptionCopyWith<_$_LexXrpcSubscription> get copyWith =>
+  _$$LexXrpcSubscriptionImplCopyWith<_$LexXrpcSubscriptionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

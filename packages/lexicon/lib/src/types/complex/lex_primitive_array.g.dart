@@ -8,11 +8,12 @@ part of 'lex_primitive_array.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LexPrimitiveArray _$$_LexPrimitiveArrayFromJson(Map json) => $checkedCreate(
-      r'_$_LexPrimitiveArray',
+_$LexPrimitiveArrayImpl _$$LexPrimitiveArrayImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$LexPrimitiveArrayImpl',
       json,
       ($checkedConvert) {
-        final val = _$_LexPrimitiveArray(
+        final val = _$LexPrimitiveArrayImpl(
           type: $checkedConvert('type', (v) => v as String? ?? 'array'),
           description: $checkedConvert('description', (v) => v as String?),
           items: $checkedConvert('items',
@@ -24,8 +25,8 @@ _$_LexPrimitiveArray _$$_LexPrimitiveArrayFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_LexPrimitiveArrayToJson(
-    _$_LexPrimitiveArray instance) {
+Map<String, dynamic> _$$LexPrimitiveArrayImplToJson(
+    _$LexPrimitiveArrayImpl instance) {
   final val = <String, dynamic>{
     'type': instance.type,
   };

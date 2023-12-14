@@ -8,11 +8,12 @@ part of 'lex_xrpc_parameters.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LexXrpcParameters _$$_LexXrpcParametersFromJson(Map json) => $checkedCreate(
-      r'_$_LexXrpcParameters',
+_$LexXrpcParametersImpl _$$LexXrpcParametersImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$LexXrpcParametersImpl',
       json,
       ($checkedConvert) {
-        final val = _$_LexXrpcParameters(
+        final val = _$LexXrpcParametersImpl(
           type: $checkedConvert('type', (v) => v as String? ?? 'params'),
           description: $checkedConvert('description', (v) => v as String?),
           requiredProperties: $checkedConvert('required',
@@ -31,8 +32,8 @@ _$_LexXrpcParameters _$$_LexXrpcParametersFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'requiredProperties': 'required'},
     );
 
-Map<String, dynamic> _$$_LexXrpcParametersToJson(
-    _$_LexXrpcParameters instance) {
+Map<String, dynamic> _$$LexXrpcParametersImplToJson(
+    _$LexXrpcParametersImpl instance) {
   final val = <String, dynamic>{
     'type': instance.type,
   };

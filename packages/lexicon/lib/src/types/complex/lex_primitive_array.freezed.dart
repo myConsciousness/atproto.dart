@@ -102,11 +102,11 @@ class _$LexPrimitiveArrayCopyWithImpl<$Res, $Val extends LexPrimitiveArray>
 }
 
 /// @nodoc
-abstract class _$$_LexPrimitiveArrayCopyWith<$Res>
+abstract class _$$LexPrimitiveArrayImplCopyWith<$Res>
     implements $LexPrimitiveArrayCopyWith<$Res> {
-  factory _$$_LexPrimitiveArrayCopyWith(_$_LexPrimitiveArray value,
-          $Res Function(_$_LexPrimitiveArray) then) =
-      __$$_LexPrimitiveArrayCopyWithImpl<$Res>;
+  factory _$$LexPrimitiveArrayImplCopyWith(_$LexPrimitiveArrayImpl value,
+          $Res Function(_$LexPrimitiveArrayImpl) then) =
+      __$$LexPrimitiveArrayImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -121,11 +121,11 @@ abstract class _$$_LexPrimitiveArrayCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LexPrimitiveArrayCopyWithImpl<$Res>
-    extends _$LexPrimitiveArrayCopyWithImpl<$Res, _$_LexPrimitiveArray>
-    implements _$$_LexPrimitiveArrayCopyWith<$Res> {
-  __$$_LexPrimitiveArrayCopyWithImpl(
-      _$_LexPrimitiveArray _value, $Res Function(_$_LexPrimitiveArray) _then)
+class __$$LexPrimitiveArrayImplCopyWithImpl<$Res>
+    extends _$LexPrimitiveArrayCopyWithImpl<$Res, _$LexPrimitiveArrayImpl>
+    implements _$$LexPrimitiveArrayImplCopyWith<$Res> {
+  __$$LexPrimitiveArrayImplCopyWithImpl(_$LexPrimitiveArrayImpl _value,
+      $Res Function(_$LexPrimitiveArrayImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -137,7 +137,7 @@ class __$$_LexPrimitiveArrayCopyWithImpl<$Res>
     Object? minLength = freezed,
     Object? maxLength = freezed,
   }) {
-    return _then(_$_LexPrimitiveArray(
+    return _then(_$LexPrimitiveArrayImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -165,16 +165,16 @@ class __$$_LexPrimitiveArrayCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexPrimitiveArray implements _LexPrimitiveArray {
-  const _$_LexPrimitiveArray(
+class _$LexPrimitiveArrayImpl implements _LexPrimitiveArray {
+  const _$LexPrimitiveArrayImpl(
       {this.type = 'array',
       this.description,
       @lexPrimitiveConverter required this.items,
       this.minLength,
       this.maxLength});
 
-  factory _$_LexPrimitiveArray.fromJson(Map<String, dynamic> json) =>
-      _$$_LexPrimitiveArrayFromJson(json);
+  factory _$LexPrimitiveArrayImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LexPrimitiveArrayImplFromJson(json);
 
   @override
   @JsonKey()
@@ -198,7 +198,7 @@ class _$_LexPrimitiveArray implements _LexPrimitiveArray {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexPrimitiveArray &&
+            other is _$LexPrimitiveArrayImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -217,13 +217,13 @@ class _$_LexPrimitiveArray implements _LexPrimitiveArray {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexPrimitiveArrayCopyWith<_$_LexPrimitiveArray> get copyWith =>
-      __$$_LexPrimitiveArrayCopyWithImpl<_$_LexPrimitiveArray>(
+  _$$LexPrimitiveArrayImplCopyWith<_$LexPrimitiveArrayImpl> get copyWith =>
+      __$$LexPrimitiveArrayImplCopyWithImpl<_$LexPrimitiveArrayImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LexPrimitiveArrayToJson(
+    return _$$LexPrimitiveArrayImplToJson(
       this,
     );
   }
@@ -235,10 +235,10 @@ abstract class _LexPrimitiveArray implements LexPrimitiveArray {
       final String? description,
       @lexPrimitiveConverter required final LexPrimitive items,
       final int? minLength,
-      final int? maxLength}) = _$_LexPrimitiveArray;
+      final int? maxLength}) = _$LexPrimitiveArrayImpl;
 
   factory _LexPrimitiveArray.fromJson(Map<String, dynamic> json) =
-      _$_LexPrimitiveArray.fromJson;
+      _$LexPrimitiveArrayImpl.fromJson;
 
   @override
   String get type;
@@ -253,6 +253,6 @@ abstract class _LexPrimitiveArray implements LexPrimitiveArray {
   int? get maxLength;
   @override
   @JsonKey(ignore: true)
-  _$$_LexPrimitiveArrayCopyWith<_$_LexPrimitiveArray> get copyWith =>
+  _$$LexPrimitiveArrayImplCopyWith<_$LexPrimitiveArrayImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -81,11 +81,11 @@ class _$LexXrpcParametersPropertyCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ULexXrpcParametersPropertyPrimitiveArrayCopyWith<$Res> {
-  factory _$$ULexXrpcParametersPropertyPrimitiveArrayCopyWith(
-          _$ULexXrpcParametersPropertyPrimitiveArray value,
-          $Res Function(_$ULexXrpcParametersPropertyPrimitiveArray) then) =
-      __$$ULexXrpcParametersPropertyPrimitiveArrayCopyWithImpl<$Res>;
+abstract class _$$ULexXrpcParametersPropertyPrimitiveArrayImplCopyWith<$Res> {
+  factory _$$ULexXrpcParametersPropertyPrimitiveArrayImplCopyWith(
+          _$ULexXrpcParametersPropertyPrimitiveArrayImpl value,
+          $Res Function(_$ULexXrpcParametersPropertyPrimitiveArrayImpl) then) =
+      __$$ULexXrpcParametersPropertyPrimitiveArrayImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexPrimitiveArray data});
 
@@ -93,13 +93,13 @@ abstract class _$$ULexXrpcParametersPropertyPrimitiveArrayCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULexXrpcParametersPropertyPrimitiveArrayCopyWithImpl<$Res>
+class __$$ULexXrpcParametersPropertyPrimitiveArrayImplCopyWithImpl<$Res>
     extends _$LexXrpcParametersPropertyCopyWithImpl<$Res,
-        _$ULexXrpcParametersPropertyPrimitiveArray>
-    implements _$$ULexXrpcParametersPropertyPrimitiveArrayCopyWith<$Res> {
-  __$$ULexXrpcParametersPropertyPrimitiveArrayCopyWithImpl(
-      _$ULexXrpcParametersPropertyPrimitiveArray _value,
-      $Res Function(_$ULexXrpcParametersPropertyPrimitiveArray) _then)
+        _$ULexXrpcParametersPropertyPrimitiveArrayImpl>
+    implements _$$ULexXrpcParametersPropertyPrimitiveArrayImplCopyWith<$Res> {
+  __$$ULexXrpcParametersPropertyPrimitiveArrayImplCopyWithImpl(
+      _$ULexXrpcParametersPropertyPrimitiveArrayImpl _value,
+      $Res Function(_$ULexXrpcParametersPropertyPrimitiveArrayImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -107,7 +107,7 @@ class __$$ULexXrpcParametersPropertyPrimitiveArrayCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULexXrpcParametersPropertyPrimitiveArray(
+    return _then(_$ULexXrpcParametersPropertyPrimitiveArrayImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -126,9 +126,9 @@ class __$$ULexXrpcParametersPropertyPrimitiveArrayCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULexXrpcParametersPropertyPrimitiveArray
+class _$ULexXrpcParametersPropertyPrimitiveArrayImpl
     extends ULexXrpcParametersPropertyPrimitiveArray {
-  const _$ULexXrpcParametersPropertyPrimitiveArray({required this.data})
+  const _$ULexXrpcParametersPropertyPrimitiveArrayImpl({required this.data})
       : super._();
 
   @override
@@ -143,7 +143,7 @@ class _$ULexXrpcParametersPropertyPrimitiveArray
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULexXrpcParametersPropertyPrimitiveArray &&
+            other is _$ULexXrpcParametersPropertyPrimitiveArrayImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -153,10 +153,11 @@ class _$ULexXrpcParametersPropertyPrimitiveArray
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULexXrpcParametersPropertyPrimitiveArrayCopyWith<
-          _$ULexXrpcParametersPropertyPrimitiveArray>
-      get copyWith => __$$ULexXrpcParametersPropertyPrimitiveArrayCopyWithImpl<
-          _$ULexXrpcParametersPropertyPrimitiveArray>(this, _$identity);
+  _$$ULexXrpcParametersPropertyPrimitiveArrayImplCopyWith<
+          _$ULexXrpcParametersPropertyPrimitiveArrayImpl>
+      get copyWith =>
+          __$$ULexXrpcParametersPropertyPrimitiveArrayImplCopyWithImpl<
+              _$ULexXrpcParametersPropertyPrimitiveArrayImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -229,23 +230,23 @@ abstract class ULexXrpcParametersPropertyPrimitiveArray
     extends LexXrpcParametersProperty {
   const factory ULexXrpcParametersPropertyPrimitiveArray(
           {required final LexPrimitiveArray data}) =
-      _$ULexXrpcParametersPropertyPrimitiveArray;
+      _$ULexXrpcParametersPropertyPrimitiveArrayImpl;
   const ULexXrpcParametersPropertyPrimitiveArray._() : super._();
 
   @override
   LexPrimitiveArray get data;
   @JsonKey(ignore: true)
-  _$$ULexXrpcParametersPropertyPrimitiveArrayCopyWith<
-          _$ULexXrpcParametersPropertyPrimitiveArray>
+  _$$ULexXrpcParametersPropertyPrimitiveArrayImplCopyWith<
+          _$ULexXrpcParametersPropertyPrimitiveArrayImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ULexXrpcParametersPropertyPrimitiveCopyWith<$Res> {
-  factory _$$ULexXrpcParametersPropertyPrimitiveCopyWith(
-          _$ULexXrpcParametersPropertyPrimitive value,
-          $Res Function(_$ULexXrpcParametersPropertyPrimitive) then) =
-      __$$ULexXrpcParametersPropertyPrimitiveCopyWithImpl<$Res>;
+abstract class _$$ULexXrpcParametersPropertyPrimitiveImplCopyWith<$Res> {
+  factory _$$ULexXrpcParametersPropertyPrimitiveImplCopyWith(
+          _$ULexXrpcParametersPropertyPrimitiveImpl value,
+          $Res Function(_$ULexXrpcParametersPropertyPrimitiveImpl) then) =
+      __$$ULexXrpcParametersPropertyPrimitiveImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexPrimitive data});
 
@@ -253,13 +254,13 @@ abstract class _$$ULexXrpcParametersPropertyPrimitiveCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULexXrpcParametersPropertyPrimitiveCopyWithImpl<$Res>
+class __$$ULexXrpcParametersPropertyPrimitiveImplCopyWithImpl<$Res>
     extends _$LexXrpcParametersPropertyCopyWithImpl<$Res,
-        _$ULexXrpcParametersPropertyPrimitive>
-    implements _$$ULexXrpcParametersPropertyPrimitiveCopyWith<$Res> {
-  __$$ULexXrpcParametersPropertyPrimitiveCopyWithImpl(
-      _$ULexXrpcParametersPropertyPrimitive _value,
-      $Res Function(_$ULexXrpcParametersPropertyPrimitive) _then)
+        _$ULexXrpcParametersPropertyPrimitiveImpl>
+    implements _$$ULexXrpcParametersPropertyPrimitiveImplCopyWith<$Res> {
+  __$$ULexXrpcParametersPropertyPrimitiveImplCopyWithImpl(
+      _$ULexXrpcParametersPropertyPrimitiveImpl _value,
+      $Res Function(_$ULexXrpcParametersPropertyPrimitiveImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -267,7 +268,7 @@ class __$$ULexXrpcParametersPropertyPrimitiveCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULexXrpcParametersPropertyPrimitive(
+    return _then(_$ULexXrpcParametersPropertyPrimitiveImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -286,9 +287,10 @@ class __$$ULexXrpcParametersPropertyPrimitiveCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULexXrpcParametersPropertyPrimitive
+class _$ULexXrpcParametersPropertyPrimitiveImpl
     extends ULexXrpcParametersPropertyPrimitive {
-  const _$ULexXrpcParametersPropertyPrimitive({required this.data}) : super._();
+  const _$ULexXrpcParametersPropertyPrimitiveImpl({required this.data})
+      : super._();
 
   @override
   final LexPrimitive data;
@@ -302,7 +304,7 @@ class _$ULexXrpcParametersPropertyPrimitive
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULexXrpcParametersPropertyPrimitive &&
+            other is _$ULexXrpcParametersPropertyPrimitiveImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -312,10 +314,10 @@ class _$ULexXrpcParametersPropertyPrimitive
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULexXrpcParametersPropertyPrimitiveCopyWith<
-          _$ULexXrpcParametersPropertyPrimitive>
-      get copyWith => __$$ULexXrpcParametersPropertyPrimitiveCopyWithImpl<
-          _$ULexXrpcParametersPropertyPrimitive>(this, _$identity);
+  _$$ULexXrpcParametersPropertyPrimitiveImplCopyWith<
+          _$ULexXrpcParametersPropertyPrimitiveImpl>
+      get copyWith => __$$ULexXrpcParametersPropertyPrimitiveImplCopyWithImpl<
+          _$ULexXrpcParametersPropertyPrimitiveImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -388,13 +390,13 @@ abstract class ULexXrpcParametersPropertyPrimitive
     extends LexXrpcParametersProperty {
   const factory ULexXrpcParametersPropertyPrimitive(
           {required final LexPrimitive data}) =
-      _$ULexXrpcParametersPropertyPrimitive;
+      _$ULexXrpcParametersPropertyPrimitiveImpl;
   const ULexXrpcParametersPropertyPrimitive._() : super._();
 
   @override
   LexPrimitive get data;
   @JsonKey(ignore: true)
-  _$$ULexXrpcParametersPropertyPrimitiveCopyWith<
-          _$ULexXrpcParametersPropertyPrimitive>
+  _$$ULexXrpcParametersPropertyPrimitiveImplCopyWith<
+          _$ULexXrpcParametersPropertyPrimitiveImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

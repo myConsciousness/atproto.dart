@@ -118,11 +118,11 @@ class _$LexXrpcQueryCopyWithImpl<$Res, $Val extends LexXrpcQuery>
 }
 
 /// @nodoc
-abstract class _$$_LexXrpcQueryCopyWith<$Res>
+abstract class _$$LexXrpcQueryImplCopyWith<$Res>
     implements $LexXrpcQueryCopyWith<$Res> {
-  factory _$$_LexXrpcQueryCopyWith(
-          _$_LexXrpcQuery value, $Res Function(_$_LexXrpcQuery) then) =
-      __$$_LexXrpcQueryCopyWithImpl<$Res>;
+  factory _$$LexXrpcQueryImplCopyWith(
+          _$LexXrpcQueryImpl value, $Res Function(_$LexXrpcQueryImpl) then) =
+      __$$LexXrpcQueryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -139,11 +139,11 @@ abstract class _$$_LexXrpcQueryCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LexXrpcQueryCopyWithImpl<$Res>
-    extends _$LexXrpcQueryCopyWithImpl<$Res, _$_LexXrpcQuery>
-    implements _$$_LexXrpcQueryCopyWith<$Res> {
-  __$$_LexXrpcQueryCopyWithImpl(
-      _$_LexXrpcQuery _value, $Res Function(_$_LexXrpcQuery) _then)
+class __$$LexXrpcQueryImplCopyWithImpl<$Res>
+    extends _$LexXrpcQueryCopyWithImpl<$Res, _$LexXrpcQueryImpl>
+    implements _$$LexXrpcQueryImplCopyWith<$Res> {
+  __$$LexXrpcQueryImplCopyWithImpl(
+      _$LexXrpcQueryImpl _value, $Res Function(_$LexXrpcQueryImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -155,7 +155,7 @@ class __$$_LexXrpcQueryCopyWithImpl<$Res>
     Object? output = freezed,
     Object? errors = freezed,
   }) {
-    return _then(_$_LexXrpcQuery(
+    return _then(_$LexXrpcQueryImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -183,8 +183,8 @@ class __$$_LexXrpcQueryCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexXrpcQuery implements _LexXrpcQuery {
-  const _$_LexXrpcQuery(
+class _$LexXrpcQueryImpl implements _LexXrpcQuery {
+  const _$LexXrpcQueryImpl(
       {this.type = 'query',
       this.description,
       this.parameters,
@@ -192,8 +192,8 @@ class _$_LexXrpcQuery implements _LexXrpcQuery {
       final List<LexXrpcError>? errors})
       : _errors = errors;
 
-  factory _$_LexXrpcQuery.fromJson(Map<String, dynamic> json) =>
-      _$$_LexXrpcQueryFromJson(json);
+  factory _$LexXrpcQueryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LexXrpcQueryImplFromJson(json);
 
   @override
   @JsonKey()
@@ -223,7 +223,7 @@ class _$_LexXrpcQuery implements _LexXrpcQuery {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexXrpcQuery &&
+            other is _$LexXrpcQueryImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -241,12 +241,12 @@ class _$_LexXrpcQuery implements _LexXrpcQuery {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexXrpcQueryCopyWith<_$_LexXrpcQuery> get copyWith =>
-      __$$_LexXrpcQueryCopyWithImpl<_$_LexXrpcQuery>(this, _$identity);
+  _$$LexXrpcQueryImplCopyWith<_$LexXrpcQueryImpl> get copyWith =>
+      __$$LexXrpcQueryImplCopyWithImpl<_$LexXrpcQueryImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LexXrpcQueryToJson(
+    return _$$LexXrpcQueryImplToJson(
       this,
     );
   }
@@ -258,10 +258,10 @@ abstract class _LexXrpcQuery implements LexXrpcQuery {
       final String? description,
       final LexXrpcParameters? parameters,
       final LexXrpcBody? output,
-      final List<LexXrpcError>? errors}) = _$_LexXrpcQuery;
+      final List<LexXrpcError>? errors}) = _$LexXrpcQueryImpl;
 
   factory _LexXrpcQuery.fromJson(Map<String, dynamic> json) =
-      _$_LexXrpcQuery.fromJson;
+      _$LexXrpcQueryImpl.fromJson;
 
   @override
   String get type;
@@ -275,6 +275,6 @@ abstract class _LexXrpcQuery implements LexXrpcQuery {
   List<LexXrpcError>? get errors;
   @override
   @JsonKey(ignore: true)
-  _$$_LexXrpcQueryCopyWith<_$_LexXrpcQuery> get copyWith =>
+  _$$LexXrpcQueryImplCopyWith<_$LexXrpcQueryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

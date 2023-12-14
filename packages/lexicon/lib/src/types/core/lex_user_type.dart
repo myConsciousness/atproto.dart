@@ -33,59 +33,59 @@ class LexUserType with _$LexUserType {
 
   const factory LexUserType.record({
     required LexRecord data,
-  }) = _LexRecord;
+  }) = ULexUserTypeRecord;
 
   const factory LexUserType.xrpcQuery({
     required LexXrpcQuery data,
-  }) = _LexXrpcQuery;
+  }) = ULexUserTypeXrpcQuery;
 
   const factory LexUserType.xrpcProcedure({
     required LexXrpcProcedure data,
-  }) = _LexXrpcProcedure;
+  }) = ULexUserTypeXrpcProcedure;
 
   const factory LexUserType.xrpcSubscription({
     required LexXrpcSubscription data,
-  }) = _LexXrpcSubscription;
+  }) = ULexUserTypeXrpcSubscription;
 
   const factory LexUserType.blob({
     required LexBlob data,
-  }) = _LexBlob;
+  }) = ULexUserTypeBlob;
 
   const factory LexUserType.array({
     required LexArray data,
-  }) = _LexArray;
+  }) = ULexUserTypeArray;
 
   const factory LexUserType.token({
     required LexToken data,
-  }) = _LexToken;
+  }) = ULexUserTypeToken;
 
   const factory LexUserType.object({
     required LexObject data,
-  }) = _LexObject;
+  }) = ULexUserTypeObject;
 
   const factory LexUserType.boolean({
     required LexBoolean data,
-  }) = _LexBoolean;
+  }) = ULexUserTypeBoolean;
 
   const factory LexUserType.integer({
     required LexInteger data,
-  }) = _LexInteger;
+  }) = ULexUserTypeInteger;
 
   const factory LexUserType.string({
     required LexString data,
-  }) = _LexString;
+  }) = ULexUserTypeString;
 
   const factory LexUserType.bytes({
     required LexBytes data,
-  }) = _LexBytes;
+  }) = ULexUserTypeBytes;
 
   const factory LexUserType.cidLink({
     required LexCidLink data,
-  }) = _LexCidLink;
+  }) = ULexUserTypeCidLink;
 
   const factory LexUserType.unknown({
     required LexUnknown data,
-  }) = _LexUnknown;
+  }) = ULexUserTypeUnknown;
 
   Map<String, dynamic> toJson() => lexUserTypeConverter.toJson(this);
 }

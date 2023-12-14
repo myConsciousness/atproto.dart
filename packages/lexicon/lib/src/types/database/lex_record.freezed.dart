@@ -89,10 +89,11 @@ class _$LexRecordCopyWithImpl<$Res, $Val extends LexRecord>
 }
 
 /// @nodoc
-abstract class _$$_LexRecordCopyWith<$Res> implements $LexRecordCopyWith<$Res> {
-  factory _$$_LexRecordCopyWith(
-          _$_LexRecord value, $Res Function(_$_LexRecord) then) =
-      __$$_LexRecordCopyWithImpl<$Res>;
+abstract class _$$LexRecordImplCopyWith<$Res>
+    implements $LexRecordCopyWith<$Res> {
+  factory _$$LexRecordImplCopyWith(
+          _$LexRecordImpl value, $Res Function(_$LexRecordImpl) then) =
+      __$$LexRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String type, String? description, String? key, LexObject record});
@@ -102,11 +103,11 @@ abstract class _$$_LexRecordCopyWith<$Res> implements $LexRecordCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LexRecordCopyWithImpl<$Res>
-    extends _$LexRecordCopyWithImpl<$Res, _$_LexRecord>
-    implements _$$_LexRecordCopyWith<$Res> {
-  __$$_LexRecordCopyWithImpl(
-      _$_LexRecord _value, $Res Function(_$_LexRecord) _then)
+class __$$LexRecordImplCopyWithImpl<$Res>
+    extends _$LexRecordCopyWithImpl<$Res, _$LexRecordImpl>
+    implements _$$LexRecordImplCopyWith<$Res> {
+  __$$LexRecordImplCopyWithImpl(
+      _$LexRecordImpl _value, $Res Function(_$LexRecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -117,7 +118,7 @@ class __$$_LexRecordCopyWithImpl<$Res>
     Object? key = freezed,
     Object? record = null,
   }) {
-    return _then(_$_LexRecord(
+    return _then(_$LexRecordImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -141,12 +142,12 @@ class __$$_LexRecordCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexRecord implements _LexRecord {
-  const _$_LexRecord(
+class _$LexRecordImpl implements _LexRecord {
+  const _$LexRecordImpl(
       {this.type = 'record', this.description, this.key, required this.record});
 
-  factory _$_LexRecord.fromJson(Map<String, dynamic> json) =>
-      _$$_LexRecordFromJson(json);
+  factory _$LexRecordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LexRecordImplFromJson(json);
 
   @override
   @JsonKey()
@@ -167,7 +168,7 @@ class _$_LexRecord implements _LexRecord {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexRecord &&
+            other is _$LexRecordImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -182,12 +183,12 @@ class _$_LexRecord implements _LexRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexRecordCopyWith<_$_LexRecord> get copyWith =>
-      __$$_LexRecordCopyWithImpl<_$_LexRecord>(this, _$identity);
+  _$$LexRecordImplCopyWith<_$LexRecordImpl> get copyWith =>
+      __$$LexRecordImplCopyWithImpl<_$LexRecordImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LexRecordToJson(
+    return _$$LexRecordImplToJson(
       this,
     );
   }
@@ -198,10 +199,10 @@ abstract class _LexRecord implements LexRecord {
       {final String type,
       final String? description,
       final String? key,
-      required final LexObject record}) = _$_LexRecord;
+      required final LexObject record}) = _$LexRecordImpl;
 
   factory _LexRecord.fromJson(Map<String, dynamic> json) =
-      _$_LexRecord.fromJson;
+      _$LexRecordImpl.fromJson;
 
   @override
   String get type;
@@ -213,6 +214,6 @@ abstract class _LexRecord implements LexRecord {
   LexObject get record;
   @override
   @JsonKey(ignore: true)
-  _$$_LexRecordCopyWith<_$_LexRecord> get copyWith =>
+  _$$LexRecordImplCopyWith<_$LexRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
