@@ -2,9 +2,11 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:github/github.dart';
+import 'package:lexicon/lexicon.dart';
 
 /// The path to `packages` directory.
 const packagesPath = './packages';
@@ -39,3 +41,26 @@ final packageNames = Directory(packagesPath)
 
 File getPackagePubspec(final String packageName) =>
     File('$packagesPath/$packageName/$pubspecFileName');
+
+List<LexiconDoc> get lexiconDocs {
+  final docs = <LexiconDoc>[];
+  for (final root in lexiconsRoot) {
+    final directory = Directory('lexicons/$root');
+
+    for (final service in directory.listSync()) {
+      if (service is File) continue;
+
+      for (final lexicon in (service as Directory).listSync()) {
+        if (lexicon is Directory) continue;
+
+        docs.add(_getLexiconDoc(lexicon as File));
+      }
+    }
+  }
+
+  return docs;
+}
+
+LexiconDoc _getLexiconDoc(final File lexiconFile) => LexiconDoc.fromJson(
+      jsonDecode(lexiconFile.readAsStringSync()),
+    );
