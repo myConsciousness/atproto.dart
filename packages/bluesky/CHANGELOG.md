@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.12.4
+
+- Elevate !no-unauthenticated label to affect the entire account when on the profile. ([#1077](https://github.com/myConsciousness/atproto.dart/issues/1077))
+
 ## v0.12.3
 
 - Apply automatic generation of moderation sources. ([#1040](https://github.com/myConsciousness/atproto.dart/issues/1040))
