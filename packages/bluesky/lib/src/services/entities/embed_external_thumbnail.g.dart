@@ -8,12 +8,12 @@ part of 'embed_external_thumbnail.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_EmbedExternalThumbnail _$$_EmbedExternalThumbnailFromJson(Map json) =>
+_$EmbedExternalThumbnailImpl _$$EmbedExternalThumbnailImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$_EmbedExternalThumbnail',
+      r'_$EmbedExternalThumbnailImpl',
       json,
       ($checkedConvert) {
-        final val = _$_EmbedExternalThumbnail(
+        final val = _$EmbedExternalThumbnailImpl(
           uri: $checkedConvert('uri', (v) => v as String),
           title: $checkedConvert('title', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String),
@@ -27,8 +27,8 @@ _$_EmbedExternalThumbnail _$$_EmbedExternalThumbnailFromJson(Map json) =>
       fieldKeyMap: const {'blob': 'thumb'},
     );
 
-Map<String, dynamic> _$$_EmbedExternalThumbnailToJson(
-    _$_EmbedExternalThumbnail instance) {
+Map<String, dynamic> _$$EmbedExternalThumbnailImplToJson(
+    _$EmbedExternalThumbnailImpl instance) {
   final val = <String, dynamic>{
     'uri': instance.uri,
     'title': instance.title,

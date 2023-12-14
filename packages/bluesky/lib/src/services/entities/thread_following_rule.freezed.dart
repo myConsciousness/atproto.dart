@@ -64,22 +64,22 @@ class _$ThreadFollowingRuleCopyWithImpl<$Res, $Val extends ThreadFollowingRule>
 }
 
 /// @nodoc
-abstract class _$$_ThreadFollowingRuleCopyWith<$Res>
+abstract class _$$ThreadFollowingRuleImplCopyWith<$Res>
     implements $ThreadFollowingRuleCopyWith<$Res> {
-  factory _$$_ThreadFollowingRuleCopyWith(_$_ThreadFollowingRule value,
-          $Res Function(_$_ThreadFollowingRule) then) =
-      __$$_ThreadFollowingRuleCopyWithImpl<$Res>;
+  factory _$$ThreadFollowingRuleImplCopyWith(_$ThreadFollowingRuleImpl value,
+          $Res Function(_$ThreadFollowingRuleImpl) then) =
+      __$$ThreadFollowingRuleImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type});
 }
 
 /// @nodoc
-class __$$_ThreadFollowingRuleCopyWithImpl<$Res>
-    extends _$ThreadFollowingRuleCopyWithImpl<$Res, _$_ThreadFollowingRule>
-    implements _$$_ThreadFollowingRuleCopyWith<$Res> {
-  __$$_ThreadFollowingRuleCopyWithImpl(_$_ThreadFollowingRule _value,
-      $Res Function(_$_ThreadFollowingRule) _then)
+class __$$ThreadFollowingRuleImplCopyWithImpl<$Res>
+    extends _$ThreadFollowingRuleCopyWithImpl<$Res, _$ThreadFollowingRuleImpl>
+    implements _$$ThreadFollowingRuleImplCopyWith<$Res> {
+  __$$ThreadFollowingRuleImplCopyWithImpl(_$ThreadFollowingRuleImpl _value,
+      $Res Function(_$ThreadFollowingRuleImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +87,7 @@ class __$$_ThreadFollowingRuleCopyWithImpl<$Res>
   $Res call({
     Object? type = null,
   }) {
-    return _then(_$_ThreadFollowingRule(
+    return _then(_$ThreadFollowingRuleImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -99,12 +99,12 @@ class __$$_ThreadFollowingRuleCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ThreadFollowingRule implements _ThreadFollowingRule {
-  const _$_ThreadFollowingRule(
+class _$ThreadFollowingRuleImpl implements _ThreadFollowingRule {
+  const _$ThreadFollowingRuleImpl(
       {@typeKey this.type = appBskyFeedThreadgateFollowingRule});
 
-  factory _$_ThreadFollowingRule.fromJson(Map<String, dynamic> json) =>
-      _$$_ThreadFollowingRuleFromJson(json);
+  factory _$ThreadFollowingRuleImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ThreadFollowingRuleImplFromJson(json);
 
   /// Represents the type of this object.
   @override
@@ -120,7 +120,7 @@ class _$_ThreadFollowingRule implements _ThreadFollowingRule {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ThreadFollowingRule &&
+            other is _$ThreadFollowingRuleImpl &&
             (identical(other.type, type) || other.type == type));
   }
 
@@ -131,13 +131,13 @@ class _$_ThreadFollowingRule implements _ThreadFollowingRule {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ThreadFollowingRuleCopyWith<_$_ThreadFollowingRule> get copyWith =>
-      __$$_ThreadFollowingRuleCopyWithImpl<_$_ThreadFollowingRule>(
+  _$$ThreadFollowingRuleImplCopyWith<_$ThreadFollowingRuleImpl> get copyWith =>
+      __$$ThreadFollowingRuleImplCopyWithImpl<_$ThreadFollowingRuleImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ThreadFollowingRuleToJson(
+    return _$$ThreadFollowingRuleImplToJson(
       this,
     );
   }
@@ -145,10 +145,10 @@ class _$_ThreadFollowingRule implements _ThreadFollowingRule {
 
 abstract class _ThreadFollowingRule implements ThreadFollowingRule {
   const factory _ThreadFollowingRule({@typeKey final String type}) =
-      _$_ThreadFollowingRule;
+      _$ThreadFollowingRuleImpl;
 
   factory _ThreadFollowingRule.fromJson(Map<String, dynamic> json) =
-      _$_ThreadFollowingRule.fromJson;
+      _$ThreadFollowingRuleImpl.fromJson;
 
   @override
 
@@ -157,6 +157,6 @@ abstract class _ThreadFollowingRule implements ThreadFollowingRule {
   String get type;
   @override
   @JsonKey(ignore: true)
-  _$$_ThreadFollowingRuleCopyWith<_$_ThreadFollowingRule> get copyWith =>
+  _$$ThreadFollowingRuleImplCopyWith<_$ThreadFollowingRuleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

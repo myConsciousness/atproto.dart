@@ -63,22 +63,22 @@ class _$RepoCommitsCopyWithImpl<$Res, $Val extends RepoCommits>
 }
 
 /// @nodoc
-abstract class _$$_RepoCommitsCopyWith<$Res>
+abstract class _$$RepoCommitsImplCopyWith<$Res>
     implements $RepoCommitsCopyWith<$Res> {
-  factory _$$_RepoCommitsCopyWith(
-          _$_RepoCommits value, $Res Function(_$_RepoCommits) then) =
-      __$$_RepoCommitsCopyWithImpl<$Res>;
+  factory _$$RepoCommitsImplCopyWith(
+          _$RepoCommitsImpl value, $Res Function(_$RepoCommitsImpl) then) =
+      __$$RepoCommitsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<RepoCommit> commits});
 }
 
 /// @nodoc
-class __$$_RepoCommitsCopyWithImpl<$Res>
-    extends _$RepoCommitsCopyWithImpl<$Res, _$_RepoCommits>
-    implements _$$_RepoCommitsCopyWith<$Res> {
-  __$$_RepoCommitsCopyWithImpl(
-      _$_RepoCommits _value, $Res Function(_$_RepoCommits) _then)
+class __$$RepoCommitsImplCopyWithImpl<$Res>
+    extends _$RepoCommitsCopyWithImpl<$Res, _$RepoCommitsImpl>
+    implements _$$RepoCommitsImplCopyWith<$Res> {
+  __$$RepoCommitsImplCopyWithImpl(
+      _$RepoCommitsImpl _value, $Res Function(_$RepoCommitsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -86,7 +86,7 @@ class __$$_RepoCommitsCopyWithImpl<$Res>
   $Res call({
     Object? commits = null,
   }) {
-    return _then(_$_RepoCommits(
+    return _then(_$RepoCommitsImpl(
       commits: null == commits
           ? _value._commits
           : commits // ignore: cast_nullable_to_non_nullable
@@ -98,12 +98,12 @@ class __$$_RepoCommitsCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_RepoCommits implements _RepoCommits {
-  const _$_RepoCommits({required final List<RepoCommit> commits})
+class _$RepoCommitsImpl implements _RepoCommits {
+  const _$RepoCommitsImpl({required final List<RepoCommit> commits})
       : _commits = commits;
 
-  factory _$_RepoCommits.fromJson(Map<String, dynamic> json) =>
-      _$$_RepoCommitsFromJson(json);
+  factory _$RepoCommitsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RepoCommitsImplFromJson(json);
 
   /// The list of [RepoCommit] objects.
   final List<RepoCommit> _commits;
@@ -125,7 +125,7 @@ class _$_RepoCommits implements _RepoCommits {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RepoCommits &&
+            other is _$RepoCommitsImpl &&
             const DeepCollectionEquality().equals(other._commits, _commits));
   }
 
@@ -137,12 +137,12 @@ class _$_RepoCommits implements _RepoCommits {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RepoCommitsCopyWith<_$_RepoCommits> get copyWith =>
-      __$$_RepoCommitsCopyWithImpl<_$_RepoCommits>(this, _$identity);
+  _$$RepoCommitsImplCopyWith<_$RepoCommitsImpl> get copyWith =>
+      __$$RepoCommitsImplCopyWithImpl<_$RepoCommitsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RepoCommitsToJson(
+    return _$$RepoCommitsImplToJson(
       this,
     );
   }
@@ -150,10 +150,10 @@ class _$_RepoCommits implements _RepoCommits {
 
 abstract class _RepoCommits implements RepoCommits {
   const factory _RepoCommits({required final List<RepoCommit> commits}) =
-      _$_RepoCommits;
+      _$RepoCommitsImpl;
 
   factory _RepoCommits.fromJson(Map<String, dynamic> json) =
-      _$_RepoCommits.fromJson;
+      _$RepoCommitsImpl.fromJson;
 
   @override
 
@@ -161,6 +161,6 @@ abstract class _RepoCommits implements RepoCommits {
   List<RepoCommit> get commits;
   @override
   @JsonKey(ignore: true)
-  _$$_RepoCommitsCopyWith<_$_RepoCommits> get copyWith =>
+  _$$RepoCommitsImplCopyWith<_$RepoCommitsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

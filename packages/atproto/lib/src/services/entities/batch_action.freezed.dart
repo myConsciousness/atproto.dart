@@ -82,10 +82,10 @@ class _$BatchActionCopyWithImpl<$Res, $Val extends BatchAction>
 }
 
 /// @nodoc
-abstract class _$$UBatchActionCreateCopyWith<$Res> {
-  factory _$$UBatchActionCreateCopyWith(_$UBatchActionCreate value,
-          $Res Function(_$UBatchActionCreate) then) =
-      __$$UBatchActionCreateCopyWithImpl<$Res>;
+abstract class _$$UBatchActionCreateImplCopyWith<$Res> {
+  factory _$$UBatchActionCreateImplCopyWith(_$UBatchActionCreateImpl value,
+          $Res Function(_$UBatchActionCreateImpl) then) =
+      __$$UBatchActionCreateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({CreateAction data});
 
@@ -93,11 +93,11 @@ abstract class _$$UBatchActionCreateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UBatchActionCreateCopyWithImpl<$Res>
-    extends _$BatchActionCopyWithImpl<$Res, _$UBatchActionCreate>
-    implements _$$UBatchActionCreateCopyWith<$Res> {
-  __$$UBatchActionCreateCopyWithImpl(
-      _$UBatchActionCreate _value, $Res Function(_$UBatchActionCreate) _then)
+class __$$UBatchActionCreateImplCopyWithImpl<$Res>
+    extends _$BatchActionCopyWithImpl<$Res, _$UBatchActionCreateImpl>
+    implements _$$UBatchActionCreateImplCopyWith<$Res> {
+  __$$UBatchActionCreateImplCopyWithImpl(_$UBatchActionCreateImpl _value,
+      $Res Function(_$UBatchActionCreateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -105,7 +105,7 @@ class __$$UBatchActionCreateCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UBatchActionCreate(
+    return _then(_$UBatchActionCreateImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -124,8 +124,8 @@ class __$$UBatchActionCreateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UBatchActionCreate implements UBatchActionCreate {
-  const _$UBatchActionCreate({required this.data});
+class _$UBatchActionCreateImpl implements UBatchActionCreate {
+  const _$UBatchActionCreateImpl({required this.data});
 
   @override
   final CreateAction data;
@@ -139,7 +139,7 @@ class _$UBatchActionCreate implements UBatchActionCreate {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UBatchActionCreate &&
+            other is _$UBatchActionCreateImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -149,8 +149,8 @@ class _$UBatchActionCreate implements UBatchActionCreate {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UBatchActionCreateCopyWith<_$UBatchActionCreate> get copyWith =>
-      __$$UBatchActionCreateCopyWithImpl<_$UBatchActionCreate>(
+  _$$UBatchActionCreateImplCopyWith<_$UBatchActionCreateImpl> get copyWith =>
+      __$$UBatchActionCreateImplCopyWithImpl<_$UBatchActionCreateImpl>(
           this, _$identity);
 
   @override
@@ -224,20 +224,20 @@ class _$UBatchActionCreate implements UBatchActionCreate {
 
 abstract class UBatchActionCreate implements BatchAction {
   const factory UBatchActionCreate({required final CreateAction data}) =
-      _$UBatchActionCreate;
+      _$UBatchActionCreateImpl;
 
   @override
   CreateAction get data;
   @JsonKey(ignore: true)
-  _$$UBatchActionCreateCopyWith<_$UBatchActionCreate> get copyWith =>
+  _$$UBatchActionCreateImplCopyWith<_$UBatchActionCreateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UBatchActionUpdateCopyWith<$Res> {
-  factory _$$UBatchActionUpdateCopyWith(_$UBatchActionUpdate value,
-          $Res Function(_$UBatchActionUpdate) then) =
-      __$$UBatchActionUpdateCopyWithImpl<$Res>;
+abstract class _$$UBatchActionUpdateImplCopyWith<$Res> {
+  factory _$$UBatchActionUpdateImplCopyWith(_$UBatchActionUpdateImpl value,
+          $Res Function(_$UBatchActionUpdateImpl) then) =
+      __$$UBatchActionUpdateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({UpdateAction data});
 
@@ -245,11 +245,11 @@ abstract class _$$UBatchActionUpdateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UBatchActionUpdateCopyWithImpl<$Res>
-    extends _$BatchActionCopyWithImpl<$Res, _$UBatchActionUpdate>
-    implements _$$UBatchActionUpdateCopyWith<$Res> {
-  __$$UBatchActionUpdateCopyWithImpl(
-      _$UBatchActionUpdate _value, $Res Function(_$UBatchActionUpdate) _then)
+class __$$UBatchActionUpdateImplCopyWithImpl<$Res>
+    extends _$BatchActionCopyWithImpl<$Res, _$UBatchActionUpdateImpl>
+    implements _$$UBatchActionUpdateImplCopyWith<$Res> {
+  __$$UBatchActionUpdateImplCopyWithImpl(_$UBatchActionUpdateImpl _value,
+      $Res Function(_$UBatchActionUpdateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -257,7 +257,7 @@ class __$$UBatchActionUpdateCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UBatchActionUpdate(
+    return _then(_$UBatchActionUpdateImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -276,8 +276,8 @@ class __$$UBatchActionUpdateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UBatchActionUpdate implements UBatchActionUpdate {
-  const _$UBatchActionUpdate({required this.data});
+class _$UBatchActionUpdateImpl implements UBatchActionUpdate {
+  const _$UBatchActionUpdateImpl({required this.data});
 
   @override
   final UpdateAction data;
@@ -291,7 +291,7 @@ class _$UBatchActionUpdate implements UBatchActionUpdate {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UBatchActionUpdate &&
+            other is _$UBatchActionUpdateImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -301,8 +301,8 @@ class _$UBatchActionUpdate implements UBatchActionUpdate {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UBatchActionUpdateCopyWith<_$UBatchActionUpdate> get copyWith =>
-      __$$UBatchActionUpdateCopyWithImpl<_$UBatchActionUpdate>(
+  _$$UBatchActionUpdateImplCopyWith<_$UBatchActionUpdateImpl> get copyWith =>
+      __$$UBatchActionUpdateImplCopyWithImpl<_$UBatchActionUpdateImpl>(
           this, _$identity);
 
   @override
@@ -376,20 +376,20 @@ class _$UBatchActionUpdate implements UBatchActionUpdate {
 
 abstract class UBatchActionUpdate implements BatchAction {
   const factory UBatchActionUpdate({required final UpdateAction data}) =
-      _$UBatchActionUpdate;
+      _$UBatchActionUpdateImpl;
 
   @override
   UpdateAction get data;
   @JsonKey(ignore: true)
-  _$$UBatchActionUpdateCopyWith<_$UBatchActionUpdate> get copyWith =>
+  _$$UBatchActionUpdateImplCopyWith<_$UBatchActionUpdateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UBatchActionDeleteCopyWith<$Res> {
-  factory _$$UBatchActionDeleteCopyWith(_$UBatchActionDelete value,
-          $Res Function(_$UBatchActionDelete) then) =
-      __$$UBatchActionDeleteCopyWithImpl<$Res>;
+abstract class _$$UBatchActionDeleteImplCopyWith<$Res> {
+  factory _$$UBatchActionDeleteImplCopyWith(_$UBatchActionDeleteImpl value,
+          $Res Function(_$UBatchActionDeleteImpl) then) =
+      __$$UBatchActionDeleteImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DeleteAction data});
 
@@ -397,11 +397,11 @@ abstract class _$$UBatchActionDeleteCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UBatchActionDeleteCopyWithImpl<$Res>
-    extends _$BatchActionCopyWithImpl<$Res, _$UBatchActionDelete>
-    implements _$$UBatchActionDeleteCopyWith<$Res> {
-  __$$UBatchActionDeleteCopyWithImpl(
-      _$UBatchActionDelete _value, $Res Function(_$UBatchActionDelete) _then)
+class __$$UBatchActionDeleteImplCopyWithImpl<$Res>
+    extends _$BatchActionCopyWithImpl<$Res, _$UBatchActionDeleteImpl>
+    implements _$$UBatchActionDeleteImplCopyWith<$Res> {
+  __$$UBatchActionDeleteImplCopyWithImpl(_$UBatchActionDeleteImpl _value,
+      $Res Function(_$UBatchActionDeleteImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -409,7 +409,7 @@ class __$$UBatchActionDeleteCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UBatchActionDelete(
+    return _then(_$UBatchActionDeleteImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -428,8 +428,8 @@ class __$$UBatchActionDeleteCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UBatchActionDelete implements UBatchActionDelete {
-  const _$UBatchActionDelete({required this.data});
+class _$UBatchActionDeleteImpl implements UBatchActionDelete {
+  const _$UBatchActionDeleteImpl({required this.data});
 
   @override
   final DeleteAction data;
@@ -443,7 +443,7 @@ class _$UBatchActionDelete implements UBatchActionDelete {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UBatchActionDelete &&
+            other is _$UBatchActionDeleteImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -453,8 +453,8 @@ class _$UBatchActionDelete implements UBatchActionDelete {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UBatchActionDeleteCopyWith<_$UBatchActionDelete> get copyWith =>
-      __$$UBatchActionDeleteCopyWithImpl<_$UBatchActionDelete>(
+  _$$UBatchActionDeleteImplCopyWith<_$UBatchActionDeleteImpl> get copyWith =>
+      __$$UBatchActionDeleteImplCopyWithImpl<_$UBatchActionDeleteImpl>(
           this, _$identity);
 
   @override
@@ -528,11 +528,11 @@ class _$UBatchActionDelete implements UBatchActionDelete {
 
 abstract class UBatchActionDelete implements BatchAction {
   const factory UBatchActionDelete({required final DeleteAction data}) =
-      _$UBatchActionDelete;
+      _$UBatchActionDeleteImpl;
 
   @override
   DeleteAction get data;
   @JsonKey(ignore: true)
-  _$$UBatchActionDeleteCopyWith<_$UBatchActionDelete> get copyWith =>
+  _$$UBatchActionDeleteImplCopyWith<_$UBatchActionDeleteImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -61,18 +61,21 @@ class _$CountCopyWithImpl<$Res, $Val extends Count>
 }
 
 /// @nodoc
-abstract class _$$_CountCopyWith<$Res> implements $CountCopyWith<$Res> {
-  factory _$$_CountCopyWith(_$_Count value, $Res Function(_$_Count) then) =
-      __$$_CountCopyWithImpl<$Res>;
+abstract class _$$CountImplCopyWith<$Res> implements $CountCopyWith<$Res> {
+  factory _$$CountImplCopyWith(
+          _$CountImpl value, $Res Function(_$CountImpl) then) =
+      __$$CountImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int count});
 }
 
 /// @nodoc
-class __$$_CountCopyWithImpl<$Res> extends _$CountCopyWithImpl<$Res, _$_Count>
-    implements _$$_CountCopyWith<$Res> {
-  __$$_CountCopyWithImpl(_$_Count _value, $Res Function(_$_Count) _then)
+class __$$CountImplCopyWithImpl<$Res>
+    extends _$CountCopyWithImpl<$Res, _$CountImpl>
+    implements _$$CountImplCopyWith<$Res> {
+  __$$CountImplCopyWithImpl(
+      _$CountImpl _value, $Res Function(_$CountImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -80,7 +83,7 @@ class __$$_CountCopyWithImpl<$Res> extends _$CountCopyWithImpl<$Res, _$_Count>
   $Res call({
     Object? count = null,
   }) {
-    return _then(_$_Count(
+    return _then(_$CountImpl(
       count: null == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
@@ -91,11 +94,11 @@ class __$$_CountCopyWithImpl<$Res> extends _$CountCopyWithImpl<$Res, _$_Count>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Count implements _Count {
-  const _$_Count({required this.count});
+class _$CountImpl implements _Count {
+  const _$CountImpl({required this.count});
 
-  factory _$_Count.fromJson(Map<String, dynamic> json) =>
-      _$$_CountFromJson(json);
+  factory _$CountImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CountImplFromJson(json);
 
   /// The count value.
   @override
@@ -110,7 +113,7 @@ class _$_Count implements _Count {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Count &&
+            other is _$CountImpl &&
             (identical(other.count, count) || other.count == count));
   }
 
@@ -121,21 +124,21 @@ class _$_Count implements _Count {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CountCopyWith<_$_Count> get copyWith =>
-      __$$_CountCopyWithImpl<_$_Count>(this, _$identity);
+  _$$CountImplCopyWith<_$CountImpl> get copyWith =>
+      __$$CountImplCopyWithImpl<_$CountImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CountToJson(
+    return _$$CountImplToJson(
       this,
     );
   }
 }
 
 abstract class _Count implements Count {
-  const factory _Count({required final int count}) = _$_Count;
+  const factory _Count({required final int count}) = _$CountImpl;
 
-  factory _Count.fromJson(Map<String, dynamic> json) = _$_Count.fromJson;
+  factory _Count.fromJson(Map<String, dynamic> json) = _$CountImpl.fromJson;
 
   @override
 
@@ -143,6 +146,6 @@ abstract class _Count implements Count {
   int get count;
   @override
   @JsonKey(ignore: true)
-  _$$_CountCopyWith<_$_Count> get copyWith =>
+  _$$CountImplCopyWith<_$CountImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

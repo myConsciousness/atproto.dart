@@ -87,11 +87,11 @@ class _$ThreadViewPreferenceCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ThreadViewPreferenceCopyWith<$Res>
+abstract class _$$ThreadViewPreferenceImplCopyWith<$Res>
     implements $ThreadViewPreferenceCopyWith<$Res> {
-  factory _$$_ThreadViewPreferenceCopyWith(_$_ThreadViewPreference value,
-          $Res Function(_$_ThreadViewPreference) then) =
-      __$$_ThreadViewPreferenceCopyWithImpl<$Res>;
+  factory _$$ThreadViewPreferenceImplCopyWith(_$ThreadViewPreferenceImpl value,
+          $Res Function(_$ThreadViewPreferenceImpl) then) =
+      __$$ThreadViewPreferenceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -102,11 +102,11 @@ abstract class _$$_ThreadViewPreferenceCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ThreadViewPreferenceCopyWithImpl<$Res>
-    extends _$ThreadViewPreferenceCopyWithImpl<$Res, _$_ThreadViewPreference>
-    implements _$$_ThreadViewPreferenceCopyWith<$Res> {
-  __$$_ThreadViewPreferenceCopyWithImpl(_$_ThreadViewPreference _value,
-      $Res Function(_$_ThreadViewPreference) _then)
+class __$$ThreadViewPreferenceImplCopyWithImpl<$Res>
+    extends _$ThreadViewPreferenceCopyWithImpl<$Res, _$ThreadViewPreferenceImpl>
+    implements _$$ThreadViewPreferenceImplCopyWith<$Res> {
+  __$$ThreadViewPreferenceImplCopyWithImpl(_$ThreadViewPreferenceImpl _value,
+      $Res Function(_$ThreadViewPreferenceImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -116,7 +116,7 @@ class __$$_ThreadViewPreferenceCopyWithImpl<$Res>
     Object? sort = freezed,
     Object? isPrioritizeFollowedUsers = null,
   }) {
-    return _then(_$_ThreadViewPreference(
+    return _then(_$ThreadViewPreferenceImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -136,15 +136,15 @@ class __$$_ThreadViewPreferenceCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ThreadViewPreference implements _ThreadViewPreference {
-  const _$_ThreadViewPreference(
+class _$ThreadViewPreferenceImpl implements _ThreadViewPreference {
+  const _$ThreadViewPreferenceImpl(
       {@typeKey this.type = appBskyActorDefsThreadViewPref,
       this.sort,
       @JsonKey(name: 'prioritizeFollowedUsers')
       this.isPrioritizeFollowedUsers = false});
 
-  factory _$_ThreadViewPreference.fromJson(Map<String, dynamic> json) =>
-      _$$_ThreadViewPreferenceFromJson(json);
+  factory _$ThreadViewPreferenceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ThreadViewPreferenceImplFromJson(json);
 
   /// A string that represents the type of the object.
   /// By default, it is [appBskyActorDefsThreadViewPref].
@@ -170,7 +170,7 @@ class _$_ThreadViewPreference implements _ThreadViewPreference {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ThreadViewPreference &&
+            other is _$ThreadViewPreferenceImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.sort, sort) || other.sort == sort) &&
             (identical(other.isPrioritizeFollowedUsers,
@@ -186,13 +186,14 @@ class _$_ThreadViewPreference implements _ThreadViewPreference {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ThreadViewPreferenceCopyWith<_$_ThreadViewPreference> get copyWith =>
-      __$$_ThreadViewPreferenceCopyWithImpl<_$_ThreadViewPreference>(
-          this, _$identity);
+  _$$ThreadViewPreferenceImplCopyWith<_$ThreadViewPreferenceImpl>
+      get copyWith =>
+          __$$ThreadViewPreferenceImplCopyWithImpl<_$ThreadViewPreferenceImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ThreadViewPreferenceToJson(
+    return _$$ThreadViewPreferenceImplToJson(
       this,
     );
   }
@@ -203,10 +204,10 @@ abstract class _ThreadViewPreference implements ThreadViewPreference {
       {@typeKey final String type,
       final ThreadViewSortType? sort,
       @JsonKey(name: 'prioritizeFollowedUsers')
-      final bool isPrioritizeFollowedUsers}) = _$_ThreadViewPreference;
+      final bool isPrioritizeFollowedUsers}) = _$ThreadViewPreferenceImpl;
 
   factory _ThreadViewPreference.fromJson(Map<String, dynamic> json) =
-      _$_ThreadViewPreference.fromJson;
+      _$ThreadViewPreferenceImpl.fromJson;
 
   @override
 
@@ -225,6 +226,6 @@ abstract class _ThreadViewPreference implements ThreadViewPreference {
   bool get isPrioritizeFollowedUsers;
   @override
   @JsonKey(ignore: true)
-  _$$_ThreadViewPreferenceCopyWith<_$_ThreadViewPreference> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ThreadViewPreferenceImplCopyWith<_$ThreadViewPreferenceImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

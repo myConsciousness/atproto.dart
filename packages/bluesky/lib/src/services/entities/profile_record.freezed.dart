@@ -153,11 +153,11 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
 }
 
 /// @nodoc
-abstract class _$$_ProfileRecordCopyWith<$Res>
+abstract class _$$ProfileRecordImplCopyWith<$Res>
     implements $ProfileRecordCopyWith<$Res> {
-  factory _$$_ProfileRecordCopyWith(
-          _$_ProfileRecord value, $Res Function(_$_ProfileRecord) then) =
-      __$$_ProfileRecordCopyWithImpl<$Res>;
+  factory _$$ProfileRecordImplCopyWith(
+          _$ProfileRecordImpl value, $Res Function(_$ProfileRecordImpl) then) =
+      __$$ProfileRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -177,11 +177,11 @@ abstract class _$$_ProfileRecordCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ProfileRecordCopyWithImpl<$Res>
-    extends _$ProfileRecordCopyWithImpl<$Res, _$_ProfileRecord>
-    implements _$$_ProfileRecordCopyWith<$Res> {
-  __$$_ProfileRecordCopyWithImpl(
-      _$_ProfileRecord _value, $Res Function(_$_ProfileRecord) _then)
+class __$$ProfileRecordImplCopyWithImpl<$Res>
+    extends _$ProfileRecordCopyWithImpl<$Res, _$ProfileRecordImpl>
+    implements _$$ProfileRecordImplCopyWith<$Res> {
+  __$$ProfileRecordImplCopyWithImpl(
+      _$ProfileRecordImpl _value, $Res Function(_$ProfileRecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -194,7 +194,7 @@ class __$$_ProfileRecordCopyWithImpl<$Res>
     Object? labels = freezed,
     Object? banner = freezed,
   }) {
-    return _then(_$_ProfileRecord(
+    return _then(_$ProfileRecordImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -226,8 +226,8 @@ class __$$_ProfileRecordCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ProfileRecord implements _ProfileRecord {
-  const _$_ProfileRecord(
+class _$ProfileRecordImpl implements _ProfileRecord {
+  const _$ProfileRecordImpl(
       {@typeKey this.type = appBskyActorProfile,
       this.displayName,
       this.description,
@@ -235,8 +235,8 @@ class _$_ProfileRecord implements _ProfileRecord {
       @labelsConverter this.labels,
       this.banner});
 
-  factory _$_ProfileRecord.fromJson(Map<String, dynamic> json) =>
-      _$$_ProfileRecordFromJson(json);
+  factory _$ProfileRecordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProfileRecordImplFromJson(json);
 
   /// Represents the type of the record.
   ///
@@ -275,7 +275,7 @@ class _$_ProfileRecord implements _ProfileRecord {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ProfileRecord &&
+            other is _$ProfileRecordImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
@@ -294,12 +294,12 @@ class _$_ProfileRecord implements _ProfileRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProfileRecordCopyWith<_$_ProfileRecord> get copyWith =>
-      __$$_ProfileRecordCopyWithImpl<_$_ProfileRecord>(this, _$identity);
+  _$$ProfileRecordImplCopyWith<_$ProfileRecordImpl> get copyWith =>
+      __$$ProfileRecordImplCopyWithImpl<_$ProfileRecordImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProfileRecordToJson(
+    return _$$ProfileRecordImplToJson(
       this,
     );
   }
@@ -312,10 +312,10 @@ abstract class _ProfileRecord implements ProfileRecord {
       final String? description,
       final Blob? avatar,
       @labelsConverter final Labels? labels,
-      final Blob? banner}) = _$_ProfileRecord;
+      final Blob? banner}) = _$ProfileRecordImpl;
 
   factory _ProfileRecord.fromJson(Map<String, dynamic> json) =
-      _$_ProfileRecord.fromJson;
+      _$ProfileRecordImpl.fromJson;
 
   @override
 
@@ -347,6 +347,6 @@ abstract class _ProfileRecord implements ProfileRecord {
   Blob? get banner;
   @override
   @JsonKey(ignore: true)
-  _$$_ProfileRecordCopyWith<_$_ProfileRecord> get copyWith =>
+  _$$ProfileRecordImplCopyWith<_$ProfileRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

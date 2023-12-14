@@ -8,12 +8,13 @@ part of 'moderation_behavior_scenario_behaviors.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ModerationBehaviorScenarioBehaviors
-    _$$_ModerationBehaviorScenarioBehaviorsFromJson(Map json) => $checkedCreate(
-          r'_$_ModerationBehaviorScenarioBehaviors',
+_$ModerationBehaviorScenarioBehaviorsImpl
+    _$$ModerationBehaviorScenarioBehaviorsImplFromJson(Map json) =>
+        $checkedCreate(
+          r'_$ModerationBehaviorScenarioBehaviorsImpl',
           json,
           ($checkedConvert) {
-            final val = _$_ModerationBehaviorScenarioBehaviors(
+            final val = _$ModerationBehaviorScenarioBehaviorsImpl(
               content: $checkedConvert(
                   'content',
                   (v) => v == null
@@ -49,8 +50,8 @@ _$_ModerationBehaviorScenarioBehaviors
           },
         );
 
-Map<String, dynamic> _$$_ModerationBehaviorScenarioBehaviorsToJson(
-    _$_ModerationBehaviorScenarioBehaviors instance) {
+Map<String, dynamic> _$$ModerationBehaviorScenarioBehaviorsImplToJson(
+    _$ModerationBehaviorScenarioBehaviorsImpl instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {

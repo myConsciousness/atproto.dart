@@ -71,20 +71,21 @@ class _$RepoRefCopyWithImpl<$Res, $Val extends RepoRef>
 }
 
 /// @nodoc
-abstract class _$$_RepoRefCopyWith<$Res> implements $RepoRefCopyWith<$Res> {
-  factory _$$_RepoRefCopyWith(
-          _$_RepoRef value, $Res Function(_$_RepoRef) then) =
-      __$$_RepoRefCopyWithImpl<$Res>;
+abstract class _$$RepoRefImplCopyWith<$Res> implements $RepoRefCopyWith<$Res> {
+  factory _$$RepoRefImplCopyWith(
+          _$RepoRefImpl value, $Res Function(_$RepoRefImpl) then) =
+      __$$RepoRefImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, String did});
 }
 
 /// @nodoc
-class __$$_RepoRefCopyWithImpl<$Res>
-    extends _$RepoRefCopyWithImpl<$Res, _$_RepoRef>
-    implements _$$_RepoRefCopyWith<$Res> {
-  __$$_RepoRefCopyWithImpl(_$_RepoRef _value, $Res Function(_$_RepoRef) _then)
+class __$$RepoRefImplCopyWithImpl<$Res>
+    extends _$RepoRefCopyWithImpl<$Res, _$RepoRefImpl>
+    implements _$$RepoRefImplCopyWith<$Res> {
+  __$$RepoRefImplCopyWithImpl(
+      _$RepoRefImpl _value, $Res Function(_$RepoRefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +94,7 @@ class __$$_RepoRefCopyWithImpl<$Res>
     Object? type = null,
     Object? did = null,
   }) {
-    return _then(_$_RepoRef(
+    return _then(_$RepoRefImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -108,12 +109,12 @@ class __$$_RepoRefCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RepoRef implements _RepoRef {
-  const _$_RepoRef(
+class _$RepoRefImpl implements _RepoRef {
+  const _$RepoRefImpl(
       {@typeKey this.type = comAtprotoAdminDefsRepoRef, required this.did});
 
-  factory _$_RepoRef.fromJson(Map<String, dynamic> json) =>
-      _$$_RepoRefFromJson(json);
+  factory _$RepoRefImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RepoRefImplFromJson(json);
 
   /// The type of the repository reference.
   /// It defaults to [comAtprotoAdminDefsRepoRef].
@@ -134,7 +135,7 @@ class _$_RepoRef implements _RepoRef {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RepoRef &&
+            other is _$RepoRefImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.did, did) || other.did == did));
   }
@@ -146,12 +147,12 @@ class _$_RepoRef implements _RepoRef {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RepoRefCopyWith<_$_RepoRef> get copyWith =>
-      __$$_RepoRefCopyWithImpl<_$_RepoRef>(this, _$identity);
+  _$$RepoRefImplCopyWith<_$RepoRefImpl> get copyWith =>
+      __$$RepoRefImplCopyWithImpl<_$RepoRefImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RepoRefToJson(
+    return _$$RepoRefImplToJson(
       this,
     );
   }
@@ -159,9 +160,9 @@ class _$_RepoRef implements _RepoRef {
 
 abstract class _RepoRef implements RepoRef {
   const factory _RepoRef(
-      {@typeKey final String type, required final String did}) = _$_RepoRef;
+      {@typeKey final String type, required final String did}) = _$RepoRefImpl;
 
-  factory _RepoRef.fromJson(Map<String, dynamic> json) = _$_RepoRef.fromJson;
+  factory _RepoRef.fromJson(Map<String, dynamic> json) = _$RepoRefImpl.fromJson;
 
   @override
 
@@ -175,6 +176,6 @@ abstract class _RepoRef implements RepoRef {
   String get did;
   @override
   @JsonKey(ignore: true)
-  _$$_RepoRefCopyWith<_$_RepoRef> get copyWith =>
+  _$$RepoRefImplCopyWith<_$RepoRefImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

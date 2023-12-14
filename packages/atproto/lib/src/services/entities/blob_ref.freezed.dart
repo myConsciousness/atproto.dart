@@ -62,20 +62,21 @@ class _$BlobRefCopyWithImpl<$Res, $Val extends BlobRef>
 }
 
 /// @nodoc
-abstract class _$$_BlobRefCopyWith<$Res> implements $BlobRefCopyWith<$Res> {
-  factory _$$_BlobRefCopyWith(
-          _$_BlobRef value, $Res Function(_$_BlobRef) then) =
-      __$$_BlobRefCopyWithImpl<$Res>;
+abstract class _$$BlobRefImplCopyWith<$Res> implements $BlobRefCopyWith<$Res> {
+  factory _$$BlobRefImplCopyWith(
+          _$BlobRefImpl value, $Res Function(_$BlobRefImpl) then) =
+      __$$BlobRefImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@JsonKey(name: '\$link') String link});
 }
 
 /// @nodoc
-class __$$_BlobRefCopyWithImpl<$Res>
-    extends _$BlobRefCopyWithImpl<$Res, _$_BlobRef>
-    implements _$$_BlobRefCopyWith<$Res> {
-  __$$_BlobRefCopyWithImpl(_$_BlobRef _value, $Res Function(_$_BlobRef) _then)
+class __$$BlobRefImplCopyWithImpl<$Res>
+    extends _$BlobRefCopyWithImpl<$Res, _$BlobRefImpl>
+    implements _$$BlobRefImplCopyWith<$Res> {
+  __$$BlobRefImplCopyWithImpl(
+      _$BlobRefImpl _value, $Res Function(_$BlobRefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -83,7 +84,7 @@ class __$$_BlobRefCopyWithImpl<$Res>
   $Res call({
     Object? link = null,
   }) {
-    return _then(_$_BlobRef(
+    return _then(_$BlobRefImpl(
       link: null == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
@@ -94,11 +95,11 @@ class __$$_BlobRefCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_BlobRef implements _BlobRef {
-  const _$_BlobRef({@JsonKey(name: '\$link') required this.link});
+class _$BlobRefImpl implements _BlobRef {
+  const _$BlobRefImpl({@JsonKey(name: '\$link') required this.link});
 
-  factory _$_BlobRef.fromJson(Map<String, dynamic> json) =>
-      _$$_BlobRefFromJson(json);
+  factory _$BlobRefImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BlobRefImplFromJson(json);
 
   /// The reference link to the blob data.
   @override
@@ -114,7 +115,7 @@ class _$_BlobRef implements _BlobRef {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BlobRef &&
+            other is _$BlobRefImpl &&
             (identical(other.link, link) || other.link == link));
   }
 
@@ -125,12 +126,12 @@ class _$_BlobRef implements _BlobRef {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BlobRefCopyWith<_$_BlobRef> get copyWith =>
-      __$$_BlobRefCopyWithImpl<_$_BlobRef>(this, _$identity);
+  _$$BlobRefImplCopyWith<_$BlobRefImpl> get copyWith =>
+      __$$BlobRefImplCopyWithImpl<_$BlobRefImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BlobRefToJson(
+    return _$$BlobRefImplToJson(
       this,
     );
   }
@@ -138,9 +139,9 @@ class _$_BlobRef implements _BlobRef {
 
 abstract class _BlobRef implements BlobRef {
   const factory _BlobRef(
-      {@JsonKey(name: '\$link') required final String link}) = _$_BlobRef;
+      {@JsonKey(name: '\$link') required final String link}) = _$BlobRefImpl;
 
-  factory _BlobRef.fromJson(Map<String, dynamic> json) = _$_BlobRef.fromJson;
+  factory _BlobRef.fromJson(Map<String, dynamic> json) = _$BlobRefImpl.fromJson;
 
   @override
 
@@ -149,6 +150,6 @@ abstract class _BlobRef implements BlobRef {
   String get link;
   @override
   @JsonKey(ignore: true)
-  _$$_BlobRefCopyWith<_$_BlobRef> get copyWith =>
+  _$$BlobRefImplCopyWith<_$BlobRefImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

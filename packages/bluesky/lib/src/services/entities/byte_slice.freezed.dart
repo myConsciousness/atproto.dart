@@ -70,21 +70,22 @@ class _$ByteSliceCopyWithImpl<$Res, $Val extends ByteSlice>
 }
 
 /// @nodoc
-abstract class _$$_ByteSliceCopyWith<$Res> implements $ByteSliceCopyWith<$Res> {
-  factory _$$_ByteSliceCopyWith(
-          _$_ByteSlice value, $Res Function(_$_ByteSlice) then) =
-      __$$_ByteSliceCopyWithImpl<$Res>;
+abstract class _$$ByteSliceImplCopyWith<$Res>
+    implements $ByteSliceCopyWith<$Res> {
+  factory _$$ByteSliceImplCopyWith(
+          _$ByteSliceImpl value, $Res Function(_$ByteSliceImpl) then) =
+      __$$ByteSliceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int byteStart, int byteEnd});
 }
 
 /// @nodoc
-class __$$_ByteSliceCopyWithImpl<$Res>
-    extends _$ByteSliceCopyWithImpl<$Res, _$_ByteSlice>
-    implements _$$_ByteSliceCopyWith<$Res> {
-  __$$_ByteSliceCopyWithImpl(
-      _$_ByteSlice _value, $Res Function(_$_ByteSlice) _then)
+class __$$ByteSliceImplCopyWithImpl<$Res>
+    extends _$ByteSliceCopyWithImpl<$Res, _$ByteSliceImpl>
+    implements _$$ByteSliceImplCopyWith<$Res> {
+  __$$ByteSliceImplCopyWithImpl(
+      _$ByteSliceImpl _value, $Res Function(_$ByteSliceImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +94,7 @@ class __$$_ByteSliceCopyWithImpl<$Res>
     Object? byteStart = null,
     Object? byteEnd = null,
   }) {
-    return _then(_$_ByteSlice(
+    return _then(_$ByteSliceImpl(
       byteStart: null == byteStart
           ? _value.byteStart
           : byteStart // ignore: cast_nullable_to_non_nullable
@@ -108,11 +109,11 @@ class __$$_ByteSliceCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ByteSlice implements _ByteSlice {
-  const _$_ByteSlice({required this.byteStart, required this.byteEnd});
+class _$ByteSliceImpl implements _ByteSlice {
+  const _$ByteSliceImpl({required this.byteStart, required this.byteEnd});
 
-  factory _$_ByteSlice.fromJson(Map<String, dynamic> json) =>
-      _$$_ByteSliceFromJson(json);
+  factory _$ByteSliceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ByteSliceImplFromJson(json);
 
   /// The start position of the slice in the byte sequence.
   @override
@@ -131,7 +132,7 @@ class _$_ByteSlice implements _ByteSlice {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ByteSlice &&
+            other is _$ByteSliceImpl &&
             (identical(other.byteStart, byteStart) ||
                 other.byteStart == byteStart) &&
             (identical(other.byteEnd, byteEnd) || other.byteEnd == byteEnd));
@@ -144,12 +145,12 @@ class _$_ByteSlice implements _ByteSlice {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ByteSliceCopyWith<_$_ByteSlice> get copyWith =>
-      __$$_ByteSliceCopyWithImpl<_$_ByteSlice>(this, _$identity);
+  _$$ByteSliceImplCopyWith<_$ByteSliceImpl> get copyWith =>
+      __$$ByteSliceImplCopyWithImpl<_$ByteSliceImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ByteSliceToJson(
+    return _$$ByteSliceImplToJson(
       this,
     );
   }
@@ -158,10 +159,10 @@ class _$_ByteSlice implements _ByteSlice {
 abstract class _ByteSlice implements ByteSlice {
   const factory _ByteSlice(
       {required final int byteStart,
-      required final int byteEnd}) = _$_ByteSlice;
+      required final int byteEnd}) = _$ByteSliceImpl;
 
   factory _ByteSlice.fromJson(Map<String, dynamic> json) =
-      _$_ByteSlice.fromJson;
+      _$ByteSliceImpl.fromJson;
 
   @override
 
@@ -173,6 +174,6 @@ abstract class _ByteSlice implements ByteSlice {
   int get byteEnd;
   @override
   @JsonKey(ignore: true)
-  _$$_ByteSliceCopyWith<_$_ByteSlice> get copyWith =>
+  _$$ByteSliceImplCopyWith<_$ByteSliceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

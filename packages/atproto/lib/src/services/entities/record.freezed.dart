@@ -79,9 +79,10 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
 }
 
 /// @nodoc
-abstract class _$$_RecordCopyWith<$Res> implements $RecordCopyWith<$Res> {
-  factory _$$_RecordCopyWith(_$_Record value, $Res Function(_$_Record) then) =
-      __$$_RecordCopyWithImpl<$Res>;
+abstract class _$$RecordImplCopyWith<$Res> implements $RecordCopyWith<$Res> {
+  factory _$$RecordImplCopyWith(
+          _$RecordImpl value, $Res Function(_$RecordImpl) then) =
+      __$$RecordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -89,10 +90,11 @@ abstract class _$$_RecordCopyWith<$Res> implements $RecordCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_RecordCopyWithImpl<$Res>
-    extends _$RecordCopyWithImpl<$Res, _$_Record>
-    implements _$$_RecordCopyWith<$Res> {
-  __$$_RecordCopyWithImpl(_$_Record _value, $Res Function(_$_Record) _then)
+class __$$RecordImplCopyWithImpl<$Res>
+    extends _$RecordCopyWithImpl<$Res, _$RecordImpl>
+    implements _$$RecordImplCopyWith<$Res> {
+  __$$RecordImplCopyWithImpl(
+      _$RecordImpl _value, $Res Function(_$RecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -102,7 +104,7 @@ class __$$_RecordCopyWithImpl<$Res>
     Object? cid = freezed,
     Object? value = null,
   }) {
-    return _then(_$_Record(
+    return _then(_$RecordImpl(
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -122,16 +124,16 @@ class __$$_RecordCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_Record extends _Record {
-  const _$_Record(
+class _$RecordImpl extends _Record {
+  const _$RecordImpl(
       {@atUriConverter required this.uri,
       this.cid,
       required final Map<String, dynamic> value})
       : _value = value,
         super._();
 
-  factory _$_Record.fromJson(Map<String, dynamic> json) =>
-      _$$_RecordFromJson(json);
+  factory _$RecordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RecordImplFromJson(json);
 
   /// The uri of the record.
   @override
@@ -162,7 +164,7 @@ class _$_Record extends _Record {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Record &&
+            other is _$RecordImpl &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
             const DeepCollectionEquality().equals(other._value, _value));
@@ -176,12 +178,12 @@ class _$_Record extends _Record {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RecordCopyWith<_$_Record> get copyWith =>
-      __$$_RecordCopyWithImpl<_$_Record>(this, _$identity);
+  _$$RecordImplCopyWith<_$RecordImpl> get copyWith =>
+      __$$RecordImplCopyWithImpl<_$RecordImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RecordToJson(
+    return _$$RecordImplToJson(
       this,
     );
   }
@@ -191,10 +193,10 @@ abstract class _Record extends Record {
   const factory _Record(
       {@atUriConverter required final AtUri uri,
       final String? cid,
-      required final Map<String, dynamic> value}) = _$_Record;
+      required final Map<String, dynamic> value}) = _$RecordImpl;
   const _Record._() : super._();
 
-  factory _Record.fromJson(Map<String, dynamic> json) = _$_Record.fromJson;
+  factory _Record.fromJson(Map<String, dynamic> json) = _$RecordImpl.fromJson;
 
   @override
 
@@ -211,6 +213,6 @@ abstract class _Record extends Record {
   Map<String, dynamic> get value;
   @override
   @JsonKey(ignore: true)
-  _$$_RecordCopyWith<_$_Record> get copyWith =>
+  _$$RecordImplCopyWith<_$RecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -92,9 +92,10 @@ class _$FacetCopyWithImpl<$Res, $Val extends Facet>
 }
 
 /// @nodoc
-abstract class _$$_FacetCopyWith<$Res> implements $FacetCopyWith<$Res> {
-  factory _$$_FacetCopyWith(_$_Facet value, $Res Function(_$_Facet) then) =
-      __$$_FacetCopyWithImpl<$Res>;
+abstract class _$$FacetImplCopyWith<$Res> implements $FacetCopyWith<$Res> {
+  factory _$$FacetImplCopyWith(
+          _$FacetImpl value, $Res Function(_$FacetImpl) then) =
+      __$$FacetImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -107,9 +108,11 @@ abstract class _$$_FacetCopyWith<$Res> implements $FacetCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_FacetCopyWithImpl<$Res> extends _$FacetCopyWithImpl<$Res, _$_Facet>
-    implements _$$_FacetCopyWith<$Res> {
-  __$$_FacetCopyWithImpl(_$_Facet _value, $Res Function(_$_Facet) _then)
+class __$$FacetImplCopyWithImpl<$Res>
+    extends _$FacetCopyWithImpl<$Res, _$FacetImpl>
+    implements _$$FacetImplCopyWith<$Res> {
+  __$$FacetImplCopyWithImpl(
+      _$FacetImpl _value, $Res Function(_$FacetImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -119,7 +122,7 @@ class __$$_FacetCopyWithImpl<$Res> extends _$FacetCopyWithImpl<$Res, _$_Facet>
     Object? index = null,
     Object? features = null,
   }) {
-    return _then(_$_Facet(
+    return _then(_$FacetImpl(
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -139,15 +142,15 @@ class __$$_FacetCopyWithImpl<$Res> extends _$FacetCopyWithImpl<$Res, _$_Facet>
 /// @nodoc
 
 @jsonSerializable
-class _$_Facet implements _Facet {
-  const _$_Facet(
+class _$FacetImpl implements _Facet {
+  const _$FacetImpl(
       {@typeKey this.type,
       required this.index,
       @facetFeatureConverter required final List<FacetFeature> features})
       : _features = features;
 
-  factory _$_Facet.fromJson(Map<String, dynamic> json) =>
-      _$$_FacetFromJson(json);
+  factory _$FacetImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FacetImplFromJson(json);
 
   /// Specifies the type of facet. Optional.
   @override
@@ -179,7 +182,7 @@ class _$_Facet implements _Facet {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Facet &&
+            other is _$FacetImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.index, index) || other.index == index) &&
             const DeepCollectionEquality().equals(other._features, _features));
@@ -193,12 +196,12 @@ class _$_Facet implements _Facet {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FacetCopyWith<_$_Facet> get copyWith =>
-      __$$_FacetCopyWithImpl<_$_Facet>(this, _$identity);
+  _$$FacetImplCopyWith<_$FacetImpl> get copyWith =>
+      __$$FacetImplCopyWithImpl<_$FacetImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FacetToJson(
+    return _$$FacetImplToJson(
       this,
     );
   }
@@ -209,9 +212,9 @@ abstract class _Facet implements Facet {
           {@typeKey final String? type,
           required final ByteSlice index,
           @facetFeatureConverter required final List<FacetFeature> features}) =
-      _$_Facet;
+      _$FacetImpl;
 
-  factory _Facet.fromJson(Map<String, dynamic> json) = _$_Facet.fromJson;
+  factory _Facet.fromJson(Map<String, dynamic> json) = _$FacetImpl.fromJson;
 
   @override
 
@@ -229,6 +232,6 @@ abstract class _Facet implements Facet {
   List<FacetFeature> get features;
   @override
   @JsonKey(ignore: true)
-  _$$_FacetCopyWith<_$_Facet> get copyWith =>
+  _$$FacetImplCopyWith<_$FacetImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

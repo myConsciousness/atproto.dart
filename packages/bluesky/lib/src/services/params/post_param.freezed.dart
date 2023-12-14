@@ -160,10 +160,11 @@ class _$PostParamCopyWithImpl<$Res, $Val extends PostParam>
 }
 
 /// @nodoc
-abstract class _$$_PostParamCopyWith<$Res> implements $PostParamCopyWith<$Res> {
-  factory _$$_PostParamCopyWith(
-          _$_PostParam value, $Res Function(_$_PostParam) then) =
-      __$$_PostParamCopyWithImpl<$Res>;
+abstract class _$$PostParamImplCopyWith<$Res>
+    implements $PostParamCopyWith<$Res> {
+  factory _$$PostParamImplCopyWith(
+          _$PostParamImpl value, $Res Function(_$PostParamImpl) then) =
+      __$$PostParamImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -186,11 +187,11 @@ abstract class _$$_PostParamCopyWith<$Res> implements $PostParamCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_PostParamCopyWithImpl<$Res>
-    extends _$PostParamCopyWithImpl<$Res, _$_PostParam>
-    implements _$$_PostParamCopyWith<$Res> {
-  __$$_PostParamCopyWithImpl(
-      _$_PostParam _value, $Res Function(_$_PostParam) _then)
+class __$$PostParamImplCopyWithImpl<$Res>
+    extends _$PostParamCopyWithImpl<$Res, _$PostParamImpl>
+    implements _$$PostParamImplCopyWith<$Res> {
+  __$$PostParamImplCopyWithImpl(
+      _$PostParamImpl _value, $Res Function(_$PostParamImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -206,7 +207,7 @@ class __$$_PostParamCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? unspecced = null,
   }) {
-    return _then(_$_PostParam(
+    return _then(_$PostParamImpl(
       text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -250,8 +251,8 @@ class __$$_PostParamCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_PostParam implements _PostParam {
-  const _$_PostParam(
+class _$PostParamImpl implements _PostParam {
+  const _$PostParamImpl(
       {required this.text,
       this.reply,
       final List<Facet>? facets,
@@ -266,8 +267,8 @@ class _$_PostParam implements _PostParam {
         _tags = tags,
         _unspecced = unspecced;
 
-  factory _$_PostParam.fromJson(Map<String, dynamic> json) =>
-      _$$_PostParamFromJson(json);
+  factory _$PostParamImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostParamImplFromJson(json);
 
   @override
   final String text;
@@ -329,7 +330,7 @@ class _$_PostParam implements _PostParam {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PostParam &&
+            other is _$PostParamImpl &&
             (identical(other.text, text) || other.text == text) &&
             (identical(other.reply, reply) || other.reply == reply) &&
             const DeepCollectionEquality().equals(other._facets, _facets) &&
@@ -361,12 +362,12 @@ class _$_PostParam implements _PostParam {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PostParamCopyWith<_$_PostParam> get copyWith =>
-      __$$_PostParamCopyWithImpl<_$_PostParam>(this, _$identity);
+  _$$PostParamImplCopyWith<_$PostParamImpl> get copyWith =>
+      __$$PostParamImplCopyWithImpl<_$PostParamImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PostParamToJson(
+    return _$$PostParamImplToJson(
       this,
     );
   }
@@ -382,10 +383,10 @@ abstract class _PostParam implements PostParam {
       @labelsConverter final Labels? labels,
       final List<String>? tags,
       final DateTime? createdAt,
-      final Map<String, dynamic> unspecced}) = _$_PostParam;
+      final Map<String, dynamic> unspecced}) = _$PostParamImpl;
 
   factory _PostParam.fromJson(Map<String, dynamic> json) =
-      _$_PostParam.fromJson;
+      _$PostParamImpl.fromJson;
 
   @override
   String get text;
@@ -409,6 +410,6 @@ abstract class _PostParam implements PostParam {
   Map<String, dynamic> get unspecced;
   @override
   @JsonKey(ignore: true)
-  _$$_PostParamCopyWith<_$_PostParam> get copyWith =>
+  _$$PostParamImplCopyWith<_$PostParamImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

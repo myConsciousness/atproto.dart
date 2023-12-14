@@ -70,21 +70,22 @@ class _$RepoBlockCopyWithImpl<$Res, $Val extends RepoBlock>
 }
 
 /// @nodoc
-abstract class _$$_RepoBlockCopyWith<$Res> implements $RepoBlockCopyWith<$Res> {
-  factory _$$_RepoBlockCopyWith(
-          _$_RepoBlock value, $Res Function(_$_RepoBlock) then) =
-      __$$_RepoBlockCopyWithImpl<$Res>;
+abstract class _$$RepoBlockImplCopyWith<$Res>
+    implements $RepoBlockCopyWith<$Res> {
+  factory _$$RepoBlockImplCopyWith(
+          _$RepoBlockImpl value, $Res Function(_$RepoBlockImpl) then) =
+      __$$RepoBlockImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String cid, String commitCid});
 }
 
 /// @nodoc
-class __$$_RepoBlockCopyWithImpl<$Res>
-    extends _$RepoBlockCopyWithImpl<$Res, _$_RepoBlock>
-    implements _$$_RepoBlockCopyWith<$Res> {
-  __$$_RepoBlockCopyWithImpl(
-      _$_RepoBlock _value, $Res Function(_$_RepoBlock) _then)
+class __$$RepoBlockImplCopyWithImpl<$Res>
+    extends _$RepoBlockCopyWithImpl<$Res, _$RepoBlockImpl>
+    implements _$$RepoBlockImplCopyWith<$Res> {
+  __$$RepoBlockImplCopyWithImpl(
+      _$RepoBlockImpl _value, $Res Function(_$RepoBlockImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +94,7 @@ class __$$_RepoBlockCopyWithImpl<$Res>
     Object? cid = null,
     Object? commitCid = null,
   }) {
-    return _then(_$_RepoBlock(
+    return _then(_$RepoBlockImpl(
       cid: null == cid
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
@@ -108,11 +109,11 @@ class __$$_RepoBlockCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RepoBlock implements _RepoBlock {
-  const _$_RepoBlock({required this.cid, required this.commitCid});
+class _$RepoBlockImpl implements _RepoBlock {
+  const _$RepoBlockImpl({required this.cid, required this.commitCid});
 
-  factory _$_RepoBlock.fromJson(Map<String, dynamic> json) =>
-      _$$_RepoBlockFromJson(json);
+  factory _$RepoBlockImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RepoBlockImplFromJson(json);
 
   /// The Content Identifier (CID) of the block.
   @override
@@ -131,7 +132,7 @@ class _$_RepoBlock implements _RepoBlock {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RepoBlock &&
+            other is _$RepoBlockImpl &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.commitCid, commitCid) ||
                 other.commitCid == commitCid));
@@ -144,12 +145,12 @@ class _$_RepoBlock implements _RepoBlock {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RepoBlockCopyWith<_$_RepoBlock> get copyWith =>
-      __$$_RepoBlockCopyWithImpl<_$_RepoBlock>(this, _$identity);
+  _$$RepoBlockImplCopyWith<_$RepoBlockImpl> get copyWith =>
+      __$$RepoBlockImplCopyWithImpl<_$RepoBlockImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RepoBlockToJson(
+    return _$$RepoBlockImplToJson(
       this,
     );
   }
@@ -158,10 +159,10 @@ class _$_RepoBlock implements _RepoBlock {
 abstract class _RepoBlock implements RepoBlock {
   const factory _RepoBlock(
       {required final String cid,
-      required final String commitCid}) = _$_RepoBlock;
+      required final String commitCid}) = _$RepoBlockImpl;
 
   factory _RepoBlock.fromJson(Map<String, dynamic> json) =
-      _$_RepoBlock.fromJson;
+      _$RepoBlockImpl.fromJson;
 
   @override
 
@@ -173,6 +174,6 @@ abstract class _RepoBlock implements RepoBlock {
   String get commitCid;
   @override
   @JsonKey(ignore: true)
-  _$$_RepoBlockCopyWith<_$_RepoBlock> get copyWith =>
+  _$$RepoBlockImplCopyWith<_$RepoBlockImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

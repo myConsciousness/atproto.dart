@@ -63,22 +63,22 @@ class _$SuggestedFollowsCopyWithImpl<$Res, $Val extends SuggestedFollows>
 }
 
 /// @nodoc
-abstract class _$$_SuggestedFollowsCopyWith<$Res>
+abstract class _$$SuggestedFollowsImplCopyWith<$Res>
     implements $SuggestedFollowsCopyWith<$Res> {
-  factory _$$_SuggestedFollowsCopyWith(
-          _$_SuggestedFollows value, $Res Function(_$_SuggestedFollows) then) =
-      __$$_SuggestedFollowsCopyWithImpl<$Res>;
+  factory _$$SuggestedFollowsImplCopyWith(_$SuggestedFollowsImpl value,
+          $Res Function(_$SuggestedFollowsImpl) then) =
+      __$$SuggestedFollowsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<ActorProfile> suggestions});
 }
 
 /// @nodoc
-class __$$_SuggestedFollowsCopyWithImpl<$Res>
-    extends _$SuggestedFollowsCopyWithImpl<$Res, _$_SuggestedFollows>
-    implements _$$_SuggestedFollowsCopyWith<$Res> {
-  __$$_SuggestedFollowsCopyWithImpl(
-      _$_SuggestedFollows _value, $Res Function(_$_SuggestedFollows) _then)
+class __$$SuggestedFollowsImplCopyWithImpl<$Res>
+    extends _$SuggestedFollowsCopyWithImpl<$Res, _$SuggestedFollowsImpl>
+    implements _$$SuggestedFollowsImplCopyWith<$Res> {
+  __$$SuggestedFollowsImplCopyWithImpl(_$SuggestedFollowsImpl _value,
+      $Res Function(_$SuggestedFollowsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -86,7 +86,7 @@ class __$$_SuggestedFollowsCopyWithImpl<$Res>
   $Res call({
     Object? suggestions = null,
   }) {
-    return _then(_$_SuggestedFollows(
+    return _then(_$SuggestedFollowsImpl(
       suggestions: null == suggestions
           ? _value._suggestions
           : suggestions // ignore: cast_nullable_to_non_nullable
@@ -97,12 +97,12 @@ class __$$_SuggestedFollowsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SuggestedFollows implements _SuggestedFollows {
-  const _$_SuggestedFollows({required final List<ActorProfile> suggestions})
+class _$SuggestedFollowsImpl implements _SuggestedFollows {
+  const _$SuggestedFollowsImpl({required final List<ActorProfile> suggestions})
       : _suggestions = suggestions;
 
-  factory _$_SuggestedFollows.fromJson(Map<String, dynamic> json) =>
-      _$$_SuggestedFollowsFromJson(json);
+  factory _$SuggestedFollowsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SuggestedFollowsImplFromJson(json);
 
   /// The list of [ActorProfile] instances.
   final List<ActorProfile> _suggestions;
@@ -124,7 +124,7 @@ class _$_SuggestedFollows implements _SuggestedFollows {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SuggestedFollows &&
+            other is _$SuggestedFollowsImpl &&
             const DeepCollectionEquality()
                 .equals(other._suggestions, _suggestions));
   }
@@ -137,12 +137,13 @@ class _$_SuggestedFollows implements _SuggestedFollows {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SuggestedFollowsCopyWith<_$_SuggestedFollows> get copyWith =>
-      __$$_SuggestedFollowsCopyWithImpl<_$_SuggestedFollows>(this, _$identity);
+  _$$SuggestedFollowsImplCopyWith<_$SuggestedFollowsImpl> get copyWith =>
+      __$$SuggestedFollowsImplCopyWithImpl<_$SuggestedFollowsImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SuggestedFollowsToJson(
+    return _$$SuggestedFollowsImplToJson(
       this,
     );
   }
@@ -150,10 +151,10 @@ class _$_SuggestedFollows implements _SuggestedFollows {
 
 abstract class _SuggestedFollows implements SuggestedFollows {
   const factory _SuggestedFollows(
-      {required final List<ActorProfile> suggestions}) = _$_SuggestedFollows;
+      {required final List<ActorProfile> suggestions}) = _$SuggestedFollowsImpl;
 
   factory _SuggestedFollows.fromJson(Map<String, dynamic> json) =
-      _$_SuggestedFollows.fromJson;
+      _$SuggestedFollowsImpl.fromJson;
 
   @override
 
@@ -161,6 +162,6 @@ abstract class _SuggestedFollows implements SuggestedFollows {
   List<ActorProfile> get suggestions;
   @override
   @JsonKey(ignore: true)
-  _$$_SuggestedFollowsCopyWith<_$_SuggestedFollows> get copyWith =>
+  _$$SuggestedFollowsImplCopyWith<_$SuggestedFollowsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

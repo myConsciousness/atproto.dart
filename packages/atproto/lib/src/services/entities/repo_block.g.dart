@@ -8,11 +8,11 @@ part of 'repo_block.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RepoBlock _$$_RepoBlockFromJson(Map json) => $checkedCreate(
-      r'_$_RepoBlock',
+_$RepoBlockImpl _$$RepoBlockImplFromJson(Map json) => $checkedCreate(
+      r'_$RepoBlockImpl',
       json,
       ($checkedConvert) {
-        final val = _$_RepoBlock(
+        final val = _$RepoBlockImpl(
           cid: $checkedConvert('cid', (v) => v as String),
           commitCid: $checkedConvert('commitCid', (v) => v as String),
         );
@@ -20,7 +20,7 @@ _$_RepoBlock _$$_RepoBlockFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_RepoBlockToJson(_$_RepoBlock instance) =>
+Map<String, dynamic> _$$RepoBlockImplToJson(_$RepoBlockImpl instance) =>
     <String, dynamic>{
       'cid': instance.cid,
       'commitCid': instance.commitCid,

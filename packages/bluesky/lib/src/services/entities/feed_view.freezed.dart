@@ -115,10 +115,11 @@ class _$FeedViewCopyWithImpl<$Res, $Val extends FeedView>
 }
 
 /// @nodoc
-abstract class _$$_FeedViewCopyWith<$Res> implements $FeedViewCopyWith<$Res> {
-  factory _$$_FeedViewCopyWith(
-          _$_FeedView value, $Res Function(_$_FeedView) then) =
-      __$$_FeedViewCopyWithImpl<$Res>;
+abstract class _$$FeedViewImplCopyWith<$Res>
+    implements $FeedViewCopyWith<$Res> {
+  factory _$$FeedViewImplCopyWith(
+          _$FeedViewImpl value, $Res Function(_$FeedViewImpl) then) =
+      __$$FeedViewImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Post post, Reply? reply, @reasonConverter Reason? reason});
@@ -132,11 +133,11 @@ abstract class _$$_FeedViewCopyWith<$Res> implements $FeedViewCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_FeedViewCopyWithImpl<$Res>
-    extends _$FeedViewCopyWithImpl<$Res, _$_FeedView>
-    implements _$$_FeedViewCopyWith<$Res> {
-  __$$_FeedViewCopyWithImpl(
-      _$_FeedView _value, $Res Function(_$_FeedView) _then)
+class __$$FeedViewImplCopyWithImpl<$Res>
+    extends _$FeedViewCopyWithImpl<$Res, _$FeedViewImpl>
+    implements _$$FeedViewImplCopyWith<$Res> {
+  __$$FeedViewImplCopyWithImpl(
+      _$FeedViewImpl _value, $Res Function(_$FeedViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -146,7 +147,7 @@ class __$$_FeedViewCopyWithImpl<$Res>
     Object? reply = freezed,
     Object? reason = freezed,
   }) {
-    return _then(_$_FeedView(
+    return _then(_$FeedViewImpl(
       post: null == post
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
@@ -166,12 +167,12 @@ class __$$_FeedViewCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_FeedView implements _FeedView {
-  const _$_FeedView(
+class _$FeedViewImpl implements _FeedView {
+  const _$FeedViewImpl(
       {required this.post, this.reply, @reasonConverter this.reason});
 
-  factory _$_FeedView.fromJson(Map<String, dynamic> json) =>
-      _$$_FeedViewFromJson(json);
+  factory _$FeedViewImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedViewImplFromJson(json);
 
   /// A post in the feed.
   @override
@@ -195,7 +196,7 @@ class _$_FeedView implements _FeedView {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FeedView &&
+            other is _$FeedViewImpl &&
             (identical(other.post, post) || other.post == post) &&
             (identical(other.reply, reply) || other.reply == reply) &&
             (identical(other.reason, reason) || other.reason == reason));
@@ -208,12 +209,12 @@ class _$_FeedView implements _FeedView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FeedViewCopyWith<_$_FeedView> get copyWith =>
-      __$$_FeedViewCopyWithImpl<_$_FeedView>(this, _$identity);
+  _$$FeedViewImplCopyWith<_$FeedViewImpl> get copyWith =>
+      __$$FeedViewImplCopyWithImpl<_$FeedViewImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FeedViewToJson(
+    return _$$FeedViewImplToJson(
       this,
     );
   }
@@ -223,9 +224,10 @@ abstract class _FeedView implements FeedView {
   const factory _FeedView(
       {required final Post post,
       final Reply? reply,
-      @reasonConverter final Reason? reason}) = _$_FeedView;
+      @reasonConverter final Reason? reason}) = _$FeedViewImpl;
 
-  factory _FeedView.fromJson(Map<String, dynamic> json) = _$_FeedView.fromJson;
+  factory _FeedView.fromJson(Map<String, dynamic> json) =
+      _$FeedViewImpl.fromJson;
 
   @override
 
@@ -242,6 +244,6 @@ abstract class _FeedView implements FeedView {
   Reason? get reason;
   @override
   @JsonKey(ignore: true)
-  _$$_FeedViewCopyWith<_$_FeedView> get copyWith =>
+  _$$FeedViewImplCopyWith<_$FeedViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

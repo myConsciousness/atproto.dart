@@ -82,12 +82,12 @@ class _$ModerationBehaviorsConfigCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ModerationBehaviorsConfigCopyWith<$Res>
+abstract class _$$ModerationBehaviorsConfigImplCopyWith<$Res>
     implements $ModerationBehaviorsConfigCopyWith<$Res> {
-  factory _$$_ModerationBehaviorsConfigCopyWith(
-          _$_ModerationBehaviorsConfig value,
-          $Res Function(_$_ModerationBehaviorsConfig) then) =
-      __$$_ModerationBehaviorsConfigCopyWithImpl<$Res>;
+  factory _$$ModerationBehaviorsConfigImplCopyWith(
+          _$ModerationBehaviorsConfigImpl value,
+          $Res Function(_$ModerationBehaviorsConfigImpl) then) =
+      __$$ModerationBehaviorsConfigImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -97,13 +97,13 @@ abstract class _$$_ModerationBehaviorsConfigCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ModerationBehaviorsConfigCopyWithImpl<$Res>
+class __$$ModerationBehaviorsConfigImplCopyWithImpl<$Res>
     extends _$ModerationBehaviorsConfigCopyWithImpl<$Res,
-        _$_ModerationBehaviorsConfig>
-    implements _$$_ModerationBehaviorsConfigCopyWith<$Res> {
-  __$$_ModerationBehaviorsConfigCopyWithImpl(
-      _$_ModerationBehaviorsConfig _value,
-      $Res Function(_$_ModerationBehaviorsConfig) _then)
+        _$ModerationBehaviorsConfigImpl>
+    implements _$$ModerationBehaviorsConfigImplCopyWith<$Res> {
+  __$$ModerationBehaviorsConfigImplCopyWithImpl(
+      _$ModerationBehaviorsConfigImpl _value,
+      $Res Function(_$ModerationBehaviorsConfigImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -113,7 +113,7 @@ class __$$_ModerationBehaviorsConfigCopyWithImpl<$Res>
     Object? isAuthed = freezed,
     Object? settings = freezed,
   }) {
-    return _then(_$_ModerationBehaviorsConfig(
+    return _then(_$ModerationBehaviorsConfigImpl(
       isAdultContentEnabled: null == isAdultContentEnabled
           ? _value.isAdultContentEnabled
           : isAdultContentEnabled // ignore: cast_nullable_to_non_nullable
@@ -130,15 +130,15 @@ class __$$_ModerationBehaviorsConfigCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ModerationBehaviorsConfig implements _ModerationBehaviorsConfig {
-  const _$_ModerationBehaviorsConfig(
+class _$ModerationBehaviorsConfigImpl implements _ModerationBehaviorsConfig {
+  const _$ModerationBehaviorsConfigImpl(
       {@JsonKey(name: 'adultContentEnabled') this.isAdultContentEnabled = false,
       @JsonKey(name: 'authed') this.isAuthed = true,
       final Map<String, LabelPreference>? settings})
       : _settings = settings;
 
-  factory _$_ModerationBehaviorsConfig.fromJson(Map<String, dynamic> json) =>
-      _$$_ModerationBehaviorsConfigFromJson(json);
+  factory _$ModerationBehaviorsConfigImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ModerationBehaviorsConfigImplFromJson(json);
 
   @override
   @JsonKey(name: 'adultContentEnabled')
@@ -165,7 +165,7 @@ class _$_ModerationBehaviorsConfig implements _ModerationBehaviorsConfig {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ModerationBehaviorsConfig &&
+            other is _$ModerationBehaviorsConfigImpl &&
             (identical(other.isAdultContentEnabled, isAdultContentEnabled) ||
                 other.isAdultContentEnabled == isAdultContentEnabled) &&
             const DeepCollectionEquality().equals(other.isAuthed, isAuthed) &&
@@ -183,13 +183,13 @@ class _$_ModerationBehaviorsConfig implements _ModerationBehaviorsConfig {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ModerationBehaviorsConfigCopyWith<_$_ModerationBehaviorsConfig>
-      get copyWith => __$$_ModerationBehaviorsConfigCopyWithImpl<
-          _$_ModerationBehaviorsConfig>(this, _$identity);
+  _$$ModerationBehaviorsConfigImplCopyWith<_$ModerationBehaviorsConfigImpl>
+      get copyWith => __$$ModerationBehaviorsConfigImplCopyWithImpl<
+          _$ModerationBehaviorsConfigImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ModerationBehaviorsConfigToJson(
+    return _$$ModerationBehaviorsConfigImplToJson(
       this,
     );
   }
@@ -200,10 +200,10 @@ abstract class _ModerationBehaviorsConfig implements ModerationBehaviorsConfig {
       {@JsonKey(name: 'adultContentEnabled') final bool isAdultContentEnabled,
       @JsonKey(name: 'authed') final dynamic isAuthed,
       final Map<String, LabelPreference>?
-          settings}) = _$_ModerationBehaviorsConfig;
+          settings}) = _$ModerationBehaviorsConfigImpl;
 
   factory _ModerationBehaviorsConfig.fromJson(Map<String, dynamic> json) =
-      _$_ModerationBehaviorsConfig.fromJson;
+      _$ModerationBehaviorsConfigImpl.fromJson;
 
   @override
   @JsonKey(name: 'adultContentEnabled')
@@ -215,6 +215,6 @@ abstract class _ModerationBehaviorsConfig implements ModerationBehaviorsConfig {
   Map<String, LabelPreference>? get settings;
   @override
   @JsonKey(ignore: true)
-  _$$_ModerationBehaviorsConfigCopyWith<_$_ModerationBehaviorsConfig>
+  _$$ModerationBehaviorsConfigImplCopyWith<_$ModerationBehaviorsConfigImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

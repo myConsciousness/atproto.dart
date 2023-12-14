@@ -71,22 +71,22 @@ class _$GeneratorLinksCopyWithImpl<$Res, $Val extends GeneratorLinks>
 }
 
 /// @nodoc
-abstract class _$$_GeneratorLinksCopyWith<$Res>
+abstract class _$$GeneratorLinksImplCopyWith<$Res>
     implements $GeneratorLinksCopyWith<$Res> {
-  factory _$$_GeneratorLinksCopyWith(
-          _$_GeneratorLinks value, $Res Function(_$_GeneratorLinks) then) =
-      __$$_GeneratorLinksCopyWithImpl<$Res>;
+  factory _$$GeneratorLinksImplCopyWith(_$GeneratorLinksImpl value,
+          $Res Function(_$GeneratorLinksImpl) then) =
+      __$$GeneratorLinksImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? privacyPolicy, String? termsOfService});
 }
 
 /// @nodoc
-class __$$_GeneratorLinksCopyWithImpl<$Res>
-    extends _$GeneratorLinksCopyWithImpl<$Res, _$_GeneratorLinks>
-    implements _$$_GeneratorLinksCopyWith<$Res> {
-  __$$_GeneratorLinksCopyWithImpl(
-      _$_GeneratorLinks _value, $Res Function(_$_GeneratorLinks) _then)
+class __$$GeneratorLinksImplCopyWithImpl<$Res>
+    extends _$GeneratorLinksCopyWithImpl<$Res, _$GeneratorLinksImpl>
+    implements _$$GeneratorLinksImplCopyWith<$Res> {
+  __$$GeneratorLinksImplCopyWithImpl(
+      _$GeneratorLinksImpl _value, $Res Function(_$GeneratorLinksImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,7 +95,7 @@ class __$$_GeneratorLinksCopyWithImpl<$Res>
     Object? privacyPolicy = freezed,
     Object? termsOfService = freezed,
   }) {
-    return _then(_$_GeneratorLinks(
+    return _then(_$GeneratorLinksImpl(
       privacyPolicy: freezed == privacyPolicy
           ? _value.privacyPolicy
           : privacyPolicy // ignore: cast_nullable_to_non_nullable
@@ -111,11 +111,11 @@ class __$$_GeneratorLinksCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_GeneratorLinks implements _GeneratorLinks {
-  const _$_GeneratorLinks({this.privacyPolicy, this.termsOfService});
+class _$GeneratorLinksImpl implements _GeneratorLinks {
+  const _$GeneratorLinksImpl({this.privacyPolicy, this.termsOfService});
 
-  factory _$_GeneratorLinks.fromJson(Map<String, dynamic> json) =>
-      _$$_GeneratorLinksFromJson(json);
+  factory _$GeneratorLinksImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GeneratorLinksImplFromJson(json);
 
   /// The link to the privacy policy of the generator.
   @override
@@ -134,7 +134,7 @@ class _$_GeneratorLinks implements _GeneratorLinks {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GeneratorLinks &&
+            other is _$GeneratorLinksImpl &&
             (identical(other.privacyPolicy, privacyPolicy) ||
                 other.privacyPolicy == privacyPolicy) &&
             (identical(other.termsOfService, termsOfService) ||
@@ -148,12 +148,13 @@ class _$_GeneratorLinks implements _GeneratorLinks {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GeneratorLinksCopyWith<_$_GeneratorLinks> get copyWith =>
-      __$$_GeneratorLinksCopyWithImpl<_$_GeneratorLinks>(this, _$identity);
+  _$$GeneratorLinksImplCopyWith<_$GeneratorLinksImpl> get copyWith =>
+      __$$GeneratorLinksImplCopyWithImpl<_$GeneratorLinksImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GeneratorLinksToJson(
+    return _$$GeneratorLinksImplToJson(
       this,
     );
   }
@@ -162,10 +163,10 @@ class _$_GeneratorLinks implements _GeneratorLinks {
 abstract class _GeneratorLinks implements GeneratorLinks {
   const factory _GeneratorLinks(
       {final String? privacyPolicy,
-      final String? termsOfService}) = _$_GeneratorLinks;
+      final String? termsOfService}) = _$GeneratorLinksImpl;
 
   factory _GeneratorLinks.fromJson(Map<String, dynamic> json) =
-      _$_GeneratorLinks.fromJson;
+      _$GeneratorLinksImpl.fromJson;
 
   @override
 
@@ -177,6 +178,6 @@ abstract class _GeneratorLinks implements GeneratorLinks {
   String? get termsOfService;
   @override
   @JsonKey(ignore: true)
-  _$$_GeneratorLinksCopyWith<_$_GeneratorLinks> get copyWith =>
+  _$$GeneratorLinksImplCopyWith<_$GeneratorLinksImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

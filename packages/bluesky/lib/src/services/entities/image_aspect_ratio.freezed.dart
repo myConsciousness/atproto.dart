@@ -71,22 +71,22 @@ class _$ImageAspectRatioCopyWithImpl<$Res, $Val extends ImageAspectRatio>
 }
 
 /// @nodoc
-abstract class _$$_ImageAspectRatioCopyWith<$Res>
+abstract class _$$ImageAspectRatioImplCopyWith<$Res>
     implements $ImageAspectRatioCopyWith<$Res> {
-  factory _$$_ImageAspectRatioCopyWith(
-          _$_ImageAspectRatio value, $Res Function(_$_ImageAspectRatio) then) =
-      __$$_ImageAspectRatioCopyWithImpl<$Res>;
+  factory _$$ImageAspectRatioImplCopyWith(_$ImageAspectRatioImpl value,
+          $Res Function(_$ImageAspectRatioImpl) then) =
+      __$$ImageAspectRatioImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int width, int height});
 }
 
 /// @nodoc
-class __$$_ImageAspectRatioCopyWithImpl<$Res>
-    extends _$ImageAspectRatioCopyWithImpl<$Res, _$_ImageAspectRatio>
-    implements _$$_ImageAspectRatioCopyWith<$Res> {
-  __$$_ImageAspectRatioCopyWithImpl(
-      _$_ImageAspectRatio _value, $Res Function(_$_ImageAspectRatio) _then)
+class __$$ImageAspectRatioImplCopyWithImpl<$Res>
+    extends _$ImageAspectRatioCopyWithImpl<$Res, _$ImageAspectRatioImpl>
+    implements _$$ImageAspectRatioImplCopyWith<$Res> {
+  __$$ImageAspectRatioImplCopyWithImpl(_$ImageAspectRatioImpl _value,
+      $Res Function(_$ImageAspectRatioImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,7 +95,7 @@ class __$$_ImageAspectRatioCopyWithImpl<$Res>
     Object? width = null,
     Object? height = null,
   }) {
-    return _then(_$_ImageAspectRatio(
+    return _then(_$ImageAspectRatioImpl(
       width: null == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
@@ -110,11 +110,11 @@ class __$$_ImageAspectRatioCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ImageAspectRatio implements _ImageAspectRatio {
-  const _$_ImageAspectRatio({required this.width, required this.height});
+class _$ImageAspectRatioImpl implements _ImageAspectRatio {
+  const _$ImageAspectRatioImpl({required this.width, required this.height});
 
-  factory _$_ImageAspectRatio.fromJson(Map<String, dynamic> json) =>
-      _$$_ImageAspectRatioFromJson(json);
+  factory _$ImageAspectRatioImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ImageAspectRatioImplFromJson(json);
 
   /// The width.
   @override
@@ -133,7 +133,7 @@ class _$_ImageAspectRatio implements _ImageAspectRatio {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ImageAspectRatio &&
+            other is _$ImageAspectRatioImpl &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.height, height) || other.height == height));
   }
@@ -145,12 +145,13 @@ class _$_ImageAspectRatio implements _ImageAspectRatio {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ImageAspectRatioCopyWith<_$_ImageAspectRatio> get copyWith =>
-      __$$_ImageAspectRatioCopyWithImpl<_$_ImageAspectRatio>(this, _$identity);
+  _$$ImageAspectRatioImplCopyWith<_$ImageAspectRatioImpl> get copyWith =>
+      __$$ImageAspectRatioImplCopyWithImpl<_$ImageAspectRatioImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ImageAspectRatioToJson(
+    return _$$ImageAspectRatioImplToJson(
       this,
     );
   }
@@ -159,10 +160,10 @@ class _$_ImageAspectRatio implements _ImageAspectRatio {
 abstract class _ImageAspectRatio implements ImageAspectRatio {
   const factory _ImageAspectRatio(
       {required final int width,
-      required final int height}) = _$_ImageAspectRatio;
+      required final int height}) = _$ImageAspectRatioImpl;
 
   factory _ImageAspectRatio.fromJson(Map<String, dynamic> json) =
-      _$_ImageAspectRatio.fromJson;
+      _$ImageAspectRatioImpl.fromJson;
 
   @override
 
@@ -174,6 +175,6 @@ abstract class _ImageAspectRatio implements ImageAspectRatio {
   int get height;
   @override
   @JsonKey(ignore: true)
-  _$$_ImageAspectRatioCopyWith<_$_ImageAspectRatio> get copyWith =>
+  _$$ImageAspectRatioImplCopyWith<_$ImageAspectRatioImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

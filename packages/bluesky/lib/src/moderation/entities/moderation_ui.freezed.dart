@@ -100,11 +100,11 @@ class _$ModerationUICopyWithImpl<$Res, $Val extends ModerationUI>
 }
 
 /// @nodoc
-abstract class _$$_ModerationUICopyWith<$Res>
+abstract class _$$ModerationUIImplCopyWith<$Res>
     implements $ModerationUICopyWith<$Res> {
-  factory _$$_ModerationUICopyWith(
-          _$_ModerationUI value, $Res Function(_$_ModerationUI) then) =
-      __$$_ModerationUICopyWithImpl<$Res>;
+  factory _$$ModerationUIImplCopyWith(
+          _$ModerationUIImpl value, $Res Function(_$ModerationUIImpl) then) =
+      __$$ModerationUIImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -119,11 +119,11 @@ abstract class _$$_ModerationUICopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ModerationUICopyWithImpl<$Res>
-    extends _$ModerationUICopyWithImpl<$Res, _$_ModerationUI>
-    implements _$$_ModerationUICopyWith<$Res> {
-  __$$_ModerationUICopyWithImpl(
-      _$_ModerationUI _value, $Res Function(_$_ModerationUI) _then)
+class __$$ModerationUIImplCopyWithImpl<$Res>
+    extends _$ModerationUICopyWithImpl<$Res, _$ModerationUIImpl>
+    implements _$$ModerationUIImplCopyWith<$Res> {
+  __$$ModerationUIImplCopyWithImpl(
+      _$ModerationUIImpl _value, $Res Function(_$ModerationUIImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -135,7 +135,7 @@ class __$$_ModerationUICopyWithImpl<$Res>
     Object? isAlert = null,
     Object? isNoOverride = null,
   }) {
-    return _then(_$_ModerationUI(
+    return _then(_$ModerationUIImpl(
       cause: freezed == cause
           ? _value.cause
           : cause // ignore: cast_nullable_to_non_nullable
@@ -162,8 +162,8 @@ class __$$_ModerationUICopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ModerationUI extends _ModerationUI {
-  const _$_ModerationUI(
+class _$ModerationUIImpl extends _ModerationUI {
+  const _$ModerationUIImpl(
       {this.cause,
       this.isFilter = false,
       this.isBlur = false,
@@ -195,7 +195,7 @@ class _$_ModerationUI extends _ModerationUI {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ModerationUI &&
+            other is _$ModerationUIImpl &&
             (identical(other.cause, cause) || other.cause == cause) &&
             (identical(other.isFilter, isFilter) ||
                 other.isFilter == isFilter) &&
@@ -212,8 +212,8 @@ class _$_ModerationUI extends _ModerationUI {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ModerationUICopyWith<_$_ModerationUI> get copyWith =>
-      __$$_ModerationUICopyWithImpl<_$_ModerationUI>(this, _$identity);
+  _$$ModerationUIImplCopyWith<_$ModerationUIImpl> get copyWith =>
+      __$$ModerationUIImplCopyWithImpl<_$ModerationUIImpl>(this, _$identity);
 }
 
 abstract class _ModerationUI extends ModerationUI {
@@ -222,7 +222,7 @@ abstract class _ModerationUI extends ModerationUI {
       final bool isFilter,
       final bool isBlur,
       final bool isAlert,
-      final bool isNoOverride}) = _$_ModerationUI;
+      final bool isNoOverride}) = _$ModerationUIImpl;
   const _ModerationUI._() : super._();
 
   @override
@@ -237,6 +237,6 @@ abstract class _ModerationUI extends ModerationUI {
   bool get isNoOverride;
   @override
   @JsonKey(ignore: true)
-  _$$_ModerationUICopyWith<_$_ModerationUI> get copyWith =>
+  _$$ModerationUIImplCopyWith<_$ModerationUIImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

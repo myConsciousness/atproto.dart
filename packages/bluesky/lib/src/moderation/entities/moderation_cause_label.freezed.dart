@@ -123,11 +123,11 @@ class _$ModerationCauseLabelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ModerationCauseLabelCopyWith<$Res>
+abstract class _$$ModerationCauseLabelImplCopyWith<$Res>
     implements $ModerationCauseLabelCopyWith<$Res> {
-  factory _$$_ModerationCauseLabelCopyWith(_$_ModerationCauseLabel value,
-          $Res Function(_$_ModerationCauseLabel) then) =
-      __$$_ModerationCauseLabelCopyWithImpl<$Res>;
+  factory _$$ModerationCauseLabelImplCopyWith(_$ModerationCauseLabelImpl value,
+          $Res Function(_$ModerationCauseLabelImpl) then) =
+      __$$ModerationCauseLabelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -147,11 +147,11 @@ abstract class _$$_ModerationCauseLabelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ModerationCauseLabelCopyWithImpl<$Res>
-    extends _$ModerationCauseLabelCopyWithImpl<$Res, _$_ModerationCauseLabel>
-    implements _$$_ModerationCauseLabelCopyWith<$Res> {
-  __$$_ModerationCauseLabelCopyWithImpl(_$_ModerationCauseLabel _value,
-      $Res Function(_$_ModerationCauseLabel) _then)
+class __$$ModerationCauseLabelImplCopyWithImpl<$Res>
+    extends _$ModerationCauseLabelCopyWithImpl<$Res, _$ModerationCauseLabelImpl>
+    implements _$$ModerationCauseLabelImplCopyWith<$Res> {
+  __$$ModerationCauseLabelImplCopyWithImpl(_$ModerationCauseLabelImpl _value,
+      $Res Function(_$ModerationCauseLabelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -164,7 +164,7 @@ class __$$_ModerationCauseLabelCopyWithImpl<$Res>
     Object? setting = null,
     Object? priority = null,
   }) {
-    return _then(_$_ModerationCauseLabel(
+    return _then(_$ModerationCauseLabelImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -195,8 +195,8 @@ class __$$_ModerationCauseLabelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ModerationCauseLabel implements _ModerationCauseLabel {
-  const _$_ModerationCauseLabel(
+class _$ModerationCauseLabelImpl implements _ModerationCauseLabel {
+  const _$ModerationCauseLabelImpl(
       {this.type = 'label',
       required this.source,
       required this.label,
@@ -228,7 +228,7 @@ class _$_ModerationCauseLabel implements _ModerationCauseLabel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ModerationCauseLabel &&
+            other is _$ModerationCauseLabelImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.source, source) || other.source == source) &&
             (identical(other.label, label) || other.label == label) &&
@@ -246,9 +246,10 @@ class _$_ModerationCauseLabel implements _ModerationCauseLabel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ModerationCauseLabelCopyWith<_$_ModerationCauseLabel> get copyWith =>
-      __$$_ModerationCauseLabelCopyWithImpl<_$_ModerationCauseLabel>(
-          this, _$identity);
+  _$$ModerationCauseLabelImplCopyWith<_$ModerationCauseLabelImpl>
+      get copyWith =>
+          __$$ModerationCauseLabelImplCopyWithImpl<_$ModerationCauseLabelImpl>(
+              this, _$identity);
 }
 
 abstract class _ModerationCauseLabel implements ModerationCauseLabel {
@@ -258,7 +259,7 @@ abstract class _ModerationCauseLabel implements ModerationCauseLabel {
       required final Label label,
       @JsonKey(name: 'labelDef') required final LabelDefinition labelDefinition,
       required final LabelPreference setting,
-      required final int priority}) = _$_ModerationCauseLabel;
+      required final int priority}) = _$ModerationCauseLabelImpl;
 
   @override
   String get type;
@@ -275,6 +276,6 @@ abstract class _ModerationCauseLabel implements ModerationCauseLabel {
   int get priority;
   @override
   @JsonKey(ignore: true)
-  _$$_ModerationCauseLabelCopyWith<_$_ModerationCauseLabel> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ModerationCauseLabelImplCopyWith<_$ModerationCauseLabelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -8,11 +8,12 @@ part of 'label_preferences.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LabelPreferences _$$_LabelPreferencesFromJson(Map json) => $checkedCreate(
-      r'_$_LabelPreferences',
+_$LabelPreferencesImpl _$$LabelPreferencesImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$LabelPreferencesImpl',
       json,
       ($checkedConvert) {
-        final val = _$_LabelPreferences(
+        final val = _$LabelPreferencesImpl(
           nsfw: $checkedConvert(
               'nsfw',
               (v) =>
@@ -53,7 +54,8 @@ _$_LabelPreferences _$$_LabelPreferencesFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_LabelPreferencesToJson(_$_LabelPreferences instance) =>
+Map<String, dynamic> _$$LabelPreferencesImplToJson(
+        _$LabelPreferencesImpl instance) =>
     <String, dynamic>{
       'nsfw': _$LabelPreferenceEnumMap[instance.nsfw]!,
       'nudity': _$LabelPreferenceEnumMap[instance.nudity]!,

@@ -8,11 +8,11 @@ part of 'record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Record _$$_RecordFromJson(Map json) => $checkedCreate(
-      r'_$_Record',
+_$RecordImpl _$$RecordImplFromJson(Map json) => $checkedCreate(
+      r'_$RecordImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Record(
+        final val = _$RecordImpl(
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String?),
@@ -23,7 +23,7 @@ _$_Record _$$_RecordFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_RecordToJson(_$_Record instance) {
+Map<String, dynamic> _$$RecordImplToJson(_$RecordImpl instance) {
   final val = <String, dynamic>{
     'uri': atUriConverter.toJson(instance.uri),
   };

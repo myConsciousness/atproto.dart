@@ -63,22 +63,22 @@ class _$SkeletonActorCopyWithImpl<$Res, $Val extends SkeletonActor>
 }
 
 /// @nodoc
-abstract class _$$_SkeletonActorCopyWith<$Res>
+abstract class _$$SkeletonActorImplCopyWith<$Res>
     implements $SkeletonActorCopyWith<$Res> {
-  factory _$$_SkeletonActorCopyWith(
-          _$_SkeletonActor value, $Res Function(_$_SkeletonActor) then) =
-      __$$_SkeletonActorCopyWithImpl<$Res>;
+  factory _$$SkeletonActorImplCopyWith(
+          _$SkeletonActorImpl value, $Res Function(_$SkeletonActorImpl) then) =
+      __$$SkeletonActorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String did});
 }
 
 /// @nodoc
-class __$$_SkeletonActorCopyWithImpl<$Res>
-    extends _$SkeletonActorCopyWithImpl<$Res, _$_SkeletonActor>
-    implements _$$_SkeletonActorCopyWith<$Res> {
-  __$$_SkeletonActorCopyWithImpl(
-      _$_SkeletonActor _value, $Res Function(_$_SkeletonActor) _then)
+class __$$SkeletonActorImplCopyWithImpl<$Res>
+    extends _$SkeletonActorCopyWithImpl<$Res, _$SkeletonActorImpl>
+    implements _$$SkeletonActorImplCopyWith<$Res> {
+  __$$SkeletonActorImplCopyWithImpl(
+      _$SkeletonActorImpl _value, $Res Function(_$SkeletonActorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -86,7 +86,7 @@ class __$$_SkeletonActorCopyWithImpl<$Res>
   $Res call({
     Object? did = null,
   }) {
-    return _then(_$_SkeletonActor(
+    return _then(_$SkeletonActorImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -97,11 +97,11 @@ class __$$_SkeletonActorCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SkeletonActor implements _SkeletonActor {
-  const _$_SkeletonActor({required this.did});
+class _$SkeletonActorImpl implements _SkeletonActor {
+  const _$SkeletonActorImpl({required this.did});
 
-  factory _$_SkeletonActor.fromJson(Map<String, dynamic> json) =>
-      _$$_SkeletonActorFromJson(json);
+  factory _$SkeletonActorImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SkeletonActorImplFromJson(json);
 
   /// The global id for an actor.
   @override
@@ -116,7 +116,7 @@ class _$_SkeletonActor implements _SkeletonActor {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SkeletonActor &&
+            other is _$SkeletonActorImpl &&
             (identical(other.did, did) || other.did == did));
   }
 
@@ -127,22 +127,23 @@ class _$_SkeletonActor implements _SkeletonActor {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SkeletonActorCopyWith<_$_SkeletonActor> get copyWith =>
-      __$$_SkeletonActorCopyWithImpl<_$_SkeletonActor>(this, _$identity);
+  _$$SkeletonActorImplCopyWith<_$SkeletonActorImpl> get copyWith =>
+      __$$SkeletonActorImplCopyWithImpl<_$SkeletonActorImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SkeletonActorToJson(
+    return _$$SkeletonActorImplToJson(
       this,
     );
   }
 }
 
 abstract class _SkeletonActor implements SkeletonActor {
-  const factory _SkeletonActor({required final String did}) = _$_SkeletonActor;
+  const factory _SkeletonActor({required final String did}) =
+      _$SkeletonActorImpl;
 
   factory _SkeletonActor.fromJson(Map<String, dynamic> json) =
-      _$_SkeletonActor.fromJson;
+      _$SkeletonActorImpl.fromJson;
 
   @override
 
@@ -150,6 +151,6 @@ abstract class _SkeletonActor implements SkeletonActor {
   String get did;
   @override
   @JsonKey(ignore: true)
-  _$$_SkeletonActorCopyWith<_$_SkeletonActor> get copyWith =>
+  _$$SkeletonActorImplCopyWith<_$SkeletonActorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -83,11 +83,12 @@ class _$ContentLabelPreferenceCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ContentLabelPreferenceCopyWith<$Res>
+abstract class _$$ContentLabelPreferenceImplCopyWith<$Res>
     implements $ContentLabelPreferenceCopyWith<$Res> {
-  factory _$$_ContentLabelPreferenceCopyWith(_$_ContentLabelPreference value,
-          $Res Function(_$_ContentLabelPreference) then) =
-      __$$_ContentLabelPreferenceCopyWithImpl<$Res>;
+  factory _$$ContentLabelPreferenceImplCopyWith(
+          _$ContentLabelPreferenceImpl value,
+          $Res Function(_$ContentLabelPreferenceImpl) then) =
+      __$$ContentLabelPreferenceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -95,12 +96,13 @@ abstract class _$$_ContentLabelPreferenceCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ContentLabelPreferenceCopyWithImpl<$Res>
+class __$$ContentLabelPreferenceImplCopyWithImpl<$Res>
     extends _$ContentLabelPreferenceCopyWithImpl<$Res,
-        _$_ContentLabelPreference>
-    implements _$$_ContentLabelPreferenceCopyWith<$Res> {
-  __$$_ContentLabelPreferenceCopyWithImpl(_$_ContentLabelPreference _value,
-      $Res Function(_$_ContentLabelPreference) _then)
+        _$ContentLabelPreferenceImpl>
+    implements _$$ContentLabelPreferenceImplCopyWith<$Res> {
+  __$$ContentLabelPreferenceImplCopyWithImpl(
+      _$ContentLabelPreferenceImpl _value,
+      $Res Function(_$ContentLabelPreferenceImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -110,7 +112,7 @@ class __$$_ContentLabelPreferenceCopyWithImpl<$Res>
     Object? label = null,
     Object? visibility = null,
   }) {
-    return _then(_$_ContentLabelPreference(
+    return _then(_$ContentLabelPreferenceImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -130,14 +132,14 @@ class __$$_ContentLabelPreferenceCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ContentLabelPreference implements _ContentLabelPreference {
-  const _$_ContentLabelPreference(
+class _$ContentLabelPreferenceImpl implements _ContentLabelPreference {
+  const _$ContentLabelPreferenceImpl(
       {@typeKey this.type = appBskyActorDefsContentLabelPref,
       required this.label,
       required this.visibility});
 
-  factory _$_ContentLabelPreference.fromJson(Map<String, dynamic> json) =>
-      _$$_ContentLabelPreferenceFromJson(json);
+  factory _$ContentLabelPreferenceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ContentLabelPreferenceImplFromJson(json);
 
   /// The content label.
   @override
@@ -161,7 +163,7 @@ class _$_ContentLabelPreference implements _ContentLabelPreference {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ContentLabelPreference &&
+            other is _$ContentLabelPreferenceImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.label, label) || other.label == label) &&
             (identical(other.visibility, visibility) ||
@@ -175,13 +177,13 @@ class _$_ContentLabelPreference implements _ContentLabelPreference {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ContentLabelPreferenceCopyWith<_$_ContentLabelPreference> get copyWith =>
-      __$$_ContentLabelPreferenceCopyWithImpl<_$_ContentLabelPreference>(
-          this, _$identity);
+  _$$ContentLabelPreferenceImplCopyWith<_$ContentLabelPreferenceImpl>
+      get copyWith => __$$ContentLabelPreferenceImplCopyWithImpl<
+          _$ContentLabelPreferenceImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ContentLabelPreferenceToJson(
+    return _$$ContentLabelPreferenceImplToJson(
       this,
     );
   }
@@ -192,10 +194,10 @@ abstract class _ContentLabelPreference implements ContentLabelPreference {
           {@typeKey final String type,
           required final String label,
           required final ContentLabelVisibility visibility}) =
-      _$_ContentLabelPreference;
+      _$ContentLabelPreferenceImpl;
 
   factory _ContentLabelPreference.fromJson(Map<String, dynamic> json) =
-      _$_ContentLabelPreference.fromJson;
+      _$ContentLabelPreferenceImpl.fromJson;
 
   @override
 
@@ -212,6 +214,6 @@ abstract class _ContentLabelPreference implements ContentLabelPreference {
   ContentLabelVisibility get visibility;
   @override
   @JsonKey(ignore: true)
-  _$$_ContentLabelPreferenceCopyWith<_$_ContentLabelPreference> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ContentLabelPreferenceImplCopyWith<_$ContentLabelPreferenceImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

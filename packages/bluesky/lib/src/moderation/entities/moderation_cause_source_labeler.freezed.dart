@@ -76,12 +76,12 @@ class _$ModerationCauseSourceLabelerCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ModerationCauseSourceLabelerCopyWith<$Res>
+abstract class _$$ModerationCauseSourceLabelerImplCopyWith<$Res>
     implements $ModerationCauseSourceLabelerCopyWith<$Res> {
-  factory _$$_ModerationCauseSourceLabelerCopyWith(
-          _$_ModerationCauseSourceLabeler value,
-          $Res Function(_$_ModerationCauseSourceLabeler) then) =
-      __$$_ModerationCauseSourceLabelerCopyWithImpl<$Res>;
+  factory _$$ModerationCauseSourceLabelerImplCopyWith(
+          _$ModerationCauseSourceLabelerImpl value,
+          $Res Function(_$ModerationCauseSourceLabelerImpl) then) =
+      __$$ModerationCauseSourceLabelerImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String type, Labeler labeler});
@@ -91,13 +91,13 @@ abstract class _$$_ModerationCauseSourceLabelerCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ModerationCauseSourceLabelerCopyWithImpl<$Res>
+class __$$ModerationCauseSourceLabelerImplCopyWithImpl<$Res>
     extends _$ModerationCauseSourceLabelerCopyWithImpl<$Res,
-        _$_ModerationCauseSourceLabeler>
-    implements _$$_ModerationCauseSourceLabelerCopyWith<$Res> {
-  __$$_ModerationCauseSourceLabelerCopyWithImpl(
-      _$_ModerationCauseSourceLabeler _value,
-      $Res Function(_$_ModerationCauseSourceLabeler) _then)
+        _$ModerationCauseSourceLabelerImpl>
+    implements _$$ModerationCauseSourceLabelerImplCopyWith<$Res> {
+  __$$ModerationCauseSourceLabelerImplCopyWithImpl(
+      _$ModerationCauseSourceLabelerImpl _value,
+      $Res Function(_$ModerationCauseSourceLabelerImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -106,7 +106,7 @@ class __$$_ModerationCauseSourceLabelerCopyWithImpl<$Res>
     Object? type = null,
     Object? labeler = null,
   }) {
-    return _then(_$_ModerationCauseSourceLabeler(
+    return _then(_$ModerationCauseSourceLabelerImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -121,8 +121,9 @@ class __$$_ModerationCauseSourceLabelerCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ModerationCauseSourceLabeler implements _ModerationCauseSourceLabeler {
-  const _$_ModerationCauseSourceLabeler(
+class _$ModerationCauseSourceLabelerImpl
+    implements _ModerationCauseSourceLabeler {
+  const _$ModerationCauseSourceLabelerImpl(
       {this.type = 'labeler', required this.labeler});
 
   @override
@@ -140,7 +141,7 @@ class _$_ModerationCauseSourceLabeler implements _ModerationCauseSourceLabeler {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ModerationCauseSourceLabeler &&
+            other is _$ModerationCauseSourceLabelerImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.labeler, labeler) || other.labeler == labeler));
   }
@@ -151,16 +152,17 @@ class _$_ModerationCauseSourceLabeler implements _ModerationCauseSourceLabeler {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ModerationCauseSourceLabelerCopyWith<_$_ModerationCauseSourceLabeler>
-      get copyWith => __$$_ModerationCauseSourceLabelerCopyWithImpl<
-          _$_ModerationCauseSourceLabeler>(this, _$identity);
+  _$$ModerationCauseSourceLabelerImplCopyWith<
+          _$ModerationCauseSourceLabelerImpl>
+      get copyWith => __$$ModerationCauseSourceLabelerImplCopyWithImpl<
+          _$ModerationCauseSourceLabelerImpl>(this, _$identity);
 }
 
 abstract class _ModerationCauseSourceLabeler
     implements ModerationCauseSourceLabeler {
   const factory _ModerationCauseSourceLabeler(
       {final String type,
-      required final Labeler labeler}) = _$_ModerationCauseSourceLabeler;
+      required final Labeler labeler}) = _$ModerationCauseSourceLabelerImpl;
 
   @override
   String get type;
@@ -168,6 +170,7 @@ abstract class _ModerationCauseSourceLabeler
   Labeler get labeler;
   @override
   @JsonKey(ignore: true)
-  _$$_ModerationCauseSourceLabelerCopyWith<_$_ModerationCauseSourceLabeler>
+  _$$ModerationCauseSourceLabelerImplCopyWith<
+          _$ModerationCauseSourceLabelerImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

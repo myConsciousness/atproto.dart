@@ -79,11 +79,11 @@ class _$LabelGroupDefinitionCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_LabelGroupDefinitionCopyWith<$Res>
+abstract class _$$LabelGroupDefinitionImplCopyWith<$Res>
     implements $LabelGroupDefinitionCopyWith<$Res> {
-  factory _$$_LabelGroupDefinitionCopyWith(_$_LabelGroupDefinition value,
-          $Res Function(_$_LabelGroupDefinition) then) =
-      __$$_LabelGroupDefinitionCopyWithImpl<$Res>;
+  factory _$$LabelGroupDefinitionImplCopyWith(_$LabelGroupDefinitionImpl value,
+          $Res Function(_$LabelGroupDefinitionImpl) then) =
+      __$$LabelGroupDefinitionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -93,11 +93,11 @@ abstract class _$$_LabelGroupDefinitionCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LabelGroupDefinitionCopyWithImpl<$Res>
-    extends _$LabelGroupDefinitionCopyWithImpl<$Res, _$_LabelGroupDefinition>
-    implements _$$_LabelGroupDefinitionCopyWith<$Res> {
-  __$$_LabelGroupDefinitionCopyWithImpl(_$_LabelGroupDefinition _value,
-      $Res Function(_$_LabelGroupDefinition) _then)
+class __$$LabelGroupDefinitionImplCopyWithImpl<$Res>
+    extends _$LabelGroupDefinitionCopyWithImpl<$Res, _$LabelGroupDefinitionImpl>
+    implements _$$LabelGroupDefinitionImplCopyWith<$Res> {
+  __$$LabelGroupDefinitionImplCopyWithImpl(_$LabelGroupDefinitionImpl _value,
+      $Res Function(_$LabelGroupDefinitionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -107,7 +107,7 @@ class __$$_LabelGroupDefinitionCopyWithImpl<$Res>
     Object? isConfigurable = null,
     Object? labels = null,
   }) {
-    return _then(_$_LabelGroupDefinition(
+    return _then(_$LabelGroupDefinitionImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -127,15 +127,15 @@ class __$$_LabelGroupDefinitionCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_LabelGroupDefinition implements _LabelGroupDefinition {
-  const _$_LabelGroupDefinition(
+class _$LabelGroupDefinitionImpl implements _LabelGroupDefinition {
+  const _$LabelGroupDefinitionImpl(
       {required this.id,
       @JsonKey(name: 'configurable') this.isConfigurable = false,
       required final List<LabelDefinition> labels})
       : _labels = labels;
 
-  factory _$_LabelGroupDefinition.fromJson(Map<String, dynamic> json) =>
-      _$$_LabelGroupDefinitionFromJson(json);
+  factory _$LabelGroupDefinitionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LabelGroupDefinitionImplFromJson(json);
 
   @override
   final String id;
@@ -159,7 +159,7 @@ class _$_LabelGroupDefinition implements _LabelGroupDefinition {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LabelGroupDefinition &&
+            other is _$LabelGroupDefinitionImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.isConfigurable, isConfigurable) ||
                 other.isConfigurable == isConfigurable) &&
@@ -174,13 +174,14 @@ class _$_LabelGroupDefinition implements _LabelGroupDefinition {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LabelGroupDefinitionCopyWith<_$_LabelGroupDefinition> get copyWith =>
-      __$$_LabelGroupDefinitionCopyWithImpl<_$_LabelGroupDefinition>(
-          this, _$identity);
+  _$$LabelGroupDefinitionImplCopyWith<_$LabelGroupDefinitionImpl>
+      get copyWith =>
+          __$$LabelGroupDefinitionImplCopyWithImpl<_$LabelGroupDefinitionImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LabelGroupDefinitionToJson(
+    return _$$LabelGroupDefinitionImplToJson(
       this,
     );
   }
@@ -188,12 +189,13 @@ class _$_LabelGroupDefinition implements _LabelGroupDefinition {
 
 abstract class _LabelGroupDefinition implements LabelGroupDefinition {
   const factory _LabelGroupDefinition(
-      {required final String id,
-      @JsonKey(name: 'configurable') final bool isConfigurable,
-      required final List<LabelDefinition> labels}) = _$_LabelGroupDefinition;
+          {required final String id,
+          @JsonKey(name: 'configurable') final bool isConfigurable,
+          required final List<LabelDefinition> labels}) =
+      _$LabelGroupDefinitionImpl;
 
   factory _LabelGroupDefinition.fromJson(Map<String, dynamic> json) =
-      _$_LabelGroupDefinition.fromJson;
+      _$LabelGroupDefinitionImpl.fromJson;
 
   @override
   String get id;
@@ -204,6 +206,6 @@ abstract class _LabelGroupDefinition implements LabelGroupDefinition {
   List<LabelDefinition> get labels;
   @override
   @JsonKey(ignore: true)
-  _$$_LabelGroupDefinitionCopyWith<_$_LabelGroupDefinition> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$LabelGroupDefinitionImplCopyWith<_$LabelGroupDefinitionImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

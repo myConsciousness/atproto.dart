@@ -8,11 +8,11 @@ part of 'repo_param.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RepoParam _$$_RepoParamFromJson(Map json) => $checkedCreate(
-      r'_$_RepoParam',
+_$RepoParamImpl _$$RepoParamImplFromJson(Map json) => $checkedCreate(
+      r'_$RepoParamImpl',
       json,
       ($checkedConvert) {
-        final val = _$_RepoParam(
+        final val = _$RepoParamImpl(
           did: $checkedConvert('did', (v) => v as String),
           createdAt: $checkedConvert('createdAt',
               (v) => v == null ? null : DateTime.parse(v as String)),
@@ -28,7 +28,7 @@ _$_RepoParam _$$_RepoParamFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_RepoParamToJson(_$_RepoParam instance) {
+Map<String, dynamic> _$$RepoParamImplToJson(_$RepoParamImpl instance) {
   final val = <String, dynamic>{
     'did': instance.did,
   };

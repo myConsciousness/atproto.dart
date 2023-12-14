@@ -71,22 +71,22 @@ class _$LabelsByQueryCopyWithImpl<$Res, $Val extends LabelsByQuery>
 }
 
 /// @nodoc
-abstract class _$$_LabelsByQueryCopyWith<$Res>
+abstract class _$$LabelsByQueryImplCopyWith<$Res>
     implements $LabelsByQueryCopyWith<$Res> {
-  factory _$$_LabelsByQueryCopyWith(
-          _$_LabelsByQuery value, $Res Function(_$_LabelsByQuery) then) =
-      __$$_LabelsByQueryCopyWithImpl<$Res>;
+  factory _$$LabelsByQueryImplCopyWith(
+          _$LabelsByQueryImpl value, $Res Function(_$LabelsByQueryImpl) then) =
+      __$$LabelsByQueryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Label> labels, String? cursor});
 }
 
 /// @nodoc
-class __$$_LabelsByQueryCopyWithImpl<$Res>
-    extends _$LabelsByQueryCopyWithImpl<$Res, _$_LabelsByQuery>
-    implements _$$_LabelsByQueryCopyWith<$Res> {
-  __$$_LabelsByQueryCopyWithImpl(
-      _$_LabelsByQuery _value, $Res Function(_$_LabelsByQuery) _then)
+class __$$LabelsByQueryImplCopyWithImpl<$Res>
+    extends _$LabelsByQueryCopyWithImpl<$Res, _$LabelsByQueryImpl>
+    implements _$$LabelsByQueryImplCopyWith<$Res> {
+  __$$LabelsByQueryImplCopyWithImpl(
+      _$LabelsByQueryImpl _value, $Res Function(_$LabelsByQueryImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,7 +95,7 @@ class __$$_LabelsByQueryCopyWithImpl<$Res>
     Object? labels = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$_LabelsByQuery(
+    return _then(_$LabelsByQueryImpl(
       labels: null == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -111,12 +111,12 @@ class __$$_LabelsByQueryCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_LabelsByQuery implements _LabelsByQuery {
-  const _$_LabelsByQuery({required final List<Label> labels, this.cursor})
+class _$LabelsByQueryImpl implements _LabelsByQuery {
+  const _$LabelsByQueryImpl({required final List<Label> labels, this.cursor})
       : _labels = labels;
 
-  factory _$_LabelsByQuery.fromJson(Map<String, dynamic> json) =>
-      _$$_LabelsByQueryFromJson(json);
+  factory _$LabelsByQueryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LabelsByQueryImplFromJson(json);
 
   /// A collection of queried labels.
   final List<Label> _labels;
@@ -142,7 +142,7 @@ class _$_LabelsByQuery implements _LabelsByQuery {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LabelsByQuery &&
+            other is _$LabelsByQueryImpl &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -155,12 +155,12 @@ class _$_LabelsByQuery implements _LabelsByQuery {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LabelsByQueryCopyWith<_$_LabelsByQuery> get copyWith =>
-      __$$_LabelsByQueryCopyWithImpl<_$_LabelsByQuery>(this, _$identity);
+  _$$LabelsByQueryImplCopyWith<_$LabelsByQueryImpl> get copyWith =>
+      __$$LabelsByQueryImplCopyWithImpl<_$LabelsByQueryImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LabelsByQueryToJson(
+    return _$$LabelsByQueryImplToJson(
       this,
     );
   }
@@ -169,10 +169,10 @@ class _$_LabelsByQuery implements _LabelsByQuery {
 abstract class _LabelsByQuery implements LabelsByQuery {
   const factory _LabelsByQuery(
       {required final List<Label> labels,
-      final String? cursor}) = _$_LabelsByQuery;
+      final String? cursor}) = _$LabelsByQueryImpl;
 
   factory _LabelsByQuery.fromJson(Map<String, dynamic> json) =
-      _$_LabelsByQuery.fromJson;
+      _$LabelsByQueryImpl.fromJson;
 
   @override
 
@@ -184,6 +184,6 @@ abstract class _LabelsByQuery implements LabelsByQuery {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$_LabelsByQueryCopyWith<_$_LabelsByQuery> get copyWith =>
+  _$$LabelsByQueryImplCopyWith<_$LabelsByQueryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

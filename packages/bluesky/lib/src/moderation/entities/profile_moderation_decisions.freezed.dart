@@ -84,12 +84,12 @@ class _$ProfileModerationDecisionsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ProfileModerationDecisionsCopyWith<$Res>
+abstract class _$$ProfileModerationDecisionsImplCopyWith<$Res>
     implements $ProfileModerationDecisionsCopyWith<$Res> {
-  factory _$$_ProfileModerationDecisionsCopyWith(
-          _$_ProfileModerationDecisions value,
-          $Res Function(_$_ProfileModerationDecisions) then) =
-      __$$_ProfileModerationDecisionsCopyWithImpl<$Res>;
+  factory _$$ProfileModerationDecisionsImplCopyWith(
+          _$ProfileModerationDecisionsImpl value,
+          $Res Function(_$ProfileModerationDecisionsImpl) then) =
+      __$$ProfileModerationDecisionsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ModerationDecision account, ModerationDecision profile});
@@ -101,13 +101,13 @@ abstract class _$$_ProfileModerationDecisionsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ProfileModerationDecisionsCopyWithImpl<$Res>
+class __$$ProfileModerationDecisionsImplCopyWithImpl<$Res>
     extends _$ProfileModerationDecisionsCopyWithImpl<$Res,
-        _$_ProfileModerationDecisions>
-    implements _$$_ProfileModerationDecisionsCopyWith<$Res> {
-  __$$_ProfileModerationDecisionsCopyWithImpl(
-      _$_ProfileModerationDecisions _value,
-      $Res Function(_$_ProfileModerationDecisions) _then)
+        _$ProfileModerationDecisionsImpl>
+    implements _$$ProfileModerationDecisionsImplCopyWith<$Res> {
+  __$$ProfileModerationDecisionsImplCopyWithImpl(
+      _$ProfileModerationDecisionsImpl _value,
+      $Res Function(_$ProfileModerationDecisionsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -116,7 +116,7 @@ class __$$_ProfileModerationDecisionsCopyWithImpl<$Res>
     Object? account = null,
     Object? profile = null,
   }) {
-    return _then(_$_ProfileModerationDecisions(
+    return _then(_$ProfileModerationDecisionsImpl(
       account: null == account
           ? _value.account
           : account // ignore: cast_nullable_to_non_nullable
@@ -131,8 +131,8 @@ class __$$_ProfileModerationDecisionsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ProfileModerationDecisions implements _ProfileModerationDecisions {
-  const _$_ProfileModerationDecisions(
+class _$ProfileModerationDecisionsImpl implements _ProfileModerationDecisions {
+  const _$ProfileModerationDecisionsImpl(
       {required this.account, required this.profile});
 
   @override
@@ -149,7 +149,7 @@ class _$_ProfileModerationDecisions implements _ProfileModerationDecisions {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ProfileModerationDecisions &&
+            other is _$ProfileModerationDecisionsImpl &&
             (identical(other.account, account) || other.account == account) &&
             (identical(other.profile, profile) || other.profile == profile));
   }
@@ -160,9 +160,9 @@ class _$_ProfileModerationDecisions implements _ProfileModerationDecisions {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProfileModerationDecisionsCopyWith<_$_ProfileModerationDecisions>
-      get copyWith => __$$_ProfileModerationDecisionsCopyWithImpl<
-          _$_ProfileModerationDecisions>(this, _$identity);
+  _$$ProfileModerationDecisionsImplCopyWith<_$ProfileModerationDecisionsImpl>
+      get copyWith => __$$ProfileModerationDecisionsImplCopyWithImpl<
+          _$ProfileModerationDecisionsImpl>(this, _$identity);
 }
 
 abstract class _ProfileModerationDecisions
@@ -170,7 +170,7 @@ abstract class _ProfileModerationDecisions
   const factory _ProfileModerationDecisions(
           {required final ModerationDecision account,
           required final ModerationDecision profile}) =
-      _$_ProfileModerationDecisions;
+      _$ProfileModerationDecisionsImpl;
 
   @override
   ModerationDecision get account;
@@ -178,6 +178,6 @@ abstract class _ProfileModerationDecisions
   ModerationDecision get profile;
   @override
   @JsonKey(ignore: true)
-  _$$_ProfileModerationDecisionsCopyWith<_$_ProfileModerationDecisions>
+  _$$ProfileModerationDecisionsImplCopyWith<_$ProfileModerationDecisionsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

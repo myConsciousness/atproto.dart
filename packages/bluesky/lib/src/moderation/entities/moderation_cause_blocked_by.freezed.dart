@@ -80,12 +80,12 @@ class _$ModerationCauseBlockedByCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ModerationCauseBlockedByCopyWith<$Res>
+abstract class _$$ModerationCauseBlockedByImplCopyWith<$Res>
     implements $ModerationCauseBlockedByCopyWith<$Res> {
-  factory _$$_ModerationCauseBlockedByCopyWith(
-          _$_ModerationCauseBlockedBy value,
-          $Res Function(_$_ModerationCauseBlockedBy) then) =
-      __$$_ModerationCauseBlockedByCopyWithImpl<$Res>;
+  factory _$$ModerationCauseBlockedByImplCopyWith(
+          _$ModerationCauseBlockedByImpl value,
+          $Res Function(_$ModerationCauseBlockedByImpl) then) =
+      __$$ModerationCauseBlockedByImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String type, ModerationCauseSource source, int priority});
@@ -95,12 +95,13 @@ abstract class _$$_ModerationCauseBlockedByCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ModerationCauseBlockedByCopyWithImpl<$Res>
+class __$$ModerationCauseBlockedByImplCopyWithImpl<$Res>
     extends _$ModerationCauseBlockedByCopyWithImpl<$Res,
-        _$_ModerationCauseBlockedBy>
-    implements _$$_ModerationCauseBlockedByCopyWith<$Res> {
-  __$$_ModerationCauseBlockedByCopyWithImpl(_$_ModerationCauseBlockedBy _value,
-      $Res Function(_$_ModerationCauseBlockedBy) _then)
+        _$ModerationCauseBlockedByImpl>
+    implements _$$ModerationCauseBlockedByImplCopyWith<$Res> {
+  __$$ModerationCauseBlockedByImplCopyWithImpl(
+      _$ModerationCauseBlockedByImpl _value,
+      $Res Function(_$ModerationCauseBlockedByImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -110,7 +111,7 @@ class __$$_ModerationCauseBlockedByCopyWithImpl<$Res>
     Object? source = null,
     Object? priority = null,
   }) {
-    return _then(_$_ModerationCauseBlockedBy(
+    return _then(_$ModerationCauseBlockedByImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -129,8 +130,8 @@ class __$$_ModerationCauseBlockedByCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ModerationCauseBlockedBy implements _ModerationCauseBlockedBy {
-  const _$_ModerationCauseBlockedBy(
+class _$ModerationCauseBlockedByImpl implements _ModerationCauseBlockedBy {
+  const _$ModerationCauseBlockedByImpl(
       {this.type = 'blocked-by', required this.source, this.priority = 4});
 
   @override
@@ -151,7 +152,7 @@ class _$_ModerationCauseBlockedBy implements _ModerationCauseBlockedBy {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ModerationCauseBlockedBy &&
+            other is _$ModerationCauseBlockedByImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.source, source) || other.source == source) &&
             (identical(other.priority, priority) ||
@@ -164,16 +165,16 @@ class _$_ModerationCauseBlockedBy implements _ModerationCauseBlockedBy {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ModerationCauseBlockedByCopyWith<_$_ModerationCauseBlockedBy>
-      get copyWith => __$$_ModerationCauseBlockedByCopyWithImpl<
-          _$_ModerationCauseBlockedBy>(this, _$identity);
+  _$$ModerationCauseBlockedByImplCopyWith<_$ModerationCauseBlockedByImpl>
+      get copyWith => __$$ModerationCauseBlockedByImplCopyWithImpl<
+          _$ModerationCauseBlockedByImpl>(this, _$identity);
 }
 
 abstract class _ModerationCauseBlockedBy implements ModerationCauseBlockedBy {
   const factory _ModerationCauseBlockedBy(
       {final String type,
       required final ModerationCauseSource source,
-      final int priority}) = _$_ModerationCauseBlockedBy;
+      final int priority}) = _$ModerationCauseBlockedByImpl;
 
   @override
   String get type;
@@ -183,6 +184,6 @@ abstract class _ModerationCauseBlockedBy implements ModerationCauseBlockedBy {
   int get priority;
   @override
   @JsonKey(ignore: true)
-  _$$_ModerationCauseBlockedByCopyWith<_$_ModerationCauseBlockedBy>
+  _$$ModerationCauseBlockedByImplCopyWith<_$ModerationCauseBlockedByImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

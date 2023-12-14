@@ -8,11 +8,11 @@ part of 'facet_tag.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_FacetTag _$$_FacetTagFromJson(Map json) => $checkedCreate(
-      r'_$_FacetTag',
+_$FacetTagImpl _$$FacetTagImplFromJson(Map json) => $checkedCreate(
+      r'_$FacetTagImpl',
       json,
       ($checkedConvert) {
-        final val = _$_FacetTag(
+        final val = _$FacetTagImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyRichtextFacetTag),
           tag: $checkedConvert('tag', (v) => v as String),
@@ -22,7 +22,7 @@ _$_FacetTag _$$_FacetTagFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$_FacetTagToJson(_$_FacetTag instance) =>
+Map<String, dynamic> _$$FacetTagImplToJson(_$FacetTagImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'tag': instance.tag,

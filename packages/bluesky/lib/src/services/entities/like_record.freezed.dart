@@ -95,11 +95,11 @@ class _$LikeRecordCopyWithImpl<$Res, $Val extends LikeRecord>
 }
 
 /// @nodoc
-abstract class _$$_LikeRecordCopyWith<$Res>
+abstract class _$$LikeRecordImplCopyWith<$Res>
     implements $LikeRecordCopyWith<$Res> {
-  factory _$$_LikeRecordCopyWith(
-          _$_LikeRecord value, $Res Function(_$_LikeRecord) then) =
-      __$$_LikeRecordCopyWithImpl<$Res>;
+  factory _$$LikeRecordImplCopyWith(
+          _$LikeRecordImpl value, $Res Function(_$LikeRecordImpl) then) =
+      __$$LikeRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -112,11 +112,11 @@ abstract class _$$_LikeRecordCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LikeRecordCopyWithImpl<$Res>
-    extends _$LikeRecordCopyWithImpl<$Res, _$_LikeRecord>
-    implements _$$_LikeRecordCopyWith<$Res> {
-  __$$_LikeRecordCopyWithImpl(
-      _$_LikeRecord _value, $Res Function(_$_LikeRecord) _then)
+class __$$LikeRecordImplCopyWithImpl<$Res>
+    extends _$LikeRecordCopyWithImpl<$Res, _$LikeRecordImpl>
+    implements _$$LikeRecordImplCopyWith<$Res> {
+  __$$LikeRecordImplCopyWithImpl(
+      _$LikeRecordImpl _value, $Res Function(_$LikeRecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -126,7 +126,7 @@ class __$$_LikeRecordCopyWithImpl<$Res>
     Object? ref = null,
     Object? createdAt = null,
   }) {
-    return _then(_$_LikeRecord(
+    return _then(_$LikeRecordImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -146,14 +146,14 @@ class __$$_LikeRecordCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_LikeRecord implements _LikeRecord {
-  const _$_LikeRecord(
+class _$LikeRecordImpl implements _LikeRecord {
+  const _$LikeRecordImpl(
       {@typeKey this.type = appBskyFeedLike,
       @JsonKey(name: 'subject') required this.ref,
       required this.createdAt});
 
-  factory _$_LikeRecord.fromJson(Map<String, dynamic> json) =>
-      _$$_LikeRecordFromJson(json);
+  factory _$LikeRecordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LikeRecordImplFromJson(json);
 
   /// Type of the record, defaults to [appBskyFeedLike].
   @override
@@ -179,7 +179,7 @@ class _$_LikeRecord implements _LikeRecord {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LikeRecord &&
+            other is _$LikeRecordImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.ref, ref) || other.ref == ref) &&
             (identical(other.createdAt, createdAt) ||
@@ -193,12 +193,12 @@ class _$_LikeRecord implements _LikeRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LikeRecordCopyWith<_$_LikeRecord> get copyWith =>
-      __$$_LikeRecordCopyWithImpl<_$_LikeRecord>(this, _$identity);
+  _$$LikeRecordImplCopyWith<_$LikeRecordImpl> get copyWith =>
+      __$$LikeRecordImplCopyWithImpl<_$LikeRecordImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LikeRecordToJson(
+    return _$$LikeRecordImplToJson(
       this,
     );
   }
@@ -208,10 +208,10 @@ abstract class _LikeRecord implements LikeRecord {
   const factory _LikeRecord(
       {@typeKey final String type,
       @JsonKey(name: 'subject') required final StrongRef ref,
-      required final DateTime createdAt}) = _$_LikeRecord;
+      required final DateTime createdAt}) = _$LikeRecordImpl;
 
   factory _LikeRecord.fromJson(Map<String, dynamic> json) =
-      _$_LikeRecord.fromJson;
+      _$LikeRecordImpl.fromJson;
 
   @override
 
@@ -230,6 +230,6 @@ abstract class _LikeRecord implements LikeRecord {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$_LikeRecordCopyWith<_$_LikeRecord> get copyWith =>
+  _$$LikeRecordImplCopyWith<_$LikeRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
