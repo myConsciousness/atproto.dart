@@ -9,6 +9,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../complex/lex_primitive_array.dart';
+import '../converter/lex_xrpc_parameters_property_converter.dart';
 import '../primitives/lex_primitive.dart';
 
 part 'lex_xrpc_parameters_property.freezed.dart';
@@ -26,13 +27,6 @@ class LexXrpcParametersProperty with _$LexXrpcParametersProperty {
     required LexPrimitive data,
   }) = ULexXrpcParametersPropertyPrimitive;
 
-  Map<String, dynamic> toJson() => when(
-        primitiveArray: (data) => data.toJson(),
-        primitive: (data) => data.when(
-          boolean: (data) => data.toJson(),
-          integer: (data) => data.toJson(),
-          string: (data) => data.toJson(),
-          unknown: (data) => data.toJson(),
-        ),
-      );
+  Map<String, dynamic> toJson() =>
+      lexXrpcParametersPropertyConverter.toJson(this);
 }

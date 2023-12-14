@@ -12,6 +12,7 @@ import '../blobs/lex_blob.dart';
 import '../complex/lex_array.dart';
 import '../complex/lex_object.dart';
 import '../complex/lex_token.dart';
+import '../converter/lex_user_type_converter.dart';
 import '../database/lex_record.dart';
 import '../ipld/lex_bytes.dart';
 import '../ipld/lex_cid_link.dart';
@@ -86,20 +87,5 @@ class LexUserType with _$LexUserType {
     required LexUnknown data,
   }) = _LexUnknown;
 
-  Map<String, dynamic> toJson() => when(
-        record: (data) => data.toJson(),
-        xrpcQuery: (data) => data.toJson(),
-        xrpcProcedure: (data) => data.toJson(),
-        xrpcSubscription: (data) => data.toJson(),
-        blob: (data) => data.toJson(),
-        array: (data) => data.toJson(),
-        token: (data) => data.toJson(),
-        object: (data) => data.toJson(),
-        boolean: (data) => data.toJson(),
-        integer: (data) => data.toJson(),
-        string: (data) => data.toJson(),
-        bytes: (data) => data.toJson(),
-        cidLink: (data) => data.toJson(),
-        unknown: (data) => data.toJson(),
-      );
+  Map<String, dynamic> toJson() => lexUserTypeConverter.toJson(this);
 }

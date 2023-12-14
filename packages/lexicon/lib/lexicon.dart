@@ -3,7 +3,6 @@
 // modification, are permitted provided the conditions.
 
 export 'package:lexicon/src/types/blobs/lex_blob.dart';
-export 'package:lexicon/src/types/complex/lex_array_item.dart';
 export 'package:lexicon/src/types/complex/lex_array.dart';
 export 'package:lexicon/src/types/complex/lex_object_property.dart';
 export 'package:lexicon/src/types/complex/lex_object.dart';

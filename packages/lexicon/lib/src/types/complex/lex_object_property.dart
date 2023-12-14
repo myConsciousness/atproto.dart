@@ -9,6 +9,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../blobs/lex_blob.dart';
+import '../converter/lex_object_property_converter.dart';
 import '../ipld/lex_ipld.dart';
 import '../primitives/lex_primitive.dart';
 import '../references/lex_ref_variant.dart';
@@ -41,22 +42,5 @@ class LexObjectProperty with _$LexObjectProperty {
     required LexPrimitive data,
   }) = ULexObjectPropertyPrimitive;
 
-  Map<String, dynamic> toJson() => when(
-        refVariant: (data) => data.when(
-          ref: (data) => data.toJson(),
-          refUnion: (data) => data.toJson(),
-        ),
-        ipld: (data) => data.when(
-          bytes: (data) => data.toJson(),
-          cidLink: (data) => data.toJson(),
-        ),
-        array: (data) => data.toJson(),
-        blob: (data) => data.toJson(),
-        primitive: (data) => data.when(
-          boolean: (data) => data.toJson(),
-          integer: (data) => data.toJson(),
-          string: (data) => data.toJson(),
-          unknown: (data) => data.toJson(),
-        ),
-      );
+  Map<String, dynamic> toJson() => lexObjectPropertyConverter.toJson(this);
 }
