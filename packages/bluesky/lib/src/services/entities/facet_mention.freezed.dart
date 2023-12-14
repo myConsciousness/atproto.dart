@@ -73,22 +73,22 @@ class _$FacetMentionCopyWithImpl<$Res, $Val extends FacetMention>
 }
 
 /// @nodoc
-abstract class _$$_FacetMentionCopyWith<$Res>
+abstract class _$$FacetMentionImplCopyWith<$Res>
     implements $FacetMentionCopyWith<$Res> {
-  factory _$$_FacetMentionCopyWith(
-          _$_FacetMention value, $Res Function(_$_FacetMention) then) =
-      __$$_FacetMentionCopyWithImpl<$Res>;
+  factory _$$FacetMentionImplCopyWith(
+          _$FacetMentionImpl value, $Res Function(_$FacetMentionImpl) then) =
+      __$$FacetMentionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, String did});
 }
 
 /// @nodoc
-class __$$_FacetMentionCopyWithImpl<$Res>
-    extends _$FacetMentionCopyWithImpl<$Res, _$_FacetMention>
-    implements _$$_FacetMentionCopyWith<$Res> {
-  __$$_FacetMentionCopyWithImpl(
-      _$_FacetMention _value, $Res Function(_$_FacetMention) _then)
+class __$$FacetMentionImplCopyWithImpl<$Res>
+    extends _$FacetMentionCopyWithImpl<$Res, _$FacetMentionImpl>
+    implements _$$FacetMentionImplCopyWith<$Res> {
+  __$$FacetMentionImplCopyWithImpl(
+      _$FacetMentionImpl _value, $Res Function(_$FacetMentionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,7 +97,7 @@ class __$$_FacetMentionCopyWithImpl<$Res>
     Object? type = null,
     Object? did = null,
   }) {
-    return _then(_$_FacetMention(
+    return _then(_$FacetMentionImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -112,12 +112,12 @@ class __$$_FacetMentionCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FacetMention implements _FacetMention {
-  const _$_FacetMention(
+class _$FacetMentionImpl implements _FacetMention {
+  const _$FacetMentionImpl(
       {@typeKey this.type = appBskyRichtextFacetMention, required this.did});
 
-  factory _$_FacetMention.fromJson(Map<String, dynamic> json) =>
-      _$$_FacetMentionFromJson(json);
+  factory _$FacetMentionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FacetMentionImplFromJson(json);
 
   /// Specifies the type of facet. Defaults to
   /// [appBskyRichtextFacetMention].
@@ -138,7 +138,7 @@ class _$_FacetMention implements _FacetMention {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FacetMention &&
+            other is _$FacetMentionImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.did, did) || other.did == did));
   }
@@ -150,12 +150,12 @@ class _$_FacetMention implements _FacetMention {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FacetMentionCopyWith<_$_FacetMention> get copyWith =>
-      __$$_FacetMentionCopyWithImpl<_$_FacetMention>(this, _$identity);
+  _$$FacetMentionImplCopyWith<_$FacetMentionImpl> get copyWith =>
+      __$$FacetMentionImplCopyWithImpl<_$FacetMentionImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FacetMentionToJson(
+    return _$$FacetMentionImplToJson(
       this,
     );
   }
@@ -164,10 +164,10 @@ class _$_FacetMention implements _FacetMention {
 abstract class _FacetMention implements FacetMention {
   const factory _FacetMention(
       {@typeKey final String type,
-      required final String did}) = _$_FacetMention;
+      required final String did}) = _$FacetMentionImpl;
 
   factory _FacetMention.fromJson(Map<String, dynamic> json) =
-      _$_FacetMention.fromJson;
+      _$FacetMentionImpl.fromJson;
 
   @override
 
@@ -181,6 +181,6 @@ abstract class _FacetMention implements FacetMention {
   String get did;
   @override
   @JsonKey(ignore: true)
-  _$$_FacetMentionCopyWith<_$_FacetMention> get copyWith =>
+  _$$FacetMentionImplCopyWith<_$FacetMentionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

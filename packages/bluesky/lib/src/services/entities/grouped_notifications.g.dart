@@ -8,12 +8,12 @@ part of 'grouped_notifications.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_GroupedNotifications _$$_GroupedNotificationsFromJson(Map json) =>
+_$GroupedNotificationsImpl _$$GroupedNotificationsImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$_GroupedNotifications',
+      r'_$GroupedNotificationsImpl',
       json,
       ($checkedConvert) {
-        final val = _$_GroupedNotifications(
+        final val = _$GroupedNotificationsImpl(
           notifications: $checkedConvert(
               'notifications',
               (v) => (v as List<dynamic>)
@@ -26,8 +26,8 @@ _$_GroupedNotifications _$$_GroupedNotificationsFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$_GroupedNotificationsToJson(
-        _$_GroupedNotifications instance) =>
+Map<String, dynamic> _$$GroupedNotificationsImplToJson(
+        _$GroupedNotificationsImpl instance) =>
     <String, dynamic>{
       'notifications': instance.notifications.map((e) => e.toJson()).toList(),
       'cursor': instance.cursor,

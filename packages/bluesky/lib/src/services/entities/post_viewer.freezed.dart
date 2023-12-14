@@ -85,11 +85,11 @@ class _$PostViewerCopyWithImpl<$Res, $Val extends PostViewer>
 }
 
 /// @nodoc
-abstract class _$$_PostViewerCopyWith<$Res>
+abstract class _$$PostViewerImplCopyWith<$Res>
     implements $PostViewerCopyWith<$Res> {
-  factory _$$_PostViewerCopyWith(
-          _$_PostViewer value, $Res Function(_$_PostViewer) then) =
-      __$$_PostViewerCopyWithImpl<$Res>;
+  factory _$$PostViewerImplCopyWith(
+          _$PostViewerImpl value, $Res Function(_$PostViewerImpl) then) =
+      __$$PostViewerImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -99,11 +99,11 @@ abstract class _$$_PostViewerCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PostViewerCopyWithImpl<$Res>
-    extends _$PostViewerCopyWithImpl<$Res, _$_PostViewer>
-    implements _$$_PostViewerCopyWith<$Res> {
-  __$$_PostViewerCopyWithImpl(
-      _$_PostViewer _value, $Res Function(_$_PostViewer) _then)
+class __$$PostViewerImplCopyWithImpl<$Res>
+    extends _$PostViewerCopyWithImpl<$Res, _$PostViewerImpl>
+    implements _$$PostViewerImplCopyWith<$Res> {
+  __$$PostViewerImplCopyWithImpl(
+      _$PostViewerImpl _value, $Res Function(_$PostViewerImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -113,7 +113,7 @@ class __$$_PostViewerCopyWithImpl<$Res>
     Object? like = freezed,
     Object? isReplyDisabled = null,
   }) {
-    return _then(_$_PostViewer(
+    return _then(_$PostViewerImpl(
       repost: freezed == repost
           ? _value.repost
           : repost // ignore: cast_nullable_to_non_nullable
@@ -133,15 +133,15 @@ class __$$_PostViewerCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_PostViewer extends _PostViewer {
-  const _$_PostViewer(
+class _$PostViewerImpl extends _PostViewer {
+  const _$PostViewerImpl(
       {@atUriConverter this.repost,
       @atUriConverter this.like,
       @JsonKey(name: 'replyDisabled') this.isReplyDisabled = false})
       : super._();
 
-  factory _$_PostViewer.fromJson(Map<String, dynamic> json) =>
-      _$$_PostViewerFromJson(json);
+  factory _$PostViewerImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostViewerImplFromJson(json);
 
   /// May contain the URI of the repost by the authenticated user.
   @override
@@ -167,7 +167,7 @@ class _$_PostViewer extends _PostViewer {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PostViewer &&
+            other is _$PostViewerImpl &&
             (identical(other.repost, repost) || other.repost == repost) &&
             (identical(other.like, like) || other.like == like) &&
             (identical(other.isReplyDisabled, isReplyDisabled) ||
@@ -181,12 +181,12 @@ class _$_PostViewer extends _PostViewer {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PostViewerCopyWith<_$_PostViewer> get copyWith =>
-      __$$_PostViewerCopyWithImpl<_$_PostViewer>(this, _$identity);
+  _$$PostViewerImplCopyWith<_$PostViewerImpl> get copyWith =>
+      __$$PostViewerImplCopyWithImpl<_$PostViewerImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PostViewerToJson(
+    return _$$PostViewerImplToJson(
       this,
     );
   }
@@ -197,11 +197,11 @@ abstract class _PostViewer extends PostViewer {
           {@atUriConverter final AtUri? repost,
           @atUriConverter final AtUri? like,
           @JsonKey(name: 'replyDisabled') final bool isReplyDisabled}) =
-      _$_PostViewer;
+      _$PostViewerImpl;
   const _PostViewer._() : super._();
 
   factory _PostViewer.fromJson(Map<String, dynamic> json) =
-      _$_PostViewer.fromJson;
+      _$PostViewerImpl.fromJson;
 
   @override
 
@@ -220,6 +220,6 @@ abstract class _PostViewer extends PostViewer {
   bool get isReplyDisabled;
   @override
   @JsonKey(ignore: true)
-  _$$_PostViewerCopyWith<_$_PostViewer> get copyWith =>
+  _$$PostViewerImplCopyWith<_$PostViewerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

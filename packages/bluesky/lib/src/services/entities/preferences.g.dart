@@ -8,11 +8,11 @@ part of 'preferences.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Preferences _$$_PreferencesFromJson(Map json) => $checkedCreate(
-      r'_$_Preferences',
+_$PreferencesImpl _$$PreferencesImplFromJson(Map json) => $checkedCreate(
+      r'_$PreferencesImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Preferences(
+        final val = _$PreferencesImpl(
           preferences: $checkedConvert(
               'preferences',
               (v) => (v as List<dynamic>)
@@ -24,7 +24,7 @@ _$_Preferences _$$_PreferencesFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_PreferencesToJson(_$_Preferences instance) =>
+Map<String, dynamic> _$$PreferencesImplToJson(_$PreferencesImpl instance) =>
     <String, dynamic>{
       'preferences':
           instance.preferences.map(preferenceConverter.toJson).toList(),

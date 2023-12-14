@@ -8,13 +8,13 @@ part of 'moderation_behavior_scenario.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ModerationBehaviorScenario _$$_ModerationBehaviorScenarioFromJson(
+_$ModerationBehaviorScenarioImpl _$$ModerationBehaviorScenarioImplFromJson(
         Map json) =>
     $checkedCreate(
-      r'_$_ModerationBehaviorScenario',
+      r'_$ModerationBehaviorScenarioImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ModerationBehaviorScenario(
+        final val = _$ModerationBehaviorScenarioImpl(
           cfg: $checkedConvert('cfg', (v) => v as String),
           subject: $checkedConvert(
               'subject', (v) => $enumDecode(_$ScenarioSubjectTypeEnumMap, v)),
@@ -33,8 +33,8 @@ _$_ModerationBehaviorScenario _$$_ModerationBehaviorScenarioFromJson(
       },
     );
 
-Map<String, dynamic> _$$_ModerationBehaviorScenarioToJson(
-    _$_ModerationBehaviorScenario instance) {
+Map<String, dynamic> _$$ModerationBehaviorScenarioImplToJson(
+    _$ModerationBehaviorScenarioImpl instance) {
   final val = <String, dynamic>{
     'cfg': instance.cfg,
     'subject': _$ScenarioSubjectTypeEnumMap[instance.subject]!,

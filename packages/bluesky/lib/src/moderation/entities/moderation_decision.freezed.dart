@@ -122,11 +122,11 @@ class _$ModerationDecisionCopyWithImpl<$Res, $Val extends ModerationDecision>
 }
 
 /// @nodoc
-abstract class _$$_ModerationDecisionCopyWith<$Res>
+abstract class _$$ModerationDecisionImplCopyWith<$Res>
     implements $ModerationDecisionCopyWith<$Res> {
-  factory _$$_ModerationDecisionCopyWith(_$_ModerationDecision value,
-          $Res Function(_$_ModerationDecision) then) =
-      __$$_ModerationDecisionCopyWithImpl<$Res>;
+  factory _$$ModerationDecisionImplCopyWith(_$ModerationDecisionImpl value,
+          $Res Function(_$ModerationDecisionImpl) then) =
+      __$$ModerationDecisionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -144,11 +144,11 @@ abstract class _$$_ModerationDecisionCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ModerationDecisionCopyWithImpl<$Res>
-    extends _$ModerationDecisionCopyWithImpl<$Res, _$_ModerationDecision>
-    implements _$$_ModerationDecisionCopyWith<$Res> {
-  __$$_ModerationDecisionCopyWithImpl(
-      _$_ModerationDecision _value, $Res Function(_$_ModerationDecision) _then)
+class __$$ModerationDecisionImplCopyWithImpl<$Res>
+    extends _$ModerationDecisionCopyWithImpl<$Res, _$ModerationDecisionImpl>
+    implements _$$ModerationDecisionImplCopyWith<$Res> {
+  __$$ModerationDecisionImplCopyWithImpl(_$ModerationDecisionImpl _value,
+      $Res Function(_$ModerationDecisionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -163,7 +163,7 @@ class __$$_ModerationDecisionCopyWithImpl<$Res>
     Object? isFilter = null,
     Object? isNoOverride = null,
   }) {
-    return _then(_$_ModerationDecision(
+    return _then(_$ModerationDecisionImpl(
       did: freezed == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -202,8 +202,8 @@ class __$$_ModerationDecisionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ModerationDecision extends _ModerationDecision {
-  const _$_ModerationDecision(
+class _$ModerationDecisionImpl extends _ModerationDecision {
+  const _$ModerationDecisionImpl(
       {this.did,
       this.cause,
       final List<ModerationCause>? additionalCauses,
@@ -255,7 +255,7 @@ class _$_ModerationDecision extends _ModerationDecision {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ModerationDecision &&
+            other is _$ModerationDecisionImpl &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.cause, cause) || other.cause == cause) &&
             const DeepCollectionEquality()
@@ -285,8 +285,8 @@ class _$_ModerationDecision extends _ModerationDecision {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ModerationDecisionCopyWith<_$_ModerationDecision> get copyWith =>
-      __$$_ModerationDecisionCopyWithImpl<_$_ModerationDecision>(
+  _$$ModerationDecisionImplCopyWith<_$ModerationDecisionImpl> get copyWith =>
+      __$$ModerationDecisionImplCopyWithImpl<_$ModerationDecisionImpl>(
           this, _$identity);
 }
 
@@ -299,7 +299,7 @@ abstract class _ModerationDecision extends ModerationDecision {
       final bool isBlur,
       final bool isBlurMedia,
       final bool isFilter,
-      final bool isNoOverride}) = _$_ModerationDecision;
+      final bool isNoOverride}) = _$ModerationDecisionImpl;
   const _ModerationDecision._() : super._();
 
   @override
@@ -320,6 +320,6 @@ abstract class _ModerationDecision extends ModerationDecision {
   bool get isNoOverride;
   @override
   @JsonKey(ignore: true)
-  _$$_ModerationDecisionCopyWith<_$_ModerationDecision> get copyWith =>
+  _$$ModerationDecisionImplCopyWith<_$ModerationDecisionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -8,11 +8,11 @@ part of 'reply.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Reply _$$_ReplyFromJson(Map json) => $checkedCreate(
-      r'_$_Reply',
+_$ReplyImpl _$$ReplyImplFromJson(Map json) => $checkedCreate(
+      r'_$ReplyImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Reply(
+        final val = _$ReplyImpl(
           root: $checkedConvert('root',
               (v) => replyPostConverter.fromJson(v as Map<String, dynamic>)),
           parent: $checkedConvert('parent',
@@ -22,7 +22,8 @@ _$_Reply _$$_ReplyFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_ReplyToJson(_$_Reply instance) => <String, dynamic>{
+Map<String, dynamic> _$$ReplyImplToJson(_$ReplyImpl instance) =>
+    <String, dynamic>{
       'root': replyPostConverter.toJson(instance.root),
       'parent': replyPostConverter.toJson(instance.parent),
     };

@@ -94,11 +94,11 @@ class _$RepostRecordCopyWithImpl<$Res, $Val extends RepostRecord>
 }
 
 /// @nodoc
-abstract class _$$_RepostRecordCopyWith<$Res>
+abstract class _$$RepostRecordImplCopyWith<$Res>
     implements $RepostRecordCopyWith<$Res> {
-  factory _$$_RepostRecordCopyWith(
-          _$_RepostRecord value, $Res Function(_$_RepostRecord) then) =
-      __$$_RepostRecordCopyWithImpl<$Res>;
+  factory _$$RepostRecordImplCopyWith(
+          _$RepostRecordImpl value, $Res Function(_$RepostRecordImpl) then) =
+      __$$RepostRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -111,11 +111,11 @@ abstract class _$$_RepostRecordCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_RepostRecordCopyWithImpl<$Res>
-    extends _$RepostRecordCopyWithImpl<$Res, _$_RepostRecord>
-    implements _$$_RepostRecordCopyWith<$Res> {
-  __$$_RepostRecordCopyWithImpl(
-      _$_RepostRecord _value, $Res Function(_$_RepostRecord) _then)
+class __$$RepostRecordImplCopyWithImpl<$Res>
+    extends _$RepostRecordCopyWithImpl<$Res, _$RepostRecordImpl>
+    implements _$$RepostRecordImplCopyWith<$Res> {
+  __$$RepostRecordImplCopyWithImpl(
+      _$RepostRecordImpl _value, $Res Function(_$RepostRecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -125,7 +125,7 @@ class __$$_RepostRecordCopyWithImpl<$Res>
     Object? ref = null,
     Object? createdAt = null,
   }) {
-    return _then(_$_RepostRecord(
+    return _then(_$RepostRecordImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -145,14 +145,14 @@ class __$$_RepostRecordCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_RepostRecord implements _RepostRecord {
-  const _$_RepostRecord(
+class _$RepostRecordImpl implements _RepostRecord {
+  const _$RepostRecordImpl(
       {@typeKey this.type = appBskyFeedRepost,
       @JsonKey(name: 'subject') required this.ref,
       required this.createdAt});
 
-  factory _$_RepostRecord.fromJson(Map<String, dynamic> json) =>
-      _$$_RepostRecordFromJson(json);
+  factory _$RepostRecordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RepostRecordImplFromJson(json);
 
   /// The type of the repost record.
   @override
@@ -177,7 +177,7 @@ class _$_RepostRecord implements _RepostRecord {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RepostRecord &&
+            other is _$RepostRecordImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.ref, ref) || other.ref == ref) &&
             (identical(other.createdAt, createdAt) ||
@@ -191,12 +191,12 @@ class _$_RepostRecord implements _RepostRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RepostRecordCopyWith<_$_RepostRecord> get copyWith =>
-      __$$_RepostRecordCopyWithImpl<_$_RepostRecord>(this, _$identity);
+  _$$RepostRecordImplCopyWith<_$RepostRecordImpl> get copyWith =>
+      __$$RepostRecordImplCopyWithImpl<_$RepostRecordImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RepostRecordToJson(
+    return _$$RepostRecordImplToJson(
       this,
     );
   }
@@ -206,10 +206,10 @@ abstract class _RepostRecord implements RepostRecord {
   const factory _RepostRecord(
       {@typeKey final String type,
       @JsonKey(name: 'subject') required final StrongRef ref,
-      required final DateTime createdAt}) = _$_RepostRecord;
+      required final DateTime createdAt}) = _$RepostRecordImpl;
 
   factory _RepostRecord.fromJson(Map<String, dynamic> json) =
-      _$_RepostRecord.fromJson;
+      _$RepostRecordImpl.fromJson;
 
   @override
 
@@ -227,6 +227,6 @@ abstract class _RepostRecord implements RepostRecord {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$_RepostRecordCopyWith<_$_RepostRecord> get copyWith =>
+  _$$RepostRecordImplCopyWith<_$RepostRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -100,11 +100,11 @@ class _$LabelDefinitionCopyWithImpl<$Res, $Val extends LabelDefinition>
 }
 
 /// @nodoc
-abstract class _$$_LabelDefinitionCopyWith<$Res>
+abstract class _$$LabelDefinitionImplCopyWith<$Res>
     implements $LabelDefinitionCopyWith<$Res> {
-  factory _$$_LabelDefinitionCopyWith(
-          _$_LabelDefinition value, $Res Function(_$_LabelDefinition) then) =
-      __$$_LabelDefinitionCopyWithImpl<$Res>;
+  factory _$$LabelDefinitionImplCopyWith(_$LabelDefinitionImpl value,
+          $Res Function(_$LabelDefinitionImpl) then) =
+      __$$LabelDefinitionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -117,11 +117,11 @@ abstract class _$$_LabelDefinitionCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LabelDefinitionCopyWithImpl<$Res>
-    extends _$LabelDefinitionCopyWithImpl<$Res, _$_LabelDefinition>
-    implements _$$_LabelDefinitionCopyWith<$Res> {
-  __$$_LabelDefinitionCopyWithImpl(
-      _$_LabelDefinition _value, $Res Function(_$_LabelDefinition) _then)
+class __$$LabelDefinitionImplCopyWithImpl<$Res>
+    extends _$LabelDefinitionCopyWithImpl<$Res, _$LabelDefinitionImpl>
+    implements _$$LabelDefinitionImplCopyWith<$Res> {
+  __$$LabelDefinitionImplCopyWithImpl(
+      _$LabelDefinitionImpl _value, $Res Function(_$LabelDefinitionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -134,7 +134,7 @@ class __$$_LabelDefinitionCopyWithImpl<$Res>
     Object? flags = null,
     Object? onWarn = freezed,
   }) {
-    return _then(_$_LabelDefinition(
+    return _then(_$LabelDefinitionImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -166,8 +166,8 @@ class __$$_LabelDefinitionCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_LabelDefinition implements _LabelDefinition {
-  const _$_LabelDefinition(
+class _$LabelDefinitionImpl implements _LabelDefinition {
+  const _$LabelDefinitionImpl(
       {required this.id,
       required this.groupId,
       @JsonKey(name: 'configurable') this.isConfigurable = false,
@@ -177,8 +177,8 @@ class _$_LabelDefinition implements _LabelDefinition {
       : _preferences = preferences,
         _flags = flags;
 
-  factory _$_LabelDefinition.fromJson(Map<String, dynamic> json) =>
-      _$$_LabelDefinitionFromJson(json);
+  factory _$LabelDefinitionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LabelDefinitionImplFromJson(json);
 
   @override
   final String id;
@@ -215,7 +215,7 @@ class _$_LabelDefinition implements _LabelDefinition {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LabelDefinition &&
+            other is _$LabelDefinitionImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.groupId, groupId) || other.groupId == groupId) &&
             (identical(other.isConfigurable, isConfigurable) ||
@@ -240,12 +240,13 @@ class _$_LabelDefinition implements _LabelDefinition {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LabelDefinitionCopyWith<_$_LabelDefinition> get copyWith =>
-      __$$_LabelDefinitionCopyWithImpl<_$_LabelDefinition>(this, _$identity);
+  _$$LabelDefinitionImplCopyWith<_$LabelDefinitionImpl> get copyWith =>
+      __$$LabelDefinitionImplCopyWithImpl<_$LabelDefinitionImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LabelDefinitionToJson(
+    return _$$LabelDefinitionImplToJson(
       this,
     );
   }
@@ -259,10 +260,10 @@ abstract class _LabelDefinition implements LabelDefinition {
           required final List<LabelPreference> preferences,
           required final List<LabelDefinitionFlag> flags,
           required final LabelDefinitionOnWarnBehavior? onWarn}) =
-      _$_LabelDefinition;
+      _$LabelDefinitionImpl;
 
   factory _LabelDefinition.fromJson(Map<String, dynamic> json) =
-      _$_LabelDefinition.fromJson;
+      _$LabelDefinitionImpl.fromJson;
 
   @override
   String get id;
@@ -279,6 +280,6 @@ abstract class _LabelDefinition implements LabelDefinition {
   LabelDefinitionOnWarnBehavior? get onWarn;
   @override
   @JsonKey(ignore: true)
-  _$$_LabelDefinitionCopyWith<_$_LabelDefinition> get copyWith =>
+  _$$LabelDefinitionImplCopyWith<_$LabelDefinitionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -69,18 +69,21 @@ class _$ListsCopyWithImpl<$Res, $Val extends Lists>
 }
 
 /// @nodoc
-abstract class _$$_ListsCopyWith<$Res> implements $ListsCopyWith<$Res> {
-  factory _$$_ListsCopyWith(_$_Lists value, $Res Function(_$_Lists) then) =
-      __$$_ListsCopyWithImpl<$Res>;
+abstract class _$$ListsImplCopyWith<$Res> implements $ListsCopyWith<$Res> {
+  factory _$$ListsImplCopyWith(
+          _$ListsImpl value, $Res Function(_$ListsImpl) then) =
+      __$$ListsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<ListView> lists, String? cursor});
 }
 
 /// @nodoc
-class __$$_ListsCopyWithImpl<$Res> extends _$ListsCopyWithImpl<$Res, _$_Lists>
-    implements _$$_ListsCopyWith<$Res> {
-  __$$_ListsCopyWithImpl(_$_Lists _value, $Res Function(_$_Lists) _then)
+class __$$ListsImplCopyWithImpl<$Res>
+    extends _$ListsCopyWithImpl<$Res, _$ListsImpl>
+    implements _$$ListsImplCopyWith<$Res> {
+  __$$ListsImplCopyWithImpl(
+      _$ListsImpl _value, $Res Function(_$ListsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -89,7 +92,7 @@ class __$$_ListsCopyWithImpl<$Res> extends _$ListsCopyWithImpl<$Res, _$_Lists>
     Object? lists = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$_Lists(
+    return _then(_$ListsImpl(
       lists: null == lists
           ? _value._lists
           : lists // ignore: cast_nullable_to_non_nullable
@@ -105,13 +108,13 @@ class __$$_ListsCopyWithImpl<$Res> extends _$ListsCopyWithImpl<$Res, _$_Lists>
 /// @nodoc
 
 @jsonSerializable
-class _$_Lists extends _Lists {
-  const _$_Lists({required final List<ListView> lists, this.cursor})
+class _$ListsImpl extends _Lists {
+  const _$ListsImpl({required final List<ListView> lists, this.cursor})
       : _lists = lists,
         super._();
 
-  factory _$_Lists.fromJson(Map<String, dynamic> json) =>
-      _$$_ListsFromJson(json);
+  factory _$ListsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ListsImplFromJson(json);
 
   /// A required list of [ListView] objects.
   final List<ListView> _lists;
@@ -137,7 +140,7 @@ class _$_Lists extends _Lists {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Lists &&
+            other is _$ListsImpl &&
             const DeepCollectionEquality().equals(other._lists, _lists) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -150,12 +153,12 @@ class _$_Lists extends _Lists {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ListsCopyWith<_$_Lists> get copyWith =>
-      __$$_ListsCopyWithImpl<_$_Lists>(this, _$identity);
+  _$$ListsImplCopyWith<_$ListsImpl> get copyWith =>
+      __$$ListsImplCopyWithImpl<_$ListsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ListsToJson(
+    return _$$ListsImplToJson(
       this,
     );
   }
@@ -163,10 +166,11 @@ class _$_Lists extends _Lists {
 
 abstract class _Lists extends Lists {
   const factory _Lists(
-      {required final List<ListView> lists, final String? cursor}) = _$_Lists;
+      {required final List<ListView> lists,
+      final String? cursor}) = _$ListsImpl;
   const _Lists._() : super._();
 
-  factory _Lists.fromJson(Map<String, dynamic> json) = _$_Lists.fromJson;
+  factory _Lists.fromJson(Map<String, dynamic> json) = _$ListsImpl.fromJson;
 
   @override
 
@@ -178,6 +182,6 @@ abstract class _Lists extends Lists {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$_ListsCopyWith<_$_Lists> get copyWith =>
+  _$$ListsImplCopyWith<_$ListsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

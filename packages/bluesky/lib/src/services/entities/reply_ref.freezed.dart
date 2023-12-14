@@ -89,10 +89,11 @@ class _$ReplyRefCopyWithImpl<$Res, $Val extends ReplyRef>
 }
 
 /// @nodoc
-abstract class _$$_ReplyRefCopyWith<$Res> implements $ReplyRefCopyWith<$Res> {
-  factory _$$_ReplyRefCopyWith(
-          _$_ReplyRef value, $Res Function(_$_ReplyRef) then) =
-      __$$_ReplyRefCopyWithImpl<$Res>;
+abstract class _$$ReplyRefImplCopyWith<$Res>
+    implements $ReplyRefCopyWith<$Res> {
+  factory _$$ReplyRefImplCopyWith(
+          _$ReplyRefImpl value, $Res Function(_$ReplyRefImpl) then) =
+      __$$ReplyRefImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({StrongRef root, StrongRef parent});
@@ -104,11 +105,11 @@ abstract class _$$_ReplyRefCopyWith<$Res> implements $ReplyRefCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ReplyRefCopyWithImpl<$Res>
-    extends _$ReplyRefCopyWithImpl<$Res, _$_ReplyRef>
-    implements _$$_ReplyRefCopyWith<$Res> {
-  __$$_ReplyRefCopyWithImpl(
-      _$_ReplyRef _value, $Res Function(_$_ReplyRef) _then)
+class __$$ReplyRefImplCopyWithImpl<$Res>
+    extends _$ReplyRefCopyWithImpl<$Res, _$ReplyRefImpl>
+    implements _$$ReplyRefImplCopyWith<$Res> {
+  __$$ReplyRefImplCopyWithImpl(
+      _$ReplyRefImpl _value, $Res Function(_$ReplyRefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -117,7 +118,7 @@ class __$$_ReplyRefCopyWithImpl<$Res>
     Object? root = null,
     Object? parent = null,
   }) {
-    return _then(_$_ReplyRef(
+    return _then(_$ReplyRefImpl(
       root: null == root
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
@@ -132,11 +133,11 @@ class __$$_ReplyRefCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ReplyRef implements _ReplyRef {
-  const _$_ReplyRef({required this.root, required this.parent});
+class _$ReplyRefImpl implements _ReplyRef {
+  const _$ReplyRefImpl({required this.root, required this.parent});
 
-  factory _$_ReplyRef.fromJson(Map<String, dynamic> json) =>
-      _$$_ReplyRefFromJson(json);
+  factory _$ReplyRefImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ReplyRefImplFromJson(json);
 
   /// Represents the root of the reply.
   @override
@@ -155,7 +156,7 @@ class _$_ReplyRef implements _ReplyRef {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ReplyRef &&
+            other is _$ReplyRefImpl &&
             (identical(other.root, root) || other.root == root) &&
             (identical(other.parent, parent) || other.parent == parent));
   }
@@ -167,12 +168,12 @@ class _$_ReplyRef implements _ReplyRef {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ReplyRefCopyWith<_$_ReplyRef> get copyWith =>
-      __$$_ReplyRefCopyWithImpl<_$_ReplyRef>(this, _$identity);
+  _$$ReplyRefImplCopyWith<_$ReplyRefImpl> get copyWith =>
+      __$$ReplyRefImplCopyWithImpl<_$ReplyRefImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ReplyRefToJson(
+    return _$$ReplyRefImplToJson(
       this,
     );
   }
@@ -181,9 +182,10 @@ class _$_ReplyRef implements _ReplyRef {
 abstract class _ReplyRef implements ReplyRef {
   const factory _ReplyRef(
       {required final StrongRef root,
-      required final StrongRef parent}) = _$_ReplyRef;
+      required final StrongRef parent}) = _$ReplyRefImpl;
 
-  factory _ReplyRef.fromJson(Map<String, dynamic> json) = _$_ReplyRef.fromJson;
+  factory _ReplyRef.fromJson(Map<String, dynamic> json) =
+      _$ReplyRefImpl.fromJson;
 
   @override
 
@@ -195,6 +197,6 @@ abstract class _ReplyRef implements ReplyRef {
   StrongRef get parent;
   @override
   @JsonKey(ignore: true)
-  _$$_ReplyRefCopyWith<_$_ReplyRef> get copyWith =>
+  _$$ReplyRefImplCopyWith<_$ReplyRefImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

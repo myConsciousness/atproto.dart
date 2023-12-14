@@ -8,12 +8,13 @@ part of 'personal_details_preference.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PersonalDetailsPreference _$$_PersonalDetailsPreferenceFromJson(Map json) =>
+_$PersonalDetailsPreferenceImpl _$$PersonalDetailsPreferenceImplFromJson(
+        Map json) =>
     $checkedCreate(
-      r'_$_PersonalDetailsPreference',
+      r'_$PersonalDetailsPreferenceImpl',
       json,
       ($checkedConvert) {
-        final val = _$_PersonalDetailsPreference(
+        final val = _$PersonalDetailsPreferenceImpl(
           type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyActorDefsPersonalDetailsPref),
           birthDate: $checkedConvert('birthDate',
@@ -24,8 +25,8 @@ _$_PersonalDetailsPreference _$$_PersonalDetailsPreferenceFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$_PersonalDetailsPreferenceToJson(
-    _$_PersonalDetailsPreference instance) {
+Map<String, dynamic> _$$PersonalDetailsPreferenceImplToJson(
+    _$PersonalDetailsPreferenceImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
   };

@@ -78,18 +78,21 @@ class _$LikesCopyWithImpl<$Res, $Val extends Likes>
 }
 
 /// @nodoc
-abstract class _$$_LikesCopyWith<$Res> implements $LikesCopyWith<$Res> {
-  factory _$$_LikesCopyWith(_$_Likes value, $Res Function(_$_Likes) then) =
-      __$$_LikesCopyWithImpl<$Res>;
+abstract class _$$LikesImplCopyWith<$Res> implements $LikesCopyWith<$Res> {
+  factory _$$LikesImplCopyWith(
+          _$LikesImpl value, $Res Function(_$LikesImpl) then) =
+      __$$LikesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Like> likes, @atUriConverter AtUri uri, String? cursor});
 }
 
 /// @nodoc
-class __$$_LikesCopyWithImpl<$Res> extends _$LikesCopyWithImpl<$Res, _$_Likes>
-    implements _$$_LikesCopyWith<$Res> {
-  __$$_LikesCopyWithImpl(_$_Likes _value, $Res Function(_$_Likes) _then)
+class __$$LikesImplCopyWithImpl<$Res>
+    extends _$LikesCopyWithImpl<$Res, _$LikesImpl>
+    implements _$$LikesImplCopyWith<$Res> {
+  __$$LikesImplCopyWithImpl(
+      _$LikesImpl _value, $Res Function(_$LikesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +102,7 @@ class __$$_LikesCopyWithImpl<$Res> extends _$LikesCopyWithImpl<$Res, _$_Likes>
     Object? uri = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$_Likes(
+    return _then(_$LikesImpl(
       likes: null == likes
           ? _value._likes
           : likes // ignore: cast_nullable_to_non_nullable
@@ -118,15 +121,15 @@ class __$$_LikesCopyWithImpl<$Res> extends _$LikesCopyWithImpl<$Res, _$_Likes>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Likes implements _Likes {
-  const _$_Likes(
+class _$LikesImpl implements _Likes {
+  const _$LikesImpl(
       {required final List<Like> likes,
       @atUriConverter required this.uri,
       this.cursor})
       : _likes = likes;
 
-  factory _$_Likes.fromJson(Map<String, dynamic> json) =>
-      _$$_LikesFromJson(json);
+  factory _$LikesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LikesImplFromJson(json);
 
   /// The list of 'like' actions.
   final List<Like> _likes;
@@ -157,7 +160,7 @@ class _$_Likes implements _Likes {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Likes &&
+            other is _$LikesImpl &&
             const DeepCollectionEquality().equals(other._likes, _likes) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
@@ -171,12 +174,12 @@ class _$_Likes implements _Likes {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LikesCopyWith<_$_Likes> get copyWith =>
-      __$$_LikesCopyWithImpl<_$_Likes>(this, _$identity);
+  _$$LikesImplCopyWith<_$LikesImpl> get copyWith =>
+      __$$LikesImplCopyWithImpl<_$LikesImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LikesToJson(
+    return _$$LikesImplToJson(
       this,
     );
   }
@@ -186,9 +189,9 @@ abstract class _Likes implements Likes {
   const factory _Likes(
       {required final List<Like> likes,
       @atUriConverter required final AtUri uri,
-      final String? cursor}) = _$_Likes;
+      final String? cursor}) = _$LikesImpl;
 
-  factory _Likes.fromJson(Map<String, dynamic> json) = _$_Likes.fromJson;
+  factory _Likes.fromJson(Map<String, dynamic> json) = _$LikesImpl.fromJson;
 
   @override
 
@@ -205,6 +208,6 @@ abstract class _Likes implements Likes {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$_LikesCopyWith<_$_Likes> get copyWith =>
+  _$$LikesImplCopyWith<_$LikesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

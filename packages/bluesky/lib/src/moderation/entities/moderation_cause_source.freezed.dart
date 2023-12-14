@@ -83,11 +83,11 @@ class _$ModerationCauseSourceCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$UModerationCauseSourceUserCopyWith<$Res> {
-  factory _$$UModerationCauseSourceUserCopyWith(
-          _$UModerationCauseSourceUser value,
-          $Res Function(_$UModerationCauseSourceUser) then) =
-      __$$UModerationCauseSourceUserCopyWithImpl<$Res>;
+abstract class _$$UModerationCauseSourceUserImplCopyWith<$Res> {
+  factory _$$UModerationCauseSourceUserImplCopyWith(
+          _$UModerationCauseSourceUserImpl value,
+          $Res Function(_$UModerationCauseSourceUserImpl) then) =
+      __$$UModerationCauseSourceUserImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ModerationCauseSourceUser data});
 
@@ -95,13 +95,13 @@ abstract class _$$UModerationCauseSourceUserCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UModerationCauseSourceUserCopyWithImpl<$Res>
+class __$$UModerationCauseSourceUserImplCopyWithImpl<$Res>
     extends _$ModerationCauseSourceCopyWithImpl<$Res,
-        _$UModerationCauseSourceUser>
-    implements _$$UModerationCauseSourceUserCopyWith<$Res> {
-  __$$UModerationCauseSourceUserCopyWithImpl(
-      _$UModerationCauseSourceUser _value,
-      $Res Function(_$UModerationCauseSourceUser) _then)
+        _$UModerationCauseSourceUserImpl>
+    implements _$$UModerationCauseSourceUserImplCopyWith<$Res> {
+  __$$UModerationCauseSourceUserImplCopyWithImpl(
+      _$UModerationCauseSourceUserImpl _value,
+      $Res Function(_$UModerationCauseSourceUserImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -109,7 +109,7 @@ class __$$UModerationCauseSourceUserCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UModerationCauseSourceUser(
+    return _then(_$UModerationCauseSourceUserImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -128,8 +128,8 @@ class __$$UModerationCauseSourceUserCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseSourceUser implements UModerationCauseSourceUser {
-  const _$UModerationCauseSourceUser({required this.data});
+class _$UModerationCauseSourceUserImpl implements UModerationCauseSourceUser {
+  const _$UModerationCauseSourceUserImpl({required this.data});
 
   @override
   final ModerationCauseSourceUser data;
@@ -143,7 +143,7 @@ class _$UModerationCauseSourceUser implements UModerationCauseSourceUser {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UModerationCauseSourceUser &&
+            other is _$UModerationCauseSourceUserImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -153,9 +153,9 @@ class _$UModerationCauseSourceUser implements UModerationCauseSourceUser {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UModerationCauseSourceUserCopyWith<_$UModerationCauseSourceUser>
-      get copyWith => __$$UModerationCauseSourceUserCopyWithImpl<
-          _$UModerationCauseSourceUser>(this, _$identity);
+  _$$UModerationCauseSourceUserImplCopyWith<_$UModerationCauseSourceUserImpl>
+      get copyWith => __$$UModerationCauseSourceUserImplCopyWithImpl<
+          _$UModerationCauseSourceUserImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -229,21 +229,21 @@ class _$UModerationCauseSourceUser implements UModerationCauseSourceUser {
 abstract class UModerationCauseSourceUser implements ModerationCauseSource {
   const factory UModerationCauseSourceUser(
           {required final ModerationCauseSourceUser data}) =
-      _$UModerationCauseSourceUser;
+      _$UModerationCauseSourceUserImpl;
 
   @override
   ModerationCauseSourceUser get data;
   @JsonKey(ignore: true)
-  _$$UModerationCauseSourceUserCopyWith<_$UModerationCauseSourceUser>
+  _$$UModerationCauseSourceUserImplCopyWith<_$UModerationCauseSourceUserImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UModerationCauseSourceListCopyWith<$Res> {
-  factory _$$UModerationCauseSourceListCopyWith(
-          _$UModerationCauseSourceList value,
-          $Res Function(_$UModerationCauseSourceList) then) =
-      __$$UModerationCauseSourceListCopyWithImpl<$Res>;
+abstract class _$$UModerationCauseSourceListImplCopyWith<$Res> {
+  factory _$$UModerationCauseSourceListImplCopyWith(
+          _$UModerationCauseSourceListImpl value,
+          $Res Function(_$UModerationCauseSourceListImpl) then) =
+      __$$UModerationCauseSourceListImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ModerationCauseSourceList data});
 
@@ -251,13 +251,13 @@ abstract class _$$UModerationCauseSourceListCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UModerationCauseSourceListCopyWithImpl<$Res>
+class __$$UModerationCauseSourceListImplCopyWithImpl<$Res>
     extends _$ModerationCauseSourceCopyWithImpl<$Res,
-        _$UModerationCauseSourceList>
-    implements _$$UModerationCauseSourceListCopyWith<$Res> {
-  __$$UModerationCauseSourceListCopyWithImpl(
-      _$UModerationCauseSourceList _value,
-      $Res Function(_$UModerationCauseSourceList) _then)
+        _$UModerationCauseSourceListImpl>
+    implements _$$UModerationCauseSourceListImplCopyWith<$Res> {
+  __$$UModerationCauseSourceListImplCopyWithImpl(
+      _$UModerationCauseSourceListImpl _value,
+      $Res Function(_$UModerationCauseSourceListImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -265,7 +265,7 @@ class __$$UModerationCauseSourceListCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UModerationCauseSourceList(
+    return _then(_$UModerationCauseSourceListImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -284,8 +284,8 @@ class __$$UModerationCauseSourceListCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseSourceList implements UModerationCauseSourceList {
-  const _$UModerationCauseSourceList({required this.data});
+class _$UModerationCauseSourceListImpl implements UModerationCauseSourceList {
+  const _$UModerationCauseSourceListImpl({required this.data});
 
   @override
   final ModerationCauseSourceList data;
@@ -299,7 +299,7 @@ class _$UModerationCauseSourceList implements UModerationCauseSourceList {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UModerationCauseSourceList &&
+            other is _$UModerationCauseSourceListImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -309,9 +309,9 @@ class _$UModerationCauseSourceList implements UModerationCauseSourceList {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UModerationCauseSourceListCopyWith<_$UModerationCauseSourceList>
-      get copyWith => __$$UModerationCauseSourceListCopyWithImpl<
-          _$UModerationCauseSourceList>(this, _$identity);
+  _$$UModerationCauseSourceListImplCopyWith<_$UModerationCauseSourceListImpl>
+      get copyWith => __$$UModerationCauseSourceListImplCopyWithImpl<
+          _$UModerationCauseSourceListImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -385,21 +385,21 @@ class _$UModerationCauseSourceList implements UModerationCauseSourceList {
 abstract class UModerationCauseSourceList implements ModerationCauseSource {
   const factory UModerationCauseSourceList(
           {required final ModerationCauseSourceList data}) =
-      _$UModerationCauseSourceList;
+      _$UModerationCauseSourceListImpl;
 
   @override
   ModerationCauseSourceList get data;
   @JsonKey(ignore: true)
-  _$$UModerationCauseSourceListCopyWith<_$UModerationCauseSourceList>
+  _$$UModerationCauseSourceListImplCopyWith<_$UModerationCauseSourceListImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UModerationCauseSourceLabelerCopyWith<$Res> {
-  factory _$$UModerationCauseSourceLabelerCopyWith(
-          _$UModerationCauseSourceLabeler value,
-          $Res Function(_$UModerationCauseSourceLabeler) then) =
-      __$$UModerationCauseSourceLabelerCopyWithImpl<$Res>;
+abstract class _$$UModerationCauseSourceLabelerImplCopyWith<$Res> {
+  factory _$$UModerationCauseSourceLabelerImplCopyWith(
+          _$UModerationCauseSourceLabelerImpl value,
+          $Res Function(_$UModerationCauseSourceLabelerImpl) then) =
+      __$$UModerationCauseSourceLabelerImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ModerationCauseSourceLabeler data});
 
@@ -407,13 +407,13 @@ abstract class _$$UModerationCauseSourceLabelerCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UModerationCauseSourceLabelerCopyWithImpl<$Res>
+class __$$UModerationCauseSourceLabelerImplCopyWithImpl<$Res>
     extends _$ModerationCauseSourceCopyWithImpl<$Res,
-        _$UModerationCauseSourceLabeler>
-    implements _$$UModerationCauseSourceLabelerCopyWith<$Res> {
-  __$$UModerationCauseSourceLabelerCopyWithImpl(
-      _$UModerationCauseSourceLabeler _value,
-      $Res Function(_$UModerationCauseSourceLabeler) _then)
+        _$UModerationCauseSourceLabelerImpl>
+    implements _$$UModerationCauseSourceLabelerImplCopyWith<$Res> {
+  __$$UModerationCauseSourceLabelerImplCopyWithImpl(
+      _$UModerationCauseSourceLabelerImpl _value,
+      $Res Function(_$UModerationCauseSourceLabelerImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -421,7 +421,7 @@ class __$$UModerationCauseSourceLabelerCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UModerationCauseSourceLabeler(
+    return _then(_$UModerationCauseSourceLabelerImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -440,8 +440,9 @@ class __$$UModerationCauseSourceLabelerCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseSourceLabeler implements UModerationCauseSourceLabeler {
-  const _$UModerationCauseSourceLabeler({required this.data});
+class _$UModerationCauseSourceLabelerImpl
+    implements UModerationCauseSourceLabeler {
+  const _$UModerationCauseSourceLabelerImpl({required this.data});
 
   @override
   final ModerationCauseSourceLabeler data;
@@ -455,7 +456,7 @@ class _$UModerationCauseSourceLabeler implements UModerationCauseSourceLabeler {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UModerationCauseSourceLabeler &&
+            other is _$UModerationCauseSourceLabelerImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -465,9 +466,10 @@ class _$UModerationCauseSourceLabeler implements UModerationCauseSourceLabeler {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UModerationCauseSourceLabelerCopyWith<_$UModerationCauseSourceLabeler>
-      get copyWith => __$$UModerationCauseSourceLabelerCopyWithImpl<
-          _$UModerationCauseSourceLabeler>(this, _$identity);
+  _$$UModerationCauseSourceLabelerImplCopyWith<
+          _$UModerationCauseSourceLabelerImpl>
+      get copyWith => __$$UModerationCauseSourceLabelerImplCopyWithImpl<
+          _$UModerationCauseSourceLabelerImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -541,11 +543,12 @@ class _$UModerationCauseSourceLabeler implements UModerationCauseSourceLabeler {
 abstract class UModerationCauseSourceLabeler implements ModerationCauseSource {
   const factory UModerationCauseSourceLabeler(
           {required final ModerationCauseSourceLabeler data}) =
-      _$UModerationCauseSourceLabeler;
+      _$UModerationCauseSourceLabelerImpl;
 
   @override
   ModerationCauseSourceLabeler get data;
   @JsonKey(ignore: true)
-  _$$UModerationCauseSourceLabelerCopyWith<_$UModerationCauseSourceLabeler>
+  _$$UModerationCauseSourceLabelerImplCopyWith<
+          _$UModerationCauseSourceLabelerImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

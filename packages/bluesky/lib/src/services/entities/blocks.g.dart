@@ -8,11 +8,11 @@ part of 'blocks.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Blocks _$$_BlocksFromJson(Map json) => $checkedCreate(
-      r'_$_Blocks',
+_$BlocksImpl _$$BlocksImplFromJson(Map json) => $checkedCreate(
+      r'_$BlocksImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Blocks(
+        final val = _$BlocksImpl(
           blocks: $checkedConvert(
               'blocks',
               (v) => (v as List<dynamic>)
@@ -25,7 +25,7 @@ _$_Blocks _$$_BlocksFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_BlocksToJson(_$_Blocks instance) {
+Map<String, dynamic> _$$BlocksImplToJson(_$BlocksImpl instance) {
   final val = <String, dynamic>{
     'blocks': instance.blocks.map((e) => e.toJson()).toList(),
   };

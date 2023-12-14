@@ -81,22 +81,22 @@ class _$SkeletonPostsByQueryCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_SkeletonPostsByQueryCopyWith<$Res>
+abstract class _$$SkeletonPostsByQueryImplCopyWith<$Res>
     implements $SkeletonPostsByQueryCopyWith<$Res> {
-  factory _$$_SkeletonPostsByQueryCopyWith(_$_SkeletonPostsByQuery value,
-          $Res Function(_$_SkeletonPostsByQuery) then) =
-      __$$_SkeletonPostsByQueryCopyWithImpl<$Res>;
+  factory _$$SkeletonPostsByQueryImplCopyWith(_$SkeletonPostsByQueryImpl value,
+          $Res Function(_$SkeletonPostsByQueryImpl) then) =
+      __$$SkeletonPostsByQueryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<SkeletonPost> posts, int hitsTotal, String? cursor});
 }
 
 /// @nodoc
-class __$$_SkeletonPostsByQueryCopyWithImpl<$Res>
-    extends _$SkeletonPostsByQueryCopyWithImpl<$Res, _$_SkeletonPostsByQuery>
-    implements _$$_SkeletonPostsByQueryCopyWith<$Res> {
-  __$$_SkeletonPostsByQueryCopyWithImpl(_$_SkeletonPostsByQuery _value,
-      $Res Function(_$_SkeletonPostsByQuery) _then)
+class __$$SkeletonPostsByQueryImplCopyWithImpl<$Res>
+    extends _$SkeletonPostsByQueryCopyWithImpl<$Res, _$SkeletonPostsByQueryImpl>
+    implements _$$SkeletonPostsByQueryImplCopyWith<$Res> {
+  __$$SkeletonPostsByQueryImplCopyWithImpl(_$SkeletonPostsByQueryImpl _value,
+      $Res Function(_$SkeletonPostsByQueryImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -106,7 +106,7 @@ class __$$_SkeletonPostsByQueryCopyWithImpl<$Res>
     Object? hitsTotal = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$_SkeletonPostsByQuery(
+    return _then(_$SkeletonPostsByQueryImpl(
       posts: null == posts
           ? _value._posts
           : posts // ignore: cast_nullable_to_non_nullable
@@ -125,15 +125,15 @@ class __$$_SkeletonPostsByQueryCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SkeletonPostsByQuery implements _SkeletonPostsByQuery {
-  const _$_SkeletonPostsByQuery(
+class _$SkeletonPostsByQueryImpl implements _SkeletonPostsByQuery {
+  const _$SkeletonPostsByQueryImpl(
       {required final List<SkeletonPost> posts,
       this.hitsTotal = 0,
       this.cursor})
       : _posts = posts;
 
-  factory _$_SkeletonPostsByQuery.fromJson(Map<String, dynamic> json) =>
-      _$$_SkeletonPostsByQueryFromJson(json);
+  factory _$SkeletonPostsByQueryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SkeletonPostsByQueryImplFromJson(json);
 
   /// The list of [Post] instances.
   final List<SkeletonPost> _posts;
@@ -165,7 +165,7 @@ class _$_SkeletonPostsByQuery implements _SkeletonPostsByQuery {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SkeletonPostsByQuery &&
+            other is _$SkeletonPostsByQueryImpl &&
             const DeepCollectionEquality().equals(other._posts, _posts) &&
             (identical(other.hitsTotal, hitsTotal) ||
                 other.hitsTotal == hitsTotal) &&
@@ -180,13 +180,14 @@ class _$_SkeletonPostsByQuery implements _SkeletonPostsByQuery {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SkeletonPostsByQueryCopyWith<_$_SkeletonPostsByQuery> get copyWith =>
-      __$$_SkeletonPostsByQueryCopyWithImpl<_$_SkeletonPostsByQuery>(
-          this, _$identity);
+  _$$SkeletonPostsByQueryImplCopyWith<_$SkeletonPostsByQueryImpl>
+      get copyWith =>
+          __$$SkeletonPostsByQueryImplCopyWithImpl<_$SkeletonPostsByQueryImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SkeletonPostsByQueryToJson(
+    return _$$SkeletonPostsByQueryImplToJson(
       this,
     );
   }
@@ -196,10 +197,10 @@ abstract class _SkeletonPostsByQuery implements SkeletonPostsByQuery {
   const factory _SkeletonPostsByQuery(
       {required final List<SkeletonPost> posts,
       final int hitsTotal,
-      final String? cursor}) = _$_SkeletonPostsByQuery;
+      final String? cursor}) = _$SkeletonPostsByQueryImpl;
 
   factory _SkeletonPostsByQuery.fromJson(Map<String, dynamic> json) =
-      _$_SkeletonPostsByQuery.fromJson;
+      _$SkeletonPostsByQueryImpl.fromJson;
 
   @override
 
@@ -216,6 +217,6 @@ abstract class _SkeletonPostsByQuery implements SkeletonPostsByQuery {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$_SkeletonPostsByQueryCopyWith<_$_SkeletonPostsByQuery> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SkeletonPostsByQueryImplCopyWith<_$SkeletonPostsByQueryImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

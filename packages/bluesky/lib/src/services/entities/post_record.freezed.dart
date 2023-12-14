@@ -179,11 +179,11 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
 }
 
 /// @nodoc
-abstract class _$$_PostRecordCopyWith<$Res>
+abstract class _$$PostRecordImplCopyWith<$Res>
     implements $PostRecordCopyWith<$Res> {
-  factory _$$_PostRecordCopyWith(
-          _$_PostRecord value, $Res Function(_$_PostRecord) then) =
-      __$$_PostRecordCopyWithImpl<$Res>;
+  factory _$$PostRecordImplCopyWith(
+          _$PostRecordImpl value, $Res Function(_$PostRecordImpl) then) =
+      __$$PostRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -206,11 +206,11 @@ abstract class _$$_PostRecordCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PostRecordCopyWithImpl<$Res>
-    extends _$PostRecordCopyWithImpl<$Res, _$_PostRecord>
-    implements _$$_PostRecordCopyWith<$Res> {
-  __$$_PostRecordCopyWithImpl(
-      _$_PostRecord _value, $Res Function(_$_PostRecord) _then)
+class __$$PostRecordImplCopyWithImpl<$Res>
+    extends _$PostRecordCopyWithImpl<$Res, _$PostRecordImpl>
+    implements _$$PostRecordImplCopyWith<$Res> {
+  __$$PostRecordImplCopyWithImpl(
+      _$PostRecordImpl _value, $Res Function(_$PostRecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -226,7 +226,7 @@ class __$$_PostRecordCopyWithImpl<$Res>
     Object? tags = freezed,
     Object? createdAt = null,
   }) {
-    return _then(_$_PostRecord(
+    return _then(_$PostRecordImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -270,8 +270,8 @@ class __$$_PostRecordCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_PostRecord implements _PostRecord {
-  const _$_PostRecord(
+class _$PostRecordImpl implements _PostRecord {
+  const _$PostRecordImpl(
       {@typeKey this.type = appBskyFeedPost,
       required this.text,
       this.reply,
@@ -285,8 +285,8 @@ class _$_PostRecord implements _PostRecord {
         _facets = facets,
         _tags = tags;
 
-  factory _$_PostRecord.fromJson(Map<String, dynamic> json) =>
-      _$$_PostRecordFromJson(json);
+  factory _$PostRecordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostRecordImplFromJson(json);
 
   /// The type of the post record, defaulting to 'appBskyFeedPost'.
   @override
@@ -363,7 +363,7 @@ class _$_PostRecord implements _PostRecord {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PostRecord &&
+            other is _$PostRecordImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.text, text) || other.text == text) &&
             (identical(other.reply, reply) || other.reply == reply) &&
@@ -393,12 +393,12 @@ class _$_PostRecord implements _PostRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PostRecordCopyWith<_$_PostRecord> get copyWith =>
-      __$$_PostRecordCopyWithImpl<_$_PostRecord>(this, _$identity);
+  _$$PostRecordImplCopyWith<_$PostRecordImpl> get copyWith =>
+      __$$PostRecordImplCopyWithImpl<_$PostRecordImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PostRecordToJson(
+    return _$$PostRecordImplToJson(
       this,
     );
   }
@@ -414,10 +414,10 @@ abstract class _PostRecord implements PostRecord {
       @labelsConverter final Labels? labels,
       final List<Facet>? facets,
       final List<String>? tags,
-      required final DateTime createdAt}) = _$_PostRecord;
+      required final DateTime createdAt}) = _$PostRecordImpl;
 
   factory _PostRecord.fromJson(Map<String, dynamic> json) =
-      _$_PostRecord.fromJson;
+      _$PostRecordImpl.fromJson;
 
   @override
 
@@ -460,6 +460,6 @@ abstract class _PostRecord implements PostRecord {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$_PostRecordCopyWith<_$_PostRecord> get copyWith =>
+  _$$PostRecordImplCopyWith<_$PostRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

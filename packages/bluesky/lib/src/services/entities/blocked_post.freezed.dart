@@ -104,11 +104,11 @@ class _$BlockedPostCopyWithImpl<$Res, $Val extends BlockedPost>
 }
 
 /// @nodoc
-abstract class _$$_BlockedPostCopyWith<$Res>
+abstract class _$$BlockedPostImplCopyWith<$Res>
     implements $BlockedPostCopyWith<$Res> {
-  factory _$$_BlockedPostCopyWith(
-          _$_BlockedPost value, $Res Function(_$_BlockedPost) then) =
-      __$$_BlockedPostCopyWithImpl<$Res>;
+  factory _$$BlockedPostImplCopyWith(
+          _$BlockedPostImpl value, $Res Function(_$BlockedPostImpl) then) =
+      __$$BlockedPostImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -122,11 +122,11 @@ abstract class _$$_BlockedPostCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_BlockedPostCopyWithImpl<$Res>
-    extends _$BlockedPostCopyWithImpl<$Res, _$_BlockedPost>
-    implements _$$_BlockedPostCopyWith<$Res> {
-  __$$_BlockedPostCopyWithImpl(
-      _$_BlockedPost _value, $Res Function(_$_BlockedPost) _then)
+class __$$BlockedPostImplCopyWithImpl<$Res>
+    extends _$BlockedPostCopyWithImpl<$Res, _$BlockedPostImpl>
+    implements _$$BlockedPostImplCopyWith<$Res> {
+  __$$BlockedPostImplCopyWithImpl(
+      _$BlockedPostImpl _value, $Res Function(_$BlockedPostImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -137,7 +137,7 @@ class __$$_BlockedPostCopyWithImpl<$Res>
     Object? blocked = null,
     Object? author = null,
   }) {
-    return _then(_$_BlockedPost(
+    return _then(_$BlockedPostImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -160,15 +160,15 @@ class __$$_BlockedPostCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_BlockedPost implements _BlockedPost {
-  const _$_BlockedPost(
+class _$BlockedPostImpl implements _BlockedPost {
+  const _$BlockedPostImpl(
       {@typeKey this.type = appBskyFeedDefsBlockedPost,
       @atUriConverter required this.uri,
       required this.blocked,
       required this.author});
 
-  factory _$_BlockedPost.fromJson(Map<String, dynamic> json) =>
-      _$$_BlockedPostFromJson(json);
+  factory _$BlockedPostImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BlockedPostImplFromJson(json);
 
   /// The type of the record.
   /// By default, it is [appBskyFeedDefsBlockedPost].
@@ -198,7 +198,7 @@ class _$_BlockedPost implements _BlockedPost {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BlockedPost &&
+            other is _$BlockedPostImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.blocked, blocked) || other.blocked == blocked) &&
@@ -212,12 +212,12 @@ class _$_BlockedPost implements _BlockedPost {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BlockedPostCopyWith<_$_BlockedPost> get copyWith =>
-      __$$_BlockedPostCopyWithImpl<_$_BlockedPost>(this, _$identity);
+  _$$BlockedPostImplCopyWith<_$BlockedPostImpl> get copyWith =>
+      __$$BlockedPostImplCopyWithImpl<_$BlockedPostImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BlockedPostToJson(
+    return _$$BlockedPostImplToJson(
       this,
     );
   }
@@ -228,10 +228,10 @@ abstract class _BlockedPost implements BlockedPost {
       {@typeKey final String type,
       @atUriConverter required final AtUri uri,
       required final bool blocked,
-      required final BlockedAuthor author}) = _$_BlockedPost;
+      required final BlockedAuthor author}) = _$BlockedPostImpl;
 
   factory _BlockedPost.fromJson(Map<String, dynamic> json) =
-      _$_BlockedPost.fromJson;
+      _$BlockedPostImpl.fromJson;
 
   @override
 
@@ -254,6 +254,6 @@ abstract class _BlockedPost implements BlockedPost {
   BlockedAuthor get author;
   @override
   @JsonKey(ignore: true)
-  _$$_BlockedPostCopyWith<_$_BlockedPost> get copyWith =>
+  _$$BlockedPostImplCopyWith<_$BlockedPostImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

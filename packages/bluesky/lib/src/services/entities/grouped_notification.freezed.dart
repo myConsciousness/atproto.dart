@@ -135,11 +135,11 @@ class _$GroupedNotificationCopyWithImpl<$Res, $Val extends GroupedNotification>
 }
 
 /// @nodoc
-abstract class _$$_GroupedNotificationCopyWith<$Res>
+abstract class _$$GroupedNotificationImplCopyWith<$Res>
     implements $GroupedNotificationCopyWith<$Res> {
-  factory _$$_GroupedNotificationCopyWith(_$_GroupedNotification value,
-          $Res Function(_$_GroupedNotification) then) =
-      __$$_GroupedNotificationCopyWithImpl<$Res>;
+  factory _$$GroupedNotificationImplCopyWith(_$GroupedNotificationImpl value,
+          $Res Function(_$GroupedNotificationImpl) then) =
+      __$$GroupedNotificationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -154,11 +154,11 @@ abstract class _$$_GroupedNotificationCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_GroupedNotificationCopyWithImpl<$Res>
-    extends _$GroupedNotificationCopyWithImpl<$Res, _$_GroupedNotification>
-    implements _$$_GroupedNotificationCopyWith<$Res> {
-  __$$_GroupedNotificationCopyWithImpl(_$_GroupedNotification _value,
-      $Res Function(_$_GroupedNotification) _then)
+class __$$GroupedNotificationImplCopyWithImpl<$Res>
+    extends _$GroupedNotificationCopyWithImpl<$Res, _$GroupedNotificationImpl>
+    implements _$$GroupedNotificationImplCopyWith<$Res> {
+  __$$GroupedNotificationImplCopyWithImpl(_$GroupedNotificationImpl _value,
+      $Res Function(_$GroupedNotificationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -173,7 +173,7 @@ class __$$_GroupedNotificationCopyWithImpl<$Res>
     Object? record = freezed,
     Object? indexedAt = null,
   }) {
-    return _then(_$_GroupedNotification(
+    return _then(_$GroupedNotificationImpl(
       uris: null == uris
           ? _value._uris
           : uris // ignore: cast_nullable_to_non_nullable
@@ -213,8 +213,8 @@ class __$$_GroupedNotificationCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_GroupedNotification implements _GroupedNotification {
-  const _$_GroupedNotification(
+class _$GroupedNotificationImpl implements _GroupedNotification {
+  const _$GroupedNotificationImpl(
       {@atUriConverter required final List<AtUri> uris,
       required final List<Actor> authors,
       required this.reason,
@@ -228,8 +228,8 @@ class _$_GroupedNotification implements _GroupedNotification {
         _labels = labels,
         _record = record;
 
-  factory _$_GroupedNotification.fromJson(Map<String, dynamic> json) =>
-      _$$_GroupedNotificationFromJson(json);
+  factory _$GroupedNotificationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GroupedNotificationImplFromJson(json);
 
   /// The unique URI for the notification content.
   ///
@@ -316,7 +316,7 @@ class _$_GroupedNotification implements _GroupedNotification {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GroupedNotification &&
+            other is _$GroupedNotificationImpl &&
             const DeepCollectionEquality().equals(other._uris, _uris) &&
             const DeepCollectionEquality().equals(other._authors, _authors) &&
             (identical(other.reason, reason) || other.reason == reason) &&
@@ -345,13 +345,13 @@ class _$_GroupedNotification implements _GroupedNotification {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GroupedNotificationCopyWith<_$_GroupedNotification> get copyWith =>
-      __$$_GroupedNotificationCopyWithImpl<_$_GroupedNotification>(
+  _$$GroupedNotificationImplCopyWith<_$GroupedNotificationImpl> get copyWith =>
+      __$$GroupedNotificationImplCopyWithImpl<_$GroupedNotificationImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GroupedNotificationToJson(
+    return _$$GroupedNotificationImplToJson(
       this,
     );
   }
@@ -366,10 +366,10 @@ abstract class _GroupedNotification implements GroupedNotification {
       required final bool isRead,
       required final List<Label> labels,
       final Map<String, dynamic>? record,
-      required final DateTime indexedAt}) = _$_GroupedNotification;
+      required final DateTime indexedAt}) = _$GroupedNotificationImpl;
 
   factory _GroupedNotification.fromJson(Map<String, dynamic> json) =
-      _$_GroupedNotification.fromJson;
+      _$GroupedNotificationImpl.fromJson;
 
   @override
 
@@ -413,6 +413,6 @@ abstract class _GroupedNotification implements GroupedNotification {
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_GroupedNotificationCopyWith<_$_GroupedNotification> get copyWith =>
+  _$$GroupedNotificationImplCopyWith<_$GroupedNotificationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

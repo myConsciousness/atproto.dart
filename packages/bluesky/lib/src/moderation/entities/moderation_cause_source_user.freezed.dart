@@ -58,25 +58,25 @@ class _$ModerationCauseSourceUserCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ModerationCauseSourceUserCopyWith<$Res>
+abstract class _$$ModerationCauseSourceUserImplCopyWith<$Res>
     implements $ModerationCauseSourceUserCopyWith<$Res> {
-  factory _$$_ModerationCauseSourceUserCopyWith(
-          _$_ModerationCauseSourceUser value,
-          $Res Function(_$_ModerationCauseSourceUser) then) =
-      __$$_ModerationCauseSourceUserCopyWithImpl<$Res>;
+  factory _$$ModerationCauseSourceUserImplCopyWith(
+          _$ModerationCauseSourceUserImpl value,
+          $Res Function(_$ModerationCauseSourceUserImpl) then) =
+      __$$ModerationCauseSourceUserImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String type});
 }
 
 /// @nodoc
-class __$$_ModerationCauseSourceUserCopyWithImpl<$Res>
+class __$$ModerationCauseSourceUserImplCopyWithImpl<$Res>
     extends _$ModerationCauseSourceUserCopyWithImpl<$Res,
-        _$_ModerationCauseSourceUser>
-    implements _$$_ModerationCauseSourceUserCopyWith<$Res> {
-  __$$_ModerationCauseSourceUserCopyWithImpl(
-      _$_ModerationCauseSourceUser _value,
-      $Res Function(_$_ModerationCauseSourceUser) _then)
+        _$ModerationCauseSourceUserImpl>
+    implements _$$ModerationCauseSourceUserImplCopyWith<$Res> {
+  __$$ModerationCauseSourceUserImplCopyWithImpl(
+      _$ModerationCauseSourceUserImpl _value,
+      $Res Function(_$ModerationCauseSourceUserImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -84,7 +84,7 @@ class __$$_ModerationCauseSourceUserCopyWithImpl<$Res>
   $Res call({
     Object? type = null,
   }) {
-    return _then(_$_ModerationCauseSourceUser(
+    return _then(_$ModerationCauseSourceUserImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -95,8 +95,8 @@ class __$$_ModerationCauseSourceUserCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ModerationCauseSourceUser implements _ModerationCauseSourceUser {
-  const _$_ModerationCauseSourceUser({this.type = 'user'});
+class _$ModerationCauseSourceUserImpl implements _ModerationCauseSourceUser {
+  const _$ModerationCauseSourceUserImpl({this.type = 'user'});
 
   @override
   @JsonKey()
@@ -111,7 +111,7 @@ class _$_ModerationCauseSourceUser implements _ModerationCauseSourceUser {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ModerationCauseSourceUser &&
+            other is _$ModerationCauseSourceUserImpl &&
             (identical(other.type, type) || other.type == type));
   }
 
@@ -121,19 +121,19 @@ class _$_ModerationCauseSourceUser implements _ModerationCauseSourceUser {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ModerationCauseSourceUserCopyWith<_$_ModerationCauseSourceUser>
-      get copyWith => __$$_ModerationCauseSourceUserCopyWithImpl<
-          _$_ModerationCauseSourceUser>(this, _$identity);
+  _$$ModerationCauseSourceUserImplCopyWith<_$ModerationCauseSourceUserImpl>
+      get copyWith => __$$ModerationCauseSourceUserImplCopyWithImpl<
+          _$ModerationCauseSourceUserImpl>(this, _$identity);
 }
 
 abstract class _ModerationCauseSourceUser implements ModerationCauseSourceUser {
   const factory _ModerationCauseSourceUser({final String type}) =
-      _$_ModerationCauseSourceUser;
+      _$ModerationCauseSourceUserImpl;
 
   @override
   String get type;
   @override
   @JsonKey(ignore: true)
-  _$$_ModerationCauseSourceUserCopyWith<_$_ModerationCauseSourceUser>
+  _$$ModerationCauseSourceUserImplCopyWith<_$ModerationCauseSourceUserImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

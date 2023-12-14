@@ -80,11 +80,11 @@ class _$ModerationBehaviorsCopyWithImpl<$Res, $Val extends ModerationBehaviors>
 }
 
 /// @nodoc
-abstract class _$$_ModerationBehaviorsCopyWith<$Res>
+abstract class _$$ModerationBehaviorsImplCopyWith<$Res>
     implements $ModerationBehaviorsCopyWith<$Res> {
-  factory _$$_ModerationBehaviorsCopyWith(_$_ModerationBehaviors value,
-          $Res Function(_$_ModerationBehaviors) then) =
-      __$$_ModerationBehaviorsCopyWithImpl<$Res>;
+  factory _$$ModerationBehaviorsImplCopyWith(_$ModerationBehaviorsImpl value,
+          $Res Function(_$ModerationBehaviorsImpl) then) =
+      __$$ModerationBehaviorsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -94,11 +94,11 @@ abstract class _$$_ModerationBehaviorsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ModerationBehaviorsCopyWithImpl<$Res>
-    extends _$ModerationBehaviorsCopyWithImpl<$Res, _$_ModerationBehaviors>
-    implements _$$_ModerationBehaviorsCopyWith<$Res> {
-  __$$_ModerationBehaviorsCopyWithImpl(_$_ModerationBehaviors _value,
-      $Res Function(_$_ModerationBehaviors) _then)
+class __$$ModerationBehaviorsImplCopyWithImpl<$Res>
+    extends _$ModerationBehaviorsCopyWithImpl<$Res, _$ModerationBehaviorsImpl>
+    implements _$$ModerationBehaviorsImplCopyWith<$Res> {
+  __$$ModerationBehaviorsImplCopyWithImpl(_$ModerationBehaviorsImpl _value,
+      $Res Function(_$ModerationBehaviorsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,7 +108,7 @@ class __$$_ModerationBehaviorsCopyWithImpl<$Res>
     Object? configurations = null,
     Object? scenarios = null,
   }) {
-    return _then(_$_ModerationBehaviors(
+    return _then(_$ModerationBehaviorsImpl(
       users: null == users
           ? _value._users
           : users // ignore: cast_nullable_to_non_nullable
@@ -128,8 +128,8 @@ class __$$_ModerationBehaviorsCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ModerationBehaviors implements _ModerationBehaviors {
-  const _$_ModerationBehaviors(
+class _$ModerationBehaviorsImpl implements _ModerationBehaviors {
+  const _$ModerationBehaviorsImpl(
       {required final Map<String, ModerationBehaviorsUser> users,
       required final Map<String, ModerationBehaviorsConfig> configurations,
       required final Map<String, ModerationBehaviorScenario> scenarios})
@@ -137,8 +137,8 @@ class _$_ModerationBehaviors implements _ModerationBehaviors {
         _configurations = configurations,
         _scenarios = scenarios;
 
-  factory _$_ModerationBehaviors.fromJson(Map<String, dynamic> json) =>
-      _$$_ModerationBehaviorsFromJson(json);
+  factory _$ModerationBehaviorsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ModerationBehaviorsImplFromJson(json);
 
   final Map<String, ModerationBehaviorsUser> _users;
   @override
@@ -173,7 +173,7 @@ class _$_ModerationBehaviors implements _ModerationBehaviors {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ModerationBehaviors &&
+            other is _$ModerationBehaviorsImpl &&
             const DeepCollectionEquality().equals(other._users, _users) &&
             const DeepCollectionEquality()
                 .equals(other._configurations, _configurations) &&
@@ -192,13 +192,13 @@ class _$_ModerationBehaviors implements _ModerationBehaviors {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ModerationBehaviorsCopyWith<_$_ModerationBehaviors> get copyWith =>
-      __$$_ModerationBehaviorsCopyWithImpl<_$_ModerationBehaviors>(
+  _$$ModerationBehaviorsImplCopyWith<_$ModerationBehaviorsImpl> get copyWith =>
+      __$$ModerationBehaviorsImplCopyWithImpl<_$ModerationBehaviorsImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ModerationBehaviorsToJson(
+    return _$$ModerationBehaviorsImplToJson(
       this,
     );
   }
@@ -209,10 +209,10 @@ abstract class _ModerationBehaviors implements ModerationBehaviors {
           {required final Map<String, ModerationBehaviorsUser> users,
           required final Map<String, ModerationBehaviorsConfig> configurations,
           required final Map<String, ModerationBehaviorScenario> scenarios}) =
-      _$_ModerationBehaviors;
+      _$ModerationBehaviorsImpl;
 
   factory _ModerationBehaviors.fromJson(Map<String, dynamic> json) =
-      _$_ModerationBehaviors.fromJson;
+      _$ModerationBehaviorsImpl.fromJson;
 
   @override
   Map<String, ModerationBehaviorsUser> get users;
@@ -222,6 +222,6 @@ abstract class _ModerationBehaviors implements ModerationBehaviors {
   Map<String, ModerationBehaviorScenario> get scenarios;
   @override
   @JsonKey(ignore: true)
-  _$$_ModerationBehaviorsCopyWith<_$_ModerationBehaviors> get copyWith =>
+  _$$ModerationBehaviorsImplCopyWith<_$ModerationBehaviorsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

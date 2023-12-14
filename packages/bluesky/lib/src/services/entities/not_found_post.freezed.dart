@@ -86,11 +86,11 @@ class _$NotFoundPostCopyWithImpl<$Res, $Val extends NotFoundPost>
 }
 
 /// @nodoc
-abstract class _$$_NotFoundPostCopyWith<$Res>
+abstract class _$$NotFoundPostImplCopyWith<$Res>
     implements $NotFoundPostCopyWith<$Res> {
-  factory _$$_NotFoundPostCopyWith(
-          _$_NotFoundPost value, $Res Function(_$_NotFoundPost) then) =
-      __$$_NotFoundPostCopyWithImpl<$Res>;
+  factory _$$NotFoundPostImplCopyWith(
+          _$NotFoundPostImpl value, $Res Function(_$NotFoundPostImpl) then) =
+      __$$NotFoundPostImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -100,11 +100,11 @@ abstract class _$$_NotFoundPostCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_NotFoundPostCopyWithImpl<$Res>
-    extends _$NotFoundPostCopyWithImpl<$Res, _$_NotFoundPost>
-    implements _$$_NotFoundPostCopyWith<$Res> {
-  __$$_NotFoundPostCopyWithImpl(
-      _$_NotFoundPost _value, $Res Function(_$_NotFoundPost) _then)
+class __$$NotFoundPostImplCopyWithImpl<$Res>
+    extends _$NotFoundPostCopyWithImpl<$Res, _$NotFoundPostImpl>
+    implements _$$NotFoundPostImplCopyWith<$Res> {
+  __$$NotFoundPostImplCopyWithImpl(
+      _$NotFoundPostImpl _value, $Res Function(_$NotFoundPostImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -114,7 +114,7 @@ class __$$_NotFoundPostCopyWithImpl<$Res>
     Object? uri = null,
     Object? isNotFound = null,
   }) {
-    return _then(_$_NotFoundPost(
+    return _then(_$NotFoundPostImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -133,14 +133,14 @@ class __$$_NotFoundPostCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_NotFoundPost implements _NotFoundPost {
-  const _$_NotFoundPost(
+class _$NotFoundPostImpl implements _NotFoundPost {
+  const _$NotFoundPostImpl(
       {@typeKey this.type = appBskyFeedDefsNotFoundPost,
       @atUriConverter required this.uri,
       @JsonKey(name: 'notFound') required this.isNotFound});
 
-  factory _$_NotFoundPost.fromJson(Map<String, dynamic> json) =>
-      _$$_NotFoundPostFromJson(json);
+  factory _$NotFoundPostImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NotFoundPostImplFromJson(json);
 
   /// The type of this [NotFoundPost]. Defaults to
   /// [app.bsky.feed.defs#notFoundPost].
@@ -167,7 +167,7 @@ class _$_NotFoundPost implements _NotFoundPost {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NotFoundPost &&
+            other is _$NotFoundPostImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.isNotFound, isNotFound) ||
@@ -181,12 +181,12 @@ class _$_NotFoundPost implements _NotFoundPost {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NotFoundPostCopyWith<_$_NotFoundPost> get copyWith =>
-      __$$_NotFoundPostCopyWithImpl<_$_NotFoundPost>(this, _$identity);
+  _$$NotFoundPostImplCopyWith<_$NotFoundPostImpl> get copyWith =>
+      __$$NotFoundPostImplCopyWithImpl<_$NotFoundPostImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NotFoundPostToJson(
+    return _$$NotFoundPostImplToJson(
       this,
     );
   }
@@ -197,10 +197,10 @@ abstract class _NotFoundPost implements NotFoundPost {
           {@typeKey final String type,
           @atUriConverter required final AtUri uri,
           @JsonKey(name: 'notFound') required final bool isNotFound}) =
-      _$_NotFoundPost;
+      _$NotFoundPostImpl;
 
   factory _NotFoundPost.fromJson(Map<String, dynamic> json) =
-      _$_NotFoundPost.fromJson;
+      _$NotFoundPostImpl.fromJson;
 
   @override
 
@@ -220,6 +220,6 @@ abstract class _NotFoundPost implements NotFoundPost {
   bool get isNotFound;
   @override
   @JsonKey(ignore: true)
-  _$$_NotFoundPostCopyWith<_$_NotFoundPost> get copyWith =>
+  _$$NotFoundPostImplCopyWith<_$NotFoundPostImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
