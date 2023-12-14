@@ -29,6 +29,21 @@
 
 ---
 
+- [1. Guide 🌎](#1-guide-)
+  - [1.1. Motivation](#11-motivation)
+  - [1.2. Packages \& Tools](#12-packages--tools)
+    - [1.2.1. Dart Packages](#121-dart-packages)
+    - [1.2.2. CLI Tool](#122-cli-tool)
+    - [1.2.3. GitHub Actions Workflow](#123-github-actions-workflow)
+  - [1.3. Developer Quickstart](#13-developer-quickstart)
+    - [1.3.1. Useful Commands](#131-useful-commands)
+  - [1.4. Who is using atproto.dart?](#14-who-is-using-atprotodart)
+  - [1.5. Contribution 🏆](#15-contribution-)
+  - [1.6. Contributors ✨](#16-contributors-)
+  - [1.7. Support ❤️](#17-support-️)
+  - [1.8. License 🔑](#18-license-)
+  - [1.9. More Information 🧐](#19-more-information-)
+
 # 1. Guide 🌎
 
 Welcome to **[atproto.dart](https://atprotodart.com)**, this project will **_maximize your development productivity_** about [AT Protocol](https://atproto.com) and [Bluesky](https://blueskyweb.xyz) things.
@@ -101,7 +116,19 @@ melos setup
 | **melos build**   | Run `dart run build_runner build` in all packages.                                                                      |
 | **melos test**    | Run all Dart tests in this project.                                                                                     |
 
-## 1.4. Contribution 🏆
+## 1.4. Who is using atproto.dart?
+
+The following projects/services are using atproto.dart packages:
+
+- **[APOD BOT](https://bsky.app/profile/apod.shinyakato.dev)** maintained by [shinyakato.dev](https://bsky.app/profile/shinyakato.dev)
+- **[SkyFeed](https://skyfeed.app)** maintained by [redsolver.dev](https://bsky.app/profile/redsolver.dev)
+- **[SkyBridge](https://skybridge.fly.dev)** maintained by [videah.net](https://bsky.app/profile/videah.net)
+- **[SkyClad](https://github.com/igz0/skyclad)** maintained by [igz0.bsky.social](https://bsky.app/profile/igz0.bsky.social)
+- **[deck.blue](https://deck.blue)** maintained by [deck.blue](https://bsky.app/profile/deck.blu)
+
+You can see more at [showcase](https://atprotodart.com/showcase)!
+
+## 1.5. Contribution 🏆
 
 If you would like to contribute to **atproto.dart**, please create an [issue](https://github.com/myConsciousness/atproto.dart/issues) or create a Pull Request.
 
@@ -122,7 +149,7 @@ Or you can create a [discussion](https://github.com/myConsciousness/atproto.dart
 
 **Feel free to join this development, diverse opinions make software better!**
 
-## 1.5. Contributors ✨
+## 1.6. Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -158,7 +185,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
-## 1.6. Support ❤️
+## 1.7. Support ❤️
 
 The simplest way to show us your support is by **giving the project a star** at [GitHub](https://github.com/myConsciousness/atproto.dart) and [Pub.dev](https://pub.dev/packages/bluesky).
 
@@ -172,7 +199,7 @@ You can also support this project by **becoming a sponsor** on GitHub:
   </p>
 </div>
 
-## 1.7. License 🔑
+## 1.8. License 🔑
 
 The source code provided in this monorepo is provided under the `BSD-3` license.
 
@@ -185,7 +212,7 @@ modification, are permitted provided the conditions.
 > **Note**</br>
 > License notices in the source are strictly validated based on `.github/header-checker-lint.yml`. Please check [header-checker-lint.yml](https://github.com/myConsciousness/atproto.dart/tree/main/.github/header-checker-lint.yml) for the permitted standards.
 
-## 1.8. More Information 🧐
+## 1.9. More Information 🧐
 
 All resources in **atproto.dart** is maintained by **_Shinya Kato ([@myConsciousness](https://github.com/myConsciousness))_**.
 
