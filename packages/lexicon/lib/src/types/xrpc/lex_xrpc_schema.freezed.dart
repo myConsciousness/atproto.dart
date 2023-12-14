@@ -38,20 +38,20 @@ mixin _$LexXrpcSchema {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_LexRefVariant value) refVariant,
-    required TResult Function(_LexObject value) object,
+    required TResult Function(ULexXrpcSchemaRefVariant value) refVariant,
+    required TResult Function(ULexXrpcSchemaObject value) object,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LexRefVariant value)? refVariant,
-    TResult? Function(_LexObject value)? object,
+    TResult? Function(ULexXrpcSchemaRefVariant value)? refVariant,
+    TResult? Function(ULexXrpcSchemaObject value)? object,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LexRefVariant value)? refVariant,
-    TResult Function(_LexObject value)? object,
+    TResult Function(ULexXrpcSchemaRefVariant value)? refVariant,
+    TResult Function(ULexXrpcSchemaObject value)? object,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -76,10 +76,10 @@ class _$LexXrpcSchemaCopyWithImpl<$Res, $Val extends LexXrpcSchema>
 }
 
 /// @nodoc
-abstract class _$$_LexRefVariantCopyWith<$Res> {
-  factory _$$_LexRefVariantCopyWith(
-          _$_LexRefVariant value, $Res Function(_$_LexRefVariant) then) =
-      __$$_LexRefVariantCopyWithImpl<$Res>;
+abstract class _$$ULexXrpcSchemaRefVariantCopyWith<$Res> {
+  factory _$$ULexXrpcSchemaRefVariantCopyWith(_$ULexXrpcSchemaRefVariant value,
+          $Res Function(_$ULexXrpcSchemaRefVariant) then) =
+      __$$ULexXrpcSchemaRefVariantCopyWithImpl<$Res>;
   @useResult
   $Res call({LexRefVariant data});
 
@@ -87,11 +87,11 @@ abstract class _$$_LexRefVariantCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LexRefVariantCopyWithImpl<$Res>
-    extends _$LexXrpcSchemaCopyWithImpl<$Res, _$_LexRefVariant>
-    implements _$$_LexRefVariantCopyWith<$Res> {
-  __$$_LexRefVariantCopyWithImpl(
-      _$_LexRefVariant _value, $Res Function(_$_LexRefVariant) _then)
+class __$$ULexXrpcSchemaRefVariantCopyWithImpl<$Res>
+    extends _$LexXrpcSchemaCopyWithImpl<$Res, _$ULexXrpcSchemaRefVariant>
+    implements _$$ULexXrpcSchemaRefVariantCopyWith<$Res> {
+  __$$ULexXrpcSchemaRefVariantCopyWithImpl(_$ULexXrpcSchemaRefVariant _value,
+      $Res Function(_$ULexXrpcSchemaRefVariant) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$_LexRefVariantCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_LexRefVariant(
+    return _then(_$ULexXrpcSchemaRefVariant(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -118,8 +118,8 @@ class __$$_LexRefVariantCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexRefVariant implements _LexRefVariant {
-  const _$_LexRefVariant({required this.data});
+class _$ULexXrpcSchemaRefVariant extends ULexXrpcSchemaRefVariant {
+  const _$ULexXrpcSchemaRefVariant({required this.data}) : super._();
 
   @override
   final LexRefVariant data;
@@ -133,7 +133,7 @@ class _$_LexRefVariant implements _LexRefVariant {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexRefVariant &&
+            other is _$ULexXrpcSchemaRefVariant &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -143,8 +143,10 @@ class _$_LexRefVariant implements _LexRefVariant {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexRefVariantCopyWith<_$_LexRefVariant> get copyWith =>
-      __$$_LexRefVariantCopyWithImpl<_$_LexRefVariant>(this, _$identity);
+  _$$ULexXrpcSchemaRefVariantCopyWith<_$ULexXrpcSchemaRefVariant>
+      get copyWith =>
+          __$$ULexXrpcSchemaRefVariantCopyWithImpl<_$ULexXrpcSchemaRefVariant>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -180,8 +182,8 @@ class _$_LexRefVariant implements _LexRefVariant {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_LexRefVariant value) refVariant,
-    required TResult Function(_LexObject value) object,
+    required TResult Function(ULexXrpcSchemaRefVariant value) refVariant,
+    required TResult Function(ULexXrpcSchemaObject value) object,
   }) {
     return refVariant(this);
   }
@@ -189,8 +191,8 @@ class _$_LexRefVariant implements _LexRefVariant {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LexRefVariant value)? refVariant,
-    TResult? Function(_LexObject value)? object,
+    TResult? Function(ULexXrpcSchemaRefVariant value)? refVariant,
+    TResult? Function(ULexXrpcSchemaObject value)? object,
   }) {
     return refVariant?.call(this);
   }
@@ -198,8 +200,8 @@ class _$_LexRefVariant implements _LexRefVariant {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LexRefVariant value)? refVariant,
-    TResult Function(_LexObject value)? object,
+    TResult Function(ULexXrpcSchemaRefVariant value)? refVariant,
+    TResult Function(ULexXrpcSchemaObject value)? object,
     required TResult orElse(),
   }) {
     if (refVariant != null) {
@@ -209,22 +211,23 @@ class _$_LexRefVariant implements _LexRefVariant {
   }
 }
 
-abstract class _LexRefVariant implements LexXrpcSchema {
-  const factory _LexRefVariant({required final LexRefVariant data}) =
-      _$_LexRefVariant;
+abstract class ULexXrpcSchemaRefVariant extends LexXrpcSchema {
+  const factory ULexXrpcSchemaRefVariant({required final LexRefVariant data}) =
+      _$ULexXrpcSchemaRefVariant;
+  const ULexXrpcSchemaRefVariant._() : super._();
 
   @override
   LexRefVariant get data;
   @JsonKey(ignore: true)
-  _$$_LexRefVariantCopyWith<_$_LexRefVariant> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ULexXrpcSchemaRefVariantCopyWith<_$ULexXrpcSchemaRefVariant>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LexObjectCopyWith<$Res> {
-  factory _$$_LexObjectCopyWith(
-          _$_LexObject value, $Res Function(_$_LexObject) then) =
-      __$$_LexObjectCopyWithImpl<$Res>;
+abstract class _$$ULexXrpcSchemaObjectCopyWith<$Res> {
+  factory _$$ULexXrpcSchemaObjectCopyWith(_$ULexXrpcSchemaObject value,
+          $Res Function(_$ULexXrpcSchemaObject) then) =
+      __$$ULexXrpcSchemaObjectCopyWithImpl<$Res>;
   @useResult
   $Res call({LexObject data});
 
@@ -232,11 +235,11 @@ abstract class _$$_LexObjectCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LexObjectCopyWithImpl<$Res>
-    extends _$LexXrpcSchemaCopyWithImpl<$Res, _$_LexObject>
-    implements _$$_LexObjectCopyWith<$Res> {
-  __$$_LexObjectCopyWithImpl(
-      _$_LexObject _value, $Res Function(_$_LexObject) _then)
+class __$$ULexXrpcSchemaObjectCopyWithImpl<$Res>
+    extends _$LexXrpcSchemaCopyWithImpl<$Res, _$ULexXrpcSchemaObject>
+    implements _$$ULexXrpcSchemaObjectCopyWith<$Res> {
+  __$$ULexXrpcSchemaObjectCopyWithImpl(_$ULexXrpcSchemaObject _value,
+      $Res Function(_$ULexXrpcSchemaObject) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -244,7 +247,7 @@ class __$$_LexObjectCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_LexObject(
+    return _then(_$ULexXrpcSchemaObject(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -263,8 +266,8 @@ class __$$_LexObjectCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LexObject implements _LexObject {
-  const _$_LexObject({required this.data});
+class _$ULexXrpcSchemaObject extends ULexXrpcSchemaObject {
+  const _$ULexXrpcSchemaObject({required this.data}) : super._();
 
   @override
   final LexObject data;
@@ -278,7 +281,7 @@ class _$_LexObject implements _LexObject {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexObject &&
+            other is _$ULexXrpcSchemaObject &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -288,8 +291,9 @@ class _$_LexObject implements _LexObject {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexObjectCopyWith<_$_LexObject> get copyWith =>
-      __$$_LexObjectCopyWithImpl<_$_LexObject>(this, _$identity);
+  _$$ULexXrpcSchemaObjectCopyWith<_$ULexXrpcSchemaObject> get copyWith =>
+      __$$ULexXrpcSchemaObjectCopyWithImpl<_$ULexXrpcSchemaObject>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -325,8 +329,8 @@ class _$_LexObject implements _LexObject {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_LexRefVariant value) refVariant,
-    required TResult Function(_LexObject value) object,
+    required TResult Function(ULexXrpcSchemaRefVariant value) refVariant,
+    required TResult Function(ULexXrpcSchemaObject value) object,
   }) {
     return object(this);
   }
@@ -334,8 +338,8 @@ class _$_LexObject implements _LexObject {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LexRefVariant value)? refVariant,
-    TResult? Function(_LexObject value)? object,
+    TResult? Function(ULexXrpcSchemaRefVariant value)? refVariant,
+    TResult? Function(ULexXrpcSchemaObject value)? object,
   }) {
     return object?.call(this);
   }
@@ -343,8 +347,8 @@ class _$_LexObject implements _LexObject {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LexRefVariant value)? refVariant,
-    TResult Function(_LexObject value)? object,
+    TResult Function(ULexXrpcSchemaRefVariant value)? refVariant,
+    TResult Function(ULexXrpcSchemaObject value)? object,
     required TResult orElse(),
   }) {
     if (object != null) {
@@ -354,12 +358,14 @@ class _$_LexObject implements _LexObject {
   }
 }
 
-abstract class _LexObject implements LexXrpcSchema {
-  const factory _LexObject({required final LexObject data}) = _$_LexObject;
+abstract class ULexXrpcSchemaObject extends LexXrpcSchema {
+  const factory ULexXrpcSchemaObject({required final LexObject data}) =
+      _$ULexXrpcSchemaObject;
+  const ULexXrpcSchemaObject._() : super._();
 
   @override
   LexObject get data;
   @JsonKey(ignore: true)
-  _$$_LexObjectCopyWith<_$_LexObject> get copyWith =>
+  _$$ULexXrpcSchemaObjectCopyWith<_$ULexXrpcSchemaObject> get copyWith =>
       throw _privateConstructorUsedError;
 }

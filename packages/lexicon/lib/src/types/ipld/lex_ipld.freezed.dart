@@ -117,8 +117,8 @@ class __$$ULexIpldBytesCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULexIpldBytes implements ULexIpldBytes {
-  const _$ULexIpldBytes({required this.data});
+class _$ULexIpldBytes extends ULexIpldBytes {
+  const _$ULexIpldBytes({required this.data}) : super._();
 
   @override
   final LexBytes data;
@@ -208,8 +208,9 @@ class _$ULexIpldBytes implements ULexIpldBytes {
   }
 }
 
-abstract class ULexIpldBytes implements LexIpld {
+abstract class ULexIpldBytes extends LexIpld {
   const factory ULexIpldBytes({required final LexBytes data}) = _$ULexIpldBytes;
+  const ULexIpldBytes._() : super._();
 
   @override
   LexBytes get data;
@@ -261,8 +262,8 @@ class __$$ULexIpldCidLinkCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULexIpldCidLink implements ULexIpldCidLink {
-  const _$ULexIpldCidLink({required this.data});
+class _$ULexIpldCidLink extends ULexIpldCidLink {
+  const _$ULexIpldCidLink({required this.data}) : super._();
 
   @override
   final LexCidLink data;
@@ -352,9 +353,10 @@ class _$ULexIpldCidLink implements ULexIpldCidLink {
   }
 }
 
-abstract class ULexIpldCidLink implements LexIpld {
+abstract class ULexIpldCidLink extends LexIpld {
   const factory ULexIpldCidLink({required final LexCidLink data}) =
       _$ULexIpldCidLink;
+  const ULexIpldCidLink._() : super._();
 
   @override
   LexCidLink get data;

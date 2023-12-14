@@ -118,8 +118,8 @@ class __$$ULexRefVariantRefCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULexRefVariantRef implements ULexRefVariantRef {
-  const _$ULexRefVariantRef({required this.data});
+class _$ULexRefVariantRef extends ULexRefVariantRef {
+  const _$ULexRefVariantRef({required this.data}) : super._();
 
   @override
   final LexRef data;
@@ -209,9 +209,10 @@ class _$ULexRefVariantRef implements ULexRefVariantRef {
   }
 }
 
-abstract class ULexRefVariantRef implements LexRefVariant {
+abstract class ULexRefVariantRef extends LexRefVariant {
   const factory ULexRefVariantRef({required final LexRef data}) =
       _$ULexRefVariantRef;
+  const ULexRefVariantRef._() : super._();
 
   @override
   LexRef get data;
@@ -263,8 +264,8 @@ class __$$ULexRefVariantRefUnionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULexRefVariantRefUnion implements ULexRefVariantRefUnion {
-  const _$ULexRefVariantRefUnion({required this.data});
+class _$ULexRefVariantRefUnion extends ULexRefVariantRefUnion {
+  const _$ULexRefVariantRefUnion({required this.data}) : super._();
 
   @override
   final LexRefUnion data;
@@ -355,9 +356,10 @@ class _$ULexRefVariantRefUnion implements ULexRefVariantRefUnion {
   }
 }
 
-abstract class ULexRefVariantRefUnion implements LexRefVariant {
+abstract class ULexRefVariantRefUnion extends LexRefVariant {
   const factory ULexRefVariantRefUnion({required final LexRefUnion data}) =
       _$ULexRefVariantRefUnion;
+  const ULexRefVariantRefUnion._() : super._();
 
   @override
   LexRefUnion get data;
