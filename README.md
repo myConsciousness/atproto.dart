@@ -29,37 +29,34 @@
 
 ---
 
-- [1. Guide 🌎](#1-guide-)
-  - [1.1. Motivation](#11-motivation)
-  - [1.2. Packages \& Tools](#12-packages--tools)
-    - [1.2.1. Dart Packages](#121-dart-packages)
-    - [1.2.2. CLI Tool](#122-cli-tool)
-    - [1.2.3. GitHub Actions Workflow](#123-github-actions-workflow)
-  - [1.3. Developer Quickstart](#13-developer-quickstart)
-    - [1.3.1. Useful Commands](#131-useful-commands)
-  - [1.4. Who is using atproto.dart?](#14-who-is-using-atprotodart)
-  - [1.5. Contribution 🏆](#15-contribution-)
-  - [1.6. Contributors ✨](#16-contributors-)
-  - [1.7. Support ❤️](#17-support-️)
-  - [1.8. License 🔑](#18-license-)
-  - [1.9. More Information 🧐](#19-more-information-)
-
-# 1. Guide 🌎
+- [1. Motivation](#1-motivation)
+- [2. Packages \& Tools](#2-packages--tools)
+  - [2.1. Dart Packages](#21-dart-packages)
+  - [2.2. CLI Tool](#22-cli-tool)
+  - [2.3. GitHub Actions Workflow](#23-github-actions-workflow)
+- [3. Developer Quickstart](#3-developer-quickstart)
+  - [3.1. Useful Commands](#31-useful-commands)
+- [4. Who is using atproto.dart?](#4-who-is-using-atprotodart)
+- [5. Contribution 🏆](#5-contribution-)
+- [6. Contributors ✨](#6-contributors-)
+- [7. Support ❤️](#7-support-️)
+- [8. License 🔑](#8-license-)
+- [9. More Information 🧐](#9-more-information-)
 
 Welcome to **[atproto.dart](https://atprotodart.com)**, this project will **_maximize your development productivity_** about [AT Protocol](https://atproto.com) and [Bluesky](https://blueskyweb.xyz) things.
 
 **_Give a ⭐ on [this repository](https://github.com/myConsciousness/atproto.dart) to activate a project!_**
 
-## 1.1. Motivation
+## 1. Motivation
 
 [AT Protocol](https://atproto.com) and [Bluesky](https://blueskyweb.xyz) are awesome.
 
 This wonderful platform needs a standard and highly integrated SDK.
 **[atproto.dart](https://atprotodart.com)** provides the best development experience in such matters for Dart/Flutter devs.
 
-## 1.2. Packages & Tools
+## 2. Packages & Tools
 
-### 1.2.1. Dart Packages
+### 2.1. Dart Packages
 
 | Name                                                                                                  |                                                                   pub.dev                                                                    | Description                                                                                                                                                   |
 | ----------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -75,19 +72,19 @@ This wonderful platform needs a standard and highly integrated SDK.
 | **[bluesky_text](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_text)**   |  [![pub package](https://img.shields.io/pub/v/bluesky_text.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky_text)  | Provides the easiest and most powerful way to analyze the text on Bluesky Social.                                                                             |
 | **[bluesky](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky)**             |       [![pub package](https://img.shields.io/pub/v/bluesky.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky)       | Provide the easiest and powerful way to use [app.bsky](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky) lexicons in Dart/Flutter.       |
 
-### 1.2.2. CLI Tool
+### 2.2. CLI Tool
 
 | Name                                                                                              |                                                                 pub.dev                                                                  | Description                                                         |
 | ------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------- |
 | **[bluesky_cli](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_cli)** | [![pub package](https://img.shields.io/pub/v/bluesky_cli.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky_cli) | CLI tool to easily use Bluesky Social's APIs from the command line. |
 
-### 1.2.3. GitHub Actions Workflow
+### 2.3. GitHub Actions Workflow
 
 | Name                                                                                                |                                                                                        Marketplace                                                                                        | Description                                                                    |
 | --------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------ |
 | **[bluesky_post](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_post)** | [![bluesky-post](https://img.shields.io/static/v1?label=actions&message=myConsciousness/bluesky-post&logo=GitHub&color=00acee)](https://github.com/marketplace/actions/send-bluesky-post) | Use this action to send a post to Bluesky Social from GitHub actions workflow. |
 
-## 1.3. Developer Quickstart
+## 3. Developer Quickstart
 
 This project consists of several packages and is managed using [Melos](https://github.com/invertase/melos).
 The [Melos](https://github.com/invertase/melos) commands makes it easy to set up this project.
@@ -105,7 +102,7 @@ The `setup` command easily solves all the initial setup when cloning this huge p
 melos setup
 ```
 
-### 1.3.1. Useful Commands
+### 3.1. Useful Commands
 
 | Command           | Description                                                                                                             |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------- |
@@ -116,7 +113,7 @@ melos setup
 | **melos build**   | Run `dart run build_runner build` in all packages.                                                                      |
 | **melos test**    | Run all Dart tests in this project.                                                                                     |
 
-## 1.4. Who is using atproto.dart?
+## 4. Who is using atproto.dart?
 
 The following projects/services are using atproto.dart packages:
 
@@ -128,7 +125,7 @@ The following projects/services are using atproto.dart packages:
 
 You can see more at [showcase](https://atprotodart.com/showcase)!
 
-## 1.5. Contribution 🏆
+## 5. Contribution 🏆
 
 If you would like to contribute to **atproto.dart**, please create an [issue](https://github.com/myConsciousness/atproto.dart/issues) or create a Pull Request.
 
@@ -149,7 +146,7 @@ Or you can create a [discussion](https://github.com/myConsciousness/atproto.dart
 
 **Feel free to join this development, diverse opinions make software better!**
 
-## 1.6. Contributors ✨
+## 6. Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -185,7 +182,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
-## 1.7. Support ❤️
+## 7. Support ❤️
 
 The simplest way to show us your support is by **giving the project a star** at [GitHub](https://github.com/myConsciousness/atproto.dart) and [Pub.dev](https://pub.dev/packages/bluesky).
 
@@ -199,7 +196,7 @@ You can also support this project by **becoming a sponsor** on GitHub:
   </p>
 </div>
 
-## 1.8. License 🔑
+## 8. License 🔑
 
 The source code provided in this monorepo is provided under the `BSD-3` license.
 
@@ -212,7 +209,7 @@ modification, are permitted provided the conditions.
 > **Note**</br>
 > License notices in the source are strictly validated based on `.github/header-checker-lint.yml`. Please check [header-checker-lint.yml](https://github.com/myConsciousness/atproto.dart/tree/main/.github/header-checker-lint.yml) for the permitted standards.
 
-## 1.9. More Information 🧐
+## 9. More Information 🧐
 
 All resources in **atproto.dart** is maintained by **_Shinya Kato ([@myConsciousness](https://github.com/myConsciousness))_**.
 
