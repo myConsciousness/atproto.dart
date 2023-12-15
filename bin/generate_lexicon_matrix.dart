@@ -495,12 +495,20 @@ String _toSpecReference(final String type) => switch (type) {
 String _toRefLink(final String ref) {
   if (ref.startsWith('#')) return '[$ref](${ref.toLowerCase()})';
 
-  final pathAndObjectId = ref.split('#');
-  final path = pathAndObjectId.first.split('.').sublist(0, 3).join('/');
-  final fileName = pathAndObjectId.first.split('.').sublist(3, 4).join();
-  final objectId = pathAndObjectId.last.toLowerCase();
+  if (ref.contains('#')) {
+    final pathAndObjectId = ref.split('#');
+    final path = pathAndObjectId.first.split('.').sublist(0, 3).join('/');
+    final fileName = pathAndObjectId.first.split('.').sublist(3, 4).join();
+    final objectId = pathAndObjectId.last.toLowerCase();
 
-  return '[$ref](../../../../lexicons/$path/$fileName.md#$objectId)';
+    return '[$ref](../../../../lexicons/$path/$fileName.md#$objectId)';
+  }
+
+  final segments = ref.split('.');
+  final path = segments.sublist(0, 3).join('/');
+  final fileName = segments.last;
+
+  return '[$ref](../../../../lexicons/$path/$fileName.md#main)';
 }
 
 Map<String, Map<String, LexUserType>> _getLexObjects(

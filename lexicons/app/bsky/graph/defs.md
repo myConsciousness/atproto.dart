@@ -22,7 +22,7 @@
 | **name** | string | - | ✅ | - |
 | **purpose** | [#listPurpose](#listpurpose) | - | ✅ | - |
 | **description** | string | - | ❌ | - |
-| **descriptionFacets** | array of [app.bsky.richtext.facet](../../../../lexicons/app/bsky/richtext/facet.md#app.bsky.richtext.facet) | - | ❌ | - |
+| **descriptionFacets** | array of [app.bsky.richtext.facet](../../../../lexicons/app/bsky/richtext/facet.md#main) | - | ❌ | - |
 | **avatar** | string | - | ❌ | - |
 | **viewer** | [#listViewerState](#listviewerstate) | - | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |

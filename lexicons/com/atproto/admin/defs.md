@@ -13,7 +13,7 @@
 | --- | --- | --- | :---: | --- |
 | **id** | integer | - | ✅ | - |
 | **event** | union of <br>[#modEventTakedown](#modeventtakedown)<br>[#modEventReverseTakedown](#modeventreversetakedown)<br>[#modEventComment](#modeventcomment)<br>[#modEventReport](#modeventreport)<br>[#modEventLabel](#modeventlabel)<br>[#modEventAcknowledge](#modeventacknowledge)<br>[#modEventEscalate](#modeventescalate)<br>[#modEventMute](#modeventmute)<br>[#modEventEmail](#modeventemail) | - | ✅ | - |
-| **subject** | union of <br>[#repoRef](#reporef)<br>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#com.atproto.repo.strongref) | - | ✅ | - |
+| **subject** | union of <br>[#repoRef](#reporef)<br>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ✅ | - |
 | **subjectBlobCids** | array of string | - | ✅ | - |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
@@ -39,7 +39,7 @@
 | **reasonType** | [com.atproto.moderation.defs#reasonType](../../../../lexicons/com/atproto/moderation/defs.md#reasontype) | - | ✅ | - |
 | **comment** | string | - | ❌ | - |
 | **subjectRepoHandle** | string | - | ❌ | - |
-| **subject** | union of <br>[#repoRef](#reporef)<br>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#com.atproto.repo.strongref) | - | ✅ | - |
+| **subject** | union of <br>[#repoRef](#reporef)<br>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ✅ | - |
 | **reportedBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **resolvedByActionIds** | array of integer | - | ✅ | - |
@@ -49,7 +49,7 @@
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **id** | integer | - | ✅ | - |
-| **subject** | union of <br>[#repoRef](#reporef)<br>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#com.atproto.repo.strongref) | - | ✅ | - |
+| **subject** | union of <br>[#repoRef](#reporef)<br>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ✅ | - |
 | **subjectBlobCids** | array of string | - | ❌ | - |
 | **subjectRepoHandle** | string | - | ❌ | - |
 | **updatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | Timestamp referencing when the last update was made to the moderation status of the subject |

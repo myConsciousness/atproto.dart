@@ -4,8 +4,8 @@
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **record** | [app.bsky.embed.record](../../../../lexicons/app/bsky/embed/record.md#app.bsky.embed.record) | - | ✅ | - |
-| **media** | union of <br>[app.bsky.embed.images](../../../../lexicons/app/bsky/embed/images.md#app.bsky.embed.images)<br>[app.bsky.embed.external](../../../../lexicons/app/bsky/embed/external.md#app.bsky.embed.external) | - | ✅ | - |
+| **record** | [app.bsky.embed.record](../../../../lexicons/app/bsky/embed/record.md#main) | - | ✅ | - |
+| **media** | union of <br>[app.bsky.embed.images](../../../../lexicons/app/bsky/embed/images.md#main)<br>[app.bsky.embed.external](../../../../lexicons/app/bsky/embed/external.md#main) | - | ✅ | - |
 
 ## #view
 

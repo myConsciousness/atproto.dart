@@ -87,7 +87,7 @@
 | **creator** | [app.bsky.actor.defs#profileView](../../../../lexicons/app/bsky/actor/defs.md#profileview) | - | ✅ | - |
 | **displayName** | string | - | ✅ | - |
 | **description** | string | - | ❌ | - |
-| **descriptionFacets** | array of [app.bsky.richtext.facet](../../../../lexicons/app/bsky/richtext/facet.md#app.bsky.richtext.facet) | - | ❌ | - |
+| **descriptionFacets** | array of [app.bsky.richtext.facet](../../../../lexicons/app/bsky/richtext/facet.md#main) | - | ❌ | - |
 | **avatar** | string | - | ❌ | - |
 | **likeCount** | integer | - | ❌ | - |
 | **viewer** | [#generatorViewerState](#generatorviewerstate) | - | ❌ | - |
