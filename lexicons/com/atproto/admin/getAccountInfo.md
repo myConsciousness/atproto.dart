@@ -14,4 +14,4 @@ Get details about an account.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **ref** | [com.atproto.admin.defs#accountView](../../../../com/atproto/admin/defs.md#accountView) | - | ✅ | - |
+| **ref** | [com.atproto.admin.defs#accountView](../../../../lexicons/com/atproto/admin/defs.md#accountview) | - | ✅ | - |

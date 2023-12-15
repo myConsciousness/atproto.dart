@@ -16,4 +16,4 @@ Get a list of who the actor is blocking.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
-| **blocks** | array of [app.bsky.actor.defs#profileView](../../../../app/bsky/actor/defs.md#profileView) | - | ✅ | - |
+| **blocks** | array of [app.bsky.actor.defs#profileView](../../../../lexicons/app/bsky/actor/defs.md#profileview) | - | ✅ | - |

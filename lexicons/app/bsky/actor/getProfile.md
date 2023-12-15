@@ -14,4 +14,4 @@ Get detailed profile view of an actor.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **ref** | [app.bsky.actor.defs#profileViewDetailed](../../../../app/bsky/actor/defs.md#profileViewDetailed) | - | ✅ | - |
+| **ref** | [app.bsky.actor.defs#profileViewDetailed](../../../../lexicons/app/bsky/actor/defs.md#profileviewdetailed) | - | ✅ | - |

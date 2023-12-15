@@ -17,4 +17,4 @@ Get a list of posts liked by an actor.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
-| **feed** | array of [app.bsky.feed.defs#feedViewPost](../../../../app/bsky/feed/defs.md#feedViewPost) | - | ✅ | - |
+| **feed** | array of [app.bsky.feed.defs#feedViewPost](../../../../lexicons/app/bsky/feed/defs.md#feedviewpost) | - | ✅ | - |

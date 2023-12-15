@@ -6,10 +6,10 @@ A declaration of a list of actors.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **purpose** | [app.bsky.graph.defs#listPurpose](../../../../app/bsky/graph/defs.md#listPurpose) | - | ✅ | - |
+| **purpose** | [app.bsky.graph.defs#listPurpose](../../../../lexicons/app/bsky/graph/defs.md#listpurpose) | - | ✅ | - |
 | **name** | string | - | ✅ | - |
 | **description** | string | - | ❌ | - |
-| **descriptionFacets** | array of [app.bsky.richtext.facet](../../../../app/bsky/richtext/facet.md#app.bsky.richtext.facet) | - | ❌ | - |
+| **descriptionFacets** | array of [app.bsky.richtext.facet](../../../../lexicons/app/bsky/richtext/facet.md#main) | - | ❌ | - |
 | **avatar** | blob | - | ❌ | - |
-| **labels** | union of <br>[com.atproto.label.defs#selfLabels](../../../../com/atproto/label/defs.md#selfLabels) | - | ❌ | - |
+| **labels** | union of <br>[com.atproto.label.defs#selfLabels](../../../../lexicons/com/atproto/label/defs.md#selflabels) | - | ❌ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |

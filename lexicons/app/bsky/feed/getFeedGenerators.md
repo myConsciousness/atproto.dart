@@ -13,4 +13,4 @@ Get information about a list of feed generators.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **feeds** | array of [app.bsky.feed.defs#generatorView](../../../../app/bsky/feed/defs.md#generatorView) | - | ✅ | - |
+| **feeds** | array of [app.bsky.feed.defs#generatorView](../../../../lexicons/app/bsky/feed/defs.md#generatorview) | - | ✅ | - |

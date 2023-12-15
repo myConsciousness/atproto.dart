@@ -17,4 +17,4 @@ DEPRECATED: will be removed soon. Use a feed generator alternative.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
-| **feed** | array of [app.bsky.feed.defs#feedViewPost](../../../../app/bsky/feed/defs.md#feedViewPost) | - | ✅ | - |
+| **feed** | array of [app.bsky.feed.defs#feedViewPost](../../../../lexicons/app/bsky/feed/defs.md#feedviewpost) | - | ✅ | - |

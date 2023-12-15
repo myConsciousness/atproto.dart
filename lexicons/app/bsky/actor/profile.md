@@ -10,4 +10,4 @@ A declaration of a profile.
 | **description** | string | - | ❌ | - |
 | **avatar** | blob | - | ❌ | - |
 | **banner** | blob | - | ❌ | - |
-| **labels** | union of <br>[com.atproto.label.defs#selfLabels](../../../../com/atproto/label/defs.md#selfLabels) | - | ❌ | - |
+| **labels** | union of <br>[com.atproto.label.defs#selfLabels](../../../../lexicons/com/atproto/label/defs.md#selflabels) | - | ❌ | - |

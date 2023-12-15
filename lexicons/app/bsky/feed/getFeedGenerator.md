@@ -14,6 +14,6 @@ Get information about a feed generator.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **view** | [app.bsky.feed.defs#generatorView](../../../../app/bsky/feed/defs.md#generatorView) | - | ✅ | - |
+| **view** | [app.bsky.feed.defs#generatorView](../../../../lexicons/app/bsky/feed/defs.md#generatorview) | - | ✅ | - |
 | **isOnline** | boolean | - | ✅ | - |
 | **isValid** | boolean | - | ✅ | - |

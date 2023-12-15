@@ -21,7 +21,7 @@ Subscribe to label updates.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **seq** | integer | - | ✅ | - |
-| **labels** | array of [com.atproto.label.defs#label](../../../../com/atproto/label/defs.md#label) | - | ✅ | - |
+| **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ✅ | - |
 
 ## #info
 

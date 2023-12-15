@@ -6,15 +6,15 @@
 | --- | --- | --- | :---: | --- |
 | **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
 | **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ✅ | - |
-| **author** | [app.bsky.actor.defs#profileViewBasic](../../../../app/bsky/actor/defs.md#profileViewBasic) | - | ✅ | - |
+| **author** | [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ✅ | - |
 | **record** | unknown | - | ✅ | - |
-| **embed** | union of <br>[app.bsky.embed.images#view](../../../../app/bsky/embed/images.md#view)<br>[app.bsky.embed.external#view](../../../../app/bsky/embed/external.md#view)<br>[app.bsky.embed.record#view](../../../../app/bsky/embed/record.md#view)<br>[app.bsky.embed.recordWithMedia#view](../../../../app/bsky/embed/recordWithMedia.md#view) | - | ❌ | - |
+| **embed** | union of <br>[app.bsky.embed.images#view](../../../../lexicons/app/bsky/embed/images.md#view)<br>[app.bsky.embed.external#view](../../../../lexicons/app/bsky/embed/external.md#view)<br>[app.bsky.embed.record#view](../../../../lexicons/app/bsky/embed/record.md#view)<br>[app.bsky.embed.recordWithMedia#view](../../../../lexicons/app/bsky/embed/recordWithMedia.md#view) | - | ❌ | - |
 | **replyCount** | integer | - | ❌ | - |
 | **repostCount** | integer | - | ❌ | - |
 | **likeCount** | integer | - | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **viewer** | [#viewerState](#viewerstate) | - | ❌ | - |
-| **labels** | array of [com.atproto.label.defs#label](../../../../com/atproto/label/defs.md#label) | - | ❌ | - |
+| **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 | **threadgate** | [#threadgateView](#threadgateview) | - | ❌ | - |
 
 ## #viewerState
@@ -44,7 +44,7 @@
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **by** | [app.bsky.actor.defs#profileViewBasic](../../../../app/bsky/actor/defs.md#profileViewBasic) | - | ✅ | - |
+| **by** | [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ✅ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 
 ## #threadViewPost
@@ -75,7 +75,7 @@
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
-| **viewer** | [app.bsky.actor.defs#viewerState](../../../../app/bsky/actor/defs.md#viewerState) | - | ❌ | - |
+| **viewer** | [app.bsky.actor.defs#viewerState](../../../../lexicons/app/bsky/actor/defs.md#viewerstate) | - | ❌ | - |
 
 ## #generatorView
 
@@ -84,10 +84,10 @@
 | **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
 | **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ✅ | - |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
-| **creator** | [app.bsky.actor.defs#profileView](../../../../app/bsky/actor/defs.md#profileView) | - | ✅ | - |
+| **creator** | [app.bsky.actor.defs#profileView](../../../../lexicons/app/bsky/actor/defs.md#profileview) | - | ✅ | - |
 | **displayName** | string | - | ✅ | - |
 | **description** | string | - | ❌ | - |
-| **descriptionFacets** | array of [app.bsky.richtext.facet](../../../../app/bsky/richtext/facet.md#app.bsky.richtext.facet) | - | ❌ | - |
+| **descriptionFacets** | array of [app.bsky.richtext.facet](../../../../lexicons/app/bsky/richtext/facet.md#main) | - | ❌ | - |
 | **avatar** | string | - | ❌ | - |
 | **likeCount** | integer | - | ❌ | - |
 | **viewer** | [#generatorViewerState](#generatorviewerstate) | - | ❌ | - |
@@ -119,4 +119,4 @@
 | **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
 | **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | - |
 | **record** | unknown | - | ❌ | - |
-| **lists** | array of [app.bsky.graph.defs#listViewBasic](../../../../app/bsky/graph/defs.md#listViewBasic) | - | ❌ | - |
+| **lists** | array of [app.bsky.graph.defs#listViewBasic](../../../../lexicons/app/bsky/graph/defs.md#listviewbasic) | - | ❌ | - |

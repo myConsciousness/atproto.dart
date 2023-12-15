@@ -8,4 +8,4 @@ Get private preferences attached to the account.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **preferences** | [app.bsky.actor.defs#preferences](../../../../app/bsky/actor/defs.md#preferences) | - | ✅ | - |
+| **preferences** | [app.bsky.actor.defs#preferences](../../../../lexicons/app/bsky/actor/defs.md#preferences) | - | ✅ | - |

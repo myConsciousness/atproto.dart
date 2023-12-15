@@ -16,4 +16,4 @@ Get lists that the actor is muting.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
-| **lists** | array of [app.bsky.graph.defs#listView](../../../../app/bsky/graph/defs.md#listView) | - | ✅ | - |
+| **lists** | array of [app.bsky.graph.defs#listView](../../../../lexicons/app/bsky/graph/defs.md#listview) | - | ✅ | - |
