@@ -162,7 +162,7 @@ class _$FeedGeneratorImpl implements _FeedGenerator {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FeedGeneratorImpl &&

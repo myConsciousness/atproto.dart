@@ -136,7 +136,7 @@ class _$UBatchActionCreateImpl implements UBatchActionCreate {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UBatchActionCreateImpl &&
@@ -288,7 +288,7 @@ class _$UBatchActionUpdateImpl implements UBatchActionUpdate {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UBatchActionUpdateImpl &&
@@ -440,7 +440,7 @@ class _$UBatchActionDeleteImpl implements UBatchActionDelete {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UBatchActionDeleteImpl &&

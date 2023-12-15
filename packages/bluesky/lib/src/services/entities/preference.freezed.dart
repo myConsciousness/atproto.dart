@@ -162,7 +162,7 @@ class _$UPreferenceAdultContentImpl extends UPreferenceAdultContent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UPreferenceAdultContentImpl &&
@@ -342,7 +342,7 @@ class _$UPreferenceContentLabelImpl extends UPreferenceContentLabel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UPreferenceContentLabelImpl &&
@@ -521,7 +521,7 @@ class _$UPreferenceSavedFeedsImpl extends UPreferenceSavedFeeds {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UPreferenceSavedFeedsImpl &&
@@ -700,7 +700,7 @@ class _$UPreferencePersonalDetailsImpl extends UPreferencePersonalDetails {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UPreferencePersonalDetailsImpl &&
@@ -878,7 +878,7 @@ class _$UPreferenceFeedViewImpl extends UPreferenceFeedView {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UPreferenceFeedViewImpl &&
@@ -1056,7 +1056,7 @@ class _$UPreferenceThreadViewImpl extends UPreferenceThreadView {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UPreferenceThreadViewImpl &&
@@ -1230,7 +1230,7 @@ class _$UPreferenceUnknownImpl extends UPreferenceUnknown {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UPreferenceUnknownImpl &&

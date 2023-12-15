@@ -135,7 +135,7 @@ class _$ReposImpl implements _Repos {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ReposImpl &&

@@ -137,7 +137,7 @@ class _$LabelerSettingsImpl implements _LabelerSettings {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LabelerSettingsImpl &&

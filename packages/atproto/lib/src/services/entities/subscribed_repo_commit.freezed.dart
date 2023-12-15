@@ -278,7 +278,7 @@ class _$SubscribedRepoCommitImpl implements _SubscribedRepoCommit {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SubscribedRepoCommitImpl &&

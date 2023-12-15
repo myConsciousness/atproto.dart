@@ -205,7 +205,7 @@ class _$EmbedExternalThumbnailImpl implements _EmbedExternalThumbnail {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EmbedExternalThumbnailImpl &&

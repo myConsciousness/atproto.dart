@@ -142,7 +142,7 @@ class _$UFacetFeatureMentionImpl implements UFacetFeatureMention {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UFacetFeatureMentionImpl &&
@@ -301,7 +301,7 @@ class _$UFacetFeatureLinkImpl implements UFacetFeatureLink {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UFacetFeatureLinkImpl &&
@@ -459,7 +459,7 @@ class _$UFacetFeatureTagImpl implements UFacetFeatureTag {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UFacetFeatureTagImpl &&
@@ -613,7 +613,7 @@ class _$UFacetFeatureUnknownImpl implements UFacetFeatureUnknown {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UFacetFeatureUnknownImpl &&

@@ -139,7 +139,7 @@ class _$RepoCommitImpl implements _RepoCommit {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RepoCommitImpl &&

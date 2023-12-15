@@ -185,7 +185,7 @@ class _$ServerInfoImpl implements _ServerInfo {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ServerInfoImpl &&

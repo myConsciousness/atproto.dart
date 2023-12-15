@@ -131,7 +131,7 @@ class _$USkeletonReasonRepostImpl implements USkeletonReasonRepost {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$USkeletonReasonRepostImpl &&
@@ -275,7 +275,7 @@ class _$USkeletonReasonUnknownImpl implements USkeletonReasonUnknown {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$USkeletonReasonUnknownImpl &&

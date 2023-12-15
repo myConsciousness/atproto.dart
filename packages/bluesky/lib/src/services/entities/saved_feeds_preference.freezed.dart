@@ -190,7 +190,7 @@ class _$SavedFeedsPreferenceImpl implements _SavedFeedsPreference {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SavedFeedsPreferenceImpl &&

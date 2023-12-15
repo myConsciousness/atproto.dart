@@ -140,7 +140,7 @@ class _$UModerationCauseSourceUserImpl implements UModerationCauseSourceUser {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UModerationCauseSourceUserImpl &&
@@ -296,7 +296,7 @@ class _$UModerationCauseSourceListImpl implements UModerationCauseSourceList {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UModerationCauseSourceListImpl &&
@@ -453,7 +453,7 @@ class _$UModerationCauseSourceLabelerImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UModerationCauseSourceLabelerImpl &&

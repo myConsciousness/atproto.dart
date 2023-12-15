@@ -185,7 +185,7 @@ class _$SubscribedRepoMigrateImpl implements _SubscribedRepoMigrate {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SubscribedRepoMigrateImpl &&

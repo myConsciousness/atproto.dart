@@ -184,7 +184,7 @@ class _$USubscribedRepoCommitImpl implements USubscribedRepoCommit {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$USubscribedRepoCommitImpl &&
@@ -373,7 +373,7 @@ class _$USubscribedRepoHandleImpl implements USubscribedRepoHandle {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$USubscribedRepoHandleImpl &&
@@ -563,7 +563,7 @@ class _$USubscribedRepoMigrateImpl implements USubscribedRepoMigrate {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$USubscribedRepoMigrateImpl &&
@@ -755,7 +755,7 @@ class _$USubscribedRepoTombstoneImpl implements USubscribedRepoTombstone {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$USubscribedRepoTombstoneImpl &&
@@ -944,7 +944,7 @@ class _$USubscribedRepoInfoImpl implements USubscribedRepoInfo {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$USubscribedRepoInfoImpl &&
@@ -1131,7 +1131,7 @@ class _$USubscribedRepoUnknownImpl implements USubscribedRepoUnknown {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$USubscribedRepoUnknownImpl &&

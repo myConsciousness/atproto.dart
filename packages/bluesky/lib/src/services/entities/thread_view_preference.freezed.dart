@@ -167,7 +167,7 @@ class _$ThreadViewPreferenceImpl implements _ThreadViewPreference {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ThreadViewPreferenceImpl &&

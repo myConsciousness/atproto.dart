@@ -158,7 +158,7 @@ class _$ParsedServiceImpl implements _ParsedService {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ParsedServiceImpl &&

@@ -278,7 +278,7 @@ class _$GeneratorParamImpl implements _GeneratorParam {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GeneratorParamImpl &&
