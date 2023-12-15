@@ -27,10 +27,10 @@ const _tableDivider = '| --- | --- | --- | :---: | --- |';
 void main(List<String> args) {
   final lexiconDocs = utils.lexiconDocs;
 
-  _writeObjectFiles(lexiconDocs);
+  _writeFiles(lexiconDocs);
 }
 
-void _writeObjectFiles(final List<LexiconDoc> lexiconDocs) {
+void _writeFiles(final List<LexiconDoc> lexiconDocs) {
   final objects = _getLexObjects(lexiconDocs);
 
   objects.forEach((nsid, defs) {
@@ -45,36 +45,7 @@ void _writeObjectFiles(final List<LexiconDoc> lexiconDocs) {
         record: (data) => _writeRecord(objectMatrix, data),
         xrpcQuery: (data) => _writeXrpcQuery(objectMatrix, data),
         xrpcProcedure: (data) => _writeXrpcProcedure(objectMatrix, data),
-        xrpcSubscription: (data) {
-          if (data.description != null) {
-            objectMatrix
-              ..writeln()
-              ..writeln(data.description);
-          }
-
-          final parameters = data.parameters;
-          if (parameters != null) {
-            _writeXrpcParameters(
-              objectMatrix,
-              parameters,
-              'Input',
-            );
-          }
-
-          final message = data.message;
-          if (message != null) {
-            final schema = message.schema;
-            if (schema != null) {
-              _writeXrpcSchema(
-                objectMatrix,
-                schema,
-                message.description,
-                '',
-                'Output',
-              );
-            }
-          }
-        },
+        xrpcSubscription: (data) => _writeXrpcSubscription(objectMatrix, data),
         object: (data) => _writeObject(objectMatrix, data),
       );
     });
@@ -169,6 +140,40 @@ void _writeXrpcProcedure(
         schema,
         output.description,
         output.encoding,
+        'Output',
+      );
+    }
+  }
+}
+
+void _writeXrpcSubscription(
+  final StringBuffer objectMatrix,
+  final LexXrpcSubscription data,
+) {
+  if (data.description != null) {
+    objectMatrix
+      ..writeln()
+      ..writeln(data.description);
+  }
+
+  final parameters = data.parameters;
+  if (parameters != null) {
+    _writeXrpcParameters(
+      objectMatrix,
+      parameters,
+      'Input',
+    );
+  }
+
+  final message = data.message;
+  if (message != null) {
+    final schema = message.schema;
+    if (schema != null) {
+      _writeXrpcSchema(
+        objectMatrix,
+        schema,
+        message.description,
+        '',
         'Output',
       );
     }
