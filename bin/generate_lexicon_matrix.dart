@@ -47,6 +47,7 @@ void _writeFiles(final List<LexiconDoc> lexiconDocs) {
         xrpcProcedure: (data) => _writeXrpcProcedure(objectMatrix, data),
         xrpcSubscription: (data) => _writeXrpcSubscription(objectMatrix, data),
         object: (data) => _writeObject(objectMatrix, data),
+        token: (data) => _writeToken(objectMatrix, data),
       );
     });
 
@@ -177,6 +178,17 @@ void _writeXrpcSubscription(
         'Output',
       );
     }
+  }
+}
+
+void _writeToken(
+  final StringBuffer objectMatrix,
+  final LexToken data,
+) {
+  if (data.description != null) {
+    objectMatrix
+      ..writeln()
+      ..writeln('**TOKEN**: ${data.description}');
   }
 }
 
@@ -504,6 +516,7 @@ Map<String, Map<String, LexUserType>> _getLexObjects(
         xrpcProcedure: (data) => data,
         xrpcSubscription: (data) => data,
         object: (data) => data,
+        token: (data) => data,
       );
 
       if (object != null) {

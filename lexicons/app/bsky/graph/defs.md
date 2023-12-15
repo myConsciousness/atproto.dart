@@ -34,6 +34,14 @@
 | **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
 | **subject** | [app.bsky.actor.defs#profileView](../../../../lexiconsapp/bsky/actor/defs.md#profileview) | - | ✅ | - |
 
+## #modlist
+
+**TOKEN**: A list of actors to apply an aggregate moderation action (mute/block) on.
+
+## #curatelist
+
+**TOKEN**: A list of actors used for curation purposes such as list feeds or interaction gating.
+
 ## #listViewerState
 
 | Property | Type | Known Values | Required | Description |

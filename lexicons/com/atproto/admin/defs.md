@@ -210,6 +210,18 @@
 | **height** | integer | - | ✅ | - |
 | **length** | integer | - | ✅ | - |
 
+## #reviewOpen
+
+**TOKEN**: Moderator review status of a subject: Open. Indicates that the subject needs to be reviewed by a moderator
+
+## #reviewEscalated
+
+**TOKEN**: Moderator review status of a subject: Escalated. Indicates that the subject was escalated for review by a moderator
+
+## #reviewClosed
+
+**TOKEN**: Moderator review status of a subject: Closed. Indicates that the subject was already reviewed and resolved by a moderator
+
 ## #modEventTakedown
 
 Take down a subject permanently or temporarily
