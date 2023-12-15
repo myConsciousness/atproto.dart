@@ -12,6 +12,10 @@ Subscribe to label updates.
 
 ### Output
 
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **refs** | union of <br>[#labels](#labels)<br>[#info](#info) | - | ✅ | - |
+
 ## #labels
 
 | Property | Type | Known Values | Required | Description |

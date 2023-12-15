@@ -11,3 +11,7 @@ Get details about a moderation event.
 | **id** | integer | - | ✅ | - |
 
 ### Output (application/json)
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **ref** | [com.atproto.admin.defs#modEventViewDetail](../../../../com/atproto/admin/defs.md#modEventViewDetail) | - | ✅ | - |

@@ -14,3 +14,7 @@ Take a moderation action on an actor.
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 
 ### Output (application/json)
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **ref** | [com.atproto.admin.defs#modEventView](../../../../com/atproto/admin/defs.md#modEventView) | - | ✅ | - |

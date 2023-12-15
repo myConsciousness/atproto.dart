@@ -12,6 +12,10 @@ Subscribe to repo updates.
 
 ### Output
 
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **refs** | union of <br>[#commit](#commit)<br>[#handle](#handle)<br>[#migrate](#migrate)<br>[#tombstone](#tombstone)<br>[#info](#info) | - | ✅ | - |
+
 ## #commit
 
 | Property | Type | Known Values | Required | Description |

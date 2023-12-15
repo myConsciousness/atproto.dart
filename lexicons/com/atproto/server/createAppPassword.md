@@ -12,6 +12,10 @@ Create an App Password.
 
 ### Output (application/json)
 
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **ref** | [#appPassword](#apppassword) | - | ✅ | - |
+
 ## #appPassword
 
 | Property | Type | Known Values | Required | Description |

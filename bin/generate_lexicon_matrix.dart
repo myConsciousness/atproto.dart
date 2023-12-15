@@ -235,7 +235,17 @@ void _writeXrpcSchema(
   }
 
   data.when(
-    refVariant: (data) => data,
+    refVariant: (data) {
+      objectMatrix
+        ..writeln()
+        ..writeln(_tableHeader)
+        ..writeln(_tableDivider);
+
+      _writeObjectProperty(
+        objectMatrix,
+        ref: data,
+      );
+    },
     object: (data) => _writeObject(objectMatrix, data),
   );
 }
@@ -262,22 +272,22 @@ void _writeObject(final StringBuffer objectMatrix, final LexObject data) {
       property.when(
         refVariant: (data) => _writeObjectProperty(
           objectMatrix,
-          name,
-          isRequired,
+          property: name,
+          isRequired: isRequired,
           ref: data,
         ),
         ipld: (data) => data.when(
           bytes: (data) => _writeObjectProperty(
             objectMatrix,
-            name,
-            isRequired,
+            property: name,
+            isRequired: isRequired,
             type: data.type,
             description: data.description,
           ),
           cidLink: (data) => _writeObjectProperty(
             objectMatrix,
-            name,
-            isRequired,
+            property: name,
+            isRequired: isRequired,
             type: data.type,
             description: data.description,
           ),
@@ -290,8 +300,8 @@ void _writeObject(final StringBuffer objectMatrix, final LexObject data) {
         ),
         blob: (data) => _writeObjectProperty(
           objectMatrix,
-          name,
-          isRequired,
+          property: name,
+          isRequired: isRequired,
           type: data.type,
           description: data.description,
         ),
@@ -315,22 +325,22 @@ void _writePrimitive(
     data.when(
       boolean: (data) => _writeObjectProperty(
         objectMatrix,
-        name,
-        isRequired,
+        property: name,
+        isRequired: isRequired,
         type: data.type,
         description: data.description,
       ),
       integer: (data) => _writeObjectProperty(
         objectMatrix,
-        name,
-        isRequired,
+        property: name,
+        isRequired: isRequired,
         type: data.type,
         description: data.description,
       ),
       string: (data) => _writeObjectProperty(
         objectMatrix,
-        name,
-        isRequired,
+        property: name,
+        isRequired: isRequired,
         type: data.type,
         format: data.format?.value,
         knownValues: data.knownValues,
@@ -338,8 +348,8 @@ void _writePrimitive(
       ),
       unknown: (data) => _writeObjectProperty(
         objectMatrix,
-        name,
-        isRequired,
+        property: name,
+        isRequired: isRequired,
         type: data.type,
         description: data.description,
       ),
@@ -367,8 +377,8 @@ void _writeArray(
 
   _writeObjectProperty(
     objectMatrix,
-    name,
-    isRequired,
+    property: name,
+    isRequired: isRequired,
     type: data.type,
     format: objectType,
     description: data.description,
@@ -377,16 +387,27 @@ void _writeArray(
 }
 
 void _writeObjectProperty(
-  final StringBuffer buffer,
-  final String property,
-  final bool isRequired, {
+  final StringBuffer buffer, {
+  final String? property,
+  final bool isRequired = true,
   final String? description,
   final String? type,
   final String? format,
   final List<dynamic>? knownValues,
   final LexRefVariant? ref,
 }) {
-  buffer.write('| **$property** ');
+  if (property == null && ref != null) {
+    final refName = ref.when(
+      ref: (data) => 'ref',
+      refUnion: (data) => 'refs',
+    );
+
+    buffer.write('| **$refName** ');
+  } else if (property != null) {
+    buffer.write('| **$property** ');
+  } else {
+    throw Error();
+  }
 
   if (type != null && format != null) {
     if (type == 'array') {

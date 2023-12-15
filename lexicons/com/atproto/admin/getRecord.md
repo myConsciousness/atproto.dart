@@ -12,3 +12,7 @@ Get details about a record.
 | **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | - |
 
 ### Output (application/json)
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **ref** | [com.atproto.admin.defs#recordViewDetail](../../../../com/atproto/admin/defs.md#recordViewDetail) | - | ✅ | - |
