@@ -21,6 +21,9 @@ const _dateTimeReference = 'https://atproto.com/specs/lexicon#datetime';
 const _uriReference = 'https://atproto.com/specs/lexicon#uri';
 const _languageReference = 'https://atproto.com/specs/lexicon#language';
 
+const _tableHeader =
+    '| Property | Type | Known Values | Required | Description |';
+const _tableDivider = '| --- | --- | --- | :---: | --- |';
 void main(List<String> args) {
   final lexiconDocs = utils.lexiconDocs;
 
@@ -38,146 +41,42 @@ void _writeObjectFiles(final List<LexiconDoc> lexiconDocs) {
         ..writeln()
         ..writeln('## #$id');
 
-      def.whenOrNull(xrpcQuery: (data) {
-        final parameters = data.parameters;
-        if (parameters != null) {
-          parameters;
-        }
-
-        final output = data.output;
-        if (output != null) {
-          objectMatrix.writeln();
-          if (output.encoding.isNotEmpty) {
-            objectMatrix.writeln('### Output (${output.encoding})');
-          } else {
-            objectMatrix.writeln('### Output');
-          }
-
-          if (output.description != null) {
+      def.whenOrNull(
+        record: (data) => _writeRecord(objectMatrix, data),
+        xrpcQuery: (data) => _writeXrpcQuery(objectMatrix, data),
+        xrpcProcedure: (data) => _writeXrpcProcedure(objectMatrix, data),
+        xrpcSubscription: (data) {
+          if (data.description != null) {
             objectMatrix
               ..writeln()
-              ..writeln(output.description);
+              ..writeln(data.description);
           }
 
-          final schema = output.schema;
-          if (schema != null) {
-            // schema.when(
-            //   refVariant: refVariant,
-            //   object: object,
-            // );
-          }
-        }
-      }, object: (data) {
-        if (data.description != null) {
-          objectMatrix
-            ..writeln()
-            ..writeln(data.description);
-        }
-
-        final requiredProperties = data.requiredProperties ?? const [];
-
-        final properties = data.properties;
-        if (properties != null) {
-          objectMatrix
-            ..writeln()
-            ..writeln('| Property | Type | Known Values | Nullable '
-                '| Description |')
-            ..writeln('| --- | --- | --- | :---: | --- |');
-
-          properties.forEach((name, property) {
-            final isRequired = requiredProperties.contains(name);
-
-            property.when(
-              refVariant: (data) => _writeObjectProperty(
-                objectMatrix,
-                name,
-                isRequired,
-                ref: data,
-              ),
-              ipld: (data) => data.when(
-                bytes: (data) => _writeObjectProperty(
-                  objectMatrix,
-                  name,
-                  isRequired,
-                  type: data.type,
-                  description: data.description,
-                ),
-                cidLink: (data) => _writeObjectProperty(
-                  objectMatrix,
-                  name,
-                  isRequired,
-                  type: data.type,
-                  description: data.description,
-                ),
-              ),
-              array: (data) {
-                final ref = data.items.whenOrNull(refVariant: (data) => data);
-                final objectType = data.items.whenOrNull(
-                  primitive: (data) => data.when(
-                    boolean: (data) => data.type,
-                    integer: (data) => data.type,
-                    string: (data) => data.type,
-                    unknown: (data) => data.type,
-                  ),
-                  ipld: (data) => data.when(
-                    bytes: (data) => data.type,
-                    cidLink: (data) => data.type,
-                  ),
-                );
-
-                _writeObjectProperty(
-                  objectMatrix,
-                  name,
-                  isRequired,
-                  type: data.type,
-                  format: objectType,
-                  description: data.description,
-                  ref: ref,
-                );
-              },
-              blob: (data) => _writeObjectProperty(
-                objectMatrix,
-                name,
-                isRequired,
-                type: data.type,
-                description: data.description,
-              ),
-              primitive: (data) => data.when(
-                boolean: (data) => _writeObjectProperty(
-                  objectMatrix,
-                  name,
-                  isRequired,
-                  type: data.type,
-                  description: data.description,
-                ),
-                integer: (data) => _writeObjectProperty(
-                  objectMatrix,
-                  name,
-                  isRequired,
-                  type: data.type,
-                  description: data.description,
-                ),
-                string: (data) => _writeObjectProperty(
-                  objectMatrix,
-                  name,
-                  isRequired,
-                  type: data.type,
-                  format: data.format?.value,
-                  knownValues: data.knownValues,
-                  description: data.description,
-                ),
-                unknown: (data) => _writeObjectProperty(
-                  objectMatrix,
-                  name,
-                  isRequired,
-                  type: data.type,
-                  description: data.description,
-                ),
-              ),
+          final parameters = data.parameters;
+          if (parameters != null) {
+            _writeXrpcParameters(
+              objectMatrix,
+              parameters,
+              'Input',
             );
-          });
-        }
-      });
+          }
+
+          final message = data.message;
+          if (message != null) {
+            final schema = message.schema;
+            if (schema != null) {
+              _writeXrpcSchema(
+                objectMatrix,
+                schema,
+                message.description,
+                '',
+                'Output',
+              );
+            }
+          }
+        },
+        object: (data) => _writeObject(objectMatrix, data),
+      );
     });
 
     final nsidSegments = nsid.split('.');
@@ -188,6 +87,293 @@ void _writeObjectFiles(final List<LexiconDoc> lexiconDocs) {
       ..createSync(recursive: true)
       ..writeAsStringSync(objectMatrix.toString());
   });
+}
+
+void _writeRecord(
+  final StringBuffer objectMatrix,
+  final LexRecord data,
+) {
+  if (data.description != null) {
+    objectMatrix
+      ..writeln()
+      ..writeln(data.description);
+  }
+
+  _writeObject(objectMatrix, data.record);
+}
+
+void _writeXrpcQuery(
+  final StringBuffer objectMatrix,
+  final LexXrpcQuery data,
+) {
+  if (data.description != null) {
+    objectMatrix
+      ..writeln()
+      ..writeln(data.description);
+  }
+
+  final parameters = data.parameters;
+  if (parameters != null) {
+    _writeXrpcParameters(
+      objectMatrix,
+      parameters,
+      'Input',
+    );
+  }
+
+  final output = data.output;
+  if (output != null) {
+    final schema = output.schema;
+    if (schema != null) {
+      _writeXrpcSchema(
+        objectMatrix,
+        schema,
+        output.description,
+        output.encoding,
+        'Output',
+      );
+    }
+  }
+}
+
+void _writeXrpcProcedure(
+  final StringBuffer objectMatrix,
+  final LexXrpcProcedure data,
+) {
+  if (data.description != null) {
+    objectMatrix
+      ..writeln()
+      ..writeln(data.description);
+  }
+
+  final input = data.input;
+  if (input != null) {
+    final schema = input.schema;
+    if (schema != null) {
+      _writeXrpcSchema(
+        objectMatrix,
+        schema,
+        input.description,
+        input.encoding,
+        'Input',
+      );
+    }
+  }
+
+  final output = data.output;
+  if (output != null) {
+    final schema = output.schema;
+    if (schema != null) {
+      _writeXrpcSchema(
+        objectMatrix,
+        schema,
+        output.description,
+        output.encoding,
+        'Output',
+      );
+    }
+  }
+}
+
+void _writeXrpcParameters(
+  final StringBuffer objectMatrix,
+  final LexXrpcParameters data,
+  final String label,
+) {
+  final requiredProperties = data.requiredProperties ?? const [];
+
+  final properties = data.properties;
+  if (properties != null && properties.isNotEmpty) {
+    objectMatrix
+      ..writeln()
+      ..writeln('### $label');
+
+    if (data.description != null) {
+      objectMatrix
+        ..writeln()
+        ..writeln(data.description);
+    }
+
+    objectMatrix
+      ..writeln()
+      ..writeln(_tableHeader)
+      ..writeln(_tableDivider);
+
+    properties.forEach((name, property) {
+      final isRequired = requiredProperties.contains(name);
+
+      property.whenOrNull(
+        primitive: (data) => _writePrimitive(
+          objectMatrix,
+          data,
+          name,
+          isRequired,
+        ),
+      );
+    });
+  }
+}
+
+void _writeXrpcSchema(
+  final StringBuffer objectMatrix,
+  final LexXrpcSchema data,
+  final String? description,
+  final String encoding,
+  final String label,
+) {
+  objectMatrix.writeln();
+  if (encoding.isNotEmpty) {
+    objectMatrix.writeln('### $label ($encoding)');
+  } else {
+    objectMatrix.writeln('### $label');
+  }
+
+  if (description != null) {
+    objectMatrix
+      ..writeln()
+      ..writeln(description);
+  }
+
+  data.when(
+    refVariant: (data) => data,
+    object: (data) => _writeObject(objectMatrix, data),
+  );
+}
+
+void _writeObject(final StringBuffer objectMatrix, final LexObject data) {
+  if (data.description != null) {
+    objectMatrix
+      ..writeln()
+      ..writeln(data.description);
+  }
+
+  final requiredProperties = data.requiredProperties ?? const [];
+
+  final properties = data.properties;
+  if (properties != null) {
+    objectMatrix
+      ..writeln()
+      ..writeln(_tableHeader)
+      ..writeln(_tableDivider);
+
+    properties.forEach((name, property) {
+      final isRequired = requiredProperties.contains(name);
+
+      property.when(
+        refVariant: (data) => _writeObjectProperty(
+          objectMatrix,
+          name,
+          isRequired,
+          ref: data,
+        ),
+        ipld: (data) => data.when(
+          bytes: (data) => _writeObjectProperty(
+            objectMatrix,
+            name,
+            isRequired,
+            type: data.type,
+            description: data.description,
+          ),
+          cidLink: (data) => _writeObjectProperty(
+            objectMatrix,
+            name,
+            isRequired,
+            type: data.type,
+            description: data.description,
+          ),
+        ),
+        array: (data) => _writeArray(
+          objectMatrix,
+          data,
+          name,
+          isRequired,
+        ),
+        blob: (data) => _writeObjectProperty(
+          objectMatrix,
+          name,
+          isRequired,
+          type: data.type,
+          description: data.description,
+        ),
+        primitive: (data) => _writePrimitive(
+          objectMatrix,
+          data,
+          name,
+          isRequired,
+        ),
+      );
+    });
+  }
+}
+
+void _writePrimitive(
+  final StringBuffer objectMatrix,
+  final LexPrimitive data,
+  final String name,
+  final bool isRequired,
+) =>
+    data.when(
+      boolean: (data) => _writeObjectProperty(
+        objectMatrix,
+        name,
+        isRequired,
+        type: data.type,
+        description: data.description,
+      ),
+      integer: (data) => _writeObjectProperty(
+        objectMatrix,
+        name,
+        isRequired,
+        type: data.type,
+        description: data.description,
+      ),
+      string: (data) => _writeObjectProperty(
+        objectMatrix,
+        name,
+        isRequired,
+        type: data.type,
+        format: data.format?.value,
+        knownValues: data.knownValues,
+        description: data.description,
+      ),
+      unknown: (data) => _writeObjectProperty(
+        objectMatrix,
+        name,
+        isRequired,
+        type: data.type,
+        description: data.description,
+      ),
+    );
+
+void _writeArray(
+  final StringBuffer objectMatrix,
+  final LexArray data,
+  final String name,
+  final bool isRequired,
+) {
+  final ref = data.items.whenOrNull(refVariant: (data) => data);
+  final objectType = data.items.whenOrNull(
+    primitive: (data) => data.when(
+      boolean: (data) => data.type,
+      integer: (data) => data.type,
+      string: (data) => data.type,
+      unknown: (data) => data.type,
+    ),
+    ipld: (data) => data.when(
+      bytes: (data) => data.type,
+      cidLink: (data) => data.type,
+    ),
+  );
+
+  _writeObjectProperty(
+    objectMatrix,
+    name,
+    isRequired,
+    type: data.type,
+    format: objectType,
+    description: data.description,
+    ref: ref,
+  );
 }
 
 void _writeObjectProperty(
@@ -226,9 +412,9 @@ void _writeObjectProperty(
     );
 
     if (ref is ULexRefVariantRefUnion) {
-      buffer.write('| union of <br>$refType');
+      buffer.write('| union of <br>$refType ');
     } else {
-      buffer.write('| $refType');
+      buffer.write('| $refType ');
     }
   } else if (type != null) {
     buffer.write('| ${_toSpecReference(type)} ');
@@ -261,7 +447,7 @@ String _toSpecReference(final String type) => switch (type) {
       'handle' => '[$type]($_handleReference)',
       'at-uri' => '[$type]($_atUriReference)',
       'did' => '[$type]($_didReference)',
-      'cid' => '[$type]($_cidReference)',
+      'cid' || 'cid-link' => '[$type]($_cidReference)',
       'datetime' => '[$type]($_dateTimeReference)',
       'uri' => '[$type]($_uriReference)',
       'language' => '[$type]($_languageReference)',
@@ -269,7 +455,7 @@ String _toSpecReference(final String type) => switch (type) {
     };
 
 String _toRefLink(final String ref) {
-  if (ref.startsWith('#')) return '[$ref]($ref)';
+  if (ref.startsWith('#')) return '[$ref](${ref.toLowerCase()})';
 
   final pathAndObjectId = ref.split('#');
   final path = pathAndObjectId.first.split('.').sublist(0, 3).join('/');

@@ -52,6 +52,7 @@ List<LexiconDoc> get lexiconDocs {
 
       for (final lexicon in (service as Directory).listSync()) {
         if (lexicon is Directory) continue;
+        if (!lexicon.path.endsWith('.json')) continue;
 
         docs.add(_getLexiconDoc(lexicon as File));
       }
