@@ -500,7 +500,7 @@ String _toRefLink(final String ref) {
   final fileName = pathAndObjectId.first.split('.').sublist(3, 4).join();
   final objectId = pathAndObjectId.last.toLowerCase();
 
-  return '[$ref](../../../../lexicons$path/$fileName.md#$objectId)';
+  return '[$ref](../../../../lexicons/$path/$fileName.md#$objectId)';
 }
 
 Map<String, Map<String, LexUserType>> _getLexObjects(
