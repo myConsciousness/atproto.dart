@@ -14,4 +14,4 @@ Get details about a moderation event.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **ref** | [com.atproto.admin.defs#modEventViewDetail](../../../../lexiconscom/atproto/admin/defs.md#modeventviewdetail) | - | ✅ | - |
+| **ref** | [com.atproto.admin.defs#modEventViewDetail](../../../../lexicons/com/atproto/admin/defs.md#modeventviewdetail) | - | ✅ | - |

@@ -16,4 +16,4 @@ Find labels relevant to the provided URI patterns.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
-| **labels** | array of [com.atproto.label.defs#label](../../../../lexiconscom/atproto/label/defs.md#label) | - | ✅ | - |
+| **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ✅ | - |

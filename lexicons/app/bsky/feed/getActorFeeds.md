@@ -17,4 +17,4 @@ Get a list of feeds created by the actor.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
-| **feeds** | array of [app.bsky.feed.defs#generatorView](../../../../lexiconsapp/bsky/feed/defs.md#generatorview) | - | ✅ | - |
+| **feeds** | array of [app.bsky.feed.defs#generatorView](../../../../lexicons/app/bsky/feed/defs.md#generatorview) | - | ✅ | - |

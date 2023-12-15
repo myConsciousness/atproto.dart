@@ -19,4 +19,4 @@ Backend Actors (profile) search, returns only skeleton.
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
 | **hitsTotal** | integer | - | ❌ | Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits. |
-| **actors** | array of [app.bsky.unspecced.defs#skeletonSearchActor](../../../../lexiconsapp/bsky/unspecced/defs.md#skeletonsearchactor) | - | ✅ | - |
+| **actors** | array of [app.bsky.unspecced.defs#skeletonSearchActor](../../../../lexicons/app/bsky/unspecced/defs.md#skeletonsearchactor) | - | ✅ | - |

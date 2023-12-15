@@ -28,4 +28,4 @@ View moderation statuses of subjects (record or repo).
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
-| **subjectStatuses** | array of [com.atproto.admin.defs#subjectStatusView](../../../../lexiconscom/atproto/admin/defs.md#subjectstatusview) | - | ✅ | - |
+| **subjectStatuses** | array of [com.atproto.admin.defs#subjectStatusView](../../../../lexicons/com/atproto/admin/defs.md#subjectstatusview) | - | ✅ | - |

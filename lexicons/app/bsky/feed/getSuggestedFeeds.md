@@ -16,4 +16,4 @@ Get a list of suggested feeds for the viewer.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
-| **feeds** | array of [app.bsky.feed.defs#generatorView](../../../../lexiconsapp/bsky/feed/defs.md#generatorview) | - | ✅ | - |
+| **feeds** | array of [app.bsky.feed.defs#generatorView](../../../../lexicons/app/bsky/feed/defs.md#generatorview) | - | ✅ | - |

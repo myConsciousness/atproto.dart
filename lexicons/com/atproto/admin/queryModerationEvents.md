@@ -20,4 +20,4 @@ List moderation events related to a subject.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
-| **events** | array of [com.atproto.admin.defs#modEventView](../../../../lexiconscom/atproto/admin/defs.md#modeventview) | - | ✅ | - |
+| **events** | array of [com.atproto.admin.defs#modEventView](../../../../lexicons/com/atproto/admin/defs.md#modeventview) | - | ✅ | - |

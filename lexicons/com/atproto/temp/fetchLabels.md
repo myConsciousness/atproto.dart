@@ -15,4 +15,4 @@ Fetch all labels from a labeler created after a certain date.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **labels** | array of [com.atproto.label.defs#label](../../../../lexiconscom/atproto/label/defs.md#label) | - | ✅ | - |
+| **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ✅ | - |

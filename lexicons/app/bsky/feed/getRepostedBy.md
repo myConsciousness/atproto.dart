@@ -20,4 +20,4 @@ Get a list of reposts.
 | **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
 | **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
-| **repostedBy** | array of [app.bsky.actor.defs#profileView](../../../../lexiconsapp/bsky/actor/defs.md#profileview) | - | ✅ | - |
+| **repostedBy** | array of [app.bsky.actor.defs#profileView](../../../../lexicons/app/bsky/actor/defs.md#profileview) | - | ✅ | - |

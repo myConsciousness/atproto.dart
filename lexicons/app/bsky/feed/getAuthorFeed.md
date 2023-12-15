@@ -18,4 +18,4 @@ Get a view of an actor's feed.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
-| **feed** | array of [app.bsky.feed.defs#feedViewPost](../../../../lexiconsapp/bsky/feed/defs.md#feedviewpost) | - | ✅ | - |
+| **feed** | array of [app.bsky.feed.defs#feedViewPost](../../../../lexicons/app/bsky/feed/defs.md#feedviewpost) | - | ✅ | - |

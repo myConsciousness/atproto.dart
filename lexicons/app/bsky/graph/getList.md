@@ -17,5 +17,5 @@ Get a list of actors.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
-| **list** | [app.bsky.graph.defs#listView](../../../../lexiconsapp/bsky/graph/defs.md#listview) | - | ✅ | - |
-| **items** | array of [app.bsky.graph.defs#listItemView](../../../../lexiconsapp/bsky/graph/defs.md#listitemview) | - | ✅ | - |
+| **list** | [app.bsky.graph.defs#listView](../../../../lexicons/app/bsky/graph/defs.md#listview) | - | ✅ | - |
+| **items** | array of [app.bsky.graph.defs#listItemView](../../../../lexicons/app/bsky/graph/defs.md#listitemview) | - | ✅ | - |

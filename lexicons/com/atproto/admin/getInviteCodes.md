@@ -17,4 +17,4 @@ Get an admin view of invite codes.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
-| **codes** | array of [com.atproto.server.defs#inviteCode](../../../../lexiconscom/atproto/server/defs.md#invitecode) | - | ✅ | - |
+| **codes** | array of [com.atproto.server.defs#inviteCode](../../../../lexicons/com/atproto/server/defs.md#invitecode) | - | ✅ | - |

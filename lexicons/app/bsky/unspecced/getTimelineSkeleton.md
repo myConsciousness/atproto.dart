@@ -16,4 +16,4 @@ DEPRECATED: a skeleton of a timeline. Unspecced and will be unavailable soon.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
-| **feed** | array of [app.bsky.feed.defs#skeletonFeedPost](../../../../lexiconsapp/bsky/feed/defs.md#skeletonfeedpost) | - | ✅ | - |
+| **feed** | array of [app.bsky.feed.defs#skeletonFeedPost](../../../../lexicons/app/bsky/feed/defs.md#skeletonfeedpost) | - | ✅ | - |

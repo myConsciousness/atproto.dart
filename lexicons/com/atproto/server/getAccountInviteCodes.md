@@ -15,4 +15,4 @@ Get all invite codes for a given account.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **codes** | array of [com.atproto.server.defs#inviteCode](../../../../lexiconscom/atproto/server/defs.md#invitecode) | - | ✅ | - |
+| **codes** | array of [com.atproto.server.defs#inviteCode](../../../../lexicons/com/atproto/server/defs.md#invitecode) | - | ✅ | - |
