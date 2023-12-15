@@ -13,7 +13,7 @@
 | --- | --- | --- | :---: | --- |
 | **id** | integer | - | ✅ | - |
 | **event** | union of <br>[#modEventTakedown](#modeventtakedown)<br>[#modEventReverseTakedown](#modeventreversetakedown)<br>[#modEventComment](#modeventcomment)<br>[#modEventReport](#modeventreport)<br>[#modEventLabel](#modeventlabel)<br>[#modEventAcknowledge](#modeventacknowledge)<br>[#modEventEscalate](#modeventescalate)<br>[#modEventMute](#modeventmute)<br>[#modEventEmail](#modeventemail) | - | ✅ | - |
-| **subject** | union of <br>[#repoRef](#reporef)<br>[com.atproto.repo.strongRef](../../../../com/atproto/repo/strongRef.md#com.atproto.repo.strongRef) | - | ✅ | - |
+| **subject** | union of <br>[#repoRef](#reporef)<br>[com.atproto.repo.strongRef](../../../../lexiconscom/atproto/repo/strongRef.md#com.atproto.repo.strongref) | - | ✅ | - |
 | **subjectBlobCids** | array of string | - | ✅ | - |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
@@ -36,10 +36,10 @@
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **id** | integer | - | ✅ | - |
-| **reasonType** | [com.atproto.moderation.defs#reasonType](../../../../com/atproto/moderation/defs.md#reasonType) | - | ✅ | - |
+| **reasonType** | [com.atproto.moderation.defs#reasonType](../../../../lexiconscom/atproto/moderation/defs.md#reasontype) | - | ✅ | - |
 | **comment** | string | - | ❌ | - |
 | **subjectRepoHandle** | string | - | ❌ | - |
-| **subject** | union of <br>[#repoRef](#reporef)<br>[com.atproto.repo.strongRef](../../../../com/atproto/repo/strongRef.md#com.atproto.repo.strongRef) | - | ✅ | - |
+| **subject** | union of <br>[#repoRef](#reporef)<br>[com.atproto.repo.strongRef](../../../../lexiconscom/atproto/repo/strongRef.md#com.atproto.repo.strongref) | - | ✅ | - |
 | **reportedBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **resolvedByActionIds** | array of integer | - | ✅ | - |
@@ -49,7 +49,7 @@
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **id** | integer | - | ✅ | - |
-| **subject** | union of <br>[#repoRef](#reporef)<br>[com.atproto.repo.strongRef](../../../../com/atproto/repo/strongRef.md#com.atproto.repo.strongRef) | - | ✅ | - |
+| **subject** | union of <br>[#repoRef](#reporef)<br>[com.atproto.repo.strongRef](../../../../lexiconscom/atproto/repo/strongRef.md#com.atproto.repo.strongref) | - | ✅ | - |
 | **subjectBlobCids** | array of string | - | ❌ | - |
 | **subjectRepoHandle** | string | - | ❌ | - |
 | **updatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | Timestamp referencing when the last update was made to the moderation status of the subject |
@@ -68,13 +68,13 @@
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **id** | integer | - | ✅ | - |
-| **reasonType** | [com.atproto.moderation.defs#reasonType](../../../../com/atproto/moderation/defs.md#reasonType) | - | ✅ | - |
+| **reasonType** | [com.atproto.moderation.defs#reasonType](../../../../lexiconscom/atproto/moderation/defs.md#reasontype) | - | ✅ | - |
 | **comment** | string | - | ❌ | - |
 | **subject** | union of <br>[#repoView](#repoview)<br>[#repoViewNotFound](#repoviewnotfound)<br>[#recordView](#recordview)<br>[#recordViewNotFound](#recordviewnotfound) | - | ✅ | - |
-| **subjectStatus** | [com.atproto.admin.defs#subjectStatusView](../../../../com/atproto/admin/defs.md#subjectStatusView) | - | ❌ | - |
+| **subjectStatus** | [com.atproto.admin.defs#subjectStatusView](../../../../lexiconscom/atproto/admin/defs.md#subjectstatusview) | - | ❌ | - |
 | **reportedBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
-| **resolvedByActions** | array of [com.atproto.admin.defs#modEventView](../../../../com/atproto/admin/defs.md#modEventView) | - | ✅ | - |
+| **resolvedByActions** | array of [com.atproto.admin.defs#modEventView](../../../../lexiconscom/atproto/admin/defs.md#modeventview) | - | ✅ | - |
 
 ## #repoView
 
@@ -86,7 +86,7 @@
 | **relatedRecords** | array of unknown | - | ✅ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **moderation** | [#moderation](#moderation) | - | ✅ | - |
-| **invitedBy** | [com.atproto.server.defs#inviteCode](../../../../com/atproto/server/defs.md#inviteCode) | - | ❌ | - |
+| **invitedBy** | [com.atproto.server.defs#inviteCode](../../../../lexiconscom/atproto/server/defs.md#invitecode) | - | ❌ | - |
 | **invitesDisabled** | boolean | - | ❌ | - |
 | **inviteNote** | string | - | ❌ | - |
 
@@ -100,9 +100,9 @@
 | **relatedRecords** | array of unknown | - | ✅ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **moderation** | [#moderationDetail](#moderationdetail) | - | ✅ | - |
-| **labels** | array of [com.atproto.label.defs#label](../../../../com/atproto/label/defs.md#label) | - | ❌ | - |
-| **invitedBy** | [com.atproto.server.defs#inviteCode](../../../../com/atproto/server/defs.md#inviteCode) | - | ❌ | - |
-| **invites** | array of [com.atproto.server.defs#inviteCode](../../../../com/atproto/server/defs.md#inviteCode) | - | ❌ | - |
+| **labels** | array of [com.atproto.label.defs#label](../../../../lexiconscom/atproto/label/defs.md#label) | - | ❌ | - |
+| **invitedBy** | [com.atproto.server.defs#inviteCode](../../../../lexiconscom/atproto/server/defs.md#invitecode) | - | ❌ | - |
+| **invites** | array of [com.atproto.server.defs#inviteCode](../../../../lexiconscom/atproto/server/defs.md#invitecode) | - | ❌ | - |
 | **invitesDisabled** | boolean | - | ❌ | - |
 | **inviteNote** | string | - | ❌ | - |
 | **emailConfirmedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
@@ -115,8 +115,8 @@
 | **handle** | string ([handle](https://atproto.com/specs/handle)) | - | ✅ | - |
 | **email** | string | - | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
-| **invitedBy** | [com.atproto.server.defs#inviteCode](../../../../com/atproto/server/defs.md#inviteCode) | - | ❌ | - |
-| **invites** | array of [com.atproto.server.defs#inviteCode](../../../../com/atproto/server/defs.md#inviteCode) | - | ❌ | - |
+| **invitedBy** | [com.atproto.server.defs#inviteCode](../../../../lexiconscom/atproto/server/defs.md#invitecode) | - | ❌ | - |
+| **invites** | array of [com.atproto.server.defs#inviteCode](../../../../lexiconscom/atproto/server/defs.md#invitecode) | - | ❌ | - |
 | **invitesDisabled** | boolean | - | ❌ | - |
 | **emailConfirmedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **inviteNote** | string | - | ❌ | - |
@@ -161,7 +161,7 @@
 | **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ✅ | - |
 | **value** | unknown | - | ✅ | - |
 | **blobs** | array of [#blobView](#blobview) | - | ✅ | - |
-| **labels** | array of [com.atproto.label.defs#label](../../../../com/atproto/label/defs.md#label) | - | ❌ | - |
+| **labels** | array of [com.atproto.label.defs#label](../../../../lexiconscom/atproto/label/defs.md#label) | - | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **moderation** | [#moderationDetail](#moderationdetail) | - | ✅ | - |
 | **repo** | [#repoView](#repoview) | - | ✅ | - |
@@ -243,7 +243,7 @@ Report a subject
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **comment** | string | - | ❌ | - |
-| **reportType** | [com.atproto.moderation.defs#reasonType](../../../../com/atproto/moderation/defs.md#reasonType) | - | ✅ | - |
+| **reportType** | [com.atproto.moderation.defs#reasonType](../../../../lexiconscom/atproto/moderation/defs.md#reasontype) | - | ✅ | - |
 
 ## #modEventLabel
 

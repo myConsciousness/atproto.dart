@@ -17,4 +17,4 @@ Get a list of lists that belong to an actor.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
-| **lists** | array of [app.bsky.graph.defs#listView](../../../../app/bsky/graph/defs.md#listView) | - | ✅ | - |
+| **lists** | array of [app.bsky.graph.defs#listView](../../../../lexiconsapp/bsky/graph/defs.md#listview) | - | ✅ | - |

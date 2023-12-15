@@ -9,7 +9,7 @@
 | **displayName** | string | - | ❌ | - |
 | **avatar** | string | - | ❌ | - |
 | **viewer** | [#viewerState](#viewerstate) | - | ❌ | - |
-| **labels** | array of [com.atproto.label.defs#label](../../../../com/atproto/label/defs.md#label) | - | ❌ | - |
+| **labels** | array of [com.atproto.label.defs#label](../../../../lexiconscom/atproto/label/defs.md#label) | - | ❌ | - |
 
 ## #profileView
 
@@ -22,7 +22,7 @@
 | **avatar** | string | - | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **viewer** | [#viewerState](#viewerstate) | - | ❌ | - |
-| **labels** | array of [com.atproto.label.defs#label](../../../../com/atproto/label/defs.md#label) | - | ❌ | - |
+| **labels** | array of [com.atproto.label.defs#label](../../../../lexiconscom/atproto/label/defs.md#label) | - | ❌ | - |
 
 ## #profileViewDetailed
 
@@ -39,17 +39,17 @@
 | **postsCount** | integer | - | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **viewer** | [#viewerState](#viewerstate) | - | ❌ | - |
-| **labels** | array of [com.atproto.label.defs#label](../../../../com/atproto/label/defs.md#label) | - | ❌ | - |
+| **labels** | array of [com.atproto.label.defs#label](../../../../lexiconscom/atproto/label/defs.md#label) | - | ❌ | - |
 
 ## #viewerState
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **muted** | boolean | - | ❌ | - |
-| **mutedByList** | [app.bsky.graph.defs#listViewBasic](../../../../app/bsky/graph/defs.md#listViewBasic) | - | ❌ | - |
+| **mutedByList** | [app.bsky.graph.defs#listViewBasic](../../../../lexiconsapp/bsky/graph/defs.md#listviewbasic) | - | ❌ | - |
 | **blockedBy** | boolean | - | ❌ | - |
 | **blocking** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
-| **blockingByList** | [app.bsky.graph.defs#listViewBasic](../../../../app/bsky/graph/defs.md#listViewBasic) | - | ❌ | - |
+| **blockingByList** | [app.bsky.graph.defs#listViewBasic](../../../../lexiconsapp/bsky/graph/defs.md#listviewbasic) | - | ❌ | - |
 | **following** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
 | **followedBy** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
 

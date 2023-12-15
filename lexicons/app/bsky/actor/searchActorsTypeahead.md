@@ -16,4 +16,4 @@ Find actor suggestions for a prefix search term.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **actors** | array of [app.bsky.actor.defs#profileViewBasic](../../../../app/bsky/actor/defs.md#profileViewBasic) | - | ✅ | - |
+| **actors** | array of [app.bsky.actor.defs#profileViewBasic](../../../../lexiconsapp/bsky/actor/defs.md#profileviewbasic) | - | ✅ | - |

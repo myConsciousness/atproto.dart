@@ -14,4 +14,4 @@ Get details about a repository.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **ref** | [com.atproto.admin.defs#repoViewDetail](../../../../com/atproto/admin/defs.md#repoViewDetail) | - | ✅ | - |
+| **ref** | [com.atproto.admin.defs#repoViewDetail](../../../../lexiconscom/atproto/admin/defs.md#repoviewdetail) | - | ✅ | - |

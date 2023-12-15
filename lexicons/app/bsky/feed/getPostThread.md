@@ -16,4 +16,4 @@ Get posts in a thread.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **thread** | union of <br>[app.bsky.feed.defs#threadViewPost](../../../../app/bsky/feed/defs.md#threadViewPost)<br>[app.bsky.feed.defs#notFoundPost](../../../../app/bsky/feed/defs.md#notFoundPost)<br>[app.bsky.feed.defs#blockedPost](../../../../app/bsky/feed/defs.md#blockedPost) | - | ✅ | - |
+| **thread** | union of <br>[app.bsky.feed.defs#threadViewPost](../../../../lexiconsapp/bsky/feed/defs.md#threadviewpost)<br>[app.bsky.feed.defs#notFoundPost](../../../../lexiconsapp/bsky/feed/defs.md#notfoundpost)<br>[app.bsky.feed.defs#blockedPost](../../../../lexiconsapp/bsky/feed/defs.md#blockedpost) | - | ✅ | - |

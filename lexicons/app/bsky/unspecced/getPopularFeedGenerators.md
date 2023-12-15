@@ -17,4 +17,4 @@ An unspecced view of globally popular feed generators.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
-| **feeds** | array of [app.bsky.feed.defs#generatorView](../../../../app/bsky/feed/defs.md#generatorView) | - | ✅ | - |
+| **feeds** | array of [app.bsky.feed.defs#generatorView](../../../../lexiconsapp/bsky/feed/defs.md#generatorview) | - | ✅ | - |

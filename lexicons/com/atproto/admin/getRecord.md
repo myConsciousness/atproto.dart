@@ -15,4 +15,4 @@ Get details about a record.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **ref** | [com.atproto.admin.defs#recordViewDetail](../../../../com/atproto/admin/defs.md#recordViewDetail) | - | ✅ | - |
+| **ref** | [com.atproto.admin.defs#recordViewDetail](../../../../lexiconscom/atproto/admin/defs.md#recordviewdetail) | - | ✅ | - |

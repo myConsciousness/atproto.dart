@@ -18,4 +18,4 @@ Find repositories based on a search term.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
-| **repos** | array of [com.atproto.admin.defs#repoView](../../../../com/atproto/admin/defs.md#repoView) | - | ✅ | - |
+| **repos** | array of [com.atproto.admin.defs#repoView](../../../../lexiconscom/atproto/admin/defs.md#repoview) | - | ✅ | - |

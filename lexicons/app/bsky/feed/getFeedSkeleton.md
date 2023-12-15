@@ -17,4 +17,4 @@ Get a skeleton of a feed provided by a feed generator.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
-| **feed** | array of [app.bsky.feed.defs#skeletonFeedPost](../../../../app/bsky/feed/defs.md#skeletonFeedPost) | - | ✅ | - |
+| **feed** | array of [app.bsky.feed.defs#skeletonFeedPost](../../../../lexiconsapp/bsky/feed/defs.md#skeletonfeedpost) | - | ✅ | - |

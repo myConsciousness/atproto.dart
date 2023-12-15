@@ -16,5 +16,5 @@ Get the service-specific admin status of a subject (account, record, or blob).
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **subject** | union of <br>[com.atproto.admin.defs#repoRef](../../../../com/atproto/admin/defs.md#repoRef)<br>[com.atproto.repo.strongRef](../../../../com/atproto/repo/strongRef.md#com.atproto.repo.strongRef)<br>[com.atproto.admin.defs#repoBlobRef](../../../../com/atproto/admin/defs.md#repoBlobRef) | - | ✅ | - |
-| **takedown** | [com.atproto.admin.defs#statusAttr](../../../../com/atproto/admin/defs.md#statusAttr) | - | ❌ | - |
+| **subject** | union of <br>[com.atproto.admin.defs#repoRef](../../../../lexiconscom/atproto/admin/defs.md#reporef)<br>[com.atproto.repo.strongRef](../../../../lexiconscom/atproto/repo/strongRef.md#com.atproto.repo.strongref)<br>[com.atproto.admin.defs#repoBlobRef](../../../../lexiconscom/atproto/admin/defs.md#repoblobref) | - | ✅ | - |
+| **takedown** | [com.atproto.admin.defs#statusAttr](../../../../lexiconscom/atproto/admin/defs.md#statusattr) | - | ❌ | - |

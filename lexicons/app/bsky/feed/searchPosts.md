@@ -18,4 +18,4 @@ Find posts matching search criteria.
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
 | **hitsTotal** | integer | - | ❌ | Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits. |
-| **posts** | array of [app.bsky.feed.defs#postView](../../../../app/bsky/feed/defs.md#postView) | - | ✅ | - |
+| **posts** | array of [app.bsky.feed.defs#postView](../../../../lexiconsapp/bsky/feed/defs.md#postview) | - | ✅ | - |
