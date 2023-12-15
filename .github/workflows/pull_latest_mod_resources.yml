@@ -3,7 +3,7 @@ name: Pull Latest Moderation Resources
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 */12 * * *"
+    - cron: "0 */3 * * *"
 
 jobs:
   pull-mod-resources:
@@ -47,10 +47,7 @@ jobs:
           cd ../../
 
       - name: Format
-        run: |
-          cd packages/bluesky
-          dart format .
-          cd ../../
+        run: dart format packages/bluesky
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3

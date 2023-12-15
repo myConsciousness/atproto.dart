@@ -53,11 +53,8 @@ jobs:
 
       - name: Format
         run: |
-          cd packages/atproto
-          dart format .
-          cd ../bluesky
-          dart format .
-          cd ../../
+          dart format packages/atproto
+          dart format packages/bluesky
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3

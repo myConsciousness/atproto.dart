@@ -3,13 +3,10 @@ name: CICD
 on:
   workflow_dispatch:
   pull_request:
-    paths-ignore:
-      - "**.md"
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - "**.md"
+    paths:
+       - 'packages/*/lib/**'
+       - 'packages/*/test/**'
+       - 'packages/*/pubspec.yaml'
   schedule:
     - cron: "0 10 * * *"
 
@@ -35,8 +32,8 @@ jobs:
           - packages/atproto_core
           - packages/did_plc
           - packages/atproto
-          - packages/bluesky_text
           - packages/bluesky
+          - packages/bluesky_text
 
     steps:
       - uses: actions/checkout@v3.1.0
