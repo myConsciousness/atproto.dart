@@ -130,13 +130,13 @@ melos setup
 
 The following projects/services are using atproto.dart packages:
 
-- **[APOD BOT](https://bsky.app/profile/apod.shinyakato.dev)** maintained by [shinyakato.dev](https://bsky.app/profile/shinyakato.dev)
-- **[SkyFeed](https://skyfeed.app)** maintained by [redsolver.dev](https://bsky.app/profile/redsolver.dev)
-- **[SkyBridge](https://skybridge.fly.dev)** maintained by [videah.net](https://bsky.app/profile/videah.net)
-- **[SkyClad](https://github.com/igz0/skyclad)** maintained by [igz0.bsky.social](https://bsky.app/profile/igz0.bsky.social)
-- **[deck.blue](https://deck.blue)** maintained by [deck.blue](https://bsky.app/profile/deck.blue)
+- **[APOD BOT](https://bsky.app/profile/apod.shinyakato.dev)** (bot) maintained by [@shinyakato.dev](https://bsky.app/profile/shinyakato.dev)
+- **[SkyFeed](https://skyfeed.app)** (web) maintained by [@redsolver.dev](https://bsky.app/profile/redsolver.dev)
+- **[SkyBridge](https://skybridge.fly.dev)** (proxy) maintained by [@videah.net](https://bsky.app/profile/videah.net)
+- **[SkyClad](https://github.com/igz0/skyclad)** (mobile) maintained by [@igz0.bsky.social](https://bsky.app/profile/igz0.bsky.social)
+- **[deck.blue](https://deck.blue)** (web) maintained by [@deck.blue](https://bsky.app/profile/deck.blue)
 
-You can see more at [showcase](https://atprotodart.com/showcase)!
+You can see more at [showcase](https://atprotodart.com/showcase), special thanks!
 
 ## 5. Contribution 🏆
 

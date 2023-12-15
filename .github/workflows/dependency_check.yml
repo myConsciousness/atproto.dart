@@ -1,7 +1,10 @@
 name: Dependency Check
 
 on:
+  workflow_dispatch:
   pull_request:
+    paths:
+       - 'packages/*/pubspec.yaml'
 
 jobs:
   validate:
