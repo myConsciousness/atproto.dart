@@ -142,7 +142,7 @@ class _$UThreadRuleMentionImpl extends UThreadRuleMention {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UThreadRuleMentionImpl &&
@@ -301,7 +301,7 @@ class _$UThreadRuleFollowingImpl extends UThreadRuleFollowing {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UThreadRuleFollowingImpl &&
@@ -461,7 +461,7 @@ class _$UThreadRuleListImpl extends UThreadRuleList {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UThreadRuleListImpl &&
@@ -617,7 +617,7 @@ class _$UThreadRuleUnknownImpl extends UThreadRuleUnknown {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UThreadRuleUnknownImpl &&

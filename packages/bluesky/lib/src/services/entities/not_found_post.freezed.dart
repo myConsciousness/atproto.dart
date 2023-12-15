@@ -164,7 +164,7 @@ class _$NotFoundPostImpl implements _NotFoundPost {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NotFoundPostImpl &&

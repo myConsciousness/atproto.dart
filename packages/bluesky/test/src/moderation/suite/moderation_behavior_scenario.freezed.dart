@@ -230,7 +230,7 @@ class _$ModerationBehaviorScenarioImpl implements _ModerationBehaviorScenario {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ModerationBehaviorScenarioImpl &&

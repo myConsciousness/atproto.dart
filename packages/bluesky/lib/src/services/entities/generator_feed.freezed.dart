@@ -116,7 +116,7 @@ class _$GeneratorFeedImpl implements _GeneratorFeed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GeneratorFeedImpl &&

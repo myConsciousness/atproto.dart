@@ -149,7 +149,7 @@ class _$ModerationCauseBlockOtherImpl implements _ModerationCauseBlockOther {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ModerationCauseBlockOtherImpl &&
