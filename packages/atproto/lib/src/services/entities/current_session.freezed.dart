@@ -209,7 +209,7 @@ class _$CurrentSessionImpl implements _CurrentSession {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CurrentSessionImpl &&

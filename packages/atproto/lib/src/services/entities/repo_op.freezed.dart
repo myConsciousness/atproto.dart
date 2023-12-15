@@ -188,7 +188,7 @@ class _$RepoOpImpl implements _RepoOp {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RepoOpImpl &&

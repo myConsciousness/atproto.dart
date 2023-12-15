@@ -161,7 +161,7 @@ class _$USubscribedLabelLabelsImpl implements USubscribedLabelLabels {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$USubscribedLabelLabelsImpl &&
@@ -332,7 +332,7 @@ class _$USubscribedLabelInfoImpl implements USubscribedLabelInfo {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$USubscribedLabelInfoImpl &&
@@ -502,7 +502,7 @@ class _$USubscribedLabelUnknownImpl implements USubscribedLabelUnknown {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$USubscribedLabelUnknownImpl &&

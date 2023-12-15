@@ -179,7 +179,7 @@ class _$BlobImpl implements _Blob {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BlobImpl &&

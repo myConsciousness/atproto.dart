@@ -137,7 +137,7 @@ class _$UReportSubjectRepoRefImpl extends UReportSubjectRepoRef {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UReportSubjectRepoRefImpl &&
@@ -292,7 +292,7 @@ class _$UReportSubjectStrongRefImpl extends UReportSubjectStrongRef {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UReportSubjectStrongRefImpl &&
@@ -443,7 +443,7 @@ class _$UReportSubjectUnknownImpl extends UReportSubjectUnknown {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UReportSubjectUnknownImpl &&

@@ -129,7 +129,7 @@ class _$ULabelsSelLabelsImpl extends ULabelsSelLabels {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULabelsSelLabelsImpl &&
@@ -273,7 +273,7 @@ class _$ULabelsUnknownImpl extends ULabelsUnknown {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULabelsUnknownImpl &&
