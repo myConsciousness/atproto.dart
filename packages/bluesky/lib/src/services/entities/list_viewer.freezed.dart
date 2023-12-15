@@ -140,7 +140,7 @@ class _$ListViewerImpl extends _ListViewer {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ListViewerImpl &&

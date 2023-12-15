@@ -160,7 +160,7 @@ class _$ContentLabelPreferenceImpl implements _ContentLabelPreference {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ContentLabelPreferenceImpl &&

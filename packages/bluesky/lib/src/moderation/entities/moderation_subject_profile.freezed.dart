@@ -137,7 +137,7 @@ class _$UModerationSubjectProfileActorImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UModerationSubjectProfileActorImpl &&
@@ -292,7 +292,7 @@ class _$UModerationSubjectProfileActorProfileImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UModerationSubjectProfileActorProfileImpl &&

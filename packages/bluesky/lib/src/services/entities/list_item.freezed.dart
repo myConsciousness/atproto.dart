@@ -145,7 +145,7 @@ class _$ListItemImpl implements _ListItem {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ListItemImpl &&

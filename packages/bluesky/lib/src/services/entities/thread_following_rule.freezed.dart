@@ -117,7 +117,7 @@ class _$ThreadFollowingRuleImpl implements _ThreadFollowingRule {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ThreadFollowingRuleImpl &&

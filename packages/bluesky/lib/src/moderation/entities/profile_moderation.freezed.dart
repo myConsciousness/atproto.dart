@@ -204,7 +204,7 @@ class _$ProfileModerationImpl implements _ProfileModeration {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProfileModerationImpl &&
