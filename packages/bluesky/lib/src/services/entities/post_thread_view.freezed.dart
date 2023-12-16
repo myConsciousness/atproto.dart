@@ -143,7 +143,7 @@ class _$UPostThreadViewRecordImpl implements UPostThreadViewRecord {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UPostThreadViewRecordImpl &&
@@ -303,7 +303,7 @@ class _$UPostThreadViewNotFoundImpl implements UPostThreadViewNotFound {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UPostThreadViewNotFoundImpl &&
@@ -463,7 +463,7 @@ class _$UPostThreadViewBlockedImpl implements UPostThreadViewBlocked {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UPostThreadViewBlockedImpl &&
@@ -619,7 +619,7 @@ class _$UPostThreadViewUnknownImpl implements UPostThreadViewUnknown {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UPostThreadViewUnknownImpl &&

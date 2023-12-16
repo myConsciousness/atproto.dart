@@ -158,7 +158,7 @@ class _$UEmbedViewRecordViewRecordImpl implements UEmbedViewRecordViewRecord {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UEmbedViewRecordViewRecordImpl &&
@@ -334,7 +334,7 @@ class _$UEmbedViewRecordViewNotFoundImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UEmbedViewRecordViewNotFoundImpl &&
@@ -511,7 +511,7 @@ class _$UEmbedViewRecordViewBlockedImpl implements UEmbedViewRecordViewBlocked {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UEmbedViewRecordViewBlockedImpl &&
@@ -687,7 +687,7 @@ class _$UEmbedViewRecordViewGeneratorViewImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UEmbedViewRecordViewGeneratorViewImpl &&
@@ -866,7 +866,7 @@ class _$UEmbedViewRecordViewListViewImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UEmbedViewRecordViewListViewImpl &&
@@ -1039,7 +1039,7 @@ class _$UEmbedViewRecordViewUnknownImpl implements UEmbedViewRecordViewUnknown {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UEmbedViewRecordViewUnknownImpl &&

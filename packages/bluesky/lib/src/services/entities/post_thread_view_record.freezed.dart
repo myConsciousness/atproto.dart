@@ -221,7 +221,7 @@ class _$PostThreadViewRecordImpl implements _PostThreadViewRecord {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PostThreadViewRecordImpl &&
