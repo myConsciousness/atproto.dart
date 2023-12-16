@@ -10,6 +10,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'actor.dart';
 import 'actor_viewer.dart';
 import 'defaults.dart';
 
@@ -56,6 +57,9 @@ class ActorBasic with _$ActorBasic {
   /// this class.
   factory ActorBasic.fromJson(Map<String, Object?> json) =>
       _$ActorBasicFromJson(json);
+
+  /// Returns the [Actor] representation of this object.
+  Actor toActor() => Actor.fromJson(toJson());
 
   /// Returns true if authenticated user has muted this actor,
   /// otherwise false.
