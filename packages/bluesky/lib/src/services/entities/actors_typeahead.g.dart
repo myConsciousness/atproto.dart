@@ -8,25 +8,23 @@ part of 'actors_typeahead.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorsTypeaheadImpl _$$ActorsTypeaheadImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ActorsTypeaheadImpl',
+_$_ActorsTypeahead _$$_ActorsTypeaheadFromJson(Map json) => $checkedCreate(
+      r'_$_ActorsTypeahead',
       json,
       ($checkedConvert) {
-        final val = _$ActorsTypeaheadImpl(
+        final val = _$_ActorsTypeahead(
           actors: $checkedConvert(
               'actors',
               (v) => (v as List<dynamic>)
                   .map((e) =>
-                      Actor.fromJson(Map<String, Object?>.from(e as Map)))
+                      ActorBasic.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$ActorsTypeaheadImplToJson(
-        _$ActorsTypeaheadImpl instance) =>
+Map<String, dynamic> _$$_ActorsTypeaheadToJson(_$_ActorsTypeahead instance) =>
     <String, dynamic>{
       'actors': instance.actors.map((e) => e.toJson()).toList(),
     };
