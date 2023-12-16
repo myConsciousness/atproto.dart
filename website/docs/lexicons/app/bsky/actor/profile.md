@@ -13,6 +13,6 @@ A declaration of a profile.
 | --- | --- | --- | :---: | --- |
 | **displayName** | string | - | ❌ | - |
 | **description** | string | - | ❌ | - |
-| **avatar** | blob | - | ❌ | - |
-| **banner** | blob | - | ❌ | - |
+| **avatar** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ❌ | - |
+| **banner** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ❌ | - |
 | **labels** | union of <br/>[com.atproto.label.defs#selfLabels](../../../../lexicons/com/atproto/label/defs.md#selflabels) | - | ❌ | - |

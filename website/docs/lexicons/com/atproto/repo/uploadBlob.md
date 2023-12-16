@@ -13,4 +13,4 @@ Upload a new blob to be added to repo in a later request.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **blob** | blob | - | ✅ | - |
+| **blob** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ✅ | - |

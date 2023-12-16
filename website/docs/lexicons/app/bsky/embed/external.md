@@ -18,7 +18,7 @@ description: app.bsky.embed.external
 | **uri** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | - |
 | **title** | string | - | ✅ | - |
 | **description** | string | - | ✅ | - |
-| **thumb** | blob | - | ❌ | - |
+| **thumb** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ❌ | - |
 
 ## #view
 
