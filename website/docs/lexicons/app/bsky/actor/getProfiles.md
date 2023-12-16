@@ -13,6 +13,7 @@ Get detailed profile views of multiple actors.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **actors** | array of [at-identifier](https://atproto.com/specs/lexicon#at-identifier) | - | ✅ | - |
 
 ### Output (application/json)
 

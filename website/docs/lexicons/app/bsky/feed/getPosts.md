@@ -13,6 +13,7 @@ Get a view of an actor's feed.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **uris** | array of [at-uri](https://atproto.com/specs/at-uri-scheme) | - | ✅ | - |
 
 ### Output (application/json)
 

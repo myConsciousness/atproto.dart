@@ -14,3 +14,4 @@ Get blocks from a given repo.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | The DID of the repo. |
+| **cids** | array of [cid](https://atproto.com/specs/repository#cid-formats) | - | ✅ | - |

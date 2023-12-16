@@ -241,7 +241,13 @@ void _writeXrpcParameters(
     properties.forEach((name, property) {
       final isRequired = requiredProperties.contains(name);
 
-      property.whenOrNull(
+      property.when(
+        primitiveArray: (data) => _writePrimitiveArray(
+          objectMatrix,
+          data.items,
+          name,
+          isRequired,
+        ),
         primitive: (data) => _writePrimitive(
           objectMatrix,
           data,
@@ -391,6 +397,48 @@ void _writePrimitive(
         isRequired: isRequired,
         type: data.type,
         description: data.description,
+      ),
+    );
+
+void _writePrimitiveArray(
+  final StringBuffer objectMatrix,
+  final LexPrimitive data,
+  final String name,
+  final bool isRequired,
+) =>
+    data.when(
+      boolean: (data) => _writeObjectProperty(
+        objectMatrix,
+        property: name,
+        isRequired: isRequired,
+        type: 'array',
+        description: data.description,
+        format: data.type,
+      ),
+      integer: (data) => _writeObjectProperty(
+        objectMatrix,
+        property: name,
+        isRequired: isRequired,
+        type: 'array',
+        description: data.description,
+        format: data.type,
+      ),
+      string: (data) => _writeObjectProperty(
+        objectMatrix,
+        property: name,
+        isRequired: isRequired,
+        type: 'array',
+        format: data.format?.value,
+        knownValues: data.knownValues,
+        description: data.description,
+      ),
+      unknown: (data) => _writeObjectProperty(
+        objectMatrix,
+        property: name,
+        isRequired: isRequired,
+        type: 'array',
+        description: data.description,
+        format: data.type,
       ),
     );
 

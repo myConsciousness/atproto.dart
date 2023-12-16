@@ -13,6 +13,7 @@ List moderation events related to a subject.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **types** | array | - | ❌ | - |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ❌ | - |
 | **sortDirection** | string | - | ❌ | Sort direction for the events. Defaults to descending order of created at timestamp. |
 | **subject** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |

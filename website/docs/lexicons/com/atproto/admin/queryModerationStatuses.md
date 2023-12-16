@@ -21,6 +21,7 @@ View moderation statuses of subjects (record or repo).
 | **reviewedBefore** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Search subjects reviewed before a given timestamp |
 | **includeMuted** | boolean | - | ❌ | By default, we don't include muted subjects in the results. Set this to true to include them. |
 | **reviewState** | string | - | ❌ | Specify when fetching subjects in a certain state |
+| **ignoreSubjects** | array of [uri](https://atproto.com/specs/lexicon#uri) | - | ❌ | - |
 | **lastReviewedBy** | string ([did](https://atproto.com/specs/did)) | - | ❌ | Get all subject statuses that were reviewed by a specific moderator |
 | **sortField** | string | - | ❌ | - |
 | **sortDirection** | string | - | ❌ | - |

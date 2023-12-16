@@ -13,6 +13,8 @@ Find labels relevant to the provided URI patterns.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **uriPatterns** | array | - | ✅ | - |
+| **sources** | array of [did](https://atproto.com/specs/did) | - | ❌ | - |
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
 
