@@ -8,7 +8,9 @@ import 'package:lexicon/lexicon.dart';
 
 import 'utils.dart' as utils;
 
-const _matrixRoot = 'lexicons';
+const _matrixRoots = [
+  'website/docs/lexicons',
+];
 
 const _atIdentifierReference =
     'https://atproto.com/specs/lexicon#at-identifier';
@@ -34,7 +36,14 @@ void _writeFiles(final List<LexiconDoc> lexiconDocs) {
   final objects = _getLexObjects(lexiconDocs);
 
   objects.forEach((nsid, defs) {
-    final objectMatrix = StringBuffer()..writeln('# $nsid');
+    final title = nsid.split('.').last;
+    final objectMatrix = StringBuffer()
+      ..writeln('---')
+      ..writeln('title: $title')
+      ..writeln('description: $nsid')
+      ..writeln('---')
+      ..writeln()
+      ..writeln('# $nsid');
 
     defs.forEach((id, def) {
       objectMatrix
@@ -55,9 +64,11 @@ void _writeFiles(final List<LexiconDoc> lexiconDocs) {
     final path = nsidSegments.sublist(0, 3).join('/');
     final fileName = nsidSegments.last;
 
-    File('$_matrixRoot/$path/$fileName.md')
-      ..createSync(recursive: true)
-      ..writeAsStringSync(objectMatrix.toString());
+    for (final root in _matrixRoots) {
+      File('$root/$path/$fileName.md')
+        ..createSync(recursive: true)
+        ..writeAsStringSync(objectMatrix.toString());
+    }
   });
 }
 
@@ -435,22 +446,22 @@ void _writeObjectProperty(
   } else if (type == 'array' && ref != null) {
     final refType = ref.when(
       ref: (data) => _toRefLink(data.ref!),
-      refUnion: (data) => data.refs!.map(_toRefLink).join('<br>'),
+      refUnion: (data) => data.refs!.map(_toRefLink).join('<br/>'),
     );
 
     if (ref is ULexRefVariantRefUnion) {
-      buffer.write('| $type of union<br>$refType ');
+      buffer.write('| $type of union<br/>$refType ');
     } else {
       buffer.write('| $type of $refType ');
     }
   } else if (ref != null) {
     final refType = ref.when(
       ref: (data) => _toRefLink(data.ref!),
-      refUnion: (data) => data.refs!.map(_toRefLink).join('<br>'),
+      refUnion: (data) => data.refs!.map(_toRefLink).join('<br/>'),
     );
 
     if (ref is ULexRefVariantRefUnion) {
-      buffer.write('| union of <br>$refType ');
+      buffer.write('| union of <br/>$refType ');
     } else {
       buffer.write('| $refType ');
     }
@@ -461,7 +472,7 @@ void _writeObjectProperty(
   }
 
   if (knownValues != null) {
-    buffer.write('| ${knownValues.join('<br>')} ');
+    buffer.write('| ${knownValues.join('<br/>')} ');
   } else {
     buffer.write('| - ');
   }
