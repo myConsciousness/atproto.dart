@@ -103,7 +103,7 @@ const config = {
             position: "left",
           },
           {
-            to: "/docs/lexicons/index",
+            to: "/docs/lexicons/overview",
             label: "Lexicons Matrix",
             position: "left",
           },

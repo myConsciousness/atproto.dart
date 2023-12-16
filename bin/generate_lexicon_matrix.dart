@@ -8,9 +8,7 @@ import 'package:lexicon/lexicon.dart';
 
 import 'utils.dart' as utils;
 
-const _matrixRoots = [
-  'website/docs/lexicons',
-];
+const _matrixRoot = 'website/docs/lexicons';
 
 const _atIdentifierReference =
     'https://atproto.com/specs/lexicon#at-identifier';
@@ -35,7 +33,18 @@ void main(List<String> args) {
 void _writeFiles(final List<LexiconDoc> lexiconDocs) {
   final objects = _getLexObjects(lexiconDocs);
 
+  final index = StringBuffer()
+    ..writeln('---')
+    ..writeln('sidebar_position: 1')
+    ..writeln('title: Overview')
+    ..writeln('description: Lexicon Matrix Overview')
+    ..writeln('---');
+
   objects.forEach((nsid, defs) {
+    index
+      ..writeln()
+      ..writeln('- $nsid');
+
     final title = nsid.split('.').last;
     final objectMatrix = StringBuffer()
       ..writeln('---')
@@ -46,6 +55,8 @@ void _writeFiles(final List<LexiconDoc> lexiconDocs) {
       ..writeln('# $nsid');
 
     defs.forEach((id, def) {
+      index.writeln('  - $id');
+
       objectMatrix
         ..writeln()
         ..writeln('## #$id');
@@ -64,11 +75,11 @@ void _writeFiles(final List<LexiconDoc> lexiconDocs) {
     final path = nsidSegments.sublist(0, 3).join('/');
     final fileName = nsidSegments.last;
 
-    for (final root in _matrixRoots) {
-      File('$root/$path/$fileName.md')
-        ..createSync(recursive: true)
-        ..writeAsStringSync(objectMatrix.toString());
-    }
+    File('$_matrixRoot/$path/$fileName.md')
+      ..createSync(recursive: true)
+      ..writeAsStringSync(objectMatrix.toString());
+
+    File('$_matrixRoot/overview.md').writeAsStringSync(index.toString());
   });
 }
 
