@@ -102,6 +102,11 @@ const config = {
             label: "API Support",
             position: "left",
           },
+          {
+            to: "/docs/category/lexicons-matrix",
+            label: "Lexicons Matrix",
+            position: "left",
+          },
           { to: "showcase", label: "Showcase", position: "left" },
           // { to: "/blog", label: "Blog", position: "left" },
           {
