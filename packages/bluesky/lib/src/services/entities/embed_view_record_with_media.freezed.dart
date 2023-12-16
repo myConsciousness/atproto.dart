@@ -105,12 +105,12 @@ class _$EmbedViewRecordWithMediaCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$EmbedViewRecordWithMediaImplCopyWith<$Res>
+abstract class _$$_EmbedViewRecordWithMediaCopyWith<$Res>
     implements $EmbedViewRecordWithMediaCopyWith<$Res> {
-  factory _$$EmbedViewRecordWithMediaImplCopyWith(
-          _$EmbedViewRecordWithMediaImpl value,
-          $Res Function(_$EmbedViewRecordWithMediaImpl) then) =
-      __$$EmbedViewRecordWithMediaImplCopyWithImpl<$Res>;
+  factory _$$_EmbedViewRecordWithMediaCopyWith(
+          _$_EmbedViewRecordWithMedia value,
+          $Res Function(_$_EmbedViewRecordWithMedia) then) =
+      __$$_EmbedViewRecordWithMediaCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -125,13 +125,12 @@ abstract class _$$EmbedViewRecordWithMediaImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$EmbedViewRecordWithMediaImplCopyWithImpl<$Res>
+class __$$_EmbedViewRecordWithMediaCopyWithImpl<$Res>
     extends _$EmbedViewRecordWithMediaCopyWithImpl<$Res,
-        _$EmbedViewRecordWithMediaImpl>
-    implements _$$EmbedViewRecordWithMediaImplCopyWith<$Res> {
-  __$$EmbedViewRecordWithMediaImplCopyWithImpl(
-      _$EmbedViewRecordWithMediaImpl _value,
-      $Res Function(_$EmbedViewRecordWithMediaImpl) _then)
+        _$_EmbedViewRecordWithMedia>
+    implements _$$_EmbedViewRecordWithMediaCopyWith<$Res> {
+  __$$_EmbedViewRecordWithMediaCopyWithImpl(_$_EmbedViewRecordWithMedia _value,
+      $Res Function(_$_EmbedViewRecordWithMedia) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -141,7 +140,7 @@ class __$$EmbedViewRecordWithMediaImplCopyWithImpl<$Res>
     Object? record = null,
     Object? media = null,
   }) {
-    return _then(_$EmbedViewRecordWithMediaImpl(
+    return _then(_$_EmbedViewRecordWithMedia(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -160,14 +159,14 @@ class __$$EmbedViewRecordWithMediaImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$EmbedViewRecordWithMediaImpl implements _EmbedViewRecordWithMedia {
-  const _$EmbedViewRecordWithMediaImpl(
+class _$_EmbedViewRecordWithMedia implements _EmbedViewRecordWithMedia {
+  const _$_EmbedViewRecordWithMedia(
       {@typeKey required this.type,
       required this.record,
       @embedViewMediaConverter required this.media});
 
-  factory _$EmbedViewRecordWithMediaImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EmbedViewRecordWithMediaImplFromJson(json);
+  factory _$_EmbedViewRecordWithMedia.fromJson(Map<String, dynamic> json) =>
+      _$$_EmbedViewRecordWithMediaFromJson(json);
 
   /// Specifies the type of record.
   @override
@@ -189,10 +188,10 @@ class _$EmbedViewRecordWithMediaImpl implements _EmbedViewRecordWithMedia {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EmbedViewRecordWithMediaImpl &&
+            other is _$_EmbedViewRecordWithMedia &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.record, record) || other.record == record) &&
             (identical(other.media, media) || other.media == media));
@@ -205,13 +204,13 @@ class _$EmbedViewRecordWithMediaImpl implements _EmbedViewRecordWithMedia {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$EmbedViewRecordWithMediaImplCopyWith<_$EmbedViewRecordWithMediaImpl>
-      get copyWith => __$$EmbedViewRecordWithMediaImplCopyWithImpl<
-          _$EmbedViewRecordWithMediaImpl>(this, _$identity);
+  _$$_EmbedViewRecordWithMediaCopyWith<_$_EmbedViewRecordWithMedia>
+      get copyWith => __$$_EmbedViewRecordWithMediaCopyWithImpl<
+          _$_EmbedViewRecordWithMedia>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$EmbedViewRecordWithMediaImplToJson(
+    return _$$_EmbedViewRecordWithMediaToJson(
       this,
     );
   }
@@ -222,10 +221,10 @@ abstract class _EmbedViewRecordWithMedia implements EmbedViewRecordWithMedia {
           {@typeKey required final String type,
           required final EmbedViewRecord record,
           @embedViewMediaConverter required final EmbedViewMedia media}) =
-      _$EmbedViewRecordWithMediaImpl;
+      _$_EmbedViewRecordWithMedia;
 
   factory _EmbedViewRecordWithMedia.fromJson(Map<String, dynamic> json) =
-      _$EmbedViewRecordWithMediaImpl.fromJson;
+      _$_EmbedViewRecordWithMedia.fromJson;
 
   @override
 
@@ -243,6 +242,6 @@ abstract class _EmbedViewRecordWithMedia implements EmbedViewRecordWithMedia {
   EmbedViewMedia get media;
   @override
   @JsonKey(ignore: true)
-  _$$EmbedViewRecordWithMediaImplCopyWith<_$EmbedViewRecordWithMediaImpl>
+  _$$_EmbedViewRecordWithMediaCopyWith<_$_EmbedViewRecordWithMedia>
       get copyWith => throw _privateConstructorUsedError;
 }

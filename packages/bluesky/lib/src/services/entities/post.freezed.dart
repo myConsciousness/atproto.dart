@@ -29,7 +29,7 @@ mixin _$Post {
   PostRecord get record => throw _privateConstructorUsedError;
 
   /// The author who created the post.
-  Actor get author => throw _privateConstructorUsedError;
+  ActorBasic get author => throw _privateConstructorUsedError;
 
   /// The URI of the post.
   @atUriConverter
@@ -76,7 +76,7 @@ abstract class $PostCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       @postRecordConverter PostRecord record,
-      Actor author,
+      ActorBasic author,
       @atUriConverter AtUri uri,
       String cid,
       @embedViewConverter EmbedView? embed,
@@ -89,7 +89,7 @@ abstract class $PostCopyWith<$Res> {
       DateTime indexedAt});
 
   $PostRecordCopyWith<$Res> get record;
-  $ActorCopyWith<$Res> get author;
+  $ActorBasicCopyWith<$Res> get author;
   $EmbedViewCopyWith<$Res>? get embed;
   $PostViewerCopyWith<$Res> get viewer;
   $ThreadgateViewCopyWith<$Res>? get threadgate;
@@ -134,7 +134,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as Actor,
+              as ActorBasic,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -188,8 +188,8 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorCopyWith<$Res> get author {
-    return $ActorCopyWith<$Res>(_value.author, (value) {
+  $ActorBasicCopyWith<$Res> get author {
+    return $ActorBasicCopyWith<$Res>(_value.author, (value) {
       return _then(_value.copyWith(author: value) as $Val);
     });
   }
@@ -228,16 +228,15 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
 }
 
 /// @nodoc
-abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
-  factory _$$PostImplCopyWith(
-          _$PostImpl value, $Res Function(_$PostImpl) then) =
-      __$$PostImplCopyWithImpl<$Res>;
+abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
+  factory _$$_PostCopyWith(_$_Post value, $Res Function(_$_Post) then) =
+      __$$_PostCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {@typeKey String type,
       @postRecordConverter PostRecord record,
-      Actor author,
+      ActorBasic author,
       @atUriConverter AtUri uri,
       String cid,
       @embedViewConverter EmbedView? embed,
@@ -252,7 +251,7 @@ abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
   @override
   $PostRecordCopyWith<$Res> get record;
   @override
-  $ActorCopyWith<$Res> get author;
+  $ActorBasicCopyWith<$Res> get author;
   @override
   $EmbedViewCopyWith<$Res>? get embed;
   @override
@@ -262,10 +261,9 @@ abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PostImplCopyWithImpl<$Res>
-    extends _$PostCopyWithImpl<$Res, _$PostImpl>
-    implements _$$PostImplCopyWith<$Res> {
-  __$$PostImplCopyWithImpl(_$PostImpl _value, $Res Function(_$PostImpl) _then)
+class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
+    implements _$$_PostCopyWith<$Res> {
+  __$$_PostCopyWithImpl(_$_Post _value, $Res Function(_$_Post) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -285,7 +283,7 @@ class __$$PostImplCopyWithImpl<$Res>
     Object? threadgate = freezed,
     Object? indexedAt = null,
   }) {
-    return _then(_$PostImpl(
+    return _then(_$_Post(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -297,7 +295,7 @@ class __$$PostImplCopyWithImpl<$Res>
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as Actor,
+              as ActorBasic,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -345,8 +343,8 @@ class __$$PostImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$PostImpl extends _Post {
-  const _$PostImpl(
+class _$_Post extends _Post {
+  const _$_Post(
       {@typeKey this.type = appBskyFeedDefsPostView,
       @postRecordConverter required this.record,
       required this.author,
@@ -363,8 +361,7 @@ class _$PostImpl extends _Post {
       : _labels = labels,
         super._();
 
-  factory _$PostImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PostImplFromJson(json);
+  factory _$_Post.fromJson(Map<String, dynamic> json) => _$$_PostFromJson(json);
 
   /// The type of the post.
   @override
@@ -378,7 +375,7 @@ class _$PostImpl extends _Post {
 
   /// The author who created the post.
   @override
-  final Actor author;
+  final ActorBasic author;
 
   /// The URI of the post.
   @override
@@ -441,10 +438,10 @@ class _$PostImpl extends _Post {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PostImpl &&
+            other is _$_Post &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.record, record) || other.record == record) &&
             (identical(other.author, author) || other.author == author) &&
@@ -486,12 +483,12 @@ class _$PostImpl extends _Post {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PostImplCopyWith<_$PostImpl> get copyWith =>
-      __$$PostImplCopyWithImpl<_$PostImpl>(this, _$identity);
+  _$$_PostCopyWith<_$_Post> get copyWith =>
+      __$$_PostCopyWithImpl<_$_Post>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PostImplToJson(
+    return _$$_PostToJson(
       this,
     );
   }
@@ -501,7 +498,7 @@ abstract class _Post extends Post {
   const factory _Post(
       {@typeKey final String type,
       @postRecordConverter required final PostRecord record,
-      required final Actor author,
+      required final ActorBasic author,
       @atUriConverter required final AtUri uri,
       required final String cid,
       @embedViewConverter final EmbedView? embed,
@@ -511,10 +508,10 @@ abstract class _Post extends Post {
       final PostViewer viewer,
       final List<Label>? labels,
       final ThreadgateView? threadgate,
-      required final DateTime indexedAt}) = _$PostImpl;
+      required final DateTime indexedAt}) = _$_Post;
   const _Post._() : super._();
 
-  factory _Post.fromJson(Map<String, dynamic> json) = _$PostImpl.fromJson;
+  factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
 
   @override
 
@@ -529,7 +526,7 @@ abstract class _Post extends Post {
   @override
 
   /// The author who created the post.
-  Actor get author;
+  ActorBasic get author;
   @override
 
   /// The URI of the post.
@@ -574,6 +571,5 @@ abstract class _Post extends Post {
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)
-  _$$PostImplCopyWith<_$PostImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_PostCopyWith<_$_Post> get copyWith => throw _privateConstructorUsedError;
 }

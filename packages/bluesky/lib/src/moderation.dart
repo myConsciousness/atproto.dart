@@ -77,7 +77,7 @@ PostModeration moderatePost(
     post: (data) => (data.author, data.embed),
   );
 
-  final profileSubject = ModerationSubjectProfile.actor(data: author);
+  final profileSubject = ModerationSubjectProfile.actorBasic(data: author);
   ModerationDecision account = decideAccount(profileSubject, options);
   ModerationDecision profile = decideProfile(profileSubject, options);
 

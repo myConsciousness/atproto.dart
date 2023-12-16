@@ -10,7 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import 'actor.dart';
+import 'actor_basic.dart';
 
 part 'reason_repost.freezed.dart';
 part 'reason_repost.g.dart';
@@ -28,7 +28,7 @@ class ReasonRepost with _$ReasonRepost {
     @typeKey @Default(appBskyFeedDefsReasonRepost) String type,
 
     /// Represents the actor who reposted.
-    required Actor by,
+    required ActorBasic by,
 
     /// Represents the date and time when the reposting event was indexed.
     required DateTime indexedAt,

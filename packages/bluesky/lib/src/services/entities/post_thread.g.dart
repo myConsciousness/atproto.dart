@@ -8,11 +8,11 @@ part of 'post_thread.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PostThreadImpl _$$PostThreadImplFromJson(Map json) => $checkedCreate(
-      r'_$PostThreadImpl',
+_$_PostThread _$$_PostThreadFromJson(Map json) => $checkedCreate(
+      r'_$_PostThread',
       json,
       ($checkedConvert) {
-        final val = _$PostThreadImpl(
+        final val = _$_PostThread(
           thread: $checkedConvert(
               'thread',
               (v) =>
@@ -22,7 +22,7 @@ _$PostThreadImpl _$$PostThreadImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$PostThreadImplToJson(_$PostThreadImpl instance) =>
+Map<String, dynamic> _$$_PostThreadToJson(_$_PostThread instance) =>
     <String, dynamic>{
       'thread': postThreadViewConverter.toJson(instance.thread),
     };

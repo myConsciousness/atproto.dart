@@ -78,13 +78,12 @@ class _$ModerationOptionsBehaviorScenarioBehaviorsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ModerationOptionsBehaviorScenarioBehaviorsImplCopyWith<$Res>
+abstract class _$$_ModerationOptionsBehaviorScenarioBehaviorsCopyWith<$Res>
     implements $ModerationOptionsBehaviorScenarioBehaviorsCopyWith<$Res> {
-  factory _$$ModerationOptionsBehaviorScenarioBehaviorsImplCopyWith(
-          _$ModerationOptionsBehaviorScenarioBehaviorsImpl value,
-          $Res Function(_$ModerationOptionsBehaviorScenarioBehaviorsImpl)
-              then) =
-      __$$ModerationOptionsBehaviorScenarioBehaviorsImplCopyWithImpl<$Res>;
+  factory _$$_ModerationOptionsBehaviorScenarioBehaviorsCopyWith(
+          _$_ModerationOptionsBehaviorScenarioBehaviors value,
+          $Res Function(_$_ModerationOptionsBehaviorScenarioBehaviors) then) =
+      __$$_ModerationOptionsBehaviorScenarioBehaviorsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -93,13 +92,13 @@ abstract class _$$ModerationOptionsBehaviorScenarioBehaviorsImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ModerationOptionsBehaviorScenarioBehaviorsImplCopyWithImpl<$Res>
+class __$$_ModerationOptionsBehaviorScenarioBehaviorsCopyWithImpl<$Res>
     extends _$ModerationOptionsBehaviorScenarioBehaviorsCopyWithImpl<$Res,
-        _$ModerationOptionsBehaviorScenarioBehaviorsImpl>
-    implements _$$ModerationOptionsBehaviorScenarioBehaviorsImplCopyWith<$Res> {
-  __$$ModerationOptionsBehaviorScenarioBehaviorsImplCopyWithImpl(
-      _$ModerationOptionsBehaviorScenarioBehaviorsImpl _value,
-      $Res Function(_$ModerationOptionsBehaviorScenarioBehaviorsImpl) _then)
+        _$_ModerationOptionsBehaviorScenarioBehaviors>
+    implements _$$_ModerationOptionsBehaviorScenarioBehaviorsCopyWith<$Res> {
+  __$$_ModerationOptionsBehaviorScenarioBehaviorsCopyWithImpl(
+      _$_ModerationOptionsBehaviorScenarioBehaviors _value,
+      $Res Function(_$_ModerationOptionsBehaviorScenarioBehaviors) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,7 +107,7 @@ class __$$ModerationOptionsBehaviorScenarioBehaviorsImplCopyWithImpl<$Res>
     Object? isAdultContentEnabled = null,
     Object? labels = null,
   }) {
-    return _then(_$ModerationOptionsBehaviorScenarioBehaviorsImpl(
+    return _then(_$_ModerationOptionsBehaviorScenarioBehaviors(
       isAdultContentEnabled: null == isAdultContentEnabled
           ? _value.isAdultContentEnabled
           : isAdultContentEnabled // ignore: cast_nullable_to_non_nullable
@@ -124,16 +123,16 @@ class __$$ModerationOptionsBehaviorScenarioBehaviorsImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ModerationOptionsBehaviorScenarioBehaviorsImpl
+class _$_ModerationOptionsBehaviorScenarioBehaviors
     implements _ModerationOptionsBehaviorScenarioBehaviors {
-  const _$ModerationOptionsBehaviorScenarioBehaviorsImpl(
+  const _$_ModerationOptionsBehaviorScenarioBehaviors(
       {@JsonKey(name: 'adultContentEnabled') this.isAdultContentEnabled = false,
       final Map<String, LabelPreference> labels = _defaultLabelPreferences})
       : _labels = labels;
 
-  factory _$ModerationOptionsBehaviorScenarioBehaviorsImpl.fromJson(
+  factory _$_ModerationOptionsBehaviorScenarioBehaviors.fromJson(
           Map<String, dynamic> json) =>
-      _$$ModerationOptionsBehaviorScenarioBehaviorsImplFromJson(json);
+      _$$_ModerationOptionsBehaviorScenarioBehaviorsFromJson(json);
 
   @override
   @JsonKey(name: 'adultContentEnabled')
@@ -153,10 +152,10 @@ class _$ModerationOptionsBehaviorScenarioBehaviorsImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ModerationOptionsBehaviorScenarioBehaviorsImpl &&
+            other is _$_ModerationOptionsBehaviorScenarioBehaviors &&
             (identical(other.isAdultContentEnabled, isAdultContentEnabled) ||
                 other.isAdultContentEnabled == isAdultContentEnabled) &&
             const DeepCollectionEquality().equals(other._labels, _labels));
@@ -170,16 +169,15 @@ class _$ModerationOptionsBehaviorScenarioBehaviorsImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ModerationOptionsBehaviorScenarioBehaviorsImplCopyWith<
-          _$ModerationOptionsBehaviorScenarioBehaviorsImpl>
+  _$$_ModerationOptionsBehaviorScenarioBehaviorsCopyWith<
+          _$_ModerationOptionsBehaviorScenarioBehaviors>
       get copyWith =>
-          __$$ModerationOptionsBehaviorScenarioBehaviorsImplCopyWithImpl<
-                  _$ModerationOptionsBehaviorScenarioBehaviorsImpl>(
-              this, _$identity);
+          __$$_ModerationOptionsBehaviorScenarioBehaviorsCopyWithImpl<
+              _$_ModerationOptionsBehaviorScenarioBehaviors>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ModerationOptionsBehaviorScenarioBehaviorsImplToJson(
+    return _$$_ModerationOptionsBehaviorScenarioBehaviorsToJson(
       this,
     );
   }
@@ -190,11 +188,11 @@ abstract class _ModerationOptionsBehaviorScenarioBehaviors
   const factory _ModerationOptionsBehaviorScenarioBehaviors(
       {@JsonKey(name: 'adultContentEnabled') final bool isAdultContentEnabled,
       final Map<String, LabelPreference>
-          labels}) = _$ModerationOptionsBehaviorScenarioBehaviorsImpl;
+          labels}) = _$_ModerationOptionsBehaviorScenarioBehaviors;
 
   factory _ModerationOptionsBehaviorScenarioBehaviors.fromJson(
           Map<String, dynamic> json) =
-      _$ModerationOptionsBehaviorScenarioBehaviorsImpl.fromJson;
+      _$_ModerationOptionsBehaviorScenarioBehaviors.fromJson;
 
   @override
   @JsonKey(name: 'adultContentEnabled')
@@ -203,7 +201,7 @@ abstract class _ModerationOptionsBehaviorScenarioBehaviors
   Map<String, LabelPreference> get labels;
   @override
   @JsonKey(ignore: true)
-  _$$ModerationOptionsBehaviorScenarioBehaviorsImplCopyWith<
-          _$ModerationOptionsBehaviorScenarioBehaviorsImpl>
+  _$$_ModerationOptionsBehaviorScenarioBehaviorsCopyWith<
+          _$_ModerationOptionsBehaviorScenarioBehaviors>
       get copyWith => throw _privateConstructorUsedError;
 }

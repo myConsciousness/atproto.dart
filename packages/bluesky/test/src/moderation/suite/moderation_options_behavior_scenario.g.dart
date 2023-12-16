@@ -8,13 +8,12 @@ part of 'moderation_options_behavior_scenario.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ModerationOptionsBehaviorScenarioImpl
-    _$$ModerationOptionsBehaviorScenarioImplFromJson(Map json) =>
-        $checkedCreate(
-          r'_$ModerationOptionsBehaviorScenarioImpl',
+_$_ModerationOptionsBehaviorScenario
+    _$$_ModerationOptionsBehaviorScenarioFromJson(Map json) => $checkedCreate(
+          r'_$_ModerationOptionsBehaviorScenario',
           json,
           ($checkedConvert) {
-            final val = _$ModerationOptionsBehaviorScenarioImpl(
+            final val = _$_ModerationOptionsBehaviorScenario(
               isAdultContentEnabled: $checkedConvert(
                   'adultContentEnabled', (v) => v as bool? ?? false),
               labels: $checkedConvert(
@@ -34,8 +33,8 @@ _$ModerationOptionsBehaviorScenarioImpl
           fieldKeyMap: const {'isAdultContentEnabled': 'adultContentEnabled'},
         );
 
-Map<String, dynamic> _$$ModerationOptionsBehaviorScenarioImplToJson(
-    _$ModerationOptionsBehaviorScenarioImpl instance) {
+Map<String, dynamic> _$$_ModerationOptionsBehaviorScenarioToJson(
+    _$_ModerationOptionsBehaviorScenario instance) {
   final val = <String, dynamic>{
     'adultContentEnabled': instance.isAdultContentEnabled,
   };

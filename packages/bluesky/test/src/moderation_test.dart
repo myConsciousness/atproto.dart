@@ -8,6 +8,7 @@ import 'dart:io';
 
 // 📦 Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:bluesky/src/services/entities/actor_basic.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
@@ -137,7 +138,7 @@ void main() {
               text: 'Hello',
               createdAt: DateTime.now(),
             ),
-            author: Actor(
+            author: ActorBasic(
               did: 'did:web:bob.test',
               handle: 'bob.test',
               displayName: 'Bob',
@@ -193,7 +194,7 @@ void main() {
               text: 'Hello',
               createdAt: DateTime.now(),
             ),
-            author: Actor(
+            author: ActorBasic(
               did: 'did:web:bob.test',
               handle: 'bob.test',
               displayName: 'Bob',

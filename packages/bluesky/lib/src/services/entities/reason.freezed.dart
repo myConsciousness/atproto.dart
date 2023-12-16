@@ -75,10 +75,10 @@ class _$ReasonCopyWithImpl<$Res, $Val extends Reason>
 }
 
 /// @nodoc
-abstract class _$$UReasonRepostImplCopyWith<$Res> {
-  factory _$$UReasonRepostImplCopyWith(
-          _$UReasonRepostImpl value, $Res Function(_$UReasonRepostImpl) then) =
-      __$$UReasonRepostImplCopyWithImpl<$Res>;
+abstract class _$$UReasonRepostCopyWith<$Res> {
+  factory _$$UReasonRepostCopyWith(
+          _$UReasonRepost value, $Res Function(_$UReasonRepost) then) =
+      __$$UReasonRepostCopyWithImpl<$Res>;
   @useResult
   $Res call({ReasonRepost data});
 
@@ -86,11 +86,11 @@ abstract class _$$UReasonRepostImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UReasonRepostImplCopyWithImpl<$Res>
-    extends _$ReasonCopyWithImpl<$Res, _$UReasonRepostImpl>
-    implements _$$UReasonRepostImplCopyWith<$Res> {
-  __$$UReasonRepostImplCopyWithImpl(
-      _$UReasonRepostImpl _value, $Res Function(_$UReasonRepostImpl) _then)
+class __$$UReasonRepostCopyWithImpl<$Res>
+    extends _$ReasonCopyWithImpl<$Res, _$UReasonRepost>
+    implements _$$UReasonRepostCopyWith<$Res> {
+  __$$UReasonRepostCopyWithImpl(
+      _$UReasonRepost _value, $Res Function(_$UReasonRepost) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$UReasonRepostImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UReasonRepostImpl(
+    return _then(_$UReasonRepost(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -117,8 +117,8 @@ class __$$UReasonRepostImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UReasonRepostImpl implements UReasonRepost {
-  _$UReasonRepostImpl({required this.data});
+class _$UReasonRepost implements UReasonRepost {
+  _$UReasonRepost({required this.data});
 
   @override
   final ReasonRepost data;
@@ -129,10 +129,10 @@ class _$UReasonRepostImpl implements UReasonRepost {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UReasonRepostImpl &&
+            other is _$UReasonRepost &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -142,8 +142,8 @@ class _$UReasonRepostImpl implements UReasonRepost {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UReasonRepostImplCopyWith<_$UReasonRepostImpl> get copyWith =>
-      __$$UReasonRepostImplCopyWithImpl<_$UReasonRepostImpl>(this, _$identity);
+  _$$UReasonRepostCopyWith<_$UReasonRepost> get copyWith =>
+      __$$UReasonRepostCopyWithImpl<_$UReasonRepost>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -209,31 +209,30 @@ class _$UReasonRepostImpl implements UReasonRepost {
 }
 
 abstract class UReasonRepost implements Reason {
-  factory UReasonRepost({required final ReasonRepost data}) =
-      _$UReasonRepostImpl;
+  factory UReasonRepost({required final ReasonRepost data}) = _$UReasonRepost;
 
   @override
   ReasonRepost get data;
   @JsonKey(ignore: true)
-  _$$UReasonRepostImplCopyWith<_$UReasonRepostImpl> get copyWith =>
+  _$$UReasonRepostCopyWith<_$UReasonRepost> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UReasonUnknownImplCopyWith<$Res> {
-  factory _$$UReasonUnknownImplCopyWith(_$UReasonUnknownImpl value,
-          $Res Function(_$UReasonUnknownImpl) then) =
-      __$$UReasonUnknownImplCopyWithImpl<$Res>;
+abstract class _$$UReasonUnknownCopyWith<$Res> {
+  factory _$$UReasonUnknownCopyWith(
+          _$UReasonUnknown value, $Res Function(_$UReasonUnknown) then) =
+      __$$UReasonUnknownCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UReasonUnknownImplCopyWithImpl<$Res>
-    extends _$ReasonCopyWithImpl<$Res, _$UReasonUnknownImpl>
-    implements _$$UReasonUnknownImplCopyWith<$Res> {
-  __$$UReasonUnknownImplCopyWithImpl(
-      _$UReasonUnknownImpl _value, $Res Function(_$UReasonUnknownImpl) _then)
+class __$$UReasonUnknownCopyWithImpl<$Res>
+    extends _$ReasonCopyWithImpl<$Res, _$UReasonUnknown>
+    implements _$$UReasonUnknownCopyWith<$Res> {
+  __$$UReasonUnknownCopyWithImpl(
+      _$UReasonUnknown _value, $Res Function(_$UReasonUnknown) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -241,7 +240,7 @@ class __$$UReasonUnknownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UReasonUnknownImpl(
+    return _then(_$UReasonUnknown(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -252,9 +251,8 @@ class __$$UReasonUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UReasonUnknownImpl implements UReasonUnknown {
-  _$UReasonUnknownImpl({required final Map<String, dynamic> data})
-      : _data = data;
+class _$UReasonUnknown implements UReasonUnknown {
+  _$UReasonUnknown({required final Map<String, dynamic> data}) : _data = data;
 
   final Map<String, dynamic> _data;
   @override
@@ -270,10 +268,10 @@ class _$UReasonUnknownImpl implements UReasonUnknown {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UReasonUnknownImpl &&
+            other is _$UReasonUnknown &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -284,9 +282,8 @@ class _$UReasonUnknownImpl implements UReasonUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UReasonUnknownImplCopyWith<_$UReasonUnknownImpl> get copyWith =>
-      __$$UReasonUnknownImplCopyWithImpl<_$UReasonUnknownImpl>(
-          this, _$identity);
+  _$$UReasonUnknownCopyWith<_$UReasonUnknown> get copyWith =>
+      __$$UReasonUnknownCopyWithImpl<_$UReasonUnknown>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -353,11 +350,11 @@ class _$UReasonUnknownImpl implements UReasonUnknown {
 
 abstract class UReasonUnknown implements Reason {
   factory UReasonUnknown({required final Map<String, dynamic> data}) =
-      _$UReasonUnknownImpl;
+      _$UReasonUnknown;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$UReasonUnknownImplCopyWith<_$UReasonUnknownImpl> get copyWith =>
+  _$$UReasonUnknownCopyWith<_$UReasonUnknown> get copyWith =>
       throw _privateConstructorUsedError;
 }

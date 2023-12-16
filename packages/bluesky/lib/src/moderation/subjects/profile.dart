@@ -29,6 +29,7 @@ ModerationDecision decideProfile(
   final ModerationSubjectProfile subject,
 ) =>
     subject.when(
+      actorBasic: (data) => (data.did, data.labels),
       actor: (data) => (data.did, data.labels),
       actorProfile: (data) => (data.did, data.labels),
     );

@@ -50,6 +50,7 @@ ModerationDecision decideAccount(
   final ModerationSubjectProfile subject,
 ) =>
     subject.when(
+      actorBasic: (data) => (data.did, data.viewer, data.labels),
       actor: (data) => (data.did, data.viewer, data.labels),
       actorProfile: (data) => (data.did, data.viewer, data.labels),
     );
