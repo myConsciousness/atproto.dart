@@ -19,7 +19,7 @@ class ActorsTypeahead with _$ActorsTypeahead {
   ///
   /// - `actors`: A list of [ActorBasic] objects for typeahead functionality.
   const factory ActorsTypeahead({
-    /// A list of [Actor] objects for typeahead functionality.
+    /// A list of [ActorBasic] objects for typeahead functionality.
     required List<ActorBasic> actors,
   }) = _ActorsTypeahead;
 
