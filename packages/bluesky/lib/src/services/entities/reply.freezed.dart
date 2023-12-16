@@ -92,9 +92,10 @@ class _$ReplyCopyWithImpl<$Res, $Val extends Reply>
 }
 
 /// @nodoc
-abstract class _$$_ReplyCopyWith<$Res> implements $ReplyCopyWith<$Res> {
-  factory _$$_ReplyCopyWith(_$_Reply value, $Res Function(_$_Reply) then) =
-      __$$_ReplyCopyWithImpl<$Res>;
+abstract class _$$ReplyImplCopyWith<$Res> implements $ReplyCopyWith<$Res> {
+  factory _$$ReplyImplCopyWith(
+          _$ReplyImpl value, $Res Function(_$ReplyImpl) then) =
+      __$$ReplyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -108,9 +109,11 @@ abstract class _$$_ReplyCopyWith<$Res> implements $ReplyCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ReplyCopyWithImpl<$Res> extends _$ReplyCopyWithImpl<$Res, _$_Reply>
-    implements _$$_ReplyCopyWith<$Res> {
-  __$$_ReplyCopyWithImpl(_$_Reply _value, $Res Function(_$_Reply) _then)
+class __$$ReplyImplCopyWithImpl<$Res>
+    extends _$ReplyCopyWithImpl<$Res, _$ReplyImpl>
+    implements _$$ReplyImplCopyWith<$Res> {
+  __$$ReplyImplCopyWithImpl(
+      _$ReplyImpl _value, $Res Function(_$ReplyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -119,7 +122,7 @@ class __$$_ReplyCopyWithImpl<$Res> extends _$ReplyCopyWithImpl<$Res, _$_Reply>
     Object? root = null,
     Object? parent = null,
   }) {
-    return _then(_$_Reply(
+    return _then(_$ReplyImpl(
       root: null == root
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
@@ -134,13 +137,13 @@ class __$$_ReplyCopyWithImpl<$Res> extends _$ReplyCopyWithImpl<$Res, _$_Reply>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Reply implements _Reply {
-  const _$_Reply(
+class _$ReplyImpl implements _Reply {
+  const _$ReplyImpl(
       {@replyPostConverter required this.root,
       @replyPostConverter required this.parent});
 
-  factory _$_Reply.fromJson(Map<String, dynamic> json) =>
-      _$$_ReplyFromJson(json);
+  factory _$ReplyImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ReplyImplFromJson(json);
 
   /// The root post of the reply.
   @override
@@ -161,7 +164,7 @@ class _$_Reply implements _Reply {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Reply &&
+            other is _$ReplyImpl &&
             (identical(other.root, root) || other.root == root) &&
             (identical(other.parent, parent) || other.parent == parent));
   }
@@ -173,12 +176,12 @@ class _$_Reply implements _Reply {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ReplyCopyWith<_$_Reply> get copyWith =>
-      __$$_ReplyCopyWithImpl<_$_Reply>(this, _$identity);
+  _$$ReplyImplCopyWith<_$ReplyImpl> get copyWith =>
+      __$$ReplyImplCopyWithImpl<_$ReplyImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ReplyToJson(
+    return _$$ReplyImplToJson(
       this,
     );
   }
@@ -187,9 +190,9 @@ class _$_Reply implements _Reply {
 abstract class _Reply implements Reply {
   const factory _Reply(
       {@replyPostConverter required final ReplyPost root,
-      @replyPostConverter required final ReplyPost parent}) = _$_Reply;
+      @replyPostConverter required final ReplyPost parent}) = _$ReplyImpl;
 
-  factory _Reply.fromJson(Map<String, dynamic> json) = _$_Reply.fromJson;
+  factory _Reply.fromJson(Map<String, dynamic> json) = _$ReplyImpl.fromJson;
 
   @override
 
@@ -203,6 +206,6 @@ abstract class _Reply implements Reply {
   ReplyPost get parent;
   @override
   @JsonKey(ignore: true)
-  _$$_ReplyCopyWith<_$_Reply> get copyWith =>
+  _$$ReplyImplCopyWith<_$ReplyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

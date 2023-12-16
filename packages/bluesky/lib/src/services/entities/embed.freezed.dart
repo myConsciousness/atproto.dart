@@ -147,7 +147,7 @@ class _$UEmbedRecordImpl extends UEmbedRecord {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UEmbedRecordImpl &&
@@ -311,7 +311,7 @@ class _$UEmbedImagesImpl extends UEmbedImages {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UEmbedImagesImpl &&
@@ -475,7 +475,7 @@ class _$UEmbedExternalImpl extends UEmbedExternal {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UEmbedExternalImpl &&
@@ -641,7 +641,7 @@ class _$UEmbedRecordWithMediaImpl extends UEmbedRecordWithMedia {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UEmbedRecordWithMediaImpl &&
@@ -803,7 +803,7 @@ class _$UEmbedUnknownImpl extends UEmbedUnknown {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UEmbedUnknownImpl &&

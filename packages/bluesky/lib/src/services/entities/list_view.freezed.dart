@@ -359,7 +359,7 @@ class _$ListViewImpl extends _ListView {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ListViewImpl &&

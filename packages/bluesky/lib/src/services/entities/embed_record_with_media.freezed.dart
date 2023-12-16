@@ -187,7 +187,7 @@ class _$EmbedRecordWithMediaImpl implements _EmbedRecordWithMedia {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EmbedRecordWithMediaImpl &&

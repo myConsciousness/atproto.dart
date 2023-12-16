@@ -152,7 +152,7 @@ class _$UModerationSubjectPostPostImpl implements UModerationSubjectPostPost {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UModerationSubjectPostPostImpl &&

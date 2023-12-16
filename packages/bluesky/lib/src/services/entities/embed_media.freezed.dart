@@ -136,7 +136,7 @@ class _$UEmbedMediaImagesImpl implements UEmbedMediaImages {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UEmbedMediaImagesImpl &&
@@ -288,7 +288,7 @@ class _$UEmbedMediaExternalImpl implements UEmbedMediaExternal {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UEmbedMediaExternalImpl &&
@@ -436,7 +436,7 @@ class _$UEmbedMediaUnknownImpl implements UEmbedMediaUnknown {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UEmbedMediaUnknownImpl &&

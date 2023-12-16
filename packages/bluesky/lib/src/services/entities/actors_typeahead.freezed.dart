@@ -63,22 +63,22 @@ class _$ActorsTypeaheadCopyWithImpl<$Res, $Val extends ActorsTypeahead>
 }
 
 /// @nodoc
-abstract class _$$_ActorsTypeaheadCopyWith<$Res>
+abstract class _$$ActorsTypeaheadImplCopyWith<$Res>
     implements $ActorsTypeaheadCopyWith<$Res> {
-  factory _$$_ActorsTypeaheadCopyWith(
-          _$_ActorsTypeahead value, $Res Function(_$_ActorsTypeahead) then) =
-      __$$_ActorsTypeaheadCopyWithImpl<$Res>;
+  factory _$$ActorsTypeaheadImplCopyWith(_$ActorsTypeaheadImpl value,
+          $Res Function(_$ActorsTypeaheadImpl) then) =
+      __$$ActorsTypeaheadImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<ActorBasic> actors});
 }
 
 /// @nodoc
-class __$$_ActorsTypeaheadCopyWithImpl<$Res>
-    extends _$ActorsTypeaheadCopyWithImpl<$Res, _$_ActorsTypeahead>
-    implements _$$_ActorsTypeaheadCopyWith<$Res> {
-  __$$_ActorsTypeaheadCopyWithImpl(
-      _$_ActorsTypeahead _value, $Res Function(_$_ActorsTypeahead) _then)
+class __$$ActorsTypeaheadImplCopyWithImpl<$Res>
+    extends _$ActorsTypeaheadCopyWithImpl<$Res, _$ActorsTypeaheadImpl>
+    implements _$$ActorsTypeaheadImplCopyWith<$Res> {
+  __$$ActorsTypeaheadImplCopyWithImpl(
+      _$ActorsTypeaheadImpl _value, $Res Function(_$ActorsTypeaheadImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -86,7 +86,7 @@ class __$$_ActorsTypeaheadCopyWithImpl<$Res>
   $Res call({
     Object? actors = null,
   }) {
-    return _then(_$_ActorsTypeahead(
+    return _then(_$ActorsTypeaheadImpl(
       actors: null == actors
           ? _value._actors
           : actors // ignore: cast_nullable_to_non_nullable
@@ -97,12 +97,12 @@ class __$$_ActorsTypeaheadCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ActorsTypeahead implements _ActorsTypeahead {
-  const _$_ActorsTypeahead({required final List<ActorBasic> actors})
+class _$ActorsTypeaheadImpl implements _ActorsTypeahead {
+  const _$ActorsTypeaheadImpl({required final List<ActorBasic> actors})
       : _actors = actors;
 
-  factory _$_ActorsTypeahead.fromJson(Map<String, dynamic> json) =>
-      _$$_ActorsTypeaheadFromJson(json);
+  factory _$ActorsTypeaheadImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ActorsTypeaheadImplFromJson(json);
 
   /// A list of [ActorBasic] objects for typeahead functionality.
   final List<ActorBasic> _actors;
@@ -124,7 +124,7 @@ class _$_ActorsTypeahead implements _ActorsTypeahead {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActorsTypeahead &&
+            other is _$ActorsTypeaheadImpl &&
             const DeepCollectionEquality().equals(other._actors, _actors));
   }
 
@@ -136,12 +136,13 @@ class _$_ActorsTypeahead implements _ActorsTypeahead {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ActorsTypeaheadCopyWith<_$_ActorsTypeahead> get copyWith =>
-      __$$_ActorsTypeaheadCopyWithImpl<_$_ActorsTypeahead>(this, _$identity);
+  _$$ActorsTypeaheadImplCopyWith<_$ActorsTypeaheadImpl> get copyWith =>
+      __$$ActorsTypeaheadImplCopyWithImpl<_$ActorsTypeaheadImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ActorsTypeaheadToJson(
+    return _$$ActorsTypeaheadImplToJson(
       this,
     );
   }
@@ -149,10 +150,10 @@ class _$_ActorsTypeahead implements _ActorsTypeahead {
 
 abstract class _ActorsTypeahead implements ActorsTypeahead {
   const factory _ActorsTypeahead({required final List<ActorBasic> actors}) =
-      _$_ActorsTypeahead;
+      _$ActorsTypeaheadImpl;
 
   factory _ActorsTypeahead.fromJson(Map<String, dynamic> json) =
-      _$_ActorsTypeahead.fromJson;
+      _$ActorsTypeaheadImpl.fromJson;
 
   @override
 
@@ -160,6 +161,6 @@ abstract class _ActorsTypeahead implements ActorsTypeahead {
   List<ActorBasic> get actors;
   @override
   @JsonKey(ignore: true)
-  _$$_ActorsTypeaheadCopyWith<_$_ActorsTypeahead> get copyWith =>
+  _$$ActorsTypeaheadImplCopyWith<_$ActorsTypeaheadImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
