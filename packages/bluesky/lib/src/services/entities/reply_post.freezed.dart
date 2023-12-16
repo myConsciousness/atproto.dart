@@ -141,7 +141,7 @@ class _$UReplyPostRecordImpl implements UReplyPostRecord {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UReplyPostRecordImpl &&
@@ -299,7 +299,7 @@ class _$UReplyPostNotFoundImpl implements UReplyPostNotFound {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UReplyPostNotFoundImpl &&
@@ -457,7 +457,7 @@ class _$UReplyPostBlockedImpl implements UReplyPostBlocked {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UReplyPostBlockedImpl &&
@@ -611,7 +611,7 @@ class _$UReplyPostUnknownImpl implements UReplyPostUnknown {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UReplyPostUnknownImpl &&
