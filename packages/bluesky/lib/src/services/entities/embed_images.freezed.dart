@@ -144,7 +144,7 @@ class _$EmbedImagesImpl implements _EmbedImages {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EmbedImagesImpl &&
