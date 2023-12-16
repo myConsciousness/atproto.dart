@@ -4,7 +4,6 @@
 
 // 📦 Package imports:
 import 'package:atproto/atproto.dart';
-import 'package:bluesky/src/services/entities/actor_basic.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
@@ -16,6 +15,7 @@ import 'package:bluesky/src/moderation/entities/moderation_options.dart';
 import 'package:bluesky/src/moderation/entities/moderation_subject_post.dart';
 import 'package:bluesky/src/moderation/entities/moderation_subject_profile.dart';
 import 'package:bluesky/src/moderation/entities/moderation_ui.dart';
+import 'package:bluesky/src/services/entities/actor_basic.dart';
 import 'package:bluesky/src/services/entities/actor_viewer.dart';
 import 'package:bluesky/src/services/entities/embed_view.dart';
 import 'package:bluesky/src/services/entities/embed_view_record.dart';

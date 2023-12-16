@@ -4,10 +4,10 @@
 
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart';
-import 'package:bluesky/src/services/entities/actor_basic.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
+import 'package:bluesky/src/services/entities/actor_basic.dart';
 import 'package:bluesky/src/services/entities/actor_viewer.dart';
 import 'package:bluesky/src/services/entities/post.dart';
 import 'package:bluesky/src/services/entities/post_record.dart';

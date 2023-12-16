@@ -8,7 +8,6 @@ import 'dart:io';
 
 // 📦 Package imports:
 import 'package:atproto/atproto.dart';
-import 'package:bluesky/src/services/entities/actor_basic.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
@@ -20,6 +19,7 @@ import 'package:bluesky/src/moderation/entities/moderation_options.dart';
 import 'package:bluesky/src/moderation/entities/moderation_subject_post.dart';
 import 'package:bluesky/src/moderation/entities/moderation_subject_profile.dart';
 import 'package:bluesky/src/services/entities/actor.dart';
+import 'package:bluesky/src/services/entities/actor_basic.dart';
 import 'package:bluesky/src/services/entities/post.dart';
 import 'package:bluesky/src/services/entities/post_record.dart';
 import 'moderation/suite/moderation_behavior_result.dart';
