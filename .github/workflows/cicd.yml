@@ -7,11 +7,6 @@ on:
        - 'packages/*/lib/**'
        - 'packages/*/test/**'
        - 'packages/*/pubspec.yaml'
-  push:
-    paths:
-       - 'packages/*/lib/**'
-       - 'packages/*/test/**'
-       - 'packages/*/pubspec.yaml'
   schedule:
     - cron: "0 10 * * *"
 
