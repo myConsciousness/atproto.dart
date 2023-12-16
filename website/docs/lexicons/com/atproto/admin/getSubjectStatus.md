@@ -3,7 +3,7 @@ title: getSubjectStatus
 description: com.atproto.admin.getSubjectStatus
 ---
 
-# com.atproto.admin.getSubjectStatus
+# [com.atproto.admin.getSubjectStatus](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/admin/getSubjectStatus.json)
 
 ## #main
 

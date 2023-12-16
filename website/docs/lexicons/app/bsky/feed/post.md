@@ -3,7 +3,7 @@ title: post
 description: app.bsky.feed.post
 ---
 
-# app.bsky.feed.post
+# [app.bsky.feed.post](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/feed/post.json)
 
 ## #main
 

@@ -3,7 +3,7 @@ title: defs
 description: com.atproto.admin.defs
 ---
 
-# com.atproto.admin.defs
+# [com.atproto.admin.defs](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/admin/defs.json)
 
 ## #statusAttr
 

@@ -3,7 +3,7 @@ title: queryModerationStatuses
 description: com.atproto.admin.queryModerationStatuses
 ---
 
-# com.atproto.admin.queryModerationStatuses
+# [com.atproto.admin.queryModerationStatuses](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/admin/queryModerationStatuses.json)
 
 ## #main
 

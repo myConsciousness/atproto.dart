@@ -3,7 +3,7 @@ title: listRepos
 description: com.atproto.sync.listRepos
 ---
 
-# com.atproto.sync.listRepos
+# [com.atproto.sync.listRepos](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/sync/listRepos.json)
 
 ## #main
 

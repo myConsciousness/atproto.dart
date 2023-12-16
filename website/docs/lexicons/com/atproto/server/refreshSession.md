@@ -3,7 +3,7 @@ title: refreshSession
 description: com.atproto.server.refreshSession
 ---
 
-# com.atproto.server.refreshSession
+# [com.atproto.server.refreshSession](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/server/refreshSession.json)
 
 ## #main
 

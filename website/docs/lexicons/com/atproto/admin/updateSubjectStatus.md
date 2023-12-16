@@ -3,7 +3,7 @@ title: updateSubjectStatus
 description: com.atproto.admin.updateSubjectStatus
 ---
 
-# com.atproto.admin.updateSubjectStatus
+# [com.atproto.admin.updateSubjectStatus](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/admin/updateSubjectStatus.json)
 
 ## #main
 

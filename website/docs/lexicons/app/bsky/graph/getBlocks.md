@@ -3,7 +3,7 @@ title: getBlocks
 description: app.bsky.graph.getBlocks
 ---
 
-# app.bsky.graph.getBlocks
+# [app.bsky.graph.getBlocks](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/graph/getBlocks.json)
 
 ## #main
 

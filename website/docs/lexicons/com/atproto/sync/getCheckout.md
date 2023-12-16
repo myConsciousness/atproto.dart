@@ -3,7 +3,7 @@ title: getCheckout
 description: com.atproto.sync.getCheckout
 ---
 
-# com.atproto.sync.getCheckout
+# [com.atproto.sync.getCheckout](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/sync/getCheckout.json)
 
 ## #main
 

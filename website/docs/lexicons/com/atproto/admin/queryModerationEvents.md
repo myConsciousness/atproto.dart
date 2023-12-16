@@ -3,7 +3,7 @@ title: queryModerationEvents
 description: com.atproto.admin.queryModerationEvents
 ---
 
-# com.atproto.admin.queryModerationEvents
+# [com.atproto.admin.queryModerationEvents](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/admin/queryModerationEvents.json)
 
 ## #main
 

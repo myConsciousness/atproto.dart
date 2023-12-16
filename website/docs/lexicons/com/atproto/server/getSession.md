@@ -3,7 +3,7 @@ title: getSession
 description: com.atproto.server.getSession
 ---
 
-# com.atproto.server.getSession
+# [com.atproto.server.getSession](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/server/getSession.json)
 
 ## #main
 

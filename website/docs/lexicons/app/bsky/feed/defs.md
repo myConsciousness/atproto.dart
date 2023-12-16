@@ -3,7 +3,7 @@ title: defs
 description: app.bsky.feed.defs
 ---
 
-# app.bsky.feed.defs
+# [app.bsky.feed.defs](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/feed/defs.json)
 
 ## #postView
 

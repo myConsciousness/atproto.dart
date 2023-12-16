@@ -3,7 +3,7 @@ title: applyWrites
 description: com.atproto.repo.applyWrites
 ---
 
-# com.atproto.repo.applyWrites
+# [com.atproto.repo.applyWrites](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/repo/applyWrites.json)
 
 ## #main
 

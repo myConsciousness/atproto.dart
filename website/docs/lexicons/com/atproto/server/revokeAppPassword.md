@@ -3,7 +3,7 @@ title: revokeAppPassword
 description: com.atproto.server.revokeAppPassword
 ---
 
-# com.atproto.server.revokeAppPassword
+# [com.atproto.server.revokeAppPassword](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/server/revokeAppPassword.json)
 
 ## #main
 

@@ -3,7 +3,7 @@ title: listRecords
 description: com.atproto.repo.listRecords
 ---
 
-# com.atproto.repo.listRecords
+# [com.atproto.repo.listRecords](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/repo/listRecords.json)
 
 ## #main
 

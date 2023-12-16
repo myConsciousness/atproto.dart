@@ -3,7 +3,7 @@ title: listNotifications
 description: app.bsky.notification.listNotifications
 ---
 
-# app.bsky.notification.listNotifications
+# [app.bsky.notification.listNotifications](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/notification/listNotifications.json)
 
 ## #main
 

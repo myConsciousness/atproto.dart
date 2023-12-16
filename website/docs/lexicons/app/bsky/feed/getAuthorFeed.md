@@ -3,7 +3,7 @@ title: getAuthorFeed
 description: app.bsky.feed.getAuthorFeed
 ---
 
-# app.bsky.feed.getAuthorFeed
+# [app.bsky.feed.getAuthorFeed](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/feed/getAuthorFeed.json)
 
 ## #main
 

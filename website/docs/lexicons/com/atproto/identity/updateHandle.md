@@ -3,7 +3,7 @@ title: updateHandle
 description: com.atproto.identity.updateHandle
 ---
 
-# com.atproto.identity.updateHandle
+# [com.atproto.identity.updateHandle](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/identity/updateHandle.json)
 
 ## #main
 

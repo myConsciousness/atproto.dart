@@ -3,7 +3,7 @@ title: defs
 description: app.bsky.graph.defs
 ---
 
-# app.bsky.graph.defs
+# [app.bsky.graph.defs](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/graph/defs.json)
 
 ## #listViewBasic
 

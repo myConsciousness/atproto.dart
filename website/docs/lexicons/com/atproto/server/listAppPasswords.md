@@ -3,7 +3,7 @@ title: listAppPasswords
 description: com.atproto.server.listAppPasswords
 ---
 
-# com.atproto.server.listAppPasswords
+# [com.atproto.server.listAppPasswords](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/server/listAppPasswords.json)
 
 ## #main
 

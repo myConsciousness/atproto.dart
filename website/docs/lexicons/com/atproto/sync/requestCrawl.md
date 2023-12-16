@@ -3,7 +3,7 @@ title: requestCrawl
 description: com.atproto.sync.requestCrawl
 ---
 
-# com.atproto.sync.requestCrawl
+# [com.atproto.sync.requestCrawl](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/sync/requestCrawl.json)
 
 ## #main
 

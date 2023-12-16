@@ -3,7 +3,7 @@ title: searchActorsTypeahead
 description: app.bsky.actor.searchActorsTypeahead
 ---
 
-# app.bsky.actor.searchActorsTypeahead
+# [app.bsky.actor.searchActorsTypeahead](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/actor/searchActorsTypeahead.json)
 
 ## #main
 

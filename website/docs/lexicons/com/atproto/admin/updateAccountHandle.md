@@ -3,7 +3,7 @@ title: updateAccountHandle
 description: com.atproto.admin.updateAccountHandle
 ---
 
-# com.atproto.admin.updateAccountHandle
+# [com.atproto.admin.updateAccountHandle](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/admin/updateAccountHandle.json)
 
 ## #main
 

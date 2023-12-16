@@ -3,7 +3,7 @@ title: facet
 description: app.bsky.richtext.facet
 ---
 
-# app.bsky.richtext.facet
+# [app.bsky.richtext.facet](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/richtext/facet.json)
 
 ## #main
 

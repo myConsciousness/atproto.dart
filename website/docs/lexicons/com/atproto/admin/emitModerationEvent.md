@@ -3,7 +3,7 @@ title: emitModerationEvent
 description: com.atproto.admin.emitModerationEvent
 ---
 
-# com.atproto.admin.emitModerationEvent
+# [com.atproto.admin.emitModerationEvent](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/admin/emitModerationEvent.json)
 
 ## #main
 

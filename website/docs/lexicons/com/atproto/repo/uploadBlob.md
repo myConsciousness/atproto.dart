@@ -3,7 +3,7 @@ title: uploadBlob
 description: com.atproto.repo.uploadBlob
 ---
 
-# com.atproto.repo.uploadBlob
+# [com.atproto.repo.uploadBlob](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/repo/uploadBlob.json)
 
 ## #main
 

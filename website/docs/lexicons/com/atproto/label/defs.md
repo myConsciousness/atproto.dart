@@ -3,7 +3,7 @@ title: defs
 description: com.atproto.label.defs
 ---
 
-# com.atproto.label.defs
+# [com.atproto.label.defs](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/label/defs.json)
 
 ## #label
 

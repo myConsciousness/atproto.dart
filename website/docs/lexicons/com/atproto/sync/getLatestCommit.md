@@ -3,7 +3,7 @@ title: getLatestCommit
 description: com.atproto.sync.getLatestCommit
 ---
 
-# com.atproto.sync.getLatestCommit
+# [com.atproto.sync.getLatestCommit](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/sync/getLatestCommit.json)
 
 ## #main
 

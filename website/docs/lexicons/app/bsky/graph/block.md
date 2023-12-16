@@ -3,7 +3,7 @@ title: block
 description: app.bsky.graph.block
 ---
 
-# app.bsky.graph.block
+# [app.bsky.graph.block](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/graph/block.json)
 
 ## #main
 

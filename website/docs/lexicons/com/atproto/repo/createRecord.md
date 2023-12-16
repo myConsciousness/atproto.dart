@@ -3,7 +3,7 @@ title: createRecord
 description: com.atproto.repo.createRecord
 ---
 
-# com.atproto.repo.createRecord
+# [com.atproto.repo.createRecord](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/repo/createRecord.json)
 
 ## #main
 

@@ -3,7 +3,7 @@ title: getRepostedBy
 description: app.bsky.feed.getRepostedBy
 ---
 
-# app.bsky.feed.getRepostedBy
+# [app.bsky.feed.getRepostedBy](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/feed/getRepostedBy.json)
 
 ## #main
 

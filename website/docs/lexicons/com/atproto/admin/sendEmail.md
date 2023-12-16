@@ -3,7 +3,7 @@ title: sendEmail
 description: com.atproto.admin.sendEmail
 ---
 
-# com.atproto.admin.sendEmail
+# [com.atproto.admin.sendEmail](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/admin/sendEmail.json)
 
 ## #main
 

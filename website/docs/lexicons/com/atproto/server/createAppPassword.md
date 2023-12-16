@@ -3,7 +3,7 @@ title: createAppPassword
 description: com.atproto.server.createAppPassword
 ---
 
-# com.atproto.server.createAppPassword
+# [com.atproto.server.createAppPassword](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/server/createAppPassword.json)
 
 ## #main
 

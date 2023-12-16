@@ -3,7 +3,7 @@ title: getPreferences
 description: app.bsky.actor.getPreferences
 ---
 
-# app.bsky.actor.getPreferences
+# [app.bsky.actor.getPreferences](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/actor/getPreferences.json)
 
 ## #main
 

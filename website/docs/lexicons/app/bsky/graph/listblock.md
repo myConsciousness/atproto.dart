@@ -3,7 +3,7 @@ title: listblock
 description: app.bsky.graph.listblock
 ---
 
-# app.bsky.graph.listblock
+# [app.bsky.graph.listblock](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/graph/listblock.json)
 
 ## #main
 

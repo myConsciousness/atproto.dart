@@ -3,7 +3,7 @@ title: profile
 description: app.bsky.actor.profile
 ---
 
-# app.bsky.actor.profile
+# [app.bsky.actor.profile](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/actor/profile.json)
 
 ## #main
 

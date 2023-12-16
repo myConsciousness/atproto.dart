@@ -3,7 +3,7 @@ title: generator
 description: app.bsky.feed.generator
 ---
 
-# app.bsky.feed.generator
+# [app.bsky.feed.generator](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/feed/generator.json)
 
 ## #main
 

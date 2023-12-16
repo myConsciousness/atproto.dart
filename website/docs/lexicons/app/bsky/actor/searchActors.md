@@ -3,7 +3,7 @@ title: searchActors
 description: app.bsky.actor.searchActors
 ---
 
-# app.bsky.actor.searchActors
+# [app.bsky.actor.searchActors](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/actor/searchActors.json)
 
 ## #main
 

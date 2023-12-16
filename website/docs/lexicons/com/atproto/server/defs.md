@@ -3,7 +3,7 @@ title: defs
 description: com.atproto.server.defs
 ---
 
-# com.atproto.server.defs
+# [com.atproto.server.defs](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/server/defs.json)
 
 ## #inviteCode
 

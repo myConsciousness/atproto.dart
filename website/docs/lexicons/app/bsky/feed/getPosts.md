@@ -3,7 +3,7 @@ title: getPosts
 description: app.bsky.feed.getPosts
 ---
 
-# app.bsky.feed.getPosts
+# [app.bsky.feed.getPosts](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/feed/getPosts.json)
 
 ## #main
 

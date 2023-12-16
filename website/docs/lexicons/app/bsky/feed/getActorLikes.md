@@ -3,7 +3,7 @@ title: getActorLikes
 description: app.bsky.feed.getActorLikes
 ---
 
-# app.bsky.feed.getActorLikes
+# [app.bsky.feed.getActorLikes](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/feed/getActorLikes.json)
 
 ## #main
 

@@ -3,7 +3,7 @@ title: getTimeline
 description: app.bsky.feed.getTimeline
 ---
 
-# app.bsky.feed.getTimeline
+# [app.bsky.feed.getTimeline](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/feed/getTimeline.json)
 
 ## #main
 

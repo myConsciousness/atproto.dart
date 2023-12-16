@@ -3,7 +3,7 @@ title: getFeedGenerators
 description: app.bsky.feed.getFeedGenerators
 ---
 
-# app.bsky.feed.getFeedGenerators
+# [app.bsky.feed.getFeedGenerators](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/feed/getFeedGenerators.json)
 
 ## #main
 

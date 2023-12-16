@@ -3,7 +3,7 @@ title: describeServer
 description: com.atproto.server.describeServer
 ---
 
-# com.atproto.server.describeServer
+# [com.atproto.server.describeServer](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/server/describeServer.json)
 
 ## #main
 

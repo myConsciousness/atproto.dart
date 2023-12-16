@@ -3,7 +3,7 @@ title: updateAccountEmail
 description: com.atproto.admin.updateAccountEmail
 ---
 
-# com.atproto.admin.updateAccountEmail
+# [com.atproto.admin.updateAccountEmail](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/admin/updateAccountEmail.json)
 
 ## #main
 

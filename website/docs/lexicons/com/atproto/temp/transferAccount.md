@@ -3,7 +3,7 @@ title: transferAccount
 description: com.atproto.temp.transferAccount
 ---
 
-# com.atproto.temp.transferAccount
+# [com.atproto.temp.transferAccount](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/temp/transferAccount.json)
 
 ## #main
 

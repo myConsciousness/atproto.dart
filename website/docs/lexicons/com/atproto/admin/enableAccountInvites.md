@@ -3,7 +3,7 @@ title: enableAccountInvites
 description: com.atproto.admin.enableAccountInvites
 ---
 
-# com.atproto.admin.enableAccountInvites
+# [com.atproto.admin.enableAccountInvites](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/admin/enableAccountInvites.json)
 
 ## #main
 

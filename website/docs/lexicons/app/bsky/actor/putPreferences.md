@@ -3,7 +3,7 @@ title: putPreferences
 description: app.bsky.actor.putPreferences
 ---
 
-# app.bsky.actor.putPreferences
+# [app.bsky.actor.putPreferences](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/actor/putPreferences.json)
 
 ## #main
 

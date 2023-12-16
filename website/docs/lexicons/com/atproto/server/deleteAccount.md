@@ -3,7 +3,7 @@ title: deleteAccount
 description: com.atproto.server.deleteAccount
 ---
 
-# com.atproto.server.deleteAccount
+# [com.atproto.server.deleteAccount](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/server/deleteAccount.json)
 
 ## #main
 

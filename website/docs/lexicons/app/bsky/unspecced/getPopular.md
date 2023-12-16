@@ -3,7 +3,7 @@ title: getPopular
 description: app.bsky.unspecced.getPopular
 ---
 
-# app.bsky.unspecced.getPopular
+# [app.bsky.unspecced.getPopular](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/unspecced/getPopular.json)
 
 ## #main
 

@@ -3,7 +3,7 @@ title: getList
 description: app.bsky.graph.getList
 ---
 
-# app.bsky.graph.getList
+# [app.bsky.graph.getList](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/graph/getList.json)
 
 ## #main
 

@@ -3,7 +3,7 @@ title: describeRepo
 description: com.atproto.repo.describeRepo
 ---
 
-# com.atproto.repo.describeRepo
+# [com.atproto.repo.describeRepo](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/repo/describeRepo.json)
 
 ## #main
 

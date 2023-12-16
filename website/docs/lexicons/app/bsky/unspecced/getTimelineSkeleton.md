@@ -3,7 +3,7 @@ title: getTimelineSkeleton
 description: app.bsky.unspecced.getTimelineSkeleton
 ---
 
-# app.bsky.unspecced.getTimelineSkeleton
+# [app.bsky.unspecced.getTimelineSkeleton](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/unspecced/getTimelineSkeleton.json)
 
 ## #main
 

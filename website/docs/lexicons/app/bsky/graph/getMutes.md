@@ -3,7 +3,7 @@ title: getMutes
 description: app.bsky.graph.getMutes
 ---
 
-# app.bsky.graph.getMutes
+# [app.bsky.graph.getMutes](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/graph/getMutes.json)
 
 ## #main
 

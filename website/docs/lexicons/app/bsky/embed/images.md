@@ -3,7 +3,7 @@ title: images
 description: app.bsky.embed.images
 ---
 
-# app.bsky.embed.images
+# [app.bsky.embed.images](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/embed/images.json)
 
 ## #main
 

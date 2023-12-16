@@ -3,7 +3,7 @@ title: notifyOfUpdate
 description: com.atproto.sync.notifyOfUpdate
 ---
 
-# com.atproto.sync.notifyOfUpdate
+# [com.atproto.sync.notifyOfUpdate](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/sync/notifyOfUpdate.json)
 
 ## #main
 

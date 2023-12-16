@@ -3,7 +3,7 @@ title: registerPush
 description: app.bsky.notification.registerPush
 ---
 
-# app.bsky.notification.registerPush
+# [app.bsky.notification.registerPush](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/notification/registerPush.json)
 
 ## #main
 

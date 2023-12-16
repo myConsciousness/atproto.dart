@@ -3,7 +3,7 @@ title: listitem
 description: app.bsky.graph.listitem
 ---
 
-# app.bsky.graph.listitem
+# [app.bsky.graph.listitem](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/graph/listitem.json)
 
 ## #main
 

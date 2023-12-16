@@ -3,7 +3,7 @@ title: getSuggestedFollowsByActor
 description: app.bsky.graph.getSuggestedFollowsByActor
 ---
 
-# app.bsky.graph.getSuggestedFollowsByActor
+# [app.bsky.graph.getSuggestedFollowsByActor](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/graph/getSuggestedFollowsByActor.json)
 
 ## #main
 

@@ -3,7 +3,7 @@ title: searchActorsSkeleton
 description: app.bsky.unspecced.searchActorsSkeleton
 ---
 
-# app.bsky.unspecced.searchActorsSkeleton
+# [app.bsky.unspecced.searchActorsSkeleton](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/unspecced/searchActorsSkeleton.json)
 
 ## #main
 

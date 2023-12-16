@@ -3,7 +3,7 @@ title: getRecord
 description: com.atproto.repo.getRecord
 ---
 
-# com.atproto.repo.getRecord
+# [com.atproto.repo.getRecord](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/repo/getRecord.json)
 
 ## #main
 

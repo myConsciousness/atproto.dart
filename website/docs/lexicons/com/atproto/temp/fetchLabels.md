@@ -3,7 +3,7 @@ title: fetchLabels
 description: com.atproto.temp.fetchLabels
 ---
 
-# com.atproto.temp.fetchLabels
+# [com.atproto.temp.fetchLabels](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/temp/fetchLabels.json)
 
 ## #main
 

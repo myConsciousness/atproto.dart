@@ -3,7 +3,7 @@ title: muteActor
 description: app.bsky.graph.muteActor
 ---
 
-# app.bsky.graph.muteActor
+# [app.bsky.graph.muteActor](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/graph/muteActor.json)
 
 ## #main
 

@@ -3,7 +3,7 @@ title: external
 description: app.bsky.embed.external
 ---
 
-# app.bsky.embed.external
+# [app.bsky.embed.external](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/embed/external.json)
 
 ## #main
 

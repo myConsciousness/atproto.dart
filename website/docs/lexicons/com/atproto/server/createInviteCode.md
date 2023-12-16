@@ -3,7 +3,7 @@ title: createInviteCode
 description: com.atproto.server.createInviteCode
 ---
 
-# com.atproto.server.createInviteCode
+# [com.atproto.server.createInviteCode](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/server/createInviteCode.json)
 
 ## #main
 

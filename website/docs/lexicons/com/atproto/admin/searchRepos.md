@@ -3,7 +3,7 @@ title: searchRepos
 description: com.atproto.admin.searchRepos
 ---
 
-# com.atproto.admin.searchRepos
+# [com.atproto.admin.searchRepos](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/admin/searchRepos.json)
 
 ## #main
 

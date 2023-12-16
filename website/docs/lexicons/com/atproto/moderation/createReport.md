@@ -3,7 +3,7 @@ title: createReport
 description: com.atproto.moderation.createReport
 ---
 
-# com.atproto.moderation.createReport
+# [com.atproto.moderation.createReport](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/moderation/createReport.json)
 
 ## #main
 

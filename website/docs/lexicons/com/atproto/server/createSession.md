@@ -3,7 +3,7 @@ title: createSession
 description: com.atproto.server.createSession
 ---
 
-# com.atproto.server.createSession
+# [com.atproto.server.createSession](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/server/createSession.json)
 
 ## #main
 

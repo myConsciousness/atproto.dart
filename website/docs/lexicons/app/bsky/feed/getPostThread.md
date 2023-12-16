@@ -3,7 +3,7 @@ title: getPostThread
 description: app.bsky.feed.getPostThread
 ---
 
-# app.bsky.feed.getPostThread
+# [app.bsky.feed.getPostThread](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/feed/getPostThread.json)
 
 ## #main
 

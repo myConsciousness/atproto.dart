@@ -3,7 +3,7 @@ title: getLikes
 description: app.bsky.feed.getLikes
 ---
 
-# app.bsky.feed.getLikes
+# [app.bsky.feed.getLikes](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/feed/getLikes.json)
 
 ## #main
 

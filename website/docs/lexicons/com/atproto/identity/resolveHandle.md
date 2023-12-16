@@ -3,7 +3,7 @@ title: resolveHandle
 description: com.atproto.identity.resolveHandle
 ---
 
-# com.atproto.identity.resolveHandle
+# [com.atproto.identity.resolveHandle](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/identity/resolveHandle.json)
 
 ## #main
 

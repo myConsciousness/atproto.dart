@@ -3,7 +3,7 @@ title: getPopularFeedGenerators
 description: app.bsky.unspecced.getPopularFeedGenerators
 ---
 
-# app.bsky.unspecced.getPopularFeedGenerators
+# [app.bsky.unspecced.getPopularFeedGenerators](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/unspecced/getPopularFeedGenerators.json)
 
 ## #main
 

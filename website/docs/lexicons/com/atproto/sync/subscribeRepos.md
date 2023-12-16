@@ -3,7 +3,7 @@ title: subscribeRepos
 description: com.atproto.sync.subscribeRepos
 ---
 
-# com.atproto.sync.subscribeRepos
+# [com.atproto.sync.subscribeRepos](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/sync/subscribeRepos.json)
 
 ## #main
 

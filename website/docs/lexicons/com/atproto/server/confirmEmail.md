@@ -3,7 +3,7 @@ title: confirmEmail
 description: com.atproto.server.confirmEmail
 ---
 
-# com.atproto.server.confirmEmail
+# [com.atproto.server.confirmEmail](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/server/confirmEmail.json)
 
 ## #main
 

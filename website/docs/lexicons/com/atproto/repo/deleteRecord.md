@@ -3,7 +3,7 @@ title: deleteRecord
 description: com.atproto.repo.deleteRecord
 ---
 
-# com.atproto.repo.deleteRecord
+# [com.atproto.repo.deleteRecord](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/repo/deleteRecord.json)
 
 ## #main
 

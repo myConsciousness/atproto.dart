@@ -3,7 +3,7 @@ title: queryLabels
 description: com.atproto.label.queryLabels
 ---
 
-# com.atproto.label.queryLabels
+# [com.atproto.label.queryLabels](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/label/queryLabels.json)
 
 ## #main
 

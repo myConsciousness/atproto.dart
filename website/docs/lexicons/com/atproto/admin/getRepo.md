@@ -3,7 +3,7 @@ title: getRepo
 description: com.atproto.admin.getRepo
 ---
 
-# com.atproto.admin.getRepo
+# [com.atproto.admin.getRepo](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/admin/getRepo.json)
 
 ## #main
 

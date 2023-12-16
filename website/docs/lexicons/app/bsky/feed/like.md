@@ -3,7 +3,7 @@ title: like
 description: app.bsky.feed.like
 ---
 
-# app.bsky.feed.like
+# [app.bsky.feed.like](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/feed/like.json)
 
 ## #main
 

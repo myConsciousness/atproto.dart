@@ -3,7 +3,7 @@ title: searchPosts
 description: app.bsky.feed.searchPosts
 ---
 
-# app.bsky.feed.searchPosts
+# [app.bsky.feed.searchPosts](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/feed/searchPosts.json)
 
 ## #main
 

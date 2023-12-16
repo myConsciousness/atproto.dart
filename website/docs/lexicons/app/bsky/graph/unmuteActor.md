@@ -3,7 +3,7 @@ title: unmuteActor
 description: app.bsky.graph.unmuteActor
 ---
 
-# app.bsky.graph.unmuteActor
+# [app.bsky.graph.unmuteActor](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/graph/unmuteActor.json)
 
 ## #main
 

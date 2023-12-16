@@ -3,7 +3,7 @@ title: putRecord
 description: com.atproto.repo.putRecord
 ---
 
-# com.atproto.repo.putRecord
+# [com.atproto.repo.putRecord](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/repo/putRecord.json)
 
 ## #main
 

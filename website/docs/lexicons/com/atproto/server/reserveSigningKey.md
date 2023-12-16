@@ -3,7 +3,7 @@ title: reserveSigningKey
 description: com.atproto.server.reserveSigningKey
 ---
 
-# com.atproto.server.reserveSigningKey
+# [com.atproto.server.reserveSigningKey](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/server/reserveSigningKey.json)
 
 ## #main
 

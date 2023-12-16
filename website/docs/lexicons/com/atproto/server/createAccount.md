@@ -3,7 +3,7 @@ title: createAccount
 description: com.atproto.server.createAccount
 ---
 
-# com.atproto.server.createAccount
+# [com.atproto.server.createAccount](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/server/createAccount.json)
 
 ## #main
 

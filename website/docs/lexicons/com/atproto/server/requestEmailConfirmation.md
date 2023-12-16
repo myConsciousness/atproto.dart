@@ -3,7 +3,7 @@ title: requestEmailConfirmation
 description: com.atproto.server.requestEmailConfirmation
 ---
 
-# com.atproto.server.requestEmailConfirmation
+# [com.atproto.server.requestEmailConfirmation](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/server/requestEmailConfirmation.json)
 
 ## #main
 

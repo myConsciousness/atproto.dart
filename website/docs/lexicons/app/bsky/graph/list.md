@@ -3,7 +3,7 @@ title: list
 description: app.bsky.graph.list
 ---
 
-# app.bsky.graph.list
+# [app.bsky.graph.list](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/graph/list.json)
 
 ## #main
 

@@ -3,7 +3,7 @@ title: defs
 description: com.atproto.moderation.defs
 ---
 
-# com.atproto.moderation.defs
+# [com.atproto.moderation.defs](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/moderation/defs.json)
 
 ## #reasonSpam
 

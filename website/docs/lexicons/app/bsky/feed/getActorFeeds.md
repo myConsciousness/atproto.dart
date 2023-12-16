@@ -3,7 +3,7 @@ title: getActorFeeds
 description: app.bsky.feed.getActorFeeds
 ---
 
-# app.bsky.feed.getActorFeeds
+# [app.bsky.feed.getActorFeeds](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/feed/getActorFeeds.json)
 
 ## #main
 

@@ -3,7 +3,7 @@ title: searchPostsSkeleton
 description: app.bsky.unspecced.searchPostsSkeleton
 ---
 
-# app.bsky.unspecced.searchPostsSkeleton
+# [app.bsky.unspecced.searchPostsSkeleton](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/unspecced/searchPostsSkeleton.json)
 
 ## #main
 

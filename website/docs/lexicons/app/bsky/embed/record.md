@@ -3,7 +3,7 @@ title: record
 description: app.bsky.embed.record
 ---
 
-# app.bsky.embed.record
+# [app.bsky.embed.record](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/embed/record.json)
 
 ## #main
 

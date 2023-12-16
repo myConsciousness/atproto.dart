@@ -3,7 +3,7 @@ title: getSuggestions
 description: app.bsky.actor.getSuggestions
 ---
 
-# app.bsky.actor.getSuggestions
+# [app.bsky.actor.getSuggestions](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/actor/getSuggestions.json)
 
 ## #main
 

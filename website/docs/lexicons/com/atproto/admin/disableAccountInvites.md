@@ -3,7 +3,7 @@ title: disableAccountInvites
 description: com.atproto.admin.disableAccountInvites
 ---
 
-# com.atproto.admin.disableAccountInvites
+# [com.atproto.admin.disableAccountInvites](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/admin/disableAccountInvites.json)
 
 ## #main
 

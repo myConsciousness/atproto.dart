@@ -3,7 +3,7 @@ title: follow
 description: app.bsky.graph.follow
 ---
 
-# app.bsky.graph.follow
+# [app.bsky.graph.follow](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/graph/follow.json)
 
 ## #main
 

@@ -3,7 +3,7 @@ title: listBlobs
 description: com.atproto.sync.listBlobs
 ---
 
-# com.atproto.sync.listBlobs
+# [com.atproto.sync.listBlobs](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/sync/listBlobs.json)
 
 ## #main
 

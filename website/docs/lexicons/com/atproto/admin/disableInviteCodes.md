@@ -3,7 +3,7 @@ title: disableInviteCodes
 description: com.atproto.admin.disableInviteCodes
 ---
 
-# com.atproto.admin.disableInviteCodes
+# [com.atproto.admin.disableInviteCodes](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/admin/disableInviteCodes.json)
 
 ## #main
 

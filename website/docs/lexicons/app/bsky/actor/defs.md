@@ -3,7 +3,7 @@ title: defs
 description: app.bsky.actor.defs
 ---
 
-# app.bsky.actor.defs
+# [app.bsky.actor.defs](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/actor/defs.json)
 
 ## #profileViewBasic
 

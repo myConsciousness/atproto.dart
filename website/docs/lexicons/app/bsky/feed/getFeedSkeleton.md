@@ -3,7 +3,7 @@ title: getFeedSkeleton
 description: app.bsky.feed.getFeedSkeleton
 ---
 
-# app.bsky.feed.getFeedSkeleton
+# [app.bsky.feed.getFeedSkeleton](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/feed/getFeedSkeleton.json)
 
 ## #main
 

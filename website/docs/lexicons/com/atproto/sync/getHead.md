@@ -3,7 +3,7 @@ title: getHead
 description: com.atproto.sync.getHead
 ---
 
-# com.atproto.sync.getHead
+# [com.atproto.sync.getHead](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/sync/getHead.json)
 
 ## #main
 

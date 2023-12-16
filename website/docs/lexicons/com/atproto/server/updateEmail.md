@@ -3,7 +3,7 @@ title: updateEmail
 description: com.atproto.server.updateEmail
 ---
 
-# com.atproto.server.updateEmail
+# [com.atproto.server.updateEmail](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/server/updateEmail.json)
 
 ## #main
 

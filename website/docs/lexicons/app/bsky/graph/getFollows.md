@@ -3,7 +3,7 @@ title: getFollows
 description: app.bsky.graph.getFollows
 ---
 
-# app.bsky.graph.getFollows
+# [app.bsky.graph.getFollows](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/graph/getFollows.json)
 
 ## #main
 

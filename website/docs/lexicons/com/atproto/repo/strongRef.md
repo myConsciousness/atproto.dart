@@ -3,7 +3,7 @@ title: strongRef
 description: com.atproto.repo.strongRef
 ---
 
-# com.atproto.repo.strongRef
+# [com.atproto.repo.strongRef](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/repo/strongRef.json)
 
 ## #main
 

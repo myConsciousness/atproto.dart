@@ -3,7 +3,7 @@ title: subscribeLabels
 description: com.atproto.label.subscribeLabels
 ---
 
-# com.atproto.label.subscribeLabels
+# [com.atproto.label.subscribeLabels](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/label/subscribeLabels.json)
 
 ## #main
 

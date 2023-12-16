@@ -3,7 +3,7 @@ title: threadgate
 description: app.bsky.feed.threadgate
 ---
 
-# app.bsky.feed.threadgate
+# [app.bsky.feed.threadgate](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/feed/threadgate.json)
 
 ## #main
 

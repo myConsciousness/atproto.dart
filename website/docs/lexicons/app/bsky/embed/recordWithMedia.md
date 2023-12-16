@@ -3,7 +3,7 @@ title: recordWithMedia
 description: app.bsky.embed.recordWithMedia
 ---
 
-# app.bsky.embed.recordWithMedia
+# [app.bsky.embed.recordWithMedia](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/embed/recordWithMedia.json)
 
 ## #main
 

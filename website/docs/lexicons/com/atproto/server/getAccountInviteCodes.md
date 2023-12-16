@@ -3,7 +3,7 @@ title: getAccountInviteCodes
 description: com.atproto.server.getAccountInviteCodes
 ---
 
-# com.atproto.server.getAccountInviteCodes
+# [com.atproto.server.getAccountInviteCodes](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/server/getAccountInviteCodes.json)
 
 ## #main
 

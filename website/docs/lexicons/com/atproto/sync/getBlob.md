@@ -3,7 +3,7 @@ title: getBlob
 description: com.atproto.sync.getBlob
 ---
 
-# com.atproto.sync.getBlob
+# [com.atproto.sync.getBlob](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/sync/getBlob.json)
 
 ## #main
 

@@ -3,7 +3,7 @@ title: getBlocks
 description: com.atproto.sync.getBlocks
 ---
 
-# com.atproto.sync.getBlocks
+# [com.atproto.sync.getBlocks](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/sync/getBlocks.json)
 
 ## #main
 

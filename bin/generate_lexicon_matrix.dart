@@ -9,6 +9,8 @@ import 'package:lexicon/lexicon.dart';
 import 'utils.dart' as utils;
 
 const _matrixRoot = 'website/docs/lexicons';
+const _resourcePath =
+    'https://github.com/myConsciousness/atproto.dart/blob/main/lexicons';
 
 const _atIdentifierReference =
     'https://atproto.com/specs/lexicon#at-identifier';
@@ -33,28 +35,16 @@ void main(List<String> args) {
 void _writeFiles(final List<LexiconDoc> lexiconDocs) {
   final objects = _getLexObjects(lexiconDocs);
 
-  final overview = StringBuffer()
-    ..writeln('---')
-    ..writeln('sidebar_position: 1')
-    ..writeln('title: Overview')
-    ..writeln('description: Lexicon Matrix Overview')
-    ..writeln('---')
-    ..writeln()
-    ..writeln('# Overview');
-
   objects.forEach((nsid, defs) {
-    overview
-      ..writeln()
-      ..writeln('## $nsid');
-
-    final title = nsid.split('.').last;
+    final main = nsid.split('.').last;
+    final path = nsid.split('.').sublist(0, 3).join('/');
     final matrix = StringBuffer()
       ..writeln('---')
-      ..writeln('title: $title')
+      ..writeln('title: $main')
       ..writeln('description: $nsid')
       ..writeln('---')
       ..writeln()
-      ..writeln('# $nsid');
+      ..writeln('# [$nsid]($_resourcePath/$path/$main.json)');
 
     defs.forEach((id, def) {
       matrix
@@ -72,14 +62,11 @@ void _writeFiles(final List<LexiconDoc> lexiconDocs) {
     });
 
     final nsidSegments = nsid.split('.');
-    final path = nsidSegments.sublist(0, 3).join('/');
     final fileName = nsidSegments.last;
 
     File('$_matrixRoot/$path/$fileName.md')
       ..createSync(recursive: true)
       ..writeAsStringSync(matrix.toString());
-
-    File('$_matrixRoot/overview.md').writeAsStringSync(overview.toString());
   });
 }
 

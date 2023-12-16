@@ -3,7 +3,7 @@ title: getProfile
 description: app.bsky.actor.getProfile
 ---
 
-# app.bsky.actor.getProfile
+# [app.bsky.actor.getProfile](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/app/bsky/actor/getProfile.json)
 
 ## #main
 
