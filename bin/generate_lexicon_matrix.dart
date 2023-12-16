@@ -33,20 +33,22 @@ void main(List<String> args) {
 void _writeFiles(final List<LexiconDoc> lexiconDocs) {
   final objects = _getLexObjects(lexiconDocs);
 
-  final index = StringBuffer()
+  final overview = StringBuffer()
     ..writeln('---')
     ..writeln('sidebar_position: 1')
     ..writeln('title: Overview')
     ..writeln('description: Lexicon Matrix Overview')
-    ..writeln('---');
+    ..writeln('---')
+    ..writeln()
+    ..writeln('# Overview');
 
   objects.forEach((nsid, defs) {
-    index
+    overview
       ..writeln()
-      ..writeln('- $nsid');
+      ..writeln('## $nsid');
 
     final title = nsid.split('.').last;
-    final objectMatrix = StringBuffer()
+    final matrix = StringBuffer()
       ..writeln('---')
       ..writeln('title: $title')
       ..writeln('description: $nsid')
@@ -55,19 +57,17 @@ void _writeFiles(final List<LexiconDoc> lexiconDocs) {
       ..writeln('# $nsid');
 
     defs.forEach((id, def) {
-      index.writeln('  - $id');
-
-      objectMatrix
+      matrix
         ..writeln()
         ..writeln('## #$id');
 
       def.whenOrNull(
-        record: (data) => _writeRecord(objectMatrix, data),
-        xrpcQuery: (data) => _writeXrpcQuery(objectMatrix, data),
-        xrpcProcedure: (data) => _writeXrpcProcedure(objectMatrix, data),
-        xrpcSubscription: (data) => _writeXrpcSubscription(objectMatrix, data),
-        object: (data) => _writeObject(objectMatrix, data),
-        token: (data) => _writeToken(objectMatrix, data),
+        record: (data) => _writeRecord(matrix, data),
+        xrpcQuery: (data) => _writeXrpcQuery(matrix, data),
+        xrpcProcedure: (data) => _writeXrpcProcedure(matrix, data),
+        xrpcSubscription: (data) => _writeXrpcSubscription(matrix, data),
+        object: (data) => _writeObject(matrix, data),
+        token: (data) => _writeToken(matrix, data),
       );
     });
 
@@ -77,31 +77,31 @@ void _writeFiles(final List<LexiconDoc> lexiconDocs) {
 
     File('$_matrixRoot/$path/$fileName.md')
       ..createSync(recursive: true)
-      ..writeAsStringSync(objectMatrix.toString());
+      ..writeAsStringSync(matrix.toString());
 
-    File('$_matrixRoot/overview.md').writeAsStringSync(index.toString());
+    File('$_matrixRoot/overview.md').writeAsStringSync(overview.toString());
   });
 }
 
 void _writeRecord(
-  final StringBuffer objectMatrix,
+  final StringBuffer matrix,
   final LexRecord data,
 ) {
   if (data.description != null) {
-    objectMatrix
+    matrix
       ..writeln()
       ..writeln(data.description);
   }
 
-  _writeObject(objectMatrix, data.record);
+  _writeObject(matrix, data.record);
 }
 
 void _writeXrpcQuery(
-  final StringBuffer objectMatrix,
+  final StringBuffer matrix,
   final LexXrpcQuery data,
 ) {
   if (data.description != null) {
-    objectMatrix
+    matrix
       ..writeln()
       ..writeln(data.description);
   }
@@ -109,7 +109,7 @@ void _writeXrpcQuery(
   final parameters = data.parameters;
   if (parameters != null) {
     _writeXrpcParameters(
-      objectMatrix,
+      matrix,
       parameters,
       'Input',
     );
@@ -120,7 +120,7 @@ void _writeXrpcQuery(
     final schema = output.schema;
     if (schema != null) {
       _writeXrpcSchema(
-        objectMatrix,
+        matrix,
         schema,
         output.description,
         output.encoding,
@@ -131,11 +131,11 @@ void _writeXrpcQuery(
 }
 
 void _writeXrpcProcedure(
-  final StringBuffer objectMatrix,
+  final StringBuffer matrix,
   final LexXrpcProcedure data,
 ) {
   if (data.description != null) {
-    objectMatrix
+    matrix
       ..writeln()
       ..writeln(data.description);
   }
@@ -145,7 +145,7 @@ void _writeXrpcProcedure(
     final schema = input.schema;
     if (schema != null) {
       _writeXrpcSchema(
-        objectMatrix,
+        matrix,
         schema,
         input.description,
         input.encoding,
@@ -159,7 +159,7 @@ void _writeXrpcProcedure(
     final schema = output.schema;
     if (schema != null) {
       _writeXrpcSchema(
-        objectMatrix,
+        matrix,
         schema,
         output.description,
         output.encoding,
@@ -170,11 +170,11 @@ void _writeXrpcProcedure(
 }
 
 void _writeXrpcSubscription(
-  final StringBuffer objectMatrix,
+  final StringBuffer matrix,
   final LexXrpcSubscription data,
 ) {
   if (data.description != null) {
-    objectMatrix
+    matrix
       ..writeln()
       ..writeln(data.description);
   }
@@ -182,7 +182,7 @@ void _writeXrpcSubscription(
   final parameters = data.parameters;
   if (parameters != null) {
     _writeXrpcParameters(
-      objectMatrix,
+      matrix,
       parameters,
       'Input',
     );
@@ -193,7 +193,7 @@ void _writeXrpcSubscription(
     final schema = message.schema;
     if (schema != null) {
       _writeXrpcSchema(
-        objectMatrix,
+        matrix,
         schema,
         message.description,
         '',
@@ -204,18 +204,18 @@ void _writeXrpcSubscription(
 }
 
 void _writeToken(
-  final StringBuffer objectMatrix,
+  final StringBuffer matrix,
   final LexToken data,
 ) {
   if (data.description != null) {
-    objectMatrix
+    matrix
       ..writeln()
       ..writeln('**TOKEN**: ${data.description}');
   }
 }
 
 void _writeXrpcParameters(
-  final StringBuffer objectMatrix,
+  final StringBuffer matrix,
   final LexXrpcParameters data,
   final String label,
 ) {
@@ -223,17 +223,17 @@ void _writeXrpcParameters(
 
   final properties = data.properties;
   if (properties != null && properties.isNotEmpty) {
-    objectMatrix
+    matrix
       ..writeln()
       ..writeln('### $label');
 
     if (data.description != null) {
-      objectMatrix
+      matrix
         ..writeln()
         ..writeln(data.description);
     }
 
-    objectMatrix
+    matrix
       ..writeln()
       ..writeln(_tableHeader)
       ..writeln(_tableDivider);
@@ -243,13 +243,13 @@ void _writeXrpcParameters(
 
       property.when(
         primitiveArray: (data) => _writePrimitiveArray(
-          objectMatrix,
+          matrix,
           data.items,
           name,
           isRequired,
         ),
         primitive: (data) => _writePrimitive(
-          objectMatrix,
+          matrix,
           data,
           name,
           isRequired,
@@ -260,44 +260,44 @@ void _writeXrpcParameters(
 }
 
 void _writeXrpcSchema(
-  final StringBuffer objectMatrix,
+  final StringBuffer matrix,
   final LexXrpcSchema data,
   final String? description,
   final String encoding,
   final String label,
 ) {
-  objectMatrix.writeln();
+  matrix.writeln();
   if (encoding.isNotEmpty) {
-    objectMatrix.writeln('### $label ($encoding)');
+    matrix.writeln('### $label ($encoding)');
   } else {
-    objectMatrix.writeln('### $label');
+    matrix.writeln('### $label');
   }
 
   if (description != null) {
-    objectMatrix
+    matrix
       ..writeln()
       ..writeln(description);
   }
 
   data.when(
     refVariant: (data) {
-      objectMatrix
+      matrix
         ..writeln()
         ..writeln(_tableHeader)
         ..writeln(_tableDivider);
 
       _writeObjectProperty(
-        objectMatrix,
+        matrix,
         ref: data,
       );
     },
-    object: (data) => _writeObject(objectMatrix, data),
+    object: (data) => _writeObject(matrix, data),
   );
 }
 
-void _writeObject(final StringBuffer objectMatrix, final LexObject data) {
+void _writeObject(final StringBuffer matrix, final LexObject data) {
   if (data.description != null) {
-    objectMatrix
+    matrix
       ..writeln()
       ..writeln(data.description);
   }
@@ -306,7 +306,7 @@ void _writeObject(final StringBuffer objectMatrix, final LexObject data) {
 
   final properties = data.properties;
   if (properties != null) {
-    objectMatrix
+    matrix
       ..writeln()
       ..writeln(_tableHeader)
       ..writeln(_tableDivider);
@@ -316,21 +316,21 @@ void _writeObject(final StringBuffer objectMatrix, final LexObject data) {
 
       property.when(
         refVariant: (data) => _writeObjectProperty(
-          objectMatrix,
+          matrix,
           property: name,
           isRequired: isRequired,
           ref: data,
         ),
         ipld: (data) => data.when(
           bytes: (data) => _writeObjectProperty(
-            objectMatrix,
+            matrix,
             property: name,
             isRequired: isRequired,
             type: data.type,
             description: data.description,
           ),
           cidLink: (data) => _writeObjectProperty(
-            objectMatrix,
+            matrix,
             property: name,
             isRequired: isRequired,
             type: data.type,
@@ -338,20 +338,20 @@ void _writeObject(final StringBuffer objectMatrix, final LexObject data) {
           ),
         ),
         array: (data) => _writeArray(
-          objectMatrix,
+          matrix,
           data,
           name,
           isRequired,
         ),
         blob: (data) => _writeObjectProperty(
-          objectMatrix,
+          matrix,
           property: name,
           isRequired: isRequired,
           type: data.type,
           description: data.description,
         ),
         primitive: (data) => _writePrimitive(
-          objectMatrix,
+          matrix,
           data,
           name,
           isRequired,
@@ -362,28 +362,28 @@ void _writeObject(final StringBuffer objectMatrix, final LexObject data) {
 }
 
 void _writePrimitive(
-  final StringBuffer objectMatrix,
+  final StringBuffer matrix,
   final LexPrimitive data,
   final String name,
   final bool isRequired,
 ) =>
     data.when(
       boolean: (data) => _writeObjectProperty(
-        objectMatrix,
+        matrix,
         property: name,
         isRequired: isRequired,
         type: data.type,
         description: data.description,
       ),
       integer: (data) => _writeObjectProperty(
-        objectMatrix,
+        matrix,
         property: name,
         isRequired: isRequired,
         type: data.type,
         description: data.description,
       ),
       string: (data) => _writeObjectProperty(
-        objectMatrix,
+        matrix,
         property: name,
         isRequired: isRequired,
         type: data.type,
@@ -392,7 +392,7 @@ void _writePrimitive(
         description: data.description,
       ),
       unknown: (data) => _writeObjectProperty(
-        objectMatrix,
+        matrix,
         property: name,
         isRequired: isRequired,
         type: data.type,
@@ -401,14 +401,14 @@ void _writePrimitive(
     );
 
 void _writePrimitiveArray(
-  final StringBuffer objectMatrix,
+  final StringBuffer matrix,
   final LexPrimitive data,
   final String name,
   final bool isRequired,
 ) =>
     data.when(
       boolean: (data) => _writeObjectProperty(
-        objectMatrix,
+        matrix,
         property: name,
         isRequired: isRequired,
         type: 'array',
@@ -416,7 +416,7 @@ void _writePrimitiveArray(
         format: data.type,
       ),
       integer: (data) => _writeObjectProperty(
-        objectMatrix,
+        matrix,
         property: name,
         isRequired: isRequired,
         type: 'array',
@@ -424,7 +424,7 @@ void _writePrimitiveArray(
         format: data.type,
       ),
       string: (data) => _writeObjectProperty(
-        objectMatrix,
+        matrix,
         property: name,
         isRequired: isRequired,
         type: 'array',
@@ -433,7 +433,7 @@ void _writePrimitiveArray(
         description: data.description,
       ),
       unknown: (data) => _writeObjectProperty(
-        objectMatrix,
+        matrix,
         property: name,
         isRequired: isRequired,
         type: 'array',
@@ -443,7 +443,7 @@ void _writePrimitiveArray(
     );
 
 void _writeArray(
-  final StringBuffer objectMatrix,
+  final StringBuffer matrix,
   final LexArray data,
   final String name,
   final bool isRequired,
@@ -463,7 +463,7 @@ void _writeArray(
   );
 
   _writeObjectProperty(
-    objectMatrix,
+    matrix,
     property: name,
     isRequired: isRequired,
     type: data.type,
