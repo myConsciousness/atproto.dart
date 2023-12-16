@@ -150,7 +150,7 @@ class _$UModerationCauseBlockingImpl implements UModerationCauseBlocking {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UModerationCauseBlockingImpl &&
@@ -317,7 +317,7 @@ class _$UModerationCauseBlockedByImpl implements UModerationCauseBlockedBy {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UModerationCauseBlockedByImpl &&
@@ -485,7 +485,7 @@ class _$UModerationCauseBlockOtherImpl implements UModerationCauseBlockOther {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UModerationCauseBlockOtherImpl &&
@@ -651,7 +651,7 @@ class _$UModerationCauseLabelImpl implements UModerationCauseLabel {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UModerationCauseLabelImpl &&
@@ -816,7 +816,7 @@ class _$UModerationCauseMutedImpl implements UModerationCauseMuted {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UModerationCauseMutedImpl &&

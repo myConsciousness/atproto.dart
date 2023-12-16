@@ -277,7 +277,7 @@ class _$ListParamImpl implements _ListParam {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ListParamImpl &&

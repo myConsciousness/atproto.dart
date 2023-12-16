@@ -8,11 +8,11 @@ part of 'actor_basic.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ActorBasic _$$_ActorBasicFromJson(Map json) => $checkedCreate(
-      r'_$_ActorBasic',
+_$ActorBasicImpl _$$ActorBasicImplFromJson(Map json) => $checkedCreate(
+      r'_$ActorBasicImpl',
       json,
       ($checkedConvert) {
-        final val = _$_ActorBasic(
+        final val = _$ActorBasicImpl(
           did: $checkedConvert('did', (v) => v as String),
           handle: $checkedConvert('handle', (v) => v as String),
           displayName: $checkedConvert('displayName', (v) => v as String?),
@@ -33,7 +33,7 @@ _$_ActorBasic _$$_ActorBasicFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_ActorBasicToJson(_$_ActorBasic instance) {
+Map<String, dynamic> _$$ActorBasicImplToJson(_$ActorBasicImpl instance) {
   final val = <String, dynamic>{
     'did': instance.did,
     'handle': instance.handle,

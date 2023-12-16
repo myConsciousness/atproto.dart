@@ -120,11 +120,11 @@ class _$ActorBasicCopyWithImpl<$Res, $Val extends ActorBasic>
 }
 
 /// @nodoc
-abstract class _$$_ActorBasicCopyWith<$Res>
+abstract class _$$ActorBasicImplCopyWith<$Res>
     implements $ActorBasicCopyWith<$Res> {
-  factory _$$_ActorBasicCopyWith(
-          _$_ActorBasic value, $Res Function(_$_ActorBasic) then) =
-      __$$_ActorBasicCopyWithImpl<$Res>;
+  factory _$$ActorBasicImplCopyWith(
+          _$ActorBasicImpl value, $Res Function(_$ActorBasicImpl) then) =
+      __$$ActorBasicImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -140,11 +140,11 @@ abstract class _$$_ActorBasicCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ActorBasicCopyWithImpl<$Res>
-    extends _$ActorBasicCopyWithImpl<$Res, _$_ActorBasic>
-    implements _$$_ActorBasicCopyWith<$Res> {
-  __$$_ActorBasicCopyWithImpl(
-      _$_ActorBasic _value, $Res Function(_$_ActorBasic) _then)
+class __$$ActorBasicImplCopyWithImpl<$Res>
+    extends _$ActorBasicCopyWithImpl<$Res, _$ActorBasicImpl>
+    implements _$$ActorBasicImplCopyWith<$Res> {
+  __$$ActorBasicImplCopyWithImpl(
+      _$ActorBasicImpl _value, $Res Function(_$ActorBasicImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -157,7 +157,7 @@ class __$$_ActorBasicCopyWithImpl<$Res>
     Object? viewer = null,
     Object? labels = freezed,
   }) {
-    return _then(_$_ActorBasic(
+    return _then(_$ActorBasicImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -189,8 +189,8 @@ class __$$_ActorBasicCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_ActorBasic extends _ActorBasic {
-  const _$_ActorBasic(
+class _$ActorBasicImpl extends _ActorBasic {
+  const _$ActorBasicImpl(
       {required this.did,
       required this.handle,
       this.displayName,
@@ -200,8 +200,8 @@ class _$_ActorBasic extends _ActorBasic {
       : _labels = labels,
         super._();
 
-  factory _$_ActorBasic.fromJson(Map<String, dynamic> json) =>
-      _$$_ActorBasicFromJson(json);
+  factory _$ActorBasicImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ActorBasicImplFromJson(json);
 
   /// The decentralized identifier of the actor.
   @override
@@ -247,7 +247,7 @@ class _$_ActorBasic extends _ActorBasic {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActorBasic &&
+            other is _$ActorBasicImpl &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.displayName, displayName) ||
@@ -265,12 +265,12 @@ class _$_ActorBasic extends _ActorBasic {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ActorBasicCopyWith<_$_ActorBasic> get copyWith =>
-      __$$_ActorBasicCopyWithImpl<_$_ActorBasic>(this, _$identity);
+  _$$ActorBasicImplCopyWith<_$ActorBasicImpl> get copyWith =>
+      __$$ActorBasicImplCopyWithImpl<_$ActorBasicImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ActorBasicToJson(
+    return _$$ActorBasicImplToJson(
       this,
     );
   }
@@ -283,11 +283,11 @@ abstract class _ActorBasic extends ActorBasic {
       final String? displayName,
       final String? avatar,
       final ActorViewer viewer,
-      final List<Label>? labels}) = _$_ActorBasic;
+      final List<Label>? labels}) = _$ActorBasicImpl;
   const _ActorBasic._() : super._();
 
   factory _ActorBasic.fromJson(Map<String, dynamic> json) =
-      _$_ActorBasic.fromJson;
+      _$ActorBasicImpl.fromJson;
 
   @override
 
@@ -316,6 +316,6 @@ abstract class _ActorBasic extends ActorBasic {
   List<Label>? get labels;
   @override
   @JsonKey(ignore: true)
-  _$$_ActorBasicCopyWith<_$_ActorBasic> get copyWith =>
+  _$$ActorBasicImplCopyWith<_$ActorBasicImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

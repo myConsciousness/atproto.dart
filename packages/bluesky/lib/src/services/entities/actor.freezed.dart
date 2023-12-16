@@ -281,7 +281,7 @@ class _$ActorImpl extends _Actor {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ActorImpl &&

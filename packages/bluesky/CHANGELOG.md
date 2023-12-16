@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.13.1
+
+- Added `.toActor` method on `ActorBasic`. ([#1095](https://github.com/myConsciousness/atproto.dart/issues/1095))
+
 ## v0.13.0
 
 - Changed types from `Actor` to `ActorBasic` on following objects. ([#1091](https://github.com/myConsciousness/atproto.dart/issues/1091))

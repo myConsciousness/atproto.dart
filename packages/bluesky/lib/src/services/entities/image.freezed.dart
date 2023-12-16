@@ -180,7 +180,7 @@ class _$ImageImpl implements _Image {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ImageImpl &&

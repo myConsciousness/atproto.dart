@@ -152,12 +152,12 @@ class _$EmbedViewRecordViewRecordCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_EmbedViewRecordViewRecordCopyWith<$Res>
+abstract class _$$EmbedViewRecordViewRecordImplCopyWith<$Res>
     implements $EmbedViewRecordViewRecordCopyWith<$Res> {
-  factory _$$_EmbedViewRecordViewRecordCopyWith(
-          _$_EmbedViewRecordViewRecord value,
-          $Res Function(_$_EmbedViewRecordViewRecord) then) =
-      __$$_EmbedViewRecordViewRecordCopyWithImpl<$Res>;
+  factory _$$EmbedViewRecordViewRecordImplCopyWith(
+          _$EmbedViewRecordViewRecordImpl value,
+          $Res Function(_$EmbedViewRecordViewRecordImpl) then) =
+      __$$EmbedViewRecordViewRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -177,13 +177,13 @@ abstract class _$$_EmbedViewRecordViewRecordCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EmbedViewRecordViewRecordCopyWithImpl<$Res>
+class __$$EmbedViewRecordViewRecordImplCopyWithImpl<$Res>
     extends _$EmbedViewRecordViewRecordCopyWithImpl<$Res,
-        _$_EmbedViewRecordViewRecord>
-    implements _$$_EmbedViewRecordViewRecordCopyWith<$Res> {
-  __$$_EmbedViewRecordViewRecordCopyWithImpl(
-      _$_EmbedViewRecordViewRecord _value,
-      $Res Function(_$_EmbedViewRecordViewRecord) _then)
+        _$EmbedViewRecordViewRecordImpl>
+    implements _$$EmbedViewRecordViewRecordImplCopyWith<$Res> {
+  __$$EmbedViewRecordViewRecordImplCopyWithImpl(
+      _$EmbedViewRecordViewRecordImpl _value,
+      $Res Function(_$EmbedViewRecordViewRecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -198,7 +198,7 @@ class __$$_EmbedViewRecordViewRecordCopyWithImpl<$Res>
     Object? embeds = freezed,
     Object? indexedAt = null,
   }) {
-    return _then(_$_EmbedViewRecordViewRecord(
+    return _then(_$EmbedViewRecordViewRecordImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -238,8 +238,8 @@ class __$$_EmbedViewRecordViewRecordCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
-  const _$_EmbedViewRecordViewRecord(
+class _$EmbedViewRecordViewRecordImpl implements _EmbedViewRecordViewRecord {
+  const _$EmbedViewRecordViewRecordImpl(
       {@typeKey required this.type,
       @atUriConverter required this.uri,
       required this.cid,
@@ -251,8 +251,8 @@ class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
       : _labels = labels,
         _embeds = embeds;
 
-  factory _$_EmbedViewRecordViewRecord.fromJson(Map<String, dynamic> json) =>
-      _$$_EmbedViewRecordViewRecordFromJson(json);
+  factory _$EmbedViewRecordViewRecordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmbedViewRecordViewRecordImplFromJson(json);
 
   /// The type of the embedded view record view.
   @override
@@ -317,7 +317,7 @@ class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EmbedViewRecordViewRecord &&
+            other is _$EmbedViewRecordViewRecordImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
@@ -345,13 +345,13 @@ class _$_EmbedViewRecordViewRecord implements _EmbedViewRecordViewRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EmbedViewRecordViewRecordCopyWith<_$_EmbedViewRecordViewRecord>
-      get copyWith => __$$_EmbedViewRecordViewRecordCopyWithImpl<
-          _$_EmbedViewRecordViewRecord>(this, _$identity);
+  _$$EmbedViewRecordViewRecordImplCopyWith<_$EmbedViewRecordViewRecordImpl>
+      get copyWith => __$$EmbedViewRecordViewRecordImplCopyWithImpl<
+          _$EmbedViewRecordViewRecordImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EmbedViewRecordViewRecordToJson(
+    return _$$EmbedViewRecordViewRecordImplToJson(
       this,
     );
   }
@@ -366,10 +366,10 @@ abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
       @postRecordConverter required final PostRecord value,
       final List<Label>? labels,
       @embedViewConverter final List<EmbedView>? embeds,
-      required final DateTime indexedAt}) = _$_EmbedViewRecordViewRecord;
+      required final DateTime indexedAt}) = _$EmbedViewRecordViewRecordImpl;
 
   factory _EmbedViewRecordViewRecord.fromJson(Map<String, dynamic> json) =
-      _$_EmbedViewRecordViewRecord.fromJson;
+      _$EmbedViewRecordViewRecordImpl.fromJson;
 
   @override
 
@@ -409,6 +409,6 @@ abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_EmbedViewRecordViewRecordCopyWith<_$_EmbedViewRecordViewRecord>
+  _$$EmbedViewRecordViewRecordImplCopyWith<_$EmbedViewRecordViewRecordImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
