@@ -15,6 +15,6 @@ A declaration of the existence of a feed generator.
 | **displayName** | string | - | ✅ | - |
 | **description** | string | - | ❌ | - |
 | **descriptionFacets** | array of [app.bsky.richtext.facet](../../../../lexicons/app/bsky/richtext/facet.md#main) | - | ❌ | - |
-| **avatar** | blob | - | ❌ | - |
+| **avatar** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ❌ | - |
 | **labels** | union of <br/>[com.atproto.label.defs#selfLabels](../../../../lexicons/com/atproto/label/defs.md#selflabels) | - | ❌ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |

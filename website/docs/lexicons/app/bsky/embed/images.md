@@ -15,7 +15,7 @@ description: app.bsky.embed.images
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **image** | blob | - | ✅ | - |
+| **image** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ✅ | - |
 | **alt** | string | - | ✅ | - |
 | **aspectRatio** | [#aspectRatio](#aspectratio) | - | ❌ | - |
 
