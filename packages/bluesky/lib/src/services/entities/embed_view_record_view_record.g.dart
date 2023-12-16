@@ -8,19 +8,18 @@ part of 'embed_view_record_view_record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EmbedViewRecordViewRecordImpl _$$EmbedViewRecordViewRecordImplFromJson(
-        Map json) =>
+_$_EmbedViewRecordViewRecord _$$_EmbedViewRecordViewRecordFromJson(Map json) =>
     $checkedCreate(
-      r'_$EmbedViewRecordViewRecordImpl',
+      r'_$_EmbedViewRecordViewRecord',
       json,
       ($checkedConvert) {
-        final val = _$EmbedViewRecordViewRecordImpl(
+        final val = _$_EmbedViewRecordViewRecord(
           type: $checkedConvert(r'$type', (v) => v as String),
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
           author: $checkedConvert('author',
-              (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => ActorBasic.fromJson(Map<String, Object?>.from(v as Map))),
           value: $checkedConvert('value',
               (v) => postRecordConverter.fromJson(v as Map<String, dynamic>)),
           labels: $checkedConvert(
@@ -43,8 +42,8 @@ _$EmbedViewRecordViewRecordImpl _$$EmbedViewRecordViewRecordImplFromJson(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$EmbedViewRecordViewRecordImplToJson(
-    _$EmbedViewRecordViewRecordImpl instance) {
+Map<String, dynamic> _$$_EmbedViewRecordViewRecordToJson(
+    _$_EmbedViewRecordViewRecord instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
     'uri': atUriConverter.toJson(instance.uri),

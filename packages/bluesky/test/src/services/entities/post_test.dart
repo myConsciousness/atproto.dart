@@ -7,7 +7,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/services/entities/actor.dart';
+import 'package:bluesky/src/services/entities/actor_basic.dart';
 import 'package:bluesky/src/services/entities/actor_viewer.dart';
 import 'package:bluesky/src/services/entities/post.dart';
 import 'package:bluesky/src/services/entities/post_record.dart';
@@ -21,7 +21,7 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: Actor(
+        author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
           viewer: ActorViewer(
@@ -53,7 +53,7 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: Actor(
+        author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
           viewer: ActorViewer(
@@ -83,7 +83,7 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: Actor(
+        author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
           viewer: ActorViewer(
@@ -115,7 +115,7 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: Actor(
+        author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
           viewer: ActorViewer(
@@ -145,7 +145,7 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: Actor(
+        author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
           viewer: ActorViewer(
@@ -177,7 +177,7 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: Actor(
+        author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
           viewer: ActorViewer(
@@ -207,7 +207,7 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: Actor(
+        author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
           viewer: ActorViewer(
@@ -239,7 +239,7 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: Actor(
+        author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
           viewer: ActorViewer(
@@ -269,7 +269,7 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: Actor(
+        author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
           viewer: ActorViewer(
@@ -299,7 +299,7 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: Actor(
+        author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
           viewer: ActorViewer(
@@ -329,7 +329,7 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: Actor(
+        author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
           viewer: ActorViewer(
@@ -359,7 +359,7 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: Actor(
+        author: ActorBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
           viewer: ActorViewer(

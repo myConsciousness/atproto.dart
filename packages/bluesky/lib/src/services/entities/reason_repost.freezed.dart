@@ -27,7 +27,7 @@ mixin _$ReasonRepost {
   String get type => throw _privateConstructorUsedError;
 
   /// Represents the actor who reposted.
-  Actor get by => throw _privateConstructorUsedError;
+  ActorBasic get by => throw _privateConstructorUsedError;
 
   /// Represents the date and time when the reposting event was indexed.
   DateTime get indexedAt => throw _privateConstructorUsedError;
@@ -44,9 +44,9 @@ abstract class $ReasonRepostCopyWith<$Res> {
           ReasonRepost value, $Res Function(ReasonRepost) then) =
       _$ReasonRepostCopyWithImpl<$Res, ReasonRepost>;
   @useResult
-  $Res call({@typeKey String type, Actor by, DateTime indexedAt});
+  $Res call({@typeKey String type, ActorBasic by, DateTime indexedAt});
 
-  $ActorCopyWith<$Res> get by;
+  $ActorBasicCopyWith<$Res> get by;
 }
 
 /// @nodoc
@@ -74,7 +74,7 @@ class _$ReasonRepostCopyWithImpl<$Res, $Val extends ReasonRepost>
       by: null == by
           ? _value.by
           : by // ignore: cast_nullable_to_non_nullable
-              as Actor,
+              as ActorBasic,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -84,33 +84,33 @@ class _$ReasonRepostCopyWithImpl<$Res, $Val extends ReasonRepost>
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorCopyWith<$Res> get by {
-    return $ActorCopyWith<$Res>(_value.by, (value) {
+  $ActorBasicCopyWith<$Res> get by {
+    return $ActorBasicCopyWith<$Res>(_value.by, (value) {
       return _then(_value.copyWith(by: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$ReasonRepostImplCopyWith<$Res>
+abstract class _$$_ReasonRepostCopyWith<$Res>
     implements $ReasonRepostCopyWith<$Res> {
-  factory _$$ReasonRepostImplCopyWith(
-          _$ReasonRepostImpl value, $Res Function(_$ReasonRepostImpl) then) =
-      __$$ReasonRepostImplCopyWithImpl<$Res>;
+  factory _$$_ReasonRepostCopyWith(
+          _$_ReasonRepost value, $Res Function(_$_ReasonRepost) then) =
+      __$$_ReasonRepostCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, Actor by, DateTime indexedAt});
+  $Res call({@typeKey String type, ActorBasic by, DateTime indexedAt});
 
   @override
-  $ActorCopyWith<$Res> get by;
+  $ActorBasicCopyWith<$Res> get by;
 }
 
 /// @nodoc
-class __$$ReasonRepostImplCopyWithImpl<$Res>
-    extends _$ReasonRepostCopyWithImpl<$Res, _$ReasonRepostImpl>
-    implements _$$ReasonRepostImplCopyWith<$Res> {
-  __$$ReasonRepostImplCopyWithImpl(
-      _$ReasonRepostImpl _value, $Res Function(_$ReasonRepostImpl) _then)
+class __$$_ReasonRepostCopyWithImpl<$Res>
+    extends _$ReasonRepostCopyWithImpl<$Res, _$_ReasonRepost>
+    implements _$$_ReasonRepostCopyWith<$Res> {
+  __$$_ReasonRepostCopyWithImpl(
+      _$_ReasonRepost _value, $Res Function(_$_ReasonRepost) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -120,7 +120,7 @@ class __$$ReasonRepostImplCopyWithImpl<$Res>
     Object? by = null,
     Object? indexedAt = null,
   }) {
-    return _then(_$ReasonRepostImpl(
+    return _then(_$_ReasonRepost(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -128,7 +128,7 @@ class __$$ReasonRepostImplCopyWithImpl<$Res>
       by: null == by
           ? _value.by
           : by // ignore: cast_nullable_to_non_nullable
-              as Actor,
+              as ActorBasic,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -139,14 +139,14 @@ class __$$ReasonRepostImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ReasonRepostImpl implements _ReasonRepost {
-  const _$ReasonRepostImpl(
+class _$_ReasonRepost implements _ReasonRepost {
+  const _$_ReasonRepost(
       {@typeKey this.type = appBskyFeedDefsReasonRepost,
       required this.by,
       required this.indexedAt});
 
-  factory _$ReasonRepostImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ReasonRepostImplFromJson(json);
+  factory _$_ReasonRepost.fromJson(Map<String, dynamic> json) =>
+      _$$_ReasonRepostFromJson(json);
 
   /// Represents the type of the reason.
   ///
@@ -157,7 +157,7 @@ class _$ReasonRepostImpl implements _ReasonRepost {
 
   /// Represents the actor who reposted.
   @override
-  final Actor by;
+  final ActorBasic by;
 
   /// Represents the date and time when the reposting event was indexed.
   @override
@@ -169,10 +169,10 @@ class _$ReasonRepostImpl implements _ReasonRepost {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ReasonRepostImpl &&
+            other is _$_ReasonRepost &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.by, by) || other.by == by) &&
             (identical(other.indexedAt, indexedAt) ||
@@ -186,12 +186,12 @@ class _$ReasonRepostImpl implements _ReasonRepost {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ReasonRepostImplCopyWith<_$ReasonRepostImpl> get copyWith =>
-      __$$ReasonRepostImplCopyWithImpl<_$ReasonRepostImpl>(this, _$identity);
+  _$$_ReasonRepostCopyWith<_$_ReasonRepost> get copyWith =>
+      __$$_ReasonRepostCopyWithImpl<_$_ReasonRepost>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ReasonRepostImplToJson(
+    return _$$_ReasonRepostToJson(
       this,
     );
   }
@@ -200,11 +200,11 @@ class _$ReasonRepostImpl implements _ReasonRepost {
 abstract class _ReasonRepost implements ReasonRepost {
   const factory _ReasonRepost(
       {@typeKey final String type,
-      required final Actor by,
-      required final DateTime indexedAt}) = _$ReasonRepostImpl;
+      required final ActorBasic by,
+      required final DateTime indexedAt}) = _$_ReasonRepost;
 
   factory _ReasonRepost.fromJson(Map<String, dynamic> json) =
-      _$ReasonRepostImpl.fromJson;
+      _$_ReasonRepost.fromJson;
 
   @override
 
@@ -216,13 +216,13 @@ abstract class _ReasonRepost implements ReasonRepost {
   @override
 
   /// Represents the actor who reposted.
-  Actor get by;
+  ActorBasic get by;
   @override
 
   /// Represents the date and time when the reposting event was indexed.
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)
-  _$$ReasonRepostImplCopyWith<_$ReasonRepostImpl> get copyWith =>
+  _$$_ReasonRepostCopyWith<_$_ReasonRepost> get copyWith =>
       throw _privateConstructorUsedError;
 }

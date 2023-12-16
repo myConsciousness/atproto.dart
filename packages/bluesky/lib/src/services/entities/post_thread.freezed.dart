@@ -74,11 +74,11 @@ class _$PostThreadCopyWithImpl<$Res, $Val extends PostThread>
 }
 
 /// @nodoc
-abstract class _$$PostThreadImplCopyWith<$Res>
+abstract class _$$_PostThreadCopyWith<$Res>
     implements $PostThreadCopyWith<$Res> {
-  factory _$$PostThreadImplCopyWith(
-          _$PostThreadImpl value, $Res Function(_$PostThreadImpl) then) =
-      __$$PostThreadImplCopyWithImpl<$Res>;
+  factory _$$_PostThreadCopyWith(
+          _$_PostThread value, $Res Function(_$_PostThread) then) =
+      __$$_PostThreadCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@postThreadViewConverter PostThreadView thread});
@@ -88,11 +88,11 @@ abstract class _$$PostThreadImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PostThreadImplCopyWithImpl<$Res>
-    extends _$PostThreadCopyWithImpl<$Res, _$PostThreadImpl>
-    implements _$$PostThreadImplCopyWith<$Res> {
-  __$$PostThreadImplCopyWithImpl(
-      _$PostThreadImpl _value, $Res Function(_$PostThreadImpl) _then)
+class __$$_PostThreadCopyWithImpl<$Res>
+    extends _$PostThreadCopyWithImpl<$Res, _$_PostThread>
+    implements _$$_PostThreadCopyWith<$Res> {
+  __$$_PostThreadCopyWithImpl(
+      _$_PostThread _value, $Res Function(_$_PostThread) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -100,7 +100,7 @@ class __$$PostThreadImplCopyWithImpl<$Res>
   $Res call({
     Object? thread = null,
   }) {
-    return _then(_$PostThreadImpl(
+    return _then(_$_PostThread(
       thread: null == thread
           ? _value.thread
           : thread // ignore: cast_nullable_to_non_nullable
@@ -111,11 +111,11 @@ class __$$PostThreadImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PostThreadImpl implements _PostThread {
-  const _$PostThreadImpl({@postThreadViewConverter required this.thread});
+class _$_PostThread implements _PostThread {
+  const _$_PostThread({@postThreadViewConverter required this.thread});
 
-  factory _$PostThreadImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PostThreadImplFromJson(json);
+  factory _$_PostThread.fromJson(Map<String, dynamic> json) =>
+      _$$_PostThreadFromJson(json);
 
   /// Represents the entire post thread.
   @override
@@ -128,10 +128,10 @@ class _$PostThreadImpl implements _PostThread {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PostThreadImpl &&
+            other is _$_PostThread &&
             (identical(other.thread, thread) || other.thread == thread));
   }
 
@@ -142,12 +142,12 @@ class _$PostThreadImpl implements _PostThread {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PostThreadImplCopyWith<_$PostThreadImpl> get copyWith =>
-      __$$PostThreadImplCopyWithImpl<_$PostThreadImpl>(this, _$identity);
+  _$$_PostThreadCopyWith<_$_PostThread> get copyWith =>
+      __$$_PostThreadCopyWithImpl<_$_PostThread>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PostThreadImplToJson(
+    return _$$_PostThreadToJson(
       this,
     );
   }
@@ -156,10 +156,10 @@ class _$PostThreadImpl implements _PostThread {
 abstract class _PostThread implements PostThread {
   const factory _PostThread(
           {@postThreadViewConverter required final PostThreadView thread}) =
-      _$PostThreadImpl;
+      _$_PostThread;
 
   factory _PostThread.fromJson(Map<String, dynamic> json) =
-      _$PostThreadImpl.fromJson;
+      _$_PostThread.fromJson;
 
   @override
 
@@ -168,6 +168,6 @@ abstract class _PostThread implements PostThread {
   PostThreadView get thread;
   @override
   @JsonKey(ignore: true)
-  _$$PostThreadImplCopyWith<_$PostThreadImpl> get copyWith =>
+  _$$_PostThreadCopyWith<_$_PostThread> get copyWith =>
       throw _privateConstructorUsedError;
 }

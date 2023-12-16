@@ -20,8 +20,8 @@ ActorsTypeahead _$ActorsTypeaheadFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ActorsTypeahead {
-  /// A list of [Actor] objects for typeahead functionality.
-  List<Actor> get actors => throw _privateConstructorUsedError;
+  /// A list of [ActorBasic] objects for typeahead functionality.
+  List<ActorBasic> get actors => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $ActorsTypeaheadCopyWith<$Res> {
           ActorsTypeahead value, $Res Function(ActorsTypeahead) then) =
       _$ActorsTypeaheadCopyWithImpl<$Res, ActorsTypeahead>;
   @useResult
-  $Res call({List<Actor> actors});
+  $Res call({List<ActorBasic> actors});
 }
 
 /// @nodoc
@@ -57,28 +57,28 @@ class _$ActorsTypeaheadCopyWithImpl<$Res, $Val extends ActorsTypeahead>
       actors: null == actors
           ? _value.actors
           : actors // ignore: cast_nullable_to_non_nullable
-              as List<Actor>,
+              as List<ActorBasic>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$ActorsTypeaheadImplCopyWith<$Res>
+abstract class _$$_ActorsTypeaheadCopyWith<$Res>
     implements $ActorsTypeaheadCopyWith<$Res> {
-  factory _$$ActorsTypeaheadImplCopyWith(_$ActorsTypeaheadImpl value,
-          $Res Function(_$ActorsTypeaheadImpl) then) =
-      __$$ActorsTypeaheadImplCopyWithImpl<$Res>;
+  factory _$$_ActorsTypeaheadCopyWith(
+          _$_ActorsTypeahead value, $Res Function(_$_ActorsTypeahead) then) =
+      __$$_ActorsTypeaheadCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Actor> actors});
+  $Res call({List<ActorBasic> actors});
 }
 
 /// @nodoc
-class __$$ActorsTypeaheadImplCopyWithImpl<$Res>
-    extends _$ActorsTypeaheadCopyWithImpl<$Res, _$ActorsTypeaheadImpl>
-    implements _$$ActorsTypeaheadImplCopyWith<$Res> {
-  __$$ActorsTypeaheadImplCopyWithImpl(
-      _$ActorsTypeaheadImpl _value, $Res Function(_$ActorsTypeaheadImpl) _then)
+class __$$_ActorsTypeaheadCopyWithImpl<$Res>
+    extends _$ActorsTypeaheadCopyWithImpl<$Res, _$_ActorsTypeahead>
+    implements _$$_ActorsTypeaheadCopyWith<$Res> {
+  __$$_ActorsTypeaheadCopyWithImpl(
+      _$_ActorsTypeahead _value, $Res Function(_$_ActorsTypeahead) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -86,30 +86,30 @@ class __$$ActorsTypeaheadImplCopyWithImpl<$Res>
   $Res call({
     Object? actors = null,
   }) {
-    return _then(_$ActorsTypeaheadImpl(
+    return _then(_$_ActorsTypeahead(
       actors: null == actors
           ? _value._actors
           : actors // ignore: cast_nullable_to_non_nullable
-              as List<Actor>,
+              as List<ActorBasic>,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ActorsTypeaheadImpl implements _ActorsTypeahead {
-  const _$ActorsTypeaheadImpl({required final List<Actor> actors})
+class _$_ActorsTypeahead implements _ActorsTypeahead {
+  const _$_ActorsTypeahead({required final List<ActorBasic> actors})
       : _actors = actors;
 
-  factory _$ActorsTypeaheadImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ActorsTypeaheadImplFromJson(json);
+  factory _$_ActorsTypeahead.fromJson(Map<String, dynamic> json) =>
+      _$$_ActorsTypeaheadFromJson(json);
 
-  /// A list of [Actor] objects for typeahead functionality.
-  final List<Actor> _actors;
+  /// A list of [ActorBasic] objects for typeahead functionality.
+  final List<ActorBasic> _actors;
 
-  /// A list of [Actor] objects for typeahead functionality.
+  /// A list of [ActorBasic] objects for typeahead functionality.
   @override
-  List<Actor> get actors {
+  List<ActorBasic> get actors {
     if (_actors is EqualUnmodifiableListView) return _actors;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_actors);
@@ -121,10 +121,10 @@ class _$ActorsTypeaheadImpl implements _ActorsTypeahead {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ActorsTypeaheadImpl &&
+            other is _$_ActorsTypeahead &&
             const DeepCollectionEquality().equals(other._actors, _actors));
   }
 
@@ -136,31 +136,30 @@ class _$ActorsTypeaheadImpl implements _ActorsTypeahead {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ActorsTypeaheadImplCopyWith<_$ActorsTypeaheadImpl> get copyWith =>
-      __$$ActorsTypeaheadImplCopyWithImpl<_$ActorsTypeaheadImpl>(
-          this, _$identity);
+  _$$_ActorsTypeaheadCopyWith<_$_ActorsTypeahead> get copyWith =>
+      __$$_ActorsTypeaheadCopyWithImpl<_$_ActorsTypeahead>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ActorsTypeaheadImplToJson(
+    return _$$_ActorsTypeaheadToJson(
       this,
     );
   }
 }
 
 abstract class _ActorsTypeahead implements ActorsTypeahead {
-  const factory _ActorsTypeahead({required final List<Actor> actors}) =
-      _$ActorsTypeaheadImpl;
+  const factory _ActorsTypeahead({required final List<ActorBasic> actors}) =
+      _$_ActorsTypeahead;
 
   factory _ActorsTypeahead.fromJson(Map<String, dynamic> json) =
-      _$ActorsTypeaheadImpl.fromJson;
+      _$_ActorsTypeahead.fromJson;
 
   @override
 
-  /// A list of [Actor] objects for typeahead functionality.
-  List<Actor> get actors;
+  /// A list of [ActorBasic] objects for typeahead functionality.
+  List<ActorBasic> get actors;
   @override
   @JsonKey(ignore: true)
-  _$$ActorsTypeaheadImplCopyWith<_$ActorsTypeaheadImpl> get copyWith =>
+  _$$_ActorsTypeaheadCopyWith<_$_ActorsTypeahead> get copyWith =>
       throw _privateConstructorUsedError;
 }

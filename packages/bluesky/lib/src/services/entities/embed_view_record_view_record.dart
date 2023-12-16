@@ -10,7 +10,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'actor.dart';
+import 'actor_basic.dart';
 import 'converter/embed_view_converter.dart';
 import 'converter/post_record_converter.dart';
 import 'embed_view.dart';
@@ -40,7 +40,7 @@ class EmbedViewRecordViewRecord with _$EmbedViewRecordViewRecord {
     required String cid,
 
     /// The author of the embedded view record view.
-    required Actor author,
+    required ActorBasic author,
 
     /// The post value of the embedded view record view.
     @postRecordConverter required PostRecord value,

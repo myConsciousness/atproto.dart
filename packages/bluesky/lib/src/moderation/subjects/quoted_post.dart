@@ -55,7 +55,7 @@ ModerationDecision decideQuotedPostAccount(
     final viewRecord = subject.record.data as EmbedViewRecordViewRecord;
 
     return decideAccount(
-      ModerationSubjectProfile.actor(data: viewRecord.author),
+      ModerationSubjectProfile.actorBasic(data: viewRecord.author),
       options,
     );
   }
@@ -105,7 +105,7 @@ ModerationDecision decideQuotedPostWithMediaAccount(
     final viewRecord = subject.record.record.data as EmbedViewRecordViewRecord;
 
     return decideAccount(
-      ModerationSubjectProfile.actor(data: viewRecord.author),
+      ModerationSubjectProfile.actorBasic(data: viewRecord.author),
       options,
     );
   }

@@ -88,11 +88,10 @@ class _$PostThreadViewCopyWithImpl<$Res, $Val extends PostThreadView>
 }
 
 /// @nodoc
-abstract class _$$UPostThreadViewRecordImplCopyWith<$Res> {
-  factory _$$UPostThreadViewRecordImplCopyWith(
-          _$UPostThreadViewRecordImpl value,
-          $Res Function(_$UPostThreadViewRecordImpl) then) =
-      __$$UPostThreadViewRecordImplCopyWithImpl<$Res>;
+abstract class _$$UPostThreadViewRecordCopyWith<$Res> {
+  factory _$$UPostThreadViewRecordCopyWith(_$UPostThreadViewRecord value,
+          $Res Function(_$UPostThreadViewRecord) then) =
+      __$$UPostThreadViewRecordCopyWithImpl<$Res>;
   @useResult
   $Res call({PostThreadViewRecord data});
 
@@ -100,11 +99,11 @@ abstract class _$$UPostThreadViewRecordImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UPostThreadViewRecordImplCopyWithImpl<$Res>
-    extends _$PostThreadViewCopyWithImpl<$Res, _$UPostThreadViewRecordImpl>
-    implements _$$UPostThreadViewRecordImplCopyWith<$Res> {
-  __$$UPostThreadViewRecordImplCopyWithImpl(_$UPostThreadViewRecordImpl _value,
-      $Res Function(_$UPostThreadViewRecordImpl) _then)
+class __$$UPostThreadViewRecordCopyWithImpl<$Res>
+    extends _$PostThreadViewCopyWithImpl<$Res, _$UPostThreadViewRecord>
+    implements _$$UPostThreadViewRecordCopyWith<$Res> {
+  __$$UPostThreadViewRecordCopyWithImpl(_$UPostThreadViewRecord _value,
+      $Res Function(_$UPostThreadViewRecord) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +111,7 @@ class __$$UPostThreadViewRecordImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPostThreadViewRecordImpl(
+    return _then(_$UPostThreadViewRecord(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -131,8 +130,8 @@ class __$$UPostThreadViewRecordImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UPostThreadViewRecordImpl implements UPostThreadViewRecord {
-  const _$UPostThreadViewRecordImpl({required this.data});
+class _$UPostThreadViewRecord implements UPostThreadViewRecord {
+  const _$UPostThreadViewRecord({required this.data});
 
   @override
   final PostThreadViewRecord data;
@@ -143,10 +142,10 @@ class _$UPostThreadViewRecordImpl implements UPostThreadViewRecord {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPostThreadViewRecordImpl &&
+            other is _$UPostThreadViewRecord &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -156,9 +155,9 @@ class _$UPostThreadViewRecordImpl implements UPostThreadViewRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UPostThreadViewRecordImplCopyWith<_$UPostThreadViewRecordImpl>
-      get copyWith => __$$UPostThreadViewRecordImplCopyWithImpl<
-          _$UPostThreadViewRecordImpl>(this, _$identity);
+  _$$UPostThreadViewRecordCopyWith<_$UPostThreadViewRecord> get copyWith =>
+      __$$UPostThreadViewRecordCopyWithImpl<_$UPostThreadViewRecord>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -237,21 +236,20 @@ class _$UPostThreadViewRecordImpl implements UPostThreadViewRecord {
 
 abstract class UPostThreadViewRecord implements PostThreadView {
   const factory UPostThreadViewRecord(
-      {required final PostThreadViewRecord data}) = _$UPostThreadViewRecordImpl;
+      {required final PostThreadViewRecord data}) = _$UPostThreadViewRecord;
 
   @override
   PostThreadViewRecord get data;
   @JsonKey(ignore: true)
-  _$$UPostThreadViewRecordImplCopyWith<_$UPostThreadViewRecordImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$UPostThreadViewRecordCopyWith<_$UPostThreadViewRecord> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UPostThreadViewNotFoundImplCopyWith<$Res> {
-  factory _$$UPostThreadViewNotFoundImplCopyWith(
-          _$UPostThreadViewNotFoundImpl value,
-          $Res Function(_$UPostThreadViewNotFoundImpl) then) =
-      __$$UPostThreadViewNotFoundImplCopyWithImpl<$Res>;
+abstract class _$$UPostThreadViewNotFoundCopyWith<$Res> {
+  factory _$$UPostThreadViewNotFoundCopyWith(_$UPostThreadViewNotFound value,
+          $Res Function(_$UPostThreadViewNotFound) then) =
+      __$$UPostThreadViewNotFoundCopyWithImpl<$Res>;
   @useResult
   $Res call({NotFoundPost data});
 
@@ -259,12 +257,11 @@ abstract class _$$UPostThreadViewNotFoundImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UPostThreadViewNotFoundImplCopyWithImpl<$Res>
-    extends _$PostThreadViewCopyWithImpl<$Res, _$UPostThreadViewNotFoundImpl>
-    implements _$$UPostThreadViewNotFoundImplCopyWith<$Res> {
-  __$$UPostThreadViewNotFoundImplCopyWithImpl(
-      _$UPostThreadViewNotFoundImpl _value,
-      $Res Function(_$UPostThreadViewNotFoundImpl) _then)
+class __$$UPostThreadViewNotFoundCopyWithImpl<$Res>
+    extends _$PostThreadViewCopyWithImpl<$Res, _$UPostThreadViewNotFound>
+    implements _$$UPostThreadViewNotFoundCopyWith<$Res> {
+  __$$UPostThreadViewNotFoundCopyWithImpl(_$UPostThreadViewNotFound _value,
+      $Res Function(_$UPostThreadViewNotFound) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -272,7 +269,7 @@ class __$$UPostThreadViewNotFoundImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPostThreadViewNotFoundImpl(
+    return _then(_$UPostThreadViewNotFound(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -291,8 +288,8 @@ class __$$UPostThreadViewNotFoundImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UPostThreadViewNotFoundImpl implements UPostThreadViewNotFound {
-  const _$UPostThreadViewNotFoundImpl({required this.data});
+class _$UPostThreadViewNotFound implements UPostThreadViewNotFound {
+  const _$UPostThreadViewNotFound({required this.data});
 
   @override
   final NotFoundPost data;
@@ -303,10 +300,10 @@ class _$UPostThreadViewNotFoundImpl implements UPostThreadViewNotFound {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPostThreadViewNotFoundImpl &&
+            other is _$UPostThreadViewNotFound &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -316,9 +313,9 @@ class _$UPostThreadViewNotFoundImpl implements UPostThreadViewNotFound {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UPostThreadViewNotFoundImplCopyWith<_$UPostThreadViewNotFoundImpl>
-      get copyWith => __$$UPostThreadViewNotFoundImplCopyWithImpl<
-          _$UPostThreadViewNotFoundImpl>(this, _$identity);
+  _$$UPostThreadViewNotFoundCopyWith<_$UPostThreadViewNotFound> get copyWith =>
+      __$$UPostThreadViewNotFoundCopyWithImpl<_$UPostThreadViewNotFound>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -397,21 +394,20 @@ class _$UPostThreadViewNotFoundImpl implements UPostThreadViewNotFound {
 
 abstract class UPostThreadViewNotFound implements PostThreadView {
   const factory UPostThreadViewNotFound({required final NotFoundPost data}) =
-      _$UPostThreadViewNotFoundImpl;
+      _$UPostThreadViewNotFound;
 
   @override
   NotFoundPost get data;
   @JsonKey(ignore: true)
-  _$$UPostThreadViewNotFoundImplCopyWith<_$UPostThreadViewNotFoundImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$UPostThreadViewNotFoundCopyWith<_$UPostThreadViewNotFound> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UPostThreadViewBlockedImplCopyWith<$Res> {
-  factory _$$UPostThreadViewBlockedImplCopyWith(
-          _$UPostThreadViewBlockedImpl value,
-          $Res Function(_$UPostThreadViewBlockedImpl) then) =
-      __$$UPostThreadViewBlockedImplCopyWithImpl<$Res>;
+abstract class _$$UPostThreadViewBlockedCopyWith<$Res> {
+  factory _$$UPostThreadViewBlockedCopyWith(_$UPostThreadViewBlocked value,
+          $Res Function(_$UPostThreadViewBlocked) then) =
+      __$$UPostThreadViewBlockedCopyWithImpl<$Res>;
   @useResult
   $Res call({BlockedPost data});
 
@@ -419,12 +415,11 @@ abstract class _$$UPostThreadViewBlockedImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UPostThreadViewBlockedImplCopyWithImpl<$Res>
-    extends _$PostThreadViewCopyWithImpl<$Res, _$UPostThreadViewBlockedImpl>
-    implements _$$UPostThreadViewBlockedImplCopyWith<$Res> {
-  __$$UPostThreadViewBlockedImplCopyWithImpl(
-      _$UPostThreadViewBlockedImpl _value,
-      $Res Function(_$UPostThreadViewBlockedImpl) _then)
+class __$$UPostThreadViewBlockedCopyWithImpl<$Res>
+    extends _$PostThreadViewCopyWithImpl<$Res, _$UPostThreadViewBlocked>
+    implements _$$UPostThreadViewBlockedCopyWith<$Res> {
+  __$$UPostThreadViewBlockedCopyWithImpl(_$UPostThreadViewBlocked _value,
+      $Res Function(_$UPostThreadViewBlocked) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -432,7 +427,7 @@ class __$$UPostThreadViewBlockedImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPostThreadViewBlockedImpl(
+    return _then(_$UPostThreadViewBlocked(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -451,8 +446,8 @@ class __$$UPostThreadViewBlockedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UPostThreadViewBlockedImpl implements UPostThreadViewBlocked {
-  const _$UPostThreadViewBlockedImpl({required this.data});
+class _$UPostThreadViewBlocked implements UPostThreadViewBlocked {
+  const _$UPostThreadViewBlocked({required this.data});
 
   @override
   final BlockedPost data;
@@ -463,10 +458,10 @@ class _$UPostThreadViewBlockedImpl implements UPostThreadViewBlocked {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPostThreadViewBlockedImpl &&
+            other is _$UPostThreadViewBlocked &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -476,9 +471,9 @@ class _$UPostThreadViewBlockedImpl implements UPostThreadViewBlocked {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UPostThreadViewBlockedImplCopyWith<_$UPostThreadViewBlockedImpl>
-      get copyWith => __$$UPostThreadViewBlockedImplCopyWithImpl<
-          _$UPostThreadViewBlockedImpl>(this, _$identity);
+  _$$UPostThreadViewBlockedCopyWith<_$UPostThreadViewBlocked> get copyWith =>
+      __$$UPostThreadViewBlockedCopyWithImpl<_$UPostThreadViewBlocked>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -557,32 +552,30 @@ class _$UPostThreadViewBlockedImpl implements UPostThreadViewBlocked {
 
 abstract class UPostThreadViewBlocked implements PostThreadView {
   const factory UPostThreadViewBlocked({required final BlockedPost data}) =
-      _$UPostThreadViewBlockedImpl;
+      _$UPostThreadViewBlocked;
 
   @override
   BlockedPost get data;
   @JsonKey(ignore: true)
-  _$$UPostThreadViewBlockedImplCopyWith<_$UPostThreadViewBlockedImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$UPostThreadViewBlockedCopyWith<_$UPostThreadViewBlocked> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UPostThreadViewUnknownImplCopyWith<$Res> {
-  factory _$$UPostThreadViewUnknownImplCopyWith(
-          _$UPostThreadViewUnknownImpl value,
-          $Res Function(_$UPostThreadViewUnknownImpl) then) =
-      __$$UPostThreadViewUnknownImplCopyWithImpl<$Res>;
+abstract class _$$UPostThreadViewUnknownCopyWith<$Res> {
+  factory _$$UPostThreadViewUnknownCopyWith(_$UPostThreadViewUnknown value,
+          $Res Function(_$UPostThreadViewUnknown) then) =
+      __$$UPostThreadViewUnknownCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UPostThreadViewUnknownImplCopyWithImpl<$Res>
-    extends _$PostThreadViewCopyWithImpl<$Res, _$UPostThreadViewUnknownImpl>
-    implements _$$UPostThreadViewUnknownImplCopyWith<$Res> {
-  __$$UPostThreadViewUnknownImplCopyWithImpl(
-      _$UPostThreadViewUnknownImpl _value,
-      $Res Function(_$UPostThreadViewUnknownImpl) _then)
+class __$$UPostThreadViewUnknownCopyWithImpl<$Res>
+    extends _$PostThreadViewCopyWithImpl<$Res, _$UPostThreadViewUnknown>
+    implements _$$UPostThreadViewUnknownCopyWith<$Res> {
+  __$$UPostThreadViewUnknownCopyWithImpl(_$UPostThreadViewUnknown _value,
+      $Res Function(_$UPostThreadViewUnknown) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -590,7 +583,7 @@ class __$$UPostThreadViewUnknownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPostThreadViewUnknownImpl(
+    return _then(_$UPostThreadViewUnknown(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -601,8 +594,8 @@ class __$$UPostThreadViewUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UPostThreadViewUnknownImpl implements UPostThreadViewUnknown {
-  const _$UPostThreadViewUnknownImpl({required final Map<String, dynamic> data})
+class _$UPostThreadViewUnknown implements UPostThreadViewUnknown {
+  const _$UPostThreadViewUnknown({required final Map<String, dynamic> data})
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -619,10 +612,10 @@ class _$UPostThreadViewUnknownImpl implements UPostThreadViewUnknown {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPostThreadViewUnknownImpl &&
+            other is _$UPostThreadViewUnknown &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -633,9 +626,9 @@ class _$UPostThreadViewUnknownImpl implements UPostThreadViewUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UPostThreadViewUnknownImplCopyWith<_$UPostThreadViewUnknownImpl>
-      get copyWith => __$$UPostThreadViewUnknownImplCopyWithImpl<
-          _$UPostThreadViewUnknownImpl>(this, _$identity);
+  _$$UPostThreadViewUnknownCopyWith<_$UPostThreadViewUnknown> get copyWith =>
+      __$$UPostThreadViewUnknownCopyWithImpl<_$UPostThreadViewUnknown>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -714,12 +707,11 @@ class _$UPostThreadViewUnknownImpl implements UPostThreadViewUnknown {
 
 abstract class UPostThreadViewUnknown implements PostThreadView {
   const factory UPostThreadViewUnknown(
-          {required final Map<String, dynamic> data}) =
-      _$UPostThreadViewUnknownImpl;
+      {required final Map<String, dynamic> data}) = _$UPostThreadViewUnknown;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$UPostThreadViewUnknownImplCopyWith<_$UPostThreadViewUnknownImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$UPostThreadViewUnknownCopyWith<_$UPostThreadViewUnknown> get copyWith =>
+      throw _privateConstructorUsedError;
 }

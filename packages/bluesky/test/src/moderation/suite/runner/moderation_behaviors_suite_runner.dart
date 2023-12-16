@@ -15,7 +15,7 @@ import 'package:bluesky/src/moderation/entities/moderation_options.dart';
 import 'package:bluesky/src/moderation/entities/moderation_subject_post.dart';
 import 'package:bluesky/src/moderation/entities/moderation_subject_profile.dart';
 import 'package:bluesky/src/moderation/entities/moderation_ui.dart';
-import 'package:bluesky/src/services/entities/actor.dart';
+import 'package:bluesky/src/services/entities/actor_basic.dart';
 import 'package:bluesky/src/services/entities/actor_viewer.dart';
 import 'package:bluesky/src/services/entities/embed_view.dart';
 import 'package:bluesky/src/services/entities/embed_view_record.dart';
@@ -39,7 +39,7 @@ final class ModerationBehaviorSuiteRunner {
   ) {
     if (scenario.subject != ScenarioSubjectType.profile) throw Error();
 
-    return ModerationSubjectProfile.actor(
+    return ModerationSubjectProfile.actorBasic(
       data: _getProfileViewBasic(scenario.author, scenario.labels),
     );
   }
@@ -126,7 +126,7 @@ final class ModerationBehaviorSuiteRunner {
         ],
       );
 
-  Actor _getProfileViewBasic(
+  ActorBasic _getProfileViewBasic(
     final String name,
     final ModerationBehaviorScenarioLabels scenarioLabels,
   ) {
@@ -148,7 +148,7 @@ final class ModerationBehaviorSuiteRunner {
       }
     }
 
-    return Actor(
+    return ActorBasic(
       did: 'did:web:$name.test',
       handle: '$name.test',
       labels: labels,

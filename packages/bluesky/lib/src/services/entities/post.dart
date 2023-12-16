@@ -11,7 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import 'actor.dart';
+import 'actor_basic.dart';
 import 'converter/embed_view_converter.dart';
 import 'converter/post_record_converter.dart';
 import 'defaults.dart';
@@ -48,7 +48,7 @@ class Post with _$Post {
     @postRecordConverter required PostRecord record,
 
     /// The author who created the post.
-    required Actor author,
+    required ActorBasic author,
 
     /// The URI of the post.
     @atUriConverter required AtUri uri,
