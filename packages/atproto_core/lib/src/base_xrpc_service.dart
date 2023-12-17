@@ -10,55 +10,11 @@ import 'dart:typed_data';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // 🌎 Project imports:
-import 'clients/auth_type.dart';
 import 'clients/client_context.dart';
 import 'const.dart';
 import 'paginations/pagination.dart';
 
-sealed class _Service {
-  Future<xrpc.XRPCResponse<T>> get<T>(
-    final String methodName, {
-    final AuthType authType = AuthType.authRequired,
-    final Map<String, dynamic>? parameters,
-    final xrpc.To<T>? to,
-    final xrpc.ResponseAdaptor? adaptor,
-  });
-
-  Pagination<T> paginate<T>(
-    final String methodName, {
-    final AuthType authType = AuthType.authRequired,
-    required final Map<String, dynamic> parameters,
-    final xrpc.To<T>? to,
-    final xrpc.ResponseAdaptor? adaptor,
-  });
-
-  Future<xrpc.XRPCResponse<T>> post<T>(
-    final String methodName, {
-    final AuthType authType = AuthType.authRequired,
-    required final dynamic body,
-    final xrpc.To<T>? to,
-  });
-
-  Future<xrpc.XRPCResponse<T>> upload<T>(
-    final String methodName,
-    final Uint8List bytes, {
-    final AuthType authType = AuthType.authRequired,
-    final String? service,
-    final Map<String, String>? headers,
-    final Duration timeout = const Duration(seconds: 10),
-    final xrpc.To<T>? to,
-  });
-
-  Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
-    final String methodName, {
-    final AuthType authType = AuthType.authRequired,
-    final Map<String, dynamic>? parameters,
-    final xrpc.To<T>? to,
-    final xrpc.ResponseAdaptor? adaptor,
-  });
-}
-
-base class BaseXRPCService implements _Service {
+base class BaseXRPCService {
   /// Returns the new instance of [BaseXRPCService].
   BaseXRPCService({
     xrpc.Protocol? protocol,
@@ -92,10 +48,8 @@ base class BaseXRPCService implements _Service {
   final xrpc.GetClient? _mockedGetClient;
   final xrpc.PostClient? _mockedPostClient;
 
-  @override
   Future<xrpc.XRPCResponse<T>> get<T>(
     final String methodName, {
-    final AuthType authType = AuthType.authRequired,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
@@ -105,7 +59,6 @@ base class BaseXRPCService implements _Service {
           _methodAuthority,
           methodName,
         ),
-        authType: authType,
         protocol: _protocol,
         service: _service,
         parameters: parameters,
@@ -114,10 +67,8 @@ base class BaseXRPCService implements _Service {
         getClient: _mockedGetClient,
       );
 
-  @override
   Pagination<T> paginate<T>(
     final String methodName, {
-    final AuthType authType = AuthType.authRequired,
     required final Map<String, dynamic> parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
@@ -127,7 +78,6 @@ base class BaseXRPCService implements _Service {
           _methodAuthority,
           methodName,
         ),
-        authType: authType,
         protocol: _protocol,
         service: _service,
         parameters: parameters,
@@ -136,10 +86,8 @@ base class BaseXRPCService implements _Service {
         getClient: _mockedGetClient,
       );
 
-  @override
   Future<xrpc.XRPCResponse<T>> post<T>(
     final String methodName, {
-    final AuthType authType = AuthType.authRequired,
     final Map<String, String>? headers,
     final dynamic body,
     final xrpc.To<T>? to,
@@ -149,7 +97,6 @@ base class BaseXRPCService implements _Service {
           _methodAuthority,
           methodName,
         ),
-        authType: authType,
         protocol: _protocol,
         service: _service,
         headers: headers,
@@ -158,11 +105,9 @@ base class BaseXRPCService implements _Service {
         postClient: _mockedPostClient,
       );
 
-  @override
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final String methodName,
     final Uint8List bytes, {
-    AuthType authType = AuthType.authRequired,
     final String? service,
     final Map<String, String>? headers,
     final Duration timeout = const Duration(seconds: 10),
@@ -174,7 +119,6 @@ base class BaseXRPCService implements _Service {
           methodName,
         ),
         bytes,
-        authType: authType,
         protocol: _protocol,
         service: _service,
         headers: headers,
@@ -182,10 +126,8 @@ base class BaseXRPCService implements _Service {
         postClient: _mockedPostClient,
       );
 
-  @override
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
     final String methodName, {
-    AuthType authType = AuthType.authRequired,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
@@ -195,7 +137,6 @@ base class BaseXRPCService implements _Service {
           _methodAuthority,
           methodName,
         ),
-        authType: authType,
         service: _streamService,
         parameters: parameters,
         to: to,

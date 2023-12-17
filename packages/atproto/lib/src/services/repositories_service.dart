@@ -601,7 +601,6 @@ final class _RepositoriesService extends ATProtoBaseService
         parameters: {
           'repo': repo,
         },
-        authType: core.AuthType.anonymous,
         to: to,
       );
 
