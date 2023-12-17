@@ -1,13 +1,13 @@
 name: atproto_test
 description: This package provides core reusable and useful functionality for testing atproto based packages.
-version: 0.2.0
+version: 1.0.0
 publish_to: none
 environment:
   sdk: ^3.0.0
 
 dependencies:
   test: ^1.21.0
-  atproto_core: ^0.6.3
+  atproto_core: ^0.7.0
   http: ^1.1.0
   universal_io: ^2.2.2
 

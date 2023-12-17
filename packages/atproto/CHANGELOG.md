@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.9.1
+
+- Upgraded `atproto_core`. ([#1102](https://github.com/myConsciousness/atproto.dart/issues/1102))
+
 ## v0.9.0
 
 - Removed all `.find*AsJson` and `.paginate*AsJson`. ([#1033](https://github.com/myConsciousness/atproto.dart/issues/1033))

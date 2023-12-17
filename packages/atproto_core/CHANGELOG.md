@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.7.0
+
+- Removed `AuthType` and `ClientResolver`. Let the server handle whether authentication is required or not. ([#1102](https://github.com/myConsciousness/atproto.dart/issues/1102))
+
 ## v0.6.3
 
 - Added `cardyb.bsky.app` as `defaultLinkPreviewService`. ([#1009](https://github.com/myConsciousness/atproto.dart/issues/1009))
