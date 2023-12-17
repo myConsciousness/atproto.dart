@@ -17,3 +17,5 @@ Get blocks needed for existence or non-existence of record.
 | **collection** | string ([nsid](https://atproto.com/specs/nsid)) | - | ✅ | - |
 | **rkey** | string | - | ✅ | - |
 | **commit** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | An optional past commit CID. |
+
+### Output (application/vnd.ipld.car)
