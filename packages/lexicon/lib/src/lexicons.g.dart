@@ -44,7 +44,8 @@ const comAtprotoModerationDefs = <String, dynamic>{
     },
     "reasonRude": {
       "type": "token",
-      "description": "Rude, harassing, explicit, or otherwise unwelcoming behavior"
+      "description":
+          "Rude, harassing, explicit, or otherwise unwelcoming behavior"
     },
     "reasonOther": {
       "type": "token",
@@ -65,18 +66,13 @@ const comAtprotoModerationCreateReport = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "reasonType",
-            "subject"
-          ],
+          "required": ["reasonType", "subject"],
           "properties": {
             "reasonType": {
               "type": "ref",
               "ref": "com.atproto.moderation.defs#reasonType"
             },
-            "reason": {
-              "type": "string"
-            },
+            "reason": {"type": "string"},
             "subject": {
               "type": "union",
               "refs": [
@@ -99,9 +95,7 @@ const comAtprotoModerationCreateReport = <String, dynamic>{
             "createdAt"
           ],
           "properties": {
-            "id": {
-              "type": "integer"
-            },
+            "id": {"type": "integer"},
             "reasonType": {
               "type": "ref",
               "ref": "com.atproto.moderation.defs#reasonType"
@@ -118,14 +112,8 @@ const comAtprotoModerationCreateReport = <String, dynamic>{
                 "com.atproto.repo.strongRef"
               ]
             },
-            "reportedBy": {
-              "type": "string",
-              "format": "did"
-            },
-            "createdAt": {
-              "type": "string",
-              "format": "datetime"
-            }
+            "reportedBy": {"type": "string", "format": "did"},
+            "createdAt": {"type": "string", "format": "datetime"}
           }
         }
       }
@@ -145,40 +133,25 @@ const comAtprotoServerListAppPasswords = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "passwords"
-          ],
+          "required": ["passwords"],
           "properties": {
             "passwords": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "#appPassword"
-              }
+              "items": {"type": "ref", "ref": "#appPassword"}
             }
           }
         }
       },
       "errors": [
-        {
-          "name": "AccountTakedown"
-        }
+        {"name": "AccountTakedown"}
       ]
     },
     "appPassword": {
       "type": "object",
-      "required": [
-        "name",
-        "createdAt"
-      ],
+      "required": ["name", "createdAt"],
       "properties": {
-        "name": {
-          "type": "string"
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "datetime"
-        }
+        "name": {"type": "string"},
+        "createdAt": {"type": "string", "format": "datetime"}
       }
     }
   }
@@ -196,47 +169,27 @@ const comAtprotoServerCreateAppPassword = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "name"
-          ],
+          "required": ["name"],
           "properties": {
-            "name": {
-              "type": "string"
-            }
+            "name": {"type": "string"}
           }
         }
       },
       "output": {
         "encoding": "application/json",
-        "schema": {
-          "type": "ref",
-          "ref": "#appPassword"
-        }
+        "schema": {"type": "ref", "ref": "#appPassword"}
       },
       "errors": [
-        {
-          "name": "AccountTakedown"
-        }
+        {"name": "AccountTakedown"}
       ]
     },
     "appPassword": {
       "type": "object",
-      "required": [
-        "name",
-        "password",
-        "createdAt"
-      ],
+      "required": ["name", "password", "createdAt"],
       "properties": {
-        "name": {
-          "type": "string"
-        },
-        "password": {
-          "type": "string"
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "datetime"
-        }
+        "name": {"type": "string"},
+        "password": {"type": "string"},
+        "createdAt": {"type": "string", "format": "datetime"}
       }
     }
   }
@@ -254,13 +207,9 @@ const comAtprotoServerRevokeAppPassword = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "name"
-          ],
+          "required": ["name"],
           "properties": {
-            "name": {
-              "type": "string"
-            }
+            "name": {"type": "string"}
           }
         }
       }
@@ -280,13 +229,9 @@ const comAtprotoServerRequestPasswordReset = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "email"
-          ],
+          "required": ["email"],
           "properties": {
-            "email": {
-              "type": "string"
-            }
+            "email": {"type": "string"}
           }
         }
       }
@@ -318,18 +263,14 @@ const comAtprotoServerCreateSession = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "identifier",
-            "password"
-          ],
+          "required": ["identifier", "password"],
           "properties": {
             "identifier": {
               "type": "string",
-              "description": "Handle or other identifier supported by the server for the authenticating user."
+              "description":
+                  "Handle or other identifier supported by the server for the authenticating user."
             },
-            "password": {
-              "type": "string"
-            }
+            "password": {"type": "string"}
           }
         }
       },
@@ -337,43 +278,20 @@ const comAtprotoServerCreateSession = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "accessJwt",
-            "refreshJwt",
-            "handle",
-            "did"
-          ],
+          "required": ["accessJwt", "refreshJwt", "handle", "did"],
           "properties": {
-            "accessJwt": {
-              "type": "string"
-            },
-            "refreshJwt": {
-              "type": "string"
-            },
-            "handle": {
-              "type": "string",
-              "format": "handle"
-            },
-            "did": {
-              "type": "string",
-              "format": "did"
-            },
-            "didDoc": {
-              "type": "unknown"
-            },
-            "email": {
-              "type": "string"
-            },
-            "emailConfirmed": {
-              "type": "boolean"
-            }
+            "accessJwt": {"type": "string"},
+            "refreshJwt": {"type": "string"},
+            "handle": {"type": "string", "format": "handle"},
+            "did": {"type": "string", "format": "did"},
+            "didDoc": {"type": "unknown"},
+            "email": {"type": "string"},
+            "emailConfirmed": {"type": "boolean"}
           }
         }
       },
       "errors": [
-        {
-          "name": "AccountTakedown"
-        }
+        {"name": "AccountTakedown"}
       ]
     }
   }
@@ -391,13 +309,9 @@ const comAtprotoServerRequestEmailUpdate = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "tokenRequired"
-          ],
+          "required": ["tokenRequired"],
           "properties": {
-            "tokenRequired": {
-              "type": "boolean"
-            }
+            "tokenRequired": {"type": "boolean"}
           }
         }
       }
@@ -417,28 +331,13 @@ const comAtprotoServerGetSession = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "handle",
-            "did"
-          ],
+          "required": ["handle", "did"],
           "properties": {
-            "handle": {
-              "type": "string",
-              "format": "handle"
-            },
-            "did": {
-              "type": "string",
-              "format": "did"
-            },
-            "email": {
-              "type": "string"
-            },
-            "emailConfirmed": {
-              "type": "boolean"
-            },
-            "didDoc": {
-              "type": "unknown"
-            }
+            "handle": {"type": "string", "format": "handle"},
+            "did": {"type": "string", "format": "did"},
+            "email": {"type": "string"},
+            "emailConfirmed": {"type": "boolean"},
+            "didDoc": {"type": "unknown"}
           }
         }
       }
@@ -458,32 +357,17 @@ const comAtprotoServerDeleteAccount = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "did",
-            "password",
-            "token"
-          ],
+          "required": ["did", "password", "token"],
           "properties": {
-            "did": {
-              "type": "string",
-              "format": "did"
-            },
-            "password": {
-              "type": "string"
-            },
-            "token": {
-              "type": "string"
-            }
+            "did": {"type": "string", "format": "did"},
+            "password": {"type": "string"},
+            "token": {"type": "string"}
           }
         }
       },
       "errors": [
-        {
-          "name": "ExpiredToken"
-        },
-        {
-          "name": "InvalidToken"
-        }
+        {"name": "ExpiredToken"},
+        {"name": "InvalidToken"}
       ]
     }
   }
@@ -501,33 +385,15 @@ const comAtprotoServerCreateAccount = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "handle"
-          ],
+          "required": ["handle"],
           "properties": {
-            "email": {
-              "type": "string"
-            },
-            "handle": {
-              "type": "string",
-              "format": "handle"
-            },
-            "did": {
-              "type": "string",
-              "format": "did"
-            },
-            "inviteCode": {
-              "type": "string"
-            },
-            "password": {
-              "type": "string"
-            },
-            "recoveryKey": {
-              "type": "string"
-            },
-            "plcOp": {
-              "type": "unknown"
-            }
+            "email": {"type": "string"},
+            "handle": {"type": "string", "format": "handle"},
+            "did": {"type": "string", "format": "did"},
+            "inviteCode": {"type": "string"},
+            "password": {"type": "string"},
+            "recoveryKey": {"type": "string"},
+            "plcOp": {"type": "unknown"}
           }
         }
       },
@@ -535,55 +401,24 @@ const comAtprotoServerCreateAccount = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "accessJwt",
-            "refreshJwt",
-            "handle",
-            "did"
-          ],
+          "required": ["accessJwt", "refreshJwt", "handle", "did"],
           "properties": {
-            "accessJwt": {
-              "type": "string"
-            },
-            "refreshJwt": {
-              "type": "string"
-            },
-            "handle": {
-              "type": "string",
-              "format": "handle"
-            },
-            "did": {
-              "type": "string",
-              "format": "did"
-            },
-            "didDoc": {
-              "type": "unknown"
-            }
+            "accessJwt": {"type": "string"},
+            "refreshJwt": {"type": "string"},
+            "handle": {"type": "string", "format": "handle"},
+            "did": {"type": "string", "format": "did"},
+            "didDoc": {"type": "unknown"}
           }
         }
       },
       "errors": [
-        {
-          "name": "InvalidHandle"
-        },
-        {
-          "name": "InvalidPassword"
-        },
-        {
-          "name": "InvalidInviteCode"
-        },
-        {
-          "name": "HandleNotAvailable"
-        },
-        {
-          "name": "UnsupportedDomain"
-        },
-        {
-          "name": "UnresolvableDid"
-        },
-        {
-          "name": "IncompatibleDidDoc"
-        }
+        {"name": "InvalidHandle"},
+        {"name": "InvalidPassword"},
+        {"name": "InvalidInviteCode"},
+        {"name": "HandleNotAvailable"},
+        {"name": "UnsupportedDomain"},
+        {"name": "UnresolvableDid"},
+        {"name": "IncompatibleDidDoc"}
       ]
     }
   }
@@ -601,27 +436,16 @@ const comAtprotoServerResetPassword = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "token",
-            "password"
-          ],
+          "required": ["token", "password"],
           "properties": {
-            "token": {
-              "type": "string"
-            },
-            "password": {
-              "type": "string"
-            }
+            "token": {"type": "string"},
+            "password": {"type": "string"}
           }
         }
       },
       "errors": [
-        {
-          "name": "ExpiredToken"
-        },
-        {
-          "name": "InvalidToken"
-        }
+        {"name": "ExpiredToken"},
+        {"name": "InvalidToken"}
       ]
     }
   }
@@ -638,23 +462,15 @@ const comAtprotoServerGetAccountInviteCodes = <String, dynamic>{
       "parameters": {
         "type": "params",
         "properties": {
-          "includeUsed": {
-            "type": "boolean",
-            "default": true
-          },
-          "createAvailable": {
-            "type": "boolean",
-            "default": true
-          }
+          "includeUsed": {"type": "boolean", "default": true},
+          "createAvailable": {"type": "boolean", "default": true}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "codes"
-          ],
+          "required": ["codes"],
           "properties": {
             "codes": {
               "type": "array",
@@ -667,9 +483,7 @@ const comAtprotoServerGetAccountInviteCodes = <String, dynamic>{
         }
       },
       "errors": [
-        {
-          "name": "DuplicateCreate"
-        }
+        {"name": "DuplicateCreate"}
       ]
     }
   }
@@ -692,49 +506,24 @@ const comAtprotoServerDefs = <String, dynamic>{
         "uses"
       ],
       "properties": {
-        "code": {
-          "type": "string"
-        },
-        "available": {
-          "type": "integer"
-        },
-        "disabled": {
-          "type": "boolean"
-        },
-        "forAccount": {
-          "type": "string"
-        },
-        "createdBy": {
-          "type": "string"
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "datetime"
-        },
+        "code": {"type": "string"},
+        "available": {"type": "integer"},
+        "disabled": {"type": "boolean"},
+        "forAccount": {"type": "string"},
+        "createdBy": {"type": "string"},
+        "createdAt": {"type": "string", "format": "datetime"},
         "uses": {
           "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "#inviteCodeUse"
-          }
+          "items": {"type": "ref", "ref": "#inviteCodeUse"}
         }
       }
     },
     "inviteCodeUse": {
       "type": "object",
-      "required": [
-        "usedBy",
-        "usedAt"
-      ],
+      "required": ["usedBy", "usedAt"],
       "properties": {
-        "usedBy": {
-          "type": "string",
-          "format": "did"
-        },
-        "usedAt": {
-          "type": "string",
-          "format": "datetime"
-        }
+        "usedBy": {"type": "string", "format": "did"},
+        "usedAt": {"type": "string", "format": "datetime"}
       }
     }
   }
@@ -752,24 +541,13 @@ const comAtprotoServerCreateInviteCodes = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "codeCount",
-            "useCount"
-          ],
+          "required": ["codeCount", "useCount"],
           "properties": {
-            "codeCount": {
-              "type": "integer",
-              "default": 1
-            },
-            "useCount": {
-              "type": "integer"
-            },
+            "codeCount": {"type": "integer", "default": 1},
+            "useCount": {"type": "integer"},
             "forAccounts": {
               "type": "array",
-              "items": {
-                "type": "string",
-                "format": "did"
-              }
+              "items": {"type": "string", "format": "did"}
             }
           }
         }
@@ -778,16 +556,11 @@ const comAtprotoServerCreateInviteCodes = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "codes"
-          ],
+          "required": ["codes"],
           "properties": {
             "codes": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "#accountCodes"
-              }
+              "items": {"type": "ref", "ref": "#accountCodes"}
             }
           }
         }
@@ -795,19 +568,12 @@ const comAtprotoServerCreateInviteCodes = <String, dynamic>{
     },
     "accountCodes": {
       "type": "object",
-      "required": [
-        "account",
-        "codes"
-      ],
+      "required": ["account", "codes"],
       "properties": {
-        "account": {
-          "type": "string"
-        },
+        "account": {"type": "string"},
         "codes": {
           "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "items": {"type": "string"}
         }
       }
     }
@@ -821,28 +587,20 @@ const comAtprotoServerDescribeServer = <String, dynamic>{
   "defs": {
     "main": {
       "type": "query",
-      "description": "Get a document describing the service's accounts configuration.",
+      "description":
+          "Get a document describing the service's accounts configuration.",
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "availableUserDomains"
-          ],
+          "required": ["availableUserDomains"],
           "properties": {
-            "inviteCodeRequired": {
-              "type": "boolean"
-            },
+            "inviteCodeRequired": {"type": "boolean"},
             "availableUserDomains": {
               "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "items": {"type": "string"}
             },
-            "links": {
-              "type": "ref",
-              "ref": "#links"
-            }
+            "links": {"type": "ref", "ref": "#links"}
           }
         }
       }
@@ -850,12 +608,8 @@ const comAtprotoServerDescribeServer = <String, dynamic>{
     "links": {
       "type": "object",
       "properties": {
-        "privacyPolicy": {
-          "type": "string"
-        },
-        "termsOfService": {
-          "type": "string"
-        }
+        "privacyPolicy": {"type": "string"},
+        "termsOfService": {"type": "string"}
       }
     }
   }
@@ -868,7 +622,8 @@ const comAtprotoServerRequestEmailConfirmation = <String, dynamic>{
   "defs": {
     "main": {
       "type": "procedure",
-      "description": "Request an email with a code to confirm ownership of email."
+      "description":
+          "Request an email with a code to confirm ownership of email."
     }
   }
 };
@@ -885,17 +640,10 @@ const comAtprotoServerCreateInviteCode = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "useCount"
-          ],
+          "required": ["useCount"],
           "properties": {
-            "useCount": {
-              "type": "integer"
-            },
-            "forAccount": {
-              "type": "string",
-              "format": "did"
-            }
+            "useCount": {"type": "integer"},
+            "forAccount": {"type": "string", "format": "did"}
           }
         }
       },
@@ -903,13 +651,9 @@ const comAtprotoServerCreateInviteCode = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "code"
-          ],
+          "required": ["code"],
           "properties": {
-            "code": {
-              "type": "string"
-            }
+            "code": {"type": "string"}
           }
         }
       }
@@ -924,38 +668,24 @@ const comAtprotoServerConfirmEmail = <String, dynamic>{
   "defs": {
     "main": {
       "type": "procedure",
-      "description": "Confirm an email using a token from com.atproto.server.requestEmailConfirmation.",
+      "description":
+          "Confirm an email using a token from com.atproto.server.requestEmailConfirmation.",
       "input": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "email",
-            "token"
-          ],
+          "required": ["email", "token"],
           "properties": {
-            "email": {
-              "type": "string"
-            },
-            "token": {
-              "type": "string"
-            }
+            "email": {"type": "string"},
+            "token": {"type": "string"}
           }
         }
       },
       "errors": [
-        {
-          "name": "AccountNotFound"
-        },
-        {
-          "name": "ExpiredToken"
-        },
-        {
-          "name": "InvalidToken"
-        },
-        {
-          "name": "InvalidEmail"
-        }
+        {"name": "AccountNotFound"},
+        {"name": "ExpiredToken"},
+        {"name": "InvalidToken"},
+        {"name": "InvalidEmail"}
       ]
     }
   }
@@ -985,9 +715,7 @@ const comAtprotoServerReserveSigningKey = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "signingKey"
-          ],
+          "required": ["signingKey"],
           "properties": {
             "signingKey": {
               "type": "string",
@@ -1012,37 +740,18 @@ const comAtprotoServerRefreshSession = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "accessJwt",
-            "refreshJwt",
-            "handle",
-            "did"
-          ],
+          "required": ["accessJwt", "refreshJwt", "handle", "did"],
           "properties": {
-            "accessJwt": {
-              "type": "string"
-            },
-            "refreshJwt": {
-              "type": "string"
-            },
-            "handle": {
-              "type": "string",
-              "format": "handle"
-            },
-            "did": {
-              "type": "string",
-              "format": "did"
-            },
-            "didDoc": {
-              "type": "unknown"
-            }
+            "accessJwt": {"type": "string"},
+            "refreshJwt": {"type": "string"},
+            "handle": {"type": "string", "format": "handle"},
+            "did": {"type": "string", "format": "did"},
+            "didDoc": {"type": "unknown"}
           }
         }
       },
       "errors": [
-        {
-          "name": "AccountTakedown"
-        }
+        {"name": "AccountTakedown"}
       ]
     }
   }
@@ -1053,10 +762,7 @@ const comAtprotoServerDeleteSession = <String, dynamic>{
   "lexicon": 1,
   "id": "com.atproto.server.deleteSession",
   "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Delete the current session."
-    }
+    "main": {"type": "procedure", "description": "Delete the current session."}
   }
 };
 
@@ -1072,30 +778,21 @@ const comAtprotoServerUpdateEmail = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "email"
-          ],
+          "required": ["email"],
           "properties": {
-            "email": {
-              "type": "string"
-            },
+            "email": {"type": "string"},
             "token": {
               "type": "string",
-              "description": "Requires a token from com.atproto.sever.requestEmailUpdate if the account's email has been confirmed."
+              "description":
+                  "Requires a token from com.atproto.sever.requestEmailUpdate if the account's email has been confirmed."
             }
           }
         }
       },
       "errors": [
-        {
-          "name": "ExpiredToken"
-        },
-        {
-          "name": "InvalidToken"
-        },
-        {
-          "name": "TokenRequired"
-        }
+        {"name": "ExpiredToken"},
+        {"name": "InvalidToken"},
+        {"name": "TokenRequired"}
       ]
     }
   }
@@ -1113,14 +810,9 @@ const comAtprotoIdentityUpdateHandle = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "handle"
-          ],
+          "required": ["handle"],
           "properties": {
-            "handle": {
-              "type": "string",
-              "format": "handle"
-            }
+            "handle": {"type": "string", "format": "handle"}
           }
         }
       }
@@ -1138,9 +830,7 @@ const comAtprotoIdentityResolveHandle = <String, dynamic>{
       "description": "Provides the DID of a repo.",
       "parameters": {
         "type": "params",
-        "required": [
-          "handle"
-        ],
+        "required": ["handle"],
         "properties": {
           "handle": {
             "type": "string",
@@ -1153,14 +843,9 @@ const comAtprotoIdentityResolveHandle = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "did"
-          ],
+          "required": ["did"],
           "properties": {
-            "did": {
-              "type": "string",
-              "format": "did"
-            }
+            "did": {"type": "string", "format": "did"}
           }
         }
       }
@@ -1178,11 +863,7 @@ const comAtprotoRepoGetRecord = <String, dynamic>{
       "description": "Get a record.",
       "parameters": {
         "type": "params",
-        "required": [
-          "repo",
-          "collection",
-          "rkey"
-        ],
+        "required": ["repo", "collection", "rkey"],
         "properties": {
           "repo": {
             "type": "string",
@@ -1194,14 +875,12 @@ const comAtprotoRepoGetRecord = <String, dynamic>{
             "format": "nsid",
             "description": "The NSID of the record collection."
           },
-          "rkey": {
-            "type": "string",
-            "description": "The key of the record."
-          },
+          "rkey": {"type": "string", "description": "The key of the record."},
           "cid": {
             "type": "string",
             "format": "cid",
-            "description": "The CID of the version of the record. If not specified, then return the most recent version."
+            "description":
+                "The CID of the version of the record. If not specified, then return the most recent version."
           }
         }
       },
@@ -1209,22 +888,11 @@ const comAtprotoRepoGetRecord = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "uri",
-            "value"
-          ],
+          "required": ["uri", "value"],
           "properties": {
-            "uri": {
-              "type": "string",
-              "format": "at-uri"
-            },
-            "cid": {
-              "type": "string",
-              "format": "cid"
-            },
-            "value": {
-              "type": "unknown"
-            }
+            "uri": {"type": "string", "format": "at-uri"},
+            "cid": {"type": "string", "format": "cid"},
+            "value": {"type": "unknown"}
           }
         }
       }
@@ -1240,19 +908,10 @@ const comAtprotoRepoStrongRef = <String, dynamic>{
   "defs": {
     "main": {
       "type": "object",
-      "required": [
-        "uri",
-        "cid"
-      ],
+      "required": ["uri", "cid"],
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "at-uri"
-        },
-        "cid": {
-          "type": "string",
-          "format": "cid"
-        }
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"}
       }
     }
   }
@@ -1268,10 +927,7 @@ const comAtprotoRepoListRecords = <String, dynamic>{
       "description": "List a range of records in a collection.",
       "parameters": {
         "type": "params",
-        "required": [
-          "repo",
-          "collection"
-        ],
+        "required": ["repo", "collection"],
         "properties": {
           "repo": {
             "type": "string",
@@ -1290,16 +946,16 @@ const comAtprotoRepoListRecords = <String, dynamic>{
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          },
+          "cursor": {"type": "string"},
           "rkeyStart": {
             "type": "string",
-            "description": "DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)"
+            "description":
+                "DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)"
           },
           "rkeyEnd": {
             "type": "string",
-            "description": "DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)"
+            "description":
+                "DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)"
           },
           "reverse": {
             "type": "boolean",
@@ -1311,19 +967,12 @@ const comAtprotoRepoListRecords = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "records"
-          ],
+          "required": ["records"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "records": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "#record"
-              }
+              "items": {"type": "ref", "ref": "#record"}
             }
           }
         }
@@ -1331,23 +980,11 @@ const comAtprotoRepoListRecords = <String, dynamic>{
     },
     "record": {
       "type": "object",
-      "required": [
-        "uri",
-        "cid",
-        "value"
-      ],
+      "required": ["uri", "cid", "value"],
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "at-uri"
-        },
-        "cid": {
-          "type": "string",
-          "format": "cid"
-        },
-        "value": {
-          "type": "unknown"
-        }
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
+        "value": {"type": "unknown"}
       }
     }
   }
@@ -1360,12 +997,11 @@ const comAtprotoRepoDescribeRepo = <String, dynamic>{
   "defs": {
     "main": {
       "type": "query",
-      "description": "Get information about the repo, including the list of collections.",
+      "description":
+          "Get information about the repo, including the list of collections.",
       "parameters": {
         "type": "params",
-        "required": [
-          "repo"
-        ],
+        "required": ["repo"],
         "properties": {
           "repo": {
             "type": "string",
@@ -1386,27 +1022,14 @@ const comAtprotoRepoDescribeRepo = <String, dynamic>{
             "handleIsCorrect"
           ],
           "properties": {
-            "handle": {
-              "type": "string",
-              "format": "handle"
-            },
-            "did": {
-              "type": "string",
-              "format": "did"
-            },
-            "didDoc": {
-              "type": "unknown"
-            },
+            "handle": {"type": "string", "format": "handle"},
+            "did": {"type": "string", "format": "did"},
+            "didDoc": {"type": "unknown"},
             "collections": {
               "type": "array",
-              "items": {
-                "type": "string",
-                "format": "nsid"
-              }
+              "items": {"type": "string", "format": "nsid"}
             },
-            "handleIsCorrect": {
-              "type": "boolean"
-            }
+            "handleIsCorrect": {"type": "boolean"}
           }
         }
       }
@@ -1426,15 +1049,8 @@ const comAtprotoRepoPutRecord = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "repo",
-            "collection",
-            "rkey",
-            "record"
-          ],
-          "nullable": [
-            "swapRecord"
-          ],
+          "required": ["repo", "collection", "rkey", "record"],
+          "nullable": ["swapRecord"],
           "properties": {
             "repo": {
               "type": "string",
@@ -1477,26 +1093,15 @@ const comAtprotoRepoPutRecord = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "uri",
-            "cid"
-          ],
+          "required": ["uri", "cid"],
           "properties": {
-            "uri": {
-              "type": "string",
-              "format": "at-uri"
-            },
-            "cid": {
-              "type": "string",
-              "format": "cid"
-            }
+            "uri": {"type": "string", "format": "at-uri"},
+            "cid": {"type": "string", "format": "cid"}
           }
         }
       },
       "errors": [
-        {
-          "name": "InvalidSwap"
-        }
+        {"name": "InvalidSwap"}
       ]
     }
   }
@@ -1509,21 +1114,16 @@ const comAtprotoRepoUploadBlob = <String, dynamic>{
   "defs": {
     "main": {
       "type": "procedure",
-      "description": "Upload a new blob to be added to repo in a later request.",
-      "input": {
-        "encoding": "*/*"
-      },
+      "description":
+          "Upload a new blob to be added to repo in a later request.",
+      "input": {"encoding": "*/*"},
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "blob"
-          ],
+          "required": ["blob"],
           "properties": {
-            "blob": {
-              "type": "blob"
-            }
+            "blob": {"type": "blob"}
           }
         }
       }
@@ -1543,11 +1143,7 @@ const comAtprotoRepoDeleteRecord = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "repo",
-            "collection",
-            "rkey"
-          ],
+          "required": ["repo", "collection", "rkey"],
           "properties": {
             "repo": {
               "type": "string",
@@ -1559,10 +1155,7 @@ const comAtprotoRepoDeleteRecord = <String, dynamic>{
               "format": "nsid",
               "description": "The NSID of the record collection."
             },
-            "rkey": {
-              "type": "string",
-              "description": "The key of the record."
-            },
+            "rkey": {"type": "string", "description": "The key of the record."},
             "swapRecord": {
               "type": "string",
               "format": "cid",
@@ -1577,9 +1170,7 @@ const comAtprotoRepoDeleteRecord = <String, dynamic>{
         }
       },
       "errors": [
-        {
-          "name": "InvalidSwap"
-        }
+        {"name": "InvalidSwap"}
       ]
     }
   }
@@ -1597,11 +1188,7 @@ const comAtprotoRepoCreateRecord = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "repo",
-            "collection",
-            "record"
-          ],
+          "required": ["repo", "collection", "record"],
           "properties": {
             "repo": {
               "type": "string",
@@ -1639,26 +1226,15 @@ const comAtprotoRepoCreateRecord = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "uri",
-            "cid"
-          ],
+          "required": ["uri", "cid"],
           "properties": {
-            "uri": {
-              "type": "string",
-              "format": "at-uri"
-            },
-            "cid": {
-              "type": "string",
-              "format": "cid"
-            }
+            "uri": {"type": "string", "format": "at-uri"},
+            "cid": {"type": "string", "format": "cid"}
           }
         }
       },
       "errors": [
-        {
-          "name": "InvalidSwap"
-        }
+        {"name": "InvalidSwap"}
       ]
     }
   }
@@ -1671,15 +1247,13 @@ const comAtprotoRepoApplyWrites = <String, dynamic>{
   "defs": {
     "main": {
       "type": "procedure",
-      "description": "Apply a batch transaction of creates, updates, and deletes.",
+      "description":
+          "Apply a batch transaction of creates, updates, and deletes.",
       "input": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "repo",
-            "writes"
-          ],
+          "required": ["repo", "writes"],
           "properties": {
             "repo": {
               "type": "string",
@@ -1695,84 +1269,45 @@ const comAtprotoRepoApplyWrites = <String, dynamic>{
               "type": "array",
               "items": {
                 "type": "union",
-                "refs": [
-                  "#create",
-                  "#update",
-                  "#delete"
-                ],
+                "refs": ["#create", "#update", "#delete"],
                 "closed": true
               }
             },
-            "swapCommit": {
-              "type": "string",
-              "format": "cid"
-            }
+            "swapCommit": {"type": "string", "format": "cid"}
           }
         }
       },
       "errors": [
-        {
-          "name": "InvalidSwap"
-        }
+        {"name": "InvalidSwap"}
       ]
     },
     "create": {
       "type": "object",
       "description": "Create a new record.",
-      "required": [
-        "collection",
-        "value"
-      ],
+      "required": ["collection", "value"],
       "properties": {
-        "collection": {
-          "type": "string",
-          "format": "nsid"
-        },
-        "rkey": {
-          "type": "string",
-          "maxLength": 15
-        },
-        "value": {
-          "type": "unknown"
-        }
+        "collection": {"type": "string", "format": "nsid"},
+        "rkey": {"type": "string", "maxLength": 15},
+        "value": {"type": "unknown"}
       }
     },
     "update": {
       "type": "object",
       "description": "Update an existing record.",
-      "required": [
-        "collection",
-        "rkey",
-        "value"
-      ],
+      "required": ["collection", "rkey", "value"],
       "properties": {
-        "collection": {
-          "type": "string",
-          "format": "nsid"
-        },
-        "rkey": {
-          "type": "string"
-        },
-        "value": {
-          "type": "unknown"
-        }
+        "collection": {"type": "string", "format": "nsid"},
+        "rkey": {"type": "string"},
+        "value": {"type": "unknown"}
       }
     },
     "delete": {
       "type": "object",
       "description": "Delete an existing record.",
-      "required": [
-        "collection",
-        "rkey"
-      ],
+      "required": ["collection", "rkey"],
       "properties": {
-        "collection": {
-          "type": "string",
-          "format": "nsid"
-        },
-        "rkey": {
-          "type": "string"
-        }
+        "collection": {"type": "string", "format": "nsid"},
+        "rkey": {"type": "string"}
       }
     }
   }
@@ -1785,18 +1320,18 @@ const comAtprotoSyncNotifyOfUpdate = <String, dynamic>{
   "defs": {
     "main": {
       "type": "procedure",
-      "description": "Notify a crawling service of a recent update; often when a long break between updates causes the connection with the crawling service to break.",
+      "description":
+          "Notify a crawling service of a recent update; often when a long break between updates causes the connection with the crawling service to break.",
       "input": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "hostname"
-          ],
+          "required": ["hostname"],
           "properties": {
             "hostname": {
               "type": "string",
-              "description": "Hostname of the service that is notifying of update."
+              "description":
+                  "Hostname of the service that is notifying of update."
             }
           }
         }
@@ -1812,27 +1347,19 @@ const comAtprotoSyncGetRecord = <String, dynamic>{
   "defs": {
     "main": {
       "type": "query",
-      "description": "Get blocks needed for existence or non-existence of record.",
+      "description":
+          "Get blocks needed for existence or non-existence of record.",
       "parameters": {
         "type": "params",
-        "required": [
-          "did",
-          "collection",
-          "rkey"
-        ],
+        "required": ["did", "collection", "rkey"],
         "properties": {
           "did": {
             "type": "string",
             "format": "did",
             "description": "The DID of the repo."
           },
-          "collection": {
-            "type": "string",
-            "format": "nsid"
-          },
-          "rkey": {
-            "type": "string"
-          },
+          "collection": {"type": "string", "format": "nsid"},
+          "rkey": {"type": "string"},
           "commit": {
             "type": "string",
             "format": "cid",
@@ -1840,9 +1367,7 @@ const comAtprotoSyncGetRecord = <String, dynamic>{
           }
         }
       },
-      "output": {
-        "encoding": "application/vnd.ipld.car"
-      }
+      "output": {"encoding": "application/vnd.ipld.car"}
     }
   }
 };
@@ -1864,28 +1389,19 @@ const comAtprotoSyncListRepos = <String, dynamic>{
             "minimum": 1,
             "maximum": 1000
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "repos"
-          ],
+          "required": ["repos"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "repos": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "#repo"
-              }
+              "items": {"type": "ref", "ref": "#repo"}
             }
           }
         }
@@ -1893,23 +1409,11 @@ const comAtprotoSyncListRepos = <String, dynamic>{
     },
     "repo": {
       "type": "object",
-      "required": [
-        "did",
-        "head",
-        "rev"
-      ],
+      "required": ["did", "head", "rev"],
       "properties": {
-        "did": {
-          "type": "string",
-          "format": "did"
-        },
-        "head": {
-          "type": "string",
-          "format": "cid"
-        },
-        "rev": {
-          "type": "string"
-        }
+        "did": {"type": "string", "format": "did"},
+        "head": {"type": "string", "format": "cid"},
+        "rev": {"type": "string"}
       }
     }
   }
@@ -1922,12 +1426,11 @@ const comAtprotoSyncGetHead = <String, dynamic>{
   "defs": {
     "main": {
       "type": "query",
-      "description": "DEPRECATED - please use com.atproto.sync.getLatestCommit instead",
+      "description":
+          "DEPRECATED - please use com.atproto.sync.getLatestCommit instead",
       "parameters": {
         "type": "params",
-        "required": [
-          "did"
-        ],
+        "required": ["did"],
         "properties": {
           "did": {
             "type": "string",
@@ -1940,21 +1443,14 @@ const comAtprotoSyncGetHead = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "root"
-          ],
+          "required": ["root"],
           "properties": {
-            "root": {
-              "type": "string",
-              "format": "cid"
-            }
+            "root": {"type": "string", "format": "cid"}
           }
         }
       },
       "errors": [
-        {
-          "name": "HeadNotFound"
-        }
+        {"name": "HeadNotFound"}
       ]
     }
   }
@@ -1970,9 +1466,7 @@ const comAtprotoSyncGetLatestCommit = <String, dynamic>{
       "description": "Get the current commit CID & revision of the repo.",
       "parameters": {
         "type": "params",
-        "required": [
-          "did"
-        ],
+        "required": ["did"],
         "properties": {
           "did": {
             "type": "string",
@@ -1985,25 +1479,15 @@ const comAtprotoSyncGetLatestCommit = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "cid",
-            "rev"
-          ],
+          "required": ["cid", "rev"],
           "properties": {
-            "cid": {
-              "type": "string",
-              "format": "cid"
-            },
-            "rev": {
-              "type": "string"
-            }
+            "cid": {"type": "string", "format": "cid"},
+            "rev": {"type": "string"}
           }
         }
       },
       "errors": [
-        {
-          "name": "RepoNotFound"
-        }
+        {"name": "RepoNotFound"}
       ]
     }
   }
@@ -2029,22 +1513,12 @@ const comAtprotoSyncSubscribeRepos = <String, dynamic>{
       "message": {
         "schema": {
           "type": "union",
-          "refs": [
-            "#commit",
-            "#handle",
-            "#migrate",
-            "#tombstone",
-            "#info"
-          ]
+          "refs": ["#commit", "#handle", "#migrate", "#tombstone", "#info"]
         }
       },
       "errors": [
-        {
-          "name": "FutureCursor"
-        },
-        {
-          "name": "ConsumerTooSlow"
-        }
+        {"name": "FutureCursor"},
+        {"name": "ConsumerTooSlow"}
       ]
     },
     "commit": {
@@ -2062,30 +1536,14 @@ const comAtprotoSyncSubscribeRepos = <String, dynamic>{
         "blobs",
         "time"
       ],
-      "nullable": [
-        "prev",
-        "since"
-      ],
+      "nullable": ["prev", "since"],
       "properties": {
-        "seq": {
-          "type": "integer"
-        },
-        "rebase": {
-          "type": "boolean"
-        },
-        "tooBig": {
-          "type": "boolean"
-        },
-        "repo": {
-          "type": "string",
-          "format": "did"
-        },
-        "commit": {
-          "type": "cid-link"
-        },
-        "prev": {
-          "type": "cid-link"
-        },
+        "seq": {"type": "integer"},
+        "rebase": {"type": "boolean"},
+        "tooBig": {"type": "boolean"},
+        "repo": {"type": "string", "format": "did"},
+        "commit": {"type": "cid-link"},
+        "prev": {"type": "cid-link"},
         "rev": {
           "type": "string",
           "description": "The rev of the emitted commit."
@@ -2101,142 +1559,70 @@ const comAtprotoSyncSubscribeRepos = <String, dynamic>{
         },
         "ops": {
           "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "#repoOp"
-          },
+          "items": {"type": "ref", "ref": "#repoOp"},
           "maxLength": 200
         },
         "blobs": {
           "type": "array",
-          "items": {
-            "type": "cid-link"
-          }
+          "items": {"type": "cid-link"}
         },
-        "time": {
-          "type": "string",
-          "format": "datetime"
-        }
+        "time": {"type": "string", "format": "datetime"}
       }
     },
     "handle": {
       "type": "object",
-      "required": [
-        "seq",
-        "did",
-        "handle",
-        "time"
-      ],
+      "required": ["seq", "did", "handle", "time"],
       "properties": {
-        "seq": {
-          "type": "integer"
-        },
-        "did": {
-          "type": "string",
-          "format": "did"
-        },
-        "handle": {
-          "type": "string",
-          "format": "handle"
-        },
-        "time": {
-          "type": "string",
-          "format": "datetime"
-        }
+        "seq": {"type": "integer"},
+        "did": {"type": "string", "format": "did"},
+        "handle": {"type": "string", "format": "handle"},
+        "time": {"type": "string", "format": "datetime"}
       }
     },
     "migrate": {
       "type": "object",
-      "required": [
-        "seq",
-        "did",
-        "migrateTo",
-        "time"
-      ],
-      "nullable": [
-        "migrateTo"
-      ],
+      "required": ["seq", "did", "migrateTo", "time"],
+      "nullable": ["migrateTo"],
       "properties": {
-        "seq": {
-          "type": "integer"
-        },
-        "did": {
-          "type": "string",
-          "format": "did"
-        },
-        "migrateTo": {
-          "type": "string"
-        },
-        "time": {
-          "type": "string",
-          "format": "datetime"
-        }
+        "seq": {"type": "integer"},
+        "did": {"type": "string", "format": "did"},
+        "migrateTo": {"type": "string"},
+        "time": {"type": "string", "format": "datetime"}
       }
     },
     "tombstone": {
       "type": "object",
-      "required": [
-        "seq",
-        "did",
-        "time"
-      ],
+      "required": ["seq", "did", "time"],
       "properties": {
-        "seq": {
-          "type": "integer"
-        },
-        "did": {
-          "type": "string",
-          "format": "did"
-        },
-        "time": {
-          "type": "string",
-          "format": "datetime"
-        }
+        "seq": {"type": "integer"},
+        "did": {"type": "string", "format": "did"},
+        "time": {"type": "string", "format": "datetime"}
       }
     },
     "info": {
       "type": "object",
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "properties": {
         "name": {
           "type": "string",
-          "knownValues": [
-            "OutdatedCursor"
-          ]
+          "knownValues": ["OutdatedCursor"]
         },
-        "message": {
-          "type": "string"
-        }
+        "message": {"type": "string"}
       }
     },
     "repoOp": {
       "type": "object",
-      "description": "A repo operation, ie a write of a single record. For creates and updates, CID is the record's CID as of this operation. For deletes, it's null.",
-      "required": [
-        "action",
-        "path",
-        "cid"
-      ],
-      "nullable": [
-        "cid"
-      ],
+      "description":
+          "A repo operation, ie a write of a single record. For creates and updates, CID is the record's CID as of this operation. For deletes, it's null.",
+      "required": ["action", "path", "cid"],
+      "nullable": ["cid"],
       "properties": {
         "action": {
           "type": "string",
-          "knownValues": [
-            "create",
-            "update",
-            "delete"
-          ]
+          "knownValues": ["create", "update", "delete"]
         },
-        "path": {
-          "type": "string"
-        },
-        "cid": {
-          "type": "cid-link"
-        }
+        "path": {"type": "string"},
+        "cid": {"type": "cid-link"}
       }
     }
   }
@@ -2252,10 +1638,7 @@ const comAtprotoSyncGetBlob = <String, dynamic>{
       "description": "Get a blob associated with a given repo.",
       "parameters": {
         "type": "params",
-        "required": [
-          "did",
-          "cid"
-        ],
+        "required": ["did", "cid"],
         "properties": {
           "did": {
             "type": "string",
@@ -2269,9 +1652,7 @@ const comAtprotoSyncGetBlob = <String, dynamic>{
           }
         }
       },
-      "output": {
-        "encoding": "*/*"
-      }
+      "output": {"encoding": "*/*"}
     }
   }
 };
@@ -2286,9 +1667,7 @@ const comAtprotoSyncGetCheckout = <String, dynamic>{
       "description": "DEPRECATED - please use com.atproto.sync.getRepo instead",
       "parameters": {
         "type": "params",
-        "required": [
-          "did"
-        ],
+        "required": ["did"],
         "properties": {
           "did": {
             "type": "string",
@@ -2297,9 +1676,7 @@ const comAtprotoSyncGetCheckout = <String, dynamic>{
           }
         }
       },
-      "output": {
-        "encoding": "application/vnd.ipld.car"
-      }
+      "output": {"encoding": "application/vnd.ipld.car"}
     }
   }
 };
@@ -2316,13 +1693,12 @@ const comAtprotoSyncRequestCrawl = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "hostname"
-          ],
+          "required": ["hostname"],
           "properties": {
             "hostname": {
               "type": "string",
-              "description": "Hostname of the service that is requesting to be crawled."
+              "description":
+                  "Hostname of the service that is requesting to be crawled."
             }
           }
         }
@@ -2341,10 +1717,7 @@ const comAtprotoSyncGetBlocks = <String, dynamic>{
       "description": "Get blocks from a given repo.",
       "parameters": {
         "type": "params",
-        "required": [
-          "did",
-          "cids"
-        ],
+        "required": ["did", "cids"],
         "properties": {
           "did": {
             "type": "string",
@@ -2353,16 +1726,11 @@ const comAtprotoSyncGetBlocks = <String, dynamic>{
           },
           "cids": {
             "type": "array",
-            "items": {
-              "type": "string",
-              "format": "cid"
-            }
+            "items": {"type": "string", "format": "cid"}
           }
         }
       },
-      "output": {
-        "encoding": "application/vnd.ipld.car"
-      }
+      "output": {"encoding": "application/vnd.ipld.car"}
     }
   }
 };
@@ -2374,12 +1742,11 @@ const comAtprotoSyncGetRepo = <String, dynamic>{
   "defs": {
     "main": {
       "type": "query",
-      "description": "Gets the DID's repo, optionally catching up from a specific revision.",
+      "description":
+          "Gets the DID's repo, optionally catching up from a specific revision.",
       "parameters": {
         "type": "params",
-        "required": [
-          "did"
-        ],
+        "required": ["did"],
         "properties": {
           "did": {
             "type": "string",
@@ -2392,9 +1759,7 @@ const comAtprotoSyncGetRepo = <String, dynamic>{
           }
         }
       },
-      "output": {
-        "encoding": "application/vnd.ipld.car"
-      }
+      "output": {"encoding": "application/vnd.ipld.car"}
     }
   }
 };
@@ -2409,9 +1774,7 @@ const comAtprotoSyncListBlobs = <String, dynamic>{
       "description": "List blob CIDs since some revision.",
       "parameters": {
         "type": "params",
-        "required": [
-          "did"
-        ],
+        "required": ["did"],
         "properties": {
           "did": {
             "type": "string",
@@ -2428,28 +1791,19 @@ const comAtprotoSyncListBlobs = <String, dynamic>{
             "minimum": 1,
             "maximum": 1000
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "cids"
-          ],
+          "required": ["cids"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "cids": {
               "type": "array",
-              "items": {
-                "type": "string",
-                "format": "cid"
-              }
+              "items": {"type": "string", "format": "cid"}
             }
           }
         }
@@ -2465,13 +1819,9 @@ const comAtprotoLabelDefs = <String, dynamic>{
   "defs": {
     "label": {
       "type": "object",
-      "description": "Metadata tag on an atproto resource (eg, repo or record).",
-      "required": [
-        "src",
-        "uri",
-        "val",
-        "cts"
-      ],
+      "description":
+          "Metadata tag on an atproto resource (eg, repo or record).",
+      "required": ["src", "uri", "val", "cts"],
       "properties": {
         "src": {
           "type": "string",
@@ -2481,21 +1831,25 @@ const comAtprotoLabelDefs = <String, dynamic>{
         "uri": {
           "type": "string",
           "format": "uri",
-          "description": "AT URI of the record, repository (account), or other resource that this label applies to."
+          "description":
+              "AT URI of the record, repository (account), or other resource that this label applies to."
         },
         "cid": {
           "type": "string",
           "format": "cid",
-          "description": "Optionally, CID specifying the specific version of 'uri' resource this label applies to."
+          "description":
+              "Optionally, CID specifying the specific version of 'uri' resource this label applies to."
         },
         "val": {
           "type": "string",
-          "description": "The short string name of the value or type of this label.",
+          "description":
+              "The short string name of the value or type of this label.",
           "maxLength": 128
         },
         "neg": {
           "type": "boolean",
-          "description": "If true, this is a negation label, overwriting a previous label."
+          "description":
+              "If true, this is a negation label, overwriting a previous label."
         },
         "cts": {
           "type": "string",
@@ -2506,31 +1860,27 @@ const comAtprotoLabelDefs = <String, dynamic>{
     },
     "selfLabels": {
       "type": "object",
-      "description": "Metadata tags on an atproto record, published by the author within the record.",
-      "required": [
-        "values"
-      ],
+      "description":
+          "Metadata tags on an atproto record, published by the author within the record.",
+      "required": ["values"],
       "properties": {
         "values": {
           "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "#selfLabel"
-          },
+          "items": {"type": "ref", "ref": "#selfLabel"},
           "maxLength": 10
         }
       }
     },
     "selfLabel": {
       "type": "object",
-      "description": "Metadata tag on an atproto record, published by the author within the record. Note that schemas should use #selfLabels, not #selfLabel.",
-      "required": [
-        "val"
-      ],
+      "description":
+          "Metadata tag on an atproto record, published by the author within the record. Note that schemas should use #selfLabels, not #selfLabel.",
+      "required": ["val"],
       "properties": {
         "val": {
           "type": "string",
-          "description": "The short string name of the value or type of this label.",
+          "description":
+              "The short string name of the value or type of this label.",
           "maxLength": 128
         }
       }
@@ -2558,52 +1908,33 @@ const comAtprotoLabelSubscribeLabels = <String, dynamic>{
       "message": {
         "schema": {
           "type": "union",
-          "refs": [
-            "#labels",
-            "#info"
-          ]
+          "refs": ["#labels", "#info"]
         }
       },
       "errors": [
-        {
-          "name": "FutureCursor"
-        }
+        {"name": "FutureCursor"}
       ]
     },
     "labels": {
       "type": "object",
-      "required": [
-        "seq",
-        "labels"
-      ],
+      "required": ["seq", "labels"],
       "properties": {
-        "seq": {
-          "type": "integer"
-        },
+        "seq": {"type": "integer"},
         "labels": {
           "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "com.atproto.label.defs#label"
-          }
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
         }
       }
     },
     "info": {
       "type": "object",
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "properties": {
         "name": {
           "type": "string",
-          "knownValues": [
-            "OutdatedCursor"
-          ]
+          "knownValues": ["OutdatedCursor"]
         },
-        "message": {
-          "type": "string"
-        }
+        "message": {"type": "string"}
       }
     }
   }
@@ -2619,24 +1950,19 @@ const comAtprotoLabelQueryLabels = <String, dynamic>{
       "description": "Find labels relevant to the provided URI patterns.",
       "parameters": {
         "type": "params",
-        "required": [
-          "uriPatterns"
-        ],
+        "required": ["uriPatterns"],
         "properties": {
           "uriPatterns": {
             "type": "array",
-            "description": "List of AT URI patterns to match (boolean 'OR'). Each may be a prefix (ending with '*'; will match inclusive of the string leading to '*'), or a full URI.",
-            "items": {
-              "type": "string"
-            }
+            "description":
+                "List of AT URI patterns to match (boolean 'OR'). Each may be a prefix (ending with '*'; will match inclusive of the string leading to '*'), or a full URI.",
+            "items": {"type": "string"}
           },
           "sources": {
             "type": "array",
-            "description": "Optional list of label sources (DIDs) to filter on.",
-            "items": {
-              "type": "string",
-              "format": "did"
-            }
+            "description":
+                "Optional list of label sources (DIDs) to filter on.",
+            "items": {"type": "string", "format": "did"}
           },
           "limit": {
             "type": "integer",
@@ -2644,28 +1970,19 @@ const comAtprotoLabelQueryLabels = <String, dynamic>{
             "minimum": 1,
             "maximum": 250
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "labels"
-          ],
+          "required": ["labels"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "labels": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "com.atproto.label.defs#label"
-              }
+              "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
             }
           }
         }
@@ -2681,12 +1998,11 @@ const comAtprotoTempImportRepo = <String, dynamic>{
   "defs": {
     "main": {
       "type": "procedure",
-      "description": "Gets the did's repo, optionally catching up from a specific revision.",
+      "description":
+          "Gets the did's repo, optionally catching up from a specific revision.",
       "parameters": {
         "type": "params",
-        "required": [
-          "did"
-        ],
+        "required": ["did"],
         "properties": {
           "did": {
             "type": "string",
@@ -2695,12 +2011,8 @@ const comAtprotoTempImportRepo = <String, dynamic>{
           }
         }
       },
-      "input": {
-        "encoding": "application/vnd.ipld.car"
-      },
-      "output": {
-        "encoding": "text/plain"
-      }
+      "input": {"encoding": "application/vnd.ipld.car"},
+      "output": {"encoding": "text/plain"}
     }
   }
 };
@@ -2717,23 +2029,11 @@ const comAtprotoTempTransferAccount = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "handle",
-            "did",
-            "plcOp"
-          ],
+          "required": ["handle", "did", "plcOp"],
           "properties": {
-            "handle": {
-              "type": "string",
-              "format": "handle"
-            },
-            "did": {
-              "type": "string",
-              "format": "did"
-            },
-            "plcOp": {
-              "type": "unknown"
-            }
+            "handle": {"type": "string", "format": "handle"},
+            "did": {"type": "string", "format": "did"},
+            "plcOp": {"type": "unknown"}
           }
         }
       },
@@ -2741,52 +2041,23 @@ const comAtprotoTempTransferAccount = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "accessJwt",
-            "refreshJwt",
-            "handle",
-            "did"
-          ],
+          "required": ["accessJwt", "refreshJwt", "handle", "did"],
           "properties": {
-            "accessJwt": {
-              "type": "string"
-            },
-            "refreshJwt": {
-              "type": "string"
-            },
-            "handle": {
-              "type": "string",
-              "format": "handle"
-            },
-            "did": {
-              "type": "string",
-              "format": "did"
-            }
+            "accessJwt": {"type": "string"},
+            "refreshJwt": {"type": "string"},
+            "handle": {"type": "string", "format": "handle"},
+            "did": {"type": "string", "format": "did"}
           }
         }
       },
       "errors": [
-        {
-          "name": "InvalidHandle"
-        },
-        {
-          "name": "InvalidPassword"
-        },
-        {
-          "name": "InvalidInviteCode"
-        },
-        {
-          "name": "HandleNotAvailable"
-        },
-        {
-          "name": "UnsupportedDomain"
-        },
-        {
-          "name": "UnresolvableDid"
-        },
-        {
-          "name": "IncompatibleDidDoc"
-        }
+        {"name": "InvalidHandle"},
+        {"name": "InvalidPassword"},
+        {"name": "InvalidInviteCode"},
+        {"name": "HandleNotAvailable"},
+        {"name": "UnsupportedDomain"},
+        {"name": "UnresolvableDid"},
+        {"name": "IncompatibleDidDoc"}
       ]
     }
   }
@@ -2799,12 +2070,11 @@ const comAtprotoTempPushBlob = <String, dynamic>{
   "defs": {
     "main": {
       "type": "procedure",
-      "description": "Gets the did's repo, optionally catching up from a specific revision.",
+      "description":
+          "Gets the did's repo, optionally catching up from a specific revision.",
       "parameters": {
         "type": "params",
-        "required": [
-          "did"
-        ],
+        "required": ["did"],
         "properties": {
           "did": {
             "type": "string",
@@ -2813,9 +2083,7 @@ const comAtprotoTempPushBlob = <String, dynamic>{
           }
         }
       },
-      "input": {
-        "encoding": "*/*"
-      }
+      "input": {"encoding": "*/*"}
     }
   }
 };
@@ -2827,13 +2095,12 @@ const comAtprotoTempFetchLabels = <String, dynamic>{
   "defs": {
     "main": {
       "type": "query",
-      "description": "Fetch all labels from a labeler created after a certain date.",
+      "description":
+          "Fetch all labels from a labeler created after a certain date.",
       "parameters": {
         "type": "params",
         "properties": {
-          "since": {
-            "type": "integer"
-          },
+          "since": {"type": "integer"},
           "limit": {
             "type": "integer",
             "default": 50,
@@ -2846,16 +2113,11 @@ const comAtprotoTempFetchLabels = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "labels"
-          ],
+          "required": ["labels"],
           "properties": {
             "labels": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "com.atproto.label.defs#label"
-              }
+              "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
             }
           }
         }
@@ -2878,10 +2140,7 @@ const comAtprotoAdminGetInviteCodes = <String, dynamic>{
           "sort": {
             "type": "string",
             "default": "recent",
-            "knownValues": [
-              "recent",
-              "usage"
-            ]
+            "knownValues": ["recent", "usage"]
           },
           "limit": {
             "type": "integer",
@@ -2889,22 +2148,16 @@ const comAtprotoAdminGetInviteCodes = <String, dynamic>{
             "minimum": 1,
             "maximum": 500
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "codes"
-          ],
+          "required": ["codes"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "codes": {
               "type": "array",
               "items": {
@@ -2929,18 +2182,10 @@ const comAtprotoAdminGetRecord = <String, dynamic>{
       "description": "Get details about a record.",
       "parameters": {
         "type": "params",
-        "required": [
-          "uri"
-        ],
+        "required": ["uri"],
         "properties": {
-          "uri": {
-            "type": "string",
-            "format": "at-uri"
-          },
-          "cid": {
-            "type": "string",
-            "format": "cid"
-          }
+          "uri": {"type": "string", "format": "at-uri"},
+          "cid": {"type": "string", "format": "cid"}
         }
       },
       "output": {
@@ -2951,9 +2196,7 @@ const comAtprotoAdminGetRecord = <String, dynamic>{
         }
       },
       "errors": [
-        {
-          "name": "RecordNotFound"
-        }
+        {"name": "RecordNotFound"}
       ]
     }
   }
@@ -2970,10 +2213,7 @@ const comAtprotoAdminQueryModerationStatuses = <String, dynamic>{
       "parameters": {
         "type": "params",
         "properties": {
-          "subject": {
-            "type": "string",
-            "format": "uri"
-          },
+          "subject": {"type": "string", "format": "uri"},
           "comment": {
             "type": "string",
             "description": "Search subjects by keyword from comments"
@@ -3000,7 +2240,8 @@ const comAtprotoAdminQueryModerationStatuses = <String, dynamic>{
           },
           "includeMuted": {
             "type": "boolean",
-            "description": "By default, we don't include muted subjects in the results. Set this to true to include them."
+            "description":
+                "By default, we don't include muted subjects in the results. Set this to true to include them."
           },
           "reviewState": {
             "type": "string",
@@ -3008,31 +2249,23 @@ const comAtprotoAdminQueryModerationStatuses = <String, dynamic>{
           },
           "ignoreSubjects": {
             "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uri"
-            }
+            "items": {"type": "string", "format": "uri"}
           },
           "lastReviewedBy": {
             "type": "string",
             "format": "did",
-            "description": "Get all subject statuses that were reviewed by a specific moderator"
+            "description":
+                "Get all subject statuses that were reviewed by a specific moderator"
           },
           "sortField": {
             "type": "string",
             "default": "lastReportedAt",
-            "enum": [
-              "lastReviewedAt",
-              "lastReportedAt"
-            ]
+            "enum": ["lastReviewedAt", "lastReportedAt"]
           },
           "sortDirection": {
             "type": "string",
             "default": "desc",
-            "enum": [
-              "asc",
-              "desc"
-            ]
+            "enum": ["asc", "desc"]
           },
           "takendown": {
             "type": "boolean",
@@ -3044,22 +2277,16 @@ const comAtprotoAdminQueryModerationStatuses = <String, dynamic>{
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "subjectStatuses"
-          ],
+          "required": ["subjectStatuses"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "subjectStatuses": {
               "type": "array",
               "items": {
@@ -3086,19 +2313,10 @@ const comAtprotoAdminUpdateAccountHandle = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "did",
-            "handle"
-          ],
+          "required": ["did", "handle"],
           "properties": {
-            "did": {
-              "type": "string",
-              "format": "did"
-            },
-            "handle": {
-              "type": "string",
-              "format": "handle"
-            }
+            "did": {"type": "string", "format": "did"},
+            "handle": {"type": "string", "format": "handle"}
           }
         }
       }
@@ -3118,11 +2336,7 @@ const comAtprotoAdminEmitModerationEvent = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "event",
-            "subject",
-            "createdBy"
-          ],
+          "required": ["event", "subject", "createdBy"],
           "properties": {
             "event": {
               "type": "union",
@@ -3148,29 +2362,18 @@ const comAtprotoAdminEmitModerationEvent = <String, dynamic>{
             },
             "subjectBlobCids": {
               "type": "array",
-              "items": {
-                "type": "string",
-                "format": "cid"
-              }
+              "items": {"type": "string", "format": "cid"}
             },
-            "createdBy": {
-              "type": "string",
-              "format": "did"
-            }
+            "createdBy": {"type": "string", "format": "did"}
           }
         }
       },
       "output": {
         "encoding": "application/json",
-        "schema": {
-          "type": "ref",
-          "ref": "com.atproto.admin.defs#modEventView"
-        }
+        "schema": {"type": "ref", "ref": "com.atproto.admin.defs#modEventView"}
       },
       "errors": [
-        {
-          "name": "SubjectHasAction"
-        }
+        {"name": "SubjectHasAction"}
       ]
     }
   }
@@ -3188,14 +2391,9 @@ const comAtprotoAdminDeleteAccount = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "did"
-          ],
+          "required": ["did"],
           "properties": {
-            "did": {
-              "type": "string",
-              "format": "did"
-            }
+            "did": {"type": "string", "format": "did"}
           }
         }
       }
@@ -3215,26 +2413,12 @@ const comAtprotoAdminSendEmail = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "recipientDid",
-            "content",
-            "senderDid"
-          ],
+          "required": ["recipientDid", "content", "senderDid"],
           "properties": {
-            "recipientDid": {
-              "type": "string",
-              "format": "did"
-            },
-            "content": {
-              "type": "string"
-            },
-            "subject": {
-              "type": "string"
-            },
-            "senderDid": {
-              "type": "string",
-              "format": "did"
-            }
+            "recipientDid": {"type": "string", "format": "did"},
+            "content": {"type": "string"},
+            "subject": {"type": "string"},
+            "senderDid": {"type": "string", "format": "did"}
           }
         }
       },
@@ -3242,13 +2426,9 @@ const comAtprotoAdminSendEmail = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "sent"
-          ],
+          "required": ["sent"],
           "properties": {
-            "sent": {
-              "type": "boolean"
-            }
+            "sent": {"type": "boolean"}
           }
         }
       }
@@ -3263,16 +2443,10 @@ const comAtprotoAdminDefs = <String, dynamic>{
   "defs": {
     "statusAttr": {
       "type": "object",
-      "required": [
-        "applied"
-      ],
+      "required": ["applied"],
       "properties": {
-        "applied": {
-          "type": "boolean"
-        },
-        "ref": {
-          "type": "string"
-        }
+        "applied": {"type": "boolean"},
+        "ref": {"type": "string"}
       }
     },
     "modEventView": {
@@ -3286,9 +2460,7 @@ const comAtprotoAdminDefs = <String, dynamic>{
         "createdAt"
       ],
       "properties": {
-        "id": {
-          "type": "integer"
-        },
+        "id": {"type": "integer"},
         "event": {
           "type": "union",
           "refs": [
@@ -3305,31 +2477,16 @@ const comAtprotoAdminDefs = <String, dynamic>{
         },
         "subject": {
           "type": "union",
-          "refs": [
-            "#repoRef",
-            "com.atproto.repo.strongRef"
-          ]
+          "refs": ["#repoRef", "com.atproto.repo.strongRef"]
         },
         "subjectBlobCids": {
           "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "items": {"type": "string"}
         },
-        "createdBy": {
-          "type": "string",
-          "format": "did"
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "datetime"
-        },
-        "creatorHandle": {
-          "type": "string"
-        },
-        "subjectHandle": {
-          "type": "string"
-        }
+        "createdBy": {"type": "string", "format": "did"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "creatorHandle": {"type": "string"},
+        "subjectHandle": {"type": "string"}
       }
     },
     "modEventViewDetail": {
@@ -3343,9 +2500,7 @@ const comAtprotoAdminDefs = <String, dynamic>{
         "createdAt"
       ],
       "properties": {
-        "id": {
-          "type": "integer"
-        },
+        "id": {"type": "integer"},
         "event": {
           "type": "union",
           "refs": [
@@ -3370,19 +2525,10 @@ const comAtprotoAdminDefs = <String, dynamic>{
         },
         "subjectBlobs": {
           "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "#blobView"
-          }
+          "items": {"type": "ref", "ref": "#blobView"}
         },
-        "createdBy": {
-          "type": "string",
-          "format": "did"
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "datetime"
-        }
+        "createdBy": {"type": "string", "format": "did"},
+        "createdAt": {"type": "string", "format": "datetime"}
       }
     },
     "reportView": {
@@ -3396,113 +2542,62 @@ const comAtprotoAdminDefs = <String, dynamic>{
         "resolvedByActionIds"
       ],
       "properties": {
-        "id": {
-          "type": "integer"
-        },
+        "id": {"type": "integer"},
         "reasonType": {
           "type": "ref",
           "ref": "com.atproto.moderation.defs#reasonType"
         },
-        "comment": {
-          "type": "string"
-        },
-        "subjectRepoHandle": {
-          "type": "string"
-        },
+        "comment": {"type": "string"},
+        "subjectRepoHandle": {"type": "string"},
         "subject": {
           "type": "union",
-          "refs": [
-            "#repoRef",
-            "com.atproto.repo.strongRef"
-          ]
+          "refs": ["#repoRef", "com.atproto.repo.strongRef"]
         },
-        "reportedBy": {
-          "type": "string",
-          "format": "did"
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "datetime"
-        },
+        "reportedBy": {"type": "string", "format": "did"},
+        "createdAt": {"type": "string", "format": "datetime"},
         "resolvedByActionIds": {
           "type": "array",
-          "items": {
-            "type": "integer"
-          }
+          "items": {"type": "integer"}
         }
       }
     },
     "subjectStatusView": {
       "type": "object",
-      "required": [
-        "id",
-        "subject",
-        "createdAt",
-        "updatedAt",
-        "reviewState"
-      ],
+      "required": ["id", "subject", "createdAt", "updatedAt", "reviewState"],
       "properties": {
-        "id": {
-          "type": "integer"
-        },
+        "id": {"type": "integer"},
         "subject": {
           "type": "union",
-          "refs": [
-            "#repoRef",
-            "com.atproto.repo.strongRef"
-          ]
+          "refs": ["#repoRef", "com.atproto.repo.strongRef"]
         },
         "subjectBlobCids": {
           "type": "array",
-          "items": {
-            "type": "string",
-            "format": "cid"
-          }
+          "items": {"type": "string", "format": "cid"}
         },
-        "subjectRepoHandle": {
-          "type": "string"
-        },
+        "subjectRepoHandle": {"type": "string"},
         "updatedAt": {
           "type": "string",
           "format": "datetime",
-          "description": "Timestamp referencing when the last update was made to the moderation status of the subject"
+          "description":
+              "Timestamp referencing when the last update was made to the moderation status of the subject"
         },
         "createdAt": {
           "type": "string",
           "format": "datetime",
-          "description": "Timestamp referencing the first moderation status impacting event was emitted on the subject"
+          "description":
+              "Timestamp referencing the first moderation status impacting event was emitted on the subject"
         },
-        "reviewState": {
-          "type": "ref",
-          "ref": "#subjectReviewState"
-        },
+        "reviewState": {"type": "ref", "ref": "#subjectReviewState"},
         "comment": {
           "type": "string",
           "description": "Sticky comment on the subject."
         },
-        "muteUntil": {
-          "type": "string",
-          "format": "datetime"
-        },
-        "lastReviewedBy": {
-          "type": "string",
-          "format": "did"
-        },
-        "lastReviewedAt": {
-          "type": "string",
-          "format": "datetime"
-        },
-        "lastReportedAt": {
-          "type": "string",
-          "format": "datetime"
-        },
-        "takendown": {
-          "type": "boolean"
-        },
-        "suspendUntil": {
-          "type": "string",
-          "format": "datetime"
-        }
+        "muteUntil": {"type": "string", "format": "datetime"},
+        "lastReviewedBy": {"type": "string", "format": "did"},
+        "lastReviewedAt": {"type": "string", "format": "datetime"},
+        "lastReportedAt": {"type": "string", "format": "datetime"},
+        "takendown": {"type": "boolean"},
+        "suspendUntil": {"type": "string", "format": "datetime"}
       }
     },
     "reportViewDetail": {
@@ -3516,16 +2611,12 @@ const comAtprotoAdminDefs = <String, dynamic>{
         "resolvedByActions"
       ],
       "properties": {
-        "id": {
-          "type": "integer"
-        },
+        "id": {"type": "integer"},
         "reasonType": {
           "type": "ref",
           "ref": "com.atproto.moderation.defs#reasonType"
         },
-        "comment": {
-          "type": "string"
-        },
+        "comment": {"type": "string"},
         "subject": {
           "type": "union",
           "refs": [
@@ -3539,20 +2630,11 @@ const comAtprotoAdminDefs = <String, dynamic>{
           "type": "ref",
           "ref": "com.atproto.admin.defs#subjectStatusView"
         },
-        "reportedBy": {
-          "type": "string",
-          "format": "did"
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "datetime"
-        },
+        "reportedBy": {"type": "string", "format": "did"},
+        "createdAt": {"type": "string", "format": "datetime"},
         "resolvedByActions": {
           "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "com.atproto.admin.defs#modEventView"
-          }
+          "items": {"type": "ref", "ref": "com.atproto.admin.defs#modEventView"}
         }
       }
     },
@@ -3566,41 +2648,21 @@ const comAtprotoAdminDefs = <String, dynamic>{
         "moderation"
       ],
       "properties": {
-        "did": {
-          "type": "string",
-          "format": "did"
-        },
-        "handle": {
-          "type": "string",
-          "format": "handle"
-        },
-        "email": {
-          "type": "string"
-        },
+        "did": {"type": "string", "format": "did"},
+        "handle": {"type": "string", "format": "handle"},
+        "email": {"type": "string"},
         "relatedRecords": {
           "type": "array",
-          "items": {
-            "type": "unknown"
-          }
+          "items": {"type": "unknown"}
         },
-        "indexedAt": {
-          "type": "string",
-          "format": "datetime"
-        },
-        "moderation": {
-          "type": "ref",
-          "ref": "#moderation"
-        },
+        "indexedAt": {"type": "string", "format": "datetime"},
+        "moderation": {"type": "ref", "ref": "#moderation"},
         "invitedBy": {
           "type": "ref",
           "ref": "com.atproto.server.defs#inviteCode"
         },
-        "invitesDisabled": {
-          "type": "boolean"
-        },
-        "inviteNote": {
-          "type": "string"
-        }
+        "invitesDisabled": {"type": "boolean"},
+        "inviteNote": {"type": "string"}
       }
     },
     "repoViewDetail": {
@@ -3613,37 +2675,18 @@ const comAtprotoAdminDefs = <String, dynamic>{
         "moderation"
       ],
       "properties": {
-        "did": {
-          "type": "string",
-          "format": "did"
-        },
-        "handle": {
-          "type": "string",
-          "format": "handle"
-        },
-        "email": {
-          "type": "string"
-        },
+        "did": {"type": "string", "format": "did"},
+        "handle": {"type": "string", "format": "handle"},
+        "email": {"type": "string"},
         "relatedRecords": {
           "type": "array",
-          "items": {
-            "type": "unknown"
-          }
+          "items": {"type": "unknown"}
         },
-        "indexedAt": {
-          "type": "string",
-          "format": "datetime"
-        },
-        "moderation": {
-          "type": "ref",
-          "ref": "#moderationDetail"
-        },
+        "indexedAt": {"type": "string", "format": "datetime"},
+        "moderation": {"type": "ref", "ref": "#moderationDetail"},
         "labels": {
           "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "com.atproto.label.defs#label"
-          }
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
         },
         "invitedBy": {
           "type": "ref",
@@ -3651,112 +2694,55 @@ const comAtprotoAdminDefs = <String, dynamic>{
         },
         "invites": {
           "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "com.atproto.server.defs#inviteCode"
-          }
+          "items": {"type": "ref", "ref": "com.atproto.server.defs#inviteCode"}
         },
-        "invitesDisabled": {
-          "type": "boolean"
-        },
-        "inviteNote": {
-          "type": "string"
-        },
-        "emailConfirmedAt": {
-          "type": "string",
-          "format": "datetime"
-        }
+        "invitesDisabled": {"type": "boolean"},
+        "inviteNote": {"type": "string"},
+        "emailConfirmedAt": {"type": "string", "format": "datetime"}
       }
     },
     "accountView": {
       "type": "object",
-      "required": [
-        "did",
-        "handle",
-        "indexedAt"
-      ],
+      "required": ["did", "handle", "indexedAt"],
       "properties": {
-        "did": {
-          "type": "string",
-          "format": "did"
-        },
-        "handle": {
-          "type": "string",
-          "format": "handle"
-        },
-        "email": {
-          "type": "string"
-        },
-        "indexedAt": {
-          "type": "string",
-          "format": "datetime"
-        },
+        "did": {"type": "string", "format": "did"},
+        "handle": {"type": "string", "format": "handle"},
+        "email": {"type": "string"},
+        "indexedAt": {"type": "string", "format": "datetime"},
         "invitedBy": {
           "type": "ref",
           "ref": "com.atproto.server.defs#inviteCode"
         },
         "invites": {
           "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "com.atproto.server.defs#inviteCode"
-          }
+          "items": {"type": "ref", "ref": "com.atproto.server.defs#inviteCode"}
         },
-        "invitesDisabled": {
-          "type": "boolean"
-        },
-        "emailConfirmedAt": {
-          "type": "string",
-          "format": "datetime"
-        },
-        "inviteNote": {
-          "type": "string"
-        }
+        "invitesDisabled": {"type": "boolean"},
+        "emailConfirmedAt": {"type": "string", "format": "datetime"},
+        "inviteNote": {"type": "string"}
       }
     },
     "repoViewNotFound": {
       "type": "object",
-      "required": [
-        "did"
-      ],
+      "required": ["did"],
       "properties": {
-        "did": {
-          "type": "string",
-          "format": "did"
-        }
+        "did": {"type": "string", "format": "did"}
       }
     },
     "repoRef": {
       "type": "object",
-      "required": [
-        "did"
-      ],
+      "required": ["did"],
       "properties": {
-        "did": {
-          "type": "string",
-          "format": "did"
-        }
+        "did": {"type": "string", "format": "did"}
       }
     },
     "repoBlobRef": {
       "type": "object",
-      "required": [
-        "did",
-        "cid"
-      ],
+      "required": ["did", "cid"],
       "properties": {
-        "did": {
-          "type": "string",
-          "format": "did"
-        },
-        "cid": {
-          "type": "string",
-          "format": "cid"
-        },
-        "recordUri": {
-          "type": "string",
-          "format": "at-uri"
-        }
+        "did": {"type": "string", "format": "did"},
+        "cid": {"type": "string", "format": "cid"},
+        "recordUri": {"type": "string", "format": "at-uri"}
       }
     },
     "recordView": {
@@ -3771,36 +2757,16 @@ const comAtprotoAdminDefs = <String, dynamic>{
         "repo"
       ],
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "at-uri"
-        },
-        "cid": {
-          "type": "string",
-          "format": "cid"
-        },
-        "value": {
-          "type": "unknown"
-        },
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
+        "value": {"type": "unknown"},
         "blobCids": {
           "type": "array",
-          "items": {
-            "type": "string",
-            "format": "cid"
-          }
+          "items": {"type": "string", "format": "cid"}
         },
-        "indexedAt": {
-          "type": "string",
-          "format": "datetime"
-        },
-        "moderation": {
-          "type": "ref",
-          "ref": "#moderation"
-        },
-        "repo": {
-          "type": "ref",
-          "ref": "#repoView"
-        }
+        "indexedAt": {"type": "string", "format": "datetime"},
+        "moderation": {"type": "ref", "ref": "#moderation"},
+        "repo": {"type": "ref", "ref": "#repoView"}
       }
     },
     "recordViewDetail": {
@@ -3815,175 +2781,101 @@ const comAtprotoAdminDefs = <String, dynamic>{
         "repo"
       ],
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "at-uri"
-        },
-        "cid": {
-          "type": "string",
-          "format": "cid"
-        },
-        "value": {
-          "type": "unknown"
-        },
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
+        "value": {"type": "unknown"},
         "blobs": {
           "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "#blobView"
-          }
+          "items": {"type": "ref", "ref": "#blobView"}
         },
         "labels": {
           "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "com.atproto.label.defs#label"
-          }
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
         },
-        "indexedAt": {
-          "type": "string",
-          "format": "datetime"
-        },
-        "moderation": {
-          "type": "ref",
-          "ref": "#moderationDetail"
-        },
-        "repo": {
-          "type": "ref",
-          "ref": "#repoView"
-        }
+        "indexedAt": {"type": "string", "format": "datetime"},
+        "moderation": {"type": "ref", "ref": "#moderationDetail"},
+        "repo": {"type": "ref", "ref": "#repoView"}
       }
     },
     "recordViewNotFound": {
       "type": "object",
-      "required": [
-        "uri"
-      ],
+      "required": ["uri"],
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "at-uri"
-        }
+        "uri": {"type": "string", "format": "at-uri"}
       }
     },
     "moderation": {
       "type": "object",
       "properties": {
-        "subjectStatus": {
-          "type": "ref",
-          "ref": "#subjectStatusView"
-        }
+        "subjectStatus": {"type": "ref", "ref": "#subjectStatusView"}
       }
     },
     "moderationDetail": {
       "type": "object",
       "properties": {
-        "subjectStatus": {
-          "type": "ref",
-          "ref": "#subjectStatusView"
-        }
+        "subjectStatus": {"type": "ref", "ref": "#subjectStatusView"}
       }
     },
     "blobView": {
       "type": "object",
-      "required": [
-        "cid",
-        "mimeType",
-        "size",
-        "createdAt"
-      ],
+      "required": ["cid", "mimeType", "size", "createdAt"],
       "properties": {
-        "cid": {
-          "type": "string",
-          "format": "cid"
-        },
-        "mimeType": {
-          "type": "string"
-        },
-        "size": {
-          "type": "integer"
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "datetime"
-        },
+        "cid": {"type": "string", "format": "cid"},
+        "mimeType": {"type": "string"},
+        "size": {"type": "integer"},
+        "createdAt": {"type": "string", "format": "datetime"},
         "details": {
           "type": "union",
-          "refs": [
-            "#imageDetails",
-            "#videoDetails"
-          ]
+          "refs": ["#imageDetails", "#videoDetails"]
         },
-        "moderation": {
-          "type": "ref",
-          "ref": "#moderation"
-        }
+        "moderation": {"type": "ref", "ref": "#moderation"}
       }
     },
     "imageDetails": {
       "type": "object",
-      "required": [
-        "width",
-        "height"
-      ],
+      "required": ["width", "height"],
       "properties": {
-        "width": {
-          "type": "integer"
-        },
-        "height": {
-          "type": "integer"
-        }
+        "width": {"type": "integer"},
+        "height": {"type": "integer"}
       }
     },
     "videoDetails": {
       "type": "object",
-      "required": [
-        "width",
-        "height",
-        "length"
-      ],
+      "required": ["width", "height", "length"],
       "properties": {
-        "width": {
-          "type": "integer"
-        },
-        "height": {
-          "type": "integer"
-        },
-        "length": {
-          "type": "integer"
-        }
+        "width": {"type": "integer"},
+        "height": {"type": "integer"},
+        "length": {"type": "integer"}
       }
     },
     "subjectReviewState": {
       "type": "string",
-      "knownValues": [
-        "#reviewOpen",
-        "#reviewEscalated",
-        "#reviewClosed"
-      ]
+      "knownValues": ["#reviewOpen", "#reviewEscalated", "#reviewClosed"]
     },
     "reviewOpen": {
       "type": "token",
-      "description": "Moderator review status of a subject: Open. Indicates that the subject needs to be reviewed by a moderator"
+      "description":
+          "Moderator review status of a subject: Open. Indicates that the subject needs to be reviewed by a moderator"
     },
     "reviewEscalated": {
       "type": "token",
-      "description": "Moderator review status of a subject: Escalated. Indicates that the subject was escalated for review by a moderator"
+      "description":
+          "Moderator review status of a subject: Escalated. Indicates that the subject was escalated for review by a moderator"
     },
     "reviewClosed": {
       "type": "token",
-      "description": "Moderator review status of a subject: Closed. Indicates that the subject was already reviewed and resolved by a moderator"
+      "description":
+          "Moderator review status of a subject: Closed. Indicates that the subject was already reviewed and resolved by a moderator"
     },
     "modEventTakedown": {
       "type": "object",
       "description": "Take down a subject permanently or temporarily",
       "properties": {
-        "comment": {
-          "type": "string"
-        },
+        "comment": {"type": "string"},
         "durationInHours": {
           "type": "integer",
-          "description": "Indicates how long the takedown should be in effect before automatically expiring."
+          "description":
+              "Indicates how long the takedown should be in effect before automatically expiring."
         }
       }
     },
@@ -4000,13 +2892,9 @@ const comAtprotoAdminDefs = <String, dynamic>{
     "modEventComment": {
       "type": "object",
       "description": "Add a comment to a subject",
-      "required": [
-        "comment"
-      ],
+      "required": ["comment"],
       "properties": {
-        "comment": {
-          "type": "string"
-        },
+        "comment": {"type": "string"},
         "sticky": {
           "type": "boolean",
           "description": "Make the comment persistent on the subject"
@@ -4016,13 +2904,9 @@ const comAtprotoAdminDefs = <String, dynamic>{
     "modEventReport": {
       "type": "object",
       "description": "Report a subject",
-      "required": [
-        "reportType"
-      ],
+      "required": ["reportType"],
       "properties": {
-        "comment": {
-          "type": "string"
-        },
+        "comment": {"type": "string"},
         "reportType": {
           "type": "ref",
           "ref": "com.atproto.moderation.defs#reasonType"
@@ -4032,54 +2916,37 @@ const comAtprotoAdminDefs = <String, dynamic>{
     "modEventLabel": {
       "type": "object",
       "description": "Apply/Negate labels on a subject",
-      "required": [
-        "createLabelVals",
-        "negateLabelVals"
-      ],
+      "required": ["createLabelVals", "negateLabelVals"],
       "properties": {
-        "comment": {
-          "type": "string"
-        },
+        "comment": {"type": "string"},
         "createLabelVals": {
           "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "items": {"type": "string"}
         },
         "negateLabelVals": {
           "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "items": {"type": "string"}
         }
       }
     },
     "modEventAcknowledge": {
       "type": "object",
       "properties": {
-        "comment": {
-          "type": "string"
-        }
+        "comment": {"type": "string"}
       }
     },
     "modEventEscalate": {
       "type": "object",
       "properties": {
-        "comment": {
-          "type": "string"
-        }
+        "comment": {"type": "string"}
       }
     },
     "modEventMute": {
       "type": "object",
       "description": "Mute incoming reports on a subject",
-      "required": [
-        "durationInHours"
-      ],
+      "required": ["durationInHours"],
       "properties": {
-        "comment": {
-          "type": "string"
-        },
+        "comment": {"type": "string"},
         "durationInHours": {
           "type": "integer",
           "description": "Indicates how long the subject should remain muted."
@@ -4099,9 +2966,7 @@ const comAtprotoAdminDefs = <String, dynamic>{
     "modEventEmail": {
       "type": "object",
       "description": "Keep a log of outgoing email to a user",
-      "required": [
-        "subjectLine"
-      ],
+      "required": ["subjectLine"],
       "properties": {
         "subjectLine": {
           "type": "string",
@@ -4125,31 +2990,23 @@ const comAtprotoAdminQueryModerationEvents = <String, dynamic>{
         "properties": {
           "types": {
             "type": "array",
-            "description": "The types of events (fully qualified string in the format of com.atproto.admin#modEvent<name>) to filter by. If not specified, all events are returned.",
-            "items": {
-              "type": "string"
-            }
+            "description":
+                "The types of events (fully qualified string in the format of com.atproto.admin#modEvent<name>) to filter by. If not specified, all events are returned.",
+            "items": {"type": "string"}
           },
-          "createdBy": {
-            "type": "string",
-            "format": "did"
-          },
+          "createdBy": {"type": "string", "format": "did"},
           "sortDirection": {
             "type": "string",
-            "description": "Sort direction for the events. Defaults to descending order of created at timestamp.",
+            "description":
+                "Sort direction for the events. Defaults to descending order of created at timestamp.",
             "default": "desc",
-            "enum": [
-              "asc",
-              "desc"
-            ]
+            "enum": ["asc", "desc"]
           },
-          "subject": {
-            "type": "string",
-            "format": "uri"
-          },
+          "subject": {"type": "string", "format": "uri"},
           "includeAllUserRecords": {
             "type": "boolean",
-            "description": "If true, events on all record types (posts, lists, profile etc.) owned by the did are returned",
+            "description":
+                "If true, events on all record types (posts, lists, profile etc.) owned by the did are returned",
             "default": false
           },
           "limit": {
@@ -4158,22 +3015,16 @@ const comAtprotoAdminQueryModerationEvents = <String, dynamic>{
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "events"
-          ],
+          "required": ["events"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "events": {
               "type": "array",
               "items": {
@@ -4195,7 +3046,8 @@ const comAtprotoAdminDisableInviteCodes = <String, dynamic>{
   "defs": {
     "main": {
       "type": "procedure",
-      "description": "Disable some set of codes and/or all codes associated with a set of users.",
+      "description":
+          "Disable some set of codes and/or all codes associated with a set of users.",
       "input": {
         "encoding": "application/json",
         "schema": {
@@ -4203,15 +3055,11 @@ const comAtprotoAdminDisableInviteCodes = <String, dynamic>{
           "properties": {
             "codes": {
               "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "items": {"type": "string"}
             },
             "accounts": {
               "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "items": {"type": "string"}
             }
           }
         }
@@ -4227,14 +3075,13 @@ const comAtprotoAdminUpdateSubjectStatus = <String, dynamic>{
   "defs": {
     "main": {
       "type": "procedure",
-      "description": "Update the service-specific admin status of a subject (account, record, or blob).",
+      "description":
+          "Update the service-specific admin status of a subject (account, record, or blob).",
       "input": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "subject"
-          ],
+          "required": ["subject"],
           "properties": {
             "subject": {
               "type": "union",
@@ -4255,9 +3102,7 @@ const comAtprotoAdminUpdateSubjectStatus = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "subject"
-          ],
+          "required": ["subject"],
           "properties": {
             "subject": {
               "type": "union",
@@ -4288,14 +3133,9 @@ const comAtprotoAdminGetRepo = <String, dynamic>{
       "description": "Get details about a repository.",
       "parameters": {
         "type": "params",
-        "required": [
-          "did"
-        ],
+        "required": ["did"],
         "properties": {
-          "did": {
-            "type": "string",
-            "format": "did"
-          }
+          "did": {"type": "string", "format": "did"}
         }
       },
       "output": {
@@ -4306,9 +3146,7 @@ const comAtprotoAdminGetRepo = <String, dynamic>{
         }
       },
       "errors": [
-        {
-          "name": "RepoNotFound"
-        }
+        {"name": "RepoNotFound"}
       ]
     }
   }
@@ -4321,31 +3159,21 @@ const comAtprotoAdminGetSubjectStatus = <String, dynamic>{
   "defs": {
     "main": {
       "type": "query",
-      "description": "Get the service-specific admin status of a subject (account, record, or blob).",
+      "description":
+          "Get the service-specific admin status of a subject (account, record, or blob).",
       "parameters": {
         "type": "params",
         "properties": {
-          "did": {
-            "type": "string",
-            "format": "did"
-          },
-          "uri": {
-            "type": "string",
-            "format": "at-uri"
-          },
-          "blob": {
-            "type": "string",
-            "format": "cid"
-          }
+          "did": {"type": "string", "format": "did"},
+          "uri": {"type": "string", "format": "at-uri"},
+          "blob": {"type": "string", "format": "cid"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "subject"
-          ],
+          "required": ["subject"],
           "properties": {
             "subject": {
               "type": "union",
@@ -4378,19 +3206,14 @@ const comAtprotoAdminUpdateAccountEmail = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "account",
-            "email"
-          ],
+          "required": ["account", "email"],
           "properties": {
             "account": {
               "type": "string",
               "format": "at-identifier",
               "description": "The handle or DID of the repo."
             },
-            "email": {
-              "type": "string"
-            }
+            "email": {"type": "string"}
           }
         }
       }
@@ -4413,37 +3236,26 @@ const comAtprotoAdminSearchRepos = <String, dynamic>{
             "type": "string",
             "description": "DEPRECATED: use 'q' instead"
           },
-          "q": {
-            "type": "string"
-          },
+          "q": {"type": "string"},
           "limit": {
             "type": "integer",
             "default": 50,
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "repos"
-          ],
+          "required": ["repos"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "repos": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "com.atproto.admin.defs#repoView"
-              }
+              "items": {"type": "ref", "ref": "com.atproto.admin.defs#repoView"}
             }
           }
         }
@@ -4462,13 +3274,9 @@ const comAtprotoAdminGetModerationEvent = <String, dynamic>{
       "description": "Get details about a moderation event.",
       "parameters": {
         "type": "params",
-        "required": [
-          "id"
-        ],
+        "required": ["id"],
         "properties": {
-          "id": {
-            "type": "integer"
-          }
+          "id": {"type": "integer"}
         }
       },
       "output": {
@@ -4492,22 +3300,14 @@ const comAtprotoAdminGetAccountInfo = <String, dynamic>{
       "description": "Get details about an account.",
       "parameters": {
         "type": "params",
-        "required": [
-          "did"
-        ],
+        "required": ["did"],
         "properties": {
-          "did": {
-            "type": "string",
-            "format": "did"
-          }
+          "did": {"type": "string", "format": "did"}
         }
       },
       "output": {
         "encoding": "application/json",
-        "schema": {
-          "type": "ref",
-          "ref": "com.atproto.admin.defs#accountView"
-        }
+        "schema": {"type": "ref", "ref": "com.atproto.admin.defs#accountView"}
       }
     }
   }
@@ -4520,19 +3320,15 @@ const comAtprotoAdminDisableAccountInvites = <String, dynamic>{
   "defs": {
     "main": {
       "type": "procedure",
-      "description": "Disable an account from receiving new invite codes, but does not invalidate existing codes.",
+      "description":
+          "Disable an account from receiving new invite codes, but does not invalidate existing codes.",
       "input": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "account"
-          ],
+          "required": ["account"],
           "properties": {
-            "account": {
-              "type": "string",
-              "format": "did"
-            },
+            "account": {"type": "string", "format": "did"},
             "note": {
               "type": "string",
               "description": "Optional reason for disabled invites."
@@ -4556,14 +3352,9 @@ const comAtprotoAdminEnableAccountInvites = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "account"
-          ],
+          "required": ["account"],
           "properties": {
-            "account": {
-              "type": "string",
-              "format": "did"
-            },
+            "account": {"type": "string", "format": "did"},
             "note": {
               "type": "string",
               "description": "Optional reason for enabled invites."
@@ -4586,23 +3377,16 @@ const appBskyNotificationGetUnreadCount = <String, dynamic>{
       "parameters": {
         "type": "params",
         "properties": {
-          "seenAt": {
-            "type": "string",
-            "format": "datetime"
-          }
+          "seenAt": {"type": "string", "format": "datetime"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "count"
-          ],
+          "required": ["count"],
           "properties": {
-            "count": {
-              "type": "integer"
-            }
+            "count": {"type": "integer"}
           }
         }
       }
@@ -4627,37 +3411,22 @@ const appBskyNotificationListNotifications = <String, dynamic>{
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          },
-          "seenAt": {
-            "type": "string",
-            "format": "datetime"
-          }
+          "cursor": {"type": "string"},
+          "seenAt": {"type": "string", "format": "datetime"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "notifications"
-          ],
+          "required": ["notifications"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "notifications": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "#notification"
-              }
+              "items": {"type": "ref", "ref": "#notification"}
             },
-            "seenAt": {
-              "type": "string",
-              "format": "datetime"
-            }
+            "seenAt": {"type": "string", "format": "datetime"}
           }
         }
       }
@@ -4674,21 +3443,13 @@ const appBskyNotificationListNotifications = <String, dynamic>{
         "indexedAt"
       ],
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "at-uri"
-        },
-        "cid": {
-          "type": "string",
-          "format": "cid"
-        },
-        "author": {
-          "type": "ref",
-          "ref": "app.bsky.actor.defs#profileView"
-        },
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
+        "author": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"},
         "reason": {
           "type": "string",
-          "description": "Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.",
+          "description":
+              "Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.",
           "knownValues": [
             "like",
             "repost",
@@ -4698,26 +3459,13 @@ const appBskyNotificationListNotifications = <String, dynamic>{
             "quote"
           ]
         },
-        "reasonSubject": {
-          "type": "string",
-          "format": "at-uri"
-        },
-        "record": {
-          "type": "unknown"
-        },
-        "isRead": {
-          "type": "boolean"
-        },
-        "indexedAt": {
-          "type": "string",
-          "format": "datetime"
-        },
+        "reasonSubject": {"type": "string", "format": "at-uri"},
+        "record": {"type": "unknown"},
+        "isRead": {"type": "boolean"},
+        "indexedAt": {"type": "string", "format": "datetime"},
         "labels": {
           "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "com.atproto.label.defs#label"
-          }
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
         }
       }
     }
@@ -4736,31 +3484,15 @@ const appBskyNotificationRegisterPush = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "serviceDid",
-            "token",
-            "platform",
-            "appId"
-          ],
+          "required": ["serviceDid", "token", "platform", "appId"],
           "properties": {
-            "serviceDid": {
-              "type": "string",
-              "format": "did"
-            },
-            "token": {
-              "type": "string"
-            },
+            "serviceDid": {"type": "string", "format": "did"},
+            "token": {"type": "string"},
             "platform": {
               "type": "string",
-              "knownValues": [
-                "ios",
-                "android",
-                "web"
-              ]
+              "knownValues": ["ios", "android", "web"]
             },
-            "appId": {
-              "type": "string"
-            }
+            "appId": {"type": "string"}
           }
         }
       }
@@ -4780,14 +3512,9 @@ const appBskyNotificationUpdateSeen = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "seenAt"
-          ],
+          "required": ["seenAt"],
           "properties": {
-            "seenAt": {
-              "type": "string",
-              "format": "datetime"
-            }
+            "seenAt": {"type": "string", "format": "datetime"}
           }
         }
       }
@@ -4819,25 +3546,17 @@ const appBskyActorProfile = <String, dynamic>{
           },
           "avatar": {
             "type": "blob",
-            "accept": [
-              "image/png",
-              "image/jpeg"
-            ],
+            "accept": ["image/png", "image/jpeg"],
             "maxSize": 1000000
           },
           "banner": {
             "type": "blob",
-            "accept": [
-              "image/png",
-              "image/jpeg"
-            ],
+            "accept": ["image/png", "image/jpeg"],
             "maxSize": 1000000
           },
           "labels": {
             "type": "union",
-            "refs": [
-              "com.atproto.label.defs#selfLabels"
-            ]
+            "refs": ["com.atproto.label.defs#selfLabels"]
           }
         }
       }
@@ -4862,28 +3581,19 @@ const appBskyActorGetSuggestions = <String, dynamic>{
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "actors"
-          ],
+          "required": ["actors"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "actors": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.actor.defs#profileView"
-              }
+              "items": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"}
             }
           }
         }
@@ -4900,17 +3610,12 @@ const appBskyActorGetPreferences = <String, dynamic>{
     "main": {
       "type": "query",
       "description": "Get private preferences attached to the account.",
-      "parameters": {
-        "type": "params",
-        "properties": {}
-      },
+      "parameters": {"type": "params", "properties": {}},
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "preferences"
-          ],
+          "required": ["preferences"],
           "properties": {
             "preferences": {
               "type": "ref",
@@ -4954,9 +3659,7 @@ const appBskyActorSearchActorsTypeahead = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "actors"
-          ],
+          "required": ["actors"],
           "properties": {
             "actors": {
               "type": "array",
@@ -4984,9 +3687,7 @@ const appBskyActorPutPreferences = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "preferences"
-          ],
+          "required": ["preferences"],
           "properties": {
             "preferences": {
               "type": "ref",
@@ -5009,16 +3710,11 @@ const appBskyActorGetProfiles = <String, dynamic>{
       "description": "Get detailed profile views of multiple actors.",
       "parameters": {
         "type": "params",
-        "required": [
-          "actors"
-        ],
+        "required": ["actors"],
         "properties": {
           "actors": {
             "type": "array",
-            "items": {
-              "type": "string",
-              "format": "at-identifier"
-            },
+            "items": {"type": "string", "format": "at-identifier"},
             "maxLength": 25
           }
         }
@@ -5027,9 +3723,7 @@ const appBskyActorGetProfiles = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "profiles"
-          ],
+          "required": ["profiles"],
           "properties": {
             "profiles": {
               "type": "array",
@@ -5053,171 +3747,81 @@ const appBskyActorDefs = <String, dynamic>{
   "defs": {
     "profileViewBasic": {
       "type": "object",
-      "required": [
-        "did",
-        "handle"
-      ],
+      "required": ["did", "handle"],
       "properties": {
-        "did": {
-          "type": "string",
-          "format": "did"
-        },
-        "handle": {
-          "type": "string",
-          "format": "handle"
-        },
-        "displayName": {
-          "type": "string",
-          "maxLength": 640,
-          "maxGraphemes": 64
-        },
-        "avatar": {
-          "type": "string"
-        },
-        "viewer": {
-          "type": "ref",
-          "ref": "#viewerState"
-        },
+        "did": {"type": "string", "format": "did"},
+        "handle": {"type": "string", "format": "handle"},
+        "displayName": {"type": "string", "maxLength": 640, "maxGraphemes": 64},
+        "avatar": {"type": "string"},
+        "viewer": {"type": "ref", "ref": "#viewerState"},
         "labels": {
           "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "com.atproto.label.defs#label"
-          }
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
         }
       }
     },
     "profileView": {
       "type": "object",
-      "required": [
-        "did",
-        "handle"
-      ],
+      "required": ["did", "handle"],
       "properties": {
-        "did": {
-          "type": "string",
-          "format": "did"
-        },
-        "handle": {
-          "type": "string",
-          "format": "handle"
-        },
-        "displayName": {
-          "type": "string",
-          "maxLength": 640,
-          "maxGraphemes": 64
-        },
+        "did": {"type": "string", "format": "did"},
+        "handle": {"type": "string", "format": "handle"},
+        "displayName": {"type": "string", "maxLength": 640, "maxGraphemes": 64},
         "description": {
           "type": "string",
           "maxLength": 2560,
           "maxGraphemes": 256
         },
-        "avatar": {
-          "type": "string"
-        },
-        "indexedAt": {
-          "type": "string",
-          "format": "datetime"
-        },
-        "viewer": {
-          "type": "ref",
-          "ref": "#viewerState"
-        },
+        "avatar": {"type": "string"},
+        "indexedAt": {"type": "string", "format": "datetime"},
+        "viewer": {"type": "ref", "ref": "#viewerState"},
         "labels": {
           "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "com.atproto.label.defs#label"
-          }
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
         }
       }
     },
     "profileViewDetailed": {
       "type": "object",
-      "required": [
-        "did",
-        "handle"
-      ],
+      "required": ["did", "handle"],
       "properties": {
-        "did": {
-          "type": "string",
-          "format": "did"
-        },
-        "handle": {
-          "type": "string",
-          "format": "handle"
-        },
-        "displayName": {
-          "type": "string",
-          "maxLength": 640,
-          "maxGraphemes": 64
-        },
+        "did": {"type": "string", "format": "did"},
+        "handle": {"type": "string", "format": "handle"},
+        "displayName": {"type": "string", "maxLength": 640, "maxGraphemes": 64},
         "description": {
           "type": "string",
           "maxLength": 2560,
           "maxGraphemes": 256
         },
-        "avatar": {
-          "type": "string"
-        },
-        "banner": {
-          "type": "string"
-        },
-        "followersCount": {
-          "type": "integer"
-        },
-        "followsCount": {
-          "type": "integer"
-        },
-        "postsCount": {
-          "type": "integer"
-        },
-        "indexedAt": {
-          "type": "string",
-          "format": "datetime"
-        },
-        "viewer": {
-          "type": "ref",
-          "ref": "#viewerState"
-        },
+        "avatar": {"type": "string"},
+        "banner": {"type": "string"},
+        "followersCount": {"type": "integer"},
+        "followsCount": {"type": "integer"},
+        "postsCount": {"type": "integer"},
+        "indexedAt": {"type": "string", "format": "datetime"},
+        "viewer": {"type": "ref", "ref": "#viewerState"},
         "labels": {
           "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "com.atproto.label.defs#label"
-          }
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
         }
       }
     },
     "viewerState": {
       "type": "object",
       "properties": {
-        "muted": {
-          "type": "boolean"
-        },
+        "muted": {"type": "boolean"},
         "mutedByList": {
           "type": "ref",
           "ref": "app.bsky.graph.defs#listViewBasic"
         },
-        "blockedBy": {
-          "type": "boolean"
-        },
-        "blocking": {
-          "type": "string",
-          "format": "at-uri"
-        },
+        "blockedBy": {"type": "boolean"},
+        "blocking": {"type": "string", "format": "at-uri"},
         "blockingByList": {
           "type": "ref",
           "ref": "app.bsky.graph.defs#listViewBasic"
         },
-        "following": {
-          "type": "string",
-          "format": "at-uri"
-        },
-        "followedBy": {
-          "type": "string",
-          "format": "at-uri"
-        }
+        "following": {"type": "string", "format": "at-uri"},
+        "followedBy": {"type": "string", "format": "at-uri"}
       }
     },
     "preferences": {
@@ -5236,56 +3840,33 @@ const appBskyActorDefs = <String, dynamic>{
     },
     "adultContentPref": {
       "type": "object",
-      "required": [
-        "enabled"
-      ],
+      "required": ["enabled"],
       "properties": {
-        "enabled": {
-          "type": "boolean",
-          "default": false
-        }
+        "enabled": {"type": "boolean", "default": false}
       }
     },
     "contentLabelPref": {
       "type": "object",
-      "required": [
-        "label",
-        "visibility"
-      ],
+      "required": ["label", "visibility"],
       "properties": {
-        "label": {
-          "type": "string"
-        },
+        "label": {"type": "string"},
         "visibility": {
           "type": "string",
-          "knownValues": [
-            "show",
-            "warn",
-            "hide"
-          ]
+          "knownValues": ["show", "warn", "hide"]
         }
       }
     },
     "savedFeedsPref": {
       "type": "object",
-      "required": [
-        "pinned",
-        "saved"
-      ],
+      "required": ["pinned", "saved"],
       "properties": {
         "pinned": {
           "type": "array",
-          "items": {
-            "type": "string",
-            "format": "at-uri"
-          }
+          "items": {"type": "string", "format": "at-uri"}
         },
         "saved": {
           "type": "array",
-          "items": {
-            "type": "string",
-            "format": "at-uri"
-          }
+          "items": {"type": "string", "format": "at-uri"}
         }
       }
     },
@@ -5301,13 +3882,12 @@ const appBskyActorDefs = <String, dynamic>{
     },
     "feedViewPref": {
       "type": "object",
-      "required": [
-        "feed"
-      ],
+      "required": ["feed"],
       "properties": {
         "feed": {
           "type": "string",
-          "description": "The URI of the feed, or an identifier which describes the feed."
+          "description":
+              "The URI of the feed, or an identifier which describes the feed."
         },
         "hideReplies": {
           "type": "boolean",
@@ -5315,11 +3895,13 @@ const appBskyActorDefs = <String, dynamic>{
         },
         "hideRepliesByUnfollowed": {
           "type": "boolean",
-          "description": "Hide replies in the feed if they are not by followed users."
+          "description":
+              "Hide replies in the feed if they are not by followed users."
         },
         "hideRepliesByLikeCount": {
           "type": "integer",
-          "description": "Hide replies in the feed if they do not have this number of likes."
+          "description":
+              "Hide replies in the feed if they do not have this number of likes."
         },
         "hideReposts": {
           "type": "boolean",
@@ -5337,12 +3919,7 @@ const appBskyActorDefs = <String, dynamic>{
         "sort": {
           "type": "string",
           "description": "Sorting mode for threads.",
-          "knownValues": [
-            "oldest",
-            "newest",
-            "most-likes",
-            "random"
-          ]
+          "knownValues": ["oldest", "newest", "most-likes", "random"]
         },
         "prioritizeFollowedUsers": {
           "type": "boolean",
@@ -5370,7 +3947,8 @@ const appBskyActorSearchActors = <String, dynamic>{
           },
           "q": {
             "type": "string",
-            "description": "Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended."
+            "description":
+                "Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended."
           },
           "limit": {
             "type": "integer",
@@ -5378,28 +3956,19 @@ const appBskyActorSearchActors = <String, dynamic>{
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "actors"
-          ],
+          "required": ["actors"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "actors": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.actor.defs#profileView"
-              }
+              "items": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"}
             }
           }
         }
@@ -5418,14 +3987,9 @@ const appBskyActorGetProfile = <String, dynamic>{
       "description": "Get detailed profile view of an actor.",
       "parameters": {
         "type": "params",
-        "required": [
-          "actor"
-        ],
+        "required": ["actor"],
         "properties": {
-          "actor": {
-            "type": "string",
-            "format": "at-identifier"
-          }
+          "actor": {"type": "string", "format": "at-identifier"}
         }
       },
       "output": {
@@ -5449,13 +4013,12 @@ const appBskyUnspeccedSearchActorsSkeleton = <String, dynamic>{
       "description": "Backend Actors (profile) search, returns only skeleton.",
       "parameters": {
         "type": "params",
-        "required": [
-          "q"
-        ],
+        "required": ["q"],
         "properties": {
           "q": {
             "type": "string",
-            "description": "Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended. For typeahead search, only simple term match is supported, not full syntax."
+            "description":
+                "Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended. For typeahead search, only simple term match is supported, not full syntax."
           },
           "typeahead": {
             "type": "boolean",
@@ -5469,7 +4032,8 @@ const appBskyUnspeccedSearchActorsSkeleton = <String, dynamic>{
           },
           "cursor": {
             "type": "string",
-            "description": "Optional pagination mechanism; may not necessarily allow scrolling through entire result set."
+            "description":
+                "Optional pagination mechanism; may not necessarily allow scrolling through entire result set."
           }
         }
       },
@@ -5477,16 +4041,13 @@ const appBskyUnspeccedSearchActorsSkeleton = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "actors"
-          ],
+          "required": ["actors"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "hitsTotal": {
               "type": "integer",
-              "description": "Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits."
+              "description":
+                  "Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits."
             },
             "actors": {
               "type": "array",
@@ -5499,9 +4060,7 @@ const appBskyUnspeccedSearchActorsSkeleton = <String, dynamic>{
         }
       },
       "errors": [
-        {
-          "name": "BadQueryString"
-        }
+        {"name": "BadQueryString"}
       ]
     }
   }
@@ -5514,7 +4073,8 @@ const appBskyUnspeccedGetTimelineSkeleton = <String, dynamic>{
   "defs": {
     "main": {
       "type": "query",
-      "description": "DEPRECATED: a skeleton of a timeline. Unspecced and will be unavailable soon.",
+      "description":
+          "DEPRECATED: a skeleton of a timeline. Unspecced and will be unavailable soon.",
       "parameters": {
         "type": "params",
         "properties": {
@@ -5524,22 +4084,16 @@ const appBskyUnspeccedGetTimelineSkeleton = <String, dynamic>{
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "feed"
-          ],
+          "required": ["feed"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "feed": {
               "type": "array",
               "items": {
@@ -5551,9 +4105,7 @@ const appBskyUnspeccedGetTimelineSkeleton = <String, dynamic>{
         }
       },
       "errors": [
-        {
-          "name": "UnknownFeed"
-        }
+        {"name": "UnknownFeed"}
       ]
     }
   }
@@ -5566,26 +4118,16 @@ const appBskyUnspeccedDefs = <String, dynamic>{
   "defs": {
     "skeletonSearchPost": {
       "type": "object",
-      "required": [
-        "uri"
-      ],
+      "required": ["uri"],
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "at-uri"
-        }
+        "uri": {"type": "string", "format": "at-uri"}
       }
     },
     "skeletonSearchActor": {
       "type": "object",
-      "required": [
-        "did"
-      ],
+      "required": ["did"],
       "properties": {
-        "did": {
-          "type": "string",
-          "format": "did"
-        }
+        "did": {"type": "string", "format": "did"}
       }
     }
   }
@@ -5608,25 +4150,17 @@ const appBskyUnspeccedGetPopularFeedGenerators = <String, dynamic>{
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          },
-          "query": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"},
+          "query": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "feeds"
-          ],
+          "required": ["feeds"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "feeds": {
               "type": "array",
               "items": {
@@ -5648,42 +4182,31 @@ const appBskyUnspeccedGetPopular = <String, dynamic>{
   "defs": {
     "main": {
       "type": "query",
-      "description": "DEPRECATED: will be removed soon. Use a feed generator alternative.",
+      "description":
+          "DEPRECATED: will be removed soon. Use a feed generator alternative.",
       "parameters": {
         "type": "params",
         "properties": {
-          "includeNsfw": {
-            "type": "boolean",
-            "default": false
-          },
+          "includeNsfw": {"type": "boolean", "default": false},
           "limit": {
             "type": "integer",
             "default": 50,
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "feed"
-          ],
+          "required": ["feed"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "feed": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.feed.defs#feedViewPost"
-              }
+              "items": {"type": "ref", "ref": "app.bsky.feed.defs#feedViewPost"}
             }
           }
         }
@@ -5702,13 +4225,12 @@ const appBskyUnspeccedSearchPostsSkeleton = <String, dynamic>{
       "description": "Backend Posts search, returns only skeleton",
       "parameters": {
         "type": "params",
-        "required": [
-          "q"
-        ],
+        "required": ["q"],
         "properties": {
           "q": {
             "type": "string",
-            "description": "Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended."
+            "description":
+                "Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended."
           },
           "limit": {
             "type": "integer",
@@ -5718,7 +4240,8 @@ const appBskyUnspeccedSearchPostsSkeleton = <String, dynamic>{
           },
           "cursor": {
             "type": "string",
-            "description": "Optional pagination mechanism; may not necessarily allow scrolling through entire result set."
+            "description":
+                "Optional pagination mechanism; may not necessarily allow scrolling through entire result set."
           }
         }
       },
@@ -5726,16 +4249,13 @@ const appBskyUnspeccedSearchPostsSkeleton = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "posts"
-          ],
+          "required": ["posts"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "hitsTotal": {
               "type": "integer",
-              "description": "Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits."
+              "description":
+                  "Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits."
             },
             "posts": {
               "type": "array",
@@ -5748,9 +4268,7 @@ const appBskyUnspeccedSearchPostsSkeleton = <String, dynamic>{
         }
       },
       "errors": [
-        {
-          "name": "BadQueryString"
-        }
+        {"name": "BadQueryString"}
       ]
     }
   }
@@ -5763,24 +4281,14 @@ const appBskyRichtextFacet = <String, dynamic>{
   "defs": {
     "main": {
       "type": "object",
-      "required": [
-        "index",
-        "features"
-      ],
+      "required": ["index", "features"],
       "properties": {
-        "index": {
-          "type": "ref",
-          "ref": "#byteSlice"
-        },
+        "index": {"type": "ref", "ref": "#byteSlice"},
         "features": {
           "type": "array",
           "items": {
             "type": "union",
-            "refs": [
-              "#mention",
-              "#link",
-              "#tag"
-            ]
+            "refs": ["#mention", "#link", "#tag"]
           }
         }
       }
@@ -5788,59 +4296,35 @@ const appBskyRichtextFacet = <String, dynamic>{
     "mention": {
       "type": "object",
       "description": "A facet feature for actor mentions.",
-      "required": [
-        "did"
-      ],
+      "required": ["did"],
       "properties": {
-        "did": {
-          "type": "string",
-          "format": "did"
-        }
+        "did": {"type": "string", "format": "did"}
       }
     },
     "link": {
       "type": "object",
       "description": "A facet feature for links.",
-      "required": [
-        "uri"
-      ],
+      "required": ["uri"],
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "uri"
-        }
+        "uri": {"type": "string", "format": "uri"}
       }
     },
     "tag": {
       "type": "object",
       "description": "A hashtag.",
-      "required": [
-        "tag"
-      ],
+      "required": ["tag"],
       "properties": {
-        "tag": {
-          "type": "string",
-          "maxLength": 640,
-          "maxGraphemes": 64
-        }
+        "tag": {"type": "string", "maxLength": 640, "maxGraphemes": 64}
       }
     },
     "byteSlice": {
       "type": "object",
-      "description": "A text segment. Start is inclusive, end is exclusive. Indices are for utf8-encoded strings.",
-      "required": [
-        "byteStart",
-        "byteEnd"
-      ],
+      "description":
+          "A text segment. Start is inclusive, end is exclusive. Indices are for utf8-encoded strings.",
+      "required": ["byteStart", "byteEnd"],
       "properties": {
-        "byteStart": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "byteEnd": {
-          "type": "integer",
-          "minimum": 0
-        }
+        "byteStart": {"type": "integer", "minimum": 0},
+        "byteEnd": {"type": "integer", "minimum": 0}
       }
     }
   }
@@ -5853,56 +4337,36 @@ const appBskyFeedDescribeFeedGenerator = <String, dynamic>{
   "defs": {
     "main": {
       "type": "query",
-      "description": "Get information about a feed generator, including policies and offered feed URIs.",
+      "description":
+          "Get information about a feed generator, including policies and offered feed URIs.",
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "did",
-            "feeds"
-          ],
+          "required": ["did", "feeds"],
           "properties": {
-            "did": {
-              "type": "string",
-              "format": "did"
-            },
+            "did": {"type": "string", "format": "did"},
             "feeds": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "#feed"
-              }
+              "items": {"type": "ref", "ref": "#feed"}
             },
-            "links": {
-              "type": "ref",
-              "ref": "#links"
-            }
+            "links": {"type": "ref", "ref": "#links"}
           }
         }
       }
     },
     "feed": {
       "type": "object",
-      "required": [
-        "uri"
-      ],
+      "required": ["uri"],
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "at-uri"
-        }
+        "uri": {"type": "string", "format": "at-uri"}
       }
     },
     "links": {
       "type": "object",
       "properties": {
-        "privacyPolicy": {
-          "type": "string"
-        },
-        "termsOfService": {
-          "type": "string"
-        }
+        "privacyPolicy": {"type": "string"},
+        "termsOfService": {"type": "string"}
       }
     }
   }
@@ -5915,35 +4379,23 @@ const appBskyFeedThreadgate = <String, dynamic>{
   "defs": {
     "main": {
       "type": "record",
-      "description": "Defines interaction gating rules for a thread. The rkey of the threadgate record should match the rkey of the thread's root post.",
+      "description":
+          "Defines interaction gating rules for a thread. The rkey of the threadgate record should match the rkey of the thread's root post.",
       "key": "tid",
       "record": {
         "type": "object",
-        "required": [
-          "post",
-          "createdAt"
-        ],
+        "required": ["post", "createdAt"],
         "properties": {
-          "post": {
-            "type": "string",
-            "format": "at-uri"
-          },
+          "post": {"type": "string", "format": "at-uri"},
           "allow": {
             "type": "array",
             "items": {
               "type": "union",
-              "refs": [
-                "#mentionRule",
-                "#followingRule",
-                "#listRule"
-              ]
+              "refs": ["#mentionRule", "#followingRule", "#listRule"]
             },
             "maxLength": 5
           },
-          "createdAt": {
-            "type": "string",
-            "format": "datetime"
-          }
+          "createdAt": {"type": "string", "format": "datetime"}
         }
       }
     },
@@ -5960,14 +4412,9 @@ const appBskyFeedThreadgate = <String, dynamic>{
     "listRule": {
       "type": "object",
       "description": "Allow replies from actors on a list.",
-      "required": [
-        "list"
-      ],
+      "required": ["list"],
       "properties": {
-        "list": {
-          "type": "string",
-          "format": "at-uri"
-        }
+        "list": {"type": "string", "format": "at-uri"}
       }
     }
   }
@@ -5983,16 +4430,11 @@ const appBskyFeedGetPosts = <String, dynamic>{
       "description": "Get a view of an actor's feed.",
       "parameters": {
         "type": "params",
-        "required": [
-          "uris"
-        ],
+        "required": ["uris"],
         "properties": {
           "uris": {
             "type": "array",
-            "items": {
-              "type": "string",
-              "format": "at-uri"
-            },
+            "items": {"type": "string", "format": "at-uri"},
             "maxLength": 25
           }
         }
@@ -6001,16 +4443,11 @@ const appBskyFeedGetPosts = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "posts"
-          ],
+          "required": ["posts"],
           "properties": {
             "posts": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.feed.defs#postView"
-              }
+              "items": {"type": "ref", "ref": "app.bsky.feed.defs#postView"}
             }
           }
         }
@@ -6029,14 +4466,9 @@ const appBskyFeedGetPostThread = <String, dynamic>{
       "description": "Get posts in a thread.",
       "parameters": {
         "type": "params",
-        "required": [
-          "uri"
-        ],
+        "required": ["uri"],
         "properties": {
-          "uri": {
-            "type": "string",
-            "format": "at-uri"
-          },
+          "uri": {"type": "string", "format": "at-uri"},
           "depth": {
             "type": "integer",
             "default": 6,
@@ -6055,9 +4487,7 @@ const appBskyFeedGetPostThread = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "thread"
-          ],
+          "required": ["thread"],
           "properties": {
             "thread": {
               "type": "union",
@@ -6071,9 +4501,7 @@ const appBskyFeedGetPostThread = <String, dynamic>{
         }
       },
       "errors": [
-        {
-          "name": "NotFound"
-        }
+        {"name": "NotFound"}
       ]
     }
   }
@@ -6089,55 +4517,31 @@ const appBskyFeedGetRepostedBy = <String, dynamic>{
       "description": "Get a list of reposts.",
       "parameters": {
         "type": "params",
-        "required": [
-          "uri"
-        ],
+        "required": ["uri"],
         "properties": {
-          "uri": {
-            "type": "string",
-            "format": "at-uri"
-          },
-          "cid": {
-            "type": "string",
-            "format": "cid"
-          },
+          "uri": {"type": "string", "format": "at-uri"},
+          "cid": {"type": "string", "format": "cid"},
           "limit": {
             "type": "integer",
             "default": 50,
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "uri",
-            "repostedBy"
-          ],
+          "required": ["uri", "repostedBy"],
           "properties": {
-            "uri": {
-              "type": "string",
-              "format": "at-uri"
-            },
-            "cid": {
-              "type": "string",
-              "format": "cid"
-            },
-            "cursor": {
-              "type": "string"
-            },
+            "uri": {"type": "string", "format": "at-uri"},
+            "cid": {"type": "string", "format": "cid"},
+            "cursor": {"type": "string"},
             "repostedBy": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.actor.defs#profileView"
-              }
+              "items": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"}
             }
           }
         }
@@ -6156,50 +4560,34 @@ const appBskyFeedGetListFeed = <String, dynamic>{
       "description": "Get a view of a recent posts from actors in a list.",
       "parameters": {
         "type": "params",
-        "required": [
-          "list"
-        ],
+        "required": ["list"],
         "properties": {
-          "list": {
-            "type": "string",
-            "format": "at-uri"
-          },
+          "list": {"type": "string", "format": "at-uri"},
           "limit": {
             "type": "integer",
             "default": 50,
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "feed"
-          ],
+          "required": ["feed"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "feed": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.feed.defs#feedViewPost"
-              }
+              "items": {"type": "ref", "ref": "app.bsky.feed.defs#feedViewPost"}
             }
           }
         }
       },
       "errors": [
-        {
-          "name": "UnknownList"
-        }
+        {"name": "UnknownList"}
       ]
     }
   }
@@ -6215,36 +4603,20 @@ const appBskyFeedGetFeedGenerator = <String, dynamic>{
       "description": "Get information about a feed generator.",
       "parameters": {
         "type": "params",
-        "required": [
-          "feed"
-        ],
+        "required": ["feed"],
         "properties": {
-          "feed": {
-            "type": "string",
-            "format": "at-uri"
-          }
+          "feed": {"type": "string", "format": "at-uri"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "view",
-            "isOnline",
-            "isValid"
-          ],
+          "required": ["view", "isOnline", "isValid"],
           "properties": {
-            "view": {
-              "type": "ref",
-              "ref": "app.bsky.feed.defs#generatorView"
-            },
-            "isOnline": {
-              "type": "boolean"
-            },
-            "isValid": {
-              "type": "boolean"
-            }
+            "view": {"type": "ref", "ref": "app.bsky.feed.defs#generatorView"},
+            "isOnline": {"type": "boolean"},
+            "isValid": {"type": "boolean"}
           }
         }
       }
@@ -6259,53 +4631,38 @@ const appBskyFeedGetFeed = <String, dynamic>{
   "defs": {
     "main": {
       "type": "query",
-      "description": "Get a hydrated feed from an actor's selected feed generator.",
+      "description":
+          "Get a hydrated feed from an actor's selected feed generator.",
       "parameters": {
         "type": "params",
-        "required": [
-          "feed"
-        ],
+        "required": ["feed"],
         "properties": {
-          "feed": {
-            "type": "string",
-            "format": "at-uri"
-          },
+          "feed": {"type": "string", "format": "at-uri"},
           "limit": {
             "type": "integer",
             "default": 50,
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "feed"
-          ],
+          "required": ["feed"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "feed": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.feed.defs#feedViewPost"
-              }
+              "items": {"type": "ref", "ref": "app.bsky.feed.defs#feedViewPost"}
             }
           }
         }
       },
       "errors": [
-        {
-          "name": "UnknownFeed"
-        }
+        {"name": "UnknownFeed"}
       ]
     }
   }
@@ -6321,36 +4678,25 @@ const appBskyFeedGetActorFeeds = <String, dynamic>{
       "description": "Get a list of feeds created by the actor.",
       "parameters": {
         "type": "params",
-        "required": [
-          "actor"
-        ],
+        "required": ["actor"],
         "properties": {
-          "actor": {
-            "type": "string",
-            "format": "at-identifier"
-          },
+          "actor": {"type": "string", "format": "at-identifier"},
           "limit": {
             "type": "integer",
             "default": 50,
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "feeds"
-          ],
+          "required": ["feeds"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "feeds": {
               "type": "array",
               "items": {
@@ -6375,55 +4721,31 @@ const appBskyFeedGetLikes = <String, dynamic>{
       "description": "Get the list of likes.",
       "parameters": {
         "type": "params",
-        "required": [
-          "uri"
-        ],
+        "required": ["uri"],
         "properties": {
-          "uri": {
-            "type": "string",
-            "format": "at-uri"
-          },
-          "cid": {
-            "type": "string",
-            "format": "cid"
-          },
+          "uri": {"type": "string", "format": "at-uri"},
+          "cid": {"type": "string", "format": "cid"},
           "limit": {
             "type": "integer",
             "default": 50,
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "uri",
-            "likes"
-          ],
+          "required": ["uri", "likes"],
           "properties": {
-            "uri": {
-              "type": "string",
-              "format": "at-uri"
-            },
-            "cid": {
-              "type": "string",
-              "format": "cid"
-            },
-            "cursor": {
-              "type": "string"
-            },
+            "uri": {"type": "string", "format": "at-uri"},
+            "cid": {"type": "string", "format": "cid"},
+            "cursor": {"type": "string"},
             "likes": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "#like"
-              }
+              "items": {"type": "ref", "ref": "#like"}
             }
           }
         }
@@ -6431,24 +4753,11 @@ const appBskyFeedGetLikes = <String, dynamic>{
     },
     "like": {
       "type": "object",
-      "required": [
-        "indexedAt",
-        "createdAt",
-        "actor"
-      ],
+      "required": ["indexedAt", "createdAt", "actor"],
       "properties": {
-        "indexedAt": {
-          "type": "string",
-          "format": "datetime"
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "datetime"
-        },
-        "actor": {
-          "type": "ref",
-          "ref": "app.bsky.actor.defs#profileView"
-        }
+        "indexedAt": {"type": "string", "format": "datetime"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "actor": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"}
       }
     }
   }
@@ -6461,29 +4770,15 @@ const appBskyFeedDefs = <String, dynamic>{
   "defs": {
     "postView": {
       "type": "object",
-      "required": [
-        "uri",
-        "cid",
-        "author",
-        "record",
-        "indexedAt"
-      ],
+      "required": ["uri", "cid", "author", "record", "indexedAt"],
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "at-uri"
-        },
-        "cid": {
-          "type": "string",
-          "format": "cid"
-        },
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
         "author": {
           "type": "ref",
           "ref": "app.bsky.actor.defs#profileViewBasic"
         },
-        "record": {
-          "type": "unknown"
-        },
+        "record": {"type": "unknown"},
         "embed": {
           "type": "union",
           "refs": [
@@ -6493,232 +4788,112 @@ const appBskyFeedDefs = <String, dynamic>{
             "app.bsky.embed.recordWithMedia#view"
           ]
         },
-        "replyCount": {
-          "type": "integer"
-        },
-        "repostCount": {
-          "type": "integer"
-        },
-        "likeCount": {
-          "type": "integer"
-        },
-        "indexedAt": {
-          "type": "string",
-          "format": "datetime"
-        },
-        "viewer": {
-          "type": "ref",
-          "ref": "#viewerState"
-        },
+        "replyCount": {"type": "integer"},
+        "repostCount": {"type": "integer"},
+        "likeCount": {"type": "integer"},
+        "indexedAt": {"type": "string", "format": "datetime"},
+        "viewer": {"type": "ref", "ref": "#viewerState"},
         "labels": {
           "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "com.atproto.label.defs#label"
-          }
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
         },
-        "threadgate": {
-          "type": "ref",
-          "ref": "#threadgateView"
-        }
+        "threadgate": {"type": "ref", "ref": "#threadgateView"}
       }
     },
     "viewerState": {
       "type": "object",
       "properties": {
-        "repost": {
-          "type": "string",
-          "format": "at-uri"
-        },
-        "like": {
-          "type": "string",
-          "format": "at-uri"
-        },
-        "replyDisabled": {
-          "type": "boolean"
-        }
+        "repost": {"type": "string", "format": "at-uri"},
+        "like": {"type": "string", "format": "at-uri"},
+        "replyDisabled": {"type": "boolean"}
       }
     },
     "feedViewPost": {
       "type": "object",
-      "required": [
-        "post"
-      ],
+      "required": ["post"],
       "properties": {
-        "post": {
-          "type": "ref",
-          "ref": "#postView"
-        },
-        "reply": {
-          "type": "ref",
-          "ref": "#replyRef"
-        },
+        "post": {"type": "ref", "ref": "#postView"},
+        "reply": {"type": "ref", "ref": "#replyRef"},
         "reason": {
           "type": "union",
-          "refs": [
-            "#reasonRepost"
-          ]
+          "refs": ["#reasonRepost"]
         }
       }
     },
     "replyRef": {
       "type": "object",
-      "required": [
-        "root",
-        "parent"
-      ],
+      "required": ["root", "parent"],
       "properties": {
         "root": {
           "type": "union",
-          "refs": [
-            "#postView",
-            "#notFoundPost",
-            "#blockedPost"
-          ]
+          "refs": ["#postView", "#notFoundPost", "#blockedPost"]
         },
         "parent": {
           "type": "union",
-          "refs": [
-            "#postView",
-            "#notFoundPost",
-            "#blockedPost"
-          ]
+          "refs": ["#postView", "#notFoundPost", "#blockedPost"]
         }
       }
     },
     "reasonRepost": {
       "type": "object",
-      "required": [
-        "by",
-        "indexedAt"
-      ],
+      "required": ["by", "indexedAt"],
       "properties": {
-        "by": {
-          "type": "ref",
-          "ref": "app.bsky.actor.defs#profileViewBasic"
-        },
-        "indexedAt": {
-          "type": "string",
-          "format": "datetime"
-        }
+        "by": {"type": "ref", "ref": "app.bsky.actor.defs#profileViewBasic"},
+        "indexedAt": {"type": "string", "format": "datetime"}
       }
     },
     "threadViewPost": {
       "type": "object",
-      "required": [
-        "post"
-      ],
+      "required": ["post"],
       "properties": {
-        "post": {
-          "type": "ref",
-          "ref": "#postView"
-        },
+        "post": {"type": "ref", "ref": "#postView"},
         "parent": {
           "type": "union",
-          "refs": [
-            "#threadViewPost",
-            "#notFoundPost",
-            "#blockedPost"
-          ]
+          "refs": ["#threadViewPost", "#notFoundPost", "#blockedPost"]
         },
         "replies": {
           "type": "array",
           "items": {
             "type": "union",
-            "refs": [
-              "#threadViewPost",
-              "#notFoundPost",
-              "#blockedPost"
-            ]
+            "refs": ["#threadViewPost", "#notFoundPost", "#blockedPost"]
           }
         }
       }
     },
     "notFoundPost": {
       "type": "object",
-      "required": [
-        "uri",
-        "notFound"
-      ],
+      "required": ["uri", "notFound"],
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "at-uri"
-        },
-        "notFound": {
-          "type": "boolean",
-          "const": true
-        }
+        "uri": {"type": "string", "format": "at-uri"},
+        "notFound": {"type": "boolean", "const": true}
       }
     },
     "blockedPost": {
       "type": "object",
-      "required": [
-        "uri",
-        "blocked",
-        "author"
-      ],
+      "required": ["uri", "blocked", "author"],
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "at-uri"
-        },
-        "blocked": {
-          "type": "boolean",
-          "const": true
-        },
-        "author": {
-          "type": "ref",
-          "ref": "#blockedAuthor"
-        }
+        "uri": {"type": "string", "format": "at-uri"},
+        "blocked": {"type": "boolean", "const": true},
+        "author": {"type": "ref", "ref": "#blockedAuthor"}
       }
     },
     "blockedAuthor": {
       "type": "object",
-      "required": [
-        "did"
-      ],
+      "required": ["did"],
       "properties": {
-        "did": {
-          "type": "string",
-          "format": "did"
-        },
-        "viewer": {
-          "type": "ref",
-          "ref": "app.bsky.actor.defs#viewerState"
-        }
+        "did": {"type": "string", "format": "did"},
+        "viewer": {"type": "ref", "ref": "app.bsky.actor.defs#viewerState"}
       }
     },
     "generatorView": {
       "type": "object",
-      "required": [
-        "uri",
-        "cid",
-        "did",
-        "creator",
-        "displayName",
-        "indexedAt"
-      ],
+      "required": ["uri", "cid", "did", "creator", "displayName", "indexedAt"],
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "at-uri"
-        },
-        "cid": {
-          "type": "string",
-          "format": "cid"
-        },
-        "did": {
-          "type": "string",
-          "format": "did"
-        },
-        "creator": {
-          "type": "ref",
-          "ref": "app.bsky.actor.defs#profileView"
-        },
-        "displayName": {
-          "type": "string"
-        },
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
+        "did": {"type": "string", "format": "did"},
+        "creator": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"},
+        "displayName": {"type": "string"},
         "description": {
           "type": "string",
           "maxLength": 3000,
@@ -6726,87 +4901,47 @@ const appBskyFeedDefs = <String, dynamic>{
         },
         "descriptionFacets": {
           "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "app.bsky.richtext.facet"
-          }
+          "items": {"type": "ref", "ref": "app.bsky.richtext.facet"}
         },
-        "avatar": {
-          "type": "string"
-        },
-        "likeCount": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "viewer": {
-          "type": "ref",
-          "ref": "#generatorViewerState"
-        },
-        "indexedAt": {
-          "type": "string",
-          "format": "datetime"
-        }
+        "avatar": {"type": "string"},
+        "likeCount": {"type": "integer", "minimum": 0},
+        "viewer": {"type": "ref", "ref": "#generatorViewerState"},
+        "indexedAt": {"type": "string", "format": "datetime"}
       }
     },
     "generatorViewerState": {
       "type": "object",
       "properties": {
-        "like": {
-          "type": "string",
-          "format": "at-uri"
-        }
+        "like": {"type": "string", "format": "at-uri"}
       }
     },
     "skeletonFeedPost": {
       "type": "object",
-      "required": [
-        "post"
-      ],
+      "required": ["post"],
       "properties": {
-        "post": {
-          "type": "string",
-          "format": "at-uri"
-        },
+        "post": {"type": "string", "format": "at-uri"},
         "reason": {
           "type": "union",
-          "refs": [
-            "#skeletonReasonRepost"
-          ]
+          "refs": ["#skeletonReasonRepost"]
         }
       }
     },
     "skeletonReasonRepost": {
       "type": "object",
-      "required": [
-        "repost"
-      ],
+      "required": ["repost"],
       "properties": {
-        "repost": {
-          "type": "string",
-          "format": "at-uri"
-        }
+        "repost": {"type": "string", "format": "at-uri"}
       }
     },
     "threadgateView": {
       "type": "object",
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "at-uri"
-        },
-        "cid": {
-          "type": "string",
-          "format": "cid"
-        },
-        "record": {
-          "type": "unknown"
-        },
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
+        "record": {"type": "unknown"},
         "lists": {
           "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "app.bsky.graph.defs#listViewBasic"
-          }
+          "items": {"type": "ref", "ref": "app.bsky.graph.defs#listViewBasic"}
         }
       }
     }
@@ -6823,53 +4958,35 @@ const appBskyFeedGetActorLikes = <String, dynamic>{
       "description": "Get a list of posts liked by an actor.",
       "parameters": {
         "type": "params",
-        "required": [
-          "actor"
-        ],
+        "required": ["actor"],
         "properties": {
-          "actor": {
-            "type": "string",
-            "format": "at-identifier"
-          },
+          "actor": {"type": "string", "format": "at-identifier"},
           "limit": {
             "type": "integer",
             "default": 50,
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "feed"
-          ],
+          "required": ["feed"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "feed": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.feed.defs#feedViewPost"
-              }
+              "items": {"type": "ref", "ref": "app.bsky.feed.defs#feedViewPost"}
             }
           }
         }
       },
       "errors": [
-        {
-          "name": "BlockedActor"
-        },
-        {
-          "name": "BlockedByActor"
-        }
+        {"name": "BlockedActor"},
+        {"name": "BlockedByActor"}
       ]
     }
   }
@@ -6885,36 +5002,25 @@ const appBskyFeedGetFeedSkeleton = <String, dynamic>{
       "description": "Get a skeleton of a feed provided by a feed generator.",
       "parameters": {
         "type": "params",
-        "required": [
-          "feed"
-        ],
+        "required": ["feed"],
         "properties": {
-          "feed": {
-            "type": "string",
-            "format": "at-uri"
-          },
+          "feed": {"type": "string", "format": "at-uri"},
           "limit": {
             "type": "integer",
             "default": 50,
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "feed"
-          ],
+          "required": ["feed"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "feed": {
               "type": "array",
               "items": {
@@ -6926,9 +5032,7 @@ const appBskyFeedGetFeedSkeleton = <String, dynamic>{
         }
       },
       "errors": [
-        {
-          "name": "UnknownFeed"
-        }
+        {"name": "UnknownFeed"}
       ]
     }
   }
@@ -6944,23 +5048,16 @@ const appBskyFeedGetAuthorFeed = <String, dynamic>{
       "description": "Get a view of an actor's feed.",
       "parameters": {
         "type": "params",
-        "required": [
-          "actor"
-        ],
+        "required": ["actor"],
         "properties": {
-          "actor": {
-            "type": "string",
-            "format": "at-identifier"
-          },
+          "actor": {"type": "string", "format": "at-identifier"},
           "limit": {
             "type": "integer",
             "default": 50,
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          },
+          "cursor": {"type": "string"},
           "filter": {
             "type": "string",
             "default": "posts_with_replies",
@@ -6977,30 +5074,19 @@ const appBskyFeedGetAuthorFeed = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "feed"
-          ],
+          "required": ["feed"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "feed": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.feed.defs#feedViewPost"
-              }
+              "items": {"type": "ref", "ref": "app.bsky.feed.defs#feedViewPost"}
             }
           }
         }
       },
       "errors": [
-        {
-          "name": "BlockedActor"
-        },
-        {
-          "name": "BlockedByActor"
-        }
+        {"name": "BlockedActor"},
+        {"name": "BlockedByActor"}
       ]
     }
   }
@@ -7017,19 +5103,10 @@ const appBskyFeedLike = <String, dynamic>{
       "key": "tid",
       "record": {
         "type": "object",
-        "required": [
-          "subject",
-          "createdAt"
-        ],
+        "required": ["subject", "createdAt"],
         "properties": {
-          "subject": {
-            "type": "ref",
-            "ref": "com.atproto.repo.strongRef"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "datetime"
-          }
+          "subject": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+          "createdAt": {"type": "string", "format": "datetime"}
         }
       }
     }
@@ -7047,35 +5124,19 @@ const appBskyFeedPost = <String, dynamic>{
       "key": "tid",
       "record": {
         "type": "object",
-        "required": [
-          "text",
-          "createdAt"
-        ],
+        "required": ["text", "createdAt"],
         "properties": {
-          "text": {
-            "type": "string",
-            "maxLength": 3000,
-            "maxGraphemes": 300
-          },
+          "text": {"type": "string", "maxLength": 3000, "maxGraphemes": 300},
           "entities": {
             "type": "array",
             "description": "Deprecated: replaced by app.bsky.richtext.facet.",
-            "items": {
-              "type": "ref",
-              "ref": "#entity"
-            }
+            "items": {"type": "ref", "ref": "#entity"}
           },
           "facets": {
             "type": "array",
-            "items": {
-              "type": "ref",
-              "ref": "app.bsky.richtext.facet"
-            }
+            "items": {"type": "ref", "ref": "app.bsky.richtext.facet"}
           },
-          "reply": {
-            "type": "ref",
-            "ref": "#replyRef"
-          },
+          "reply": {"type": "ref", "ref": "#replyRef"},
           "embed": {
             "type": "union",
             "refs": [
@@ -7087,90 +5148,52 @@ const appBskyFeedPost = <String, dynamic>{
           },
           "langs": {
             "type": "array",
-            "items": {
-              "type": "string",
-              "format": "language"
-            },
+            "items": {"type": "string", "format": "language"},
             "maxLength": 3
           },
           "labels": {
             "type": "union",
-            "refs": [
-              "com.atproto.label.defs#selfLabels"
-            ]
+            "refs": ["com.atproto.label.defs#selfLabels"]
           },
           "tags": {
             "type": "array",
             "description": "Additional non-inline tags describing this post.",
-            "items": {
-              "type": "string",
-              "maxLength": 640,
-              "maxGraphemes": 64
-            },
+            "items": {"type": "string", "maxLength": 640, "maxGraphemes": 64},
             "maxLength": 8
           },
-          "createdAt": {
-            "type": "string",
-            "format": "datetime"
-          }
+          "createdAt": {"type": "string", "format": "datetime"}
         }
       }
     },
     "replyRef": {
       "type": "object",
-      "required": [
-        "root",
-        "parent"
-      ],
+      "required": ["root", "parent"],
       "properties": {
-        "root": {
-          "type": "ref",
-          "ref": "com.atproto.repo.strongRef"
-        },
-        "parent": {
-          "type": "ref",
-          "ref": "com.atproto.repo.strongRef"
-        }
+        "root": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+        "parent": {"type": "ref", "ref": "com.atproto.repo.strongRef"}
       }
     },
     "entity": {
       "type": "object",
       "description": "Deprecated: use facets instead.",
-      "required": [
-        "index",
-        "type",
-        "value"
-      ],
+      "required": ["index", "type", "value"],
       "properties": {
-        "index": {
-          "type": "ref",
-          "ref": "#textSlice"
-        },
+        "index": {"type": "ref", "ref": "#textSlice"},
         "type": {
           "type": "string",
           "description": "Expected values are 'mention' and 'link'."
         },
-        "value": {
-          "type": "string"
-        }
+        "value": {"type": "string"}
       }
     },
     "textSlice": {
       "type": "object",
-      "description": "Deprecated. Use app.bsky.richtext instead -- A text segment. Start is inclusive, end is exclusive. Indices are for utf16-encoded strings.",
-      "required": [
-        "start",
-        "end"
-      ],
+      "description":
+          "Deprecated. Use app.bsky.richtext instead -- A text segment. Start is inclusive, end is exclusive. Indices are for utf16-encoded strings.",
+      "required": ["start", "end"],
       "properties": {
-        "start": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "end": {
-          "type": "integer",
-          "minimum": 0
-        }
+        "start": {"type": "integer", "minimum": 0},
+        "end": {"type": "integer", "minimum": 0}
       }
     }
   }
@@ -7187,19 +5210,10 @@ const appBskyFeedRepost = <String, dynamic>{
       "key": "tid",
       "record": {
         "type": "object",
-        "required": [
-          "subject",
-          "createdAt"
-        ],
+        "required": ["subject", "createdAt"],
         "properties": {
-          "subject": {
-            "type": "ref",
-            "ref": "com.atproto.repo.strongRef"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "datetime"
-          }
+          "subject": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+          "createdAt": {"type": "string", "format": "datetime"}
         }
       }
     }
@@ -7223,22 +5237,16 @@ const appBskyFeedGetSuggestedFeeds = <String, dynamic>{
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "feeds"
-          ],
+          "required": ["feeds"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "feeds": {
               "type": "array",
               "items": {
@@ -7264,37 +5272,26 @@ const appBskyFeedGetTimeline = <String, dynamic>{
       "parameters": {
         "type": "params",
         "properties": {
-          "algorithm": {
-            "type": "string"
-          },
+          "algorithm": {"type": "string"},
           "limit": {
             "type": "integer",
             "default": 50,
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "feed"
-          ],
+          "required": ["feed"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "feed": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.feed.defs#feedViewPost"
-              }
+              "items": {"type": "ref", "ref": "app.bsky.feed.defs#feedViewPost"}
             }
           }
         }
@@ -7313,13 +5310,12 @@ const appBskyFeedSearchPosts = <String, dynamic>{
       "description": "Find posts matching search criteria.",
       "parameters": {
         "type": "params",
-        "required": [
-          "q"
-        ],
+        "required": ["q"],
         "properties": {
           "q": {
             "type": "string",
-            "description": "Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended."
+            "description":
+                "Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended."
           },
           "limit": {
             "type": "integer",
@@ -7329,7 +5325,8 @@ const appBskyFeedSearchPosts = <String, dynamic>{
           },
           "cursor": {
             "type": "string",
-            "description": "Optional pagination mechanism; may not necessarily allow scrolling through entire result set."
+            "description":
+                "Optional pagination mechanism; may not necessarily allow scrolling through entire result set."
           }
         }
       },
@@ -7337,31 +5334,23 @@ const appBskyFeedSearchPosts = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "posts"
-          ],
+          "required": ["posts"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "hitsTotal": {
               "type": "integer",
-              "description": "Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits."
+              "description":
+                  "Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits."
             },
             "posts": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.feed.defs#postView"
-              }
+              "items": {"type": "ref", "ref": "app.bsky.feed.defs#postView"}
             }
           }
         }
       },
       "errors": [
-        {
-          "name": "BadQueryString"
-        }
+        {"name": "BadQueryString"}
       ]
     }
   }
@@ -7378,16 +5367,9 @@ const appBskyFeedGenerator = <String, dynamic>{
       "key": "any",
       "record": {
         "type": "object",
-        "required": [
-          "did",
-          "displayName",
-          "createdAt"
-        ],
+        "required": ["did", "displayName", "createdAt"],
         "properties": {
-          "did": {
-            "type": "string",
-            "format": "did"
-          },
+          "did": {"type": "string", "format": "did"},
           "displayName": {
             "type": "string",
             "maxLength": 240,
@@ -7400,29 +5382,18 @@ const appBskyFeedGenerator = <String, dynamic>{
           },
           "descriptionFacets": {
             "type": "array",
-            "items": {
-              "type": "ref",
-              "ref": "app.bsky.richtext.facet"
-            }
+            "items": {"type": "ref", "ref": "app.bsky.richtext.facet"}
           },
           "avatar": {
             "type": "blob",
-            "accept": [
-              "image/png",
-              "image/jpeg"
-            ],
+            "accept": ["image/png", "image/jpeg"],
             "maxSize": 1000000
           },
           "labels": {
             "type": "union",
-            "refs": [
-              "com.atproto.label.defs#selfLabels"
-            ]
+            "refs": ["com.atproto.label.defs#selfLabels"]
           },
-          "createdAt": {
-            "type": "string",
-            "format": "datetime"
-          }
+          "createdAt": {"type": "string", "format": "datetime"}
         }
       }
     }
@@ -7439,16 +5410,11 @@ const appBskyFeedGetFeedGenerators = <String, dynamic>{
       "description": "Get information about a list of feed generators.",
       "parameters": {
         "type": "params",
-        "required": [
-          "feeds"
-        ],
+        "required": ["feeds"],
         "properties": {
           "feeds": {
             "type": "array",
-            "items": {
-              "type": "string",
-              "format": "at-uri"
-            }
+            "items": {"type": "string", "format": "at-uri"}
           }
         }
       },
@@ -7456,9 +5422,7 @@ const appBskyFeedGetFeedGenerators = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "feeds"
-          ],
+          "required": ["feeds"],
           "properties": {
             "feeds": {
               "type": "array",
@@ -7486,14 +5450,9 @@ const appBskyGraphUnmuteActor = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "actor"
-          ],
+          "required": ["actor"],
           "properties": {
-            "actor": {
-              "type": "string",
-              "format": "at-identifier"
-            }
+            "actor": {"type": "string", "format": "at-identifier"}
           }
         }
       }
@@ -7512,24 +5471,11 @@ const appBskyGraphListitem = <String, dynamic>{
       "key": "tid",
       "record": {
         "type": "object",
-        "required": [
-          "subject",
-          "list",
-          "createdAt"
-        ],
+        "required": ["subject", "list", "createdAt"],
         "properties": {
-          "subject": {
-            "type": "string",
-            "format": "did"
-          },
-          "list": {
-            "type": "string",
-            "format": "at-uri"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "datetime"
-          }
+          "subject": {"type": "string", "format": "did"},
+          "list": {"type": "string", "format": "at-uri"},
+          "createdAt": {"type": "string", "format": "datetime"}
         }
       }
     }
@@ -7553,28 +5499,19 @@ const appBskyGraphGetListMutes = <String, dynamic>{
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "lists"
-          ],
+          "required": ["lists"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "lists": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.graph.defs#listView"
-              }
+              "items": {"type": "ref", "ref": "app.bsky.graph.defs#listView"}
             }
           }
         }
@@ -7593,47 +5530,32 @@ const appBskyGraphGetFollows = <String, dynamic>{
       "description": "Get a list of who the actor follows.",
       "parameters": {
         "type": "params",
-        "required": [
-          "actor"
-        ],
+        "required": ["actor"],
         "properties": {
-          "actor": {
-            "type": "string",
-            "format": "at-identifier"
-          },
+          "actor": {"type": "string", "format": "at-identifier"},
           "limit": {
             "type": "integer",
             "default": 50,
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "subject",
-            "follows"
-          ],
+          "required": ["subject", "follows"],
           "properties": {
             "subject": {
               "type": "ref",
               "ref": "app.bsky.actor.defs#profileView"
             },
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "follows": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.actor.defs#profileView"
-              }
+              "items": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"}
             }
           }
         }
@@ -7659,28 +5581,19 @@ const appBskyGraphGetListBlocks = <String, dynamic>{
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "lists"
-          ],
+          "required": ["lists"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "lists": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.graph.defs#listView"
-              }
+              "items": {"type": "ref", "ref": "app.bsky.graph.defs#listView"}
             }
           }
         }
@@ -7699,47 +5612,32 @@ const appBskyGraphGetFollowers = <String, dynamic>{
       "description": "Get a list of an actor's followers.",
       "parameters": {
         "type": "params",
-        "required": [
-          "actor"
-        ],
+        "required": ["actor"],
         "properties": {
-          "actor": {
-            "type": "string",
-            "format": "at-identifier"
-          },
+          "actor": {"type": "string", "format": "at-identifier"},
           "limit": {
             "type": "integer",
             "default": 50,
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "subject",
-            "followers"
-          ],
+          "required": ["subject", "followers"],
           "properties": {
             "subject": {
               "type": "ref",
               "ref": "app.bsky.actor.defs#profileView"
             },
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "followers": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.actor.defs#profileView"
-              }
+              "items": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"}
             }
           }
         }
@@ -7759,19 +5657,10 @@ const appBskyGraphBlock = <String, dynamic>{
       "key": "tid",
       "record": {
         "type": "object",
-        "required": [
-          "subject",
-          "createdAt"
-        ],
+        "required": ["subject", "createdAt"],
         "properties": {
-          "subject": {
-            "type": "string",
-            "format": "did"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "datetime"
-          }
+          "subject": {"type": "string", "format": "did"},
+          "createdAt": {"type": "string", "format": "datetime"}
         }
       }
     }
@@ -7790,14 +5679,9 @@ const appBskyGraphUnmuteActorList = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "list"
-          ],
+          "required": ["list"],
           "properties": {
-            "list": {
-              "type": "string",
-              "format": "at-uri"
-            }
+            "list": {"type": "string", "format": "at-uri"}
           }
         }
       }
@@ -7822,28 +5706,19 @@ const appBskyGraphGetMutes = <String, dynamic>{
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "mutes"
-          ],
+          "required": ["mutes"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "mutes": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.actor.defs#profileView"
-              }
+              "items": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"}
             }
           }
         }
@@ -7864,14 +5739,9 @@ const appBskyGraphMuteActorList = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "list"
-          ],
+          "required": ["list"],
           "properties": {
-            "list": {
-              "type": "string",
-              "format": "at-uri"
-            }
+            "list": {"type": "string", "format": "at-uri"}
           }
         }
       }
@@ -7889,42 +5759,28 @@ const appBskyGraphGetLists = <String, dynamic>{
       "description": "Get a list of lists that belong to an actor.",
       "parameters": {
         "type": "params",
-        "required": [
-          "actor"
-        ],
+        "required": ["actor"],
         "properties": {
-          "actor": {
-            "type": "string",
-            "format": "at-identifier"
-          },
+          "actor": {"type": "string", "format": "at-identifier"},
           "limit": {
             "type": "integer",
             "default": 50,
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "lists"
-          ],
+          "required": ["lists"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "lists": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.graph.defs#listView"
-              }
+              "items": {"type": "ref", "ref": "app.bsky.graph.defs#listView"}
             }
           }
         }
@@ -7950,28 +5806,19 @@ const appBskyGraphGetBlocks = <String, dynamic>{
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "blocks"
-          ],
+          "required": ["blocks"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
+            "cursor": {"type": "string"},
             "blocks": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.actor.defs#profileView"
-              }
+              "items": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"}
             }
           }
         }
@@ -7987,75 +5834,26 @@ const appBskyGraphDefs = <String, dynamic>{
   "defs": {
     "listViewBasic": {
       "type": "object",
-      "required": [
-        "uri",
-        "cid",
-        "name",
-        "purpose"
-      ],
+      "required": ["uri", "cid", "name", "purpose"],
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "at-uri"
-        },
-        "cid": {
-          "type": "string",
-          "format": "cid"
-        },
-        "name": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 64
-        },
-        "purpose": {
-          "type": "ref",
-          "ref": "#listPurpose"
-        },
-        "avatar": {
-          "type": "string"
-        },
-        "viewer": {
-          "type": "ref",
-          "ref": "#listViewerState"
-        },
-        "indexedAt": {
-          "type": "string",
-          "format": "datetime"
-        }
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
+        "name": {"type": "string", "minLength": 1, "maxLength": 64},
+        "purpose": {"type": "ref", "ref": "#listPurpose"},
+        "avatar": {"type": "string"},
+        "viewer": {"type": "ref", "ref": "#listViewerState"},
+        "indexedAt": {"type": "string", "format": "datetime"}
       }
     },
     "listView": {
       "type": "object",
-      "required": [
-        "uri",
-        "cid",
-        "creator",
-        "name",
-        "purpose",
-        "indexedAt"
-      ],
+      "required": ["uri", "cid", "creator", "name", "purpose", "indexedAt"],
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "at-uri"
-        },
-        "cid": {
-          "type": "string",
-          "format": "cid"
-        },
-        "creator": {
-          "type": "ref",
-          "ref": "app.bsky.actor.defs#profileView"
-        },
-        "name": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 64
-        },
-        "purpose": {
-          "type": "ref",
-          "ref": "#listPurpose"
-        },
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
+        "creator": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"},
+        "name": {"type": "string", "minLength": 1, "maxLength": 64},
+        "purpose": {"type": "ref", "ref": "#listPurpose"},
         "description": {
           "type": "string",
           "maxLength": 3000,
@@ -8063,39 +5861,19 @@ const appBskyGraphDefs = <String, dynamic>{
         },
         "descriptionFacets": {
           "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "app.bsky.richtext.facet"
-          }
+          "items": {"type": "ref", "ref": "app.bsky.richtext.facet"}
         },
-        "avatar": {
-          "type": "string"
-        },
-        "viewer": {
-          "type": "ref",
-          "ref": "#listViewerState"
-        },
-        "indexedAt": {
-          "type": "string",
-          "format": "datetime"
-        }
+        "avatar": {"type": "string"},
+        "viewer": {"type": "ref", "ref": "#listViewerState"},
+        "indexedAt": {"type": "string", "format": "datetime"}
       }
     },
     "listItemView": {
       "type": "object",
-      "required": [
-        "uri",
-        "subject"
-      ],
+      "required": ["uri", "subject"],
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "at-uri"
-        },
-        "subject": {
-          "type": "ref",
-          "ref": "app.bsky.actor.defs#profileView"
-        }
+        "uri": {"type": "string", "format": "at-uri"},
+        "subject": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"}
       }
     },
     "listPurpose": {
@@ -8107,22 +5885,19 @@ const appBskyGraphDefs = <String, dynamic>{
     },
     "modlist": {
       "type": "token",
-      "description": "A list of actors to apply an aggregate moderation action (mute/block) on."
+      "description":
+          "A list of actors to apply an aggregate moderation action (mute/block) on."
     },
     "curatelist": {
       "type": "token",
-      "description": "A list of actors used for curation purposes such as list feeds or interaction gating."
+      "description":
+          "A list of actors used for curation purposes such as list feeds or interaction gating."
     },
     "listViewerState": {
       "type": "object",
       "properties": {
-        "muted": {
-          "type": "boolean"
-        },
-        "blocked": {
-          "type": "string",
-          "format": "at-uri"
-        }
+        "muted": {"type": "boolean"},
+        "blocked": {"type": "string", "format": "at-uri"}
       }
     }
   }
@@ -8138,30 +5913,20 @@ const appBskyGraphGetSuggestedFollowsByActor = <String, dynamic>{
       "description": "Get suggested follows related to a given actor.",
       "parameters": {
         "type": "params",
-        "required": [
-          "actor"
-        ],
+        "required": ["actor"],
         "properties": {
-          "actor": {
-            "type": "string",
-            "format": "at-identifier"
-          }
+          "actor": {"type": "string", "format": "at-identifier"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "suggestions"
-          ],
+          "required": ["suggestions"],
           "properties": {
             "suggestions": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.actor.defs#profileView"
-              }
+              "items": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"}
             }
           }
         }
@@ -8182,14 +5947,9 @@ const appBskyGraphMuteActor = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "actor"
-          ],
+          "required": ["actor"],
           "properties": {
-            "actor": {
-              "type": "string",
-              "format": "at-identifier"
-            }
+            "actor": {"type": "string", "format": "at-identifier"}
           }
         }
       }
@@ -8208,19 +5968,10 @@ const appBskyGraphFollow = <String, dynamic>{
       "key": "tid",
       "record": {
         "type": "object",
-        "required": [
-          "subject",
-          "createdAt"
-        ],
+        "required": ["subject", "createdAt"],
         "properties": {
-          "subject": {
-            "type": "string",
-            "format": "did"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "datetime"
-          }
+          "subject": {"type": "string", "format": "did"},
+          "createdAt": {"type": "string", "format": "datetime"}
         }
       }
     }
@@ -8238,21 +5989,10 @@ const appBskyGraphList = <String, dynamic>{
       "key": "tid",
       "record": {
         "type": "object",
-        "required": [
-          "name",
-          "purpose",
-          "createdAt"
-        ],
+        "required": ["name", "purpose", "createdAt"],
         "properties": {
-          "purpose": {
-            "type": "ref",
-            "ref": "app.bsky.graph.defs#listPurpose"
-          },
-          "name": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 64
-          },
+          "purpose": {"type": "ref", "ref": "app.bsky.graph.defs#listPurpose"},
+          "name": {"type": "string", "minLength": 1, "maxLength": 64},
           "description": {
             "type": "string",
             "maxLength": 3000,
@@ -8260,29 +6000,18 @@ const appBskyGraphList = <String, dynamic>{
           },
           "descriptionFacets": {
             "type": "array",
-            "items": {
-              "type": "ref",
-              "ref": "app.bsky.richtext.facet"
-            }
+            "items": {"type": "ref", "ref": "app.bsky.richtext.facet"}
           },
           "avatar": {
             "type": "blob",
-            "accept": [
-              "image/png",
-              "image/jpeg"
-            ],
+            "accept": ["image/png", "image/jpeg"],
             "maxSize": 1000000
           },
           "labels": {
             "type": "union",
-            "refs": [
-              "com.atproto.label.defs#selfLabels"
-            ]
+            "refs": ["com.atproto.label.defs#selfLabels"]
           },
-          "createdAt": {
-            "type": "string",
-            "format": "datetime"
-          }
+          "createdAt": {"type": "string", "format": "datetime"}
         }
       }
     }
@@ -8300,19 +6029,10 @@ const appBskyGraphListblock = <String, dynamic>{
       "key": "tid",
       "record": {
         "type": "object",
-        "required": [
-          "subject",
-          "createdAt"
-        ],
+        "required": ["subject", "createdAt"],
         "properties": {
-          "subject": {
-            "type": "string",
-            "format": "at-uri"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "datetime"
-          }
+          "subject": {"type": "string", "format": "at-uri"},
+          "createdAt": {"type": "string", "format": "datetime"}
         }
       }
     }
@@ -8329,41 +6049,26 @@ const appBskyGraphGetList = <String, dynamic>{
       "description": "Get a list of actors.",
       "parameters": {
         "type": "params",
-        "required": [
-          "list"
-        ],
+        "required": ["list"],
         "properties": {
-          "list": {
-            "type": "string",
-            "format": "at-uri"
-          },
+          "list": {"type": "string", "format": "at-uri"},
           "limit": {
             "type": "integer",
             "default": 50,
             "minimum": 1,
             "maximum": 100
           },
-          "cursor": {
-            "type": "string"
-          }
+          "cursor": {"type": "string"}
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "list",
-            "items"
-          ],
+          "required": ["list", "items"],
           "properties": {
-            "cursor": {
-              "type": "string"
-            },
-            "list": {
-              "type": "ref",
-              "ref": "app.bsky.graph.defs#listView"
-            },
+            "cursor": {"type": "string"},
+            "list": {"type": "ref", "ref": "app.bsky.graph.defs#listView"},
             "items": {
               "type": "array",
               "items": {
@@ -8382,25 +6087,19 @@ const appBskyGraphGetList = <String, dynamic>{
 const appBskyEmbedRecord = <String, dynamic>{
   "lexicon": 1,
   "id": "app.bsky.embed.record",
-  "description": "A representation of a record embedded in another form of content.",
+  "description":
+      "A representation of a record embedded in another form of content.",
   "defs": {
     "main": {
       "type": "object",
-      "required": [
-        "record"
-      ],
+      "required": ["record"],
       "properties": {
-        "record": {
-          "type": "ref",
-          "ref": "com.atproto.repo.strongRef"
-        }
+        "record": {"type": "ref", "ref": "com.atproto.repo.strongRef"}
       }
     },
     "view": {
       "type": "object",
-      "required": [
-        "record"
-      ],
+      "required": ["record"],
       "properties": {
         "record": {
           "type": "union",
@@ -8416,35 +6115,18 @@ const appBskyEmbedRecord = <String, dynamic>{
     },
     "viewRecord": {
       "type": "object",
-      "required": [
-        "uri",
-        "cid",
-        "author",
-        "value",
-        "indexedAt"
-      ],
+      "required": ["uri", "cid", "author", "value", "indexedAt"],
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "at-uri"
-        },
-        "cid": {
-          "type": "string",
-          "format": "cid"
-        },
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
         "author": {
           "type": "ref",
           "ref": "app.bsky.actor.defs#profileViewBasic"
         },
-        "value": {
-          "type": "unknown"
-        },
+        "value": {"type": "unknown"},
         "labels": {
           "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "com.atproto.label.defs#label"
-          }
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
         },
         "embeds": {
           "type": "array",
@@ -8458,49 +6140,24 @@ const appBskyEmbedRecord = <String, dynamic>{
             ]
           }
         },
-        "indexedAt": {
-          "type": "string",
-          "format": "datetime"
-        }
+        "indexedAt": {"type": "string", "format": "datetime"}
       }
     },
     "viewNotFound": {
       "type": "object",
-      "required": [
-        "uri",
-        "notFound"
-      ],
+      "required": ["uri", "notFound"],
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "at-uri"
-        },
-        "notFound": {
-          "type": "boolean",
-          "const": true
-        }
+        "uri": {"type": "string", "format": "at-uri"},
+        "notFound": {"type": "boolean", "const": true}
       }
     },
     "viewBlocked": {
       "type": "object",
-      "required": [
-        "uri",
-        "blocked",
-        "author"
-      ],
+      "required": ["uri", "blocked", "author"],
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "at-uri"
-        },
-        "blocked": {
-          "type": "boolean",
-          "const": true
-        },
-        "author": {
-          "type": "ref",
-          "ref": "app.bsky.feed.defs#blockedAuthor"
-        }
+        "uri": {"type": "string", "format": "at-uri"},
+        "blocked": {"type": "boolean", "const": true},
+        "author": {"type": "ref", "ref": "app.bsky.feed.defs#blockedAuthor"}
       }
     }
   }
@@ -8510,80 +6167,45 @@ const appBskyEmbedRecord = <String, dynamic>{
 const appBskyEmbedExternal = <String, dynamic>{
   "lexicon": 1,
   "id": "app.bsky.embed.external",
-  "description": "A representation of some externally linked content, embedded in another form of content.",
+  "description":
+      "A representation of some externally linked content, embedded in another form of content.",
   "defs": {
     "main": {
       "type": "object",
-      "required": [
-        "external"
-      ],
+      "required": ["external"],
       "properties": {
-        "external": {
-          "type": "ref",
-          "ref": "#external"
-        }
+        "external": {"type": "ref", "ref": "#external"}
       }
     },
     "external": {
       "type": "object",
-      "required": [
-        "uri",
-        "title",
-        "description"
-      ],
+      "required": ["uri", "title", "description"],
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "uri"
-        },
-        "title": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
+        "uri": {"type": "string", "format": "uri"},
+        "title": {"type": "string"},
+        "description": {"type": "string"},
         "thumb": {
           "type": "blob",
-          "accept": [
-            "image/*"
-          ],
+          "accept": ["image/*"],
           "maxSize": 1000000
         }
       }
     },
     "view": {
       "type": "object",
-      "required": [
-        "external"
-      ],
+      "required": ["external"],
       "properties": {
-        "external": {
-          "type": "ref",
-          "ref": "#viewExternal"
-        }
+        "external": {"type": "ref", "ref": "#viewExternal"}
       }
     },
     "viewExternal": {
       "type": "object",
-      "required": [
-        "uri",
-        "title",
-        "description"
-      ],
+      "required": ["uri", "title", "description"],
       "properties": {
-        "uri": {
-          "type": "string",
-          "format": "uri"
-        },
-        "title": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "thumb": {
-          "type": "string"
-        }
+        "uri": {"type": "string", "format": "uri"},
+        "title": {"type": "string"},
+        "description": {"type": "string"},
+        "thumb": {"type": "string"}
       }
     }
   }
@@ -8593,45 +6215,28 @@ const appBskyEmbedExternal = <String, dynamic>{
 const appBskyEmbedRecordWithMedia = <String, dynamic>{
   "lexicon": 1,
   "id": "app.bsky.embed.recordWithMedia",
-  "description": "A representation of a record embedded in another form of content, alongside other compatible embeds.",
+  "description":
+      "A representation of a record embedded in another form of content, alongside other compatible embeds.",
   "defs": {
     "main": {
       "type": "object",
-      "required": [
-        "record",
-        "media"
-      ],
+      "required": ["record", "media"],
       "properties": {
-        "record": {
-          "type": "ref",
-          "ref": "app.bsky.embed.record"
-        },
+        "record": {"type": "ref", "ref": "app.bsky.embed.record"},
         "media": {
           "type": "union",
-          "refs": [
-            "app.bsky.embed.images",
-            "app.bsky.embed.external"
-          ]
+          "refs": ["app.bsky.embed.images", "app.bsky.embed.external"]
         }
       }
     },
     "view": {
       "type": "object",
-      "required": [
-        "record",
-        "media"
-      ],
+      "required": ["record", "media"],
       "properties": {
-        "record": {
-          "type": "ref",
-          "ref": "app.bsky.embed.record#view"
-        },
+        "record": {"type": "ref", "ref": "app.bsky.embed.record#view"},
         "media": {
           "type": "union",
-          "refs": [
-            "app.bsky.embed.images#view",
-            "app.bsky.embed.external#view"
-          ]
+          "refs": ["app.bsky.embed.images#view", "app.bsky.embed.external#view"]
         }
       }
     }
@@ -8646,98 +6251,57 @@ const appBskyEmbedImages = <String, dynamic>{
   "defs": {
     "main": {
       "type": "object",
-      "required": [
-        "images"
-      ],
+      "required": ["images"],
       "properties": {
         "images": {
           "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "#image"
-          },
+          "items": {"type": "ref", "ref": "#image"},
           "maxLength": 4
         }
       }
     },
     "image": {
       "type": "object",
-      "required": [
-        "image",
-        "alt"
-      ],
+      "required": ["image", "alt"],
       "properties": {
         "image": {
           "type": "blob",
-          "accept": [
-            "image/*"
-          ],
+          "accept": ["image/*"],
           "maxSize": 1000000
         },
-        "alt": {
-          "type": "string"
-        },
-        "aspectRatio": {
-          "type": "ref",
-          "ref": "#aspectRatio"
-        }
+        "alt": {"type": "string"},
+        "aspectRatio": {"type": "ref", "ref": "#aspectRatio"}
       }
     },
     "aspectRatio": {
       "type": "object",
-      "description": "width:height represents an aspect ratio. It may be approximate, and may not correspond to absolute dimensions in any given unit.",
-      "required": [
-        "width",
-        "height"
-      ],
+      "description":
+          "width:height represents an aspect ratio. It may be approximate, and may not correspond to absolute dimensions in any given unit.",
+      "required": ["width", "height"],
       "properties": {
-        "width": {
-          "type": "integer",
-          "minimum": 1
-        },
-        "height": {
-          "type": "integer",
-          "minimum": 1
-        }
+        "width": {"type": "integer", "minimum": 1},
+        "height": {"type": "integer", "minimum": 1}
       }
     },
     "view": {
       "type": "object",
-      "required": [
-        "images"
-      ],
+      "required": ["images"],
       "properties": {
         "images": {
           "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "#viewImage"
-          },
+          "items": {"type": "ref", "ref": "#viewImage"},
           "maxLength": 4
         }
       }
     },
     "viewImage": {
       "type": "object",
-      "required": [
-        "thumb",
-        "fullsize",
-        "alt"
-      ],
+      "required": ["thumb", "fullsize", "alt"],
       "properties": {
-        "thumb": {
-          "type": "string"
-        },
-        "fullsize": {
-          "type": "string"
-        },
-        "alt": {
-          "type": "string"
-        },
-        "aspectRatio": {
-          "type": "ref",
-          "ref": "#aspectRatio"
-        }
+        "thumb": {"type": "string"},
+        "fullsize": {"type": "string"},
+        "alt": {"type": "string"},
+        "aspectRatio": {"type": "ref", "ref": "#aspectRatio"}
       }
     }
   }
@@ -8884,4 +6448,3 @@ const lexicons = <Map<String, dynamic>>[
   appBskyEmbedRecordWithMedia,
   appBskyEmbedImages,
 ];
-
