@@ -3,80 +3,78 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:atproto_annotation/src/annotations.dart';
 
 void main() {
-  test('LexObject', () {
+  test('Object', () {
     final expected = 'app.bsky.feed.defs#replyRef';
     final actual = LexObject(expected);
 
     expect(actual.id, expected);
   });
 
-  test('LexArray', () {
+  test('Array', () {
     final expected = 'app.bsky.feed.defs#replyRef';
     final actual = LexArray(expected);
 
     expect(actual.of, expected);
   });
 
+  test('Record', () {
+    final expected = 'app.bsky.feed.defs#replyRef';
+    final actual = LexRecord(expected);
+
+    expect(actual.id, expected);
+  });
+
   test('Service', () {
     final expected = 'feed.bsky.app';
-    final actual = Service(expected);
+    final actual = XrpcService(expected);
 
     expect(actual.authority, expected);
   });
 
-  group('Query', () {
-    test('auth = required', () {
-      final expected = 'getPosts';
-      final actual = Query(expected);
+  test('Query', () {
+    final expected = 'getPosts';
+    final actual = XrpcQuery(expected);
 
-      expect(actual.name, expected);
-      expect(actual.auth, AuthType.authRequired);
-    });
-
-    test('auth = anonymous', () {
-      final expected = 'getPosts';
-      final actual = Query(expected, auth: AuthType.anonymous);
-
-      expect(actual.name, expected);
-      expect(actual.auth, AuthType.anonymous);
-    });
+    expect(actual.id, expected);
   });
 
-  group('Procedure', () {
-    test('auth = required', () {
-      final expected = 'post';
-      final actual = Procedure(expected);
+  test('Procedure', () {
+    final expected = 'post';
+    final actual = XrpcProcedure(expected);
 
-      expect(actual.name, expected);
-      expect(actual.auth, AuthType.authRequired);
-    });
-
-    test('auth = anonymous', () {
-      final expected = 'post';
-      final actual = Procedure(expected, auth: AuthType.anonymous);
-
-      expect(actual.name, expected);
-      expect(actual.auth, AuthType.anonymous);
-    });
+    expect(actual.id, expected);
   });
 
-  group('Input', () {
+  test('Upload', () {
+    final expected = 'uploadBlob';
+    final actual = XrpcUpload(expected);
+
+    expect(actual.id, expected);
+  });
+
+  test('Subscription', () {
+    final expected = 'subscribeRepos';
+    final actual = XrpcSubscription(expected);
+
+    expect(actual.id, expected);
+  });
+
+  group('Property', () {
     test('no options', () {
-      final actual = Input();
+      final actual = XrpcProperty();
 
       expect(actual.name, isNull);
       expect(actual.defaultsTo, isNull);
     });
 
     test('with options', () {
-      final actual = Input(name: 'uri', defaultsTo: 'fake');
+      final actual = XrpcProperty(name: 'uri', defaultsTo: 'fake');
 
       expect(actual.name, 'uri');
       expect(actual.defaultsTo, 'fake');
