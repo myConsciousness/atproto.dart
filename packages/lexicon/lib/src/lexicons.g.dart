@@ -95,7 +95,7 @@ const comAtprotoTempTransferAccount = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `com.atproto.temp.pushBlob`
 const comAtprotoTempPushBlob = <String, dynamic>{
@@ -123,7 +123,7 @@ const comAtprotoTempPushBlob = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.temp.importRepo`
 const comAtprotoTempImportRepo = <String, dynamic>{
@@ -154,7 +154,7 @@ const comAtprotoTempImportRepo = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.temp.fetchLabels`
 const comAtprotoTempFetchLabels = <String, dynamic>{
@@ -198,7 +198,7 @@ const comAtprotoTempFetchLabels = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.identity.updateHandle`
 const comAtprotoIdentityUpdateHandle = <String, dynamic>{
@@ -225,7 +225,7 @@ const comAtprotoIdentityUpdateHandle = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.identity.resolveHandle`
 const comAtprotoIdentityResolveHandle = <String, dynamic>{
@@ -265,7 +265,7 @@ const comAtprotoIdentityResolveHandle = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.admin.getRepo`
 const comAtprotoAdminGetRepo = <String, dynamic>{
@@ -301,7 +301,7 @@ const comAtprotoAdminGetRepo = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `com.atproto.admin.updateAccountEmail`
 const comAtprotoAdminUpdateAccountEmail = <String, dynamic>{
@@ -333,7 +333,7 @@ const comAtprotoAdminUpdateAccountEmail = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.admin.getAccountInfo`
 const comAtprotoAdminGetAccountInfo = <String, dynamic>{
@@ -364,7 +364,7 @@ const comAtprotoAdminGetAccountInfo = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.admin.getSubjectStatus`
 const comAtprotoAdminGetSubjectStatus = <String, dynamic>{
@@ -416,7 +416,7 @@ const comAtprotoAdminGetSubjectStatus = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.admin.defs`
 const comAtprotoAdminDefs = <String, dynamic>{
@@ -1272,7 +1272,7 @@ const comAtprotoAdminDefs = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.admin.queryModerationStatuses`
 const comAtprotoAdminQueryModerationStatuses = <String, dynamic>{
@@ -1387,7 +1387,7 @@ const comAtprotoAdminQueryModerationStatuses = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.admin.updateAccountHandle`
 const comAtprotoAdminUpdateAccountHandle = <String, dynamic>{
@@ -1419,7 +1419,7 @@ const comAtprotoAdminUpdateAccountHandle = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.admin.getInviteCodes`
 const comAtprotoAdminGetInviteCodes = <String, dynamic>{
@@ -1474,7 +1474,7 @@ const comAtprotoAdminGetInviteCodes = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.admin.enableAccountInvites`
 const comAtprotoAdminEnableAccountInvites = <String, dynamic>{
@@ -1505,7 +1505,7 @@ const comAtprotoAdminEnableAccountInvites = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.admin.disableAccountInvites`
 const comAtprotoAdminDisableAccountInvites = <String, dynamic>{
@@ -1536,7 +1536,7 @@ const comAtprotoAdminDisableAccountInvites = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.admin.disableInviteCodes`
 const comAtprotoAdminDisableInviteCodes = <String, dynamic>{
@@ -1568,7 +1568,7 @@ const comAtprotoAdminDisableInviteCodes = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.admin.updateSubjectStatus`
 const comAtprotoAdminUpdateSubjectStatus = <String, dynamic>{
@@ -1626,7 +1626,7 @@ const comAtprotoAdminUpdateSubjectStatus = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.admin.emitModerationEvent`
 const comAtprotoAdminEmitModerationEvent = <String, dynamic>{
@@ -1696,7 +1696,7 @@ const comAtprotoAdminEmitModerationEvent = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `com.atproto.admin.getModerationEvent`
 const comAtprotoAdminGetModerationEvent = <String, dynamic>{
@@ -1726,7 +1726,7 @@ const comAtprotoAdminGetModerationEvent = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.admin.getRecord`
 const comAtprotoAdminGetRecord = <String, dynamic>{
@@ -1766,7 +1766,7 @@ const comAtprotoAdminGetRecord = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `com.atproto.admin.queryModerationEvents`
 const comAtprotoAdminQueryModerationEvents = <String, dynamic>{
@@ -1842,7 +1842,7 @@ const comAtprotoAdminQueryModerationEvents = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.admin.sendEmail`
 const comAtprotoAdminSendEmail = <String, dynamic>{
@@ -1895,7 +1895,7 @@ const comAtprotoAdminSendEmail = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.admin.searchRepos`
 const comAtprotoAdminSearchRepos = <String, dynamic>{
@@ -1949,7 +1949,7 @@ const comAtprotoAdminSearchRepos = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.admin.deleteAccount`
 const comAtprotoAdminDeleteAccount = <String, dynamic>{
@@ -1976,7 +1976,7 @@ const comAtprotoAdminDeleteAccount = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.label.subscribeLabels`
 const comAtprotoLabelSubscribeLabels = <String, dynamic>{
@@ -2047,7 +2047,7 @@ const comAtprotoLabelSubscribeLabels = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.label.defs`
 const comAtprotoLabelDefs = <String, dynamic>{
@@ -2127,7 +2127,7 @@ const comAtprotoLabelDefs = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.label.queryLabels`
 const comAtprotoLabelQueryLabels = <String, dynamic>{
@@ -2192,7 +2192,7 @@ const comAtprotoLabelQueryLabels = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.server.requestEmailConfirmation`
 const comAtprotoServerRequestEmailConfirmation = <String, dynamic>{
@@ -2204,7 +2204,7 @@ const comAtprotoServerRequestEmailConfirmation = <String, dynamic>{
       "description": "Request an email with a code to confirm ownership of email."
     }
   }
-}
+};
 
 /// `com.atproto.server.reserveSigningKey`
 const comAtprotoServerReserveSigningKey = <String, dynamic>{
@@ -2243,7 +2243,7 @@ const comAtprotoServerReserveSigningKey = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.server.defs`
 const comAtprotoServerDefs = <String, dynamic>{
@@ -2308,7 +2308,7 @@ const comAtprotoServerDefs = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.server.getAccountInviteCodes`
 const comAtprotoServerGetAccountInviteCodes = <String, dynamic>{
@@ -2356,7 +2356,7 @@ const comAtprotoServerGetAccountInviteCodes = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `com.atproto.server.createSession`
 const comAtprotoServerCreateSession = <String, dynamic>{
@@ -2429,7 +2429,7 @@ const comAtprotoServerCreateSession = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `com.atproto.server.listAppPasswords`
 const comAtprotoServerListAppPasswords = <String, dynamic>{
@@ -2480,7 +2480,7 @@ const comAtprotoServerListAppPasswords = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.server.createInviteCodes`
 const comAtprotoServerCreateInviteCodes = <String, dynamic>{
@@ -2554,7 +2554,7 @@ const comAtprotoServerCreateInviteCodes = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.server.deleteSession`
 const comAtprotoServerDeleteSession = <String, dynamic>{
@@ -2566,7 +2566,7 @@ const comAtprotoServerDeleteSession = <String, dynamic>{
       "description": "Delete the current session."
     }
   }
-}
+};
 
 /// `com.atproto.server.revokeAppPassword`
 const comAtprotoServerRevokeAppPassword = <String, dynamic>{
@@ -2592,7 +2592,7 @@ const comAtprotoServerRevokeAppPassword = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.server.createAppPassword`
 const comAtprotoServerCreateAppPassword = <String, dynamic>{
@@ -2650,7 +2650,7 @@ const comAtprotoServerCreateAppPassword = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.server.describeServer`
 const comAtprotoServerDescribeServer = <String, dynamic>{
@@ -2697,7 +2697,7 @@ const comAtprotoServerDescribeServer = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.server.confirmEmail`
 const comAtprotoServerConfirmEmail = <String, dynamic>{
@@ -2741,7 +2741,7 @@ const comAtprotoServerConfirmEmail = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `com.atproto.server.getSession`
 const comAtprotoServerGetSession = <String, dynamic>{
@@ -2782,7 +2782,7 @@ const comAtprotoServerGetSession = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.server.refreshSession`
 const comAtprotoServerRefreshSession = <String, dynamic>{
@@ -2830,7 +2830,7 @@ const comAtprotoServerRefreshSession = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `com.atproto.server.updateEmail`
 const comAtprotoServerUpdateEmail = <String, dynamic>{
@@ -2871,7 +2871,7 @@ const comAtprotoServerUpdateEmail = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `com.atproto.server.resetPassword`
 const comAtprotoServerResetPassword = <String, dynamic>{
@@ -2909,7 +2909,7 @@ const comAtprotoServerResetPassword = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `com.atproto.server.requestEmailUpdate`
 const comAtprotoServerRequestEmailUpdate = <String, dynamic>{
@@ -2935,7 +2935,7 @@ const comAtprotoServerRequestEmailUpdate = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.server.requestPasswordReset`
 const comAtprotoServerRequestPasswordReset = <String, dynamic>{
@@ -2961,7 +2961,7 @@ const comAtprotoServerRequestPasswordReset = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.server.requestAccountDelete`
 const comAtprotoServerRequestAccountDelete = <String, dynamic>{
@@ -2973,7 +2973,7 @@ const comAtprotoServerRequestAccountDelete = <String, dynamic>{
       "description": "Initiate a user account deletion via email."
     }
   }
-}
+};
 
 /// `com.atproto.server.createAccount`
 const comAtprotoServerCreateAccount = <String, dynamic>{
@@ -3073,7 +3073,7 @@ const comAtprotoServerCreateAccount = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `com.atproto.server.deleteAccount`
 const comAtprotoServerDeleteAccount = <String, dynamic>{
@@ -3116,7 +3116,7 @@ const comAtprotoServerDeleteAccount = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `com.atproto.server.createInviteCode`
 const comAtprotoServerCreateInviteCode = <String, dynamic>{
@@ -3160,7 +3160,7 @@ const comAtprotoServerCreateInviteCode = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.sync.getHead`
 const comAtprotoSyncGetHead = <String, dynamic>{
@@ -3205,7 +3205,7 @@ const comAtprotoSyncGetHead = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `com.atproto.sync.getBlob`
 const comAtprotoSyncGetBlob = <String, dynamic>{
@@ -3239,7 +3239,7 @@ const comAtprotoSyncGetBlob = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.sync.getRepo`
 const comAtprotoSyncGetRepo = <String, dynamic>{
@@ -3271,7 +3271,7 @@ const comAtprotoSyncGetRepo = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.sync.notifyOfUpdate`
 const comAtprotoSyncNotifyOfUpdate = <String, dynamic>{
@@ -3298,7 +3298,7 @@ const comAtprotoSyncNotifyOfUpdate = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.sync.requestCrawl`
 const comAtprotoSyncRequestCrawl = <String, dynamic>{
@@ -3325,7 +3325,7 @@ const comAtprotoSyncRequestCrawl = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.sync.listBlobs`
 const comAtprotoSyncListBlobs = <String, dynamic>{
@@ -3384,7 +3384,7 @@ const comAtprotoSyncListBlobs = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.sync.getLatestCommit`
 const comAtprotoSyncGetLatestCommit = <String, dynamic>{
@@ -3433,7 +3433,7 @@ const comAtprotoSyncGetLatestCommit = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `com.atproto.sync.subscribeRepos`
 const comAtprotoSyncSubscribeRepos = <String, dynamic>{
@@ -3666,7 +3666,7 @@ const comAtprotoSyncSubscribeRepos = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.sync.getRecord`
 const comAtprotoSyncGetRecord = <String, dynamic>{
@@ -3708,7 +3708,7 @@ const comAtprotoSyncGetRecord = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.sync.listRepos`
 const comAtprotoSyncListRepos = <String, dynamic>{
@@ -3776,7 +3776,7 @@ const comAtprotoSyncListRepos = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.sync.getBlocks`
 const comAtprotoSyncGetBlocks = <String, dynamic>{
@@ -3812,7 +3812,7 @@ const comAtprotoSyncGetBlocks = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.sync.getCheckout`
 const comAtprotoSyncGetCheckout = <String, dynamic>{
@@ -3840,7 +3840,7 @@ const comAtprotoSyncGetCheckout = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.repo.strongRef`
 const comAtprotoRepoStrongRef = <String, dynamic>{
@@ -3866,7 +3866,7 @@ const comAtprotoRepoStrongRef = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.repo.createRecord`
 const comAtprotoRepoCreateRecord = <String, dynamic>{
@@ -3945,7 +3945,7 @@ const comAtprotoRepoCreateRecord = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `com.atproto.repo.deleteRecord`
 const comAtprotoRepoDeleteRecord = <String, dynamic>{
@@ -3999,7 +3999,7 @@ const comAtprotoRepoDeleteRecord = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `com.atproto.repo.putRecord`
 const comAtprotoRepoPutRecord = <String, dynamic>{
@@ -4087,7 +4087,7 @@ const comAtprotoRepoPutRecord = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `com.atproto.repo.uploadBlob`
 const comAtprotoRepoUploadBlob = <String, dynamic>{
@@ -4116,7 +4116,7 @@ const comAtprotoRepoUploadBlob = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.repo.describeRepo`
 const comAtprotoRepoDescribeRepo = <String, dynamic>{
@@ -4177,7 +4177,7 @@ const comAtprotoRepoDescribeRepo = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.repo.getRecord`
 const comAtprotoRepoGetRecord = <String, dynamic>{
@@ -4241,7 +4241,7 @@ const comAtprotoRepoGetRecord = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.repo.applyWrites`
 const comAtprotoRepoApplyWrites = <String, dynamic>{
@@ -4355,7 +4355,7 @@ const comAtprotoRepoApplyWrites = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.repo.listRecords`
 const comAtprotoRepoListRecords = <String, dynamic>{
@@ -4450,7 +4450,7 @@ const comAtprotoRepoListRecords = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `com.atproto.moderation.defs`
 const comAtprotoModerationDefs = <String, dynamic>{
@@ -4493,7 +4493,7 @@ const comAtprotoModerationDefs = <String, dynamic>{
       "description": "Other: reports not falling under another report category"
     }
   }
-}
+};
 
 /// `com.atproto.moderation.createReport`
 const comAtprotoModerationCreateReport = <String, dynamic>{
@@ -4573,7 +4573,7 @@ const comAtprotoModerationCreateReport = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.embed.record`
 const appBskyEmbedRecord = <String, dynamic>{
@@ -4701,7 +4701,7 @@ const appBskyEmbedRecord = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.embed.images`
 const appBskyEmbedImages = <String, dynamic>{
@@ -4806,7 +4806,7 @@ const appBskyEmbedImages = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.embed.recordWithMedia`
 const appBskyEmbedRecordWithMedia = <String, dynamic>{
@@ -4855,7 +4855,7 @@ const appBskyEmbedRecordWithMedia = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.embed.external`
 const appBskyEmbedExternal = <String, dynamic>{
@@ -4938,7 +4938,7 @@ const appBskyEmbedExternal = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.notification.registerPush`
 const appBskyNotificationRegisterPush = <String, dynamic>{
@@ -4982,7 +4982,7 @@ const appBskyNotificationRegisterPush = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.notification.updateSeen`
 const appBskyNotificationUpdateSeen = <String, dynamic>{
@@ -5009,7 +5009,7 @@ const appBskyNotificationUpdateSeen = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.notification.listNotifications`
 const appBskyNotificationListNotifications = <String, dynamic>{
@@ -5123,7 +5123,7 @@ const appBskyNotificationListNotifications = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.notification.getUnreadCount`
 const appBskyNotificationGetUnreadCount = <String, dynamic>{
@@ -5158,7 +5158,7 @@ const appBskyNotificationGetUnreadCount = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.unspecced.defs`
 const appBskyUnspeccedDefs = <String, dynamic>{
@@ -5190,7 +5190,7 @@ const appBskyUnspeccedDefs = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.unspecced.searchActorsSkeleton`
 const appBskyUnspeccedSearchActorsSkeleton = <String, dynamic>{
@@ -5258,7 +5258,7 @@ const appBskyUnspeccedSearchActorsSkeleton = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `app.bsky.unspecced.searchPostsSkeleton`
 const appBskyUnspeccedSearchPostsSkeleton = <String, dynamic>{
@@ -5322,7 +5322,7 @@ const appBskyUnspeccedSearchPostsSkeleton = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `app.bsky.unspecced.getPopular`
 const appBskyUnspeccedGetPopular = <String, dynamic>{
@@ -5373,7 +5373,7 @@ const appBskyUnspeccedGetPopular = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.unspecced.getPopularFeedGenerators`
 const appBskyUnspeccedGetPopularFeedGenerators = <String, dynamic>{
@@ -5423,7 +5423,7 @@ const appBskyUnspeccedGetPopularFeedGenerators = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.unspecced.getTimelineSkeleton`
 const appBskyUnspeccedGetTimelineSkeleton = <String, dynamic>{
@@ -5475,7 +5475,7 @@ const appBskyUnspeccedGetTimelineSkeleton = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `app.bsky.graph.getSuggestedFollowsByActor`
 const appBskyGraphGetSuggestedFollowsByActor = <String, dynamic>{
@@ -5517,7 +5517,7 @@ const appBskyGraphGetSuggestedFollowsByActor = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.graph.block`
 const appBskyGraphBlock = <String, dynamic>{
@@ -5547,7 +5547,7 @@ const appBskyGraphBlock = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.graph.follow`
 const appBskyGraphFollow = <String, dynamic>{
@@ -5577,7 +5577,7 @@ const appBskyGraphFollow = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.graph.defs`
 const appBskyGraphDefs = <String, dynamic>{
@@ -5725,7 +5725,7 @@ const appBskyGraphDefs = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.graph.unmuteActorList`
 const appBskyGraphUnmuteActorList = <String, dynamic>{
@@ -5752,7 +5752,7 @@ const appBskyGraphUnmuteActorList = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.graph.getListBlocks`
 const appBskyGraphGetListBlocks = <String, dynamic>{
@@ -5799,7 +5799,7 @@ const appBskyGraphGetListBlocks = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.graph.listblock`
 const appBskyGraphListblock = <String, dynamic>{
@@ -5829,7 +5829,7 @@ const appBskyGraphListblock = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.graph.muteActorList`
 const appBskyGraphMuteActorList = <String, dynamic>{
@@ -5856,7 +5856,7 @@ const appBskyGraphMuteActorList = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.graph.getLists`
 const appBskyGraphGetLists = <String, dynamic>{
@@ -5910,7 +5910,7 @@ const appBskyGraphGetLists = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.graph.getFollowers`
 const appBskyGraphGetFollowers = <String, dynamic>{
@@ -5969,7 +5969,7 @@ const appBskyGraphGetFollowers = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.graph.muteActor`
 const appBskyGraphMuteActor = <String, dynamic>{
@@ -5996,7 +5996,7 @@ const appBskyGraphMuteActor = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.graph.getMutes`
 const appBskyGraphGetMutes = <String, dynamic>{
@@ -6043,7 +6043,7 @@ const appBskyGraphGetMutes = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.graph.listitem`
 const appBskyGraphListitem = <String, dynamic>{
@@ -6078,7 +6078,7 @@ const appBskyGraphListitem = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.graph.list`
 const appBskyGraphList = <String, dynamic>{
@@ -6140,7 +6140,7 @@ const appBskyGraphList = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.graph.getListMutes`
 const appBskyGraphGetListMutes = <String, dynamic>{
@@ -6187,7 +6187,7 @@ const appBskyGraphGetListMutes = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.graph.getFollows`
 const appBskyGraphGetFollows = <String, dynamic>{
@@ -6246,7 +6246,7 @@ const appBskyGraphGetFollows = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.graph.getBlocks`
 const appBskyGraphGetBlocks = <String, dynamic>{
@@ -6293,7 +6293,7 @@ const appBskyGraphGetBlocks = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.graph.unmuteActor`
 const appBskyGraphUnmuteActor = <String, dynamic>{
@@ -6320,7 +6320,7 @@ const appBskyGraphUnmuteActor = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.graph.getList`
 const appBskyGraphGetList = <String, dynamic>{
@@ -6379,7 +6379,7 @@ const appBskyGraphGetList = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.feed.generator`
 const appBskyFeedGenerator = <String, dynamic>{
@@ -6441,7 +6441,7 @@ const appBskyFeedGenerator = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.feed.defs`
 const appBskyFeedDefs = <String, dynamic>{
@@ -6800,7 +6800,7 @@ const appBskyFeedDefs = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.feed.getFeedGenerators`
 const appBskyFeedGetFeedGenerators = <String, dynamic>{
@@ -6845,7 +6845,7 @@ const appBskyFeedGetFeedGenerators = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.feed.getTimeline`
 const appBskyFeedGetTimeline = <String, dynamic>{
@@ -6895,7 +6895,7 @@ const appBskyFeedGetTimeline = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.feed.getFeedGenerator`
 const appBskyFeedGetFeedGenerator = <String, dynamic>{
@@ -6942,7 +6942,7 @@ const appBskyFeedGetFeedGenerator = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.feed.getAuthorFeed`
 const appBskyFeedGetAuthorFeed = <String, dynamic>{
@@ -7014,7 +7014,7 @@ const appBskyFeedGetAuthorFeed = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `app.bsky.feed.getLikes`
 const appBskyFeedGetLikes = <String, dynamic>{
@@ -7103,7 +7103,7 @@ const appBskyFeedGetLikes = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.feed.threadgate`
 const appBskyFeedThreadgate = <String, dynamic>{
@@ -7168,7 +7168,7 @@ const appBskyFeedThreadgate = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.feed.getPostThread`
 const appBskyFeedGetPostThread = <String, dynamic>{
@@ -7228,7 +7228,7 @@ const appBskyFeedGetPostThread = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `app.bsky.feed.getActorLikes`
 const appBskyFeedGetActorLikes = <String, dynamic>{
@@ -7290,7 +7290,7 @@ const appBskyFeedGetActorLikes = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `app.bsky.feed.like`
 const appBskyFeedLike = <String, dynamic>{
@@ -7320,7 +7320,7 @@ const appBskyFeedLike = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.feed.getRepostedBy`
 const appBskyFeedGetRepostedBy = <String, dynamic>{
@@ -7387,7 +7387,7 @@ const appBskyFeedGetRepostedBy = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.feed.repost`
 const appBskyFeedRepost = <String, dynamic>{
@@ -7417,7 +7417,7 @@ const appBskyFeedRepost = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.feed.describeFeedGenerator`
 const appBskyFeedDescribeFeedGenerator = <String, dynamic>{
@@ -7479,7 +7479,7 @@ const appBskyFeedDescribeFeedGenerator = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.feed.searchPosts`
 const appBskyFeedSearchPosts = <String, dynamic>{
@@ -7543,7 +7543,7 @@ const appBskyFeedSearchPosts = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `app.bsky.feed.getPosts`
 const appBskyFeedGetPosts = <String, dynamic>{
@@ -7589,7 +7589,7 @@ const appBskyFeedGetPosts = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.feed.getFeed`
 const appBskyFeedGetFeed = <String, dynamic>{
@@ -7648,7 +7648,7 @@ const appBskyFeedGetFeed = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `app.bsky.feed.getFeedSkeleton`
 const appBskyFeedGetFeedSkeleton = <String, dynamic>{
@@ -7707,7 +7707,7 @@ const appBskyFeedGetFeedSkeleton = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `app.bsky.feed.getListFeed`
 const appBskyFeedGetListFeed = <String, dynamic>{
@@ -7766,7 +7766,7 @@ const appBskyFeedGetListFeed = <String, dynamic>{
       ]
     }
   }
-}
+};
 
 /// `app.bsky.feed.getSuggestedFeeds`
 const appBskyFeedGetSuggestedFeeds = <String, dynamic>{
@@ -7813,7 +7813,7 @@ const appBskyFeedGetSuggestedFeeds = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.feed.getActorFeeds`
 const appBskyFeedGetActorFeeds = <String, dynamic>{
@@ -7867,7 +7867,7 @@ const appBskyFeedGetActorFeeds = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.feed.post`
 const appBskyFeedPost = <String, dynamic>{
@@ -8007,7 +8007,7 @@ const appBskyFeedPost = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.richtext.facet`
 const appBskyRichtextFacet = <String, dynamic>{
@@ -8097,7 +8097,7 @@ const appBskyRichtextFacet = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.actor.searchActorsTypeahead`
 const appBskyActorSearchActorsTypeahead = <String, dynamic>{
@@ -8146,7 +8146,7 @@ const appBskyActorSearchActorsTypeahead = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.actor.defs`
 const appBskyActorDefs = <String, dynamic>{
@@ -8454,7 +8454,7 @@ const appBskyActorDefs = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.actor.putPreferences`
 const appBskyActorPutPreferences = <String, dynamic>{
@@ -8481,7 +8481,7 @@ const appBskyActorPutPreferences = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.actor.getProfile`
 const appBskyActorGetProfile = <String, dynamic>{
@@ -8512,7 +8512,7 @@ const appBskyActorGetProfile = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.actor.getSuggestions`
 const appBskyActorGetSuggestions = <String, dynamic>{
@@ -8559,7 +8559,7 @@ const appBskyActorGetSuggestions = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.actor.searchActors`
 const appBskyActorSearchActors = <String, dynamic>{
@@ -8614,7 +8614,7 @@ const appBskyActorSearchActors = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.actor.getProfiles`
 const appBskyActorGetProfiles = <String, dynamic>{
@@ -8660,7 +8660,7 @@ const appBskyActorGetProfiles = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.actor.getPreferences`
 const appBskyActorGetPreferences = <String, dynamic>{
@@ -8691,7 +8691,7 @@ const appBskyActorGetPreferences = <String, dynamic>{
       }
     }
   }
-}
+};
 
 /// `app.bsky.actor.profile`
 const appBskyActorProfile = <String, dynamic>{
@@ -8741,4 +8741,147 @@ const appBskyActorProfile = <String, dynamic>{
       }
     }
   }
-}
+};
+
+/// The collection of official lexicons.
+const lexicons = <Map<String, dynamic>>[
+  comAtprotoTempTransferAccount,
+  comAtprotoTempPushBlob,
+  comAtprotoTempImportRepo,
+  comAtprotoTempFetchLabels,
+  comAtprotoIdentityUpdateHandle,
+  comAtprotoIdentityResolveHandle,
+  comAtprotoAdminGetRepo,
+  comAtprotoAdminUpdateAccountEmail,
+  comAtprotoAdminGetAccountInfo,
+  comAtprotoAdminGetSubjectStatus,
+  comAtprotoAdminDefs,
+  comAtprotoAdminQueryModerationStatuses,
+  comAtprotoAdminUpdateAccountHandle,
+  comAtprotoAdminGetInviteCodes,
+  comAtprotoAdminEnableAccountInvites,
+  comAtprotoAdminDisableAccountInvites,
+  comAtprotoAdminDisableInviteCodes,
+  comAtprotoAdminUpdateSubjectStatus,
+  comAtprotoAdminEmitModerationEvent,
+  comAtprotoAdminGetModerationEvent,
+  comAtprotoAdminGetRecord,
+  comAtprotoAdminQueryModerationEvents,
+  comAtprotoAdminSendEmail,
+  comAtprotoAdminSearchRepos,
+  comAtprotoAdminDeleteAccount,
+  comAtprotoLabelSubscribeLabels,
+  comAtprotoLabelDefs,
+  comAtprotoLabelQueryLabels,
+  comAtprotoServerRequestEmailConfirmation,
+  comAtprotoServerReserveSigningKey,
+  comAtprotoServerDefs,
+  comAtprotoServerGetAccountInviteCodes,
+  comAtprotoServerCreateSession,
+  comAtprotoServerListAppPasswords,
+  comAtprotoServerCreateInviteCodes,
+  comAtprotoServerDeleteSession,
+  comAtprotoServerRevokeAppPassword,
+  comAtprotoServerCreateAppPassword,
+  comAtprotoServerDescribeServer,
+  comAtprotoServerConfirmEmail,
+  comAtprotoServerGetSession,
+  comAtprotoServerRefreshSession,
+  comAtprotoServerUpdateEmail,
+  comAtprotoServerResetPassword,
+  comAtprotoServerRequestEmailUpdate,
+  comAtprotoServerRequestPasswordReset,
+  comAtprotoServerRequestAccountDelete,
+  comAtprotoServerCreateAccount,
+  comAtprotoServerDeleteAccount,
+  comAtprotoServerCreateInviteCode,
+  comAtprotoSyncGetHead,
+  comAtprotoSyncGetBlob,
+  comAtprotoSyncGetRepo,
+  comAtprotoSyncNotifyOfUpdate,
+  comAtprotoSyncRequestCrawl,
+  comAtprotoSyncListBlobs,
+  comAtprotoSyncGetLatestCommit,
+  comAtprotoSyncSubscribeRepos,
+  comAtprotoSyncGetRecord,
+  comAtprotoSyncListRepos,
+  comAtprotoSyncGetBlocks,
+  comAtprotoSyncGetCheckout,
+  comAtprotoRepoStrongRef,
+  comAtprotoRepoCreateRecord,
+  comAtprotoRepoDeleteRecord,
+  comAtprotoRepoPutRecord,
+  comAtprotoRepoUploadBlob,
+  comAtprotoRepoDescribeRepo,
+  comAtprotoRepoGetRecord,
+  comAtprotoRepoApplyWrites,
+  comAtprotoRepoListRecords,
+  comAtprotoModerationDefs,
+  comAtprotoModerationCreateReport,
+  appBskyEmbedRecord,
+  appBskyEmbedImages,
+  appBskyEmbedRecordWithMedia,
+  appBskyEmbedExternal,
+  appBskyNotificationRegisterPush,
+  appBskyNotificationUpdateSeen,
+  appBskyNotificationListNotifications,
+  appBskyNotificationGetUnreadCount,
+  appBskyUnspeccedDefs,
+  appBskyUnspeccedSearchActorsSkeleton,
+  appBskyUnspeccedSearchPostsSkeleton,
+  appBskyUnspeccedGetPopular,
+  appBskyUnspeccedGetPopularFeedGenerators,
+  appBskyUnspeccedGetTimelineSkeleton,
+  appBskyGraphGetSuggestedFollowsByActor,
+  appBskyGraphBlock,
+  appBskyGraphFollow,
+  appBskyGraphDefs,
+  appBskyGraphUnmuteActorList,
+  appBskyGraphGetListBlocks,
+  appBskyGraphListblock,
+  appBskyGraphMuteActorList,
+  appBskyGraphGetLists,
+  appBskyGraphGetFollowers,
+  appBskyGraphMuteActor,
+  appBskyGraphGetMutes,
+  appBskyGraphListitem,
+  appBskyGraphList,
+  appBskyGraphGetListMutes,
+  appBskyGraphGetFollows,
+  appBskyGraphGetBlocks,
+  appBskyGraphUnmuteActor,
+  appBskyGraphGetList,
+  appBskyFeedGenerator,
+  appBskyFeedDefs,
+  appBskyFeedGetFeedGenerators,
+  appBskyFeedGetTimeline,
+  appBskyFeedGetFeedGenerator,
+  appBskyFeedGetAuthorFeed,
+  appBskyFeedGetLikes,
+  appBskyFeedThreadgate,
+  appBskyFeedGetPostThread,
+  appBskyFeedGetActorLikes,
+  appBskyFeedLike,
+  appBskyFeedGetRepostedBy,
+  appBskyFeedRepost,
+  appBskyFeedDescribeFeedGenerator,
+  appBskyFeedSearchPosts,
+  appBskyFeedGetPosts,
+  appBskyFeedGetFeed,
+  appBskyFeedGetFeedSkeleton,
+  appBskyFeedGetListFeed,
+  appBskyFeedGetSuggestedFeeds,
+  appBskyFeedGetActorFeeds,
+  appBskyFeedPost,
+  appBskyRichtextFacet,
+  appBskyActorSearchActorsTypeahead,
+  appBskyActorDefs,
+  appBskyActorPutPreferences,
+  appBskyActorGetProfile,
+  appBskyActorGetSuggestions,
+  appBskyActorSearchActors,
+  appBskyActorGetProfiles,
+  appBskyActorGetPreferences,
+  appBskyActorProfile,
+];
+

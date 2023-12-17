@@ -15,7 +15,8 @@ final _fileName = 'lexicons.g.dart';
 void main(List<String> args) {
   final docs = StringBuffer(_header)..writeln();
   final docsCollection = StringBuffer()
-    ..writeln('const lexiconDocs = <Map<String, dynamic>>[');
+    ..writeln('/// The collection of official lexicons.')
+    ..writeln('const lexicons = <Map<String, dynamic>>[');
 
   for (final lexicon in utils.lexiconDocs) {
     final variableName = _toVariableName(lexicon.id.toString());
@@ -24,7 +25,8 @@ void main(List<String> args) {
     docs
       ..writeln()
       ..writeln('/// `${lexicon.id}`')
-      ..writeln('const $variableName = <String, dynamic>$lexiconJson');
+      ..write('const $variableName = <String, dynamic>$lexiconJson')
+      ..writeln(';');
 
     docsCollection
       ..write('  $variableName')
@@ -33,11 +35,13 @@ void main(List<String> args) {
 
   docsCollection.writeln('];');
 
-  print(docsCollection.toString());
+  docs
+    ..writeln()
+    ..writeln(docsCollection.toString());
 
-  // File('packages/lexicon/lib/src/$_fileName')
-  //   ..createSync()
-  //   ..writeAsStringSync(docs.toString());
+  File('packages/lexicon/lib/src/$_fileName')
+    ..createSync()
+    ..writeAsStringSync(docs.toString());
 }
 
 String _toVariableName(final String nsid) {
