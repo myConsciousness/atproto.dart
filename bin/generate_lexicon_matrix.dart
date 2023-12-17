@@ -49,13 +49,28 @@ void _writeFiles(final List<LexiconDoc> lexiconDocs) {
         ..writeln('## #$id');
 
       def.whenOrNull(
-        record: (data) => _writeRecord(matrix, data),
-        xrpcQuery: (data) => _writeXrpcQuery(matrix, data),
-        xrpcProcedure: (data) => _writeXrpcProcedure(matrix, data),
-        xrpcSubscription: (data) => _writeXrpcSubscription(matrix, data),
-        object: (data) => _writeObject(matrix, data),
-        token: (data) => _writeToken(matrix, data),
-      );
+          record: (data) => _writeRecord(matrix, data),
+          xrpcQuery: (data) => _writeXrpcQuery(matrix, data),
+          xrpcProcedure: (data) => _writeXrpcProcedure(matrix, data),
+          xrpcSubscription: (data) => _writeXrpcSubscription(matrix, data),
+          object: (data) => _writeObject(matrix, data),
+          token: (data) => _writeToken(matrix, data),
+          string: (data) {
+            matrix
+              ..writeln()
+              ..writeln(_tableHeader)
+              ..writeln(_tableDivider);
+
+            _writeObjectProperty(
+              matrix,
+              property: id,
+              isRequired: false,
+              type: data.type,
+              format: data.format?.value,
+              knownValues: data.knownValues,
+              description: data.description,
+            );
+          });
     });
 
     final nsidSegments = nsid.split('.');
@@ -592,6 +607,7 @@ Map<String, Map<String, LexUserType>> _getLexObjects(
         xrpcSubscription: (data) => data,
         object: (data) => data,
         token: (data) => data,
+        string: (data) => data,
       );
 
       if (object != null) {
