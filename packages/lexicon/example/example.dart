@@ -2,10 +2,12 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'package:lexicon/docs.dart' as docs;
 import 'package:lexicon/lexicon.dart';
 
 void main() {
-  final lexicon = LexiconDoc.fromJson({
+  //* Easy to parse lexicon from JSON.
+  final appBskyFeedLike = LexiconDoc.fromJson({
     'lexicon': 1,
     'id': 'app.bsky.feed.like',
     'defs': {
@@ -25,7 +27,20 @@ void main() {
     }
   });
 
-  print(lexicon.id);
-  print(lexicon.description);
-  print(lexicon.defs);
+  print(appBskyFeedLike.id);
+  print(appBskyFeedLike.description);
+  print(appBskyFeedLike.defs);
+
+  //* Or you can use prepared official lexicons.
+  final appBskyFeedPost = LexiconDoc.fromJson(docs.appBskyFeedPost);
+  print(appBskyFeedPost);
+
+  //* Also you can see all official lexicons.
+  for (final lexicon in docs.lexicons) {
+    final lexiconDoc = LexiconDoc.fromJson(lexicon);
+
+    print(lexiconDoc.id);
+    print(lexiconDoc.description);
+    print(lexiconDoc.defs);
+  }
 }

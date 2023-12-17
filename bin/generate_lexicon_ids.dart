@@ -12,6 +12,8 @@ const packages = [
   'bluesky',
 ];
 
+final _header = getFileHeader('Lexicon IDs Generator');
+
 void main() {
   final fields = _getFields();
 
@@ -38,18 +40,7 @@ const blob = 'blob';""")
 
     final ids = buffer.toString();
 
-    File('./packages/$package/lib/src/ids.g.dart').writeAsStringSync(
-        '''// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
-// coverage:ignore-file
-// ignore_for_file: type=lint
-// GENERATED CODE - DO NOT MODIFY BY HAND
-
-// **************************************************************************
-// Lexicon IDs Generator
-// **************************************************************************
+    File('./packages/$package/lib/src/ids.g.dart').writeAsStringSync('''$_header
 
 ${ids.substring(0, ids.length - 1)}''');
   }

@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.1.3
+
+- Added generated lexicons docs as `lexicon/docs` package. You can access all official lexicons. ([#1094](https://github.com/myConsciousness/atproto.dart/issues/1094))
+
 ## v0.1.2
 
 - Replaced the type of `items` from `Map<String, dynamic>` to `LexArrayItem` on `LexArrayItems`. ([#1075](https://github.com/myConsciousness/atproto.dart/issues/1075))

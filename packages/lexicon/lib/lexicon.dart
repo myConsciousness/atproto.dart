@@ -2,6 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+export 'package:nsid/nsid.dart' show NSID;
+
 export 'package:lexicon/src/types/blobs/lex_blob.dart';
 export 'package:lexicon/src/types/complex/lex_array.dart';
 export 'package:lexicon/src/types/complex/lex_array_item.dart';

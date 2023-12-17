@@ -4,32 +4,27 @@
 
 // 🎯 Dart imports:
 import 'dart:convert';
-import 'dart:io';
 
 // 📦 Package imports:
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
+import 'package:lexicon/src/lexicons.g.dart';
 import 'package:lexicon/src/types/core/lexicon_doc.dart';
-import 'suite.dart';
 import 'utils.dart' as util;
 
 void main() {
-  for (final lexiconId in lexiconIds) {
-    test(lexiconId, () {
-      final lexiconFile = File(
-        '../../lexicons/${util.toPath(lexiconId)}.json',
-      );
-
-      final expected = jsonDecode(lexiconFile.readAsStringSync());
-      final actual = LexiconDoc.fromJson(expected);
+  for (final lexicon in lexicons) {
+    test(lexicon['id'], () {
+      final actual = LexiconDoc.fromJson(lexicon);
 
       expect(
-        util.equals(actual.toJson(), expected),
+        util.equals(
+          actual.toJson(),
+          jsonDecode(jsonEncode(lexicon)),
+        ),
         isTrue,
       );
-
-      actual.defs.forEach((key, value) {});
     });
   }
 }
