@@ -7,13 +7,19 @@ description: app.bsky.feed.threadgate
 
 ## #main
 
+### Input (Record)
+
 Defines interaction gating rules for a thread. The rkey of the threadgate record should match the rkey of the thread's root post.
+
+Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/createRecord.md#main) to create a record.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **post** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
 | **allow** | array of union<br/>[#mentionRule](#mentionrule)<br/>[#followingRule](#followingrule)<br/>[#listRule](#listrule) | - | ❌ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+
+### Output ([com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main))
 
 ## #mentionRule
 

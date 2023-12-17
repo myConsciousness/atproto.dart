@@ -86,13 +86,26 @@ void _writeRecord(
   final StringBuffer matrix,
   final LexRecord data,
 ) {
+  matrix
+    ..writeln()
+    ..writeln('### Input (Record)');
+
   if (data.description != null) {
     matrix
       ..writeln()
       ..writeln(data.description);
   }
 
+  matrix
+    ..writeln()
+    ..writeln('Use ${_toRefLink('com.atproto.repo.createRecord')} '
+        'to create a record.');
+
   _writeObject(matrix, data.record);
+
+  matrix
+    ..writeln()
+    ..writeln('### Output (${_toRefLink('com.atproto.repo.strongRef')})');
 }
 
 void _writeXrpcQuery(
