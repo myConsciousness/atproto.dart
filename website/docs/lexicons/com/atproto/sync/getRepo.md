@@ -15,3 +15,5 @@ Gets the DID's repo, optionally catching up from a specific revision.
 | --- | --- | --- | :---: | --- |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | The DID of the repo. |
 | **since** | string | - | ❌ | The revision of the repo to catch up from. |
+
+### Output (application/vnd.ipld.car)

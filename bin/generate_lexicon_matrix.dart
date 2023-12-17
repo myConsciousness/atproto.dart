@@ -27,11 +27,7 @@ const _languageReference = 'https://atproto.com/specs/lexicon#language';
 const _tableHeader =
     '| Property | Type | Known Values | Required | Description |';
 const _tableDivider = '| --- | --- | --- | :---: | --- |';
-void main(List<String> args) {
-  final lexiconDocs = utils.lexiconDocs;
-
-  _writeFiles(lexiconDocs);
-}
+void main(List<String> args) => _writeFiles(utils.lexiconDocs);
 
 void _writeFiles(final List<LexiconDoc> lexiconDocs) {
   final objects = _getLexObjects(lexiconDocs);
@@ -105,14 +101,21 @@ void _writeXrpcQuery(
 
   final output = data.output;
   if (output != null) {
+    matrix
+      ..writeln()
+      ..writeln('### Output (${_escapeSpecialChars(output.encoding)})');
+
+    if (output.description != null) {
+      matrix
+        ..writeln()
+        ..writeln(output.description);
+    }
+
     final schema = output.schema;
     if (schema != null) {
       _writeXrpcSchema(
         matrix,
         schema,
-        output.description,
-        output.encoding,
-        'Output',
       );
     }
   }
@@ -130,28 +133,42 @@ void _writeXrpcProcedure(
 
   final input = data.input;
   if (input != null) {
+    matrix
+      ..writeln()
+      ..writeln('### Input (${_escapeSpecialChars(input.encoding)})');
+
+    if (input.description != null) {
+      matrix
+        ..writeln()
+        ..writeln(input.description);
+    }
+
     final schema = input.schema;
     if (schema != null) {
       _writeXrpcSchema(
         matrix,
         schema,
-        input.description,
-        input.encoding,
-        'Input',
       );
     }
   }
 
   final output = data.output;
   if (output != null) {
+    matrix
+      ..writeln()
+      ..writeln('### Output (${_escapeSpecialChars(output.encoding)})');
+
+    if (output.description != null) {
+      matrix
+        ..writeln()
+        ..writeln(output.description);
+    }
+
     final schema = output.schema;
     if (schema != null) {
       _writeXrpcSchema(
         matrix,
         schema,
-        output.description,
-        output.encoding,
-        'Output',
       );
     }
   }
@@ -178,14 +195,21 @@ void _writeXrpcSubscription(
 
   final message = data.message;
   if (message != null) {
+    matrix
+      ..writeln()
+      ..writeln('### Output');
+
+    if (message.description != null) {
+      matrix
+        ..writeln()
+        ..writeln(message.description);
+    }
+
     final schema = message.schema;
     if (schema != null) {
       _writeXrpcSchema(
         matrix,
         schema,
-        message.description,
-        '',
-        'Output',
       );
     }
   }
@@ -250,23 +274,7 @@ void _writeXrpcParameters(
 void _writeXrpcSchema(
   final StringBuffer matrix,
   final LexXrpcSchema data,
-  final String? description,
-  final String encoding,
-  final String label,
 ) {
-  matrix.writeln();
-  if (encoding.isNotEmpty) {
-    matrix.writeln('### $label ($encoding)');
-  } else {
-    matrix.writeln('### $label');
-  }
-
-  if (description != null) {
-    matrix
-      ..writeln()
-      ..writeln(description);
-  }
-
   data.when(
     refVariant: (data) {
       matrix
@@ -597,4 +605,12 @@ Map<String, Map<String, LexUserType>> _getLexObjects(
   }
 
   return objects;
+}
+
+String _escapeSpecialChars(final String markdown) {
+  final specialChars = RegExp(r'([*])');
+
+  return markdown.replaceAllMapped(specialChars, (Match match) {
+    return '\\${match[0]}';
+  });
 }

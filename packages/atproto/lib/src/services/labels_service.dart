@@ -109,7 +109,6 @@ final class _LabelsService extends ATProtoBaseService implements LabelsService {
           'cursor': cursor,
         },
         to: LabelsByQuery.fromJson,
-        authType: core.AuthType.anonymous,
       );
 
   @override
@@ -122,7 +121,6 @@ final class _LabelsService extends ATProtoBaseService implements LabelsService {
             parameters: {
               'cursor': cursor,
             },
-            authType: core.AuthType.anonymous,
             to: SubscribedLabel.fromJson,
             adaptor: toSubscribedLabel,
           );

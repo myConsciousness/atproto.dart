@@ -9,22 +9,9 @@ import 'dart:math' as math;
 import 'retry_config.dart';
 import 'retry_event.dart';
 
-sealed class RetryPolicy {
+final class RetryPolicy {
   /// Returns the new instance of [RetryPolicy].
-  factory RetryPolicy(
-    final RetryConfig? retryConfig,
-  ) =>
-      _RetryPolicy(retryConfig);
-
-  /// Returns true if the retry should be performed, otherwise false.
-  bool shouldRetry(final int retryCount);
-
-  Future wait(final int retryCount);
-}
-
-final class _RetryPolicy implements RetryPolicy {
-  /// Returns the new instance of [_RetryPolicy].
-  const _RetryPolicy(RetryConfig? retryConfig) : _retryConfig = retryConfig;
+  const RetryPolicy(RetryConfig? retryConfig) : _retryConfig = retryConfig;
 
   /// The random generator.
   static final _random = math.Random();
@@ -32,7 +19,6 @@ final class _RetryPolicy implements RetryPolicy {
   /// The configuration of retry.
   final RetryConfig? _retryConfig;
 
-  @override
   bool shouldRetry(final int retryCount) {
     _checkRetryCount(retryCount);
 
@@ -43,7 +29,6 @@ final class _RetryPolicy implements RetryPolicy {
     return _retryConfig!.maxAttempts > retryCount;
   }
 
-  @override
   Future wait(final int retryCount) async {
     _checkRetryCount(retryCount);
 

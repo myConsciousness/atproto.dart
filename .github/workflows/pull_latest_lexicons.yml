@@ -43,8 +43,8 @@ jobs:
       - name: Generate Lexicon Matrix
         run: dart run ./bin/generate_lexicon_matrix.dart
 
-      - name: Generate Lexicon Test
-        run: dart run ./bin/generate_lexicon_test.dart
+      - name: Generate Lexicon Docs
+        run: dart run ./bin/generate_lexicon_docs.dart
 
       - name: Build
         run: |
@@ -56,6 +56,7 @@ jobs:
 
       - name: Format
         run: |
+          dart format packages/lexicon
           dart format packages/atproto
           dart format packages/bluesky
 

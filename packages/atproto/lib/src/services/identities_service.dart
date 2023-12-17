@@ -104,7 +104,6 @@ final class _IdentitiesService extends ATProtoBaseService
         parameters: {
           'handle': handle,
         },
-        authType: core.AuthType.anonymous,
         to: to,
       );
 }

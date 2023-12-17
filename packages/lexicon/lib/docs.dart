@@ -2,8 +2,4 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-enum AuthType {
-  anonymous,
-  authOptional,
-  authRequired,
-}
+export 'package:lexicon/src/lexicons.g.dart';
