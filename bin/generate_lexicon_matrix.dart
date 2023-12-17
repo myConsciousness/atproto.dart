@@ -101,14 +101,21 @@ void _writeXrpcQuery(
 
   final output = data.output;
   if (output != null) {
+    matrix
+      ..writeln()
+      ..writeln('### Output (${output.encoding})');
+
+    if (output.description != null) {
+      matrix
+        ..writeln()
+        ..writeln(output.description);
+    }
+
     final schema = output.schema;
     if (schema != null) {
       _writeXrpcSchema(
         matrix,
         schema,
-        output.description,
-        output.encoding,
-        'Output',
       );
     }
   }
@@ -126,28 +133,42 @@ void _writeXrpcProcedure(
 
   final input = data.input;
   if (input != null) {
+    matrix
+      ..writeln()
+      ..writeln('### Input (${input.encoding})');
+
+    if (input.description != null) {
+      matrix
+        ..writeln()
+        ..writeln(input.description);
+    }
+
     final schema = input.schema;
     if (schema != null) {
       _writeXrpcSchema(
         matrix,
         schema,
-        input.description,
-        input.encoding,
-        'Input',
       );
     }
   }
 
   final output = data.output;
   if (output != null) {
+    matrix
+      ..writeln()
+      ..writeln('### Output (${output.encoding})');
+
+    if (output.description != null) {
+      matrix
+        ..writeln()
+        ..writeln(output.description);
+    }
+
     final schema = output.schema;
     if (schema != null) {
       _writeXrpcSchema(
         matrix,
         schema,
-        output.description,
-        output.encoding,
-        'Output',
       );
     }
   }
@@ -174,14 +195,21 @@ void _writeXrpcSubscription(
 
   final message = data.message;
   if (message != null) {
+    matrix
+      ..writeln()
+      ..writeln('### Output');
+
+    if (message.description != null) {
+      matrix
+        ..writeln()
+        ..writeln(message.description);
+    }
+
     final schema = message.schema;
     if (schema != null) {
       _writeXrpcSchema(
         matrix,
         schema,
-        message.description,
-        '',
-        'Output',
       );
     }
   }
@@ -246,23 +274,7 @@ void _writeXrpcParameters(
 void _writeXrpcSchema(
   final StringBuffer matrix,
   final LexXrpcSchema data,
-  final String? description,
-  final String encoding,
-  final String label,
 ) {
-  matrix.writeln();
-  if (encoding.isNotEmpty) {
-    matrix.writeln('### $label ($encoding)');
-  } else {
-    matrix.writeln('### $label');
-  }
-
-  if (description != null) {
-    matrix
-      ..writeln()
-      ..writeln(description);
-  }
-
   data.when(
     refVariant: (data) {
       matrix
