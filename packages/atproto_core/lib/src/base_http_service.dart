@@ -8,23 +8,7 @@ import 'dart:async';
 // 📦 Package imports:
 import 'package:xrpc/http.dart' as http;
 
-sealed class _Service {
-  Future<http.Response<T>> get<T>(
-    final String unencodedPath, {
-    final Map<String, dynamic>? parameters,
-    final http.To<T>? to,
-    final http.ResponseAdaptor? adaptor,
-  });
-
-  Future<http.Response<T>> post<T>(
-    final String unencodedPath, {
-    final Map<String, String>? headers,
-    final dynamic body,
-    final http.To<T>? to,
-  });
-}
-
-base class BaseHttpService implements _Service {
+base class BaseHttpService {
   /// Returns the new instance of [BaseHttpService].
   BaseHttpService({
     http.Protocol? protocol,
@@ -45,7 +29,6 @@ base class BaseHttpService implements _Service {
   final http.GetClient? _mockedGetClient;
   final http.PostClient? _mockedPostClient;
 
-  @override
   Future<http.Response<T>> get<T>(
     final String unencodedPath, {
     final Map<String, dynamic>? parameters,
@@ -62,7 +45,6 @@ base class BaseHttpService implements _Service {
         getClient: _mockedGetClient,
       );
 
-  @override
   Future<http.Response<T>> post<T>(
     final String unencodedPath, {
     final Map<String, String>? headers,

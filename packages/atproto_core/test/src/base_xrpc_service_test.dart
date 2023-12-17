@@ -12,7 +12,6 @@ import 'package:xrpc/xrpc.dart';
 
 // 🌎 Project imports:
 import 'package:atproto_core/src/base_xrpc_service.dart';
-import 'package:atproto_core/src/clients/auth_type.dart';
 import 'package:atproto_core/src/clients/client_context.dart';
 
 void main() {
@@ -43,7 +42,6 @@ void main() {
 
       final response = await service.get<Map<String, dynamic>>(
         'resolveHandle',
-        authType: AuthType.anonymous,
         parameters: {
           'handle': 'shinyakato.dev',
         },
@@ -88,7 +86,6 @@ void main() {
 
       final response = await service.post<Map<String, dynamic>>(
         'createAccount',
-        authType: AuthType.anonymous,
         body: {
           'something': 'test',
         },
@@ -135,7 +132,6 @@ void main() {
         () async => await service.upload<Map<String, dynamic>>(
           'uploadBlob',
           Uint8List(10),
-          authType: AuthType.anonymous,
         ),
         throwsA(isA<UnimplementedError>()),
       );
@@ -173,7 +169,6 @@ void main() {
 
       final subscription = await service.stream(
         'subscribeRepos',
-        authType: AuthType.anonymous,
       );
 
       final oneMinuteLater = DateTime.now().add(Duration(minutes: 1));

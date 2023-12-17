@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.13.2
+
+- Upgraded `atproto` and `atproto_core`. ([#1102](https://github.com/myConsciousness/atproto.dart/issues/1102))
+
 ## v0.13.1
 
 - Added `.toActor` method on `ActorBasic`. ([#1095](https://github.com/myConsciousness/atproto.dart/issues/1095))

@@ -7,7 +7,6 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 
 // 🌎 Project imports:
 import '../base_xrpc_service.dart';
-import '../clients/auth_type.dart';
 import '../clients/client_context.dart';
 import '../clients/retry_config.dart';
 import '../const.dart';
@@ -140,7 +139,6 @@ final class _Sessions extends BaseXRPCService {
           'password': password,
         },
         to: Session.fromJson,
-        authType: AuthType.anonymous,
       );
 
   Future<xrpc.XRPCResponse<Session>> refreshSession({
@@ -151,7 +149,6 @@ final class _Sessions extends BaseXRPCService {
         headers: {
           'Authorization': 'Bearer $refreshJwt',
         },
-        authType: AuthType.anonymous,
         to: Session.fromJson,
       );
 
@@ -163,6 +160,5 @@ final class _Sessions extends BaseXRPCService {
         headers: {
           'Authorization': 'Bearer $refreshJwt',
         },
-        authType: AuthType.anonymous,
       );
 }

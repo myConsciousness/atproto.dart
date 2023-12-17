@@ -21,27 +21,26 @@ final class Challenge {
   final RetryPolicy _retryPolicy;
 
   dynamic execute(
-    final Client client,
-    final dynamic Function(Client client) action, {
+    final dynamic Function(XrpcClient client) action, {
     int retryCount = 0,
   }) async {
     try {
-      return await action.call(client);
+      return await action.call(xrpcClient);
     } on SocketException {
       if (_retryPolicy.shouldRetry(retryCount)) {
-        return await _retry(client, action, retryCount: ++retryCount);
+        return await _retry(xrpcClient, action, retryCount: ++retryCount);
       }
 
       rethrow;
     } on TimeoutException {
       if (_retryPolicy.shouldRetry(retryCount)) {
-        return await _retry(client, action, retryCount: ++retryCount);
+        return await _retry(xrpcClient, action, retryCount: ++retryCount);
       }
 
       rethrow;
     } on xrpc.InternalServerErrorException {
       if (_retryPolicy.shouldRetry(retryCount)) {
-        return await _retry(client, action, retryCount: ++retryCount);
+        return await _retry(xrpcClient, action, retryCount: ++retryCount);
       }
 
       rethrow;
@@ -49,14 +48,13 @@ final class Challenge {
   }
 
   dynamic _retry(
-    final Client client,
-    final dynamic Function(Client client) action, {
+    final XrpcClient client,
+    final dynamic Function(XrpcClient client) action, {
     int retryCount = 0,
   }) async {
     await _retryPolicy.wait(retryCount);
 
     return await execute(
-      client,
       action,
       retryCount: retryCount,
     );
