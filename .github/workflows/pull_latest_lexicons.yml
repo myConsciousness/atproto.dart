@@ -56,6 +56,7 @@ jobs:
 
       - name: Format
         run: |
+          dart format packages/lexicon
           dart format packages/atproto
           dart format packages/bluesky
 
