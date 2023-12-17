@@ -4,23 +4,14 @@
 
 import 'dart:io';
 
+import 'utils.dart';
+
 const _roots = [
   'com/atproto',
   'app/bsky',
 ];
 
-final _header =
-    '''// Copyright ${DateTime.now().year} Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
-// coverage:ignore-file
-// ignore_for_file: type=lint
-// GENERATED CODE - DO NOT MODIFY BY HAND
-
-// **************************************************************************
-// Lexicon Test Generator
-// **************************************************************************''';
+final _header = getFileHeader('Lexicon Test Generator');
 
 void main(List<String> args) {
   final ids = StringBuffer()..writeln('const lexiconIds = [');

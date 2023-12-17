@@ -4,7 +4,6 @@
   </a>
 </p>
 
-
 <p align="center">
   <b>AT Protocol standard Lexicon objects for Dart and Flutter 🎯</b>
 </p>
@@ -78,10 +77,11 @@ import 'package:lexicon/lexicon.dart';
 ### 1.1.3. Implementation
 
 ```dart
-
+import 'package:lexicon/docs.dart' as docs;
 import 'package:lexicon/lexicon.dart';
 
 void main() {
+  //* Easy to parse lexicon from JSON.
   final lexicon = LexiconDoc.fromJson({
     'lexicon': 1,
     'id': 'app.bsky.feed.like',
@@ -105,6 +105,10 @@ void main() {
   print(lexicon.id);
   print(lexicon.description);
   print(lexicon.defs);
+
+  //* Or you can use prepared official lexicons.
+  final appBskyFeedPost = LexiconDoc.fromJson(docs.appBskyFeedPost);
+  print(appBskyFeedPost);
 }
 ```
 
