@@ -124,7 +124,7 @@ class _$ActorProfilesImpl implements _ActorProfiles {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ActorProfilesImpl &&
