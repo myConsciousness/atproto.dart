@@ -103,7 +103,7 @@ void _writeXrpcQuery(
   if (output != null) {
     matrix
       ..writeln()
-      ..writeln('### Output (${output.encoding})');
+      ..writeln('### Output (${_escapeSpecialChars(output.encoding)})');
 
     if (output.description != null) {
       matrix
@@ -135,7 +135,7 @@ void _writeXrpcProcedure(
   if (input != null) {
     matrix
       ..writeln()
-      ..writeln('### Input (${input.encoding})');
+      ..writeln('### Input (${_escapeSpecialChars(input.encoding)})');
 
     if (input.description != null) {
       matrix
@@ -156,7 +156,7 @@ void _writeXrpcProcedure(
   if (output != null) {
     matrix
       ..writeln()
-      ..writeln('### Output (${output.encoding})');
+      ..writeln('### Output (${_escapeSpecialChars(output.encoding)})');
 
     if (output.description != null) {
       matrix
@@ -605,4 +605,12 @@ Map<String, Map<String, LexUserType>> _getLexObjects(
   }
 
   return objects;
+}
+
+String _escapeSpecialChars(final String markdown) {
+  final specialChars = RegExp(r'([*])');
+
+  return markdown.replaceAllMapped(specialChars, (Match match) {
+    return '\\${match[0]}';
+  });
 }
