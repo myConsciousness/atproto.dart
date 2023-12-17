@@ -15,3 +15,5 @@ Get blocks from a given repo.
 | --- | --- | --- | :---: | --- |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | The DID of the repo. |
 | **cids** | array of [cid](https://atproto.com/specs/repository#cid-formats) | - | ✅ | - |
+
+### Output (application/vnd.ipld.car)
