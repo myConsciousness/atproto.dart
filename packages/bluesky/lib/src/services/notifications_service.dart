@@ -7,6 +7,7 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
+import '../nsids.g.dart' as nsids;
 import 'base_service.dart';
 import 'entities/count.dart';
 import 'entities/notifications.dart';
@@ -141,7 +142,7 @@ final class _NotificationsService extends BlueskyBaseService
     required super.context,
     super.mockedGetClient,
     super.mockedPostClient,
-  }) : super(methodAuthority: 'notification.bsky.app');
+  });
 
   @override
   Future<core.XRPCResponse<Notifications>> findNotifications({
@@ -174,7 +175,7 @@ final class _NotificationsService extends BlueskyBaseService
     DateTime? seenAt,
   }) async =>
       await super.post<core.EmptyData>(
-        'updateSeen',
+        nsids.appBskyNotificationUpdateSeen,
         body: {
           'seenAt': toUtcIso8601String(seenAt),
         },
@@ -188,7 +189,7 @@ final class _NotificationsService extends BlueskyBaseService
     required String appId,
   }) async =>
       await super.post(
-        'registerPush',
+        nsids.appBskyNotificationRegisterPush,
         body: {
           'serviceDid': serviceDid,
           'token': token,
@@ -203,7 +204,7 @@ final class _NotificationsService extends BlueskyBaseService
     core.To<T>? to,
   }) async =>
       await super.get(
-        'listNotifications',
+        nsids.appBskyNotificationListNotifications,
         parameters: _buildListNotificationsParams(
           limit: limit,
           cursor: cursor,
@@ -217,7 +218,7 @@ final class _NotificationsService extends BlueskyBaseService
     core.To<T>? to,
   }) =>
       super.paginate(
-        'listNotifications',
+        nsids.appBskyNotificationListNotifications,
         parameters: _buildListNotificationsParams(
           limit: limit,
           cursor: cursor,
@@ -229,7 +230,7 @@ final class _NotificationsService extends BlueskyBaseService
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getUnreadCount',
+        nsids.appBskyNotificationGetUnreadCount,
         to: to,
       );
 

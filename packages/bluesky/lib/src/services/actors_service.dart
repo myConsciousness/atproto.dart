@@ -7,6 +7,8 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
+import '../ids.g.dart' as ids;
+import '../nsids.g.dart' as nsids;
 import 'base_service.dart';
 import 'entities/actor_profile.dart';
 import 'entities/actor_profiles.dart';
@@ -258,7 +260,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
     required super.context,
     super.mockedGetClient,
     super.mockedPostClient,
-  }) : super(methodAuthority: 'actor.bsky.app');
+  });
 
   @override
   Future<core.XRPCResponse<Actors>> searchActors({
@@ -355,7 +357,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
       await atproto.repositories.updateRecord(
         uri: core.AtUri.make(
           'alice',
-          createNSID('profile').toString(),
+          ids.appBskyActorProfile,
           'self',
         ),
         record: {
@@ -376,7 +378,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
     List<Preference> preferences,
   ) async =>
       await super.post(
-        'putPreferences',
+        nsids.appBskyActorPutPreferences,
         body: {
           'preferences': preferences.map((e) => e.toJson()).toList(),
         },
@@ -389,7 +391,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'searchActors',
+        nsids.appBskyActorSearchActors,
         parameters: _buildSearchActorsParams(
           term: term,
           limit: limit,
@@ -405,7 +407,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        'searchActors',
+        nsids.appBskyActorSearchActors,
         parameters: _buildSearchActorsParams(
           term: term,
           limit: limit,
@@ -419,7 +421,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getProfile',
+        nsids.appBskyActorGetProfile,
         parameters: {
           'actor': actor,
         },
@@ -431,7 +433,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getProfiles',
+        nsids.appBskyActorGetProfiles,
         parameters: {
           'actors': actors,
         },
@@ -444,7 +446,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getSuggestions',
+        nsids.appBskyActorGetSuggestions,
         parameters: _buildGetSuggestionsParams(
           limit: limit,
           cursor: cursor,
@@ -458,7 +460,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        'getSuggestions',
+        nsids.appBskyActorGetSuggestions,
         parameters: _buildGetSuggestionsParams(
           limit: limit,
           cursor: cursor,
@@ -472,7 +474,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'searchActorsTypeahead',
+        nsids.appBskyActorSearchActorsTypeahead,
         parameters: {
           'q': term,
           'limit': limit,
@@ -484,7 +486,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getPreferences',
+        nsids.appBskyActorGetPreferences,
         to: to,
       );
 

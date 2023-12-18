@@ -6,6 +6,7 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
+import '../nsids.g.dart' as nsids;
 import 'base_service.dart';
 import 'entities/adaptor/subscribe_label_updates_adaptor.dart';
 import 'entities/labels_by_query.dart';
@@ -91,7 +92,7 @@ final class _LabelsService extends ATProtoBaseService implements LabelsService {
     required super.context,
     super.mockedGetClient,
     super.mockedPostClient,
-  }) : super(methodAuthority: 'label.atproto.com');
+  });
 
   @override
   Future<core.XRPCResponse<LabelsByQuery>> searchLabels({
@@ -101,7 +102,7 @@ final class _LabelsService extends ATProtoBaseService implements LabelsService {
     String? cursor,
   }) async =>
       await super.get(
-        'queryLabels',
+        nsids.comAtprotoLabelQueryLabels,
         parameters: {
           'uriPatterns': uriPatterns,
           'sources': didSources,
@@ -117,7 +118,7 @@ final class _LabelsService extends ATProtoBaseService implements LabelsService {
     int? cursor,
   }) async =>
           await super.stream(
-            'subscribeLabels',
+            nsids.comAtprotoLabelSubscribeLabels,
             parameters: {
               'cursor': cursor,
             },

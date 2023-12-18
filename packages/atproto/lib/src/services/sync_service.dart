@@ -9,6 +9,7 @@ import 'dart:typed_data';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
+import '../nsids.g.dart' as nsids;
 import 'base_service.dart';
 import 'entities/adaptor/repo_blocks_adaptor.dart';
 import 'entities/adaptor/repo_commit_adaptor.dart';
@@ -316,7 +317,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     required super.context,
     super.mockedGetClient,
     super.mockedPostClient,
-  }) : super(methodAuthority: 'sync.atproto.com');
+  });
 
   @override
   Future<core.XRPCResponse<core.Subscription<SubscribedRepo>>>
@@ -324,7 +325,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     int? cursor,
   }) async =>
           await super.stream(
-            'subscribeRepos',
+            nsids.comAtprotoSyncSubscribeRepos,
             parameters: {
               'cursor': cursor,
             },
@@ -403,7 +404,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     required String hostname,
   }) async =>
       await super.post(
-        'notifyOfUpdate',
+        nsids.comAtprotoSyncNotifyOfUpdate,
         body: {
           'hostname': hostname,
         },
@@ -414,7 +415,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     required String hostname,
   }) async =>
       await super.post(
-        'requestCrawl',
+        nsids.comAtprotoSyncRequestCrawl,
         body: {
           'hostname': hostname,
         },
@@ -426,7 +427,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     required String cid,
   }) async =>
       await super.get<Uint8List>(
-        'getBlob',
+        nsids.comAtprotoSyncGetBlob,
         parameters: {
           'did': did,
           'cid': cid,
@@ -470,7 +471,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getRepo',
+        nsids.comAtprotoSyncGetRepo,
         parameters: {
           'did': did,
           'since': sinceCommitCid,
@@ -488,7 +489,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getBlocks',
+        nsids.comAtprotoSyncGetBlocks,
         parameters: {
           'did': did,
           'cids': commitCids,
@@ -502,7 +503,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getLatestCommit',
+        nsids.comAtprotoSyncGetLatestCommit,
         parameters: {
           'did': did,
         },
@@ -515,7 +516,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getRecord',
+        nsids.comAtprotoSyncGetRecord,
         parameters: {
           'did': uri.hostname,
           'collection': uri.collection,
@@ -532,7 +533,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'listRepos',
+        nsids.comAtprotoSyncListRepos,
         parameters: _buildListReposParams(
           limit: limit,
           cursor: cursor,
@@ -546,7 +547,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        'listRepos',
+        nsids.comAtprotoSyncListRepos,
         parameters: _buildListReposParams(
           limit: limit,
           cursor: cursor,
@@ -562,7 +563,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'listBlobs',
+        nsids.comAtprotoSyncListBlobs,
         parameters: _buildListBlobsParams(
           did: did,
           sinceCid: sinceCid,
@@ -580,7 +581,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        'listBlobs',
+        nsids.comAtprotoSyncListBlobs,
         parameters: _buildListBlobsParams(
           did: did,
           sinceCid: sinceCid,

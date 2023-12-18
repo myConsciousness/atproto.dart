@@ -6,6 +6,7 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
+import '../nsids.g.dart' as nsids;
 import 'base_service.dart';
 import 'entities/did.dart';
 
@@ -73,7 +74,7 @@ final class _IdentitiesService extends ATProtoBaseService
     required super.context,
     super.mockedGetClient,
     super.mockedPostClient,
-  }) : super(methodAuthority: 'identity.atproto.com');
+  });
 
   @override
   Future<core.XRPCResponse<DID>> findDID({
@@ -89,7 +90,7 @@ final class _IdentitiesService extends ATProtoBaseService
     required String handle,
   }) async =>
       await super.post(
-        'updateHandle',
+        nsids.comAtprotoIdentityUpdateHandle,
         body: {
           'handle': handle,
         },
@@ -100,7 +101,7 @@ final class _IdentitiesService extends ATProtoBaseService
     core.To<T>? to,
   }) async =>
       await super.get(
-        'resolveHandle',
+        nsids.comAtprotoIdentityResolveHandle,
         parameters: {
           'handle': handle,
         },
