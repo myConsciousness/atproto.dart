@@ -27,6 +27,7 @@ const _languageReference = 'https://atproto.com/specs/lexicon#language';
 const _tableHeader =
     '| Property | Type | Known Values | Required | Description |';
 const _tableDivider = '| --- | --- | --- | :---: | --- |';
+
 void main(List<String> args) => _writeFiles(utils.lexiconDocs);
 
 void _writeFiles(final List<LexiconDoc> lexiconDocs) {

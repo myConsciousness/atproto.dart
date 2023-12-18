@@ -6,7 +6,7 @@
 
 
 <p align="center">
-  <b>Provide useful interfaces such a CID used by AT Protocol to Dart/Flutter 🎯</b>
+  <b>Core library for parsing IPFS-related things 🦋</b>
 </p>
 
 ---

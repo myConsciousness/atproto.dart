@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.7.1
+
+- Upgraded `NSID`. ([#1112](https://github.com/myConsciousness/atproto.dart/issues/1112))
+
 ## v0.7.0
 
 - Removed `AuthType` and `ClientResolver`. Let the server handle whether authentication is required or not. ([#1102](https://github.com/myConsciousness/atproto.dart/issues/1102))

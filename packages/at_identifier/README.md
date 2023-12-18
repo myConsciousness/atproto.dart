@@ -4,9 +4,8 @@
   </a>
 </p>
 
-
 <p align="center">
-  <b>Provide Standard Validation for Identifier Supported By AT Protocol to Dart/Flutter 🎯</b>
+  <b>Core library for the syntax in the AT Protocol standard 🦋</b>
 </p>
 
 ---

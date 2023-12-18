@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <b>Support for DID PLC Directory endpoints used by atproto and other services 🎯</b>
+  <b>Support for DID PLC Directory endpoints used by atproto and other services 🦋</b>
 </p>
 
 ---
