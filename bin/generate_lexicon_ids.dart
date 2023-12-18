@@ -18,31 +18,28 @@ void main() {
   final fields = _getFields();
 
   for (final package in packages) {
-    final buffer = StringBuffer();
+    final ids = StringBuffer()..writeln(_header);
 
     for (final field in fields) {
       if (!field.value.contains(_toServiceName(package))) {
         continue;
       }
 
-      buffer
-        ..writeln("""/// `${field.value}`
-const ${field.name} = '${field.value}';""")
-        ..writeln();
+      ids
+        ..writeln()
+        ..writeln('/// `${field.value}`')
+        ..writeln("const ${field.name} = '${field.value}';");
     }
 
     if (package == 'atproto') {
-      buffer
-        ..writeln("""/// `blob`
-const blob = 'blob';""")
-        ..writeln();
+      ids
+        ..writeln()
+        ..writeln('/// `blob`')
+        ..writeln("const blob = 'blob';");
     }
 
-    final ids = buffer.toString();
-
-    File('./packages/$package/lib/src/ids.g.dart').writeAsStringSync('''$_header
-
-${ids.substring(0, ids.length - 1)}''');
+    File('./packages/$package/lib/src/ids.g.dart')
+        .writeAsStringSync(ids.toString());
   }
 }
 
