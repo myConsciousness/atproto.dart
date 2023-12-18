@@ -14,11 +14,19 @@ const packages = [
 
 final _header = getFileHeader('Lexicon IDs Generator');
 
+const _idsFileName = 'ids.g.dart';
+const _nsidsFileName = 'nsids.g.dart';
+
 void main() {
   final fields = _getFields();
 
   for (final package in packages) {
     final ids = StringBuffer()..writeln(_header);
+    final nsids = StringBuffer()
+      ..writeln(_header)
+      ..writeln()
+      ..writeln("import 'package:atproto_core/atproto_core.dart';")
+      ..writeln("import '$_idsFileName';");
 
     for (final field in fields) {
       if (!field.value.contains(_toServiceName(package))) {
@@ -29,6 +37,13 @@ void main() {
         ..writeln()
         ..writeln('/// `${field.value}`')
         ..writeln("const ${field.name} = '${field.value}';");
+
+      if (!field.value.split('#').first.endsWith('defs')) {
+        nsids
+          ..writeln()
+          ..writeln('/// `${field.value}`')
+          ..writeln("const ${field.name} = NSID.of(${field.name});");
+      }
     }
 
     if (package == 'atproto') {
@@ -38,8 +53,11 @@ void main() {
         ..writeln("const blob = 'blob';");
     }
 
-    File('./packages/$package/lib/src/ids.g.dart')
+    File('./packages/$package/lib/src/$_idsFileName')
         .writeAsStringSync(ids.toString());
+
+    File('./packages/$package/lib/src/$_nsidsFileName')
+        .writeAsStringSync(nsids.toString());
   }
 }
 
