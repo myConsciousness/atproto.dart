@@ -1,6 +1,6 @@
 # Release Note
 
-## v0.3.0
+## v0.2.3
 
 - Upgraded `nsid`. ([#1112](https://github.com/myConsciousness/atproto.dart/issues/1112))
 
