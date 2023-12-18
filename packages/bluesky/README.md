@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <b>The Most Famous and Powerful Dart/Flutter Library for Bluesky Social 🎯</b>
+  <b>The Most Famous & Powerful Dart/Flutter Library for Bluesky Social 🦋</b>
 </p>
 
 ---

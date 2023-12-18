@@ -4,9 +4,8 @@
   </a>
 </p>
 
-
 <p align="center">
-  <b>A Powerful and Useful CLI Tool for Bluesky Social Powered By Dart Language 🎯</b>
+  <b>A Powerful and Useful CLI Tool for Bluesky Social 🦋</b>
 </p>
 
 ---

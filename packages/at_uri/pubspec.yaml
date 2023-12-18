@@ -17,7 +17,7 @@ topics:
   - util
 
 dependencies:
-  at_identifier: ^0.2.0
+  at_identifier: ^0.2.1
   nsid: ^0.3.0
 
 dev_dependencies:

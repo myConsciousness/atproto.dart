@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <b>AT Protocol standard Lexicon objects for Dart and Flutter 🎯</b>
+  <b>Core library for parsing Lexicon in the AT Protocol standard 🦋</b>
 </p>
 
 ---

@@ -4,9 +4,8 @@
   </a>
 </p>
 
-
 <p align="center">
-  <b>Provide Standard NSID Object Supported By AT Protocol to Dart/Flutter 🎯</b>
+  <b>Core library for parsing NSIDs in the AT Protocol standard 🦋</b>
 </p>
 
 ---

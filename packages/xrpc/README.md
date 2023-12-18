@@ -4,9 +4,8 @@
   </a>
 </p>
 
-
 <p align="center">
-  <b>Provide Standard XRPC Supported By AT Protocol to Dart/Flutter 🎯</b>
+  <b>Core library for XRPC communication 🦋</b>
 </p>
 
 ---

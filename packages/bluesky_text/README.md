@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <b>Provides the easiest and most powerful way to analyze the text on Bluesky Social 🎯</b>
+  <b>The Easiest & Most Powerful Way to Analyze the Text for Bluesky Social 🦋</b>
 </p>
 
 ---
