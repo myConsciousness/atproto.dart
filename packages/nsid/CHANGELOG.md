@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.3.0
+
+- Added `.of` constructor. It does not validate the given arguments and returns an immutable NSID object. ([#1112](https://github.com/myConsciousness/atproto.dart/issues/1112))
+- Added override for `==` and `.hashCode`. It's possible to safely compare NSID objects with each other.
+
 ## v0.2.1
 
 - Improved documents. ([#677](https://github.com/myConsciousness/atproto.dart/issues/677))

@@ -18,20 +18,26 @@ import 'validation.dart';
 /// - nsid      = authority delim name
 /// - nsid-ns   = authority delim "*"
 final class NSID {
-  factory NSID.parse(final String nsid) => NSID._(nsid);
+  /// Validates the format of [nsid]
+  /// and returns a new [NSID] object if it is in NSID format.
+  /// Otherwise always throws InvalidNsidError.
+  factory NSID.parse(final String nsid) {
+    ensureValidNsid(nsid);
 
+    return NSID._(nsid);
+  }
+
+  /// Returns a new [NSID] from [authority] and [name].
   factory NSID.create(final String authority, final String name) =>
       NSID._([...authority.split('.').reversed, name].join('.'));
 
+  /// Returns an immutable [NSID] from the given [nsid].
+  const factory NSID.of(final String nsid) = NSID._;
+
   /// Returns the new instance of [NSID] based on [nsid].
-  NSID._(final String nsid) {
-    ensureValidNsid(nsid);
+  const NSID._(final String nsid) : _nsid = nsid;
 
-    _segments = nsid.split('.');
-  }
-
-  /// The nsid segments.
-  late List<String> _segments;
+  final String _nsid;
 
   /// Returns true if [nsid] could be parsed as NSID, otherwise false.
   static bool isValid(String nsid) {
@@ -44,12 +50,30 @@ final class NSID {
   }
 
   /// Returns the authority of this nsid.
-  String get authority =>
-      _segments.sublist(0, _segments.length - 1).reversed.join('.');
+  String get authority {
+    final segments = _nsid.split('.');
+
+    return segments.sublist(0, segments.length - 1).reversed.join('.');
+  }
 
   /// Returns the method name of this nsid.
-  String get name => _segments[_segments.length - 1];
+  String get name {
+    final segments = _nsid.split('.');
+
+    return segments[segments.length - 1];
+  }
 
   @override
-  String toString() => _segments.join('.');
+  String toString() => _nsid;
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! NSID) return false;
+
+    return _nsid == other._nsid;
+  }
+
+  @override
+  int get hashCode => _nsid.hashCode;
 }
