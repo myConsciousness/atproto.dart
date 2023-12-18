@@ -26,7 +26,7 @@ void main() {
       ..writeln(_header)
       ..writeln()
       ..writeln("import 'package:atproto_core/atproto_core.dart';")
-      ..writeln("import '$_idsFileName';");
+      ..writeln("import '$_idsFileName' as ids;");
 
     for (final field in fields) {
       if (!field.value.contains(_toServiceName(package))) {
@@ -42,7 +42,7 @@ void main() {
         nsids
           ..writeln()
           ..writeln('/// `${field.value}`')
-          ..writeln("const ${field.name} = NSID.of(${field.name});");
+          ..writeln("const ${field.name} = NSID.of(ids.${field.name});");
       }
     }
 
