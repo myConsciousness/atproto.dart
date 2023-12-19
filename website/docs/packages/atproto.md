@@ -140,7 +140,7 @@ Future<void> main() async {
   final atproto = ATProto.anonymous();
 
   // Use `findDID` in `IdentitiesService`.
-  final did = await atproto.identities.findDID(
+  final did = await atproto.identity.findDID(
     handle: 'shinyakato.dev',
   );
 }
@@ -168,7 +168,7 @@ Future<void> main() async {
   final atproto = atp.ATProto.fromSession(session.data);
 
   // Create a record to specific service like Bluesky.
-  final strongRef = await atproto.repositories.createRecord(
+  final strongRef = await atproto.repo.createRecord(
     collection: atp.NSID.create(
       'feed.bsky.app',
       'post',
@@ -180,7 +180,7 @@ Future<void> main() async {
   );
 
   // And delete it.
-  await atproto.repositories.deleteRecord(
+  await atproto.repo.deleteRecord(
     uri: strongRef.data.uri,
   );
 }
@@ -229,7 +229,7 @@ Future<void> main() async {
   final atproto = atp.ATProto.fromSession(session.data);
 
   // Do something with atproto
-  final did = await atproto.identities.findDID(handle: session.data.handle);
+  final did = await atproto.identity.findDID(handle: session.data.handle);
 }
 ```
 
@@ -292,7 +292,7 @@ Future<void> main() async {
   );
 
   // See this line.
-  await atproto.repositories.create
+  await atproto.repo.create
 }
 ```
 
@@ -341,7 +341,7 @@ Future<void> main() async {
   final atproto = ATProto.anonymous();
 
   // Just find the DID of `shinyakato.dev`
-  final did = await atproto.identities.findDID(
+  final did = await atproto.identity.findDID(
     handle: 'shinyakato.dev',
   );
 }
@@ -406,7 +406,7 @@ Future<void> main() async {
 
   final atproto = atp.ATProto.fromSession(session.data);
 
-  final response = await atproto.repositories.createRecord(
+  final response = await atproto.repo.createRecord(
     collection: atp.NSID.create(
       'app.bsky.feed',
       'post',
@@ -698,7 +698,7 @@ Future<void> main() async {
   String? nextCursor;
 
   do {
-    final records = await atproto.repositories.findRecords(
+    final records = await atproto.repo.findRecords(
       repo: 'shinyakato.dev',
       collection: atp.NSID.create(
         'graph.bsky.app',
@@ -746,7 +746,7 @@ Future<void> main() async {
   final atproto = atp.ATProto.fromSession(session.data);
 
   // Get a pagination for `com.atproto.repo.listRecords`.
-  final pagination = atproto.repositories.paginateRecords(
+  final pagination = atproto.repo.paginateRecords(
     repo: 'shinyakato.dev',
     collection: atp.NSID.create(
       'feed.bsky.app',

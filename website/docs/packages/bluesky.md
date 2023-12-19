@@ -153,7 +153,7 @@ Future<void> main() async {
     session.data,
   );
 
-  final timeline = await bluesky.feeds.findTimeline();
+  final timeline = await bluesky.feed.findTimeline();
 
   print(timeline);
 }
@@ -184,12 +184,12 @@ Future<void> main() async {
   );
 
   // Create a record to specific service like Bluesky.
-  final strongRef = await bluesky.feeds.createPost(
+  final strongRef = await bluesky.feed.createPost(
     text: 'Hello, Bluesky!',
   );
 
   // And delete it.
-  await bluesky.repositories.deleteRecord(uri: strongRef.data.uri);
+  await bluesky.repo.deleteRecord(uri: strongRef.data.uri);
 }
 ```
 
@@ -236,7 +236,7 @@ Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(session.data);
 
   // Do something with bluesky
-  final did = await bluesky.identities.findDID(handle: session.data.handle);
+  final did = await bluesky.identity.findDID(handle: session.data.handle);
 }
 ```
 
@@ -299,7 +299,7 @@ Future<void> main() async {
   );
 
   // See this line.
-  await bluesky.graphs.find
+  await bluesky.graph.find
 }
 ```
 
@@ -348,7 +348,7 @@ Future<void> main() async {
   final bluesky = Bluesky.anonymous();
 
   // Just find the DID of `shinyakato.dev`
-  final did = await bluesky.identities.findDID(
+  final did = await bluesky.identity.findDID(
     handle: 'shinyakato.dev',
   );
 }
@@ -407,7 +407,7 @@ import 'package:bluesky/bluesky.dart' as bsky;
 Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(await _session);
 
-  final response = await bluesky.feeds.findTimeline();
+  final response = await bluesky.feed.findTimeline();
 
   // This is rate limit!
   print(response.rateLimit);
@@ -738,7 +738,7 @@ Future<void> main() async {
   String? nextCursor;
 
   do {
-    final actors = await bluesky.actors.searchActors(
+    final actors = await bluesky.actor.searchActors(
       term: 'alf',
       cursor: nextCursor, // If null, it is ignored.
     );
@@ -782,7 +782,7 @@ Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(session.data);
 
   // Get a pagination for `app.bsky.feed.getTimeline`.
-  final pagination = bluesky.feeds.paginateTimeline();
+  final pagination = bluesky.feed.paginateTimeline();
 
   // Until the next cursor runs out.
   while (pagination.hasNext) {
@@ -875,7 +875,7 @@ import 'package:bluesky/bluesky.dart' as bsky;
 Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(await _session);
 
-  final ref = await bluesky.feeds.createPost(
+  final ref = await bluesky.feed.createPost(
     text: 'This is where I post from',
 
     // Use this parameter.
@@ -930,7 +930,7 @@ import 'package:bluesky/moderation.dart' as mod;
 Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(await _session);
 
-  final preferences = await bluesky.actors.findPreferences();
+  final preferences = await bluesky.actor.findPreferences();
 
   // Moderation options based on user's preferences
   final options = mod.getModerationOptions(

@@ -92,19 +92,19 @@ void main() {
     expect(service, isA<UnspeccedService>());
   });
 
-  test('.servers', () {
+  test('.server', () {
     final service = Bluesky.anonymous().server;
 
     expect(service, isA<ServerService>());
   });
 
-  test('.identities', () {
+  test('.identity', () {
     final service = Bluesky.anonymous().identity;
 
     expect(service, isA<IdentityService>());
   });
 
-  test('.repositories', () {
+  test('.repo', () {
     final service = Bluesky.anonymous().repo;
 
     expect(service, isA<RepoService>());
@@ -125,5 +125,11 @@ void main() {
     final service = Bluesky.anonymous().sync;
 
     expect(service, isA<SyncService>());
+  });
+
+  test('.label', () {
+    final service = Bluesky.anonymous().label;
+
+    expect(service, isA<LabelService>());
   });
 }
