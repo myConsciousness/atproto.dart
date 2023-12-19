@@ -22,7 +22,7 @@ Future<void> main() async {
       service: 'SERVICE_NAME',
 
       //! The default is `bsky.network`
-      streamService: 'STREAM_SERVICE_NAME',
+      relayService: 'STREAM_SERVICE_NAME',
 
       //! Automatic retry is available when server error or network error occurs
       //! when communicating with the API.

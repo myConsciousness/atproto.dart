@@ -31,8 +31,8 @@ void main() {
   });
 
   test('defaultStreamService', () {
-    expect(defaultStreamService, isA<String>());
-    expect(defaultStreamService, 'bsky.network');
+    expect(defaultRelayService, isA<String>());
+    expect(defaultRelayService, 'bsky.network');
   });
 
   test('defaultLinkPreviewService', () {
