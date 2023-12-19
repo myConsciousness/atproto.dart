@@ -36,19 +36,19 @@ sealed class BlueskyService {
 
   /// Returns the actor service.
   /// This service represents `app.bsky.actor.*`.
-  ActorService get actors;
+  ActorService get actor;
 
   /// Returns the feed service.
   /// This service represents `app.bsky.feed.*`.
-  FeedService get feeds;
+  FeedService get feed;
 
   /// Returns the notification service.
   /// This service represents `app.bsky.notification.*`.
-  NotificationService get notifications;
+  NotificationService get notification;
 
   /// Returns the graph service.
   /// This service represents `app.bsky.graph.*`.
-  GraphService get graphs;
+  GraphService get graph;
 
   /// Returns the unspecced service.
   /// This service represents `app.bsky.unspecced.*`.
@@ -56,15 +56,15 @@ sealed class BlueskyService {
 
   /// Returns the server service.
   /// This service represents `com.atproto.server.*`.
-  atp.ServerService get servers;
+  atp.ServerService get server;
 
   /// Returns the identity service.
   /// This service represents `com.atproto.identity.*`.
-  atp.IdentityService get identities;
+  atp.IdentityService get identity;
 
   /// Returns the repo service.
   /// This service represents `com.atproto.repo.*`.
-  atp.RepoService get repositories;
+  atp.RepoService get repo;
 
   /// Returns the moderation service.
   /// This service represents `com.atproto.moderation.*`.
@@ -76,7 +76,7 @@ sealed class BlueskyService {
 
   /// Returns the label service.
   /// This service represents `com.atproto.label.*`.
-  atp.LabelService get labels;
+  atp.LabelService get label;
 }
 
 final class _BlueskyService implements BlueskyService {
@@ -89,7 +89,7 @@ final class _BlueskyService implements BlueskyService {
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  })  : actors = ActorService(
+  })  : actor = ActorService(
           atproto: atproto,
           did: did,
           protocol: protocol,
@@ -98,7 +98,7 @@ final class _BlueskyService implements BlueskyService {
           mockedGetClient: mockedGetClient,
           mockedPostClient: mockedPostClient,
         ),
-        feeds = FeedService(
+        feed = FeedService(
           atproto: atproto,
           did: did,
           protocol: protocol,
@@ -107,7 +107,7 @@ final class _BlueskyService implements BlueskyService {
           mockedGetClient: mockedGetClient,
           mockedPostClient: mockedPostClient,
         ),
-        notifications = NotificationService(
+        notification = NotificationService(
           atproto: atproto,
           did: did,
           protocol: protocol,
@@ -116,7 +116,7 @@ final class _BlueskyService implements BlueskyService {
           mockedGetClient: mockedGetClient,
           mockedPostClient: mockedPostClient,
         ),
-        graphs = GraphService(
+        graph = GraphService(
           atproto: atproto,
           did: did,
           protocol: protocol,
@@ -134,36 +134,36 @@ final class _BlueskyService implements BlueskyService {
           mockedGetClient: mockedGetClient,
           mockedPostClient: mockedPostClient,
         ),
-        servers = atproto.servers,
-        identities = atproto.identities,
-        repositories = atproto.repositories,
+        server = atproto.server,
+        identity = atproto.identity,
+        repo = atproto.repo,
         moderation = atproto.moderation,
         sync = atproto.sync,
-        labels = atproto.labels;
+        label = atproto.label;
 
   @override
-  final ActorService actors;
+  final ActorService actor;
 
   @override
-  final FeedService feeds;
+  final FeedService feed;
 
   @override
-  final NotificationService notifications;
+  final NotificationService notification;
 
   @override
-  final GraphService graphs;
+  final GraphService graph;
 
   @override
   final UnspeccedService unspecced;
 
   @override
-  final atp.ServerService servers;
+  final atp.ServerService server;
 
   @override
-  final atp.IdentityService identities;
+  final atp.IdentityService identity;
 
   @override
-  final atp.RepoService repositories;
+  final atp.RepoService repo;
 
   @override
   final atp.ModerationService moderation;
@@ -172,5 +172,5 @@ final class _BlueskyService implements BlueskyService {
   final atp.SyncService sync;
 
   @override
-  final atp.LabelService labels;
+  final atp.LabelService label;
 }

@@ -36,15 +36,15 @@ sealed class ATProtoService {
 
   /// Returns the servers service.
   /// This service represents `com.atproto.server.*`.
-  ServerService get servers;
+  ServerService get server;
 
   /// Returns the new identity service.
   /// This service represents `com.atproto.identity.*`.
-  IdentityService get identities;
+  IdentityService get identity;
 
   /// Returns the repositories service.
   /// This service represents `com.atproto.repo.*`.
-  RepoService get repositories;
+  RepoService get repo;
 
   /// Returns the moderation service.
   /// This service represents `com.atproto.moderation.*`.
@@ -56,7 +56,7 @@ sealed class ATProtoService {
 
   /// Returns the label service.
   /// This service represents `com.atproto.label.*`.
-  LabelService get labels;
+  LabelService get label;
 }
 
 final class _ATProtoService implements ATProtoService {
@@ -69,7 +69,7 @@ final class _ATProtoService implements ATProtoService {
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  })  : servers = ServerService(
+  })  : server = ServerService(
           did: did,
           protocol: protocol,
           service: service,
@@ -77,7 +77,7 @@ final class _ATProtoService implements ATProtoService {
           mockedGetClient: mockedGetClient,
           mockedPostClient: mockedPostClient,
         ),
-        identities = IdentityService(
+        identity = IdentityService(
           did: did,
           protocol: protocol,
           service: service,
@@ -85,7 +85,7 @@ final class _ATProtoService implements ATProtoService {
           mockedGetClient: mockedGetClient,
           mockedPostClient: mockedPostClient,
         ),
-        repositories = RepoService(
+        repo = RepoService(
           did: did,
           protocol: protocol,
           service: service,
@@ -110,7 +110,7 @@ final class _ATProtoService implements ATProtoService {
           mockedGetClient: mockedGetClient,
           mockedPostClient: mockedPostClient,
         ),
-        labels = LabelService(
+        label = LabelService(
           did: did,
           protocol: protocol,
           service: service,
@@ -121,13 +121,13 @@ final class _ATProtoService implements ATProtoService {
         );
 
   @override
-  final ServerService servers;
+  final ServerService server;
 
   @override
-  final IdentityService identities;
+  final IdentityService identity;
 
   @override
-  final RepoService repositories;
+  final RepoService repo;
 
   @override
   final ModerationService moderation;
@@ -136,5 +136,5 @@ final class _ATProtoService implements ATProtoService {
   final SyncService sync;
 
   @override
-  final LabelService labels;
+  final LabelService label;
 }

@@ -1,6 +1,6 @@
 # Release Note
 
-## v0.7.1
+## v0.8.0
 
 - Upgraded `NSID`. ([#1112](https://github.com/myConsciousness/atproto.dart/issues/1112))
 - The following methods of `BaseXRPCService` now require an NSID argument. Immutable NSIDs are preferred. ([#1114](https://github.com/myConsciousness/atproto.dart/issues/1114))

@@ -31,7 +31,7 @@ Future<void> post() async {
 
   final facets = await text.entities.toFacets(service: _service);
 
-  final createdPost = await bluesky.feeds.createPost(
+  final createdPost = await bluesky.feed.createPost(
     text: text.value,
     facets: facets.map(bsky.Facet.fromJson).toList(),
     embed: await _getEmbed(bluesky),
@@ -149,7 +149,7 @@ Future<bsky.BlobData?> _uploadMedia(final bsky.Bluesky bluesky) async {
     return null;
   }
 
-  final uploaded = await bluesky.repositories.uploadBlob(
+  final uploaded = await bluesky.repo.uploadBlob(
     File(mediaPath).readAsBytesSync(),
   );
 
@@ -167,7 +167,7 @@ Future<bsky.BlobData?> _uploadLinkPreview(
   final image = await http.get(Uri.parse(previewImage));
   if (image.statusCode != 200) return null;
 
-  final uploaded = await bluesky.repositories.uploadBlob(image.bodyBytes);
+  final uploaded = await bluesky.repo.uploadBlob(image.bodyBytes);
 
   return uploaded.data;
 }

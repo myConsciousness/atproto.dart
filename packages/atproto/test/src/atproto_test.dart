@@ -38,20 +38,20 @@ void main() {
     });
   });
 
-  test('.servers', () {
-    final service = ATProto.anonymous().servers;
+  test('.server', () {
+    final service = ATProto.anonymous().server;
 
     expect(service, isA<ServerService>());
   });
 
-  test('.identities', () {
-    final service = ATProto.anonymous().identities;
+  test('.identity', () {
+    final service = ATProto.anonymous().identity;
 
     expect(service, isA<IdentityService>());
   });
 
-  test('.repositories', () {
-    final service = ATProto.anonymous().repositories;
+  test('.repo', () {
+    final service = ATProto.anonymous().repo;
 
     expect(service, isA<RepoService>());
   });
@@ -73,8 +73,8 @@ void main() {
     expect(service, isA<SyncService>());
   });
 
-  test('.labels', () {
-    final service = ATProto.anonymous().labels;
+  test('.label', () {
+    final service = ATProto.anonymous().label;
 
     expect(service, isA<LabelService>());
   });

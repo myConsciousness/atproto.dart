@@ -355,7 +355,7 @@ final class _ActorService extends BlueskyBaseService implements ActorService {
     atp.Blob? banner,
     atp.Labels? labels,
   }) async =>
-      await atproto.repositories.updateRecord(
+      await atproto.repo.updateRecord(
         uri: core.AtUri.make(
           'alice',
           ids.appBskyActorProfile,

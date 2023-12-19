@@ -65,15 +65,30 @@ sealed class ATProto {
 
   /// Returns the servers service.
   /// This service represents `com.atproto.server.*`.
+  @Deprecated('Use .server instead. Will be removed')
   ServerService get servers;
+
+  /// Returns the servers service.
+  /// This service represents `com.atproto.server.*`.
+  ServerService get server;
 
   /// Returns the identity service.
   /// This service represents `com.atproto.identity.*`.
+  @Deprecated('Use .identity instead. Will be removed')
   IdentityService get identities;
+
+  /// Returns the identity service.
+  /// This service represents `com.atproto.identity.*`.
+  IdentityService get identity;
 
   /// Returns the repositories service.
   /// This service represents `com.atproto.repo.*`.
+  @Deprecated('Use .repo instead. Will be removed')
   RepoService get repositories;
+
+  /// Returns the repositories service.
+  /// This service represents `com.atproto.repo.*`.
+  RepoService get repo;
 
   /// Returns the moderation service.
   /// This service represents `com.atproto.moderation.*`.
@@ -85,7 +100,12 @@ sealed class ATProto {
 
   /// Returns the labels service.
   /// This service represents `com.atproto.label.*`.
+  @Deprecated('Use .label instead. Will be removed')
   LabelService get labels;
+
+  /// Returns the labels service.
+  /// This service represents `com.atproto.label.*`.
+  LabelService get label;
 }
 
 final class _ATProto implements ATProto {
@@ -119,13 +139,22 @@ final class _ATProto implements ATProto {
   final core.Session? session;
 
   @override
-  ServerService get servers => _service.servers;
+  ServerService get servers => _service.server;
 
   @override
-  IdentityService get identities => _service.identities;
+  ServerService get server => _service.server;
 
   @override
-  RepoService get repositories => _service.repositories;
+  IdentityService get identities => _service.identity;
+
+  @override
+  IdentityService get identity => _service.identity;
+
+  @override
+  RepoService get repositories => _service.repo;
+
+  @override
+  RepoService get repo => _service.repo;
 
   @override
   ModerationService get moderation => _service.moderation;
@@ -134,5 +163,8 @@ final class _ATProto implements ATProto {
   SyncService get sync => _service.sync;
 
   @override
-  LabelService get labels => _service.labels;
+  LabelService get labels => _service.label;
+
+  @override
+  LabelService get label => _service.label;
 }

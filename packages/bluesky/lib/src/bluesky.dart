@@ -65,19 +65,39 @@ sealed class Bluesky {
 
   /// Returns the actor service.
   /// This service represents `app.bsky.actor.*`.
+  @Deprecated('Use .actor instead. Will be removed')
   ActorService get actors;
+
+  /// Returns the actor service.
+  /// This service represents `app.bsky.actor.*`.
+  ActorService get actor;
 
   /// Returns the feed service.
   /// This service represents `app.bsky.feed.*`.
+  @Deprecated('Use .feed instead. Will be removed')
   FeedService get feeds;
+
+  /// Returns the feed service.
+  /// This service represents `app.bsky.feed.*`.
+  FeedService get feed;
 
   /// Returns the notification service.
   /// This service represents `app.bsky.notification.*`.
+  @Deprecated('Use .notification instead. Will be removed')
   NotificationService get notifications;
+
+  /// Returns the notification service.
+  /// This service represents `app.bsky.notification.*`.
+  NotificationService get notification;
 
   /// Returns the graph service.
   /// This service represents `app.bsky.graph.*`.
+  @Deprecated('Use .graph instead. Will be removed')
   GraphService get graphs;
+
+  /// Returns the graph service.
+  /// This service represents `app.bsky.graph.*`.
+  GraphService get graph;
 
   /// Returns the unspecced service.
   /// This service represents `app.bsky.unspecced.*`.
@@ -85,15 +105,30 @@ sealed class Bluesky {
 
   /// Returns the server service.
   /// This service represents `com.atproto.server.*`.
+  @Deprecated('Use .server instead. Will be removed')
   atp.ServerService get servers;
+
+  /// Returns the server service.
+  /// This service represents `com.atproto.server.*`.
+  atp.ServerService get server;
 
   /// Returns the identity service.
   /// This service represents `com.atproto.identity.*`.
+  @Deprecated('Use .identity instead. Will be removed')
   atp.IdentityService get identities;
+
+  /// Returns the identity service.
+  /// This service represents `com.atproto.identity.*`.
+  atp.IdentityService get identity;
 
   /// Returns the repo service.
   /// This service represents `com.atproto.repo.*`.
+  @Deprecated('Use .repo instead. Will be removed')
   atp.RepoService get repositories;
+
+  /// Returns the repo service.
+  /// This service represents `com.atproto.repo.*`.
+  atp.RepoService get repo;
 
   /// Returns the moderation service.
   /// This service represents `com.atproto.moderation.*`.
@@ -105,7 +140,12 @@ sealed class Bluesky {
 
   /// Returns the label service.
   /// This service represents `com.atproto.label.*`.
+  @Deprecated('Use .repo label. Will be removed')
   atp.LabelService get labels;
+
+  /// Returns the label service.
+  /// This service represents `com.atproto.label.*`.
+  atp.LabelService get label;
 }
 
 final class _Bluesky implements Bluesky {
@@ -158,28 +198,49 @@ final class _Bluesky implements Bluesky {
   final core.Session? session;
 
   @override
-  ActorService get actors => _service.actors;
+  ActorService get actors => _service.actor;
 
   @override
-  FeedService get feeds => _service.feeds;
+  ActorService get actor => _service.actor;
 
   @override
-  NotificationService get notifications => _service.notifications;
+  FeedService get feeds => _service.feed;
 
   @override
-  GraphService get graphs => _service.graphs;
+  FeedService get feed => _service.feed;
+
+  @override
+  NotificationService get notifications => _service.notification;
+
+  @override
+  NotificationService get notification => _service.notification;
+
+  @override
+  GraphService get graphs => _service.graph;
+
+  @override
+  GraphService get graph => _service.graph;
 
   @override
   UnspeccedService get unspecced => _service.unspecced;
 
   @override
-  atp.ServerService get servers => _service.servers;
+  atp.ServerService get servers => _service.server;
 
   @override
-  atp.IdentityService get identities => _service.identities;
+  atp.ServerService get server => _service.server;
 
   @override
-  atp.RepoService get repositories => _service.repositories;
+  atp.IdentityService get identities => _service.identity;
+
+  @override
+  atp.IdentityService get identity => _service.identity;
+
+  @override
+  atp.RepoService get repositories => _service.repo;
+
+  @override
+  atp.RepoService get repo => _service.repo;
 
   @override
   atp.ModerationService get moderation => _service.moderation;
@@ -188,5 +249,8 @@ final class _Bluesky implements Bluesky {
   atp.SyncService get sync => _service.sync;
 
   @override
-  atp.LabelService get labels => _service.labels;
+  atp.LabelService get labels => _service.label;
+
+  @override
+  atp.LabelService get label => _service.label;
 }

@@ -31,7 +31,7 @@ base class BlueskyBaseService extends core.BaseXRPCService {
     final core.AtUri uri, [
     core.To<T>? to,
   ]) async {
-    final record = await atproto.repositories.findRecord(uri: uri);
+    final record = await atproto.repo.findRecord(uri: uri);
 
     return core.XRPCResponse(
       headers: record.headers,
