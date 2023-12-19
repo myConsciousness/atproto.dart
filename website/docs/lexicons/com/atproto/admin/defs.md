@@ -219,7 +219,7 @@ description: com.atproto.admin.defs
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **subjectReviewState** | string | #reviewOpen<br/>#reviewEscalated<br/>#reviewClosed | ❌ | - |
+| **subjectReviewState** | string | [#reviewOpen](#reviewopen)<br/>[#reviewEscalated](#reviewescalated)<br/>[#reviewClosed](#reviewclosed) | ❌ | - |
 
 ## #reviewOpen
 

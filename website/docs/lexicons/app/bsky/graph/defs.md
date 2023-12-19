@@ -43,7 +43,7 @@ description: app.bsky.graph.defs
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **listPurpose** | string | app.bsky.graph.defs#modlist<br/>app.bsky.graph.defs#curatelist | ❌ | - |
+| **listPurpose** | string | [app.bsky.graph.defs#modlist](../../../../lexicons/app/bsky/graph/defs.md#modlist)<br/>[app.bsky.graph.defs#curatelist](../../../../lexicons/app/bsky/graph/defs.md#curatelist) | ❌ | - |
 
 ## #modlist
 

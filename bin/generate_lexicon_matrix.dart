@@ -556,7 +556,10 @@ void _writeObjectProperty(
   }
 
   if (knownValues != null) {
-    buffer.write('| ${knownValues.join('<br/>')} ');
+    buffer
+      ..write('| ')
+      ..write(knownValues.map((e) => _toRefLink(e)).join('<br/>'))
+      ..write(' ');
   } else {
     buffer.write('| - ');
   }
@@ -590,6 +593,7 @@ String _toSpecReference(final String type) => switch (type) {
 
 String _toRefLink(final String ref) {
   if (ref.startsWith('#')) return '[$ref](${ref.toLowerCase()})';
+  if (!ref.contains('.')) return ref;
 
   if (ref.contains('#')) {
     final pathAndObjectId = ref.split('#');
