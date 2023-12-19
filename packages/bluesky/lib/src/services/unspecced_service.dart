@@ -15,6 +15,7 @@ import 'entities/skeleton_actors_by_query.dart';
 import 'entities/skeleton_feed.dart';
 import 'entities/skeleton_posts_by_query.dart';
 
+/// Represents `app.bsky.unspecced.*` service.
 sealed class UnspeccedService {
   /// Returns the new instance of [UnspeccedService].
   factory UnspeccedService({

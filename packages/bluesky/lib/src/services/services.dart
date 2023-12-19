@@ -7,10 +7,10 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import 'actors_service.dart';
-import 'feeds_service.dart';
-import 'graphs_service.dart';
-import 'notifications_service.dart';
+import 'actor_service.dart';
+import 'feed_service.dart';
+import 'graph_service.dart';
+import 'notification_service.dart';
 import 'unspecced_service.dart';
 
 sealed class BlueskyService {
@@ -36,19 +36,19 @@ sealed class BlueskyService {
 
   /// Returns the actor service.
   /// This service represents `app.bsky.actor.*`.
-  ActorsService get actors;
+  ActorService get actors;
 
   /// Returns the feed service.
   /// This service represents `app.bsky.feed.*`.
-  FeedsService get feeds;
+  FeedService get feeds;
 
   /// Returns the notification service.
   /// This service represents `app.bsky.notification.*`.
-  NotificationsService get notifications;
+  NotificationService get notifications;
 
   /// Returns the graph service.
   /// This service represents `app.bsky.graph.*`.
-  GraphsService get graphs;
+  GraphService get graphs;
 
   /// Returns the unspecced service.
   /// This service represents `app.bsky.unspecced.*`.
@@ -89,7 +89,7 @@ final class _BlueskyService implements BlueskyService {
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  })  : actors = ActorsService(
+  })  : actors = ActorService(
           atproto: atproto,
           did: did,
           protocol: protocol,
@@ -98,7 +98,7 @@ final class _BlueskyService implements BlueskyService {
           mockedGetClient: mockedGetClient,
           mockedPostClient: mockedPostClient,
         ),
-        feeds = FeedsService(
+        feeds = FeedService(
           atproto: atproto,
           did: did,
           protocol: protocol,
@@ -107,7 +107,7 @@ final class _BlueskyService implements BlueskyService {
           mockedGetClient: mockedGetClient,
           mockedPostClient: mockedPostClient,
         ),
-        notifications = NotificationsService(
+        notifications = NotificationService(
           atproto: atproto,
           did: did,
           protocol: protocol,
@@ -116,7 +116,7 @@ final class _BlueskyService implements BlueskyService {
           mockedGetClient: mockedGetClient,
           mockedPostClient: mockedPostClient,
         ),
-        graphs = GraphsService(
+        graphs = GraphService(
           atproto: atproto,
           did: did,
           protocol: protocol,
@@ -142,16 +142,16 @@ final class _BlueskyService implements BlueskyService {
         labels = atproto.labels;
 
   @override
-  final ActorsService actors;
+  final ActorService actors;
 
   @override
-  final FeedsService feeds;
+  final FeedService feeds;
 
   @override
-  final NotificationsService notifications;
+  final NotificationService notifications;
 
   @override
-  final GraphsService graphs;
+  final GraphService graphs;
 
   @override
   final UnspeccedService unspecced;

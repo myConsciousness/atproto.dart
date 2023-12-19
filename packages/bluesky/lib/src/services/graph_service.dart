@@ -22,9 +22,10 @@ import 'params/list_item_param.dart';
 import 'params/list_param.dart';
 import 'params/repo_param.dart';
 
-sealed class GraphsService {
-  /// Returns the new instance of [GraphsService].
-  factory GraphsService({
+/// Represents `app.bsky.graph.*` service.
+sealed class GraphService {
+  /// Returns the new instance of [GraphService].
+  factory GraphService({
     required atp.ATProto atproto,
     required String did,
     required core.Protocol protocol,
@@ -33,7 +34,7 @@ sealed class GraphsService {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) =>
-      _GraphsService(
+      _GraphService(
         atproto: atproto,
         did: did,
         protocol: protocol,
@@ -745,9 +746,9 @@ sealed class GraphsService {
   });
 }
 
-final class _GraphsService extends BlueskyBaseService implements GraphsService {
-  /// Returns the new instance of [_GraphsService].
-  _GraphsService({
+final class _GraphService extends BlueskyBaseService implements GraphService {
+  /// Returns the new instance of [_GraphService].
+  _GraphService({
     required super.atproto,
     required super.did,
     required super.protocol,

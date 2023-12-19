@@ -7,10 +7,10 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import 'services/actors_service.dart';
-import 'services/feeds_service.dart';
-import 'services/graphs_service.dart';
-import 'services/notifications_service.dart';
+import 'services/actor_service.dart';
+import 'services/feed_service.dart';
+import 'services/graph_service.dart';
+import 'services/notification_service.dart';
 import 'services/services.dart';
 import 'services/unspecced_service.dart';
 
@@ -65,19 +65,19 @@ sealed class Bluesky {
 
   /// Returns the actor service.
   /// This service represents `app.bsky.actor.*`.
-  ActorsService get actors;
+  ActorService get actors;
 
   /// Returns the feed service.
   /// This service represents `app.bsky.feed.*`.
-  FeedsService get feeds;
+  FeedService get feeds;
 
   /// Returns the notification service.
   /// This service represents `app.bsky.notification.*`.
-  NotificationsService get notifications;
+  NotificationService get notifications;
 
   /// Returns the graph service.
   /// This service represents `app.bsky.graph.*`.
-  GraphsService get graphs;
+  GraphService get graphs;
 
   /// Returns the unspecced service.
   /// This service represents `app.bsky.unspecced.*`.
@@ -158,16 +158,16 @@ final class _Bluesky implements Bluesky {
   final core.Session? session;
 
   @override
-  ActorsService get actors => _service.actors;
+  ActorService get actors => _service.actors;
 
   @override
-  FeedsService get feeds => _service.feeds;
+  FeedService get feeds => _service.feeds;
 
   @override
-  NotificationsService get notifications => _service.notifications;
+  NotificationService get notifications => _service.notifications;
 
   @override
-  GraphsService get graphs => _service.graphs;
+  GraphService get graphs => _service.graphs;
 
   @override
   UnspeccedService get unspecced => _service.unspecced;

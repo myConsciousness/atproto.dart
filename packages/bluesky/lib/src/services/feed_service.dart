@@ -30,9 +30,10 @@ import 'params/post_param.dart';
 import 'params/strong_ref_param.dart';
 import 'params/thread_param.dart';
 
-sealed class FeedsService {
-  /// Returns the new instance of [FeedsService].
-  factory FeedsService({
+/// Represents `app.bsky.feed.*` service.
+sealed class FeedService {
+  /// Returns the new instance of [FeedService].
+  factory FeedService({
     required atp.ATProto atproto,
     required String did,
     required core.Protocol protocol,
@@ -41,7 +42,7 @@ sealed class FeedsService {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) =>
-      _FeedsService(
+      _FeedService(
         atproto: atproto,
         did: did,
         protocol: protocol,
@@ -906,9 +907,9 @@ sealed class FeedsService {
   });
 }
 
-final class _FeedsService extends BlueskyBaseService implements FeedsService {
-  /// Returns the new instance of [_FeedsService].
-  _FeedsService({
+final class _FeedService extends BlueskyBaseService implements FeedService {
+  /// Returns the new instance of [_FeedService].
+  _FeedService({
     required super.atproto,
     required super.did,
     required super.protocol,

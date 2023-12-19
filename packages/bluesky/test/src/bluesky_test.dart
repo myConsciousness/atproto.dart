@@ -8,10 +8,10 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/bluesky.dart';
-import 'package:bluesky/src/services/actors_service.dart';
-import 'package:bluesky/src/services/feeds_service.dart';
-import 'package:bluesky/src/services/graphs_service.dart';
-import 'package:bluesky/src/services/notifications_service.dart';
+import 'package:bluesky/src/services/actor_service.dart';
+import 'package:bluesky/src/services/feed_service.dart';
+import 'package:bluesky/src/services/graph_service.dart';
+import 'package:bluesky/src/services/notification_service.dart';
 import 'package:bluesky/src/services/unspecced_service.dart';
 
 void main() {
@@ -45,7 +45,7 @@ void main() {
       refreshJwt: 'test',
     )).actors;
 
-    expect(service, isA<ActorsService>());
+    expect(service, isA<ActorService>());
   });
 
   test('.feeds', () {
@@ -56,7 +56,7 @@ void main() {
       refreshJwt: 'test',
     )).feeds;
 
-    expect(service, isA<FeedsService>());
+    expect(service, isA<FeedService>());
   });
 
   test('.notifications', () {
@@ -67,7 +67,7 @@ void main() {
       refreshJwt: 'test',
     )).notifications;
 
-    expect(service, isA<NotificationsService>());
+    expect(service, isA<NotificationService>());
   });
 
   test('.graphs', () {
@@ -78,7 +78,7 @@ void main() {
       refreshJwt: 'test',
     )).graphs;
 
-    expect(service, isA<GraphsService>());
+    expect(service, isA<GraphService>());
   });
 
   test('.unspecced', () {

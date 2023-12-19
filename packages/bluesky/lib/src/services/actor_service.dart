@@ -18,9 +18,10 @@ import 'entities/preference.dart';
 import 'entities/preferences.dart';
 import 'entities/profile_record.dart';
 
-sealed class ActorsService {
-  /// Returns the new instance of [ActorsService].
-  factory ActorsService({
+/// Represents `app.bsky.actor.*` service.
+sealed class ActorService {
+  /// Returns the new instance of [ActorService].
+  factory ActorService({
     required atp.ATProto atproto,
     required String did,
     required core.Protocol protocol,
@@ -29,7 +30,7 @@ sealed class ActorsService {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) =>
-      _ActorsService(
+      _ActorService(
         atproto: atproto,
         did: did,
         protocol: protocol,
@@ -250,9 +251,9 @@ sealed class ActorsService {
   );
 }
 
-final class _ActorsService extends BlueskyBaseService implements ActorsService {
-  /// Returns the new instance of [_ActorsService].
-  _ActorsService({
+final class _ActorService extends BlueskyBaseService implements ActorService {
+  /// Returns the new instance of [_ActorService].
+  _ActorService({
     required super.atproto,
     required super.did,
     required super.protocol,
