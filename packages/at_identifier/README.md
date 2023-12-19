@@ -45,7 +45,7 @@
 
 This library provides the easiest way to validate identifiers supported by [AT Protocol](https://atproto.com) in **Dart** and **Flutter** apps.
 
-**Show some ❤️ and star the repo to support the project.**
+**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) and follow [shinyakato.dev](https://bsky.app/profile/shinyakato.dev) on Bluesky!_**
 
 ## 1.1. Getting Started ⚡
 

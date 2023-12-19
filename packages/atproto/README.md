@@ -49,12 +49,9 @@ The library is **cross-platform** and is **already used in many applications**. 
 
 If you want to use the **_Bluesky API_** as well, see the **[bluesky package](https://pub.dev/packages/bluesky)**.
 
-**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) to activate this project!_**
+**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) and follow [shinyakato.dev](https://bsky.app/profile/shinyakato.dev) on Bluesky!_**
 
-![github_star](https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/give_a_star.gif)
-
-- **[Official Documents](https://atprotodart.com/docs/packages/atproto)**
-- **[GitHub Repository](https://github.com/myConsciousness/atproto.dart)**
+- **[More Documents](https://atprotodart.com/docs/packages/atproto)**
 
 ## 1.1. Features ⭐
 
