@@ -10,6 +10,10 @@
   - `LabelsService` to `LabelService`
   - `RepositoriesService` to `RepoService`
   - `ServersService` to `ServerService`
+  - `ActorsService` to `ActorService`
+  - `FeedsService` to `FeedService`
+  - `GraphsService` to `GraphService`
+  - `NotificationsService` to `NotificationService`
 
 ## v0.13.2
 
