@@ -27,9 +27,14 @@ final class NSID {
     return NSID._(nsid);
   }
 
-  /// Returns a new [NSID] from [authority] and [name].
-  factory NSID.create(final String authority, final String name) =>
-      NSID._([...authority.split('.').reversed, name].join('.'));
+  /// Returns a new [NSID] from [authority] and [name] after validation.
+  factory NSID.create(final String authority, final String name) {
+    final nsid = [...authority.split('.').reversed, name].join('.');
+
+    ensureValidNsid(nsid);
+
+    return NSID._(nsid);
+  }
 
   /// Returns an immutable [NSID] from the given [nsid].
   const factory NSID.of(final String nsid) = NSID._;
