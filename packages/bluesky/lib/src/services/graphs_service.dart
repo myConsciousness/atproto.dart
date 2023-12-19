@@ -8,7 +8,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../ids.g.dart' as ids;
-import '../nsids.g.dart' as nsids;
+import '../nsids.g.dart' as ns;
 import 'base_service.dart';
 import 'entities/blocks.dart';
 import 'entities/facet.dart';
@@ -764,7 +764,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
       await atproto.repositories.createRecord(
-        collection: nsids.appBskyGraphFollow,
+        collection: ns.appBskyGraphFollow,
         record: {
           'subject': did,
           'createdAt': toUtcIso8601String(createdAt),
@@ -780,7 +780,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
         actions: params
             .map(
               (e) => atp.CreateAction(
-                collection: nsids.appBskyGraphFollow,
+                collection: ns.appBskyGraphFollow,
                 record: {
                   'subject': e.did,
                   'createdAt': toUtcIso8601String(e.createdAt),
@@ -848,7 +848,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     required String actor,
   }) async =>
       await post<core.EmptyData>(
-        nsids.appBskyGraphMuteActor,
+        ns.appBskyGraphMuteActor,
         body: {
           'actor': actor,
         },
@@ -859,7 +859,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     required String actor,
   }) async =>
       await post<core.EmptyData>(
-        nsids.appBskyGraphUnmuteActor,
+        ns.appBskyGraphUnmuteActor,
         body: {
           'actor': actor,
         },
@@ -916,7 +916,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
       await atproto.repositories.createRecord(
-        collection: nsids.appBskyGraphBlock,
+        collection: ns.appBskyGraphBlock,
         record: {
           'subject': did,
           'createdAt': toUtcIso8601String(createdAt),
@@ -932,7 +932,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
         actions: params
             .map(
               (e) => atp.CreateAction(
-                collection: nsids.appBskyGraphBlock,
+                collection: ns.appBskyGraphBlock,
                 record: {
                   'subject': e.did,
                   'createdAt': toUtcIso8601String(e.createdAt),
@@ -955,7 +955,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
       await atproto.repositories.createRecord(
-        collection: nsids.appBskyGraphList,
+        collection: ns.appBskyGraphList,
         record: {
           'purpose': purpose,
           'name': name,
@@ -1019,7 +1019,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
         actions: params
             .map(
               (e) => atp.CreateAction(
-                collection: nsids.appBskyGraphList,
+                collection: ns.appBskyGraphList,
                 record: {
                   'purpose': e.purpose,
                   'name': e.name,
@@ -1096,7 +1096,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
       await atproto.repositories.createRecord(
-        collection: nsids.appBskyGraphListitem,
+        collection: ns.appBskyGraphListitem,
         record: {
           'subject': subject,
           'list': list.toString(),
@@ -1113,7 +1113,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
         actions: params
             .map(
               (e) => atp.CreateAction(
-                collection: nsids.appBskyGraphListitem,
+                collection: ns.appBskyGraphListitem,
                 record: {
                   'subject': e.subject,
                   'list': e.list.toString(),
@@ -1152,7 +1152,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     required core.AtUri list,
   }) async =>
       await super.post(
-        nsids.appBskyGraphMuteActorList,
+        ns.appBskyGraphMuteActorList,
         body: {
           'list': list.toString(),
         },
@@ -1163,7 +1163,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     required core.AtUri list,
   }) async =>
       await super.post(
-        nsids.appBskyGraphUnmuteActorList,
+        ns.appBskyGraphUnmuteActorList,
         body: {
           'list': list.toString(),
         },
@@ -1206,7 +1206,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     DateTime? createdAt,
   }) async =>
       await atproto.repositories.createRecord(
-        collection: nsids.appBskyGraphListblock,
+        collection: ns.appBskyGraphListblock,
         record: {
           'subject': listUri.toString(),
           'createdAt': toUtcIso8601String(createdAt),
@@ -1220,7 +1220,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.appBskyGraphGetFollows,
+        ns.appBskyGraphGetFollows,
         parameters: _buildGetFollowsParams(
           actor: actor,
           limit: limit,
@@ -1236,7 +1236,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        nsids.appBskyGraphGetFollows,
+        ns.appBskyGraphGetFollows,
         parameters: _buildGetFollowsParams(
           actor: actor,
           limit: limit,
@@ -1252,7 +1252,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.appBskyGraphGetFollowers,
+        ns.appBskyGraphGetFollowers,
         parameters: _buildGetFollowersParams(
           actor: actor,
           limit: limit,
@@ -1268,7 +1268,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        nsids.appBskyGraphGetFollowers,
+        ns.appBskyGraphGetFollowers,
         parameters: _buildGetFollowersParams(
           actor: actor,
           limit: limit,
@@ -1283,7 +1283,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.appBskyGraphGetMutes,
+        ns.appBskyGraphGetMutes,
         parameters: _buildGetMutesParams(
           limit: limit,
           cursor: cursor,
@@ -1297,7 +1297,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        nsids.appBskyGraphGetMutes,
+        ns.appBskyGraphGetMutes,
         parameters: _buildGetMutesParams(
           limit: limit,
           cursor: cursor,
@@ -1311,7 +1311,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.appBskyGraphGetBlocks,
+        ns.appBskyGraphGetBlocks,
         parameters: _buildGetBlocksParams(
           limit: limit,
           cursor: cursor,
@@ -1325,7 +1325,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        nsids.appBskyGraphGetBlocks,
+        ns.appBskyGraphGetBlocks,
         parameters: _buildGetBlocksParams(
           limit: limit,
           cursor: cursor,
@@ -1340,7 +1340,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.appBskyGraphGetLists,
+        ns.appBskyGraphGetLists,
         parameters: _buildGetListsParams(
           actor: actor,
           limit: limit,
@@ -1356,7 +1356,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        nsids.appBskyGraphGetLists,
+        ns.appBskyGraphGetLists,
         parameters: _buildGetListsParams(
           actor: actor,
           limit: limit,
@@ -1372,7 +1372,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.appBskyGraphGetList,
+        ns.appBskyGraphGetList,
         parameters: _buildListItemsParams(
           list: list,
           limit: limit,
@@ -1388,7 +1388,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        nsids.appBskyGraphGetList,
+        ns.appBskyGraphGetList,
         parameters: _buildListItemsParams(
           list: list,
           limit: limit,
@@ -1403,7 +1403,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.appBskyGraphGetListMutes,
+        ns.appBskyGraphGetListMutes,
         parameters: _buildGetListMutesParams(
           limit: limit,
           cursor: cursor,
@@ -1417,7 +1417,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        nsids.appBskyGraphGetListMutes,
+        ns.appBskyGraphGetListMutes,
         parameters: _buildGetListMutesParams(
           limit: limit,
           cursor: cursor,
@@ -1430,7 +1430,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.appBskyGraphGetSuggestedFollowsByActor,
+        ns.appBskyGraphGetSuggestedFollowsByActor,
         parameters: {
           'actor': actor,
         },
@@ -1443,7 +1443,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.appBskyGraphGetListBlocks,
+        ns.appBskyGraphGetListBlocks,
         parameters: _buildGetBlockListsParams(
           limit: limit,
           cursor: cursor,
@@ -1457,7 +1457,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        nsids.appBskyGraphGetListBlocks,
+        ns.appBskyGraphGetListBlocks,
         parameters: _buildGetBlockListsParams(
           limit: limit,
           cursor: cursor,

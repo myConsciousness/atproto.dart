@@ -6,7 +6,7 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../nsids.g.dart' as nsids;
+import '../nsids.g.dart' as ns;
 import 'base_service.dart';
 import 'entities/adaptor/subscribe_label_updates_adaptor.dart';
 import 'entities/labels_by_query.dart';
@@ -102,7 +102,7 @@ final class _LabelsService extends ATProtoBaseService implements LabelsService {
     String? cursor,
   }) async =>
       await super.get(
-        nsids.comAtprotoLabelQueryLabels,
+        ns.comAtprotoLabelQueryLabels,
         parameters: {
           'uriPatterns': uriPatterns,
           'sources': didSources,
@@ -118,7 +118,7 @@ final class _LabelsService extends ATProtoBaseService implements LabelsService {
     int? cursor,
   }) async =>
           await super.stream(
-            nsids.comAtprotoLabelSubscribeLabels,
+            ns.comAtprotoLabelSubscribeLabels,
             parameters: {
               'cursor': cursor,
             },

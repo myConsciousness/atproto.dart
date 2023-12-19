@@ -7,7 +7,7 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../nsids.g.dart' as nsids;
+import '../nsids.g.dart' as ns;
 import 'base_service.dart';
 import 'entities/count.dart';
 import 'entities/notifications.dart';
@@ -175,7 +175,7 @@ final class _NotificationsService extends BlueskyBaseService
     DateTime? seenAt,
   }) async =>
       await super.post<core.EmptyData>(
-        nsids.appBskyNotificationUpdateSeen,
+        ns.appBskyNotificationUpdateSeen,
         body: {
           'seenAt': toUtcIso8601String(seenAt),
         },
@@ -189,7 +189,7 @@ final class _NotificationsService extends BlueskyBaseService
     required String appId,
   }) async =>
       await super.post(
-        nsids.appBskyNotificationRegisterPush,
+        ns.appBskyNotificationRegisterPush,
         body: {
           'serviceDid': serviceDid,
           'token': token,
@@ -204,7 +204,7 @@ final class _NotificationsService extends BlueskyBaseService
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.appBskyNotificationListNotifications,
+        ns.appBskyNotificationListNotifications,
         parameters: _buildListNotificationsParams(
           limit: limit,
           cursor: cursor,
@@ -218,7 +218,7 @@ final class _NotificationsService extends BlueskyBaseService
     core.To<T>? to,
   }) =>
       super.paginate(
-        nsids.appBskyNotificationListNotifications,
+        ns.appBskyNotificationListNotifications,
         parameters: _buildListNotificationsParams(
           limit: limit,
           cursor: cursor,
@@ -230,7 +230,7 @@ final class _NotificationsService extends BlueskyBaseService
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.appBskyNotificationGetUnreadCount,
+        ns.appBskyNotificationGetUnreadCount,
         to: to,
       );
 

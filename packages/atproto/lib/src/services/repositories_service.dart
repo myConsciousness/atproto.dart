@@ -9,7 +9,7 @@ import 'dart:typed_data';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../nsids.g.dart' as nsids;
+import '../nsids.g.dart' as ns;
 import 'base_service.dart';
 import 'entities/batch_action.dart';
 import 'entities/blob_data.dart';
@@ -344,7 +344,7 @@ final class _RepositoriesService extends ATProtoBaseService
     String? swapCommitCid,
   }) async =>
       await super.post(
-        nsids.comAtprotoRepoCreateRecord,
+        ns.comAtprotoRepoCreateRecord,
         body: {
           'repo': did,
           'collection': collection.toString(),
@@ -416,7 +416,7 @@ final class _RepositoriesService extends ATProtoBaseService
     String? swapCommitCid,
   }) async =>
       await super.post<core.EmptyData>(
-        nsids.comAtprotoRepoDeleteRecord,
+        ns.comAtprotoRepoDeleteRecord,
         body: {
           'repo': did,
           'collection': uri.collection,
@@ -435,7 +435,7 @@ final class _RepositoriesService extends ATProtoBaseService
     String? swapCommitCid,
   }) async =>
       await super.post(
-        nsids.comAtprotoRepoPutRecord,
+        ns.comAtprotoRepoPutRecord,
         body: {
           'repo': did,
           'collection': uri.collection,
@@ -451,7 +451,7 @@ final class _RepositoriesService extends ATProtoBaseService
   @override
   Future<core.XRPCResponse<BlobData>> uploadBlob(final Uint8List bytes) async =>
       await super.upload(
-        nsids.comAtprotoRepoUploadBlob,
+        ns.comAtprotoRepoUploadBlob,
         bytes,
         to: BlobData.fromJson,
       );
@@ -472,7 +472,7 @@ final class _RepositoriesService extends ATProtoBaseService
     String? swapCommitCid,
   }) async =>
       await super.post(
-        nsids.comAtprotoRepoApplyWrites,
+        ns.comAtprotoRepoApplyWrites,
         body: {
           'repo': did,
           'writes': actions
@@ -535,7 +535,7 @@ final class _RepositoriesService extends ATProtoBaseService
     core.To<T>? to,
   }) async =>
       await super.get<T>(
-        nsids.comAtprotoRepoGetRecord,
+        ns.comAtprotoRepoGetRecord,
         parameters: {
           'repo': uri.hostname,
           'collection': uri.collection,
@@ -556,7 +556,7 @@ final class _RepositoriesService extends ATProtoBaseService
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.comAtprotoRepoListRecords,
+        ns.comAtprotoRepoListRecords,
         parameters: _buildListRecordsParam(
           repo: repo,
           collection: collection,
@@ -580,7 +580,7 @@ final class _RepositoriesService extends ATProtoBaseService
     core.To<T>? to,
   }) =>
       super.paginate(
-        nsids.comAtprotoRepoListRecords,
+        ns.comAtprotoRepoListRecords,
         parameters: _buildListRecordsParam(
           repo: repo,
           collection: collection,
@@ -598,7 +598,7 @@ final class _RepositoriesService extends ATProtoBaseService
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.comAtprotoRepoDescribeRepo,
+        ns.comAtprotoRepoDescribeRepo,
         parameters: {
           'repo': repo,
         },

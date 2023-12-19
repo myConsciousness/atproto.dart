@@ -8,7 +8,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../ids.g.dart' as ids;
-import '../nsids.g.dart' as nsids;
+import '../nsids.g.dart' as ns;
 import 'base_service.dart';
 import 'entities/actor_profile.dart';
 import 'entities/actor_profiles.dart';
@@ -378,7 +378,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
     List<Preference> preferences,
   ) async =>
       await super.post(
-        nsids.appBskyActorPutPreferences,
+        ns.appBskyActorPutPreferences,
         body: {
           'preferences': preferences.map((e) => e.toJson()).toList(),
         },
@@ -391,7 +391,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.appBskyActorSearchActors,
+        ns.appBskyActorSearchActors,
         parameters: _buildSearchActorsParams(
           term: term,
           limit: limit,
@@ -407,7 +407,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        nsids.appBskyActorSearchActors,
+        ns.appBskyActorSearchActors,
         parameters: _buildSearchActorsParams(
           term: term,
           limit: limit,
@@ -421,7 +421,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.appBskyActorGetProfile,
+        ns.appBskyActorGetProfile,
         parameters: {
           'actor': actor,
         },
@@ -433,7 +433,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.appBskyActorGetProfiles,
+        ns.appBskyActorGetProfiles,
         parameters: {
           'actors': actors,
         },
@@ -446,7 +446,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.appBskyActorGetSuggestions,
+        ns.appBskyActorGetSuggestions,
         parameters: _buildGetSuggestionsParams(
           limit: limit,
           cursor: cursor,
@@ -460,7 +460,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        nsids.appBskyActorGetSuggestions,
+        ns.appBskyActorGetSuggestions,
         parameters: _buildGetSuggestionsParams(
           limit: limit,
           cursor: cursor,
@@ -474,7 +474,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.appBskyActorSearchActorsTypeahead,
+        ns.appBskyActorSearchActorsTypeahead,
         parameters: {
           'q': term,
           'limit': limit,
@@ -486,7 +486,7 @@ final class _ActorsService extends BlueskyBaseService implements ActorsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.appBskyActorGetPreferences,
+        ns.appBskyActorGetPreferences,
         to: to,
       );
 

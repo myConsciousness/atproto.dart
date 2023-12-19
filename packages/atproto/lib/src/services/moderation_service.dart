@@ -6,7 +6,7 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../nsids.g.dart' as nsids;
+import '../nsids.g.dart' as ns;
 import 'base_service.dart';
 import 'constants/moderation_reason_type.dart';
 import 'entities/report.dart';
@@ -76,7 +76,7 @@ final class _ModerationService extends ATProtoBaseService
     String? reason,
   }) async =>
       await super.post(
-        nsids.comAtprotoModerationCreateReport,
+        ns.comAtprotoModerationCreateReport,
         body: {
           'subject': subject.toJson(),
           'reasonType': reasonType.value,

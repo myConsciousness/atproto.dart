@@ -6,7 +6,7 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../nsids.g.dart' as nsids;
+import '../nsids.g.dart' as ns;
 import 'base_service.dart';
 import 'entities/account.dart';
 import 'entities/app_password.dart';
@@ -368,7 +368,7 @@ final class _ServersService extends ATProtoBaseService
     String? recoveryKey,
   }) async =>
       await super.post(
-        nsids.comAtprotoServerCreateAccount,
+        ns.comAtprotoServerCreateAccount,
         body: {
           'handle': handle,
           'email': email,
@@ -381,7 +381,7 @@ final class _ServersService extends ATProtoBaseService
 
   @override
   Future<core.XRPCResponse<core.EmptyData>> requestDeleteAccount() async =>
-      await super.post(nsids.comAtprotoServerRequestAccountDelete);
+      await super.post(ns.comAtprotoServerRequestAccountDelete);
 
   @override
   Future<core.XRPCResponse<core.EmptyData>> deleteAccount({
@@ -389,7 +389,7 @@ final class _ServersService extends ATProtoBaseService
     required String token,
   }) async =>
       await super.post(
-        nsids.comAtprotoServerDeleteAccount,
+        ns.comAtprotoServerDeleteAccount,
         body: {
           'did': did,
           'password': password,
@@ -403,7 +403,7 @@ final class _ServersService extends ATProtoBaseService
     String? forAccount,
   }) async =>
       await super.post(
-        nsids.comAtprotoServerCreateInviteCode,
+        ns.comAtprotoServerCreateInviteCode,
         body: {
           'useCount': useCount,
           'forAccount': forAccount,
@@ -418,7 +418,7 @@ final class _ServersService extends ATProtoBaseService
     List<String>? forAccounts,
   }) async =>
       await super.post(
-        nsids.comAtprotoServerCreateInviteCodes,
+        ns.comAtprotoServerCreateInviteCodes,
         body: {
           'codeCount': codeCount,
           'useCount': useCount,
@@ -443,7 +443,7 @@ final class _ServersService extends ATProtoBaseService
     required String email,
   }) async =>
       await super.post(
-        nsids.comAtprotoServerRequestPasswordReset,
+        ns.comAtprotoServerRequestPasswordReset,
         body: {
           'email': email,
         },
@@ -455,7 +455,7 @@ final class _ServersService extends ATProtoBaseService
     required String token,
   }) async =>
       await super.post(
-        nsids.comAtprotoServerResetPassword,
+        ns.comAtprotoServerResetPassword,
         body: {
           'password': password,
           'token': token,
@@ -467,7 +467,7 @@ final class _ServersService extends ATProtoBaseService
     required String name,
   }) async =>
       await super.post(
-        nsids.comAtprotoServerCreateAppPassword,
+        ns.comAtprotoServerCreateAppPassword,
         body: {
           'name': name,
         },
@@ -479,7 +479,7 @@ final class _ServersService extends ATProtoBaseService
     required String name,
   }) async =>
       await super.post(
-        nsids.comAtprotoServerRevokeAppPassword,
+        ns.comAtprotoServerRevokeAppPassword,
         body: {
           'name': name,
         },
@@ -496,14 +496,14 @@ final class _ServersService extends ATProtoBaseService
   @override
   Future<core.XRPCResponse<EmailUpdate>> requestEmailUpdate() async =>
       await super.post(
-        nsids.comAtprotoServerRequestEmailUpdate,
+        ns.comAtprotoServerRequestEmailUpdate,
         to: EmailUpdate.fromJson,
       );
 
   @override
   Future<core.XRPCResponse<core.EmptyData>> requestEmailConfirmation() async =>
       await super.post(
-        nsids.comAtprotoServerRequestEmailConfirmation,
+        ns.comAtprotoServerRequestEmailConfirmation,
       );
 
   @override
@@ -512,7 +512,7 @@ final class _ServersService extends ATProtoBaseService
     required String token,
   }) async =>
       await super.post(
-        nsids.comAtprotoServerConfirmEmail,
+        ns.comAtprotoServerConfirmEmail,
         body: {
           'email': email,
           'token': token,
@@ -525,7 +525,7 @@ final class _ServersService extends ATProtoBaseService
     String? token,
   }) async =>
       await super.post(
-        nsids.comAtprotoServerUpdateEmail,
+        ns.comAtprotoServerUpdateEmail,
         body: {
           'email': email,
           'token': token,
@@ -535,7 +535,7 @@ final class _ServersService extends ATProtoBaseService
   @override
   Future<core.XRPCResponse<SigningKey>> createSigningKey() async =>
       await super.post(
-        nsids.comAtprotoServerReserveSigningKey,
+        ns.comAtprotoServerReserveSigningKey,
         to: SigningKey.fromJson,
       );
 
@@ -543,7 +543,7 @@ final class _ServersService extends ATProtoBaseService
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.comAtprotoServerGetSession,
+        ns.comAtprotoServerGetSession,
         to: to,
       );
 
@@ -553,7 +553,7 @@ final class _ServersService extends ATProtoBaseService
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.comAtprotoServerGetAccountInviteCodes,
+        ns.comAtprotoServerGetAccountInviteCodes,
         parameters: {
           'includeUsed': includeUsed,
           'createAvailable': createAvailable,
@@ -565,7 +565,7 @@ final class _ServersService extends ATProtoBaseService
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.comAtprotoServerListAppPasswords,
+        ns.comAtprotoServerListAppPasswords,
         to: to,
       );
 
@@ -573,7 +573,7 @@ final class _ServersService extends ATProtoBaseService
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.comAtprotoServerDescribeServer,
+        ns.comAtprotoServerDescribeServer,
         to: to,
       );
 }

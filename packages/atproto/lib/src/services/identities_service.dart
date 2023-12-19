@@ -6,7 +6,7 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../nsids.g.dart' as nsids;
+import '../nsids.g.dart' as ns;
 import 'base_service.dart';
 import 'entities/did.dart';
 
@@ -90,7 +90,7 @@ final class _IdentitiesService extends ATProtoBaseService
     required String handle,
   }) async =>
       await super.post(
-        nsids.comAtprotoIdentityUpdateHandle,
+        ns.comAtprotoIdentityUpdateHandle,
         body: {
           'handle': handle,
         },
@@ -101,7 +101,7 @@ final class _IdentitiesService extends ATProtoBaseService
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.comAtprotoIdentityResolveHandle,
+        ns.comAtprotoIdentityResolveHandle,
         parameters: {
           'handle': handle,
         },

@@ -9,7 +9,7 @@ import 'dart:typed_data';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../nsids.g.dart' as nsids;
+import '../nsids.g.dart' as ns;
 import 'base_service.dart';
 import 'entities/adaptor/repo_blocks_adaptor.dart';
 import 'entities/adaptor/repo_commit_adaptor.dart';
@@ -325,7 +325,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     int? cursor,
   }) async =>
           await super.stream(
-            nsids.comAtprotoSyncSubscribeRepos,
+            ns.comAtprotoSyncSubscribeRepos,
             parameters: {
               'cursor': cursor,
             },
@@ -404,7 +404,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     required String hostname,
   }) async =>
       await super.post(
-        nsids.comAtprotoSyncNotifyOfUpdate,
+        ns.comAtprotoSyncNotifyOfUpdate,
         body: {
           'hostname': hostname,
         },
@@ -415,7 +415,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     required String hostname,
   }) async =>
       await super.post(
-        nsids.comAtprotoSyncRequestCrawl,
+        ns.comAtprotoSyncRequestCrawl,
         body: {
           'hostname': hostname,
         },
@@ -427,7 +427,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     required String cid,
   }) async =>
       await super.get<Uint8List>(
-        nsids.comAtprotoSyncGetBlob,
+        ns.comAtprotoSyncGetBlob,
         parameters: {
           'did': did,
           'cid': cid,
@@ -471,7 +471,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.comAtprotoSyncGetRepo,
+        ns.comAtprotoSyncGetRepo,
         parameters: {
           'did': did,
           'since': sinceCommitCid,
@@ -489,7 +489,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.comAtprotoSyncGetBlocks,
+        ns.comAtprotoSyncGetBlocks,
         parameters: {
           'did': did,
           'cids': commitCids,
@@ -503,7 +503,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.comAtprotoSyncGetLatestCommit,
+        ns.comAtprotoSyncGetLatestCommit,
         parameters: {
           'did': did,
         },
@@ -516,7 +516,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.comAtprotoSyncGetRecord,
+        ns.comAtprotoSyncGetRecord,
         parameters: {
           'did': uri.hostname,
           'collection': uri.collection,
@@ -533,7 +533,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.comAtprotoSyncListRepos,
+        ns.comAtprotoSyncListRepos,
         parameters: _buildListReposParams(
           limit: limit,
           cursor: cursor,
@@ -547,7 +547,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        nsids.comAtprotoSyncListRepos,
+        ns.comAtprotoSyncListRepos,
         parameters: _buildListReposParams(
           limit: limit,
           cursor: cursor,
@@ -563,7 +563,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        nsids.comAtprotoSyncListBlobs,
+        ns.comAtprotoSyncListBlobs,
         parameters: _buildListBlobsParams(
           did: did,
           sinceCid: sinceCid,
@@ -581,7 +581,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        nsids.comAtprotoSyncListBlobs,
+        ns.comAtprotoSyncListBlobs,
         parameters: _buildListBlobsParams(
           did: did,
           sinceCid: sinceCid,
