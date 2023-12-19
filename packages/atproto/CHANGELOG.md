@@ -10,6 +10,11 @@
   - `LabelsService` to `LabelService`
   - `RepositoriesService` to `RepoService`
   - `ServersService` to `ServerService`
+- Deprecated property names on `ATProto`. ([#1118](https://github.com/myConsciousness/atproto.dart/issues/1118))
+  - `.servers`: Use `.server` instead
+  - `.identities`: Use `.identity` instead
+  - `.repositories`: Use `.repo` instead
+  - `.labels`: Use `.label` instead
 
 ## v0.9.1
 

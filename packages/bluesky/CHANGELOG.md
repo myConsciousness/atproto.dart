@@ -14,6 +14,15 @@
   - `FeedsService` to `FeedService`
   - `GraphsService` to `GraphService`
   - `NotificationsService` to `NotificationService`
+- Deprecated property names on `ATProto` and `Bluesky`. ([#1118](https://github.com/myConsciousness/atproto.dart/issues/1118))
+  - `.servers`: Use `.server` instead
+  - `.identities`: Use `.identity` instead
+  - `.repositories`: Use `.repo` instead
+  - `.labels`: Use `.label` instead
+  - `.actors`: Use `.actor` instead
+  - `.feeds`: Use `.feed` instead
+  - `.graphs`: Use `.graph` instead
+  - `.notifications`: Use `.notification` instead
 
 ## v0.13.2
 
