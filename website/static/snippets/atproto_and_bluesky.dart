@@ -40,7 +40,7 @@ Future<void> main(List<String> args) async {
     );
 
     if (postModeration.content.isBlur) {
-      // Spam?
+      // nsfw...?
     }
   }
   /* SNIPPET END */
