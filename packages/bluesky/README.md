@@ -47,12 +47,9 @@ This library provides **the most productive way** to use the **_AT Protocol API_
 
 The library is **cross-platform** and is **already used in many applications**. See **[official showcase](https://atprotodart.com/showcase)** for more details.
 
-**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) to activate this project!_**
+**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) and follow [shinyakato.dev](https://bsky.app/profile/shinyakato.dev) on Bluesky!_**
 
-![github_star](https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/give_a_star.gif)
-
-- **[Official Documents](https://atprotodart.com/docs/packages/bluesky)**
-- **[GitHub Repository](https://github.com/myConsciousness/atproto.dart)**
+- **[More Documents](https://atprotodart.com/docs/packages/bluesky)**
 
 ## 1.1. Features ⭐
 
