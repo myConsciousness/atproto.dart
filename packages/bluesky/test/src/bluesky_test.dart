@@ -95,19 +95,19 @@ void main() {
   test('.servers', () {
     final service = Bluesky.anonymous().servers;
 
-    expect(service, isA<ServersService>());
+    expect(service, isA<ServerService>());
   });
 
   test('.identities', () {
     final service = Bluesky.anonymous().identities;
 
-    expect(service, isA<IdentitiesService>());
+    expect(service, isA<IdentityService>());
   });
 
   test('.repositories', () {
     final service = Bluesky.anonymous().repositories;
 
-    expect(service, isA<RepositoriesService>());
+    expect(service, isA<RepoService>());
   });
 
   test('.moderation', () {

@@ -133,12 +133,12 @@ export 'package:atproto/atproto.dart'
         ModerationReasonType,
         ReportSubject,
         $ReportSubjectCopyWith,
-        ServersService,
-        IdentitiesService,
-        RepositoriesService,
+        ServerService,
+        IdentityService,
+        RepoService,
         ModerationService,
         SyncService,
-        LabelsService;
+        LabelService;
 export 'package:atproto_core/atproto_core.dart'
     show
         XRPCResponse,

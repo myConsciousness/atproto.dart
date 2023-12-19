@@ -19,9 +19,10 @@ import 'entities/invite_codes.dart';
 import 'entities/server_info.dart';
 import 'entities/signing_key.dart';
 
-sealed class ServersService {
-  /// Returns the new instance of [ServersService].
-  factory ServersService({
+/// Represents `com.atproto.server.*` service.
+sealed class ServerService {
+  /// Returns the new instance of [ServerService].
+  factory ServerService({
     required String did,
     required core.Protocol protocol,
     required String service,
@@ -29,7 +30,7 @@ sealed class ServersService {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) =>
-      _ServersService(
+      _ServerService(
         did: did,
         protocol: protocol,
         service: service,
@@ -343,10 +344,9 @@ sealed class ServersService {
   Future<core.XRPCResponse<SigningKey>> createSigningKey();
 }
 
-final class _ServersService extends ATProtoBaseService
-    implements ServersService {
-  /// Returns the new instance of [_ServersService].
-  _ServersService({
+final class _ServerService extends ATProtoBaseService implements ServerService {
+  /// Returns the new instance of [_ServerService].
+  _ServerService({
     required super.did,
     super.protocol,
     required super.service,

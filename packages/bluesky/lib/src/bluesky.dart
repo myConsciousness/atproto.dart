@@ -63,38 +63,49 @@ sealed class Bluesky {
   /// [Bluesky.fromSession], otherwise null.
   core.Session? get session;
 
-  /// Returns the actors service.
+  /// Returns the actor service.
+  /// This service represents `app.bsky.actor.*`.
   ActorsService get actors;
 
-  /// Returns the feeds service.
+  /// Returns the feed service.
+  /// This service represents `app.bsky.feed.*`.
   FeedsService get feeds;
 
-  /// Returns the notifications service.
+  /// Returns the notification service.
+  /// This service represents `app.bsky.notification.*`.
   NotificationsService get notifications;
 
-  /// Returns the graphs service.
+  /// Returns the graph service.
+  /// This service represents `app.bsky.graph.*`.
   GraphsService get graphs;
 
   /// Returns the unspecced service.
+  /// This service represents `app.bsky.unspecced.*`.
   UnspeccedService get unspecced;
 
-  /// Returns the servers service.
-  atp.ServersService get servers;
+  /// Returns the server service.
+  /// This service represents `com.atproto.server.*`.
+  atp.ServerService get servers;
 
-  /// Returns the identities service.
-  atp.IdentitiesService get identities;
+  /// Returns the identity service.
+  /// This service represents `com.atproto.identity.*`.
+  atp.IdentityService get identities;
 
-  /// Returns the repositories service.
-  atp.RepositoriesService get repositories;
+  /// Returns the repo service.
+  /// This service represents `com.atproto.repo.*`.
+  atp.RepoService get repositories;
 
   /// Returns the moderation service.
+  /// This service represents `com.atproto.moderation.*`.
   atp.ModerationService get moderation;
 
   /// Returns the sync service.
+  /// This service represents `com.atproto.sync.*`.
   atp.SyncService get sync;
 
-  /// Returns the labels service.
-  atp.LabelsService get labels;
+  /// Returns the label service.
+  /// This service represents `com.atproto.label.*`.
+  atp.LabelService get labels;
 }
 
 final class _Bluesky implements Bluesky {
@@ -162,13 +173,13 @@ final class _Bluesky implements Bluesky {
   UnspeccedService get unspecced => _service.unspecced;
 
   @override
-  atp.ServersService get servers => _service.servers;
+  atp.ServerService get servers => _service.servers;
 
   @override
-  atp.IdentitiesService get identities => _service.identities;
+  atp.IdentityService get identities => _service.identities;
 
   @override
-  atp.RepositoriesService get repositories => _service.repositories;
+  atp.RepoService get repositories => _service.repositories;
 
   @override
   atp.ModerationService get moderation => _service.moderation;
@@ -177,5 +188,5 @@ final class _Bluesky implements Bluesky {
   atp.SyncService get sync => _service.sync;
 
   @override
-  atp.LabelsService get labels => _service.labels;
+  atp.LabelService get labels => _service.labels;
 }

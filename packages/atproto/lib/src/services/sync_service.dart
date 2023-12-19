@@ -23,6 +23,7 @@ import 'entities/repo_latest_commit.dart';
 import 'entities/repos.dart';
 import 'entities/subscribed_repo.dart';
 
+/// Represents `com.atproto.sync.*` service.
 sealed class SyncService {
   /// Returns the new instance of [SyncService].
   factory SyncService({

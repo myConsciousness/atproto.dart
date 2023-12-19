@@ -8,11 +8,11 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:atproto/src/atproto.dart';
-import 'package:atproto/src/services/identities_service.dart';
-import 'package:atproto/src/services/labels_service.dart';
+import 'package:atproto/src/services/identity_service.dart';
+import 'package:atproto/src/services/label_service.dart';
 import 'package:atproto/src/services/moderation_service.dart';
-import 'package:atproto/src/services/repositories_service.dart';
-import 'package:atproto/src/services/servers_service.dart';
+import 'package:atproto/src/services/repo_service.dart';
+import 'package:atproto/src/services/server_service.dart';
 import 'package:atproto/src/services/sync_service.dart';
 
 void main() {
@@ -41,19 +41,19 @@ void main() {
   test('.servers', () {
     final service = ATProto.anonymous().servers;
 
-    expect(service, isA<ServersService>());
+    expect(service, isA<ServerService>());
   });
 
   test('.identities', () {
     final service = ATProto.anonymous().identities;
 
-    expect(service, isA<IdentitiesService>());
+    expect(service, isA<IdentityService>());
   });
 
   test('.repositories', () {
     final service = ATProto.anonymous().repositories;
 
-    expect(service, isA<RepositoriesService>());
+    expect(service, isA<RepoService>());
   });
 
   test('.moderation', () {
@@ -76,6 +76,6 @@ void main() {
   test('.labels', () {
     final service = ATProto.anonymous().labels;
 
-    expect(service, isA<LabelsService>());
+    expect(service, isA<LabelService>());
   });
 }

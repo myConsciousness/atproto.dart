@@ -5,6 +5,11 @@
 - Upgraded `atproto_core`. ([#1112](https://github.com/myConsciousness/atproto.dart/issues/1112))
 - Optimized internal process. ([#1114](https://github.com/myConsciousness/atproto.dart/issues/1114))
 - Removed `streamService` and added `relayService` instead. Defaults to `bsky.network`. ([#1116](https://github.com/myConsciousness/atproto.dart/issues/1116))
+- Renamed name of service objects. ([#1118](https://github.com/myConsciousness/atproto.dart/issues/1118))
+  - `IdentitiesService` to `IdentityService`
+  - `LabelsService` to `LabelService`
+  - `RepositoriesService` to `RepoService`
+  - `ServersService` to `ServerService`
 
 ## v0.9.1
 
