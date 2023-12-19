@@ -220,6 +220,12 @@ const config = {
         disableSwitch: true,
         respectPrefersColorScheme: false,
       },
+      algolia: {
+        appId: "RR6B4HADRC",
+        apiKey: "07098b9110ca17a40a07d24cd18374d7",
+        indexName: "atprotodart",
+        contextualSearch: true,
+      },
     }),
   markdown: {
     mermaid: true,

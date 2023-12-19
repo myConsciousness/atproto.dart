@@ -9,7 +9,7 @@ description: com.atproto.moderation.defs
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **reasonType** | string | com.atproto.moderation.defs#reasonSpam<br/>com.atproto.moderation.defs#reasonViolation<br/>com.atproto.moderation.defs#reasonMisleading<br/>com.atproto.moderation.defs#reasonSexual<br/>com.atproto.moderation.defs#reasonRude<br/>com.atproto.moderation.defs#reasonOther | ❌ | - |
+| **reasonType** | string | [com.atproto.moderation.defs#reasonSpam](../../../../lexicons/com/atproto/moderation/defs.md#reasonspam)<br/>[com.atproto.moderation.defs#reasonViolation](../../../../lexicons/com/atproto/moderation/defs.md#reasonviolation)<br/>[com.atproto.moderation.defs#reasonMisleading](../../../../lexicons/com/atproto/moderation/defs.md#reasonmisleading)<br/>[com.atproto.moderation.defs#reasonSexual](../../../../lexicons/com/atproto/moderation/defs.md#reasonsexual)<br/>[com.atproto.moderation.defs#reasonRude](../../../../lexicons/com/atproto/moderation/defs.md#reasonrude)<br/>[com.atproto.moderation.defs#reasonOther](../../../../lexicons/com/atproto/moderation/defs.md#reasonother) | ❌ | - |
 
 ## #reasonSpam
 

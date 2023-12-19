@@ -32,7 +32,7 @@ Future<void> main(List<String> args) async {
     retryConfig: retryConfig,
   );
 
-  final popular = await bluesky.unspecced.findPopularFeed();
+  final timeline = await bluesky.feed.findTimeline();
 
   /* SNIPPET END */
 }

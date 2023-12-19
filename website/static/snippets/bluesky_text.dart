@@ -18,12 +18,17 @@ Future<void> main(List<String> args) async {
   final bluesky = bsky.Bluesky.fromSession(session.data);
 
   final text = BlueskyText(
-    'I am @shinyakato.dev! Visit to https://shinyakato.dev 😎',
-  );
+    'Hello, I am @shinyakato.dev! '
+    'What do you think about [this link](https://atprotodart.com)?',
+    linkConfig: const LinkConfig(
+      excludeProtocol: true,
+      enableShortening: true,
+    ),
+  ).format();
 
   final facets = await text.entities.toFacets();
 
-  final strongRef = await bluesky.feeds.createPost(
+  final strongRef = await bluesky.feed.createPost(
     text: text.value,
     facets: facets.map(bsky.Facet.fromJson).toList(),
   );
