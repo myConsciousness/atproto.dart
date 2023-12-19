@@ -25,7 +25,10 @@ void main() {
     final nsids = StringBuffer()
       ..writeln(_header)
       ..writeln()
+      ..writeln('// 📦 Package imports:')
       ..writeln("import 'package:atproto_core/atproto_core.dart';")
+      ..writeln()
+      ..writeln('// 🌎 Project imports:')
       ..writeln("import '$_idsFileName' as ids;");
 
     for (final field in fields) {

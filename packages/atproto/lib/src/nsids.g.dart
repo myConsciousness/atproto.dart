@@ -10,7 +10,10 @@
 // Lexicon IDs Generator
 // **************************************************************************
 
+// 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart';
+
+// 🌎 Project imports:
 import 'ids.g.dart' as ids;
 
 /// `com.atproto.admin.deleteAccount`
