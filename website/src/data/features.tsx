@@ -11,7 +11,7 @@ export const features: IFeatureProps[] = [
     snippet: SnippetAtprotoAndBluesky,
     title: translate({
       id: "home.atproto_and_bluesky",
-      message: "Type Safe API Wrappers",
+      message: "Stable and Powerful SDK",
     }),
     description: (
       <Translate
@@ -28,17 +28,21 @@ export const features: IFeatureProps[] = [
           easily: <strong>easily</strong>,
           safely: <strong>safely</strong>,
           do_not_need: <strong>do not need</strong>,
-          type_secured: <strong>type secured</strong>
+          type_secured: <strong>type secured</strong>,
+          moderation_api: <a href={"https://atprotodart.com/docs/packages/bluesky/#moderation-api"}><strong>a strong, official label-based moderation API</strong></a>
         }}
       >
-        {`The {AtprotoDart} provides powerful API wrappers, {atproto} and {bluesky}.
+        {`The {AtprotoDart} provides powerful SDK for AT Protocol and Bluesky, {atproto} and {bluesky}.
         {atproto} supports the {LexiconAtproto} family of Lexicons, and {bluesky}
         supports the {LexiconBsky} while inheriting {atproto}.{br}{br}
         {atproto} and {bluesky} are very well designed, type safe and very easy to use.
         You {do_not_need} to be very aware of {XRPCDoc} and other underlying technologies used
         in AT Protocol because these packages also encapsulate the difficult communication process.{br}{br}
         All operations in {atproto} and {bluesky} are {type_secured}. It is also {null_safe} and can be
-        {easily} and {safely} integrated into your Dart/Flutter app.`}
+        {easily} and {safely} integrated into your Dart/Flutter app.{br}{br}
+        In addition, we provide {moderation_api} that allows you
+        to integrate Bluesky's moderation into your Flutter app without needing in-depth
+        knowledge of moderation when you develop your Flutter app.`}
       </Translate>
     ),
   },
@@ -124,12 +128,12 @@ export const features: IFeatureProps[] = [
         }}
       >
         {`{bluesky_text} is a very powerful and easy way to apply {RichText} to text you post to Bluesky.
-        {bluesky_text} automatically detects all tokens of mentions and hyperlinks in the text and
-        generates {facets} as JSON to realize {RichText}.{br}{br}
+        {bluesky_text} automatically detects all tokens of mentions, hyperlinks, tags and even markdown links
+        in the text! And {bluesky_text} even generates {facets} as JSON.{br}{br}
         By using {bluesky_text} together with {bluesky} when posting to Bluesky, you can safely post
         {RichText}-applied text without having to worry about difficult processing.{br}{br}
-        Also {bluesky_text} can be customized to extract not only mentions and hyperlinks,
-        but also hashtags and other tokens that are not officially supported.`}
+        {bluesky_text} is a brilliant solution to the text problem in Bluesky. If you are developing a
+        Bluesky-related Flutter app, {bluesky_text} is a must-have!`}
       </Translate>
     ),
   },
