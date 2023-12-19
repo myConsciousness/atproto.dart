@@ -20,7 +20,7 @@ sealed class ATProto {
     final core.Session session, {
     core.Protocol protocol = core.defaultProtocol,
     String service = core.defaultService,
-    String streamService = core.defaultStreamService,
+    String relayService = core.defaultRelayService,
     Duration timeout = core.defaultTimeout,
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
@@ -30,7 +30,7 @@ sealed class ATProto {
         session: session,
         protocol: protocol,
         service: service,
-        streamService: streamService,
+        relayService: relayService,
         timeout: timeout,
         retryConfig: retryConfig,
         mockedGetClient: mockedGetClient,
@@ -41,7 +41,7 @@ sealed class ATProto {
   factory ATProto.anonymous({
     core.Protocol protocol = core.defaultProtocol,
     String service = core.defaultService,
-    String streamService = core.defaultStreamService,
+    String relayService = core.defaultRelayService,
     Duration timeout = core.defaultTimeout,
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
@@ -50,7 +50,7 @@ sealed class ATProto {
       _ATProto(
         protocol: protocol,
         service: service,
-        streamService: streamService,
+        relayService: relayService,
         timeout: timeout,
         retryConfig: retryConfig,
         mockedGetClient: mockedGetClient,
@@ -88,7 +88,7 @@ final class _ATProto implements ATProto {
     this.session,
     required core.Protocol protocol,
     required String service,
-    required String streamService,
+    required String relayService,
     required Duration timeout,
     core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
@@ -97,7 +97,7 @@ final class _ATProto implements ATProto {
           did: session?.did ?? '',
           protocol: protocol,
           service: service,
-          streamService: streamService,
+          relayService: relayService,
           context: core.ClientContext(
             accessJwt: session?.accessJwt ?? '',
             timeout: timeout,

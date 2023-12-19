@@ -4,6 +4,7 @@
 
 - Upgraded `NSID`. ([#1112](https://github.com/myConsciousness/atproto.dart/issues/1112))
 - The following methods of `BaseXRPCService` now require an NSID argument. Immutable NSIDs are preferred. ([#1114](https://github.com/myConsciousness/atproto.dart/issues/1114))
+- Removed `streamService` and added `relayService` instead. Defaults to `bsky.network`. ([#1116](https://github.com/myConsciousness/atproto.dart/issues/1116))
 
 ## v0.7.0
 

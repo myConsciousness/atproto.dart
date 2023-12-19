@@ -13,7 +13,7 @@ abstract class ServiceRunner {
   const ServiceRunner();
 
   String get service => 'bsky.social';
-  String get streamService => 'bsky.network';
+  String get relayService => 'bsky.network';
   String get did => 'did:web:shinyakato.dev';
 
   core.Session get session => const core.Session(

@@ -19,13 +19,13 @@ base class BaseXRPCService {
   BaseXRPCService({
     xrpc.Protocol? protocol,
     required String service,
-    String? streamService,
+    String? relayService,
     required ClientContext context,
     final xrpc.GetClient? mockedGetClient,
     final xrpc.PostClient? mockedPostClient,
   })  : _protocol = protocol,
         _service = service,
-        _streamService = streamService ?? defaultStreamService,
+        _relayService = relayService ?? defaultRelayService,
         _context = context,
         _mockedGetClient = mockedGetClient,
         _mockedPostClient = mockedPostClient;
@@ -35,7 +35,7 @@ base class BaseXRPCService {
 
   /// The base service.
   final String _service;
-  final String _streamService;
+  final String _relayService;
 
   /// The context for HTTP clients.
   final ClientContext _context;
@@ -117,7 +117,7 @@ base class BaseXRPCService {
   }) async =>
       await _context.stream(
         endpoint,
-        service: _streamService,
+        service: _relayService,
         parameters: parameters,
         to: to,
         adaptor: adaptor,
