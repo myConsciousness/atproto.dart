@@ -7,6 +7,7 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
+import '../nsids.g.dart' as ns;
 import 'base_service.dart';
 import 'entities/feed.dart';
 import 'entities/feed_generators.dart';
@@ -301,7 +302,7 @@ final class _UnspeccedService extends BlueskyBaseService
     required super.context,
     super.mockedGetClient,
     super.mockedPostClient,
-  }) : super(methodAuthority: 'unspecced.bsky.app');
+  });
 
   @override
   Future<core.XRPCResponse<Feed>> findPopularFeed({
@@ -441,7 +442,7 @@ final class _UnspeccedService extends BlueskyBaseService
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getPopular',
+        ns.appBskyUnspeccedGetPopular,
         parameters: _buildGetPopular(
           includeNsfw: includeNsfw,
           limit: limit,
@@ -457,7 +458,7 @@ final class _UnspeccedService extends BlueskyBaseService
     core.To<T>? to,
   }) =>
       super.paginate(
-        'getPopular',
+        ns.appBskyUnspeccedGetPopular,
         parameters: _buildGetPopular(
           includeNsfw: includeNsfw,
           limit: limit,
@@ -473,7 +474,7 @@ final class _UnspeccedService extends BlueskyBaseService
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getPopularFeedGenerators',
+        ns.appBskyUnspeccedGetPopularFeedGenerators,
         parameters: _buildGetPopularFeedGenerators(
           limit: limit,
           cursor: cursor,
@@ -489,7 +490,7 @@ final class _UnspeccedService extends BlueskyBaseService
     core.To<T>? to,
   }) =>
       super.paginate(
-        'getPopularFeedGenerators',
+        ns.appBskyUnspeccedGetPopularFeedGenerators,
         parameters: _buildGetPopularFeedGenerators(
           limit: limit,
           cursor: cursor,
@@ -504,7 +505,7 @@ final class _UnspeccedService extends BlueskyBaseService
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getTimelineSkeleton',
+        ns.appBskyUnspeccedGetTimelineSkeleton,
         parameters: _buildGetTimelineSkeleton(
           limit: limit,
           cursor: cursor,
@@ -518,7 +519,7 @@ final class _UnspeccedService extends BlueskyBaseService
     core.To<T>? to,
   }) =>
       super.paginate(
-        'getTimelineSkeleton',
+        ns.appBskyUnspeccedGetTimelineSkeleton,
         parameters: _buildGetTimelineSkeleton(
           limit: limit,
           cursor: cursor,
@@ -533,7 +534,7 @@ final class _UnspeccedService extends BlueskyBaseService
     core.To<T>? to,
   }) async =>
       await super.get(
-        'searchPostsSkeleton',
+        ns.appBskyUnspeccedSearchPostsSkeleton,
         parameters: _buildSearchPostsSkeletonParams(
           query: query,
           limit: limit,
@@ -549,7 +550,7 @@ final class _UnspeccedService extends BlueskyBaseService
     core.To<T>? to,
   }) =>
       super.paginate(
-        'searchPostsSkeleton',
+        ns.appBskyUnspeccedSearchPostsSkeleton,
         parameters: _buildSearchPostsSkeletonParams(
           query: query,
           limit: limit,
@@ -566,7 +567,7 @@ final class _UnspeccedService extends BlueskyBaseService
     core.To<T>? to,
   }) async =>
       await super.get(
-        'searchActorsSkeleton',
+        ns.appBskyUnspeccedSearchActorsSkeleton,
         parameters: _buildSearchActorsSkeletonParams(
           query: query,
           typeahead: typeahead,
@@ -584,7 +585,7 @@ final class _UnspeccedService extends BlueskyBaseService
     core.To<T>? to,
   }) =>
       super.paginate(
-        'searchActorsSkeleton',
+        ns.appBskyUnspeccedSearchActorsSkeleton,
         parameters: _buildSearchActorsSkeletonParams(
           query: query,
           typeahead: typeahead,

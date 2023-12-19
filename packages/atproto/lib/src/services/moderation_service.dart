@@ -6,6 +6,7 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
+import '../nsids.g.dart' as ns;
 import 'base_service.dart';
 import 'constants/moderation_reason_type.dart';
 import 'entities/report.dart';
@@ -66,7 +67,7 @@ final class _ModerationService extends ATProtoBaseService
     required super.context,
     super.mockedGetClient,
     super.mockedPostClient,
-  }) : super(methodAuthority: 'moderation.atproto.com');
+  });
 
   @override
   Future<core.XRPCResponse<Report>> createReport({
@@ -75,7 +76,7 @@ final class _ModerationService extends ATProtoBaseService
     String? reason,
   }) async =>
       await super.post(
-        'createReport',
+        ns.comAtprotoModerationCreateReport,
         body: {
           'subject': subject.toJson(),
           'reasonType': reasonType.value,

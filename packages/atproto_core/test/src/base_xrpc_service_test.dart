@@ -15,23 +15,8 @@ import 'package:atproto_core/src/base_xrpc_service.dart';
 import 'package:atproto_core/src/clients/client_context.dart';
 
 void main() {
-  test('.createNSID', () {
-    final service = TestService(
-      methodAuthority: 'identity.atproto.com',
-      context: ClientContext(
-        accessJwt: '',
-        timeout: Duration(minutes: 1),
-      ),
-    );
-
-    final nsid = service.createNSID('resolveHandle');
-
-    expect(nsid.toString(), 'com.atproto.identity.resolveHandle');
-  });
-
   test('.get', () async {
     final service = TestService(
-      methodAuthority: 'feed.bsky.app',
       context: ClientContext(
         accessJwt: 'test',
         timeout: Duration(minutes: 1),
@@ -40,7 +25,7 @@ void main() {
     );
 
     final response = await service.get<Map<String, dynamic>>(
-      'getTimeline',
+      const NSID.of('app.bsky.feed.getTimeline'),
       parameters: {
         'handle': 'shinyakato.dev',
       },
@@ -52,7 +37,6 @@ void main() {
 
   test('.post', () async {
     final service = TestService(
-      methodAuthority: 'repo.atproto.com',
       context: ClientContext(
         accessJwt: 'aaaa',
         timeout: Duration(minutes: 1),
@@ -61,7 +45,7 @@ void main() {
     );
 
     final response = await service.post<Map<String, dynamic>>(
-      'createRecord',
+      const NSID.of('com.atproto.repo.createRecord'),
       body: {
         'something': 'test',
       },
@@ -73,7 +57,6 @@ void main() {
 
   test('.upload', () async {
     final service = TestService(
-      methodAuthority: 'repo.atproto.com',
       context: ClientContext(
         accessJwt: 'aaaa',
         timeout: Duration(minutes: 1),
@@ -82,7 +65,7 @@ void main() {
     );
 
     final response = await service.upload<Map<String, dynamic>>(
-      'uploadBlob',
+      const NSID.of('com.atproto.repo.uploadBlob'),
       Uint8List(10),
     );
 
@@ -92,7 +75,6 @@ void main() {
 
   test('.subscribe', () async {
     final service = TestService(
-      methodAuthority: 'sync.atproto.com',
       context: ClientContext(
         accessJwt: 'aaaa',
         timeout: Duration(minutes: 1),
@@ -100,7 +82,7 @@ void main() {
     );
 
     final subscription = await service.stream(
-      'subscribeRepos',
+      const NSID.of('com.atproto.sync.subscribeRepos'),
     );
 
     final oneMinuteLater = DateTime.now().add(Duration(minutes: 1));
@@ -118,7 +100,6 @@ void main() {
 final class TestService extends BaseXRPCService {
   TestService({
     super.service = 'bsky.social',
-    required super.methodAuthority,
     required super.context,
     super.mockedGetClient,
     super.mockedPostClient,

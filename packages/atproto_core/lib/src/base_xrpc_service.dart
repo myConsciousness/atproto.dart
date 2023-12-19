@@ -20,14 +20,12 @@ base class BaseXRPCService {
     xrpc.Protocol? protocol,
     required String service,
     String? streamService,
-    required String methodAuthority,
     required ClientContext context,
     final xrpc.GetClient? mockedGetClient,
     final xrpc.PostClient? mockedPostClient,
   })  : _protocol = protocol,
         _service = service,
         _streamService = streamService ?? defaultStreamService,
-        _methodAuthority = methodAuthority,
         _context = context,
         _mockedGetClient = mockedGetClient,
         _mockedPostClient = mockedPostClient;
@@ -39,9 +37,6 @@ base class BaseXRPCService {
   final String _service;
   final String _streamService;
 
-  /// The authority for method.
-  final String _methodAuthority;
-
   /// The context for HTTP clients.
   final ClientContext _context;
 
@@ -49,16 +44,13 @@ base class BaseXRPCService {
   final xrpc.PostClient? _mockedPostClient;
 
   Future<xrpc.XRPCResponse<T>> get<T>(
-    final String methodName, {
+    final xrpc.NSID endpoint, {
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
   }) async =>
       await _context.get(
-        xrpc.NSID.create(
-          _methodAuthority,
-          methodName,
-        ),
+        endpoint,
         protocol: _protocol,
         service: _service,
         parameters: parameters,
@@ -68,16 +60,13 @@ base class BaseXRPCService {
       );
 
   Pagination<T> paginate<T>(
-    final String methodName, {
+    final xrpc.NSID endpoint, {
     required final Map<String, dynamic> parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
   }) =>
       _context.paginate(
-        xrpc.NSID.create(
-          _methodAuthority,
-          methodName,
-        ),
+        endpoint,
         protocol: _protocol,
         service: _service,
         parameters: parameters,
@@ -87,16 +76,13 @@ base class BaseXRPCService {
       );
 
   Future<xrpc.XRPCResponse<T>> post<T>(
-    final String methodName, {
+    final xrpc.NSID endpoint, {
     final Map<String, String>? headers,
     final dynamic body,
     final xrpc.To<T>? to,
   }) async =>
       await _context.post(
-        xrpc.NSID.create(
-          _methodAuthority,
-          methodName,
-        ),
+        endpoint,
         protocol: _protocol,
         service: _service,
         headers: headers,
@@ -106,7 +92,7 @@ base class BaseXRPCService {
       );
 
   Future<xrpc.XRPCResponse<T>> upload<T>(
-    final String methodName,
+    final xrpc.NSID endpoint,
     final Uint8List bytes, {
     final String? service,
     final Map<String, String>? headers,
@@ -114,10 +100,7 @@ base class BaseXRPCService {
     final xrpc.To<T>? to,
   }) async =>
       await _context.upload(
-        xrpc.NSID.create(
-          _methodAuthority,
-          methodName,
-        ),
+        endpoint,
         bytes,
         protocol: _protocol,
         service: _service,
@@ -127,23 +110,16 @@ base class BaseXRPCService {
       );
 
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
-    final String methodName, {
+    final xrpc.NSID endpoint, {
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
   }) async =>
       await _context.stream(
-        xrpc.NSID.create(
-          _methodAuthority,
-          methodName,
-        ),
+        endpoint,
         service: _streamService,
         parameters: parameters,
         to: to,
         adaptor: adaptor,
       );
-
-  /// Returns the NSID based on this service and [methodName].
-  xrpc.NSID createNSID(final String methodName) =>
-      xrpc.NSID.create(_methodAuthority, methodName);
 }

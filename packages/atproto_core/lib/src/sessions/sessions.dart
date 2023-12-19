@@ -125,7 +125,6 @@ final class _Sessions extends BaseXRPCService {
             timeout: defaultTimeout,
             retryConfig: retryConfig,
           ),
-          methodAuthority: 'server.atproto.com',
         );
 
   Future<xrpc.XRPCResponse<Session>> createSession({
@@ -133,7 +132,7 @@ final class _Sessions extends BaseXRPCService {
     required String password,
   }) async =>
       await super.post(
-        'createSession',
+        const xrpc.NSID.of('com.atproto.server.createSession'),
         body: {
           'identifier': identifier,
           'password': password,
@@ -145,7 +144,7 @@ final class _Sessions extends BaseXRPCService {
     required String refreshJwt,
   }) async =>
       await super.post(
-        'refreshSession',
+        const xrpc.NSID.of('com.atproto.server.refreshSession'),
         headers: {
           'Authorization': 'Bearer $refreshJwt',
         },
@@ -156,7 +155,7 @@ final class _Sessions extends BaseXRPCService {
     required String refreshJwt,
   }) async =>
       await super.post(
-        'deleteSession',
+        const xrpc.NSID.of('com.atproto.server.deleteSession'),
         headers: {
           'Authorization': 'Bearer $refreshJwt',
         },

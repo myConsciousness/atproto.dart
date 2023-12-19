@@ -17,7 +17,6 @@ base class BlueskyBaseService extends core.BaseXRPCService {
     required super.protocol,
     required super.service,
     required super.context,
-    super.methodAuthority = '',
     super.mockedGetClient,
     super.mockedPostClient,
   });

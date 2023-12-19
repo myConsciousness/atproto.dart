@@ -7,6 +7,7 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
+import '../nsids.g.dart' as ns;
 import 'base_service.dart';
 import 'constants/feed_filter.dart';
 import 'entities/actor_feeds.dart';
@@ -915,7 +916,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     required super.context,
     super.mockedGetClient,
     super.mockedPostClient,
-  }) : super(methodAuthority: 'feed.bsky.app');
+  });
 
   @override
   Future<core.XRPCResponse<atp.StrongRef>> createPost({
@@ -930,7 +931,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
       await atproto.repositories.createRecord(
-        collection: createNSID('post'),
+        collection: ns.appBskyFeedPost,
         record: {
           'text': text,
           'reply': reply?.toJson(),
@@ -952,7 +953,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
         actions: params
             .map<atp.CreateAction>(
               (e) => atp.CreateAction(
-                collection: createNSID('post'),
+                collection: ns.appBskyFeedPost,
                 record: {
                   'text': e.text,
                   'reply': e.reply?.toJson(),
@@ -1051,7 +1052,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
       await atproto.repositories.createRecord(
-        collection: createNSID('repost'),
+        collection: ns.appBskyFeedRepost,
         record: {
           'subject': {
             'cid': cid,
@@ -1070,7 +1071,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
         actions: params
             .map(
               (e) => atp.CreateAction(
-                collection: createNSID('repost'),
+                collection: ns.appBskyFeedRepost,
                 record: {
                   'subject': {
                     'cid': e.cid,
@@ -1092,7 +1093,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
       await atproto.repositories.createRecord(
-        collection: createNSID('like'),
+        collection: ns.appBskyFeedLike,
         record: {
           'subject': {
             'cid': cid,
@@ -1111,7 +1112,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
         actions: params
             .map(
               (e) => atp.CreateAction(
-                collection: createNSID('like'),
+                collection: ns.appBskyFeedLike,
                 record: {
                   'subject': {
                     'cid': e.cid,
@@ -1327,7 +1328,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
       await atproto.repositories.createRecord(
-        collection: createNSID('generator'),
+        collection: ns.appBskyFeedGenerator,
         record: {
           'did': did,
           'displayName': displayName,
@@ -1349,7 +1350,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
         actions: params
             .map(
               (e) => atp.CreateAction(
-                collection: createNSID('generator'),
+                collection: ns.appBskyFeedGenerator,
                 record: {
                   'did': e.did,
                   'displayName': e.displayName,
@@ -1444,7 +1445,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
       await atproto.repositories.createRecord(
-        collection: createNSID('threadgate'),
+        collection: ns.appBskyFeedThreadgate,
         record: {
           'post': postUri.toString(),
           'allow': allowRules?.map((e) => e.toJson()).toList(),
@@ -1512,7 +1513,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getListFeed',
+        ns.appBskyFeedGetListFeed,
         parameters: _buildGetListFeedParams(
           list: list,
           limit: limit,
@@ -1528,7 +1529,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        'getListFeed',
+        ns.appBskyFeedGetListFeed,
         parameters: _buildGetListFeedParams(
           list: list,
           limit: limit,
@@ -1544,7 +1545,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getTimeline',
+        ns.appBskyFeedGetTimeline,
         parameters: _buildGetTimelineParams(
           algorithm: algorithm,
           limit: limit,
@@ -1560,7 +1561,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        'getTimeline',
+        ns.appBskyFeedGetTimeline,
         parameters: _buildGetTimelineParams(
           algorithm: algorithm,
           limit: limit,
@@ -1577,7 +1578,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getAuthorFeed',
+        ns.appBskyFeedGetAuthorFeed,
         parameters: _buildGetAuthorFeedParams(
           actor: actor,
           limit: limit,
@@ -1595,7 +1596,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        'getAuthorFeed',
+        ns.appBskyFeedGetAuthorFeed,
         parameters: _buildGetAuthorFeedParams(
           actor: actor,
           limit: limit,
@@ -1612,7 +1613,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getFeed',
+        ns.appBskyFeedGetFeed,
         parameters: _buildGetFeedParams(
           generatorUri: generatorUri,
           limit: limit,
@@ -1628,7 +1629,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        'getFeed',
+        ns.appBskyFeedGetFeed,
         parameters: _buildGetFeedParams(
           generatorUri: generatorUri,
           limit: limit,
@@ -1644,7 +1645,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getFeedSkeleton',
+        ns.appBskyFeedGetFeedSkeleton,
         parameters: _buildGetFeedSkeletonParams(
           generatorUri: generatorUri,
           limit: limit,
@@ -1660,7 +1661,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        'getFeedSkeleton',
+        ns.appBskyFeedGetFeedSkeleton,
         parameters: _buildGetFeedSkeletonParams(
           generatorUri: generatorUri,
           limit: limit,
@@ -1676,7 +1677,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getActorFeeds',
+        ns.appBskyFeedGetActorFeeds,
         parameters: _buildGetActorFeedsParams(
           actor: actor,
           limit: limit,
@@ -1692,7 +1693,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        'getActorFeeds',
+        ns.appBskyFeedGetActorFeeds,
         parameters: _buildGetActorFeedsParams(
           actor: actor,
           limit: limit,
@@ -1709,7 +1710,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getLikes',
+        ns.appBskyFeedGetLikes,
         parameters: _buildGetLikes(
           uri: uri,
           cid: cid,
@@ -1727,7 +1728,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        'getLikes',
+        ns.appBskyFeedGetLikes,
         parameters: _buildGetLikes(
           uri: uri,
           cid: cid,
@@ -1745,7 +1746,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getRepostedBy',
+        ns.appBskyFeedGetRepostedBy,
         parameters: _buildGetRepostedBy(
           uri: uri,
           cid: cid,
@@ -1763,7 +1764,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        'getRepostedBy',
+        ns.appBskyFeedGetRepostedBy,
         parameters: _buildGetRepostedBy(
           uri: uri,
           cid: cid,
@@ -1780,7 +1781,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getPostThread',
+        ns.appBskyFeedGetPostThread,
         parameters: {
           'uri': uri,
           'depth': depth,
@@ -1794,7 +1795,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getPosts',
+        ns.appBskyFeedGetPosts,
         parameters: {
           'uris': uris.map((e) => e.toString()).toList(),
         },
@@ -1806,7 +1807,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getFeedGenerator',
+        ns.appBskyFeedGetFeedGenerator,
         parameters: {
           'feed': uri.toString(),
         },
@@ -1818,7 +1819,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getFeedGenerators',
+        ns.appBskyFeedGetFeedGenerators,
         parameters: {
           'feeds': uris.map((e) => e.toString()).toList(),
         },
@@ -1829,7 +1830,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'describeFeedGenerator',
+        ns.appBskyFeedDescribeFeedGenerator,
         to: to,
       );
 
@@ -1840,7 +1841,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getActorLikes',
+        ns.appBskyFeedGetActorLikes,
         parameters: _buildGetActorLikes(
           actor: actor,
           limit: limit,
@@ -1856,7 +1857,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        'getActorLikes',
+        ns.appBskyFeedGetActorLikes,
         parameters: _buildGetActorLikes(
           actor: actor,
           limit: limit,
@@ -1871,7 +1872,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'getSuggestedFeeds',
+        ns.appBskyFeedGetSuggestedFeeds,
         parameters: _buildGetSuggestedFeeds(
           limit: limit,
           cursor: cursor,
@@ -1885,7 +1886,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        'getSuggestedFeeds',
+        ns.appBskyFeedGetSuggestedFeeds,
         parameters: _buildGetSuggestedFeeds(
           limit: limit,
           cursor: cursor,
@@ -1900,7 +1901,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) async =>
       await super.get(
-        'searchPosts',
+        ns.appBskyFeedSearchPosts,
         parameters: _buildSearchPostsParams(
           query: query,
           limit: limit,
@@ -1916,7 +1917,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     core.To<T>? to,
   }) =>
       super.paginate(
-        'searchPosts',
+        ns.appBskyFeedSearchPosts,
         parameters: _buildSearchPostsParams(
           query: query,
           limit: limit,
