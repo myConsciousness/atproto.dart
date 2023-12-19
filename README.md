@@ -47,9 +47,10 @@
 - [9. More Information 🧐](#9-more-information-)
 
 Welcome to **[atproto.dart](https://atprotodart.com)** 🦋
+
 This project will **_maximize your development productivity_** about [AT Protocol](https://atproto.com) and [Bluesky](https://blueskyweb.xyz) things.
 
-**_Give a ⭐ on [this repository](https://github.com/myConsciousness/atproto.dart) to activate a project!_**
+**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) and follow [shinyakato.dev](https://bsky.app/profile/shinyakato.dev) on Bluesky!_**
 
 ## 1. Motivation 💪
 
