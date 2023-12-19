@@ -7,10 +7,10 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import 'actors_service.dart';
-import 'feeds_service.dart';
-import 'graphs_service.dart';
-import 'notifications_service.dart';
+import 'actor_service.dart';
+import 'feed_service.dart';
+import 'graph_service.dart';
+import 'notification_service.dart';
 import 'unspecced_service.dart';
 
 sealed class BlueskyService {
@@ -34,38 +34,49 @@ sealed class BlueskyService {
         mockedPostClient: mockedPostClient,
       );
 
-  /// Returns the actors service.
-  ActorsService get actors;
+  /// Returns the actor service.
+  /// This service represents `app.bsky.actor.*`.
+  ActorService get actor;
 
-  /// Returns the feeds service.
-  FeedsService get feeds;
+  /// Returns the feed service.
+  /// This service represents `app.bsky.feed.*`.
+  FeedService get feed;
 
-  /// Returns the notifications service.
-  NotificationsService get notifications;
+  /// Returns the notification service.
+  /// This service represents `app.bsky.notification.*`.
+  NotificationService get notification;
 
-  /// Returns the graphs service.
-  GraphsService get graphs;
+  /// Returns the graph service.
+  /// This service represents `app.bsky.graph.*`.
+  GraphService get graph;
 
   /// Returns the unspecced service.
+  /// This service represents `app.bsky.unspecced.*`.
   UnspeccedService get unspecced;
 
-  /// Returns the servers service.
-  atp.ServersService get servers;
+  /// Returns the server service.
+  /// This service represents `com.atproto.server.*`.
+  atp.ServerService get server;
 
-  /// Returns the identities service.
-  atp.IdentitiesService get identities;
+  /// Returns the identity service.
+  /// This service represents `com.atproto.identity.*`.
+  atp.IdentityService get identity;
 
-  /// Returns the repositories service.
-  atp.RepositoriesService get repositories;
+  /// Returns the repo service.
+  /// This service represents `com.atproto.repo.*`.
+  atp.RepoService get repo;
 
   /// Returns the moderation service.
+  /// This service represents `com.atproto.moderation.*`.
   atp.ModerationService get moderation;
 
   /// Returns the sync service.
+  /// This service represents `com.atproto.sync.*`.
   atp.SyncService get sync;
 
-  /// Returns the labels service.
-  atp.LabelsService get labels;
+  /// Returns the label service.
+  /// This service represents `com.atproto.label.*`.
+  atp.LabelService get label;
 }
 
 final class _BlueskyService implements BlueskyService {
@@ -78,7 +89,7 @@ final class _BlueskyService implements BlueskyService {
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  })  : actors = ActorsService(
+  })  : actor = ActorService(
           atproto: atproto,
           did: did,
           protocol: protocol,
@@ -87,7 +98,7 @@ final class _BlueskyService implements BlueskyService {
           mockedGetClient: mockedGetClient,
           mockedPostClient: mockedPostClient,
         ),
-        feeds = FeedsService(
+        feed = FeedService(
           atproto: atproto,
           did: did,
           protocol: protocol,
@@ -96,7 +107,7 @@ final class _BlueskyService implements BlueskyService {
           mockedGetClient: mockedGetClient,
           mockedPostClient: mockedPostClient,
         ),
-        notifications = NotificationsService(
+        notification = NotificationService(
           atproto: atproto,
           did: did,
           protocol: protocol,
@@ -105,7 +116,7 @@ final class _BlueskyService implements BlueskyService {
           mockedGetClient: mockedGetClient,
           mockedPostClient: mockedPostClient,
         ),
-        graphs = GraphsService(
+        graph = GraphService(
           atproto: atproto,
           did: did,
           protocol: protocol,
@@ -123,36 +134,36 @@ final class _BlueskyService implements BlueskyService {
           mockedGetClient: mockedGetClient,
           mockedPostClient: mockedPostClient,
         ),
-        servers = atproto.servers,
-        identities = atproto.identities,
-        repositories = atproto.repositories,
+        server = atproto.server,
+        identity = atproto.identity,
+        repo = atproto.repo,
         moderation = atproto.moderation,
         sync = atproto.sync,
-        labels = atproto.labels;
+        label = atproto.label;
 
   @override
-  final ActorsService actors;
+  final ActorService actor;
 
   @override
-  final FeedsService feeds;
+  final FeedService feed;
 
   @override
-  final NotificationsService notifications;
+  final NotificationService notification;
 
   @override
-  final GraphsService graphs;
+  final GraphService graph;
 
   @override
   final UnspeccedService unspecced;
 
   @override
-  final atp.ServersService servers;
+  final atp.ServerService server;
 
   @override
-  final atp.IdentitiesService identities;
+  final atp.IdentityService identity;
 
   @override
-  final atp.RepositoriesService repositories;
+  final atp.RepoService repo;
 
   @override
   final atp.ModerationService moderation;
@@ -161,5 +172,5 @@ final class _BlueskyService implements BlueskyService {
   final atp.SyncService sync;
 
   @override
-  final atp.LabelsService labels;
+  final atp.LabelService label;
 }

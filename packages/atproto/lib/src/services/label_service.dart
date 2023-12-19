@@ -12,9 +12,10 @@ import 'entities/adaptor/subscribe_label_updates_adaptor.dart';
 import 'entities/labels_by_query.dart';
 import 'entities/subscribed_label.dart';
 
-sealed class LabelsService {
-  /// Returns the new instance of [LabelsService].
-  factory LabelsService({
+/// Represents `com.atproto.label.*` service.
+sealed class LabelService {
+  /// Returns the new instance of [LabelService].
+  factory LabelService({
     required String did,
     required core.Protocol protocol,
     required String service,
@@ -23,7 +24,7 @@ sealed class LabelsService {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) =>
-      _LabelsService(
+      _LabelService(
         did: did,
         protocol: protocol,
         service: service,
@@ -82,9 +83,9 @@ sealed class LabelsService {
   });
 }
 
-final class _LabelsService extends ATProtoBaseService implements LabelsService {
-  /// Returns the new instance of [_LabelsService].
-  _LabelsService({
+final class _LabelService extends ATProtoBaseService implements LabelService {
+  /// Returns the new instance of [_LabelService].
+  _LabelService({
     required super.did,
     required super.protocol,
     required super.service,

@@ -21,9 +21,10 @@ import 'entities/repo_info.dart';
 import 'entities/strong_ref.dart';
 import 'entities/update_action.dart';
 
-sealed class RepositoriesService {
-  /// Returns the new instance of [RepositoriesService].
-  factory RepositoriesService({
+/// Represents `com.atproto.repo.*` service.
+sealed class RepoService {
+  /// Returns the new instance of [RepoService].
+  factory RepoService({
     required String did,
     required core.Protocol protocol,
     required String service,
@@ -31,7 +32,7 @@ sealed class RepositoriesService {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) =>
-      _RepositoriesService(
+      _RepoService(
         did: did,
         protocol: protocol,
         service: service,
@@ -323,10 +324,9 @@ sealed class RepositoriesService {
   });
 }
 
-final class _RepositoriesService extends ATProtoBaseService
-    implements RepositoriesService {
-  /// Returns the new instance of [_RepositoriesService].
-  _RepositoriesService({
+final class _RepoService extends ATProtoBaseService implements RepoService {
+  /// Returns the new instance of [_RepoService].
+  _RepoService({
     required super.did,
     required super.protocol,
     required super.service,

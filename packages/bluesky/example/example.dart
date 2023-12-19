@@ -35,21 +35,21 @@ Future<void> main() async {
     );
 
     //! Let's get home timeline!
-    final feeds = await bluesky.feeds.findTimeline(
+    final feeds = await bluesky.feed.findTimeline(
       limit: 10,
     );
 
     print(feeds);
 
     //! Let's post cool stuff!
-    final createdRecord = await bluesky.feeds.createPost(
+    final createdRecord = await bluesky.feed.createPost(
       text: 'Hello, Bluesky!',
     );
 
     print(createdRecord);
 
     //! And delete it.
-    await bluesky.repositories.deleteRecord(
+    await bluesky.repo.deleteRecord(
       uri: createdRecord.data.uri,
     );
 

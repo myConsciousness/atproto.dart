@@ -122,13 +122,14 @@ See **[Session Management](#session-management)** for more details about authent
 
 **[atproto](https://pub.dev/packages/atproto)** supports following services.
 
-| Property                                                                                           | Class                                                                                                      | Lexicon                                                                                                           |
-| -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| **[servers](https://pub.dev/documentation/atproto/latest/atproto/ATProto/servers.html)**           | [ServersService](https://pub.dev/documentation/atproto/latest/atproto/ServersService-class.html)           | [`com.atproto.server.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/server)         |
-| **[identities](https://pub.dev/documentation/atproto/latest/atproto/ATProto/identities.html)**     | [IdentitiesService](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService-class.html)     | [`com.atproto.identity.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/identity)     |
-| **[repositories](https://pub.dev/documentation/atproto/latest/atproto/ATProto/repositories.html)** | [RepositoriesService](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService-class.html) | [`com.atproto.repo.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/repo)             |
-| **[moderation](https://pub.dev/documentation/atproto/latest/atproto/ATProto/moderation.html)**     | [ModerationService](https://pub.dev/documentation/atproto/latest/atproto/ModerationService-class.html)     | [`com.atproto.moderation.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/moderation) |
-| **[sync](https://pub.dev/documentation/atproto/latest/atproto/ATProto/sync.html)**                 | [SyncService](https://pub.dev/documentation/atproto/latest/atproto/SyncService-class.html)                 | [`com.atproto.sync.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/sync)             |
+| Property                                                                                       | Class                                                                                                  | Lexicon                                                                                                           |
+| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| **[server](https://pub.dev/documentation/atproto/latest/atproto/ATProto/server.html)**         | [ServerService](https://pub.dev/documentation/atproto/latest/atproto/ServerService-class.html)         | [`com.atproto.server.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/server)         |
+| **[identity](https://pub.dev/documentation/atproto/latest/atproto/ATProto/identity.html)**     | [IdentityService](https://pub.dev/documentation/atproto/latest/atproto/IdentityService-class.html)     | [`com.atproto.identity.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/identity)     |
+| **[repo](https://pub.dev/documentation/atproto/latest/atproto/ATProto/repo.html)**             | [RepoService](https://pub.dev/documentation/atproto/latest/atproto/RepoService-class.html)             | [`com.atproto.repo.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/repo)             |
+| **[moderation](https://pub.dev/documentation/atproto/latest/atproto/ATProto/moderation.html)** | [ModerationService](https://pub.dev/documentation/atproto/latest/atproto/ModerationService-class.html) | [`com.atproto.moderation.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/moderation) |
+| **[sync](https://pub.dev/documentation/atproto/latest/atproto/ATProto/sync.html)**             | [SyncService](https://pub.dev/documentation/atproto/latest/atproto/SyncService-class.html)             | [`com.atproto.sync.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/sync)             |
+| **[label](https://pub.dev/documentation/atproto/latest/atproto/ATProto/label.html)**           | [LabelService](https://pub.dev/documentation/atproto/latest/atproto/LabelService-class.html)           | [`com.atproto.label.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/label)           |
 
 Once an instance of the **[ATProto](https://pub.dev/documentation/atproto/latest/atproto/ATProto-class.html)** object has been created, service endpoints can be used by accessing the `property` corresponding to each service as follows.
 
@@ -139,7 +140,7 @@ Future<void> main() async {
   final atproto = ATProto.anonymous();
 
   // Use `findDID` in `IdentitiesService`.
-  final did = await atproto.identities.findDID(
+  final did = await atproto.identity.findDID(
     handle: 'shinyakato.dev',
   );
 }
@@ -167,7 +168,7 @@ Future<void> main() async {
   final atproto = atp.ATProto.fromSession(session.data);
 
   // Create a record to specific service like Bluesky.
-  final strongRef = await atproto.repositories.createRecord(
+  final strongRef = await atproto.repo.createRecord(
     collection: atp.NSID.create(
       'feed.bsky.app',
       'post',
@@ -179,7 +180,7 @@ Future<void> main() async {
   );
 
   // And delete it.
-  await atproto.repositories.deleteRecord(
+  await atproto.repo.deleteRecord(
     uri: strongRef.data.uri,
   );
 }
@@ -228,7 +229,7 @@ Future<void> main() async {
   final atproto = atp.ATProto.fromSession(session.data);
 
   // Do something with atproto
-  final did = await atproto.identities.findDID(handle: session.data.handle);
+  final did = await atproto.identity.findDID(handle: session.data.handle);
 }
 ```
 
@@ -291,7 +292,7 @@ Future<void> main() async {
   );
 
   // See this line.
-  await atproto.repositories.create
+  await atproto.repo.create
 }
 ```
 
@@ -340,7 +341,7 @@ Future<void> main() async {
   final atproto = ATProto.anonymous();
 
   // Just find the DID of `shinyakato.dev`
-  final did = await atproto.identities.findDID(
+  final did = await atproto.identity.findDID(
     handle: 'shinyakato.dev',
   );
 }
@@ -405,7 +406,7 @@ Future<void> main() async {
 
   final atproto = atp.ATProto.fromSession(session.data);
 
-  final response = await atproto.repositories.createRecord(
+  final response = await atproto.repo.createRecord(
     collection: atp.NSID.create(
       'app.bsky.feed',
       'post',
@@ -697,7 +698,7 @@ Future<void> main() async {
   String? nextCursor;
 
   do {
-    final records = await atproto.repositories.findRecords(
+    final records = await atproto.repo.findRecords(
       repo: 'shinyakato.dev',
       collection: atp.NSID.create(
         'graph.bsky.app',
@@ -745,7 +746,7 @@ Future<void> main() async {
   final atproto = atp.ATProto.fromSession(session.data);
 
   // Get a pagination for `com.atproto.repo.listRecords`.
-  final pagination = atproto.repositories.paginateRecords(
+  final pagination = atproto.repo.paginateRecords(
     repo: 'shinyakato.dev',
     collection: atp.NSID.create(
       'feed.bsky.app',

@@ -6,11 +6,11 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import 'services/identities_service.dart';
-import 'services/labels_service.dart';
+import 'services/identity_service.dart';
+import 'services/label_service.dart';
 import 'services/moderation_service.dart';
-import 'services/repositories_service.dart';
-import 'services/servers_service.dart';
+import 'services/repo_service.dart';
+import 'services/server_service.dart';
 import 'services/services.dart';
 import 'services/sync_service.dart';
 
@@ -64,22 +64,48 @@ sealed class ATProto {
   core.Session? get session;
 
   /// Returns the servers service.
-  ServersService get servers;
+  /// This service represents `com.atproto.server.*`.
+  @Deprecated('Use .server instead. Will be removed')
+  ServerService get servers;
 
-  /// Returns the identities service.
-  IdentitiesService get identities;
+  /// Returns the servers service.
+  /// This service represents `com.atproto.server.*`.
+  ServerService get server;
+
+  /// Returns the identity service.
+  /// This service represents `com.atproto.identity.*`.
+  @Deprecated('Use .identity instead. Will be removed')
+  IdentityService get identities;
+
+  /// Returns the identity service.
+  /// This service represents `com.atproto.identity.*`.
+  IdentityService get identity;
 
   /// Returns the repositories service.
-  RepositoriesService get repositories;
+  /// This service represents `com.atproto.repo.*`.
+  @Deprecated('Use .repo instead. Will be removed')
+  RepoService get repositories;
+
+  /// Returns the repositories service.
+  /// This service represents `com.atproto.repo.*`.
+  RepoService get repo;
 
   /// Returns the moderation service.
+  /// This service represents `com.atproto.moderation.*`.
   ModerationService get moderation;
 
   /// Returns the sync service.
+  /// This service represents `com.atproto.sync.*`.
   SyncService get sync;
 
   /// Returns the labels service.
-  LabelsService get labels;
+  /// This service represents `com.atproto.label.*`.
+  @Deprecated('Use .label instead. Will be removed')
+  LabelService get labels;
+
+  /// Returns the labels service.
+  /// This service represents `com.atproto.label.*`.
+  LabelService get label;
 }
 
 final class _ATProto implements ATProto {
@@ -113,13 +139,22 @@ final class _ATProto implements ATProto {
   final core.Session? session;
 
   @override
-  ServersService get servers => _service.servers;
+  ServerService get servers => _service.server;
 
   @override
-  IdentitiesService get identities => _service.identities;
+  ServerService get server => _service.server;
 
   @override
-  RepositoriesService get repositories => _service.repositories;
+  IdentityService get identities => _service.identity;
+
+  @override
+  IdentityService get identity => _service.identity;
+
+  @override
+  RepoService get repositories => _service.repo;
+
+  @override
+  RepoService get repo => _service.repo;
 
   @override
   ModerationService get moderation => _service.moderation;
@@ -128,5 +163,8 @@ final class _ATProto implements ATProto {
   SyncService get sync => _service.sync;
 
   @override
-  LabelsService get labels => _service.labels;
+  LabelService get labels => _service.label;
+
+  @override
+  LabelService get label => _service.label;
 }

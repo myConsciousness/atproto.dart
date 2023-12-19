@@ -22,9 +22,10 @@ import 'params/list_item_param.dart';
 import 'params/list_param.dart';
 import 'params/repo_param.dart';
 
-sealed class GraphsService {
-  /// Returns the new instance of [GraphsService].
-  factory GraphsService({
+/// Represents `app.bsky.graph.*` service.
+sealed class GraphService {
+  /// Returns the new instance of [GraphService].
+  factory GraphService({
     required atp.ATProto atproto,
     required String did,
     required core.Protocol protocol,
@@ -33,7 +34,7 @@ sealed class GraphsService {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) =>
-      _GraphsService(
+      _GraphService(
         atproto: atproto,
         did: did,
         protocol: protocol,
@@ -745,9 +746,9 @@ sealed class GraphsService {
   });
 }
 
-final class _GraphsService extends BlueskyBaseService implements GraphsService {
-  /// Returns the new instance of [_GraphsService].
-  _GraphsService({
+final class _GraphService extends BlueskyBaseService implements GraphService {
+  /// Returns the new instance of [_GraphService].
+  _GraphService({
     required super.atproto,
     required super.did,
     required super.protocol,
@@ -763,7 +764,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repositories.createRecord(
+      await atproto.repo.createRecord(
         collection: ns.appBskyGraphFollow,
         record: {
           'subject': did,
@@ -776,7 +777,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
   Future<core.XRPCResponse<core.EmptyData>> createFollows(
     List<RepoParam> params,
   ) async =>
-      await atproto.repositories.createRecords(
+      await atproto.repo.createRecords(
         actions: params
             .map(
               (e) => atp.CreateAction(
@@ -915,7 +916,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repositories.createRecord(
+      await atproto.repo.createRecord(
         collection: ns.appBskyGraphBlock,
         record: {
           'subject': did,
@@ -928,7 +929,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
   Future<core.XRPCResponse<core.EmptyData>> createBlocks(
     List<RepoParam> params,
   ) async =>
-      await atproto.repositories.createRecords(
+      await atproto.repo.createRecords(
         actions: params
             .map(
               (e) => atp.CreateAction(
@@ -954,7 +955,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repositories.createRecord(
+      await atproto.repo.createRecord(
         collection: ns.appBskyGraphList,
         record: {
           'purpose': purpose,
@@ -1015,7 +1016,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
   Future<core.XRPCResponse<atp.EmptyData>> createLists(
     List<ListParam> params,
   ) async =>
-      await atproto.repositories.createRecords(
+      await atproto.repo.createRecords(
         actions: params
             .map(
               (e) => atp.CreateAction(
@@ -1095,7 +1096,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repositories.createRecord(
+      await atproto.repo.createRecord(
         collection: ns.appBskyGraphListitem,
         record: {
           'subject': subject,
@@ -1109,7 +1110,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
   Future<core.XRPCResponse<atp.EmptyData>> createListItems(
     List<ListItemParam> params,
   ) async =>
-      await atproto.repositories.createRecords(
+      await atproto.repo.createRecords(
         actions: params
             .map(
               (e) => atp.CreateAction(
@@ -1205,7 +1206,7 @@ final class _GraphsService extends BlueskyBaseService implements GraphsService {
     required core.AtUri listUri,
     DateTime? createdAt,
   }) async =>
-      await atproto.repositories.createRecord(
+      await atproto.repo.createRecord(
         collection: ns.appBskyGraphListblock,
         record: {
           'subject': listUri.toString(),

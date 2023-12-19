@@ -6,11 +6,11 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import 'identities_service.dart';
-import 'labels_service.dart';
+import 'identity_service.dart';
+import 'label_service.dart';
 import 'moderation_service.dart';
-import 'repositories_service.dart';
-import 'servers_service.dart';
+import 'repo_service.dart';
+import 'server_service.dart';
 import 'sync_service.dart';
 
 sealed class ATProtoService {
@@ -35,22 +35,28 @@ sealed class ATProtoService {
       );
 
   /// Returns the servers service.
-  ServersService get servers;
+  /// This service represents `com.atproto.server.*`.
+  ServerService get server;
 
-  /// Returns the new instance of identities service.
-  IdentitiesService get identities;
+  /// Returns the new identity service.
+  /// This service represents `com.atproto.identity.*`.
+  IdentityService get identity;
 
   /// Returns the repositories service.
-  RepositoriesService get repositories;
+  /// This service represents `com.atproto.repo.*`.
+  RepoService get repo;
 
   /// Returns the moderation service.
+  /// This service represents `com.atproto.moderation.*`.
   ModerationService get moderation;
 
   /// Returns the sync service.
+  /// This service represents `com.atproto.sync.*`.
   SyncService get sync;
 
-  /// Returns the labels service.
-  LabelsService get labels;
+  /// Returns the label service.
+  /// This service represents `com.atproto.label.*`.
+  LabelService get label;
 }
 
 final class _ATProtoService implements ATProtoService {
@@ -63,7 +69,7 @@ final class _ATProtoService implements ATProtoService {
     required core.ClientContext context,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
-  })  : servers = ServersService(
+  })  : server = ServerService(
           did: did,
           protocol: protocol,
           service: service,
@@ -71,7 +77,7 @@ final class _ATProtoService implements ATProtoService {
           mockedGetClient: mockedGetClient,
           mockedPostClient: mockedPostClient,
         ),
-        identities = IdentitiesService(
+        identity = IdentityService(
           did: did,
           protocol: protocol,
           service: service,
@@ -79,7 +85,7 @@ final class _ATProtoService implements ATProtoService {
           mockedGetClient: mockedGetClient,
           mockedPostClient: mockedPostClient,
         ),
-        repositories = RepositoriesService(
+        repo = RepoService(
           did: did,
           protocol: protocol,
           service: service,
@@ -104,7 +110,7 @@ final class _ATProtoService implements ATProtoService {
           mockedGetClient: mockedGetClient,
           mockedPostClient: mockedPostClient,
         ),
-        labels = LabelsService(
+        label = LabelService(
           did: did,
           protocol: protocol,
           service: service,
@@ -115,13 +121,13 @@ final class _ATProtoService implements ATProtoService {
         );
 
   @override
-  final ServersService servers;
+  final ServerService server;
 
   @override
-  final IdentitiesService identities;
+  final IdentityService identity;
 
   @override
-  final RepositoriesService repositories;
+  final RepoService repo;
 
   @override
   final ModerationService moderation;
@@ -130,5 +136,5 @@ final class _ATProtoService implements ATProtoService {
   final SyncService sync;
 
   @override
-  final LabelsService labels;
+  final LabelService label;
 }

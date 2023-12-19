@@ -12,6 +12,7 @@ import 'constants/moderation_reason_type.dart';
 import 'entities/report.dart';
 import 'entities/report_subject.dart';
 
+/// Represents `com.atproto.moderation.*` service.
 sealed class ModerationService {
   /// Returns the new instance of [ModerationService].
   factory ModerationService({

@@ -16,7 +16,7 @@ topics:
   - plc
 
 dependencies:
-  atproto_core: ^0.7.1
+  atproto_core: ^0.8.0
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
 

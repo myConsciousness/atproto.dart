@@ -10,9 +10,10 @@ import '../nsids.g.dart' as ns;
 import 'base_service.dart';
 import 'entities/did.dart';
 
-sealed class IdentitiesService {
-  /// Returns the new instance of [IdentitiesService].
-  factory IdentitiesService({
+/// Represents `com.atproto.identity.*` service.
+sealed class IdentityService {
+  /// Returns the new instance of [IdentityService].
+  factory IdentityService({
     required String did,
     required core.Protocol protocol,
     required String service,
@@ -20,7 +21,7 @@ sealed class IdentitiesService {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) =>
-      _IdentitiesService(
+      _IdentityService(
         did: did,
         protocol: protocol,
         service: service,
@@ -64,10 +65,10 @@ sealed class IdentitiesService {
   });
 }
 
-final class _IdentitiesService extends ATProtoBaseService
-    implements IdentitiesService {
-  /// Returns the new instance of [_IdentitiesService].
-  _IdentitiesService({
+final class _IdentityService extends ATProtoBaseService
+    implements IdentityService {
+  /// Returns the new instance of [_IdentityService].
+  _IdentityService({
     required super.did,
     required super.protocol,
     required super.service,

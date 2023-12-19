@@ -123,18 +123,19 @@ See **[Session Management](#session-management)** for more details about authent
 
 **[bluesky](https://pub.dev/packages/bluesky)** supports following services.
 
-| Property                                                                                             | Class                                                                                                        | Lexicon                                                                                                           |
-| ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| **[servers](https://pub.dev/documentation/atproto/latest/atproto/ATProto/servers.html)**             | [ServersService](https://pub.dev/documentation/atproto/latest/atproto/ServersService-class.html)             | [`com.atproto.server.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/server)         |
-| **[identities](https://pub.dev/documentation/atproto/latest/atproto/ATProto/identities.html)**       | [IdentitiesService](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService-class.html)       | [`com.atproto.identity.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/identity)     |
-| **[repositories](https://pub.dev/documentation/atproto/latest/atproto/ATProto/repositories.html)**   | [RepositoriesService](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService-class.html)   | [`com.atproto.repo.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/repo)             |
-| **[moderation](https://pub.dev/documentation/atproto/latest/atproto/ATProto/moderation.html)**       | [ModerationService](https://pub.dev/documentation/atproto/latest/atproto/ModerationService-class.html)       | [`com.atproto.moderation.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/moderation) |
-| **[sync](https://pub.dev/documentation/atproto/latest/atproto/ATProto/sync.html)**                   | [SyncService](https://pub.dev/documentation/atproto/latest/atproto/SyncService-class.html)                   | [`com.atproto.sync.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/sync)             |
-| **[actors](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/actors.html)**               | [ActorsService](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService-class.html)               | [`app.bsky.actor.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/actor)                 |
-| **[feeds](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/feeds.html)**                 | [FeedsService](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService-class.html)                 | [`app.bsky.feed.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/feed)                   |
-| **[notifications](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/notifications.html)** | [NotificationsService](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService-class.html) | [`app.bsky.notification.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/notification)   |
-| **[graphs](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/graphs.html)**               | [GraphsService](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService-class.html)               | [`app.bsky.graph.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/graph)                 |
-| **[unspecced](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/unspecced.html)**         | [UnspeccedService](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService-class.html)         | [`app.bsky.unspecced.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/unspecced)         |
+| Property                                                                                           | Class                                                                                                      | Lexicon                                                                                                           |
+| -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **[server](https://pub.dev/documentation/atproto/latest/atproto/ATProto/server.html)**             | [ServerService](https://pub.dev/documentation/atproto/latest/atproto/ServerService-class.html)             | [`com.atproto.server.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/server)         |
+| **[identity](https://pub.dev/documentation/atproto/latest/atproto/ATProto/identity.html)**         | [IdentityService](https://pub.dev/documentation/atproto/latest/atproto/IdentityService-class.html)         | [`com.atproto.identity.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/identity)     |
+| **[repo](https://pub.dev/documentation/atproto/latest/atproto/ATProto/repo.html)**                 | [RepoService](https://pub.dev/documentation/atproto/latest/atproto/RepoService-class.html)                 | [`com.atproto.repo.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/repo)             |
+| **[moderation](https://pub.dev/documentation/atproto/latest/atproto/ATProto/moderation.html)**     | [ModerationService](https://pub.dev/documentation/atproto/latest/atproto/ModerationService-class.html)     | [`com.atproto.moderation.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/moderation) |
+| **[sync](https://pub.dev/documentation/atproto/latest/atproto/ATProto/sync.html)**                 | [SyncService](https://pub.dev/documentation/atproto/latest/atproto/SyncService-class.html)                 | [`com.atproto.sync.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/sync)             |
+| **[label](https://pub.dev/documentation/atproto/latest/atproto/ATProto/label.html)**               | [LabelService](https://pub.dev/documentation/atproto/latest/atproto/LabelService-class.html)               | [`com.atproto.label.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/label)           |
+| **[actor](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/actor.html)**               | [ActorService](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService-class.html)               | [`app.bsky.actor.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/actor)                 |
+| **[feed](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/feed.html)**                 | [FeedService](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService-class.html)                 | [`app.bsky.feed.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/feed)                   |
+| **[notification](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/notification.html)** | [NotificationService](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationService-class.html) | [`app.bsky.notification.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/notification)   |
+| **[graph](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/graph.html)**               | [GraphService](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService-class.html)               | [`app.bsky.graph.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/graph)                 |
+| **[unspecced](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/unspecced.html)**       | [UnspeccedService](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService-class.html)       | [`app.bsky.unspecced.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/unspecced)         |
 
 Once an instance of the **[Bluesky](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky-class.html)** object has been created, service endpoints can be used by accessing the `property` corresponding to each service as follows.
 
@@ -152,7 +153,7 @@ Future<void> main() async {
     session.data,
   );
 
-  final timeline = await bluesky.feeds.findTimeline();
+  final timeline = await bluesky.feed.findTimeline();
 
   print(timeline);
 }
@@ -183,12 +184,12 @@ Future<void> main() async {
   );
 
   // Create a record to specific service like Bluesky.
-  final strongRef = await bluesky.feeds.createPost(
+  final strongRef = await bluesky.feed.createPost(
     text: 'Hello, Bluesky!',
   );
 
   // And delete it.
-  await bluesky.repositories.deleteRecord(uri: strongRef.data.uri);
+  await bluesky.repo.deleteRecord(uri: strongRef.data.uri);
 }
 ```
 
@@ -235,7 +236,7 @@ Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(session.data);
 
   // Do something with bluesky
-  final did = await bluesky.identities.findDID(handle: session.data.handle);
+  final did = await bluesky.identity.findDID(handle: session.data.handle);
 }
 ```
 
@@ -298,7 +299,7 @@ Future<void> main() async {
   );
 
   // See this line.
-  await bluesky.graphs.find
+  await bluesky.graph.find
 }
 ```
 
@@ -347,7 +348,7 @@ Future<void> main() async {
   final bluesky = Bluesky.anonymous();
 
   // Just find the DID of `shinyakato.dev`
-  final did = await bluesky.identities.findDID(
+  final did = await bluesky.identity.findDID(
     handle: 'shinyakato.dev',
   );
 }
@@ -406,7 +407,7 @@ import 'package:bluesky/bluesky.dart' as bsky;
 Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(await _session);
 
-  final response = await bluesky.feeds.findTimeline();
+  final response = await bluesky.feed.findTimeline();
 
   // This is rate limit!
   print(response.rateLimit);
@@ -737,7 +738,7 @@ Future<void> main() async {
   String? nextCursor;
 
   do {
-    final actors = await bluesky.actors.searchActors(
+    final actors = await bluesky.actor.searchActors(
       term: 'alf',
       cursor: nextCursor, // If null, it is ignored.
     );
@@ -781,7 +782,7 @@ Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(session.data);
 
   // Get a pagination for `app.bsky.feed.getTimeline`.
-  final pagination = bluesky.feeds.paginateTimeline();
+  final pagination = bluesky.feed.paginateTimeline();
 
   // Until the next cursor runs out.
   while (pagination.hasNext) {
@@ -874,7 +875,7 @@ import 'package:bluesky/bluesky.dart' as bsky;
 Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(await _session);
 
-  final ref = await bluesky.feeds.createPost(
+  final ref = await bluesky.feed.createPost(
     text: 'This is where I post from',
 
     // Use this parameter.
@@ -929,7 +930,7 @@ import 'package:bluesky/moderation.dart' as mod;
 Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(await _session);
 
-  final preferences = await bluesky.actors.findPreferences();
+  final preferences = await bluesky.actor.findPreferences();
 
   // Moderation options based on user's preferences
   final options = mod.getModerationOptions(

@@ -12,9 +12,10 @@ import 'base_service.dart';
 import 'entities/count.dart';
 import 'entities/notifications.dart';
 
-sealed class NotificationsService {
-  /// Returns the new instance of [NotificationsService].
-  factory NotificationsService({
+/// Represents `app.bsky.notification.*` service.
+sealed class NotificationService {
+  /// Returns the new instance of [NotificationService].
+  factory NotificationService({
     required atp.ATProto atproto,
     required String did,
     required core.Protocol protocol,
@@ -23,7 +24,7 @@ sealed class NotificationsService {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) =>
-      _NotificationsService(
+      _NotificationService(
         atproto: atproto,
         did: did,
         protocol: protocol,
@@ -131,10 +132,10 @@ sealed class NotificationsService {
   });
 }
 
-final class _NotificationsService extends BlueskyBaseService
-    implements NotificationsService {
-  /// Returns the new instance of [_NotificationsService].
-  _NotificationsService({
+final class _NotificationService extends BlueskyBaseService
+    implements NotificationService {
+  /// Returns the new instance of [_NotificationService].
+  _NotificationService({
     required super.atproto,
     required super.did,
     required super.protocol,

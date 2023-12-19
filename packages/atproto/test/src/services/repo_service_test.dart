@@ -21,17 +21,17 @@ import 'package:atproto/src/services/entities/update_action.dart';
 import 'suite/service_suite.dart';
 
 void main() {
-  testRepository<StrongRef>(
+  testRepo<StrongRef>(
     (m, s) => s.createRecord(collection: m.collection, record: {}),
     id: comAtprotoRepoCreateRecord,
   );
 
-  testRepository<Record>(
+  testRepo<Record>(
     (m, s) => s.findRecord(uri: m.uri),
     id: comAtprotoRepoGetRecord,
   );
 
-  testRepository<Records>(
+  testRepo<Records>(
     (m, s) => s.findRecords(
       repo: m.actor,
       collection: m.collection,
@@ -43,29 +43,29 @@ void main() {
     id: comAtprotoRepoListRecords,
   );
 
-  testRepository<core.EmptyData>(
+  testRepo<core.EmptyData>(
     (m, s) => s.deleteRecord(uri: m.uri),
     id: comAtprotoRepoDeleteRecord,
   );
 
-  testRepository<StrongRef>(
+  testRepo<StrongRef>(
     (m, s) => s.updateRecord(uri: m.uri, record: {}),
     id: comAtprotoRepoPutRecord,
   );
 
-  testRepository<BlobData>(
+  testRepo<BlobData>(
     (m, s) => s.uploadBlob(File(
       'test/src/services/suite/data/com/atproto/repo/dash.png',
     ).readAsBytesSync()),
     id: comAtprotoRepoUploadBlob,
   );
 
-  testRepository<RepoInfo>(
+  testRepo<RepoInfo>(
     (m, s) => s.findRepoInfo(repo: m.actor),
     id: comAtprotoRepoDescribeRepo,
   );
 
-  testRepository<core.EmptyData>(
+  testRepo<core.EmptyData>(
     (m, s) => s.updateBulk(actions: [
       BatchAction.create(
         data: CreateAction(
@@ -77,7 +77,7 @@ void main() {
     id: comAtprotoRepoApplyWrites,
   );
 
-  testRepository<core.EmptyData>(
+  testRepo<core.EmptyData>(
     (m, s) => s.createRecords(actions: [
       CreateAction(
         collection: m.collection,
@@ -88,7 +88,7 @@ void main() {
     label: 'Create',
   );
 
-  testRepository<core.EmptyData>(
+  testRepo<core.EmptyData>(
     (m, s) => s.updateRecords(actions: [
       UpdateAction(
         collection: m.collection,
@@ -99,7 +99,7 @@ void main() {
     label: 'Update',
   );
 
-  testRepository<core.EmptyData>(
+  testRepo<core.EmptyData>(
     (m, s) => s.deleteRecords(uris: [m.uri]),
     id: comAtprotoRepoApplyWrites,
     label: 'Delete',

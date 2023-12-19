@@ -30,9 +30,10 @@ import 'params/post_param.dart';
 import 'params/strong_ref_param.dart';
 import 'params/thread_param.dart';
 
-sealed class FeedsService {
-  /// Returns the new instance of [FeedsService].
-  factory FeedsService({
+/// Represents `app.bsky.feed.*` service.
+sealed class FeedService {
+  /// Returns the new instance of [FeedService].
+  factory FeedService({
     required atp.ATProto atproto,
     required String did,
     required core.Protocol protocol,
@@ -41,7 +42,7 @@ sealed class FeedsService {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) =>
-      _FeedsService(
+      _FeedService(
         atproto: atproto,
         did: did,
         protocol: protocol,
@@ -906,9 +907,9 @@ sealed class FeedsService {
   });
 }
 
-final class _FeedsService extends BlueskyBaseService implements FeedsService {
-  /// Returns the new instance of [_FeedsService].
-  _FeedsService({
+final class _FeedService extends BlueskyBaseService implements FeedService {
+  /// Returns the new instance of [_FeedService].
+  _FeedService({
     required super.atproto,
     required super.did,
     required super.protocol,
@@ -930,7 +931,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repositories.createRecord(
+      await atproto.repo.createRecord(
         collection: ns.appBskyFeedPost,
         record: {
           'text': text,
@@ -949,7 +950,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
   Future<core.XRPCResponse<core.EmptyData>> createPosts(
     List<PostParam> params,
   ) async =>
-      await atproto.repositories.createRecords(
+      await atproto.repo.createRecords(
         actions: params
             .map<atp.CreateAction>(
               (e) => atp.CreateAction(
@@ -1051,7 +1052,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repositories.createRecord(
+      await atproto.repo.createRecord(
         collection: ns.appBskyFeedRepost,
         record: {
           'subject': {
@@ -1067,7 +1068,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
   Future<core.XRPCResponse<core.EmptyData>> createReposts(
     List<StrongRefParam> params,
   ) async =>
-      await atproto.repositories.createRecords(
+      await atproto.repo.createRecords(
         actions: params
             .map(
               (e) => atp.CreateAction(
@@ -1092,7 +1093,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repositories.createRecord(
+      await atproto.repo.createRecord(
         collection: ns.appBskyFeedLike,
         record: {
           'subject': {
@@ -1108,7 +1109,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
   Future<core.XRPCResponse<core.EmptyData>> createLikes(
     List<StrongRefParam> params,
   ) async =>
-      await atproto.repositories.createRecords(
+      await atproto.repo.createRecords(
         actions: params
             .map(
               (e) => atp.CreateAction(
@@ -1327,7 +1328,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repositories.createRecord(
+      await atproto.repo.createRecord(
         collection: ns.appBskyFeedGenerator,
         record: {
           'did': did,
@@ -1346,7 +1347,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
   Future<core.XRPCResponse<core.EmptyData>> createGenerators(
     List<GeneratorParam> params,
   ) async =>
-      await atproto.repositories.createRecords(
+      await atproto.repo.createRecords(
         actions: params
             .map(
               (e) => atp.CreateAction(
@@ -1444,7 +1445,7 @@ final class _FeedsService extends BlueskyBaseService implements FeedsService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repositories.createRecord(
+      await atproto.repo.createRecord(
         collection: ns.appBskyFeedThreadgate,
         record: {
           'post': postUri.toString(),
