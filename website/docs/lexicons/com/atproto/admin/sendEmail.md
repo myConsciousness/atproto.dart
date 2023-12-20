@@ -17,6 +17,7 @@ Send email to a user's account email address.
 | **content** | string | - | ✅ | - |
 | **subject** | string | - | ❌ | - |
 | **senderDid** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
+| **comment** | string | - | ❌ | Additional comment by the sender that won't be used in the email itself but helpful to provide more context for moderators/reviewers |
 
 ### Output (application/json)
 
