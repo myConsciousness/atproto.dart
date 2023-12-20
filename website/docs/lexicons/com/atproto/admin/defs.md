@@ -314,3 +314,4 @@ Keep a log of outgoing email to a user
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **subjectLine** | string | - | ✅ | The subject line of the email sent to the user. |
+| **comment** | string | - | ❌ | Additional comment about the outgoing comm. |
