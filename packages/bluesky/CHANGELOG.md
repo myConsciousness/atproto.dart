@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.14.1
+
+- Fixed a bug in converting Threadgate records.
+
 ## v0.14.0
 
 - Upgraded `atproto_core`. ([#1112](https://github.com/myConsciousness/atproto.dart/issues/1112))
