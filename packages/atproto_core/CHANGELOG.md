@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.8.1
+
+- Upgraded `xrpc`.
+
 ## v0.8.0
 
 - Upgraded `NSID`. ([#1112](https://github.com/myConsciousness/atproto.dart/issues/1112))

@@ -41,7 +41,7 @@ dynamic removeNullValues(final dynamic object) {
       }
     }
 
-    return parameters.isNotEmpty ? parameters : null;
+    return parameters.isNotEmpty ? parameters : const [];
   }
 
   //! Just return it as is if it's neither Map nor List.

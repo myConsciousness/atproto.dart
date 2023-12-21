@@ -7,6 +7,7 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
+import '../ids.g.dart' as ids;
 import '../nsids.g.dart' as ns;
 import 'base_service.dart';
 import 'constants/feed_filter.dart';
@@ -850,7 +851,7 @@ sealed class FeedService {
   Future<core.XRPCResponse<atp.StrongRef>> createThreadgate({
     required core.AtUri postUri,
     List<ThreadRule>? allowRules,
-    DateTime? createdAt,
+    required DateTime createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   });
 
@@ -1442,12 +1443,14 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
   Future<core.XRPCResponse<atp.StrongRef>> createThreadgate({
     required core.AtUri postUri,
     List<ThreadRule>? allowRules,
-    DateTime? createdAt,
+    required DateTime createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
       await atproto.repo.createRecord(
         collection: ns.appBskyFeedThreadgate,
+        rkey: postUri.rkey,
         record: {
+          r'$type': ids.appBskyFeedThreadgate,
           'post': postUri.toString(),
           'allow': allowRules?.map((e) => e.toJson()).toList(),
           'createdAt': toUtcIso8601String(createdAt),

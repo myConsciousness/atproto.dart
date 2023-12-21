@@ -65,6 +65,7 @@ sealed class RepoService {
   Future<core.XRPCResponse<StrongRef>> createRecord({
     required core.NSID collection,
     required Map<String, dynamic> record,
+    String? rkey,
     bool? validate,
     String? swapRecordCid,
     String? swapCommitCid,
@@ -339,6 +340,7 @@ final class _RepoService extends ATProtoBaseService implements RepoService {
   Future<core.XRPCResponse<StrongRef>> createRecord({
     required core.NSID collection,
     required Map<String, dynamic> record,
+    String? rkey,
     bool? validate,
     String? swapRecordCid,
     String? swapCommitCid,
@@ -348,6 +350,7 @@ final class _RepoService extends ATProtoBaseService implements RepoService {
         body: {
           'repo': did,
           'collection': collection.toString(),
+          'rkey': rkey,
           'record': record,
           'validate': validate,
           'swapRecord': swapRecordCid,
