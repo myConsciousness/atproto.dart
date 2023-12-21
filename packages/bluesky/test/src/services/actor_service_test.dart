@@ -16,10 +16,9 @@ import 'package:bluesky/src/services/entities/preferences.dart';
 import 'suite/service_suite.dart';
 
 void main() {
-  _legacy();
-
   testActor<Actors>(
     (m, s) => s.searchActors(term: m.query),
+    pagination: (m, s) => s.paginateActors(term: m.query),
     id: appBskyActorSearchActors,
   );
 
@@ -35,6 +34,7 @@ void main() {
 
   testActor<Actors>(
     (m, s) => s.getSuggestions(),
+    pagination: (m, s) => s.paginateSuggestions(),
     id: appBskyActorGetSuggestions,
   );
 
@@ -55,50 +55,6 @@ void main() {
 
   testActor<core.EmptyData>(
     (m, s) => s.putPreferences([]),
-    id: appBskyActorPutPreferences,
-  );
-}
-
-void _legacy() {
-  testActor<Actors>(
-    (m, s) => s.searchActors(term: m.query),
-    pagination: (m, s) => s.paginateActors(term: m.query),
-    id: appBskyActorSearchActors,
-  );
-
-  testActor<ActorProfile>(
-    (m, s) => s.findProfile(actor: m.actor),
-    id: appBskyActorGetProfile,
-  );
-
-  testActor<ActorProfiles>(
-    (m, s) => s.findProfiles(actors: [m.actor]),
-    id: appBskyActorGetProfiles,
-  );
-
-  testActor<Actors>(
-    (m, s) => s.findSuggestions(),
-    pagination: (m, s) => s.paginateSuggestions(),
-    id: appBskyActorGetSuggestions,
-  );
-
-  testActor<ActorsTypeahead>(
-    (m, s) => s.searchTypeahead(term: m.query),
-    id: appBskyActorSearchActorsTypeahead,
-  );
-
-  testActor<atp.StrongRef>(
-    (m, s) => s.updateProfile(),
-    id: appBskyActorProfile,
-  );
-
-  testActor<Preferences>(
-    (m, s) => s.findPreferences(),
-    id: appBskyActorGetPreferences,
-  );
-
-  testActor<core.EmptyData>(
-    (m, s) => s.updatePreferences([]),
     id: appBskyActorPutPreferences,
   );
 }
