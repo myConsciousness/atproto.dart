@@ -851,7 +851,7 @@ sealed class FeedService {
   Future<core.XRPCResponse<atp.StrongRef>> createThreadgate({
     required core.AtUri postUri,
     List<ThreadRule>? allowRules,
-    required DateTime createdAt,
+    DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   });
 
@@ -1443,7 +1443,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
   Future<core.XRPCResponse<atp.StrongRef>> createThreadgate({
     required core.AtUri postUri,
     List<ThreadRule>? allowRules,
-    required DateTime createdAt,
+    DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
       await atproto.repo.createRecord(
