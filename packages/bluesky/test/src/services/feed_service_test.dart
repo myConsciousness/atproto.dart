@@ -24,6 +24,115 @@ import 'package:bluesky/src/services/params/strong_ref_param.dart';
 import 'suite/service_suite.dart';
 
 void main() {
+  _legacy();
+
+  testFeed<atp.StrongRef>(
+    (m, s) => s.$post(text: m.text),
+    id: appBskyFeedPost,
+  );
+
+  testFeed<atp.StrongRef>(
+    (m, s) => s.repost(cid: m.cid, uri: m.uri),
+    id: appBskyFeedPost,
+  );
+
+  testFeed<Feed>(
+    (m, s) => s.getTimeline(),
+    id: appBskyFeedGetTimeline,
+  );
+
+  testFeed<atp.StrongRef>(
+    (m, s) => s.like(cid: m.cid, uri: m.uri),
+    id: appBskyFeedPost,
+  );
+
+  testFeed<Feed>(
+    (m, s) => s.getAuthorFeed(actor: m.actor),
+    id: appBskyFeedGetAuthorFeed,
+  );
+
+  testFeed<Feed>(
+    (m, s) => s.getFeed(generatorUri: m.uri),
+    id: appBskyFeedGetFeed,
+  );
+
+  testFeed<SkeletonFeed>(
+    (m, s) => s.getFeedSkeleton(generatorUri: m.uri),
+    id: appBskyFeedGetFeedSkeleton,
+  );
+
+  testFeed<ActorFeeds>(
+    (m, s) => s.getActorFeeds(actor: m.actor),
+    id: appBskyFeedGetActorFeeds,
+  );
+
+  testFeed<Likes>(
+    (m, s) => s.getLikes(uri: m.uri),
+    id: appBskyFeedGetLikes,
+  );
+
+  testFeed<RepostedBy>(
+    (m, s) => s.getRepostedBy(uri: m.uri),
+    id: appBskyFeedGetRepostedBy,
+  );
+
+  testFeed<PostThread>(
+    (m, s) => s.getPostThread(uri: m.uri),
+    id: appBskyFeedGetPostThread,
+  );
+
+  testFeed<Posts>(
+    (m, s) => s.getPosts(uris: [m.uri]),
+    id: appBskyFeedGetPosts,
+  );
+
+  testFeed<atp.StrongRef>(
+    (m, s) => s.generator(did: m.did, displayName: m.displayName),
+    id: appBskyFeedGenerator,
+  );
+
+  testFeed<FeedGenerator>(
+    (m, s) => s.getFeedGenerator(uri: m.uri),
+    id: appBskyFeedGetFeedGenerator,
+  );
+
+  testFeed<FeedGenerators>(
+    (m, s) => s.getFeedGenerators(uris: [m.uri]),
+    id: appBskyFeedGetFeedGenerators,
+  );
+
+  testFeed<FeedGeneratorInfo>(
+    (m, s) => s.describeFeedGenerator(),
+    id: appBskyFeedDescribeFeedGenerator,
+  );
+
+  testFeed<Feed>(
+    (m, s) => s.getActorLikes(actor: m.actor),
+    id: appBskyFeedGetActorLikes,
+  );
+
+  testFeed<FeedGenerators>(
+    (m, s) => s.getSuggestedFeeds(),
+    id: appBskyFeedGetSuggestedFeeds,
+  );
+
+  testFeed<Feed>(
+    (m, s) => s.getListFeed(list: m.uri),
+    id: appBskyFeedGetListFeed,
+  );
+
+  testFeed<atp.StrongRef>(
+    (m, s) => s.threadgate(postUri: m.uri),
+    id: appBskyFeedThreadgate,
+  );
+
+  testFeed<PostsByQuery>(
+    (m, s) => s.searchPosts(m.query),
+    id: appBskyFeedSearchPosts,
+  );
+}
+
+void _legacy() {
   testFeed<atp.StrongRef>(
     (m, s) => s.createPost(text: m.text),
     bulk: (m, s) => s.createPosts([PostParam(text: m.text)]),
@@ -51,7 +160,7 @@ void main() {
   testFeed<Feed>(
     (m, s) => s.findFeed(actor: m.actor),
     pagination: (m, s) => s.paginateFeed(actor: m.actor),
-    id: appBskyFeedGetTimeline,
+    id: appBskyFeedGetAuthorFeed,
   );
 
   testFeed<Feed>(

@@ -15,28 +15,7 @@ import 'entities/skeleton_actors_by_query.dart';
 import 'entities/skeleton_feed.dart';
 import 'entities/skeleton_posts_by_query.dart';
 
-/// Represents `app.bsky.unspecced.*` service.
-sealed class UnspeccedService {
-  /// Returns the new instance of [UnspeccedService].
-  factory UnspeccedService({
-    required atp.ATProto atproto,
-    required String did,
-    required core.Protocol protocol,
-    required String service,
-    required core.ClientContext context,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  }) =>
-      _UnspeccedService(
-        atproto: atproto,
-        did: did,
-        protocol: protocol,
-        service: service,
-        context: context,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
-
+abstract class _LegacyUnspeccedService {
   /// An unspecced view of globally popular items.
   ///
   /// ## Parameters
@@ -292,6 +271,65 @@ sealed class UnspeccedService {
   });
 }
 
+/// Represents `app.bsky.unspecced.*` service.
+sealed class UnspeccedService implements _LegacyUnspeccedService {
+  /// Returns the new instance of [UnspeccedService].
+  factory UnspeccedService({
+    required atp.ATProto atproto,
+    required String did,
+    required core.Protocol protocol,
+    required String service,
+    required core.ClientContext context,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
+  }) =>
+      _UnspeccedService(
+        atproto: atproto,
+        did: did,
+        protocol: protocol,
+        service: service,
+        context: context,
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getPopular
+  @Deprecated('will be removed soon. Find a feed generator alternative')
+  Future<core.XRPCResponse<Feed>> getPopular({
+    bool? includeNsfw,
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getPopularFeedGenerators
+  Future<core.XRPCResponse<FeedGenerators>> getPopularFeedGenerators({
+    int? limit,
+    String? cursor,
+    String? query,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTimelineSkeleton
+  Future<core.XRPCResponse<SkeletonFeed>> getTimelineSkeleton({
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchPostsSkeleton
+  Future<core.XRPCResponse<SkeletonPostsByQuery>> searchPostsSkeleton(
+    final String query, {
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchActorsSkeleton
+  Future<core.XRPCResponse<SkeletonActorsByQuery>> searchActorsSkeleton(
+    final String query, {
+    bool? typeahead,
+    int? limit,
+    String? cursor,
+  });
+}
+
 final class _UnspeccedService extends BlueskyBaseService
     implements UnspeccedService {
   /// Returns the new instance of [_UnspeccedService].
@@ -304,6 +342,66 @@ final class _UnspeccedService extends BlueskyBaseService
     super.mockedGetClient,
     super.mockedPostClient,
   });
+
+  @override
+  Future<core.XRPCResponse<Feed>> getPopular({
+    bool? includeNsfw,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await findPopularFeed(
+        includeNsfw: includeNsfw,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<FeedGenerators>> getPopularFeedGenerators({
+    int? limit,
+    String? cursor,
+    String? query,
+  }) async =>
+      await findPopularFeedGenerators(
+        limit: limit,
+        cursor: cursor,
+        query: query,
+      );
+
+  @override
+  Future<core.XRPCResponse<SkeletonFeed>> getTimelineSkeleton({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await findTimelineSkeleton(
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<SkeletonPostsByQuery>> searchPostsSkeleton(
+    final String query, {
+    int? limit,
+    String? cursor,
+  }) async =>
+      await searchPostsByQuerySkeleton(
+        query,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<SkeletonActorsByQuery>> searchActorsSkeleton(
+    final String query, {
+    bool? typeahead,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await searchActorsByQuerySkeleton(
+        query,
+        typeahead: typeahead,
+        limit: limit,
+        cursor: cursor,
+      );
 
   @override
   Future<core.XRPCResponse<Feed>> findPopularFeed({

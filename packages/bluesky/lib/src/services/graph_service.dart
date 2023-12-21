@@ -22,28 +22,7 @@ import 'params/list_item_param.dart';
 import 'params/list_param.dart';
 import 'params/repo_param.dart';
 
-/// Represents `app.bsky.graph.*` service.
-sealed class GraphService {
-  /// Returns the new instance of [GraphService].
-  factory GraphService({
-    required atp.ATProto atproto,
-    required String did,
-    required core.Protocol protocol,
-    required String service,
-    required core.ClientContext context,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  }) =>
-      _GraphService(
-        atproto: atproto,
-        did: did,
-        protocol: protocol,
-        service: service,
-        context: context,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
-
+abstract class _LegacyGraphService {
   /// Creates a follow.
   ///
   /// ## Parameters
@@ -746,6 +725,146 @@ sealed class GraphService {
   });
 }
 
+/// Represents `app.bsky.graph.*` service.
+sealed class GraphService implements _LegacyGraphService {
+  /// Returns the new instance of [GraphService].
+  factory GraphService({
+    required atp.ATProto atproto,
+    required String did,
+    required core.Protocol protocol,
+    required String service,
+    required core.ClientContext context,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
+  }) =>
+      _GraphService(
+        atproto: atproto,
+        did: did,
+        protocol: protocol,
+        service: service,
+        context: context,
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/follow
+  Future<core.XRPCResponse<atp.StrongRef>> follow({
+    required String did,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getFollows
+  Future<core.XRPCResponse<Follows>> getFollows({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getFollowers
+  Future<core.XRPCResponse<Followers>> getFollowers({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActor
+  Future<core.XRPCResponse<core.EmptyData>> muteActor({
+    required String actor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActor
+  Future<core.XRPCResponse<core.EmptyData>> unmuteActor({
+    required String actor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getMutes
+  Future<core.XRPCResponse<Mutes>> getMutes({
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getBlocks
+  Future<core.XRPCResponse<Blocks>> getBlocks({
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/block
+  Future<core.XRPCResponse<atp.StrongRef>> block({
+    required String did,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/list
+  Future<core.XRPCResponse<atp.StrongRef>> list({
+    required String purpose,
+    required String name,
+    String? description,
+    List<Facet>? descriptionFacets,
+    atp.Blob? avatar,
+    atp.Labels? labels,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getLists
+  Future<core.XRPCResponse<Lists>> getLists({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getListBlocks
+  Future<core.XRPCResponse<Lists>> getListBlocks({
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getList
+  Future<core.XRPCResponse<ListItems>> getList({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listitem
+  Future<core.XRPCResponse<atp.StrongRef>> listitem({
+    required String subject,
+    required core.AtUri list,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getListMutes
+  Future<core.XRPCResponse<Lists>> getListMutes({
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActorList
+  Future<core.XRPCResponse<core.EmptyData>> muteActorList({
+    required core.AtUri list,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActorList
+  Future<core.XRPCResponse<core.EmptyData>> unmuteActorList({
+    required core.AtUri list,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getSuggestedFollowsByActor
+  Future<core.XRPCResponse<SuggestedFollows>> getSuggestedFollowsByActor({
+    required String actor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listblock
+  Future<core.XRPCResponse<atp.StrongRef>> listblock({
+    required core.AtUri listUri,
+    DateTime? createdAt,
+  });
+}
+
 final class _GraphService extends BlueskyBaseService implements GraphService {
   /// Returns the new instance of [_GraphService].
   _GraphService({
@@ -757,6 +876,194 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
     super.mockedGetClient,
     super.mockedPostClient,
   });
+
+  @override
+  Future<core.XRPCResponse<atp.StrongRef>> follow({
+    required String did,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  }) async =>
+      await createFollow(
+        did: did,
+        createdAt: createdAt,
+        unspecced: unspecced,
+      );
+
+  @override
+  Future<core.XRPCResponse<Follows>> getFollows({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await findFollows(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<Followers>> getFollowers({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await findFollowers(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> muteActor({
+    required String actor,
+  }) async =>
+      await createMute(actor: actor);
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> unmuteActor({
+    required String actor,
+  }) async =>
+      await deleteMute(actor: actor);
+
+  @override
+  Future<core.XRPCResponse<Mutes>> getMutes({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await findMutes(
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<Blocks>> getBlocks({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await findBlocks(
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.StrongRef>> block({
+    required String did,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  }) async =>
+      await createBlock(
+        did: did,
+        createdAt: createdAt,
+        unspecced: unspecced,
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.StrongRef>> list({
+    required String purpose,
+    required String name,
+    String? description,
+    List<Facet>? descriptionFacets,
+    atp.Blob? avatar,
+    atp.Labels? labels,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  }) async =>
+      await createList(
+        purpose: purpose,
+        name: name,
+        description: description,
+        descriptionFacets: descriptionFacets,
+        avatar: avatar,
+        labels: labels,
+        createdAt: createdAt,
+        unspecced: unspecced,
+      );
+
+  @override
+  Future<core.XRPCResponse<Lists>> getLists({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await findLists(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<Lists>> getListBlocks({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await findBlockLists(
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<ListItems>> getList({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await findListItems(
+        list: list,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.StrongRef>> listitem({
+    required String subject,
+    required core.AtUri list,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  }) async =>
+      await createListItem(
+        subject: subject,
+        list: list,
+        createdAt: createdAt,
+        unspecced: unspecced,
+      );
+
+  @override
+  Future<core.XRPCResponse<Lists>> getListMutes({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await findMutingLists(
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> muteActorList({
+    required core.AtUri list,
+  }) async =>
+      await createMuteActorList(list: list);
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> unmuteActorList({
+    required core.AtUri list,
+  }) async =>
+      await deleteMuteActorList(list: list);
+
+  @override
+  Future<core.XRPCResponse<SuggestedFollows>> getSuggestedFollowsByActor({
+    required String actor,
+  }) async =>
+      await findSuggestedFollows(actor: actor);
+
+  @override
+  Future<core.XRPCResponse<atp.StrongRef>> listblock({
+    required core.AtUri listUri,
+    DateTime? createdAt,
+  }) async =>
+      await createBlockList(
+        listUri: listUri,
+        createdAt: createdAt,
+      );
 
   @override
   Future<core.XRPCResponse<atp.StrongRef>> createFollow({

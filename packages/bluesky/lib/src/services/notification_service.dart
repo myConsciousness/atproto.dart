@@ -12,28 +12,7 @@ import 'base_service.dart';
 import 'entities/count.dart';
 import 'entities/notifications.dart';
 
-/// Represents `app.bsky.notification.*` service.
-sealed class NotificationService {
-  /// Returns the new instance of [NotificationService].
-  factory NotificationService({
-    required atp.ATProto atproto,
-    required String did,
-    required core.Protocol protocol,
-    required String service,
-    required core.ClientContext context,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  }) =>
-      _NotificationService(
-        atproto: atproto,
-        did: did,
-        protocol: protocol,
-        service: service,
-        context: context,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
-
+abstract class _LegacyNotificationService {
   /// Returns notifications authenticated user received.
   ///
   /// ## Parameters
@@ -132,6 +111,51 @@ sealed class NotificationService {
   });
 }
 
+/// Represents `app.bsky.notification.*` service.
+sealed class NotificationService implements _LegacyNotificationService {
+  /// Returns the new instance of [NotificationService].
+  factory NotificationService({
+    required atp.ATProto atproto,
+    required String did,
+    required core.Protocol protocol,
+    required String service,
+    required core.ClientContext context,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
+  }) =>
+      _NotificationService(
+        atproto: atproto,
+        did: did,
+        protocol: protocol,
+        service: service,
+        context: context,
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listNotifications
+  Future<core.XRPCResponse<Notifications>> listNotifications({
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getUnreadCount
+  Future<core.XRPCResponse<Count>> getUnreadCount();
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/updateSeen
+  Future<core.XRPCResponse<core.EmptyData>> updateSeen({
+    DateTime? seenAt,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/registerPush
+  Future<core.XRPCResponse<core.EmptyData>> registerPush({
+    required String serviceDid,
+    required String token,
+    required core.Platform platform,
+    required String appId,
+  });
+}
+
 final class _NotificationService extends BlueskyBaseService
     implements NotificationService {
   /// Returns the new instance of [_NotificationService].
@@ -144,6 +168,40 @@ final class _NotificationService extends BlueskyBaseService
     super.mockedGetClient,
     super.mockedPostClient,
   });
+
+  @override
+  Future<core.XRPCResponse<Notifications>> listNotifications({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await findNotifications(
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<Count>> getUnreadCount() async =>
+      await findUnreadCount();
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> updateSeen({
+    DateTime? seenAt,
+  }) async =>
+      await updateNotificationsAsRead(seenAt: seenAt);
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> registerPush({
+    required String serviceDid,
+    required String token,
+    required core.Platform platform,
+    required String appId,
+  }) async =>
+      await createPushRegistration(
+        serviceDid: serviceDid,
+        token: token,
+        platform: platform,
+        appId: appId,
+      );
 
   @override
   Future<core.XRPCResponse<Notifications>> findNotifications({

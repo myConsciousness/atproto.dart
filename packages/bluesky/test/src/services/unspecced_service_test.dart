@@ -12,6 +12,36 @@ import 'package:bluesky/src/services/entities/skeleton_posts_by_query.dart';
 import 'suite/service_suite.dart';
 
 void main() {
+  _legacy();
+
+  testUnspecced<Feed>(
+    // ignore: deprecated_member_use_from_same_package
+    (m, s) => s.getPopular(),
+    id: appBskyUnspeccedGetPopular,
+  );
+
+  testUnspecced<FeedGenerators>(
+    (m, s) => s.getPopularFeedGenerators(),
+    id: appBskyUnspeccedGetPopularFeedGenerators,
+  );
+
+  testUnspecced<SkeletonFeed>(
+    (m, s) => s.getTimelineSkeleton(),
+    id: appBskyUnspeccedGetTimelineSkeleton,
+  );
+
+  testUnspecced<SkeletonPostsByQuery>(
+    (m, s) => s.searchPostsSkeleton(m.query),
+    id: appBskyUnspeccedSearchPostsSkeleton,
+  );
+
+  testUnspecced<SkeletonActorsByQuery>(
+    (m, s) => s.searchActorsSkeleton(m.query),
+    id: appBskyUnspeccedSearchActorsSkeleton,
+  );
+}
+
+void _legacy() {
   testUnspecced<Feed>(
     // ignore: deprecated_member_use_from_same_package
     (m, s) => s.findPopularFeed(),

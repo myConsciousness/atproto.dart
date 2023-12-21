@@ -30,28 +30,7 @@ import 'params/post_param.dart';
 import 'params/strong_ref_param.dart';
 import 'params/thread_param.dart';
 
-/// Represents `app.bsky.feed.*` service.
-sealed class FeedService {
-  /// Returns the new instance of [FeedService].
-  factory FeedService({
-    required atp.ATProto atproto,
-    required String did,
-    required core.Protocol protocol,
-    required String service,
-    required core.ClientContext context,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  }) =>
-      _FeedService(
-        atproto: atproto,
-        did: did,
-        protocol: protocol,
-        service: service,
-        context: context,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
-
+abstract class _LegacyFeedService {
   /// Creates a new post.
   ///
   /// ## Parameters
@@ -907,6 +886,182 @@ sealed class FeedService {
   });
 }
 
+/// Represents `app.bsky.feed.*` service.
+sealed class FeedService implements _LegacyFeedService {
+  /// Returns the new instance of [FeedService].
+  factory FeedService({
+    required atp.ATProto atproto,
+    required String did,
+    required core.Protocol protocol,
+    required String service,
+    required core.ClientContext context,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
+  }) =>
+      _FeedService(
+        atproto: atproto,
+        did: did,
+        protocol: protocol,
+        service: service,
+        context: context,
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post
+  Future<core.XRPCResponse<atp.StrongRef>> $post({
+    required String text,
+    ReplyRef? reply,
+    List<Facet>? facets,
+    Embed? embed,
+    List<String>? languageTags,
+    atp.Labels? labels,
+    List<String>? tags,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/repost
+  Future<core.XRPCResponse<atp.StrongRef>> repost({
+    required String cid,
+    required core.AtUri uri,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getTimeline
+  Future<core.XRPCResponse<Feed>> getTimeline({
+    String? algorithm,
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/like
+  Future<core.XRPCResponse<atp.StrongRef>> like({
+    required String cid,
+    required core.AtUri uri,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getAuthorFeed
+  Future<core.XRPCResponse<Feed>> getAuthorFeed({
+    required String actor,
+    int? limit,
+    String? cursor,
+    FeedFilter? filter,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeed
+  Future<core.XRPCResponse<Feed>> getFeed({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedSkeleton
+  Future<core.XRPCResponse<SkeletonFeed>> getFeedSkeleton({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getActorFeeds
+  Future<core.XRPCResponse<ActorFeeds>> getActorFeeds({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getLikes
+  Future<core.XRPCResponse<Likes>> getLikes({
+    required core.AtUri uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getRepostedBy
+  Future<core.XRPCResponse<RepostedBy>> getRepostedBy({
+    required core.AtUri uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getPostThread
+  Future<core.XRPCResponse<PostThread>> getPostThread({
+    required core.AtUri uri,
+    int? depth,
+    int? parentHeight,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getPosts
+  Future<core.XRPCResponse<Posts>> getPosts({
+    required List<core.AtUri> uris,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/generator
+  Future<core.XRPCResponse<atp.StrongRef>> generator({
+    required String did,
+    required String displayName,
+    String? description,
+    List<Facet>? descriptionFacets,
+    atp.Blob? avatar,
+    atp.Labels? labels,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedGenerator
+  Future<core.XRPCResponse<FeedGenerator>> getFeedGenerator({
+    required core.AtUri uri,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedGenerators
+  Future<core.XRPCResponse<FeedGenerators>> getFeedGenerators({
+    required List<core.AtUri> uris,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describeFeedGenerator
+  Future<core.XRPCResponse<FeedGeneratorInfo>> describeFeedGenerator();
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getActorLikes
+  Future<core.XRPCResponse<Feed>> getActorLikes({
+    required String actor,
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getSuggestedFeeds
+  Future<core.XRPCResponse<FeedGenerators>> getSuggestedFeeds({
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getListFeed
+  Future<core.XRPCResponse<Feed>> getListFeed({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate
+  Future<core.XRPCResponse<atp.StrongRef>> threadgate({
+    required core.AtUri postUri,
+    List<ThreadRule>? allowRules,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/searchPosts
+  Future<core.XRPCResponse<PostsByQuery>> searchPosts(
+    final String query, {
+    int? limit,
+    String? cursor,
+  });
+}
+
 final class _FeedService extends BlueskyBaseService implements FeedService {
   /// Returns the new instance of [_FeedService].
   _FeedService({
@@ -918,6 +1073,264 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     super.mockedGetClient,
     super.mockedPostClient,
   });
+
+  @override
+  Future<core.XRPCResponse<atp.StrongRef>> $post({
+    required String text,
+    ReplyRef? reply,
+    List<Facet>? facets,
+    Embed? embed,
+    List<String>? languageTags,
+    atp.Labels? labels,
+    List<String>? tags,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  }) async =>
+      await createPost(
+        text: text,
+        reply: reply,
+        facets: facets,
+        embed: embed,
+        languageTags: languageTags,
+        labels: labels,
+        tags: tags,
+        createdAt: createdAt,
+        unspecced: unspecced,
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.StrongRef>> repost({
+    required String cid,
+    required core.AtUri uri,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  }) async =>
+      await createRepost(
+        cid: cid,
+        uri: uri,
+        createdAt: createdAt,
+        unspecced: unspecced,
+      );
+
+  @override
+  Future<core.XRPCResponse<Feed>> getTimeline({
+    String? algorithm,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await findTimeline(
+        algorithm: algorithm,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.StrongRef>> like({
+    required String cid,
+    required core.AtUri uri,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  }) async =>
+      await createLike(
+        cid: cid,
+        uri: uri,
+        createdAt: createdAt,
+        unspecced: unspecced,
+      );
+
+  @override
+  Future<core.XRPCResponse<Feed>> getAuthorFeed({
+    required String actor,
+    int? limit,
+    String? cursor,
+    FeedFilter? filter,
+  }) async =>
+      await findFeed(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+        filter: filter,
+      );
+
+  @override
+  Future<core.XRPCResponse<Feed>> getFeed({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await findCustomFeed(
+        generatorUri: generatorUri,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<SkeletonFeed>> getFeedSkeleton({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await findFeedSkeleton(
+        generatorUri: generatorUri,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<ActorFeeds>> getActorFeeds({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await findActorFeeds(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<Likes>> getLikes({
+    required core.AtUri uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await findLikes(
+        uri: uri,
+        cid: cid,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<RepostedBy>> getRepostedBy({
+    required core.AtUri uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await findRepostedBy(
+        uri: uri,
+        cid: cid,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<PostThread>> getPostThread({
+    required core.AtUri uri,
+    int? depth,
+    int? parentHeight,
+  }) async =>
+      await findPostThread(
+        uri: uri,
+        depth: depth,
+        parentHeight: parentHeight,
+      );
+
+  @override
+  Future<core.XRPCResponse<Posts>> getPosts({
+    required List<core.AtUri> uris,
+  }) async =>
+      await findPosts(uris: uris);
+
+  @override
+  Future<core.XRPCResponse<atp.StrongRef>> generator({
+    required String did,
+    required String displayName,
+    String? description,
+    List<Facet>? descriptionFacets,
+    atp.Blob? avatar,
+    atp.Labels? labels,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  }) async =>
+      await createGenerator(
+        did: did,
+        displayName: displayName,
+        description: description,
+        descriptionFacets: descriptionFacets,
+        avatar: avatar,
+        labels: labels,
+        createdAt: createdAt,
+        unspecced: unspecced,
+      );
+
+  @override
+  Future<core.XRPCResponse<FeedGenerator>> getFeedGenerator({
+    required core.AtUri uri,
+  }) async =>
+      await findGenerator(uri: uri);
+
+  @override
+  Future<core.XRPCResponse<FeedGenerators>> getFeedGenerators({
+    required List<core.AtUri> uris,
+  }) async =>
+      await findGenerators(uris: uris);
+
+  @override
+  Future<core.XRPCResponse<FeedGeneratorInfo>> describeFeedGenerator() async =>
+      await findGeneratorInfo();
+
+  @override
+  Future<core.XRPCResponse<Feed>> getActorLikes({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await findActorLikes(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<FeedGenerators>> getSuggestedFeeds({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await findSuggestedFeeds(
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<Feed>> getListFeed({
+    required core.AtUri list,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await findListFeed(
+        list: list,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.StrongRef>> threadgate({
+    required core.AtUri postUri,
+    List<ThreadRule>? allowRules,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  }) async =>
+      await createThreadgate(
+        postUri: postUri,
+        allowRules: allowRules,
+        createdAt: createdAt,
+        unspecced: unspecced,
+      );
+
+  @override
+  Future<core.XRPCResponse<PostsByQuery>> searchPosts(
+    final String query, {
+    int? limit,
+    String? cursor,
+  }) async =>
+      await searchPostsByQuery(
+        query,
+        limit: limit,
+        cursor: cursor,
+      );
 
   @override
   Future<core.XRPCResponse<atp.StrongRef>> createPost({

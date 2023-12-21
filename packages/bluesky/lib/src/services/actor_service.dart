@@ -18,52 +18,7 @@ import 'entities/preference.dart';
 import 'entities/preferences.dart';
 import 'entities/profile_record.dart';
 
-/// Represents `app.bsky.actor.*` service.
-sealed class ActorService {
-  /// Returns the new instance of [ActorService].
-  factory ActorService({
-    required atp.ATProto atproto,
-    required String did,
-    required core.Protocol protocol,
-    required String service,
-    required core.ClientContext context,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  }) =>
-      _ActorService(
-        atproto: atproto,
-        did: did,
-        protocol: protocol,
-        service: service,
-        context: context,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
-
-  /// Find Users matching search criteria.
-  ///
-  /// ## Parameters
-  ///
-  /// - [term]: Search criteria.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.actor.search
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/search.json
-  Future<core.XRPCResponse<Actors>> searchActors({
-    required String term,
-    int? limit,
-    String? cursor,
-  });
-
+abstract class _LegacyActorService {
   /// Get a pagination for users matching search criteria.
   ///
   /// ## Parameters
@@ -251,6 +206,75 @@ sealed class ActorService {
   );
 }
 
+/// Represents `app.bsky.actor.*` service.
+sealed class ActorService implements _LegacyActorService {
+  /// Returns the new instance of [ActorService].
+  factory ActorService({
+    required atp.ATProto atproto,
+    required String did,
+    required core.Protocol protocol,
+    required String service,
+    required core.ClientContext context,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
+  }) =>
+      _ActorService(
+        atproto: atproto,
+        did: did,
+        protocol: protocol,
+        service: service,
+        context: context,
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActors
+  Future<core.XRPCResponse<Actors>> searchActors({
+    required String term,
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfile
+  Future<core.XRPCResponse<ActorProfile>> getProfile({
+    required String actor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfiles
+  Future<core.XRPCResponse<ActorProfiles>> getProfiles({
+    required List<String> actors,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getSuggestions
+  Future<core.XRPCResponse<Actors>> getSuggestions({
+    int? limit,
+    String? cursor,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActorsTypeahead
+  Future<core.XRPCResponse<ActorsTypeahead>> searchActorsTypeahead({
+    required String term,
+    int? limit,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/profile
+  Future<core.XRPCResponse<atp.StrongRef>> profile({
+    String? displayName,
+    String? description,
+    atp.Blob? avatar,
+    atp.Blob? banner,
+    atp.Labels? labels,
+  });
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getPreferences
+  Future<core.XRPCResponse<Preferences>> getPreferences();
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/putPreferences
+  Future<core.XRPCResponse<core.EmptyData>> putPreferences(
+    List<Preference> preferences,
+  );
+}
+
 final class _ActorService extends BlueskyBaseService implements ActorService {
   /// Returns the new instance of [_ActorService].
   _ActorService({
@@ -274,6 +298,70 @@ final class _ActorService extends BlueskyBaseService implements ActorService {
         limit: limit,
         cursor: cursor,
         to: Actors.fromJson,
+      );
+
+  @override
+  Future<core.XRPCResponse<ActorProfile>> getProfile({
+    required String actor,
+  }) async =>
+      await findProfile(
+        actor: actor,
+      );
+
+  @override
+  Future<core.XRPCResponse<ActorProfiles>> getProfiles({
+    required List<String> actors,
+  }) async =>
+      await findProfiles(
+        actors: actors,
+      );
+
+  @override
+  Future<core.XRPCResponse<Actors>> getSuggestions({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await findSuggestions(
+        limit: limit,
+        cursor: cursor,
+      );
+
+  @override
+  Future<core.XRPCResponse<ActorsTypeahead>> searchActorsTypeahead({
+    required String term,
+    int? limit,
+  }) async =>
+      await searchTypeahead(
+        term: term,
+        limit: limit,
+      );
+
+  @override
+  Future<core.XRPCResponse<atp.StrongRef>> profile({
+    String? displayName,
+    String? description,
+    atp.Blob? avatar,
+    atp.Blob? banner,
+    atp.Labels? labels,
+  }) async =>
+      await updateProfile(
+        displayName: displayName,
+        description: description,
+        avatar: avatar,
+        banner: banner,
+        labels: labels,
+      );
+
+  @override
+  Future<core.XRPCResponse<Preferences>> getPreferences() async =>
+      await findPreferences();
+
+  @override
+  Future<core.XRPCResponse<core.EmptyData>> putPreferences(
+    List<Preference> preferences,
+  ) async =>
+      await updatePreferences(
+        preferences,
       );
 
   @override

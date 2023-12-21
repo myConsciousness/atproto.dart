@@ -21,6 +21,113 @@ import 'package:bluesky/src/services/params/repo_param.dart';
 import 'suite/service_suite.dart';
 
 void main() {
+  _legacy();
+
+  testGraph<atp.StrongRef>(
+    (m, s) => s.follow(did: m.did),
+    id: appBskyGraphFollow,
+  );
+
+  testGraph<Follows>(
+    (m, s) => s.getFollows(actor: m.actor),
+    id: appBskyGraphGetFollows,
+  );
+
+  testGraph<Followers>(
+    (m, s) => s.getFollowers(actor: m.actor),
+    id: appBskyGraphGetFollowers,
+  );
+
+  testGraph<core.EmptyData>(
+    (m, s) => s.muteActor(actor: m.actor),
+    id: appBskyGraphMuteActor,
+  );
+
+  testGraph<core.EmptyData>(
+    (m, s) => s.unmuteActor(actor: m.actor),
+    id: appBskyGraphUnmuteActor,
+  );
+
+  testGraph<Mutes>(
+    (m, s) => s.getMutes(),
+    id: appBskyGraphGetMutes,
+  );
+
+  testGraph<Blocks>(
+    (m, s) => s.getBlocks(),
+    id: appBskyGraphGetBlocks,
+  );
+
+  testGraph<atp.StrongRef>(
+    (m, s) => s.block(did: m.did),
+    id: appBskyGraphBlock,
+  );
+
+  testGraph<atp.StrongRef>(
+    (m, s) => s.list(purpose: appBskyGraphDefsModlist, name: m.name),
+    id: appBskyGraphList,
+  );
+
+// TODO: moderationList, userList
+  // testGraph<atp.StrongRef>(
+  //   (m, s) => s.createModeratedList(name: m.name),
+  //   id: appBskyGraphList,
+  //   label: 'Moderation',
+  // );
+
+  // testGraph<atp.StrongRef>(
+  //   (m, s) => s.createCuratedList(name: m.name),
+  //   id: appBskyGraphList,
+  //   label: 'Curation',
+  // );
+
+  testGraph<Lists>(
+    (m, s) => s.getLists(actor: m.actor),
+    id: appBskyGraphGetLists,
+  );
+
+  testGraph<Lists>(
+    (m, s) => s.getListBlocks(),
+    id: appBskyGraphGetListBlocks,
+  );
+
+  testGraph<ListItems>(
+    (m, s) => s.getList(list: m.uri),
+    id: appBskyGraphGetList,
+  );
+
+  testGraph<atp.StrongRef>(
+    (m, s) => s.listitem(subject: m.did, list: m.uri),
+    id: appBskyGraphListitem,
+  );
+
+  testGraph<Lists>(
+    (m, s) => s.getListMutes(),
+    id: appBskyGraphGetListMutes,
+  );
+
+  testGraph<core.EmptyData>(
+    (m, s) => s.muteActorList(list: m.uri),
+    id: appBskyGraphMuteActorList,
+  );
+
+  testGraph<core.EmptyData>(
+    (m, s) => s.unmuteActorList(list: m.uri),
+    id: appBskyGraphUnmuteActorList,
+  );
+
+  testGraph<SuggestedFollows>(
+    (m, s) => s.getSuggestedFollowsByActor(actor: m.actor),
+    id: appBskyGraphGetSuggestedFollowsByActor,
+  );
+
+  testGraph<atp.StrongRef>(
+    (m, s) => s.listblock(listUri: m.uri),
+    id: appBskyGraphListblock,
+  );
+}
+
+void _legacy() {
   testGraph<atp.StrongRef>(
     (m, s) => s.createFollow(did: m.did),
     bulk: (m, s) => s.createFollows([RepoParam(did: m.did)]),
