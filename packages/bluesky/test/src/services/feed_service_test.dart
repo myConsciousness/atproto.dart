@@ -142,7 +142,7 @@ void main() {
   );
 
   testFeed<atp.StrongRef>(
-    (m, s) => s.createThreadgate(postUri: m.uri),
+    (m, s) => s.createThreadgate(postUri: m.uri, createdAt: DateTime.now()),
     id: appBskyFeedThreadgate,
   );
 

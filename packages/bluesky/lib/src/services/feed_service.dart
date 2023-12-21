@@ -7,6 +7,7 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
+import '../ids.g.dart' as ids;
 import '../nsids.g.dart' as ns;
 import 'base_service.dart';
 import 'constants/feed_filter.dart';
@@ -1447,7 +1448,9 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
   }) async =>
       await atproto.repo.createRecord(
         collection: ns.appBskyFeedThreadgate,
+        rkey: postUri.rkey,
         record: {
+          r'$type': ids.appBskyFeedThreadgate,
           'post': postUri.toString(),
           'allow': allowRules?.map((e) => e.toJson()).toList(),
           'createdAt': toUtcIso8601String(createdAt),
