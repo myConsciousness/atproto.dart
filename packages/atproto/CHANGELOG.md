@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.10.1
+
+- Add `rkey` on `.createRecord`.
+
 ## v0.10.0
 
 - Upgraded `atproto_core`. ([#1112](https://github.com/myConsciousness/atproto.dart/issues/1112))

@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.14.2
+
+- Support `nobody` option for threadgate.
+
 ## v0.14.1
 
 - Fixed a bug in converting Threadgate records.
