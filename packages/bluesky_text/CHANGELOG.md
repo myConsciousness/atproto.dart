@@ -2,11 +2,11 @@
 
 ## v0.6.4
 
-- Upgraded `xrpc`. ([#1112](https://github.com/myConsciousness/atproto.dart/issues/1112))
+- Upgraded `xrpc`.
 
 ## v0.6.3
 
-- Upgraded `xrpc`.
+- Upgraded `xrpc`. ([#1112](https://github.com/myConsciousness/atproto.dart/issues/1112))
 
 ## v0.6.2
 
