@@ -9,7 +9,7 @@ import 'package:test/test.dart';
 // 🌎 Project imports:
 import 'package:bluesky/src/services/constants/grouped_notification_reason.dart';
 import 'package:bluesky/src/services/entities/grouped_notification.dart';
-import 'package:bluesky/src/services/extensions/grouped_notification_extension.dart';
+import 'package:bluesky/src/services/extensions/grouped_notification.dart';
 
 void main() {
   group('.uri', () {
