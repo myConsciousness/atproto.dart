@@ -18,266 +18,9 @@ import 'entities/preference.dart';
 import 'entities/preferences.dart';
 import 'entities/profile_record.dart';
 
-abstract class _LegacyActorService {
-  /// Get a pagination for users matching search criteria.
-  ///
-  /// ## Parameters
-  ///
-  /// - [term]: Search criteria.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.actor.search
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/search.json
-  core.Pagination<Actors> paginateActors({
-    required String term,
-    int? limit,
-    String? cursor,
-  });
-
-  /// Find a specific user profile based on handle or DID.
-  ///
-  /// ## Parameters
-  ///
-  /// - [actor]: The user handle or DID you want to get.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.actor.getProfile
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfile.json
-  Future<core.XRPCResponse<ActorProfile>> findProfile({
-    required String actor,
-  });
-
-  /// This is the easiest way to retrieve a profile record for
-  /// authenticated users.
-  ///
-  /// This endpoint is useful for retrieving information when
-  /// updating a profile.
-  Future<core.XRPCResponse<ProfileRecord>> findProfileRecord();
-
-  /// Find user profiles based on handles or DIDs.
-  ///
-  /// ## Parameters
-  ///
-  /// - [actors]: The list contained user handles or DID you want to get.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.actor.getProfiles
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfiles.json
-  Future<core.XRPCResponse<ActorProfiles>> findProfiles({
-    required List<String> actors,
-  });
-
-  /// Get a list of actors suggested for following. Used in discovery UIs.
-  ///
-  /// ## Parameters
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.actor.getSuggestions
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getSuggestions.json
-  Future<core.XRPCResponse<Actors>> findSuggestions({
-    int? limit,
-    String? cursor,
-  });
-
-  /// Get a pagination for list of actors suggested for following.
-  /// Used in discovery UIs.
-  ///
-  /// ## Parameters
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.actor.getSuggestions
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getSuggestions.json
-  core.Pagination<Actors> paginateSuggestions({
-    int? limit,
-    String? cursor,
-  });
-
-  /// Find user suggestions for a search term.
-  ///
-  /// ## Parameters
-  ///
-  /// - [term]: The search term.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.actor.searchActorsTypeahead
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/searchActorsTypeahead.json
-  Future<core.XRPCResponse<ActorsTypeahead>> searchTypeahead({
-    required String term,
-    int? limit,
-  });
-
-  /// Update profile of yourself.
-  ///
-  /// ## Parameters
-  ///
-  /// - [displayName]: The name to be displayed. Not handle.
-  ///
-  /// - [description]: The cool description.
-  ///
-  /// - [avatar]: The uploaded avatar blob.
-  ///
-  /// - [banner]: The uploaded banner blob.
-  ///
-  /// - [labels]: Labels to be attached.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.actor.profile
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/profile.json
-  Future<core.XRPCResponse<atp.StrongRef>> updateProfile({
-    String? displayName,
-    String? description,
-    atp.Blob? avatar,
-    atp.Blob? banner,
-    atp.Labels? labels,
-  });
-
-  /// Get private preferences attached to the account.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.actor.getPreferences
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getPreferences.json
-  Future<core.XRPCResponse<Preferences>> findPreferences();
-
-  /// Sets the private preferences attached to the account.
-  ///
-  /// ## Parameters
-  ///
-  /// - [preferences]: Collection of preferences to be updated.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.actor.putPreferences
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/putPreferences.json
-  Future<core.XRPCResponse<core.EmptyData>> updatePreferences(
-    List<Preference> preferences,
-  );
-}
-
 /// Represents `app.bsky.actor.*` service.
-sealed class ActorService implements _LegacyActorService {
-  /// Returns the new instance of [ActorService].
-  factory ActorService({
-    required atp.ATProto atproto,
-    required String did,
-    required core.Protocol protocol,
-    required String service,
-    required core.ClientContext context,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  }) =>
-      _ActorService(
-        atproto: atproto,
-        did: did,
-        protocol: protocol,
-        service: service,
-        context: context,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActors
-  Future<core.XRPCResponse<Actors>> searchActors({
-    required String term,
-    int? limit,
-    String? cursor,
-  });
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfile
-  Future<core.XRPCResponse<ActorProfile>> getProfile({
-    required String actor,
-  });
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfiles
-  Future<core.XRPCResponse<ActorProfiles>> getProfiles({
-    required List<String> actors,
-  });
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getSuggestions
-  Future<core.XRPCResponse<Actors>> getSuggestions({
-    int? limit,
-    String? cursor,
-  });
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActorsTypeahead
-  Future<core.XRPCResponse<ActorsTypeahead>> searchActorsTypeahead({
-    required String term,
-    int? limit,
-  });
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/profile
-  Future<core.XRPCResponse<atp.StrongRef>> profile({
-    String? displayName,
-    String? description,
-    atp.Blob? avatar,
-    atp.Blob? banner,
-    atp.Labels? labels,
-  });
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getPreferences
-  Future<core.XRPCResponse<Preferences>> getPreferences();
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/putPreferences
-  Future<core.XRPCResponse<core.EmptyData>> putPreferences(
-    List<Preference> preferences,
-  );
-}
-
-final class _ActorService extends BlueskyBaseService implements ActorService {
-  /// Returns the new instance of [_ActorService].
-  _ActorService({
+final class ActorService extends BlueskyBaseService {
+  ActorService({
     required super.atproto,
     required super.did,
     required super.protocol,
@@ -287,7 +30,7 @@ final class _ActorService extends BlueskyBaseService implements ActorService {
     super.mockedPostClient,
   });
 
-  @override
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActors
   Future<core.XRPCResponse<Actors>> searchActors({
     required String term,
     int? limit,
@@ -300,43 +43,47 @@ final class _ActorService extends BlueskyBaseService implements ActorService {
         to: Actors.fromJson,
       );
 
-  @override
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfile
   Future<core.XRPCResponse<ActorProfile>> getProfile({
     required String actor,
   }) async =>
+      // ignore: deprecated_member_use_from_same_package
       await findProfile(
         actor: actor,
       );
 
-  @override
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfiles
   Future<core.XRPCResponse<ActorProfiles>> getProfiles({
     required List<String> actors,
   }) async =>
+      // ignore: deprecated_member_use_from_same_package
       await findProfiles(
         actors: actors,
       );
 
-  @override
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getSuggestions
   Future<core.XRPCResponse<Actors>> getSuggestions({
     int? limit,
     String? cursor,
   }) async =>
+      // ignore: deprecated_member_use_from_same_package
       await findSuggestions(
         limit: limit,
         cursor: cursor,
       );
 
-  @override
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActorsTypeahead
   Future<core.XRPCResponse<ActorsTypeahead>> searchActorsTypeahead({
     required String term,
     int? limit,
   }) async =>
+      // ignore: deprecated_member_use_from_same_package
       await searchTypeahead(
         term: term,
         limit: limit,
       );
 
-  @override
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/profile
   Future<core.XRPCResponse<atp.StrongRef>> profile({
     String? displayName,
     String? description,
@@ -344,6 +91,7 @@ final class _ActorService extends BlueskyBaseService implements ActorService {
     atp.Blob? banner,
     atp.Labels? labels,
   }) async =>
+      // ignore: deprecated_member_use_from_same_package
       await updateProfile(
         displayName: displayName,
         description: description,
@@ -352,19 +100,20 @@ final class _ActorService extends BlueskyBaseService implements ActorService {
         labels: labels,
       );
 
-  @override
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getPreferences
   Future<core.XRPCResponse<Preferences>> getPreferences() async =>
+      // ignore: deprecated_member_use_from_same_package
       await findPreferences();
 
-  @override
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/putPreferences
   Future<core.XRPCResponse<core.EmptyData>> putPreferences(
     List<Preference> preferences,
   ) async =>
+      // ignore: deprecated_member_use_from_same_package
       await updatePreferences(
         preferences,
       );
 
-  @override
   core.Pagination<Actors> paginateActors({
     required String term,
     int? limit,
@@ -377,7 +126,7 @@ final class _ActorService extends BlueskyBaseService implements ActorService {
         to: Actors.fromJson,
       );
 
-  @override
+  @Deprecated('Use .getProfile instead. Will be removed')
   Future<core.XRPCResponse<ActorProfile>> findProfile({
     required String actor,
   }) async =>
@@ -386,14 +135,14 @@ final class _ActorService extends BlueskyBaseService implements ActorService {
         to: ActorProfile.fromJson,
       );
 
-  @override
+  @Deprecated('Use .getProfileRecord instead. Will be removed')
   Future<core.XRPCResponse<ProfileRecord>> findProfileRecord() async =>
       await super.findRecord(
         selfUri,
         ProfileRecord.fromJson,
       );
 
-  @override
+  @Deprecated('Use .getProfiles instead. Will be removed')
   Future<core.XRPCResponse<ActorProfiles>> findProfiles({
     required List<String> actors,
   }) async =>
@@ -402,7 +151,7 @@ final class _ActorService extends BlueskyBaseService implements ActorService {
         to: ActorProfiles.fromJson,
       );
 
-  @override
+  @Deprecated('Use .getSuggestions instead. Will be removed')
   Future<core.XRPCResponse<Actors>> findSuggestions({
     int? limit,
     String? cursor,
@@ -413,7 +162,6 @@ final class _ActorService extends BlueskyBaseService implements ActorService {
         to: Actors.fromJson,
       );
 
-  @override
   core.Pagination<Actors> paginateSuggestions({
     int? limit,
     String? cursor,
@@ -424,7 +172,7 @@ final class _ActorService extends BlueskyBaseService implements ActorService {
         to: Actors.fromJson,
       );
 
-  @override
+  @Deprecated('Use .searchActorsTypeahead instead. Will be removed')
   Future<core.XRPCResponse<ActorsTypeahead>> searchTypeahead({
     required String term,
     int? limit,
@@ -435,7 +183,7 @@ final class _ActorService extends BlueskyBaseService implements ActorService {
         to: ActorsTypeahead.fromJson,
       );
 
-  @override
+  @Deprecated('Use .profile instead. Will be removed')
   Future<core.XRPCResponse<atp.StrongRef>> updateProfile({
     String? displayName,
     String? description,
@@ -458,11 +206,11 @@ final class _ActorService extends BlueskyBaseService implements ActorService {
         },
       );
 
-  @override
+  @Deprecated('Use .getPreferences instead. Will be removed')
   Future<core.XRPCResponse<Preferences>> findPreferences() async =>
       await _findPreferences(to: Preferences.fromJson);
 
-  @override
+  @Deprecated('Use .putPreferences instead. Will be removed')
   Future<core.XRPCResponse<atp.EmptyData>> updatePreferences(
     List<Preference> preferences,
   ) async =>

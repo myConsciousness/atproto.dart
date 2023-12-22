@@ -15,6 +15,7 @@ import 'package:bluesky/src/services/entities/list_items.dart';
 import 'package:bluesky/src/services/entities/lists.dart';
 import 'package:bluesky/src/services/entities/mutes.dart';
 import 'package:bluesky/src/services/entities/suggested_follows.dart';
+import 'package:bluesky/src/services/extensions/graph_service.dart';
 import 'package:bluesky/src/services/params/list_item_param.dart';
 import 'package:bluesky/src/services/params/list_param.dart';
 import 'package:bluesky/src/services/params/repo_param.dart';
@@ -23,7 +24,7 @@ import 'suite/service_suite.dart';
 void main() {
   testGraph<atp.StrongRef>(
     (m, s) => s.follow(did: m.did),
-    bulk: (m, s) => s.createFollows([RepoParam(did: m.did)]),
+    bulk: (m, s) => s.followInBulk([RepoParam(did: m.did)]),
     id: appBskyGraphFollow,
   );
 
@@ -63,13 +64,13 @@ void main() {
 
   testGraph<atp.StrongRef>(
     (m, s) => s.block(did: m.did),
-    bulk: (m, s) => s.createBlocks([RepoParam(did: m.did)]),
+    bulk: (m, s) => s.blockInBulk([RepoParam(did: m.did)]),
     id: appBskyGraphBlock,
   );
 
   testGraph<atp.StrongRef>(
     (m, s) => s.list(purpose: appBskyGraphDefsModlist, name: m.name),
-    bulk: (m, s) => s.createLists([
+    bulk: (m, s) => s.listInBulk([
       ListParam(
         purpose: appBskyGraphDefsModlist,
         name: m.name,
@@ -78,18 +79,17 @@ void main() {
     id: appBskyGraphList,
   );
 
-// TODO: moderationList, userList
-  // testGraph<atp.StrongRef>(
-  //   (m, s) => s.createModeratedList(name: m.name),
-  //   id: appBskyGraphList,
-  //   label: 'Moderation',
-  // );
+  testGraph<atp.StrongRef>(
+    (m, s) => s.modlist(name: m.name),
+    id: appBskyGraphList,
+    label: 'Moderation',
+  );
 
-  // testGraph<atp.StrongRef>(
-  //   (m, s) => s.createCuratedList(name: m.name),
-  //   id: appBskyGraphList,
-  //   label: 'Curation',
-  // );
+  testGraph<atp.StrongRef>(
+    (m, s) => s.curatelist(name: m.name),
+    id: appBskyGraphList,
+    label: 'Curation',
+  );
 
   testGraph<Lists>(
     (m, s) => s.getLists(actor: m.actor),
@@ -111,7 +111,7 @@ void main() {
 
   testGraph<atp.StrongRef>(
     (m, s) => s.listitem(subject: m.did, list: m.uri),
-    bulk: (m, s) => s.createListItems([
+    bulk: (m, s) => s.listitemInBulk([
       ListItemParam(
         subject: m.did,
         list: m.uri,

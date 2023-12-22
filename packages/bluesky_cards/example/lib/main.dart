@@ -38,7 +38,7 @@ class BlueskyCards extends StatelessWidget {
           final bluesky = bsky.Bluesky.fromSession(session);
 
           return FutureBuilder(
-            future: bluesky.feed.findFeed(
+            future: bluesky.feed.getAuthorFeed(
               actor: session.did,
               limit: 5,
             ),

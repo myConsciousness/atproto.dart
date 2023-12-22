@@ -35,14 +35,14 @@ Future<void> main() async {
     );
 
     //! Let's get home timeline!
-    final feeds = await bluesky.feed.findTimeline(
+    final feeds = await bluesky.feed.getTimeline(
       limit: 10,
     );
 
     print(feeds);
 
     //! Let's post cool stuff!
-    final createdRecord = await bluesky.feed.createPost(
+    final createdRecord = await bluesky.feed.$post(
       text: 'Hello, Bluesky!',
     );
 

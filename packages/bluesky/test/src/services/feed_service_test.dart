@@ -18,6 +18,7 @@ import 'package:bluesky/src/services/entities/posts.dart';
 import 'package:bluesky/src/services/entities/posts_by_query.dart';
 import 'package:bluesky/src/services/entities/reposted_by.dart';
 import 'package:bluesky/src/services/entities/skeleton_feed.dart';
+import 'package:bluesky/src/services/extensions/feed_service.dart';
 import 'package:bluesky/src/services/params/generator_param.dart';
 import 'package:bluesky/src/services/params/post_param.dart';
 import 'package:bluesky/src/services/params/strong_ref_param.dart';
@@ -26,13 +27,13 @@ import 'suite/service_suite.dart';
 void main() {
   testFeed<atp.StrongRef>(
     (m, s) => s.$post(text: m.text),
-    bulk: (m, s) => s.createPosts([PostParam(text: m.text)]),
+    bulk: (m, s) => s.postInBulk([PostParam(text: m.text)]),
     id: appBskyFeedPost,
   );
 
   testFeed<atp.StrongRef>(
     (m, s) => s.repost(cid: m.cid, uri: m.uri),
-    bulk: (m, s) => s.createReposts([StrongRefParam(cid: m.cid, uri: m.uri)]),
+    bulk: (m, s) => s.repostInBulk([StrongRefParam(cid: m.cid, uri: m.uri)]),
     id: appBskyFeedPost,
   );
 
@@ -73,7 +74,7 @@ void main() {
 
   testFeed<Likes>(
     (m, s) => s.getLikes(uri: m.uri),
-    bulk: (m, s) => s.createLikes([StrongRefParam(cid: m.cid, uri: m.uri)]),
+    bulk: (m, s) => s.likeInBulk([StrongRefParam(cid: m.cid, uri: m.uri)]),
     id: appBskyFeedGetLikes,
   );
 
@@ -95,7 +96,7 @@ void main() {
 
   testFeed<atp.StrongRef>(
     (m, s) => s.generator(did: m.did, displayName: m.displayName),
-    bulk: (m, s) => s.createGenerators([
+    bulk: (m, s) => s.generatorInBulk([
       GeneratorParam(
         did: m.did,
         displayName: m.displayName,

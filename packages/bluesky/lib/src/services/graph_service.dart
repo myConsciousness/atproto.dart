@@ -22,780 +22,104 @@ import 'params/list_item_param.dart';
 import 'params/list_param.dart';
 import 'params/repo_param.dart';
 
-abstract class _LegacyGraphService {
-  /// Creates a follow.
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The unique user id.
-  ///
-  /// - [createdAt]: Date and time the follow was created.
-  ///                If omitted, defaults to the current time.
-  ///
-  /// - [unspecced]: You can set record fields that are not supported
-  ///                by `app.bsky.graph.follow` as JSON.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.repo.createRecord
-  /// - app.bsky.graph.follow
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/follow.json
-  Future<core.XRPCResponse<atp.StrongRef>> createFollow({
-    required String did,
-    DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+final class GraphService extends BlueskyBaseService {
+  GraphService({
+    required super.atproto,
+    required super.did,
+    required super.protocol,
+    required super.service,
+    required super.context,
+    super.mockedGetClient,
+    super.mockedPostClient,
   });
-
-  /// Creates follows.
-  ///
-  /// ## Parameters
-  ///
-  /// - [params]: The collection of params from strong refs to be followed.
-  Future<core.XRPCResponse<core.EmptyData>> createFollows(
-    List<RepoParam> params,
-  );
-
-  /// Returns follows of specific user.
-  ///
-  /// ## Parameters
-  ///
-  /// - [actor]: The DID or handle of target user.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.repo.deleteRecord
-  /// - app.bsky.graph.getFollows
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollows.json
-  Future<core.XRPCResponse<Follows>> findFollows({
-    required String actor,
-    int? limit,
-    String? cursor,
-  });
-
-  /// Returns a pagination for follows of specific user.
-  ///
-  /// ## Parameters
-  ///
-  /// - [actor]: The DID or handle of target user.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.repo.deleteRecord
-  /// - app.bsky.graph.getFollows
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollows.json
-  core.Pagination<Follows> paginateFollows({
-    required String actor,
-    int? limit,
-    String? cursor,
-  });
-
-  /// Returns followers of specific user.
-  ///
-  /// ## Parameters
-  ///
-  /// - [actor]: The DID or handle of target user.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.getFollowers
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollowers.json
-  Future<core.XRPCResponse<Followers>> findFollowers({
-    required String actor,
-    int? limit,
-    String? cursor,
-  });
-
-  /// Returns a pagination for followers of specific user.
-  ///
-  /// ## Parameters
-  ///
-  /// - [actor]: The DID or handle of target user.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.getFollowers
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollowers.json
-  core.Pagination<Followers> paginateFollowers({
-    required String actor,
-    int? limit,
-    String? cursor,
-  });
-
-  /// Mute an actor by did or handle.
-  ///
-  /// ## Parameters
-  ///
-  /// - [actor]: The DID or handle of target user.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.muteActor
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/muteActor.json
-  Future<core.XRPCResponse<core.EmptyData>> createMute({
-    required String actor,
-  });
-
-  /// Unmute an actor by did or handle.
-  ///
-  /// ## Parameters
-  ///
-  /// - [actor]: The DID or handle of target user.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.unmuteActor
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/unmuteActor.json
-  Future<core.XRPCResponse<core.EmptyData>> deleteMute({
-    required String actor,
-  });
-
-  /// Who does the viewer mute?
-  ///
-  /// ## Parameters
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.getMutes
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getMutes.json
-  Future<core.XRPCResponse<Mutes>> findMutes({
-    int? limit,
-    String? cursor,
-  });
-
-  /// Returns a pagination for viewer mutes.
-  ///
-  /// ## Parameters
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.getMutes
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getMutes.json
-  core.Pagination<Mutes> paginateMutes({
-    int? limit,
-    String? cursor,
-  });
-
-  /// Who is the requester's account blocking?
-  ///
-  /// ## Parameters
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.getBlocks
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getBlocks.json
-  Future<core.XRPCResponse<Blocks>> findBlocks({
-    int? limit,
-    String? cursor,
-  });
-
-  /// Returns a pagination for viewer blocks.
-  ///
-  /// ## Parameters
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.getBlocks
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getBlocks.json
-  core.Pagination<Blocks> paginateBlocks({
-    int? limit,
-    String? cursor,
-  });
-
-  /// A block.
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The unique user id.
-  ///
-  /// - [createdAt]: Date and time the follow was created.
-  ///                If omitted, defaults to the current time.
-  ///
-  /// - [unspecced]: You can set record fields that are not supported
-  ///                by `app.bsky.graph.block` as JSON.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.repo.createRecord
-  /// - app.bsky.graph.block
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getBlocks.json
-  Future<core.XRPCResponse<atp.StrongRef>> createBlock({
-    required String did,
-    DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
-  });
-
-  /// Creates blocks.
-  ///
-  /// ## Parameters
-  ///
-  /// - [params]: The collection of params from strong refs to be blocked.
-  Future<core.XRPCResponse<core.EmptyData>> createBlocks(
-    List<RepoParam> params,
-  );
-
-  /// A declaration of a list of actors.
-  ///
-  /// ## Parameters
-  ///
-  /// - [purpose]: Purpose of list to be created.
-  ///
-  /// - [name]: Name of list to be created.
-  ///
-  /// - [description]: Description of list to be created.
-  ///
-  /// - [descriptionFacets]: Facet features for [description].
-  ///
-  /// - [avatar]: Avatar blob to set to list.
-  ///
-  /// - [labels]: Labels to be attached.
-  ///
-  /// - [createdAt]: Date and time the post was created.
-  ///                If omitted, defaults to the current time.
-  ///
-  /// - [unspecced]: You can set record fields that are not supported
-  ///                by `app.bsky.graph.list` as JSON.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.list
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/list.json
-  Future<core.XRPCResponse<atp.StrongRef>> createList({
-    required String purpose,
-    required String name,
-    String? description,
-    List<Facet>? descriptionFacets,
-    atp.Blob? avatar,
-    atp.Labels? labels,
-    DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
-  });
-
-  /// A declaration of a moderated list of actors.
-  ///
-  /// ## Parameters
-  ///
-  /// - [name]: Name of list to be created.
-  ///
-  /// - [description]: Description of list to be created.
-  ///
-  /// - [descriptionFacets]: Facet features for [description].
-  ///
-  /// - [avatar]: Avatar blob to set to list.
-  ///
-  /// - [labels]: Labels to be attached.
-  ///
-  /// - [createdAt]: Date and time the post was created.
-  ///                If omitted, defaults to the current time.
-  ///
-  /// - [unspecced]: You can set record fields that are not supported
-  ///                by `app.bsky.graph.list` as JSON.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.list
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/list.json
-  Future<core.XRPCResponse<atp.StrongRef>> createModeratedList({
-    required String name,
-    String? description,
-    List<Facet>? descriptionFacets,
-    atp.Blob? avatar,
-    atp.Labels? labels,
-    DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
-  });
-
-  /// A declaration of a curated list of actors.
-  ///
-  /// ## Parameters
-  ///
-  /// - [name]: Name of list to be created.
-  ///
-  /// - [description]: Description of list to be created.
-  ///
-  /// - [descriptionFacets]: Facet features for [description].
-  ///
-  /// - [avatar]: Avatar blob to set to list.
-  ///
-  /// - [labels]: Labels to be attached.
-  ///
-  /// - [createdAt]: Date and time the post was created.
-  ///                If omitted, defaults to the current time.
-  ///
-  /// - [unspecced]: You can set record fields that are not supported
-  ///                by `app.bsky.graph.list` as JSON.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.list
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/list.json
-  Future<core.XRPCResponse<atp.StrongRef>> createCuratedList({
-    required String name,
-    String? description,
-    List<Facet>? descriptionFacets,
-    atp.Blob? avatar,
-    atp.Labels? labels,
-    DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
-  });
-
-  /// Creates lists.
-  ///
-  /// ## Parameters
-  ///
-  /// - [params]: The collection of list params from strong refs to be created.
-  Future<core.XRPCResponse<core.EmptyData>> createLists(
-    List<ListParam> params,
-  );
-
-  /// Fetch a list of lists that belong to an actor.
-  ///
-  /// ## Parameters
-  ///
-  /// - [actor]: The DID or handle of target user.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.getLists
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getLists.json
-  Future<core.XRPCResponse<Lists>> findLists({
-    required String actor,
-    int? limit,
-    String? cursor,
-  });
-
-  /// Which lists is the requester's account blocking?
-  ///
-  /// ## Parameters
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.getListBlocks
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListBlocks.json
-  Future<core.XRPCResponse<Lists>> findBlockLists({
-    int? limit,
-    String? cursor,
-  });
-
-  /// Which lists is the requester's account blocking?
-  ///
-  /// Returns data as pagination.
-  ///
-  /// ## Parameters
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.getListBlocks
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListBlocks.json
-  core.Pagination<Lists> paginateBlockLists({
-    int? limit,
-    String? cursor,
-  });
-
-  /// Fetch a pagination for a list of lists that belong to an actor.
-  ///
-  /// ## Parameters
-  ///
-  /// - [actor]: The DID or handle of target user.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.getLists
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getLists.json
-  core.Pagination<Lists> paginateLists({
-    required String actor,
-    int? limit,
-    String? cursor,
-  });
-
-  /// Fetch a list of actors.
-  ///
-  /// ## Parameters
-  ///
-  /// - [list]: The list uri.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.getList
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getList.json
-  Future<core.XRPCResponse<ListItems>> findListItems({
-    required core.AtUri list,
-    int? limit,
-    String? cursor,
-  });
-
-  /// Fetch a pagination for a list of actors.
-  ///
-  /// ## Parameters
-  ///
-  /// - [list]: The list uri.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.getList
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getList.json
-  core.Pagination<ListItems> paginateListItems({
-    required core.AtUri list,
-    int? limit,
-    String? cursor,
-  });
-
-  /// An item under a declared list of actors.
-  ///
-  /// ## Parameters
-  ///
-  /// - [subject]: The did of subject to be added.
-  ///
-  /// - [list]: The uri of list.
-  ///
-  /// - [createdAt]: Date and time the post was created.
-  ///                If omitted, defaults to the current time.
-  ///
-  /// - [unspecced]: You can set record fields that are not supported
-  ///                by `app.bsky.graph.listitem` as JSON.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.listitem
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/listitem.json
-  Future<core.XRPCResponse<atp.StrongRef>> createListItem({
-    required String subject,
-    required core.AtUri list,
-    DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
-  });
-
-  /// Creates list items.
-  ///
-  /// ## Parameters
-  ///
-  /// - [params]: The collection of list item params from strong refs to be
-  ///             created.
-  Future<core.XRPCResponse<core.EmptyData>> createListItems(
-    List<ListItemParam> params,
-  );
-
-  /// Which lists is the requester's account muting?
-  ///
-  /// ## Parameters
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.getListMutes
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListMutes.json
-  Future<core.XRPCResponse<Lists>> findMutingLists({
-    int? limit,
-    String? cursor,
-  });
-
-  /// Returns a pagination for viewer's muting lists.
-  ///
-  /// ## Parameters
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.getListMutes
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListMutes.json
-  core.Pagination<Lists> paginateMutingLists({
-    int? limit,
-    String? cursor,
-  });
-
-  /// Mute a list of actors.
-  ///
-  /// ## Parameters
-  ///
-  /// - [list]: AT URI of list.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.muteActorList
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/muteActorList.json
-  Future<core.XRPCResponse<core.EmptyData>> createMuteActorList({
-    required core.AtUri list,
-  });
-
-  /// Unmute a list of actors.
-  ///
-  /// ## Parameters
-  ///
-  /// - [list]: AT URI of list.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.unmuteActorList
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/unmuteActorList.json
-  Future<core.XRPCResponse<core.EmptyData>> deleteMuteActorList({
-    required core.AtUri list,
-  });
-
-  /// Get suggested follows related to a given actor.
-  ///
-  /// ## Parameters
-  ///
-  /// - [actor]: The DID or handle of target user.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.getSuggestedFollowsByActor
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getSuggestedFollowsByActor.json
-  Future<core.XRPCResponse<SuggestedFollows>> findSuggestedFollows({
-    required String actor,
-  });
-
-  /// Create a block of an entire list of actors.
-  ///
-  /// ## Parameters
-  ///
-  /// - [listUri]: URI of the list to block list.
-  ///
-  /// - [createdAt]: Date and time the follow was created.
-  ///                If omitted, defaults to the current time.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.graph.listblock
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/listblock.json
-  Future<core.XRPCResponse<atp.StrongRef>> createBlockList({
-    required core.AtUri listUri,
-    DateTime? createdAt,
-  });
-}
-
-/// Represents `app.bsky.graph.*` service.
-sealed class GraphService implements _LegacyGraphService {
-  /// Returns the new instance of [GraphService].
-  factory GraphService({
-    required atp.ATProto atproto,
-    required String did,
-    required core.Protocol protocol,
-    required String service,
-    required core.ClientContext context,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  }) =>
-      _GraphService(
-        atproto: atproto,
-        did: did,
-        protocol: protocol,
-        service: service,
-        context: context,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/follow
   Future<core.XRPCResponse<atp.StrongRef>> follow({
     required String did,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await createFollow(
+        did: did,
+        createdAt: createdAt,
+        unspecced: unspecced,
+      );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getFollows
   Future<core.XRPCResponse<Follows>> getFollows({
     required String actor,
     int? limit,
     String? cursor,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findFollows(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+      );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getFollowers
   Future<core.XRPCResponse<Followers>> getFollowers({
     required String actor,
     int? limit,
     String? cursor,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findFollowers(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+      );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActor
   Future<core.XRPCResponse<core.EmptyData>> muteActor({
     required String actor,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await createMute(actor: actor);
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActor
   Future<core.XRPCResponse<core.EmptyData>> unmuteActor({
     required String actor,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await deleteMute(actor: actor);
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getMutes
   Future<core.XRPCResponse<Mutes>> getMutes({
     int? limit,
     String? cursor,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findMutes(
+        limit: limit,
+        cursor: cursor,
+      );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getBlocks
   Future<core.XRPCResponse<Blocks>> getBlocks({
     int? limit,
     String? cursor,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findBlocks(
+        limit: limit,
+        cursor: cursor,
+      );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/block
   Future<core.XRPCResponse<atp.StrongRef>> block({
     required String did,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await createBlock(
+        did: did,
+        createdAt: createdAt,
+        unspecced: unspecced,
+      );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/list
   Future<core.XRPCResponse<atp.StrongRef>> list({
@@ -807,167 +131,8 @@ sealed class GraphService implements _LegacyGraphService {
     atp.Labels? labels,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
-  });
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getLists
-  Future<core.XRPCResponse<Lists>> getLists({
-    required String actor,
-    int? limit,
-    String? cursor,
-  });
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getListBlocks
-  Future<core.XRPCResponse<Lists>> getListBlocks({
-    int? limit,
-    String? cursor,
-  });
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getList
-  Future<core.XRPCResponse<ListItems>> getList({
-    required core.AtUri list,
-    int? limit,
-    String? cursor,
-  });
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listitem
-  Future<core.XRPCResponse<atp.StrongRef>> listitem({
-    required String subject,
-    required core.AtUri list,
-    DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
-  });
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getListMutes
-  Future<core.XRPCResponse<Lists>> getListMutes({
-    int? limit,
-    String? cursor,
-  });
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActorList
-  Future<core.XRPCResponse<core.EmptyData>> muteActorList({
-    required core.AtUri list,
-  });
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActorList
-  Future<core.XRPCResponse<core.EmptyData>> unmuteActorList({
-    required core.AtUri list,
-  });
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getSuggestedFollowsByActor
-  Future<core.XRPCResponse<SuggestedFollows>> getSuggestedFollowsByActor({
-    required String actor,
-  });
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listblock
-  Future<core.XRPCResponse<atp.StrongRef>> listblock({
-    required core.AtUri listUri,
-    DateTime? createdAt,
-  });
-}
-
-final class _GraphService extends BlueskyBaseService implements GraphService {
-  /// Returns the new instance of [_GraphService].
-  _GraphService({
-    required super.atproto,
-    required super.did,
-    required super.protocol,
-    required super.service,
-    required super.context,
-    super.mockedGetClient,
-    super.mockedPostClient,
-  });
-
-  @override
-  Future<core.XRPCResponse<atp.StrongRef>> follow({
-    required String did,
-    DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await createFollow(
-        did: did,
-        createdAt: createdAt,
-        unspecced: unspecced,
-      );
-
-  @override
-  Future<core.XRPCResponse<Follows>> getFollows({
-    required String actor,
-    int? limit,
-    String? cursor,
-  }) async =>
-      await findFollows(
-        actor: actor,
-        limit: limit,
-        cursor: cursor,
-      );
-
-  @override
-  Future<core.XRPCResponse<Followers>> getFollowers({
-    required String actor,
-    int? limit,
-    String? cursor,
-  }) async =>
-      await findFollowers(
-        actor: actor,
-        limit: limit,
-        cursor: cursor,
-      );
-
-  @override
-  Future<core.XRPCResponse<core.EmptyData>> muteActor({
-    required String actor,
-  }) async =>
-      await createMute(actor: actor);
-
-  @override
-  Future<core.XRPCResponse<core.EmptyData>> unmuteActor({
-    required String actor,
-  }) async =>
-      await deleteMute(actor: actor);
-
-  @override
-  Future<core.XRPCResponse<Mutes>> getMutes({
-    int? limit,
-    String? cursor,
-  }) async =>
-      await findMutes(
-        limit: limit,
-        cursor: cursor,
-      );
-
-  @override
-  Future<core.XRPCResponse<Blocks>> getBlocks({
-    int? limit,
-    String? cursor,
-  }) async =>
-      await findBlocks(
-        limit: limit,
-        cursor: cursor,
-      );
-
-  @override
-  Future<core.XRPCResponse<atp.StrongRef>> block({
-    required String did,
-    DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
-  }) async =>
-      await createBlock(
-        did: did,
-        createdAt: createdAt,
-        unspecced: unspecced,
-      );
-
-  @override
-  Future<core.XRPCResponse<atp.StrongRef>> list({
-    required String purpose,
-    required String name,
-    String? description,
-    List<Facet>? descriptionFacets,
-    atp.Blob? avatar,
-    atp.Labels? labels,
-    DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
-  }) async =>
+      // ignore: deprecated_member_use_from_same_package
       await createList(
         purpose: purpose,
         name: name,
@@ -979,47 +144,51 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         unspecced: unspecced,
       );
 
-  @override
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getLists
   Future<core.XRPCResponse<Lists>> getLists({
     required String actor,
     int? limit,
     String? cursor,
   }) async =>
+      // ignore: deprecated_member_use_from_same_package
       await findLists(
         actor: actor,
         limit: limit,
         cursor: cursor,
       );
 
-  @override
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getListBlocks
   Future<core.XRPCResponse<Lists>> getListBlocks({
     int? limit,
     String? cursor,
   }) async =>
+      // ignore: deprecated_member_use_from_same_package
       await findBlockLists(
         limit: limit,
         cursor: cursor,
       );
 
-  @override
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getList
   Future<core.XRPCResponse<ListItems>> getList({
     required core.AtUri list,
     int? limit,
     String? cursor,
   }) async =>
+      // ignore: deprecated_member_use_from_same_package
       await findListItems(
         list: list,
         limit: limit,
         cursor: cursor,
       );
 
-  @override
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listitem
   Future<core.XRPCResponse<atp.StrongRef>> listitem({
     required String subject,
     required core.AtUri list,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
+      // ignore: deprecated_member_use_from_same_package
       await createListItem(
         subject: subject,
         list: list,
@@ -1027,45 +196,50 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         unspecced: unspecced,
       );
 
-  @override
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getListMutes
   Future<core.XRPCResponse<Lists>> getListMutes({
     int? limit,
     String? cursor,
   }) async =>
+      // ignore: deprecated_member_use_from_same_package
       await findMutingLists(
         limit: limit,
         cursor: cursor,
       );
 
-  @override
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActorList
   Future<core.XRPCResponse<core.EmptyData>> muteActorList({
     required core.AtUri list,
   }) async =>
+      // ignore: deprecated_member_use_from_same_package
       await createMuteActorList(list: list);
 
-  @override
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActorList
   Future<core.XRPCResponse<core.EmptyData>> unmuteActorList({
     required core.AtUri list,
   }) async =>
+      // ignore: deprecated_member_use_from_same_package
       await deleteMuteActorList(list: list);
 
-  @override
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getSuggestedFollowsByActor
   Future<core.XRPCResponse<SuggestedFollows>> getSuggestedFollowsByActor({
     required String actor,
   }) async =>
+      // ignore: deprecated_member_use_from_same_package
       await findSuggestedFollows(actor: actor);
 
-  @override
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listblock
   Future<core.XRPCResponse<atp.StrongRef>> listblock({
     required core.AtUri listUri,
     DateTime? createdAt,
   }) async =>
+      // ignore: deprecated_member_use_from_same_package
       await createBlockList(
         listUri: listUri,
         createdAt: createdAt,
       );
 
-  @override
+  @Deprecated('Use .follow instead. Will be removed.')
   Future<core.XRPCResponse<atp.StrongRef>> createFollow({
     required String did,
     DateTime? createdAt,
@@ -1080,7 +254,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         },
       );
 
-  @override
+  @Deprecated('Use .followInBulk instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createFollows(
     List<RepoParam> params,
   ) async =>
@@ -1099,7 +273,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
             .toList(),
       );
 
-  @override
+  @Deprecated('Use .getFollows instead. Will be removed')
   Future<core.XRPCResponse<Follows>> findFollows({
     required String actor,
     int? limit,
@@ -1112,7 +286,6 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         to: Follows.fromJson,
       );
 
-  @override
   core.Pagination<Follows> paginateFollows({
     required String actor,
     int? limit,
@@ -1125,7 +298,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         to: Follows.fromJson,
       );
 
-  @override
+  @Deprecated('Use .getFollowers instead. Will be removed')
   Future<core.XRPCResponse<Followers>> findFollowers({
     required String actor,
     int? limit,
@@ -1138,7 +311,6 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         to: Followers.fromJson,
       );
 
-  @override
   core.Pagination<Followers> paginateFollowers({
     required String actor,
     int? limit,
@@ -1151,7 +323,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         to: Followers.fromJson,
       );
 
-  @override
+  @Deprecated('Use .muteActor instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createMute({
     required String actor,
   }) async =>
@@ -1162,7 +334,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         },
       );
 
-  @override
+  @Deprecated('Use .unmuteActor instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> deleteMute({
     required String actor,
   }) async =>
@@ -1173,7 +345,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         },
       );
 
-  @override
+  @Deprecated('Use .getMutes instead. Will be removed')
   Future<core.XRPCResponse<Mutes>> findMutes({
     int? limit,
     String? cursor,
@@ -1184,7 +356,6 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         to: Mutes.fromJson,
       );
 
-  @override
   core.Pagination<Mutes> paginateMutes({
     int? limit,
     String? cursor,
@@ -1195,7 +366,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         to: Mutes.fromJson,
       );
 
-  @override
+  @Deprecated('Use .getBlocks instead. Will be removed')
   Future<core.XRPCResponse<Blocks>> findBlocks({
     int? limit,
     String? cursor,
@@ -1206,7 +377,6 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         to: Blocks.fromJson,
       );
 
-  @override
   core.Pagination<Blocks> paginateBlocks({
     int? limit,
     String? cursor,
@@ -1217,7 +387,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         to: Blocks.fromJson,
       );
 
-  @override
+  @Deprecated('Use .block instead. Will be removed')
   Future<core.XRPCResponse<atp.StrongRef>> createBlock({
     required String did,
     DateTime? createdAt,
@@ -1232,7 +402,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         },
       );
 
-  @override
+  @Deprecated('Use .blockInBulk instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createBlocks(
     List<RepoParam> params,
   ) async =>
@@ -1251,7 +421,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
             .toList(),
       );
 
-  @override
+  @Deprecated('Use .list instead. Will be removed')
   Future<core.XRPCResponse<atp.StrongRef>> createList({
     required String purpose,
     required String name,
@@ -1277,7 +447,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         },
       );
 
-  @override
+  @Deprecated('Use .modlist instead. Will be removed')
   Future<core.XRPCResponse<atp.StrongRef>> createModeratedList({
     required String name,
     String? description,
@@ -1287,7 +457,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await createList(
+      await list(
         name: name,
         purpose: ids.appBskyGraphDefsModlist,
         description: description,
@@ -1298,7 +468,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         unspecced: unspecced,
       );
 
-  @override
+  @Deprecated('Use .curatelist instead. Will be removed')
   Future<core.XRPCResponse<atp.StrongRef>> createCuratedList({
     required String name,
     String? description,
@@ -1308,7 +478,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await createList(
+      await list(
         name: name,
         purpose: ids.appBskyGraphDefsCuratelist,
         description: description,
@@ -1319,7 +489,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         unspecced: unspecced,
       );
 
-  @override
+  @Deprecated('Use .listInBulk instead. Will be removed')
   Future<core.XRPCResponse<atp.EmptyData>> createLists(
     List<ListParam> params,
   ) async =>
@@ -1344,7 +514,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
             .toList(),
       );
 
-  @override
+  @Deprecated('Use .getLists instead. Will be removed')
   Future<core.XRPCResponse<Lists>> findLists({
     required String actor,
     int? limit,
@@ -1357,7 +527,6 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         to: Lists.fromJson,
       );
 
-  @override
   core.Pagination<Lists> paginateLists({
     required String actor,
     int? limit,
@@ -1370,7 +539,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         to: Lists.fromJson,
       );
 
-  @override
+  @Deprecated('Use .getList instead. Will be removed')
   Future<core.XRPCResponse<ListItems>> findListItems({
     required core.AtUri list,
     int? limit,
@@ -1383,7 +552,6 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         to: ListItems.fromJson,
       );
 
-  @override
   core.Pagination<ListItems> paginateListItems({
     required core.AtUri list,
     int? limit,
@@ -1396,7 +564,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         to: ListItems.fromJson,
       );
 
-  @override
+  @Deprecated('Use .listitem instead. Will be removed')
   Future<core.XRPCResponse<atp.StrongRef>> createListItem({
     required String subject,
     required core.AtUri list,
@@ -1413,7 +581,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         },
       );
 
-  @override
+  @Deprecated('Use .listitemInBulk instead. Will be removed')
   Future<core.XRPCResponse<atp.EmptyData>> createListItems(
     List<ListItemParam> params,
   ) async =>
@@ -1433,7 +601,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
             .toList(),
       );
 
-  @override
+  @Deprecated('Use .getListMutes instead. Will be removed')
   Future<core.XRPCResponse<Lists>> findMutingLists({
     int? limit,
     String? cursor,
@@ -1444,7 +612,6 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         to: Lists.fromJson,
       );
 
-  @override
   core.Pagination<Lists> paginateMutingLists({
     int? limit,
     String? cursor,
@@ -1455,7 +622,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         to: Lists.fromJson,
       );
 
-  @override
+  @Deprecated('Use .muteActorList instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createMuteActorList({
     required core.AtUri list,
   }) async =>
@@ -1466,7 +633,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         },
       );
 
-  @override
+  @Deprecated('Use .unmuteActorList instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> deleteMuteActorList({
     required core.AtUri list,
   }) async =>
@@ -1477,7 +644,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         },
       );
 
-  @override
+  @Deprecated('Use .getSuggestedFollowsByActor instead. Will be removed')
   Future<core.XRPCResponse<SuggestedFollows>> findSuggestedFollows({
     required String actor,
   }) async =>
@@ -1486,7 +653,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         to: SuggestedFollows.fromJson,
       );
 
-  @override
+  @Deprecated('Use .getListBlocks instead. Will be removed')
   Future<core.XRPCResponse<Lists>> findBlockLists({
     int? limit,
     String? cursor,
@@ -1497,7 +664,6 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         to: Lists.fromJson,
       );
 
-  @override
   core.Pagination<Lists> paginateBlockLists({
     int? limit,
     String? cursor,
@@ -1508,7 +674,7 @@ final class _GraphService extends BlueskyBaseService implements GraphService {
         to: Lists.fromJson,
       );
 
-  @override
+  @Deprecated('Use .listblock instead. Will be removed')
   Future<core.XRPCResponse<atp.StrongRef>> createBlockList({
     required core.AtUri listUri,
     DateTime? createdAt,
