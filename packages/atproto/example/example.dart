@@ -60,7 +60,7 @@ Future<void> main() async {
     );
 
     //! You can use Stream API easily.
-    final subscription = await atproto.sync.subscribeRepoUpdates();
+    final subscription = await atproto.sync.subscribeRepos();
     subscription.data.stream.listen((event) {
       event.when(
         commit: print,

@@ -54,7 +54,7 @@ Future<void> main() async {
     );
 
     //! You can use Stream API easily.
-    final subscription = await bluesky.sync.subscribeRepoUpdates();
+    final subscription = await bluesky.sync.subscribeRepos();
 
     subscription.data.stream.listen((event) {
       event.when(

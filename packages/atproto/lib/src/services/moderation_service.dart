@@ -13,55 +13,8 @@ import 'entities/report.dart';
 import 'entities/report_subject.dart';
 
 /// Represents `com.atproto.moderation.*` service.
-sealed class ModerationService {
-  /// Returns the new instance of [ModerationService].
-  factory ModerationService({
-    required String did,
-    required core.Protocol protocol,
-    required String service,
-    required core.ClientContext context,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  }) =>
-      _ModerationService(
-        did: did,
-        protocol: protocol,
-        service: service,
-        context: context,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
-
-  /// Report a repo or a record.
-  ///
-  /// ## Parameters
-  ///
-  /// - [subject]: The subject for this report.
-  ///              The contents for report depends on strong ref or repo ref.
-  ///
-  /// - [reasonType]: The reason type for this report.
-  ///             The default is `ModerationReasonType.spam`.
-  ///
-  /// - [reason]: The reason for this report.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.moderation.createReport
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/moderation/createReport.json
-  Future<core.XRPCResponse<Report>> createReport({
-    required ReportSubject subject,
-    ModerationReasonType reasonType = ModerationReasonType.spam,
-    String? reason,
-  });
-}
-
-final class _ModerationService extends ATProtoBaseService
-    implements ModerationService {
-  /// Returns the new instance of [_ModerationService].
-  _ModerationService({
+final class ModerationService extends ATProtoBaseService {
+  ModerationService({
     required super.did,
     required super.protocol,
     required super.service,
@@ -70,7 +23,7 @@ final class _ModerationService extends ATProtoBaseService
     super.mockedPostClient,
   });
 
-  @override
+  /// https://atprotodart.com/docs/lexicons/com/atproto/moderation/createReport
   Future<core.XRPCResponse<Report>> createReport({
     required ReportSubject subject,
     ModerationReasonType reasonType = ModerationReasonType.spam,

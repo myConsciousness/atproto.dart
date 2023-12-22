@@ -18,6 +18,7 @@ import 'package:atproto/src/services/entities/records.dart';
 import 'package:atproto/src/services/entities/repo_info.dart';
 import 'package:atproto/src/services/entities/strong_ref.dart';
 import 'package:atproto/src/services/entities/update_action.dart';
+import 'package:atproto/src/services/extensions/repo_service.dart';
 import 'suite/service_suite.dart';
 
 void main() {
@@ -27,12 +28,12 @@ void main() {
   );
 
   testRepo<Record>(
-    (m, s) => s.findRecord(uri: m.uri),
+    (m, s) => s.getRecord(uri: m.uri),
     id: comAtprotoRepoGetRecord,
   );
 
   testRepo<Records>(
-    (m, s) => s.findRecords(
+    (m, s) => s.listRecords(
       repo: m.actor,
       collection: m.collection,
     ),
@@ -49,7 +50,7 @@ void main() {
   );
 
   testRepo<StrongRef>(
-    (m, s) => s.updateRecord(uri: m.uri, record: {}),
+    (m, s) => s.putRecord(uri: m.uri, record: {}),
     id: comAtprotoRepoPutRecord,
   );
 
@@ -61,12 +62,12 @@ void main() {
   );
 
   testRepo<RepoInfo>(
-    (m, s) => s.findRepoInfo(repo: m.actor),
+    (m, s) => s.describeRepo(repo: m.actor),
     id: comAtprotoRepoDescribeRepo,
   );
 
   testRepo<core.EmptyData>(
-    (m, s) => s.updateBulk(actions: [
+    (m, s) => s.applyWrites(actions: [
       BatchAction.create(
         data: CreateAction(
           collection: m.collection,
@@ -78,7 +79,7 @@ void main() {
   );
 
   testRepo<core.EmptyData>(
-    (m, s) => s.createRecords(actions: [
+    (m, s) => s.createRecordInBulk(actions: [
       CreateAction(
         collection: m.collection,
         record: {},
@@ -89,7 +90,7 @@ void main() {
   );
 
   testRepo<core.EmptyData>(
-    (m, s) => s.updateRecords(actions: [
+    (m, s) => s.updateRecordInBulk(actions: [
       UpdateAction(
         collection: m.collection,
         record: {},
@@ -100,7 +101,7 @@ void main() {
   );
 
   testRepo<core.EmptyData>(
-    (m, s) => s.deleteRecords(uris: [m.uri]),
+    (m, s) => s.deleteRecordInBulk(uris: [m.uri]),
     id: comAtprotoRepoApplyWrites,
     label: 'Delete',
   );

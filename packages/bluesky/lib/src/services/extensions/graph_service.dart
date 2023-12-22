@@ -19,7 +19,7 @@ extension GraphServiceExtension on GraphService {
   Future<core.XRPCResponse<core.EmptyData>> followInBulk(
     final List<RepoParam> params,
   ) async =>
-      await atproto.repo.createRecords(
+      await atproto.repo.createRecordInBulk(
         actions: params
             .map(
               (e) => atp.CreateAction(
@@ -37,7 +37,7 @@ extension GraphServiceExtension on GraphService {
   Future<core.XRPCResponse<core.EmptyData>> blockInBulk(
     final List<RepoParam> params,
   ) async =>
-      await atproto.repo.createRecords(
+      await atproto.repo.createRecordInBulk(
         actions: params
             .map(
               (e) => atp.CreateAction(
@@ -55,7 +55,7 @@ extension GraphServiceExtension on GraphService {
   Future<core.XRPCResponse<atp.EmptyData>> listitemInBulk(
     final List<ListItemParam> params,
   ) async =>
-      await atproto.repo.createRecords(
+      await atproto.repo.createRecordInBulk(
         actions: params
             .map(
               (e) => atp.CreateAction(
@@ -74,7 +74,7 @@ extension GraphServiceExtension on GraphService {
   Future<core.XRPCResponse<atp.EmptyData>> listInBulk(
     final List<ListParam> params,
   ) async =>
-      await atproto.repo.createRecords(
+      await atproto.repo.createRecordInBulk(
         actions: params
             .map(
               (e) => atp.CreateAction(

@@ -12,7 +12,7 @@ import 'suite/service_suite.dart';
 
 void main() {
   testIdentity<DID>(
-    (m, s) => s.findDID(handle: m.actor),
+    (m, s) => s.resolveHandle(handle: m.actor),
     id: comAtprotoIdentityResolveHandle,
   );
 

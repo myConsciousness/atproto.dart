@@ -62,7 +62,7 @@ extension FeedServiceExtension on FeedService {
   Future<core.XRPCResponse<core.EmptyData>> postInBulk(
     final List<PostParam> params,
   ) async =>
-      await atproto.repo.createRecords(
+      await atproto.repo.createRecordInBulk(
         actions: params
             .map<atp.CreateAction>(
               (e) => atp.CreateAction(
@@ -86,7 +86,7 @@ extension FeedServiceExtension on FeedService {
   Future<core.XRPCResponse<core.EmptyData>> repostInBulk(
     final List<StrongRefParam> params,
   ) async =>
-      await atproto.repo.createRecords(
+      await atproto.repo.createRecordInBulk(
         actions: params
             .map(
               (e) => atp.CreateAction(
@@ -107,7 +107,7 @@ extension FeedServiceExtension on FeedService {
   Future<core.XRPCResponse<core.EmptyData>> likeInBulk(
     final List<StrongRefParam> params,
   ) async =>
-      await atproto.repo.createRecords(
+      await atproto.repo.createRecordInBulk(
         actions: params
             .map(
               (e) => atp.CreateAction(
@@ -128,7 +128,7 @@ extension FeedServiceExtension on FeedService {
   Future<core.XRPCResponse<core.EmptyData>> generatorInBulk(
     final List<GeneratorParam> params,
   ) async =>
-      await atproto.repo.createRecords(
+      await atproto.repo.createRecordInBulk(
         actions: params
             .map(
               (e) => atp.CreateAction(
