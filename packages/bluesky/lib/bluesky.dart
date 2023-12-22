@@ -303,7 +303,7 @@ export 'package:bluesky/src/services/entities/skeleton_actors_by_query.dart';
 export 'package:bluesky/src/services/entities/skeleton_actor.dart';
 export 'package:bluesky/src/services/entities/suggested_follows.dart';
 export 'package:bluesky/src/services/extensions/grouped_notification.dart';
-export 'package:bluesky/src/services/extensions/at_uri_extension.dart';
+export 'package:bluesky/src/services/extensions/at_uri.dart';
 export 'package:bluesky/src/services/extensions/blob.dart';
 export 'package:bluesky/src/services/extensions/strong_ref.dart';
 export 'package:bluesky/src/services/feed_service.dart';
