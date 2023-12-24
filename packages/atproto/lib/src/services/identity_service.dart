@@ -7,19 +7,13 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'base_service.dart';
 import 'entities/did.dart';
 
 /// Represents `com.atproto.identity.*` service.
-final class IdentityService extends ATProtoBaseService {
-  IdentityService({
-    required super.did,
-    required super.protocol,
-    required super.service,
-    required super.context,
-    super.mockedGetClient,
-    super.mockedPostClient,
-  });
+final class IdentityService {
+  IdentityService(this._ctx);
+
+  final core.ClientContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle
   Future<core.XRPCResponse<DID>> resolveHandle({
@@ -40,7 +34,7 @@ final class IdentityService extends ATProtoBaseService {
   Future<core.XRPCResponse<core.EmptyData>> updateHandle({
     required String handle,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.comAtprotoIdentityUpdateHandle,
         body: {
           'handle': handle,
@@ -51,7 +45,7 @@ final class IdentityService extends ATProtoBaseService {
     required String handle,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.comAtprotoIdentityResolveHandle,
         parameters: {
           'handle': handle,

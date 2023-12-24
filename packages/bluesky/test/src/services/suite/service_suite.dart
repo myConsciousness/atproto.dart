@@ -9,6 +9,7 @@ import 'package:atproto_test/atproto_test.dart' as atp_test;
 
 // 🌎 Project imports:
 import 'package:bluesky/src/services/actor_service.dart';
+import 'package:bluesky/src/services/context.dart';
 import 'package:bluesky/src/services/feed_service.dart';
 import 'package:bluesky/src/services/graph_service.dart';
 import 'package:bluesky/src/services/notification_service.dart';
@@ -128,69 +129,64 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      ActorService(
-        atproto: _getAtproto(mockedGetClient, mockedPostClient),
-        did: did,
-        protocol: core.Protocol.https,
-        service: service,
-        context: clientContext,
+      ActorService(BlueskyClientContext(
+        atproto: _getAtproto(
+          mockedGetClient,
+          mockedPostClient,
+        ),
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,
-      );
+      ));
 
   FeedService _getFeedService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      FeedService(
-        atproto: _getAtproto(mockedGetClient, mockedPostClient),
-        did: did,
-        protocol: core.Protocol.https,
-        service: service,
-        context: clientContext,
+      FeedService(BlueskyClientContext(
+        atproto: _getAtproto(
+          mockedGetClient,
+          mockedPostClient,
+        ),
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,
-      );
+      ));
 
   GraphService _getGraphService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      GraphService(
-        atproto: _getAtproto(mockedGetClient, mockedPostClient),
-        did: did,
-        protocol: core.Protocol.https,
-        service: service,
-        context: clientContext,
+      GraphService(BlueskyClientContext(
+        atproto: _getAtproto(
+          mockedGetClient,
+          mockedPostClient,
+        ),
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,
-      );
+      ));
 
   NotificationService _getNotificationService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      NotificationService(
-        atproto: _getAtproto(mockedGetClient, mockedPostClient),
-        did: did,
-        protocol: core.Protocol.https,
-        service: service,
-        context: clientContext,
+      NotificationService(BlueskyClientContext(
+        atproto: _getAtproto(
+          mockedGetClient,
+          mockedPostClient,
+        ),
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,
-      );
+      ));
 
   UnspeccedService _getUnspeccedService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      UnspeccedService(
-        atproto: _getAtproto(mockedGetClient, mockedPostClient),
-        did: did,
-        protocol: core.Protocol.https,
-        service: service,
-        context: clientContext,
+      UnspeccedService(BlueskyClientContext(
+        atproto: _getAtproto(
+          mockedGetClient,
+          mockedPostClient,
+        ),
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,
-      );
+      ));
 }

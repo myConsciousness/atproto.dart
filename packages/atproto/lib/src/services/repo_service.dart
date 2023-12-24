@@ -10,7 +10,6 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'base_service.dart';
 import 'entities/batch_action.dart';
 import 'entities/blob_data.dart';
 import 'entities/create_action.dart';
@@ -22,15 +21,10 @@ import 'entities/strong_ref.dart';
 import 'entities/update_action.dart';
 
 /// Represents `com.atproto.repo.*` service.
-final class RepoService extends ATProtoBaseService {
-  RepoService({
-    required super.did,
-    required super.protocol,
-    required super.service,
-    required super.context,
-    super.mockedGetClient,
-    super.mockedPostClient,
-  });
+final class RepoService {
+  RepoService(this._ctx);
+
+  final core.ClientContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/createRecord
   Future<core.XRPCResponse<StrongRef>> createRecord({
@@ -41,10 +35,10 @@ final class RepoService extends ATProtoBaseService {
     String? swapRecordCid,
     String? swapCommitCid,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.comAtprotoRepoCreateRecord,
         body: {
-          'repo': did,
+          'repo': _ctx.did,
           'collection': collection.toString(),
           'rkey': rkey,
           'record': record,
@@ -93,10 +87,10 @@ final class RepoService extends ATProtoBaseService {
     String? swapRecordCid,
     String? swapCommitCid,
   }) async =>
-      await super.post<core.EmptyData>(
+      await _ctx.post<core.EmptyData>(
         ns.comAtprotoRepoDeleteRecord,
         body: {
-          'repo': did,
+          'repo': _ctx.did,
           'collection': uri.collection,
           'rkey': uri.rkey,
           'swapRecord': swapRecordCid,
@@ -123,7 +117,7 @@ final class RepoService extends ATProtoBaseService {
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/uploadBlob
   Future<core.XRPCResponse<BlobData>> uploadBlob(final Uint8List bytes) async =>
-      await super.upload(
+      await _ctx.upload(
         ns.comAtprotoRepoUploadBlob,
         bytes,
         to: BlobData.fromJson,
@@ -209,10 +203,10 @@ final class RepoService extends ATProtoBaseService {
     String? swapRecordCid,
     String? swapCommitCid,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.comAtprotoRepoPutRecord,
         body: {
-          'repo': did,
+          'repo': _ctx.did,
           'collection': uri.collection,
           'rkey': uri.rkey,
           'record': record,
@@ -238,10 +232,10 @@ final class RepoService extends ATProtoBaseService {
     bool? validate,
     String? swapCommitCid,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.comAtprotoRepoApplyWrites,
         body: {
-          'repo': did,
+          'repo': _ctx.did,
           'writes': actions
               .map((e) => e.when(
                     create: (data) => data.toJson(),
@@ -301,7 +295,7 @@ final class RepoService extends ATProtoBaseService {
     required String? cid,
     core.To<T>? to,
   }) async =>
-      await super.get<T>(
+      await _ctx.get<T>(
         ns.comAtprotoRepoGetRecord,
         parameters: {
           'repo': uri.hostname,
@@ -322,7 +316,7 @@ final class RepoService extends ATProtoBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.comAtprotoRepoListRecords,
         parameters: _buildListRecordsParam(
           repo: repo,
@@ -346,7 +340,7 @@ final class RepoService extends ATProtoBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.comAtprotoRepoListRecords,
         parameters: _buildListRecordsParam(
           repo: repo,
@@ -364,7 +358,7 @@ final class RepoService extends ATProtoBaseService {
     required String repo,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.comAtprotoRepoDescribeRepo,
         parameters: {
           'repo': repo,
@@ -390,4 +384,41 @@ final class RepoService extends ATProtoBaseService {
         'rkeyEnd': rkeyEnd,
         'cursor': cursor,
       };
+}
+
+extension RepoServiceExtension on RepoService {
+  Future<core.XRPCResponse<core.EmptyData>> createRecordInBulk({
+    required List<CreateAction> actions,
+    bool? validate,
+    String? swapCommitCid,
+  }) async =>
+      await applyWrites(
+        actions: actions.map((e) => BatchAction.create(data: e)).toList(),
+        validate: validate,
+        swapCommitCid: swapCommitCid,
+      );
+
+  Future<core.XRPCResponse<core.EmptyData>> updateRecordInBulk({
+    required List<UpdateAction> actions,
+    bool? validate,
+    String? swapCommitCid,
+  }) async =>
+      await applyWrites(
+        actions: actions.map((e) => BatchAction.update(data: e)).toList(),
+        validate: validate,
+        swapCommitCid: swapCommitCid,
+      );
+
+  Future<core.XRPCResponse<core.EmptyData>> deleteRecordInBulk({
+    required List<core.AtUri> uris,
+    bool? validate,
+    String? swapCommitCid,
+  }) async =>
+      await applyWrites(
+        actions: uris
+            .map((e) => BatchAction.delete(data: DeleteAction(uri: e)))
+            .toList(),
+        validate: validate,
+        swapCommitCid: swapCommitCid,
+      );
 }

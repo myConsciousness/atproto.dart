@@ -4,10 +4,10 @@
 
 // 📦 Package imports:
 import 'package:atproto/atproto.dart' as atp;
-import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import 'actor_service.dart';
+import 'context.dart';
 import 'feed_service.dart';
 import 'graph_service.dart';
 import 'notification_service.dart';
@@ -15,24 +15,7 @@ import 'unspecced_service.dart';
 
 sealed class BlueskyService {
   /// Returns the new instance of [BlueskyService].
-  factory BlueskyService({
-    required atp.ATProto atproto,
-    required String did,
-    required core.Protocol protocol,
-    required String service,
-    required core.ClientContext context,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  }) =>
-      _BlueskyService(
-        atproto: atproto,
-        did: did,
-        protocol: protocol,
-        service: service,
-        context: context,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
+  factory BlueskyService(final BlueskyClientContext ctx) = _BlueskyService;
 
   /// Returns the actor service.
   /// This service represents `app.bsky.actor.*`.
@@ -80,66 +63,18 @@ sealed class BlueskyService {
 }
 
 final class _BlueskyService implements BlueskyService {
-  /// Returns the new instance of [_BlueskyService].
-  _BlueskyService({
-    required atp.ATProto atproto,
-    required String did,
-    required core.Protocol protocol,
-    required String service,
-    required core.ClientContext context,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  })  : actor = ActorService(
-          atproto: atproto,
-          did: did,
-          protocol: protocol,
-          service: service,
-          context: context,
-          mockedGetClient: mockedGetClient,
-          mockedPostClient: mockedPostClient,
-        ),
-        feed = FeedService(
-          atproto: atproto,
-          did: did,
-          protocol: protocol,
-          service: service,
-          context: context,
-          mockedGetClient: mockedGetClient,
-          mockedPostClient: mockedPostClient,
-        ),
-        notification = NotificationService(
-          atproto: atproto,
-          did: did,
-          protocol: protocol,
-          service: service,
-          context: context,
-          mockedGetClient: mockedGetClient,
-          mockedPostClient: mockedPostClient,
-        ),
-        graph = GraphService(
-          atproto: atproto,
-          did: did,
-          protocol: protocol,
-          service: service,
-          context: context,
-          mockedGetClient: mockedGetClient,
-          mockedPostClient: mockedPostClient,
-        ),
-        unspecced = UnspeccedService(
-          atproto: atproto,
-          did: did,
-          protocol: protocol,
-          service: service,
-          context: context,
-          mockedGetClient: mockedGetClient,
-          mockedPostClient: mockedPostClient,
-        ),
-        server = atproto.server,
-        identity = atproto.identity,
-        repo = atproto.repo,
-        moderation = atproto.moderation,
-        sync = atproto.sync,
-        label = atproto.label;
+  _BlueskyService(final BlueskyClientContext ctx)
+      : actor = ActorService(ctx),
+        feed = FeedService(ctx),
+        notification = NotificationService(ctx),
+        graph = GraphService(ctx),
+        unspecced = UnspeccedService(ctx),
+        server = ctx.atproto.server,
+        identity = ctx.atproto.identity,
+        repo = ctx.atproto.repo,
+        moderation = ctx.atproto.moderation,
+        sync = ctx.atproto.sync,
+        label = ctx.atproto.label;
 
   @override
   final ActorService actor;

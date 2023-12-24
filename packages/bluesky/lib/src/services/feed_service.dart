@@ -9,8 +9,8 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import '../ids.g.dart' as ids;
 import '../nsids.g.dart' as ns;
-import 'base_service.dart';
 import 'constants/feed_filter.dart';
+import 'context.dart';
 import 'entities/actor_feeds.dart';
 import 'entities/embed.dart';
 import 'entities/facet.dart';
@@ -31,16 +31,11 @@ import 'params/post_param.dart';
 import 'params/strong_ref_param.dart';
 import 'params/thread_param.dart';
 
-final class FeedService extends BlueskyBaseService {
-  FeedService({
-    required super.atproto,
-    required super.did,
-    required super.protocol,
-    required super.service,
-    required super.context,
-    super.mockedGetClient,
-    super.mockedPostClient,
-  });
+/// Represents `app.bsky.feed.*` service.
+final class FeedService {
+  FeedService(this._ctx);
+
+  final BlueskyClientContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post
   Future<core.XRPCResponse<atp.StrongRef>> $post({
@@ -333,7 +328,7 @@ final class FeedService extends BlueskyBaseService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repo.createRecord(
+      await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyFeedPost,
         record: {
           'text': text,
@@ -343,7 +338,7 @@ final class FeedService extends BlueskyBaseService {
           'langs': languageTags,
           'labels': labels?.toJson(),
           'tags': tags,
-          'createdAt': toUtcIso8601String(createdAt),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...unspecced,
         },
       );
@@ -352,7 +347,7 @@ final class FeedService extends BlueskyBaseService {
   Future<core.XRPCResponse<core.EmptyData>> createPosts(
     List<PostParam> params,
   ) async =>
-      await atproto.repo.createRecords(
+      await _ctx.atproto.repo.createRecords(
         actions: params
             .map<atp.CreateAction>(
               (e) => atp.CreateAction(
@@ -365,7 +360,7 @@ final class FeedService extends BlueskyBaseService {
                   'langs': e.languageTags,
                   'labels': e.labels?.toJson(),
                   'tags': e.tags,
-                  'createdAt': toUtcIso8601String(e.createdAt),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
                   ...e.unspecced,
                 },
               ),
@@ -453,14 +448,14 @@ final class FeedService extends BlueskyBaseService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repo.createRecord(
+      await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyFeedRepost,
         record: {
           'subject': {
             'cid': cid,
             'uri': uri.toString(),
           },
-          'createdAt': toUtcIso8601String(createdAt),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...unspecced,
         },
       );
@@ -469,7 +464,7 @@ final class FeedService extends BlueskyBaseService {
   Future<core.XRPCResponse<core.EmptyData>> createReposts(
     List<StrongRefParam> params,
   ) async =>
-      await atproto.repo.createRecords(
+      await _ctx.atproto.repo.createRecords(
         actions: params
             .map(
               (e) => atp.CreateAction(
@@ -479,7 +474,7 @@ final class FeedService extends BlueskyBaseService {
                     'cid': e.cid,
                     'uri': e.uri.toString(),
                   },
-                  'createdAt': toUtcIso8601String(e.createdAt),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
                   ...e.unspecced,
                 },
               ),
@@ -494,14 +489,14 @@ final class FeedService extends BlueskyBaseService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repo.createRecord(
+      await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyFeedLike,
         record: {
           'subject': {
             'cid': cid,
             'uri': uri.toString(),
           },
-          'createdAt': toUtcIso8601String(createdAt),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...unspecced,
         },
       );
@@ -510,7 +505,7 @@ final class FeedService extends BlueskyBaseService {
   Future<core.XRPCResponse<core.EmptyData>> createLikes(
     List<StrongRefParam> params,
   ) async =>
-      await atproto.repo.createRecords(
+      await _ctx.atproto.repo.createRecords(
         actions: params
             .map(
               (e) => atp.CreateAction(
@@ -520,7 +515,7 @@ final class FeedService extends BlueskyBaseService {
                     'cid': e.cid,
                     'uri': e.uri.toString(),
                   },
-                  'createdAt': toUtcIso8601String(e.createdAt),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
                   ...e.unspecced,
                 },
               ),
@@ -723,7 +718,7 @@ final class FeedService extends BlueskyBaseService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repo.createRecord(
+      await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyFeedGenerator,
         record: {
           'did': did,
@@ -733,7 +728,7 @@ final class FeedService extends BlueskyBaseService {
               descriptionFacets?.map((e) => e.toJson()).toList(),
           'avatar': avatar?.toJson(),
           'labels': labels?.toJson(),
-          'createdAt': toUtcIso8601String(createdAt),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...unspecced,
         },
       );
@@ -742,7 +737,7 @@ final class FeedService extends BlueskyBaseService {
   Future<core.XRPCResponse<core.EmptyData>> createGenerators(
     List<GeneratorParam> params,
   ) async =>
-      await atproto.repo.createRecords(
+      await _ctx.atproto.repo.createRecords(
         actions: params
             .map(
               (e) => atp.CreateAction(
@@ -755,7 +750,7 @@ final class FeedService extends BlueskyBaseService {
                       e.descriptionFacets?.map((e) => e.toJson()).toList(),
                   'avatar': e.avatar?.toJson(),
                   'labels': e.labels?.toJson(),
-                  'createdAt': toUtcIso8601String(e.createdAt),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
                   ...e.unspecced,
                 },
               ),
@@ -838,14 +833,14 @@ final class FeedService extends BlueskyBaseService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repo.createRecord(
+      await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyFeedThreadgate,
         rkey: postUri.rkey,
         record: {
           r'$type': ids.appBskyFeedThreadgate,
           'post': postUri.toString(),
           'allow': allowRules?.map((e) => e.toJson()).toList(),
-          'createdAt': toUtcIso8601String(createdAt),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...unspecced,
         },
       );
@@ -906,7 +901,7 @@ final class FeedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetListFeed,
         parameters: _buildGetListFeedParams(
           list: list,
@@ -922,7 +917,7 @@ final class FeedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyFeedGetListFeed,
         parameters: _buildGetListFeedParams(
           list: list,
@@ -938,7 +933,7 @@ final class FeedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetTimeline,
         parameters: _buildGetTimelineParams(
           algorithm: algorithm,
@@ -954,7 +949,7 @@ final class FeedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyFeedGetTimeline,
         parameters: _buildGetTimelineParams(
           algorithm: algorithm,
@@ -971,7 +966,7 @@ final class FeedService extends BlueskyBaseService {
     required FeedFilter? filter,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetAuthorFeed,
         parameters: _buildGetAuthorFeedParams(
           actor: actor,
@@ -989,7 +984,7 @@ final class FeedService extends BlueskyBaseService {
     required FeedFilter? filter,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyFeedGetAuthorFeed,
         parameters: _buildGetAuthorFeedParams(
           actor: actor,
@@ -1006,7 +1001,7 @@ final class FeedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetFeed,
         parameters: _buildGetFeedParams(
           generatorUri: generatorUri,
@@ -1022,7 +1017,7 @@ final class FeedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyFeedGetFeed,
         parameters: _buildGetFeedParams(
           generatorUri: generatorUri,
@@ -1038,7 +1033,7 @@ final class FeedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetFeedSkeleton,
         parameters: _buildGetFeedSkeletonParams(
           generatorUri: generatorUri,
@@ -1054,7 +1049,7 @@ final class FeedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyFeedGetFeedSkeleton,
         parameters: _buildGetFeedSkeletonParams(
           generatorUri: generatorUri,
@@ -1070,7 +1065,7 @@ final class FeedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetActorFeeds,
         parameters: _buildGetActorFeedsParams(
           actor: actor,
@@ -1086,7 +1081,7 @@ final class FeedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyFeedGetActorFeeds,
         parameters: _buildGetActorFeedsParams(
           actor: actor,
@@ -1103,7 +1098,7 @@ final class FeedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetLikes,
         parameters: _buildGetLikes(
           uri: uri,
@@ -1121,7 +1116,7 @@ final class FeedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyFeedGetLikes,
         parameters: _buildGetLikes(
           uri: uri,
@@ -1139,7 +1134,7 @@ final class FeedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetRepostedBy,
         parameters: _buildGetRepostedBy(
           uri: uri,
@@ -1157,7 +1152,7 @@ final class FeedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyFeedGetRepostedBy,
         parameters: _buildGetRepostedBy(
           uri: uri,
@@ -1174,7 +1169,7 @@ final class FeedService extends BlueskyBaseService {
     required int? parentHeight,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetPostThread,
         parameters: {
           'uri': uri,
@@ -1188,7 +1183,7 @@ final class FeedService extends BlueskyBaseService {
     required List<core.AtUri> uris,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetPosts,
         parameters: {
           'uris': uris.map((e) => e.toString()).toList(),
@@ -1200,7 +1195,7 @@ final class FeedService extends BlueskyBaseService {
     required core.AtUri uri,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetFeedGenerator,
         parameters: {
           'feed': uri.toString(),
@@ -1212,7 +1207,7 @@ final class FeedService extends BlueskyBaseService {
     required List<core.AtUri> uris,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetFeedGenerators,
         parameters: {
           'feeds': uris.map((e) => e.toString()).toList(),
@@ -1223,7 +1218,7 @@ final class FeedService extends BlueskyBaseService {
   Future<core.XRPCResponse<T>> _findGeneratorInfo<T>({
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedDescribeFeedGenerator,
         to: to,
       );
@@ -1234,7 +1229,7 @@ final class FeedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetActorLikes,
         parameters: _buildGetActorLikes(
           actor: actor,
@@ -1250,7 +1245,7 @@ final class FeedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyFeedGetActorLikes,
         parameters: _buildGetActorLikes(
           actor: actor,
@@ -1265,7 +1260,7 @@ final class FeedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetSuggestedFeeds,
         parameters: _buildGetSuggestedFeeds(
           limit: limit,
@@ -1279,7 +1274,7 @@ final class FeedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyFeedGetSuggestedFeeds,
         parameters: _buildGetSuggestedFeeds(
           limit: limit,
@@ -1294,7 +1289,7 @@ final class FeedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedSearchPosts,
         parameters: _buildSearchPostsParams(
           query: query,
@@ -1310,7 +1305,7 @@ final class FeedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyFeedSearchPosts,
         parameters: _buildSearchPostsParams(
           query: query,
@@ -1444,4 +1439,139 @@ final class FeedService extends BlueskyBaseService {
         'limit': limit,
         'cursor': cursor,
       };
+}
+
+extension FeedServiceExtension on FeedService {
+  Future<core.XRPCResponse<atp.StrongRef>> thread(
+    final List<ThreadParam> params,
+  ) async {
+    if (params.isEmpty) {
+      throw ArgumentError.value(params, 'params', 'must not be empty');
+    }
+
+    final rootParam = params.removeAt(0);
+    final rootRecord = await $post(
+      text: rootParam.text,
+      facets: rootParam.facets,
+      embed: rootParam.embed,
+      languageTags: rootParam.languageTags,
+      labels: rootParam.labels,
+      tags: rootParam.tags,
+      createdAt: rootParam.createdAt,
+      unspecced: rootParam.unspecced,
+    );
+
+    final rootRef = rootRecord.data;
+
+    var parentRef = rootRecord.data;
+    for (final param in params) {
+      parentRef = (await $post(
+        text: param.text,
+        reply: ReplyRef(
+          root: rootRef,
+          parent: parentRef,
+        ),
+        facets: param.facets,
+        embed: param.embed,
+        languageTags: param.languageTags,
+        labels: param.labels,
+        tags: param.tags,
+        createdAt: param.createdAt,
+        unspecced: param.unspecced,
+      ))
+          .data;
+    }
+
+    return rootRecord;
+  }
+
+  Future<core.XRPCResponse<core.EmptyData>> postInBulk(
+    final List<PostParam> params,
+  ) async =>
+      await _ctx.atproto.repo.createRecordInBulk(
+        actions: params
+            .map<atp.CreateAction>(
+              (e) => atp.CreateAction(
+                collection: ns.appBskyFeedPost,
+                record: {
+                  'text': e.text,
+                  'reply': e.reply?.toJson(),
+                  'facets': e.facets?.map((e) => e.toJson()).toList(),
+                  'embed': e.embed?.toJson(),
+                  'langs': e.languageTags,
+                  'labels': e.labels?.toJson(),
+                  'tags': e.tags,
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unspecced,
+                },
+              ),
+            )
+            .toList(),
+      );
+
+  Future<core.XRPCResponse<core.EmptyData>> repostInBulk(
+    final List<StrongRefParam> params,
+  ) async =>
+      await _ctx.atproto.repo.createRecordInBulk(
+        actions: params
+            .map(
+              (e) => atp.CreateAction(
+                collection: ns.appBskyFeedRepost,
+                record: {
+                  'subject': {
+                    'cid': e.cid,
+                    'uri': e.uri.toString(),
+                  },
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unspecced,
+                },
+              ),
+            )
+            .toList(),
+      );
+
+  Future<core.XRPCResponse<core.EmptyData>> likeInBulk(
+    final List<StrongRefParam> params,
+  ) async =>
+      await _ctx.atproto.repo.createRecordInBulk(
+        actions: params
+            .map(
+              (e) => atp.CreateAction(
+                collection: ns.appBskyFeedLike,
+                record: {
+                  'subject': {
+                    'cid': e.cid,
+                    'uri': e.uri.toString(),
+                  },
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unspecced,
+                },
+              ),
+            )
+            .toList(),
+      );
+
+  Future<core.XRPCResponse<core.EmptyData>> generatorInBulk(
+    final List<GeneratorParam> params,
+  ) async =>
+      await _ctx.atproto.repo.createRecordInBulk(
+        actions: params
+            .map(
+              (e) => atp.CreateAction(
+                collection: ns.appBskyFeedGenerator,
+                record: {
+                  'did': e.did,
+                  'displayName': e.displayName,
+                  'description': e.description,
+                  'descriptionFacets':
+                      e.descriptionFacets?.map((e) => e.toJson()).toList(),
+                  'avatar': e.avatar?.toJson(),
+                  'labels': e.labels?.toJson(),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unspecced,
+                },
+              ),
+            )
+            .toList(),
+      );
 }

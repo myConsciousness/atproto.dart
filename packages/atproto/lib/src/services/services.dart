@@ -15,24 +15,7 @@ import 'sync_service.dart';
 
 sealed class ATProtoService {
   /// Returns the new instance of [ATProtoService].
-  factory ATProtoService({
-    required String did,
-    required core.Protocol protocol,
-    required String service,
-    required String relayService,
-    required core.ClientContext context,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  }) =>
-      _ATProtoService(
-        did: did,
-        protocol: protocol,
-        service: service,
-        relayService: relayService,
-        context: context,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
+  factory ATProtoService(final core.ClientContext ctx) = _ATProtoService;
 
   /// Returns the servers service.
   /// This service represents `com.atproto.server.*`.
@@ -61,64 +44,13 @@ sealed class ATProtoService {
 
 final class _ATProtoService implements ATProtoService {
   /// Returns the new instance of [_ATProtoService].
-  _ATProtoService({
-    required String did,
-    required core.Protocol protocol,
-    required String service,
-    required String relayService,
-    required core.ClientContext context,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  })  : server = ServerService(
-          did: did,
-          protocol: protocol,
-          service: service,
-          context: context,
-          mockedGetClient: mockedGetClient,
-          mockedPostClient: mockedPostClient,
-        ),
-        identity = IdentityService(
-          did: did,
-          protocol: protocol,
-          service: service,
-          context: context,
-          mockedGetClient: mockedGetClient,
-          mockedPostClient: mockedPostClient,
-        ),
-        repo = RepoService(
-          did: did,
-          protocol: protocol,
-          service: service,
-          context: context,
-          mockedGetClient: mockedGetClient,
-          mockedPostClient: mockedPostClient,
-        ),
-        moderation = ModerationService(
-          did: did,
-          protocol: protocol,
-          service: service,
-          context: context,
-          mockedGetClient: mockedGetClient,
-          mockedPostClient: mockedPostClient,
-        ),
-        sync = SyncService(
-          did: did,
-          protocol: protocol,
-          service: service,
-          relayService: relayService,
-          context: context,
-          mockedGetClient: mockedGetClient,
-          mockedPostClient: mockedPostClient,
-        ),
-        label = LabelService(
-          did: did,
-          protocol: protocol,
-          service: service,
-          relayService: relayService,
-          context: context,
-          mockedGetClient: mockedGetClient,
-          mockedPostClient: mockedPostClient,
-        );
+  _ATProtoService(final core.ClientContext ctx)
+      : server = ServerService(ctx),
+        identity = IdentityService(ctx),
+        repo = RepoService(ctx),
+        moderation = ModerationService(ctx),
+        sync = SyncService(ctx),
+        label = LabelService(ctx);
 
   @override
   final ServerService server;

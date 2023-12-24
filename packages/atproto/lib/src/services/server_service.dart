@@ -7,7 +7,6 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'base_service.dart';
 import 'entities/account.dart';
 import 'entities/app_password.dart';
 import 'entities/app_passwords.dart';
@@ -20,15 +19,10 @@ import 'entities/server_info.dart';
 import 'entities/signing_key.dart';
 
 /// Represents `com.atproto.server.*` service.
-final class ServerService extends ATProtoBaseService {
-  ServerService({
-    required super.did,
-    super.protocol,
-    required super.service,
-    required super.context,
-    super.mockedGetClient,
-    super.mockedPostClient,
-  });
+final class ServerService {
+  ServerService(this._ctx);
+
+  final core.ClientContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/getSession
   Future<core.XRPCResponse<CurrentSession>> getSession() async =>
@@ -43,7 +37,7 @@ final class ServerService extends ATProtoBaseService {
     String? inviteCode,
     String? recoveryKey,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.comAtprotoServerCreateAccount,
         body: {
           'handle': handle,
@@ -65,10 +59,10 @@ final class ServerService extends ATProtoBaseService {
     required String password,
     required String token,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.comAtprotoServerDeleteAccount,
         body: {
-          'did': did,
+          'did': _ctx.did,
           'password': password,
           'token': token,
         },
@@ -79,7 +73,7 @@ final class ServerService extends ATProtoBaseService {
     required int useCount,
     String? forAccount,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.comAtprotoServerCreateInviteCode,
         body: {
           'useCount': useCount,
@@ -94,7 +88,7 @@ final class ServerService extends ATProtoBaseService {
     required int useCount,
     List<String>? forAccounts,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.comAtprotoServerCreateInviteCodes,
         body: {
           'codeCount': codeCount,
@@ -119,7 +113,7 @@ final class ServerService extends ATProtoBaseService {
   Future<core.XRPCResponse<core.EmptyData>> requestPasswordReset({
     required String email,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.comAtprotoServerRequestPasswordReset,
         body: {
           'email': email,
@@ -141,7 +135,7 @@ final class ServerService extends ATProtoBaseService {
   Future<core.XRPCResponse<AppPassword>> createAppPassword({
     required String name,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.comAtprotoServerCreateAppPassword,
         body: {
           'name': name,
@@ -168,14 +162,14 @@ final class ServerService extends ATProtoBaseService {
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestEmailUpdate
   Future<core.XRPCResponse<EmailUpdate>> requestEmailUpdate() async =>
-      await super.post(
+      await _ctx.post(
         ns.comAtprotoServerRequestEmailUpdate,
         to: EmailUpdate.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestEmailConfirmation
   Future<core.XRPCResponse<core.EmptyData>> requestEmailConfirmation() async =>
-      await super.post(
+      await _ctx.post(
         ns.comAtprotoServerRequestEmailConfirmation,
       );
 
@@ -184,7 +178,7 @@ final class ServerService extends ATProtoBaseService {
     required String email,
     required String token,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.comAtprotoServerConfirmEmail,
         body: {
           'email': email,
@@ -197,7 +191,7 @@ final class ServerService extends ATProtoBaseService {
     required String email,
     String? token,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.comAtprotoServerUpdateEmail,
         body: {
           'email': email,
@@ -216,7 +210,7 @@ final class ServerService extends ATProtoBaseService {
 
   @Deprecated('Use .requestAccountDelete instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> requestDeleteAccount() async =>
-      await super.post(ns.comAtprotoServerRequestAccountDelete);
+      await _ctx.post(ns.comAtprotoServerRequestAccountDelete);
 
   @Deprecated('Use .getAccountInviteCodes instead. Will be removed')
   Future<core.XRPCResponse<InviteCodes>> findInviteCodes({
@@ -234,7 +228,7 @@ final class ServerService extends ATProtoBaseService {
     required String password,
     required String token,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.comAtprotoServerResetPassword,
         body: {
           'password': password,
@@ -246,7 +240,7 @@ final class ServerService extends ATProtoBaseService {
   Future<core.XRPCResponse<core.EmptyData>> deleteAppPassword({
     required String name,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.comAtprotoServerRevokeAppPassword,
         body: {
           'name': name,
@@ -263,7 +257,7 @@ final class ServerService extends ATProtoBaseService {
 
   @Deprecated('Use .reserveSigningKey instead. Will be removed')
   Future<core.XRPCResponse<SigningKey>> createSigningKey() async =>
-      await super.post(
+      await _ctx.post(
         ns.comAtprotoServerReserveSigningKey,
         to: SigningKey.fromJson,
       );
@@ -271,7 +265,7 @@ final class ServerService extends ATProtoBaseService {
   Future<core.XRPCResponse<T>> _findCurrentSession<T>({
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.comAtprotoServerGetSession,
         to: to,
       );
@@ -281,7 +275,7 @@ final class ServerService extends ATProtoBaseService {
     required bool? createAvailable,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.comAtprotoServerGetAccountInviteCodes,
         parameters: {
           'includeUsed': includeUsed,
@@ -293,7 +287,7 @@ final class ServerService extends ATProtoBaseService {
   Future<core.XRPCResponse<T>> _findAppPasswords<T>({
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.comAtprotoServerListAppPasswords,
         to: to,
       );
@@ -301,7 +295,7 @@ final class ServerService extends ATProtoBaseService {
   Future<core.XRPCResponse<T>> _findServerInfo<T>({
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.comAtprotoServerDescribeServer,
         to: to,
       );

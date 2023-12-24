@@ -9,23 +9,22 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import '../ids.g.dart' as ids;
 
-base class BlueskyBaseService extends core.BaseXRPCService {
-  /// Returns the new instance of [BlueskyBaseService].
-  BlueskyBaseService({
+final class BlueskyClientContext extends core.ClientContext {
+  BlueskyClientContext({
     required this.atproto,
-    required this.did,
-    required super.protocol,
-    required super.service,
-    required super.context,
+    super.protocol,
+    super.service,
+    super.relayService,
+    super.did,
+    super.accessJwt,
+    super.timeout,
+    super.retryConfig,
     super.mockedGetClient,
     super.mockedPostClient,
   });
 
   /// The client of AT Protocol.
   final atp.ATProto atproto;
-
-  /// The DID of authenticated user.
-  final String did;
 
   Future<core.XRPCResponse<T>> findRecord<T>(
     final core.AtUri uri, [
@@ -44,7 +43,7 @@ base class BlueskyBaseService extends core.BaseXRPCService {
 
   /// Returns the AT URI of authenticated user.
   core.AtUri get selfUri => core.AtUri.make(
-        did,
+        did ?? 'alice',
         ids.appBskyActorProfile,
         'self',
       );

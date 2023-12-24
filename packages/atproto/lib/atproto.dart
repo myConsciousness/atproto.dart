@@ -68,7 +68,6 @@ export 'package:atproto/src/services/identity_service.dart';
 export 'package:atproto/src/services/constants/moderation_reason_type.dart';
 export 'package:atproto/src/services/moderation_service.dart';
 export 'package:atproto/src/services/repo_service.dart';
-export 'package:atproto/src/services/extensions/repo_service.dart';
 export 'package:atproto/src/services/server_service.dart';
 export 'package:atproto/src/services/sync_service.dart';
 export 'package:atproto/src/services/label_service.dart';

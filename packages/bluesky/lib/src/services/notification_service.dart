@@ -7,20 +7,14 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'base_service.dart';
+import 'context.dart';
 import 'entities/count.dart';
 import 'entities/notifications.dart';
 
-final class NotificationService extends BlueskyBaseService {
-  NotificationService({
-    required super.atproto,
-    required super.did,
-    required super.protocol,
-    required super.service,
-    required super.context,
-    super.mockedGetClient,
-    super.mockedPostClient,
-  });
+final class NotificationService {
+  NotificationService(this._ctx);
+
+  final BlueskyClientContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listNotifications
   Future<core.XRPCResponse<Notifications>> listNotifications({
@@ -89,10 +83,10 @@ final class NotificationService extends BlueskyBaseService {
   Future<core.XRPCResponse<core.EmptyData>> updateNotificationsAsRead({
     DateTime? seenAt,
   }) async =>
-      await super.post<core.EmptyData>(
+      await _ctx.post<core.EmptyData>(
         ns.appBskyNotificationUpdateSeen,
         body: {
-          'seenAt': toUtcIso8601String(seenAt),
+          'seenAt': _ctx.toUtcIso8601String(seenAt),
         },
       );
 
@@ -103,7 +97,7 @@ final class NotificationService extends BlueskyBaseService {
     required core.Platform platform,
     required String appId,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.appBskyNotificationRegisterPush,
         body: {
           'serviceDid': serviceDid,
@@ -118,7 +112,7 @@ final class NotificationService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyNotificationListNotifications,
         parameters: _buildListNotificationsParams(
           limit: limit,
@@ -132,7 +126,7 @@ final class NotificationService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyNotificationListNotifications,
         parameters: _buildListNotificationsParams(
           limit: limit,
@@ -144,7 +138,7 @@ final class NotificationService extends BlueskyBaseService {
   Future<core.XRPCResponse<T>> _findUnreadCount<T>({
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyNotificationGetUnreadCount,
         to: to,
       );

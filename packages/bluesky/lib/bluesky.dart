@@ -184,7 +184,6 @@ export 'package:atproto_core/atproto_core.dart'
         deleteSession,
         isValidAppPassword;
 export 'package:bluesky/src/services/actor_service.dart';
-export 'package:bluesky/src/services/extensions/actor_service.dart';
 export 'package:bluesky/src/bluesky.dart';
 export 'package:bluesky/src/services/services.dart';
 export 'package:bluesky/src/services/entities/actor.dart';
@@ -307,9 +306,7 @@ export 'package:bluesky/src/services/extensions/at_uri.dart';
 export 'package:bluesky/src/services/extensions/blob.dart';
 export 'package:bluesky/src/services/extensions/strong_ref.dart';
 export 'package:bluesky/src/services/feed_service.dart';
-export 'package:bluesky/src/services/extensions/feed_service.dart';
 export 'package:bluesky/src/services/graph_service.dart';
-export 'package:bluesky/src/services/extensions/graph_service.dart';
 export 'package:bluesky/src/services/constants/notification_reason.dart';
 export 'package:bluesky/src/services/utils/notification_reason_filter.dart'
     show NotificationReasonFilter;

@@ -7,22 +7,15 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'base_service.dart';
 import 'entities/adaptor/subscribe_label_updates_adaptor.dart';
 import 'entities/labels_by_query.dart';
 import 'entities/subscribed_label.dart';
 
 /// Represents `com.atproto.label.*` service.
-final class LabelService extends ATProtoBaseService {
-  LabelService({
-    required super.did,
-    required super.protocol,
-    required super.service,
-    required super.relayService,
-    required super.context,
-    super.mockedGetClient,
-    super.mockedPostClient,
-  });
+final class LabelService {
+  LabelService(this._ctx);
+
+  final core.ClientContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/label/queryLabels
   Future<core.XRPCResponse<LabelsByQuery>> queryLabels({
@@ -54,7 +47,7 @@ final class LabelService extends ATProtoBaseService {
     int? limit,
     String? cursor,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.comAtprotoLabelQueryLabels,
         parameters: {
           'uriPatterns': uriPatterns,
@@ -70,7 +63,7 @@ final class LabelService extends ATProtoBaseService {
       subscribeLabelUpdates({
     int? cursor,
   }) async =>
-          await super.stream(
+          await _ctx.stream(
             ns.comAtprotoLabelSubscribeLabels,
             parameters: {
               'cursor': cursor,

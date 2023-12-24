@@ -9,7 +9,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import '../ids.g.dart' as ids;
 import '../nsids.g.dart' as ns;
-import 'base_service.dart';
+import 'context.dart';
 import 'entities/actor_profile.dart';
 import 'entities/actor_profiles.dart';
 import 'entities/actors.dart';
@@ -19,16 +19,10 @@ import 'entities/preferences.dart';
 import 'entities/profile_record.dart';
 
 /// Represents `app.bsky.actor.*` service.
-final class ActorService extends BlueskyBaseService {
-  ActorService({
-    required super.atproto,
-    required super.did,
-    required super.protocol,
-    required super.service,
-    required super.context,
-    super.mockedGetClient,
-    super.mockedPostClient,
-  });
+final class ActorService {
+  ActorService(this._ctx);
+
+  final BlueskyClientContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActors
   Future<core.XRPCResponse<Actors>> searchActors({
@@ -137,8 +131,8 @@ final class ActorService extends BlueskyBaseService {
 
   @Deprecated('Use .getProfileRecord instead. Will be removed')
   Future<core.XRPCResponse<ProfileRecord>> findProfileRecord() async =>
-      await super.findRecord(
-        selfUri,
+      await _ctx.findRecord(
+        _ctx.selfUri,
         ProfileRecord.fromJson,
       );
 
@@ -191,7 +185,7 @@ final class ActorService extends BlueskyBaseService {
     atp.Blob? banner,
     atp.Labels? labels,
   }) async =>
-      await atproto.repo.updateRecord(
+      await _ctx.atproto.repo.updateRecord(
         uri: core.AtUri.make(
           'alice',
           ids.appBskyActorProfile,
@@ -214,7 +208,7 @@ final class ActorService extends BlueskyBaseService {
   Future<core.XRPCResponse<atp.EmptyData>> updatePreferences(
     List<Preference> preferences,
   ) async =>
-      await super.post(
+      await _ctx.post(
         ns.appBskyActorPutPreferences,
         body: {
           'preferences': preferences.map((e) => e.toJson()).toList(),
@@ -227,7 +221,7 @@ final class ActorService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyActorSearchActors,
         parameters: _buildSearchActorsParams(
           term: term,
@@ -243,7 +237,7 @@ final class ActorService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyActorSearchActors,
         parameters: _buildSearchActorsParams(
           term: term,
@@ -257,7 +251,7 @@ final class ActorService extends BlueskyBaseService {
     required String actor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyActorGetProfile,
         parameters: {
           'actor': actor,
@@ -269,7 +263,7 @@ final class ActorService extends BlueskyBaseService {
     required List<String> actors,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyActorGetProfiles,
         parameters: {
           'actors': actors,
@@ -282,7 +276,7 @@ final class ActorService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyActorGetSuggestions,
         parameters: _buildGetSuggestionsParams(
           limit: limit,
@@ -296,7 +290,7 @@ final class ActorService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyActorGetSuggestions,
         parameters: _buildGetSuggestionsParams(
           limit: limit,
@@ -310,7 +304,7 @@ final class ActorService extends BlueskyBaseService {
     required int? limit,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyActorSearchActorsTypeahead,
         parameters: {
           'q': term,
@@ -322,7 +316,7 @@ final class ActorService extends BlueskyBaseService {
   Future<core.XRPCResponse<T>> _findPreferences<T>({
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyActorGetPreferences,
         to: to,
       );
@@ -346,4 +340,17 @@ final class ActorService extends BlueskyBaseService {
         'limit': limit,
         'cursor': cursor,
       };
+}
+
+extension ActorServiceExtension on ActorService {
+  /// This is the easiest way to retrieve a profile record for
+  /// authenticated users.
+  ///
+  /// This endpoint is useful for retrieving information when
+  /// updating a profile.
+  Future<core.XRPCResponse<ProfileRecord>> getProfileRecord() async =>
+      await _ctx.findRecord(
+        _ctx.selfUri,
+        ProfileRecord.fromJson,
+      );
 }

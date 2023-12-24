@@ -8,6 +8,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import 'services/actor_service.dart';
+import 'services/context.dart';
 import 'services/feed_service.dart';
 import 'services/graph_service.dart';
 import 'services/notification_service.dart';
@@ -18,11 +19,11 @@ sealed class Bluesky {
   /// Returns the new instance of [Bluesky].
   factory Bluesky.fromSession(
     final atp.Session session, {
-    core.Protocol protocol = core.defaultProtocol,
-    String service = core.defaultService,
-    String relayService = core.defaultRelayService,
-    Duration timeout = core.defaultTimeout,
-    core.RetryConfig? retryConfig,
+    final core.Protocol? protocol,
+    final String? service,
+    final String? relayService,
+    final Duration? timeout,
+    final core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) =>
@@ -39,11 +40,11 @@ sealed class Bluesky {
 
   /// Returns the new instance of [Bluesky] as anonymous.
   factory Bluesky.anonymous({
-    core.Protocol protocol = core.defaultProtocol,
-    String service = core.defaultService,
-    String relayService = core.defaultRelayService,
-    Duration timeout = core.defaultTimeout,
-    core.RetryConfig? retryConfig,
+    final core.Protocol? protocol,
+    final String? service,
+    final String? relayService,
+    final Duration? timeout,
+    final core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) =>
@@ -152,44 +153,45 @@ final class _Bluesky implements Bluesky {
   /// Returns the new instance of [_Bluesky].
   _Bluesky({
     this.session,
-    required core.Protocol protocol,
-    required String service,
-    required String relayService,
-    required Duration timeout,
-    core.RetryConfig? retryConfig,
+    required final core.Protocol? protocol,
+    required final String? service,
+    required final String? relayService,
+    required final Duration? timeout,
+    required final core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) : _service = BlueskyService(
-          atproto: session == null
-              ? atp.ATProto.anonymous(
-                  protocol: protocol,
-                  service: service,
-                  relayService: relayService,
-                  timeout: timeout,
-                  retryConfig: retryConfig,
-                  mockedGetClient: mockedGetClient,
-                  mockedPostClient: mockedPostClient,
-                )
-              : atp.ATProto.fromSession(
-                  session,
-                  protocol: protocol,
-                  service: service,
-                  relayService: relayService,
-                  timeout: timeout,
-                  retryConfig: retryConfig,
-                  mockedGetClient: mockedGetClient,
-                  mockedPostClient: mockedPostClient,
-                ),
-          did: session?.did ?? '',
-          protocol: protocol,
-          service: service,
-          context: core.ClientContext(
-            accessJwt: session?.accessJwt ?? '',
+          BlueskyClientContext(
+            atproto: session == null
+                ? atp.ATProto.anonymous(
+                    protocol: protocol,
+                    service: service,
+                    relayService: relayService,
+                    timeout: timeout,
+                    retryConfig: retryConfig,
+                    mockedGetClient: mockedGetClient,
+                    mockedPostClient: mockedPostClient,
+                  )
+                : atp.ATProto.fromSession(
+                    session,
+                    protocol: protocol,
+                    service: service,
+                    relayService: relayService,
+                    timeout: timeout,
+                    retryConfig: retryConfig,
+                    mockedGetClient: mockedGetClient,
+                    mockedPostClient: mockedPostClient,
+                  ),
+            protocol: protocol,
+            service: service,
+            relayService: relayService,
+            did: session?.did,
+            accessJwt: session?.accessJwt,
             timeout: timeout,
             retryConfig: retryConfig,
+            mockedGetClient: mockedGetClient,
+            mockedPostClient: mockedPostClient,
           ),
-          mockedGetClient: mockedGetClient,
-          mockedPostClient: mockedPostClient,
         );
 
   final BlueskyService _service;

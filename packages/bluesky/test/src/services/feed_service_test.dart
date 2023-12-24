@@ -18,7 +18,7 @@ import 'package:bluesky/src/services/entities/posts.dart';
 import 'package:bluesky/src/services/entities/posts_by_query.dart';
 import 'package:bluesky/src/services/entities/reposted_by.dart';
 import 'package:bluesky/src/services/entities/skeleton_feed.dart';
-import 'package:bluesky/src/services/extensions/feed_service.dart';
+import 'package:bluesky/src/services/feed_service.dart';
 import 'package:bluesky/src/services/params/generator_param.dart';
 import 'package:bluesky/src/services/params/post_param.dart';
 import 'package:bluesky/src/services/params/strong_ref_param.dart';

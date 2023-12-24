@@ -7,21 +7,15 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'base_service.dart';
 import 'constants/moderation_reason_type.dart';
 import 'entities/report.dart';
 import 'entities/report_subject.dart';
 
 /// Represents `com.atproto.moderation.*` service.
-final class ModerationService extends ATProtoBaseService {
-  ModerationService({
-    required super.did,
-    required super.protocol,
-    required super.service,
-    required super.context,
-    super.mockedGetClient,
-    super.mockedPostClient,
-  });
+final class ModerationService {
+  ModerationService(this._ctx);
+
+  final core.ClientContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/moderation/createReport
   Future<core.XRPCResponse<Report>> createReport({
@@ -29,7 +23,7 @@ final class ModerationService extends ATProtoBaseService {
     ModerationReasonType reasonType = ModerationReasonType.spam,
     String? reason,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.comAtprotoModerationCreateReport,
         body: {
           'subject': subject.toJson(),

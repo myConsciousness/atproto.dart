@@ -10,7 +10,6 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'base_service.dart';
 import 'entities/adaptor/repo_blocks_adaptor.dart';
 import 'entities/adaptor/repo_commit_adaptor.dart';
 import 'entities/adaptor/repo_commits_adaptor.dart';
@@ -24,16 +23,10 @@ import 'entities/repos.dart';
 import 'entities/subscribed_repo.dart';
 
 /// Represents `com.atproto.sync.*` service.
-final class SyncService extends ATProtoBaseService {
-  SyncService({
-    required super.did,
-    required super.protocol,
-    required super.service,
-    required super.relayService,
-    required super.context,
-    super.mockedGetClient,
-    super.mockedPostClient,
-  });
+final class SyncService {
+  SyncService(this._ctx);
+
+  final core.ClientContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos
   Future<core.XRPCResponse<core.Subscription<SubscribedRepo>>> subscribeRepos({
@@ -108,7 +101,7 @@ final class SyncService extends ATProtoBaseService {
   Future<core.XRPCResponse<core.EmptyData>> requestCrawl({
     required String hostname,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.comAtprotoSyncRequestCrawl,
         body: {
           'hostname': hostname,
@@ -143,7 +136,7 @@ final class SyncService extends ATProtoBaseService {
       subscribeRepoUpdates({
     int? cursor,
   }) async =>
-          await super.stream(
+          await _ctx.stream(
             ns.comAtprotoSyncSubscribeRepos,
             parameters: {
               'cursor': cursor,
@@ -221,7 +214,7 @@ final class SyncService extends ATProtoBaseService {
   Future<core.XRPCResponse<core.EmptyData>> notifyCrawlingServiceOfUpdate({
     required String hostname,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.comAtprotoSyncNotifyOfUpdate,
         body: {
           'hostname': hostname,
@@ -233,7 +226,7 @@ final class SyncService extends ATProtoBaseService {
     required String did,
     required String cid,
   }) async =>
-      await super.get<Uint8List>(
+      await _ctx.get<Uint8List>(
         ns.comAtprotoSyncGetBlob,
         parameters: {
           'did': did,
@@ -276,7 +269,7 @@ final class SyncService extends ATProtoBaseService {
     required core.ProgressStatus? progress,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.comAtprotoSyncGetRepo,
         parameters: {
           'did': did,
@@ -294,7 +287,7 @@ final class SyncService extends ATProtoBaseService {
     required List<String> commitCids,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.comAtprotoSyncGetBlocks,
         parameters: {
           'did': did,
@@ -308,7 +301,7 @@ final class SyncService extends ATProtoBaseService {
     required String did,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.comAtprotoSyncGetLatestCommit,
         parameters: {
           'did': did,
@@ -321,7 +314,7 @@ final class SyncService extends ATProtoBaseService {
     required String? commitCid,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.comAtprotoSyncGetRecord,
         parameters: {
           'did': uri.hostname,
@@ -338,7 +331,7 @@ final class SyncService extends ATProtoBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.comAtprotoSyncListRepos,
         parameters: _buildListReposParams(
           limit: limit,
@@ -352,7 +345,7 @@ final class SyncService extends ATProtoBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.comAtprotoSyncListRepos,
         parameters: _buildListReposParams(
           limit: limit,
@@ -368,7 +361,7 @@ final class SyncService extends ATProtoBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.comAtprotoSyncListBlobs,
         parameters: _buildListBlobsParams(
           did: did,
@@ -386,7 +379,7 @@ final class SyncService extends ATProtoBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.comAtprotoSyncListBlobs,
         parameters: _buildListBlobsParams(
           did: did,

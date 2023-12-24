@@ -9,7 +9,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import '../ids.g.dart' as ids;
 import '../nsids.g.dart' as ns;
-import 'base_service.dart';
+import 'context.dart';
 import 'entities/blocks.dart';
 import 'entities/facet.dart';
 import 'entities/followers.dart';
@@ -22,16 +22,10 @@ import 'params/list_item_param.dart';
 import 'params/list_param.dart';
 import 'params/repo_param.dart';
 
-final class GraphService extends BlueskyBaseService {
-  GraphService({
-    required super.atproto,
-    required super.did,
-    required super.protocol,
-    required super.service,
-    required super.context,
-    super.mockedGetClient,
-    super.mockedPostClient,
-  });
+final class GraphService {
+  GraphService(this._ctx);
+
+  final BlueskyClientContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/follow
   Future<core.XRPCResponse<atp.StrongRef>> follow({
@@ -245,11 +239,11 @@ final class GraphService extends BlueskyBaseService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repo.createRecord(
+      await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyGraphFollow,
         record: {
           'subject': did,
-          'createdAt': toUtcIso8601String(createdAt),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...unspecced,
         },
       );
@@ -258,14 +252,14 @@ final class GraphService extends BlueskyBaseService {
   Future<core.XRPCResponse<core.EmptyData>> createFollows(
     List<RepoParam> params,
   ) async =>
-      await atproto.repo.createRecords(
+      await _ctx.atproto.repo.createRecords(
         actions: params
             .map(
               (e) => atp.CreateAction(
                 collection: ns.appBskyGraphFollow,
                 record: {
                   'subject': e.did,
-                  'createdAt': toUtcIso8601String(e.createdAt),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
                   ...e.unspecced,
                 },
               ),
@@ -327,7 +321,7 @@ final class GraphService extends BlueskyBaseService {
   Future<core.XRPCResponse<core.EmptyData>> createMute({
     required String actor,
   }) async =>
-      await post<core.EmptyData>(
+      await _ctx.post<core.EmptyData>(
         ns.appBskyGraphMuteActor,
         body: {
           'actor': actor,
@@ -338,7 +332,7 @@ final class GraphService extends BlueskyBaseService {
   Future<core.XRPCResponse<core.EmptyData>> deleteMute({
     required String actor,
   }) async =>
-      await post<core.EmptyData>(
+      await _ctx.post<core.EmptyData>(
         ns.appBskyGraphUnmuteActor,
         body: {
           'actor': actor,
@@ -393,11 +387,11 @@ final class GraphService extends BlueskyBaseService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repo.createRecord(
+      await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyGraphBlock,
         record: {
           'subject': did,
-          'createdAt': toUtcIso8601String(createdAt),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...unspecced,
         },
       );
@@ -406,14 +400,14 @@ final class GraphService extends BlueskyBaseService {
   Future<core.XRPCResponse<core.EmptyData>> createBlocks(
     List<RepoParam> params,
   ) async =>
-      await atproto.repo.createRecords(
+      await _ctx.atproto.repo.createRecords(
         actions: params
             .map(
               (e) => atp.CreateAction(
                 collection: ns.appBskyGraphBlock,
                 record: {
                   'subject': e.did,
-                  'createdAt': toUtcIso8601String(e.createdAt),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
                   ...e.unspecced,
                 },
               ),
@@ -432,7 +426,7 @@ final class GraphService extends BlueskyBaseService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repo.createRecord(
+      await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyGraphList,
         record: {
           'purpose': purpose,
@@ -442,7 +436,7 @@ final class GraphService extends BlueskyBaseService {
               descriptionFacets?.map((e) => e.toJson()).toList(),
           'avatar': avatar,
           'labels': labels?.toJson(),
-          'createdAt': toUtcIso8601String(createdAt),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...unspecced,
         },
       );
@@ -493,7 +487,7 @@ final class GraphService extends BlueskyBaseService {
   Future<core.XRPCResponse<atp.EmptyData>> createLists(
     List<ListParam> params,
   ) async =>
-      await atproto.repo.createRecords(
+      await _ctx.atproto.repo.createRecords(
         actions: params
             .map(
               (e) => atp.CreateAction(
@@ -506,7 +500,7 @@ final class GraphService extends BlueskyBaseService {
                       e.descriptionFacets?.map((e) => e.toJson()).toList(),
                   'avatar': e.avatar,
                   'labels': e.labels?.toJson(),
-                  'createdAt': toUtcIso8601String(e.createdAt),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
                   ...e.unspecced,
                 },
               ),
@@ -571,12 +565,12 @@ final class GraphService extends BlueskyBaseService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repo.createRecord(
+      await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyGraphListitem,
         record: {
           'subject': subject,
           'list': list.toString(),
-          'createdAt': toUtcIso8601String(createdAt),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...unspecced,
         },
       );
@@ -585,7 +579,7 @@ final class GraphService extends BlueskyBaseService {
   Future<core.XRPCResponse<atp.EmptyData>> createListItems(
     List<ListItemParam> params,
   ) async =>
-      await atproto.repo.createRecords(
+      await _ctx.atproto.repo.createRecords(
         actions: params
             .map(
               (e) => atp.CreateAction(
@@ -593,7 +587,7 @@ final class GraphService extends BlueskyBaseService {
                 record: {
                   'subject': e.subject,
                   'list': e.list.toString(),
-                  'createdAt': toUtcIso8601String(e.createdAt),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
                   ...e.unspecced
                 },
               ),
@@ -626,7 +620,7 @@ final class GraphService extends BlueskyBaseService {
   Future<core.XRPCResponse<core.EmptyData>> createMuteActorList({
     required core.AtUri list,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.appBskyGraphMuteActorList,
         body: {
           'list': list.toString(),
@@ -637,7 +631,7 @@ final class GraphService extends BlueskyBaseService {
   Future<core.XRPCResponse<core.EmptyData>> deleteMuteActorList({
     required core.AtUri list,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.appBskyGraphUnmuteActorList,
         body: {
           'list': list.toString(),
@@ -679,11 +673,11 @@ final class GraphService extends BlueskyBaseService {
     required core.AtUri listUri,
     DateTime? createdAt,
   }) async =>
-      await atproto.repo.createRecord(
+      await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyGraphListblock,
         record: {
           'subject': listUri.toString(),
-          'createdAt': toUtcIso8601String(createdAt),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
       );
 
@@ -693,7 +687,7 @@ final class GraphService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyGraphGetFollows,
         parameters: _buildGetFollowsParams(
           actor: actor,
@@ -709,7 +703,7 @@ final class GraphService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyGraphGetFollows,
         parameters: _buildGetFollowsParams(
           actor: actor,
@@ -725,7 +719,7 @@ final class GraphService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyGraphGetFollowers,
         parameters: _buildGetFollowersParams(
           actor: actor,
@@ -741,7 +735,7 @@ final class GraphService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyGraphGetFollowers,
         parameters: _buildGetFollowersParams(
           actor: actor,
@@ -756,7 +750,7 @@ final class GraphService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyGraphGetMutes,
         parameters: _buildGetMutesParams(
           limit: limit,
@@ -770,7 +764,7 @@ final class GraphService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyGraphGetMutes,
         parameters: _buildGetMutesParams(
           limit: limit,
@@ -784,7 +778,7 @@ final class GraphService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyGraphGetBlocks,
         parameters: _buildGetBlocksParams(
           limit: limit,
@@ -798,7 +792,7 @@ final class GraphService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyGraphGetBlocks,
         parameters: _buildGetBlocksParams(
           limit: limit,
@@ -813,7 +807,7 @@ final class GraphService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyGraphGetLists,
         parameters: _buildGetListsParams(
           actor: actor,
@@ -829,7 +823,7 @@ final class GraphService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyGraphGetLists,
         parameters: _buildGetListsParams(
           actor: actor,
@@ -845,7 +839,7 @@ final class GraphService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyGraphGetList,
         parameters: _buildListItemsParams(
           list: list,
@@ -861,7 +855,7 @@ final class GraphService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyGraphGetList,
         parameters: _buildListItemsParams(
           list: list,
@@ -876,7 +870,7 @@ final class GraphService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyGraphGetListMutes,
         parameters: _buildGetListMutesParams(
           limit: limit,
@@ -890,7 +884,7 @@ final class GraphService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyGraphGetListMutes,
         parameters: _buildGetListMutesParams(
           limit: limit,
@@ -903,7 +897,7 @@ final class GraphService extends BlueskyBaseService {
     required String actor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyGraphGetSuggestedFollowsByActor,
         parameters: {
           'actor': actor,
@@ -916,7 +910,7 @@ final class GraphService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyGraphGetListBlocks,
         parameters: _buildGetBlockListsParams(
           limit: limit,
@@ -930,7 +924,7 @@ final class GraphService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyGraphGetListBlocks,
         parameters: _buildGetBlockListsParams(
           limit: limit,
@@ -1018,4 +1012,125 @@ final class GraphService extends BlueskyBaseService {
         'limit': limit,
         'cursor': cursor,
       };
+}
+
+extension GraphServiceExtension on GraphService {
+  Future<core.XRPCResponse<core.EmptyData>> followInBulk(
+    final List<RepoParam> params,
+  ) async =>
+      await _ctx.atproto.repo.createRecordInBulk(
+        actions: params
+            .map(
+              (e) => atp.CreateAction(
+                collection: ns.appBskyGraphFollow,
+                record: {
+                  'subject': e.did,
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unspecced,
+                },
+              ),
+            )
+            .toList(),
+      );
+
+  Future<core.XRPCResponse<core.EmptyData>> blockInBulk(
+    final List<RepoParam> params,
+  ) async =>
+      await _ctx.atproto.repo.createRecordInBulk(
+        actions: params
+            .map(
+              (e) => atp.CreateAction(
+                collection: ns.appBskyGraphBlock,
+                record: {
+                  'subject': e.did,
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unspecced,
+                },
+              ),
+            )
+            .toList(),
+      );
+
+  Future<core.XRPCResponse<atp.EmptyData>> listitemInBulk(
+    final List<ListItemParam> params,
+  ) async =>
+      await _ctx.atproto.repo.createRecordInBulk(
+        actions: params
+            .map(
+              (e) => atp.CreateAction(
+                collection: ns.appBskyGraphListitem,
+                record: {
+                  'subject': e.subject,
+                  'list': e.list.toString(),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unspecced
+                },
+              ),
+            )
+            .toList(),
+      );
+
+  Future<core.XRPCResponse<atp.EmptyData>> listInBulk(
+    final List<ListParam> params,
+  ) async =>
+      await _ctx.atproto.repo.createRecordInBulk(
+        actions: params
+            .map(
+              (e) => atp.CreateAction(
+                collection: ns.appBskyGraphList,
+                record: {
+                  'purpose': e.purpose,
+                  'name': e.name,
+                  'description': e.description,
+                  'descriptionFacets':
+                      e.descriptionFacets?.map((e) => e.toJson()).toList(),
+                  'avatar': e.avatar,
+                  'labels': e.labels?.toJson(),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unspecced,
+                },
+              ),
+            )
+            .toList(),
+      );
+
+  Future<core.XRPCResponse<atp.StrongRef>> modlist({
+    required String name,
+    String? description,
+    List<Facet>? descriptionFacets,
+    atp.Blob? avatar,
+    atp.Labels? labels,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  }) async =>
+      await list(
+        name: name,
+        purpose: ids.appBskyGraphDefsModlist,
+        description: description,
+        descriptionFacets: descriptionFacets,
+        avatar: avatar,
+        labels: labels,
+        createdAt: createdAt,
+        unspecced: unspecced,
+      );
+
+  Future<core.XRPCResponse<atp.StrongRef>> curatelist({
+    required String name,
+    String? description,
+    List<Facet>? descriptionFacets,
+    atp.Blob? avatar,
+    atp.Labels? labels,
+    DateTime? createdAt,
+    Map<String, dynamic> unspecced = core.emptyJson,
+  }) async =>
+      await list(
+        name: name,
+        purpose: ids.appBskyGraphDefsCuratelist,
+        description: description,
+        descriptionFacets: descriptionFacets,
+        avatar: avatar,
+        labels: labels,
+        createdAt: createdAt,
+        unspecced: unspecced,
+      );
 }

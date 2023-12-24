@@ -7,23 +7,17 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'base_service.dart';
+import 'context.dart';
 import 'entities/feed.dart';
 import 'entities/feed_generators.dart';
 import 'entities/skeleton_actors_by_query.dart';
 import 'entities/skeleton_feed.dart';
 import 'entities/skeleton_posts_by_query.dart';
 
-final class UnspeccedService extends BlueskyBaseService {
-  UnspeccedService({
-    required super.atproto,
-    required super.did,
-    required super.protocol,
-    required super.service,
-    required super.context,
-    super.mockedGetClient,
-    super.mockedPostClient,
-  });
+final class UnspeccedService {
+  UnspeccedService(this._ctx);
+
+  final BlueskyClientContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getPopular
   @Deprecated('Get a feed generator instead. Will be removed soon')
@@ -223,7 +217,7 @@ final class UnspeccedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyUnspeccedGetPopular,
         parameters: _buildGetPopular(
           includeNsfw: includeNsfw,
@@ -239,7 +233,7 @@ final class UnspeccedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyUnspeccedGetPopular,
         parameters: _buildGetPopular(
           includeNsfw: includeNsfw,
@@ -255,7 +249,7 @@ final class UnspeccedService extends BlueskyBaseService {
     required String? query,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyUnspeccedGetPopularFeedGenerators,
         parameters: _buildGetPopularFeedGenerators(
           limit: limit,
@@ -271,7 +265,7 @@ final class UnspeccedService extends BlueskyBaseService {
     required String? query,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyUnspeccedGetPopularFeedGenerators,
         parameters: _buildGetPopularFeedGenerators(
           limit: limit,
@@ -286,7 +280,7 @@ final class UnspeccedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyUnspeccedGetTimelineSkeleton,
         parameters: _buildGetTimelineSkeleton(
           limit: limit,
@@ -300,7 +294,7 @@ final class UnspeccedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyUnspeccedGetTimelineSkeleton,
         parameters: _buildGetTimelineSkeleton(
           limit: limit,
@@ -315,7 +309,7 @@ final class UnspeccedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyUnspeccedSearchPostsSkeleton,
         parameters: _buildSearchPostsSkeletonParams(
           query: query,
@@ -331,7 +325,7 @@ final class UnspeccedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyUnspeccedSearchPostsSkeleton,
         parameters: _buildSearchPostsSkeletonParams(
           query: query,
@@ -348,7 +342,7 @@ final class UnspeccedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyUnspeccedSearchActorsSkeleton,
         parameters: _buildSearchActorsSkeletonParams(
           query: query,
@@ -366,7 +360,7 @@ final class UnspeccedService extends BlueskyBaseService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyUnspeccedSearchActorsSkeleton,
         parameters: _buildSearchActorsSkeletonParams(
           query: query,

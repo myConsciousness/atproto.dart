@@ -18,11 +18,11 @@ sealed class ATProto {
   /// Returns the new instance of [ATProto].
   factory ATProto.fromSession(
     final core.Session session, {
-    core.Protocol protocol = core.defaultProtocol,
-    String service = core.defaultService,
-    String relayService = core.defaultRelayService,
-    Duration timeout = core.defaultTimeout,
-    core.RetryConfig? retryConfig,
+    final core.Protocol? protocol,
+    final String? service,
+    final String? relayService,
+    final Duration? timeout,
+    final core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) =>
@@ -39,11 +39,11 @@ sealed class ATProto {
 
   /// Returns the new instance of [ATProto] as anonymous.
   factory ATProto.anonymous({
-    core.Protocol protocol = core.defaultProtocol,
-    String service = core.defaultService,
-    String relayService = core.defaultRelayService,
-    Duration timeout = core.defaultTimeout,
-    core.RetryConfig? retryConfig,
+    final core.Protocol? protocol,
+    final String? service,
+    final String? relayService,
+    final Duration? timeout,
+    final core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) =>
@@ -112,25 +112,25 @@ final class _ATProto implements ATProto {
   /// Returns the new instance of [_ATProto].
   _ATProto({
     this.session,
-    required core.Protocol protocol,
-    required String service,
-    required String relayService,
-    required Duration timeout,
-    core.RetryConfig? retryConfig,
+    required final core.Protocol? protocol,
+    required final String? service,
+    required final String? relayService,
+    required final Duration? timeout,
+    required final core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) : _service = ATProtoService(
-          did: session?.did ?? '',
-          protocol: protocol,
-          service: service,
-          relayService: relayService,
-          context: core.ClientContext(
-            accessJwt: session?.accessJwt ?? '',
+          core.ClientContext(
+            protocol: protocol,
+            service: service,
+            relayService: relayService,
+            did: session?.did,
+            accessJwt: session?.accessJwt,
             timeout: timeout,
             retryConfig: retryConfig,
+            mockedGetClient: mockedGetClient,
+            mockedPostClient: mockedPostClient,
           ),
-          mockedGetClient: mockedGetClient,
-          mockedPostClient: mockedPostClient,
         );
 
   final ATProtoService _service;
