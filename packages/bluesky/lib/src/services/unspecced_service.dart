@@ -14,6 +14,7 @@ import 'entities/skeleton_feed.dart';
 import 'entities/skeleton_posts_by_query.dart';
 import 'service_context.dart';
 
+/// Represents `app.bsky.unspecced.*` service.
 final class UnspeccedService {
   UnspeccedService(this._ctx);
 

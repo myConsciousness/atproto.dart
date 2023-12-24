@@ -22,6 +22,7 @@ import 'params/list_param.dart';
 import 'params/repo_param.dart';
 import 'service_context.dart';
 
+/// Represents `app.bsky.graph.*` service.
 final class GraphService {
   GraphService(this._ctx);
 

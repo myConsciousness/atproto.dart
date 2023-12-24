@@ -11,6 +11,7 @@ import 'entities/count.dart';
 import 'entities/notifications.dart';
 import 'service_context.dart';
 
+/// Represents `app.bsky.notification.*` service.
 final class NotificationService {
   NotificationService(this._ctx);
 
