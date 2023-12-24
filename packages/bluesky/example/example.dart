@@ -2,11 +2,11 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/bluesky.dart';
 
 Future<void> main() async {
   try {
-    final bluesky = bsky.Bluesky.fromSession(
+    final bsky = Bluesky.fromSession(
       //! First you need to establish session with ATP server.
       await _session,
 
@@ -18,9 +18,9 @@ Future<void> main() async {
 
       //! Automatic retry is available when server error or network error occurs
       //! when communicating with the API.
-      retryConfig: bsky.RetryConfig(
+      retryConfig: RetryConfig(
         maxAttempts: 5,
-        jitter: bsky.Jitter(
+        jitter: Jitter(
           minInSeconds: 2,
           maxInSeconds: 5,
         ),
@@ -35,32 +35,32 @@ Future<void> main() async {
     );
 
     //! Let's get home timeline!
-    final feeds = await bluesky.feed.getTimeline(
+    final feeds = await bsky.feed.getTimeline(
       limit: 10,
     );
 
     print(feeds);
 
     //! Let's post cool stuff!
-    final createdRecord = await bluesky.feed.post(
+    final createdRecord = await bsky.feed.post(
       text: 'Hello, Bluesky!',
     );
 
     print(createdRecord);
 
     //! And delete it.
-    await bluesky.repo.deleteRecord(
+    await bsky.repo.deleteRecord(
       uri: createdRecord.data.uri,
     );
 
     //! You can use Stream API easily.
-    final subscription = await bluesky.sync.subscribeRepos();
+    final subscription = await bsky.sync.subscribeRepos();
 
     subscription.data.stream.listen((event) {
       event.when(
         //! You can handle commit events very easily
         //! with RepoCommitAdaptor.
-        commit: bsky.RepoCommitAdaptor(
+        commit: RepoCommitAdaptor(
           //! Create events.
           onCreatePost: (data) => data.record,
           onCreateLike: print,
@@ -78,15 +78,15 @@ Future<void> main() async {
         unknown: print,
       );
     });
-  } on bsky.UnauthorizedException catch (e) {
+  } on UnauthorizedException catch (e) {
     print(e);
-  } on bsky.XRPCException catch (e) {
+  } on XRPCException catch (e) {
     print(e);
   }
 }
 
-Future<bsky.Session> get _session async {
-  final session = await bsky.createSession(
+Future<Session> get _session async {
+  final session = await createSession(
     service: 'SERVICE_NAME', //! The default is `bsky.social`
     identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
     password: 'YOUR_PASSWORD',
