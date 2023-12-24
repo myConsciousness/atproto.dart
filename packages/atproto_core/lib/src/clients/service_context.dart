@@ -12,6 +12,7 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 // 🌎 Project imports:
 import '../const.dart';
 import '../paginations/pagination.dart';
+import '../sessions/session.dart';
 import 'challenge.dart';
 import 'retry_config.dart';
 import 'retry_policy.dart';
@@ -21,8 +22,7 @@ base class ServiceContext {
     xrpc.Protocol? protocol,
     String? service,
     String? relayService,
-    this.did,
-    String? accessJwt,
+    this.session,
     Duration? timeout,
     RetryConfig? retryConfig,
     final xrpc.GetClient? mockedGetClient,
@@ -30,17 +30,12 @@ base class ServiceContext {
   })  : _protocol = protocol ?? defaultProtocol,
         _service = service ?? defaultService,
         _relayService = relayService ?? defaultRelayService,
-        _accessJwt = accessJwt ?? '',
         _challenge = Challenge(RetryPolicy(retryConfig)),
         _timeout = timeout ?? defaultTimeout,
         _mockedGetClient = mockedGetClient,
         _mockedPostClient = mockedPostClient;
 
-  /// The authenticated user's id.
-  final String? did;
-
-  /// The access token.
-  final String _accessJwt;
+  final Session? session;
 
   /// The communication challenge for client
   final Challenge _challenge;
@@ -151,10 +146,10 @@ base class ServiceContext {
       );
 
   Map<String, String>? _getHeaders([Map<String, String>? optional]) {
-    if (_accessJwt.isEmpty) return optional;
+    if (session == null) return optional;
 
     return {
-      'Authorization': 'Bearer $_accessJwt',
+      'Authorization': 'Bearer ${session?.accessJwt}',
       ...optional ?? const {},
     };
   }

@@ -15,8 +15,7 @@ final class BlueskyServiceContext extends core.ServiceContext {
     super.protocol,
     super.service,
     super.relayService,
-    super.did,
-    super.accessJwt,
+    super.session,
     super.timeout,
     super.retryConfig,
     super.mockedGetClient,
@@ -43,7 +42,7 @@ final class BlueskyServiceContext extends core.ServiceContext {
 
   /// Returns the AT URI of authenticated user.
   core.AtUri get selfUri => core.AtUri.make(
-        did ?? 'alice',
+        session?.did ?? 'alice',
         ids.appBskyActorProfile,
         'self',
       );

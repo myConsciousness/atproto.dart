@@ -3,7 +3,6 @@
 // modification, are permitted provided the conditions.
 
 export 'package:atproto/src/atproto.dart';
-export 'package:atproto/src/services/services.dart';
 export 'package:atproto/src/services/entities/account.dart';
 export 'package:atproto/src/services/entities/account_codes.dart';
 export 'package:atproto/src/services/entities/app_password.dart';

@@ -62,7 +62,7 @@ final class ServerService {
       await _ctx.post(
         ns.comAtprotoServerDeleteAccount,
         body: {
-          'did': _ctx.did,
+          'did': _ctx.session?.did,
           'password': password,
           'token': token,
         },

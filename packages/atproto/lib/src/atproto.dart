@@ -11,7 +11,6 @@ import 'services/label_service.dart';
 import 'services/moderation_service.dart';
 import 'services/repo_service.dart';
 import 'services/server_service.dart';
-import 'services/services.dart';
 import 'services/sync_service.dart';
 
 sealed class ATProto {
@@ -27,14 +26,16 @@ sealed class ATProto {
     final core.PostClient? mockedPostClient,
   }) =>
       _ATProto(
-        session: session,
-        protocol: protocol,
-        service: service,
-        relayService: relayService,
-        timeout: timeout,
-        retryConfig: retryConfig,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
+        core.ServiceContext(
+          protocol: protocol,
+          service: service,
+          relayService: relayService,
+          session: session,
+          timeout: timeout,
+          retryConfig: retryConfig,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
+        ),
       );
 
   /// Returns the new instance of [ATProto] as anonymous.
@@ -48,13 +49,15 @@ sealed class ATProto {
     final core.PostClient? mockedPostClient,
   }) =>
       _ATProto(
-        protocol: protocol,
-        service: service,
-        relayService: relayService,
-        timeout: timeout,
-        retryConfig: retryConfig,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
+        core.ServiceContext(
+          protocol: protocol,
+          service: service,
+          relayService: relayService,
+          timeout: timeout,
+          retryConfig: retryConfig,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
+        ),
       );
 
   /// Returns the current session.
@@ -110,61 +113,45 @@ sealed class ATProto {
 
 final class _ATProto implements ATProto {
   /// Returns the new instance of [_ATProto].
-  _ATProto({
-    this.session,
-    required final core.Protocol? protocol,
-    required final String? service,
-    required final String? relayService,
-    required final Duration? timeout,
-    required final core.RetryConfig? retryConfig,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  }) : _service = ATProtoService(
-          core.ServiceContext(
-            protocol: protocol,
-            service: service,
-            relayService: relayService,
-            did: session?.did,
-            accessJwt: session?.accessJwt,
-            timeout: timeout,
-            retryConfig: retryConfig,
-            mockedGetClient: mockedGetClient,
-            mockedPostClient: mockedPostClient,
-          ),
-        );
-
-  final ATProtoService _service;
+  _ATProto(final core.ServiceContext ctx)
+      : session = ctx.session,
+        server = ServerService(ctx),
+        identity = IdentityService(ctx),
+        repo = RepoService(ctx),
+        moderation = ModerationService(ctx),
+        sync = SyncService(ctx),
+        label = LabelService(ctx);
 
   @override
   final core.Session? session;
 
   @override
-  ServerService get servers => _service.server;
+  final ServerService server;
 
   @override
-  ServerService get server => _service.server;
+  ServerService get servers => server;
 
   @override
-  IdentityService get identities => _service.identity;
+  final IdentityService identity;
 
   @override
-  IdentityService get identity => _service.identity;
+  IdentityService get identities => identity;
 
   @override
-  RepoService get repositories => _service.repo;
+  final RepoService repo;
 
   @override
-  RepoService get repo => _service.repo;
+  RepoService get repositories => repo;
 
   @override
-  ModerationService get moderation => _service.moderation;
+  final ModerationService moderation;
 
   @override
-  SyncService get sync => _service.sync;
+  final SyncService sync;
 
   @override
-  LabelService get labels => _service.label;
+  final LabelService label;
 
   @override
-  LabelService get label => _service.label;
+  LabelService get labels => label;
 }
