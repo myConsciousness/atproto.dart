@@ -7,14 +7,14 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'context.dart';
 import 'entities/count.dart';
 import 'entities/notifications.dart';
+import 'service_context.dart';
 
 final class NotificationService {
   NotificationService(this._ctx);
 
-  final BlueskyClientContext _ctx;
+  final BlueskyServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listNotifications
   Future<core.XRPCResponse<Notifications>> listNotifications({

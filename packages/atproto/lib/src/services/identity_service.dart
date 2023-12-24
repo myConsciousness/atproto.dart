@@ -13,7 +13,7 @@ import 'entities/did.dart';
 final class IdentityService {
   IdentityService(this._ctx);
 
-  final core.ClientContext _ctx;
+  final core.ServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle
   Future<core.XRPCResponse<DID>> resolveHandle({

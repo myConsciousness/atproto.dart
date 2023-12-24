@@ -24,7 +24,7 @@ import 'entities/update_action.dart';
 final class RepoService {
   RepoService(this._ctx);
 
-  final core.ClientContext _ctx;
+  final core.ServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/createRecord
   Future<core.XRPCResponse<StrongRef>> createRecord({

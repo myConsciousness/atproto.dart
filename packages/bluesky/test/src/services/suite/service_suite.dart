@@ -9,10 +9,10 @@ import 'package:atproto_test/atproto_test.dart' as atp_test;
 
 // 🌎 Project imports:
 import 'package:bluesky/src/services/actor_service.dart';
-import 'package:bluesky/src/services/context.dart';
 import 'package:bluesky/src/services/feed_service.dart';
 import 'package:bluesky/src/services/graph_service.dart';
 import 'package:bluesky/src/services/notification_service.dart';
+import 'package:bluesky/src/services/service_context.dart';
 import 'package:bluesky/src/services/unspecced_service.dart';
 
 const _runner = _ServiceRunner();
@@ -129,7 +129,7 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      ActorService(BlueskyClientContext(
+      ActorService(BlueskyServiceContext(
         atproto: _getAtproto(
           mockedGetClient,
           mockedPostClient,
@@ -142,7 +142,7 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      FeedService(BlueskyClientContext(
+      FeedService(BlueskyServiceContext(
         atproto: _getAtproto(
           mockedGetClient,
           mockedPostClient,
@@ -155,7 +155,7 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      GraphService(BlueskyClientContext(
+      GraphService(BlueskyServiceContext(
         atproto: _getAtproto(
           mockedGetClient,
           mockedPostClient,
@@ -168,7 +168,7 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      NotificationService(BlueskyClientContext(
+      NotificationService(BlueskyServiceContext(
         atproto: _getAtproto(
           mockedGetClient,
           mockedPostClient,
@@ -181,7 +181,7 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      UnspeccedService(BlueskyClientContext(
+      UnspeccedService(BlueskyServiceContext(
         atproto: _getAtproto(
           mockedGetClient,
           mockedPostClient,

@@ -15,7 +15,7 @@ import 'entities/report_subject.dart';
 final class ModerationService {
   ModerationService(this._ctx);
 
-  final core.ClientContext _ctx;
+  final core.ServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/moderation/createReport
   Future<core.XRPCResponse<Report>> createReport({

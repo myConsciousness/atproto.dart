@@ -9,7 +9,6 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import '../ids.g.dart' as ids;
 import '../nsids.g.dart' as ns;
-import 'context.dart';
 import 'entities/blocks.dart';
 import 'entities/facet.dart';
 import 'entities/followers.dart';
@@ -21,11 +20,12 @@ import 'entities/suggested_follows.dart';
 import 'params/list_item_param.dart';
 import 'params/list_param.dart';
 import 'params/repo_param.dart';
+import 'service_context.dart';
 
 final class GraphService {
   GraphService(this._ctx);
 
-  final BlueskyClientContext _ctx;
+  final BlueskyServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/follow
   Future<core.XRPCResponse<atp.StrongRef>> follow({

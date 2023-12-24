@@ -15,7 +15,7 @@ import 'entities/subscribed_label.dart';
 final class LabelService {
   LabelService(this._ctx);
 
-  final core.ClientContext _ctx;
+  final core.ServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/label/queryLabels
   Future<core.XRPCResponse<LabelsByQuery>> queryLabels({

@@ -10,7 +10,6 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../ids.g.dart' as ids;
 import '../nsids.g.dart' as ns;
 import 'constants/feed_filter.dart';
-import 'context.dart';
 import 'entities/actor_feeds.dart';
 import 'entities/embed.dart';
 import 'entities/facet.dart';
@@ -30,12 +29,13 @@ import 'params/generator_param.dart';
 import 'params/post_param.dart';
 import 'params/strong_ref_param.dart';
 import 'params/thread_param.dart';
+import 'service_context.dart';
 
 /// Represents `app.bsky.feed.*` service.
 final class FeedService {
   FeedService(this._ctx);
 
-  final BlueskyClientContext _ctx;
+  final BlueskyServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post
   Future<core.XRPCResponse<atp.StrongRef>> $post({

@@ -6,8 +6,8 @@
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // 🌎 Project imports:
-import '../clients/client_context.dart';
 import '../clients/retry_config.dart';
+import '../clients/service_context.dart';
 import '../const.dart';
 import 'session.dart';
 
@@ -19,19 +19,13 @@ Future<xrpc.XRPCResponse<Session>> createSession({
   required String password,
   RetryConfig? retryConfig,
   final xrpc.PostClient? mockedPostClient,
-}) async {
-  final session = _Sessions(
-    protocol: protocol,
-    service: service,
-    retryConfig: retryConfig,
-    mockedPostClient: mockedPostClient,
-  );
-
-  return await session.createSession(
-    identifier: identifier,
-    password: password,
-  );
-}
+}) async =>
+    await _Sessions(
+      protocol: protocol,
+      service: service,
+      retryConfig: retryConfig,
+      mockedPostClient: mockedPostClient,
+    ).createSession(identifier: identifier, password: password);
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/refreshSession
 Future<xrpc.XRPCResponse<Session>> refreshSession({
@@ -40,18 +34,13 @@ Future<xrpc.XRPCResponse<Session>> refreshSession({
   required String refreshJwt,
   RetryConfig? retryConfig,
   final xrpc.PostClient? mockedPostClient,
-}) async {
-  final session = _Sessions(
-    protocol: protocol,
-    service: service,
-    retryConfig: retryConfig,
-    mockedPostClient: mockedPostClient,
-  );
-
-  return await session.refreshSession(
-    refreshJwt: refreshJwt,
-  );
-}
+}) async =>
+    await _Sessions(
+      protocol: protocol,
+      service: service,
+      retryConfig: retryConfig,
+      mockedPostClient: mockedPostClient,
+    ).refreshSession(refreshJwt: refreshJwt);
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/deleteSession
 Future<xrpc.XRPCResponse<xrpc.EmptyData>> deleteSession({
@@ -60,18 +49,13 @@ Future<xrpc.XRPCResponse<xrpc.EmptyData>> deleteSession({
   required String refreshJwt,
   RetryConfig? retryConfig,
   final xrpc.PostClient? mockedPostClient,
-}) async {
-  final session = _Sessions(
-    protocol: protocol,
-    service: service,
-    retryConfig: retryConfig,
-    mockedPostClient: mockedPostClient,
-  );
-
-  return await session.deleteSession(
-    refreshJwt: refreshJwt,
-  );
-}
+}) async =>
+    await _Sessions(
+      protocol: protocol,
+      service: service,
+      retryConfig: retryConfig,
+      mockedPostClient: mockedPostClient,
+    ).deleteSession(refreshJwt: refreshJwt);
 
 final class _Sessions {
   /// Returns the new instance of [_Sessions].
@@ -80,16 +64,15 @@ final class _Sessions {
     String? service,
     RetryConfig? retryConfig,
     xrpc.PostClient? mockedPostClient,
-  }) : _ctx = ClientContext(
+  }) : _ctx = ServiceContext(
           protocol: protocol,
           service: service,
-          accessJwt: '',
           timeout: defaultTimeout,
           retryConfig: retryConfig,
           mockedPostClient: mockedPostClient,
         );
 
-  final ClientContext _ctx;
+  final ServiceContext _ctx;
 
   Future<xrpc.XRPCResponse<Session>> createSession({
     required String identifier,

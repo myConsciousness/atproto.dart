@@ -9,8 +9,8 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import '../ids.g.dart' as ids;
 
-final class BlueskyClientContext extends core.ClientContext {
-  BlueskyClientContext({
+final class BlueskyServiceContext extends core.ServiceContext {
+  BlueskyServiceContext({
     required this.atproto,
     super.protocol,
     super.service,

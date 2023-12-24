@@ -26,7 +26,7 @@ import 'entities/subscribed_repo.dart';
 final class SyncService {
   SyncService(this._ctx);
 
-  final core.ClientContext _ctx;
+  final core.ServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos
   Future<core.XRPCResponse<core.Subscription<SubscribedRepo>>> subscribeRepos({

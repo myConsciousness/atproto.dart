@@ -7,15 +7,15 @@ import 'package:atproto/atproto.dart' as atp;
 
 // 🌎 Project imports:
 import 'actor_service.dart';
-import 'context.dart';
 import 'feed_service.dart';
 import 'graph_service.dart';
 import 'notification_service.dart';
+import 'service_context.dart';
 import 'unspecced_service.dart';
 
 sealed class BlueskyService {
   /// Returns the new instance of [BlueskyService].
-  factory BlueskyService(final BlueskyClientContext ctx) = _BlueskyService;
+  factory BlueskyService(final BlueskyServiceContext ctx) = _BlueskyService;
 
   /// Returns the actor service.
   /// This service represents `app.bsky.actor.*`.
@@ -63,7 +63,7 @@ sealed class BlueskyService {
 }
 
 final class _BlueskyService implements BlueskyService {
-  _BlueskyService(final BlueskyClientContext ctx)
+  _BlueskyService(final BlueskyServiceContext ctx)
       : actor = ActorService(ctx),
         feed = FeedService(ctx),
         notification = NotificationService(ctx),

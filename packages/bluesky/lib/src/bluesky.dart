@@ -8,10 +8,10 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import 'services/actor_service.dart';
-import 'services/context.dart';
 import 'services/feed_service.dart';
 import 'services/graph_service.dart';
 import 'services/notification_service.dart';
+import 'services/service_context.dart';
 import 'services/services.dart';
 import 'services/unspecced_service.dart';
 
@@ -161,7 +161,7 @@ final class _Bluesky implements Bluesky {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) : _service = BlueskyService(
-          BlueskyClientContext(
+          BlueskyServiceContext(
             atproto: session == null
                 ? atp.ATProto.anonymous(
                     protocol: protocol,

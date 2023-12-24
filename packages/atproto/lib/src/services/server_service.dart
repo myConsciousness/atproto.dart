@@ -22,7 +22,7 @@ import 'entities/signing_key.dart';
 final class ServerService {
   ServerService(this._ctx);
 
-  final core.ClientContext _ctx;
+  final core.ServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/getSession
   Future<core.XRPCResponse<CurrentSession>> getSession() async =>

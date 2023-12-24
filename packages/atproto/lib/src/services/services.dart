@@ -15,7 +15,7 @@ import 'sync_service.dart';
 
 sealed class ATProtoService {
   /// Returns the new instance of [ATProtoService].
-  factory ATProtoService(final core.ClientContext ctx) = _ATProtoService;
+  factory ATProtoService(final core.ServiceContext ctx) = _ATProtoService;
 
   /// Returns the servers service.
   /// This service represents `com.atproto.server.*`.
@@ -44,7 +44,7 @@ sealed class ATProtoService {
 
 final class _ATProtoService implements ATProtoService {
   /// Returns the new instance of [_ATProtoService].
-  _ATProtoService(final core.ClientContext ctx)
+  _ATProtoService(final core.ServiceContext ctx)
       : server = ServerService(ctx),
         identity = IdentityService(ctx),
         repo = RepoService(ctx),

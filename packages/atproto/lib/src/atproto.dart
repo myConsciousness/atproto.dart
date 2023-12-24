@@ -120,7 +120,7 @@ final class _ATProto implements ATProto {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) : _service = ATProtoService(
-          core.ClientContext(
+          core.ServiceContext(
             protocol: protocol,
             service: service,
             relayService: relayService,

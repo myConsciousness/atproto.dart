@@ -16,8 +16,8 @@ import 'challenge.dart';
 import 'retry_config.dart';
 import 'retry_policy.dart';
 
-base class ClientContext {
-  ClientContext({
+base class ServiceContext {
+  ServiceContext({
     xrpc.Protocol? protocol,
     String? service,
     String? relayService,

@@ -7,17 +7,17 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'context.dart';
 import 'entities/feed.dart';
 import 'entities/feed_generators.dart';
 import 'entities/skeleton_actors_by_query.dart';
 import 'entities/skeleton_feed.dart';
 import 'entities/skeleton_posts_by_query.dart';
+import 'service_context.dart';
 
 final class UnspeccedService {
   UnspeccedService(this._ctx);
 
-  final BlueskyClientContext _ctx;
+  final BlueskyServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getPopular
   @Deprecated('Get a feed generator instead. Will be removed soon')
