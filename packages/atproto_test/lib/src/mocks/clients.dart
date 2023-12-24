@@ -46,10 +46,7 @@ core.GetClient createMockedGetClientFromBytes(
         bytes,
         statusCode,
         headers: {'content-type': 'application/json; charset=utf-8'},
-        request: http.Request(
-          'GET',
-          Uri.parse('https://bsky.social/xrpc/test.get'),
-        ),
+        request: http.Request('GET', url),
       );
 
   return mockedClient;
@@ -93,10 +90,7 @@ core.PostClient createMockedPostClientFromBytes(
         bytes,
         statusCode,
         headers: {'content-type': 'application/json; charset=utf-8'},
-        request: http.Request(
-          'POST',
-          Uri.parse('https://bsky.social/xrpc/test.post'),
-        ),
+        request: http.Request('POST', url),
       );
 
   return mockedClient;
