@@ -14,6 +14,7 @@ import 'services/notification_service.dart';
 import 'services/service_context.dart';
 import 'services/unspecced_service.dart';
 
+/// Provides `app.bsky.*` services.
 sealed class Bluesky {
   /// Returns the new instance of [Bluesky].
   factory Bluesky.fromSession(
@@ -172,7 +173,6 @@ sealed class Bluesky {
 }
 
 final class _Bluesky implements Bluesky {
-  /// Returns the new instance of [_Bluesky].
   _Bluesky(final BlueskyServiceContext ctx)
       : session = ctx.session,
         actor = ActorService(ctx),

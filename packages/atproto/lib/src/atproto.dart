@@ -13,6 +13,7 @@ import 'services/repo_service.dart';
 import 'services/server_service.dart';
 import 'services/sync_service.dart';
 
+/// Provides `com.atproto.*` services.
 sealed class ATProto {
   /// Returns the new instance of [ATProto].
   factory ATProto.fromSession(
@@ -112,7 +113,6 @@ sealed class ATProto {
 }
 
 final class _ATProto implements ATProto {
-  /// Returns the new instance of [_ATProto].
   _ATProto(final core.ServiceContext ctx)
       : session = ctx.session,
         server = ServerService(ctx),
