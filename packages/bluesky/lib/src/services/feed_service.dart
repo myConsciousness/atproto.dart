@@ -38,7 +38,7 @@ final class FeedService {
   final BlueskyServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post
-  Future<core.XRPCResponse<atp.StrongRef>> $post({
+  Future<core.XRPCResponse<atp.StrongRef>> post({
     required String text,
     ReplyRef? reply,
     List<Facet>? facets,
@@ -381,7 +381,7 @@ final class FeedService {
     }
 
     final rootParam = params.removeAt(0);
-    final rootRecord = await $post(
+    final rootRecord = await post(
       text: rootParam.text,
       facets: rootParam.facets,
       embed: rootParam.embed,
@@ -396,7 +396,7 @@ final class FeedService {
 
     var parentRef = rootRecord.data;
     for (final param in params) {
-      parentRef = (await $post(
+      parentRef = (await post(
         text: param.text,
         reply: ReplyRef(
           root: rootRef,
@@ -1450,7 +1450,7 @@ extension FeedServiceExtension on FeedService {
     }
 
     final rootParam = params.removeAt(0);
-    final rootRecord = await $post(
+    final rootRecord = await post(
       text: rootParam.text,
       facets: rootParam.facets,
       embed: rootParam.embed,
@@ -1465,7 +1465,7 @@ extension FeedServiceExtension on FeedService {
 
     var parentRef = rootRecord.data;
     for (final param in params) {
-      parentRef = (await $post(
+      parentRef = (await post(
         text: param.text,
         reply: ReplyRef(
           root: rootRef,

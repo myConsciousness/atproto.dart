@@ -26,7 +26,7 @@ import 'suite/service_suite.dart';
 
 void main() {
   testFeed<atp.StrongRef>(
-    (m, s) => s.$post(text: m.text),
+    (m, s) => s.post(text: m.text),
     bulk: (m, s) => s.postInBulk([PostParam(text: m.text)]),
     id: appBskyFeedPost,
   );

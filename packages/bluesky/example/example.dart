@@ -42,7 +42,7 @@ Future<void> main() async {
     print(feeds);
 
     //! Let's post cool stuff!
-    final createdRecord = await bluesky.feed.$post(
+    final createdRecord = await bluesky.feed.post(
       text: 'Hello, Bluesky!',
     );
 
