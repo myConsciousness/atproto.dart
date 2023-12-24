@@ -39,7 +39,7 @@ void main() {
 
   testFeed<Feed>(
     (m, s) => s.getTimeline(),
-    pagination: (m, s) => s.paginateTimeline(),
+    // pagination: (m, s) => s.paginateTimeline(),
     id: appBskyFeedGetTimeline,
   );
 
@@ -50,25 +50,25 @@ void main() {
 
   testFeed<Feed>(
     (m, s) => s.getAuthorFeed(actor: m.actor),
-    pagination: (m, s) => s.paginateFeed(actor: m.actor),
+    // pagination: (m, s) => s.paginateFeed(actor: m.actor),
     id: appBskyFeedGetAuthorFeed,
   );
 
   testFeed<Feed>(
     (m, s) => s.getFeed(generatorUri: m.uri),
-    pagination: (m, s) => s.paginateCustomFeed(generatorUri: m.uri),
+    // pagination: (m, s) => s.paginateCustomFeed(generatorUri: m.uri),
     id: appBskyFeedGetFeed,
   );
 
   testFeed<SkeletonFeed>(
     (m, s) => s.getFeedSkeleton(generatorUri: m.uri),
-    pagination: (m, s) => s.paginateFeedSkeleton(generatorUri: m.uri),
+    // pagination: (m, s) => s.paginateFeedSkeleton(generatorUri: m.uri),
     id: appBskyFeedGetFeedSkeleton,
   );
 
   testFeed<ActorFeeds>(
     (m, s) => s.getActorFeeds(actor: m.actor),
-    pagination: (m, s) => s.paginateActorFeeds(actor: m.actor),
+    // pagination: (m, s) => s.paginateActorFeeds(actor: m.actor),
     id: appBskyFeedGetActorFeeds,
   );
 
@@ -80,7 +80,7 @@ void main() {
 
   testFeed<RepostedBy>(
     (m, s) => s.getRepostedBy(uri: m.uri),
-    pagination: (m, s) => s.paginateRepostedBy(uri: m.uri),
+    // pagination: (m, s) => s.paginateRepostedBy(uri: m.uri),
     id: appBskyFeedGetRepostedBy,
   );
 
@@ -122,19 +122,19 @@ void main() {
 
   testFeed<Feed>(
     (m, s) => s.getActorLikes(actor: m.actor),
-    pagination: (m, s) => s.paginateActorLikes(actor: m.actor),
+    // pagination: (m, s) => s.paginateActorLikes(actor: m.actor),
     id: appBskyFeedGetActorLikes,
   );
 
   testFeed<FeedGenerators>(
     (m, s) => s.getSuggestedFeeds(),
-    pagination: (m, s) => s.paginateSuggestedFeeds(),
+    // pagination: (m, s) => s.paginateSuggestedFeeds(),
     id: appBskyFeedGetSuggestedFeeds,
   );
 
   testFeed<Feed>(
     (m, s) => s.getListFeed(list: m.uri),
-    pagination: (m, s) => s.paginateListFeed(list: m.uri),
+    // pagination: (m, s) => s.paginateListFeed(list: m.uri),
     id: appBskyFeedGetListFeed,
   );
 
@@ -145,7 +145,7 @@ void main() {
 
   testFeed<PostsByQuery>(
     (m, s) => s.searchPosts(m.query),
-    pagination: (m, s) => s.paginatePostsByQuery(m.query),
+    // pagination: (m, s) => s.paginatePostsByQuery(m.query),
     id: appBskyFeedSearchPosts,
   );
 }

@@ -66,16 +66,6 @@ final class NotificationService {
         to: Notifications.fromJson,
       );
 
-  core.Pagination<Notifications> paginateNotifications({
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateNotifications(
-        limit: limit,
-        cursor: cursor,
-        to: Notifications.fromJson,
-      );
-
   @Deprecated('Use .getUnreadCount instead. Will be removed')
   Future<core.XRPCResponse<Count>> findUnreadCount() async =>
       await _findUnreadCount(to: Count.fromJson);
@@ -114,20 +104,6 @@ final class NotificationService {
     core.To<T>? to,
   }) async =>
       await _ctx.get(
-        ns.appBskyNotificationListNotifications,
-        parameters: _buildListNotificationsParams(
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  core.Pagination<T> _paginateNotifications<T>({
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
         ns.appBskyNotificationListNotifications,
         parameters: _buildListNotificationsParams(
           limit: limit,

@@ -429,18 +429,6 @@ final class FeedService {
         to: Feed.fromJson,
       );
 
-  core.Pagination<Feed> paginateTimeline({
-    String? algorithm,
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateTimeline(
-        algorithm: algorithm,
-        limit: limit,
-        cursor: cursor,
-        to: Feed.fromJson,
-      );
-
   @Deprecated('Use .repost instead. Will be removed')
   Future<core.XRPCResponse<atp.StrongRef>> createRepost({
     required String cid,
@@ -538,20 +526,6 @@ final class FeedService {
         to: Feed.fromJson,
       );
 
-  core.Pagination<Feed> paginateFeed({
-    required String actor,
-    int? limit,
-    String? cursor,
-    FeedFilter? filter,
-  }) =>
-      _paginateFeed(
-        actor: actor,
-        limit: limit,
-        cursor: cursor,
-        filter: filter,
-        to: Feed.fromJson,
-      );
-
   @Deprecated('Use .getFeed instead. Will be removed')
   Future<core.XRPCResponse<Feed>> findCustomFeed({
     required core.AtUri generatorUri,
@@ -559,18 +533,6 @@ final class FeedService {
     String? cursor,
   }) async =>
       await _findCustomFeed(
-        generatorUri: generatorUri,
-        limit: limit,
-        cursor: cursor,
-        to: Feed.fromJson,
-      );
-
-  core.Pagination<Feed> paginateCustomFeed({
-    required core.AtUri generatorUri,
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateCustomFeed(
         generatorUri: generatorUri,
         limit: limit,
         cursor: cursor,
@@ -590,18 +552,6 @@ final class FeedService {
         to: SkeletonFeed.fromJson,
       );
 
-  core.Pagination<SkeletonFeed> paginateFeedSkeleton({
-    required core.AtUri generatorUri,
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateFeedSkeleton(
-        generatorUri: generatorUri,
-        limit: limit,
-        cursor: cursor,
-        to: SkeletonFeed.fromJson,
-      );
-
   @Deprecated('Use .getActorFeeds instead. Will be removed')
   Future<core.XRPCResponse<ActorFeeds>> findActorFeeds({
     required String actor,
@@ -609,18 +559,6 @@ final class FeedService {
     String? cursor,
   }) async =>
       await _findActorFeeds(
-        actor: actor,
-        limit: limit,
-        cursor: cursor,
-        to: ActorFeeds.fromJson,
-      );
-
-  core.Pagination<ActorFeeds> paginateActorFeeds({
-    required String actor,
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateActorFeeds(
         actor: actor,
         limit: limit,
         cursor: cursor,
@@ -642,20 +580,6 @@ final class FeedService {
         to: Likes.fromJson,
       );
 
-  core.Pagination<Likes> paginateLikes({
-    required core.AtUri uri,
-    String? cid,
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateLikes(
-        uri: uri,
-        cid: cid,
-        limit: limit,
-        cursor: cursor,
-        to: Likes.fromJson,
-      );
-
   @Deprecated('Use .getRepostedBy instead. Will be removed')
   Future<core.XRPCResponse<RepostedBy>> findRepostedBy({
     required core.AtUri uri,
@@ -664,20 +588,6 @@ final class FeedService {
     String? cursor,
   }) async =>
       await _findRepostedBy(
-        uri: uri,
-        cid: cid,
-        limit: limit,
-        cursor: cursor,
-        to: RepostedBy.fromJson,
-      );
-
-  core.Pagination<RepostedBy> paginateRepostedBy({
-    required core.AtUri uri,
-    String? cid,
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateRepostedBy(
         uri: uri,
         cid: cid,
         limit: limit,
@@ -793,34 +703,12 @@ final class FeedService {
         to: Feed.fromJson,
       );
 
-  core.Pagination<Feed> paginateActorLikes({
-    required String actor,
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateActorLikes(
-        actor: actor,
-        limit: limit,
-        cursor: cursor,
-        to: Feed.fromJson,
-      );
-
   @Deprecated('Use .getSuggestedFeeds instead. Will be removed')
   Future<core.XRPCResponse<FeedGenerators>> findSuggestedFeeds({
     int? limit,
     String? cursor,
   }) async =>
       await _findSuggestedFeeds(
-        limit: limit,
-        cursor: cursor,
-        to: FeedGenerators.fromJson,
-      );
-
-  core.Pagination<FeedGenerators> paginateSuggestedFeeds({
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateSuggestedFeeds(
         limit: limit,
         cursor: cursor,
         to: FeedGenerators.fromJson,
@@ -858,18 +746,6 @@ final class FeedService {
         to: Feed.fromJson,
       );
 
-  core.Pagination<Feed> paginateListFeed({
-    required core.AtUri list,
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateListFeed(
-        list: list,
-        limit: limit,
-        cursor: cursor,
-        to: Feed.fromJson,
-      );
-
   @Deprecated('Use .searchPosts instead. Will be removed')
   Future<core.XRPCResponse<PostsByQuery>> searchPostsByQuery(
     final String query, {
@@ -877,18 +753,6 @@ final class FeedService {
     String? cursor,
   }) async =>
       await _searchPostsByQuery(
-        query: query,
-        limit: limit,
-        cursor: cursor,
-        to: PostsByQuery.fromJson,
-      );
-
-  core.Pagination<PostsByQuery> paginatePostsByQuery(
-    final String query, {
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginatePostsByQuery(
         query: query,
         limit: limit,
         cursor: cursor,
@@ -911,22 +775,6 @@ final class FeedService {
         to: to,
       );
 
-  core.Pagination<T> _paginateListFeed<T>({
-    required core.AtUri list,
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
-        ns.appBskyFeedGetListFeed,
-        parameters: _buildGetListFeedParams(
-          list: list,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
   Future<core.XRPCResponse<T>> _findTimeline<T>({
     required String? algorithm,
     required int? limit,
@@ -934,22 +782,6 @@ final class FeedService {
     core.To<T>? to,
   }) async =>
       await _ctx.get(
-        ns.appBskyFeedGetTimeline,
-        parameters: _buildGetTimelineParams(
-          algorithm: algorithm,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  core.Pagination<T> _paginateTimeline<T>({
-    required String? algorithm,
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
         ns.appBskyFeedGetTimeline,
         parameters: _buildGetTimelineParams(
           algorithm: algorithm,
@@ -977,24 +809,6 @@ final class FeedService {
         to: to,
       );
 
-  core.Pagination<T> _paginateFeed<T>({
-    required String actor,
-    required int? limit,
-    required String? cursor,
-    required FeedFilter? filter,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
-        ns.appBskyFeedGetAuthorFeed,
-        parameters: _buildGetAuthorFeedParams(
-          actor: actor,
-          limit: limit,
-          cursor: cursor,
-          filter: filter,
-        ),
-        to: to,
-      );
-
   Future<core.XRPCResponse<T>> _findCustomFeed<T>({
     required core.AtUri generatorUri,
     required int? limit,
@@ -1002,22 +816,6 @@ final class FeedService {
     core.To<T>? to,
   }) async =>
       await _ctx.get(
-        ns.appBskyFeedGetFeed,
-        parameters: _buildGetFeedParams(
-          generatorUri: generatorUri,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  core.Pagination<T> _paginateCustomFeed<T>({
-    required core.AtUri generatorUri,
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
         ns.appBskyFeedGetFeed,
         parameters: _buildGetFeedParams(
           generatorUri: generatorUri,
@@ -1043,22 +841,6 @@ final class FeedService {
         to: to,
       );
 
-  core.Pagination<T> _paginateFeedSkeleton<T>({
-    required core.AtUri generatorUri,
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
-        ns.appBskyFeedGetFeedSkeleton,
-        parameters: _buildGetFeedSkeletonParams(
-          generatorUri: generatorUri,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
   Future<core.XRPCResponse<T>> _findActorFeeds<T>({
     required String actor,
     required int? limit,
@@ -1066,22 +848,6 @@ final class FeedService {
     core.To<T>? to,
   }) async =>
       await _ctx.get(
-        ns.appBskyFeedGetActorFeeds,
-        parameters: _buildGetActorFeedsParams(
-          actor: actor,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  core.Pagination<T> _paginateActorFeeds<T>({
-    required String actor,
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
         ns.appBskyFeedGetActorFeeds,
         parameters: _buildGetActorFeedsParams(
           actor: actor,
@@ -1109,24 +875,6 @@ final class FeedService {
         to: to,
       );
 
-  core.Pagination<T> _paginateLikes<T>({
-    required core.AtUri uri,
-    required String? cid,
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
-        ns.appBskyFeedGetLikes,
-        parameters: _buildGetLikes(
-          uri: uri,
-          cid: cid,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
   Future<core.XRPCResponse<T>> _findRepostedBy<T>({
     required core.AtUri uri,
     required String? cid,
@@ -1135,24 +883,6 @@ final class FeedService {
     core.To<T>? to,
   }) async =>
       await _ctx.get(
-        ns.appBskyFeedGetRepostedBy,
-        parameters: _buildGetRepostedBy(
-          uri: uri,
-          cid: cid,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  core.Pagination<T> _paginateRepostedBy<T>({
-    required core.AtUri uri,
-    required String? cid,
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
         ns.appBskyFeedGetRepostedBy,
         parameters: _buildGetRepostedBy(
           uri: uri,
@@ -1239,42 +969,12 @@ final class FeedService {
         to: to,
       );
 
-  core.Pagination<T> _paginateActorLikes<T>({
-    required String actor,
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
-        ns.appBskyFeedGetActorLikes,
-        parameters: _buildGetActorLikes(
-          actor: actor,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
   Future<core.XRPCResponse<T>> _findSuggestedFeeds<T>({
     required int? limit,
     required String? cursor,
     core.To<T>? to,
   }) async =>
       await _ctx.get(
-        ns.appBskyFeedGetSuggestedFeeds,
-        parameters: _buildGetSuggestedFeeds(
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  core.Pagination<T> _paginateSuggestedFeeds<T>({
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
         ns.appBskyFeedGetSuggestedFeeds,
         parameters: _buildGetSuggestedFeeds(
           limit: limit,
@@ -1290,22 +990,6 @@ final class FeedService {
     core.To<T>? to,
   }) async =>
       await _ctx.get(
-        ns.appBskyFeedSearchPosts,
-        parameters: _buildSearchPostsParams(
-          query: query,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  core.Pagination<T> _paginatePostsByQuery<T>({
-    required String query,
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
         ns.appBskyFeedSearchPosts,
         parameters: _buildSearchPostsParams(
           query: query,

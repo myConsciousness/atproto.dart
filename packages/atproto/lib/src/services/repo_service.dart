@@ -175,26 +175,6 @@ final class RepoService {
         to: Records.fromJson,
       );
 
-  core.Pagination<Records> paginateRecords({
-    required String repo,
-    required core.NSID collection,
-    int? limit,
-    bool? reverse,
-    String? rkeyStart,
-    String? rkeyEnd,
-    String? cursor,
-  }) =>
-      _paginateRecords(
-        repo: repo,
-        collection: collection,
-        limit: limit,
-        reverse: reverse,
-        rkeyStart: rkeyStart,
-        rkeyEnd: rkeyEnd,
-        cursor: cursor,
-        to: Records.fromJson,
-      );
-
   @Deprecated('Use .putRecord instead. Will be removed')
   Future<core.XRPCResponse<StrongRef>> updateRecord({
     required core.AtUri uri,
@@ -317,30 +297,6 @@ final class RepoService {
     core.To<T>? to,
   }) async =>
       await _ctx.get(
-        ns.comAtprotoRepoListRecords,
-        parameters: _buildListRecordsParam(
-          repo: repo,
-          collection: collection,
-          limit: limit,
-          reverse: reverse,
-          rkeyStart: rkeyStart,
-          rkeyEnd: rkeyEnd,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  core.Pagination<T> _paginateRecords<T>({
-    required String repo,
-    required core.NSID collection,
-    required int? limit,
-    required bool? reverse,
-    required String? rkeyStart,
-    required String? rkeyEnd,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
         ns.comAtprotoRepoListRecords,
         parameters: _buildListRecordsParam(
           repo: repo,

@@ -30,13 +30,13 @@ void main() {
 
   testGraph<Follows>(
     (m, s) => s.getFollows(actor: m.actor),
-    pagination: (m, s) => s.paginateFollows(actor: m.actor),
+    // pagination: (m, s) => s.paginateFollows(actor: m.actor),
     id: appBskyGraphGetFollows,
   );
 
   testGraph<Followers>(
     (m, s) => s.getFollowers(actor: m.actor),
-    pagination: (m, s) => s.paginateFollowers(actor: m.actor),
+    // pagination: (m, s) => s.paginateFollowers(actor: m.actor),
     id: appBskyGraphGetFollowers,
   );
 
@@ -52,13 +52,13 @@ void main() {
 
   testGraph<Mutes>(
     (m, s) => s.getMutes(),
-    pagination: (m, s) => s.paginateMutes(),
+    // pagination: (m, s) => s.paginateMutes(),
     id: appBskyGraphGetMutes,
   );
 
   testGraph<Blocks>(
     (m, s) => s.getBlocks(),
-    pagination: (m, s) => s.paginateBlocks(),
+    // pagination: (m, s) => s.paginateBlocks(),
     id: appBskyGraphGetBlocks,
   );
 
@@ -93,19 +93,19 @@ void main() {
 
   testGraph<Lists>(
     (m, s) => s.getLists(actor: m.actor),
-    pagination: (m, s) => s.paginateLists(actor: m.actor),
+    // pagination: (m, s) => s.paginateLists(actor: m.actor),
     id: appBskyGraphGetLists,
   );
 
   testGraph<Lists>(
     (m, s) => s.getListBlocks(),
-    pagination: (m, s) => s.paginateBlockLists(),
+    // pagination: (m, s) => s.paginateBlockLists(),
     id: appBskyGraphGetListBlocks,
   );
 
   testGraph<ListItems>(
     (m, s) => s.getList(list: m.uri),
-    pagination: (m, s) => s.paginateListItems(list: m.uri),
+    // pagination: (m, s) => s.paginateListItems(list: m.uri),
     id: appBskyGraphGetList,
   );
 
@@ -122,7 +122,7 @@ void main() {
 
   testGraph<Lists>(
     (m, s) => s.getListMutes(),
-    pagination: (m, s) => s.paginateMutingLists(),
+    // pagination: (m, s) => s.paginateMutingLists(),
     id: appBskyGraphGetListMutes,
   );
 

@@ -11,7 +11,6 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 
 // 🌎 Project imports:
 import '../const.dart';
-import '../paginations/pagination.dart';
 import '../sessions/session.dart';
 import 'challenge.dart';
 import 'retry_config.dart';
@@ -72,24 +71,24 @@ base class ServiceContext {
         ),
       );
 
-  Pagination<T> paginate<T>(
-    final xrpc.NSID methodId, {
-    required final Map<String, dynamic> parameters,
-    final xrpc.To<T>? to,
-    final xrpc.ResponseAdaptor? adaptor,
-  }) =>
-      Pagination(
-        _challenge,
-        methodId,
-        protocol: _protocol,
-        service: _service,
-        headers: _getHeaders(),
-        parameters: parameters,
-        to: to,
-        adaptor: adaptor,
-        timeout: _timeout,
-        getClient: _mockedGetClient,
-      );
+  // Pagination<T> paginate<T>(
+  //   final xrpc.NSID methodId, {
+  //   required final Map<String, dynamic> parameters,
+  //   final xrpc.To<T>? to,
+  //   final xrpc.ResponseAdaptor? adaptor,
+  // }) =>
+  //     Pagination(
+  //       _challenge,
+  //       methodId,
+  //       protocol: _protocol,
+  //       service: _service,
+  //       headers: _getHeaders(),
+  //       parameters: parameters,
+  //       to: to,
+  //       adaptor: adaptor,
+  //       timeout: _timeout,
+  //       getClient: _mockedGetClient,
+  //     );
 
   Future<xrpc.XRPCResponse<T>> post<T>(
     final xrpc.NSID methodId, {

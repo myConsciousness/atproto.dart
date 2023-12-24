@@ -99,18 +99,6 @@ final class UnspeccedService {
         to: Feed.fromJson,
       );
 
-  core.Pagination<Feed> paginatePopularFeed({
-    bool? includeNsfw,
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginatePopularFeed(
-        includeNsfw: includeNsfw,
-        limit: limit,
-        cursor: cursor,
-        to: Feed.fromJson,
-      );
-
   @Deprecated('Use .getPopularFeedGenerators instead. Will be removed')
   Future<core.XRPCResponse<FeedGenerators>> findPopularFeedGenerators({
     int? limit,
@@ -118,18 +106,6 @@ final class UnspeccedService {
     String? query,
   }) async =>
       await _findPopularFeedGenerators(
-        limit: limit,
-        cursor: cursor,
-        query: query,
-        to: FeedGenerators.fromJson,
-      );
-
-  core.Pagination<FeedGenerators> paginatePopularFeedGenerators({
-    int? limit,
-    String? cursor,
-    String? query,
-  }) =>
-      _paginatePopularFeedGenerators(
         limit: limit,
         cursor: cursor,
         query: query,
@@ -147,17 +123,6 @@ final class UnspeccedService {
         to: SkeletonFeed.fromJson,
       );
 
-  core.Pagination<SkeletonFeed> paginateTimelineSkeleton({
-    int? limit,
-    String? cursor,
-    String? query,
-  }) =>
-      _paginateTimelineSkeleton(
-        limit: limit,
-        cursor: cursor,
-        to: SkeletonFeed.fromJson,
-      );
-
   @Deprecated('Use .searchPostsSkeleton instead. Will be removed')
   Future<core.XRPCResponse<SkeletonPostsByQuery>> searchPostsByQuerySkeleton(
     final String query, {
@@ -165,18 +130,6 @@ final class UnspeccedService {
     String? cursor,
   }) async =>
       await _searchPostsByQuerySkeleton(
-        query: query,
-        limit: limit,
-        cursor: cursor,
-        to: SkeletonPostsByQuery.fromJson,
-      );
-
-  core.Pagination<SkeletonPostsByQuery> paginatePostsByQuerySkeleton(
-    final String query, {
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginatePostsByQuerySkeleton(
         query: query,
         limit: limit,
         cursor: cursor,
@@ -198,20 +151,6 @@ final class UnspeccedService {
         to: SkeletonActorsByQuery.fromJson,
       );
 
-  core.Pagination<SkeletonActorsByQuery> paginateActorsByQuerySkeleton(
-    final String query, {
-    bool? typeahead,
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateActorsByQuerySkeleton(
-        query: query,
-        typeahead: typeahead,
-        limit: limit,
-        cursor: cursor,
-        to: SkeletonActorsByQuery.fromJson,
-      );
-
   Future<core.XRPCResponse<T>> _findPopularFeed<T>({
     required bool? includeNsfw,
     required int? limit,
@@ -219,22 +158,6 @@ final class UnspeccedService {
     core.To<T>? to,
   }) async =>
       await _ctx.get(
-        ns.appBskyUnspeccedGetPopular,
-        parameters: _buildGetPopular(
-          includeNsfw: includeNsfw,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  core.Pagination<T> _paginatePopularFeed<T>({
-    required bool? includeNsfw,
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
         ns.appBskyUnspeccedGetPopular,
         parameters: _buildGetPopular(
           includeNsfw: includeNsfw,
@@ -260,42 +183,12 @@ final class UnspeccedService {
         to: to,
       );
 
-  core.Pagination<T> _paginatePopularFeedGenerators<T>({
-    required int? limit,
-    required String? cursor,
-    required String? query,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
-        ns.appBskyUnspeccedGetPopularFeedGenerators,
-        parameters: _buildGetPopularFeedGenerators(
-          limit: limit,
-          cursor: cursor,
-          query: query,
-        ),
-        to: to,
-      );
-
   Future<core.XRPCResponse<T>> _findTimelineSkeleton<T>({
     required int? limit,
     required String? cursor,
     core.To<T>? to,
   }) async =>
       await _ctx.get(
-        ns.appBskyUnspeccedGetTimelineSkeleton,
-        parameters: _buildGetTimelineSkeleton(
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  core.Pagination<T> _paginateTimelineSkeleton<T>({
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
         ns.appBskyUnspeccedGetTimelineSkeleton,
         parameters: _buildGetTimelineSkeleton(
           limit: limit,
@@ -320,22 +213,6 @@ final class UnspeccedService {
         to: to,
       );
 
-  core.Pagination<T> _paginatePostsByQuerySkeleton<T>({
-    required String query,
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
-        ns.appBskyUnspeccedSearchPostsSkeleton,
-        parameters: _buildSearchPostsSkeletonParams(
-          query: query,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
   Future<core.XRPCResponse<T>> _searchActorsByQuerySkeleton<T>({
     required String query,
     required bool? typeahead,
@@ -344,24 +221,6 @@ final class UnspeccedService {
     core.To<T>? to,
   }) async =>
       await _ctx.get(
-        ns.appBskyUnspeccedSearchActorsSkeleton,
-        parameters: _buildSearchActorsSkeletonParams(
-          query: query,
-          typeahead: typeahead,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  core.Pagination<T> _paginateActorsByQuerySkeleton<T>({
-    required String query,
-    required bool? typeahead,
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
         ns.appBskyUnspeccedSearchActorsSkeleton,
         parameters: _buildSearchActorsSkeletonParams(
           query: query,

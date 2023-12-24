@@ -54,7 +54,7 @@ void main() {
 
   testSync<Repos>(
     (m, s) => s.listRepos(),
-    pagination: (m, s) => s.paginateRepos(),
+    // pagination: (m, s) => s.paginateRepos(),
     id: comAtprotoSyncListRepos,
   );
 
@@ -77,7 +77,7 @@ void main() {
 
   testSync<BlobRefs>(
     (m, s) => s.listBlobs(did: m.did),
-    pagination: (m, s) => s.paginateBlobs(did: m.did),
+    // pagination: (m, s) => s.paginateBlobs(did: m.did),
     id: comAtprotoSyncListBlobs,
   );
 }
