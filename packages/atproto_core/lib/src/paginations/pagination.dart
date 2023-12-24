@@ -62,7 +62,7 @@ final class Pagination<T> {
   /// It returns a `Future` of `XRPCResponse<T>`.
   Future<xrpc.XRPCResponse<T>> next() async {
     final next = await _challenge.execute(
-      (client) async => await client.get(
+      () async => await xrpc.query(
         _methodId,
         protocol: _protocol,
         service: _service,

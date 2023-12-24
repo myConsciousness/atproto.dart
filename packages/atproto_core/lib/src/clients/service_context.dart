@@ -44,7 +44,7 @@ base class ServiceContext {
   final Duration _timeout;
 
   /// The communication protocol.
-  final xrpc.Protocol? _protocol;
+  final xrpc.Protocol _protocol;
 
   final String _service;
   final String _relayService;
@@ -59,7 +59,7 @@ base class ServiceContext {
     final xrpc.ResponseAdaptor? adaptor,
   }) async =>
       await _challenge.execute(
-        (client) async => await client.get(
+        () async => await xrpc.query(
           methodId,
           protocol: _protocol,
           service: _service,
@@ -98,7 +98,7 @@ base class ServiceContext {
     final xrpc.To<T>? to,
   }) async =>
       await _challenge.execute(
-        (client) async => await client.post(
+        () async => await xrpc.procedure(
           methodId,
           protocol: _protocol,
           service: _service,
@@ -117,7 +117,7 @@ base class ServiceContext {
     final xrpc.To<T>? to,
   }) async =>
       await _challenge.execute(
-        (client) async => await client.upload(
+        () async => await xrpc.upload(
           methodId,
           bytes,
           protocol: _protocol,
@@ -136,7 +136,7 @@ base class ServiceContext {
     final xrpc.ResponseAdaptor? adaptor,
   }) async =>
       await _challenge.execute(
-        (client) => client.stream(
+        () => xrpc.subscribe(
           methodId,
           service: _relayService,
           parameters: parameters,

@@ -10,7 +10,6 @@ import 'package:universal_io/io.dart';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // 🌎 Project imports:
-import 'client.dart';
 import 'retry_policy.dart';
 
 final class Challenge {
@@ -21,26 +20,26 @@ final class Challenge {
   final RetryPolicy _retryPolicy;
 
   dynamic execute(
-    final dynamic Function(XrpcClient client) action, {
+    final dynamic Function() action, {
     int retryCount = 0,
   }) async {
     try {
-      return await action.call(xrpcClient);
+      return await action.call();
     } on SocketException {
       if (_retryPolicy.shouldRetry(retryCount)) {
-        return await _retry(xrpcClient, action, retryCount: ++retryCount);
+        return await _retry(action, retryCount: ++retryCount);
       }
 
       rethrow;
     } on TimeoutException {
       if (_retryPolicy.shouldRetry(retryCount)) {
-        return await _retry(xrpcClient, action, retryCount: ++retryCount);
+        return await _retry(action, retryCount: ++retryCount);
       }
 
       rethrow;
     } on xrpc.InternalServerErrorException {
       if (_retryPolicy.shouldRetry(retryCount)) {
-        return await _retry(xrpcClient, action, retryCount: ++retryCount);
+        return await _retry(action, retryCount: ++retryCount);
       }
 
       rethrow;
@@ -48,8 +47,7 @@ final class Challenge {
   }
 
   dynamic _retry(
-    final XrpcClient client,
-    final dynamic Function(XrpcClient client) action, {
+    final dynamic Function() action, {
     int retryCount = 0,
   }) async {
     await _retryPolicy.wait(retryCount);
