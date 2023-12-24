@@ -261,53 +261,6 @@ Future<void> main() async {
 }
 ```
 
-### Standardized Names
-
-The methods corresponding to each endpoint accessible from **[bluesky](https://pub.dev/packages/bluesky)** are given a **_standardized prefix_** according to the characteristics of the endpoint.
-This way, you do not have to frantically search for the corresponding method for the endpoint you want to use.
-You can always find the method you want to use by typing the prefix in the following table for each service object.
-
-| Prefix         | Description                                                                                             |
-| -------------- | ------------------------------------------------------------------------------------------------------- |
-| **.find**      | This prefix is attached to endpoints that reference post etc.                                           |
-| **.search**    | This prefix is attached to endpoints that perform extensive searches.                                   |
-| **.paginate**  | This prefix is attached to pagination available endpoints and provides utilities related to pagination. |
-| **.subscribe** | This prefix is attached to endpoints with high-performance streaming.                                   |
-| **.create**    | This prefix is attached to the endpoint performing the create state.                                    |
-| **.refresh**   | This prefix is attached to the endpoint performing the refresh state.                                   |
-| **.delete**    | This prefix is attached to the endpoint performing the delete state.                                    |
-| **.update**    | This prefix is attached to the endpoint performing the update state.                                    |
-| **.upload**    | This prefix is attached to the endpoint performing the upload contents.                                 |
-| **.request**   | This prefix is attached to the endpoint performing the request via email.                               |
-| **.notify**    | This prefix is attached to the endpoint used for the purpose of notifying the server of updates.        |
-| **.confirm**   | This prefix is attached to the endpoint performing the confirm state such an email.                     |
-
-:::tip
-For example, if you want to `find` a specific record using **[bluesky](https://pub.dev/packages/bluesky)**, you would type the following for the `GraphsService`.
-
-```dart
-import 'package:bluesky/bluesky.dart' as bsky;
-
-Future<void> main() async {
-  final session = await bsky.createSession(
-    identifier: 'YOUR_HANDLE_OR_EMAIL',
-    password: 'YOUR_PASSWORD',
-  );
-
-  final bluesky = bsky.Bluesky.fromSession(
-    session.data,
-  );
-
-  // See this line.
-  await bluesky.graph.find
-}
-```
-
-As you can see, the above code is still incomplete, but you will get the following a collection of suggestions for `find` actions once you type `.find`.
-
-![find_suggestions](https://github.com/myConsciousness/atproto.dart/assets/13072231/35d7e48d-b5af-4b7a-82e1-0fe3408e17ce)
-:::
-
 ### Other Than `bsky.social`
 
 The endpoints provided by **[bluesky](https://pub.dev/packages/bluesky)** always access `bsky.social` by default. But as you know, certain services such as Bluesky, built on the AT Protocol, are **distributed services**. In other words, there must be a way to access services other than `bsky.social` as needed.
@@ -797,10 +750,6 @@ Future<void> main() async {
 As you can see from the above code, you can get a pagination specific **[Pagination](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination-class.html)** object by using the `.paginate` prefix method.
 Not only the above example, but any method prefixed with `.paginate` will **_always_** return a **[Pagination](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination-class.html)** object.
 In other words, the methods of the `.paginate` prefix can be used to easily handle pagination in a common interface using the **[Pagination](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination-class.html)** object.
-
-:::info
-Read **[this section](#standardized-names)** for an explanation of **_standardized names_**.
-:::
 
 The interface of the **[Pagination](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination-class.html)** object is very simple, and paging can be performed simply with following operations.
 

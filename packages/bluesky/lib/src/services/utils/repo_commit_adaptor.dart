@@ -26,7 +26,7 @@ import '../entities/post_record.dart';
 import '../entities/profile_record.dart';
 import '../entities/repost_record.dart';
 import '../entities/threadgate_record.dart';
-import '../extensions/at_uri_extension.dart';
+import '../extensions/at_uri.dart';
 
 /// Action on create records.
 typedef RepoCommitOnCreate<T> = FutureOr<void> Function(

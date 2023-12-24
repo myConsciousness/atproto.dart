@@ -23,38 +23,38 @@ void main() {
   );
 
   testActor<ActorProfile>(
-    (m, s) => s.findProfile(actor: m.actor),
+    (m, s) => s.getProfile(actor: m.actor),
     id: appBskyActorGetProfile,
   );
 
   testActor<ActorProfiles>(
-    (m, s) => s.findProfiles(actors: [m.actor]),
+    (m, s) => s.getProfiles(actors: [m.actor]),
     id: appBskyActorGetProfiles,
   );
 
   testActor<Actors>(
-    (m, s) => s.findSuggestions(),
+    (m, s) => s.getSuggestions(),
     pagination: (m, s) => s.paginateSuggestions(),
     id: appBskyActorGetSuggestions,
   );
 
   testActor<ActorsTypeahead>(
-    (m, s) => s.searchTypeahead(term: m.query),
+    (m, s) => s.searchActorsTypeahead(term: m.query),
     id: appBskyActorSearchActorsTypeahead,
   );
 
   testActor<atp.StrongRef>(
-    (m, s) => s.updateProfile(),
+    (m, s) => s.profile(),
     id: appBskyActorProfile,
   );
 
   testActor<Preferences>(
-    (m, s) => s.findPreferences(),
+    (m, s) => s.getPreferences(),
     id: appBskyActorGetPreferences,
   );
 
   testActor<core.EmptyData>(
-    (m, s) => s.updatePreferences([]),
+    (m, s) => s.putPreferences([]),
     id: appBskyActorPutPreferences,
   );
 }

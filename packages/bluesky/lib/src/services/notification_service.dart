@@ -3,149 +3,59 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'base_service.dart';
 import 'entities/count.dart';
 import 'entities/notifications.dart';
+import 'service_context.dart';
 
 /// Represents `app.bsky.notification.*` service.
-sealed class NotificationService {
-  /// Returns the new instance of [NotificationService].
-  factory NotificationService({
-    required atp.ATProto atproto,
-    required String did,
-    required core.Protocol protocol,
-    required String service,
-    required core.ClientContext context,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  }) =>
-      _NotificationService(
-        atproto: atproto,
-        did: did,
-        protocol: protocol,
-        service: service,
-        context: context,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
+final class NotificationService {
+  NotificationService(this._ctx);
+
+  final BlueskyServiceContext _ctx;
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listNotifications
+  Future<core.XRPCResponse<Notifications>> listNotifications({
+    int? limit,
+    String? cursor,
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findNotifications(
+        limit: limit,
+        cursor: cursor,
       );
 
-  /// Returns notifications authenticated user received.
-  ///
-  /// ## Parameters
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.notification.listNotifications
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/listNotifications.json
-  Future<core.XRPCResponse<Notifications>> findNotifications({
-    int? limit,
-    String? cursor,
-  });
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getUnreadCount
+  Future<core.XRPCResponse<Count>> getUnreadCount() async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findUnreadCount();
 
-  /// Returns a pagination for notifications authenticated user received.
-  ///
-  /// ## Parameters
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.notification.listNotifications
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/listNotifications.json
-  core.Pagination<Notifications> paginateNotifications({
-    int? limit,
-    String? cursor,
-  });
-
-  /// Returns unread notifications count.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.notification.getUnreadCount
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/getUnreadCount.json
-  Future<core.XRPCResponse<Count>> findUnreadCount();
-
-  /// Notify server that the user has seen notifications.
-  ///
-  /// ## Parameters
-  ///
-  /// - [seenAt]: The date time the notification was read.
-  ///             If omitted, defaults to the current time.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.notification.updateSeen
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/updateSeen.json
-  Future<core.XRPCResponse<core.EmptyData>> updateNotificationsAsRead({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/updateSeen
+  Future<core.XRPCResponse<core.EmptyData>> updateSeen({
     DateTime? seenAt,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await updateNotificationsAsRead(seenAt: seenAt);
 
-  /// Register for push notifications with a service.
-  ///
-  /// ## Parameters
-  ///
-  /// - [serviceDid]: The DID for a service to be registered.
-  ///
-  /// - [token]: Authentication token for push notifications.
-  ///
-  /// - [platform]: A platform of an application.
-  ///
-  /// - [appId]: The ID of an application.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.notification.registerPush
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/registerPush.json
-  Future<core.XRPCResponse<core.EmptyData>> createPushRegistration({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/registerPush
+  Future<core.XRPCResponse<core.EmptyData>> registerPush({
     required String serviceDid,
     required String token,
     required core.Platform platform,
     required String appId,
-  });
-}
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await createPushRegistration(
+        serviceDid: serviceDid,
+        token: token,
+        platform: platform,
+        appId: appId,
+      );
 
-final class _NotificationService extends BlueskyBaseService
-    implements NotificationService {
-  /// Returns the new instance of [_NotificationService].
-  _NotificationService({
-    required super.atproto,
-    required super.did,
-    required super.protocol,
-    required super.service,
-    required super.context,
-    super.mockedGetClient,
-    super.mockedPostClient,
-  });
-
-  @override
+  @Deprecated('Use .listNotifications instead. Will be removed')
   Future<core.XRPCResponse<Notifications>> findNotifications({
     int? limit,
     String? cursor,
@@ -156,7 +66,6 @@ final class _NotificationService extends BlueskyBaseService
         to: Notifications.fromJson,
       );
 
-  @override
   core.Pagination<Notifications> paginateNotifications({
     int? limit,
     String? cursor,
@@ -167,29 +76,29 @@ final class _NotificationService extends BlueskyBaseService
         to: Notifications.fromJson,
       );
 
-  @override
+  @Deprecated('Use .getUnreadCount instead. Will be removed')
   Future<core.XRPCResponse<Count>> findUnreadCount() async =>
       await _findUnreadCount(to: Count.fromJson);
 
-  @override
+  @Deprecated('Use .updateSeen instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> updateNotificationsAsRead({
     DateTime? seenAt,
   }) async =>
-      await super.post<core.EmptyData>(
+      await _ctx.post<core.EmptyData>(
         ns.appBskyNotificationUpdateSeen,
         body: {
-          'seenAt': toUtcIso8601String(seenAt),
+          'seenAt': _ctx.toUtcIso8601String(seenAt),
         },
       );
 
-  @override
+  @Deprecated('Use .registerPush instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createPushRegistration({
     required String serviceDid,
     required String token,
     required core.Platform platform,
     required String appId,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.appBskyNotificationRegisterPush,
         body: {
           'serviceDid': serviceDid,
@@ -204,7 +113,7 @@ final class _NotificationService extends BlueskyBaseService
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyNotificationListNotifications,
         parameters: _buildListNotificationsParams(
           limit: limit,
@@ -218,7 +127,7 @@ final class _NotificationService extends BlueskyBaseService
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyNotificationListNotifications,
         parameters: _buildListNotificationsParams(
           limit: limit,
@@ -230,7 +139,7 @@ final class _NotificationService extends BlueskyBaseService
   Future<core.XRPCResponse<T>> _findUnreadCount<T>({
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyNotificationGetUnreadCount,
         to: to,
       );

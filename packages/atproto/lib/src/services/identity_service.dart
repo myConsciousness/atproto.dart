@@ -7,77 +7,22 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'base_service.dart';
 import 'entities/did.dart';
 
 /// Represents `com.atproto.identity.*` service.
-sealed class IdentityService {
-  /// Returns the new instance of [IdentityService].
-  factory IdentityService({
-    required String did,
-    required core.Protocol protocol,
-    required String service,
-    required core.ClientContext context,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  }) =>
-      _IdentityService(
-        did: did,
-        protocol: protocol,
-        service: service,
-        context: context,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
+final class IdentityService {
+  IdentityService(this._ctx);
 
-  /// Provides the DID of a repo.
-  ///
-  /// ## Parameters
-  ///
-  /// - [handle]: The handle to resolve.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.identity.resolveHandle
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/identity/resolveHandle.json
-  Future<core.XRPCResponse<DID>> findDID({
+  final core.ServiceContext _ctx;
+
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle
+  Future<core.XRPCResponse<DID>> resolveHandle({
     required String handle,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findDID(handle: handle);
 
-  /// Updates the handle of the account.
-  ///
-  /// ## Parameters
-  ///
-  /// - [handle]: The handle to be updated.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.identity.updateHandle
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/identity/updateHandle.json
-  Future<core.XRPCResponse<core.EmptyData>> updateHandle({
-    required String handle,
-  });
-}
-
-final class _IdentityService extends ATProtoBaseService
-    implements IdentityService {
-  /// Returns the new instance of [_IdentityService].
-  _IdentityService({
-    required super.did,
-    required super.protocol,
-    required super.service,
-    required super.context,
-    super.mockedGetClient,
-    super.mockedPostClient,
-  });
-
-  @override
+  @Deprecated('Use .resolveHandle instead. Will be removed')
   Future<core.XRPCResponse<DID>> findDID({
     required String handle,
   }) async =>
@@ -86,11 +31,10 @@ final class _IdentityService extends ATProtoBaseService
         to: DID.fromJson,
       );
 
-  @override
   Future<core.XRPCResponse<core.EmptyData>> updateHandle({
     required String handle,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.comAtprotoIdentityUpdateHandle,
         body: {
           'handle': handle,
@@ -101,7 +45,7 @@ final class _IdentityService extends ATProtoBaseService
     required String handle,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.comAtprotoIdentityResolveHandle,
         parameters: {
           'handle': handle,

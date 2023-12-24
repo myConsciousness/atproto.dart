@@ -96,7 +96,6 @@ See **[official documents](https://atprotodart.com/docs/packages/bluesky)** from
 
 - **[Session Management](https://atprotodart.com/docs/packages/bluesky#session-management)**
 - **[App Password](https://atprotodart.com/docs/packages/bluesky#app-password)**
-- **[Standardized Names](https://atprotodart.com/docs/packages/bluesky#standardized-names)**
 - **[Other Than `bsky.social`](https://atprotodart.com/docs/packages/bluesky#other-than-bskysocial)**
 - **[De/Serialize](https://atprotodart.com/docs/packages/bluesky#deserialize)**
 - **[Thrown Exceptions](https://atprotodart.com/docs/packages/bluesky/#thrown-exceptions)**

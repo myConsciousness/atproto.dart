@@ -7,102 +7,47 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'base_service.dart';
 import 'entities/adaptor/subscribe_label_updates_adaptor.dart';
 import 'entities/labels_by_query.dart';
 import 'entities/subscribed_label.dart';
 
 /// Represents `com.atproto.label.*` service.
-sealed class LabelService {
-  /// Returns the new instance of [LabelService].
-  factory LabelService({
-    required String did,
-    required core.Protocol protocol,
-    required String service,
-    required String relayService,
-    required core.ClientContext context,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  }) =>
-      _LabelService(
-        did: did,
-        protocol: protocol,
-        service: service,
-        relayService: relayService,
-        context: context,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
+final class LabelService {
+  LabelService(this._ctx);
 
-  /// Provides the DID of a repo.
-  ///
-  /// ## Parameters
-  ///
-  /// - [uriPatterns]: List of AT URI patterns to match (boolean 'OR').
-  ///                  Each may be a prefix (ending with '*';
-  ///                  will match inclusive of the string leading to '*'),
-  ///                  or a full URI.
-  ///
-  /// - [didSources]: Optional list of label sources (DIDs) to filter on.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 250.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.label.queryLabels
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/label/queryLabels.json
-  Future<core.XRPCResponse<LabelsByQuery>> searchLabels({
+  final core.ServiceContext _ctx;
+
+  /// https://atprotodart.com/docs/lexicons/com/atproto/label/queryLabels
+  Future<core.XRPCResponse<LabelsByQuery>> queryLabels({
     required List<String> uriPatterns,
     List<String>? didSources,
     int? limit,
     String? cursor,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await searchLabels(
+        uriPatterns: uriPatterns,
+        didSources: didSources,
+        limit: limit,
+        cursor: cursor,
+      );
 
-  /// Subscribe to label updates.
-  ///
-  /// ## Parameters
-  ///
-  /// - [cursor]: The last known event to backfill from.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.label.subscribeLabels
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/label/subscribeLabels.json
+  /// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribeLabels
   Future<core.XRPCResponse<core.Subscription<SubscribedLabel>>>
-      subscribeLabelUpdates({
+      subscribeLabels({
     int? cursor,
-  });
-}
+  }) async =>
+          // ignore: deprecated_member_use_from_same_package
+          await subscribeLabelUpdates(cursor: cursor);
 
-final class _LabelService extends ATProtoBaseService implements LabelService {
-  /// Returns the new instance of [_LabelService].
-  _LabelService({
-    required super.did,
-    required super.protocol,
-    required super.service,
-    required super.relayService,
-    required super.context,
-    super.mockedGetClient,
-    super.mockedPostClient,
-  });
-
-  @override
+  @Deprecated('Use .queryLabels instead. Will be removed')
   Future<core.XRPCResponse<LabelsByQuery>> searchLabels({
     required List<String> uriPatterns,
     List<String>? didSources,
     int? limit,
     String? cursor,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.comAtprotoLabelQueryLabels,
         parameters: {
           'uriPatterns': uriPatterns,
@@ -113,12 +58,12 @@ final class _LabelService extends ATProtoBaseService implements LabelService {
         to: LabelsByQuery.fromJson,
       );
 
-  @override
+  @Deprecated('Use .subscribeLabels instead. Will be removed')
   Future<core.XRPCResponse<core.Subscription<SubscribedLabel>>>
       subscribeLabelUpdates({
     int? cursor,
   }) async =>
-          await super.stream(
+          await _ctx.stream(
             ns.comAtprotoLabelSubscribeLabels,
             parameters: {
               'cursor': cursor,

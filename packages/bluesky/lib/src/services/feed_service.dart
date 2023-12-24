@@ -9,7 +9,6 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import '../ids.g.dart' as ids;
 import '../nsids.g.dart' as ns;
-import 'base_service.dart';
 import 'constants/feed_filter.dart';
 import 'entities/actor_feeds.dart';
 import 'entities/embed.dart';
@@ -30,62 +29,16 @@ import 'params/generator_param.dart';
 import 'params/post_param.dart';
 import 'params/strong_ref_param.dart';
 import 'params/thread_param.dart';
+import 'service_context.dart';
 
 /// Represents `app.bsky.feed.*` service.
-sealed class FeedService {
-  /// Returns the new instance of [FeedService].
-  factory FeedService({
-    required atp.ATProto atproto,
-    required String did,
-    required core.Protocol protocol,
-    required String service,
-    required core.ClientContext context,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  }) =>
-      _FeedService(
-        atproto: atproto,
-        did: did,
-        protocol: protocol,
-        service: service,
-        context: context,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
+final class FeedService {
+  FeedService(this._ctx);
 
-  /// Creates a new post.
-  ///
-  /// ## Parameters
-  ///
-  /// - [text]: The text you want to post.
-  ///
-  /// - [reply]: A reference of reply to.
-  ///
-  /// - [facets]: A facet features for [text].
-  ///
-  /// - [embed]: Embed contents of this post.
-  ///
-  /// - [languageTags]: The collection of well-formatted BCP47 language tags.
-  ///
-  /// - [labels]: Labels to be attached.
-  ///
-  /// - [tags]: Additional non-inline tags describing this post.
-  ///
-  /// - [createdAt]: Date and time the post was created.
-  ///                If omitted, defaults to the current time.
-  ///
-  /// - [unspecced]: You can set record fields that are not supported
-  ///                by `app.bsky.feed.post` as JSON.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.repo.createRecord
-  /// - app.bsky.feed.post
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json
-  Future<core.XRPCResponse<atp.StrongRef>> createPost({
+  final BlueskyServiceContext _ctx;
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post
+  Future<core.XRPCResponse<atp.StrongRef>> post({
     required String text,
     ReplyRef? reply,
     List<Facet>? facets,
@@ -95,531 +48,169 @@ sealed class FeedService {
     List<String>? tags,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await createPost(
+        text: text,
+        reply: reply,
+        facets: facets,
+        embed: embed,
+        languageTags: languageTags,
+        labels: labels,
+        tags: tags,
+        createdAt: createdAt,
+        unspecced: unspecced,
+      );
 
-  /// Creates posts.
-  ///
-  /// ## Parameters
-  ///
-  /// - [params]: The collection of params to be posted.
-  Future<core.XRPCResponse<core.EmptyData>> createPosts(
-    List<PostParam> params,
-  );
-
-  /// Create post thread.
-  ///
-  /// ## Parameters
-  ///
-  /// - [params]: The collection of params to be posted as thread.
-  Future<core.XRPCResponse<atp.StrongRef>> createThread(
-    List<ThreadParam> params,
-  );
-
-  /// Creates a repost.
-  ///
-  /// ## Parameters
-  ///
-  /// - [cid]: The content id of target record.
-  ///
-  /// - [uri]: The uri of target record.
-  ///
-  /// - [createdAt]: Date and time the repost was created.
-  ///                If omitted, defaults to the current time.
-  ///
-  /// - [unspecced]: You can set record fields that are not supported
-  ///                by `app.bsky.feed.repost` as JSON.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.repo.createRecord
-  /// - app.bsky.feed.repost
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json
-  Future<core.XRPCResponse<atp.StrongRef>> createRepost({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/repost
+  Future<core.XRPCResponse<atp.StrongRef>> repost({
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await createRepost(
+        cid: cid,
+        uri: uri,
+        createdAt: createdAt,
+        unspecced: unspecced,
+      );
 
-  /// Creates reposts.
-  ///
-  /// ## Parameters
-  ///
-  /// - [params]: The collection of params from strong refs to be reposted.
-  Future<core.XRPCResponse<core.EmptyData>> createReposts(
-    List<StrongRefParam> params,
-  );
-
-  /// A view of the user's home timeline.
-  ///
-  /// ## Parameters
-  ///
-  /// - [algorithm]: Custom Algorithm.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getTimeline
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json
-  Future<core.XRPCResponse<Feed>> findTimeline({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getTimeline
+  Future<core.XRPCResponse<Feed>> getTimeline({
     String? algorithm,
     int? limit,
     String? cursor,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findTimeline(
+        algorithm: algorithm,
+        limit: limit,
+        cursor: cursor,
+      );
 
-  /// Get a pagination for timeline.
-  ///
-  /// ## Parameters
-  ///
-  /// - [algorithm]: Custom Algorithm.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getTimeline
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json
-  core.Pagination<Feed> paginateTimeline({
-    String? algorithm,
-    int? limit,
-    String? cursor,
-  });
-
-  /// Creates a vote.
-  ///
-  /// ## Parameters
-  ///
-  /// - [cid]: The content id of target record.
-  ///
-  /// - [uri]: The uri of target record.
-  ///
-  /// - [createdAt]: Date and time the like was created.
-  ///                If omitted, defaults to the current time.
-  ///
-  /// - [unspecced]: You can set record fields that are not supported
-  ///                by `app.bsky.feed.like` as JSON.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.repo.createRecord
-  /// - app.bsky.feed.like
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/vote.json
-  Future<core.XRPCResponse<atp.StrongRef>> createLike({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/like
+  Future<core.XRPCResponse<atp.StrongRef>> like({
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await createLike(
+        cid: cid,
+        uri: uri,
+        createdAt: createdAt,
+        unspecced: unspecced,
+      );
 
-  /// Creates likes.
-  ///
-  /// ## Parameters
-  ///
-  /// - [params]: The collection of params from strong refs to be liked.
-  Future<core.XRPCResponse<core.EmptyData>> createLikes(
-    List<StrongRefParam> params,
-  );
-
-  /// A view of an actor's feed.
-  ///
-  /// ## Parameters
-  ///
-  /// - [actor]: The DID or handle of target user.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// - [filter]: Filter conditions to limit the feeds to be retrieved.
-  ///             Defaults to [FeedFilter.postsWithReplies].
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getAuthorFeed
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getAuthorFeed.json
-  Future<core.XRPCResponse<Feed>> findFeed({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getAuthorFeed
+  Future<core.XRPCResponse<Feed>> getAuthorFeed({
     required String actor,
     int? limit,
     String? cursor,
     FeedFilter? filter,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findFeed(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+        filter: filter,
+      );
 
-  /// Get a pagination for a view of an actor's feed.
-  ///
-  /// ## Parameters
-  ///
-  /// - [actor]: The DID or handle of target user.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// - [filter]: Filter conditions to limit the feeds to be retrieved.
-  ///             Defaults to [FeedFilter.postsWithReplies].
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getAuthorFeed
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getAuthorFeed.json
-  core.Pagination<Feed> paginateFeed({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeed
+  Future<core.XRPCResponse<Feed>> getFeed({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findCustomFeed(
+        generatorUri: generatorUri,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedSkeleton
+  Future<core.XRPCResponse<SkeletonFeed>> getFeedSkeleton({
+    required core.AtUri generatorUri,
+    int? limit,
+    String? cursor,
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findFeedSkeleton(
+        generatorUri: generatorUri,
+        limit: limit,
+        cursor: cursor,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getActorFeeds
+  Future<core.XRPCResponse<ActorFeeds>> getActorFeeds({
     required String actor,
     int? limit,
     String? cursor,
-    FeedFilter? filter,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findActorFeeds(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+      );
 
-  /// Compose and hydrate a feed from a user's selected feed generator.
-  ///
-  /// ## Parameters
-  ///
-  /// - [generatorUri]: AT URI of generator to be used.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getFeed
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeed.json
-  Future<core.XRPCResponse<Feed>> findCustomFeed({
-    required core.AtUri generatorUri,
-    int? limit,
-    String? cursor,
-  });
-
-  /// Get a pagination for compose and hydrate a feed from a user's
-  /// selected feed generator.
-  ///
-  /// ## Parameters
-  ///
-  /// - [generatorUri]: AT URI of generator to be used.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getFeed
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeed.json
-  core.Pagination<Feed> paginateCustomFeed({
-    required core.AtUri generatorUri,
-    int? limit,
-    String? cursor,
-  });
-
-  /// A skeleton of a feed provided by a feed generator.
-  ///
-  /// ## Parameters
-  ///
-  /// - [generatorUri]: AT URI of generator to be used.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getFeedSkeleton
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedSkeleton.json
-  Future<core.XRPCResponse<SkeletonFeed>> findFeedSkeleton({
-    required core.AtUri generatorUri,
-    int? limit,
-    String? cursor,
-  });
-
-  /// Get a pagination for a skeleton of a feed provided by a feed generator.
-  ///
-  /// ## Parameters
-  ///
-  /// - [generatorUri]: AT URI of generator to be used.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getFeedSkeleton
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedSkeleton.json
-  core.Pagination<SkeletonFeed> paginateFeedSkeleton({
-    required core.AtUri generatorUri,
-    int? limit,
-    String? cursor,
-  });
-
-  /// Retrieve a list of feeds created by a given actor.
-  ///
-  /// ## Parameters
-  ///
-  /// - [actor]: The DID or handle of target user.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getActorFeeds
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorFeeds.json
-  Future<core.XRPCResponse<ActorFeeds>> findActorFeeds({
-    required String actor,
-    int? limit,
-    String? cursor,
-  });
-
-  /// Get a pagination for a list of feeds created by a given actor.
-  ///
-  /// ## Parameters
-  ///
-  /// - [actor]: The DID or handle of target user.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getActorFeeds
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorFeeds.json
-  core.Pagination<ActorFeeds> paginateActorFeeds({
-    required String actor,
-    int? limit,
-    String? cursor,
-  });
-
-  /// Returns likes of specific post.
-  ///
-  /// ## Parameters
-  ///
-  /// - [uri]: The post uri.
-  ///
-  /// - [cid]: The content id.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getLikes
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getLikes.json
-  Future<core.XRPCResponse<Likes>> findLikes({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getLikes
+  Future<core.XRPCResponse<Likes>> getLikes({
     required core.AtUri uri,
     String? cid,
     int? limit,
     String? cursor,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findLikes(
+        uri: uri,
+        cid: cid,
+        limit: limit,
+        cursor: cursor,
+      );
 
-  /// Returns a pagination for likes of specific post.
-  ///
-  /// ## Parameters
-  ///
-  /// - [uri]: The post uri.
-  ///
-  /// - [cid]: The content id.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getLikes
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getLikes.json
-  core.Pagination<Likes> paginateLikes({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getRepostedBy
+  Future<core.XRPCResponse<RepostedBy>> getRepostedBy({
     required core.AtUri uri,
     String? cid,
     int? limit,
     String? cursor,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findRepostedBy(
+        uri: uri,
+        cid: cid,
+        limit: limit,
+        cursor: cursor,
+      );
 
-  /// Return the Actor who Reposted the Post of a specific [uri].
-  ///
-  /// ## Parameters
-  ///
-  /// - [uri]: The post uri.
-  ///
-  /// - [cid]: The content id.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getRepostedBy
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getRepostedBy.json
-  Future<core.XRPCResponse<RepostedBy>> findRepostedBy({
-    required core.AtUri uri,
-    String? cid,
-    int? limit,
-    String? cursor,
-  });
-
-  /// Return a pagination for the Actor who Reposted the Post of a
-  /// specific [uri].
-  ///
-  /// ## Parameters
-  ///
-  /// - [uri]: The post uri.
-  ///
-  /// - [cid]: The content id.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getRepostedBy
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getRepostedBy.json
-  core.Pagination<RepostedBy> paginateRepostedBy({
-    required core.AtUri uri,
-    String? cid,
-    int? limit,
-    String? cursor,
-  });
-
-  /// Returns a thread in specific post.
-  ///
-  /// ## Parameters
-  ///
-  /// - [uri]: The uri of root post.
-  ///
-  /// - [depth]: Depth of thread to be retrieved. Defaults to 6. From 0 to 1000.
-  ///
-  /// - [parentHeight]: Height of parent thread to be retrieved.
-  ///                   Defaults to 80. From 0 to 1000.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getPostThread
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getPostThread.json
-  Future<core.XRPCResponse<PostThread>> findPostThread({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getPostThread
+  Future<core.XRPCResponse<PostThread>> getPostThread({
     required core.AtUri uri,
     int? depth,
     int? parentHeight,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findPostThread(
+        uri: uri,
+        depth: depth,
+        parentHeight: parentHeight,
+      );
 
-  /// A view of an actor's feed.
-  ///
-  /// ## Parameters
-  ///
-  /// - [uris]: The AT URIs to be retrieved.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getPosts
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getPosts.json
-  Future<core.XRPCResponse<Posts>> findPosts({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getPosts
+  Future<core.XRPCResponse<Posts>> getPosts({
     required List<core.AtUri> uris,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findPosts(uris: uris);
 
-  /// A declaration of the existence of a feed generator.
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: A string of specific DID.
-  ///
-  /// - [displayName]: Name of generator to be created.
-  ///
-  /// - [description]: Description of generator to be created.
-  ///
-  /// - [descriptionFacets]: Facet features for [description].
-  ///
-  /// - [avatar]: Avatar blob to set to generator.
-  ///
-  /// - [labels]: Labels to be attached.
-  ///
-  /// - [createdAt]: Date and time the post was created.
-  ///                If omitted, defaults to the current time.
-  ///
-  /// - [unspecced]: You can set record fields that are not supported
-  ///                by `app.bsky.feed.generator` as JSON.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.generator
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/generator.json
-  Future<core.XRPCResponse<atp.StrongRef>> createGenerator({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/generator
+  Future<core.XRPCResponse<atp.StrongRef>> generator({
     required String did,
     required String displayName,
     String? description,
@@ -628,299 +219,104 @@ sealed class FeedService {
     atp.Labels? labels,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await createGenerator(
+        did: did,
+        displayName: displayName,
+        description: description,
+        descriptionFacets: descriptionFacets,
+        avatar: avatar,
+        labels: labels,
+        createdAt: createdAt,
+        unspecced: unspecced,
+      );
 
-  /// Creates generators.
-  ///
-  /// ## Parameters
-  ///
-  /// - [params]: The collection of params to be created.
-  Future<core.XRPCResponse<core.EmptyData>> createGenerators(
-    List<GeneratorParam> params,
-  );
-
-  /// Get information about a specific feed offered by a feed generator,
-  /// such as its online status.
-  ///
-  /// ## Parameters
-  ///
-  /// - [uri]: AT URI of generator to be retrieved.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getFeedGenerator
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedGenerator.json
-  Future<core.XRPCResponse<FeedGenerator>> findGenerator({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedGenerator
+  Future<core.XRPCResponse<FeedGenerator>> getFeedGenerator({
     required core.AtUri uri,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findGenerator(uri: uri);
 
-  /// Get information about a list of feed generators.
-  ///
-  /// ## Parameters
-  ///
-  /// - [uris]: Collection of AT URI of generators to be retrieved.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getFeedGenerators
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedGenerators.json
-  Future<core.XRPCResponse<FeedGenerators>> findGenerators({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedGenerators
+  Future<core.XRPCResponse<FeedGenerators>> getFeedGenerators({
     required List<core.AtUri> uris,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findGenerators(uris: uris);
 
-  /// Returns information about a given feed generator including
-  /// TOS & offered feed URIs.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.describeFeedGenerator
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/describeFeedGenerator.json
-  Future<core.XRPCResponse<FeedGeneratorInfo>> findGeneratorInfo();
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describeFeedGenerator
+  Future<core.XRPCResponse<FeedGeneratorInfo>> describeFeedGenerator() async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findGeneratorInfo();
 
-  /// A view of the posts liked by an actor.
-  ///
-  /// ## Parameters
-  ///
-  /// - [actor]: The DID or handle of target user.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getActorLikes
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorLikes.json
-  Future<core.XRPCResponse<Feed>> findActorLikes({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getActorLikes
+  Future<core.XRPCResponse<Feed>> getActorLikes({
     required String actor,
     int? limit,
     String? cursor,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findActorLikes(
+        actor: actor,
+        limit: limit,
+        cursor: cursor,
+      );
 
-  /// Get a pagination for a view of the posts liked by an actor.
-  ///
-  /// ## Parameters
-  ///
-  /// - [actor]: The DID or handle of target user.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getActorLikes
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorLikes.json
-  core.Pagination<Feed> paginateActorLikes({
-    required String actor,
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getSuggestedFeeds
+  Future<core.XRPCResponse<FeedGenerators>> getSuggestedFeeds({
     int? limit,
     String? cursor,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findSuggestedFeeds(
+        limit: limit,
+        cursor: cursor,
+      );
 
-  /// Get a list of suggested feeds for the viewer.
-  ///
-  /// ## Parameters
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getSuggestedFeeds
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getSuggestedFeeds.json
-  Future<core.XRPCResponse<FeedGenerators>> findSuggestedFeeds({
-    int? limit,
-    String? cursor,
-  });
-
-  /// Get a pagination of suggested feeds for the viewer.
-  ///
-  /// ## Parameters
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getSuggestedFeeds
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getSuggestedFeeds.json
-  core.Pagination<FeedGenerators> paginateSuggestedFeeds({
-    int? limit,
-    String? cursor,
-  });
-
-  /// A view of a recent posts from actors in a list.
-  ///
-  /// ## Parameters
-  ///
-  /// - [list]: List uri.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getListFeed
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getListFeed.json
-  Future<core.XRPCResponse<Feed>> findListFeed({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getListFeed
+  Future<core.XRPCResponse<Feed>> getListFeed({
     required core.AtUri list,
     int? limit,
     String? cursor,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findListFeed(
+        list: list,
+        limit: limit,
+        cursor: cursor,
+      );
 
-  /// Returns a pagination for a view of a recent posts from actors in a list.
-  ///
-  /// ## Parameters
-  ///
-  /// - [list]: List uri.
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 50.
-  ///
-  /// - [cursor]: Cursor string returned from the last search.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.getListFeed
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getListFeed.json
-  core.Pagination<Feed> paginateListFeed({
-    required core.AtUri list,
-    int? limit,
-    String? cursor,
-  });
-
-  /// Defines interaction gating rules for a thread.
-  ///
-  /// The rkey of the threadgate record should match the rkey of
-  /// the thread's root post.
-  ///
-  /// ## Parameters
-  ///
-  /// - [postUri]: A post uri.
-  ///
-  /// - [allowRules]: A collection of interaction gating rules.
-  ///
-  /// - [createdAt]: Date and time the post was created.
-  ///                If omitted, defaults to the current time.
-  ///
-  /// - [unspecced]: You can set record fields that are not supported
-  ///                by `app.bsky.feed.threadgate` as JSON.
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.threadgate
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/threadgate.json
-  Future<core.XRPCResponse<atp.StrongRef>> createThreadgate({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate
+  Future<core.XRPCResponse<atp.StrongRef>> threadgate({
     required core.AtUri postUri,
     List<ThreadRule>? allowRules,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await createThreadgate(
+        postUri: postUri,
+        allowRules: allowRules,
+        createdAt: createdAt,
+        unspecced: unspecced,
+      );
 
-  /// Find posts matching search criteria.
-  ///
-  /// ## Parameters
-  ///
-  /// - [query]: search query string; syntax, phrase, boolean, and faceting is
-  ///            unspecified, but Lucene query syntax is recommended
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 25.
-  ///
-  /// - [cursor]: Optional pagination mechanism; may not necessarily allow
-  ///             scrolling through entire result set
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.searchPosts
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/searchPosts.json
-  Future<core.XRPCResponse<PostsByQuery>> searchPostsByQuery(
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/searchPosts
+  Future<core.XRPCResponse<PostsByQuery>> searchPosts(
     final String query, {
     int? limit,
     String? cursor,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await searchPostsByQuery(
+        query,
+        limit: limit,
+        cursor: cursor,
+      );
 
-  /// Returns a pagination to find posts matching search criteria.
-  ///
-  /// ## Parameters
-  ///
-  /// - [query]: search query string; syntax, phrase, boolean, and faceting is
-  ///            unspecified, but Lucene query syntax is recommended
-  ///
-  /// - [limit]: Maximum number of search results. From 1 to 100.
-  ///            The default is 25.
-  ///
-  /// - [cursor]: Optional pagination mechanism; may not necessarily allow
-  ///             scrolling through entire result set
-  ///
-  /// ## Lexicon
-  ///
-  /// - app.bsky.feed.searchPosts
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/searchPosts.json
-  core.Pagination<PostsByQuery> paginatePostsByQuery(
-    final String query, {
-    int? limit,
-    String? cursor,
-  });
-}
-
-final class _FeedService extends BlueskyBaseService implements FeedService {
-  /// Returns the new instance of [_FeedService].
-  _FeedService({
-    required super.atproto,
-    required super.did,
-    required super.protocol,
-    required super.service,
-    required super.context,
-    super.mockedGetClient,
-    super.mockedPostClient,
-  });
-
-  @override
+  @Deprecated('Use .post instead. Will be removed')
   Future<core.XRPCResponse<atp.StrongRef>> createPost({
     required String text,
     ReplyRef? reply,
@@ -932,7 +328,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repo.createRecord(
+      await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyFeedPost,
         record: {
           'text': text,
@@ -942,16 +338,16 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
           'langs': languageTags,
           'labels': labels?.toJson(),
           'tags': tags,
-          'createdAt': toUtcIso8601String(createdAt),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...unspecced,
         },
       );
 
-  @override
+  @Deprecated('Use .postInBulk instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createPosts(
     List<PostParam> params,
   ) async =>
-      await atproto.repo.createRecords(
+      await _ctx.atproto.repo.createRecords(
         actions: params
             .map<atp.CreateAction>(
               (e) => atp.CreateAction(
@@ -964,7 +360,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
                   'langs': e.languageTags,
                   'labels': e.labels?.toJson(),
                   'tags': e.tags,
-                  'createdAt': toUtcIso8601String(e.createdAt),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
                   ...e.unspecced,
                 },
               ),
@@ -972,7 +368,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
             .toList(),
       );
 
-  @override
+  @Deprecated('Use .thread instead. Will be removed')
   Future<core.XRPCResponse<atp.StrongRef>> createThread(
     List<ThreadParam> params,
   ) async {
@@ -985,7 +381,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     }
 
     final rootParam = params.removeAt(0);
-    final rootRecord = await createPost(
+    final rootRecord = await post(
       text: rootParam.text,
       facets: rootParam.facets,
       embed: rootParam.embed,
@@ -1000,7 +396,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
 
     var parentRef = rootRecord.data;
     for (final param in params) {
-      parentRef = (await createPost(
+      parentRef = (await post(
         text: param.text,
         reply: ReplyRef(
           root: rootRef,
@@ -1020,7 +416,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     return rootRecord;
   }
 
-  @override
+  @Deprecated('Use .getTimeline instead. Will be removed')
   Future<core.XRPCResponse<Feed>> findTimeline({
     String? algorithm,
     int? limit,
@@ -1033,7 +429,6 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: Feed.fromJson,
       );
 
-  @override
   core.Pagination<Feed> paginateTimeline({
     String? algorithm,
     int? limit,
@@ -1046,30 +441,30 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: Feed.fromJson,
       );
 
-  @override
+  @Deprecated('Use .repost instead. Will be removed')
   Future<core.XRPCResponse<atp.StrongRef>> createRepost({
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repo.createRecord(
+      await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyFeedRepost,
         record: {
           'subject': {
             'cid': cid,
             'uri': uri.toString(),
           },
-          'createdAt': toUtcIso8601String(createdAt),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...unspecced,
         },
       );
 
-  @override
+  @Deprecated('Use .repostInBulk instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createReposts(
     List<StrongRefParam> params,
   ) async =>
-      await atproto.repo.createRecords(
+      await _ctx.atproto.repo.createRecords(
         actions: params
             .map(
               (e) => atp.CreateAction(
@@ -1079,7 +474,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
                     'cid': e.cid,
                     'uri': e.uri.toString(),
                   },
-                  'createdAt': toUtcIso8601String(e.createdAt),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
                   ...e.unspecced,
                 },
               ),
@@ -1087,30 +482,30 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
             .toList(),
       );
 
-  @override
+  @Deprecated('Use .like instead. Will be removed')
   Future<core.XRPCResponse<atp.StrongRef>> createLike({
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repo.createRecord(
+      await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyFeedLike,
         record: {
           'subject': {
             'cid': cid,
             'uri': uri.toString(),
           },
-          'createdAt': toUtcIso8601String(createdAt),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...unspecced,
         },
       );
 
-  @override
+  @Deprecated('Use .likeInBulk instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createLikes(
     List<StrongRefParam> params,
   ) async =>
-      await atproto.repo.createRecords(
+      await _ctx.atproto.repo.createRecords(
         actions: params
             .map(
               (e) => atp.CreateAction(
@@ -1120,7 +515,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
                     'cid': e.cid,
                     'uri': e.uri.toString(),
                   },
-                  'createdAt': toUtcIso8601String(e.createdAt),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
                   ...e.unspecced,
                 },
               ),
@@ -1128,7 +523,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
             .toList(),
       );
 
-  @override
+  @Deprecated('Use .getAuthorFeed instead. Will be removed')
   Future<core.XRPCResponse<Feed>> findFeed({
     required String actor,
     int? limit,
@@ -1143,7 +538,6 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: Feed.fromJson,
       );
 
-  @override
   core.Pagination<Feed> paginateFeed({
     required String actor,
     int? limit,
@@ -1158,7 +552,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: Feed.fromJson,
       );
 
-  @override
+  @Deprecated('Use .getFeed instead. Will be removed')
   Future<core.XRPCResponse<Feed>> findCustomFeed({
     required core.AtUri generatorUri,
     int? limit,
@@ -1171,7 +565,6 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: Feed.fromJson,
       );
 
-  @override
   core.Pagination<Feed> paginateCustomFeed({
     required core.AtUri generatorUri,
     int? limit,
@@ -1184,7 +577,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: Feed.fromJson,
       );
 
-  @override
+  @Deprecated('Use .getFeedSkeleton instead. Will be removed')
   Future<core.XRPCResponse<SkeletonFeed>> findFeedSkeleton({
     required core.AtUri generatorUri,
     int? limit,
@@ -1197,7 +590,6 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: SkeletonFeed.fromJson,
       );
 
-  @override
   core.Pagination<SkeletonFeed> paginateFeedSkeleton({
     required core.AtUri generatorUri,
     int? limit,
@@ -1210,7 +602,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: SkeletonFeed.fromJson,
       );
 
-  @override
+  @Deprecated('Use .getActorFeeds instead. Will be removed')
   Future<core.XRPCResponse<ActorFeeds>> findActorFeeds({
     required String actor,
     int? limit,
@@ -1223,7 +615,6 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: ActorFeeds.fromJson,
       );
 
-  @override
   core.Pagination<ActorFeeds> paginateActorFeeds({
     required String actor,
     int? limit,
@@ -1236,7 +627,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: ActorFeeds.fromJson,
       );
 
-  @override
+  @Deprecated('Use .getLikes instead. Will be removed')
   Future<core.XRPCResponse<Likes>> findLikes({
     required core.AtUri uri,
     String? cid,
@@ -1251,7 +642,6 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: Likes.fromJson,
       );
 
-  @override
   core.Pagination<Likes> paginateLikes({
     required core.AtUri uri,
     String? cid,
@@ -1266,7 +656,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: Likes.fromJson,
       );
 
-  @override
+  @Deprecated('Use .getRepostedBy instead. Will be removed')
   Future<core.XRPCResponse<RepostedBy>> findRepostedBy({
     required core.AtUri uri,
     String? cid,
@@ -1281,7 +671,6 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: RepostedBy.fromJson,
       );
 
-  @override
   core.Pagination<RepostedBy> paginateRepostedBy({
     required core.AtUri uri,
     String? cid,
@@ -1296,7 +685,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: RepostedBy.fromJson,
       );
 
-  @override
+  @Deprecated('Use .getPostThread instead. Will be removed')
   Future<core.XRPCResponse<PostThread>> findPostThread({
     required core.AtUri uri,
     int? depth,
@@ -1309,7 +698,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: PostThread.fromJson,
       );
 
-  @override
+  @Deprecated('Use .getPosts instead. Will be removed')
   Future<core.XRPCResponse<Posts>> findPosts({
     required List<core.AtUri> uris,
   }) async =>
@@ -1318,7 +707,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: Posts.fromJson,
       );
 
-  @override
+  @Deprecated('Use .generator instead. Will be removed')
   Future<core.XRPCResponse<atp.StrongRef>> createGenerator({
     required String did,
     required String displayName,
@@ -1329,7 +718,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repo.createRecord(
+      await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyFeedGenerator,
         record: {
           'did': did,
@@ -1339,16 +728,16 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
               descriptionFacets?.map((e) => e.toJson()).toList(),
           'avatar': avatar?.toJson(),
           'labels': labels?.toJson(),
-          'createdAt': toUtcIso8601String(createdAt),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...unspecced,
         },
       );
 
-  @override
+  @Deprecated('Use .generatorInBulk instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createGenerators(
     List<GeneratorParam> params,
   ) async =>
-      await atproto.repo.createRecords(
+      await _ctx.atproto.repo.createRecords(
         actions: params
             .map(
               (e) => atp.CreateAction(
@@ -1361,7 +750,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
                       e.descriptionFacets?.map((e) => e.toJson()).toList(),
                   'avatar': e.avatar?.toJson(),
                   'labels': e.labels?.toJson(),
-                  'createdAt': toUtcIso8601String(e.createdAt),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
                   ...e.unspecced,
                 },
               ),
@@ -1369,7 +758,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
             .toList(),
       );
 
-  @override
+  @Deprecated('Use .getFeedGenerator instead. Will be removed')
   Future<core.XRPCResponse<FeedGenerator>> findGenerator({
     required core.AtUri uri,
   }) async =>
@@ -1378,7 +767,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: FeedGenerator.fromJson,
       );
 
-  @override
+  @Deprecated('Use .getFeedGenerators instead. Will be removed')
   Future<core.XRPCResponse<FeedGenerators>> findGenerators({
     required List<core.AtUri> uris,
   }) async =>
@@ -1387,11 +776,11 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: FeedGenerators.fromJson,
       );
 
-  @override
+  @Deprecated('Use .describeFeedGenerator instead. Will be removed')
   Future<core.XRPCResponse<FeedGeneratorInfo>> findGeneratorInfo() async =>
       await _findGeneratorInfo(to: FeedGeneratorInfo.fromJson);
 
-  @override
+  @Deprecated('Use .getActorLikes instead. Will be removed')
   Future<core.XRPCResponse<Feed>> findActorLikes({
     required String actor,
     int? limit,
@@ -1404,7 +793,6 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: Feed.fromJson,
       );
 
-  @override
   core.Pagination<Feed> paginateActorLikes({
     required String actor,
     int? limit,
@@ -1417,7 +805,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: Feed.fromJson,
       );
 
-  @override
+  @Deprecated('Use .getSuggestedFeeds instead. Will be removed')
   Future<core.XRPCResponse<FeedGenerators>> findSuggestedFeeds({
     int? limit,
     String? cursor,
@@ -1428,7 +816,6 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: FeedGenerators.fromJson,
       );
 
-  @override
   core.Pagination<FeedGenerators> paginateSuggestedFeeds({
     int? limit,
     String? cursor,
@@ -1439,26 +826,26 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: FeedGenerators.fromJson,
       );
 
-  @override
+  @Deprecated('Use .threadgate instead. Will be removed')
   Future<core.XRPCResponse<atp.StrongRef>> createThreadgate({
     required core.AtUri postUri,
     List<ThreadRule>? allowRules,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      await atproto.repo.createRecord(
+      await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyFeedThreadgate,
         rkey: postUri.rkey,
         record: {
           r'$type': ids.appBskyFeedThreadgate,
           'post': postUri.toString(),
           'allow': allowRules?.map((e) => e.toJson()).toList(),
-          'createdAt': toUtcIso8601String(createdAt),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...unspecced,
         },
       );
 
-  @override
+  @Deprecated('Use .getListFeed instead. Will be removed')
   Future<core.XRPCResponse<Feed>> findListFeed({
     required core.AtUri list,
     int? limit,
@@ -1471,7 +858,6 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: Feed.fromJson,
       );
 
-  @override
   core.Pagination<Feed> paginateListFeed({
     required core.AtUri list,
     int? limit,
@@ -1484,7 +870,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: Feed.fromJson,
       );
 
-  @override
+  @Deprecated('Use .searchPosts instead. Will be removed')
   Future<core.XRPCResponse<PostsByQuery>> searchPostsByQuery(
     final String query, {
     int? limit,
@@ -1497,7 +883,6 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         to: PostsByQuery.fromJson,
       );
 
-  @override
   core.Pagination<PostsByQuery> paginatePostsByQuery(
     final String query, {
     int? limit,
@@ -1516,7 +901,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetListFeed,
         parameters: _buildGetListFeedParams(
           list: list,
@@ -1532,7 +917,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyFeedGetListFeed,
         parameters: _buildGetListFeedParams(
           list: list,
@@ -1548,7 +933,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetTimeline,
         parameters: _buildGetTimelineParams(
           algorithm: algorithm,
@@ -1564,7 +949,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyFeedGetTimeline,
         parameters: _buildGetTimelineParams(
           algorithm: algorithm,
@@ -1581,7 +966,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required FeedFilter? filter,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetAuthorFeed,
         parameters: _buildGetAuthorFeedParams(
           actor: actor,
@@ -1599,7 +984,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required FeedFilter? filter,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyFeedGetAuthorFeed,
         parameters: _buildGetAuthorFeedParams(
           actor: actor,
@@ -1616,7 +1001,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetFeed,
         parameters: _buildGetFeedParams(
           generatorUri: generatorUri,
@@ -1632,7 +1017,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyFeedGetFeed,
         parameters: _buildGetFeedParams(
           generatorUri: generatorUri,
@@ -1648,7 +1033,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetFeedSkeleton,
         parameters: _buildGetFeedSkeletonParams(
           generatorUri: generatorUri,
@@ -1664,7 +1049,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyFeedGetFeedSkeleton,
         parameters: _buildGetFeedSkeletonParams(
           generatorUri: generatorUri,
@@ -1680,7 +1065,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetActorFeeds,
         parameters: _buildGetActorFeedsParams(
           actor: actor,
@@ -1696,7 +1081,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyFeedGetActorFeeds,
         parameters: _buildGetActorFeedsParams(
           actor: actor,
@@ -1713,7 +1098,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetLikes,
         parameters: _buildGetLikes(
           uri: uri,
@@ -1731,7 +1116,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyFeedGetLikes,
         parameters: _buildGetLikes(
           uri: uri,
@@ -1749,7 +1134,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetRepostedBy,
         parameters: _buildGetRepostedBy(
           uri: uri,
@@ -1767,7 +1152,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyFeedGetRepostedBy,
         parameters: _buildGetRepostedBy(
           uri: uri,
@@ -1784,7 +1169,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required int? parentHeight,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetPostThread,
         parameters: {
           'uri': uri,
@@ -1798,7 +1183,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required List<core.AtUri> uris,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetPosts,
         parameters: {
           'uris': uris.map((e) => e.toString()).toList(),
@@ -1810,7 +1195,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required core.AtUri uri,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetFeedGenerator,
         parameters: {
           'feed': uri.toString(),
@@ -1822,7 +1207,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required List<core.AtUri> uris,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetFeedGenerators,
         parameters: {
           'feeds': uris.map((e) => e.toString()).toList(),
@@ -1833,7 +1218,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
   Future<core.XRPCResponse<T>> _findGeneratorInfo<T>({
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedDescribeFeedGenerator,
         to: to,
       );
@@ -1844,7 +1229,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetActorLikes,
         parameters: _buildGetActorLikes(
           actor: actor,
@@ -1860,7 +1245,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyFeedGetActorLikes,
         parameters: _buildGetActorLikes(
           actor: actor,
@@ -1875,7 +1260,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedGetSuggestedFeeds,
         parameters: _buildGetSuggestedFeeds(
           limit: limit,
@@ -1889,7 +1274,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyFeedGetSuggestedFeeds,
         parameters: _buildGetSuggestedFeeds(
           limit: limit,
@@ -1904,7 +1289,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.appBskyFeedSearchPosts,
         parameters: _buildSearchPostsParams(
           query: query,
@@ -1920,7 +1305,7 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.appBskyFeedSearchPosts,
         parameters: _buildSearchPostsParams(
           query: query,
@@ -2054,4 +1439,139 @@ final class _FeedService extends BlueskyBaseService implements FeedService {
         'limit': limit,
         'cursor': cursor,
       };
+}
+
+extension FeedServiceExtension on FeedService {
+  Future<core.XRPCResponse<atp.StrongRef>> thread(
+    final List<ThreadParam> params,
+  ) async {
+    if (params.isEmpty) {
+      throw ArgumentError.value(params, 'params', 'must not be empty');
+    }
+
+    final rootParam = params.removeAt(0);
+    final rootRecord = await post(
+      text: rootParam.text,
+      facets: rootParam.facets,
+      embed: rootParam.embed,
+      languageTags: rootParam.languageTags,
+      labels: rootParam.labels,
+      tags: rootParam.tags,
+      createdAt: rootParam.createdAt,
+      unspecced: rootParam.unspecced,
+    );
+
+    final rootRef = rootRecord.data;
+
+    var parentRef = rootRecord.data;
+    for (final param in params) {
+      parentRef = (await post(
+        text: param.text,
+        reply: ReplyRef(
+          root: rootRef,
+          parent: parentRef,
+        ),
+        facets: param.facets,
+        embed: param.embed,
+        languageTags: param.languageTags,
+        labels: param.labels,
+        tags: param.tags,
+        createdAt: param.createdAt,
+        unspecced: param.unspecced,
+      ))
+          .data;
+    }
+
+    return rootRecord;
+  }
+
+  Future<core.XRPCResponse<core.EmptyData>> postInBulk(
+    final List<PostParam> params,
+  ) async =>
+      await _ctx.atproto.repo.createRecordInBulk(
+        actions: params
+            .map<atp.CreateAction>(
+              (e) => atp.CreateAction(
+                collection: ns.appBskyFeedPost,
+                record: {
+                  'text': e.text,
+                  'reply': e.reply?.toJson(),
+                  'facets': e.facets?.map((e) => e.toJson()).toList(),
+                  'embed': e.embed?.toJson(),
+                  'langs': e.languageTags,
+                  'labels': e.labels?.toJson(),
+                  'tags': e.tags,
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unspecced,
+                },
+              ),
+            )
+            .toList(),
+      );
+
+  Future<core.XRPCResponse<core.EmptyData>> repostInBulk(
+    final List<StrongRefParam> params,
+  ) async =>
+      await _ctx.atproto.repo.createRecordInBulk(
+        actions: params
+            .map(
+              (e) => atp.CreateAction(
+                collection: ns.appBskyFeedRepost,
+                record: {
+                  'subject': {
+                    'cid': e.cid,
+                    'uri': e.uri.toString(),
+                  },
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unspecced,
+                },
+              ),
+            )
+            .toList(),
+      );
+
+  Future<core.XRPCResponse<core.EmptyData>> likeInBulk(
+    final List<StrongRefParam> params,
+  ) async =>
+      await _ctx.atproto.repo.createRecordInBulk(
+        actions: params
+            .map(
+              (e) => atp.CreateAction(
+                collection: ns.appBskyFeedLike,
+                record: {
+                  'subject': {
+                    'cid': e.cid,
+                    'uri': e.uri.toString(),
+                  },
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unspecced,
+                },
+              ),
+            )
+            .toList(),
+      );
+
+  Future<core.XRPCResponse<core.EmptyData>> generatorInBulk(
+    final List<GeneratorParam> params,
+  ) async =>
+      await _ctx.atproto.repo.createRecordInBulk(
+        actions: params
+            .map(
+              (e) => atp.CreateAction(
+                collection: ns.appBskyFeedGenerator,
+                record: {
+                  'did': e.did,
+                  'displayName': e.displayName,
+                  'description': e.description,
+                  'descriptionFacets':
+                      e.descriptionFacets?.map((e) => e.toJson()).toList(),
+                  'avatar': e.avatar?.toJson(),
+                  'labels': e.labels?.toJson(),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unspecced,
+                },
+              ),
+            )
+            .toList(),
+      );
 }

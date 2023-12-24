@@ -10,7 +10,6 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'base_service.dart';
 import 'entities/adaptor/repo_blocks_adaptor.dart';
 import 'entities/adaptor/repo_commit_adaptor.dart';
 import 'entities/adaptor/repo_commits_adaptor.dart';
@@ -24,308 +23,120 @@ import 'entities/repos.dart';
 import 'entities/subscribed_repo.dart';
 
 /// Represents `com.atproto.sync.*` service.
-sealed class SyncService {
-  /// Returns the new instance of [SyncService].
-  factory SyncService({
-    required String did,
-    required core.Protocol protocol,
-    required String service,
-    required String relayService,
-    required core.ClientContext context,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  }) =>
-      _SyncService(
-        did: did,
-        protocol: protocol,
-        service: service,
-        relayService: relayService,
-        context: context,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
+final class SyncService {
+  SyncService(this._ctx);
 
-  /// Subscribe to repo updates.
-  ///
-  /// ## Parameters
-  ///
-  /// - [cursor]: The last known event to backfill from.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.subscribeRepos
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/subscribeRepos.json
-  Future<core.XRPCResponse<core.Subscription<SubscribedRepo>>>
-      subscribeRepoUpdates({
+  final core.ServiceContext _ctx;
+
+  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos
+  Future<core.XRPCResponse<core.Subscription<SubscribedRepo>>> subscribeRepos({
     int? cursor,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await subscribeRepoUpdates(cursor: cursor);
 
-  /// Gets the did's repo, optionally catching up from a specific revision.
-  ///
-  /// Response data available from this endpoint is unsorted.
-  ///
-  /// This endpoint also retrieves information on all commits made by the
-  /// Repo associated with a particular DID. This means that depending on
-  /// the target Repo to be retrieved, a very data-intensive Car may need to be
-  /// decoded, and this process may take several minutes or more. At this time,
-  /// the [progress] callback can be used to check how much data has been
-  /// processed at this time.
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The DID of the repo.
-  ///
-  /// - [sinceCommitCid]: The revision of the repo to catch up from.
-  ///
-  /// - [progress]: When the amount of data to be processed is large,
-  ///               this callback can be used to check the progress of
-  ///               processing.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.getRepo
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getRepo.json
-  Future<core.XRPCResponse<RepoCommits>> findRepoCommits({
+  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getRepo
+  Future<core.XRPCResponse<RepoCommits>> getRepo({
     required String did,
     String? sinceCommitCid,
     core.ProgressStatus? progress,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findRepoCommits(
+        did: did,
+        sinceCommitCid: sinceCommitCid,
+        progress: progress,
+      );
 
-  /// Gets blocks from a given repo.
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The DID of the repo.
-  ///
-  /// - [commitCids]: CID array of commits.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.getBlocks
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getBlocks.json
-  Future<core.XRPCResponse<RepoBlocks>> findRepoBlocks({
+  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getBlocks
+  Future<core.XRPCResponse<RepoBlocks>> getBlocks({
     required String did,
     required List<String> commitCids,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findRepoBlocks(
+        did: did,
+        commitCids: commitCids,
+      );
 
-  /// Gets the current commit CID & revision of the repo.
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The DID of the repo.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.getLatestCommit
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getLatestCommit.json
-  Future<core.XRPCResponse<RepoLatestCommit>> findLatestCommit({
+  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getLatestCommit
+  Future<core.XRPCResponse<RepoLatestCommit>> getLatestCommit({
     required String did,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findLatestCommit(
+        did: did,
+      );
 
-  /// Gets blocks needed for existence or non-existence of record.
-  ///
-  /// ## Parameters
-  ///
-  /// - [uri]: AT URI of specific record.
-  ///
-  /// - [commitCid]: An optional past commit CID.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.getRecord
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getRecord.json
-  Future<core.XRPCResponse<RepoCommit>> findRecord({
+  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getRecord
+  Future<core.XRPCResponse<RepoCommit>> getRecord({
     required core.AtUri uri,
     String? commitCid,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findRecord(
+        uri: uri,
+        commitCid: commitCid,
+      );
 
-  /// List dids and root cids of hosted repos.
-  ///
-  /// ## Parameters
-  ///
-  /// - [limit]: The size of repos to be fetched.
-  ///            Defaults to 500. From 1 to 1000.
-  ///
-  /// - [cursor]: The paginate cursor.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.listRepos
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listRepos.json
-  Future<core.XRPCResponse<Repos>> findRepos({
+  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/listRepos
+  Future<core.XRPCResponse<Repos>> listRepos({
     int? limit,
     String? cursor,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findRepos(
+        limit: limit,
+        cursor: cursor,
+      );
 
-  /// Get a pagination for listing dids and root cids of hosted repos.
-  ///
-  /// ## Parameters
-  ///
-  /// - [limit]: The size of repos to be fetched.
-  ///            Defaults to 500. From 1 to 1000.
-  ///
-  /// - [cursor]: The paginate cursor.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.listRepos
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listRepos.json
-  core.Pagination<Repos> paginateRepos({
-    int? limit,
-    String? cursor,
-  });
-
-  /// Notify a crawling service of a recent update.
-  ///
-  /// Often when a long break between updates causes the connection with
-  /// the crawling service to break.
-  ///
-  /// ## Parameters
-  ///
-  /// - [hostname]: Hostname of the service that is notifying of update.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.notifyOfUpdate
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/notifyOfUpdate.json
-  Future<core.XRPCResponse<core.EmptyData>> notifyCrawlingServiceOfUpdate({
+  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/notifyOfUpdate
+  Future<core.XRPCResponse<core.EmptyData>> notifyOfUpdate({
     required String hostname,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await notifyCrawlingServiceOfUpdate(hostname: hostname);
 
-  /// Request a service to persistently crawl hosted repos.
-  ///
-  /// ## Parameters
-  ///
-  /// - [hostname]: Hostname of the service that is requesting to be crawled.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.requestCrawl
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/requestCrawl.json
+  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/requestCrawl
   Future<core.XRPCResponse<core.EmptyData>> requestCrawl({
     required String hostname,
-  });
+  }) async =>
+      await _ctx.post(
+        ns.comAtprotoSyncRequestCrawl,
+        body: {
+          'hostname': hostname,
+        },
+      );
 
-  /// Get a blob associated with a given repo.
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The DID of the repo.
-  ///
-  /// - [cid]: The CID of the blob to fetch.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.getBlob
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getBlob.json
-  Future<core.XRPCResponse<Uint8List>> findBlob({
+  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getBlob
+  Future<core.XRPCResponse<Uint8List>> getBlob({
     required String did,
     required String cid,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findBlob(did: did, cid: cid);
 
-  /// Get a blob associated with a given repo.
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The DID of the repo.
-  ///
-  /// - [sinceCid]: Optional revision of the repo to list blobs since.
-  ///
-  /// - [limit]: The size of blobs to be fetched.
-  ///            Defaults to 500. From 1 to 1000.
-  ///
-  /// - [cursor]: The pagination cursor.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.listBlobs
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listBlobs.json
-  Future<core.XRPCResponse<BlobRefs>> findBlobs({
+  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/listBlobs
+  Future<core.XRPCResponse<BlobRefs>> listBlobs({
     required String did,
     String? sinceCid,
     int? limit,
     String? cursor,
-  });
+  }) async =>
+      // ignore: deprecated_member_use_from_same_package
+      await findBlobs(
+        did: did,
+        sinceCid: sinceCid,
+        limit: limit,
+        cursor: cursor,
+      );
 
-  /// Returns a pagination to get a blob associated with a given repo.
-  ///
-  /// ## Parameters
-  ///
-  /// - [did]: The DID of the repo.
-  ///
-  /// - [sinceCid]: Optional revision of the repo to list blobs since.
-  ///
-  /// - [limit]: The size of blobs to be fetched.
-  ///            Defaults to 500. From 1 to 1000.
-  ///
-  /// - [cursor]: The pagination cursor.
-  ///
-  /// ## Lexicon
-  ///
-  /// - com.atproto.sync.listBlobs
-  ///
-  /// ## Reference
-  ///
-  /// - https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listBlobs.json
-  core.Pagination<BlobRefs> paginateBlobs({
-    required String did,
-    String? sinceCid,
-    int? limit,
-    String? cursor,
-  });
-}
-
-final class _SyncService extends ATProtoBaseService implements SyncService {
-  /// Returns the new instance of [_SyncService].
-  _SyncService({
-    required super.did,
-    required super.protocol,
-    required super.service,
-    required super.relayService,
-    required super.context,
-    super.mockedGetClient,
-    super.mockedPostClient,
-  });
-
-  @override
+  @Deprecated('Use .subscribeRepos instead. Will be removed')
   Future<core.XRPCResponse<core.Subscription<SubscribedRepo>>>
       subscribeRepoUpdates({
     int? cursor,
   }) async =>
-          await super.stream(
+          await _ctx.stream(
             ns.comAtprotoSyncSubscribeRepos,
             parameters: {
               'cursor': cursor,
@@ -334,7 +145,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
             adaptor: toSubscribedRepo,
           );
 
-  @override
+  @Deprecated('Use .getRepo instead. Will be removed')
   Future<core.XRPCResponse<RepoCommits>> findRepoCommits({
     required String did,
     String? sinceCommitCid,
@@ -347,7 +158,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
         to: RepoCommits.fromJson,
       );
 
-  @override
+  @Deprecated('Use .getBlocks instead. Will be removed')
   Future<core.XRPCResponse<RepoBlocks>> findRepoBlocks({
     required String did,
     required List<String> commitCids,
@@ -358,7 +169,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
         to: RepoBlocks.fromJson,
       );
 
-  @override
+  @Deprecated('Use .getLatestCommit instead. Will be removed')
   Future<core.XRPCResponse<RepoLatestCommit>> findLatestCommit({
     required String did,
   }) async =>
@@ -367,7 +178,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
         to: RepoLatestCommit.fromJson,
       );
 
-  @override
+  @Deprecated('Use .getRecord instead. Will be remove')
   Future<core.XRPCResponse<RepoCommit>> findRecord({
     required core.AtUri uri,
     String? commitCid,
@@ -378,7 +189,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
         to: RepoCommit.fromJson,
       );
 
-  @override
+  @Deprecated('Use .listRepos instead. Will be removed')
   Future<core.XRPCResponse<Repos>> findRepos({
     int? limit,
     String? cursor,
@@ -389,7 +200,6 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
         to: Repos.fromJson,
       );
 
-  @override
   core.Pagination<Repos> paginateRepos({
     int? limit,
     String? cursor,
@@ -400,34 +210,23 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
         to: Repos.fromJson,
       );
 
-  @override
+  @Deprecated('Use .notifyOfUpdate instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> notifyCrawlingServiceOfUpdate({
     required String hostname,
   }) async =>
-      await super.post(
+      await _ctx.post(
         ns.comAtprotoSyncNotifyOfUpdate,
         body: {
           'hostname': hostname,
         },
       );
 
-  @override
-  Future<core.XRPCResponse<core.EmptyData>> requestCrawl({
-    required String hostname,
-  }) async =>
-      await super.post(
-        ns.comAtprotoSyncRequestCrawl,
-        body: {
-          'hostname': hostname,
-        },
-      );
-
-  @override
+  @Deprecated('Use .getBlob instead. Will be removed')
   Future<core.XRPCResponse<Uint8List>> findBlob({
     required String did,
     required String cid,
   }) async =>
-      await super.get<Uint8List>(
+      await _ctx.get<Uint8List>(
         ns.comAtprotoSyncGetBlob,
         parameters: {
           'did': did,
@@ -435,7 +234,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
         },
       );
 
-  @override
+  @Deprecated('Use .listBlobs instead. Will be removed')
   Future<core.XRPCResponse<BlobRefs>> findBlobs({
     required String did,
     String? sinceCid,
@@ -450,7 +249,6 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
         to: BlobRefs.fromJson,
       );
 
-  @override
   core.Pagination<BlobRefs> paginateBlobs({
     required String did,
     String? sinceCid,
@@ -471,7 +269,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     required core.ProgressStatus? progress,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.comAtprotoSyncGetRepo,
         parameters: {
           'did': did,
@@ -489,7 +287,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     required List<String> commitCids,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.comAtprotoSyncGetBlocks,
         parameters: {
           'did': did,
@@ -503,7 +301,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     required String did,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.comAtprotoSyncGetLatestCommit,
         parameters: {
           'did': did,
@@ -516,7 +314,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     required String? commitCid,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.comAtprotoSyncGetRecord,
         parameters: {
           'did': uri.hostname,
@@ -533,7 +331,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.comAtprotoSyncListRepos,
         parameters: _buildListReposParams(
           limit: limit,
@@ -547,7 +345,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.comAtprotoSyncListRepos,
         parameters: _buildListReposParams(
           limit: limit,
@@ -563,7 +361,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     required String? cursor,
     core.To<T>? to,
   }) async =>
-      await super.get(
+      await _ctx.get(
         ns.comAtprotoSyncListBlobs,
         parameters: _buildListBlobsParams(
           did: did,
@@ -581,7 +379,7 @@ final class _SyncService extends ATProtoBaseService implements SyncService {
     required String? cursor,
     core.To<T>? to,
   }) =>
-      super.paginate(
+      _ctx.paginate(
         ns.comAtprotoSyncListBlobs,
         parameters: _buildListBlobsParams(
           did: did,

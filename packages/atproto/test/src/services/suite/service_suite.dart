@@ -133,79 +133,53 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      IdentityService(
-        did: did,
-        protocol: core.Protocol.https,
-        service: service,
-        context: clientContext,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
+      IdentityService(getClientContext(
+        mockedGetClient,
+        mockedPostClient,
+      ));
 
   LabelService _getLabelService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      LabelService(
-        did: did,
-        protocol: core.Protocol.https,
-        service: service,
-        relayService: relayService,
-        context: clientContext,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
+      LabelService(getClientContext(
+        mockedGetClient,
+        mockedPostClient,
+      ));
 
   ModerationService _getModerationService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      ModerationService(
-        did: did,
-        protocol: core.Protocol.https,
-        service: service,
-        context: clientContext,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
+      ModerationService(getClientContext(
+        mockedGetClient,
+        mockedPostClient,
+      ));
 
   RepoService _getRepoService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      RepoService(
-        did: did,
-        protocol: core.Protocol.https,
-        service: service,
-        context: clientContext,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
+      RepoService(getClientContext(
+        mockedGetClient,
+        mockedPostClient,
+      ));
 
   ServerService _getServerService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      ServerService(
-        did: did,
-        protocol: core.Protocol.https,
-        service: service,
-        context: clientContext,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
+      ServerService(getClientContext(
+        mockedGetClient,
+        mockedPostClient,
+      ));
 
   SyncService _getSyncService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      SyncService(
-        did: did,
-        protocol: core.Protocol.https,
-        service: service,
-        relayService: relayService,
-        context: clientContext,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
+      SyncService(getClientContext(
+        mockedGetClient,
+        mockedPostClient,
+      ));
 }

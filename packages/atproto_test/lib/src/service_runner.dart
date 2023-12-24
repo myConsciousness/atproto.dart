@@ -23,9 +23,13 @@ abstract class ServiceRunner {
         refreshJwt: 'fake refresh jwt',
       );
 
-  core.ClientContext get clientContext => core.ClientContext(
-        accessJwt: 'fake access jwt',
-        timeout: const Duration(seconds: 30),
+  core.ServiceContext getClientContext(
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
+  ) =>
+      core.ServiceContext(
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
       );
 
   S getServiceImpl<S>([

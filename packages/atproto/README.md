@@ -91,7 +91,6 @@ See **[official documents](https://atprotodart.com/docs/packages/atproto)** from
 
 - **[Session Management](https://atprotodart.com/docs/packages/atproto#session-management)**
 - **[App Password](https://atprotodart.com/docs/packages/atproto#app-password)**
-- **[Standardized Names](https://atprotodart.com/docs/packages/atproto#standardized-names)**
 - **[Other Than `bsky.social`](https://atprotodart.com/docs/packages/atproto#other-than-bskysocial)**
 - **[De/Serialize](https://atprotodart.com/docs/packages/atproto#deserialize)**
 - **[Thrown Exceptions](https://atprotodart.com/docs/packages/atproto/#thrown-exceptions)**

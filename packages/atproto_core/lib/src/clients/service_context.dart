@@ -10,22 +10,32 @@ import 'dart:typed_data';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // 🌎 Project imports:
+import '../const.dart';
 import '../paginations/pagination.dart';
+import '../sessions/session.dart';
 import 'challenge.dart';
 import 'retry_config.dart';
 import 'retry_policy.dart';
 
-final class ClientContext {
-  ClientContext({
-    required String accessJwt,
-    required Duration timeout,
+base class ServiceContext {
+  ServiceContext({
+    xrpc.Protocol? protocol,
+    String? service,
+    String? relayService,
+    this.session,
+    Duration? timeout,
     RetryConfig? retryConfig,
-  })  : _accessJwt = accessJwt,
+    final xrpc.GetClient? mockedGetClient,
+    final xrpc.PostClient? mockedPostClient,
+  })  : _protocol = protocol ?? defaultProtocol,
+        _service = service ?? defaultService,
+        _relayService = relayService ?? defaultRelayService,
         _challenge = Challenge(RetryPolicy(retryConfig)),
-        _timeout = timeout;
+        _timeout = timeout ?? defaultTimeout,
+        _mockedGetClient = mockedGetClient,
+        _mockedPostClient = mockedPostClient;
 
-  /// The access token.
-  final String _accessJwt;
+  final Session? session;
 
   /// The communication challenge for client
   final Challenge _challenge;
@@ -33,98 +43,94 @@ final class ClientContext {
   /// The timeout
   final Duration _timeout;
 
+  /// The communication protocol.
+  final xrpc.Protocol? _protocol;
+
+  final String _service;
+  final String _relayService;
+
+  final xrpc.GetClient? _mockedGetClient;
+  final xrpc.PostClient? _mockedPostClient;
+
   Future<xrpc.XRPCResponse<T>> get<T>(
     final xrpc.NSID methodId, {
-    final xrpc.Protocol? protocol,
-    required final String service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
-    final xrpc.GetClient? getClient,
   }) async =>
       await _challenge.execute(
         (client) async => await client.get(
           methodId,
-          protocol: protocol,
-          service: service,
+          protocol: _protocol,
+          service: _service,
           headers: _getHeaders(),
           parameters: parameters,
           to: to,
           adaptor: adaptor,
           timeout: _timeout,
-          getClient: getClient,
+          getClient: _mockedGetClient,
         ),
       );
 
   Pagination<T> paginate<T>(
     final xrpc.NSID methodId, {
-    final xrpc.Protocol? protocol,
-    required final String service,
     required final Map<String, dynamic> parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
-    final xrpc.GetClient? getClient,
   }) =>
       Pagination(
         _challenge,
         methodId,
-        protocol: protocol,
-        service: service,
+        protocol: _protocol,
+        service: _service,
         headers: _getHeaders(),
         parameters: parameters,
         to: to,
         adaptor: adaptor,
         timeout: _timeout,
-        getClient: getClient,
+        getClient: _mockedGetClient,
       );
 
   Future<xrpc.XRPCResponse<T>> post<T>(
     final xrpc.NSID methodId, {
-    final xrpc.Protocol? protocol,
-    required final String service,
     final Map<String, String>? headers,
     final dynamic body,
     final xrpc.To<T>? to,
-    final xrpc.PostClient? postClient,
   }) async =>
       await _challenge.execute(
         (client) async => await client.post(
           methodId,
-          protocol: protocol,
-          service: service,
+          protocol: _protocol,
+          service: _service,
           headers: _getHeaders(headers),
           body: body,
           to: to,
           timeout: _timeout,
-          postClient: postClient,
+          postClient: _mockedPostClient,
         ),
       );
 
   Future<xrpc.XRPCResponse<T>> upload<T>(
     final xrpc.NSID methodId,
     final Uint8List bytes, {
-    final xrpc.Protocol? protocol,
-    final String? service,
     final Map<String, String>? headers,
     final xrpc.To<T>? to,
-    final xrpc.PostClient? postClient,
   }) async =>
       await _challenge.execute(
         (client) async => await client.upload(
           methodId,
           bytes,
-          protocol: protocol,
-          service: service,
+          protocol: _protocol,
+          service: _service,
           headers: _getHeaders(headers),
           timeout: _timeout,
           to: to,
-          postClient: postClient,
+          postClient: _mockedPostClient,
         ),
       );
 
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
     final xrpc.NSID methodId, {
-    final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.To<T>? to,
     final xrpc.ResponseAdaptor? adaptor,
@@ -132,7 +138,7 @@ final class ClientContext {
       await _challenge.execute(
         (client) => client.stream(
           methodId,
-          service: service,
+          service: _relayService,
           parameters: parameters,
           to: to,
           adaptor: adaptor,
@@ -140,10 +146,10 @@ final class ClientContext {
       );
 
   Map<String, String>? _getHeaders([Map<String, String>? optional]) {
-    if (_accessJwt.isEmpty) return optional;
+    if (session == null) return optional;
 
     return {
-      'Authorization': 'Bearer $_accessJwt',
+      'Authorization': 'Bearer ${session?.accessJwt}',
       ...optional ?? const {},
     };
   }
