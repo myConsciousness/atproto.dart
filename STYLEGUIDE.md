@@ -17,7 +17,6 @@
       - [1.3.3.1. Consider adding examples](#1331-consider-adding-examples)
       - [1.3.3.2. Avoid useless code documentation](#1332-avoid-useless-code-documentation)
       - [1.3.3.3. Consider adding linkage between docs](#1333-consider-adding-linkage-between-docs)
-    - [1.3.4. Naming Conventions](#134-naming-conventions)
 
 <!-- /TOC -->
 
@@ -163,26 +162,3 @@ Avoid documentation that just repeats the obvious. For example, `void doStuff()`
 
 You should use `[]` (brackets) to link dartdoc elements that can be referenced on the same file.
 Also, consider adding a "See also" section to element documentation.
-
-### 1.3.4. Naming Conventions
-
-Basically we follow naming style in [Effective Dart](https://dart.dev/guides/language/effective-dart/style).
-
-The only thing to note is the **method name**. The method name should be a name that describes the operation of each endpoint. It's also better to give a standard prefix so that users can quickly find the method they want to use.
-
-So `atproto` uses the following standard prefixes depending on endpoint characteristics.
-
-| Prefix         | Description                                                                                             |
-| -------------- | ------------------------------------------------------------------------------------------------------- |
-| **.find**      | This prefix is attached to endpoints that reference post etc.                                           |
-| **.search**    | This prefix is attached to endpoints that perform extensive searches.                                   |
-| **.paginate**  | This prefix is attached to pagination available endpoints and provides utilities related to pagination. |
-| **.subscribe** | This prefix is attached to endpoints with high-performance streaming.                                   |
-| **.create**    | This prefix is attached to the endpoint performing the create state.                                    |
-| **.refresh**   | This prefix is attached to the endpoint performing the refresh state.                                   |
-| **.delete**    | This prefix is attached to the endpoint performing the delete state.                                    |
-| **.update**    | This prefix is attached to the endpoint performing the update state.                                    |
-| **.upload**    | This prefix is attached to the endpoint performing the upload contents.                                 |
-| **.request**   | This prefix is attached to the endpoint performing the request via email.                               |
-| **.notify**    | This prefix is attached to the endpoint used for the purpose of notifying the server of updates.        |
-| **.confirm**   | This prefix is attached to the endpoint performing the confirm state such an email.                     |
