@@ -4,6 +4,7 @@
 
 import 'package:bluesky/bluesky.dart';
 
+/// https://atprotodart.com/docs/packages/bluesky
 Future<void> main() async {
   try {
     final bsky = Bluesky.fromSession(

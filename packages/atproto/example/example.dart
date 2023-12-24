@@ -4,6 +4,7 @@
 
 import 'package:atproto/atproto.dart';
 
+/// https://atprotodart.com/docs/packages/atproto
 Future<void> main() async {
   try {
     //! First you need to establish session with ATP server.
