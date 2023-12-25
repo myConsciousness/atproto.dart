@@ -20,7 +20,7 @@ If you are having trouble implementing **RichText** in the Bluesky API, check ou
 
 - ✅ **Zero Dependency**
 - ✅ Supports **Powerful Built-In Retry** using **[Exponential BackOff And Jitter](https://aws.amazon.com/jp/blogs/architecture/exponential-backoff-and-jitter/)**
-- ✅ Supports **[All Major Endpoints](../api_support_matrix.md#bluesky)** for [`app.bsky.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky)
+- ✅ Supports **[All Major Endpoints](../supported_api.md#bluesky)** for [`app.bsky.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky)
 - ✅ **Well Documented** and **Well Tested**
 - ✅ Supports **Powerful Firehose API**
 - ✅ Supports **Powerful Moderation API**
@@ -28,7 +28,7 @@ If you are having trouble implementing **RichText** in the Bluesky API, check ou
 - ✅ **Built In [atproto](https://pub.dev/packages/atproto) Features**
 
 :::tip
-See **[API Supported Matrix](../api_support_matrix.md#bluesky)** for a list of endpoints supported by **[bluesky](https://pub.dev/packages/bluesky)**.
+See **[API Supported Matrix](../supported_api.md#bluesky)** for a list of endpoints supported by **[bluesky](https://pub.dev/packages/bluesky)**.
 :::
 
 ## Getting Started 💪
@@ -74,7 +74,7 @@ You need to use **[Bluesky](https://pub.dev/documentation/bluesky/latest/bluesky
 As shown in the following example, the key point in instantiating **[Bluesky](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky-class.html)** object is **whether the endpoint you wish to use requires authentication**.
 
 :::tip
-See **[API Supported Matrix](../api_support_matrix.md#bluesky)** for whether or not authentication is required for each endpoint.
+See **[API Supported Matrix](../supported_api.md#bluesky)** for whether or not authentication is required for each endpoint.
 :::
 
 If authentication is required, first create a session with the ATP server using your credentials with the `.createSession` function.
@@ -160,7 +160,7 @@ Future<void> main() async {
 ```
 
 :::tip
-See **[API Supported Matrix](../api_support_matrix.md#bluesky)** for a list of endpoints supported by **[bluesky](https://pub.dev/packages/bluesky)**.
+See **[API Supported Matrix](../supported_api.md#bluesky)** for a list of endpoints supported by **[bluesky](https://pub.dev/packages/bluesky)**.
 :::
 
 ### Let's Implement
@@ -194,7 +194,7 @@ Future<void> main() async {
 ```
 
 :::tip
-See **[API Support Matrix](../api_support_matrix.md#blueskyo)** for all supported endpoints.
+See **[API Support Matrix](../supported_api.md#blueskyo)** for all supported endpoints.
 :::
 
 ## More Tips 🏄
@@ -707,7 +707,7 @@ Future<void> main() async {
 ```
 
 :::tip
-Endpoints that can be paged can be seen in [this matrix](../api_support_matrix.md#bluesky).
+Endpoints that can be paged can be seen in [this matrix](../supported_api.md#bluesky).
 :::
 
 This example is a very simple implementation, but it allows us to see pagination using **[bluesky](https://pub.dev/packages/bluesky)**.
