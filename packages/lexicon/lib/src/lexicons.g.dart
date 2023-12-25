@@ -2418,7 +2418,12 @@ const comAtprotoAdminSendEmail = <String, dynamic>{
             "recipientDid": {"type": "string", "format": "did"},
             "content": {"type": "string"},
             "subject": {"type": "string"},
-            "senderDid": {"type": "string", "format": "did"}
+            "senderDid": {"type": "string", "format": "did"},
+            "comment": {
+              "type": "string",
+              "description":
+                  "Additional comment by the sender that won't be used in the email itself but helpful to provide more context for moderators/reviewers"
+            }
           }
         }
       },
@@ -2971,6 +2976,10 @@ const comAtprotoAdminDefs = <String, dynamic>{
         "subjectLine": {
           "type": "string",
           "description": "The subject line of the email sent to the user."
+        },
+        "comment": {
+          "type": "string",
+          "description": "Additional comment about the outgoing comm."
         }
       }
     }

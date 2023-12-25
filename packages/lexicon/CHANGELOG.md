@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.1.4
+
+- Upgraded `NSID`. ([#1112](https://github.com/myConsciousness/atproto.dart/issues/1112))
+
 ## v0.1.3
 
 - Added generated lexicons docs as `lexicon/docs` package. You can access all official lexicons. ([#1094](https://github.com/myConsciousness/atproto.dart/issues/1094))

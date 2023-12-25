@@ -215,6 +215,12 @@ description: com.atproto.admin.defs
 | **height** | integer | - | ✅ | - |
 | **length** | integer | - | ✅ | - |
 
+## #subjectReviewState
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **subjectReviewState** | string | [#reviewOpen](#reviewopen)<br/>[#reviewEscalated](#reviewescalated)<br/>[#reviewClosed](#reviewclosed) | ❌ | - |
+
 ## #reviewOpen
 
 **TOKEN**: Moderator review status of a subject: Open. Indicates that the subject needs to be reviewed by a moderator
@@ -308,3 +314,4 @@ Keep a log of outgoing email to a user
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **subjectLine** | string | - | ✅ | The subject line of the email sent to the user. |
+| **comment** | string | - | ❌ | Additional comment about the outgoing comm. |

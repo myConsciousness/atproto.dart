@@ -3,7 +3,6 @@
 // modification, are permitted provided the conditions.
 
 export 'package:atproto/src/atproto.dart';
-export 'package:atproto/src/services/services.dart';
 export 'package:atproto/src/services/entities/account.dart';
 export 'package:atproto/src/services/entities/account_codes.dart';
 export 'package:atproto/src/services/entities/app_password.dart';
@@ -64,13 +63,13 @@ export 'package:atproto/src/services/entities/subscribed_repo_migrate.dart';
 export 'package:atproto/src/services/entities/subscribed_repo_tombstone.dart';
 export 'package:atproto/src/services/entities/update_action.dart';
 export 'package:atproto/src/services/entities/signing_key.dart';
-export 'package:atproto/src/services/identities_service.dart';
+export 'package:atproto/src/services/identity_service.dart';
 export 'package:atproto/src/services/constants/moderation_reason_type.dart';
 export 'package:atproto/src/services/moderation_service.dart';
-export 'package:atproto/src/services/repositories_service.dart';
-export 'package:atproto/src/services/servers_service.dart';
+export 'package:atproto/src/services/repo_service.dart';
+export 'package:atproto/src/services/server_service.dart';
 export 'package:atproto/src/services/sync_service.dart';
-export 'package:atproto/src/services/labels_service.dart';
+export 'package:atproto/src/services/label_service.dart';
 export 'package:atproto_core/atproto_core.dart'
     show
         XRPCResponse,
@@ -80,7 +79,6 @@ export 'package:atproto_core/atproto_core.dart'
         RateLimit,
         RateLimitPolicy,
         Protocol,
-        Pagination,
         EmptyData,
         HttpMethod,
         HttpStatus,

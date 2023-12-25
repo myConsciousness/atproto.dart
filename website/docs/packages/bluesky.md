@@ -20,7 +20,7 @@ If you are having trouble implementing **RichText** in the Bluesky API, check ou
 
 - ✅ **Zero Dependency**
 - ✅ Supports **Powerful Built-In Retry** using **[Exponential BackOff And Jitter](https://aws.amazon.com/jp/blogs/architecture/exponential-backoff-and-jitter/)**
-- ✅ Supports **[All Major Endpoints](../api_support_matrix.md#bluesky)** for [`app.bsky.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky)
+- ✅ Supports **[All Major Endpoints](../supported_api.md#bluesky)** for [`app.bsky.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky)
 - ✅ **Well Documented** and **Well Tested**
 - ✅ Supports **Powerful Firehose API**
 - ✅ Supports **Powerful Moderation API**
@@ -28,7 +28,7 @@ If you are having trouble implementing **RichText** in the Bluesky API, check ou
 - ✅ **Built In [atproto](https://pub.dev/packages/atproto) Features**
 
 :::tip
-See **[API Supported Matrix](../api_support_matrix.md#bluesky)** for a list of endpoints supported by **[bluesky](https://pub.dev/packages/bluesky)**.
+See **[API Supported Matrix](../supported_api.md#bluesky)** for a list of endpoints supported by **[bluesky](https://pub.dev/packages/bluesky)**.
 :::
 
 ## Getting Started 💪
@@ -74,7 +74,7 @@ You need to use **[Bluesky](https://pub.dev/documentation/bluesky/latest/bluesky
 As shown in the following example, the key point in instantiating **[Bluesky](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky-class.html)** object is **whether the endpoint you wish to use requires authentication**.
 
 :::tip
-See **[API Supported Matrix](../api_support_matrix.md#bluesky)** for whether or not authentication is required for each endpoint.
+See **[API Supported Matrix](../supported_api.md#bluesky)** for whether or not authentication is required for each endpoint.
 :::
 
 If authentication is required, first create a session with the ATP server using your credentials with the `.createSession` function.
@@ -89,18 +89,18 @@ You then do not need to be particularly aware of the contents of the retrieved S
 import 'package:bluesky/bluesky.dart' as bsky;
 
 Future<void> main() async {
-    // Let's authenticate here.
-    final session = await bsky.createSession(
-        identifier: 'YOUR_HANDLE_OR_EMAIL', // Like "shinyakato.dev"
-        password: 'YOUR_PASSWORD',
-    );
+  // Let's authenticate here.
+  final session = await bsky.createSession(
+      identifier: 'YOUR_HANDLE_OR_EMAIL', // Like "shinyakato.dev"
+      password: 'YOUR_PASSWORD',
+  );
 
-    print(session);
+  print(session);
 
-    // Just pass created session data.
-    final bluesky = bsky.Bluesky.fromSession(
-        session.data,
-    );
+  // Just pass created session data.
+  final bluesky = bsky.Bluesky.fromSession(
+      session.data,
+  );
 }
 ```
 
@@ -110,8 +110,8 @@ Or, it's very easy if authentication is not required , simply use the `.anonymou
 import 'package:bluesky/bluesky.dart';
 
 Future<void> main() async {
-    // Just call anonymous constructor.
-    final bluesky = Bluesky.anonymous();
+  // Just call anonymous constructor.
+  final bluesky = Bluesky.anonymous();
 }
 ```
 
@@ -123,18 +123,19 @@ See **[Session Management](#session-management)** for more details about authent
 
 **[bluesky](https://pub.dev/packages/bluesky)** supports following services.
 
-| Property                                                                                             | Class                                                                                                        | Lexicon                                                                                                           |
-| ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| **[servers](https://pub.dev/documentation/atproto/latest/atproto/ATProto/servers.html)**             | [ServersService](https://pub.dev/documentation/atproto/latest/atproto/ServersService-class.html)             | [`com.atproto.server.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/server)         |
-| **[identities](https://pub.dev/documentation/atproto/latest/atproto/ATProto/identities.html)**       | [IdentitiesService](https://pub.dev/documentation/atproto/latest/atproto/IdentitiesService-class.html)       | [`com.atproto.identity.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/identity)     |
-| **[repositories](https://pub.dev/documentation/atproto/latest/atproto/ATProto/repositories.html)**   | [RepositoriesService](https://pub.dev/documentation/atproto/latest/atproto/RepositoriesService-class.html)   | [`com.atproto.repo.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/repo)             |
-| **[moderation](https://pub.dev/documentation/atproto/latest/atproto/ATProto/moderation.html)**       | [ModerationService](https://pub.dev/documentation/atproto/latest/atproto/ModerationService-class.html)       | [`com.atproto.moderation.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/moderation) |
-| **[sync](https://pub.dev/documentation/atproto/latest/atproto/ATProto/sync.html)**                   | [SyncService](https://pub.dev/documentation/atproto/latest/atproto/SyncService-class.html)                   | [`com.atproto.sync.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/sync)             |
-| **[actors](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/actors.html)**               | [ActorsService](https://pub.dev/documentation/bluesky/latest/bluesky/ActorsService-class.html)               | [`app.bsky.actor.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/actor)                 |
-| **[feeds](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/feeds.html)**                 | [FeedsService](https://pub.dev/documentation/bluesky/latest/bluesky/FeedsService-class.html)                 | [`app.bsky.feed.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/feed)                   |
-| **[notifications](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/notifications.html)** | [NotificationsService](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationsService-class.html) | [`app.bsky.notification.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/notification)   |
-| **[graphs](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/graphs.html)**               | [GraphsService](https://pub.dev/documentation/bluesky/latest/bluesky/GraphsService-class.html)               | [`app.bsky.graph.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/graph)                 |
-| **[unspecced](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/unspecced.html)**         | [UnspeccedService](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService-class.html)         | [`app.bsky.unspecced.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/unspecced)         |
+| Property                                                                                           | Class                                                                                                      | Lexicon                                                                                                           |
+| -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **[server](https://pub.dev/documentation/atproto/latest/atproto/ATProto/server.html)**             | [ServerService](https://pub.dev/documentation/atproto/latest/atproto/ServerService-class.html)             | [`com.atproto.server.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/server)         |
+| **[identity](https://pub.dev/documentation/atproto/latest/atproto/ATProto/identity.html)**         | [IdentityService](https://pub.dev/documentation/atproto/latest/atproto/IdentityService-class.html)         | [`com.atproto.identity.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/identity)     |
+| **[repo](https://pub.dev/documentation/atproto/latest/atproto/ATProto/repo.html)**                 | [RepoService](https://pub.dev/documentation/atproto/latest/atproto/RepoService-class.html)                 | [`com.atproto.repo.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/repo)             |
+| **[moderation](https://pub.dev/documentation/atproto/latest/atproto/ATProto/moderation.html)**     | [ModerationService](https://pub.dev/documentation/atproto/latest/atproto/ModerationService-class.html)     | [`com.atproto.moderation.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/moderation) |
+| **[sync](https://pub.dev/documentation/atproto/latest/atproto/ATProto/sync.html)**                 | [SyncService](https://pub.dev/documentation/atproto/latest/atproto/SyncService-class.html)                 | [`com.atproto.sync.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/sync)             |
+| **[label](https://pub.dev/documentation/atproto/latest/atproto/ATProto/label.html)**               | [LabelService](https://pub.dev/documentation/atproto/latest/atproto/LabelService-class.html)               | [`com.atproto.label.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/label)           |
+| **[actor](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/actor.html)**               | [ActorService](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService-class.html)               | [`app.bsky.actor.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/actor)                 |
+| **[feed](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/feed.html)**                 | [FeedService](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService-class.html)                 | [`app.bsky.feed.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/feed)                   |
+| **[notification](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/notification.html)** | [NotificationService](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationService-class.html) | [`app.bsky.notification.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/notification)   |
+| **[graph](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/graph.html)**               | [GraphService](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService-class.html)               | [`app.bsky.graph.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/graph)                 |
+| **[unspecced](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/unspecced.html)**       | [UnspeccedService](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService-class.html)       | [`app.bsky.unspecced.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/unspecced)         |
 
 Once an instance of the **[Bluesky](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky-class.html)** object has been created, service endpoints can be used by accessing the `property` corresponding to each service as follows.
 
@@ -152,14 +153,14 @@ Future<void> main() async {
     session.data,
   );
 
-  final timeline = await bluesky.feeds.findTimeline();
+  final timeline = await bluesky.feed.getTimeline();
 
   print(timeline);
 }
 ```
 
 :::tip
-See **[API Supported Matrix](../api_support_matrix.md#bluesky)** for a list of endpoints supported by **[bluesky](https://pub.dev/packages/bluesky)**.
+See **[API Supported Matrix](../supported_api.md#bluesky)** for a list of endpoints supported by **[bluesky](https://pub.dev/packages/bluesky)**.
 :::
 
 ### Let's Implement
@@ -183,17 +184,17 @@ Future<void> main() async {
   );
 
   // Create a record to specific service like Bluesky.
-  final strongRef = await bluesky.feeds.createPost(
+  final strongRef = await bluesky.feed.post(
     text: 'Hello, Bluesky!',
   );
 
   // And delete it.
-  await bluesky.repositories.deleteRecord(uri: strongRef.data.uri);
+  await bluesky.repo.deleteRecord(uri: strongRef.data.uri);
 }
 ```
 
 :::tip
-See **[API Support Matrix](../api_support_matrix.md#blueskyo)** for all supported endpoints.
+See **[API Support Matrix](../supported_api.md#blueskyo)** for all supported endpoints.
 :::
 
 ## More Tips 🏄
@@ -235,7 +236,7 @@ Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(session.data);
 
   // Do something with bluesky
-  final did = await bluesky.identities.findDID(handle: session.data.handle);
+  final did = await bluesky.identity.resolveHandle(handle: session.data.handle);
 }
 ```
 
@@ -259,53 +260,6 @@ Future<void> main() async {
   bsky.isValidAppPassword('xxxxxxxxxxxxxxxxxxx'); // => false
 }
 ```
-
-### Standardized Names
-
-The methods corresponding to each endpoint accessible from **[bluesky](https://pub.dev/packages/bluesky)** are given a **_standardized prefix_** according to the characteristics of the endpoint.
-This way, you do not have to frantically search for the corresponding method for the endpoint you want to use.
-You can always find the method you want to use by typing the prefix in the following table for each service object.
-
-| Prefix         | Description                                                                                             |
-| -------------- | ------------------------------------------------------------------------------------------------------- |
-| **.find**      | This prefix is attached to endpoints that reference post etc.                                           |
-| **.search**    | This prefix is attached to endpoints that perform extensive searches.                                   |
-| **.paginate**  | This prefix is attached to pagination available endpoints and provides utilities related to pagination. |
-| **.subscribe** | This prefix is attached to endpoints with high-performance streaming.                                   |
-| **.create**    | This prefix is attached to the endpoint performing the create state.                                    |
-| **.refresh**   | This prefix is attached to the endpoint performing the refresh state.                                   |
-| **.delete**    | This prefix is attached to the endpoint performing the delete state.                                    |
-| **.update**    | This prefix is attached to the endpoint performing the update state.                                    |
-| **.upload**    | This prefix is attached to the endpoint performing the upload contents.                                 |
-| **.request**   | This prefix is attached to the endpoint performing the request via email.                               |
-| **.notify**    | This prefix is attached to the endpoint used for the purpose of notifying the server of updates.        |
-| **.confirm**   | This prefix is attached to the endpoint performing the confirm state such an email.                     |
-
-:::tip
-For example, if you want to `find` a specific record using **[bluesky](https://pub.dev/packages/bluesky)**, you would type the following for the `GraphsService`.
-
-```dart
-import 'package:bluesky/bluesky.dart' as bsky;
-
-Future<void> main() async {
-  final session = await bsky.createSession(
-    identifier: 'YOUR_HANDLE_OR_EMAIL',
-    password: 'YOUR_PASSWORD',
-  );
-
-  final bluesky = bsky.Bluesky.fromSession(
-    session.data,
-  );
-
-  // See this line.
-  await bluesky.graphs.find
-}
-```
-
-As you can see, the above code is still incomplete, but you will get the following a collection of suggestions for `find` actions once you type `.find`.
-
-![find_suggestions](https://github.com/myConsciousness/atproto.dart/assets/13072231/35d7e48d-b5af-4b7a-82e1-0fe3408e17ce)
-:::
 
 ### Other Than `bsky.social`
 
@@ -347,7 +301,7 @@ Future<void> main() async {
   final bluesky = Bluesky.anonymous();
 
   // Just find the DID of `shinyakato.dev`
-  final did = await bluesky.identities.findDID(
+  final did = await bluesky.identity.resolveHandle(
     handle: 'shinyakato.dev',
   );
 }
@@ -406,7 +360,7 @@ import 'package:bluesky/bluesky.dart' as bsky;
 Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(await _session);
 
-  final response = await bluesky.feeds.findTimeline();
+  final response = await bluesky.feed.getTimeline();
 
   // This is rate limit!
   print(response.rateLimit);
@@ -500,7 +454,7 @@ import 'package:bluesky/bluesky.dart' as bsky;
 Future<void> main() async {
   final bluesky = bsky.Bluesky.anonymous();
 
-  final subscription = await bluesky.sync.subscribeRepoUpdates();
+  final subscription = await bluesky.sync.subscribeRepos();
 
   await for (final event in subscription.data.stream) {
     // No need to use `.when` method.
@@ -522,7 +476,7 @@ Future<void> main() async {
 
 The **`Firehose API`** in AT Protocol allows you to get all events that occur on a specific service, such as `bsky.social`, **_in real time_**. This powerful and long-lived API can be used to calculate statistics using real-time data, develop interesting interactive BOTs, etc.
 
-Using **[bluesky](https://pub.dev/packages/bluesky)** to access the `Firehose API` is very simple, just execute the **[subscribeRepoUpdates](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepoUpdates.html)** method provided by the **[SyncService](https://pub.dev/documentation/atproto/latest/atproto/SyncService-class.html)** as shown in the following example. Also, user authentication is not required to access the `Firehose API`.
+Using **[bluesky](https://pub.dev/packages/bluesky)** to access the `Firehose API` is very simple, just execute the **[subscribeRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepos.html)** method provided by the **[SyncService](https://pub.dev/documentation/atproto/latest/atproto/SyncService-class.html)** as shown in the following example. Also, user authentication is not required to access the `Firehose API`.
 
 ```dart
 import 'package:bluesky/bluesky.dart';
@@ -531,7 +485,7 @@ Future<void> main() async {
   // Authentication is not required.
   final bluesky = Bluesky.anonymous();
 
-  final subscription = await bluesky.sync.subscribeRepoUpdates();
+  final subscription = await bluesky.sync.subscribeRepos();
 
   // Get events in real time.
   await for (final event in subscription.data.stream) {
@@ -737,7 +691,7 @@ Future<void> main() async {
   String? nextCursor;
 
   do {
-    final actors = await bluesky.actors.searchActors(
+    final actors = await bluesky.actor.searchActors(
       term: 'alf',
       cursor: nextCursor, // If null, it is ignored.
     );
@@ -753,104 +707,13 @@ Future<void> main() async {
 ```
 
 :::tip
-Endpoints that can be paged can be seen in [this matrix](../api_support_matrix.md#bluesky).
+Endpoints that can be paged can be seen in [this matrix](../supported_api.md#bluesky).
 :::
 
 This example is a very simple implementation, but it allows us to see pagination using **[bluesky](https://pub.dev/packages/bluesky)**.
 
 Whenever a method corresponding to a pagination-available endpoint is executed, the `cursor` is always present in the root of the response data, like `actors.data.cursor` above.
 If the next page does not exist, `cursor` is basically `null`.
-
-### Advanced Pagination
-
-As you saw in the **[previous section](#pagination)**, AT Protocol pagination is standardized to occur on a `cursor` basis.
-Of course it's possible to do primitive paging using `cursor`, but **[bluesky](https://pub.dev/packages/bluesky)** makes it much easier to implement it.
-Using this method you can paging without having to be aware of the `cursor`.
-
-You can easily implement it as follows.
-
-```dart
-import 'package:bluesky/bluesky.dart' as bsky;
-
-Future<void> main() async {
-  final session = await bsky.createSession(
-    identifier: 'YOUR_HANDLE_OR_EMAIL',
-    password: 'YOUR_PASSWORD',
-  );
-
-  final bluesky = bsky.Bluesky.fromSession(session.data);
-
-  // Get a pagination for `app.bsky.feed.getTimeline`.
-  final pagination = bluesky.feeds.paginateTimeline();
-
-  // Until the next cursor runs out.
-  while (pagination.hasNext) {
-    // Get a next page.
-    final response = await pagination.next();
-
-    print(response);
-  }
-}
-```
-
-As you can see from the above code, you can get a pagination specific **[Pagination](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination-class.html)** object by using the `.paginate` prefix method.
-Not only the above example, but any method prefixed with `.paginate` will **_always_** return a **[Pagination](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination-class.html)** object.
-In other words, the methods of the `.paginate` prefix can be used to easily handle pagination in a common interface using the **[Pagination](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination-class.html)** object.
-
-:::info
-Read **[this section](#standardized-names)** for an explanation of **_standardized names_**.
-:::
-
-The interface of the **[Pagination](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination-class.html)** object is very simple, and paging can be performed simply with following operations.
-
-| Operation                                                                                                   | Description                                                                                                                                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **[hasNext](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination/hasNext.html)**       | This property determines whether the next page exists. The criterion is the presence or absence of the next `cursor`, and `false` is returned if the next `cursor` does not exist. `True` is always returned for first run. |
-| **[hasNotNext](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination/hasNotNext.html)** | This is a simple negation of the property `hasNext`.                                                                                                                                                                        |
-| **[next](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination/next.html)**             | Return the next page asynchronously with the `cursor` indicating the next page.                                                                                                                                             |
-
-:::tip
-Paging can be done using the `hasNext` property and the `next` method as in the example above, or a series of processes can be implemented as a `Stream` with `.asStream` method.
-
-```dart
-await for (final response in pagination.asStream()) {
-  print(response);
-}
-```
-:::
-
-:::caution
-The **[rate limit](#rate-limits)** is **_not checked_** internally when using the `next` method of the **[Pagination](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination-class.html)** object.
-This means that you need to check the **[rate limit](#rate-limits)** of the endpoint as follows for your application.
-
-```dart
-while (pagination.hasNext) {
-  final response = await pagination.next();
-  final rateLimit = response.rateLimit;
-
-  print(response);
-
-  if (rateLimit.isExceeded) {
-    await rateLimit.waitUntilReset();
-  }
-}
-```
-
-Or with `.asStream`.
-
-```dart
-await for (final response in pagination.asStream()) {
-  print(response);
-
-  final rateLimit = response.rateLimit;
-
-  if (rateLimit.isExceeded) {
-    await rateLimit.waitUntilReset();
-  }
-}
-```
-
-:::
 
 ### Unspecced Inputs
 
@@ -874,7 +737,7 @@ import 'package:bluesky/bluesky.dart' as bsky;
 Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(await _session);
 
-  final ref = await bluesky.feeds.createPost(
+  final ref = await bluesky.feed.post(
     text: 'This is where I post from',
 
     // Use this parameter.
@@ -917,7 +780,7 @@ So, **_make sure that the unique properties you register from the `unspecced` pa
 To make the name of a property unique, the following methods are possible.
 
 - Prefix symbols such a `$` (e.g. `$place`)
-- Prefix with the domain name you own (e.g. `shinyakato.dev.place`)
+- Prefix with the domain name you own (e.g. `dev.shinyakato.place`)
 :::
 
 ### Moderation API
@@ -929,7 +792,7 @@ import 'package:bluesky/moderation.dart' as mod;
 Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(await _session);
 
-  final preferences = await bluesky.actors.findPreferences();
+  final preferences = await bluesky.actor.getPreferences();
 
   // Moderation options based on user's preferences
   final options = mod.getModerationOptions(

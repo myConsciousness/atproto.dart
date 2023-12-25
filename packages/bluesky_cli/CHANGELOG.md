@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.1
+
+- Upgraded dependencies. ([#1112](https://github.com/myConsciousness/atproto.dart/issues/1112))
+
 ## v0.4.0
 
 - Upgraded dependencies.

@@ -9,7 +9,7 @@ import 'suite/service_suite.dart';
 
 void main() {
   testLabel<LabelsByQuery>(
-    (m, s) => s.searchLabels(uriPatterns: [m.uri.toString()]),
+    (m, s) => s.queryLabels(uriPatterns: [m.uri.toString()]),
     id: comAtprotoLabelQueryLabels,
   );
 }

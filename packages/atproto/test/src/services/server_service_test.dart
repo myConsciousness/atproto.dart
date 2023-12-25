@@ -21,7 +21,7 @@ import 'suite/service_suite.dart';
 
 void main() {
   testServer<CurrentSession>(
-    (m, s) => s.findCurrentSession(),
+    (m, s) => s.getSession(),
     id: comAtprotoServerGetSession,
   );
 
@@ -35,7 +35,7 @@ void main() {
   );
 
   testServer<core.EmptyData>(
-    (m, s) => s.requestDeleteAccount(),
+    (m, s) => s.requestAccountDelete(),
     id: comAtprotoServerRequestAccountDelete,
   );
 
@@ -58,7 +58,7 @@ void main() {
   );
 
   testServer<InviteCodes>(
-    (m, s) => s.findInviteCodes(),
+    (m, s) => s.getAccountInviteCodes(),
     id: comAtprotoServerGetAccountInviteCodes,
   );
 
@@ -68,7 +68,7 @@ void main() {
   );
 
   testServer<core.EmptyData>(
-    (m, s) => s.updatePassword(
+    (m, s) => s.resetPassword(
       password: m.password,
       token: m.token,
     ),
@@ -81,17 +81,17 @@ void main() {
   );
 
   testServer<core.EmptyData>(
-    (m, s) => s.deleteAppPassword(name: m.name),
+    (m, s) => s.revokeAppPassword(name: m.name),
     id: comAtprotoServerRevokeAppPassword,
   );
 
   testServer<AppPasswords>(
-    (m, s) => s.findAppPasswords(),
+    (m, s) => s.listAppPasswords(),
     id: comAtprotoServerListAppPasswords,
   );
 
   testServer<ServerInfo>(
-    (m, s) => s.findServerInfo(),
+    (m, s) => s.describeServer(),
     id: comAtprotoServerDescribeServer,
   );
 
@@ -122,7 +122,7 @@ void main() {
   );
 
   testServer<SigningKey>(
-    (m, s) => s.createSigningKey(),
+    (m, s) => s.reserveSigningKey(),
     id: comAtprotoServerReserveSigningKey,
   );
 }

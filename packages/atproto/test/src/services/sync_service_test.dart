@@ -25,41 +25,40 @@ import 'suite/service_suite.dart';
 
 void main() {
   testSyncSubscription<SubscribedRepo>(
-    (m, s) => s.subscribeRepoUpdates(),
+    (m, s) => s.subscribeRepos(),
     id: comAtprotoSyncSubscribeRepos,
   );
 
   testSync<RepoCommits>(
-    (m, s) => s.findRepoCommits(did: m.did),
+    (m, s) => s.getRepo(did: m.did),
     id: comAtprotoSyncGetRepo,
     bytes: getRepoBytes,
   );
 
   testSync<RepoBlocks>(
-    (m, s) => s.findRepoBlocks(did: m.did, commitCids: [m.cid]),
+    (m, s) => s.getBlocks(did: m.did, commitCids: [m.cid]),
     id: comAtprotoSyncGetBlocks,
     bytes: getBlocksBytes,
   );
 
   testSync<RepoLatestCommit>(
-    (m, s) => s.findLatestCommit(did: m.did),
+    (m, s) => s.getLatestCommit(did: m.did),
     id: comAtprotoSyncGetLatestCommit,
   );
 
   testSync<RepoCommit>(
-    (m, s) => s.findRecord(uri: m.uri),
+    (m, s) => s.getRecord(uri: m.uri),
     id: comAtprotoSyncGetRecord,
     bytes: getRecordBytes,
   );
 
   testSync<Repos>(
-    (m, s) => s.findRepos(),
-    pagination: (m, s) => s.paginateRepos(),
+    (m, s) => s.listRepos(),
     id: comAtprotoSyncListRepos,
   );
 
   testSync<core.EmptyData>(
-    (m, s) => s.notifyCrawlingServiceOfUpdate(hostname: m.name),
+    (m, s) => s.notifyOfUpdate(hostname: m.name),
     id: comAtprotoSyncNotifyOfUpdate,
   );
 
@@ -69,15 +68,14 @@ void main() {
   );
 
   testSync<Uint8List>(
-    (m, s) => s.findBlob(did: m.did, cid: m.cid),
+    (m, s) => s.getBlob(did: m.did, cid: m.cid),
     id: comAtprotoSyncGetBlob,
     bytes: File('test/src/services/suite/data/com/atproto/sync/getBlob.txt')
         .readAsBytesSync(),
   );
 
   testSync<BlobRefs>(
-    (m, s) => s.findBlobs(did: m.did),
-    pagination: (m, s) => s.paginateBlobs(did: m.did),
+    (m, s) => s.listBlobs(did: m.did),
     id: comAtprotoSyncListBlobs,
   );
 }

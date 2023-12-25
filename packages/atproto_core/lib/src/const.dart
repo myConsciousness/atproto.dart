@@ -18,7 +18,7 @@ const defaultTimeout = Duration(seconds: 30);
 const defaultService = 'bsky.social';
 
 /// `bsky.network`
-const defaultStreamService = 'bsky.network';
+const defaultRelayService = 'bsky.network';
 
 /// `cardyb.bsky.app`
 const defaultLinkPreviewService = 'cardyb.bsky.app';

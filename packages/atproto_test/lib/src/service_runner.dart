@@ -13,7 +13,7 @@ abstract class ServiceRunner {
   const ServiceRunner();
 
   String get service => 'bsky.social';
-  String get streamService => 'bsky.network';
+  String get relayService => 'bsky.network';
   String get did => 'did:web:shinyakato.dev';
 
   core.Session get session => const core.Session(
@@ -23,9 +23,13 @@ abstract class ServiceRunner {
         refreshJwt: 'fake refresh jwt',
       );
 
-  core.ClientContext get clientContext => core.ClientContext(
-        accessJwt: 'fake access jwt',
-        timeout: const Duration(seconds: 30),
+  core.ServiceContext getClientContext(
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
+  ) =>
+      core.ServiceContext(
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
       );
 
   S getServiceImpl<S>([

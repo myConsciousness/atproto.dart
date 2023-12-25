@@ -4,14 +4,14 @@
 
 // ignore_for_file: unused_local_variable
 
-import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/bluesky.dart';
 
 Future<void> main(List<String> args) async {
   /* SNIPPET START */
 
-  final retryConfig = bsky.RetryConfig(
+  final retryConfig = RetryConfig(
     maxAttempts: 10,
-    jitter: bsky.Jitter(
+    jitter: Jitter(
       maxInSeconds: 5,
       minInSeconds: 3,
     ),
@@ -21,18 +21,17 @@ Future<void> main(List<String> args) async {
     ),
   );
 
-  final session = await bsky.createSession(
+  final session = await createSession(
     identifier: 'shinyakato.dev',
     password: 'xxxxxxxx',
     retryConfig: retryConfig,
   );
 
-  final bluesky = bsky.Bluesky.fromSession(
+  final bsky = Bluesky.fromSession(
     session.data,
     retryConfig: retryConfig,
   );
 
-  final popular = await bluesky.unspecced.findPopularFeed();
-
+  final timeline = await bsky.feed.getTimeline();
   /* SNIPPET END */
 }

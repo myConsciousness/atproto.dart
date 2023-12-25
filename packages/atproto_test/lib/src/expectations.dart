@@ -19,10 +19,6 @@ typedef SubscriptionCallback<S, D>
   MockValues m,
   S s,
 );
-typedef PaginationCallback<S, D> = core.Pagination<D> Function(
-  MockValues m,
-  S s,
-);
 typedef BulkCallback<S> = Future<core.XRPCResponse<core.EmptyData>> Function(
   MockValues m,
   S s,
@@ -68,17 +64,12 @@ void testService<S, D>(
   final String lexiconId,
   final String? label, {
   final List<int>? bytes,
-  final PaginationCallback<S, D>? pagination,
   final BulkCallback<S>? bulk,
 }) {
   _test<S, D>(runner, endpoint, lexiconId, label, bytes: bytes);
 
   if (bulk != null) {
     _testBulk<S, D>(runner, bulk, lexiconId);
-  }
-
-  if (pagination != null) {
-    _testPagination<S, D>(runner, pagination, lexiconId);
   }
 }
 
@@ -179,59 +170,6 @@ void testSubscription<S, D>(
         }
       }
     }, timeout: Timeout(Duration(minutes: 2)));
-  });
-}
-
-void _testPagination<S, D>(
-  final ServiceRunner runner,
-  final PaginationCallback<S, D> endpoint,
-  final String lexiconId,
-) {
-  group('$lexiconId [Pagination]', () {
-    test('returned data = $D', () async {
-      final pagination = endpoint.call(
-        _mockValues,
-        runner.getService<S>(lexiconId),
-      );
-
-      expect(pagination, isA<core.Pagination<D>>());
-
-      int count = 0;
-      while (pagination.hasNext) {
-        if (count > 5) break;
-        final next = await pagination.next();
-
-        expect(next, isA<core.XRPCResponse<D>>());
-        count++;
-      }
-    });
-
-    test('unauthorized error', () async {
-      final pagination = endpoint.call(
-        _mockValues,
-        runner.getService<S>(lexiconId, statusCode: 401),
-      );
-
-      expectUnauthorizedException(pagination.next);
-    });
-
-    test('rate limit exceeded error', () async {
-      final pagination = endpoint.call(
-        _mockValues,
-        runner.getService<S>(lexiconId, statusCode: 429),
-      );
-
-      expectRateLimitExceededException(pagination.next);
-    });
-
-    test('internal server error', () async {
-      final pagination = endpoint.call(
-        _mockValues,
-        runner.getService<S>(lexiconId, statusCode: 500),
-      );
-
-      expectInternalServerErrorException(pagination.next);
-    });
   });
 }
 

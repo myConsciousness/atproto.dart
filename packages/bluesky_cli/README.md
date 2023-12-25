@@ -4,9 +4,8 @@
   </a>
 </p>
 
-
 <p align="center">
-  <b>A Powerful and Useful CLI Tool for Bluesky Social Powered By Dart Language 🎯</b>
+  <b>A Powerful and Useful CLI Tool for Bluesky Social 🦋</b>
 </p>
 
 ---
@@ -51,12 +50,7 @@
 
 A powerful CLI tool that allows [Bluesky Social](https://bsky.app)'s APIs to be executed from the command line powered by Dart language.
 
-**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) to activate this project!_**
-
-![github_star](https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/give_a_star.gif)
-
-- **[Official Documents](https://atprotodart.com/docs/packages/bluesky_cli)**
-- **[GitHub Repository](https://github.com/myConsciousness/atproto.dart)**
+**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) and follow [shinyakato.dev](https://bsky.app/profile/shinyakato.dev) on Bluesky!_**
 
 ## 1.1. Getting Started ⚡
 

@@ -18,55 +18,52 @@ import 'package:atproto/src/services/entities/records.dart';
 import 'package:atproto/src/services/entities/repo_info.dart';
 import 'package:atproto/src/services/entities/strong_ref.dart';
 import 'package:atproto/src/services/entities/update_action.dart';
+import 'package:atproto/src/services/repo_service.dart';
 import 'suite/service_suite.dart';
 
 void main() {
-  testRepository<StrongRef>(
+  testRepo<StrongRef>(
     (m, s) => s.createRecord(collection: m.collection, record: {}),
     id: comAtprotoRepoCreateRecord,
   );
 
-  testRepository<Record>(
-    (m, s) => s.findRecord(uri: m.uri),
+  testRepo<Record>(
+    (m, s) => s.getRecord(uri: m.uri),
     id: comAtprotoRepoGetRecord,
   );
 
-  testRepository<Records>(
-    (m, s) => s.findRecords(
-      repo: m.actor,
-      collection: m.collection,
-    ),
-    pagination: (m, s) => s.paginateRecords(
+  testRepo<Records>(
+    (m, s) => s.listRecords(
       repo: m.actor,
       collection: m.collection,
     ),
     id: comAtprotoRepoListRecords,
   );
 
-  testRepository<core.EmptyData>(
+  testRepo<core.EmptyData>(
     (m, s) => s.deleteRecord(uri: m.uri),
     id: comAtprotoRepoDeleteRecord,
   );
 
-  testRepository<StrongRef>(
-    (m, s) => s.updateRecord(uri: m.uri, record: {}),
+  testRepo<StrongRef>(
+    (m, s) => s.putRecord(uri: m.uri, record: {}),
     id: comAtprotoRepoPutRecord,
   );
 
-  testRepository<BlobData>(
+  testRepo<BlobData>(
     (m, s) => s.uploadBlob(File(
       'test/src/services/suite/data/com/atproto/repo/dash.png',
     ).readAsBytesSync()),
     id: comAtprotoRepoUploadBlob,
   );
 
-  testRepository<RepoInfo>(
-    (m, s) => s.findRepoInfo(repo: m.actor),
+  testRepo<RepoInfo>(
+    (m, s) => s.describeRepo(repo: m.actor),
     id: comAtprotoRepoDescribeRepo,
   );
 
-  testRepository<core.EmptyData>(
-    (m, s) => s.updateBulk(actions: [
+  testRepo<core.EmptyData>(
+    (m, s) => s.applyWrites(actions: [
       BatchAction.create(
         data: CreateAction(
           collection: m.collection,
@@ -77,8 +74,8 @@ void main() {
     id: comAtprotoRepoApplyWrites,
   );
 
-  testRepository<core.EmptyData>(
-    (m, s) => s.createRecords(actions: [
+  testRepo<core.EmptyData>(
+    (m, s) => s.createRecordInBulk(actions: [
       CreateAction(
         collection: m.collection,
         record: {},
@@ -88,8 +85,8 @@ void main() {
     label: 'Create',
   );
 
-  testRepository<core.EmptyData>(
-    (m, s) => s.updateRecords(actions: [
+  testRepo<core.EmptyData>(
+    (m, s) => s.updateRecordInBulk(actions: [
       UpdateAction(
         collection: m.collection,
         record: {},
@@ -99,8 +96,8 @@ void main() {
     label: 'Update',
   );
 
-  testRepository<core.EmptyData>(
-    (m, s) => s.deleteRecords(uris: [m.uri]),
+  testRepo<core.EmptyData>(
+    (m, s) => s.deleteRecordInBulk(uris: [m.uri]),
     id: comAtprotoRepoApplyWrites,
     label: 'Delete',
   );

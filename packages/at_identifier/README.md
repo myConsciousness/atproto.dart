@@ -4,9 +4,8 @@
   </a>
 </p>
 
-
 <p align="center">
-  <b>Provide Standard Validation for Identifier Supported By AT Protocol to Dart/Flutter 🎯</b>
+  <b>Core library for the syntax in the AT Protocol standard 🦋</b>
 </p>
 
 ---
@@ -46,7 +45,7 @@
 
 This library provides the easiest way to validate identifiers supported by [AT Protocol](https://atproto.com) in **Dart** and **Flutter** apps.
 
-**Show some ❤️ and star the repo to support the project.**
+**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) and follow [shinyakato.dev](https://bsky.app/profile/shinyakato.dev) on Bluesky!_**
 
 ## 1.1. Getting Started ⚡
 

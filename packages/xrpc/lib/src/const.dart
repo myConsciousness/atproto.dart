@@ -5,5 +5,5 @@
 /// The default service to communicate.
 const defaultService = 'bsky.social';
 
-/// The default service to streamed communicate.
-const defaultStreamService = 'bsky.network';
+/// The default relay service to communicate.
+const defaultRelayService = 'bsky.network';

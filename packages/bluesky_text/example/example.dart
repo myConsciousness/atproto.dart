@@ -40,7 +40,7 @@ Future<void> main() async {
     final bluesky = bsky.Bluesky.fromSession(await _session);
     final facets = await text.entities.toFacets();
 
-    await bluesky.feeds.createPost(
+    await bluesky.feed.post(
       text: text.value,
       facets: facets.map(bsky.Facet.fromJson).toList(),
     );

@@ -6,17 +6,17 @@
 
 /* SNIPPET START */
 
-import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/bluesky.dart';
 
 Future<void> main(List<String> args) async {
-  final session = await bsky.createSession(
+  final session = await createSession(
     identifier: 'shinyakato.dev',
     password: 'xxxxxxxx',
   );
 
-  final bluesky = bsky.Bluesky.fromSession(session.data);
+  final bsky = Bluesky.fromSession(session.data);
 
-  final strongRef = await bluesky.feeds.createPost(
+  final strongRef = await bsky.feed.post(
     text: 'Hello, Bluesky!',
   );
 }

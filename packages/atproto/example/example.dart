@@ -2,12 +2,13 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/atproto.dart';
 
+/// https://atprotodart.com/docs/packages/atproto
 Future<void> main() async {
   try {
     //! First you need to establish session with ATP server.
-    final session = await atp.createSession(
+    final session = await createSession(
       service: 'SERVICE_NAME', //! The default is `bsky.social`
       identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
       password: 'YOUR_PASSWORD',
@@ -15,20 +16,20 @@ Future<void> main() async {
 
     print(session);
 
-    final atproto = atp.ATProto.fromSession(
+    final atproto = ATProto.fromSession(
       session.data,
 
       //! The default is `bsky.social`
       service: 'SERVICE_NAME',
 
       //! The default is `bsky.network`
-      streamService: 'STREAM_SERVICE_NAME',
+      relayService: 'STREAM_SERVICE_NAME',
 
       //! Automatic retry is available when server error or network error occurs
       //! when communicating with the API.
-      retryConfig: atp.RetryConfig(
+      retryConfig: RetryConfig(
         maxAttempts: 5,
-        jitter: atp.Jitter(
+        jitter: Jitter(
           minInSeconds: 2,
           maxInSeconds: 5,
         ),
@@ -43,8 +44,8 @@ Future<void> main() async {
     );
 
     //! Create a record to specific service.
-    final createdRecord = await atproto.repositories.createRecord(
-      collection: atp.NSID.create(
+    final createdRecord = await atproto.repo.createRecord(
+      collection: NSID.create(
         'feed.bsky.app',
         'post',
       ),
@@ -55,12 +56,12 @@ Future<void> main() async {
     );
 
     //! And delete it.
-    await atproto.repositories.deleteRecord(
+    await atproto.repo.deleteRecord(
       uri: createdRecord.data.uri,
     );
 
     //! You can use Stream API easily.
-    final subscription = await atproto.sync.subscribeRepoUpdates();
+    final subscription = await atproto.sync.subscribeRepos();
     subscription.data.stream.listen((event) {
       event.when(
         commit: print,
@@ -71,9 +72,9 @@ Future<void> main() async {
         unknown: print,
       );
     });
-  } on atp.UnauthorizedException catch (e) {
+  } on UnauthorizedException catch (e) {
     print(e);
-  } on atp.XRPCException catch (e) {
+  } on XRPCException catch (e) {
     print(e);
   }
 }

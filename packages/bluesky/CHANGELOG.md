@@ -1,5 +1,46 @@
 # Release Note
 
+## v0.15.1
+
+- Exposed `RepoServiceExtension`. ([#1137](https://github.com/myConsciousness/atproto.dart/issues/1137))
+
+## v0.15.0
+
+- Change the method name of each service to Lexicon's ID. Existing methods have been deprecated and should be replaced according to the deprecation message. ([#1127](https://github.com/myConsciousness/atproto.dart/issues/1127))
+- Add `seenAt` parameter on `listNotifications`.
+
+## v0.14.2
+
+- Support `nobody` option for threadgate.
+
+## v0.14.1
+
+- Fixed a bug in converting Threadgate records.
+
+## v0.14.0
+
+- Upgraded `atproto_core`. ([#1112](https://github.com/myConsciousness/atproto.dart/issues/1112))
+- Optimized internal process. ([#1114](https://github.com/myConsciousness/atproto.dart/issues/1114))
+- Removed `streamService` and added `relayService` instead. Defaults to `bsky.network`. ([#1116](https://github.com/myConsciousness/atproto.dart/issues/1116))
+- Renamed name of service objects. ([#1118](https://github.com/myConsciousness/atproto.dart/issues/1118))
+  - `IdentitiesService` to `IdentityService`
+  - `LabelsService` to `LabelService`
+  - `RepositoriesService` to `RepoService`
+  - `ServersService` to `ServerService`
+  - `ActorsService` to `ActorService`
+  - `FeedsService` to `FeedService`
+  - `GraphsService` to `GraphService`
+  - `NotificationsService` to `NotificationService`
+- Deprecated property names on `ATProto` and `Bluesky`. ([#1118](https://github.com/myConsciousness/atproto.dart/issues/1118))
+  - `.servers`: Use `.server` instead
+  - `.identities`: Use `.identity` instead
+  - `.repositories`: Use `.repo` instead
+  - `.labels`: Use `.label` instead
+  - `.actors`: Use `.actor` instead
+  - `.feeds`: Use `.feed` instead
+  - `.graphs`: Use `.graph` instead
+  - `.notifications`: Use `.notification` instead
+
 ## v0.13.2
 
 - Upgraded `atproto` and `atproto_core`. ([#1102](https://github.com/myConsciousness/atproto.dart/issues/1102))

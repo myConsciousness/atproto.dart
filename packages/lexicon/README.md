@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <b>AT Protocol standard Lexicon objects for Dart and Flutter 🎯</b>
+  <b>Core library for parsing Lexicon in the AT Protocol standard 🦋</b>
 </p>
 
 ---
@@ -45,12 +45,7 @@
 
 This library provides the easiest way to use **_[Lexicon](https://atproto.com/guides/lexicon)_** supported by **_[AT Protocol](https://atproto.com)_** in Dart and Flutter apps.
 
-**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) to activate this project!_**
-
-![github_star](https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/give_a_star.gif)
-
-- **[Official Documents](https://atprotodart.com/docs/packages/lexicon)**
-- **[GitHub Repository](https://github.com/myConsciousness/atproto.dart)**
+**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) and follow [shinyakato.dev](https://bsky.app/profile/shinyakato.dev) on Bluesky!_**
 
 ## 1.1. Getting Started ⚡
 

@@ -7,21 +7,21 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 
 // 🌎 Project imports:
-import 'package:atproto/src/services/identities_service.dart';
-import 'package:atproto/src/services/labels_service.dart';
+import 'package:atproto/src/services/identity_service.dart';
+import 'package:atproto/src/services/label_service.dart';
 import 'package:atproto/src/services/moderation_service.dart';
-import 'package:atproto/src/services/repositories_service.dart';
-import 'package:atproto/src/services/servers_service.dart';
+import 'package:atproto/src/services/repo_service.dart';
+import 'package:atproto/src/services/server_service.dart';
 import 'package:atproto/src/services/sync_service.dart';
 
 const _runner = _ServiceRunner();
 
 void testIdentity<D>(
-  final atp_test.ServiceCallback<IdentitiesService, D> endpoint, {
+  final atp_test.ServiceCallback<IdentityService, D> endpoint, {
   required String id,
   String? label,
 }) =>
-    atp_test.testService<IdentitiesService, D>(
+    atp_test.testService<IdentityService, D>(
       _runner,
       endpoint,
       id,
@@ -29,11 +29,11 @@ void testIdentity<D>(
     );
 
 void testLabel<D>(
-  final atp_test.ServiceCallback<LabelsService, D> endpoint, {
+  final atp_test.ServiceCallback<LabelService, D> endpoint, {
   required String id,
   String? label,
 }) =>
-    atp_test.testService<LabelsService, D>(
+    atp_test.testService<LabelService, D>(
       _runner,
       endpoint,
       id,
@@ -52,26 +52,24 @@ void testModeration<D>(
       label,
     );
 
-void testRepository<D>(
-  final atp_test.ServiceCallback<RepositoriesService, D> endpoint, {
+void testRepo<D>(
+  final atp_test.ServiceCallback<RepoService, D> endpoint, {
   required String id,
   String? label,
-  atp_test.PaginationCallback<RepositoriesService, D>? pagination,
 }) =>
-    atp_test.testService<RepositoriesService, D>(
+    atp_test.testService<RepoService, D>(
       _runner,
       endpoint,
       id,
       label,
-      pagination: pagination,
     );
 
 void testServer<D>(
-  final atp_test.ServiceCallback<ServersService, D> endpoint, {
+  final atp_test.ServiceCallback<ServerService, D> endpoint, {
   required String id,
   String? label,
 }) =>
-    atp_test.testService<ServersService, D>(
+    atp_test.testService<ServerService, D>(
       _runner,
       endpoint,
       id,
@@ -83,7 +81,6 @@ void testSync<D>(
   required String id,
   String? label,
   List<int>? bytes,
-  atp_test.PaginationCallback<SyncService, D>? pagination,
 }) =>
     atp_test.testService<SyncService, D>(
       _runner,
@@ -91,7 +88,6 @@ void testSync<D>(
       id,
       label,
       bytes: bytes,
-      pagination: pagination,
     );
 
 void testSyncSubscription<D>(
@@ -112,16 +108,16 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     final core.GetClient? getClient,
     final core.PostClient? postClient,
   ]) {
-    if (S == IdentitiesService) {
-      return _getIdentitiesService(getClient, postClient) as S;
-    } else if (S == LabelsService) {
-      return _getLabelsService(getClient, postClient) as S;
+    if (S == IdentityService) {
+      return _getIdentityService(getClient, postClient) as S;
+    } else if (S == LabelService) {
+      return _getLabelService(getClient, postClient) as S;
     } else if (S == ModerationService) {
       return _getModerationService(getClient, postClient) as S;
-    } else if (S == RepositoriesService) {
-      return _getRepositoriesService(getClient, postClient) as S;
-    } else if (S == ServersService) {
-      return _getServersService(getClient, postClient) as S;
+    } else if (S == RepoService) {
+      return _getRepoService(getClient, postClient) as S;
+    } else if (S == ServerService) {
+      return _getServerService(getClient, postClient) as S;
     } else if (S == SyncService) {
       return _getSyncService(getClient, postClient) as S;
     }
@@ -129,83 +125,57 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     throw UnsupportedError('Unsupported Service: $S');
   }
 
-  IdentitiesService _getIdentitiesService(
+  IdentityService _getIdentityService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      IdentitiesService(
-        did: did,
-        protocol: core.Protocol.https,
-        service: service,
-        context: clientContext,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
+      IdentityService(getClientContext(
+        mockedGetClient,
+        mockedPostClient,
+      ));
 
-  LabelsService _getLabelsService(
+  LabelService _getLabelService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      LabelsService(
-        did: did,
-        protocol: core.Protocol.https,
-        service: service,
-        streamService: streamService,
-        context: clientContext,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
+      LabelService(getClientContext(
+        mockedGetClient,
+        mockedPostClient,
+      ));
 
   ModerationService _getModerationService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      ModerationService(
-        did: did,
-        protocol: core.Protocol.https,
-        service: service,
-        context: clientContext,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
+      ModerationService(getClientContext(
+        mockedGetClient,
+        mockedPostClient,
+      ));
 
-  RepositoriesService _getRepositoriesService(
+  RepoService _getRepoService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      RepositoriesService(
-        did: did,
-        protocol: core.Protocol.https,
-        service: service,
-        context: clientContext,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
+      RepoService(getClientContext(
+        mockedGetClient,
+        mockedPostClient,
+      ));
 
-  ServersService _getServersService(
+  ServerService _getServerService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      ServersService(
-        did: did,
-        protocol: core.Protocol.https,
-        service: service,
-        context: clientContext,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
+      ServerService(getClientContext(
+        mockedGetClient,
+        mockedPostClient,
+      ));
 
   SyncService _getSyncService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      SyncService(
-        did: did,
-        protocol: core.Protocol.https,
-        service: service,
-        streamService: streamService,
-        context: clientContext,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
-      );
+      SyncService(getClientContext(
+        mockedGetClient,
+        mockedPostClient,
+      ));
 }

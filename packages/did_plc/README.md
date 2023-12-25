@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <b>Support for DID PLC Directory endpoints used by atproto and other services 🎯</b>
+  <b>Support for DID PLC Directory endpoints used by atproto and other services 🦋</b>
 </p>
 
 ---
@@ -43,9 +43,7 @@
 
 A library for easy use of the [DID PLC Directory](https://web.plc.directory) mechanism used by [atproto](https://atproto.com) and others.
 
-**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) to activate this project!_**
-
-![github_star](https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/give_a_star.gif)
+**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) and follow [shinyakato.dev](https://bsky.app/profile/shinyakato.dev) on Bluesky!_**
 
 ## 1.1. Features ⭐
 
@@ -55,9 +53,9 @@ A library for easy use of the [DID PLC Directory](https://web.plc.directory) mec
 
 ## 1.2. Supported Endpoints 👀
 
-See **[official documents](https://atprotodart.com/docs/api_support_matrix)** from following links.
+See **[official documents](https://atprotodart.com/docs/supported_api)** from following links.
 
-- **[DID PLC](https://atprotodart.com/docs/api_support_matrix#did-plc)**
+- **[DID PLC](https://atprotodart.com/docs/supported_api#did-plc)**
 
 ## 1.3. Contribution 🏆
 

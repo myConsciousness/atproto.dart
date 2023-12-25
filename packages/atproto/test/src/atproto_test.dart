@@ -8,11 +8,11 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:atproto/src/atproto.dart';
-import 'package:atproto/src/services/identities_service.dart';
-import 'package:atproto/src/services/labels_service.dart';
+import 'package:atproto/src/services/identity_service.dart';
+import 'package:atproto/src/services/label_service.dart';
 import 'package:atproto/src/services/moderation_service.dart';
-import 'package:atproto/src/services/repositories_service.dart';
-import 'package:atproto/src/services/servers_service.dart';
+import 'package:atproto/src/services/repo_service.dart';
+import 'package:atproto/src/services/server_service.dart';
 import 'package:atproto/src/services/sync_service.dart';
 
 void main() {
@@ -38,22 +38,22 @@ void main() {
     });
   });
 
-  test('.servers', () {
-    final service = ATProto.anonymous().servers;
+  test('.server', () {
+    final service = ATProto.anonymous().server;
 
-    expect(service, isA<ServersService>());
+    expect(service, isA<ServerService>());
   });
 
-  test('.identities', () {
-    final service = ATProto.anonymous().identities;
+  test('.identity', () {
+    final service = ATProto.anonymous().identity;
 
-    expect(service, isA<IdentitiesService>());
+    expect(service, isA<IdentityService>());
   });
 
-  test('.repositories', () {
-    final service = ATProto.anonymous().repositories;
+  test('.repo', () {
+    final service = ATProto.anonymous().repo;
 
-    expect(service, isA<RepositoriesService>());
+    expect(service, isA<RepoService>());
   });
 
   test('.moderation', () {
@@ -73,9 +73,9 @@ void main() {
     expect(service, isA<SyncService>());
   });
 
-  test('.labels', () {
-    final service = ATProto.anonymous().labels;
+  test('.label', () {
+    final service = ATProto.anonymous().label;
 
-    expect(service, isA<LabelsService>());
+    expect(service, isA<LabelService>());
   });
 }

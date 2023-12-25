@@ -18,6 +18,7 @@ import 'package:bluesky/src/services/entities/posts.dart';
 import 'package:bluesky/src/services/entities/posts_by_query.dart';
 import 'package:bluesky/src/services/entities/reposted_by.dart';
 import 'package:bluesky/src/services/entities/skeleton_feed.dart';
+import 'package:bluesky/src/services/feed_service.dart';
 import 'package:bluesky/src/services/params/generator_param.dart';
 import 'package:bluesky/src/services/params/post_param.dart';
 import 'package:bluesky/src/services/params/strong_ref_param.dart';
@@ -25,81 +26,71 @@ import 'suite/service_suite.dart';
 
 void main() {
   testFeed<atp.StrongRef>(
-    (m, s) => s.createPost(text: m.text),
-    bulk: (m, s) => s.createPosts([PostParam(text: m.text)]),
+    (m, s) => s.post(text: m.text),
+    bulk: (m, s) => s.postInBulk([PostParam(text: m.text)]),
     id: appBskyFeedPost,
   );
 
   testFeed<atp.StrongRef>(
-    (m, s) => s.createRepost(cid: m.cid, uri: m.uri),
-    bulk: (m, s) => s.createReposts([StrongRefParam(cid: m.cid, uri: m.uri)]),
+    (m, s) => s.repost(cid: m.cid, uri: m.uri),
+    bulk: (m, s) => s.repostInBulk([StrongRefParam(cid: m.cid, uri: m.uri)]),
     id: appBskyFeedPost,
   );
 
   testFeed<Feed>(
-    (m, s) => s.findTimeline(),
-    pagination: (m, s) => s.paginateTimeline(),
+    (m, s) => s.getTimeline(),
     id: appBskyFeedGetTimeline,
   );
 
   testFeed<atp.StrongRef>(
-    (m, s) => s.createLike(cid: m.cid, uri: m.uri),
-    bulk: (m, s) => s.createLikes([StrongRefParam(cid: m.cid, uri: m.uri)]),
+    (m, s) => s.like(cid: m.cid, uri: m.uri),
     id: appBskyFeedPost,
   );
 
   testFeed<Feed>(
-    (m, s) => s.findFeed(actor: m.actor),
-    pagination: (m, s) => s.paginateFeed(actor: m.actor),
-    id: appBskyFeedGetTimeline,
+    (m, s) => s.getAuthorFeed(actor: m.actor),
+    id: appBskyFeedGetAuthorFeed,
   );
 
   testFeed<Feed>(
-    (m, s) => s.findCustomFeed(generatorUri: m.uri),
-    pagination: (m, s) => s.paginateCustomFeed(generatorUri: m.uri),
+    (m, s) => s.getFeed(generatorUri: m.uri),
     id: appBskyFeedGetFeed,
   );
 
   testFeed<SkeletonFeed>(
-    (m, s) => s.findFeedSkeleton(generatorUri: m.uri),
-    pagination: (m, s) => s.paginateFeedSkeleton(generatorUri: m.uri),
+    (m, s) => s.getFeedSkeleton(generatorUri: m.uri),
     id: appBskyFeedGetFeedSkeleton,
   );
 
   testFeed<ActorFeeds>(
-    (m, s) => s.findActorFeeds(actor: m.actor),
-    pagination: (m, s) => s.paginateActorFeeds(actor: m.actor),
+    (m, s) => s.getActorFeeds(actor: m.actor),
     id: appBskyFeedGetActorFeeds,
   );
 
   testFeed<Likes>(
-    (m, s) => s.findLikes(uri: m.uri),
-    pagination: (m, s) => s.paginateLikes(uri: m.uri),
+    (m, s) => s.getLikes(uri: m.uri),
+    bulk: (m, s) => s.likeInBulk([StrongRefParam(cid: m.cid, uri: m.uri)]),
     id: appBskyFeedGetLikes,
   );
 
   testFeed<RepostedBy>(
-    (m, s) => s.findRepostedBy(uri: m.uri),
-    pagination: (m, s) => s.paginateRepostedBy(uri: m.uri),
+    (m, s) => s.getRepostedBy(uri: m.uri),
     id: appBskyFeedGetRepostedBy,
   );
 
   testFeed<PostThread>(
-    (m, s) => s.findPostThread(uri: m.uri),
+    (m, s) => s.getPostThread(uri: m.uri),
     id: appBskyFeedGetPostThread,
   );
 
   testFeed<Posts>(
-    (m, s) => s.findPosts(uris: [m.uri]),
+    (m, s) => s.getPosts(uris: [m.uri]),
     id: appBskyFeedGetPosts,
   );
 
   testFeed<atp.StrongRef>(
-    (m, s) => s.createGenerator(
-      did: m.did,
-      displayName: m.displayName,
-    ),
-    bulk: (m, s) => s.createGenerators([
+    (m, s) => s.generator(did: m.did, displayName: m.displayName),
+    bulk: (m, s) => s.generatorInBulk([
       GeneratorParam(
         did: m.did,
         displayName: m.displayName,
@@ -109,46 +100,42 @@ void main() {
   );
 
   testFeed<FeedGenerator>(
-    (m, s) => s.findGenerator(uri: m.uri),
+    (m, s) => s.getFeedGenerator(uri: m.uri),
     id: appBskyFeedGetFeedGenerator,
   );
 
   testFeed<FeedGenerators>(
-    (m, s) => s.findGenerators(uris: [m.uri]),
+    (m, s) => s.getFeedGenerators(uris: [m.uri]),
     id: appBskyFeedGetFeedGenerators,
   );
 
   testFeed<FeedGeneratorInfo>(
-    (m, s) => s.findGeneratorInfo(),
+    (m, s) => s.describeFeedGenerator(),
     id: appBskyFeedDescribeFeedGenerator,
   );
 
   testFeed<Feed>(
-    (m, s) => s.findActorLikes(actor: m.actor),
-    pagination: (m, s) => s.paginateActorLikes(actor: m.actor),
+    (m, s) => s.getActorLikes(actor: m.actor),
     id: appBskyFeedGetActorLikes,
   );
 
   testFeed<FeedGenerators>(
-    (m, s) => s.findSuggestedFeeds(),
-    pagination: (m, s) => s.paginateSuggestedFeeds(),
+    (m, s) => s.getSuggestedFeeds(),
     id: appBskyFeedGetSuggestedFeeds,
   );
 
   testFeed<Feed>(
-    (m, s) => s.findListFeed(list: m.uri),
-    pagination: (m, s) => s.paginateListFeed(list: m.uri),
+    (m, s) => s.getListFeed(list: m.uri),
     id: appBskyFeedGetListFeed,
   );
 
   testFeed<atp.StrongRef>(
-    (m, s) => s.createThreadgate(postUri: m.uri),
+    (m, s) => s.threadgate(postUri: m.uri),
     id: appBskyFeedThreadgate,
   );
 
   testFeed<PostsByQuery>(
-    (m, s) => s.searchPostsByQuery(m.query),
-    pagination: (m, s) => s.paginatePostsByQuery(m.query),
+    (m, s) => s.searchPosts(m.query),
     id: appBskyFeedSearchPosts,
   );
 }

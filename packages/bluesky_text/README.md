@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <b>Provides the easiest and most powerful way to analyze the text on Bluesky Social 🎯</b>
+  <b>The Easiest & Most Powerful Way to Analyze the Text for Bluesky Social 🦋</b>
 </p>
 
 ---
@@ -47,12 +47,9 @@ Provides the easiest and most powerful way to **_analyze the text on [Bluesky So
 Have you ever had trouble parsing mentions or links in the text you post when using Bluesky Social's API?
 **_If so, this is the library you are looking for!_**
 
-**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) to activate this project!_**
+**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) and follow [shinyakato.dev](https://bsky.app/profile/shinyakato.dev) on Bluesky!_**
 
-![github_star](https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/give_a_star.gif)
-
-- **[Official Documents](https://atprotodart.com/docs/packages/bluesky_text)**
-- **[GitHub Repository](https://github.com/myConsciousness/atproto.dart)**
+- **[More Documents](https://atprotodart.com/docs/packages/bluesky_text)**
 
 ## 1.1. Features ⭐
 

@@ -1,5 +1,29 @@
 # Release Note
 
+## v0.11.0
+
+- Change the method name of each service to Lexicon's ID. Existing methods have been deprecated and should be replaced according to the deprecation message. ([#1127](https://github.com/myConsciousness/atproto.dart/issues/1127))
+
+## v0.10.1
+
+- Add `rkey` on `.createRecord`.
+
+## v0.10.0
+
+- Upgraded `atproto_core`. ([#1112](https://github.com/myConsciousness/atproto.dart/issues/1112))
+- Optimized internal process. ([#1114](https://github.com/myConsciousness/atproto.dart/issues/1114))
+- Removed `streamService` and added `relayService` instead. Defaults to `bsky.network`. ([#1116](https://github.com/myConsciousness/atproto.dart/issues/1116))
+- Renamed name of service objects. ([#1118](https://github.com/myConsciousness/atproto.dart/issues/1118))
+  - `IdentitiesService` to `IdentityService`
+  - `LabelsService` to `LabelService`
+  - `RepositoriesService` to `RepoService`
+  - `ServersService` to `ServerService`
+- Deprecated property names on `ATProto`. ([#1118](https://github.com/myConsciousness/atproto.dart/issues/1118))
+  - `.servers`: Use `.server` instead
+  - `.identities`: Use `.identity` instead
+  - `.repositories`: Use `.repo` instead
+  - `.labels`: Use `.label` instead
+
 ## v0.9.1
 
 - Upgraded `atproto_core`. ([#1102](https://github.com/myConsciousness/atproto.dart/issues/1102))

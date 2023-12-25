@@ -1,5 +1,19 @@
 # Release Note
 
+## v0.9.0
+
+- Removed `base_xrpc_service`. ([#1127](https://github.com/myConsciousness/atproto.dart/issues/1127))
+
+## v0.8.1
+
+- Upgraded `xrpc`.
+
+## v0.8.0
+
+- Upgraded `NSID`. ([#1112](https://github.com/myConsciousness/atproto.dart/issues/1112))
+- The following methods of `BaseXRPCService` now require an NSID argument. Immutable NSIDs are preferred. ([#1114](https://github.com/myConsciousness/atproto.dart/issues/1114))
+- Removed `streamService` and added `relayService` instead. Defaults to `bsky.network`. ([#1116](https://github.com/myConsciousness/atproto.dart/issues/1116))
+
 ## v0.7.0
 
 - Removed `AuthType` and `ClientResolver`. Let the server handle whether authentication is required or not. ([#1102](https://github.com/myConsciousness/atproto.dart/issues/1102))

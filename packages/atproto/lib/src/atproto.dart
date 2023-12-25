@@ -6,55 +6,59 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import 'services/identities_service.dart';
-import 'services/labels_service.dart';
+import 'services/identity_service.dart';
+import 'services/label_service.dart';
 import 'services/moderation_service.dart';
-import 'services/repositories_service.dart';
-import 'services/servers_service.dart';
-import 'services/services.dart';
+import 'services/repo_service.dart';
+import 'services/server_service.dart';
 import 'services/sync_service.dart';
 
+/// Provides `com.atproto.*` services.
 sealed class ATProto {
   /// Returns the new instance of [ATProto].
   factory ATProto.fromSession(
     final core.Session session, {
-    core.Protocol protocol = core.defaultProtocol,
-    String service = core.defaultService,
-    String streamService = core.defaultStreamService,
-    Duration timeout = core.defaultTimeout,
-    core.RetryConfig? retryConfig,
+    final core.Protocol? protocol,
+    final String? service,
+    final String? relayService,
+    final Duration? timeout,
+    final core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) =>
       _ATProto(
-        session: session,
-        protocol: protocol,
-        service: service,
-        streamService: streamService,
-        timeout: timeout,
-        retryConfig: retryConfig,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
+        core.ServiceContext(
+          protocol: protocol,
+          service: service,
+          relayService: relayService,
+          session: session,
+          timeout: timeout,
+          retryConfig: retryConfig,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
+        ),
       );
 
   /// Returns the new instance of [ATProto] as anonymous.
   factory ATProto.anonymous({
-    core.Protocol protocol = core.defaultProtocol,
-    String service = core.defaultService,
-    String streamService = core.defaultStreamService,
-    Duration timeout = core.defaultTimeout,
-    core.RetryConfig? retryConfig,
+    final core.Protocol? protocol,
+    final String? service,
+    final String? relayService,
+    final Duration? timeout,
+    final core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) =>
       _ATProto(
-        protocol: protocol,
-        service: service,
-        streamService: streamService,
-        timeout: timeout,
-        retryConfig: retryConfig,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
+        core.ServiceContext(
+          protocol: protocol,
+          service: service,
+          relayService: relayService,
+          timeout: timeout,
+          retryConfig: retryConfig,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
+        ),
       );
 
   /// Returns the current session.
@@ -64,69 +68,90 @@ sealed class ATProto {
   core.Session? get session;
 
   /// Returns the servers service.
-  ServersService get servers;
+  /// This service represents `com.atproto.server.*`.
+  @Deprecated('Use .server instead. Will be removed')
+  ServerService get servers;
 
-  /// Returns the identities service.
-  IdentitiesService get identities;
+  /// Returns the servers service.
+  /// This service represents `com.atproto.server.*`.
+  ServerService get server;
+
+  /// Returns the identity service.
+  /// This service represents `com.atproto.identity.*`.
+  @Deprecated('Use .identity instead. Will be removed')
+  IdentityService get identities;
+
+  /// Returns the identity service.
+  /// This service represents `com.atproto.identity.*`.
+  IdentityService get identity;
 
   /// Returns the repositories service.
-  RepositoriesService get repositories;
+  /// This service represents `com.atproto.repo.*`.
+  @Deprecated('Use .repo instead. Will be removed')
+  RepoService get repositories;
+
+  /// Returns the repositories service.
+  /// This service represents `com.atproto.repo.*`.
+  RepoService get repo;
 
   /// Returns the moderation service.
+  /// This service represents `com.atproto.moderation.*`.
   ModerationService get moderation;
 
   /// Returns the sync service.
+  /// This service represents `com.atproto.sync.*`.
   SyncService get sync;
 
   /// Returns the labels service.
-  LabelsService get labels;
+  /// This service represents `com.atproto.label.*`.
+  @Deprecated('Use .label instead. Will be removed')
+  LabelService get labels;
+
+  /// Returns the labels service.
+  /// This service represents `com.atproto.label.*`.
+  LabelService get label;
 }
 
 final class _ATProto implements ATProto {
-  /// Returns the new instance of [_ATProto].
-  _ATProto({
-    this.session,
-    required core.Protocol protocol,
-    required String service,
-    required String streamService,
-    required Duration timeout,
-    core.RetryConfig? retryConfig,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  }) : _service = ATProtoService(
-          did: session?.did ?? '',
-          protocol: protocol,
-          service: service,
-          streamService: streamService,
-          context: core.ClientContext(
-            accessJwt: session?.accessJwt ?? '',
-            timeout: timeout,
-            retryConfig: retryConfig,
-          ),
-          mockedGetClient: mockedGetClient,
-          mockedPostClient: mockedPostClient,
-        );
-
-  final ATProtoService _service;
+  _ATProto(final core.ServiceContext ctx)
+      : session = ctx.session,
+        server = ServerService(ctx),
+        identity = IdentityService(ctx),
+        repo = RepoService(ctx),
+        moderation = ModerationService(ctx),
+        sync = SyncService(ctx),
+        label = LabelService(ctx);
 
   @override
   final core.Session? session;
 
   @override
-  ServersService get servers => _service.servers;
+  final ServerService server;
 
   @override
-  IdentitiesService get identities => _service.identities;
+  ServerService get servers => server;
 
   @override
-  RepositoriesService get repositories => _service.repositories;
+  final IdentityService identity;
 
   @override
-  ModerationService get moderation => _service.moderation;
+  IdentityService get identities => identity;
 
   @override
-  SyncService get sync => _service.sync;
+  final RepoService repo;
 
   @override
-  LabelsService get labels => _service.labels;
+  RepoService get repositories => repo;
+
+  @override
+  final ModerationService moderation;
+
+  @override
+  final SyncService sync;
+
+  @override
+  final LabelService label;
+
+  @override
+  LabelService get labels => label;
 }

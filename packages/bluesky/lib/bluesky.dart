@@ -133,12 +133,13 @@ export 'package:atproto/atproto.dart'
         ModerationReasonType,
         ReportSubject,
         $ReportSubjectCopyWith,
-        ServersService,
-        IdentitiesService,
-        RepositoriesService,
+        ServerService,
+        IdentityService,
+        RepoService,
+        RepoServiceExtension,
         ModerationService,
         SyncService,
-        LabelsService;
+        LabelService;
 export 'package:atproto_core/atproto_core.dart'
     show
         XRPCResponse,
@@ -149,7 +150,6 @@ export 'package:atproto_core/atproto_core.dart'
         RateLimitPolicy,
         Protocol,
         Subscription,
-        Pagination,
         EmptyData,
         HttpMethod,
         HttpStatus,
@@ -183,9 +183,8 @@ export 'package:atproto_core/atproto_core.dart'
         refreshSession,
         deleteSession,
         isValidAppPassword;
-export 'package:bluesky/src/services/actors_service.dart';
+export 'package:bluesky/src/services/actor_service.dart';
 export 'package:bluesky/src/bluesky.dart';
-export 'package:bluesky/src/services/services.dart';
 export 'package:bluesky/src/services/entities/actor.dart';
 export 'package:bluesky/src/services/entities/actor_basic.dart';
 export 'package:bluesky/src/services/entities/actor_feeds.dart';
@@ -301,17 +300,17 @@ export 'package:bluesky/src/services/entities/skeleton_post.dart';
 export 'package:bluesky/src/services/entities/skeleton_actors_by_query.dart';
 export 'package:bluesky/src/services/entities/skeleton_actor.dart';
 export 'package:bluesky/src/services/entities/suggested_follows.dart';
-export 'package:bluesky/src/services/extensions/grouped_notification_extension.dart';
-export 'package:bluesky/src/services/extensions/at_uri_extension.dart';
-export 'package:bluesky/src/services/extensions/blob_extension.dart';
-export 'package:bluesky/src/services/extensions/strong_ref_extension.dart';
-export 'package:bluesky/src/services/feeds_service.dart';
-export 'package:bluesky/src/services/graphs_service.dart';
+export 'package:bluesky/src/services/extensions/grouped_notification.dart';
+export 'package:bluesky/src/services/extensions/at_uri.dart';
+export 'package:bluesky/src/services/extensions/blob.dart';
+export 'package:bluesky/src/services/extensions/strong_ref.dart';
+export 'package:bluesky/src/services/feed_service.dart';
+export 'package:bluesky/src/services/graph_service.dart';
 export 'package:bluesky/src/services/constants/notification_reason.dart';
 export 'package:bluesky/src/services/utils/notification_reason_filter.dart'
     show NotificationReasonFilter;
 export 'package:bluesky/src/services/constants/grouped_notification_reason.dart';
-export 'package:bluesky/src/services/notifications_service.dart';
+export 'package:bluesky/src/services/notification_service.dart';
 export 'package:bluesky/src/services/params/generator_param.dart';
 export 'package:bluesky/src/services/params/list_item_param.dart';
 export 'package:bluesky/src/services/params/list_param.dart';

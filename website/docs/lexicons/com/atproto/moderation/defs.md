@@ -5,6 +5,12 @@ description: com.atproto.moderation.defs
 
 # [com.atproto.moderation.defs](https://github.com/myConsciousness/atproto.dart/blob/main/lexicons/com/atproto/moderation/defs.json)
 
+## #reasonType
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **reasonType** | string | [com.atproto.moderation.defs#reasonSpam](../../../../lexicons/com/atproto/moderation/defs.md#reasonspam)<br/>[com.atproto.moderation.defs#reasonViolation](../../../../lexicons/com/atproto/moderation/defs.md#reasonviolation)<br/>[com.atproto.moderation.defs#reasonMisleading](../../../../lexicons/com/atproto/moderation/defs.md#reasonmisleading)<br/>[com.atproto.moderation.defs#reasonSexual](../../../../lexicons/com/atproto/moderation/defs.md#reasonsexual)<br/>[com.atproto.moderation.defs#reasonRude](../../../../lexicons/com/atproto/moderation/defs.md#reasonrude)<br/>[com.atproto.moderation.defs#reasonOther](../../../../lexicons/com/atproto/moderation/defs.md#reasonother) | ❌ | - |
+
 ## #reasonSpam
 
 **TOKEN**: Spam: frequent unwanted promotion, replies, mentions

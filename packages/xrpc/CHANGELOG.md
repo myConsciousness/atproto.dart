@@ -1,5 +1,13 @@
 # Release Note
 
+## v0.4.3
+
+- Don't remove empty list.
+
+## v0.4.2
+
+- Upgraded `nsid`. ([#1112](https://github.com/myConsciousness/atproto.dart/issues/1112))
+
 ## v0.4.1
 
 - Added `.post` function. ([#999](https://github.com/myConsciousness/atproto.dart/issues/999))

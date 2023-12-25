@@ -311,7 +311,7 @@ Future<void> main() async {
   // Convert entities to facets representation.
   final facets = await text.entities.toFacets();
 
-  await bluesky.feeds.createPost(
+  await bluesky.feed.createPost(
     text: text.value,
 
     // Convert JSON to Facet object like this.
@@ -323,7 +323,7 @@ Future<void> main() async {
 You see that there is nothing difficult to implement here.
 Extracting and faceting entities using **[bluesky_text](https://pub.dev/packages/bluesky_text)** is implemented as described in [Getting Started](#getting-started-).
 
-And the `bluesky.feeds.createPost` used as an example is a fairly basic method for creating a post using the **[bluesky](https://pub.dev/packages/bluesky)** package.
+And the `bluesky.feed.createPost` used as an example is a fairly basic method for creating a post using the **[bluesky](https://pub.dev/packages/bluesky)** package.
 But, this is where **[bluesky_text](https://pub.dev/packages/bluesky_text)** is most powerful, as it can be converted into a `Facet` object in the **[bluesky](https://pub.dev/packages/bluesky)** package without any difficult processing.
 With **[bluesky_text](https://pub.dev/packages/bluesky_text)**, you can create Facets that are difficult to structure when creating a post using the Bluesky API without having to think about it.
 

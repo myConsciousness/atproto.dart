@@ -7,8 +7,8 @@ import 'package:bluesky/bluesky.dart';
 Future<void> main(List<String> args) async {
   /* SNIPPET START */
 
-  final bluesky = Bluesky.anonymous();
-  final subscription = await bluesky.sync.subscribeRepoUpdates();
+  final bsky = Bluesky.anonymous();
+  final subscription = await bsky.sync.subscribeRepos();
 
   final repoCommitAdaptor = RepoCommitAdaptor(
     onCreatePost: (data) {

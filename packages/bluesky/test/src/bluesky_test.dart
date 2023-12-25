@@ -8,10 +8,10 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/bluesky.dart';
-import 'package:bluesky/src/services/actors_service.dart';
-import 'package:bluesky/src/services/feeds_service.dart';
-import 'package:bluesky/src/services/graphs_service.dart';
-import 'package:bluesky/src/services/notifications_service.dart';
+import 'package:bluesky/src/services/actor_service.dart';
+import 'package:bluesky/src/services/feed_service.dart';
+import 'package:bluesky/src/services/graph_service.dart';
+import 'package:bluesky/src/services/notification_service.dart';
 import 'package:bluesky/src/services/unspecced_service.dart';
 
 void main() {
@@ -37,48 +37,48 @@ void main() {
     });
   });
 
-  test('.actors', () {
+  test('.actor', () {
     final service = Bluesky.fromSession(Session(
       did: 'aaaa',
       handle: 'shinyakato.dev',
       accessJwt: 'test',
       refreshJwt: 'test',
-    )).actors;
+    )).actor;
 
-    expect(service, isA<ActorsService>());
+    expect(service, isA<ActorService>());
   });
 
-  test('.feeds', () {
+  test('.feed', () {
     final service = Bluesky.fromSession(Session(
       did: 'aaaa',
       handle: 'shinyakato.dev',
       accessJwt: 'test',
       refreshJwt: 'test',
-    )).feeds;
+    )).feed;
 
-    expect(service, isA<FeedsService>());
+    expect(service, isA<FeedService>());
   });
 
-  test('.notifications', () {
+  test('.notification', () {
     final service = Bluesky.fromSession(Session(
       did: 'aaaa',
       handle: 'shinyakato.dev',
       accessJwt: 'test',
       refreshJwt: 'test',
-    )).notifications;
+    )).notification;
 
-    expect(service, isA<NotificationsService>());
+    expect(service, isA<NotificationService>());
   });
 
-  test('.graphs', () {
+  test('.graph', () {
     final service = Bluesky.fromSession(Session(
       did: 'aaaa',
       handle: 'shinyakato.dev',
       accessJwt: 'test',
       refreshJwt: 'test',
-    )).graphs;
+    )).graph;
 
-    expect(service, isA<GraphsService>());
+    expect(service, isA<GraphService>());
   });
 
   test('.unspecced', () {
@@ -92,22 +92,22 @@ void main() {
     expect(service, isA<UnspeccedService>());
   });
 
-  test('.servers', () {
-    final service = Bluesky.anonymous().servers;
+  test('.server', () {
+    final service = Bluesky.anonymous().server;
 
-    expect(service, isA<ServersService>());
+    expect(service, isA<ServerService>());
   });
 
-  test('.identities', () {
-    final service = Bluesky.anonymous().identities;
+  test('.identity', () {
+    final service = Bluesky.anonymous().identity;
 
-    expect(service, isA<IdentitiesService>());
+    expect(service, isA<IdentityService>());
   });
 
-  test('.repositories', () {
-    final service = Bluesky.anonymous().repositories;
+  test('.repo', () {
+    final service = Bluesky.anonymous().repo;
 
-    expect(service, isA<RepositoriesService>());
+    expect(service, isA<RepoService>());
   });
 
   test('.moderation', () {
@@ -125,5 +125,11 @@ void main() {
     final service = Bluesky.anonymous().sync;
 
     expect(service, isA<SyncService>());
+  });
+
+  test('.label', () {
+    final service = Bluesky.anonymous().label;
+
+    expect(service, isA<LabelService>());
   });
 }

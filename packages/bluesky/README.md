@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <b>The Most Famous and Powerful Dart/Flutter Library for Bluesky Social 🎯</b>
+  <b>The Most Famous & Powerful Dart/Flutter Library for Bluesky Social 🦋</b>
 </p>
 
 ---
@@ -47,18 +47,15 @@ This library provides **the most productive way** to use the **_AT Protocol API_
 
 The library is **cross-platform** and is **already used in many applications**. See **[official showcase](https://atprotodart.com/showcase)** for more details.
 
-**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) to activate this project!_**
+**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) and follow [shinyakato.dev](https://bsky.app/profile/shinyakato.dev) on Bluesky!_**
 
-![github_star](https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/give_a_star.gif)
-
-- **[Official Documents](https://atprotodart.com/docs/packages/bluesky)**
-- **[GitHub Repository](https://github.com/myConsciousness/atproto.dart)**
+- **[More Documents](https://atprotodart.com/docs/packages/bluesky)**
 
 ## 1.1. Features ⭐
 
 - ✅ **Zero Dependency**
 - ✅ Supports **Powerful Built-In Retry** using **[Exponential BackOff And Jitter](https://aws.amazon.com/jp/blogs/architecture/exponential-backoff-and-jitter/)**
-- ✅ Supports **[All Major Endpoints](https://atprotodart.com/docs/api_support_matrix#bluesky)** for [`app.bsky.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky)
+- ✅ Supports **[All Major Endpoints](https://atprotodart.com/docs/supported_api#bluesky)** for [`app.bsky.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky)
 - ✅ **Well Documented** and **Well Tested**
 - ✅ Supports **Powerful Firehose API**
 - ✅ Supports **Powerful Moderation API**
@@ -77,21 +74,21 @@ See **[example](https://github.com/myConsciousness/atproto.dart/blob/main/packag
 
 ## 1.3. Supported Endpoints 👀
 
-See **[official documents](https://atprotodart.com/docs/api_support_matrix)** from following links.
+See **[official documents](https://atprotodart.com/docs/supported_api)** from following links.
 
-- **[com.atproto.*](https://atprotodart.com/docs/api_support_matrix#atproto)**
-  - **[com.atproto.server.*](https://atprotodart.com/docs/api_support_matrix#servers-service)**
-  - **[com.atproto.identity.*](https://atprotodart.com/docs/api_support_matrix#identities-service)**
-  - **[com.atproto.repo.*](https://atprotodart.com/docs/api_support_matrix#repositories-service)**
-  - **[com.atproto.moderation.*](https://atprotodart.com/docs/api_support_matrix#moderation-service)**
-  - **[com.atproto.sync.*](https://atprotodart.com/docs/api_support_matrix#sync-service)**
-  - **[com.atproto.label.*](https://atprotodart.com/docs/api_support_matrix#labels-service)**
-- **[app.bsky.*](https://atprotodart.com/docs/api_support_matrix#bluesky)**
-  - **[app.bsky.actor.*](https://atprotodart.com/docs/api_support_matrix#actors-service)**
-  - **[app.bsky.feed.*](https://atprotodart.com/docs/api_support_matrix#feeds-service)**
-  - **[app.bsky.notification.*](https://atprotodart.com/docs/api_support_matrix#notifications-service)**
-  - **[app.bsky.graph.*](https://atprotodart.com/docs/api_support_matrix#graphs-service)**
-  - **[app.bsky.unspecced.*](https://atprotodart.com/docs/api_support_matrix#unspecced-service)**
+- **[com.atproto.*](https://atprotodart.com/docs/supported_api#atproto)**
+  - **[com.atproto.server.*](https://atprotodart.com/docs/supported_api#server-service)**
+  - **[com.atproto.identity.*](https://atprotodart.com/docs/supported_api#identity-service)**
+  - **[com.atproto.repo.*](https://atprotodart.com/docs/supported_api#repo-service)**
+  - **[com.atproto.moderation.*](https://atprotodart.com/docs/supported_api#moderation-service)**
+  - **[com.atproto.sync.*](https://atprotodart.com/docs/supported_api#sync-service)**
+  - **[com.atproto.label.*](https://atprotodart.com/docs/supported_api#label-service)**
+- **[app.bsky.*](https://atprotodart.com/docs/supported_api#bluesky)**
+  - **[app.bsky.actor.*](https://atprotodart.com/docs/supported_api#actor-service)**
+  - **[app.bsky.feed.*](https://atprotodart.com/docs/supported_api#feed-service)**
+  - **[app.bsky.notification.*](https://atprotodart.com/docs/supported_api#notification-service)**
+  - **[app.bsky.graph.*](https://atprotodart.com/docs/supported_api#graph-service)**
+  - **[app.bsky.unspecced.*](https://atprotodart.com/docs/supported_api#unspecced-service)**
 
 ## 1.4. More Tips 🏄
 
@@ -99,7 +96,6 @@ See **[official documents](https://atprotodart.com/docs/packages/bluesky)** from
 
 - **[Session Management](https://atprotodart.com/docs/packages/bluesky#session-management)**
 - **[App Password](https://atprotodart.com/docs/packages/bluesky#app-password)**
-- **[Standardized Names](https://atprotodart.com/docs/packages/bluesky#standardized-names)**
 - **[Other Than `bsky.social`](https://atprotodart.com/docs/packages/bluesky#other-than-bskysocial)**
 - **[De/Serialize](https://atprotodart.com/docs/packages/bluesky#deserialize)**
 - **[Thrown Exceptions](https://atprotodart.com/docs/packages/bluesky/#thrown-exceptions)**
@@ -110,7 +106,6 @@ See **[official documents](https://atprotodart.com/docs/packages/bluesky)** from
 - **[Advanced Built-In Retry](https://atprotodart.com/docs/packages/bluesky/#advanced-built-in-retry)**
 - **[Lexicon/Object IDs](https://atprotodart.com/docs/packages/bluesky/#lexiconobject-ids)**
 - **[Pagination](https://atprotodart.com/docs/packages/bluesky/#pagination)**
-- **[Advanced Pagination](https://atprotodart.com/docs/packages/bluesky/#advanced-pagination)**
 - **[Unspecced Inputs](https://atprotodart.com/docs/packages/bluesky/#unspecced-inputs)**
 - **[Moderation API](https://atprotodart.com/docs/packages/bluesky/#moderation-api)**
 

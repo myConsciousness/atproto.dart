@@ -4,41 +4,44 @@
 
 // ignore_for_file: unused_local_variable
 
-import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/moderation.dart' as mod;
 
 Future<void> main(List<String> args) async {
-  final session = await bsky.createSession(
+  final session = await createSession(
     identifier: 'shinyakato.dev',
     password: 'xxxxxxxx',
   );
 
-  final bluesky = bsky.Bluesky.fromSession(session.data);
+  final bsky = Bluesky.fromSession(session.data);
 
   /* SNIPPET START */
-  final timeline = await bluesky.feeds.findTimeline(
+  final timeline = await bsky.feed.getTimeline(
     limit: 25,
   );
 
+  final preferences = await bsky.actor.getPreferences();
   for (final feed in timeline.data.feed) {
     final text = feed.post.record.text.toLowerCase();
 
     if (text.contains('bluesky')) {
-      await bluesky.feeds.createLike(
+      await bsky.feed.like(
         cid: feed.post.cid,
         uri: feed.post.uri,
       );
-    } else if (text.contains('twitter')) {
-      final tweep = await bluesky.actors.findProfile(
-        actor: feed.post.author.did,
-      );
+    }
 
-      if (!tweep.data.viewer.isMuted) {
-        await bluesky.graphs.createMute(
-          actor: tweep.data.did,
-        );
-      }
+    final postModeration = mod.moderatePost(
+      mod.ModerationSubjectPost.post(data: feed.post),
+      mod.getModerationOptions(
+        userDid: 'did:web:shinyakato.dev',
+        preferences: preferences.data.preferences,
+      ),
+    );
+
+    if (postModeration.content.isBlur) {
+      // nsfw...?
     }
   }
-
   /* SNIPPET END */
 }

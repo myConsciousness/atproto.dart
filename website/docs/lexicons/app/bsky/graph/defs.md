@@ -39,6 +39,12 @@ description: app.bsky.graph.defs
 | **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
 | **subject** | [app.bsky.actor.defs#profileView](../../../../lexicons/app/bsky/actor/defs.md#profileview) | - | ✅ | - |
 
+## #listPurpose
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **listPurpose** | string | [app.bsky.graph.defs#modlist](../../../../lexicons/app/bsky/graph/defs.md#modlist)<br/>[app.bsky.graph.defs#curatelist](../../../../lexicons/app/bsky/graph/defs.md#curatelist) | ❌ | - |
+
 ## #modlist
 
 **TOKEN**: A list of actors to apply an aggregate moderation action (mute/block) on.

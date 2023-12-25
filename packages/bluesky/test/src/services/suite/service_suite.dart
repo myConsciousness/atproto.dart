@@ -8,86 +8,77 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 
 // 🌎 Project imports:
-import 'package:bluesky/src/services/actors_service.dart';
-import 'package:bluesky/src/services/feeds_service.dart';
-import 'package:bluesky/src/services/graphs_service.dart';
-import 'package:bluesky/src/services/notifications_service.dart';
+import 'package:bluesky/src/services/actor_service.dart';
+import 'package:bluesky/src/services/feed_service.dart';
+import 'package:bluesky/src/services/graph_service.dart';
+import 'package:bluesky/src/services/notification_service.dart';
+import 'package:bluesky/src/services/service_context.dart';
 import 'package:bluesky/src/services/unspecced_service.dart';
 
 const _runner = _ServiceRunner();
 
 void testActor<D>(
-  final atp_test.ServiceCallback<ActorsService, D> endpoint, {
+  final atp_test.ServiceCallback<ActorService, D> endpoint, {
   required String id,
   String? label,
-  atp_test.PaginationCallback<ActorsService, D>? pagination,
 }) =>
-    atp_test.testService<ActorsService, D>(
+    atp_test.testService<ActorService, D>(
       _runner,
       endpoint,
       id,
       label,
-      pagination: pagination,
     );
 
 void testFeed<D>(
-  final atp_test.ServiceCallback<FeedsService, D> endpoint, {
+  final atp_test.ServiceCallback<FeedService, D> endpoint, {
   required String id,
   String? label,
-  atp_test.PaginationCallback<FeedsService, D>? pagination,
-  atp_test.BulkCallback<FeedsService>? bulk,
+  atp_test.BulkCallback<FeedService>? bulk,
 }) =>
-    atp_test.testService<FeedsService, D>(
+    atp_test.testService<FeedService, D>(
       _runner,
       endpoint,
       id,
       label,
-      pagination: pagination,
       bulk: bulk,
     );
 
 void testGraph<D>(
-  final atp_test.ServiceCallback<GraphsService, D> endpoint, {
+  final atp_test.ServiceCallback<GraphService, D> endpoint, {
   required String id,
   String? label,
-  atp_test.PaginationCallback<GraphsService, D>? pagination,
-  atp_test.BulkCallback<GraphsService>? bulk,
+  atp_test.BulkCallback<GraphService>? bulk,
 }) =>
-    atp_test.testService<GraphsService, D>(
+    atp_test.testService<GraphService, D>(
       _runner,
       endpoint,
       id,
       label,
-      pagination: pagination,
       bulk: bulk,
     );
 
 void testNotification<D>(
-  final atp_test.ServiceCallback<NotificationsService, D> endpoint, {
+  final atp_test.ServiceCallback<NotificationService, D> endpoint, {
   required String id,
   String? label,
-  atp_test.PaginationCallback<NotificationsService, D>? pagination,
 }) =>
-    atp_test.testService<NotificationsService, D>(
+    atp_test.testService<NotificationService, D>(
       _runner,
       endpoint,
       id,
       label,
-      pagination: pagination,
     );
 
 void testUnspecced<D>(
   final atp_test.ServiceCallback<UnspeccedService, D> endpoint, {
   required String id,
   String? label,
-  atp_test.PaginationCallback<UnspeccedService, D>? pagination,
 }) =>
     atp_test.testService<UnspeccedService, D>(
       _runner,
       endpoint,
       id,
       label,
-      pagination: pagination,
     );
 
 final class _ServiceRunner extends atp_test.ServiceRunner {
@@ -98,14 +89,14 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     final core.GetClient? getClient,
     final core.PostClient? postClient,
   ]) {
-    if (S == ActorsService) {
-      return _getActorsService(getClient, postClient) as S;
-    } else if (S == FeedsService) {
-      return _getFeedsService(getClient, postClient) as S;
-    } else if (S == GraphsService) {
-      return _getGraphsService(getClient, postClient) as S;
-    } else if (S == NotificationsService) {
-      return _getNotificationsService(getClient, postClient) as S;
+    if (S == ActorService) {
+      return _getActorService(getClient, postClient) as S;
+    } else if (S == FeedService) {
+      return _getFeedService(getClient, postClient) as S;
+    } else if (S == GraphService) {
+      return _getGraphService(getClient, postClient) as S;
+    } else if (S == NotificationService) {
+      return _getNotificationService(getClient, postClient) as S;
     } else if (S == UnspeccedService) {
       return _getUnspeccedService(getClient, postClient) as S;
     }
@@ -124,73 +115,68 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
         mockedPostClient: mockedPostClient,
       );
 
-  ActorsService _getActorsService(
+  ActorService _getActorService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      ActorsService(
-        atproto: _getAtproto(mockedGetClient, mockedPostClient),
-        did: did,
-        protocol: core.Protocol.https,
-        service: service,
-        context: clientContext,
+      ActorService(BlueskyServiceContext(
+        atproto: _getAtproto(
+          mockedGetClient,
+          mockedPostClient,
+        ),
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,
-      );
+      ));
 
-  FeedsService _getFeedsService(
+  FeedService _getFeedService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      FeedsService(
-        atproto: _getAtproto(mockedGetClient, mockedPostClient),
-        did: did,
-        protocol: core.Protocol.https,
-        service: service,
-        context: clientContext,
+      FeedService(BlueskyServiceContext(
+        atproto: _getAtproto(
+          mockedGetClient,
+          mockedPostClient,
+        ),
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,
-      );
+      ));
 
-  GraphsService _getGraphsService(
+  GraphService _getGraphService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      GraphsService(
-        atproto: _getAtproto(mockedGetClient, mockedPostClient),
-        did: did,
-        protocol: core.Protocol.https,
-        service: service,
-        context: clientContext,
+      GraphService(BlueskyServiceContext(
+        atproto: _getAtproto(
+          mockedGetClient,
+          mockedPostClient,
+        ),
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,
-      );
+      ));
 
-  NotificationsService _getNotificationsService(
+  NotificationService _getNotificationService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      NotificationsService(
-        atproto: _getAtproto(mockedGetClient, mockedPostClient),
-        did: did,
-        protocol: core.Protocol.https,
-        service: service,
-        context: clientContext,
+      NotificationService(BlueskyServiceContext(
+        atproto: _getAtproto(
+          mockedGetClient,
+          mockedPostClient,
+        ),
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,
-      );
+      ));
 
   UnspeccedService _getUnspeccedService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      UnspeccedService(
-        atproto: _getAtproto(mockedGetClient, mockedPostClient),
-        did: did,
-        protocol: core.Protocol.https,
-        service: service,
-        context: clientContext,
+      UnspeccedService(BlueskyServiceContext(
+        atproto: _getAtproto(
+          mockedGetClient,
+          mockedPostClient,
+        ),
         mockedGetClient: mockedGetClient,
         mockedPostClient: mockedPostClient,
-      );
+      ));
 }

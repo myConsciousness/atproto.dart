@@ -27,6 +27,7 @@ const _languageReference = 'https://atproto.com/specs/lexicon#language';
 const _tableHeader =
     '| Property | Type | Known Values | Required | Description |';
 const _tableDivider = '| --- | --- | --- | :---: | --- |';
+
 void main(List<String> args) => _writeFiles(utils.lexiconDocs);
 
 void _writeFiles(final List<LexiconDoc> lexiconDocs) {
@@ -49,13 +50,28 @@ void _writeFiles(final List<LexiconDoc> lexiconDocs) {
         ..writeln('## #$id');
 
       def.whenOrNull(
-        record: (data) => _writeRecord(matrix, data),
-        xrpcQuery: (data) => _writeXrpcQuery(matrix, data),
-        xrpcProcedure: (data) => _writeXrpcProcedure(matrix, data),
-        xrpcSubscription: (data) => _writeXrpcSubscription(matrix, data),
-        object: (data) => _writeObject(matrix, data),
-        token: (data) => _writeToken(matrix, data),
-      );
+          record: (data) => _writeRecord(matrix, data),
+          xrpcQuery: (data) => _writeXrpcQuery(matrix, data),
+          xrpcProcedure: (data) => _writeXrpcProcedure(matrix, data),
+          xrpcSubscription: (data) => _writeXrpcSubscription(matrix, data),
+          object: (data) => _writeObject(matrix, data),
+          token: (data) => _writeToken(matrix, data),
+          string: (data) {
+            matrix
+              ..writeln()
+              ..writeln(_tableHeader)
+              ..writeln(_tableDivider);
+
+            _writeObjectProperty(
+              matrix,
+              property: id,
+              isRequired: false,
+              type: data.type,
+              format: data.format?.value,
+              knownValues: data.knownValues,
+              description: data.description,
+            );
+          });
     });
 
     final nsidSegments = nsid.split('.');
@@ -71,13 +87,26 @@ void _writeRecord(
   final StringBuffer matrix,
   final LexRecord data,
 ) {
+  matrix
+    ..writeln()
+    ..writeln('### Input (Record)');
+
   if (data.description != null) {
     matrix
       ..writeln()
       ..writeln(data.description);
   }
 
+  matrix
+    ..writeln()
+    ..writeln('Use ${_toRefLink('com.atproto.repo.createRecord')} '
+        'to create a record.');
+
   _writeObject(matrix, data.record);
+
+  matrix
+    ..writeln()
+    ..writeln('### Output (${_toRefLink('com.atproto.repo.strongRef')})');
 }
 
 void _writeXrpcQuery(
@@ -527,7 +556,10 @@ void _writeObjectProperty(
   }
 
   if (knownValues != null) {
-    buffer.write('| ${knownValues.join('<br/>')} ');
+    buffer
+      ..write('| ')
+      ..write(knownValues.map((e) => _toRefLink(e)).join('<br/>'))
+      ..write(' ');
   } else {
     buffer.write('| - ');
   }
@@ -561,6 +593,7 @@ String _toSpecReference(final String type) => switch (type) {
 
 String _toRefLink(final String ref) {
   if (ref.startsWith('#')) return '[$ref](${ref.toLowerCase()})';
+  if (!ref.contains('.')) return ref;
 
   if (ref.contains('#')) {
     final pathAndObjectId = ref.split('#');
@@ -592,6 +625,7 @@ Map<String, Map<String, LexUserType>> _getLexObjects(
         xrpcSubscription: (data) => data,
         object: (data) => data,
         token: (data) => data,
+        string: (data) => data,
       );
 
       if (object != null) {

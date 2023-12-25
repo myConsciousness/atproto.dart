@@ -6,7 +6,7 @@
 
 
 <p align="center">
-  <b>Provide useful interfaces such a CID used by AT Protocol to Dart/Flutter 🎯</b>
+  <b>Core library for parsing IPFS-related things 🦋</b>
 </p>
 
 ---
@@ -46,12 +46,7 @@
 
 This library provides the easiest way to use **_[v1 CID](https://docs.ipfs.tech/concepts/content-addressing/)_** and other IPFS things in Dart and Flutter apps.
 
-**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) to activate this project!_**
-
-![github_star](https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/give_a_star.gif)
-
-- **[Official Documents](https://atprotodart.com/docs/packages/multiformats)**
-- **[GitHub Repository](https://github.com/myConsciousness/atproto.dart)**
+**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) and follow [shinyakato.dev](https://bsky.app/profile/shinyakato.dev) on Bluesky!_**
 
 ## 1.1. Getting Started ⚡
 

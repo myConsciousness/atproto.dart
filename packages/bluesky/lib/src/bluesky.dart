@@ -7,54 +7,78 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import 'services/actors_service.dart';
-import 'services/feeds_service.dart';
-import 'services/graphs_service.dart';
-import 'services/notifications_service.dart';
-import 'services/services.dart';
+import 'services/actor_service.dart';
+import 'services/feed_service.dart';
+import 'services/graph_service.dart';
+import 'services/notification_service.dart';
+import 'services/service_context.dart';
 import 'services/unspecced_service.dart';
 
+/// Provides `app.bsky.*` services.
 sealed class Bluesky {
   /// Returns the new instance of [Bluesky].
   factory Bluesky.fromSession(
     final atp.Session session, {
-    core.Protocol protocol = core.defaultProtocol,
-    String service = core.defaultService,
-    String streamService = core.defaultStreamService,
-    Duration timeout = core.defaultTimeout,
-    core.RetryConfig? retryConfig,
+    final core.Protocol? protocol,
+    final String? service,
+    final String? relayService,
+    final Duration? timeout,
+    final core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) =>
       _Bluesky(
-        session: session,
-        protocol: protocol,
-        service: service,
-        streamService: streamService,
-        timeout: timeout,
-        retryConfig: retryConfig,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
+        BlueskyServiceContext(
+          atproto: atp.ATProto.fromSession(
+            session,
+            protocol: protocol,
+            service: service,
+            relayService: relayService,
+            timeout: timeout,
+            retryConfig: retryConfig,
+            mockedGetClient: mockedGetClient,
+            mockedPostClient: mockedPostClient,
+          ),
+          protocol: protocol,
+          service: service,
+          relayService: relayService,
+          session: session,
+          timeout: timeout,
+          retryConfig: retryConfig,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
+        ),
       );
 
   /// Returns the new instance of [Bluesky] as anonymous.
   factory Bluesky.anonymous({
-    core.Protocol protocol = core.defaultProtocol,
-    String service = core.defaultService,
-    String streamService = core.defaultStreamService,
-    Duration timeout = core.defaultTimeout,
-    core.RetryConfig? retryConfig,
+    final core.Protocol? protocol,
+    final String? service,
+    final String? relayService,
+    final Duration? timeout,
+    final core.RetryConfig? retryConfig,
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   }) =>
       _Bluesky(
-        protocol: protocol,
-        service: service,
-        streamService: streamService,
-        timeout: timeout,
-        retryConfig: retryConfig,
-        mockedGetClient: mockedGetClient,
-        mockedPostClient: mockedPostClient,
+        BlueskyServiceContext(
+          atproto: atp.ATProto.anonymous(
+            protocol: protocol,
+            service: service,
+            relayService: relayService,
+            timeout: timeout,
+            retryConfig: retryConfig,
+            mockedGetClient: mockedGetClient,
+            mockedPostClient: mockedPostClient,
+          ),
+          protocol: protocol,
+          service: service,
+          relayService: relayService,
+          timeout: timeout,
+          retryConfig: retryConfig,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
+        ),
       );
 
   /// Returns the current session.
@@ -63,119 +87,163 @@ sealed class Bluesky {
   /// [Bluesky.fromSession], otherwise null.
   core.Session? get session;
 
-  /// Returns the actors service.
-  ActorsService get actors;
+  /// Returns the actor service.
+  /// This service represents `app.bsky.actor.*`.
+  @Deprecated('Use .actor instead. Will be removed')
+  ActorService get actors;
 
-  /// Returns the feeds service.
-  FeedsService get feeds;
+  /// Returns the actor service.
+  /// This service represents `app.bsky.actor.*`.
+  ActorService get actor;
 
-  /// Returns the notifications service.
-  NotificationsService get notifications;
+  /// Returns the feed service.
+  /// This service represents `app.bsky.feed.*`.
+  @Deprecated('Use .feed instead. Will be removed')
+  FeedService get feeds;
 
-  /// Returns the graphs service.
-  GraphsService get graphs;
+  /// Returns the feed service.
+  /// This service represents `app.bsky.feed.*`.
+  FeedService get feed;
+
+  /// Returns the notification service.
+  /// This service represents `app.bsky.notification.*`.
+  @Deprecated('Use .notification instead. Will be removed')
+  NotificationService get notifications;
+
+  /// Returns the notification service.
+  /// This service represents `app.bsky.notification.*`.
+  NotificationService get notification;
+
+  /// Returns the graph service.
+  /// This service represents `app.bsky.graph.*`.
+  @Deprecated('Use .graph instead. Will be removed')
+  GraphService get graphs;
+
+  /// Returns the graph service.
+  /// This service represents `app.bsky.graph.*`.
+  GraphService get graph;
 
   /// Returns the unspecced service.
+  /// This service represents `app.bsky.unspecced.*`.
   UnspeccedService get unspecced;
 
-  /// Returns the servers service.
-  atp.ServersService get servers;
+  /// Returns the server service.
+  /// This service represents `com.atproto.server.*`.
+  @Deprecated('Use .server instead. Will be removed')
+  atp.ServerService get servers;
 
-  /// Returns the identities service.
-  atp.IdentitiesService get identities;
+  /// Returns the server service.
+  /// This service represents `com.atproto.server.*`.
+  atp.ServerService get server;
 
-  /// Returns the repositories service.
-  atp.RepositoriesService get repositories;
+  /// Returns the identity service.
+  /// This service represents `com.atproto.identity.*`.
+  @Deprecated('Use .identity instead. Will be removed')
+  atp.IdentityService get identities;
+
+  /// Returns the identity service.
+  /// This service represents `com.atproto.identity.*`.
+  atp.IdentityService get identity;
+
+  /// Returns the repo service.
+  /// This service represents `com.atproto.repo.*`.
+  @Deprecated('Use .repo instead. Will be removed')
+  atp.RepoService get repositories;
+
+  /// Returns the repo service.
+  /// This service represents `com.atproto.repo.*`.
+  atp.RepoService get repo;
 
   /// Returns the moderation service.
+  /// This service represents `com.atproto.moderation.*`.
   atp.ModerationService get moderation;
 
   /// Returns the sync service.
+  /// This service represents `com.atproto.sync.*`.
   atp.SyncService get sync;
 
-  /// Returns the labels service.
-  atp.LabelsService get labels;
+  /// Returns the label service.
+  /// This service represents `com.atproto.label.*`.
+  @Deprecated('Use .repo label. Will be removed')
+  atp.LabelService get labels;
+
+  /// Returns the label service.
+  /// This service represents `com.atproto.label.*`.
+  atp.LabelService get label;
 }
 
 final class _Bluesky implements Bluesky {
-  /// Returns the new instance of [_Bluesky].
-  _Bluesky({
-    this.session,
-    required core.Protocol protocol,
-    required String service,
-    required String streamService,
-    required Duration timeout,
-    core.RetryConfig? retryConfig,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  }) : _service = BlueskyService(
-          atproto: session == null
-              ? atp.ATProto.anonymous(
-                  protocol: protocol,
-                  service: service,
-                  streamService: streamService,
-                  timeout: timeout,
-                  retryConfig: retryConfig,
-                  mockedGetClient: mockedGetClient,
-                  mockedPostClient: mockedPostClient,
-                )
-              : atp.ATProto.fromSession(
-                  session,
-                  protocol: protocol,
-                  service: service,
-                  streamService: streamService,
-                  timeout: timeout,
-                  retryConfig: retryConfig,
-                  mockedGetClient: mockedGetClient,
-                  mockedPostClient: mockedPostClient,
-                ),
-          did: session?.did ?? '',
-          protocol: protocol,
-          service: service,
-          context: core.ClientContext(
-            accessJwt: session?.accessJwt ?? '',
-            timeout: timeout,
-            retryConfig: retryConfig,
-          ),
-          mockedGetClient: mockedGetClient,
-          mockedPostClient: mockedPostClient,
-        );
-
-  final BlueskyService _service;
+  _Bluesky(final BlueskyServiceContext ctx)
+      : session = ctx.session,
+        actor = ActorService(ctx),
+        feed = FeedService(ctx),
+        notification = NotificationService(ctx),
+        graph = GraphService(ctx),
+        unspecced = UnspeccedService(ctx),
+        server = ctx.atproto.server,
+        identity = ctx.atproto.identity,
+        repo = ctx.atproto.repo,
+        moderation = ctx.atproto.moderation,
+        sync = ctx.atproto.sync,
+        label = ctx.atproto.label;
 
   @override
   final core.Session? session;
 
   @override
-  ActorsService get actors => _service.actors;
+  final ActorService actor;
 
   @override
-  FeedsService get feeds => _service.feeds;
+  ActorService get actors => actor;
 
   @override
-  NotificationsService get notifications => _service.notifications;
+  final FeedService feed;
 
   @override
-  GraphsService get graphs => _service.graphs;
+  FeedService get feeds => feed;
 
   @override
-  UnspeccedService get unspecced => _service.unspecced;
+  final NotificationService notification;
 
   @override
-  atp.ServersService get servers => _service.servers;
+  NotificationService get notifications => notification;
 
   @override
-  atp.IdentitiesService get identities => _service.identities;
+  final GraphService graph;
 
   @override
-  atp.RepositoriesService get repositories => _service.repositories;
+  GraphService get graphs => graph;
 
   @override
-  atp.ModerationService get moderation => _service.moderation;
+  final UnspeccedService unspecced;
 
   @override
-  atp.SyncService get sync => _service.sync;
+  final atp.ServerService server;
 
   @override
-  atp.LabelsService get labels => _service.labels;
+  atp.ServerService get servers => server;
+
+  @override
+  final atp.IdentityService identity;
+
+  @override
+  atp.IdentityService get identities => identity;
+
+  @override
+  final atp.RepoService repo;
+
+  @override
+  atp.RepoService get repositories => repo;
+
+  @override
+  final atp.ModerationService moderation;
+
+  @override
+  final atp.SyncService sync;
+
+  @override
+  final atp.LabelService label;
+
+  @override
+  atp.LabelService get labels => label;
 }
