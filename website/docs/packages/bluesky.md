@@ -89,18 +89,18 @@ You then do not need to be particularly aware of the contents of the retrieved S
 import 'package:bluesky/bluesky.dart' as bsky;
 
 Future<void> main() async {
-    // Let's authenticate here.
-    final session = await bsky.createSession(
-        identifier: 'YOUR_HANDLE_OR_EMAIL', // Like "shinyakato.dev"
-        password: 'YOUR_PASSWORD',
-    );
+  // Let's authenticate here.
+  final session = await bsky.createSession(
+      identifier: 'YOUR_HANDLE_OR_EMAIL', // Like "shinyakato.dev"
+      password: 'YOUR_PASSWORD',
+  );
 
-    print(session);
+  print(session);
 
-    // Just pass created session data.
-    final bluesky = bsky.Bluesky.fromSession(
-        session.data,
-    );
+  // Just pass created session data.
+  final bluesky = bsky.Bluesky.fromSession(
+      session.data,
+  );
 }
 ```
 
@@ -110,8 +110,8 @@ Or, it's very easy if authentication is not required , simply use the `.anonymou
 import 'package:bluesky/bluesky.dart';
 
 Future<void> main() async {
-    // Just call anonymous constructor.
-    final bluesky = Bluesky.anonymous();
+  // Just call anonymous constructor.
+  final bluesky = Bluesky.anonymous();
 }
 ```
 
@@ -153,7 +153,7 @@ Future<void> main() async {
     session.data,
   );
 
-  final timeline = await bluesky.feed.findTimeline();
+  final timeline = await bluesky.feed.getTimeline();
 
   print(timeline);
 }
@@ -184,7 +184,7 @@ Future<void> main() async {
   );
 
   // Create a record to specific service like Bluesky.
-  final strongRef = await bluesky.feed.createPost(
+  final strongRef = await bluesky.feed.post(
     text: 'Hello, Bluesky!',
   );
 
@@ -236,7 +236,7 @@ Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(session.data);
 
   // Do something with bluesky
-  final did = await bluesky.identity.findDID(handle: session.data.handle);
+  final did = await bluesky.identity.resolveHandle(handle: session.data.handle);
 }
 ```
 
@@ -301,7 +301,7 @@ Future<void> main() async {
   final bluesky = Bluesky.anonymous();
 
   // Just find the DID of `shinyakato.dev`
-  final did = await bluesky.identity.findDID(
+  final did = await bluesky.identity.resolveHandle(
     handle: 'shinyakato.dev',
   );
 }
@@ -360,7 +360,7 @@ import 'package:bluesky/bluesky.dart' as bsky;
 Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(await _session);
 
-  final response = await bluesky.feed.findTimeline();
+  final response = await bluesky.feed.getTimeline();
 
   // This is rate limit!
   print(response.rateLimit);
@@ -454,7 +454,7 @@ import 'package:bluesky/bluesky.dart' as bsky;
 Future<void> main() async {
   final bluesky = bsky.Bluesky.anonymous();
 
-  final subscription = await bluesky.sync.subscribeRepoUpdates();
+  final subscription = await bluesky.sync.subscribeRepos();
 
   await for (final event in subscription.data.stream) {
     // No need to use `.when` method.
@@ -476,7 +476,7 @@ Future<void> main() async {
 
 The **`Firehose API`** in AT Protocol allows you to get all events that occur on a specific service, such as `bsky.social`, **_in real time_**. This powerful and long-lived API can be used to calculate statistics using real-time data, develop interesting interactive BOTs, etc.
 
-Using **[bluesky](https://pub.dev/packages/bluesky)** to access the `Firehose API` is very simple, just execute the **[subscribeRepoUpdates](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepoUpdates.html)** method provided by the **[SyncService](https://pub.dev/documentation/atproto/latest/atproto/SyncService-class.html)** as shown in the following example. Also, user authentication is not required to access the `Firehose API`.
+Using **[bluesky](https://pub.dev/packages/bluesky)** to access the `Firehose API` is very simple, just execute the **[subscribeRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepos.html)** method provided by the **[SyncService](https://pub.dev/documentation/atproto/latest/atproto/SyncService-class.html)** as shown in the following example. Also, user authentication is not required to access the `Firehose API`.
 
 ```dart
 import 'package:bluesky/bluesky.dart';
@@ -485,7 +485,7 @@ Future<void> main() async {
   // Authentication is not required.
   final bluesky = Bluesky.anonymous();
 
-  final subscription = await bluesky.sync.subscribeRepoUpdates();
+  final subscription = await bluesky.sync.subscribeRepos();
 
   // Get events in real time.
   await for (final event in subscription.data.stream) {
@@ -737,7 +737,7 @@ import 'package:bluesky/bluesky.dart' as bsky;
 Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(await _session);
 
-  final ref = await bluesky.feed.createPost(
+  final ref = await bluesky.feed.post(
     text: 'This is where I post from',
 
     // Use this parameter.
@@ -780,7 +780,7 @@ So, **_make sure that the unique properties you register from the `unspecced` pa
 To make the name of a property unique, the following methods are possible.
 
 - Prefix symbols such a `$` (e.g. `$place`)
-- Prefix with the domain name you own (e.g. `shinyakato.dev.place`)
+- Prefix with the domain name you own (e.g. `dev.shinyakato.place`)
 :::
 
 ### Moderation API
@@ -792,7 +792,7 @@ import 'package:bluesky/moderation.dart' as mod;
 Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(await _session);
 
-  final preferences = await bluesky.actor.findPreferences();
+  final preferences = await bluesky.actor.getPreferences();
 
   // Moderation options based on user's preferences
   final options = mod.getModerationOptions(

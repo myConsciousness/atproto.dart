@@ -88,18 +88,18 @@ You then do not need to be particularly aware of the contents of the retrieved S
 import 'package:atproto/atproto.dart' as atp;
 
 Future<void> main() async {
-    // Let's authenticate here.
-    final session = await atp.createSession(
-        identifier: 'YOUR_HANDLE_OR_EMAIL', // Like "shinyakato.dev"
-        password: 'YOUR_PASSWORD',
-    );
+  // Let's authenticate here.
+  final session = await atp.createSession(
+      identifier: 'YOUR_HANDLE_OR_EMAIL', // Like "shinyakato.dev"
+      password: 'YOUR_PASSWORD',
+  );
 
-    print(session);
+  print(session);
 
-    // Just pass created session data.
-    final atproto = atp.ATProto.fromSession(
-        session.data,
-    );
+  // Just pass created session data.
+  final atproto = atp.ATProto.fromSession(
+      session.data,
+  );
 }
 ```
 
@@ -109,8 +109,8 @@ Or, it's very easy if authentication is not required , simply use the `.anonymou
 import 'package:atproto/atproto.dart';
 
 Future<void> main() async {
-    // Just call anonymous constructor.
-    final atproto = ATProto.anonymous();
+  // Just call anonymous constructor.
+  final atproto = ATProto.anonymous();
 }
 ```
 
@@ -140,7 +140,7 @@ Future<void> main() async {
   final atproto = ATProto.anonymous();
 
   // Use `findDID` in `IdentitiesService`.
-  final did = await atproto.identity.findDID(
+  final did = await atproto.identity.resolveHandle(
     handle: 'shinyakato.dev',
   );
 }
@@ -229,7 +229,7 @@ Future<void> main() async {
   final atproto = atp.ATProto.fromSession(session.data);
 
   // Do something with atproto
-  final did = await atproto.identity.findDID(handle: session.data.handle);
+  final did = await atproto.identity.resolveHandle(handle: session.data.handle);
 }
 ```
 
@@ -294,7 +294,7 @@ Future<void> main() async {
   final atproto = ATProto.anonymous();
 
   // Just find the DID of `shinyakato.dev`
-  final did = await atproto.identity.findDID(
+  final did = await atproto.identity.resolveHandle(
     handle: 'shinyakato.dev',
   );
 }
@@ -461,7 +461,7 @@ import 'package:atproto/atproto.dart' as atp;
 Future<void> main() async {
   final atproto = atp.ATProto.anonymous();
 
-  final subscription = await atproto.sync.subscribeRepoUpdates();
+  final subscription = await atproto.sync.subscribeRepos();
 
   await for (final event in subscription.data.stream) {
     // No need to use `.when` method.
@@ -483,7 +483,7 @@ Future<void> main() async {
 
 The **`Firehose API`** in AT Protocol allows you to get all events that occur on a specific service, such as `bsky.social`, **_in real time_**. This powerful and long-lived API can be used to calculate statistics using real-time data, develop interesting interactive BOTs, etc.
 
-Using **[atproto](https://pub.dev/packages/atproto)** to access the `Firehose API` is very simple, just execute the **[subscribeRepoUpdates](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepoUpdates.html)** method provided by the **[SyncService](https://pub.dev/documentation/atproto/latest/atproto/SyncService-class.html)** as shown in the following example. Also, user authentication is not required to access the `Firehose API`.
+Using **[atproto](https://pub.dev/packages/atproto)** to access the `Firehose API` is very simple, just execute the **[subscribeRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepos.html)** method provided by the **[SyncService](https://pub.dev/documentation/atproto/latest/atproto/SyncService-class.html)** as shown in the following example. Also, user authentication is not required to access the `Firehose API`.
 
 ```dart
 import 'package:atproto/atproto.dart';
@@ -492,7 +492,7 @@ Future<void> main() async {
   // Authentication is not required.
   final atproto = ATProto.anonymous();
 
-  final subscription = await atproto.sync.subscribeRepoUpdates();
+  final subscription = await atproto.sync.subscribeRepos();
 
   // Get events in real time.
   await for (final event in subscription.data.stream) {
@@ -651,7 +651,7 @@ Future<void> main() async {
   String? nextCursor;
 
   do {
-    final records = await atproto.repo.findRecords(
+    final records = await atproto.repo.listRecords(
       repo: 'shinyakato.dev',
       collection: atp.NSID.create(
         'graph.bsky.app',

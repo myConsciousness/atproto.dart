@@ -40,7 +40,7 @@ environment:
   sdk: ^3.0.0
 
 dependencies:
-  bluesky: ^0.6.0
+  bluesky: ^0.15.0
 
 dev_dependencies:
   lints: ^2.0.0
@@ -60,7 +60,7 @@ Future<void> main(List<String> args) async {
 
   final bluesky = bsky.Bluesky.fromSession(session.data);
 
-  final strongRef = await bluesky.feed.createPost(
+  final strongRef = await bluesky.feed.post(
     text: 'Hello, Bluesky!',
   );
 }
