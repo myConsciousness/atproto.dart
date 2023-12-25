@@ -57,7 +57,7 @@ If you want to use the **_Bluesky API_** as well, see the **[bluesky package](ht
 
 - ✅ **Zero Dependency**
 - ✅ Supports **Powerful Built-In Retry** using **[Exponential BackOff And Jitter](https://aws.amazon.com/jp/blogs/architecture/exponential-backoff-and-jitter/)**
-- ✅ Supports **[All Major Endpoints](https://atprotodart.com/docs/api_support_matrix#atproto)** for [`com.atproto.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto)
+- ✅ Supports **[All Major Endpoints](https://atprotodart.com/docs/supported_api#atproto)** for [`com.atproto.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto)
 - ✅ **Well Documented** and **Well Tested**
 - ✅ Supports **Powerful Firehose API**
 - ✅ **100% Null Safety**
@@ -75,15 +75,15 @@ See **[example](https://github.com/myConsciousness/atproto.dart/blob/main/packag
 
 ## 1.3. Supported Endpoints 👀
 
-See **[official documents](https://atprotodart.com/docs/api_support_matrix)** from following links.
+See **[official documents](https://atprotodart.com/docs/supported_api)** from following links.
 
-- **[com.atproto.*](https://atprotodart.com/docs/api_support_matrix#atproto)**
-  - **[com.atproto.server.*](https://atprotodart.com/docs/api_support_matrix#servers-service)**
-  - **[com.atproto.identity.*](https://atprotodart.com/docs/api_support_matrix#identities-service)**
-  - **[com.atproto.repo.*](https://atprotodart.com/docs/api_support_matrix#repositories-service)**
-  - **[com.atproto.moderation.*](https://atprotodart.com/docs/api_support_matrix#moderation-service)**
-  - **[com.atproto.sync.*](https://atprotodart.com/docs/api_support_matrix#sync-service)**
-  - **[com.atproto.label.*](https://atprotodart.com/docs/api_support_matrix#labels-service)**
+- **[com.atproto.*](https://atprotodart.com/docs/supported_api#atproto)**
+  - **[com.atproto.server.*](https://atprotodart.com/docs/supported_api#server-service)**
+  - **[com.atproto.identity.*](https://atprotodart.com/docs/supported_api#identity-service)**
+  - **[com.atproto.repo.*](https://atprotodart.com/docs/supported_api#repo-service)**
+  - **[com.atproto.moderation.*](https://atprotodart.com/docs/supported_api#moderation-service)**
+  - **[com.atproto.sync.*](https://atprotodart.com/docs/supported_api#sync-service)**
+  - **[com.atproto.label.*](https://atprotodart.com/docs/supported_api#label-service)**
 
 ## 1.4. More Tips 🏄
 

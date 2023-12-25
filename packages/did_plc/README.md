@@ -53,9 +53,9 @@ A library for easy use of the [DID PLC Directory](https://web.plc.directory) mec
 
 ## 1.2. Supported Endpoints 👀
 
-See **[official documents](https://atprotodart.com/docs/api_support_matrix)** from following links.
+See **[official documents](https://atprotodart.com/docs/supported_api)** from following links.
 
-- **[DID PLC](https://atprotodart.com/docs/api_support_matrix#did-plc)**
+- **[DID PLC](https://atprotodart.com/docs/supported_api#did-plc)**
 
 ## 1.3. Contribution 🏆
 
