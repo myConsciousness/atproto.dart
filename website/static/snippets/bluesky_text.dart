@@ -6,16 +6,16 @@
 
 /* SNIPPET START */
 
-import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/bluesky.dart';
 import 'package:bluesky_text/bluesky_text.dart';
 
 Future<void> main(List<String> args) async {
-  final session = await bsky.createSession(
+  final session = await createSession(
     identifier: 'shinyakato.dev',
     password: 'xxxxxxxx',
   );
 
-  final bluesky = bsky.Bluesky.fromSession(session.data);
+  final bsky = Bluesky.fromSession(session.data);
 
   final text = BlueskyText(
     'Hello, I am @shinyakato.dev! '
@@ -28,8 +28,8 @@ Future<void> main(List<String> args) async {
 
   final facets = await text.entities.toFacets();
 
-  final strongRef = await bluesky.feed.createPost(
+  final strongRef = await bsky.feed.post(
     text: text.value,
-    facets: facets.map(bsky.Facet.fromJson).toList(),
+    facets: facets.map(Facet.fromJson).toList(),
   );
 }
