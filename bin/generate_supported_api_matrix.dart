@@ -2,14 +2,15 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:lexicon/lexicon.dart';
 
 import 'utils.dart' as utils;
 
-const _tableHeader = '| Method | Docs |';
-const _tableDivider = '| --- | --- |';
+const _tableHeader = '| Method | Docs | Auth Required |';
+const _tableDivider = '| --- | --- | :---: |';
 
 const _excludeAuthorities = [
   'com.atproto.temp',
@@ -33,6 +34,10 @@ void main(List<String> args) {
     ..writeln('# Supported API');
 
   final services = _groupByService(utils.lexiconDocs);
+
+  final Map<String, dynamic> authData = jsonDecode(
+    File('data/auth.json').readAsStringSync(),
+  );
 
   <String, Map<String, List<LexiconDoc>>>{
     'atproto': _only(services, authority: 'com.atproto'),
@@ -68,7 +73,8 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
         ..write(_tableDivider);
 
       for (final lexiconDoc in lexiconDocs) {
-        final method = lexiconDoc.id.toString().split('.').last;
+        final lexiconId = lexiconDoc.id.toString();
+        final method = lexiconId.split('.').last;
 
         matrix.writeln();
         if (_isFunction(method)) {
@@ -85,8 +91,15 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
         }
 
         final referencePath = lexiconDoc.id.toString().replaceAll('.', '/');
+        matrix.write('[Reference](lexicons/$referencePath.md) | ');
 
-        matrix.write('[Reference](lexicons/$referencePath.md) |');
+        final bool? authRequired = authData[lexiconId]['required'];
+        final authRequiredIcon = authRequired == null
+            ? 'N/A'
+            : authRequired
+                ? '✅'
+                : '❌';
+        matrix.write('$authRequiredIcon |');
       }
 
       matrix.writeln();
@@ -132,7 +145,21 @@ Map<String, List<LexiconDoc>> _groupByService(
     final segments = lexiconDoc.id.toString().split('.');
     final authority = segments.sublist(0, 3).join('.');
     if (_excludeAuthorities.contains(authority)) continue;
-    if (segments.last == 'defs') continue;
+
+    bool isMethod = false;
+    lexiconDoc.defs.forEach((_, def) {
+      if (def.whenOrNull(
+            record: (data) => data,
+            xrpcQuery: (data) => data,
+            xrpcProcedure: (data) => data,
+            xrpcSubscription: (data) => data,
+          ) !=
+          null) {
+        isMethod = true;
+      }
+    });
+
+    if (!isMethod) continue;
 
     if (grouped.containsKey(authority)) {
       grouped[authority]!.add(lexiconDoc);
