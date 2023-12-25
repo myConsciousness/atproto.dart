@@ -4,276 +4,173 @@ sidebar_position: 4
 
 # API Support Matrix
 
-## **[atproto](https://pub.dev/packages/atproto)**
+## [atproto](packages/atproto) 
 
-**[atproto](https://pub.dev/packages/atproto)** supports the endpoints defined in Lexicon at [`com.atproto.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto).
+[![pub package](https://img.shields.io/pub/v/atproto.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/atproto) [![Dart SDK Version](https://badgen.net/pub/sdk-version/atproto)](https://pub.dev/packages/atproto/)
 
-:::tip
-See more details about **[atproto](https://pub.dev/packages/atproto)** in **[Packages](./packages/atproto.md)** section.
+### Identity Service
+
+| Method | Docs |
+| --- | --- |
+| **[com.atproto.identity.updateHandle](https://pub.dev/documentation/atproto/latest/atproto/IdentityService/updateHandle.html)** | [Reference](lexicons/com/atproto/identity/updateHandle.md) |
+| **[com.atproto.identity.resolveHandle](https://pub.dev/documentation/atproto/latest/atproto/IdentityService/resolveHandle.html)** | [Reference](lexicons/com/atproto/identity/resolveHandle.md) |
+
+### Label Service
+
+| Method | Docs |
+| --- | --- |
+| **[com.atproto.label.subscribeLabels](https://pub.dev/documentation/atproto/latest/atproto/LabelService/subscribeLabels.html)** | [Reference](lexicons/com/atproto/label/subscribeLabels.md) |
+| **[com.atproto.label.queryLabels](https://pub.dev/documentation/atproto/latest/atproto/LabelService/queryLabels.html)** | [Reference](lexicons/com/atproto/label/queryLabels.md) |
+
+### Server Service
+
+| Method | Docs |
+| --- | --- |
+| **[com.atproto.server.requestEmailConfirmation](https://pub.dev/documentation/atproto/latest/atproto/ServerService/requestEmailConfirmation.html)** | [Reference](lexicons/com/atproto/server/requestEmailConfirmation.md) |
+| **[com.atproto.server.reserveSigningKey](https://pub.dev/documentation/atproto/latest/atproto/ServerService/reserveSigningKey.html)** | [Reference](lexicons/com/atproto/server/reserveSigningKey.md) |
+| **[com.atproto.server.getAccountInviteCodes](https://pub.dev/documentation/atproto/latest/atproto/ServerService/getAccountInviteCodes.html)** | [Reference](lexicons/com/atproto/server/getAccountInviteCodes.md) |
+| **[com.atproto.server.createSession](https://pub.dev/documentation/atproto/latest/atproto/createSession.html)** | [Reference](lexicons/com/atproto/server/createSession.md) |
+| **[com.atproto.server.listAppPasswords](https://pub.dev/documentation/atproto/latest/atproto/ServerService/listAppPasswords.html)** | [Reference](lexicons/com/atproto/server/listAppPasswords.md) |
+| **[com.atproto.server.createInviteCodes](https://pub.dev/documentation/atproto/latest/atproto/ServerService/createInviteCodes.html)** | [Reference](lexicons/com/atproto/server/createInviteCodes.md) |
+| **[com.atproto.server.deleteSession](https://pub.dev/documentation/atproto/latest/atproto/deleteSession.html)** | [Reference](lexicons/com/atproto/server/deleteSession.md) |
+| **[com.atproto.server.revokeAppPassword](https://pub.dev/documentation/atproto/latest/atproto/ServerService/revokeAppPassword.html)** | [Reference](lexicons/com/atproto/server/revokeAppPassword.md) |
+| **[com.atproto.server.createAppPassword](https://pub.dev/documentation/atproto/latest/atproto/ServerService/createAppPassword.html)** | [Reference](lexicons/com/atproto/server/createAppPassword.md) |
+| **[com.atproto.server.describeServer](https://pub.dev/documentation/atproto/latest/atproto/ServerService/describeServer.html)** | [Reference](lexicons/com/atproto/server/describeServer.md) |
+| **[com.atproto.server.confirmEmail](https://pub.dev/documentation/atproto/latest/atproto/ServerService/confirmEmail.html)** | [Reference](lexicons/com/atproto/server/confirmEmail.md) |
+| **[com.atproto.server.getSession](https://pub.dev/documentation/atproto/latest/atproto/ServerService/getSession.html)** | [Reference](lexicons/com/atproto/server/getSession.md) |
+| **[com.atproto.server.refreshSession](https://pub.dev/documentation/atproto/latest/atproto/refreshSession.html)** | [Reference](lexicons/com/atproto/server/refreshSession.md) |
+| **[com.atproto.server.updateEmail](https://pub.dev/documentation/atproto/latest/atproto/ServerService/updateEmail.html)** | [Reference](lexicons/com/atproto/server/updateEmail.md) |
+| **[com.atproto.server.resetPassword](https://pub.dev/documentation/atproto/latest/atproto/ServerService/resetPassword.html)** | [Reference](lexicons/com/atproto/server/resetPassword.md) |
+| **[com.atproto.server.requestEmailUpdate](https://pub.dev/documentation/atproto/latest/atproto/ServerService/requestEmailUpdate.html)** | [Reference](lexicons/com/atproto/server/requestEmailUpdate.md) |
+| **[com.atproto.server.requestPasswordReset](https://pub.dev/documentation/atproto/latest/atproto/ServerService/requestPasswordReset.html)** | [Reference](lexicons/com/atproto/server/requestPasswordReset.md) |
+| **[com.atproto.server.requestAccountDelete](https://pub.dev/documentation/atproto/latest/atproto/ServerService/requestAccountDelete.html)** | [Reference](lexicons/com/atproto/server/requestAccountDelete.md) |
+| **[com.atproto.server.createAccount](https://pub.dev/documentation/atproto/latest/atproto/ServerService/createAccount.html)** | [Reference](lexicons/com/atproto/server/createAccount.md) |
+| **[com.atproto.server.deleteAccount](https://pub.dev/documentation/atproto/latest/atproto/ServerService/deleteAccount.html)** | [Reference](lexicons/com/atproto/server/deleteAccount.md) |
+| **[com.atproto.server.createInviteCode](https://pub.dev/documentation/atproto/latest/atproto/ServerService/createInviteCode.html)** | [Reference](lexicons/com/atproto/server/createInviteCode.md) |
+
+### Sync Service
+
+| Method | Docs |
+| --- | --- |
+| **[com.atproto.sync.getHead](https://pub.dev/documentation/atproto/latest/atproto/SyncService/getHead.html)** | [Reference](lexicons/com/atproto/sync/getHead.md) |
+| **[com.atproto.sync.getBlob](https://pub.dev/documentation/atproto/latest/atproto/SyncService/getBlob.html)** | [Reference](lexicons/com/atproto/sync/getBlob.md) |
+| **[com.atproto.sync.getRepo](https://pub.dev/documentation/atproto/latest/atproto/SyncService/getRepo.html)** | [Reference](lexicons/com/atproto/sync/getRepo.md) |
+| **[com.atproto.sync.notifyOfUpdate](https://pub.dev/documentation/atproto/latest/atproto/SyncService/notifyOfUpdate.html)** | [Reference](lexicons/com/atproto/sync/notifyOfUpdate.md) |
+| **[com.atproto.sync.requestCrawl](https://pub.dev/documentation/atproto/latest/atproto/SyncService/requestCrawl.html)** | [Reference](lexicons/com/atproto/sync/requestCrawl.md) |
+| **[com.atproto.sync.listBlobs](https://pub.dev/documentation/atproto/latest/atproto/SyncService/listBlobs.html)** | [Reference](lexicons/com/atproto/sync/listBlobs.md) |
+| **[com.atproto.sync.getLatestCommit](https://pub.dev/documentation/atproto/latest/atproto/SyncService/getLatestCommit.html)** | [Reference](lexicons/com/atproto/sync/getLatestCommit.md) |
+| **[com.atproto.sync.subscribeRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepos.html)** | [Reference](lexicons/com/atproto/sync/subscribeRepos.md) |
+| **[com.atproto.sync.getRecord](https://pub.dev/documentation/atproto/latest/atproto/SyncService/getRecord.html)** | [Reference](lexicons/com/atproto/sync/getRecord.md) |
+| **[com.atproto.sync.listRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/listRepos.html)** | [Reference](lexicons/com/atproto/sync/listRepos.md) |
+| **[com.atproto.sync.getBlocks](https://pub.dev/documentation/atproto/latest/atproto/SyncService/getBlocks.html)** | [Reference](lexicons/com/atproto/sync/getBlocks.md) |
+| **[com.atproto.sync.getCheckout](https://pub.dev/documentation/atproto/latest/atproto/SyncService/getCheckout.html)** | [Reference](lexicons/com/atproto/sync/getCheckout.md) |
+
+### Repo Service
+
+| Method | Docs |
+| --- | --- |
+| **[com.atproto.repo.strongRef](https://pub.dev/documentation/atproto/latest/atproto/RepoService/strongRef.html)** | [Reference](lexicons/com/atproto/repo/strongRef.md) |
+| **[com.atproto.repo.createRecord](https://pub.dev/documentation/atproto/latest/atproto/RepoService/createRecord.html)** | [Reference](lexicons/com/atproto/repo/createRecord.md) |
+| **[com.atproto.repo.deleteRecord](https://pub.dev/documentation/atproto/latest/atproto/RepoService/deleteRecord.html)** | [Reference](lexicons/com/atproto/repo/deleteRecord.md) |
+| **[com.atproto.repo.putRecord](https://pub.dev/documentation/atproto/latest/atproto/RepoService/putRecord.html)** | [Reference](lexicons/com/atproto/repo/putRecord.md) |
+| **[com.atproto.repo.uploadBlob](https://pub.dev/documentation/atproto/latest/atproto/RepoService/uploadBlob.html)** | [Reference](lexicons/com/atproto/repo/uploadBlob.md) |
+| **[com.atproto.repo.describeRepo](https://pub.dev/documentation/atproto/latest/atproto/RepoService/describeRepo.html)** | [Reference](lexicons/com/atproto/repo/describeRepo.md) |
+| **[com.atproto.repo.getRecord](https://pub.dev/documentation/atproto/latest/atproto/RepoService/getRecord.html)** | [Reference](lexicons/com/atproto/repo/getRecord.md) |
+| **[com.atproto.repo.applyWrites](https://pub.dev/documentation/atproto/latest/atproto/RepoService/applyWrites.html)** | [Reference](lexicons/com/atproto/repo/applyWrites.md) |
+| **[com.atproto.repo.listRecords](https://pub.dev/documentation/atproto/latest/atproto/RepoService/listRecords.html)** | [Reference](lexicons/com/atproto/repo/listRecords.md) |
+
+### Moderation Service
+
+| Method | Docs |
+| --- | --- |
+| **[com.atproto.moderation.createReport](https://pub.dev/documentation/atproto/latest/atproto/ModerationService/createReport.html)** | [Reference](lexicons/com/atproto/moderation/createReport.md) |
+
+## [bluesky](packages/bluesky) 
+
+[![pub package](https://img.shields.io/pub/v/bluesky.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky) [![Dart SDK Version](https://badgen.net/pub/sdk-version/bluesky)](https://pub.dev/packages/bluesky/)
+
+:::info
+The [bluesky](#bluesky) package is designed based on the [atproto](#atproto) package.
+So all endpoints in the [atproto](#atproto) table are also available from [bluesky](#bluesky) package.
 :::
 
-### [Server Service](https://pub.dev/documentation/atproto/latest/atproto/ServerService-class.html)
+### Notification Service
 
-| **Lexicon**                                                                                                                                                       | **Method Name**                                                                                                              | Auth Required | Pagination |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | :-----------: | :--------: |
-| [POST com.atproto.server.createSession](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createSession.json)                       | [createSession](https://pub.dev/documentation/atproto/latest/atproto/createSession.html)                                     |       ✅       |     ❌      |
-| [POST com.atproto.server.refreshSession](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/refreshSession.json)                     | [refreshSession](https://pub.dev/documentation/atproto/latest/atproto/refreshSession.html)                                   |       ✅       |     ❌      |
-| [POST com.atproto.server.deleteSession](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/deleteSession.json)                       | [deleteSession](https://pub.dev/documentation/atproto/latest/atproto/deleteSession.html)                                     |       ✅       |     ❌      |
-| [GET com.atproto.server.getSession](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/getSession.json)                              | [findCurrentSession](https://pub.dev/documentation/atproto/latest/atproto/ServerService/findCurrentSession.html)             |       ✅       |     ❌      |
-| [POST com.atproto.server.createAccount](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createAccount.json)                       | [createAccount](https://pub.dev/documentation/atproto/latest/atproto/ServerService/createAccount.html)                       |       ❌       |     ❌      |
-| [POST com.atproto.server.requestDeleteAccount](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/requestDeleteAccount.json)         | [requestDeleteAccount](https://pub.dev/documentation/atproto/latest/atproto/ServerService/requestDeleteAccount.html)         |       ✅       |     ❌      |
-| [POST com.atproto.server.deleteAccount](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/deleteAccount.json)                       | [deleteAccount](https://pub.dev/documentation/atproto/latest/atproto/ServerService/deleteAccount.html)                       |       ✅       |     ❌      |
-| [POST com.atproto.server.createInviteCode](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createInviteCode.json)                 | [createInviteCode](https://pub.dev/documentation/atproto/latest/atproto/ServerService/createInviteCode.html)                 |       ✅       |     ❌      |
-| [POST com.atproto.server.createInviteCodes](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createInviteCodes.json)               | [createInviteCodes](https://pub.dev/documentation/atproto/latest/atproto/ServerService/createInviteCodes.html)               |       ✅       |     ❌      |
-| [GET com.atproto.server.getAccountInviteCodes](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/getAccountInviteCodes.json)        | [findInviteCodes](https://pub.dev/documentation/atproto/latest/atproto/ServerService/findInviteCodes.html)                   |       ✅       |     ❌      |
-| [POST com.atproto.server.requestPasswordReset](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/requestPasswordReset.json)         | [requestPasswordReset](https://pub.dev/documentation/atproto/latest/atproto/ServerService/requestPasswordReset.html)         |       ✅       |     ❌      |
-| [POST com.atproto.server.resetPassword](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/resetPassword.json)                       | [updatePassword](https://pub.dev/documentation/atproto/latest/atproto/ServerService/updatePassword.html)                     |       ✅       |     ❌      |
-| [POST com.atproto.server.createAppPassword](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/createAppPassword.json)               | [createAppPassword](https://pub.dev/documentation/atproto/latest/atproto/ServerService/createAppPassword.html)               |       ✅       |     ❌      |
-| [POST com.atproto.server.revokeAppPassword](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/revokeAppPassword.json)               | [deleteAppPassword](https://pub.dev/documentation/atproto/latest/atproto/ServerService/deleteAppPassword.html)               |       ✅       |     ❌      |
-| [GET com.atproto.server.listAppPasswords](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/listAppPasswords.json)                  | [findAppPasswords](https://pub.dev/documentation/atproto/latest/atproto/ServerService/findAppPasswords.html)                 |       ✅       |     ❌      |
-| [GET com.atproto.server.describeServer](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/describeServer.json)                      | [findServerInfo](https://pub.dev/documentation/atproto/latest/atproto/ServerService/findServerInfo.html)                     |       ❌       |     ❌      |
-| [POST com.atproto.server.requestEmailUpdate](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/requestEmailUpdate.json)             | [requestEmailUpdate](https://pub.dev/documentation/atproto/latest/atproto/ServerService/requestEmailUpdate.html)             |       ✅       |     ❌      |
-| [POST com.atproto.server.requestEmailConfirmation](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/requestEmailConfirmation.json) | [requestEmailConfirmation](https://pub.dev/documentation/atproto/latest/atproto/ServerService/requestEmailConfirmation.html) |       ✅       |     ❌      |
-| [POST com.atproto.server.confirmEmail](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/confirmEmail.json)                         | [confirmEmail](https://pub.dev/documentation/atproto/latest/atproto/ServerService/confirmEmail.html)                         |       ✅       |     ❌      |
-| [POST com.atproto.server.updateEmail](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/updateEmail.json)                           | [updateEmail](https://pub.dev/documentation/atproto/latest/atproto/ServerService/updateEmail.html)                           |       ✅       |     ❌      |
-| [POST com.atproto.server.reserveSigningKey](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/server/reserveSigningKey.json)               | [createSigningKey](https://pub.dev/documentation/atproto/latest/atproto/ServerService/createSigningKey.html)                 |       ✅       |     ❌      |
+| Method | Docs |
+| --- | --- |
+| **[app.bsky.notification.registerPush](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationService/registerPush.html)** | [Reference](lexicons/app/bsky/notification/registerPush.md) |
+| **[app.bsky.notification.updateSeen](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationService/updateSeen.html)** | [Reference](lexicons/app/bsky/notification/updateSeen.md) |
+| **[app.bsky.notification.listNotifications](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationService/listNotifications.html)** | [Reference](lexicons/app/bsky/notification/listNotifications.md) |
+| **[app.bsky.notification.getUnreadCount](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationService/getUnreadCount.html)** | [Reference](lexicons/app/bsky/notification/getUnreadCount.md) |
 
-### [Identity Service](https://pub.dev/documentation/atproto/latest/atproto/IdentityService-class.html)
+### Unspecced Service
 
-| **Lexicon**                                                                                                                                    | **Method Name**                                                                                        | Auth Required | Pagination |
-| ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | :-----------: | :--------: |
-| [GET com.atproto.identity.resolveHandle](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/identity/resolveHandle.json) | [findDID](https://pub.dev/documentation/atproto/latest/atproto/IdentityService/findDID.html)           |       ❌       |     ❌      |
-| [POST com.atproto.identity.updateHandle](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/identity/updateHandle.json)  | [updateHandle](https://pub.dev/documentation/atproto/latest/atproto/IdentityService/updateHandle.html) |       ✅       |     ❌      |
+| Method | Docs |
+| --- | --- |
+| **[app.bsky.unspecced.searchActorsSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/searchActorsSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/searchActorsSkeleton.md) |
+| **[app.bsky.unspecced.searchPostsSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/searchPostsSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/searchPostsSkeleton.md) |
+| **[app.bsky.unspecced.getPopular](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getPopular.html)** | [Reference](lexicons/app/bsky/unspecced/getPopular.md) |
+| **[app.bsky.unspecced.getPopularFeedGenerators](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getPopularFeedGenerators.html)** | [Reference](lexicons/app/bsky/unspecced/getPopularFeedGenerators.md) |
+| **[app.bsky.unspecced.getTimelineSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getTimelineSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/getTimelineSkeleton.md) |
 
-### [Repo Service](https://pub.dev/documentation/atproto/latest/atproto/RepoService-class.html)
+### Graph Service
 
-| **Lexicon**                                                                                                                           | **Method Name**                                                                                      | Auth Required | Pagination |
-| ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | :-----------: | :--------: |
-| [POST com.atproto.repo.createRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/createRecord.json) | [createRecord](https://pub.dev/documentation/atproto/latest/atproto/RepoService/createRecord.html)   |       ✅       |     ❌      |
-| [GET com.atproto.repo.getRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/getRecord.json)        | [findRecord](https://pub.dev/documentation/atproto/latest/atproto/RepoService/findRecord.html)       |       ✅       |     ❌      |
-| [GET com.atproto.repo.listRecords](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/listRecords.json)    | [findRecords](https://pub.dev/documentation/atproto/latest/atproto/RepoService/findRecords.html)     |       ✅       |     ✅      |
-| [POST com.atproto.repo.deleteRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/deleteRecord.json) | [deleteRecord](https://pub.dev/documentation/atproto/latest/atproto/RepoService/deleteRecord.html)   |       ✅       |     ❌      |
-| [POST com.atproto.repo.uploadBlob](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/uploadBlob.json)     | [uploadBlob](https://pub.dev/documentation/atproto/latest/atproto/RepoService/uploadBlob.html)       |       ✅       |     ❌      |
-| [GET com.atproto.repo.describeRepo](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/describeRepo.json)  | [findRepoInfo](https://pub.dev/documentation/atproto/latest/atproto/RepoService/findRepoInfo.html)   |       ❌       |     ❌      |
-| [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)   | [updateBulk](https://pub.dev/documentation/atproto/latest/atproto/RepoService/updateBulk.html)       |       ✅       |     ❌      |
-| [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)   | [createRecords](https://pub.dev/documentation/atproto/latest/atproto/RepoService/createRecords.html) |       ✅       |     ❌      |
-| [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)   | [updateRecords](https://pub.dev/documentation/atproto/latest/atproto/RepoService/updateRecords.html) |       ✅       |     ❌      |
-| [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)   | [deleteRecords](https://pub.dev/documentation/atproto/latest/atproto/RepoService/deleteRecords.html) |       ✅       |     ❌      |
+| Method | Docs |
+| --- | --- |
+| **[app.bsky.graph.getSuggestedFollowsByActor](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getSuggestedFollowsByActor.html)** | [Reference](lexicons/app/bsky/graph/getSuggestedFollowsByActor.md) |
+| **[app.bsky.graph.block](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/block.html)** | [Reference](lexicons/app/bsky/graph/block.md) |
+| **[app.bsky.graph.follow](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/follow.html)** | [Reference](lexicons/app/bsky/graph/follow.md) |
+| **[app.bsky.graph.unmuteActorList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/unmuteActorList.html)** | [Reference](lexicons/app/bsky/graph/unmuteActorList.md) |
+| **[app.bsky.graph.getListBlocks](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getListBlocks.html)** | [Reference](lexicons/app/bsky/graph/getListBlocks.md) |
+| **[app.bsky.graph.listblock](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/listblock.html)** | [Reference](lexicons/app/bsky/graph/listblock.md) |
+| **[app.bsky.graph.muteActorList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/muteActorList.html)** | [Reference](lexicons/app/bsky/graph/muteActorList.md) |
+| **[app.bsky.graph.getLists](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getLists.html)** | [Reference](lexicons/app/bsky/graph/getLists.md) |
+| **[app.bsky.graph.getFollowers](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getFollowers.html)** | [Reference](lexicons/app/bsky/graph/getFollowers.md) |
+| **[app.bsky.graph.muteActor](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/muteActor.html)** | [Reference](lexicons/app/bsky/graph/muteActor.md) |
+| **[app.bsky.graph.getMutes](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getMutes.html)** | [Reference](lexicons/app/bsky/graph/getMutes.md) |
+| **[app.bsky.graph.listitem](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/listitem.html)** | [Reference](lexicons/app/bsky/graph/listitem.md) |
+| **[app.bsky.graph.list](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/list.html)** | [Reference](lexicons/app/bsky/graph/list.md) |
+| **[app.bsky.graph.getListMutes](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getListMutes.html)** | [Reference](lexicons/app/bsky/graph/getListMutes.md) |
+| **[app.bsky.graph.getFollows](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getFollows.html)** | [Reference](lexicons/app/bsky/graph/getFollows.md) |
+| **[app.bsky.graph.getBlocks](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getBlocks.html)** | [Reference](lexicons/app/bsky/graph/getBlocks.md) |
+| **[app.bsky.graph.unmuteActor](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/unmuteActor.html)** | [Reference](lexicons/app/bsky/graph/unmuteActor.md) |
+| **[app.bsky.graph.getList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getList.html)** | [Reference](lexicons/app/bsky/graph/getList.md) |
 
-### [Moderation Service](https://pub.dev/documentation/atproto/latest/atproto/ModerationService-class.html)
+### Feed Service
 
-| **Lexicon**                                                                                                                                       | **Method Name**                                                                                          | Auth Required | Pagination |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | :-----------: | :--------: |
-| [POST com.atproto.moderation.createReport](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/moderation/createReport.json) | [createReport](https://pub.dev/documentation/atproto/latest/atproto/ModerationService/createReport.html) |       ✅       |     ❌      |
+| Method | Docs |
+| --- | --- |
+| **[app.bsky.feed.generator](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/generator.html)** | [Reference](lexicons/app/bsky/feed/generator.md) |
+| **[app.bsky.feed.getFeedGenerators](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getFeedGenerators.html)** | [Reference](lexicons/app/bsky/feed/getFeedGenerators.md) |
+| **[app.bsky.feed.getTimeline](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getTimeline.html)** | [Reference](lexicons/app/bsky/feed/getTimeline.md) |
+| **[app.bsky.feed.getFeedGenerator](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getFeedGenerator.html)** | [Reference](lexicons/app/bsky/feed/getFeedGenerator.md) |
+| **[app.bsky.feed.getAuthorFeed](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getAuthorFeed.html)** | [Reference](lexicons/app/bsky/feed/getAuthorFeed.md) |
+| **[app.bsky.feed.getLikes](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getLikes.html)** | [Reference](lexicons/app/bsky/feed/getLikes.md) |
+| **[app.bsky.feed.threadgate](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/threadgate.html)** | [Reference](lexicons/app/bsky/feed/threadgate.md) |
+| **[app.bsky.feed.getPostThread](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getPostThread.html)** | [Reference](lexicons/app/bsky/feed/getPostThread.md) |
+| **[app.bsky.feed.getActorLikes](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getActorLikes.html)** | [Reference](lexicons/app/bsky/feed/getActorLikes.md) |
+| **[app.bsky.feed.like](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/like.html)** | [Reference](lexicons/app/bsky/feed/like.md) |
+| **[app.bsky.feed.getRepostedBy](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getRepostedBy.html)** | [Reference](lexicons/app/bsky/feed/getRepostedBy.md) |
+| **[app.bsky.feed.repost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/repost.html)** | [Reference](lexicons/app/bsky/feed/repost.md) |
+| **[app.bsky.feed.describeFeedGenerator](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/describeFeedGenerator.html)** | [Reference](lexicons/app/bsky/feed/describeFeedGenerator.md) |
+| **[app.bsky.feed.searchPosts](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/searchPosts.html)** | [Reference](lexicons/app/bsky/feed/searchPosts.md) |
+| **[app.bsky.feed.getPosts](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getPosts.html)** | [Reference](lexicons/app/bsky/feed/getPosts.md) |
+| **[app.bsky.feed.getFeed](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getFeed.html)** | [Reference](lexicons/app/bsky/feed/getFeed.md) |
+| **[app.bsky.feed.getFeedSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getFeedSkeleton.html)** | [Reference](lexicons/app/bsky/feed/getFeedSkeleton.md) |
+| **[app.bsky.feed.getListFeed](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getListFeed.html)** | [Reference](lexicons/app/bsky/feed/getListFeed.md) |
+| **[app.bsky.feed.getSuggestedFeeds](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getSuggestedFeeds.html)** | [Reference](lexicons/app/bsky/feed/getSuggestedFeeds.md) |
+| **[app.bsky.feed.getActorFeeds](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getActorFeeds.html)** | [Reference](lexicons/app/bsky/feed/getActorFeeds.md) |
+| **[app.bsky.feed.post](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/post.html)** | [Reference](lexicons/app/bsky/feed/post.md) |
 
-### [Sync Service](https://pub.dev/documentation/atproto/latest/atproto/SyncService-class.html)
+### Actor Service
 
-| **Lexicon**                                                                                                                                | **Method Name**                                                                                                                      | Auth Required | Pagination |
-| ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | :-----------: | :--------: |
-| [com.atproto.sync.subscribeRepos](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/subscribeRepos.json)       | [subscribeRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepoUpdates.html)                         |       ❌       |     ✅      |
-| [GET com.atproto.sync.getHead](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getHead.json)                 | [findRepoHead](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoHead.html)                                   |       ❌       |     ❌      |
-| [GET com.atproto.sync.getLatestCommit](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getLatestCommit.json) | [findLatestCommit](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findLatestCommit.html)                           |       ❌       |     ❌      |
-| [GET com.atproto.sync.getRepo](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getRepo.json)                 | [findRepoCommits](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoCommit.html)                              |       ❌       |     ❌      |
-| [GET com.atproto.sync.getCheckout](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getCheckout.json)         | [findRepoCheckout](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoCheckout.html)                           |       ❌       |     ❌      |
-| [GET com.atproto.sync.getBlocks](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getBlocks.json)             | [findRepoBlocks](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepoBlocks.html)                               |       ❌       |     ❌      |
-| [GET com.atproto.sync.getRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getRecord.json)             | [findRecord](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRecord.html)                                       |       ❌       |     ❌      |
-| [GET com.atproto.sync.listRepos](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listRepos.json)             | [findRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findRepos.html)                                         |       ❌       |     ✅      |
-| [POST com.atproto.sync.notifyOfUpdate](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/notifyOfUpdate.json)  | [notifyCrawlingServiceOfUpdate](https://pub.dev/documentation/atproto/latest/atproto/SyncService/notifyCrawlingServiceOfUpdate.html) |       ❌       |     ❌      |
-| [POST com.atproto.sync.requestCrawl](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/requestCrawl.json)      | [requestCrawl](https://pub.dev/documentation/atproto/latest/atproto/SyncService/requestCrawl.html)                                   |       ❌       |     ❌      |
-| [GET com.atproto.sync.getBlob](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getBlob.json)                 | [findBlob](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findBlob.html)                                           |       ❌       |     ❌      |
-| [GET com.atproto.sync.listBlobs](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/listBlobs.json)             | [findBlobs](https://pub.dev/documentation/atproto/latest/atproto/SyncService/findBlobs.html)                                         |       ❌       |     ✅      |
-
-### [Label Service](https://pub.dev/documentation/atproto/latest/atproto/LabelService-class.html)
-
-| **Lexicon**                                                                                                                             | **Method Name**                                                                                                       | Auth Required | Pagination |
-| --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | :-----------: | :--------: |
-| [GET com.atproto.label.queryLabels](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/label/queryLabels.json)    | [searchLabels](https://pub.dev/documentation/atproto/latest/atproto/LabelService/searchLabels.html)                   |       ❌       |     ✅      |
-| [com.atproto.sync.subscribeLabels](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/label/subscribeLabels.json) | [subscribeLabelUpdates](https://pub.dev/documentation/atproto/latest/atproto/LabelService/subscribeLabelUpdates.html) |       ❌       |     ✅      |
-
-## **[bluesky](https://pub.dev/packages/bluesky)**
-
-**[bluesky](https://pub.dev/packages/bluesky)** supports the endpoints defined in Lexicon at [`app.bsky.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky).
-
-**[bluesky](https://pub.dev/packages/bluesky)** can use all endpoints supported by **[atproto](https://pub.dev/packages/atproto)** because it is built on **[atproto](https://pub.dev/packages/atproto)**.
-
-:::tip
-See more details about **[bluesky](https://pub.dev/packages/bluesky)** in **[Packages](./packages/bluesky.md)** section.
-:::
-
-### [Actor Service](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService-class.html)
-
-| **Lexicon**                                                                                                                                        | **Method Name**                                                                                               | Auth Required | Pagination |
-| -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | :-----------: | :--------: |
-| [GET app.bsky.actor.searchActors](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/searchActors.json)                   | [searchActors](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService/searchActors.html)           |       ✅       |     ❌      |
-| [GET app.bsky.actor.getProfile](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfile.json)                       | [findProfile](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService/findProfile.html)             |       ✅       |     ❌      |
-| [GET app.bsky.actor.getProfiles](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getProfiles.json)                     | [findProfiles](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService/findProfiles.html)           |       ✅       |     ❌      |
-| [GET com.atproto.repo.getRecord](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/getRecord.json)                     | [findProfileRecord](https://pub.dev/documentation/atproto/latest/atproto/RepoService/findProfileRecord.html)  |       ✅       |     ❌      |
-| [GET app.bsky.actor.getSuggestions](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getSuggestions.json)               | [findSuggestions](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService/findSuggestions.html)     |       ✅       |     ✅      |
-| [GET app.bsky.actor.searchActorsTypeahead](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/searchActorsTypeahead.json) | [searchTypeahead](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService/searchTypeahead.html)     |       ✅       |     ✅      |
-| [POST app.bsky.actor.profile](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/profile.json)                            | [updateProfile](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService/updateProfile.html)         |       ✅       |     ❌      |
-| [GET app.bsky.actor.getPreferences](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/getPreferences.json)               | [findPreferences](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService/findPreferences.html)     |       ✅       |     ❌      |
-| [POST app.bsky.actor.putPreferences](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/actor/putPreferences.json)              | [updatePreferences](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService/updatePreferences.html) |       ✅       |     ❌      |
-
-### [Feed Service](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService-class.html)
-
-| **Lexicon**                                                                                                                                      | **Method Name**                                                                                                | Auth Required | Pagination |
-| ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- | :-----------: | :--------: |
-| [POST app.bsky.feed.post](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json)                                  | [createPost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/createPost.html)                 |       ✅       |     ❌      |
-| [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)              | [createPosts](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/createPosts.html)               |       ✅       |     ❌      |
-| [GET app.bsky.feed.getTimeline](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getTimeline.json)                     | [findTimeline](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/findTimeline.html)             |       ✅       |     ✅      |
-| [POST app.bsky.feed.repost](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/repost.json)                              | [createRepost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/createRepost.html)             |       ✅       |     ❌      |
-| [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)              | [createReposts](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/createReposts.html)           |       ✅       |     ❌      |
-| [POST app.bsky.feed.like](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/like.json)                                  | [createLike](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/createLike.html)                 |       ✅       |     ❌      |
-| [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)              | [createLikes](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/createLikes.html)               |       ✅       |     ❌      |
-| [GET app.bsky.feed.getAuthorFeed](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getAuthorFeed.json)                 | [findFeed](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/findFeed.html)                     |       ✅       |     ✅      |
-| [GET app.bsky.feed.getLikes](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getLikes.json)                           | [findLikes](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/findLikes.html)                   |       ✅       |     ✅      |
-| [GET app.bsky.feed.getRepostedBy](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getRepostedBy.json)                 | [findRepostedBy](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/findRepostedBy.html)         |       ✅       |     ✅      |
-| [GET app.bsky.feed.getPostThread](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getPostThread.json)                 | [findPosThread](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/findPosThread.html)           |       ✅       |     ❌      |
-| [GET app.bsky.feed.getPosts](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getPosts.json)                           | [findPosts](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/findPosts.html)                   |       ✅       |     ❌      |
-| [POST app.bsky.feed.generator](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/generator.json)                        | [createGenerator](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/createGenerator.html)       |       ✅       |     ❌      |
-| [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)              | [createGenerators](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/createGenerators.html)     |       ✅       |     ❌      |
-| [GET app.bsky.feed.getActorFeeds](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorFeeds.json)                 | [findActorFeeds](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/findActorFeeds.html)         |       ✅       |     ✅      |
-| [GET app.bsky.feed.getFeedGenerator](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedGenerator.json)           | [findGenerator](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/findGenerator.html)           |       ✅       |     ❌      |
-| [GET app.bsky.feed.getFeedGenerators](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedGenerators.json)         | [findGenerators](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/findGenerators.html)         |       ✅       |     ❌      |
-| [GET app.bsky.feed.getFeed](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeed.json)                             | [findCustomFeed](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/findCustomFeed.html)         |       ❌       |     ✅      |
-| [GET app.bsky.feed.getFeedSkeleton](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getFeedSkeleton.json)             | [findFeedSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/findFeedSkeleton.html)     |       ✅       |     ✅      |
-| [GET app.bsky.feed.describeFeedGenerator](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/describeFeedGenerator.json) | [findGeneratorInfo](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/findGeneratorInfo.html)   |       ✅       |     ❌      |
-| [GET app.bsky.feed.getActorLikes](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getActorLikes.json)                 | [findActorLikes](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/findActorLikes.html)         |       ✅       |     ✅      |
-| [GET app.bsky.feed.getSuggestedFeeds](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getSuggestedFeeds.json)         | [findSuggestedFeeds](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/findSuggestedFeeds.html) |       ✅       |     ✅      |
-| [GET app.bsky.feed.getListFeed](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/getListFeed.json)                     | [findListFeed](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/findListFeed.html)             |       ✅       |     ✅      |
-| [GET app.bsky.feed.searchPosts](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/searchPosts.json)                     | [searchPostsByQuery](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/searchPostsByQuery.html) |       ✅       |     ✅      |
-| [POST app.bsky.feed.threadgate](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/threadgate.json)                      | [createThreadgate](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/createThreadgate.html)     |       ✅       |     ❌      |
-
-### [Notification Service](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationService-class.html)
-
-| **Lexicon**                                                                                                                                              | **Method Name**                                                                                                                      | Auth Required | Pagination |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | :-----------: | :--------: |
-| [GET app.bsky.notification.listNotifications](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/listNotifications.json) | [findNotifications](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationService/findNotifications.html)                 |       ✅       |     ✅      |
-| [GET app.bsky.notification.getUnreadCount](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/getUnreadCount.json)       | [findUnreadCount](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationService/findUnreadCount.html)                     |       ✅       |     ❌      |
-| [POST app.bsky.notification.updateSeen](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/updateSeen.json)              | [updateNotificationsAsRead](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationService/updateNotificationsAsRead.html) |       ✅       |     ❌      |
-| [POST app.bsky.notification.registerPush](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/notification/registerPush.json)          | [createPushRegistration](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationService/createPushRegistration.html)       |       ✅       |     ❌      |
-
-### [Graph Service](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService-class.html)
-
-| **Lexicon**                                                                                                                                                  | **Method Name**                                                                                                     | Auth Required | Pagination |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------- | :-----------: | :--------: |
-| [POST app.bsky.graph.follow](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/follow.json)                                        | [createFollow](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/createFollow.html)                 |       ✅       |     ❌      |
-| [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)                          | [createFollows](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/createFollows.html)               |       ✅       |     ❌      |
-| [GET app.bsky.graph.getFollows](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollows.json)                                 | [findFollows](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/findFollows.html)                   |       ✅       |     ✅      |
-| [GET app.bsky.graph.getFollowers](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getFollowers.json)                             | [findFollowers](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/findFollowers.html)               |       ✅       |     ✅      |
-| [POST app.bsky.graph.muteActor](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/muteActor.json)                                  | [createMute](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/createMute.html)                     |       ✅       |     ❌      |
-| [POST app.bsky.graph.unmuteActor](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/unmuteActor.json)                              | [deleteMute](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/deleteMute.html)                     |       ✅       |     ❌      |
-| [GET app.bsky.graph.getMutes](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getMutes.json)                                     | [findMutes](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/findMutes.html)                       |       ✅       |     ✅      |
-| [GET app.bsky.graph.getBlocks](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getBlocks.json)                                   | [findBlocks](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/findBlocks.html)                     |       ✅       |     ✅      |
-| [POST app.bsky.graph.block](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/block.json)                                          | [createBlock](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/createBlock.html)                   |       ✅       |     ❌      |
-| [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)                          | [createBlocks](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/createBlocks.html)                 |       ✅       |     ❌      |
-| [POST com.atproto.repo.list](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/list.json)                                        | [createList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/createList.html)                     |       ✅       |     ❌      |
-| [POST com.atproto.repo.list](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/list.json)                                        | [createModeratedList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/createModeratedList.html)   |       ✅       |     ❌      |
-| [POST com.atproto.repo.list](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/list.json)                                        | [createCuratedList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/createCuratedList.html)       |       ✅       |     ❌      |
-| [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)                          | [createLists](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/createLists.html)                   |       ✅       |     ✅      |
-| [POST com.atproto.repo.getLists](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/getLists.json)                                | [findLists](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/findLists.html)                       |       ✅       |     ❌      |
-| [POST com.atproto.repo.getList](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/getList.json)                                  | [findList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/findList.html)                         |       ✅       |     ❌      |
-| [POST com.atproto.repo.listitem](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/listitem.json)                                | [createListItem](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/createListItem.html)             |       ✅       |     ❌      |
-| [POST com.atproto.repo.applyWrites](https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/repo/applyWrites.json)                          | [createListItems](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/createListItems.html)           |       ✅       |     ✅      |
-| [GET app.bsky.graph.getListMutes](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListMutes.json)                             | [findMutingLists](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/findMutingLists.html)           |       ✅       |     ✅      |
-| [POST app.bsky.graph.muteActorList](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/muteActorList.json)                          | [createMuteActorList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/createMuteActorList.html)   |       ✅       |     ❌      |
-| [POST app.bsky.graph.unmuteActorList](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/unmuteActorList.json)                      | [deleteMuteActorList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/deleteMuteActorList.html)   |       ✅       |     ❌      |
-| [GET app.bsky.graph.getSuggestedFollowsByActor](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getSuggestedFollowsByActor.json) | [findSuggestedFollows](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/findSuggestedFollows.html) |       ✅       |     ❌      |
-| [POST app.bsky.graph.listblock](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/listblock.json)                                  | [createBlockList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/createBlockList.html)           |       ✅       |     ❌      |
-| [GET app.bsky.graph.getListBlocks](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/getListBlocks.json)                           | [findBlockLists](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/findBlockLists.html)             |       ✅       |     ✅      |
-
-### [Unspecced Service](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService-class.html)
-
-| **Lexicon**                                                                                                                                                      | **Method Name**                                                                                                                       | Auth Required | Pagination |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | :-----------: | :--------: |
-| [GET app.bsky.unspecced.getPopular](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopular.json)                             | [findPopularFeed](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/findPopularFeed.html)                         |       ✅       |     ✅      |
-| [GET app.bsky.unspecced.getPopularFeedGenerators](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getPopularFeedGenerators.json) | [findPopularFeedGenerators](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/findPopularFeedGenerators.html)     |       ✅       |     ✅      |
-| [GET app.bsky.unspecced.getTimelineSkeleton](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/getTimelineSkeleton.json)           | [findTimelineSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/findTimelineSkeleton.html)               |       ✅       |     ✅      |
-| [GET app.bsky.unspecced.searchPostsSkeleton](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/searchPostsSkeleton.json)           | [searchPostsByQuerySkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/searchPostsByQuerySkeleton.html)   |       ✅       |     ✅      |
-| [GET app.bsky.unspecced.searchActorsSkeleton](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/unspecced/searchActorsSkeleton.json)         | [searchActorsByQuerySkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/searchActorsByQuerySkeleton.html) |       ✅       |     ✅      |
-
-## **[DID PLC](https://pub.dev/packages/did_plc)**
-
-**[did_plc](https://pub.dev/packages/bluesky)** supports the endpoints for [DID PLC Directory](https://web.plc.directory).
-
-| **Endpoint**         | **Method Name**                                                                                      | Auth Required | Pagination |
-| -------------------- | ---------------------------------------------------------------------------------------------------- | :-----------: | :--------: |
-| GET /:did:           | [findDocument](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findDocument.html)           |       ❌       |     ❌      |
-| GET /:did:/data      | [findDocumentData](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findDocumentData.html)   |       ❌       |     ❌      |
-| GET /:did:/log       | [findOperationLog](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findOperationLog.html)   |       ❌       |     ❌      |
-| GET /:did:/log/audit | [findAuditableLog](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findAuditableLog.html)   |       ❌       |     ❌      |
-| GET /:did:/log/last  | [findLastOperation](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/findLastOperation.html) |       ❌       |     ❌      |
-| GET health           | [health](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/health.html)                       |       ❌       |     ❌      |
-| GET export           | [export](https://pub.dev/documentation/did_plc/latest/did_plc/PLC/export.html)                       |       ❌       |     ✅      |
-
-## **[bluesky_cli](https://pub.dev/packages/bluesky_cli)**
-
-**[bluesky_cli](https://pub.dev/packages/bluesky_cli)** is a CLI application that allows you to use the main endpoints of the Bluesky API from the CLI.
-
-```txt
-A useful and powerful CLI tool to use Bluesky Social's APIs.
-
-Usage: bsky <command> [arguments]
-
-Global options:
--h, --help        Print this usage information.
-    --identifier  Handle or email address for authentication.
-                  (defaults to environment variable "BLUESKY_IDENTIFIER")
-    --password    Bluesky password for authentication.
-                  (defaults to environment variable "BLUESKY_PASSWORD")
-    --service     Name of the service sending the request. Defaults to "bsky.social".
-    --pretty      Enable to output JSON in pretty format.
-    --status      Enable to output status code and reason phrase.
-    --request     Enable to output request method and URI.
-    --verbose     Enable verbose logging.
-
-Available commands:
-  actor-feeds               Show the selected feeds of specific actor.
-  actor-likes               Show the liked feeds of specific actor.
-  actors-typeahead          Show the typeahead for actors.
-  add-list-item             Add an item to list.
-  block                     Block an user.
-  blocks                    Show the blocked users.
-  create-generator          Create a generator.
-  create-list               Create a list.
-  custom-feed               Show the custom feed from specific generator.
-  delete                    Delete a specific contents from repository.
-  feed                      Show the feed of specific actor.
-  feed-generator            Show the specific feed generator.
-  feed-generators           Show the specific feed generators.
-  follow                    Follow an user.
-  followers                 Show the followers.
-  follows                   Show the following users.
-  generator-info            Show the information of generators.
-  like                      Like a specific post.
-  likes                     Show the likes of specific post.
-  list                      Show the list.
-  list-feed                 Show the feed from the list.
-  lists                     Show the lists.
-  mute                      Mute an user.
-  mute-list                 Mute an actor list.
-  mutes                     Show the muted users.
-  muting-lists              Show the muting lists.
-  notification-count        Show the count of notification of authenticated user.
-  notifications             Show the notifications of authenticated user.
-  popular                   Show the popular contents.
-  popular-feed-generators   Show the popular feed generators.
-  post                      Post to Bluesky Social.
-  posts                     Show the posts.
-  preferences               Show the private preferences.
-  profile                   Show the profile of specific user.
-  profiles                  Show the profiles of specific users.
-  put-preferences           Put new preferences.
-  repost                    Repost a specific post.
-  reposted-by               Show the actors reposted specific post.
-  search-actors             Search the actors based on term.
-  seen-notifications        Update all notifications to read.
-  suggested-follows         Show a list of suggested follows.
-  suggestions               Show the actor suggestions.
-  thread                    Show the thread of specific post.
-  timeline                  Show the timeline of authenticated user.
-  unmute                    Unmute an user.
-  unmute-list               Unmute an actor list.
-
-Run "bsky help <command>" for more information about a command.
-```
+| Method | Docs |
+| --- | --- |
+| **[app.bsky.actor.searchActorsTypeahead](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService/searchActorsTypeahead.html)** | [Reference](lexicons/app/bsky/actor/searchActorsTypeahead.md) |
+| **[app.bsky.actor.putPreferences](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService/putPreferences.html)** | [Reference](lexicons/app/bsky/actor/putPreferences.md) |
+| **[app.bsky.actor.getProfile](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService/getProfile.html)** | [Reference](lexicons/app/bsky/actor/getProfile.md) |
+| **[app.bsky.actor.getSuggestions](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService/getSuggestions.html)** | [Reference](lexicons/app/bsky/actor/getSuggestions.md) |
+| **[app.bsky.actor.searchActors](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService/searchActors.html)** | [Reference](lexicons/app/bsky/actor/searchActors.md) |
+| **[app.bsky.actor.getProfiles](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService/getProfiles.html)** | [Reference](lexicons/app/bsky/actor/getProfiles.md) |
+| **[app.bsky.actor.getPreferences](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService/getPreferences.html)** | [Reference](lexicons/app/bsky/actor/getPreferences.md) |
+| **[app.bsky.actor.profile](https://pub.dev/documentation/bluesky/latest/bluesky/ActorService/profile.html)** | [Reference](lexicons/app/bsky/actor/profile.md) |

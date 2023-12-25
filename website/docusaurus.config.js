@@ -135,6 +135,14 @@ const config = {
                 to: "/docs/category/getting-started",
               },
               {
+                label: "API Support",
+                to: "/docs/api_support_matrix",
+              },
+              {
+                label: "Lexicons Matrix",
+                to: "/docs/category/lexicons-matrix",
+              },
+              {
                 label: "Showcase",
                 to: "showcase",
               },
@@ -144,12 +152,12 @@ const config = {
             title: "Community",
             items: [
               {
-                label: "Dev Repository",
-                href: "https://github.com/myConsciousness/atproto.dart",
-              },
-              {
                 label: "Bluesky API Touchers",
                 href: "https://discord.gg/zWed6y3V",
+              },
+              {
+                label: "Repository",
+                href: "https://github.com/myConsciousness/atproto.dart",
               },
               {
                 label: "Issues",
@@ -196,14 +204,6 @@ const config = {
               {
                 label: "Bluesky Social Official",
                 href: "https://blueskyweb.xyz",
-              },
-              {
-                label: "Shinya Kato Official",
-                href: "https://shinyakato.dev",
-              },
-              {
-                label: "DEV.to Articles",
-                to: "https://dev.to/shinyakato",
               },
             ],
           },
