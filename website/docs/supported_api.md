@@ -69,7 +69,6 @@ sidebar_position: 4
 
 | Method | Docs |
 | --- | --- |
-| **[com.atproto.repo.strongRef](https://pub.dev/documentation/atproto/latest/atproto/RepoService/strongRef.html)** | [Reference](lexicons/com/atproto/repo/strongRef.md) |
 | **[com.atproto.repo.createRecord](https://pub.dev/documentation/atproto/latest/atproto/RepoService/createRecord.html)** | [Reference](lexicons/com/atproto/repo/createRecord.md) |
 | **[com.atproto.repo.deleteRecord](https://pub.dev/documentation/atproto/latest/atproto/RepoService/deleteRecord.html)** | [Reference](lexicons/com/atproto/repo/deleteRecord.md) |
 | **[com.atproto.repo.putRecord](https://pub.dev/documentation/atproto/latest/atproto/RepoService/putRecord.html)** | [Reference](lexicons/com/atproto/repo/putRecord.md) |

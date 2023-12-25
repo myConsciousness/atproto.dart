@@ -132,7 +132,21 @@ Map<String, List<LexiconDoc>> _groupByService(
     final segments = lexiconDoc.id.toString().split('.');
     final authority = segments.sublist(0, 3).join('.');
     if (_excludeAuthorities.contains(authority)) continue;
-    if (segments.last == 'defs') continue;
+
+    bool isMethod = false;
+    lexiconDoc.defs.forEach((_, def) {
+      if (def.whenOrNull(
+            record: (data) => data,
+            xrpcQuery: (data) => data,
+            xrpcProcedure: (data) => data,
+            xrpcSubscription: (data) => data,
+          ) !=
+          null) {
+        isMethod = true;
+      }
+    });
+
+    if (!isMethod) continue;
 
     if (grouped.containsKey(authority)) {
       grouped[authority]!.add(lexiconDoc);
