@@ -30,7 +30,7 @@ void main(List<String> args) {
     ..writeln('sidebar_position: 4')
     ..writeln('---')
     ..writeln()
-    ..writeln('# API Support Matrix');
+    ..writeln('# Supported API');
 
   final services = _groupByService(utils.lexiconDocs);
 
@@ -40,7 +40,7 @@ void main(List<String> args) {
   }.forEach((package, services) {
     matrix
       ..writeln()
-      ..writeln('## [$package](packages/$package) ')
+      ..writeln('## [$package](packages/$package)')
       ..writeln()
       ..write(
           '[![pub package](https://img.shields.io/pub/v/$package.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/$package) ')
@@ -93,8 +93,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
     });
   });
 
-  File('website/docs/api_support_matrix.md')
-      .writeAsStringSync(matrix.toString());
+  File('website/docs/supported_api.md').writeAsStringSync(matrix.toString());
 }
 
 bool _isFunction(final String method) => _functions.contains(method);

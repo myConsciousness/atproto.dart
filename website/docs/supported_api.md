@@ -2,9 +2,9 @@
 sidebar_position: 4
 ---
 
-# API Support Matrix
+# Supported API
 
-## [atproto](packages/atproto) 
+## [atproto](packages/atproto)
 
 [![pub package](https://img.shields.io/pub/v/atproto.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/atproto) [![Dart SDK Version](https://badgen.net/pub/sdk-version/atproto)](https://pub.dev/packages/atproto/)
 
@@ -85,7 +85,7 @@ sidebar_position: 4
 | --- | --- |
 | **[com.atproto.moderation.createReport](https://pub.dev/documentation/atproto/latest/atproto/ModerationService/createReport.html)** | [Reference](lexicons/com/atproto/moderation/createReport.md) |
 
-## [bluesky](packages/bluesky) 
+## [bluesky](packages/bluesky)
 
 [![pub package](https://img.shields.io/pub/v/bluesky.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky) [![Dart SDK Version](https://badgen.net/pub/sdk-version/bluesky)](https://pub.dev/packages/bluesky/)
 

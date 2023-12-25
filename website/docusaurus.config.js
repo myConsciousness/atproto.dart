@@ -98,8 +98,8 @@ const config = {
             position: "left",
           },
           {
-            to: "/docs/api_support_matrix",
-            label: "API Support",
+            to: "/docs/supported_api",
+            label: "Supported API",
             position: "left",
           },
           {
@@ -135,8 +135,8 @@ const config = {
                 to: "/docs/category/getting-started",
               },
               {
-                label: "API Support",
-                to: "/docs/api_support_matrix",
+                label: "Supported API",
+                to: "/docs/supported_api",
               },
               {
                 label: "Lexicons Matrix",
