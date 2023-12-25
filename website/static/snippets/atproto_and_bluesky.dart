@@ -4,28 +4,28 @@
 
 // ignore_for_file: unused_local_variable
 
-import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/moderation.dart' as mod;
 
 Future<void> main(List<String> args) async {
-  final session = await bsky.createSession(
+  final session = await createSession(
     identifier: 'shinyakato.dev',
     password: 'xxxxxxxx',
   );
 
-  final bluesky = bsky.Bluesky.fromSession(session.data);
+  final bsky = Bluesky.fromSession(session.data);
 
   /* SNIPPET START */
-  final timeline = await bluesky.feed.findTimeline(
+  final timeline = await bsky.feed.getTimeline(
     limit: 25,
   );
 
-  final preferences = await bluesky.actor.findPreferences();
+  final preferences = await bsky.actor.getPreferences();
   for (final feed in timeline.data.feed) {
     final text = feed.post.record.text.toLowerCase();
 
     if (text.contains('bluesky')) {
-      await bluesky.feed.createLike(
+      await bsky.feed.like(
         cid: feed.post.cid,
         uri: feed.post.uri,
       );

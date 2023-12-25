@@ -8,7 +8,7 @@ environment:
 
 # Add regular dependencies here.
 dependencies:
-  bluesky: ^0.14.0
+  bluesky: ^0.15.0
   bluesky_text: ^0.6.3
   # path: ^1.8.0
 
