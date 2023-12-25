@@ -30,6 +30,7 @@ Future<void> main(List<String> args) async {
         case ULexUserTypeXrpcQuery():
           try {
             await xrpc.query(xrpc.NSID.of(lexiconId));
+            data[lexiconId] = {_requiredKey: false};
           } on xrpc.UnauthorizedException {
             data[lexiconId] = {_requiredKey: true};
           } on xrpc.InvalidRequestException {
@@ -39,7 +40,16 @@ Future<void> main(List<String> args) async {
           }
           break;
         case ULexUserTypeXrpcProcedure():
-          data[lexiconId] = {_requiredKey: true};
+          try {
+            await xrpc.procedure(xrpc.NSID.of(lexiconId));
+            data[lexiconId] = {_requiredKey: false};
+          } on xrpc.UnauthorizedException {
+            data[lexiconId] = {_requiredKey: true};
+          } on xrpc.InvalidRequestException {
+            data[lexiconId] = {_requiredKey: false};
+          } on Exception {
+            data[lexiconId] = {_requiredKey: null};
+          }
           break;
         case ULexUserTypeXrpcSubscription():
           data[lexiconId] = {_requiredKey: false};
