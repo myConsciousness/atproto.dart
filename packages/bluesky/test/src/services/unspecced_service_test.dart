@@ -15,32 +15,26 @@ void main() {
   testUnspecced<Feed>(
     // ignore: deprecated_member_use_from_same_package
     (m, s) => s.getPopular(),
-    // ignore: deprecated_member_use_from_same_package
-    // pagination: (m, s) => s.paginatePopularFeed(),
     id: appBskyUnspeccedGetPopular,
   );
 
   testUnspecced<FeedGenerators>(
     (m, s) => s.getPopularFeedGenerators(),
-    // pagination: (m, s) => s.paginatePopularFeedGenerators(),
     id: appBskyUnspeccedGetPopularFeedGenerators,
   );
 
   testUnspecced<SkeletonFeed>(
     (m, s) => s.getTimelineSkeleton(),
-    // pagination: (m, s) => s.paginateTimelineSkeleton(),
     id: appBskyUnspeccedGetTimelineSkeleton,
   );
 
   testUnspecced<SkeletonPostsByQuery>(
     (m, s) => s.searchPostsSkeleton(m.query),
-    // pagination: (m, s) => s.paginatePostsByQuerySkeleton(m.query),
     id: appBskyUnspeccedSearchPostsSkeleton,
   );
 
   testUnspecced<SkeletonActorsByQuery>(
     (m, s) => s.searchActorsSkeleton(m.query),
-    // pagination: (m, s) => s.paginateActorsByQuerySkeleton(m.query),
     id: appBskyUnspeccedSearchActorsSkeleton,
   );
 }
