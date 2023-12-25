@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.15.1
+
+- Exposed `RepoServiceExtension`. ([#1137](https://github.com/myConsciousness/atproto.dart/issues/1137))
+
 ## v0.15.0
 
 - Change the method name of each service to Lexicon's ID. Existing methods have been deprecated and should be replaced according to the deprecation message. ([#1127](https://github.com/myConsciousness/atproto.dart/issues/1127))

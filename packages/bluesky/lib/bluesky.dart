@@ -136,6 +136,7 @@ export 'package:atproto/atproto.dart'
         ServerService,
         IdentityService,
         RepoService,
+        RepoServiceExtension,
         ModerationService,
         SyncService,
         LabelService;
