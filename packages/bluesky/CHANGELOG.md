@@ -3,6 +3,7 @@
 ## v0.15.0
 
 - Change the method name of each service to Lexicon's ID. Existing methods have been deprecated and should be replaced according to the deprecation message. ([#1127](https://github.com/myConsciousness/atproto.dart/issues/1127))
+- Add `seenAt` parameter on `listNotifications`.
 
 ## v0.14.2
 
