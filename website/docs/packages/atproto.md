@@ -88,18 +88,18 @@ You then do not need to be particularly aware of the contents of the retrieved S
 import 'package:atproto/atproto.dart' as atp;
 
 Future<void> main() async {
-    // Let's authenticate here.
-    final session = await atp.createSession(
-        identifier: 'YOUR_HANDLE_OR_EMAIL', // Like "shinyakato.dev"
-        password: 'YOUR_PASSWORD',
-    );
+  // Let's authenticate here.
+  final session = await atp.createSession(
+      identifier: 'YOUR_HANDLE_OR_EMAIL', // Like "shinyakato.dev"
+      password: 'YOUR_PASSWORD',
+  );
 
-    print(session);
+  print(session);
 
-    // Just pass created session data.
-    final atproto = atp.ATProto.fromSession(
-        session.data,
-    );
+  // Just pass created session data.
+  final atproto = atp.ATProto.fromSession(
+      session.data,
+  );
 }
 ```
 
@@ -109,8 +109,8 @@ Or, it's very easy if authentication is not required , simply use the `.anonymou
 import 'package:atproto/atproto.dart';
 
 Future<void> main() async {
-    // Just call anonymous constructor.
-    final atproto = ATProto.anonymous();
+  // Just call anonymous constructor.
+  final atproto = ATProto.anonymous();
 }
 ```
 
@@ -140,7 +140,7 @@ Future<void> main() async {
   final atproto = ATProto.anonymous();
 
   // Use `findDID` in `IdentitiesService`.
-  final did = await atproto.identity.findDID(
+  final did = await atproto.identity.resolveHandle(
     handle: 'shinyakato.dev',
   );
 }
@@ -229,7 +229,7 @@ Future<void> main() async {
   final atproto = atp.ATProto.fromSession(session.data);
 
   // Do something with atproto
-  final did = await atproto.identity.findDID(handle: session.data.handle);
+  final did = await atproto.identity.resolveHandle(handle: session.data.handle);
 }
 ```
 
@@ -294,7 +294,7 @@ Future<void> main() async {
   final atproto = ATProto.anonymous();
 
   // Just find the DID of `shinyakato.dev`
-  final did = await atproto.identity.findDID(
+  final did = await atproto.identity.resolveHandle(
     handle: 'shinyakato.dev',
   );
 }
@@ -461,7 +461,7 @@ import 'package:atproto/atproto.dart' as atp;
 Future<void> main() async {
   final atproto = atp.ATProto.anonymous();
 
-  final subscription = await atproto.sync.subscribeRepoUpdates();
+  final subscription = await atproto.sync.subscribeRepos();
 
   await for (final event in subscription.data.stream) {
     // No need to use `.when` method.
@@ -483,7 +483,7 @@ Future<void> main() async {
 
 The **`Firehose API`** in AT Protocol allows you to get all events that occur on a specific service, such as `bsky.social`, **_in real time_**. This powerful and long-lived API can be used to calculate statistics using real-time data, develop interesting interactive BOTs, etc.
 
-Using **[atproto](https://pub.dev/packages/atproto)** to access the `Firehose API` is very simple, just execute the **[subscribeRepoUpdates](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepoUpdates.html)** method provided by the **[SyncService](https://pub.dev/documentation/atproto/latest/atproto/SyncService-class.html)** as shown in the following example. Also, user authentication is not required to access the `Firehose API`.
+Using **[atproto](https://pub.dev/packages/atproto)** to access the `Firehose API` is very simple, just execute the **[subscribeRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepos.html)** method provided by the **[SyncService](https://pub.dev/documentation/atproto/latest/atproto/SyncService-class.html)** as shown in the following example. Also, user authentication is not required to access the `Firehose API`.
 
 ```dart
 import 'package:atproto/atproto.dart';
@@ -492,7 +492,7 @@ Future<void> main() async {
   // Authentication is not required.
   final atproto = ATProto.anonymous();
 
-  final subscription = await atproto.sync.subscribeRepoUpdates();
+  final subscription = await atproto.sync.subscribeRepos();
 
   // Get events in real time.
   await for (final event in subscription.data.stream) {
@@ -651,7 +651,7 @@ Future<void> main() async {
   String? nextCursor;
 
   do {
-    final records = await atproto.repo.findRecords(
+    final records = await atproto.repo.listRecords(
       repo: 'shinyakato.dev',
       collection: atp.NSID.create(
         'graph.bsky.app',
@@ -678,96 +678,3 @@ This example is a very simple implementation, but it allows us to see pagination
 
 Whenever a method corresponding to a pagination-available endpoint is executed, the `cursor` is always present in the root of the response data, like `records.data.cursor` above.
 If the next page does not exist, `cursor` is basically `null`.
-
-### Advanced Pagination
-
-As you saw in the **[previous section](#pagination)**, AT Protocol pagination is standardized to occur on a `cursor` basis.
-Of course it's possible to do primitive paging using `cursor`, but **[atproto](https://pub.dev/packages/atproto)** makes it much easier to implement it.
-Using this method you can paging without having to be aware of the `cursor`.
-
-You can easily implement it as follows.
-
-```dart
-import 'package:atproto/atproto.dart' as atp;
-
-Future<void> main() async {
-  final session = await atp.createSession(
-    identifier: 'YOUR_HANDLE_OR_EMAIL',
-    password: 'YOUR_PASSWORD',
-  );
-
-  final atproto = atp.ATProto.fromSession(session.data);
-
-  // Get a pagination for `com.atproto.repo.listRecords`.
-  final pagination = atproto.repo.paginateRecords(
-    repo: 'shinyakato.dev',
-    collection: atp.NSID.create(
-      'feed.bsky.app',
-      'like',
-    ),
-  );
-
-  // Until the next cursor runs out.
-  while (pagination.hasNext) {
-    // Get a next page.
-    final response = await pagination.next();
-
-    print(response);
-  }
-}
-```
-
-As you can see from the above code, you can get a pagination specific **[Pagination](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination-class.html)** object by using the `.paginate` prefix method.
-Not only the above example, but any method prefixed with `.paginate` will **_always_** return a **[Pagination](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination-class.html)** object.
-In other words, the methods of the `.paginate` prefix can be used to easily handle pagination in a common interface using the **[Pagination](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination-class.html)** object.
-
-The interface of the **[Pagination](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination-class.html)** object is very simple, and paging can be performed simply with following operations.
-
-| Operation                                                                                                   | Description                                                                                                                                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **[hasNext](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination/hasNext.html)**       | This property determines whether the next page exists. The criterion is the presence or absence of the next `cursor`, and `false` is returned if the next `cursor` does not exist. `True` is always returned for first run. |
-| **[hasNotNext](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination/hasNotNext.html)** | This is a simple negation of the property `hasNext`.                                                                                                                                                                        |
-| **[next](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination/next.html)**             | Return the next page asynchronously with the `cursor` indicating the next page.                                                                                                                                             |
-
-:::tip
-Paging can be done using the `hasNext` property and the `next` method as in the example above, or a series of processes can be implemented as a `Stream` with `.asStream` method.
-
-```dart
-await for (final response in pagination.asStream()) {
-  print(response);
-}
-```
-:::
-
-:::caution
-The **[rate limit](#rate-limits)** is **_not checked_** internally when using the `next` method of the **[Pagination](https://pub.dev/documentation/atproto_core/latest/atproto_core/Pagination-class.html)** object.
-This means that you need to check the **[rate limit](#rate-limits)** of the endpoint as follows for your application.
-
-```dart
-while (pagination.hasNext) {
-  final response = await pagination.next();
-  final rateLimit = response.rateLimit;
-
-  print(response);
-
-  if (rateLimit.isExceeded) {
-    await rateLimit.waitUntilReset();
-  }
-}
-```
-
-Or with `.asStream`.
-
-```dart
-await for (final response in pagination.asStream()) {
-  print(response);
-
-  final rateLimit = response.rateLimit;
-
-  if (rateLimit.isExceeded) {
-    await rateLimit.waitUntilReset();
-  }
-}
-```
-
-:::

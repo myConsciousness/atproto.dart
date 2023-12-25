@@ -200,16 +200,6 @@ final class SyncService {
         to: Repos.fromJson,
       );
 
-  core.Pagination<Repos> paginateRepos({
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateRepos(
-        limit: limit,
-        cursor: cursor,
-        to: Repos.fromJson,
-      );
-
   @Deprecated('Use .notifyOfUpdate instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> notifyCrawlingServiceOfUpdate({
     required String hostname,
@@ -242,20 +232,6 @@ final class SyncService {
     String? cursor,
   }) async =>
       await _findBlobs(
-        did: did,
-        sinceCid: sinceCid,
-        limit: limit,
-        cursor: cursor,
-        to: BlobRefs.fromJson,
-      );
-
-  core.Pagination<BlobRefs> paginateBlobs({
-    required String did,
-    String? sinceCid,
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateBlobs(
         did: did,
         sinceCid: sinceCid,
         limit: limit,
@@ -340,20 +316,6 @@ final class SyncService {
         to: to,
       );
 
-  core.Pagination<T> _paginateRepos<T>({
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
-        ns.comAtprotoSyncListRepos,
-        parameters: _buildListReposParams(
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
   Future<core.XRPCResponse<T>> _findBlobs<T>({
     required String did,
     required String? sinceCid,
@@ -362,24 +324,6 @@ final class SyncService {
     core.To<T>? to,
   }) async =>
       await _ctx.get(
-        ns.comAtprotoSyncListBlobs,
-        parameters: _buildListBlobsParams(
-          did: did,
-          sinceCid: sinceCid,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  core.Pagination<T> _paginateBlobs<T>({
-    required String did,
-    required String? sinceCid,
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
         ns.comAtprotoSyncListBlobs,
         parameters: _buildListBlobsParams(
           did: did,

@@ -281,18 +281,6 @@ final class GraphService {
         to: Follows.fromJson,
       );
 
-  core.Pagination<Follows> paginateFollows({
-    required String actor,
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateFollows(
-        actor: actor,
-        limit: limit,
-        cursor: cursor,
-        to: Follows.fromJson,
-      );
-
   @Deprecated('Use .getFollowers instead. Will be removed')
   Future<core.XRPCResponse<Followers>> findFollowers({
     required String actor,
@@ -300,18 +288,6 @@ final class GraphService {
     String? cursor,
   }) async =>
       await _findFollowers(
-        actor: actor,
-        limit: limit,
-        cursor: cursor,
-        to: Followers.fromJson,
-      );
-
-  core.Pagination<Followers> paginateFollowers({
-    required String actor,
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateFollowers(
         actor: actor,
         limit: limit,
         cursor: cursor,
@@ -351,32 +327,12 @@ final class GraphService {
         to: Mutes.fromJson,
       );
 
-  core.Pagination<Mutes> paginateMutes({
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateMutes(
-        limit: limit,
-        cursor: cursor,
-        to: Mutes.fromJson,
-      );
-
   @Deprecated('Use .getBlocks instead. Will be removed')
   Future<core.XRPCResponse<Blocks>> findBlocks({
     int? limit,
     String? cursor,
   }) async =>
       await _findBlocks(
-        limit: limit,
-        cursor: cursor,
-        to: Blocks.fromJson,
-      );
-
-  core.Pagination<Blocks> paginateBlocks({
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateBlocks(
         limit: limit,
         cursor: cursor,
         to: Blocks.fromJson,
@@ -522,18 +478,6 @@ final class GraphService {
         to: Lists.fromJson,
       );
 
-  core.Pagination<Lists> paginateLists({
-    required String actor,
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateLists(
-        actor: actor,
-        limit: limit,
-        cursor: cursor,
-        to: Lists.fromJson,
-      );
-
   @Deprecated('Use .getList instead. Will be removed')
   Future<core.XRPCResponse<ListItems>> findListItems({
     required core.AtUri list,
@@ -541,18 +485,6 @@ final class GraphService {
     String? cursor,
   }) async =>
       await _findListItems(
-        list: list,
-        limit: limit,
-        cursor: cursor,
-        to: ListItems.fromJson,
-      );
-
-  core.Pagination<ListItems> paginateListItems({
-    required core.AtUri list,
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateListItems(
         list: list,
         limit: limit,
         cursor: cursor,
@@ -607,16 +539,6 @@ final class GraphService {
         to: Lists.fromJson,
       );
 
-  core.Pagination<Lists> paginateMutingLists({
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateMutingLists(
-        limit: limit,
-        cursor: cursor,
-        to: Lists.fromJson,
-      );
-
   @Deprecated('Use .muteActorList instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createMuteActorList({
     required core.AtUri list,
@@ -659,16 +581,6 @@ final class GraphService {
         to: Lists.fromJson,
       );
 
-  core.Pagination<Lists> paginateBlockLists({
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateBlockLists(
-        limit: limit,
-        cursor: cursor,
-        to: Lists.fromJson,
-      );
-
   @Deprecated('Use .listblock instead. Will be removed')
   Future<core.XRPCResponse<atp.StrongRef>> createBlockList({
     required core.AtUri listUri,
@@ -698,22 +610,6 @@ final class GraphService {
         to: to,
       );
 
-  core.Pagination<T> _paginateFollows<T>({
-    required String actor,
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
-        ns.appBskyGraphGetFollows,
-        parameters: _buildGetFollowsParams(
-          actor: actor,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
   Future<core.XRPCResponse<T>> _findFollowers<T>({
     required String actor,
     required int? limit,
@@ -721,22 +617,6 @@ final class GraphService {
     core.To<T>? to,
   }) async =>
       await _ctx.get(
-        ns.appBskyGraphGetFollowers,
-        parameters: _buildGetFollowersParams(
-          actor: actor,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  core.Pagination<T> _paginateFollowers<T>({
-    required String actor,
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
         ns.appBskyGraphGetFollowers,
         parameters: _buildGetFollowersParams(
           actor: actor,
@@ -760,40 +640,12 @@ final class GraphService {
         to: to,
       );
 
-  core.Pagination<T> _paginateMutes<T>({
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
-        ns.appBskyGraphGetMutes,
-        parameters: _buildGetMutesParams(
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
   Future<core.XRPCResponse<T>> _findBlocks<T>({
     required int? limit,
     required String? cursor,
     core.To<T>? to,
   }) async =>
       await _ctx.get(
-        ns.appBskyGraphGetBlocks,
-        parameters: _buildGetBlocksParams(
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  core.Pagination<T> _paginateBlocks<T>({
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
         ns.appBskyGraphGetBlocks,
         parameters: _buildGetBlocksParams(
           limit: limit,
@@ -809,22 +661,6 @@ final class GraphService {
     core.To<T>? to,
   }) async =>
       await _ctx.get(
-        ns.appBskyGraphGetLists,
-        parameters: _buildGetListsParams(
-          actor: actor,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  core.Pagination<T> _paginateLists<T>({
-    required String actor,
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
         ns.appBskyGraphGetLists,
         parameters: _buildGetListsParams(
           actor: actor,
@@ -850,42 +686,12 @@ final class GraphService {
         to: to,
       );
 
-  core.Pagination<T> _paginateListItems<T>({
-    required core.AtUri list,
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
-        ns.appBskyGraphGetList,
-        parameters: _buildListItemsParams(
-          list: list,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
   Future<core.XRPCResponse<T>> _findMutingLists<T>({
     required int? limit,
     required String? cursor,
     core.To<T>? to,
   }) async =>
       await _ctx.get(
-        ns.appBskyGraphGetListMutes,
-        parameters: _buildGetListMutesParams(
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  core.Pagination<T> _paginateMutingLists<T>({
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
         ns.appBskyGraphGetListMutes,
         parameters: _buildGetListMutesParams(
           limit: limit,
@@ -912,20 +718,6 @@ final class GraphService {
     core.To<T>? to,
   }) async =>
       await _ctx.get(
-        ns.appBskyGraphGetListBlocks,
-        parameters: _buildGetBlockListsParams(
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  core.Pagination<T> _paginateBlockLists<T>({
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
         ns.appBskyGraphGetListBlocks,
         parameters: _buildGetBlockListsParams(
           limit: limit,

@@ -56,14 +56,12 @@ void testRepo<D>(
   final atp_test.ServiceCallback<RepoService, D> endpoint, {
   required String id,
   String? label,
-  atp_test.PaginationCallback<RepoService, D>? pagination,
 }) =>
     atp_test.testService<RepoService, D>(
       _runner,
       endpoint,
       id,
       label,
-      pagination: pagination,
     );
 
 void testServer<D>(
@@ -83,7 +81,6 @@ void testSync<D>(
   required String id,
   String? label,
   List<int>? bytes,
-  atp_test.PaginationCallback<SyncService, D>? pagination,
 }) =>
     atp_test.testService<SyncService, D>(
       _runner,
@@ -91,7 +88,6 @@ void testSync<D>(
       id,
       label,
       bytes: bytes,
-      pagination: pagination,
     );
 
 void testSyncSubscription<D>(

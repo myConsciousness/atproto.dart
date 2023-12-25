@@ -108,18 +108,6 @@ final class ActorService {
         preferences,
       );
 
-  core.Pagination<Actors> paginateActors({
-    required String term,
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateActors(
-        term: term,
-        limit: limit,
-        cursor: cursor,
-        to: Actors.fromJson,
-      );
-
   @Deprecated('Use .getProfile instead. Will be removed')
   Future<core.XRPCResponse<ActorProfile>> findProfile({
     required String actor,
@@ -151,16 +139,6 @@ final class ActorService {
     String? cursor,
   }) async =>
       await _findSuggestions(
-        limit: limit,
-        cursor: cursor,
-        to: Actors.fromJson,
-      );
-
-  core.Pagination<Actors> paginateSuggestions({
-    int? limit,
-    String? cursor,
-  }) =>
-      _paginateSuggestions(
         limit: limit,
         cursor: cursor,
         to: Actors.fromJson,
@@ -231,22 +209,6 @@ final class ActorService {
         to: to,
       );
 
-  core.Pagination<T> _paginateActors<T>({
-    required String term,
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
-        ns.appBskyActorSearchActors,
-        parameters: _buildSearchActorsParams(
-          term: term,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
   Future<core.XRPCResponse<T>> _findProfile<T>({
     required String actor,
     core.To<T>? to,
@@ -277,20 +239,6 @@ final class ActorService {
     core.To<T>? to,
   }) async =>
       await _ctx.get(
-        ns.appBskyActorGetSuggestions,
-        parameters: _buildGetSuggestionsParams(
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  core.Pagination<T> _paginateSuggestions<T>({
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) =>
-      _ctx.paginate(
         ns.appBskyActorGetSuggestions,
         parameters: _buildGetSuggestionsParams(
           limit: limit,

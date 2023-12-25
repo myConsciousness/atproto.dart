@@ -18,7 +18,6 @@ import 'suite/service_suite.dart';
 void main() {
   testActor<Actors>(
     (m, s) => s.searchActors(term: m.query),
-    pagination: (m, s) => s.paginateActors(term: m.query),
     id: appBskyActorSearchActors,
   );
 
@@ -34,7 +33,6 @@ void main() {
 
   testActor<Actors>(
     (m, s) => s.getSuggestions(),
-    pagination: (m, s) => s.paginateSuggestions(),
     id: appBskyActorGetSuggestions,
   );
 

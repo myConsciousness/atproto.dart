@@ -101,7 +101,6 @@ See **[official documents](https://atprotodart.com/docs/packages/atproto)** from
 - **[Advanced Built-In Retry](https://atprotodart.com/docs/packages/atproto/#advanced-built-in-retry)**
 - **[Lexicon/Object IDs](https://atprotodart.com/docs/packages/atproto/#lexiconobject-ids)**
 - **[Pagination](https://atprotodart.com/docs/packages/atproto/#pagination)**
-- **[Advanced Pagination](https://atprotodart.com/docs/packages/atproto/#advanced-pagination)**
 
 ## 1.5. Contribution 🏆
 

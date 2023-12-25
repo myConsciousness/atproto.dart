@@ -11,7 +11,6 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 
 // 🌎 Project imports:
 import '../const.dart';
-import '../paginations/pagination.dart';
 import '../sessions/session.dart';
 import 'challenge.dart';
 import 'retry_config.dart';
@@ -44,7 +43,7 @@ base class ServiceContext {
   final Duration _timeout;
 
   /// The communication protocol.
-  final xrpc.Protocol? _protocol;
+  final xrpc.Protocol _protocol;
 
   final String _service;
   final String _relayService;
@@ -59,7 +58,7 @@ base class ServiceContext {
     final xrpc.ResponseAdaptor? adaptor,
   }) async =>
       await _challenge.execute(
-        (client) async => await client.get(
+        () async => await xrpc.query(
           methodId,
           protocol: _protocol,
           service: _service,
@@ -72,25 +71,6 @@ base class ServiceContext {
         ),
       );
 
-  Pagination<T> paginate<T>(
-    final xrpc.NSID methodId, {
-    required final Map<String, dynamic> parameters,
-    final xrpc.To<T>? to,
-    final xrpc.ResponseAdaptor? adaptor,
-  }) =>
-      Pagination(
-        _challenge,
-        methodId,
-        protocol: _protocol,
-        service: _service,
-        headers: _getHeaders(),
-        parameters: parameters,
-        to: to,
-        adaptor: adaptor,
-        timeout: _timeout,
-        getClient: _mockedGetClient,
-      );
-
   Future<xrpc.XRPCResponse<T>> post<T>(
     final xrpc.NSID methodId, {
     final Map<String, String>? headers,
@@ -98,7 +78,7 @@ base class ServiceContext {
     final xrpc.To<T>? to,
   }) async =>
       await _challenge.execute(
-        (client) async => await client.post(
+        () async => await xrpc.procedure(
           methodId,
           protocol: _protocol,
           service: _service,
@@ -117,7 +97,7 @@ base class ServiceContext {
     final xrpc.To<T>? to,
   }) async =>
       await _challenge.execute(
-        (client) async => await client.upload(
+        () async => await xrpc.upload(
           methodId,
           bytes,
           protocol: _protocol,
@@ -136,7 +116,7 @@ base class ServiceContext {
     final xrpc.ResponseAdaptor? adaptor,
   }) async =>
       await _challenge.execute(
-        (client) => client.stream(
+        () => xrpc.subscribe(
           methodId,
           service: _relayService,
           parameters: parameters,
