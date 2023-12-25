@@ -71,25 +71,6 @@ base class ServiceContext {
         ),
       );
 
-  // Pagination<T> paginate<T>(
-  //   final xrpc.NSID methodId, {
-  //   required final Map<String, dynamic> parameters,
-  //   final xrpc.To<T>? to,
-  //   final xrpc.ResponseAdaptor? adaptor,
-  // }) =>
-  //     Pagination(
-  //       _challenge,
-  //       methodId,
-  //       protocol: _protocol,
-  //       service: _service,
-  //       headers: _getHeaders(),
-  //       parameters: parameters,
-  //       to: to,
-  //       adaptor: adaptor,
-  //       timeout: _timeout,
-  //       getClient: _mockedGetClient,
-  //     );
-
   Future<xrpc.XRPCResponse<T>> post<T>(
     final xrpc.NSID methodId, {
     final Map<String, String>? headers,

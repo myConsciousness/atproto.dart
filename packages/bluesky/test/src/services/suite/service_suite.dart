@@ -21,21 +21,18 @@ void testActor<D>(
   final atp_test.ServiceCallback<ActorService, D> endpoint, {
   required String id,
   String? label,
-  atp_test.PaginationCallback<ActorService, D>? pagination,
 }) =>
     atp_test.testService<ActorService, D>(
       _runner,
       endpoint,
       id,
       label,
-      pagination: pagination,
     );
 
 void testFeed<D>(
   final atp_test.ServiceCallback<FeedService, D> endpoint, {
   required String id,
   String? label,
-  atp_test.PaginationCallback<FeedService, D>? pagination,
   atp_test.BulkCallback<FeedService>? bulk,
 }) =>
     atp_test.testService<FeedService, D>(
@@ -43,7 +40,6 @@ void testFeed<D>(
       endpoint,
       id,
       label,
-      pagination: pagination,
       bulk: bulk,
     );
 
@@ -51,7 +47,6 @@ void testGraph<D>(
   final atp_test.ServiceCallback<GraphService, D> endpoint, {
   required String id,
   String? label,
-  atp_test.PaginationCallback<GraphService, D>? pagination,
   atp_test.BulkCallback<GraphService>? bulk,
 }) =>
     atp_test.testService<GraphService, D>(
@@ -59,7 +54,6 @@ void testGraph<D>(
       endpoint,
       id,
       label,
-      pagination: pagination,
       bulk: bulk,
     );
 
@@ -67,28 +61,24 @@ void testNotification<D>(
   final atp_test.ServiceCallback<NotificationService, D> endpoint, {
   required String id,
   String? label,
-  atp_test.PaginationCallback<NotificationService, D>? pagination,
 }) =>
     atp_test.testService<NotificationService, D>(
       _runner,
       endpoint,
       id,
       label,
-      pagination: pagination,
     );
 
 void testUnspecced<D>(
   final atp_test.ServiceCallback<UnspeccedService, D> endpoint, {
   required String id,
   String? label,
-  atp_test.PaginationCallback<UnspeccedService, D>? pagination,
 }) =>
     atp_test.testService<UnspeccedService, D>(
       _runner,
       endpoint,
       id,
       label,
-      pagination: pagination,
     );
 
 final class _ServiceRunner extends atp_test.ServiceRunner {

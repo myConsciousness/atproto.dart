@@ -6,7 +6,6 @@
 import 'dart:io';
 
 // 📦 Package imports:
-import 'package:atproto/src/services/repo_service.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
@@ -19,6 +18,7 @@ import 'package:atproto/src/services/entities/records.dart';
 import 'package:atproto/src/services/entities/repo_info.dart';
 import 'package:atproto/src/services/entities/strong_ref.dart';
 import 'package:atproto/src/services/entities/update_action.dart';
+import 'package:atproto/src/services/repo_service.dart';
 import 'suite/service_suite.dart';
 
 void main() {

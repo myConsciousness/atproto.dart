@@ -106,7 +106,6 @@ See **[official documents](https://atprotodart.com/docs/packages/bluesky)** from
 - **[Advanced Built-In Retry](https://atprotodart.com/docs/packages/bluesky/#advanced-built-in-retry)**
 - **[Lexicon/Object IDs](https://atprotodart.com/docs/packages/bluesky/#lexiconobject-ids)**
 - **[Pagination](https://atprotodart.com/docs/packages/bluesky/#pagination)**
-- **[Advanced Pagination](https://atprotodart.com/docs/packages/bluesky/#advanced-pagination)**
 - **[Unspecced Inputs](https://atprotodart.com/docs/packages/bluesky/#unspecced-inputs)**
 - **[Moderation API](https://atprotodart.com/docs/packages/bluesky/#moderation-api)**
 
