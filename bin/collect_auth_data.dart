@@ -22,38 +22,30 @@ Future<void> main(List<String> args) async {
   for (final lexiconDoc in utils.lexiconDocs) {
     final lexiconId = lexiconDoc.id.toString();
     for (final entry in lexiconDoc.defs.entries) {
-      final def = entry.value;
-      switch (def) {
-        case ULexUserTypeRecord():
-          data[lexiconId] = {_requiredKey: true};
-          break;
-        case ULexUserTypeXrpcQuery():
-          try {
+      try {
+        final def = entry.value;
+        switch (def) {
+          case ULexUserTypeRecord():
+            data[lexiconId] = {_requiredKey: true};
+            break;
+          case ULexUserTypeXrpcQuery():
             await xrpc.query(xrpc.NSID.of(lexiconId));
             data[lexiconId] = {_requiredKey: false};
-          } on xrpc.UnauthorizedException {
-            data[lexiconId] = {_requiredKey: true};
-          } on xrpc.InvalidRequestException {
-            data[lexiconId] = {_requiredKey: false};
-          } on Exception {
-            data[lexiconId] = {_requiredKey: null};
-          }
-          break;
-        case ULexUserTypeXrpcProcedure():
-          try {
+            break;
+          case ULexUserTypeXrpcProcedure():
             await xrpc.procedure(xrpc.NSID.of(lexiconId));
             data[lexiconId] = {_requiredKey: false};
-          } on xrpc.UnauthorizedException {
-            data[lexiconId] = {_requiredKey: true};
-          } on xrpc.InvalidRequestException {
+            break;
+          case ULexUserTypeXrpcSubscription():
             data[lexiconId] = {_requiredKey: false};
-          } on Exception {
-            data[lexiconId] = {_requiredKey: null};
-          }
-          break;
-        case ULexUserTypeXrpcSubscription():
-          data[lexiconId] = {_requiredKey: false};
-          break;
+            break;
+        }
+      } on xrpc.UnauthorizedException {
+        data[lexiconId] = {_requiredKey: true};
+      } on xrpc.InvalidRequestException {
+        data[lexiconId] = {_requiredKey: false};
+      } on Exception {
+        data[lexiconId] = {_requiredKey: null};
       }
     }
   }
