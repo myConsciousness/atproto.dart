@@ -20,14 +20,14 @@ If you want to use Bluesky APIs, see **[bluesky](./bluesky.md)**!
 
 - ✅ **Zero Dependency**
 - ✅ Supports **Powerful Built-In Retry** using **[Exponential BackOff And Jitter](https://aws.amazon.com/jp/blogs/architecture/exponential-backoff-and-jitter/)**
-- ✅ Supports **[All Major Endpoints](../api_support_matrix.md#atproto)** for [`com.atproto.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto)
+- ✅ Supports **[All Major Endpoints](../supported_api.md#atproto)** for [`com.atproto.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto)
 - ✅ **Well Documented** and **Well Tested**
 - ✅ Supports **Powerful Firehose API**
 - ✅ **100% Null Safety**
 - ✅ **Applicable to services other than Bluesky**
 
 :::tip
-See **[API Supported Matrix](../api_support_matrix.md#atproto)** for a list of endpoints supported by **[atproto](https://pub.dev/packages/atproto)**.
+See **[API Supported Matrix](../supported_api.md#atproto)** for a list of endpoints supported by **[atproto](https://pub.dev/packages/atproto)**.
 :::
 
 ## Getting Started 💪
@@ -73,7 +73,7 @@ You need to use **[ATProto](https://pub.dev/documentation/atproto/latest/atproto
 As shown in the following example, the key point in instantiating **[ATProto](https://pub.dev/documentation/atproto/latest/atproto/ATProto-class.html)** object is **whether the endpoint you wish to use requires authentication**.
 
 :::tip
-See **[API Supported Matrix](../api_support_matrix.md#atproto)** for whether or not authentication is required for each endpoint.
+See **[API Supported Matrix](../supported_api.md#atproto)** for whether or not authentication is required for each endpoint.
 :::
 
 If authentication is required, first create a session with the ATP server using your credentials with the `.createSession` function.
@@ -147,7 +147,7 @@ Future<void> main() async {
 ```
 
 :::tip
-See **[API Supported Matrix](../api_support_matrix.md#atproto)** for a list of endpoints supported by **[atproto](https://pub.dev/packages/atproto)**.
+See **[API Supported Matrix](../supported_api.md#atproto)** for a list of endpoints supported by **[atproto](https://pub.dev/packages/atproto)**.
 :::
 
 ### Let's Implement
@@ -187,7 +187,7 @@ Future<void> main() async {
 ```
 
 :::tip
-See **[API Support Matrix](../api_support_matrix.md#atprotoo)** for all supported endpoints.
+See **[API Support Matrix](../supported_api.md#atprotoo)** for all supported endpoints.
 :::
 
 ## More Tips 🏄
@@ -671,7 +671,7 @@ Future<void> main() async {
 ```
 
 :::tip
-Endpoints that can be paged can be seen in **[this matrix](../api_support_matrix.md#atproto)**.
+Endpoints that can be paged can be seen in **[this matrix](../supported_api.md#atproto)**.
 :::
 
 This example is a very simple implementation, but it allows us to see pagination using **[atproto](https://pub.dev/packages/atproto)**.

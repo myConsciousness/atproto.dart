@@ -21,11 +21,13 @@ final class NotificationService {
   Future<core.XRPCResponse<Notifications>> listNotifications({
     int? limit,
     String? cursor,
+    DateTime? seenAt,
   }) async =>
       // ignore: deprecated_member_use_from_same_package
       await findNotifications(
         limit: limit,
         cursor: cursor,
+        seenAt: seenAt,
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getUnreadCount
@@ -59,10 +61,12 @@ final class NotificationService {
   Future<core.XRPCResponse<Notifications>> findNotifications({
     int? limit,
     String? cursor,
+    DateTime? seenAt,
   }) async =>
       await _findNotifications(
         limit: limit,
         cursor: cursor,
+        seenAt: seenAt,
         to: Notifications.fromJson,
       );
 
@@ -101,6 +105,7 @@ final class NotificationService {
   Future<core.XRPCResponse<T>> _findNotifications<T>({
     required int? limit,
     required String? cursor,
+    required DateTime? seenAt,
     core.To<T>? to,
   }) async =>
       await _ctx.get(
@@ -108,6 +113,7 @@ final class NotificationService {
         parameters: _buildListNotificationsParams(
           limit: limit,
           cursor: cursor,
+          seenAt: seenAt,
         ),
         to: to,
       );
@@ -123,9 +129,11 @@ final class NotificationService {
   Map<String, dynamic> _buildListNotificationsParams({
     required int? limit,
     required String? cursor,
+    required DateTime? seenAt,
   }) =>
       {
         'limit': limit,
         'cursor': cursor,
+        'seenAt': seenAt,
       };
 }
