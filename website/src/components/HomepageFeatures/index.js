@@ -4,51 +4,73 @@ import styles from "./styles.module.css";
 
 const FeatureList = [
   {
-    title: "Very Powerful and Easy",
+    title: "Trusted Complete Suite for AT Protocol and Bluesky",
     Svg: require("@site/static/img/developer.svg").default,
     description: (
       <>
-        All packages in <code>atproto.dart</code> are very powerful and very
-        easy to use. In particular, <code>atproto</code> and{" "}
-        <code>bluesky</code>, wrapping the AT Protocol and Bluesky APIs, support
-        all major endpoints and incorporate advanced retry algorithms for
-        temporary network failures and etc.
+        The packages provided by <code>atproto.dart</code> are{" "}
+        <strong>
+          used in many Dart and Flutter applications and have a proven track
+          record of stability
+        </strong>
+        . <code>atproto.dart</code> <strong>maximizes the productivity</strong>{" "}
+        of your AT Protocol and Bluesky-related Flutter app development with
+        API-related packages such as <code>atproto</code> and{" "}
+        <code>bluesky</code>, and <code>bluesky_text</code> which supports
+        powerful Bluesky text analysis.
       </>
     ),
   },
   {
-    title: "100% Null Safety",
+    title: "100% Sound Null Safety",
     Svg: require("@site/static/img/null_safety.svg").default,
     description: (
       <>
-        All packages in <code>atproto.dart</code> is developed using the Dart
-        language, which provides strong support for Null Safety. Because of
-        this, <code>NullPointerException</code> will never occur in all packages
-        of <code>atproto.dart</code>. You do not need to worry about this
-        exception in your Dart or Flutter apps.{" "}
+        All packages provided by <code>atproto.dart</code> are{" "}
+        <strong>100% Null Safe</strong>. This is ensured by the robust Dart
+        language specification. This means that the package provided by{" "}
+        <code>atproto.dart</code>{" "}
+        <strong>
+          will never raise null-related exceptions during program execution
+        </strong>
+        , such as the well-known <code>NullPointerException</code>.
       </>
     ),
   },
   {
-    title: "Well Documented with Snippets",
-    Svg: require("@site/static/img/document.svg").default,
+    title: "Seamless Integration with Flutter App",
+    Svg: require("@site/static/img/seamless.svg").default,
     description: (
       <>
-        All packages in <code>atproto.dart</code> are very well documented.
-        Extensive documentation and sample snippets are available, including how
-        to install each package and how to implement it in Dart and Flutter
-        apps.
+        All packages provided by <code>atproto.dart</code> are designed in the
+        Dart language and follow the common commitments of the Dart and Flutter
+        worlds, allowing for{" "}
+        <strong>easy and seamless integration into Flutter apps</strong>. The{" "}
+        <code>atproto.dart</code> packages allow you to implement the
+        functionality of services as you wish,{" "}
+        <strong>
+          even if you are not familiar with the core AT Protocol and Bluesky
+          things
+        </strong>
+        .
       </>
     ),
   },
   {
-    title: "Well Tested and Stable",
+    title: "Robust Safety and Stability",
     Svg: require("@site/static/img/secure.svg").default,
     description: (
       <>
-        All packages in <code>atproto.dart</code> have numerous test codes to
-        ensure that the program works reliably, safely and stable above all.
-        Testing is automated as CI/CD, with a highly sustainable test design.
+        All packages provided by <code>atproto.dart</code> are{" "}
+        <strong>very well tested and very stable</strong>. All packages in
+        <code>atproto.dart</code> are released after passing scenario tests that
+        take into account various cases from numerous unit tests.{" "}
+        <code>atproto.dart</code>{" "}
+        <strong>
+          always delivers consistent and high-quality solutions to your
+          application
+        </strong>
+        .
       </>
     ),
   },

@@ -40,7 +40,7 @@ export const Banner: React.FC = () => {
         <CodeSnippet
           title={translate({
             id: "home.post_to_bluesky",
-            message: "Post to Bluesky",
+            message: "Say Hello!",
           })}
           snippet={SnippetPostToBluesky}
         ></CodeSnippet>
