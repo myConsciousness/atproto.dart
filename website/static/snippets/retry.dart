@@ -32,6 +32,7 @@ Future<void> main(List<String> args) async {
     retryConfig: retryConfig,
   );
 
+  // Do retry if there are communication errors, etc
   final timeline = await bsky.feed.getTimeline();
   /* SNIPPET END */
 }
