@@ -85,6 +85,12 @@ class PostCommand extends CreateRecordCommand {
         r'$type': 'app.bsky.embed.images',
         'images': images,
       };
+    } else {
+      if (text.isEmpty) {
+        throw ArgumentError(
+          'text must not be empty when embed is null.',
+        );
+      }
     }
 
     final langs = _langs;
