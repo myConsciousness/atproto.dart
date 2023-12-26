@@ -19,8 +19,8 @@ atproto_test:
 - packages/atproto_test/**/*
 atproto_core:
 - packages/atproto_core/**/*
-atproto_annotation:
-- packages/atproto_annotation/**/*
+lex_annotation:
+- packages/lex_annotation/**/*
 did_plc:
 - packages/did_plc/**/*
 atproto:

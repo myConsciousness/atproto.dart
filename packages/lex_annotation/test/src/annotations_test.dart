@@ -6,7 +6,7 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:atproto_annotation/src/annotations.dart';
+import 'package:lex_annotation/src/annotations.dart';
 
 void main() {
   test('Object', () {

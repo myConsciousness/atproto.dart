@@ -2,7 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-export 'package:atproto_annotation/src/annotations.dart'
+export 'package:lex_annotation/src/annotations.dart'
     show
         LexObject,
         LexArray,
