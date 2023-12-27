@@ -9,8 +9,8 @@ import 'package:lexicon/lexicon.dart';
 
 import 'utils.dart' as utils;
 
-const _tableHeader = '| Method | Docs | Auth Required |';
-const _tableDivider = '| --- | --- | :---: |';
+const _tableHeader = '| Method | Docs | Auth Required | Paging (cursor) |';
+const _tableDivider = '| --- | --- | :---: | :---: |';
 
 const _excludeAuthorities = [
   'com.atproto.temp',
@@ -99,7 +99,10 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
             : authRequired
                 ? '✅'
                 : '❌';
-        matrix.write('$authRequiredIcon |');
+        matrix.write('$authRequiredIcon | ');
+
+        final pageable = _isPageable(lexiconDoc) ? '✅' : '❌';
+        matrix.write('$pageable |');
       }
 
       matrix.writeln();
@@ -169,4 +172,33 @@ Map<String, List<LexiconDoc>> _groupByService(
   }
 
   return grouped;
+}
+
+bool _isPageable(final LexiconDoc lexiconDoc) {
+  for (final entry in lexiconDoc.defs.entries) {
+    final pageable = entry.value.whenOrNull(
+      xrpcQuery: (data) {
+        if (data.output == null) return false;
+        if (data.output!.schema == null) return false;
+
+        return data.output!.schema!.whenOrNull(object: (data) {
+          if (data.properties == null) return false;
+
+          for (final entry in data.properties!.entries) {
+            if (entry.key == 'cursor' &&
+                entry.value is ULexObjectPropertyPrimitive) {
+              return true;
+            }
+          }
+
+          return false;
+        });
+      },
+      xrpcSubscription: (data) => true, //* always has int cursor.
+    );
+
+    if (pageable ?? false) return true;
+  }
+
+  return false;
 }
