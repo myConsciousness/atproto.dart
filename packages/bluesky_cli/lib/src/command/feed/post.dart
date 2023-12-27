@@ -8,6 +8,7 @@ import 'dart:convert';
 import 'dart:io';
 
 // 📦 Package imports:
+import 'package:at_uri/at_uri.dart';
 import 'package:bluesky_text/bluesky_text.dart';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
@@ -23,6 +24,11 @@ class PostCommand extends CreateRecordCommand {
         'text',
         help: 'Text to be posted to Bluesky Social.',
         defaultsTo: '',
+      )
+      ..addOption(
+        'reply',
+        help: 'AT URI of the post to which you are replying',
+        defaultsTo: null,
       )
       ..addOption(
         'images',
@@ -60,7 +66,7 @@ class PostCommand extends CreateRecordCommand {
 
   @override
   final String invocation =
-      'bsky post [text] [images] [langs] [labels] [tags] [created-at]';
+      'bsky post [text] [reply] [images] [langs] [labels] [tags] [created-at]';
 
   @override
   xrpc.NSID get collection => xrpc.NSID.create(
@@ -78,6 +84,21 @@ class PostCommand extends CreateRecordCommand {
       'facets': await entities.toFacets(service: service),
       'createdAt': argResults!['created-at'],
     };
+
+    if (argResults!['reply'] != null) {
+      final post = await _getPost(AtUri.parse(argResults!['reply']));
+
+      record['reply'] = {
+        'root': {
+          'uri': post['uri'],
+          'cid': post['cid'],
+        },
+        'parent': {
+          'uri': post['uri'],
+          'cid': post['cid'],
+        },
+      };
+    }
 
     final images = await _uploadImages();
     if (images.isNotEmpty) {
@@ -170,5 +191,24 @@ class PostCommand extends CreateRecordCommand {
     }
 
     return images;
+  }
+
+  Future<Map<String, dynamic>> _getPost(
+    final AtUri uri,
+  ) async {
+    final response = await xrpc.query<Map<String, dynamic>>(
+      xrpc.NSID.create(
+        'feed.bsky.app',
+        'getPosts',
+      ),
+      parameters: {
+        'uris': [uri],
+      },
+      headers: {
+        'Authorization': 'Bearer ${await accessJwt}',
+      },
+    );
+
+    return response.data['posts'].first;
   }
 }
