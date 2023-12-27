@@ -19,7 +19,7 @@ Future<void> main(List<String> args) async {
 
   final text = BlueskyText(
     'Hello, I am @shinyakato.dev! '
-    'What do you think about [this link](https://atprotodart.com)?',
+    'wdyt about [this link](https://atprotodart.com)?',
     linkConfig: const LinkConfig(
       excludeProtocol: true,
       enableShortening: true,

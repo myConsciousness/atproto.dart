@@ -62,7 +62,7 @@ const FeatureList = [
     description: (
       <>
         All packages provided by <code>atproto.dart</code> are{" "}
-        <strong>very well tested and very stable</strong>. All packages in
+        <strong>very well tested and very stable</strong>. All packages in{" "}
         <code>atproto.dart</code> are released after passing scenario tests that
         take into account various cases from numerous unit tests.{" "}
         <code>atproto.dart</code>{" "}

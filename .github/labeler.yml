@@ -7,6 +7,8 @@ at_identifier:
 - packages/at_identifier/**/*
 nsid:
 - packages/nsid/**/*
+lexicon:
+- packages/lexicon/**/*
 at_uri:
 - packages/at_uri/**/*
 xrpc:
@@ -17,8 +19,8 @@ atproto_test:
 - packages/atproto_test/**/*
 atproto_core:
 - packages/atproto_core/**/*
-lexicon:
-- packages/lexicon/**/*
+lex_annotation:
+- packages/lex_annotation/**/*
 did_plc:
 - packages/did_plc/**/*
 atproto:
@@ -71,11 +73,13 @@ bsky/lexicon/unspecced:
 test:
 - packages/at_identifier/test/**/*.dart
 - packages/nsid/test/**/*.dart
+- packages/lexicon/test/**/*.dart
 - packages/at_uri/test/**/*.dart
 - packages/xrpc/test/**/*.dart
 - packages/multiformats/test/**/*.dart
 - packages/atproto_test/test/**/*.dart
 - packages/atproto_core/test/**/*.dart
+- packages/lex_annotation/test/**/*.dart
 - packages/did_plc/test/**/*.dart
 - packages/atproto/test/**/*.dart
 - packages/bluesky_text/test/**/*.dart
@@ -88,6 +92,8 @@ documentation:
 - packages/at_identifier/README.md
 - packages/nsid/CHANGELOG.md
 - packages/nsid/README.md
+- packages/lexicon/CHANGELOG.md
+- packages/lexicon/README.md
 - packages/at_uri/CHANGELOG.md
 - packages/at_uri/README.md
 - packages/xrpc/CHANGELOG.md
@@ -98,6 +104,8 @@ documentation:
 - packages/atproto_test/README.md
 - packages/atproto_core/CHANGELOG.md
 - packages/atproto_core/README.md
+- packages/lex_annotation/CHANGELOG.md
+- packages/lex_annotation/README.md
 - packages/did_plc/CHANGELOG.md
 - packages/did_plc/README.md
 - packages/atproto/CHANGELOG.md
