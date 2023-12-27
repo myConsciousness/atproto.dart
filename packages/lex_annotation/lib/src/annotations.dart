@@ -53,8 +53,8 @@ final class XrpcSubscription extends XrpcOperation {
   const XrpcSubscription(super.id);
 }
 
-final class XrpcProperty<T> {
-  const XrpcProperty({
+final class XrpcInput<T> {
+  const XrpcInput({
     this.name,
     this.defaultsTo,
   });

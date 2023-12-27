@@ -67,14 +67,14 @@ void main() {
 
   group('Property', () {
     test('no options', () {
-      final actual = XrpcProperty();
+      final actual = XrpcInput();
 
       expect(actual.name, isNull);
       expect(actual.defaultsTo, isNull);
     });
 
     test('with options', () {
-      final actual = XrpcProperty(name: 'uri', defaultsTo: 'fake');
+      final actual = XrpcInput(name: 'uri', defaultsTo: 'fake');
 
       expect(actual.name, 'uri');
       expect(actual.defaultsTo, 'fake');

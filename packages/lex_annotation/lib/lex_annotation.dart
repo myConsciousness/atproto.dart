@@ -12,4 +12,4 @@ export 'package:lex_annotation/src/annotations.dart'
         XrpcProcedure,
         XrpcUpload,
         XrpcSubscription,
-        XrpcProperty;
+        XrpcInput;
