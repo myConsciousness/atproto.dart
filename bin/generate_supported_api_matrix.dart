@@ -175,9 +175,8 @@ Map<String, List<LexiconDoc>> _groupByService(
 }
 
 bool _isPageable(final LexiconDoc lexiconDoc) {
-  bool pageable = false;
-  lexiconDoc.defs.forEach((name, def) {
-    final $pageable = def.whenOrNull(
+  for (final entry in lexiconDoc.defs.entries) {
+    final pageable = entry.value.whenOrNull(
       xrpcQuery: (data) {
         if (data.output == null) return false;
         if (data.output!.schema == null) return false;
@@ -198,11 +197,8 @@ bool _isPageable(final LexiconDoc lexiconDoc) {
       xrpcSubscription: (data) => true, //* always has int cursor.
     );
 
-    if ($pageable ?? false) {
-      pageable = true;
-      return;
-    }
-  });
+    if (pageable ?? false) return true;
+  }
 
-  return pageable;
+  return false;
 }
