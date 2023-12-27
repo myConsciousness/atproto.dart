@@ -79,7 +79,7 @@ test:
 - packages/multiformats/test/**/*.dart
 - packages/atproto_test/test/**/*.dart
 - packages/atproto_core/test/**/*.dart
-- packages/atproto_annotation/test/**/*.dart
+- packages/lex_annotation/test/**/*.dart
 - packages/did_plc/test/**/*.dart
 - packages/atproto/test/**/*.dart
 - packages/bluesky_text/test/**/*.dart
@@ -104,8 +104,8 @@ documentation:
 - packages/atproto_test/README.md
 - packages/atproto_core/CHANGELOG.md
 - packages/atproto_core/README.md
-- packages/atproto_annotation/CHANGELOG.md
-- packages/atproto_annotation/README.md
+- packages/lex_annotation/CHANGELOG.md
+- packages/lex_annotation/README.md
 - packages/did_plc/CHANGELOG.md
 - packages/did_plc/README.md
 - packages/atproto/CHANGELOG.md
