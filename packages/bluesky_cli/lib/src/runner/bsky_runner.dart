@@ -69,6 +69,10 @@ class Bsky extends _Bsky {
       logger.error(_getJsonString(jsonEncode(e.response.data.toJson())));
 
       exitCode = 1;
+    } catch (e) {
+      logger.error(e.toString());
+
+      exitCode = 1;
     }
   }
 
