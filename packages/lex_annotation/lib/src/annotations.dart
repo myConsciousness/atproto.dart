@@ -30,7 +30,7 @@ final class XrpcService {
   final String authority;
 }
 
-abstract class XrpcOperation {
+base class XrpcOperation {
   const XrpcOperation(this.id);
 
   /// The operation id of this XRPC operation.
