@@ -9,5 +9,7 @@ dependency_overrides:
     path: ../xrpc
   multiformats:
     path: ../multiformats
+  lex_annotation:
+    path: ../lex_annotation
   atproto_core:
     path: ../atproto_core
