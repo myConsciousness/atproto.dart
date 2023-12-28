@@ -10,7 +10,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../lex_annotations.g.dart' as lex;
 import 'actor.dart';
-import 'actor_profile.dart';
 
 part 'suggested_follows.freezed.dart';
 part 'suggested_follows.g.dart';
