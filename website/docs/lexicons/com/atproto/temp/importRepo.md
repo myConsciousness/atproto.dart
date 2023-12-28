@@ -9,6 +9,10 @@ description: com.atproto.temp.importRepo
 
 Gets the did's repo, optionally catching up from a specific revision.
 
-### Input (application/vnd.ipld.car)
+### Input
 
-### Output (text/plain)
+- **Encoding**: application/vnd.ipld.car
+
+### Output
+
+- **Encoding**: text/plain

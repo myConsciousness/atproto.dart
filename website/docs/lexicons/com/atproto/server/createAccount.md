@@ -9,7 +9,9 @@ description: com.atproto.server.createAccount
 
 Create an account.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
@@ -21,7 +23,9 @@ Create an account.
 | **recoveryKey** | string | - | ❌ | - |
 | **plcOp** | unknown | - | ❌ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

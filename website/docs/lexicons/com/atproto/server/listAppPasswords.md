@@ -9,7 +9,9 @@ description: com.atproto.server.listAppPasswords
 
 List all App Passwords.
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

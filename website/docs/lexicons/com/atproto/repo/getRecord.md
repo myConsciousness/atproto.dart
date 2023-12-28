@@ -18,7 +18,9 @@ Get a record.
 | **rkey** | string | - | ✅ | The key of the record. |
 | **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | The CID of the version of the record. If not specified, then return the most recent version. |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

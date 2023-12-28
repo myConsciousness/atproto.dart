@@ -9,7 +9,9 @@ description: com.atproto.repo.deleteRecord
 
 Delete a record, or ensure it doesn't exist.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

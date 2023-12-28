@@ -9,14 +9,18 @@ description: com.atproto.server.createSession
 
 Create an authentication session.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **identifier** | string | - | ✅ | Handle or other identifier supported by the server for the authenticating user. |
 | **password** | string | - | ✅ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

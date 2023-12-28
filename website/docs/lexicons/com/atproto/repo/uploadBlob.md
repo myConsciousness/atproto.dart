@@ -9,9 +9,13 @@ description: com.atproto.repo.uploadBlob
 
 Upload a new blob to be added to repo in a later request.
 
-### Input (\*/\*)
+### Input
 
-### Output (application/json)
+- **Encoding**: \*/\*
+
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

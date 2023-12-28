@@ -9,7 +9,9 @@ description: com.atproto.server.getSession
 
 Get information about the current session.
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

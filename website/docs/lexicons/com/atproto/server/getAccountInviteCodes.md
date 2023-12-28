@@ -16,7 +16,9 @@ Get all invite codes for a given account.
 | **includeUsed** | boolean | - | ❌ | - |
 | **createAvailable** | boolean | - | ❌ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

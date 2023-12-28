@@ -9,4 +9,6 @@ description: com.atproto.temp.pushBlob
 
 Gets the did's repo, optionally catching up from a specific revision.
 
-### Input (\*/\*)
+### Input
+
+- **Encoding**: \*/\*

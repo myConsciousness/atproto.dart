@@ -17,7 +17,9 @@ An unspecced view of globally popular feed generators.
 | **cursor** | string | - | ❌ | - |
 | **query** | string | - | ❌ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

@@ -9,7 +9,9 @@ description: app.bsky.feed.describeFeedGenerator
 
 Get information about a feed generator, including policies and offered feed URIs.
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

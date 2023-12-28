@@ -9,7 +9,9 @@ description: app.bsky.actor.putPreferences
 
 Set the private preferences attached to the account.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

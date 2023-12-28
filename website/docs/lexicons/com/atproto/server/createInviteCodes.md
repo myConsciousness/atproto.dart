@@ -9,7 +9,9 @@ description: com.atproto.server.createInviteCodes
 
 Create invite codes.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
@@ -17,7 +19,9 @@ Create invite codes.
 | **useCount** | integer | - | ✅ | - |
 | **forAccounts** | array of string | - | ❌ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

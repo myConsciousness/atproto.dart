@@ -9,7 +9,9 @@ description: app.bsky.graph.unmuteActorList
 
 Unmute a list of actors.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

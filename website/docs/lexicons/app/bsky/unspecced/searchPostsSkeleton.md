@@ -17,7 +17,9 @@ Backend Posts search, returns only skeleton
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | Optional pagination mechanism; may not necessarily allow scrolling through entire result set. |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

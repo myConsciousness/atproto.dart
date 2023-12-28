@@ -9,7 +9,9 @@ description: com.atproto.admin.deleteAccount
 
 Delete a user account as an administrator.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

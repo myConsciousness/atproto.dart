@@ -9,7 +9,9 @@ description: com.atproto.admin.sendEmail
 
 Send email to a user's account email address.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
@@ -19,7 +21,9 @@ Send email to a user's account email address.
 | **senderDid** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **comment** | string | - | ❌ | Additional comment by the sender that won't be used in the email itself but helpful to provide more context for moderators/reviewers |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

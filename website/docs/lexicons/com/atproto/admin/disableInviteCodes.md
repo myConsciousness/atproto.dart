@@ -9,7 +9,9 @@ description: com.atproto.admin.disableInviteCodes
 
 Disable some set of codes and/or all codes associated with a set of users.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

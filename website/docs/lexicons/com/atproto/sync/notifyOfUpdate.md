@@ -9,7 +9,9 @@ description: com.atproto.sync.notifyOfUpdate
 
 Notify a crawling service of a recent update; often when a long break between updates causes the connection with the crawling service to break.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

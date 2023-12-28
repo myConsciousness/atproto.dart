@@ -9,7 +9,9 @@ description: com.atproto.server.confirmEmail
 
 Confirm an email using a token from com.atproto.server.requestEmailConfirmation.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
