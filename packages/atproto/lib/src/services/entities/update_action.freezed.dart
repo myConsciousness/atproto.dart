@@ -20,19 +20,11 @@ UpdateAction _$UpdateActionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UpdateAction {
-  /// The type of action. It defaults to
-  /// [comAtprotoRepoApplyWritesUpdate].
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// The collection to which the record belongs.
   @nsidConverter
   NSID get collection => throw _privateConstructorUsedError;
-
-  /// The key of the record to be updated.
   String? get rkey => throw _privateConstructorUsedError;
-
-  /// The new values of the record.
   @JsonKey(name: 'value')
   Map<String, dynamic> get record => throw _privateConstructorUsedError;
 
@@ -160,25 +152,15 @@ class _$UpdateActionImpl implements _UpdateAction {
   factory _$UpdateActionImpl.fromJson(Map<String, dynamic> json) =>
       _$$UpdateActionImplFromJson(json);
 
-  /// The type of action. It defaults to
-  /// [comAtprotoRepoApplyWritesUpdate].
   @override
   @typeKey
   final String type;
-
-  /// The collection to which the record belongs.
   @override
   @nsidConverter
   final NSID collection;
-
-  /// The key of the record to be updated.
   @override
   final String? rkey;
-
-  /// The new values of the record.
   final Map<String, dynamic> _record;
-
-  /// The new values of the record.
   @override
   @JsonKey(name: 'value')
   Map<String, dynamic> get record {
@@ -235,23 +217,14 @@ abstract class _UpdateAction implements UpdateAction {
       _$UpdateActionImpl.fromJson;
 
   @override
-
-  /// The type of action. It defaults to
-  /// [comAtprotoRepoApplyWritesUpdate].
   @typeKey
   String get type;
   @override
-
-  /// The collection to which the record belongs.
   @nsidConverter
   NSID get collection;
   @override
-
-  /// The key of the record to be updated.
   String? get rkey;
   @override
-
-  /// The new values of the record.
   @JsonKey(name: 'value')
   Map<String, dynamic> get record;
   @override

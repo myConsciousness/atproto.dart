@@ -20,10 +20,7 @@ LabelsByQuery _$LabelsByQueryFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LabelsByQuery {
-  /// A collection of queried labels.
   List<Label> get labels => throw _privateConstructorUsedError;
-
-  /// A pagination cursor.
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -118,10 +115,7 @@ class _$LabelsByQueryImpl implements _LabelsByQuery {
   factory _$LabelsByQueryImpl.fromJson(Map<String, dynamic> json) =>
       _$$LabelsByQueryImplFromJson(json);
 
-  /// A collection of queried labels.
   final List<Label> _labels;
-
-  /// A collection of queried labels.
   @override
   List<Label> get labels {
     if (_labels is EqualUnmodifiableListView) return _labels;
@@ -129,7 +123,6 @@ class _$LabelsByQueryImpl implements _LabelsByQuery {
     return EqualUnmodifiableListView(_labels);
   }
 
-  /// A pagination cursor.
   @override
   final String? cursor;
 
@@ -175,12 +168,8 @@ abstract class _LabelsByQuery implements LabelsByQuery {
       _$LabelsByQueryImpl.fromJson;
 
   @override
-
-  /// A collection of queried labels.
   List<Label> get labels;
   @override
-
-  /// A pagination cursor.
   String? get cursor;
   @override
   @JsonKey(ignore: true)

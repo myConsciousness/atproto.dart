@@ -10,37 +10,21 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
+import '../../lex_annotations.g.dart' as lex;
 
 part 'delete_action.freezed.dart';
 part 'delete_action.g.dart';
 
-/// [DeleteAction] is a class representing a deletion operation.
-///
-/// It is an immutable class provided by the [Freezed] package.
-/// This promotes better maintainability and reduces potential bugs
-/// in your code.
+/// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#delete
 @freezed
+@lex.comAtprotoRepoApplyWritesDelete
 class DeleteAction with _$DeleteAction {
-  /// Constructs a [DeleteAction] instance.
-  ///
-  /// [type] is the type of the action, default to
-  /// [comAtprotoRepoApplyWritesDelete].
-  ///
-  /// [uri] is a required parameter representing the URI of the resource to be
-  /// deleted.
   @jsonSerializable
   const factory DeleteAction({
-    /// The type of the action.
     @typeKey @Default(comAtprotoRepoApplyWritesDelete) String type,
-
-    /// The URI of the resource to be deleted.
     @atUriConverter required AtUri uri,
   }) = _DeleteAction;
 
-  /// A factory method that creates a [DeleteAction] instance from a JSON map.
-  ///
-  /// [json] is a map in the JSON format, which the method converts into a
-  /// [DeleteAction] instance.
   factory DeleteAction.fromJson(Map<String, Object?> json) =>
       _$DeleteActionFromJson(json);
 }
