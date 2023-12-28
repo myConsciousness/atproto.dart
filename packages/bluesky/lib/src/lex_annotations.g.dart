@@ -71,9 +71,25 @@ const appBskyEmbedExternalView = LexObject(ids.appBskyEmbedExternalView);
 const appBskyEmbedExternalViewExternal =
     LexObject(ids.appBskyEmbedExternalViewExternal);
 
+/// `app.bsky.notification.registerPush#main`
+const appBskyNotificationRegisterPush =
+    LexObject(ids.appBskyNotificationRegisterPush);
+
+/// `app.bsky.notification.updateSeen#main`
+const appBskyNotificationUpdateSeen =
+    LexObject(ids.appBskyNotificationUpdateSeen);
+
+/// `app.bsky.notification.listNotifications#main`
+const appBskyNotificationListNotifications =
+    LexObject(ids.appBskyNotificationListNotifications);
+
 /// `app.bsky.notification.listNotifications#notification`
 const appBskyNotificationListNotificationsNotification =
     LexObject(ids.appBskyNotificationListNotificationsNotification);
+
+/// `app.bsky.notification.getUnreadCount#main`
+const appBskyNotificationGetUnreadCount =
+    LexObject(ids.appBskyNotificationGetUnreadCount);
 
 /// `app.bsky.unspecced.defs#skeletonSearchPost`
 const appBskyUnspeccedDefsSkeletonSearchPost =
@@ -82,6 +98,29 @@ const appBskyUnspeccedDefsSkeletonSearchPost =
 /// `app.bsky.unspecced.defs#skeletonSearchActor`
 const appBskyUnspeccedDefsSkeletonSearchActor =
     LexObject(ids.appBskyUnspeccedDefsSkeletonSearchActor);
+
+/// `app.bsky.unspecced.searchActorsSkeleton#main`
+const appBskyUnspeccedSearchActorsSkeleton =
+    LexObject(ids.appBskyUnspeccedSearchActorsSkeleton);
+
+/// `app.bsky.unspecced.searchPostsSkeleton#main`
+const appBskyUnspeccedSearchPostsSkeleton =
+    LexObject(ids.appBskyUnspeccedSearchPostsSkeleton);
+
+/// `app.bsky.unspecced.getPopular#main`
+const appBskyUnspeccedGetPopular = LexObject(ids.appBskyUnspeccedGetPopular);
+
+/// `app.bsky.unspecced.getPopularFeedGenerators#main`
+const appBskyUnspeccedGetPopularFeedGenerators =
+    LexObject(ids.appBskyUnspeccedGetPopularFeedGenerators);
+
+/// `app.bsky.unspecced.getTimelineSkeleton#main`
+const appBskyUnspeccedGetTimelineSkeleton =
+    LexObject(ids.appBskyUnspeccedGetTimelineSkeleton);
+
+/// `app.bsky.graph.getSuggestedFollowsByActor#main`
+const appBskyGraphGetSuggestedFollowsByActor =
+    LexObject(ids.appBskyGraphGetSuggestedFollowsByActor);
 
 /// `app.bsky.graph.defs#listViewBasic`
 const appBskyGraphDefsListViewBasic =
@@ -97,6 +136,42 @@ const appBskyGraphDefsListItemView =
 /// `app.bsky.graph.defs#listViewerState`
 const appBskyGraphDefsListViewerState =
     LexObject(ids.appBskyGraphDefsListViewerState);
+
+/// `app.bsky.graph.unmuteActorList#main`
+const appBskyGraphUnmuteActorList = LexObject(ids.appBskyGraphUnmuteActorList);
+
+/// `app.bsky.graph.getListBlocks#main`
+const appBskyGraphGetListBlocks = LexObject(ids.appBskyGraphGetListBlocks);
+
+/// `app.bsky.graph.muteActorList#main`
+const appBskyGraphMuteActorList = LexObject(ids.appBskyGraphMuteActorList);
+
+/// `app.bsky.graph.getLists#main`
+const appBskyGraphGetLists = LexObject(ids.appBskyGraphGetLists);
+
+/// `app.bsky.graph.getFollowers#main`
+const appBskyGraphGetFollowers = LexObject(ids.appBskyGraphGetFollowers);
+
+/// `app.bsky.graph.muteActor#main`
+const appBskyGraphMuteActor = LexObject(ids.appBskyGraphMuteActor);
+
+/// `app.bsky.graph.getMutes#main`
+const appBskyGraphGetMutes = LexObject(ids.appBskyGraphGetMutes);
+
+/// `app.bsky.graph.getListMutes#main`
+const appBskyGraphGetListMutes = LexObject(ids.appBskyGraphGetListMutes);
+
+/// `app.bsky.graph.getFollows#main`
+const appBskyGraphGetFollows = LexObject(ids.appBskyGraphGetFollows);
+
+/// `app.bsky.graph.getBlocks#main`
+const appBskyGraphGetBlocks = LexObject(ids.appBskyGraphGetBlocks);
+
+/// `app.bsky.graph.unmuteActor#main`
+const appBskyGraphUnmuteActor = LexObject(ids.appBskyGraphUnmuteActor);
+
+/// `app.bsky.graph.getList#main`
+const appBskyGraphGetList = LexObject(ids.appBskyGraphGetList);
 
 /// `app.bsky.feed.defs#postView`
 const appBskyFeedDefsPostView = LexObject(ids.appBskyFeedDefsPostView);
@@ -147,6 +222,22 @@ const appBskyFeedDefsSkeletonReasonRepost =
 const appBskyFeedDefsThreadgateView =
     LexObject(ids.appBskyFeedDefsThreadgateView);
 
+/// `app.bsky.feed.getFeedGenerators#main`
+const appBskyFeedGetFeedGenerators =
+    LexObject(ids.appBskyFeedGetFeedGenerators);
+
+/// `app.bsky.feed.getTimeline#main`
+const appBskyFeedGetTimeline = LexObject(ids.appBskyFeedGetTimeline);
+
+/// `app.bsky.feed.getFeedGenerator#main`
+const appBskyFeedGetFeedGenerator = LexObject(ids.appBskyFeedGetFeedGenerator);
+
+/// `app.bsky.feed.getAuthorFeed#main`
+const appBskyFeedGetAuthorFeed = LexObject(ids.appBskyFeedGetAuthorFeed);
+
+/// `app.bsky.feed.getLikes#main`
+const appBskyFeedGetLikes = LexObject(ids.appBskyFeedGetLikes);
+
 /// `app.bsky.feed.getLikes#like`
 const appBskyFeedGetLikesLike = LexObject(ids.appBskyFeedGetLikesLike);
 
@@ -162,6 +253,19 @@ const appBskyFeedThreadgateFollowingRule =
 const appBskyFeedThreadgateListRule =
     LexObject(ids.appBskyFeedThreadgateListRule);
 
+/// `app.bsky.feed.getPostThread#main`
+const appBskyFeedGetPostThread = LexObject(ids.appBskyFeedGetPostThread);
+
+/// `app.bsky.feed.getActorLikes#main`
+const appBskyFeedGetActorLikes = LexObject(ids.appBskyFeedGetActorLikes);
+
+/// `app.bsky.feed.getRepostedBy#main`
+const appBskyFeedGetRepostedBy = LexObject(ids.appBskyFeedGetRepostedBy);
+
+/// `app.bsky.feed.describeFeedGenerator#main`
+const appBskyFeedDescribeFeedGenerator =
+    LexObject(ids.appBskyFeedDescribeFeedGenerator);
+
 /// `app.bsky.feed.describeFeedGenerator#feed`
 const appBskyFeedDescribeFeedGeneratorFeed =
     LexObject(ids.appBskyFeedDescribeFeedGeneratorFeed);
@@ -169,6 +273,28 @@ const appBskyFeedDescribeFeedGeneratorFeed =
 /// `app.bsky.feed.describeFeedGenerator#links`
 const appBskyFeedDescribeFeedGeneratorLinks =
     LexObject(ids.appBskyFeedDescribeFeedGeneratorLinks);
+
+/// `app.bsky.feed.searchPosts#main`
+const appBskyFeedSearchPosts = LexObject(ids.appBskyFeedSearchPosts);
+
+/// `app.bsky.feed.getPosts#main`
+const appBskyFeedGetPosts = LexObject(ids.appBskyFeedGetPosts);
+
+/// `app.bsky.feed.getFeed#main`
+const appBskyFeedGetFeed = LexObject(ids.appBskyFeedGetFeed);
+
+/// `app.bsky.feed.getFeedSkeleton#main`
+const appBskyFeedGetFeedSkeleton = LexObject(ids.appBskyFeedGetFeedSkeleton);
+
+/// `app.bsky.feed.getListFeed#main`
+const appBskyFeedGetListFeed = LexObject(ids.appBskyFeedGetListFeed);
+
+/// `app.bsky.feed.getSuggestedFeeds#main`
+const appBskyFeedGetSuggestedFeeds =
+    LexObject(ids.appBskyFeedGetSuggestedFeeds);
+
+/// `app.bsky.feed.getActorFeeds#main`
+const appBskyFeedGetActorFeeds = LexObject(ids.appBskyFeedGetActorFeeds);
 
 /// `app.bsky.feed.post#replyRef`
 const appBskyFeedPostReplyRef = LexObject(ids.appBskyFeedPostReplyRef);
@@ -194,6 +320,10 @@ const appBskyRichtextFacetTag = LexObject(ids.appBskyRichtextFacetTag);
 /// `app.bsky.richtext.facet#byteSlice`
 const appBskyRichtextFacetByteSlice =
     LexObject(ids.appBskyRichtextFacetByteSlice);
+
+/// `app.bsky.actor.searchActorsTypeahead#main`
+const appBskyActorSearchActorsTypeahead =
+    LexObject(ids.appBskyActorSearchActorsTypeahead);
 
 /// `app.bsky.actor.defs#profileViewBasic`
 const appBskyActorDefsProfileViewBasic =
@@ -232,3 +362,21 @@ const appBskyActorDefsFeedViewPref =
 /// `app.bsky.actor.defs#threadViewPref`
 const appBskyActorDefsThreadViewPref =
     LexObject(ids.appBskyActorDefsThreadViewPref);
+
+/// `app.bsky.actor.putPreferences#main`
+const appBskyActorPutPreferences = LexObject(ids.appBskyActorPutPreferences);
+
+/// `app.bsky.actor.getProfile#main`
+const appBskyActorGetProfile = LexObject(ids.appBskyActorGetProfile);
+
+/// `app.bsky.actor.getSuggestions#main`
+const appBskyActorGetSuggestions = LexObject(ids.appBskyActorGetSuggestions);
+
+/// `app.bsky.actor.searchActors#main`
+const appBskyActorSearchActors = LexObject(ids.appBskyActorSearchActors);
+
+/// `app.bsky.actor.getProfiles#main`
+const appBskyActorGetProfiles = LexObject(ids.appBskyActorGetProfiles);
+
+/// `app.bsky.actor.getPreferences#main`
+const appBskyActorGetPreferences = LexObject(ids.appBskyActorGetPreferences);

@@ -71,7 +71,12 @@ Map<String, Map<String, LexUserType>> _getLexObjects(
 
     final defs = <String, LexUserType>{};
     lexicon.defs.forEach((id, def) {
-      final object = def.whenOrNull(object: (data) => data);
+      final object = def.whenOrNull(
+        object: (data) => data,
+        xrpcQuery: (data) => data,
+        xrpcProcedure: (data) => data,
+        xrpcSubscription: (data) => data,
+      );
 
       if (object != null) {
         defs[id] = def;
