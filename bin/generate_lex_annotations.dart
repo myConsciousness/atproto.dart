@@ -55,8 +55,10 @@ String _toFieldName(final String lexiconId) {
           .sublist(1)
           .map((e) => e.substring(0, 1).toUpperCase() + e.substring(1))
           .join() +
-      segments[1].substring(0, 1).toUpperCase() +
-      segments[1].substring(1);
+      (segments[1] == 'main'
+          ? ''
+          : segments[1].substring(0, 1).toUpperCase() +
+              segments[1].substring(1));
 }
 
 Map<String, Map<String, LexUserType>> _getLexObjects(
