@@ -24,7 +24,7 @@ mixin _$UpdateAction {
   String get type => throw _privateConstructorUsedError;
   @nsidConverter
   NSID get collection => throw _privateConstructorUsedError;
-  String? get rkey => throw _privateConstructorUsedError;
+  String get rkey => throw _privateConstructorUsedError;
   @JsonKey(name: 'value')
   Map<String, dynamic> get record => throw _privateConstructorUsedError;
 
@@ -43,7 +43,7 @@ abstract class $UpdateActionCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       @nsidConverter NSID collection,
-      String? rkey,
+      String rkey,
       @JsonKey(name: 'value') Map<String, dynamic> record});
 }
 
@@ -62,7 +62,7 @@ class _$UpdateActionCopyWithImpl<$Res, $Val extends UpdateAction>
   $Res call({
     Object? type = null,
     Object? collection = null,
-    Object? rkey = freezed,
+    Object? rkey = null,
     Object? record = null,
   }) {
     return _then(_value.copyWith(
@@ -74,10 +74,10 @@ class _$UpdateActionCopyWithImpl<$Res, $Val extends UpdateAction>
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
               as NSID,
-      rkey: freezed == rkey
+      rkey: null == rkey
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
@@ -97,7 +97,7 @@ abstract class _$$UpdateActionImplCopyWith<$Res>
   $Res call(
       {@typeKey String type,
       @nsidConverter NSID collection,
-      String? rkey,
+      String rkey,
       @JsonKey(name: 'value') Map<String, dynamic> record});
 }
 
@@ -114,7 +114,7 @@ class __$$UpdateActionImplCopyWithImpl<$Res>
   $Res call({
     Object? type = null,
     Object? collection = null,
-    Object? rkey = freezed,
+    Object? rkey = null,
     Object? record = null,
   }) {
     return _then(_$UpdateActionImpl(
@@ -126,10 +126,10 @@ class __$$UpdateActionImplCopyWithImpl<$Res>
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
               as NSID,
-      rkey: freezed == rkey
+      rkey: null == rkey
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       record: null == record
           ? _value._record
           : record // ignore: cast_nullable_to_non_nullable
@@ -145,7 +145,7 @@ class _$UpdateActionImpl implements _UpdateAction {
   const _$UpdateActionImpl(
       {@typeKey this.type = comAtprotoRepoApplyWritesUpdate,
       @nsidConverter required this.collection,
-      this.rkey,
+      required this.rkey,
       @JsonKey(name: 'value') required final Map<String, dynamic> record})
       : _record = record;
 
@@ -159,7 +159,7 @@ class _$UpdateActionImpl implements _UpdateAction {
   @nsidConverter
   final NSID collection;
   @override
-  final String? rkey;
+  final String rkey;
   final Map<String, dynamic> _record;
   @override
   @JsonKey(name: 'value')
@@ -209,7 +209,7 @@ abstract class _UpdateAction implements UpdateAction {
   const factory _UpdateAction(
           {@typeKey final String type,
           @nsidConverter required final NSID collection,
-          final String? rkey,
+          required final String rkey,
           @JsonKey(name: 'value') required final Map<String, dynamic> record}) =
       _$UpdateActionImpl;
 
@@ -223,7 +223,7 @@ abstract class _UpdateAction implements UpdateAction {
   @nsidConverter
   NSID get collection;
   @override
-  String? get rkey;
+  String get rkey;
   @override
   @JsonKey(name: 'value')
   Map<String, dynamic> get record;

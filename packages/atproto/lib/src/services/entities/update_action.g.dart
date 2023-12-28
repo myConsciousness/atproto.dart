@@ -17,7 +17,7 @@ _$UpdateActionImpl _$$UpdateActionImplFromJson(Map json) => $checkedCreate(
               r'$type', (v) => v as String? ?? comAtprotoRepoApplyWritesUpdate),
           collection: $checkedConvert(
               'collection', (v) => nsidConverter.fromJson(v as String)),
-          rkey: $checkedConvert('rkey', (v) => v as String?),
+          rkey: $checkedConvert('rkey', (v) => v as String),
           record: $checkedConvert(
               'value', (v) => Map<String, dynamic>.from(v as Map)),
         );
@@ -26,19 +26,10 @@ _$UpdateActionImpl _$$UpdateActionImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type', 'record': 'value'},
     );
 
-Map<String, dynamic> _$$UpdateActionImplToJson(_$UpdateActionImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-    'collection': nsidConverter.toJson(instance.collection),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('rkey', instance.rkey);
-  val['value'] = instance.record;
-  return val;
-}
+Map<String, dynamic> _$$UpdateActionImplToJson(_$UpdateActionImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      'collection': nsidConverter.toJson(instance.collection),
+      'rkey': instance.rkey,
+      'value': instance.record,
+    };

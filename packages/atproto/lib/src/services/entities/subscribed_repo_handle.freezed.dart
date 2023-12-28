@@ -20,17 +20,10 @@ SubscribedRepoHandle _$SubscribedRepoHandleFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SubscribedRepoHandle {
-  /// Decentralized Identifier (DID) of the repository.
   String get did => throw _privateConstructorUsedError;
-
-  /// The handle of the repository.
   String get handle => throw _privateConstructorUsedError;
-
-  /// The sequence number associated with this handle.
   @JsonKey(name: 'seq')
   int get cursor => throw _privateConstructorUsedError;
-
-  /// The time the handle was created.
   @JsonKey(name: 'time')
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -157,20 +150,13 @@ class _$SubscribedRepoHandleImpl implements _SubscribedRepoHandle {
   factory _$SubscribedRepoHandleImpl.fromJson(Map<String, dynamic> json) =>
       _$$SubscribedRepoHandleImplFromJson(json);
 
-  /// Decentralized Identifier (DID) of the repository.
   @override
   final String did;
-
-  /// The handle of the repository.
   @override
   final String handle;
-
-  /// The sequence number associated with this handle.
   @override
   @JsonKey(name: 'seq')
   final int cursor;
-
-  /// The time the handle was created.
   @override
   @JsonKey(name: 'time')
   final DateTime createdAt;
@@ -224,21 +210,13 @@ abstract class _SubscribedRepoHandle implements SubscribedRepoHandle {
       _$SubscribedRepoHandleImpl.fromJson;
 
   @override
-
-  /// Decentralized Identifier (DID) of the repository.
   String get did;
   @override
-
-  /// The handle of the repository.
   String get handle;
   @override
-
-  /// The sequence number associated with this handle.
   @JsonKey(name: 'seq')
   int get cursor;
   @override
-
-  /// The time the handle was created.
   @JsonKey(name: 'time')
   DateTime get createdAt;
   @override

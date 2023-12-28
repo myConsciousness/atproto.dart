@@ -20,15 +20,9 @@ SubscribedRepoCommit _$SubscribedRepoCommitFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SubscribedRepoCommit {
-  /// List of repository operations included in this commit.
   List<RepoOp> get ops => throw _privateConstructorUsedError;
-
-  /// Decentralized Identifier (DID) of the repository where
-  /// the commit was made.
   @JsonKey(name: 'repo')
   String get did => throw _privateConstructorUsedError;
-
-  /// The sequence number of this commit.
   @JsonKey(name: 'seq')
   int get cursor => throw _privateConstructorUsedError;
 
@@ -37,16 +31,10 @@ mixin _$SubscribedRepoCommit {
 
   /// The rev of the last emitted commit from this repo.
   String? get since => throw _privateConstructorUsedError;
-
-  /// Flag to indicate if the commit was a rebase.
   @JsonKey(name: 'rebase')
   bool get isRebase => throw _privateConstructorUsedError;
-
-  /// Flag to indicate if the commit was too big.
   @JsonKey(name: 'tooBig')
   bool get isTooBig => throw _privateConstructorUsedError;
-
-  /// The time the commit was created.
   @JsonKey(name: 'time')
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -219,18 +207,15 @@ class _$SubscribedRepoCommitImpl implements _SubscribedRepoCommit {
       @JsonKey(name: 'seq') required this.cursor,
       required this.rev,
       this.since,
-      @JsonKey(name: 'rebase') required this.isRebase,
-      @JsonKey(name: 'tooBig') required this.isTooBig,
+      @JsonKey(name: 'rebase') this.isRebase = false,
+      @JsonKey(name: 'tooBig') this.isTooBig = false,
       @JsonKey(name: 'time') required this.createdAt})
       : _ops = ops;
 
   factory _$SubscribedRepoCommitImpl.fromJson(Map<String, dynamic> json) =>
       _$$SubscribedRepoCommitImplFromJson(json);
 
-  /// List of repository operations included in this commit.
   final List<RepoOp> _ops;
-
-  /// List of repository operations included in this commit.
   @override
   List<RepoOp> get ops {
     if (_ops is EqualUnmodifiableListView) return _ops;
@@ -238,13 +223,9 @@ class _$SubscribedRepoCommitImpl implements _SubscribedRepoCommit {
     return EqualUnmodifiableListView(_ops);
   }
 
-  /// Decentralized Identifier (DID) of the repository where
-  /// the commit was made.
   @override
   @JsonKey(name: 'repo')
   final String did;
-
-  /// The sequence number of this commit.
   @override
   @JsonKey(name: 'seq')
   final int cursor;
@@ -256,18 +237,12 @@ class _$SubscribedRepoCommitImpl implements _SubscribedRepoCommit {
   /// The rev of the last emitted commit from this repo.
   @override
   final String? since;
-
-  /// Flag to indicate if the commit was a rebase.
   @override
   @JsonKey(name: 'rebase')
   final bool isRebase;
-
-  /// Flag to indicate if the commit was too big.
   @override
   @JsonKey(name: 'tooBig')
   final bool isTooBig;
-
-  /// The time the commit was created.
   @override
   @JsonKey(name: 'time')
   final DateTime createdAt;
@@ -331,8 +306,8 @@ abstract class _SubscribedRepoCommit implements SubscribedRepoCommit {
           @JsonKey(name: 'seq') required final int cursor,
           required final String rev,
           final String? since,
-          @JsonKey(name: 'rebase') required final bool isRebase,
-          @JsonKey(name: 'tooBig') required final bool isTooBig,
+          @JsonKey(name: 'rebase') final bool isRebase,
+          @JsonKey(name: 'tooBig') final bool isTooBig,
           @JsonKey(name: 'time') required final DateTime createdAt}) =
       _$SubscribedRepoCommitImpl;
 
@@ -340,18 +315,11 @@ abstract class _SubscribedRepoCommit implements SubscribedRepoCommit {
       _$SubscribedRepoCommitImpl.fromJson;
 
   @override
-
-  /// List of repository operations included in this commit.
   List<RepoOp> get ops;
   @override
-
-  /// Decentralized Identifier (DID) of the repository where
-  /// the commit was made.
   @JsonKey(name: 'repo')
   String get did;
   @override
-
-  /// The sequence number of this commit.
   @JsonKey(name: 'seq')
   int get cursor;
   @override
@@ -363,18 +331,12 @@ abstract class _SubscribedRepoCommit implements SubscribedRepoCommit {
   /// The rev of the last emitted commit from this repo.
   String? get since;
   @override
-
-  /// Flag to indicate if the commit was a rebase.
   @JsonKey(name: 'rebase')
   bool get isRebase;
   @override
-
-  /// Flag to indicate if the commit was too big.
   @JsonKey(name: 'tooBig')
   bool get isTooBig;
   @override
-
-  /// The time the commit was created.
   @JsonKey(name: 'time')
   DateTime get createdAt;
   @override

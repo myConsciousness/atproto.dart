@@ -14,8 +14,8 @@ _$InviteCodeImpl _$$InviteCodeImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$InviteCodeImpl(
           code: $checkedConvert('code', (v) => v as String),
-          availableCount: $checkedConvert('available', (v) => v as int),
-          isDisabled: $checkedConvert('disabled', (v) => v as bool),
+          availableCount: $checkedConvert('available', (v) => v as int? ?? 0),
+          isDisabled: $checkedConvert('disabled', (v) => v as bool? ?? false),
           forAccount: $checkedConvert('forAccount', (v) => v as String),
           uses: $checkedConvert(
               'uses',

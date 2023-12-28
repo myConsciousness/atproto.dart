@@ -20,20 +20,11 @@ CurrentSession _$CurrentSessionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CurrentSession {
-  /// The decentralized identifier (DID) for the user in the current session.
   String get did => throw _privateConstructorUsedError;
-
-  /// The handle (username) for the user in the current session.
   String get handle => throw _privateConstructorUsedError;
-
-  /// The email address of the user in the current session.
   String? get email => throw _privateConstructorUsedError;
-
-  /// A flag indicating whether the email address is confirmed.
   @JsonKey(name: 'emailConfirmed')
   bool get isEmailConfirmed => throw _privateConstructorUsedError;
-
-  /// DID plc document.
   Map<String, dynamic>? get didDoc => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -173,27 +164,16 @@ class _$CurrentSessionImpl implements _CurrentSession {
   factory _$CurrentSessionImpl.fromJson(Map<String, dynamic> json) =>
       _$$CurrentSessionImplFromJson(json);
 
-  /// The decentralized identifier (DID) for the user in the current session.
   @override
   final String did;
-
-  /// The handle (username) for the user in the current session.
   @override
   final String handle;
-
-  /// The email address of the user in the current session.
   @override
   final String? email;
-
-  /// A flag indicating whether the email address is confirmed.
   @override
   @JsonKey(name: 'emailConfirmed')
   final bool isEmailConfirmed;
-
-  /// DID plc document.
   final Map<String, dynamic>? _didDoc;
-
-  /// DID plc document.
   @override
   Map<String, dynamic>? get didDoc {
     final value = _didDoc;
@@ -253,25 +233,15 @@ abstract class _CurrentSession implements CurrentSession {
       _$CurrentSessionImpl.fromJson;
 
   @override
-
-  /// The decentralized identifier (DID) for the user in the current session.
   String get did;
   @override
-
-  /// The handle (username) for the user in the current session.
   String get handle;
   @override
-
-  /// The email address of the user in the current session.
   String? get email;
   @override
-
-  /// A flag indicating whether the email address is confirmed.
   @JsonKey(name: 'emailConfirmed')
   bool get isEmailConfirmed;
   @override
-
-  /// DID plc document.
   Map<String, dynamic>? get didDoc;
   @override
   @JsonKey(ignore: true)

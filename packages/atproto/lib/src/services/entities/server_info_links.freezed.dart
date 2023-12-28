@@ -20,10 +20,7 @@ ServerInfoLinks _$ServerInfoLinksFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ServerInfoLinks {
-  /// The URL to the privacy policy, if available.
   String? get privacyPolicy => throw _privateConstructorUsedError;
-
-  /// The URL to the terms of service, if available.
   String? get termsOfService => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -117,11 +114,8 @@ class _$ServerInfoLinksImpl implements _ServerInfoLinks {
   factory _$ServerInfoLinksImpl.fromJson(Map<String, dynamic> json) =>
       _$$ServerInfoLinksImplFromJson(json);
 
-  /// The URL to the privacy policy, if available.
   @override
   final String? privacyPolicy;
-
-  /// The URL to the terms of service, if available.
   @override
   final String? termsOfService;
 
@@ -169,12 +163,8 @@ abstract class _ServerInfoLinks implements ServerInfoLinks {
       _$ServerInfoLinksImpl.fromJson;
 
   @override
-
-  /// The URL to the privacy policy, if available.
   String? get privacyPolicy;
   @override
-
-  /// The URL to the terms of service, if available.
   String? get termsOfService;
   @override
   @JsonKey(ignore: true)

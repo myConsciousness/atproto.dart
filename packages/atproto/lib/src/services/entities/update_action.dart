@@ -22,7 +22,7 @@ class UpdateAction with _$UpdateAction {
   const factory UpdateAction({
     @typeKey @Default(comAtprotoRepoApplyWritesUpdate) String type,
     @nsidConverter required NSID collection,
-    String? rkey,
+    required String rkey,
     @JsonKey(name: 'value') required Map<String, dynamic> record,
   }) = _UpdateAction;
 

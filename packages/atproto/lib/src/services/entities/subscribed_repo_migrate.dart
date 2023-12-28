@@ -6,31 +6,21 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../lex_annotations.g.dart' as lex;
+
 part 'subscribed_repo_migrate.freezed.dart';
 part 'subscribed_repo_migrate.g.dart';
 
-/// Represents a migration operation for a subscribed repository.
-///
-/// This class encapsulates the identifier of the repository, an optional target
-/// for migration, a cursor, and the creation time of the migration operation.
+/// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#migrate
 @freezed
+@lex.comAtprotoSyncSubscribeReposMigrate
 class SubscribedRepoMigrate with _$SubscribedRepoMigrate {
-  /// Creates a new instance of [SubscribedRepoMigrate].
-  ///
-  /// The [did], [cursor], and [createdAt] parameters are required,
-  /// and the [migrateTo] parameter is optional.
   @jsonSerializable
   const factory SubscribedRepoMigrate({
-    /// The identifier of the subscribed repository.
     required String did,
-
-    /// The optional target to migrate to.
     String? migrateTo,
-
-    /// A cursor representing the migration position.
     @JsonKey(name: 'seq') required int cursor,
-
-    /// The time at which the migration operation was created.
     @JsonKey(name: 'time') required DateTime createdAt,
   }) = _SubscribedRepoMigrate;
 

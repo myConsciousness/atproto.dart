@@ -15,6 +15,7 @@ import 'subscribed_label_labels.dart';
 part 'subscribed_label.freezed.dart';
 part 'subscribed_label.g.dart';
 
+/// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribelabels/#output
 @freezed
 class SubscribedLabel with _$SubscribedLabel {
   const factory SubscribedLabel.labels({

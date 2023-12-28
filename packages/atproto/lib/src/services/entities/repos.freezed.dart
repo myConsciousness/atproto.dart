@@ -20,10 +20,7 @@ Repos _$ReposFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Repos {
-  /// The list of repositories, represented as [Repo] instances.
   List<Repo> get repos => throw _privateConstructorUsedError;
-
-  /// The pagination cursor.
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -114,10 +111,7 @@ class _$ReposImpl implements _Repos {
   factory _$ReposImpl.fromJson(Map<String, dynamic> json) =>
       _$$ReposImplFromJson(json);
 
-  /// The list of repositories, represented as [Repo] instances.
   final List<Repo> _repos;
-
-  /// The list of repositories, represented as [Repo] instances.
   @override
   List<Repo> get repos {
     if (_repos is EqualUnmodifiableListView) return _repos;
@@ -125,7 +119,6 @@ class _$ReposImpl implements _Repos {
     return EqualUnmodifiableListView(_repos);
   }
 
-  /// The pagination cursor.
   @override
   final String? cursor;
 
@@ -169,12 +162,8 @@ abstract class _Repos implements Repos {
   factory _Repos.fromJson(Map<String, dynamic> json) = _$ReposImpl.fromJson;
 
   @override
-
-  /// The list of repositories, represented as [Repo] instances.
   List<Repo> get repos;
   @override
-
-  /// The pagination cursor.
   String? get cursor;
   @override
   @JsonKey(ignore: true)

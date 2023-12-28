@@ -27,7 +27,7 @@ mixin _$RepoInfo {
   String get did => throw _privateConstructorUsedError;
 
   /// The parsed DID document.
-  ParsedDidDoc get didDoc => throw _privateConstructorUsedError;
+  Map<String, dynamic> get didDoc => throw _privateConstructorUsedError;
 
   /// A list of collections included in the repository.
   List<String> get collections => throw _privateConstructorUsedError;
@@ -50,11 +50,9 @@ abstract class $RepoInfoCopyWith<$Res> {
   $Res call(
       {String handle,
       String did,
-      ParsedDidDoc didDoc,
+      Map<String, dynamic> didDoc,
       List<String> collections,
       @JsonKey(name: 'handleIsCorrect') bool hasCorrectHandle});
-
-  $ParsedDidDocCopyWith<$Res> get didDoc;
 }
 
 /// @nodoc
@@ -88,7 +86,7 @@ class _$RepoInfoCopyWithImpl<$Res, $Val extends RepoInfo>
       didDoc: null == didDoc
           ? _value.didDoc
           : didDoc // ignore: cast_nullable_to_non_nullable
-              as ParsedDidDoc,
+              as Map<String, dynamic>,
       collections: null == collections
           ? _value.collections
           : collections // ignore: cast_nullable_to_non_nullable
@@ -98,14 +96,6 @@ class _$RepoInfoCopyWithImpl<$Res, $Val extends RepoInfo>
           : hasCorrectHandle // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ParsedDidDocCopyWith<$Res> get didDoc {
-    return $ParsedDidDocCopyWith<$Res>(_value.didDoc, (value) {
-      return _then(_value.copyWith(didDoc: value) as $Val);
-    });
   }
 }
 
@@ -120,12 +110,9 @@ abstract class _$$RepoInfoImplCopyWith<$Res>
   $Res call(
       {String handle,
       String did,
-      ParsedDidDoc didDoc,
+      Map<String, dynamic> didDoc,
       List<String> collections,
       @JsonKey(name: 'handleIsCorrect') bool hasCorrectHandle});
-
-  @override
-  $ParsedDidDocCopyWith<$Res> get didDoc;
 }
 
 /// @nodoc
@@ -155,9 +142,9 @@ class __$$RepoInfoImplCopyWithImpl<$Res>
           : did // ignore: cast_nullable_to_non_nullable
               as String,
       didDoc: null == didDoc
-          ? _value.didDoc
+          ? _value._didDoc
           : didDoc // ignore: cast_nullable_to_non_nullable
-              as ParsedDidDoc,
+              as Map<String, dynamic>,
       collections: null == collections
           ? _value._collections
           : collections // ignore: cast_nullable_to_non_nullable
@@ -176,10 +163,11 @@ class _$RepoInfoImpl implements _RepoInfo {
   const _$RepoInfoImpl(
       {required this.handle,
       required this.did,
-      required this.didDoc,
+      required final Map<String, dynamic> didDoc,
       required final List<String> collections,
-      @JsonKey(name: 'handleIsCorrect') required this.hasCorrectHandle})
-      : _collections = collections;
+      @JsonKey(name: 'handleIsCorrect') this.hasCorrectHandle = false})
+      : _didDoc = didDoc,
+        _collections = collections;
 
   factory _$RepoInfoImpl.fromJson(Map<String, dynamic> json) =>
       _$$RepoInfoImplFromJson(json);
@@ -193,8 +181,15 @@ class _$RepoInfoImpl implements _RepoInfo {
   final String did;
 
   /// The parsed DID document.
+  final Map<String, dynamic> _didDoc;
+
+  /// The parsed DID document.
   @override
-  final ParsedDidDoc didDoc;
+  Map<String, dynamic> get didDoc {
+    if (_didDoc is EqualUnmodifiableMapView) return _didDoc;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_didDoc);
+  }
 
   /// A list of collections included in the repository.
   final List<String> _collections;
@@ -224,7 +219,7 @@ class _$RepoInfoImpl implements _RepoInfo {
             other is _$RepoInfoImpl &&
             (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.did, did) || other.did == did) &&
-            (identical(other.didDoc, didDoc) || other.didDoc == didDoc) &&
+            const DeepCollectionEquality().equals(other._didDoc, _didDoc) &&
             const DeepCollectionEquality()
                 .equals(other._collections, _collections) &&
             (identical(other.hasCorrectHandle, hasCorrectHandle) ||
@@ -233,8 +228,13 @@ class _$RepoInfoImpl implements _RepoInfo {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, handle, did, didDoc,
-      const DeepCollectionEquality().hash(_collections), hasCorrectHandle);
+  int get hashCode => Object.hash(
+      runtimeType,
+      handle,
+      did,
+      const DeepCollectionEquality().hash(_didDoc),
+      const DeepCollectionEquality().hash(_collections),
+      hasCorrectHandle);
 
   @JsonKey(ignore: true)
   @override
@@ -252,12 +252,12 @@ class _$RepoInfoImpl implements _RepoInfo {
 
 abstract class _RepoInfo implements RepoInfo {
   const factory _RepoInfo(
-      {required final String handle,
-      required final String did,
-      required final ParsedDidDoc didDoc,
-      required final List<String> collections,
-      @JsonKey(name: 'handleIsCorrect')
-      required final bool hasCorrectHandle}) = _$RepoInfoImpl;
+          {required final String handle,
+          required final String did,
+          required final Map<String, dynamic> didDoc,
+          required final List<String> collections,
+          @JsonKey(name: 'handleIsCorrect') final bool hasCorrectHandle}) =
+      _$RepoInfoImpl;
 
   factory _RepoInfo.fromJson(Map<String, dynamic> json) =
       _$RepoInfoImpl.fromJson;
@@ -273,7 +273,7 @@ abstract class _RepoInfo implements RepoInfo {
   @override
 
   /// The parsed DID document.
-  ParsedDidDoc get didDoc;
+  Map<String, dynamic> get didDoc;
   @override
 
   /// A list of collections included in the repository.

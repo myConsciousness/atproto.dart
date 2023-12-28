@@ -11,7 +11,7 @@ import '../../lex_annotations.g.dart' as lex;
 part 'did.freezed.dart';
 part 'did.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle#main
+/// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle#output
 @freezed
 @lex.comAtprotoIdentityResolveHandle
 class DID with _$DID {

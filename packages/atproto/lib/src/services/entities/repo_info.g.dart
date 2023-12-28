@@ -16,13 +16,11 @@ _$RepoInfoImpl _$$RepoInfoImplFromJson(Map json) => $checkedCreate(
           handle: $checkedConvert('handle', (v) => v as String),
           did: $checkedConvert('did', (v) => v as String),
           didDoc: $checkedConvert(
-              'didDoc',
-              (v) =>
-                  ParsedDidDoc.fromJson(Map<String, Object?>.from(v as Map))),
+              'didDoc', (v) => Map<String, dynamic>.from(v as Map)),
           collections: $checkedConvert('collections',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           hasCorrectHandle:
-              $checkedConvert('handleIsCorrect', (v) => v as bool),
+              $checkedConvert('handleIsCorrect', (v) => v as bool? ?? false),
         );
         return val;
       },
@@ -33,7 +31,7 @@ Map<String, dynamic> _$$RepoInfoImplToJson(_$RepoInfoImpl instance) =>
     <String, dynamic>{
       'handle': instance.handle,
       'did': instance.did,
-      'didDoc': instance.didDoc.toJson(),
+      'didDoc': instance.didDoc,
       'collections': instance.collections,
       'handleIsCorrect': instance.hasCorrectHandle,
     };

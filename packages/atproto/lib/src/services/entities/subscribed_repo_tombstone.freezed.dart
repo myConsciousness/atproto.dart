@@ -21,14 +21,9 @@ SubscribedRepoTombstone _$SubscribedRepoTombstoneFromJson(
 
 /// @nodoc
 mixin _$SubscribedRepoTombstone {
-  /// The identifier of the subscribed repository.
   String get did => throw _privateConstructorUsedError;
-
-  /// A cursor representing the position of the tombstone.
   @JsonKey(name: 'seq')
   int get cursor => throw _privateConstructorUsedError;
-
-  /// The time at which the tombstone was created.
   @JsonKey(name: 'time')
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -145,16 +140,11 @@ class _$SubscribedRepoTombstoneImpl implements _SubscribedRepoTombstone {
   factory _$SubscribedRepoTombstoneImpl.fromJson(Map<String, dynamic> json) =>
       _$$SubscribedRepoTombstoneImplFromJson(json);
 
-  /// The identifier of the subscribed repository.
   @override
   final String did;
-
-  /// A cursor representing the position of the tombstone.
   @override
   @JsonKey(name: 'seq')
   final int cursor;
-
-  /// The time at which the tombstone was created.
   @override
   @JsonKey(name: 'time')
   final DateTime createdAt;
@@ -205,17 +195,11 @@ abstract class _SubscribedRepoTombstone implements SubscribedRepoTombstone {
       _$SubscribedRepoTombstoneImpl.fromJson;
 
   @override
-
-  /// The identifier of the subscribed repository.
   String get did;
   @override
-
-  /// A cursor representing the position of the tombstone.
   @JsonKey(name: 'seq')
   int get cursor;
   @override
-
-  /// The time at which the tombstone was created.
   @JsonKey(name: 'time')
   DateTime get createdAt;
   @override

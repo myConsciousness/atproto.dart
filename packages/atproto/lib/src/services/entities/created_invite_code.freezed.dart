@@ -20,7 +20,6 @@ CreatedInviteCode _$CreatedInviteCodeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CreatedInviteCode {
-  /// The invitation code.
   String get code => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -103,7 +102,6 @@ class _$CreatedInviteCodeImpl implements _CreatedInviteCode {
   factory _$CreatedInviteCodeImpl.fromJson(Map<String, dynamic> json) =>
       _$$CreatedInviteCodeImplFromJson(json);
 
-  /// The invitation code.
   @override
   final String code;
 
@@ -147,8 +145,6 @@ abstract class _CreatedInviteCode implements CreatedInviteCode {
       _$CreatedInviteCodeImpl.fromJson;
 
   @override
-
-  /// The invitation code.
   String get code;
   @override
   @JsonKey(ignore: true)

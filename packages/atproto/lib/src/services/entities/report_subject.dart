@@ -14,6 +14,8 @@ import 'strong_ref.dart';
 
 part 'report_subject.freezed.dart';
 
+/// https://atprotodart.com/docs/lexicons/com/atproto/moderation/createreport/#input
+/// https://atprotodart.com/docs/lexicons/com/atproto/moderation/createreport/#output
 @freezed
 class ReportSubject with _$ReportSubject {
   const ReportSubject._();

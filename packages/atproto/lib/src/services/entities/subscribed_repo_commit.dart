@@ -9,31 +9,20 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../lex_annotations.g.dart' as lex;
 import 'repo_op.dart';
 
 part 'subscribed_repo_commit.freezed.dart';
 part 'subscribed_repo_commit.g.dart';
 
-/// Represents a commit to a subscribed repository.
-///
-/// Each commit is a list of repository operations,
-/// and contains metadata such as the repository did, cursor, creation time,
-/// and flags to indicate if the commit was a rebase or if it was too big.
+/// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#commit
 @freezed
+@lex.comAtprotoSyncSubscribeReposCommit
 class SubscribedRepoCommit with _$SubscribedRepoCommit {
-  /// Creates a new instance of [SubscribedRepoCommit].
-  ///
-  /// All parameters are required.
   @jsonSerializable
   const factory SubscribedRepoCommit({
-    /// List of repository operations included in this commit.
     required List<RepoOp> ops,
-
-    /// Decentralized Identifier (DID) of the repository where
-    /// the commit was made.
     @JsonKey(name: 'repo') required String did,
-
-    /// The sequence number of this commit.
     @JsonKey(name: 'seq') required int cursor,
 
     /// The rev of the emitted commit.
@@ -41,21 +30,11 @@ class SubscribedRepoCommit with _$SubscribedRepoCommit {
 
     /// The rev of the last emitted commit from this repo.
     String? since,
-
-    /// Flag to indicate if the commit was a rebase.
-    @JsonKey(name: 'rebase') required bool isRebase,
-
-    /// Flag to indicate if the commit was too big.
-    @JsonKey(name: 'tooBig') required bool isTooBig,
-
-    /// The time the commit was created.
+    @JsonKey(name: 'rebase') @Default(false) bool isRebase,
+    @JsonKey(name: 'tooBig') @Default(false) bool isTooBig,
     @JsonKey(name: 'time') required DateTime createdAt,
   }) = _SubscribedRepoCommit;
 
-  /// Creates a new instance of [SubscribedRepoCommit] from a JSON object.
-  ///
-  /// The [json] parameter must be a map with keys and values that can be used
-  /// to populate an instance of [SubscribedRepoCommit].
   factory SubscribedRepoCommit.fromJson(Map<String, Object?> json) =>
       _$SubscribedRepoCommitFromJson(json);
 }

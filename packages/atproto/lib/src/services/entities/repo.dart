@@ -7,29 +7,21 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../lex_annotations.g.dart' as lex;
+
 part 'repo.freezed.dart';
 part 'repo.g.dart';
 
-/// Represents a repository.
+/// https://atprotodart.com/docs/lexicons/com/atproto/sync/listrepos/#repo
 @freezed
+@lex.comAtprotoSyncListReposRepo
 class Repo with _$Repo {
-  /// Creates a new instance of [Repo].
-  ///
-  /// Both [did] and [headCid] parameters are required.
   const factory Repo({
-    /// The DID of the repository.
     required String did,
-
-    /// The CID of the head of the repository.
     @JsonKey(name: 'head') required String headCid,
-
-    /// A revision of this repo.
     required String rev,
   }) = _Repo;
 
-  /// Creates a new instance of [Repo] from a JSON object.
-  ///
-  /// The [json] parameter must be a map with keys and values that can
-  /// be used to populate an instance of [Repo].
   factory Repo.fromJson(Map<String, Object?> json) => _$RepoFromJson(json);
 }
