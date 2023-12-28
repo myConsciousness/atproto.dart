@@ -1,6 +1,6 @@
 name: xrpc
 description: Core library for XRPC communication. This is a wrapped HTTP client for AT Protocol.
-version: 0.4.3
+version: 0.4.4
 homepage: https://atprotodart.com
 documentation: https://atprotodart.com/docs/intro
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/xrpc
@@ -30,7 +30,7 @@ dev_dependencies:
   test: ^1.21.0
   build_runner: ^2.4.6
   json_serializable: ^6.7.1
-  freezed: ^2.4.2
+  freezed: ^2.4.6
   import_sorter: ^4.6.0
 
 import_sorter:

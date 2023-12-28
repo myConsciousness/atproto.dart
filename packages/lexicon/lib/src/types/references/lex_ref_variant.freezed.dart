@@ -76,10 +76,10 @@ class _$LexRefVariantCopyWithImpl<$Res, $Val extends LexRefVariant>
 }
 
 /// @nodoc
-abstract class _$$ULexRefVariantRefCopyWith<$Res> {
-  factory _$$ULexRefVariantRefCopyWith(
-          _$ULexRefVariantRef value, $Res Function(_$ULexRefVariantRef) then) =
-      __$$ULexRefVariantRefCopyWithImpl<$Res>;
+abstract class _$$ULexRefVariantRefImplCopyWith<$Res> {
+  factory _$$ULexRefVariantRefImplCopyWith(_$ULexRefVariantRefImpl value,
+          $Res Function(_$ULexRefVariantRefImpl) then) =
+      __$$ULexRefVariantRefImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexRef data});
 
@@ -87,11 +87,11 @@ abstract class _$$ULexRefVariantRefCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULexRefVariantRefCopyWithImpl<$Res>
-    extends _$LexRefVariantCopyWithImpl<$Res, _$ULexRefVariantRef>
-    implements _$$ULexRefVariantRefCopyWith<$Res> {
-  __$$ULexRefVariantRefCopyWithImpl(
-      _$ULexRefVariantRef _value, $Res Function(_$ULexRefVariantRef) _then)
+class __$$ULexRefVariantRefImplCopyWithImpl<$Res>
+    extends _$LexRefVariantCopyWithImpl<$Res, _$ULexRefVariantRefImpl>
+    implements _$$ULexRefVariantRefImplCopyWith<$Res> {
+  __$$ULexRefVariantRefImplCopyWithImpl(_$ULexRefVariantRefImpl _value,
+      $Res Function(_$ULexRefVariantRefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$ULexRefVariantRefCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULexRefVariantRef(
+    return _then(_$ULexRefVariantRefImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -118,8 +118,8 @@ class __$$ULexRefVariantRefCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULexRefVariantRef extends ULexRefVariantRef {
-  const _$ULexRefVariantRef({required this.data}) : super._();
+class _$ULexRefVariantRefImpl extends ULexRefVariantRef {
+  const _$ULexRefVariantRefImpl({required this.data}) : super._();
 
   @override
   final LexRef data;
@@ -130,10 +130,10 @@ class _$ULexRefVariantRef extends ULexRefVariantRef {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULexRefVariantRef &&
+            other is _$ULexRefVariantRefImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -143,8 +143,9 @@ class _$ULexRefVariantRef extends ULexRefVariantRef {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULexRefVariantRefCopyWith<_$ULexRefVariantRef> get copyWith =>
-      __$$ULexRefVariantRefCopyWithImpl<_$ULexRefVariantRef>(this, _$identity);
+  _$$ULexRefVariantRefImplCopyWith<_$ULexRefVariantRefImpl> get copyWith =>
+      __$$ULexRefVariantRefImplCopyWithImpl<_$ULexRefVariantRefImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -211,21 +212,22 @@ class _$ULexRefVariantRef extends ULexRefVariantRef {
 
 abstract class ULexRefVariantRef extends LexRefVariant {
   const factory ULexRefVariantRef({required final LexRef data}) =
-      _$ULexRefVariantRef;
+      _$ULexRefVariantRefImpl;
   const ULexRefVariantRef._() : super._();
 
   @override
   LexRef get data;
   @JsonKey(ignore: true)
-  _$$ULexRefVariantRefCopyWith<_$ULexRefVariantRef> get copyWith =>
+  _$$ULexRefVariantRefImplCopyWith<_$ULexRefVariantRefImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ULexRefVariantRefUnionCopyWith<$Res> {
-  factory _$$ULexRefVariantRefUnionCopyWith(_$ULexRefVariantRefUnion value,
-          $Res Function(_$ULexRefVariantRefUnion) then) =
-      __$$ULexRefVariantRefUnionCopyWithImpl<$Res>;
+abstract class _$$ULexRefVariantRefUnionImplCopyWith<$Res> {
+  factory _$$ULexRefVariantRefUnionImplCopyWith(
+          _$ULexRefVariantRefUnionImpl value,
+          $Res Function(_$ULexRefVariantRefUnionImpl) then) =
+      __$$ULexRefVariantRefUnionImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexRefUnion data});
 
@@ -233,11 +235,12 @@ abstract class _$$ULexRefVariantRefUnionCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULexRefVariantRefUnionCopyWithImpl<$Res>
-    extends _$LexRefVariantCopyWithImpl<$Res, _$ULexRefVariantRefUnion>
-    implements _$$ULexRefVariantRefUnionCopyWith<$Res> {
-  __$$ULexRefVariantRefUnionCopyWithImpl(_$ULexRefVariantRefUnion _value,
-      $Res Function(_$ULexRefVariantRefUnion) _then)
+class __$$ULexRefVariantRefUnionImplCopyWithImpl<$Res>
+    extends _$LexRefVariantCopyWithImpl<$Res, _$ULexRefVariantRefUnionImpl>
+    implements _$$ULexRefVariantRefUnionImplCopyWith<$Res> {
+  __$$ULexRefVariantRefUnionImplCopyWithImpl(
+      _$ULexRefVariantRefUnionImpl _value,
+      $Res Function(_$ULexRefVariantRefUnionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -245,7 +248,7 @@ class __$$ULexRefVariantRefUnionCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULexRefVariantRefUnion(
+    return _then(_$ULexRefVariantRefUnionImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -264,8 +267,8 @@ class __$$ULexRefVariantRefUnionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULexRefVariantRefUnion extends ULexRefVariantRefUnion {
-  const _$ULexRefVariantRefUnion({required this.data}) : super._();
+class _$ULexRefVariantRefUnionImpl extends ULexRefVariantRefUnion {
+  const _$ULexRefVariantRefUnionImpl({required this.data}) : super._();
 
   @override
   final LexRefUnion data;
@@ -276,10 +279,10 @@ class _$ULexRefVariantRefUnion extends ULexRefVariantRefUnion {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULexRefVariantRefUnion &&
+            other is _$ULexRefVariantRefUnionImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -289,9 +292,9 @@ class _$ULexRefVariantRefUnion extends ULexRefVariantRefUnion {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULexRefVariantRefUnionCopyWith<_$ULexRefVariantRefUnion> get copyWith =>
-      __$$ULexRefVariantRefUnionCopyWithImpl<_$ULexRefVariantRefUnion>(
-          this, _$identity);
+  _$$ULexRefVariantRefUnionImplCopyWith<_$ULexRefVariantRefUnionImpl>
+      get copyWith => __$$ULexRefVariantRefUnionImplCopyWithImpl<
+          _$ULexRefVariantRefUnionImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -358,12 +361,12 @@ class _$ULexRefVariantRefUnion extends ULexRefVariantRefUnion {
 
 abstract class ULexRefVariantRefUnion extends LexRefVariant {
   const factory ULexRefVariantRefUnion({required final LexRefUnion data}) =
-      _$ULexRefVariantRefUnion;
+      _$ULexRefVariantRefUnionImpl;
   const ULexRefVariantRefUnion._() : super._();
 
   @override
   LexRefUnion get data;
   @JsonKey(ignore: true)
-  _$$ULexRefVariantRefUnionCopyWith<_$ULexRefVariantRefUnion> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ULexRefVariantRefUnionImplCopyWith<_$ULexRefVariantRefUnionImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -68,22 +68,22 @@ class _$LexUnknownCopyWithImpl<$Res, $Val extends LexUnknown>
 }
 
 /// @nodoc
-abstract class _$$_LexUnknownCopyWith<$Res>
+abstract class _$$LexUnknownImplCopyWith<$Res>
     implements $LexUnknownCopyWith<$Res> {
-  factory _$$_LexUnknownCopyWith(
-          _$_LexUnknown value, $Res Function(_$_LexUnknown) then) =
-      __$$_LexUnknownCopyWithImpl<$Res>;
+  factory _$$LexUnknownImplCopyWith(
+          _$LexUnknownImpl value, $Res Function(_$LexUnknownImpl) then) =
+      __$$LexUnknownImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String type, String? description});
 }
 
 /// @nodoc
-class __$$_LexUnknownCopyWithImpl<$Res>
-    extends _$LexUnknownCopyWithImpl<$Res, _$_LexUnknown>
-    implements _$$_LexUnknownCopyWith<$Res> {
-  __$$_LexUnknownCopyWithImpl(
-      _$_LexUnknown _value, $Res Function(_$_LexUnknown) _then)
+class __$$LexUnknownImplCopyWithImpl<$Res>
+    extends _$LexUnknownCopyWithImpl<$Res, _$LexUnknownImpl>
+    implements _$$LexUnknownImplCopyWith<$Res> {
+  __$$LexUnknownImplCopyWithImpl(
+      _$LexUnknownImpl _value, $Res Function(_$LexUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_LexUnknownCopyWithImpl<$Res>
     Object? type = null,
     Object? description = freezed,
   }) {
-    return _then(_$_LexUnknown(
+    return _then(_$LexUnknownImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -108,11 +108,11 @@ class __$$_LexUnknownCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexUnknown implements _LexUnknown {
-  const _$_LexUnknown({this.type = 'unknown', this.description});
+class _$LexUnknownImpl implements _LexUnknown {
+  const _$LexUnknownImpl({this.type = 'unknown', this.description});
 
-  factory _$_LexUnknown.fromJson(Map<String, dynamic> json) =>
-      _$$_LexUnknownFromJson(json);
+  factory _$LexUnknownImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LexUnknownImplFromJson(json);
 
   @override
   @JsonKey()
@@ -126,10 +126,10 @@ class _$_LexUnknown implements _LexUnknown {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexUnknown &&
+            other is _$LexUnknownImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description));
@@ -142,12 +142,12 @@ class _$_LexUnknown implements _LexUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexUnknownCopyWith<_$_LexUnknown> get copyWith =>
-      __$$_LexUnknownCopyWithImpl<_$_LexUnknown>(this, _$identity);
+  _$$LexUnknownImplCopyWith<_$LexUnknownImpl> get copyWith =>
+      __$$LexUnknownImplCopyWithImpl<_$LexUnknownImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LexUnknownToJson(
+    return _$$LexUnknownImplToJson(
       this,
     );
   }
@@ -155,10 +155,10 @@ class _$_LexUnknown implements _LexUnknown {
 
 abstract class _LexUnknown implements LexUnknown {
   const factory _LexUnknown({final String type, final String? description}) =
-      _$_LexUnknown;
+      _$LexUnknownImpl;
 
   factory _LexUnknown.fromJson(Map<String, dynamic> json) =
-      _$_LexUnknown.fromJson;
+      _$LexUnknownImpl.fromJson;
 
   @override
   String get type;
@@ -166,6 +166,6 @@ abstract class _LexUnknown implements LexUnknown {
   String? get description;
   @override
   @JsonKey(ignore: true)
-  _$$_LexUnknownCopyWith<_$_LexUnknown> get copyWith =>
+  _$$LexUnknownImplCopyWith<_$LexUnknownImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

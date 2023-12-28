@@ -6,14 +6,15 @@ part of 'auth_token.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AuthToken _$$_AuthTokenFromJson(Map<String, dynamic> json) => _$_AuthToken(
+_$AuthTokenImpl _$$AuthTokenImplFromJson(Map<String, dynamic> json) =>
+    _$AuthTokenImpl(
       scope: $enumDecode(_$AuthScopeEnumMap, json['scope']),
       subject: json['sub'] as String,
       expiresAt: dateTimeConverter.fromJson(json['exp'] as int),
       issuedAt: dateTimeConverter.fromJson(json['iat'] as int),
     );
 
-Map<String, dynamic> _$$_AuthTokenToJson(_$_AuthToken instance) =>
+Map<String, dynamic> _$$AuthTokenImplToJson(_$AuthTokenImpl instance) =>
     <String, dynamic>{
       'scope': _$AuthScopeEnumMap[instance.scope]!,
       'sub': instance.subject,

@@ -72,19 +72,21 @@ class _$LexRefCopyWithImpl<$Res, $Val extends LexRef>
 }
 
 /// @nodoc
-abstract class _$$_LexRefCopyWith<$Res> implements $LexRefCopyWith<$Res> {
-  factory _$$_LexRefCopyWith(_$_LexRef value, $Res Function(_$_LexRef) then) =
-      __$$_LexRefCopyWithImpl<$Res>;
+abstract class _$$LexRefImplCopyWith<$Res> implements $LexRefCopyWith<$Res> {
+  factory _$$LexRefImplCopyWith(
+          _$LexRefImpl value, $Res Function(_$LexRefImpl) then) =
+      __$$LexRefImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String type, String? description, String? ref});
 }
 
 /// @nodoc
-class __$$_LexRefCopyWithImpl<$Res>
-    extends _$LexRefCopyWithImpl<$Res, _$_LexRef>
-    implements _$$_LexRefCopyWith<$Res> {
-  __$$_LexRefCopyWithImpl(_$_LexRef _value, $Res Function(_$_LexRef) _then)
+class __$$LexRefImplCopyWithImpl<$Res>
+    extends _$LexRefCopyWithImpl<$Res, _$LexRefImpl>
+    implements _$$LexRefImplCopyWith<$Res> {
+  __$$LexRefImplCopyWithImpl(
+      _$LexRefImpl _value, $Res Function(_$LexRefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -94,7 +96,7 @@ class __$$_LexRefCopyWithImpl<$Res>
     Object? description = freezed,
     Object? ref = freezed,
   }) {
-    return _then(_$_LexRef(
+    return _then(_$LexRefImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -114,11 +116,11 @@ class __$$_LexRefCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexRef implements _LexRef {
-  const _$_LexRef({this.type = 'ref', this.description, this.ref});
+class _$LexRefImpl implements _LexRef {
+  const _$LexRefImpl({this.type = 'ref', this.description, this.ref});
 
-  factory _$_LexRef.fromJson(Map<String, dynamic> json) =>
-      _$$_LexRefFromJson(json);
+  factory _$LexRefImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LexRefImplFromJson(json);
 
   @override
   @JsonKey()
@@ -134,10 +136,10 @@ class _$_LexRef implements _LexRef {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexRef &&
+            other is _$LexRefImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -151,12 +153,12 @@ class _$_LexRef implements _LexRef {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexRefCopyWith<_$_LexRef> get copyWith =>
-      __$$_LexRefCopyWithImpl<_$_LexRef>(this, _$identity);
+  _$$LexRefImplCopyWith<_$LexRefImpl> get copyWith =>
+      __$$LexRefImplCopyWithImpl<_$LexRefImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LexRefToJson(
+    return _$$LexRefImplToJson(
       this,
     );
   }
@@ -166,9 +168,9 @@ abstract class _LexRef implements LexRef {
   const factory _LexRef(
       {final String type,
       final String? description,
-      final String? ref}) = _$_LexRef;
+      final String? ref}) = _$LexRefImpl;
 
-  factory _LexRef.fromJson(Map<String, dynamic> json) = _$_LexRef.fromJson;
+  factory _LexRef.fromJson(Map<String, dynamic> json) = _$LexRefImpl.fromJson;
 
   @override
   String get type;
@@ -178,6 +180,6 @@ abstract class _LexRef implements LexRef {
   String? get ref;
   @override
   @JsonKey(ignore: true)
-  _$$_LexRefCopyWith<_$_LexRef> get copyWith =>
+  _$$LexRefImplCopyWith<_$LexRefImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

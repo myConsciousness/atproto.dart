@@ -79,10 +79,10 @@ class _$LexBlobCopyWithImpl<$Res, $Val extends LexBlob>
 }
 
 /// @nodoc
-abstract class _$$_LexBlobCopyWith<$Res> implements $LexBlobCopyWith<$Res> {
-  factory _$$_LexBlobCopyWith(
-          _$_LexBlob value, $Res Function(_$_LexBlob) then) =
-      __$$_LexBlobCopyWithImpl<$Res>;
+abstract class _$$LexBlobImplCopyWith<$Res> implements $LexBlobCopyWith<$Res> {
+  factory _$$LexBlobImplCopyWith(
+          _$LexBlobImpl value, $Res Function(_$LexBlobImpl) then) =
+      __$$LexBlobImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -90,10 +90,11 @@ abstract class _$$_LexBlobCopyWith<$Res> implements $LexBlobCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LexBlobCopyWithImpl<$Res>
-    extends _$LexBlobCopyWithImpl<$Res, _$_LexBlob>
-    implements _$$_LexBlobCopyWith<$Res> {
-  __$$_LexBlobCopyWithImpl(_$_LexBlob _value, $Res Function(_$_LexBlob) _then)
+class __$$LexBlobImplCopyWithImpl<$Res>
+    extends _$LexBlobCopyWithImpl<$Res, _$LexBlobImpl>
+    implements _$$LexBlobImplCopyWith<$Res> {
+  __$$LexBlobImplCopyWithImpl(
+      _$LexBlobImpl _value, $Res Function(_$LexBlobImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -104,7 +105,7 @@ class __$$_LexBlobCopyWithImpl<$Res>
     Object? accept = freezed,
     Object? maxSize = freezed,
   }) {
-    return _then(_$_LexBlob(
+    return _then(_$LexBlobImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -128,16 +129,16 @@ class __$$_LexBlobCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexBlob implements _LexBlob {
-  const _$_LexBlob(
+class _$LexBlobImpl implements _LexBlob {
+  const _$LexBlobImpl(
       {this.type = 'blob',
       this.description,
       final List<String>? accept,
       this.maxSize})
       : _accept = accept;
 
-  factory _$_LexBlob.fromJson(Map<String, dynamic> json) =>
-      _$$_LexBlobFromJson(json);
+  factory _$LexBlobImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LexBlobImplFromJson(json);
 
   @override
   @JsonKey()
@@ -163,10 +164,10 @@ class _$_LexBlob implements _LexBlob {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexBlob &&
+            other is _$LexBlobImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -182,12 +183,12 @@ class _$_LexBlob implements _LexBlob {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexBlobCopyWith<_$_LexBlob> get copyWith =>
-      __$$_LexBlobCopyWithImpl<_$_LexBlob>(this, _$identity);
+  _$$LexBlobImplCopyWith<_$LexBlobImpl> get copyWith =>
+      __$$LexBlobImplCopyWithImpl<_$LexBlobImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LexBlobToJson(
+    return _$$LexBlobImplToJson(
       this,
     );
   }
@@ -198,9 +199,9 @@ abstract class _LexBlob implements LexBlob {
       {final String type,
       final String? description,
       final List<String>? accept,
-      final int? maxSize}) = _$_LexBlob;
+      final int? maxSize}) = _$LexBlobImpl;
 
-  factory _LexBlob.fromJson(Map<String, dynamic> json) = _$_LexBlob.fromJson;
+  factory _LexBlob.fromJson(Map<String, dynamic> json) = _$LexBlobImpl.fromJson;
 
   @override
   String get type;
@@ -212,6 +213,6 @@ abstract class _LexBlob implements LexBlob {
   int? get maxSize;
   @override
   @JsonKey(ignore: true)
-  _$$_LexBlobCopyWith<_$_LexBlob> get copyWith =>
+  _$$LexBlobImplCopyWith<_$LexBlobImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

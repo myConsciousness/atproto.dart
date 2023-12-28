@@ -95,10 +95,11 @@ class _$AuthTokenCopyWithImpl<$Res, $Val extends AuthToken>
 }
 
 /// @nodoc
-abstract class _$$_AuthTokenCopyWith<$Res> implements $AuthTokenCopyWith<$Res> {
-  factory _$$_AuthTokenCopyWith(
-          _$_AuthToken value, $Res Function(_$_AuthToken) then) =
-      __$$_AuthTokenCopyWithImpl<$Res>;
+abstract class _$$AuthTokenImplCopyWith<$Res>
+    implements $AuthTokenCopyWith<$Res> {
+  factory _$$AuthTokenImplCopyWith(
+          _$AuthTokenImpl value, $Res Function(_$AuthTokenImpl) then) =
+      __$$AuthTokenImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -109,11 +110,11 @@ abstract class _$$_AuthTokenCopyWith<$Res> implements $AuthTokenCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_AuthTokenCopyWithImpl<$Res>
-    extends _$AuthTokenCopyWithImpl<$Res, _$_AuthToken>
-    implements _$$_AuthTokenCopyWith<$Res> {
-  __$$_AuthTokenCopyWithImpl(
-      _$_AuthToken _value, $Res Function(_$_AuthToken) _then)
+class __$$AuthTokenImplCopyWithImpl<$Res>
+    extends _$AuthTokenCopyWithImpl<$Res, _$AuthTokenImpl>
+    implements _$$AuthTokenImplCopyWith<$Res> {
+  __$$AuthTokenImplCopyWithImpl(
+      _$AuthTokenImpl _value, $Res Function(_$AuthTokenImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -124,7 +125,7 @@ class __$$_AuthTokenCopyWithImpl<$Res>
     Object? expiresAt = null,
     Object? issuedAt = null,
   }) {
-    return _then(_$_AuthToken(
+    return _then(_$AuthTokenImpl(
       scope: null == scope
           ? _value.scope
           : scope // ignore: cast_nullable_to_non_nullable
@@ -148,16 +149,16 @@ class __$$_AuthTokenCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_AuthToken extends _AuthToken {
-  const _$_AuthToken(
+class _$AuthTokenImpl extends _AuthToken {
+  const _$AuthTokenImpl(
       {required this.scope,
       @JsonKey(name: 'sub') required this.subject,
       @dateTimeConverter @JsonKey(name: 'exp') required this.expiresAt,
       @dateTimeConverter @JsonKey(name: 'iat') required this.issuedAt})
       : super._();
 
-  factory _$_AuthToken.fromJson(Map<String, dynamic> json) =>
-      _$$_AuthTokenFromJson(json);
+  factory _$AuthTokenImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AuthTokenImplFromJson(json);
 
   /// A scope of this token.
   @override
@@ -186,10 +187,10 @@ class _$_AuthToken extends _AuthToken {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AuthToken &&
+            other is _$AuthTokenImpl &&
             (identical(other.scope, scope) || other.scope == scope) &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.expiresAt, expiresAt) ||
@@ -206,12 +207,12 @@ class _$_AuthToken extends _AuthToken {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AuthTokenCopyWith<_$_AuthToken> get copyWith =>
-      __$$_AuthTokenCopyWithImpl<_$_AuthToken>(this, _$identity);
+  _$$AuthTokenImplCopyWith<_$AuthTokenImpl> get copyWith =>
+      __$$AuthTokenImplCopyWithImpl<_$AuthTokenImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AuthTokenToJson(
+    return _$$AuthTokenImplToJson(
       this,
     );
   }
@@ -226,11 +227,11 @@ abstract class _AuthToken extends AuthToken {
       required final DateTime expiresAt,
       @dateTimeConverter
       @JsonKey(name: 'iat')
-      required final DateTime issuedAt}) = _$_AuthToken;
+      required final DateTime issuedAt}) = _$AuthTokenImpl;
   const _AuthToken._() : super._();
 
   factory _AuthToken.fromJson(Map<String, dynamic> json) =
-      _$_AuthToken.fromJson;
+      _$AuthTokenImpl.fromJson;
 
   @override
 
@@ -255,6 +256,6 @@ abstract class _AuthToken extends AuthToken {
   DateTime get issuedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_AuthTokenCopyWith<_$_AuthToken> get copyWith =>
+  _$$AuthTokenImplCopyWith<_$AuthTokenImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

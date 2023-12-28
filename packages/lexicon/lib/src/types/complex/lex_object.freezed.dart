@@ -215,7 +215,7 @@ class _$LexObjectImpl implements _LexObject {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LexObjectImpl &&

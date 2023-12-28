@@ -117,10 +117,10 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
 }
 
 /// @nodoc
-abstract class _$$_SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
-  factory _$$_SessionCopyWith(
-          _$_Session value, $Res Function(_$_Session) then) =
-      __$$_SessionCopyWithImpl<$Res>;
+abstract class _$$SessionImplCopyWith<$Res> implements $SessionCopyWith<$Res> {
+  factory _$$SessionImplCopyWith(
+          _$SessionImpl value, $Res Function(_$SessionImpl) then) =
+      __$$SessionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -134,10 +134,11 @@ abstract class _$$_SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_SessionCopyWithImpl<$Res>
-    extends _$SessionCopyWithImpl<$Res, _$_Session>
-    implements _$$_SessionCopyWith<$Res> {
-  __$$_SessionCopyWithImpl(_$_Session _value, $Res Function(_$_Session) _then)
+class __$$SessionImplCopyWithImpl<$Res>
+    extends _$SessionCopyWithImpl<$Res, _$SessionImpl>
+    implements _$$SessionImplCopyWith<$Res> {
+  __$$SessionImplCopyWithImpl(
+      _$SessionImpl _value, $Res Function(_$SessionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -151,7 +152,7 @@ class __$$_SessionCopyWithImpl<$Res>
     Object? refreshJwt = null,
     Object? didDoc = freezed,
   }) {
-    return _then(_$_Session(
+    return _then(_$SessionImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -187,8 +188,8 @@ class __$$_SessionCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$_Session extends _Session {
-  const _$_Session(
+class _$SessionImpl extends _Session {
+  const _$SessionImpl(
       {required this.did,
       required this.handle,
       this.email,
@@ -199,8 +200,8 @@ class _$_Session extends _Session {
       : _didDoc = didDoc,
         super._();
 
-  factory _$_Session.fromJson(Map<String, dynamic> json) =>
-      _$$_SessionFromJson(json);
+  factory _$SessionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SessionImplFromJson(json);
 
   /// Decentralized Identifier for the user.
   @override
@@ -246,10 +247,10 @@ class _$_Session extends _Session {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Session &&
+            other is _$SessionImpl &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.email, email) || other.email == email) &&
@@ -277,12 +278,12 @@ class _$_Session extends _Session {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SessionCopyWith<_$_Session> get copyWith =>
-      __$$_SessionCopyWithImpl<_$_Session>(this, _$identity);
+  _$$SessionImplCopyWith<_$SessionImpl> get copyWith =>
+      __$$SessionImplCopyWithImpl<_$SessionImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SessionToJson(
+    return _$$SessionImplToJson(
       this,
     );
   }
@@ -296,10 +297,10 @@ abstract class _Session extends Session {
       @JsonKey(name: 'emailConfirmed') final bool isEmailConfirmed,
       required final String accessJwt,
       required final String refreshJwt,
-      final Map<String, dynamic>? didDoc}) = _$_Session;
+      final Map<String, dynamic>? didDoc}) = _$SessionImpl;
   const _Session._() : super._();
 
-  factory _Session.fromJson(Map<String, dynamic> json) = _$_Session.fromJson;
+  factory _Session.fromJson(Map<String, dynamic> json) = _$SessionImpl.fromJson;
 
   @override
 
@@ -332,6 +333,6 @@ abstract class _Session extends Session {
   Map<String, dynamic>? get didDoc;
   @override
   @JsonKey(ignore: true)
-  _$$_SessionCopyWith<_$_Session> get copyWith =>
+  _$$SessionImplCopyWith<_$SessionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

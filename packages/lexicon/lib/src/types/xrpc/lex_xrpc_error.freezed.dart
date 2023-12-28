@@ -68,22 +68,22 @@ class _$LexXrpcErrorCopyWithImpl<$Res, $Val extends LexXrpcError>
 }
 
 /// @nodoc
-abstract class _$$_LexXrpcErrorCopyWith<$Res>
+abstract class _$$LexXrpcErrorImplCopyWith<$Res>
     implements $LexXrpcErrorCopyWith<$Res> {
-  factory _$$_LexXrpcErrorCopyWith(
-          _$_LexXrpcError value, $Res Function(_$_LexXrpcError) then) =
-      __$$_LexXrpcErrorCopyWithImpl<$Res>;
+  factory _$$LexXrpcErrorImplCopyWith(
+          _$LexXrpcErrorImpl value, $Res Function(_$LexXrpcErrorImpl) then) =
+      __$$LexXrpcErrorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String? description});
 }
 
 /// @nodoc
-class __$$_LexXrpcErrorCopyWithImpl<$Res>
-    extends _$LexXrpcErrorCopyWithImpl<$Res, _$_LexXrpcError>
-    implements _$$_LexXrpcErrorCopyWith<$Res> {
-  __$$_LexXrpcErrorCopyWithImpl(
-      _$_LexXrpcError _value, $Res Function(_$_LexXrpcError) _then)
+class __$$LexXrpcErrorImplCopyWithImpl<$Res>
+    extends _$LexXrpcErrorCopyWithImpl<$Res, _$LexXrpcErrorImpl>
+    implements _$$LexXrpcErrorImplCopyWith<$Res> {
+  __$$LexXrpcErrorImplCopyWithImpl(
+      _$LexXrpcErrorImpl _value, $Res Function(_$LexXrpcErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_LexXrpcErrorCopyWithImpl<$Res>
     Object? name = null,
     Object? description = freezed,
   }) {
-    return _then(_$_LexXrpcError(
+    return _then(_$LexXrpcErrorImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -108,11 +108,11 @@ class __$$_LexXrpcErrorCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$_LexXrpcError implements _LexXrpcError {
-  const _$_LexXrpcError({required this.name, this.description});
+class _$LexXrpcErrorImpl implements _LexXrpcError {
+  const _$LexXrpcErrorImpl({required this.name, this.description});
 
-  factory _$_LexXrpcError.fromJson(Map<String, dynamic> json) =>
-      _$$_LexXrpcErrorFromJson(json);
+  factory _$LexXrpcErrorImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LexXrpcErrorImplFromJson(json);
 
   @override
   final String name;
@@ -125,10 +125,10 @@ class _$_LexXrpcError implements _LexXrpcError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LexXrpcError &&
+            other is _$LexXrpcErrorImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description));
@@ -141,12 +141,12 @@ class _$_LexXrpcError implements _LexXrpcError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LexXrpcErrorCopyWith<_$_LexXrpcError> get copyWith =>
-      __$$_LexXrpcErrorCopyWithImpl<_$_LexXrpcError>(this, _$identity);
+  _$$LexXrpcErrorImplCopyWith<_$LexXrpcErrorImpl> get copyWith =>
+      __$$LexXrpcErrorImplCopyWithImpl<_$LexXrpcErrorImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LexXrpcErrorToJson(
+    return _$$LexXrpcErrorImplToJson(
       this,
     );
   }
@@ -155,10 +155,10 @@ class _$_LexXrpcError implements _LexXrpcError {
 abstract class _LexXrpcError implements LexXrpcError {
   const factory _LexXrpcError(
       {required final String name,
-      final String? description}) = _$_LexXrpcError;
+      final String? description}) = _$LexXrpcErrorImpl;
 
   factory _LexXrpcError.fromJson(Map<String, dynamic> json) =
-      _$_LexXrpcError.fromJson;
+      _$LexXrpcErrorImpl.fromJson;
 
   @override
   String get name;
@@ -166,6 +166,6 @@ abstract class _LexXrpcError implements LexXrpcError {
   String? get description;
   @override
   @JsonKey(ignore: true)
-  _$$_LexXrpcErrorCopyWith<_$_LexXrpcError> get copyWith =>
+  _$$LexXrpcErrorImplCopyWith<_$LexXrpcErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

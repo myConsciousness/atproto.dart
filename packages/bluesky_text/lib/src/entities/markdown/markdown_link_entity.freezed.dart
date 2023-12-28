@@ -84,11 +84,11 @@ class _$MarkdownLinkEntityCopyWithImpl<$Res, $Val extends MarkdownLinkEntity>
 }
 
 /// @nodoc
-abstract class _$$_MarkdownLinkEntityCopyWith<$Res>
+abstract class _$$MarkdownLinkEntityImplCopyWith<$Res>
     implements $MarkdownLinkEntityCopyWith<$Res> {
-  factory _$$_MarkdownLinkEntityCopyWith(_$_MarkdownLinkEntity value,
-          $Res Function(_$_MarkdownLinkEntity) then) =
-      __$$_MarkdownLinkEntityCopyWithImpl<$Res>;
+  factory _$$MarkdownLinkEntityImplCopyWith(_$MarkdownLinkEntityImpl value,
+          $Res Function(_$MarkdownLinkEntityImpl) then) =
+      __$$MarkdownLinkEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String text, String url, ByteIndices indices});
@@ -98,11 +98,11 @@ abstract class _$$_MarkdownLinkEntityCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_MarkdownLinkEntityCopyWithImpl<$Res>
-    extends _$MarkdownLinkEntityCopyWithImpl<$Res, _$_MarkdownLinkEntity>
-    implements _$$_MarkdownLinkEntityCopyWith<$Res> {
-  __$$_MarkdownLinkEntityCopyWithImpl(
-      _$_MarkdownLinkEntity _value, $Res Function(_$_MarkdownLinkEntity) _then)
+class __$$MarkdownLinkEntityImplCopyWithImpl<$Res>
+    extends _$MarkdownLinkEntityCopyWithImpl<$Res, _$MarkdownLinkEntityImpl>
+    implements _$$MarkdownLinkEntityImplCopyWith<$Res> {
+  __$$MarkdownLinkEntityImplCopyWithImpl(_$MarkdownLinkEntityImpl _value,
+      $Res Function(_$MarkdownLinkEntityImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +112,7 @@ class __$$_MarkdownLinkEntityCopyWithImpl<$Res>
     Object? url = null,
     Object? indices = null,
   }) {
-    return _then(_$_MarkdownLinkEntity(
+    return _then(_$MarkdownLinkEntityImpl(
       text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -131,13 +131,13 @@ class __$$_MarkdownLinkEntityCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MarkdownLinkEntity extends _MarkdownLinkEntity {
-  const _$_MarkdownLinkEntity(
+class _$MarkdownLinkEntityImpl extends _MarkdownLinkEntity {
+  const _$MarkdownLinkEntityImpl(
       {required this.text, required this.url, required this.indices})
       : super._();
 
-  factory _$_MarkdownLinkEntity.fromJson(Map<String, dynamic> json) =>
-      _$$_MarkdownLinkEntityFromJson(json);
+  factory _$MarkdownLinkEntityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MarkdownLinkEntityImplFromJson(json);
 
   @override
   final String text;
@@ -152,10 +152,10 @@ class _$_MarkdownLinkEntity extends _MarkdownLinkEntity {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MarkdownLinkEntity &&
+            other is _$MarkdownLinkEntityImpl &&
             (identical(other.text, text) || other.text == text) &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.indices, indices) || other.indices == indices));
@@ -168,13 +168,13 @@ class _$_MarkdownLinkEntity extends _MarkdownLinkEntity {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MarkdownLinkEntityCopyWith<_$_MarkdownLinkEntity> get copyWith =>
-      __$$_MarkdownLinkEntityCopyWithImpl<_$_MarkdownLinkEntity>(
+  _$$MarkdownLinkEntityImplCopyWith<_$MarkdownLinkEntityImpl> get copyWith =>
+      __$$MarkdownLinkEntityImplCopyWithImpl<_$MarkdownLinkEntityImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MarkdownLinkEntityToJson(
+    return _$$MarkdownLinkEntityImplToJson(
       this,
     );
   }
@@ -184,11 +184,11 @@ abstract class _MarkdownLinkEntity extends MarkdownLinkEntity {
   const factory _MarkdownLinkEntity(
       {required final String text,
       required final String url,
-      required final ByteIndices indices}) = _$_MarkdownLinkEntity;
+      required final ByteIndices indices}) = _$MarkdownLinkEntityImpl;
   const _MarkdownLinkEntity._() : super._();
 
   factory _MarkdownLinkEntity.fromJson(Map<String, dynamic> json) =
-      _$_MarkdownLinkEntity.fromJson;
+      _$MarkdownLinkEntityImpl.fromJson;
 
   @override
   String get text;
@@ -198,6 +198,6 @@ abstract class _MarkdownLinkEntity extends MarkdownLinkEntity {
   ByteIndices get indices;
   @override
   @JsonKey(ignore: true)
-  _$$_MarkdownLinkEntityCopyWith<_$_MarkdownLinkEntity> get copyWith =>
+  _$$MarkdownLinkEntityImplCopyWith<_$MarkdownLinkEntityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

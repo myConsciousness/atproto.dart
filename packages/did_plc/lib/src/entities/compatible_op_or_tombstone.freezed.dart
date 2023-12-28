@@ -150,7 +150,7 @@ class _$UCompatibleOpOrTombstoneOpImpl extends UCompatibleOpOrTombstoneOp {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UCompatibleOpOrTombstoneOpImpl &&
@@ -318,7 +318,7 @@ class _$UCompatibleOpOrTombstoneTombstoneImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UCompatibleOpOrTombstoneTombstoneImpl &&
@@ -490,7 +490,7 @@ class _$UCompatibleOpOrTombstoneCreateOperationV1Impl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UCompatibleOpOrTombstoneCreateOperationV1Impl &&
@@ -661,7 +661,7 @@ class _$UCompatibleOpOrTombstoneUnknownImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UCompatibleOpOrTombstoneUnknownImpl &&

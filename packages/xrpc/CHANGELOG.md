@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.4
+
+- Upgrade dependencies. ([#1146](https://github.com/myConsciousness/atproto.dart/issues/1146))
+
 ## v0.4.3
 
 - Don't remove empty list.
