@@ -9,7 +9,9 @@ description: com.atproto.admin.enableAccountInvites
 
 Re-enable an account's ability to receive invite codes.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

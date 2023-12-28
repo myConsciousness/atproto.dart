@@ -7,7 +7,7 @@ description: app.bsky.graph.listitem
 
 ## #main
 
-### Input (Record)
+### Input
 
 An item under a declared list of actors.
 
@@ -19,4 +19,8 @@ Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/create
 | **list** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 
-### Output ([com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main))
+### Output
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| ref | [com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ✅ | - |

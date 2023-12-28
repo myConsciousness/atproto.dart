@@ -21,7 +21,9 @@ List a range of records in a collection.
 | **rkeyEnd** | string | - | ❌ | DEPRECATED: The highest sort-ordered rkey to stop at (exclusive) |
 | **reverse** | boolean | - | ❌ | Flag to reverse the order of the returned records. |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

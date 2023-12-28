@@ -9,7 +9,9 @@ description: app.bsky.graph.muteActor
 
 Mute an actor by DID or handle.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

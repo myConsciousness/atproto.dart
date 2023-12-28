@@ -9,7 +9,9 @@ description: com.atproto.identity.updateHandle
 
 Updates the handle of the account.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

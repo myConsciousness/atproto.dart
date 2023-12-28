@@ -89,7 +89,7 @@ void _writeRecord(
 ) {
   matrix
     ..writeln()
-    ..writeln('### Input (Record)');
+    ..writeln('### Input');
 
   if (data.description != null) {
     matrix
@@ -106,7 +106,12 @@ void _writeRecord(
 
   matrix
     ..writeln()
-    ..writeln('### Output (${_toRefLink('com.atproto.repo.strongRef')})');
+    ..writeln('### Output')
+    ..writeln()
+    ..writeln(_tableHeader)
+    ..writeln(_tableDivider)
+    ..writeln('| ref | ${_toRefLink('com.atproto.repo.strongRef')} '
+        '| - | ✅ | - |');
 }
 
 void _writeXrpcQuery(
@@ -130,9 +135,12 @@ void _writeXrpcQuery(
 
   final output = data.output;
   if (output != null) {
+    final encoding = _escapeSpecialChars(output.encoding);
     matrix
       ..writeln()
-      ..writeln('### Output (${_escapeSpecialChars(output.encoding)})');
+      ..writeln('### Output')
+      ..writeln()
+      ..writeln('- **Encoding**: $encoding');
 
     if (output.description != null) {
       matrix
@@ -162,9 +170,12 @@ void _writeXrpcProcedure(
 
   final input = data.input;
   if (input != null) {
+    final encoding = _escapeSpecialChars(input.encoding);
     matrix
       ..writeln()
-      ..writeln('### Input (${_escapeSpecialChars(input.encoding)})');
+      ..writeln('### Input')
+      ..writeln()
+      ..writeln('- **Encoding**: $encoding');
 
     if (input.description != null) {
       matrix
@@ -183,9 +194,12 @@ void _writeXrpcProcedure(
 
   final output = data.output;
   if (output != null) {
+    final encoding = _escapeSpecialChars(output.encoding);
     matrix
       ..writeln()
-      ..writeln('### Output (${_escapeSpecialChars(output.encoding)})');
+      ..writeln('### Output')
+      ..writeln()
+      ..writeln('- **Encoding**: $encoding');
 
     if (output.description != null) {
       matrix

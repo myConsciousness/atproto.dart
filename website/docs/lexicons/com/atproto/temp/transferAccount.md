@@ -9,7 +9,9 @@ description: com.atproto.temp.transferAccount
 
 Transfer an account.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
@@ -17,7 +19,9 @@ Transfer an account.
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **plcOp** | unknown | - | ✅ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

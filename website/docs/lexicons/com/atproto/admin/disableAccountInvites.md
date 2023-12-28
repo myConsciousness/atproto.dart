@@ -9,7 +9,9 @@ description: com.atproto.admin.disableAccountInvites
 
 Disable an account from receiving new invite codes, but does not invalidate existing codes.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

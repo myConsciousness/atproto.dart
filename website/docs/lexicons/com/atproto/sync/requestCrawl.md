@@ -9,7 +9,9 @@ description: com.atproto.sync.requestCrawl
 
 Request a service to persistently crawl hosted repos.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

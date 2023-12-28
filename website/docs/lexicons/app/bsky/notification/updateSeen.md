@@ -9,7 +9,9 @@ description: app.bsky.notification.updateSeen
 
 Notify server that the user has seen notifications.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

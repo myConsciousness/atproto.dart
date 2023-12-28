@@ -9,13 +9,17 @@ description: com.atproto.server.reserveSigningKey
 
 Reserve a repo signing key for account creation.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **did** | string | - | ❌ | The did to reserve a new did:key for |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

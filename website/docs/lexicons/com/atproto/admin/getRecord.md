@@ -16,7 +16,9 @@ Get details about a record.
 | **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
 | **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

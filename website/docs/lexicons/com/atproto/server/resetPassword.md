@@ -9,7 +9,9 @@ description: com.atproto.server.resetPassword
 
 Reset a user account password using a token.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

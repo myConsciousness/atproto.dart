@@ -18,4 +18,6 @@ Get blocks needed for existence or non-existence of record.
 | **rkey** | string | - | ✅ | - |
 | **commit** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | An optional past commit CID. |
 
-### Output (application/vnd.ipld.car)
+### Output
+
+- **Encoding**: application/vnd.ipld.car

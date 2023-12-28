@@ -16,7 +16,9 @@ DEPRECATED: a skeleton of a timeline. Unspecced and will be unavailable soon.
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

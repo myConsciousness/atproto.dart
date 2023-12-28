@@ -17,7 +17,9 @@ Find actor suggestions for a prefix search term.
 | **q** | string | - | ❌ | Search query prefix; not a full query string. |
 | **limit** | integer | - | ❌ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

@@ -15,7 +15,9 @@ Get details about a moderation event.
 | --- | --- | --- | :---: | --- |
 | **id** | integer | - | ✅ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

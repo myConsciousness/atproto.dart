@@ -7,7 +7,7 @@ description: app.bsky.feed.generator
 
 ## #main
 
-### Input (Record)
+### Input
 
 A declaration of the existence of a feed generator.
 
@@ -23,4 +23,8 @@ Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/create
 | **labels** | union of <br/>[com.atproto.label.defs#selfLabels](../../../../lexicons/com/atproto/label/defs.md#selflabels) | - | ❌ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 
-### Output ([com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main))
+### Output
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| ref | [com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ✅ | - |

@@ -9,7 +9,9 @@ description: com.atproto.repo.applyWrites
 
 Apply a batch transaction of creates, updates, and deletes.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

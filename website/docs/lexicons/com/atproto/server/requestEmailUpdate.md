@@ -9,7 +9,9 @@ description: com.atproto.server.requestEmailUpdate
 
 Request a token in order to update email.
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

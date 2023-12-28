@@ -9,7 +9,9 @@ description: com.atproto.admin.emitModerationEvent
 
 Take a moderation action on an actor.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
@@ -18,7 +20,9 @@ Take a moderation action on an actor.
 | **subjectBlobCids** | array of string | - | ❌ | - |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
