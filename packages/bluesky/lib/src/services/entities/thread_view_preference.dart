@@ -10,33 +10,24 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
+import '../../lex_annotations.g.dart' as lex;
 
 part 'thread_view_preference.freezed.dart';
 part 'thread_view_preference.g.dart';
 
-/// A [ThreadViewPreference] represents the user's thread view preferences.
+/// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#threadviewpref
 @freezed
+@lex.appBskyActorDefsThreadViewPref
 class ThreadViewPreference with _$ThreadViewPreference {
-  /// Default constructor for [ThreadViewPreference].
   @jsonSerializable
   const factory ThreadViewPreference({
-    /// A string that represents the type of the object.
-    /// By default, it is [appBskyActorDefsThreadViewPref].
     @typeKey @Default(appBskyActorDefsThreadViewPref) String type,
-
-    /// Sorting mode.
     ThreadViewSortType? sort,
-
-    /// Show followed users at the top of all replies.
     @JsonKey(name: 'prioritizeFollowedUsers')
     @Default(false)
     bool isPrioritizeFollowedUsers,
   }) = _ThreadViewPreference;
 
-  /// Creates a [ThreadViewPreference] object from a map ([json]).
-  ///
-  /// This constructor is used for deserialization of the JSON that
-  /// represents a [ThreadViewPreference] object.
   factory ThreadViewPreference.fromJson(Map<String, Object?> json) =>
       _$ThreadViewPreferenceFromJson(json);
 }

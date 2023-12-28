@@ -20,8 +20,7 @@ SuggestedFollows _$SuggestedFollowsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SuggestedFollows {
-  /// The list of [ActorProfile] instances.
-  List<ActorProfile> get suggestions => throw _privateConstructorUsedError;
+  List<Actor> get suggestions => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +34,7 @@ abstract class $SuggestedFollowsCopyWith<$Res> {
           SuggestedFollows value, $Res Function(SuggestedFollows) then) =
       _$SuggestedFollowsCopyWithImpl<$Res, SuggestedFollows>;
   @useResult
-  $Res call({List<ActorProfile> suggestions});
+  $Res call({List<Actor> suggestions});
 }
 
 /// @nodoc
@@ -57,7 +56,7 @@ class _$SuggestedFollowsCopyWithImpl<$Res, $Val extends SuggestedFollows>
       suggestions: null == suggestions
           ? _value.suggestions
           : suggestions // ignore: cast_nullable_to_non_nullable
-              as List<ActorProfile>,
+              as List<Actor>,
     ) as $Val);
   }
 }
@@ -70,7 +69,7 @@ abstract class _$$SuggestedFollowsImplCopyWith<$Res>
       __$$SuggestedFollowsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ActorProfile> suggestions});
+  $Res call({List<Actor> suggestions});
 }
 
 /// @nodoc
@@ -90,7 +89,7 @@ class __$$SuggestedFollowsImplCopyWithImpl<$Res>
       suggestions: null == suggestions
           ? _value._suggestions
           : suggestions // ignore: cast_nullable_to_non_nullable
-              as List<ActorProfile>,
+              as List<Actor>,
     ));
   }
 }
@@ -98,18 +97,15 @@ class __$$SuggestedFollowsImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SuggestedFollowsImpl implements _SuggestedFollows {
-  const _$SuggestedFollowsImpl({required final List<ActorProfile> suggestions})
+  const _$SuggestedFollowsImpl({required final List<Actor> suggestions})
       : _suggestions = suggestions;
 
   factory _$SuggestedFollowsImpl.fromJson(Map<String, dynamic> json) =>
       _$$SuggestedFollowsImplFromJson(json);
 
-  /// The list of [ActorProfile] instances.
-  final List<ActorProfile> _suggestions;
-
-  /// The list of [ActorProfile] instances.
+  final List<Actor> _suggestions;
   @override
-  List<ActorProfile> get suggestions {
+  List<Actor> get suggestions {
     if (_suggestions is EqualUnmodifiableListView) return _suggestions;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_suggestions);
@@ -150,16 +146,14 @@ class _$SuggestedFollowsImpl implements _SuggestedFollows {
 }
 
 abstract class _SuggestedFollows implements SuggestedFollows {
-  const factory _SuggestedFollows(
-      {required final List<ActorProfile> suggestions}) = _$SuggestedFollowsImpl;
+  const factory _SuggestedFollows({required final List<Actor> suggestions}) =
+      _$SuggestedFollowsImpl;
 
   factory _SuggestedFollows.fromJson(Map<String, dynamic> json) =
       _$SuggestedFollowsImpl.fromJson;
 
   @override
-
-  /// The list of [ActorProfile] instances.
-  List<ActorProfile> get suggestions;
+  List<Actor> get suggestions;
   @override
   @JsonKey(ignore: true)
   _$$SuggestedFollowsImplCopyWith<_$SuggestedFollowsImpl> get copyWith =>

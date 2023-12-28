@@ -13,31 +13,24 @@ import 'thread_mention_rule.dart';
 
 part 'thread_rule.freezed.dart';
 
-/// The [ThreadRule] class is a wrapper for different types of post rules.
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate/#input
 @freezed
 class ThreadRule with _$ThreadRule {
   // ignore: unused_element
   const ThreadRule._();
 
-  /// This constructor is used when the rule is about a mention
   const factory ThreadRule.mention({
     required ThreadMentionRule data,
   }) = UThreadRuleMention;
 
-  /// This constructor is used when the rule is about a following.
   const factory ThreadRule.following({
     required ThreadFollowingRule data,
   }) = UThreadRuleFollowing;
 
-  /// This constructor is used when the rule is about a list.
   const factory ThreadRule.list({
     required ThreadListRule data,
   }) = UThreadRuleList;
 
-  /// This constructor is used when the post type is not supported or is not
-  /// expected.
-  ///
-  /// It includes the raw data map for further unknown feature.
   const factory ThreadRule.unknown({
     required Map<String, dynamic> data,
   }) = UThreadRuleUnknown;

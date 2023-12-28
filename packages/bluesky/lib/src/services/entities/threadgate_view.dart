@@ -10,38 +10,26 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
+import '../../lex_annotations.g.dart' as lex;
 import 'list_view_basic.dart';
 import 'threadgate_record.dart';
 
 part 'threadgate_view.freezed.dart';
 part 'threadgate_view.g.dart';
 
-/// Represents a threadgate in a feed.
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#threadgateview
 @freezed
+@lex.appBskyFeedDefsThreadgateView
 class ThreadgateView with _$ThreadgateView {
-  /// Creates a new instance of [ThreadgateView].
   @jsonSerializable
   const factory ThreadgateView({
-    /// The type of the threadgate view.
     @typeKey @Default(appBskyFeedDefsThreadgateView) String type,
-
-    /// The uri of this threadgate.
     @atUriConverter AtUri? uri,
-
-    /// The content id of this threadgate.
     String? cid,
-
-    /// The detailed values of this threadgate.
     ThreadgateRecord? record,
-
-    /// The related lists.
     List<ListViewBasic>? lists,
   }) = _ThreadgateView;
 
-  /// Creates a new instance of [ThreadgateView] from a map of [json] data.
-  ///
-  /// The [json] data must correspond to the structure of [ThreadgateView]
-  /// to properly convert.
   factory ThreadgateView.fromJson(Map<String, Object?> json) =>
       _$ThreadgateViewFromJson(json);
 }

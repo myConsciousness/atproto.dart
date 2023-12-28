@@ -20,7 +20,6 @@ SkeletonPost _$SkeletonPostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SkeletonPost {
-  /// The post uri.
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
 
@@ -104,7 +103,6 @@ class _$SkeletonPostImpl implements _SkeletonPost {
   factory _$SkeletonPostImpl.fromJson(Map<String, dynamic> json) =>
       _$$SkeletonPostImplFromJson(json);
 
-  /// The post uri.
   @override
   @atUriConverter
   final AtUri uri;
@@ -148,8 +146,6 @@ abstract class _SkeletonPost implements SkeletonPost {
       _$SkeletonPostImpl.fromJson;
 
   @override
-
-  /// The post uri.
   @atUriConverter
   AtUri get uri;
   @override

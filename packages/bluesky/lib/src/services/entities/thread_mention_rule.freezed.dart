@@ -20,7 +20,6 @@ ThreadMentionRule _$ThreadMentionRuleFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ThreadMentionRule {
-  /// Represents the type of this object.
   @typeKey
   String get type => throw _privateConstructorUsedError;
 
@@ -106,7 +105,6 @@ class _$ThreadMentionRuleImpl implements _ThreadMentionRule {
   factory _$ThreadMentionRuleImpl.fromJson(Map<String, dynamic> json) =>
       _$$ThreadMentionRuleImplFromJson(json);
 
-  /// Represents the type of this object.
   @override
   @typeKey
   final String type;
@@ -151,8 +149,6 @@ abstract class _ThreadMentionRule implements ThreadMentionRule {
       _$ThreadMentionRuleImpl.fromJson;
 
   @override
-
-  /// Represents the type of this object.
   @typeKey
   String get type;
   @override

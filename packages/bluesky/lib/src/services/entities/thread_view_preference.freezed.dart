@@ -20,15 +20,9 @@ ThreadViewPreference _$ThreadViewPreferenceFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ThreadViewPreference {
-  /// A string that represents the type of the object.
-  /// By default, it is [appBskyActorDefsThreadViewPref].
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// Sorting mode.
   ThreadViewSortType? get sort => throw _privateConstructorUsedError;
-
-  /// Show followed users at the top of all replies.
   @JsonKey(name: 'prioritizeFollowedUsers')
   bool get isPrioritizeFollowedUsers => throw _privateConstructorUsedError;
 
@@ -146,17 +140,11 @@ class _$ThreadViewPreferenceImpl implements _ThreadViewPreference {
   factory _$ThreadViewPreferenceImpl.fromJson(Map<String, dynamic> json) =>
       _$$ThreadViewPreferenceImplFromJson(json);
 
-  /// A string that represents the type of the object.
-  /// By default, it is [appBskyActorDefsThreadViewPref].
   @override
   @typeKey
   final String type;
-
-  /// Sorting mode.
   @override
   final ThreadViewSortType? sort;
-
-  /// Show followed users at the top of all replies.
   @override
   @JsonKey(name: 'prioritizeFollowedUsers')
   final bool isPrioritizeFollowedUsers;
@@ -210,18 +198,11 @@ abstract class _ThreadViewPreference implements ThreadViewPreference {
       _$ThreadViewPreferenceImpl.fromJson;
 
   @override
-
-  /// A string that represents the type of the object.
-  /// By default, it is [appBskyActorDefsThreadViewPref].
   @typeKey
   String get type;
   @override
-
-  /// Sorting mode.
   ThreadViewSortType? get sort;
   @override
-
-  /// Show followed users at the top of all replies.
   @JsonKey(name: 'prioritizeFollowedUsers')
   bool get isPrioritizeFollowedUsers;
   @override

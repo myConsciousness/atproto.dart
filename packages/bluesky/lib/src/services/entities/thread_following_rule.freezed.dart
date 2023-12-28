@@ -20,7 +20,6 @@ ThreadFollowingRule _$ThreadFollowingRuleFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ThreadFollowingRule {
-  /// Represents the type of this object.
   @typeKey
   String get type => throw _privateConstructorUsedError;
 
@@ -106,7 +105,6 @@ class _$ThreadFollowingRuleImpl implements _ThreadFollowingRule {
   factory _$ThreadFollowingRuleImpl.fromJson(Map<String, dynamic> json) =>
       _$$ThreadFollowingRuleImplFromJson(json);
 
-  /// Represents the type of this object.
   @override
   @typeKey
   final String type;
@@ -151,8 +149,6 @@ abstract class _ThreadFollowingRule implements ThreadFollowingRule {
       _$ThreadFollowingRuleImpl.fromJson;
 
   @override
-
-  /// Represents the type of this object.
   @typeKey
   String get type;
   @override

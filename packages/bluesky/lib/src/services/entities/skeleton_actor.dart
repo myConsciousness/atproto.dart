@@ -7,23 +7,20 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../lex_annotations.g.dart' as lex;
+
 part 'skeleton_actor.freezed.dart';
 part 'skeleton_actor.g.dart';
 
-/// Represents a skeleton actor.
+/// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/defs#skeletonsearchactor
 @freezed
+@lex.appBskyUnspeccedDefsSkeletonSearchActor
 class SkeletonActor with _$SkeletonActor {
-  /// Creates a new instance of [SkeletonActor].
   const factory SkeletonActor({
-    /// The global id for an actor.
     required String did,
   }) = _SkeletonActor;
 
-  /// Creates a new instance of [SkeletonActor] from a map of [json]
-  /// data.
-  ///
-  /// The [json] data must correspond to the structure of [SkeletonActor]
-  /// to properly convert.
   factory SkeletonActor.fromJson(Map<String, Object?> json) =>
       _$SkeletonActorFromJson(json);
 }

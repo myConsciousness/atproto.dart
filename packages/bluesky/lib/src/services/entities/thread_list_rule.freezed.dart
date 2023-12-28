@@ -20,11 +20,8 @@ ThreadListRule _$ThreadListRuleFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ThreadListRule {
-  /// Represents the type of this object.
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// The subject uri for a list.
   @JsonKey(name: 'list')
   @atUriConverter
   AtUri get listUri => throw _privateConstructorUsedError;
@@ -126,12 +123,9 @@ class _$ThreadListRuleImpl implements _ThreadListRule {
   factory _$ThreadListRuleImpl.fromJson(Map<String, dynamic> json) =>
       _$$ThreadListRuleImplFromJson(json);
 
-  /// Represents the type of this object.
   @override
   @typeKey
   final String type;
-
-  /// The subject uri for a list.
   @override
   @JsonKey(name: 'list')
   @atUriConverter
@@ -181,13 +175,9 @@ abstract class _ThreadListRule implements ThreadListRule {
       _$ThreadListRuleImpl.fromJson;
 
   @override
-
-  /// Represents the type of this object.
   @typeKey
   String get type;
   @override
-
-  /// The subject uri for a list.
   @JsonKey(name: 'list')
   @atUriConverter
   AtUri get listUri;

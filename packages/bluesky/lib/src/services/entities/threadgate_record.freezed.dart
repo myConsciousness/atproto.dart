@@ -20,21 +20,14 @@ ThreadgateRecord _$ThreadgateRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ThreadgateRecord {
-  /// The type of the threadgate record.
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// A post uri.
   @atUriConverter
   @JsonKey(name: 'post')
   AtUri get postUri => throw _privateConstructorUsedError;
-
-  /// Allowed rules.
   @threadRuleConverter
   @JsonKey(name: 'allow')
   List<ThreadRule>? get allowRules => throw _privateConstructorUsedError;
-
-  /// The timestamp of when the repost was created.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -163,21 +156,14 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
   factory _$ThreadgateRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$ThreadgateRecordImplFromJson(json);
 
-  /// The type of the threadgate record.
   @override
   @typeKey
   final String type;
-
-  /// A post uri.
   @override
   @atUriConverter
   @JsonKey(name: 'post')
   final AtUri postUri;
-
-  /// Allowed rules.
   final List<ThreadRule>? _allowRules;
-
-  /// Allowed rules.
   @override
   @threadRuleConverter
   @JsonKey(name: 'allow')
@@ -189,7 +175,6 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
     return EqualUnmodifiableListView(value);
   }
 
-  /// The timestamp of when the repost was created.
   @override
   final DateTime createdAt;
 
@@ -244,25 +229,17 @@ abstract class _ThreadgateRecord implements ThreadgateRecord {
       _$ThreadgateRecordImpl.fromJson;
 
   @override
-
-  /// The type of the threadgate record.
   @typeKey
   String get type;
   @override
-
-  /// A post uri.
   @atUriConverter
   @JsonKey(name: 'post')
   AtUri get postUri;
   @override
-
-  /// Allowed rules.
   @threadRuleConverter
   @JsonKey(name: 'allow')
   List<ThreadRule>? get allowRules;
   @override
-
-  /// The timestamp of when the repost was created.
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
