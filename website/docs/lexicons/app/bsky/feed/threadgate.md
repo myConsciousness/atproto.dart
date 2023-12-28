@@ -29,15 +29,9 @@ Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/create
 
 Allow replies from actors mentioned in your post.
 
-| Property | Type | Known Values | Required | Description |
-| --- | --- | --- | :---: | --- |
-
 ## #followingRule
 
 Allow replies from actors you follow.
-
-| Property | Type | Known Values | Required | Description |
-| --- | --- | --- | :---: | --- |
 
 ## #listRule
 
