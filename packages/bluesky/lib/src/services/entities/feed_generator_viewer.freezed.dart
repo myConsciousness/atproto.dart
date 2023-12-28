@@ -20,8 +20,6 @@ FeedGeneratorViewer _$FeedGeneratorViewerFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeedGeneratorViewer {
-  /// Represents the URI of the 'like' action performed by the viewer.
-  /// Optional.
   @atUriConverter
   AtUri? get like => throw _privateConstructorUsedError;
 
@@ -106,8 +104,6 @@ class _$FeedGeneratorViewerImpl implements _FeedGeneratorViewer {
   factory _$FeedGeneratorViewerImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedGeneratorViewerImplFromJson(json);
 
-  /// Represents the URI of the 'like' action performed by the viewer.
-  /// Optional.
   @override
   @atUriConverter
   final AtUri? like;
@@ -152,9 +148,6 @@ abstract class _FeedGeneratorViewer implements FeedGeneratorViewer {
       _$FeedGeneratorViewerImpl.fromJson;
 
   @override
-
-  /// Represents the URI of the 'like' action performed by the viewer.
-  /// Optional.
   @atUriConverter
   AtUri? get like;
   @override

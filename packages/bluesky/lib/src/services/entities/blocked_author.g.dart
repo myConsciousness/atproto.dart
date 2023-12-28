@@ -16,8 +16,11 @@ _$BlockedAuthorImpl _$$BlockedAuthorImplFromJson(Map json) => $checkedCreate(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsBlockedAuthor),
           did: $checkedConvert('did', (v) => v as String),
-          viewer: $checkedConvert('viewer',
-              (v) => ActorViewer.fromJson(Map<String, Object?>.from(v as Map))),
+          viewer: $checkedConvert(
+              'viewer',
+              (v) => v == null
+                  ? defaultActorViewer
+                  : ActorViewer.fromJson(Map<String, Object?>.from(v as Map))),
         );
         return val;
       },

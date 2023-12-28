@@ -10,6 +10,8 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../ids.g.dart';
+import '../../lex_annotations.g.dart' as lex;
 import 'actor_basic.dart';
 import 'converter/embed_view_converter.dart';
 import 'converter/post_record_converter.dart';
@@ -19,46 +21,22 @@ import 'post_record.dart';
 part 'embed_view_record_view_record.freezed.dart';
 part 'embed_view_record_view_record.g.dart';
 
-/// A record representing an embedded view record view.
-///
-/// This class is generated using the `freezed` package.
-/// It contains information about an embedded view record view, including
-/// its type, URI, content ID (CID), author, post value, embedded views,
-/// and the date it was indexed.
+/// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewrecord
 @freezed
+@lex.appBskyEmbedRecordViewRecord
 class EmbedViewRecordViewRecord with _$EmbedViewRecordViewRecord {
-  /// Create a new [EmbedViewRecordViewRecord] instance.
   @jsonSerializable
   const factory EmbedViewRecordViewRecord({
-    /// The type of the embedded view record view.
-    @typeKey required String type,
-
-    /// The URI of the embedded view record view.
+    @typeKey @Default(appBskyEmbedRecordViewRecord) String type,
     @atUriConverter required AtUri uri,
-
-    /// The content ID (CID) of the embedded view record view.
     required String cid,
-
-    /// The author of the embedded view record view.
     required ActorBasic author,
-
-    /// The post value of the embedded view record view.
     @postRecordConverter required PostRecord value,
-
-    /// Attached labels.
     List<Label>? labels,
-
-    /// The list of embedded views within the record (optional).
     @embedViewConverter List<EmbedView>? embeds,
-
-    /// The date and time the record was indexed.
     required DateTime indexedAt,
   }) = _EmbedViewRecordViewRecord;
 
-  /// Create a new [EmbedViewRecordViewRecord] instance from a JSON map.
-  ///
-  /// The [json] parameter represents the JSON map containing the embedded view
-  /// record view data.
   factory EmbedViewRecordViewRecord.fromJson(Map<String, Object?> json) =>
       _$EmbedViewRecordViewRecordFromJson(json);
 }

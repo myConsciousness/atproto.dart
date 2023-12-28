@@ -20,14 +20,11 @@ PostsByQuery _$PostsByQueryFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostsByQuery {
-  /// The list of [Post] instances.
   List<Post> get posts => throw _privateConstructorUsedError;
 
-  /// Count of search hits. optional, may be rounded/truncated,
+  /// Count of search hits. Optional, may be rounded/truncated,
   /// and may not be possible to paginate through all hits.
   int get hitsTotal => throw _privateConstructorUsedError;
-
-  /// Pagination cursor.
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -132,10 +129,7 @@ class _$PostsByQueryImpl implements _PostsByQuery {
   factory _$PostsByQueryImpl.fromJson(Map<String, dynamic> json) =>
       _$$PostsByQueryImplFromJson(json);
 
-  /// The list of [Post] instances.
   final List<Post> _posts;
-
-  /// The list of [Post] instances.
   @override
   List<Post> get posts {
     if (_posts is EqualUnmodifiableListView) return _posts;
@@ -143,13 +137,11 @@ class _$PostsByQueryImpl implements _PostsByQuery {
     return EqualUnmodifiableListView(_posts);
   }
 
-  /// Count of search hits. optional, may be rounded/truncated,
+  /// Count of search hits. Optional, may be rounded/truncated,
   /// and may not be possible to paginate through all hits.
   @override
   @JsonKey()
   final int hitsTotal;
-
-  /// Pagination cursor.
   @override
   final String? cursor;
 
@@ -198,17 +190,13 @@ abstract class _PostsByQuery implements PostsByQuery {
       _$PostsByQueryImpl.fromJson;
 
   @override
-
-  /// The list of [Post] instances.
   List<Post> get posts;
   @override
 
-  /// Count of search hits. optional, may be rounded/truncated,
+  /// Count of search hits. Optional, may be rounded/truncated,
   /// and may not be possible to paginate through all hits.
   int get hitsTotal;
   @override
-
-  /// Pagination cursor.
   String? get cursor;
   @override
   @JsonKey(ignore: true)

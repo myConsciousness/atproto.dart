@@ -20,11 +20,7 @@ ActorFeeds _$ActorFeedsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ActorFeeds {
-  /// The list of feed generator views representing the actor's feeds.
   List<FeedGeneratorView> get feeds => throw _privateConstructorUsedError;
-
-  /// The current position in the list of feeds for pagination.
-  /// If null, it indicates that no more feeds are available.
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -120,10 +116,7 @@ class _$ActorFeedsImpl implements _ActorFeeds {
   factory _$ActorFeedsImpl.fromJson(Map<String, dynamic> json) =>
       _$$ActorFeedsImplFromJson(json);
 
-  /// The list of feed generator views representing the actor's feeds.
   final List<FeedGeneratorView> _feeds;
-
-  /// The list of feed generator views representing the actor's feeds.
   @override
   List<FeedGeneratorView> get feeds {
     if (_feeds is EqualUnmodifiableListView) return _feeds;
@@ -131,8 +124,6 @@ class _$ActorFeedsImpl implements _ActorFeeds {
     return EqualUnmodifiableListView(_feeds);
   }
 
-  /// The current position in the list of feeds for pagination.
-  /// If null, it indicates that no more feeds are available.
   @override
   final String? cursor;
 
@@ -178,13 +169,8 @@ abstract class _ActorFeeds implements ActorFeeds {
       _$ActorFeedsImpl.fromJson;
 
   @override
-
-  /// The list of feed generator views representing the actor's feeds.
   List<FeedGeneratorView> get feeds;
   @override
-
-  /// The current position in the list of feeds for pagination.
-  /// If null, it indicates that no more feeds are available.
   String? get cursor;
   @override
   @JsonKey(ignore: true)

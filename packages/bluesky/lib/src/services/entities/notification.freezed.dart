@@ -20,33 +20,16 @@ Notification _$NotificationFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Notification {
-  /// Unique identifier of the notification.
   String get cid => throw _privateConstructorUsedError;
-
-  /// The unique URI for the notification.
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
-
-  /// The actor causing the notification.
   Actor get author => throw _privateConstructorUsedError;
-
-  /// Specifies the reason for the notification.
   NotificationReason get reason => throw _privateConstructorUsedError;
-
-  /// Optionally, represents the subject of the reason for the notification.
   @atUriConverter
   AtUri? get reasonSubject => throw _privateConstructorUsedError;
-
-  /// Indicates whether the notification has been read or not.
   bool get isRead => throw _privateConstructorUsedError;
-
-  /// Might include additional data related to the notification.
   Map<String, dynamic>? get record => throw _privateConstructorUsedError;
-
-  /// May include any labels attached to the notification.
   List<Label>? get labels => throw _privateConstructorUsedError;
-
-  /// Indicates the timestamp at which the notification was indexed.
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -242,7 +225,7 @@ class _$NotificationImpl implements _Notification {
       required this.author,
       required this.reason,
       @atUriConverter this.reasonSubject,
-      required this.isRead,
+      this.isRead = false,
       final Map<String, dynamic>? record,
       final List<Label>? labels,
       required this.indexedAt})
@@ -252,36 +235,22 @@ class _$NotificationImpl implements _Notification {
   factory _$NotificationImpl.fromJson(Map<String, dynamic> json) =>
       _$$NotificationImplFromJson(json);
 
-  /// Unique identifier of the notification.
   @override
   final String cid;
-
-  /// The unique URI for the notification.
   @override
   @atUriConverter
   final AtUri uri;
-
-  /// The actor causing the notification.
   @override
   final Actor author;
-
-  /// Specifies the reason for the notification.
   @override
   final NotificationReason reason;
-
-  /// Optionally, represents the subject of the reason for the notification.
   @override
   @atUriConverter
   final AtUri? reasonSubject;
-
-  /// Indicates whether the notification has been read or not.
   @override
+  @JsonKey()
   final bool isRead;
-
-  /// Might include additional data related to the notification.
   final Map<String, dynamic>? _record;
-
-  /// Might include additional data related to the notification.
   @override
   Map<String, dynamic>? get record {
     final value = _record;
@@ -291,10 +260,7 @@ class _$NotificationImpl implements _Notification {
     return EqualUnmodifiableMapView(value);
   }
 
-  /// May include any labels attached to the notification.
   final List<Label>? _labels;
-
-  /// May include any labels attached to the notification.
   @override
   List<Label>? get labels {
     final value = _labels;
@@ -304,7 +270,6 @@ class _$NotificationImpl implements _Notification {
     return EqualUnmodifiableListView(value);
   }
 
-  /// Indicates the timestamp at which the notification was indexed.
   @override
   final DateTime indexedAt;
 
@@ -366,7 +331,7 @@ abstract class _Notification implements Notification {
       required final Actor author,
       required final NotificationReason reason,
       @atUriConverter final AtUri? reasonSubject,
-      required final bool isRead,
+      final bool isRead,
       final Map<String, dynamic>? record,
       final List<Label>? labels,
       required final DateTime indexedAt}) = _$NotificationImpl;
@@ -375,42 +340,24 @@ abstract class _Notification implements Notification {
       _$NotificationImpl.fromJson;
 
   @override
-
-  /// Unique identifier of the notification.
   String get cid;
   @override
-
-  /// The unique URI for the notification.
   @atUriConverter
   AtUri get uri;
   @override
-
-  /// The actor causing the notification.
   Actor get author;
   @override
-
-  /// Specifies the reason for the notification.
   NotificationReason get reason;
   @override
-
-  /// Optionally, represents the subject of the reason for the notification.
   @atUriConverter
   AtUri? get reasonSubject;
   @override
-
-  /// Indicates whether the notification has been read or not.
   bool get isRead;
   @override
-
-  /// Might include additional data related to the notification.
   Map<String, dynamic>? get record;
   @override
-
-  /// May include any labels attached to the notification.
   List<Label>? get labels;
   @override
-
-  /// Indicates the timestamp at which the notification was indexed.
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)

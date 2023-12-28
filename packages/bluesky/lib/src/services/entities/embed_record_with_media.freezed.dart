@@ -20,15 +20,9 @@ EmbedRecordWithMedia _$EmbedRecordWithMediaFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmbedRecordWithMedia {
-  /// The type of the embedded content, defaulted to
-  /// [appBskyEmbedRecordWithMedia].
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// An [EmbedRecord] object that represents the record to be embedded.
   EmbedRecord get record => throw _privateConstructorUsedError;
-
-  /// An [EmbedMedia] object that represents the media to be embedded.
   @embedMediaConverter
   EmbedMedia get media => throw _privateConstructorUsedError;
 
@@ -166,17 +160,11 @@ class _$EmbedRecordWithMediaImpl implements _EmbedRecordWithMedia {
   factory _$EmbedRecordWithMediaImpl.fromJson(Map<String, dynamic> json) =>
       _$$EmbedRecordWithMediaImplFromJson(json);
 
-  /// The type of the embedded content, defaulted to
-  /// [appBskyEmbedRecordWithMedia].
   @override
   @typeKey
   final String type;
-
-  /// An [EmbedRecord] object that represents the record to be embedded.
   @override
   final EmbedRecord record;
-
-  /// An [EmbedMedia] object that represents the media to be embedded.
   @override
   @embedMediaConverter
   final EmbedMedia media;
@@ -227,18 +215,11 @@ abstract class _EmbedRecordWithMedia implements EmbedRecordWithMedia {
       _$EmbedRecordWithMediaImpl.fromJson;
 
   @override
-
-  /// The type of the embedded content, defaulted to
-  /// [appBskyEmbedRecordWithMedia].
   @typeKey
   String get type;
   @override
-
-  /// An [EmbedRecord] object that represents the record to be embedded.
   EmbedRecord get record;
   @override
-
-  /// An [EmbedMedia] object that represents the media to be embedded.
   @embedMediaConverter
   EmbedMedia get media;
   @override

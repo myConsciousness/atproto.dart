@@ -10,6 +10,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../lex_annotations.g.dart' as lex;
 import 'actor.dart';
 import 'actor_viewer.dart';
 import 'defaults.dart';
@@ -17,44 +18,23 @@ import 'defaults.dart';
 part 'actor_basic.freezed.dart';
 part 'actor_basic.g.dart';
 
-/// [ActorBasic] represents an individual or organization in Bluesky.
+/// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#profileviewbasic
 @freezed
+@lex.appBskyActorDefsProfileViewBasic
 class ActorBasic with _$ActorBasic {
   // ignore: unused_element
   const ActorBasic._();
 
-  /// Creates an instance of [ActorBasic].
   @jsonSerializable
   const factory ActorBasic({
-    /// The decentralized identifier of the actor.
     required String did,
-
-    /// The handle or username of the actor.
     required String handle,
-
-    /// The name that is displayed for the actor.
     String? displayName,
-
-    /// The avatar image of the actor.
     String? avatar,
-
-    /// The [ActorViewer] instance representing the authenticated user's
-    /// relationship with the actor.
     @Default(defaultActorViewer) ActorViewer viewer,
-
-    /// A list of labels associated with the actor.
     List<Label>? labels,
   }) = _ActorBasic;
 
-  /// Creates an instance of [ActorBasic] from a map of [String, Object?].
-  ///
-  /// This factory constructor is used for deserializing JSON data into an
-  /// [ActorBasic] object.
-  ///
-  /// The `json` parameter is a map containing the serialized data.
-  ///
-  /// It should include all the keys corresponding to the parameters of
-  /// this class.
   factory ActorBasic.fromJson(Map<String, Object?> json) =>
       _$ActorBasicFromJson(json);
 

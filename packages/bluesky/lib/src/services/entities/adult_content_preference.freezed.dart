@@ -21,13 +21,8 @@ AdultContentPreference _$AdultContentPreferenceFromJson(
 
 /// @nodoc
 mixin _$AdultContentPreference {
-  /// The type of the preference.
-  /// By default, it is [appBskyActorDefsAdultContentPref].
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// A boolean value indicating whether the user has enabled the
-  /// viewing of adult content.
   @JsonKey(name: 'enabled')
   bool get isEnabled => throw _privateConstructorUsedError;
 
@@ -123,19 +118,14 @@ class __$$AdultContentPreferenceImplCopyWithImpl<$Res>
 class _$AdultContentPreferenceImpl implements _AdultContentPreference {
   const _$AdultContentPreferenceImpl(
       {@typeKey this.type = appBskyActorDefsAdultContentPref,
-      @JsonKey(name: 'enabled') required this.isEnabled});
+      @JsonKey(name: 'enabled') this.isEnabled = false});
 
   factory _$AdultContentPreferenceImpl.fromJson(Map<String, dynamic> json) =>
       _$$AdultContentPreferenceImplFromJson(json);
 
-  /// The type of the preference.
-  /// By default, it is [appBskyActorDefsAdultContentPref].
   @override
   @typeKey
   final String type;
-
-  /// A boolean value indicating whether the user has enabled the
-  /// viewing of adult content.
   @override
   @JsonKey(name: 'enabled')
   final bool isEnabled;
@@ -177,22 +167,16 @@ class _$AdultContentPreferenceImpl implements _AdultContentPreference {
 abstract class _AdultContentPreference implements AdultContentPreference {
   const factory _AdultContentPreference(
           {@typeKey final String type,
-          @JsonKey(name: 'enabled') required final bool isEnabled}) =
+          @JsonKey(name: 'enabled') final bool isEnabled}) =
       _$AdultContentPreferenceImpl;
 
   factory _AdultContentPreference.fromJson(Map<String, dynamic> json) =
       _$AdultContentPreferenceImpl.fromJson;
 
   @override
-
-  /// The type of the preference.
-  /// By default, it is [appBskyActorDefsAdultContentPref].
   @typeKey
   String get type;
   @override
-
-  /// A boolean value indicating whether the user has enabled the
-  /// viewing of adult content.
   @JsonKey(name: 'enabled')
   bool get isEnabled;
   @override

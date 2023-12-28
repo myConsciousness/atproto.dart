@@ -20,18 +20,11 @@ PostThreadViewRecord _$PostThreadViewRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostThreadViewRecord {
-  /// Represents the type of the thread view record.
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// Represents the post for which the thread view record is being created.
   Post get post => throw _privateConstructorUsedError;
-
-  /// May contain the parent post thread view of the [post].
   @postThreadViewConverter
   PostThreadView? get parent => throw _privateConstructorUsedError;
-
-  /// May contain a list of post thread views that are replies to the [post].
   @postThreadViewConverter
   List<PostThreadView>? get replies => throw _privateConstructorUsedError;
 
@@ -178,7 +171,7 @@ class __$$PostThreadViewRecordImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PostThreadViewRecordImpl implements _PostThreadViewRecord {
   const _$PostThreadViewRecordImpl(
-      {@typeKey required this.type,
+      {@typeKey this.type = appBskyFeedDefsThreadViewPost,
       required this.post,
       @postThreadViewConverter this.parent,
       @postThreadViewConverter final List<PostThreadView>? replies})
@@ -187,24 +180,15 @@ class _$PostThreadViewRecordImpl implements _PostThreadViewRecord {
   factory _$PostThreadViewRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$PostThreadViewRecordImplFromJson(json);
 
-  /// Represents the type of the thread view record.
   @override
   @typeKey
   final String type;
-
-  /// Represents the post for which the thread view record is being created.
   @override
   final Post post;
-
-  /// May contain the parent post thread view of the [post].
   @override
   @postThreadViewConverter
   final PostThreadView? parent;
-
-  /// May contain a list of post thread views that are replies to the [post].
   final List<PostThreadView>? _replies;
-
-  /// May contain a list of post thread views that are replies to the [post].
   @override
   @postThreadViewConverter
   List<PostThreadView>? get replies {
@@ -254,7 +238,7 @@ class _$PostThreadViewRecordImpl implements _PostThreadViewRecord {
 
 abstract class _PostThreadViewRecord implements PostThreadViewRecord {
   const factory _PostThreadViewRecord(
-          {@typeKey required final String type,
+          {@typeKey final String type,
           required final Post post,
           @postThreadViewConverter final PostThreadView? parent,
           @postThreadViewConverter final List<PostThreadView>? replies}) =
@@ -264,22 +248,14 @@ abstract class _PostThreadViewRecord implements PostThreadViewRecord {
       _$PostThreadViewRecordImpl.fromJson;
 
   @override
-
-  /// Represents the type of the thread view record.
   @typeKey
   String get type;
   @override
-
-  /// Represents the post for which the thread view record is being created.
   Post get post;
   @override
-
-  /// May contain the parent post thread view of the [post].
   @postThreadViewConverter
   PostThreadView? get parent;
   @override
-
-  /// May contain a list of post thread views that are replies to the [post].
   @postThreadViewConverter
   List<PostThreadView>? get replies;
   @override

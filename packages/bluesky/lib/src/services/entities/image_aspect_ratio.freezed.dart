@@ -20,10 +20,7 @@ ImageAspectRatio _$ImageAspectRatioFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ImageAspectRatio {
-  /// The width.
   int get width => throw _privateConstructorUsedError;
-
-  /// The height.
   int get height => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -116,11 +113,8 @@ class _$ImageAspectRatioImpl implements _ImageAspectRatio {
   factory _$ImageAspectRatioImpl.fromJson(Map<String, dynamic> json) =>
       _$$ImageAspectRatioImplFromJson(json);
 
-  /// The width.
   @override
   final int width;
-
-  /// The height.
   @override
   final int height;
 
@@ -166,12 +160,8 @@ abstract class _ImageAspectRatio implements ImageAspectRatio {
       _$ImageAspectRatioImpl.fromJson;
 
   @override
-
-  /// The width.
   int get width;
   @override
-
-  /// The height.
   int get height;
   @override
   @JsonKey(ignore: true)

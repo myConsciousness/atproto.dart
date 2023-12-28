@@ -20,14 +20,10 @@ RepostedBy _$RepostedByFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RepostedBy {
-  /// A list of actors who have reposted a post.
   List<Actor> get repostedBy => throw _privateConstructorUsedError;
-
-  /// The URI for accessing the list of reposting actors.
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
-
-  /// A cursor string that can be used to fetch more reposting actors.
+  String? get cid => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,7 +39,10 @@ abstract class $RepostedByCopyWith<$Res> {
       _$RepostedByCopyWithImpl<$Res, RepostedBy>;
   @useResult
   $Res call(
-      {List<Actor> repostedBy, @atUriConverter AtUri uri, String? cursor});
+      {List<Actor> repostedBy,
+      @atUriConverter AtUri uri,
+      String? cid,
+      String? cursor});
 }
 
 /// @nodoc
@@ -61,6 +60,7 @@ class _$RepostedByCopyWithImpl<$Res, $Val extends RepostedBy>
   $Res call({
     Object? repostedBy = null,
     Object? uri = null,
+    Object? cid = freezed,
     Object? cursor = freezed,
   }) {
     return _then(_value.copyWith(
@@ -72,6 +72,10 @@ class _$RepostedByCopyWithImpl<$Res, $Val extends RepostedBy>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      cid: freezed == cid
+          ? _value.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -89,7 +93,10 @@ abstract class _$$RepostedByImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<Actor> repostedBy, @atUriConverter AtUri uri, String? cursor});
+      {List<Actor> repostedBy,
+      @atUriConverter AtUri uri,
+      String? cid,
+      String? cursor});
 }
 
 /// @nodoc
@@ -105,6 +112,7 @@ class __$$RepostedByImplCopyWithImpl<$Res>
   $Res call({
     Object? repostedBy = null,
     Object? uri = null,
+    Object? cid = freezed,
     Object? cursor = freezed,
   }) {
     return _then(_$RepostedByImpl(
@@ -116,6 +124,10 @@ class __$$RepostedByImplCopyWithImpl<$Res>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      cid: freezed == cid
+          ? _value.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -130,16 +142,14 @@ class _$RepostedByImpl implements _RepostedBy {
   const _$RepostedByImpl(
       {required final List<Actor> repostedBy,
       @atUriConverter required this.uri,
+      this.cid,
       this.cursor})
       : _repostedBy = repostedBy;
 
   factory _$RepostedByImpl.fromJson(Map<String, dynamic> json) =>
       _$$RepostedByImplFromJson(json);
 
-  /// A list of actors who have reposted a post.
   final List<Actor> _repostedBy;
-
-  /// A list of actors who have reposted a post.
   @override
   List<Actor> get repostedBy {
     if (_repostedBy is EqualUnmodifiableListView) return _repostedBy;
@@ -147,18 +157,17 @@ class _$RepostedByImpl implements _RepostedBy {
     return EqualUnmodifiableListView(_repostedBy);
   }
 
-  /// The URI for accessing the list of reposting actors.
   @override
   @atUriConverter
   final AtUri uri;
-
-  /// A cursor string that can be used to fetch more reposting actors.
+  @override
+  final String? cid;
   @override
   final String? cursor;
 
   @override
   String toString() {
-    return 'RepostedBy(repostedBy: $repostedBy, uri: $uri, cursor: $cursor)';
+    return 'RepostedBy(repostedBy: $repostedBy, uri: $uri, cid: $cid, cursor: $cursor)';
   }
 
   @override
@@ -169,13 +178,14 @@ class _$RepostedByImpl implements _RepostedBy {
             const DeepCollectionEquality()
                 .equals(other._repostedBy, _repostedBy) &&
             (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_repostedBy), uri, cursor);
+      const DeepCollectionEquality().hash(_repostedBy), uri, cid, cursor);
 
   @JsonKey(ignore: true)
   @override
@@ -195,23 +205,20 @@ abstract class _RepostedBy implements RepostedBy {
   const factory _RepostedBy(
       {required final List<Actor> repostedBy,
       @atUriConverter required final AtUri uri,
+      final String? cid,
       final String? cursor}) = _$RepostedByImpl;
 
   factory _RepostedBy.fromJson(Map<String, dynamic> json) =
       _$RepostedByImpl.fromJson;
 
   @override
-
-  /// A list of actors who have reposted a post.
   List<Actor> get repostedBy;
   @override
-
-  /// The URI for accessing the list of reposting actors.
   @atUriConverter
   AtUri get uri;
   @override
-
-  /// A cursor string that can be used to fetch more reposting actors.
+  String? get cid;
+  @override
   String? get cursor;
   @override
   @JsonKey(ignore: true)

@@ -20,16 +20,10 @@ NotFoundPost _$NotFoundPostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$NotFoundPost {
-  /// The type of this [NotFoundPost]. Defaults to
-  /// [app.bsky.feed.defs#notFoundPost].
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// The unique identifier of the post.
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
-
-  /// Indicates whether the post was found or not.
   @JsonKey(name: 'notFound')
   bool get isNotFound => throw _privateConstructorUsedError;
 
@@ -137,23 +131,17 @@ class _$NotFoundPostImpl implements _NotFoundPost {
   const _$NotFoundPostImpl(
       {@typeKey this.type = appBskyFeedDefsNotFoundPost,
       @atUriConverter required this.uri,
-      @JsonKey(name: 'notFound') required this.isNotFound});
+      @JsonKey(name: 'notFound') this.isNotFound = true});
 
   factory _$NotFoundPostImpl.fromJson(Map<String, dynamic> json) =>
       _$$NotFoundPostImplFromJson(json);
 
-  /// The type of this [NotFoundPost]. Defaults to
-  /// [app.bsky.feed.defs#notFoundPost].
   @override
   @typeKey
   final String type;
-
-  /// The unique identifier of the post.
   @override
   @atUriConverter
   final AtUri uri;
-
-  /// Indicates whether the post was found or not.
   @override
   @JsonKey(name: 'notFound')
   final bool isNotFound;
@@ -194,28 +182,20 @@ class _$NotFoundPostImpl implements _NotFoundPost {
 
 abstract class _NotFoundPost implements NotFoundPost {
   const factory _NotFoundPost(
-          {@typeKey final String type,
-          @atUriConverter required final AtUri uri,
-          @JsonKey(name: 'notFound') required final bool isNotFound}) =
-      _$NotFoundPostImpl;
+      {@typeKey final String type,
+      @atUriConverter required final AtUri uri,
+      @JsonKey(name: 'notFound') final bool isNotFound}) = _$NotFoundPostImpl;
 
   factory _NotFoundPost.fromJson(Map<String, dynamic> json) =
       _$NotFoundPostImpl.fromJson;
 
   @override
-
-  /// The type of this [NotFoundPost]. Defaults to
-  /// [app.bsky.feed.defs#notFoundPost].
   @typeKey
   String get type;
   @override
-
-  /// The unique identifier of the post.
   @atUriConverter
   AtUri get uri;
   @override
-
-  /// Indicates whether the post was found or not.
   @JsonKey(name: 'notFound')
   bool get isNotFound;
   @override

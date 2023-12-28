@@ -20,30 +20,15 @@ ListRecord _$ListRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListRecord {
-  /// The type of the list, by default it is [appBskyGraphList].
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// The name of the list.
   String get name => throw _privateConstructorUsedError;
-
-  /// The purpose of the list.
   String get purpose => throw _privateConstructorUsedError;
-
-  /// An optional description of the list.
   String? get description => throw _privateConstructorUsedError;
-
-  /// An optional list of [Facet] for the list description.
   List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
-
-  /// An optional avatar for the list.
   Blob? get avatar => throw _privateConstructorUsedError;
-
-  /// Attached labels.
   @labelsConverter
   Labels? get labels => throw _privateConstructorUsedError;
-
-  /// The date of the creation of the list.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -254,27 +239,16 @@ class _$ListRecordImpl implements _ListRecord {
   factory _$ListRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListRecordImplFromJson(json);
 
-  /// The type of the list, by default it is [appBskyGraphList].
   @override
   @typeKey
   final String type;
-
-  /// The name of the list.
   @override
   final String name;
-
-  /// The purpose of the list.
   @override
   final String purpose;
-
-  /// An optional description of the list.
   @override
   final String? description;
-
-  /// An optional list of [Facet] for the list description.
   final List<Facet>? _descriptionFacets;
-
-  /// An optional list of [Facet] for the list description.
   @override
   List<Facet>? get descriptionFacets {
     final value = _descriptionFacets;
@@ -285,16 +259,11 @@ class _$ListRecordImpl implements _ListRecord {
     return EqualUnmodifiableListView(value);
   }
 
-  /// An optional avatar for the list.
   @override
   final Blob? avatar;
-
-  /// Attached labels.
   @override
   @labelsConverter
   final Labels? labels;
-
-  /// The date of the creation of the list.
   @override
   final DateTime createdAt;
 
@@ -363,38 +332,22 @@ abstract class _ListRecord implements ListRecord {
       _$ListRecordImpl.fromJson;
 
   @override
-
-  /// The type of the list, by default it is [appBskyGraphList].
   @typeKey
   String get type;
   @override
-
-  /// The name of the list.
   String get name;
   @override
-
-  /// The purpose of the list.
   String get purpose;
   @override
-
-  /// An optional description of the list.
   String? get description;
   @override
-
-  /// An optional list of [Facet] for the list description.
   List<Facet>? get descriptionFacets;
   @override
-
-  /// An optional avatar for the list.
   Blob? get avatar;
   @override
-
-  /// Attached labels.
   @labelsConverter
   Labels? get labels;
   @override
-
-  /// The date of the creation of the list.
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)

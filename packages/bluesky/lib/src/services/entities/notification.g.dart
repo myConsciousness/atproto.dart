@@ -24,7 +24,7 @@ _$NotificationImpl _$$NotificationImplFromJson(Map json) => $checkedCreate(
               'reasonSubject',
               (v) => _$JsonConverterFromJson<String, AtUri>(
                   v, atUriConverter.fromJson)),
-          isRead: $checkedConvert('isRead', (v) => v as bool),
+          isRead: $checkedConvert('isRead', (v) => v as bool? ?? false),
           record: $checkedConvert(
               'record',
               (v) => (v as Map?)?.map(

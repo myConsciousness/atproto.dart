@@ -16,7 +16,7 @@ _$AdultContentPreferenceImpl _$$AdultContentPreferenceImplFromJson(Map json) =>
         final val = _$AdultContentPreferenceImpl(
           type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyActorDefsAdultContentPref),
-          isEnabled: $checkedConvert('enabled', (v) => v as bool),
+          isEnabled: $checkedConvert('enabled', (v) => v as bool? ?? false),
         );
         return val;
       },

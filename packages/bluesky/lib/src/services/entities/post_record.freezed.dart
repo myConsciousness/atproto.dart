@@ -20,34 +20,17 @@ PostRecord _$PostRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostRecord {
-  /// The type of the post record, defaulting to 'appBskyFeedPost'.
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// The text content of the post.
   String get text => throw _privateConstructorUsedError;
-
-  /// Might be a reference to a post that this post is replying to.
-  PostRef? get reply => throw _privateConstructorUsedError;
-
-  /// May include embed details for the post.
+  ReplyRef? get reply => throw _privateConstructorUsedError;
   @embedConverter
   Embed? get embed => throw _privateConstructorUsedError;
-
-  /// Might include any BCP47 language tags the post is written in.
   List<String>? get langs => throw _privateConstructorUsedError;
-
-  /// Attached labels.
   @labelsConverter
   Labels? get labels => throw _privateConstructorUsedError;
-
-  /// Might include any associated facets.
   List<Facet>? get facets => throw _privateConstructorUsedError;
-
-  /// Additional non-inline tags describing this post.
   List<String>? get tags => throw _privateConstructorUsedError;
-
-  /// The timestamp indicating when the post was created.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -65,7 +48,7 @@ abstract class $PostRecordCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       String text,
-      PostRef? reply,
+      ReplyRef? reply,
       @embedConverter Embed? embed,
       List<String>? langs,
       @labelsConverter Labels? labels,
@@ -73,7 +56,7 @@ abstract class $PostRecordCopyWith<$Res> {
       List<String>? tags,
       DateTime createdAt});
 
-  $PostRefCopyWith<$Res>? get reply;
+  $ReplyRefCopyWith<$Res>? get reply;
   $EmbedCopyWith<$Res>? get embed;
   $LabelsCopyWith<$Res>? get labels;
 }
@@ -113,7 +96,7 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
       reply: freezed == reply
           ? _value.reply
           : reply // ignore: cast_nullable_to_non_nullable
-              as PostRef?,
+              as ReplyRef?,
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
@@ -143,12 +126,12 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
 
   @override
   @pragma('vm:prefer-inline')
-  $PostRefCopyWith<$Res>? get reply {
+  $ReplyRefCopyWith<$Res>? get reply {
     if (_value.reply == null) {
       return null;
     }
 
-    return $PostRefCopyWith<$Res>(_value.reply!, (value) {
+    return $ReplyRefCopyWith<$Res>(_value.reply!, (value) {
       return _then(_value.copyWith(reply: value) as $Val);
     });
   }
@@ -189,7 +172,7 @@ abstract class _$$PostRecordImplCopyWith<$Res>
   $Res call(
       {@typeKey String type,
       String text,
-      PostRef? reply,
+      ReplyRef? reply,
       @embedConverter Embed? embed,
       List<String>? langs,
       @labelsConverter Labels? labels,
@@ -198,7 +181,7 @@ abstract class _$$PostRecordImplCopyWith<$Res>
       DateTime createdAt});
 
   @override
-  $PostRefCopyWith<$Res>? get reply;
+  $ReplyRefCopyWith<$Res>? get reply;
   @override
   $EmbedCopyWith<$Res>? get embed;
   @override
@@ -238,7 +221,7 @@ class __$$PostRecordImplCopyWithImpl<$Res>
       reply: freezed == reply
           ? _value.reply
           : reply // ignore: cast_nullable_to_non_nullable
-              as PostRef?,
+              as ReplyRef?,
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
@@ -288,28 +271,17 @@ class _$PostRecordImpl implements _PostRecord {
   factory _$PostRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$PostRecordImplFromJson(json);
 
-  /// The type of the post record, defaulting to 'appBskyFeedPost'.
   @override
   @typeKey
   final String type;
-
-  /// The text content of the post.
   @override
   final String text;
-
-  /// Might be a reference to a post that this post is replying to.
   @override
-  final PostRef? reply;
-
-  /// May include embed details for the post.
+  final ReplyRef? reply;
   @override
   @embedConverter
   final Embed? embed;
-
-  /// Might include any BCP47 language tags the post is written in.
   final List<String>? _langs;
-
-  /// Might include any BCP47 language tags the post is written in.
   @override
   List<String>? get langs {
     final value = _langs;
@@ -319,15 +291,10 @@ class _$PostRecordImpl implements _PostRecord {
     return EqualUnmodifiableListView(value);
   }
 
-  /// Attached labels.
   @override
   @labelsConverter
   final Labels? labels;
-
-  /// Might include any associated facets.
   final List<Facet>? _facets;
-
-  /// Might include any associated facets.
   @override
   List<Facet>? get facets {
     final value = _facets;
@@ -337,10 +304,7 @@ class _$PostRecordImpl implements _PostRecord {
     return EqualUnmodifiableListView(value);
   }
 
-  /// Additional non-inline tags describing this post.
   final List<String>? _tags;
-
-  /// Additional non-inline tags describing this post.
   @override
   List<String>? get tags {
     final value = _tags;
@@ -350,7 +314,6 @@ class _$PostRecordImpl implements _PostRecord {
     return EqualUnmodifiableListView(value);
   }
 
-  /// The timestamp indicating when the post was created.
   @override
   final DateTime createdAt;
 
@@ -408,7 +371,7 @@ abstract class _PostRecord implements PostRecord {
   const factory _PostRecord(
       {@typeKey final String type,
       required final String text,
-      final PostRef? reply,
+      final ReplyRef? reply,
       @embedConverter final Embed? embed,
       final List<String>? langs,
       @labelsConverter final Labels? labels,
@@ -420,43 +383,25 @@ abstract class _PostRecord implements PostRecord {
       _$PostRecordImpl.fromJson;
 
   @override
-
-  /// The type of the post record, defaulting to 'appBskyFeedPost'.
   @typeKey
   String get type;
   @override
-
-  /// The text content of the post.
   String get text;
   @override
-
-  /// Might be a reference to a post that this post is replying to.
-  PostRef? get reply;
+  ReplyRef? get reply;
   @override
-
-  /// May include embed details for the post.
   @embedConverter
   Embed? get embed;
   @override
-
-  /// Might include any BCP47 language tags the post is written in.
   List<String>? get langs;
   @override
-
-  /// Attached labels.
   @labelsConverter
   Labels? get labels;
   @override
-
-  /// Might include any associated facets.
   List<Facet>? get facets;
   @override
-
-  /// Additional non-inline tags describing this post.
   List<String>? get tags;
   @override
-
-  /// The timestamp indicating when the post was created.
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)

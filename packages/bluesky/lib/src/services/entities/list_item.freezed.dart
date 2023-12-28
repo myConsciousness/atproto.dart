@@ -20,11 +20,8 @@ ListItem _$ListItemFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListItem {
-  /// The AT URI for list item.
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
-
-  /// An [Actor] object which represents the subject of the list item.
   Actor get subject => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -130,12 +127,9 @@ class _$ListItemImpl implements _ListItem {
   factory _$ListItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListItemImplFromJson(json);
 
-  /// The AT URI for list item.
   @override
   @atUriConverter
   final AtUri uri;
-
-  /// An [Actor] object which represents the subject of the list item.
   @override
   final Actor subject;
 
@@ -180,13 +174,9 @@ abstract class _ListItem implements ListItem {
       _$ListItemImpl.fromJson;
 
   @override
-
-  /// The AT URI for list item.
   @atUriConverter
   AtUri get uri;
   @override
-
-  /// An [Actor] object which represents the subject of the list item.
   Actor get subject;
   @override
   @JsonKey(ignore: true)

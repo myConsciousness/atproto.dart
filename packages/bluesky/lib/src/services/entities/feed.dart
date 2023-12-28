@@ -9,33 +9,21 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../lex_annotations.g.dart' as lex;
 import 'feed_view.dart';
 
 part 'feed.freezed.dart';
 part 'feed.g.dart';
 
-/// [Feed] class represents a collection of [FeedView] objects.
-///
-/// This class is generated using the Freezed package. It contains a list of
-/// [FeedView] objects, and an optional string cursor for pagination purposes.
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/getauthorfeed/#output
 @freezed
+@lex.appBskyFeedGetAuthorFeed
 class Feed with _$Feed {
-  /// Creates an instance of [Feed].
-  ///
-  /// Requires a list of [FeedView] objects. Optionally, a string cursor can
-  /// be provided.
   @jsonSerializable
   const factory Feed({
-    /// List of feed view objects.
     required List<FeedView> feed,
-
-    /// Cursor for pagination. This is optional.
     String? cursor,
   }) = _Feed;
 
-  /// Creates an instance of [Feed] from a map [json].
-  ///
-  /// This map [json] should contain all the fields necessary to instantiate
-  /// the class.
   factory Feed.fromJson(Map<String, Object?> json) => _$FeedFromJson(json);
 }

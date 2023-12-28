@@ -53,10 +53,6 @@ class GroupedNotification with _$GroupedNotification {
     required DateTime indexedAt,
   }) = _GroupedNotification;
 
-  /// Creates a new instance of [GroupedNotification] from a map of [json] data.
-  ///
-  /// The [json] data must correspond to the structure of [GroupedNotification]
-  /// to properly convert.
   factory GroupedNotification.fromJson(Map<String, Object?> json) =>
       _$GroupedNotificationFromJson(json);
 }

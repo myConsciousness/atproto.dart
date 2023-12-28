@@ -8,35 +8,25 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../lex_annotations.g.dart' as lex;
+
 part 'list_viewer.freezed.dart';
 part 'list_viewer.g.dart';
 
-/// A [ListViewer] class represents a viewer of a list in the application.
-///
-/// Each instance of [ListViewer] contains a boolean attribute [isMuted]
-/// to represent whether the viewer has muted the list.
+/// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs/#listviewerstate
 @freezed
+@lex.appBskyGraphDefsListViewerState
 class ListViewer with _$ListViewer {
   // ignore: unused_element
   const ListViewer._();
 
-  /// Creates an instance of [ListViewer].
-  ///
-  /// The field [isMuted] is required and represents whether the viewer has
-  /// muted the list.
   @jsonSerializable
   const factory ListViewer({
-    /// Represents whether the viewer has muted the list.
     @JsonKey(name: 'muted') @Default(false) bool isMuted,
-
-    /// The URI of the list that the user is blocking.
     @atUriConverter AtUri? blocked,
   }) = _ListViewer;
 
-  /// Creates an instance of [ListViewer] from a map [json].
-  ///
-  /// This map [json] should contain all the fields necessary to instantiate
-  /// the class.
   factory ListViewer.fromJson(Map<String, Object?> json) =>
       _$ListViewerFromJson(json);
 

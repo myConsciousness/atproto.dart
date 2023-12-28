@@ -10,27 +10,20 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
+import '../../lex_annotations.g.dart' as lex;
 
 part 'facet_tag.freezed.dart';
 part 'facet_tag.g.dart';
 
-/// [FacetTag] represents a tag facet in the application.
+/// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#tag
 @freezed
+@lex.appBskyRichtextFacetTag
 class FacetTag with _$FacetTag {
-  /// Creates an instance of [FacetTag].
   const factory FacetTag({
-    /// Specifies the type of facet. Defaults to
-    /// [appBskyRichtextFacetTag].
     @typeKey @Default(appBskyRichtextFacetTag) String type,
-
-    /// Represents the tag string.
     required String tag,
   }) = _FacetTag;
 
-  /// Creates an instance of [FacetTag] from a map [json].
-  ///
-  /// This map [json] should contain all the fields necessary to instantiate
-  /// the class.
   factory FacetTag.fromJson(Map<String, Object?> json) =>
       _$FacetTagFromJson(json);
 }

@@ -14,7 +14,8 @@ _$EmbedViewRecordImpl _$$EmbedViewRecordImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$EmbedViewRecordImpl(
-          type: $checkedConvert(r'$type', (v) => v as String?),
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyEmbedRecordView),
           record: $checkedConvert(
               'record',
               (v) => embedViewRecordViewConverter

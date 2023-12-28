@@ -10,46 +10,23 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
+import '../../lex_annotations.g.dart' as lex;
 import 'blocked_author.dart';
 
 part 'blocked_post.freezed.dart';
 part 'blocked_post.g.dart';
 
-/// [BlockedPost] represents a post that has been blocked.
-///
-/// The `uri` field represents the URI of the post that has been blocked.
-/// The `blocked` field indicates if the post has been blocked.
-/// The `type` field is a string that identifies the type of the record.
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#blockedpost
 @freezed
+@lex.appBskyFeedDefsBlockedPost
 class BlockedPost with _$BlockedPost {
-  /// Creates an instance of [BlockedPost].
-  ///
-  /// - `type`: The type of the record. By default, it is
-  /// [appBskyFeedDefsBlockedPost].
-  /// - `uri`: The URI of the post that has been blocked.
-  /// - `blocked`: Whether the post has been blocked.
   const factory BlockedPost({
-    /// The type of the record.
-    /// By default, it is [appBskyFeedDefsBlockedPost].
     @typeKey @Default(appBskyFeedDefsBlockedPost) String type,
-
-    /// The URI of the post that has been blocked.
     @atUriConverter required AtUri uri,
-
-    /// Whether the post has been blocked.
     required bool blocked,
-
-    /// The author of this blocked post.
     required BlockedAuthor author,
   }) = _BlockedPost;
 
-  /// Creates an instance of [BlockedPost] from a map of [String, Object?].
-  ///
-  /// This factory constructor is used for deserializing JSON data into a
-  /// [BlockedPost] object.
-  ///
-  /// The `json` parameter is a map containing the serialized data. It should
-  /// include all the keys corresponding to the parameters of this class.
   factory BlockedPost.fromJson(Map<String, Object?> json) =>
       _$BlockedPostFromJson(json);
 }

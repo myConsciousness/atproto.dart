@@ -20,19 +20,12 @@ ListItemRecord _$ListItemRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListItemRecord {
-  /// The type of the item. Default is [appBskyGraphListitem].
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// The URI of the list to which the item belongs.
   @atUriConverter
   AtUri get list => throw _privateConstructorUsedError;
-
-  /// The decentralized identifier (DID) of the item.
   @JsonKey(name: 'subject')
   String get did => throw _privateConstructorUsedError;
-
-  /// The date and time when the item was created.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -158,22 +151,15 @@ class _$ListItemRecordImpl implements _ListItemRecord {
   factory _$ListItemRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListItemRecordImplFromJson(json);
 
-  /// The type of the item. Default is [appBskyGraphListitem].
   @override
   @typeKey
   final String type;
-
-  /// The URI of the list to which the item belongs.
   @override
   @atUriConverter
   final AtUri list;
-
-  /// The decentralized identifier (DID) of the item.
   @override
   @JsonKey(name: 'subject')
   final String did;
-
-  /// The date and time when the item was created.
   @override
   final DateTime createdAt;
 
@@ -224,23 +210,15 @@ abstract class _ListItemRecord implements ListItemRecord {
       _$ListItemRecordImpl.fromJson;
 
   @override
-
-  /// The type of the item. Default is [appBskyGraphListitem].
   @typeKey
   String get type;
   @override
-
-  /// The URI of the list to which the item belongs.
   @atUriConverter
   AtUri get list;
   @override
-
-  /// The decentralized identifier (DID) of the item.
   @JsonKey(name: 'subject')
   String get did;
   @override
-
-  /// The date and time when the item was created.
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)

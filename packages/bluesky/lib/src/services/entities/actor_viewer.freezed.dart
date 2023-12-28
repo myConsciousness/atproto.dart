@@ -20,29 +20,16 @@ ActorViewer _$ActorViewerFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ActorViewer {
-  /// Indicates if the authenticated user has muted the actor.
   @JsonKey(name: 'muted')
   bool get isMuted => throw _privateConstructorUsedError;
-
-  /// Indicates if the actor has blocked the authenticated user.
   @JsonKey(name: 'blockedBy')
   bool get isBlockedBy => throw _privateConstructorUsedError;
-
-  /// A basic view of a list that the user uses to mute the actor.
   ListViewBasic? get mutedByList => throw _privateConstructorUsedError;
-
-  /// A basic view of a list that the user uses to block actors.
   ListViewBasic? get blockingByList => throw _privateConstructorUsedError;
-
-  /// The URI of the actor that the user is blocking.
   @atUriConverter
   AtUri? get blocking => throw _privateConstructorUsedError;
-
-  /// The URI of the actor that the user is following.
   @atUriConverter
   AtUri? get following => throw _privateConstructorUsedError;
-
-  /// The URI of the actor that is following the user.
   @atUriConverter
   AtUri? get followedBy => throw _privateConstructorUsedError;
 
@@ -241,35 +228,22 @@ class _$ActorViewerImpl extends _ActorViewer {
   factory _$ActorViewerImpl.fromJson(Map<String, dynamic> json) =>
       _$$ActorViewerImplFromJson(json);
 
-  /// Indicates if the authenticated user has muted the actor.
   @override
   @JsonKey(name: 'muted')
   final bool isMuted;
-
-  /// Indicates if the actor has blocked the authenticated user.
   @override
   @JsonKey(name: 'blockedBy')
   final bool isBlockedBy;
-
-  /// A basic view of a list that the user uses to mute the actor.
   @override
   final ListViewBasic? mutedByList;
-
-  /// A basic view of a list that the user uses to block actors.
   @override
   final ListViewBasic? blockingByList;
-
-  /// The URI of the actor that the user is blocking.
   @override
   @atUriConverter
   final AtUri? blocking;
-
-  /// The URI of the actor that the user is following.
   @override
   @atUriConverter
   final AtUri? following;
-
-  /// The URI of the actor that is following the user.
   @override
   @atUriConverter
   final AtUri? followedBy;
@@ -333,36 +307,22 @@ abstract class _ActorViewer extends ActorViewer {
       _$ActorViewerImpl.fromJson;
 
   @override
-
-  /// Indicates if the authenticated user has muted the actor.
   @JsonKey(name: 'muted')
   bool get isMuted;
   @override
-
-  /// Indicates if the actor has blocked the authenticated user.
   @JsonKey(name: 'blockedBy')
   bool get isBlockedBy;
   @override
-
-  /// A basic view of a list that the user uses to mute the actor.
   ListViewBasic? get mutedByList;
   @override
-
-  /// A basic view of a list that the user uses to block actors.
   ListViewBasic? get blockingByList;
   @override
-
-  /// The URI of the actor that the user is blocking.
   @atUriConverter
   AtUri? get blocking;
   @override
-
-  /// The URI of the actor that the user is following.
   @atUriConverter
   AtUri? get following;
   @override
-
-  /// The URI of the actor that is following the user.
   @atUriConverter
   AtUri? get followedBy;
   @override

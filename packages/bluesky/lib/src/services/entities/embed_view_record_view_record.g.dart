@@ -15,7 +15,8 @@ _$EmbedViewRecordViewRecordImpl _$$EmbedViewRecordViewRecordImplFromJson(
       json,
       ($checkedConvert) {
         final val = _$EmbedViewRecordViewRecordImpl(
-          type: $checkedConvert(r'$type', (v) => v as String),
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyEmbedRecordViewRecord),
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),

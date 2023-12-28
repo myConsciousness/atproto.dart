@@ -21,32 +21,17 @@ EmbedViewRecordViewRecord _$EmbedViewRecordViewRecordFromJson(
 
 /// @nodoc
 mixin _$EmbedViewRecordViewRecord {
-  /// The type of the embedded view record view.
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// The URI of the embedded view record view.
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
-
-  /// The content ID (CID) of the embedded view record view.
   String get cid => throw _privateConstructorUsedError;
-
-  /// The author of the embedded view record view.
   ActorBasic get author => throw _privateConstructorUsedError;
-
-  /// The post value of the embedded view record view.
   @postRecordConverter
   PostRecord get value => throw _privateConstructorUsedError;
-
-  /// Attached labels.
   List<Label>? get labels => throw _privateConstructorUsedError;
-
-  /// The list of embedded views within the record (optional).
   @embedViewConverter
   List<EmbedView>? get embeds => throw _privateConstructorUsedError;
-
-  /// The date and time the record was indexed.
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -240,7 +225,7 @@ class __$$EmbedViewRecordViewRecordImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$EmbedViewRecordViewRecordImpl implements _EmbedViewRecordViewRecord {
   const _$EmbedViewRecordViewRecordImpl(
-      {@typeKey required this.type,
+      {@typeKey this.type = appBskyEmbedRecordViewRecord,
       @atUriConverter required this.uri,
       required this.cid,
       required this.author,
@@ -254,33 +239,20 @@ class _$EmbedViewRecordViewRecordImpl implements _EmbedViewRecordViewRecord {
   factory _$EmbedViewRecordViewRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$EmbedViewRecordViewRecordImplFromJson(json);
 
-  /// The type of the embedded view record view.
   @override
   @typeKey
   final String type;
-
-  /// The URI of the embedded view record view.
   @override
   @atUriConverter
   final AtUri uri;
-
-  /// The content ID (CID) of the embedded view record view.
   @override
   final String cid;
-
-  /// The author of the embedded view record view.
   @override
   final ActorBasic author;
-
-  /// The post value of the embedded view record view.
   @override
   @postRecordConverter
   final PostRecord value;
-
-  /// Attached labels.
   final List<Label>? _labels;
-
-  /// Attached labels.
   @override
   List<Label>? get labels {
     final value = _labels;
@@ -290,10 +262,7 @@ class _$EmbedViewRecordViewRecordImpl implements _EmbedViewRecordViewRecord {
     return EqualUnmodifiableListView(value);
   }
 
-  /// The list of embedded views within the record (optional).
   final List<EmbedView>? _embeds;
-
-  /// The list of embedded views within the record (optional).
   @override
   @embedViewConverter
   List<EmbedView>? get embeds {
@@ -304,7 +273,6 @@ class _$EmbedViewRecordViewRecordImpl implements _EmbedViewRecordViewRecord {
     return EqualUnmodifiableListView(value);
   }
 
-  /// The date and time the record was indexed.
   @override
   final DateTime indexedAt;
 
@@ -359,7 +327,7 @@ class _$EmbedViewRecordViewRecordImpl implements _EmbedViewRecordViewRecord {
 
 abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
   const factory _EmbedViewRecordViewRecord(
-      {@typeKey required final String type,
+      {@typeKey final String type,
       @atUriConverter required final AtUri uri,
       required final String cid,
       required final ActorBasic author,
@@ -372,40 +340,24 @@ abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
       _$EmbedViewRecordViewRecordImpl.fromJson;
 
   @override
-
-  /// The type of the embedded view record view.
   @typeKey
   String get type;
   @override
-
-  /// The URI of the embedded view record view.
   @atUriConverter
   AtUri get uri;
   @override
-
-  /// The content ID (CID) of the embedded view record view.
   String get cid;
   @override
-
-  /// The author of the embedded view record view.
   ActorBasic get author;
   @override
-
-  /// The post value of the embedded view record view.
   @postRecordConverter
   PostRecord get value;
   @override
-
-  /// Attached labels.
   List<Label>? get labels;
   @override
-
-  /// The list of embedded views within the record (optional).
   @embedViewConverter
   List<EmbedView>? get embeds;
   @override
-
-  /// The date and time the record was indexed.
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)

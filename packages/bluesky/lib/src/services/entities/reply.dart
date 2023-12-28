@@ -6,27 +6,21 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../lex_annotations.g.dart' as lex;
 import 'converter/reply_post_converter.dart';
 import 'reply_post.dart';
 
 part 'reply.freezed.dart';
 part 'reply.g.dart';
 
-/// Represents a reply in a conversation.
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#replyref
 @freezed
+@lex.appBskyFeedDefsReplyRef
 class Reply with _$Reply {
-  /// Creates a new instance of [Reply].
   const factory Reply({
-    /// The root post of the reply.
     @replyPostConverter required ReplyPost root,
-
-    /// The parent post of the reply.
     @replyPostConverter required ReplyPost parent,
   }) = _Reply;
 
-  /// Creates a new instance of [Reply] from a map of [json] data.
-  ///
-  /// The [json] data must correspond to the structure of [Reply] to
-  /// properly convert.
   factory Reply.fromJson(Map<String, Object?> json) => _$ReplyFromJson(json);
 }

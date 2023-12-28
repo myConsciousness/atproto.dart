@@ -14,35 +14,20 @@ import '../../ids.g.dart';
 part 'list_item_record.freezed.dart';
 part 'list_item_record.g.dart';
 
-/// [ListItemRecord] class represents a single item within a list in Bluesky.
+/// https://atprotodart.com/docs/lexicons/app/bsky/graph/listitem/#input
 ///
-/// This class includes information about the type of item, the list it
-/// belongs to, the decentralized identifier (DID) of the item and the creation
-/// date.
+/// An object representing the records in the created
+/// [appBskyGraphListitem].
 @freezed
 class ListItemRecord with _$ListItemRecord {
-  /// Creates an instance of [ListItemRecord].
-  ///
-  /// The [type], [list], [did] and [createdAt] fields are required.
   @jsonSerializable
   const factory ListItemRecord({
-    /// The type of the item. Default is [appBskyGraphListitem].
     @typeKey @Default(appBskyGraphListitem) String type,
-
-    /// The URI of the list to which the item belongs.
     @atUriConverter required AtUri list,
-
-    /// The decentralized identifier (DID) of the item.
     @JsonKey(name: 'subject') required String did,
-
-    /// The date and time when the item was created.
     required DateTime createdAt,
   }) = _ListItemRecord;
 
-  /// Creates an instance of [ListItemRecord] from a map [json].
-  ///
-  /// This map [json] should contain all the fields necessary to instantiate
-  /// the class.
   factory ListItemRecord.fromJson(Map<String, Object?> json) =>
       _$ListItemRecordFromJson(json);
 }

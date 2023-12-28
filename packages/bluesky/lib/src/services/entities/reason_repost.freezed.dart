@@ -20,16 +20,9 @@ ReasonRepost _$ReasonRepostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ReasonRepost {
-  /// Represents the type of the reason.
-  ///
-  /// By default, the type is [appBskyFeedDefsReasonRepost].
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// Represents the actor who reposted.
   ActorBasic get by => throw _privateConstructorUsedError;
-
-  /// Represents the date and time when the reposting event was indexed.
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -148,18 +141,11 @@ class _$ReasonRepostImpl implements _ReasonRepost {
   factory _$ReasonRepostImpl.fromJson(Map<String, dynamic> json) =>
       _$$ReasonRepostImplFromJson(json);
 
-  /// Represents the type of the reason.
-  ///
-  /// By default, the type is [appBskyFeedDefsReasonRepost].
   @override
   @typeKey
   final String type;
-
-  /// Represents the actor who reposted.
   @override
   final ActorBasic by;
-
-  /// Represents the date and time when the reposting event was indexed.
   @override
   final DateTime indexedAt;
 
@@ -207,19 +193,11 @@ abstract class _ReasonRepost implements ReasonRepost {
       _$ReasonRepostImpl.fromJson;
 
   @override
-
-  /// Represents the type of the reason.
-  ///
-  /// By default, the type is [appBskyFeedDefsReasonRepost].
   @typeKey
   String get type;
   @override
-
-  /// Represents the actor who reposted.
   ActorBasic get by;
   @override
-
-  /// Represents the date and time when the reposting event was indexed.
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)

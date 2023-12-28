@@ -21,17 +21,10 @@ EmbedViewRecordViewNotFound _$EmbedViewRecordViewNotFoundFromJson(
 
 /// @nodoc
 mixin _$EmbedViewRecordViewNotFound {
-  /// A string that represents the type of the record view not found.
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// An `AtUri` instance that contains the unique resource identifier (URI)
-  /// of the record.
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
-
-  /// Represents this record does not found.
-  /// Always `true`.
   @JsonKey(name: 'notFound')
   bool get isNotFound => throw _privateConstructorUsedError;
 
@@ -146,25 +139,18 @@ class _$EmbedViewRecordViewNotFoundImpl
   const _$EmbedViewRecordViewNotFoundImpl(
       {@typeKey this.type = appBskyEmbedRecordViewNotFound,
       @atUriConverter required this.uri,
-      @JsonKey(name: 'notFound') required this.isNotFound});
+      @JsonKey(name: 'notFound') this.isNotFound = true});
 
   factory _$EmbedViewRecordViewNotFoundImpl.fromJson(
           Map<String, dynamic> json) =>
       _$$EmbedViewRecordViewNotFoundImplFromJson(json);
 
-  /// A string that represents the type of the record view not found.
   @override
   @typeKey
   final String type;
-
-  /// An `AtUri` instance that contains the unique resource identifier (URI)
-  /// of the record.
   @override
   @atUriConverter
   final AtUri uri;
-
-  /// Represents this record does not found.
-  /// Always `true`.
   @override
   @JsonKey(name: 'notFound')
   final bool isNotFound;
@@ -209,27 +195,19 @@ abstract class _EmbedViewRecordViewNotFound
   const factory _EmbedViewRecordViewNotFound(
           {@typeKey final String type,
           @atUriConverter required final AtUri uri,
-          @JsonKey(name: 'notFound') required final bool isNotFound}) =
+          @JsonKey(name: 'notFound') final bool isNotFound}) =
       _$EmbedViewRecordViewNotFoundImpl;
 
   factory _EmbedViewRecordViewNotFound.fromJson(Map<String, dynamic> json) =
       _$EmbedViewRecordViewNotFoundImpl.fromJson;
 
   @override
-
-  /// A string that represents the type of the record view not found.
   @typeKey
   String get type;
   @override
-
-  /// An `AtUri` instance that contains the unique resource identifier (URI)
-  /// of the record.
   @atUriConverter
   AtUri get uri;
   @override
-
-  /// Represents this record does not found.
-  /// Always `true`.
   @JsonKey(name: 'notFound')
   bool get isNotFound;
   @override

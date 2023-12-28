@@ -21,14 +21,9 @@ EmbedViewRecordWithMedia _$EmbedViewRecordWithMediaFromJson(
 
 /// @nodoc
 mixin _$EmbedViewRecordWithMedia {
-  /// Specifies the type of record.
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// Represents the record of the embedded view.
   EmbedViewRecord get record => throw _privateConstructorUsedError;
-
-  /// Represents the media attached to the view.
   @embedViewMediaConverter
   EmbedViewMedia get media => throw _privateConstructorUsedError;
 
@@ -162,23 +157,18 @@ class __$$EmbedViewRecordWithMediaImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$EmbedViewRecordWithMediaImpl implements _EmbedViewRecordWithMedia {
   const _$EmbedViewRecordWithMediaImpl(
-      {@typeKey required this.type,
+      {@typeKey this.type = appBskyEmbedRecordWithMediaView,
       required this.record,
       @embedViewMediaConverter required this.media});
 
   factory _$EmbedViewRecordWithMediaImpl.fromJson(Map<String, dynamic> json) =>
       _$$EmbedViewRecordWithMediaImplFromJson(json);
 
-  /// Specifies the type of record.
   @override
   @typeKey
   final String type;
-
-  /// Represents the record of the embedded view.
   @override
   final EmbedViewRecord record;
-
-  /// Represents the media attached to the view.
   @override
   @embedViewMediaConverter
   final EmbedViewMedia media;
@@ -219,7 +209,7 @@ class _$EmbedViewRecordWithMediaImpl implements _EmbedViewRecordWithMedia {
 
 abstract class _EmbedViewRecordWithMedia implements EmbedViewRecordWithMedia {
   const factory _EmbedViewRecordWithMedia(
-          {@typeKey required final String type,
+          {@typeKey final String type,
           required final EmbedViewRecord record,
           @embedViewMediaConverter required final EmbedViewMedia media}) =
       _$EmbedViewRecordWithMediaImpl;
@@ -228,17 +218,11 @@ abstract class _EmbedViewRecordWithMedia implements EmbedViewRecordWithMedia {
       _$EmbedViewRecordWithMediaImpl.fromJson;
 
   @override
-
-  /// Specifies the type of record.
   @typeKey
   String get type;
   @override
-
-  /// Represents the record of the embedded view.
   EmbedViewRecord get record;
   @override
-
-  /// Represents the media attached to the view.
   @embedViewMediaConverter
   EmbedViewMedia get media;
   @override

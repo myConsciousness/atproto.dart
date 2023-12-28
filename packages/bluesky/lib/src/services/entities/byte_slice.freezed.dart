@@ -20,10 +20,7 @@ ByteSlice _$ByteSliceFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ByteSlice {
-  /// The start position of the slice in the byte sequence.
   int get byteStart => throw _privateConstructorUsedError;
-
-  /// The end position of the slice in the byte sequence.
   int get byteEnd => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -115,11 +112,8 @@ class _$ByteSliceImpl implements _ByteSlice {
   factory _$ByteSliceImpl.fromJson(Map<String, dynamic> json) =>
       _$$ByteSliceImplFromJson(json);
 
-  /// The start position of the slice in the byte sequence.
   @override
   final int byteStart;
-
-  /// The end position of the slice in the byte sequence.
   @override
   final int byteEnd;
 
@@ -165,12 +159,8 @@ abstract class _ByteSlice implements ByteSlice {
       _$ByteSliceImpl.fromJson;
 
   @override
-
-  /// The start position of the slice in the byte sequence.
   int get byteStart;
   @override
-
-  /// The end position of the slice in the byte sequence.
   int get byteEnd;
   @override
   @JsonKey(ignore: true)

@@ -10,48 +10,23 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
+import '../../lex_annotations.g.dart' as lex;
 import 'blocked_author.dart';
 
 part 'embed_view_record_view_blocked.freezed.dart';
 part 'embed_view_record_view_blocked.g.dart';
 
-/// [EmbedViewRecordViewBlocked] represents a record view that has been
-/// blocked in Bluesky.
-///
-/// This class has the following properties:
-/// - `type`: A string that represents the type of the blocked record view.
-/// - `uri`: An `AtUri` instance that contains the unique resource
-/// identifier (URI) of the blocked record.
+/// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewblocked
 @freezed
+@lex.appBskyEmbedRecordViewBlocked
 class EmbedViewRecordViewBlocked with _$EmbedViewRecordViewBlocked {
-  /// Creates an instance of [EmbedViewRecordViewBlocked].
-  ///
-  /// This constructor takes a `type` that represents the type of the blocked
-  /// record view, and a `uri` that represents the unique resource
-  /// identifier (URI) of the blocked record.
   const factory EmbedViewRecordViewBlocked({
-    /// A string that represents the type of the blocked record view.
     @typeKey @Default(appBskyEmbedRecordViewBlocked) String type,
-
-    /// An `AtUri` instance that contains the unique resource identifier (URI)
-    /// of the blocked record.
     @atUriConverter required AtUri uri,
-
-    /// Represents this view is blocked.
-    /// Always `true`.
-    @JsonKey(name: 'blocked') required bool isBlocked,
-
-    /// The author of this blocked view record.
+    @JsonKey(name: 'blocked') @Default(true) bool isBlocked,
     required BlockedAuthor author,
   }) = _EmbedViewRecordViewBlocked;
 
-  /// Creates an instance of [EmbedViewRecordViewBlocked] from a map of
-  /// [String, Object?].
-  ///
-  /// This factory constructor is used for deserializing JSON data into an
-  /// [EmbedViewRecordViewBlocked] object.
-  ///
-  /// The `json` parameter is a map containing the serialized data.
   factory EmbedViewRecordViewBlocked.fromJson(Map<String, Object?> json) =>
       _$EmbedViewRecordViewBlockedFromJson(json);
 }

@@ -14,33 +14,19 @@ import '../../ids.g.dart';
 part 'follow_record.freezed.dart';
 part 'follow_record.g.dart';
 
-/// [FollowRecord] class represents a single record of a follow action.
+/// https://atprotodart.com/docs/lexicons/app/bsky/graph/follow/#input
 ///
-/// This class is generated using the Freezed package. It contains data
-/// about a follow action such as the subject's DID and the time when the
-/// follow action was created.
+/// An object representing the records in the created
+/// [appBskyGraphFollow].
 @freezed
 class FollowRecord with _$FollowRecord {
-  /// Creates an instance of [FollowRecord].
-  ///
-  /// Requires a DID of the subject being followed and the creation time of the
-  /// follow action.
   @jsonSerializable
   const factory FollowRecord({
-    /// Type of the record. Defaults to `appBskyGraphFollow`.
     @typeKey @Default(appBskyGraphFollow) String type,
-
-    /// DID of the subject being followed.
     @JsonKey(name: 'subject') required String did,
-
-    /// Time when the follow action was created.
     required DateTime createdAt,
   }) = _FollowRecord;
 
-  /// Creates an instance of [FollowRecord] from a map [json].
-  ///
-  /// This map [json] should contain all the fields necessary to instantiate
-  /// the class.
   factory FollowRecord.fromJson(Map<String, Object?> json) =>
       _$FollowRecordFromJson(json);
 }

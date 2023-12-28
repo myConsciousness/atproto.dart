@@ -10,33 +10,22 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../lex_annotations.g.dart' as lex;
 import 'image_aspect_ratio.dart';
 
 part 'image.freezed.dart';
 part 'image.g.dart';
 
-/// [Image] class represents an image with alternative text.
-///
-/// This class is generated using the Freezed package. It includes details
-/// such as alternative text for the image and the actual image data as a Blob.
+/// https://atprotodart.com/docs/lexicons/app/bsky/embed/images/#image
 @freezed
+@lex.appBskyEmbedImagesImage
 class Image with _$Image {
-  /// Creates an instance of [Image].
   @jsonSerializable
   const factory Image({
-    /// The alternative text for the image.
     required String alt,
-
-    /// The actual image data represented as a Blob.
     @blobConverter required Blob image,
-
-    /// The aspect ratio for this [image].
     ImageAspectRatio? aspectRatio,
   }) = _Image;
 
-  /// Creates an instance of [Image] from a map [json].
-  ///
-  /// This map [json] should contain all the fields necessary to instantiate
-  /// the class.
   factory Image.fromJson(Map<String, Object?> json) => _$ImageFromJson(json);
 }

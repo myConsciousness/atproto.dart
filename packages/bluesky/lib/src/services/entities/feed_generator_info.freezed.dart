@@ -20,13 +20,8 @@ FeedGeneratorInfo _$FeedGeneratorInfoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeedGeneratorInfo {
-  /// Represents the decentralized identifier (DID) of the feed generator.
   String get did => throw _privateConstructorUsedError;
-
-  /// Represents the list of generator feeds.
   List<GeneratorFeed> get feeds => throw _privateConstructorUsedError;
-
-  /// Represents the optional links of the feed generator.
   GeneratorLinks? get links => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -149,14 +144,9 @@ class _$FeedGeneratorInfoImpl implements _FeedGeneratorInfo {
   factory _$FeedGeneratorInfoImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedGeneratorInfoImplFromJson(json);
 
-  /// Represents the decentralized identifier (DID) of the feed generator.
   @override
   final String did;
-
-  /// Represents the list of generator feeds.
   final List<GeneratorFeed> _feeds;
-
-  /// Represents the list of generator feeds.
   @override
   List<GeneratorFeed> get feeds {
     if (_feeds is EqualUnmodifiableListView) return _feeds;
@@ -164,7 +154,6 @@ class _$FeedGeneratorInfoImpl implements _FeedGeneratorInfo {
     return EqualUnmodifiableListView(_feeds);
   }
 
-  /// Represents the optional links of the feed generator.
   @override
   final GeneratorLinks? links;
 
@@ -213,16 +202,10 @@ abstract class _FeedGeneratorInfo implements FeedGeneratorInfo {
       _$FeedGeneratorInfoImpl.fromJson;
 
   @override
-
-  /// Represents the decentralized identifier (DID) of the feed generator.
   String get did;
   @override
-
-  /// Represents the list of generator feeds.
   List<GeneratorFeed> get feeds;
   @override
-
-  /// Represents the optional links of the feed generator.
   GeneratorLinks? get links;
   @override
   @JsonKey(ignore: true)

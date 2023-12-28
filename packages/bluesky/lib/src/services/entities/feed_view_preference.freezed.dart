@@ -20,30 +20,16 @@ FeedViewPreference _$FeedViewPreferenceFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeedViewPreference {
-  /// A string that represents the type of the object.
-  /// By default, it is [appBskyActorDefsFeedViewPref].
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// The URI of the feed, or an identifier which describes the feed.
   String get feed => throw _privateConstructorUsedError;
-
-  /// Hide replies in the feed.
   @JsonKey(name: 'hideReplies')
   bool get isHideReplies => throw _privateConstructorUsedError;
-
-  /// Hide replies in the feed if they are not by followed users.
   @JsonKey(name: 'hideRepliesByUnfollowed')
   bool get isHideRepliesByUnfollowed => throw _privateConstructorUsedError;
-
-  /// Hide replies in the feed if they do not have this number of likes.
   int get hideRepliesByLikeCount => throw _privateConstructorUsedError;
-
-  /// Hide reposts in the feed.
   @JsonKey(name: 'hideReposts')
   bool get isHideReposts => throw _privateConstructorUsedError;
-
-  /// Hide quote posts in the feed.
   @JsonKey(name: 'hideQuotePosts')
   bool get isHideQuotePosts => throw _privateConstructorUsedError;
 
@@ -210,37 +196,23 @@ class _$FeedViewPreferenceImpl implements _FeedViewPreference {
   factory _$FeedViewPreferenceImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedViewPreferenceImplFromJson(json);
 
-  /// A string that represents the type of the object.
-  /// By default, it is [appBskyActorDefsFeedViewPref].
   @override
   @typeKey
   final String type;
-
-  /// The URI of the feed, or an identifier which describes the feed.
   @override
   final String feed;
-
-  /// Hide replies in the feed.
   @override
   @JsonKey(name: 'hideReplies')
   final bool isHideReplies;
-
-  /// Hide replies in the feed if they are not by followed users.
   @override
   @JsonKey(name: 'hideRepliesByUnfollowed')
   final bool isHideRepliesByUnfollowed;
-
-  /// Hide replies in the feed if they do not have this number of likes.
   @override
   @JsonKey()
   final int hideRepliesByLikeCount;
-
-  /// Hide reposts in the feed.
   @override
   @JsonKey(name: 'hideReposts')
   final bool isHideReposts;
-
-  /// Hide quote posts in the feed.
   @override
   @JsonKey(name: 'hideQuotePosts')
   final bool isHideQuotePosts;
@@ -313,37 +285,22 @@ abstract class _FeedViewPreference implements FeedViewPreference {
       _$FeedViewPreferenceImpl.fromJson;
 
   @override
-
-  /// A string that represents the type of the object.
-  /// By default, it is [appBskyActorDefsFeedViewPref].
   @typeKey
   String get type;
   @override
-
-  /// The URI of the feed, or an identifier which describes the feed.
   String get feed;
   @override
-
-  /// Hide replies in the feed.
   @JsonKey(name: 'hideReplies')
   bool get isHideReplies;
   @override
-
-  /// Hide replies in the feed if they are not by followed users.
   @JsonKey(name: 'hideRepliesByUnfollowed')
   bool get isHideRepliesByUnfollowed;
   @override
-
-  /// Hide replies in the feed if they do not have this number of likes.
   int get hideRepliesByLikeCount;
   @override
-
-  /// Hide reposts in the feed.
   @JsonKey(name: 'hideReposts')
   bool get isHideReposts;
   @override
-
-  /// Hide quote posts in the feed.
   @JsonKey(name: 'hideQuotePosts')
   bool get isHideQuotePosts;
   @override

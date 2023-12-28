@@ -20,15 +20,10 @@ BlockListRecord _$BlockListRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BlockListRecord {
-  /// The type of the list, by default it is [appBskyGraphListblock].
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// The uri of this block list.
   @atUriConverter
   AtUri get subject => throw _privateConstructorUsedError;
-
-  /// The date of the creation of the block list.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -141,17 +136,12 @@ class _$BlockListRecordImpl implements _BlockListRecord {
   factory _$BlockListRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$BlockListRecordImplFromJson(json);
 
-  /// The type of the list, by default it is [appBskyGraphListblock].
   @override
   @typeKey
   final String type;
-
-  /// The uri of this block list.
   @override
   @atUriConverter
   final AtUri subject;
-
-  /// The date of the creation of the block list.
   @override
   final DateTime createdAt;
 
@@ -200,18 +190,12 @@ abstract class _BlockListRecord implements BlockListRecord {
       _$BlockListRecordImpl.fromJson;
 
   @override
-
-  /// The type of the list, by default it is [appBskyGraphListblock].
   @typeKey
   String get type;
   @override
-
-  /// The uri of this block list.
   @atUriConverter
   AtUri get subject;
   @override
-
-  /// The date of the creation of the block list.
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)

@@ -20,7 +20,6 @@ ActorsTypeahead _$ActorsTypeaheadFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ActorsTypeahead {
-  /// A list of [ActorBasic] objects for typeahead functionality.
   List<ActorBasic> get actors => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -104,10 +103,7 @@ class _$ActorsTypeaheadImpl implements _ActorsTypeahead {
   factory _$ActorsTypeaheadImpl.fromJson(Map<String, dynamic> json) =>
       _$$ActorsTypeaheadImplFromJson(json);
 
-  /// A list of [ActorBasic] objects for typeahead functionality.
   final List<ActorBasic> _actors;
-
-  /// A list of [ActorBasic] objects for typeahead functionality.
   @override
   List<ActorBasic> get actors {
     if (_actors is EqualUnmodifiableListView) return _actors;
@@ -156,8 +152,6 @@ abstract class _ActorsTypeahead implements ActorsTypeahead {
       _$ActorsTypeaheadImpl.fromJson;
 
   @override
-
-  /// A list of [ActorBasic] objects for typeahead functionality.
   List<ActorBasic> get actors;
   @override
   @JsonKey(ignore: true)
