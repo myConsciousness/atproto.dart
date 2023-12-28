@@ -18,7 +18,9 @@ Get a view of an actor's feed.
 | **cursor** | string | - | ❌ | - |
 | **filter** | string | posts_with_replies<br/>posts_no_replies<br/>posts_with_media<br/>posts_and_author_threads | ❌ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

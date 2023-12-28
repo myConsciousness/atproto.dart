@@ -15,7 +15,9 @@ Get information about the repo, including the list of collections.
 | --- | --- | --- | :---: | --- |
 | **repo** | string ([at-identifier](https://atproto.com/specs/lexicon#at-identifier)) | - | ✅ | The handle or DID of the repo. |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

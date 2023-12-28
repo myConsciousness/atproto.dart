@@ -9,7 +9,9 @@ description: com.atproto.server.refreshSession
 
 Refresh an authentication session.
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

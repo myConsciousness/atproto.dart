@@ -15,7 +15,9 @@ Get a view of an actor's feed.
 | --- | --- | --- | :---: | --- |
 | **uris** | array of [at-uri](https://atproto.com/specs/at-uri-scheme) | - | ✅ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

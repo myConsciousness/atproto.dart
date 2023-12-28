@@ -9,7 +9,9 @@ description: com.atproto.admin.updateAccountEmail
 
 Administrative action to update an account's email.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

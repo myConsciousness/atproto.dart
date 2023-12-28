@@ -9,7 +9,9 @@ description: com.atproto.moderation.createReport
 
 Report a repo or a record.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
@@ -17,7 +19,9 @@ Report a repo or a record.
 | **reason** | string | - | ❌ | - |
 | **subject** | union of <br/>[com.atproto.admin.defs#repoRef](../../../../lexicons/com/atproto/admin/defs.md#reporef)<br/>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ✅ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

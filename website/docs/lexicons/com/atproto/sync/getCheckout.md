@@ -15,4 +15,6 @@ DEPRECATED - please use com.atproto.sync.getRepo instead
 | --- | --- | --- | :---: | --- |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | The DID of the repo. |
 
-### Output (application/vnd.ipld.car)
+### Output
+
+- **Encoding**: application/vnd.ipld.car

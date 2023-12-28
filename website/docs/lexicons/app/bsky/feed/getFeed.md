@@ -17,7 +17,9 @@ Get a hydrated feed from an actor's selected feed generator.
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

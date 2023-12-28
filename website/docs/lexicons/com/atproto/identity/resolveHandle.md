@@ -15,7 +15,9 @@ Provides the DID of a repo.
 | --- | --- | --- | :---: | --- |
 | **handle** | string ([handle](https://atproto.com/specs/handle)) | - | ✅ | The handle to resolve. |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

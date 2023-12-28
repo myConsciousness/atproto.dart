@@ -9,13 +9,17 @@ description: com.atproto.server.createAppPassword
 
 Create an App Password.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **name** | string | - | ✅ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

@@ -17,7 +17,9 @@ DEPRECATED: will be removed soon. Use a feed generator alternative.
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

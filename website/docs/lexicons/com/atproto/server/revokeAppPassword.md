@@ -9,7 +9,9 @@ description: com.atproto.server.revokeAppPassword
 
 Revoke an App Password by name.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

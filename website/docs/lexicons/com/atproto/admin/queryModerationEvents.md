@@ -21,7 +21,9 @@ List moderation events related to a subject.
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

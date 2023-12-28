@@ -17,7 +17,9 @@ Get the service-specific admin status of a subject (account, record, or blob).
 | **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
 | **blob** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

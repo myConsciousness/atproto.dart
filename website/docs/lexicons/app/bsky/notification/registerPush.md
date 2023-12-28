@@ -9,7 +9,9 @@ description: app.bsky.notification.registerPush
 
 Register for push notifications with a service.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

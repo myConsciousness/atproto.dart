@@ -16,7 +16,9 @@ Fetch all labels from a labeler created after a certain date.
 | **since** | integer | - | ❌ | - |
 | **limit** | integer | - | ❌ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

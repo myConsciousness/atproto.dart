@@ -9,7 +9,9 @@ description: com.atproto.server.deleteAccount
 
 Delete an actor's account with a token and password.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

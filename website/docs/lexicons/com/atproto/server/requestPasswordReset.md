@@ -9,7 +9,9 @@ description: com.atproto.server.requestPasswordReset
 
 Initiate a user account password reset via email.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

@@ -9,7 +9,9 @@ description: com.atproto.server.updateEmail
 
 Update an account's email.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

@@ -9,7 +9,9 @@ description: com.atproto.server.describeServer
 
 Get a document describing the service's accounts configuration.
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

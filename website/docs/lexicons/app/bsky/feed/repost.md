@@ -7,7 +7,7 @@ description: app.bsky.feed.repost
 
 ## #main
 
-### Input (Record)
+### Input
 
 A declaration of a repost.
 
@@ -18,4 +18,8 @@ Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/create
 | **subject** | [com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ✅ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 
-### Output ([com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main))
+### Output
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| ref | [com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ✅ | - |

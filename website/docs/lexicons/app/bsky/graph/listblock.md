@@ -7,7 +7,7 @@ description: app.bsky.graph.listblock
 
 ## #main
 
-### Input (Record)
+### Input
 
 A block of an entire list of actors.
 
@@ -18,4 +18,8 @@ Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/create
 | **subject** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 
-### Output ([com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main))
+### Output
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| ref | [com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ✅ | - |

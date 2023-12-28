@@ -18,7 +18,9 @@ Find labels relevant to the provided URI patterns.
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

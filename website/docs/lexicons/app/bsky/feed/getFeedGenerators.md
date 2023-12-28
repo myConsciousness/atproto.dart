@@ -15,7 +15,9 @@ Get information about a list of feed generators.
 | --- | --- | --- | :---: | --- |
 | **feeds** | array of [at-uri](https://atproto.com/specs/at-uri-scheme) | - | ✅ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

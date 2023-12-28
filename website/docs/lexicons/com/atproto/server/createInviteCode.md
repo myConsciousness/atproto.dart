@@ -9,14 +9,18 @@ description: com.atproto.server.createInviteCode
 
 Create an invite code.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **useCount** | integer | - | ✅ | - |
 | **forAccount** | string ([did](https://atproto.com/specs/did)) | - | ❌ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

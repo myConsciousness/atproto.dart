@@ -9,7 +9,9 @@ description: app.bsky.actor.getPreferences
 
 Get private preferences attached to the account.
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

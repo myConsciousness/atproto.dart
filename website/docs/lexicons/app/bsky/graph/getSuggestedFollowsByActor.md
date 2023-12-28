@@ -15,7 +15,9 @@ Get suggested follows related to a given actor.
 | --- | --- | --- | :---: | --- |
 | **actor** | string ([at-identifier](https://atproto.com/specs/lexicon#at-identifier)) | - | ✅ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

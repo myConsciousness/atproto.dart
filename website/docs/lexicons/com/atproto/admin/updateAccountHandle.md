@@ -9,7 +9,9 @@ description: com.atproto.admin.updateAccountHandle
 
 Administrative action to update an account's handle.
 
-### Input (application/json)
+### Input
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

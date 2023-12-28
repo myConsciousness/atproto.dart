@@ -29,7 +29,9 @@ View moderation statuses of subjects (record or repo).
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
 
-### Output (application/json)
+### Output
+
+- **Encoding**: application/json
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
