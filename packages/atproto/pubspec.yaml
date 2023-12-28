@@ -20,6 +20,7 @@ dependencies:
   atproto_core: ^0.9.0
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
+  lex_annotation: ^0.0.1
 
 dev_dependencies:
   lints: ^2.0.1
