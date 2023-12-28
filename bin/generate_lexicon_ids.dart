@@ -41,12 +41,14 @@ void main() {
         ..writeln('/// `${field.value}`')
         ..writeln("const ${field.name} = '${field.value}';");
 
-      if (!field.value.split('#').first.endsWith('defs')) {
-        nsids
-          ..writeln()
-          ..writeln('/// `${field.value}`')
-          ..writeln("const ${field.name} = NSID.of(ids.${field.name});");
-      }
+      final segments = field.value.split('#');
+      if (segments.first.endsWith('defs')) continue;
+      if (segments.length > 1 && segments[1] == 'main') continue;
+
+      nsids
+        ..writeln()
+        ..writeln('/// `${field.value}`')
+        ..writeln("const ${field.name} = NSID.of(ids.${field.name});");
     }
 
     if (package == 'atproto') {
@@ -83,14 +85,12 @@ List<Field> _getFields() {
         final Map<String, dynamic> defs = json['defs'];
 
         defs.forEach((key, _) {
-          if (key != 'main') {
-            fields.add(
-              Field(
-                '$fieldName${_toFirstUpperCase(key)}',
-                '$id#$key',
-              ),
-            );
-          }
+          fields.add(
+            Field(
+              '$fieldName${_toFirstUpperCase(key)}',
+              '$id#$key',
+            ),
+          );
         });
       }
     }
