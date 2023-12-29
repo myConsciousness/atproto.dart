@@ -55,6 +55,14 @@ void _writeFiles(final List<LexiconDoc> lexiconDocs) {
           xrpcProcedure: (data) => _writeXrpcProcedure(matrix, data),
           xrpcSubscription: (data) => _writeXrpcSubscription(matrix, data),
           object: (data) => _writeObject(matrix, data),
+          array: (data) {
+            matrix
+              ..writeln()
+              ..writeln(_tableHeader)
+              ..writeln(_tableDivider);
+
+            _writeArray(matrix, data, id, false);
+          },
           token: (data) => _writeToken(matrix, data),
           string: (data) {
             matrix
@@ -638,6 +646,7 @@ Map<String, Map<String, LexUserType>> _getLexObjects(
         xrpcProcedure: (data) => data,
         xrpcSubscription: (data) => data,
         object: (data) => data,
+        array: (data) => data,
         token: (data) => data,
         string: (data) => data,
       );
